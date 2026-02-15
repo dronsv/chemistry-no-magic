@@ -1,12 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
 ---
 
-<BaseLayout title="Периодическая таблица" description="Интерактивная периодическая система химических элементов Менделеева с подсветкой групп и подробной информацией.">
-  <Placeholder
-    title="Периодическая таблица"
-    stage={2}
-    description="Интерактивная таблица Менделеева с двумя формами: длинной (IUPAC) и короткой (школьной)."
-  />
+<BaseLayout title="Периодическая таблица" description="Интерактивная периодическая таблица Менделеева: электронные конфигурации, орбитальные диаграммы, энергетические уровни и практика.">
+  <PeriodicTablePage client:idle />
 </BaseLayout>

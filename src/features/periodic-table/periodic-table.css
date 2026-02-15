@@ -643,3 +643,494 @@
     font-size: 0.4375rem;
   }
 }
+
+/* ========================================
+   Periodic Table Page (full-page module)
+   ======================================== */
+
+.pt-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+.pt-page__loading,
+.pt-page__error {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-muted);
+}
+
+.pt-page__error {
+  color: #e03131;
+}
+
+.pt-page__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.pt-page__search {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  width: 200px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.pt-page__search::placeholder { color: var(--color-text-muted); }
+.pt-page__search:focus { border-color: var(--color-primary); }
+
+.pt-page__toggles {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--color-bg-alt);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+.pt-page__btn {
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.pt-page__btn:hover { color: var(--color-text); }
+
+.pt-page__btn--active {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pt-page__table {
+  overflow-x: auto;
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+/* ========================================
+   Detail Panel (full-page version)
+   ======================================== */
+
+.detail-panel {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.detail-panel__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.detail-panel__close:hover { color: var(--color-text); }
+
+.detail-panel__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: 0.25rem;
+}
+
+.detail-panel__z {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.detail-panel__symbol {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.detail-panel__name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.detail-panel__meta {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.detail-panel__vizs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.detail-panel__props {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-panel__prop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.detail-panel__prop-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.detail-panel__prop-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.detail-panel__exception {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.detail-panel__exception strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.detail-panel__exception-compare {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-xs);
+}
+
+.detail-panel__exception-reason {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.detail-panel__why {
+  padding: var(--space-sm) 0;
+}
+
+.detail-panel__why strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.detail-panel__why p {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ========================================
+   Electron formula component
+   ======================================== */
+
+.electron-formula__label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.electron-formula__toggle {
+  font-size: 0.6875rem;
+  color: var(--color-primary);
+  background: none;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  cursor: pointer;
+}
+
+.electron-formula__value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: var(--font-mono, monospace);
+  margin-bottom: var(--space-xs);
+}
+
+.electron-formula__exception {
+  margin-bottom: var(--space-xs);
+}
+
+.electron-formula__badge {
+  display: inline-block;
+  background: #fbbf24;
+  color: #78350f;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  margin-right: var(--space-xs);
+}
+
+.electron-formula__expected {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.electron-formula__valence {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Orbital box diagram
+   ======================================== */
+
+.orbital-box-diagram__label,
+.energy-level-diagram__label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+/* ========================================
+   Practice section
+   ======================================== */
+
+.practice-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.practice-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+}
+
+.practice-section__levels {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.practice-level {
+  flex: 1;
+  min-width: 200px;
+}
+
+.practice-level__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.practice-level__bar {
+  height: 8px;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.practice-level__fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.practice-level__fill--none { background: #ef4444; }
+.practice-level__fill--basic { background: #f59e0b; }
+.practice-level__fill--confident { background: #10b981; }
+.practice-level__fill--automatic { background: #2563eb; }
+
+.practice-level__label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.practice-section__mastered {
+  background: #d1fae5;
+  border: 1px solid #10b981;
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  color: #065f46;
+}
+
+.practice-section__counter {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* Practice MC */
+
+.practice-mc__question {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.practice-mc__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.practice-option {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.practice-option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg, #eff6ff);
+}
+
+.practice-option--correct {
+  border-color: #10b981;
+  background: #d1fae5;
+}
+
+.practice-option--wrong {
+  border-color: #ef4444;
+  background: #fee2e2;
+}
+
+.practice-option--missed {
+  border-color: #10b981;
+  background: #d1fae5;
+  opacity: 0.6;
+}
+
+.practice-feedback {
+  padding: var(--space-md);
+  border-radius: 0.5rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.practice-feedback--correct {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.practice-feedback--wrong {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.practice-feedback__label {
+  font-weight: 700;
+  margin-right: var(--space-xs);
+}
+
+.practice-next {
+  margin-top: var(--space-sm);
+}
+
+/* Orbital filling exercise */
+
+.practice-orbital__question {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.practice-orbital__hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.practice-orbital__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.practice-orbital__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.practice-orbital__boxes {
+  display: flex;
+  gap: 2px;
+}
+
+.practice-orbital__box {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.practice-orbital__slot {
+  width: 24px;
+  height: 30px;
+  border: none;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s;
+}
+
+.practice-orbital__slot:last-child {
+  border-right: none;
+}
+
+.practice-orbital__slot:hover:not(:disabled) {
+  background: var(--color-primary-bg, #eff6ff);
+}
+
+.practice-orbital__label {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
