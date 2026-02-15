@@ -1,42 +1,15 @@
 import {
   getElectronFormula,
   getShorthandFormula,
-  getElectronConfig,
   isException,
-  getExpectedConfig,
+  getExpectedShorthandValence,
   getValenceElectrons,
 } from '../../lib/electron-config';
-import type { OrbitalFilling } from '../../types/electron-config';
 import { useState } from 'react';
 
 interface Props {
   Z: number;
   showShorthand?: boolean;
-}
-
-function formatConfig(config: OrbitalFilling[]): string {
-  const SUPER: Record<string, string> = {
-    '0':'⁰','1':'¹','2':'²','3':'³','4':'⁴',
-    '5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
-  };
-  const toSup = (n: number) => String(n).split('').map(c => SUPER[c] ?? c).join('');
-  return config.map(e => `${e.n}${e.l}${toSup(e.electrons)}`).join('');
-}
-
-/** Extract subshells that differ between expected and actual configs. */
-function getDifferingSubshells(Z: number): OrbitalFilling[] {
-  const expected = getExpectedConfig(Z);
-  const actual = getElectronConfig(Z);
-  const diffKeys = new Set<string>();
-  for (let i = 0; i < expected.length; i++) {
-    const e = expected[i];
-    const a = actual[i];
-    if (!a || e.electrons !== a.electrons) {
-      diffKeys.add(`${e.n}${e.l}`);
-      if (a) diffKeys.add(`${a.n}${a.l}`);
-    }
-  }
-  return expected.filter(e => diffKeys.has(`${e.n}${e.l}`));
 }
 
 export default function ElectronFormula({ Z, showShorthand: initialShorthand = true }: Props) {
@@ -62,7 +35,7 @@ export default function ElectronFormula({ Z, showShorthand: initialShorthand = t
         <div className="electron-formula__exception">
           <span className="electron-formula__badge">Провал электрона</span>
           <div className="electron-formula__expected">
-            Ожидаемая: <s>{formatConfig(getDifferingSubshells(Z))}</s>
+            Ожидаемая: <span className="electron-formula__struck">{getExpectedShorthandValence(Z)}</span>
           </div>
         </div>
       )}

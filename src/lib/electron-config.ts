@@ -119,6 +119,16 @@ export function getShorthandFormula(Z: number): string {
   return `[${core.symbol}] ${formatConfig(valence)}`;
 }
 
+/** Expected (Aufbau) shorthand formula — valence part only, conventional order. */
+export function getExpectedShorthandValence(Z: number): string {
+  const core = getNobleGasCore(Z);
+  const expected = getExpectedConfig(Z);
+  if (!core) return formatConfig(sortByNL(expected));
+
+  const coreLen = buildAufbau(core.Z).length;
+  return formatConfig(sortByNL(expected.slice(coreLen)));
+}
+
 /** Get the nearest noble gas with Z less than the element's Z. */
 export function getNobleGasCore(Z: number): { Z: number; symbol: string } | null {
   let result: { Z: number; symbol: string } | null = null;

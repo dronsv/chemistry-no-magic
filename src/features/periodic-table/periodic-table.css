@@ -909,6 +909,12 @@
   color: var(--color-text-muted);
 }
 
+.electron-formula__struck {
+  color: #ef4444;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
 .electron-formula__valence {
   font-size: 0.8125rem;
   color: var(--color-text-muted);
