@@ -1,0 +1,98 @@
+[
+  {
+    "id": "oxide_basic",
+    "class": "oxide",
+    "subclass": "basic",
+    "pattern": "Metal oxide where metal has oxidation state +1 or +2 (except BeO, ZnO, Al2O3, PbO, SnO)",
+    "description_ru": "Основные оксиды: оксиды металлов со степенью окисления +1, +2 (кроме амфотерных). Реагируют с кислотами и кислотными оксидами.",
+    "examples": ["Na\u2082O", "CaO", "BaO", "MgO", "K\u2082O", "FeO", "CuO", "Li\u2082O"]
+  },
+  {
+    "id": "oxide_acidic",
+    "class": "oxide",
+    "subclass": "acidic",
+    "pattern": "Nonmetal oxide or metal oxide with high oxidation state (+5, +6, +7)",
+    "description_ru": "Кислотные оксиды: оксиды неметаллов (кроме CO, NO, N\u2082O) и оксиды металлов с высокой степенью окисления (+5, +6, +7). Реагируют с основаниями и основными оксидами.",
+    "examples": ["CO\u2082", "SO\u2082", "SO\u2083", "P\u2082O\u2085", "N\u2082O\u2085", "SiO\u2082", "CrO\u2083", "Mn\u2082O\u2087"]
+  },
+  {
+    "id": "oxide_amphoteric",
+    "class": "oxide",
+    "subclass": "amphoteric",
+    "pattern": "Oxide of amphoteric metal (Al, Zn, Be, Cr(III), Fe(III), Pb(II), Sn(II))",
+    "description_ru": "Амфотерные оксиды: оксиды амфотерных металлов. Реагируют и с кислотами, и с щелочами.",
+    "examples": ["Al\u2082O\u2083", "ZnO", "BeO", "Cr\u2082O\u2083", "Fe\u2082O\u2083", "PbO", "SnO"]
+  },
+  {
+    "id": "oxide_indifferent",
+    "class": "oxide",
+    "subclass": "indifferent",
+    "pattern": "CO, NO, N2O - do not form acids or bases",
+    "description_ru": "Несолеобразующие оксиды: не образуют солей при взаимодействии с кислотами и основаниями.",
+    "examples": ["CO", "NO", "N\u2082O"]
+  },
+  {
+    "id": "acid_oxygen_containing",
+    "class": "acid",
+    "subclass": "oxygen_containing",
+    "pattern": "HxAOy where A is a nonmetal or high-oxidation metal, contains oxygen",
+    "description_ru": "Кислородсодержащие кислоты: содержат кислород в составе кислотного остатка.",
+    "examples": ["H\u2082SO\u2084", "HNO\u2083", "H\u2082CO\u2083", "H\u2083PO\u2084", "H\u2082SO\u2083", "HClO\u2084", "HNO\u2082", "H\u2082SiO\u2083"]
+  },
+  {
+    "id": "acid_oxygen_free",
+    "class": "acid",
+    "subclass": "oxygen_free",
+    "pattern": "HxA where A is a nonmetal (halogen, S, etc.), no oxygen",
+    "description_ru": "Бескислородные кислоты: не содержат кислорода. Образованы водородом и неметаллом.",
+    "examples": ["HCl", "HBr", "HI", "HF", "H\u2082S"]
+  },
+  {
+    "id": "base_soluble",
+    "class": "base",
+    "subclass": "soluble",
+    "pattern": "M(OH)n where M is alkali or alkaline earth metal (Na, K, Li, Ca, Ba, Sr)",
+    "description_ru": "Растворимые основания (щёлочи): гидроксиды щелочных и щёлочноземельных металлов. Растворимы в воде, диссоциируют с образованием OH\u207b.",
+    "examples": ["NaOH", "KOH", "LiOH", "Ca(OH)\u2082", "Ba(OH)\u2082"]
+  },
+  {
+    "id": "base_insoluble",
+    "class": "base",
+    "subclass": "insoluble",
+    "pattern": "M(OH)n where M is transition or post-transition metal (not alkali/alkaline earth)",
+    "description_ru": "Нерастворимые основания: гидроксиды тяжёлых металлов. Не растворяются в воде, разлагаются при нагревании.",
+    "examples": ["Fe(OH)\u2082", "Fe(OH)\u2083", "Cu(OH)\u2082", "Mg(OH)\u2082", "Cr(OH)\u2083"]
+  },
+  {
+    "id": "base_amphoteric",
+    "class": "base",
+    "subclass": "amphoteric",
+    "pattern": "M(OH)n where M is amphoteric metal (Al, Zn, Be, Cr(III), Pb(II), Sn(II))",
+    "description_ru": "Амфотерные гидроксиды: проявляют свойства и кислот, и оснований. Реагируют и с кислотами, и с щелочами.",
+    "examples": ["Al(OH)\u2083", "Zn(OH)\u2082", "Be(OH)\u2082", "Cr(OH)\u2083", "Pb(OH)\u2082"]
+  },
+  {
+    "id": "salt_normal",
+    "class": "salt",
+    "subclass": "normal",
+    "pattern": "Product of complete neutralization: cation of base + anion of acid, no H+ or OH-",
+    "description_ru": "Средние (нормальные) соли: продукт полного замещения атомов водорода в кислоте на катионы металла (или NH\u2084\u207a).",
+    "examples": ["NaCl", "K\u2082SO\u2084", "CaCO\u2083", "Fe\u2082(SO\u2084)\u2083", "Al(NO\u2083)\u2083", "BaSO\u2084"]
+  },
+  {
+    "id": "salt_acidic",
+    "class": "salt",
+    "subclass": "acidic",
+    "pattern": "Salt with remaining H+ in the acid residue: contains both cation and H in anion",
+    "description_ru": "Кислые соли: продукт неполного замещения атомов водорода в многоосновной кислоте. Содержат ион водорода в кислотном остатке.",
+    "examples": ["NaHCO\u2083", "Ca(HCO\u2083)\u2082", "KHSO\u2084", "NaH\u2082PO\u2084", "Na\u2082HPO\u2084", "Ca(HSO\u2084)\u2082"]
+  },
+  {
+    "id": "salt_basic",
+    "class": "salt",
+    "subclass": "basic",
+    "pattern": "Salt with remaining OH- groups: contains both anion and OH in cation part",
+    "description_ru": "Основные соли: продукт неполного замещения гидроксид-ионов в многокислотном основании. Содержат гидроксогруппу.",
+    "examples": ["FeOHCl", "CuOHCl", "AlOH(NO\u2083)\u2082", "(CuOH)\u2082CO\u2083"]
+  }
+]

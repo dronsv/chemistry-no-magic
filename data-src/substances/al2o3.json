@@ -1,0 +1,9 @@
+{
+  "id": "al2o3",
+  "formula": "Al\u2082O\u2083",
+  "name_ru": "Оксид алюминия",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": [],
+  "tags": ["insoluble", "amphoteric"]
+}

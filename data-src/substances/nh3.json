@@ -1,0 +1,9 @@
+{
+  "id": "nh3",
+  "formula": "NH\u2083",
+  "name_ru": "Аммиак",
+  "class": "other",
+  "subclass": "hydride",
+  "ions": [],
+  "tags": ["gas", "pungent_odor", "reacts_with_water"]
+}

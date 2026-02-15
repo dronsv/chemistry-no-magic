@@ -1,0 +1,9 @@
+{
+  "id": "zno",
+  "formula": "ZnO",
+  "name_ru": "Оксид цинка",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": [],
+  "tags": ["insoluble", "amphoteric"]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "co2",
+  "formula": "CO\u2082",
+  "name_ru": "Оксид углерода(IV)",
+  "class": "oxide",
+  "subclass": "acidic",
+  "ions": [],
+  "tags": ["gas", "reacts_with_water"]
+}

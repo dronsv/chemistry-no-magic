@@ -1,0 +1,9 @@
+{
+  "id": "na2so4",
+  "formula": "Na\u2082SO\u2084",
+  "name_ru": "Сульфат натрия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Na_plus", "SO4_2minus"],
+  "tags": ["soluble"]
+}

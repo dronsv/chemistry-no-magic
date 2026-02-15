@@ -1,0 +1,113 @@
+---
+import { readdir, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const substancesDir = join(process.cwd(), 'data-src', 'substances');
+  let files: string[];
+  try {
+    files = await readdir(substancesDir);
+  } catch {
+    return [];
+  }
+
+  const paths = [];
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+    const id = file.replace('.json', '');
+    const raw = await readFile(join(substancesDir, file), 'utf-8');
+    const substance = JSON.parse(raw);
+    paths.push({ params: { id }, props: { substance } });
+  }
+  return paths;
+}
+
+interface SubstanceData {
+  id: string;
+  formula: string;
+  name_ru?: string;
+  class: string;
+  subclass?: string;
+  ions?: string[];
+  notes?: string;
+  tags?: string[];
+}
+
+const { substance } = Astro.props as { substance: SubstanceData };
+const displayName = substance.name_ru ?? substance.formula;
+---
+
+<BaseLayout
+  title={displayName}
+  description={`${displayName} (${substance.formula}) — свойства, классификация, реакции.`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ChemicalSubstance",
+      "name": displayName,
+      "molecularFormula": substance.formula,
+      "description": `${displayName} — ${substance.class}`,
+    })} />
+  </Fragment>
+
+  <article class="substance-page">
+    <h1>{substance.formula}</h1>
+    {substance.name_ru && <p class="substance-name">{substance.name_ru}</p>}
+
+    <dl class="substance-props">
+      <dt>Класс</dt>
+      <dd>{substance.class}{substance.subclass ? ` (${substance.subclass})` : ''}</dd>
+
+      {substance.ions && substance.ions.length > 0 && (
+        <>
+          <dt>Ионы</dt>
+          <dd>{substance.ions.join(', ')}</dd>
+        </>
+      )}
+
+      {substance.tags && substance.tags.length > 0 && (
+        <>
+          <dt>Теги</dt>
+          <dd>{substance.tags.join(', ')}</dd>
+        </>
+      )}
+    </dl>
+
+    {substance.notes && <p class="substance-notes">{substance.notes}</p>}
+
+    <a href="/substances/">&larr; Каталог веществ</a>
+  </article>
+</BaseLayout>
+
+<style>
+  .substance-page {
+    max-width: 640px;
+    padding: var(--space-xl) 0;
+  }
+  .substance-page h1 {
+    font-size: 2rem;
+    margin: 0 0 var(--space-xs);
+  }
+  .substance-name {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    margin: 0 0 var(--space-xl);
+  }
+  .substance-props {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+  .substance-props dt {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+  .substance-props dd { margin: 0; }
+  .substance-notes {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+  }
+</style>

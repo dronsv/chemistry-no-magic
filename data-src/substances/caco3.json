@@ -1,0 +1,9 @@
+{
+  "id": "caco3",
+  "formula": "CaCO\u2083",
+  "name_ru": "Карбонат кальция",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Ca_2plus", "CO3_2minus"],
+  "tags": ["insoluble"]
+}

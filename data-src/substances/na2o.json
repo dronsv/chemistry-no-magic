@@ -1,0 +1,9 @@
+{
+  "id": "na2o",
+  "formula": "Na\u2082O",
+  "name_ru": "Оксид натрия",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": ["reacts_with_water"]
+}

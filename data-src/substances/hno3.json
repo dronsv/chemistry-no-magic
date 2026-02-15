@@ -1,0 +1,9 @@
+{
+  "id": "hno3",
+  "formula": "HNO\u2083",
+  "name_ru": "Азотная кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": ["H_plus", "NO3_minus"],
+  "tags": ["soluble", "strong_electrolyte", "strong_acid", "oxidizer"]
+}

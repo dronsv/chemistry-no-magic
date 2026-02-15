@@ -1,0 +1,9 @@
+{
+  "id": "sio2",
+  "formula": "SiO\u2082",
+  "name_ru": "Оксид кремния(IV)",
+  "class": "oxide",
+  "subclass": "acidic",
+  "ions": [],
+  "tags": ["insoluble", "no_water_reaction"]
+}

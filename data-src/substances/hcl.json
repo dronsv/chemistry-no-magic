@@ -1,0 +1,9 @@
+{
+  "id": "hcl",
+  "formula": "HCl",
+  "name_ru": "Соляная кислота",
+  "class": "acid",
+  "subclass": "oxygen_free",
+  "ions": ["H_plus", "Cl_minus"],
+  "tags": ["soluble", "strong_electrolyte", "strong_acid"]
+}

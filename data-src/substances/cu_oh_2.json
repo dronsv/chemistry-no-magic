@@ -1,0 +1,9 @@
+{
+  "id": "cu_oh_2",
+  "formula": "Cu(OH)\u2082",
+  "name_ru": "Гидроксид меди(II)",
+  "class": "base",
+  "subclass": "insoluble",
+  "ions": ["Cu_2plus", "OH_minus"],
+  "tags": ["insoluble", "blue", "decomposes_on_heating"]
+}

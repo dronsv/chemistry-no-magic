@@ -1,0 +1,9 @@
+{
+  "id": "al_oh_3",
+  "formula": "Al(OH)\u2083",
+  "name_ru": "Гидроксид алюминия",
+  "class": "base",
+  "subclass": "amphoteric",
+  "ions": ["Al_3plus", "OH_minus"],
+  "tags": ["insoluble", "amphoteric", "white", "gelatinous"]
+}

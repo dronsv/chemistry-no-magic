@@ -1,0 +1,9 @@
+{
+  "id": "cao",
+  "formula": "CaO",
+  "name_ru": "Оксид кальция",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": ["reacts_with_water"]
+}

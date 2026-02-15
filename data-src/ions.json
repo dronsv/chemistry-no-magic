@@ -1,0 +1,297 @@
+[
+  {
+    "id": "H_plus",
+    "formula": "H\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион водорода",
+    "name_ru_genitive": "водорода",
+    "tags": ["hydrogen"]
+  },
+  {
+    "id": "Na_plus",
+    "formula": "Na\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион натрия",
+    "name_ru_genitive": "натрия",
+    "tags": ["alkali"]
+  },
+  {
+    "id": "K_plus",
+    "formula": "K\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион калия",
+    "name_ru_genitive": "калия",
+    "tags": ["alkali"]
+  },
+  {
+    "id": "NH4_plus",
+    "formula": "NH\u2084\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион аммония",
+    "name_ru_genitive": "аммония",
+    "tags": ["ammonium"]
+  },
+  {
+    "id": "Ca_2plus",
+    "formula": "Ca\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион кальция",
+    "name_ru_genitive": "кальция",
+    "tags": ["alkaline_earth"]
+  },
+  {
+    "id": "Mg_2plus",
+    "formula": "Mg\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион магния",
+    "name_ru_genitive": "магния",
+    "tags": ["alkaline_earth"]
+  },
+  {
+    "id": "Ba_2plus",
+    "formula": "Ba\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион бария",
+    "name_ru_genitive": "бария",
+    "tags": ["alkaline_earth"]
+  },
+  {
+    "id": "Al_3plus",
+    "formula": "Al\u00b3\u207a",
+    "charge": 3,
+    "type": "cation",
+    "name_ru": "Ион алюминия",
+    "name_ru_genitive": "алюминия",
+    "tags": ["amphoteric"]
+  },
+  {
+    "id": "Fe_2plus",
+    "formula": "Fe\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион железа(II)",
+    "name_ru_genitive": "железа(II)",
+    "tags": ["transition", "iron"]
+  },
+  {
+    "id": "Fe_3plus",
+    "formula": "Fe\u00b3\u207a",
+    "charge": 3,
+    "type": "cation",
+    "name_ru": "Ион железа(III)",
+    "name_ru_genitive": "железа(III)",
+    "tags": ["transition", "iron"]
+  },
+  {
+    "id": "Cu_2plus",
+    "formula": "Cu\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион меди(II)",
+    "name_ru_genitive": "меди(II)",
+    "tags": ["transition", "copper"]
+  },
+  {
+    "id": "Zn_2plus",
+    "formula": "Zn\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион цинка",
+    "name_ru_genitive": "цинка",
+    "tags": ["transition", "amphoteric"]
+  },
+  {
+    "id": "Ag_plus",
+    "formula": "Ag\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион серебра",
+    "name_ru_genitive": "серебра",
+    "tags": ["transition", "silver"]
+  },
+  {
+    "id": "Pb_2plus",
+    "formula": "Pb\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион свинца(II)",
+    "name_ru_genitive": "свинца(II)",
+    "tags": ["heavy_metal", "lead"]
+  },
+  {
+    "id": "OH_minus",
+    "formula": "OH\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Гидроксид-ион",
+    "name_ru_genitive": "гидроксида",
+    "tags": ["hydroxide"]
+  },
+  {
+    "id": "F_minus",
+    "formula": "F\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Фторид-ион",
+    "name_ru_genitive": "фторида",
+    "parent_acid": "HF",
+    "tags": ["fluoride", "halide"]
+  },
+  {
+    "id": "Cl_minus",
+    "formula": "Cl\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Хлорид-ион",
+    "name_ru_genitive": "хлорида",
+    "parent_acid": "HCl",
+    "tags": ["chloride", "halide"]
+  },
+  {
+    "id": "Br_minus",
+    "formula": "Br\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Бромид-ион",
+    "name_ru_genitive": "бромида",
+    "parent_acid": "HBr",
+    "tags": ["bromide", "halide"]
+  },
+  {
+    "id": "I_minus",
+    "formula": "I\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Иодид-ион",
+    "name_ru_genitive": "иодида",
+    "parent_acid": "HI",
+    "tags": ["iodide", "halide"]
+  },
+  {
+    "id": "S_2minus",
+    "formula": "S\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Сульфид-ион",
+    "name_ru_genitive": "сульфида",
+    "parent_acid": "H\u2082S",
+    "tags": ["sulfide"]
+  },
+  {
+    "id": "SO4_2minus",
+    "formula": "SO\u2084\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Сульфат-ион",
+    "name_ru_genitive": "сульфата",
+    "parent_acid": "H\u2082SO\u2084",
+    "tags": ["sulfate"]
+  },
+  {
+    "id": "SO3_2minus",
+    "formula": "SO\u2083\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Сульфит-ион",
+    "name_ru_genitive": "сульфита",
+    "parent_acid": "H\u2082SO\u2083",
+    "tags": ["sulfite", "gas_forming"]
+  },
+  {
+    "id": "NO3_minus",
+    "formula": "NO\u2083\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Нитрат-ион",
+    "name_ru_genitive": "нитрата",
+    "parent_acid": "HNO\u2083",
+    "tags": ["nitrate"]
+  },
+  {
+    "id": "NO2_minus",
+    "formula": "NO\u2082\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Нитрит-ион",
+    "name_ru_genitive": "нитрита",
+    "parent_acid": "HNO\u2082",
+    "tags": ["nitrite"]
+  },
+  {
+    "id": "CO3_2minus",
+    "formula": "CO\u2083\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Карбонат-ион",
+    "name_ru_genitive": "карбоната",
+    "parent_acid": "H\u2082CO\u2083",
+    "tags": ["carbonate", "gas_forming"]
+  },
+  {
+    "id": "SiO3_2minus",
+    "formula": "SiO\u2083\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Силикат-ион",
+    "name_ru_genitive": "силиката",
+    "parent_acid": "H\u2082SiO\u2083",
+    "tags": ["silicate"]
+  },
+  {
+    "id": "PO4_3minus",
+    "formula": "PO\u2084\u00b3\u207b",
+    "charge": -3,
+    "type": "anion",
+    "name_ru": "Фосфат-ион",
+    "name_ru_genitive": "фосфата",
+    "parent_acid": "H\u2083PO\u2084",
+    "tags": ["phosphate"]
+  },
+  {
+    "id": "CH3COO_minus",
+    "formula": "CH\u2083COO\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Ацетат-ион",
+    "name_ru_genitive": "ацетата",
+    "parent_acid": "CH\u2083COOH",
+    "tags": ["acetate", "organic"]
+  },
+  {
+    "id": "MnO4_minus",
+    "formula": "MnO\u2084\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Перманганат-ион",
+    "name_ru_genitive": "перманганата",
+    "parent_acid": "HMnO\u2084",
+    "tags": ["permanganate", "oxidizer"]
+  },
+  {
+    "id": "CrO4_2minus",
+    "formula": "CrO\u2084\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Хромат-ион",
+    "name_ru_genitive": "хромата",
+    "parent_acid": "H\u2082CrO\u2084",
+    "tags": ["chromate"]
+  },
+  {
+    "id": "Cr2O7_2minus",
+    "formula": "Cr\u2082O\u2087\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Дихромат-ион",
+    "name_ru_genitive": "дихромата",
+    "parent_acid": "H\u2082Cr\u2082O\u2087",
+    "tags": ["dichromate", "oxidizer"]
+  }
+]

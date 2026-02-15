@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  stage: number;
+  description?: string;
+}
+
+const { title, stage, description } = Astro.props;
+---
+
+<div class="placeholder">
+  <div class="placeholder-icon">🚧</div>
+  <h2>{title}</h2>
+  <p class="placeholder-stage">Этап {stage} разработки</p>
+  {description && <p class="placeholder-desc">{description}</p>}
+</div>
+
+<style>
+  .placeholder {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-md);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+  .placeholder h2 {
+    margin: 0 0 var(--space-sm);
+    font-size: 1.5rem;
+  }
+  .placeholder-stage {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 var(--space-md);
+  }
+  .placeholder-desc {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+</style>

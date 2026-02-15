@@ -1,0 +1,9 @@
+{
+  "id": "cuso4",
+  "formula": "CuSO\u2084",
+  "name_ru": "Сульфат меди(II)",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Cu_2plus", "SO4_2minus"],
+  "tags": ["soluble"]
+}

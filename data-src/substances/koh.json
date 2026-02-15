@@ -1,0 +1,9 @@
+{
+  "id": "koh",
+  "formula": "KOH",
+  "name_ru": "Гидроксид калия",
+  "class": "base",
+  "subclass": "soluble",
+  "ions": ["K_plus", "OH_minus"],
+  "tags": ["soluble", "strong_electrolyte", "alkali"]
+}

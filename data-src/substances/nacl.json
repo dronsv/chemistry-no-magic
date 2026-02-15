@@ -1,0 +1,9 @@
+{
+  "id": "nacl",
+  "formula": "NaCl",
+  "name_ru": "Хлорид натрия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Na_plus", "Cl_minus"],
+  "tags": ["soluble"]
+}

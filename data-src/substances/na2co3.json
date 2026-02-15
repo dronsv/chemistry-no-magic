@@ -1,0 +1,9 @@
+{
+  "id": "na2co3",
+  "formula": "Na\u2082CO\u2083",
+  "name_ru": "Карбонат натрия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Na_plus", "CO3_2minus"],
+  "tags": ["soluble"]
+}

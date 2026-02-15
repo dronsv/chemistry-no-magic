@@ -1,0 +1,9 @@
+{
+  "id": "fecl3",
+  "formula": "FeCl\u2083",
+  "name_ru": "Хлорид железа(III)",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Fe_3plus", "Cl_minus"],
+  "tags": ["soluble"]
+}

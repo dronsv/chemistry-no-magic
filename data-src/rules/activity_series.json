@@ -1,0 +1,110 @@
+[
+  {
+    "symbol": "Li",
+    "name_ru": "Литий",
+    "position": 0,
+    "reduces_H": true
+  },
+  {
+    "symbol": "K",
+    "name_ru": "Калий",
+    "position": 1,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Ba",
+    "name_ru": "Барий",
+    "position": 2,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Ca",
+    "name_ru": "Кальций",
+    "position": 3,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Na",
+    "name_ru": "Натрий",
+    "position": 4,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Mg",
+    "name_ru": "Магний",
+    "position": 5,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Al",
+    "name_ru": "Алюминий",
+    "position": 6,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Zn",
+    "name_ru": "Цинк",
+    "position": 7,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Fe",
+    "name_ru": "Железо",
+    "position": 8,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Ni",
+    "name_ru": "Никель",
+    "position": 9,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Sn",
+    "name_ru": "Олово",
+    "position": 10,
+    "reduces_H": true
+  },
+  {
+    "symbol": "Pb",
+    "name_ru": "Свинец",
+    "position": 11,
+    "reduces_H": true
+  },
+  {
+    "symbol": "H",
+    "name_ru": "Водород",
+    "position": 12,
+    "reduces_H": false
+  },
+  {
+    "symbol": "Cu",
+    "name_ru": "Медь",
+    "position": 13,
+    "reduces_H": false
+  },
+  {
+    "symbol": "Hg",
+    "name_ru": "Ртуть",
+    "position": 14,
+    "reduces_H": false
+  },
+  {
+    "symbol": "Ag",
+    "name_ru": "Серебро",
+    "position": 15,
+    "reduces_H": false
+  },
+  {
+    "symbol": "Pt",
+    "name_ru": "Платина",
+    "position": 16,
+    "reduces_H": false
+  },
+  {
+    "symbol": "Au",
+    "name_ru": "Золото",
+    "position": 17,
+    "reduces_H": false
+  }
+]

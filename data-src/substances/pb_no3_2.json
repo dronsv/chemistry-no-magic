@@ -1,0 +1,9 @@
+{
+  "id": "pb_no3_2",
+  "formula": "Pb(NO\u2083)\u2082",
+  "name_ru": "Нитрат свинца(II)",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Pb_2plus", "NO3_minus"],
+  "tags": ["soluble"]
+}

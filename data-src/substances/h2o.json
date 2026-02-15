@@ -1,0 +1,9 @@
+{
+  "id": "h2o",
+  "formula": "H\u2082O",
+  "name_ru": "Вода",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": ["H_plus", "OH_minus"],
+  "tags": ["soluble", "weak_electrolyte", "amphoteric"]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "fe2o3",
+  "formula": "Fe\u2082O\u2083",
+  "name_ru": "Оксид железа(III)",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": [],
+  "tags": ["insoluble", "red_brown", "amphoteric"]
+}

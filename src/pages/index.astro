@@ -1,11 +1,74 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Химия без магии" description="Адаптивная платформа подготовки к ОГЭ по химии. Персональная диагностика, интерактивная таблица Менделеева, умные задания.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Химия без магии",
+      "description": "Адаптивная платформа подготовки к ОГЭ по химии",
+      "url": Astro.site?.toString() ?? Astro.url.origin,
+    })} />
+  </Fragment>
+
+  <section class="hero">
+    <h1>Химия без магии</h1>
+    <p class="hero-subtitle">
+      Адаптивная подготовка к ОГЭ по химии. Платформа определяет ваши пробелы
+      и выстраивает персональный маршрут обучения.
+    </p>
+    <div class="hero-features">
+      <div class="feature">
+        <strong>Диагностика</strong>
+        <span>15 минут — и система знает ваши сильные и слабые стороны</span>
+      </div>
+      <div class="feature">
+        <strong>Адаптивность</strong>
+        <span>Задания подбираются по вашему уровню с помощью модели BKT</span>
+      </div>
+      <div class="feature">
+        <strong>Интерактивность</strong>
+        <span>Периодическая таблица, карточки веществ, генерация реакций</span>
+      </div>
+    </div>
+    <a href="/diagnostics/" class="btn btn-primary">Начать диагностику</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: var(--space-2xl) 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin: 0 0 var(--space-md);
+    line-height: 1.2;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-2xl);
+  }
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    text-align: left;
+    margin-bottom: var(--space-2xl);
+  }
+  .feature {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    border-radius: 0.5rem;
+    background: var(--color-bg-alt);
+  }
+  .feature strong { font-size: 1rem; }
+  .feature span { font-size: 0.9rem; color: var(--color-text-muted); }
+</style>

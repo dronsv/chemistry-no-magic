@@ -1,0 +1,9 @@
+{
+  "id": "bacl2",
+  "formula": "BaCl\u2082",
+  "name_ru": "Хлорид бария",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Ba_2plus", "Cl_minus"],
+  "tags": ["soluble"]
+}

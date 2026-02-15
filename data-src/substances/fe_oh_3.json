@@ -1,0 +1,9 @@
+{
+  "id": "fe_oh_3",
+  "formula": "Fe(OH)\u2083",
+  "name_ru": "Гидроксид железа(III)",
+  "class": "base",
+  "subclass": "insoluble",
+  "ions": ["Fe_3plus", "OH_minus"],
+  "tags": ["insoluble", "red_brown", "decomposes_on_heating"]
+}

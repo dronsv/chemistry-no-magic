@@ -1,0 +1,243 @@
+[
+  {
+    "id": "task_type_1",
+    "type_number": 1,
+    "name_ru": "Строение атома. Строение электронных оболочек",
+    "description_ru": "Задание на определение строения атома элемента по его положению в Периодической системе: число протонов, нейтронов, электронов, электронная конфигурация.",
+    "competencies": {
+      "periodic_table": "P",
+      "electron_config": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_2",
+    "type_number": 2,
+    "name_ru": "Периодический закон. Закономерности изменения свойств",
+    "description_ru": "Задание на закономерности изменения свойств элементов по периодам и группам: радиус атома, электроотрицательность, металлические/неметаллические свойства.",
+    "competencies": {
+      "electron_config": "P",
+      "periodic_table": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_3",
+    "type_number": 3,
+    "name_ru": "Виды химической связи",
+    "description_ru": "Задание на определение вида химической связи (ковалентная полярная/неполярная, ионная, металлическая) в различных соединениях.",
+    "competencies": {
+      "electron_config": "P",
+      "periodic_table": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_4",
+    "type_number": 4,
+    "name_ru": "Валентность и степень окисления",
+    "description_ru": "Задание на определение валентности и степени окисления элементов в соединениях.",
+    "competencies": {
+      "oxidation_states": "P",
+      "periodic_table": "S",
+      "classification": "S",
+      "reactions_redox": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_5",
+    "type_number": 5,
+    "name_ru": "Неорганические вещества: классификация и номенклатура",
+    "description_ru": "Задание на определение степени окисления элемента и принадлежности вещества к определённому классу.",
+    "competencies": {
+      "oxidation_states": "P",
+      "periodic_table": "S",
+      "reactions_redox": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_6",
+    "type_number": 6,
+    "name_ru": "Классификация и свойства неорганических веществ",
+    "description_ru": "Задание на классификацию неорганических веществ по классам (оксиды, кислоты, основания, соли) и знание их химических свойств.",
+    "competencies": {
+      "classification": "P",
+      "periodic_table": "S",
+      "electron_config": "S",
+      "naming": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_7",
+    "type_number": 7,
+    "name_ru": "Свойства простых и сложных веществ",
+    "description_ru": "Задание на знание химических свойств простых веществ (металлов и неметаллов) и сложных веществ основных классов.",
+    "competencies": {
+      "naming": "P",
+      "periodic_table": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_8",
+    "type_number": 8,
+    "name_ru": "Реакции ионного обмена",
+    "description_ru": "Задание на составление реакций ионного обмена, определение условий их протекания до конца (осадок, газ, вода).",
+    "competencies": {
+      "reactions_exchange": "P",
+      "periodic_table": "S",
+      "classification": "S",
+      "naming": "S",
+      "gas_precipitate_logic": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_9",
+    "type_number": 9,
+    "name_ru": "Признаки химических реакций. Условия протекания",
+    "description_ru": "Задание на определение признаков химических реакций (осадок, газ, изменение цвета, выделение тепла) и условий их протекания.",
+    "competencies": {
+      "gas_precipitate_logic": "P",
+      "classification": "S",
+      "naming": "S",
+      "reactions_exchange": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_10",
+    "type_number": 10,
+    "name_ru": "Химические свойства оксидов, кислот, оснований, солей",
+    "description_ru": "Задание на определение возможных реакций между предложенными веществами с учётом таблицы растворимости и ряда активности.",
+    "competencies": {
+      "reactions_exchange": "P",
+      "gas_precipitate_logic": "P",
+      "classification": "S",
+      "naming": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_11",
+    "type_number": 11,
+    "name_ru": "Генетическая связь между классами неорганических веществ",
+    "description_ru": "Задание на построение цепочки превращений между классами неорганических веществ и написание уравнений реакций.",
+    "competencies": {
+      "reactions_exchange": "P",
+      "gas_precipitate_logic": "P",
+      "classification": "S",
+      "naming": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_12",
+    "type_number": 12,
+    "name_ru": "Окислительно-восстановительные реакции",
+    "description_ru": "Задание на определение окислителя и восстановителя, расстановку коэффициентов методом электронного баланса.",
+    "competencies": {
+      "reactions_redox": "P",
+      "periodic_table": "S",
+      "oxidation_states": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_13",
+    "type_number": 13,
+    "name_ru": "Электролитическая диссоциация. Электролиты и неэлектролиты",
+    "description_ru": "Задание на понимание процесса электролитической диссоциации, определение сильных и слабых электролитов.",
+    "competencies": {
+      "reactions_redox": "P",
+      "periodic_table": "S",
+      "oxidation_states": "S",
+      "classification": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_14",
+    "type_number": 14,
+    "name_ru": "Окислительно-восстановительные реакции (расширенное)",
+    "description_ru": "Расширенное задание на ОВР: определение изменения степеней окисления, схема электронного баланса.",
+    "competencies": {
+      "reactions_redox": "P",
+      "oxidation_states": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_15",
+    "type_number": 15,
+    "name_ru": "Скорость химической реакции. Химическое равновесие",
+    "description_ru": "Задание на факторы, влияющие на скорость химической реакции (температура, концентрация, катализатор, площадь поверхности) и смещение химического равновесия.",
+    "competencies": {
+      "reaction_energy_profile": "P",
+      "catalyst_role_understanding": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_16",
+    "type_number": 16,
+    "name_ru": "Тепловой эффект. Экзо- и эндотермические реакции",
+    "description_ru": "Задание на понимание теплового эффекта реакции, классификацию реакций на экзо- и эндотермические, роль катализатора.",
+    "competencies": {
+      "catalyst_role_understanding": "S",
+      "reaction_energy_profile": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_17",
+    "type_number": 17,
+    "name_ru": "Вычисление массовой доли элемента в веществе",
+    "description_ru": "Задание на расчёт массовой доли химического элемента в соединении по его формуле.",
+    "competencies": {
+      "calculations_basic": "P"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_18",
+    "type_number": 18,
+    "name_ru": "Вычисления по уравнениям химических реакций",
+    "description_ru": "Задание на расчёты по уравнению химической реакции: масса, количество вещества, объём газа.",
+    "competencies": {
+      "calculations_basic": "P",
+      "calculations_solutions": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_19",
+    "type_number": 19,
+    "name_ru": "Массовая доля растворённого вещества",
+    "description_ru": "Задание на расчёт массовой доли растворённого вещества, приготовление раствора заданной концентрации.",
+    "competencies": {
+      "calculations_solutions": "P",
+      "calculations_basic": "S"
+    },
+    "seed_params": {}
+  },
+  {
+    "id": "task_type_20",
+    "type_number": 20,
+    "name_ru": "Расчётные задачи (комбинированные)",
+    "description_ru": "Комбинированная расчётная задача: вычисления по уравнению с использованием массовой доли раствора, объёмов газов, избытка/недостатка.",
+    "competencies": {
+      "calculations_solutions": "P",
+      "calculations_basic": "S"
+    },
+    "seed_params": {}
+  }
+]

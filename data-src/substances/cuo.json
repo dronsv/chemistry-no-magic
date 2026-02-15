@@ -1,0 +1,9 @@
+{
+  "id": "cuo",
+  "formula": "CuO",
+  "name_ru": "Оксид меди(II)",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": ["insoluble", "black"]
+}

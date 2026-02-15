@@ -1,0 +1,140 @@
+[
+  {
+    "id": "neutralization",
+    "type": "exchange",
+    "pattern": "acid + base -> salt + water",
+    "description_ru": "Нейтрализация: кислота + основание = соль + вода",
+    "conditions": null,
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["HCl", "NaOH"], "products": ["NaCl", "H\u2082O"] },
+      { "reactants": ["H\u2082SO\u2084", "2KOH"], "products": ["K\u2082SO\u2084", "2H\u2082O"] },
+      { "reactants": ["HNO\u2083", "KOH"], "products": ["KNO\u2083", "H\u2082O"] },
+      { "reactants": ["2HCl", "Ca(OH)\u2082"], "products": ["CaCl\u2082", "2H\u2082O"] }
+    ]
+  },
+  {
+    "id": "metal_acid",
+    "type": "substitution",
+    "pattern": "active metal + dilute acid -> salt + H2",
+    "description_ru": "Взаимодействие активного металла с разбавленной кислотой: металл + кислота = соль + водород",
+    "conditions": "Металл стоит в ряду активности до водорода; кислота разбавленная (не HNO\u2083)",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["Zn", "2HCl"], "products": ["ZnCl\u2082", "H\u2082\u2191"] },
+      { "reactants": ["Fe", "H\u2082SO\u2084(разб.)"], "products": ["FeSO\u2084", "H\u2082\u2191"] },
+      { "reactants": ["Mg", "2HCl"], "products": ["MgCl\u2082", "H\u2082\u2191"] },
+      { "reactants": ["2Al", "3H\u2082SO\u2084(разб.)"], "products": ["Al\u2082(SO\u2084)\u2083", "3H\u2082\u2191"] }
+    ]
+  },
+  {
+    "id": "carbonate_acid",
+    "type": "exchange",
+    "pattern": "carbonate + acid -> salt + H2O + CO2",
+    "description_ru": "Карбонат + кислота = соль + вода + углекислый газ",
+    "conditions": null,
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["CaCO\u2083", "2HCl"], "products": ["CaCl\u2082", "H\u2082O", "CO\u2082\u2191"] },
+      { "reactants": ["Na\u2082CO\u2083", "H\u2082SO\u2084"], "products": ["Na\u2082SO\u2084", "H\u2082O", "CO\u2082\u2191"] },
+      { "reactants": ["Na\u2082CO\u2083", "2HCl"], "products": ["2NaCl", "H\u2082O", "CO\u2082\u2191"] }
+    ]
+  },
+  {
+    "id": "metal_displacement",
+    "type": "substitution",
+    "pattern": "more active metal + salt solution -> new salt + displaced metal",
+    "description_ru": "Вытеснение менее активного металла из раствора соли более активным металлом",
+    "conditions": "Более активный металл (не щелочной/щёлочноземельный) + раствор соли менее активного металла",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["Fe", "CuSO\u2084"], "products": ["FeSO\u2084", "Cu\u2193"] },
+      { "reactants": ["Zn", "CuSO\u2084"], "products": ["ZnSO\u2084", "Cu\u2193"] },
+      { "reactants": ["Cu", "2AgNO\u2083"], "products": ["Cu(NO\u2083)\u2082", "2Ag\u2193"] }
+    ]
+  },
+  {
+    "id": "basic_oxide_water",
+    "type": "combination",
+    "pattern": "basic oxide of alkali/alkaline earth metal + water -> alkali",
+    "description_ru": "Основной оксид щелочного или щёлочноземельного металла + вода = щёлочь",
+    "conditions": "Оксид должен быть растворим (Na\u2082O, K\u2082O, CaO, BaO)",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["Na\u2082O", "H\u2082O"], "products": ["2NaOH"] },
+      { "reactants": ["CaO", "H\u2082O"], "products": ["Ca(OH)\u2082"] },
+      { "reactants": ["K\u2082O", "H\u2082O"], "products": ["2KOH"] },
+      { "reactants": ["BaO", "H\u2082O"], "products": ["Ba(OH)\u2082"] }
+    ]
+  },
+  {
+    "id": "acidic_oxide_water",
+    "type": "combination",
+    "pattern": "acidic oxide + water -> acid",
+    "description_ru": "Кислотный оксид + вода = кислота (кроме SiO\u2082)",
+    "conditions": "Оксид не должен быть SiO\u2082 (не реагирует с водой)",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["SO\u2083", "H\u2082O"], "products": ["H\u2082SO\u2084"] },
+      { "reactants": ["CO\u2082", "H\u2082O"], "products": ["H\u2082CO\u2083"] },
+      { "reactants": ["P\u2082O\u2085", "3H\u2082O"], "products": ["2H\u2083PO\u2084"] },
+      { "reactants": ["SO\u2082", "H\u2082O"], "products": ["H\u2082SO\u2083"] },
+      { "reactants": ["N\u2082O\u2085", "H\u2082O"], "products": ["2HNO\u2083"] }
+    ]
+  },
+  {
+    "id": "base_acidic_oxide",
+    "type": "exchange",
+    "pattern": "alkali + acidic oxide -> salt + water",
+    "description_ru": "Щёлочь + кислотный оксид = соль + вода",
+    "conditions": null,
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["2NaOH", "CO\u2082"], "products": ["Na\u2082CO\u2083", "H\u2082O"] },
+      { "reactants": ["2KOH", "SO\u2082"], "products": ["K\u2082SO\u2083", "H\u2082O"] },
+      { "reactants": ["Ca(OH)\u2082", "CO\u2082"], "products": ["CaCO\u2083\u2193", "H\u2082O"] },
+      { "reactants": ["2NaOH", "SO\u2083"], "products": ["Na\u2082SO\u2084", "H\u2082O"] }
+    ]
+  },
+  {
+    "id": "basic_oxide_acidic_oxide",
+    "type": "combination",
+    "pattern": "basic oxide + acidic oxide -> salt",
+    "description_ru": "Основной оксид + кислотный оксид = соль",
+    "conditions": null,
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["CaO", "CO\u2082"], "products": ["CaCO\u2083"] },
+      { "reactants": ["Na\u2082O", "SO\u2083"], "products": ["Na\u2082SO\u2084"] },
+      { "reactants": ["BaO", "SO\u2083"], "products": ["BaSO\u2084"] },
+      { "reactants": ["CaO", "SiO\u2082"], "products": ["CaSiO\u2083"] }
+    ]
+  },
+  {
+    "id": "salt_precipitate_exchange",
+    "type": "exchange",
+    "pattern": "salt1 (aq) + salt2 (aq) -> salt3 (precipitate) + salt4 (aq)",
+    "description_ru": "Обмен между двумя растворимыми солями с образованием нерастворимой соли (осадка)",
+    "conditions": "Оба исходных вещества растворимы; один из продуктов — нерастворимый осадок",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["BaCl\u2082", "Na\u2082SO\u2084"], "products": ["BaSO\u2084\u2193", "2NaCl"] },
+      { "reactants": ["AgNO\u2083", "NaCl"], "products": ["AgCl\u2193", "NaNO\u2083"] },
+      { "reactants": ["Pb(NO\u2083)\u2082", "2KI"], "products": ["PbI\u2082\u2193", "2KNO\u2083"] }
+    ]
+  },
+  {
+    "id": "insoluble_base_decomposition",
+    "type": "decomposition",
+    "pattern": "insoluble base -> metal oxide + water (upon heating)",
+    "description_ru": "Разложение нерастворимого основания при нагревании: нерастворимое основание = оксид металла + вода",
+    "conditions": "Нагревание",
+    "catalyst": null,
+    "examples": [
+      { "reactants": ["Cu(OH)\u2082"], "products": ["CuO", "H\u2082O"] },
+      { "reactants": ["2Fe(OH)\u2083"], "products": ["Fe\u2082O\u2083", "3H\u2082O"] },
+      { "reactants": ["2Al(OH)\u2083"], "products": ["Al\u2082O\u2083", "3H\u2082O"] },
+      { "reactants": ["Mg(OH)\u2082"], "products": ["MgO", "H\u2082O"] }
+    ]
+  }
+]

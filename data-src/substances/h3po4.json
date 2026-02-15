@@ -1,0 +1,9 @@
+{
+  "id": "h3po4",
+  "formula": "H\u2083PO\u2084",
+  "name_ru": "Фосфорная кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": ["H_plus", "PO4_3minus"],
+  "tags": ["soluble", "medium_acid", "triprotic"]
+}

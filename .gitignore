@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# generated data bundles
+public/data/
+
 # generated types
 .astro/
 

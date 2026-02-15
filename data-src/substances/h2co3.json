@@ -1,0 +1,9 @@
+{
+  "id": "h2co3",
+  "formula": "H\u2082CO\u2083",
+  "name_ru": "Угольная кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": ["H_plus", "CO3_2minus"],
+  "tags": ["unstable", "weak_acid", "diprotic", "decomposes"]
+}

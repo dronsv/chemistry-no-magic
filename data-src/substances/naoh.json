@@ -1,0 +1,9 @@
+{
+  "id": "naoh",
+  "formula": "NaOH",
+  "name_ru": "Гидроксид натрия",
+  "class": "base",
+  "subclass": "soluble",
+  "ions": ["Na_plus", "OH_minus"],
+  "tags": ["soluble", "strong_electrolyte", "alkali"]
+}

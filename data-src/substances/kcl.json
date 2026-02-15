@@ -1,0 +1,9 @@
+{
+  "id": "kcl",
+  "formula": "KCl",
+  "name_ru": "Хлорид калия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["K_plus", "Cl_minus"],
+  "tags": ["soluble"]
+}

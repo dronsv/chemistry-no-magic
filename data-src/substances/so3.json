@@ -1,0 +1,9 @@
+{
+  "id": "so3",
+  "formula": "SO\u2083",
+  "name_ru": "Оксид серы(VI)",
+  "class": "oxide",
+  "subclass": "acidic",
+  "ions": [],
+  "tags": ["reacts_with_water"]
+}

@@ -1,0 +1,1960 @@
+[
+  {
+    "Z": 1,
+    "symbol": "H",
+    "name_ru": "Водород",
+    "name_en": "Hydrogen",
+    "name_latin": "Hydrogenium",
+    "group": 1,
+    "period": 1,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -1,
+      0,
+      1
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 2,
+    "symbol": "He",
+    "name_ru": "Гелий",
+    "name_en": "Helium",
+    "name_latin": "Helium",
+    "group": 18,
+    "period": 1,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 3,
+    "symbol": "Li",
+    "name_ru": "Литий",
+    "name_en": "Lithium",
+    "name_latin": "Lithium",
+    "group": 1,
+    "period": 2,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.98
+  },
+  {
+    "Z": 4,
+    "symbol": "Be",
+    "name_ru": "Бериллий",
+    "name_en": "Beryllium",
+    "name_latin": "Beryllium",
+    "group": 2,
+    "period": 2,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1.57
+  },
+  {
+    "Z": 5,
+    "symbol": "B",
+    "name_ru": "Бор",
+    "name_en": "Boron",
+    "name_latin": "Borum",
+    "group": 13,
+    "period": 2,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 2.04
+  },
+  {
+    "Z": 6,
+    "symbol": "C",
+    "name_ru": "Углерод",
+    "name_en": "Carbon",
+    "name_latin": "Carboneum",
+    "group": 14,
+    "period": 2,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -4,
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2.55
+  },
+  {
+    "Z": 7,
+    "symbol": "N",
+    "name_ru": "Азот",
+    "name_en": "Nitrogen",
+    "name_latin": "Nitrogenium",
+    "group": 15,
+    "period": 2,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -3,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "electronegativity": 3.04
+  },
+  {
+    "Z": 8,
+    "symbol": "O",
+    "name_ru": "Кислород",
+    "name_en": "Oxygen",
+    "name_latin": "Oxygenium",
+    "group": 16,
+    "period": 2,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -2,
+      -1,
+      0
+    ],
+    "electronegativity": 3.44
+  },
+  {
+    "Z": 9,
+    "symbol": "F",
+    "name_ru": "Фтор",
+    "name_en": "Fluorine",
+    "name_latin": "Fluorum",
+    "group": 17,
+    "period": 2,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      -1,
+      0
+    ],
+    "electronegativity": 3.98
+  },
+  {
+    "Z": 10,
+    "symbol": "Ne",
+    "name_ru": "Неон",
+    "name_en": "Neon",
+    "name_latin": "Neon",
+    "group": 18,
+    "period": 2,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 11,
+    "symbol": "Na",
+    "name_ru": "Натрий",
+    "name_en": "Sodium",
+    "name_latin": "Natrium",
+    "group": 1,
+    "period": 3,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.93
+  },
+  {
+    "Z": 12,
+    "symbol": "Mg",
+    "name_ru": "Магний",
+    "name_en": "Magnesium",
+    "name_latin": "Magnesium",
+    "group": 2,
+    "period": 3,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1.31
+  },
+  {
+    "Z": 13,
+    "symbol": "Al",
+    "name_ru": "Алюминий",
+    "name_en": "Aluminium",
+    "name_latin": "Aluminium",
+    "group": 13,
+    "period": 3,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.61
+  },
+  {
+    "Z": 14,
+    "symbol": "Si",
+    "name_ru": "Кремний",
+    "name_en": "Silicon",
+    "name_latin": "Silicium",
+    "group": 14,
+    "period": 3,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      -4,
+      0,
+      4
+    ],
+    "electronegativity": 1.9
+  },
+  {
+    "Z": 15,
+    "symbol": "P",
+    "name_ru": "Фосфор",
+    "name_en": "Phosphorus",
+    "name_latin": "Phosphorus",
+    "group": 15,
+    "period": 3,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -3,
+      0,
+      3,
+      5
+    ],
+    "electronegativity": 2.19
+  },
+  {
+    "Z": 16,
+    "symbol": "S",
+    "name_ru": "Сера",
+    "name_en": "Sulfur",
+    "name_latin": "Sulphur",
+    "group": 16,
+    "period": 3,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -2,
+      0,
+      4,
+      6
+    ],
+    "electronegativity": 2.58
+  },
+  {
+    "Z": 17,
+    "symbol": "Cl",
+    "name_ru": "Хлор",
+    "name_en": "Chlorine",
+    "name_latin": "Chlorum",
+    "group": 17,
+    "period": 3,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      -1,
+      0,
+      1,
+      3,
+      5,
+      7
+    ],
+    "electronegativity": 3.16
+  },
+  {
+    "Z": 18,
+    "symbol": "Ar",
+    "name_ru": "Аргон",
+    "name_en": "Argon",
+    "name_latin": "Argon",
+    "group": 18,
+    "period": 3,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 19,
+    "symbol": "K",
+    "name_ru": "Калий",
+    "name_en": "Potassium",
+    "name_latin": "Kalium",
+    "group": 1,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.82
+  },
+  {
+    "Z": 20,
+    "symbol": "Ca",
+    "name_ru": "Кальций",
+    "name_en": "Calcium",
+    "name_latin": "Calcium",
+    "group": 2,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1
+  },
+  {
+    "Z": 21,
+    "symbol": "Sc",
+    "name_ru": "Скандий",
+    "name_en": "Scandium",
+    "name_latin": "Scandium",
+    "group": 3,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.36
+  },
+  {
+    "Z": 22,
+    "symbol": "Ti",
+    "name_ru": "Титан",
+    "name_en": "Titanium",
+    "name_latin": "Titanium",
+    "group": 4,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "electronegativity": 1.54
+  },
+  {
+    "Z": 23,
+    "symbol": "V",
+    "name_ru": "Ванадий",
+    "name_en": "Vanadium",
+    "name_latin": "Vanadium",
+    "group": 5,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3,
+      4,
+      5
+    ],
+    "electronegativity": 1.63
+  },
+  {
+    "Z": 24,
+    "symbol": "Cr",
+    "name_ru": "Хром",
+    "name_en": "Chromium",
+    "name_latin": "Chromium",
+    "group": 6,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3,
+      6
+    ],
+    "electronegativity": 1.66
+  },
+  {
+    "Z": 25,
+    "symbol": "Mn",
+    "name_ru": "Марганец",
+    "name_en": "Manganese",
+    "name_latin": "Manganum",
+    "group": 7,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4,
+      6,
+      7
+    ],
+    "electronegativity": 1.55
+  },
+  {
+    "Z": 26,
+    "symbol": "Fe",
+    "name_ru": "Железо",
+    "name_en": "Iron",
+    "name_latin": "Ferrum",
+    "group": 8,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.83
+  },
+  {
+    "Z": 27,
+    "symbol": "Co",
+    "name_ru": "Кобальт",
+    "name_en": "Cobalt",
+    "name_latin": "Cobaltum",
+    "group": 9,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.88
+  },
+  {
+    "Z": 28,
+    "symbol": "Ni",
+    "name_ru": "Никель",
+    "name_en": "Nickel",
+    "name_latin": "Niccolum",
+    "group": 10,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1.91
+  },
+  {
+    "Z": 29,
+    "symbol": "Cu",
+    "name_ru": "Медь",
+    "name_en": "Copper",
+    "name_latin": "Cuprum",
+    "group": 11,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      1,
+      2
+    ],
+    "electronegativity": 1.9
+  },
+  {
+    "Z": 30,
+    "symbol": "Zn",
+    "name_ru": "Цинк",
+    "name_en": "Zinc",
+    "name_latin": "Zincum",
+    "group": 12,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1.65
+  },
+  {
+    "Z": 31,
+    "symbol": "Ga",
+    "name_ru": "Галлий",
+    "name_en": "Gallium",
+    "name_latin": "Gallium",
+    "group": 13,
+    "period": 4,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.81
+  },
+  {
+    "Z": 32,
+    "symbol": "Ge",
+    "name_ru": "Германий",
+    "name_en": "Germanium",
+    "name_latin": "Germanium",
+    "group": 14,
+    "period": 4,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2.01
+  },
+  {
+    "Z": 33,
+    "symbol": "As",
+    "name_ru": "Мышьяк",
+    "name_en": "Arsenic",
+    "name_latin": "Arsenicum",
+    "group": 15,
+    "period": 4,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      -3,
+      0,
+      3,
+      5
+    ],
+    "electronegativity": 2.18
+  },
+  {
+    "Z": 34,
+    "symbol": "Se",
+    "name_ru": "Селен",
+    "name_en": "Selenium",
+    "name_latin": "Selenium",
+    "group": 16,
+    "period": 4,
+    "metal_type": "nonmetal",
+    "element_group": "nonmetal",
+    "typical_oxidation_states": [
+      -2,
+      0,
+      4,
+      6
+    ],
+    "electronegativity": 2.55
+  },
+  {
+    "Z": 35,
+    "symbol": "Br",
+    "name_ru": "Бром",
+    "name_en": "Bromine",
+    "name_latin": "Bromum",
+    "group": 17,
+    "period": 4,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      -1,
+      0,
+      1,
+      5
+    ],
+    "electronegativity": 2.96
+  },
+  {
+    "Z": 36,
+    "symbol": "Kr",
+    "name_ru": "Криптон",
+    "name_en": "Krypton",
+    "name_latin": "Krypton",
+    "group": 18,
+    "period": 4,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 3
+  },
+  {
+    "Z": 37,
+    "symbol": "Rb",
+    "name_ru": "Рубидий",
+    "name_en": "Rubidium",
+    "name_latin": "Rubidium",
+    "group": 1,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.82
+  },
+  {
+    "Z": 38,
+    "symbol": "Sr",
+    "name_ru": "Стронций",
+    "name_en": "Strontium",
+    "name_latin": "Strontium",
+    "group": 2,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 0.95
+  },
+  {
+    "Z": 39,
+    "symbol": "Y",
+    "name_ru": "Иттрий",
+    "name_en": "Yttrium",
+    "name_latin": "Yttrium",
+    "group": 3,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.22
+  },
+  {
+    "Z": 40,
+    "symbol": "Zr",
+    "name_ru": "Цирконий",
+    "name_en": "Zirconium",
+    "name_latin": "Zirconium",
+    "group": 4,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4
+    ],
+    "electronegativity": 1.33
+  },
+  {
+    "Z": 41,
+    "symbol": "Nb",
+    "name_ru": "Ниобий",
+    "name_en": "Niobium",
+    "name_latin": "Niobium",
+    "group": 5,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3,
+      5
+    ],
+    "electronegativity": 1.6
+  },
+  {
+    "Z": 42,
+    "symbol": "Mo",
+    "name_ru": "Молибден",
+    "name_en": "Molybdenum",
+    "name_latin": "Molybdaenum",
+    "group": 6,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4,
+      6
+    ],
+    "electronegativity": 2.16
+  },
+  {
+    "Z": 43,
+    "symbol": "Tc",
+    "name_ru": "Технеций",
+    "name_en": "Technetium",
+    "name_latin": "Technetium",
+    "group": 7,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4,
+      7
+    ],
+    "electronegativity": 1.9
+  },
+  {
+    "Z": 44,
+    "symbol": "Ru",
+    "name_ru": "Рутений",
+    "name_en": "Ruthenium",
+    "name_latin": "Ruthenium",
+    "group": 8,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4,
+      8
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 45,
+    "symbol": "Rh",
+    "name_ru": "Родий",
+    "name_en": "Rhodium",
+    "name_latin": "Rhodium",
+    "group": 9,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 2.28
+  },
+  {
+    "Z": 46,
+    "symbol": "Pd",
+    "name_ru": "Палладий",
+    "name_en": "Palladium",
+    "name_latin": "Palladium",
+    "group": 10,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 47,
+    "symbol": "Ag",
+    "name_ru": "Серебро",
+    "name_en": "Silver",
+    "name_latin": "Argentum",
+    "group": 11,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 1.93
+  },
+  {
+    "Z": 48,
+    "symbol": "Cd",
+    "name_ru": "Кадмий",
+    "name_en": "Cadmium",
+    "name_latin": "Cadmium",
+    "group": 12,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 1.69
+  },
+  {
+    "Z": 49,
+    "symbol": "In",
+    "name_ru": "Индий",
+    "name_en": "Indium",
+    "name_latin": "Indium",
+    "group": 13,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.78
+  },
+  {
+    "Z": 50,
+    "symbol": "Sn",
+    "name_ru": "Олово",
+    "name_en": "Tin",
+    "name_latin": "Stannum",
+    "group": 14,
+    "period": 5,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 1.96
+  },
+  {
+    "Z": 51,
+    "symbol": "Sb",
+    "name_ru": "Сурьма",
+    "name_en": "Antimony",
+    "name_latin": "Stibium",
+    "group": 15,
+    "period": 5,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      -3,
+      0,
+      3,
+      5
+    ],
+    "electronegativity": 2.05
+  },
+  {
+    "Z": 52,
+    "symbol": "Te",
+    "name_ru": "Теллур",
+    "name_en": "Tellurium",
+    "name_latin": "Tellurium",
+    "group": 16,
+    "period": 5,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      -2,
+      0,
+      4,
+      6
+    ],
+    "electronegativity": 2.1
+  },
+  {
+    "Z": 53,
+    "symbol": "I",
+    "name_ru": "Иод",
+    "name_en": "Iodine",
+    "name_latin": "Iodum",
+    "group": 17,
+    "period": 5,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      -1,
+      0,
+      1,
+      5,
+      7
+    ],
+    "electronegativity": 2.66
+  },
+  {
+    "Z": 54,
+    "symbol": "Xe",
+    "name_ru": "Ксенон",
+    "name_en": "Xenon",
+    "name_latin": "Xenon",
+    "group": 18,
+    "period": 5,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "electronegativity": 2.6
+  },
+  {
+    "Z": 55,
+    "symbol": "Cs",
+    "name_ru": "Цезий",
+    "name_en": "Caesium",
+    "name_latin": "Caesium",
+    "group": 1,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.79
+  },
+  {
+    "Z": 56,
+    "symbol": "Ba",
+    "name_ru": "Барий",
+    "name_en": "Barium",
+    "name_latin": "Barium",
+    "group": 2,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 0.89
+  },
+  {
+    "Z": 57,
+    "symbol": "La",
+    "name_ru": "Лантан",
+    "name_en": "Lanthanum",
+    "name_latin": "Lanthanum",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.1
+  },
+  {
+    "Z": 58,
+    "symbol": "Ce",
+    "name_ru": "Церий",
+    "name_en": "Cerium",
+    "name_latin": "Cerium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4
+    ],
+    "electronegativity": 1.12
+  },
+  {
+    "Z": 59,
+    "symbol": "Pr",
+    "name_ru": "Празеодим",
+    "name_en": "Praseodymium",
+    "name_latin": "Praseodymium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.13
+  },
+  {
+    "Z": 60,
+    "symbol": "Nd",
+    "name_ru": "Неодим",
+    "name_en": "Neodymium",
+    "name_latin": "Neodymium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.14
+  },
+  {
+    "Z": 61,
+    "symbol": "Pm",
+    "name_ru": "Прометий",
+    "name_en": "Promethium",
+    "name_latin": "Promethium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.13
+  },
+  {
+    "Z": 62,
+    "symbol": "Sm",
+    "name_ru": "Самарий",
+    "name_en": "Samarium",
+    "name_latin": "Samarium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.17
+  },
+  {
+    "Z": 63,
+    "symbol": "Eu",
+    "name_ru": "Европий",
+    "name_en": "Europium",
+    "name_latin": "Europium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.2
+  },
+  {
+    "Z": 64,
+    "symbol": "Gd",
+    "name_ru": "Гадолиний",
+    "name_en": "Gadolinium",
+    "name_latin": "Gadolinium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.2
+  },
+  {
+    "Z": 65,
+    "symbol": "Tb",
+    "name_ru": "Тербий",
+    "name_en": "Terbium",
+    "name_latin": "Terbium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.2
+  },
+  {
+    "Z": 66,
+    "symbol": "Dy",
+    "name_ru": "Диспрозий",
+    "name_en": "Dysprosium",
+    "name_latin": "Dysprosium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.22
+  },
+  {
+    "Z": 67,
+    "symbol": "Ho",
+    "name_ru": "Гольмий",
+    "name_en": "Holmium",
+    "name_latin": "Holmium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.23
+  },
+  {
+    "Z": 68,
+    "symbol": "Er",
+    "name_ru": "Эрбий",
+    "name_en": "Erbium",
+    "name_latin": "Erbium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.24
+  },
+  {
+    "Z": 69,
+    "symbol": "Tm",
+    "name_ru": "Тулий",
+    "name_en": "Thulium",
+    "name_latin": "Thulium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.25
+  },
+  {
+    "Z": 70,
+    "symbol": "Yb",
+    "name_ru": "Иттербий",
+    "name_en": "Ytterbium",
+    "name_latin": "Ytterbium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.1
+  },
+  {
+    "Z": 71,
+    "symbol": "Lu",
+    "name_ru": "Лютеций",
+    "name_en": "Lutetium",
+    "name_latin": "Lutetium",
+    "group": 3,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "lanthanide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.27
+  },
+  {
+    "Z": 72,
+    "symbol": "Hf",
+    "name_ru": "Гафний",
+    "name_en": "Hafnium",
+    "name_latin": "Hafnium",
+    "group": 4,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 73,
+    "symbol": "Ta",
+    "name_ru": "Тантал",
+    "name_en": "Tantalum",
+    "name_latin": "Tantalum",
+    "group": 5,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      5
+    ],
+    "electronegativity": 1.5
+  },
+  {
+    "Z": 74,
+    "symbol": "W",
+    "name_ru": "Вольфрам",
+    "name_en": "Tungsten",
+    "name_latin": "Wolframium",
+    "group": 6,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4,
+      6
+    ],
+    "electronegativity": 2.36
+  },
+  {
+    "Z": 75,
+    "symbol": "Re",
+    "name_ru": "Рений",
+    "name_en": "Rhenium",
+    "name_latin": "Rhenium",
+    "group": 7,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4,
+      7
+    ],
+    "electronegativity": 1.9
+  },
+  {
+    "Z": 76,
+    "symbol": "Os",
+    "name_ru": "Осмий",
+    "name_en": "Osmium",
+    "name_latin": "Osmium",
+    "group": 8,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4,
+      8
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 77,
+    "symbol": "Ir",
+    "name_ru": "Иридий",
+    "name_en": "Iridium",
+    "name_latin": "Iridium",
+    "group": 9,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 78,
+    "symbol": "Pt",
+    "name_ru": "Платина",
+    "name_en": "Platinum",
+    "name_latin": "Platinum",
+    "group": 10,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2.28
+  },
+  {
+    "Z": 79,
+    "symbol": "Au",
+    "name_ru": "Золото",
+    "name_en": "Gold",
+    "name_latin": "Aurum",
+    "group": 11,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      1,
+      3
+    ],
+    "electronegativity": 2.54
+  },
+  {
+    "Z": 80,
+    "symbol": "Hg",
+    "name_ru": "Ртуть",
+    "name_en": "Mercury",
+    "name_latin": "Hydrargyrum",
+    "group": 12,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      1,
+      2
+    ],
+    "electronegativity": 2
+  },
+  {
+    "Z": 81,
+    "symbol": "Tl",
+    "name_ru": "Таллий",
+    "name_en": "Thallium",
+    "name_latin": "Thallium",
+    "group": 13,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      1,
+      3
+    ],
+    "electronegativity": 1.62
+  },
+  {
+    "Z": 82,
+    "symbol": "Pb",
+    "name_ru": "Свинец",
+    "name_en": "Lead",
+    "name_latin": "Plumbum",
+    "group": 14,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2.33
+  },
+  {
+    "Z": 83,
+    "symbol": "Bi",
+    "name_ru": "Висмут",
+    "name_en": "Bismuth",
+    "name_latin": "Bismuthum",
+    "group": 15,
+    "period": 6,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      3,
+      5
+    ],
+    "electronegativity": 2.02
+  },
+  {
+    "Z": 84,
+    "symbol": "Po",
+    "name_ru": "Полоний",
+    "name_en": "Polonium",
+    "name_latin": "Polonium",
+    "group": 16,
+    "period": 6,
+    "metal_type": "metalloid",
+    "element_group": "metalloid",
+    "typical_oxidation_states": [
+      0,
+      2,
+      4
+    ],
+    "electronegativity": 2
+  },
+  {
+    "Z": 85,
+    "symbol": "At",
+    "name_ru": "Астат",
+    "name_en": "Astatine",
+    "name_latin": "Astatium",
+    "group": 17,
+    "period": 6,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      -1,
+      0,
+      1
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 86,
+    "symbol": "Rn",
+    "name_ru": "Радон",
+    "name_en": "Radon",
+    "name_latin": "Radon",
+    "group": 18,
+    "period": 6,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 2.2
+  },
+  {
+    "Z": 87,
+    "symbol": "Fr",
+    "name_ru": "Франций",
+    "name_en": "Francium",
+    "name_latin": "Francium",
+    "group": 1,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "alkali_metal",
+    "typical_oxidation_states": [
+      0,
+      1
+    ],
+    "electronegativity": 0.7
+  },
+  {
+    "Z": 88,
+    "symbol": "Ra",
+    "name_ru": "Радий",
+    "name_en": "Radium",
+    "name_latin": "Radium",
+    "group": 2,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "alkaline_earth",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": 0.9
+  },
+  {
+    "Z": 89,
+    "symbol": "Ac",
+    "name_ru": "Актиний",
+    "name_en": "Actinium",
+    "name_latin": "Actinium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.1
+  },
+  {
+    "Z": 90,
+    "symbol": "Th",
+    "name_ru": "Торий",
+    "name_en": "Thorium",
+    "name_latin": "Thorium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      4
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 91,
+    "symbol": "Pa",
+    "name_ru": "Протактиний",
+    "name_en": "Protactinium",
+    "name_latin": "Protactinium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      4,
+      5
+    ],
+    "electronegativity": 1.5
+  },
+  {
+    "Z": 92,
+    "symbol": "U",
+    "name_ru": "Уран",
+    "name_en": "Uranium",
+    "name_latin": "Uranium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "electronegativity": 1.38
+  },
+  {
+    "Z": 93,
+    "symbol": "Np",
+    "name_ru": "Нептуний",
+    "name_en": "Neptunium",
+    "name_latin": "Neptunium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "electronegativity": 1.36
+  },
+  {
+    "Z": 94,
+    "symbol": "Pu",
+    "name_ru": "Плутоний",
+    "name_en": "Plutonium",
+    "name_latin": "Plutonium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "electronegativity": 1.28
+  },
+  {
+    "Z": 95,
+    "symbol": "Am",
+    "name_ru": "Америций",
+    "name_en": "Americium",
+    "name_latin": "Americium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 96,
+    "symbol": "Cm",
+    "name_ru": "Кюрий",
+    "name_en": "Curium",
+    "name_latin": "Curium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 97,
+    "symbol": "Bk",
+    "name_ru": "Берклий",
+    "name_en": "Berkelium",
+    "name_latin": "Berkelium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 98,
+    "symbol": "Cf",
+    "name_ru": "Калифорний",
+    "name_en": "Californium",
+    "name_latin": "Californium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 99,
+    "symbol": "Es",
+    "name_ru": "Эйнштейний",
+    "name_en": "Einsteinium",
+    "name_latin": "Einsteinium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 100,
+    "symbol": "Fm",
+    "name_ru": "Фермий",
+    "name_en": "Fermium",
+    "name_latin": "Fermium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 101,
+    "symbol": "Md",
+    "name_ru": "Менделевий",
+    "name_en": "Mendelevium",
+    "name_latin": "Mendelevium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 102,
+    "symbol": "No",
+    "name_ru": "Нобелий",
+    "name_en": "Nobelium",
+    "name_latin": "Nobelium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      2,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 103,
+    "symbol": "Lr",
+    "name_ru": "Лоуренсий",
+    "name_en": "Lawrencium",
+    "name_latin": "Lawrencium",
+    "group": 3,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "actinide",
+    "typical_oxidation_states": [
+      0,
+      3
+    ],
+    "electronegativity": 1.3
+  },
+  {
+    "Z": 104,
+    "symbol": "Rf",
+    "name_ru": "Резерфордий",
+    "name_en": "Rutherfordium",
+    "name_latin": "Rutherfordium",
+    "group": 4,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      4
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 105,
+    "symbol": "Db",
+    "name_ru": "Дубний",
+    "name_en": "Dubnium",
+    "name_latin": "Dubnium",
+    "group": 5,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      5
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 106,
+    "symbol": "Sg",
+    "name_ru": "Сиборгий",
+    "name_en": "Seaborgium",
+    "name_latin": "Seaborgium",
+    "group": 6,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      6
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 107,
+    "symbol": "Bh",
+    "name_ru": "Борий",
+    "name_en": "Bohrium",
+    "name_latin": "Bohrium",
+    "group": 7,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      7
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 108,
+    "symbol": "Hs",
+    "name_ru": "Хассий",
+    "name_en": "Hassium",
+    "name_latin": "Hassium",
+    "group": 8,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      8
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 109,
+    "symbol": "Mt",
+    "name_ru": "Мейтнерий",
+    "name_en": "Meitnerium",
+    "name_latin": "Meitnerium",
+    "group": 9,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 110,
+    "symbol": "Ds",
+    "name_ru": "Дармштадтий",
+    "name_en": "Darmstadtium",
+    "name_latin": "Darmstadtium",
+    "group": 10,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 111,
+    "symbol": "Rg",
+    "name_ru": "Рентгений",
+    "name_en": "Roentgenium",
+    "name_latin": "Roentgenium",
+    "group": 11,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 112,
+    "symbol": "Cn",
+    "name_ru": "Коперниций",
+    "name_en": "Copernicium",
+    "name_latin": "Copernicium",
+    "group": 12,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 113,
+    "symbol": "Nh",
+    "name_ru": "Нихоний",
+    "name_en": "Nihonium",
+    "name_latin": "Nihonium",
+    "group": 13,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 114,
+    "symbol": "Fl",
+    "name_ru": "Флеровий",
+    "name_en": "Flerovium",
+    "name_latin": "Flerovium",
+    "group": 14,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0,
+      2
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 115,
+    "symbol": "Mc",
+    "name_ru": "Московий",
+    "name_en": "Moscovium",
+    "name_latin": "Moscovium",
+    "group": 15,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 116,
+    "symbol": "Lv",
+    "name_ru": "Ливерморий",
+    "name_en": "Livermorium",
+    "name_latin": "Livermorium",
+    "group": 16,
+    "period": 7,
+    "metal_type": "metal",
+    "element_group": "post_transition_metal",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 117,
+    "symbol": "Ts",
+    "name_ru": "Теннессин",
+    "name_en": "Tennessine",
+    "name_latin": "Tennessium",
+    "group": 17,
+    "period": 7,
+    "metal_type": "nonmetal",
+    "element_group": "halogen",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  },
+  {
+    "Z": 118,
+    "symbol": "Og",
+    "name_ru": "Оганесон",
+    "name_en": "Oganesson",
+    "name_latin": "Oganesson",
+    "group": 18,
+    "period": 7,
+    "metal_type": "nonmetal",
+    "element_group": "noble_gas",
+    "typical_oxidation_states": [
+      0
+    ],
+    "electronegativity": null
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "id": "baso4",
+  "formula": "BaSO\u2084",
+  "name_ru": "Сульфат бария",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Ba_2plus", "SO4_2minus"],
+  "tags": ["insoluble"]
+}

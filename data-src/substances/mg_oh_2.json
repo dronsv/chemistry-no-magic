@@ -1,0 +1,9 @@
+{
+  "id": "mg_oh_2",
+  "formula": "Mg(OH)\u2082",
+  "name_ru": "Гидроксид магния",
+  "class": "base",
+  "subclass": "insoluble",
+  "ions": ["Mg_2plus", "OH_minus"],
+  "tags": ["insoluble", "white"]
+}

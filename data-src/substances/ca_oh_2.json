@@ -1,0 +1,9 @@
+{
+  "id": "ca_oh_2",
+  "formula": "Ca(OH)\u2082",
+  "name_ru": "Гидроксид кальция",
+  "class": "base",
+  "subclass": "soluble",
+  "ions": ["Ca_2plus", "OH_minus"],
+  "tags": ["slightly_soluble", "alkali"]
+}

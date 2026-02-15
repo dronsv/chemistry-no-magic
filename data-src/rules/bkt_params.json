@@ -1,0 +1,86 @@
+[
+  {
+    "competency_id": "periodic_table",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "electron_config",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "oxidation_states",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "classification",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "naming",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "reactions_exchange",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "gas_precipitate_logic",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "reactions_redox",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "reaction_energy_profile",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "catalyst_role_understanding",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "calculations_basic",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "calculations_solutions",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  }
+]

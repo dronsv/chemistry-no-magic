@@ -1,0 +1,9 @@
+{
+  "id": "agno3",
+  "formula": "AgNO\u2083",
+  "name_ru": "Нитрат серебра",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Ag_plus", "NO3_minus"],
+  "tags": ["soluble"]
+}
