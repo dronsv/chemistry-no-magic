@@ -1,20 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { Element } from '../../../types/element';
-import type { CompetencyId } from '../../../types/competency';
+import type { CompetencyId, CompetencyNode } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
-import { loadBktParams } from '../../../lib/data-loader';
+import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
 import { generateExercise } from './generate-exercises';
 import type { Exercise } from './generate-exercises';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import OrbitalFillingExercise from './OrbitalFillingExercise';
-
-const COMPETENCY_NAMES: Record<string, string> = {
-  periodic_table: 'Периодическая таблица',
-  electron_config: 'Электронная конфигурация',
-  oxidation_states: 'Степени окисления',
-};
 
 const LEVEL_LABELS: Record<string, string> = {
   none: 'Начальный',
@@ -29,6 +23,7 @@ interface Props {
 
 export default function PracticeSection({ elements }: Props) {
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
+  const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
   const [exercise, setExercise] = useState<Exercise | null>(null);
   const [count, setCount] = useState(0);
@@ -38,6 +33,11 @@ export default function PracticeSection({ elements }: Props) {
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
       setBktParamsMap(map);
+    });
+    loadCompetencies().then(comps => {
+      const names = new Map<string, string>();
+      for (const c of comps) names.set(c.id, c.name_ru);
+      setCompNames(names);
     });
     setPLevels(loadBktState());
   }, []);
@@ -87,7 +87,7 @@ export default function PracticeSection({ elements }: Props) {
           const level = getLevel(pL);
           return (
             <div key={compId} className="practice-level">
-              <span className="practice-level__name">{COMPETENCY_NAMES[compId]}</span>
+              <span className="practice-level__name">{compNames.get(compId) ?? compId}</span>
               <div className="practice-level__bar">
                 <div
                   className={`practice-level__fill practice-level__fill--${level}`}

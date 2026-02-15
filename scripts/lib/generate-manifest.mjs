@@ -25,6 +25,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         activity_series: 'rules/activity_series.json',
         applicability_rules: 'rules/applicability_rules.json',
         bkt_params: 'rules/bkt_params.json',
+        competencies: 'rules/competencies.json',
         periodic_table_theory: 'rules/periodic-table-theory.json',
       },
       templates: {

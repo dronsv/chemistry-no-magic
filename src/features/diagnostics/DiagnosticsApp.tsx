@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { DiagnosticQuestion } from '../../types/diagnostic';
 import type { BktParams } from '../../types/bkt';
-import type { CompetencyId } from '../../types/competency';
-import { loadDiagnosticQuestions, loadBktParams } from '../../lib/data-loader';
+import type { CompetencyId, CompetencyNode } from '../../types/competency';
+import { loadDiagnosticQuestions, loadBktParams, loadCompetencies } from '../../lib/data-loader';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { hasDiagnosticsResult, saveBktState, clearBktState } from '../../lib/storage';
 import ProgressBar from './ProgressBar';
@@ -21,6 +21,7 @@ export default function DiagnosticsApp() {
   const [phase, setPhase] = useState<Phase>('loading');
   const [questions, setQuestions] = useState<DiagnosticQuestion[]>([]);
   const [paramsMap, setParamsMap] = useState<Map<CompetencyId, BktParams>>(new Map());
+  const [competencies, setCompetencies] = useState<CompetencyNode[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [results, setResults] = useState<Map<CompetencyId, number>>(new Map());
@@ -32,9 +33,10 @@ export default function DiagnosticsApp() {
 
     async function load() {
       try {
-        const [qs, params] = await Promise.all([
+        const [qs, params, comps] = await Promise.all([
           loadDiagnosticQuestions(),
           loadBktParams(),
+          loadCompetencies(),
         ]);
 
         if (cancelled) return;
@@ -46,6 +48,7 @@ export default function DiagnosticsApp() {
 
         setQuestions(qs);
         setParamsMap(map);
+        setCompetencies(comps);
         setHasExisting(hasDiagnosticsResult());
         setPhase('intro');
       } catch (err) {
@@ -147,7 +150,7 @@ export default function DiagnosticsApp() {
 
   return (
     <div className="diag">
-      <ResultsSummary results={results} />
+      <ResultsSummary results={results} competencies={competencies} />
     </div>
   );
 }

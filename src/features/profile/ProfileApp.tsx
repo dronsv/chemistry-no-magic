@@ -1,54 +1,28 @@
-import { useState } from 'react';
-import type { CompetencyId } from '../../types/competency';
+import { useState, useEffect } from 'react';
+import type { CompetencyNode } from '../../types/competency';
+import { loadCompetencies } from '../../lib/data-loader';
 import { loadBktState, clearBktState } from '../../lib/storage';
 import CompetencyBar from './CompetencyBar';
 import './profile.css';
 
-const COMPETENCY_NAMES: Record<CompetencyId, string> = {
-  periodic_table: 'Периодическая таблица',
-  electron_config: 'Электронная конфигурация',
-  oxidation_states: 'Степени окисления',
-  classification: 'Классификация веществ',
-  naming: 'Номенклатура',
-  reactions_exchange: 'Реакции ионного обмена',
-  gas_precipitate_logic: 'Признаки реакций',
-  reactions_redox: 'Окислительно-восстановительные реакции',
-  reaction_energy_profile: 'Скорость и равновесие',
-  catalyst_role_understanding: 'Катализ и энергетика',
-  calculations_basic: 'Базовые расчёты',
-  calculations_solutions: 'Расчёты растворов',
-};
-
-interface CompetencyGroup {
-  title: string;
-  ids: CompetencyId[];
-}
-
-const GROUPS: CompetencyGroup[] = [
-  {
-    title: 'А — Строение атома и таблица',
-    ids: ['periodic_table', 'electron_config', 'oxidation_states'],
-  },
-  {
-    title: 'Б — Вещества',
-    ids: ['classification', 'naming'],
-  },
-  {
-    title: 'В — Реакции',
-    ids: ['reactions_exchange', 'gas_precipitate_logic', 'reactions_redox'],
-  },
-  {
-    title: 'Г — Энергетика и кинетика',
-    ids: ['reaction_energy_profile', 'catalyst_role_understanding'],
-  },
-  {
-    title: 'Д — Расчёты',
-    ids: ['calculations_basic', 'calculations_solutions'],
-  },
-];
-
 export default function ProfileApp() {
   const [state, setState] = useState(() => loadBktState());
+  const [competencies, setCompetencies] = useState<CompetencyNode[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadCompetencies()
+      .then(setCompetencies)
+      .catch(err => setError(err instanceof Error ? err.message : 'Ошибка загрузки'));
+  }, []);
+
+  if (error) {
+    return <div className="profile"><p className="profile__error">{error}</p></div>;
+  }
+
+  if (!competencies) {
+    return <div className="profile"><p className="profile__loading">Загрузка...</p></div>;
+  }
 
   if (state.size === 0) {
     return (
@@ -69,19 +43,29 @@ export default function ProfileApp() {
     setState(new Map());
   }
 
+  // Group competencies by block
+  const blocks = new Map<string, { title: string; items: CompetencyNode[] }>();
+  for (const c of competencies) {
+    const key = c.block;
+    if (!blocks.has(key)) {
+      blocks.set(key, { title: `${key} — ${c.block_name_ru}`, items: [] });
+    }
+    blocks.get(key)!.items.push(c);
+  }
+
   return (
     <div className="profile">
       <h1 className="profile__title">Профиль компетенций</h1>
 
-      {GROUPS.map((group) => (
-        <div key={group.title} className="profile__group">
+      {[...blocks.entries()].map(([key, group]) => (
+        <div key={key} className="profile__group">
           <h2 className="profile__group-title">{group.title}</h2>
           <div className="profile__bars">
-            {group.ids.map((id) => (
+            {group.items.map((c) => (
               <CompetencyBar
-                key={id}
-                name={COMPETENCY_NAMES[id]}
-                pL={state.get(id) ?? 0.25}
+                key={c.id}
+                name={c.name_ru}
+                pL={state.get(c.id) ?? 0.25}
               />
             ))}
           </div>

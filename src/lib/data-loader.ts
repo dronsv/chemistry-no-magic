@@ -5,6 +5,7 @@ import type { Substance } from '../types/substance';
 import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
+import type { CompetencyNode } from '../types/competency';
 import type { ElectronConfigException } from '../types/electron-config';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 
@@ -114,6 +115,20 @@ export async function loadIndex(name: string): Promise<unknown> {
   }
 
   return loadDataFile<unknown>(path);
+}
+
+/** Load competency definitions (names, blocks, prerequisites). */
+export async function loadCompetencies(): Promise<CompetencyNode[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.rules['competencies'];
+
+  if (!path) {
+    throw new Error(
+      'Competencies not found in manifest. Expected key "competencies" in entrypoints.rules.',
+    );
+  }
+
+  return loadDataFile<CompetencyNode[]>(path);
 }
 
 /** Load BKT parameters for all competencies. */

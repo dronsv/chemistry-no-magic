@@ -1,0 +1,202 @@
+[
+  {
+    "id": "periodic_table",
+    "name_ru": "Периодическая таблица",
+    "description_ru": "Определение положения элемента в ПСХЭ: период, группа, подгруппа. Металлы и неметаллы. Порядковый номер и его связь со строением атома.",
+    "block": "A",
+    "block_name_ru": "Строение атома и ПСХЭ",
+    "prerequisites": [],
+    "oge_task_types": [1],
+    "link": "/periodic-table/"
+  },
+  {
+    "id": "electron_config",
+    "name_ru": "Электронная конфигурация",
+    "description_ru": "Заполнение электронных оболочек по правилам Клечковского, Хунда, Паули. Запись конфигурации, определение валентных электронов. Исключения (Cr, Cu).",
+    "block": "A",
+    "block_name_ru": "Строение атома и ПСХЭ",
+    "prerequisites": ["periodic_table"],
+    "oge_task_types": [3, 4],
+    "link": "/periodic-table/"
+  },
+  {
+    "id": "periodic_trends",
+    "name_ru": "Периодические закономерности",
+    "description_ru": "Изменение свойств элементов в периодах и группах: радиус, электроотрицательность, энергия ионизации, металличность. Объяснение через электронную структуру.",
+    "block": "A",
+    "block_name_ru": "Строение атома и ПСХЭ",
+    "prerequisites": ["periodic_table"],
+    "oge_task_types": [2],
+    "link": "/periodic-table/"
+  },
+  {
+    "id": "oxidation_states",
+    "name_ru": "Степени окисления",
+    "description_ru": "Определение степени окисления элемента в соединении. Связь с электронной конфигурацией и положением в таблице. Окислитель и восстановитель.",
+    "block": "A",
+    "block_name_ru": "Строение атома и ПСХЭ",
+    "prerequisites": ["electron_config"],
+    "oge_task_types": [16, 17],
+    "link": null
+  },
+  {
+    "id": "bond_type",
+    "name_ru": "Типы химической связи",
+    "description_ru": "Ковалентная (полярная и неполярная), ионная, металлическая связь. Определение типа связи по разности электроотрицательностей и составу вещества.",
+    "block": "B",
+    "block_name_ru": "Химическая связь и строение вещества",
+    "prerequisites": ["electron_config"],
+    "oge_task_types": [5],
+    "link": null
+  },
+  {
+    "id": "crystal_structure_type",
+    "name_ru": "Типы кристаллических решёток",
+    "description_ru": "Ионная, молекулярная, атомная и металлическая решётки. Связь типа решётки с физическими свойствами (температура плавления, растворимость, проводимость).",
+    "block": "B",
+    "block_name_ru": "Химическая связь и строение вещества",
+    "prerequisites": ["bond_type"],
+    "oge_task_types": [6],
+    "link": null
+  },
+  {
+    "id": "classification",
+    "name_ru": "Классификация веществ",
+    "description_ru": "Оксиды (основные, кислотные, амфотерные), кислоты, основания, соли. Определение класса по составу и свойствам.",
+    "block": "C",
+    "block_name_ru": "Классы веществ и номенклатура",
+    "prerequisites": ["periodic_trends", "electron_config"],
+    "oge_task_types": [7],
+    "link": null
+  },
+  {
+    "id": "naming",
+    "name_ru": "Номенклатура",
+    "description_ru": "Систематическое и тривиальное названия веществ. Название по формуле и формула по названию.",
+    "block": "C",
+    "block_name_ru": "Классы веществ и номенклатура",
+    "prerequisites": ["classification"],
+    "oge_task_types": [8],
+    "link": null
+  },
+  {
+    "id": "amphoterism_logic",
+    "name_ru": "Амфотерность",
+    "description_ru": "Амфотерные оксиды и гидроксиды: реакции с кислотами и щелочами. Типичные амфотерные элементы (Al, Zn, Be, Cr).",
+    "block": "C",
+    "block_name_ru": "Классы веществ и номенклатура",
+    "prerequisites": ["classification"],
+    "oge_task_types": [9],
+    "link": null
+  },
+  {
+    "id": "reactions_exchange",
+    "name_ru": "Реакции ионного обмена",
+    "description_ru": "Реакции обмена в растворах: нейтрализация, соль + кислота, соль + щёлочь, соль + соль. Полные и сокращённые ионные уравнения.",
+    "block": "D",
+    "block_name_ru": "Реакции",
+    "prerequisites": ["classification"],
+    "oge_task_types": [11, 12, 13],
+    "link": null
+  },
+  {
+    "id": "gas_precipitate_logic",
+    "name_ru": "Признаки реакций",
+    "description_ru": "Движущие силы реакций ионного обмена: образование осадка, газа или воды. Таблица растворимости. Карбонат + кислота → CO₂.",
+    "block": "D",
+    "block_name_ru": "Реакции",
+    "prerequisites": ["reactions_exchange"],
+    "oge_task_types": [10, 14],
+    "link": null
+  },
+  {
+    "id": "reactions_redox",
+    "name_ru": "Окислительно-восстановительные реакции",
+    "description_ru": "Замещение, балансировка ОВР методом электронного баланса. Ряд активности металлов. Металл + соль, металл + кислота.",
+    "block": "D",
+    "block_name_ru": "Реакции",
+    "prerequisites": ["reactions_exchange"],
+    "oge_task_types": [15, 18],
+    "link": null
+  },
+  {
+    "id": "genetic_chain_logic",
+    "name_ru": "Генетические цепочки",
+    "description_ru": "Генетическая связь между классами веществ: цепочки превращений металл → оксид → гидроксид → соль и т.д.",
+    "block": "D",
+    "block_name_ru": "Реакции",
+    "prerequisites": ["reactions_redox", "reactions_exchange"],
+    "oge_task_types": [19],
+    "link": null
+  },
+  {
+    "id": "qualitative_analysis_logic",
+    "name_ru": "Качественные реакции",
+    "description_ru": "Распознавание веществ по характерным реакциям: цвет осадка, выделение газа, изменение цвета индикатора.",
+    "block": "D",
+    "block_name_ru": "Реакции",
+    "prerequisites": ["reactions_exchange"],
+    "oge_task_types": [20],
+    "link": null
+  },
+  {
+    "id": "reaction_energy_profile",
+    "name_ru": "Скорость и равновесие",
+    "description_ru": "Факторы, влияющие на скорость реакции (температура, концентрация, катализатор, площадь поверхности). Энергия активации. Химическое равновесие.",
+    "block": "E",
+    "block_name_ru": "Энергетика",
+    "prerequisites": ["reactions_exchange"],
+    "oge_task_types": [21],
+    "link": null
+  },
+  {
+    "id": "catalyst_role_understanding",
+    "name_ru": "Катализ и энергетика",
+    "description_ru": "Роль катализатора: что он меняет (скорость, Ea) и что не меняет (состав продуктов, тепловой эффект, равновесие). Экзо- и эндотермические реакции.",
+    "block": "E",
+    "block_name_ru": "Энергетика",
+    "prerequisites": ["reaction_energy_profile"],
+    "oge_task_types": [22],
+    "link": null
+  },
+  {
+    "id": "calculations_basic",
+    "name_ru": "Базовые расчёты",
+    "description_ru": "Молярная масса (Mr), количество вещества (n = m/M), массовая доля элемента. Расчёты по формуле вещества.",
+    "block": "F",
+    "block_name_ru": "Расчёты",
+    "prerequisites": ["periodic_table"],
+    "oge_task_types": [24, 25],
+    "link": null
+  },
+  {
+    "id": "calculations_solutions",
+    "name_ru": "Расчёты растворов",
+    "description_ru": "Массовая доля растворённого вещества (ω). Задачи на приготовление, разбавление и смешивание растворов.",
+    "block": "F",
+    "block_name_ru": "Расчёты",
+    "prerequisites": ["calculations_basic"],
+    "oge_task_types": [26],
+    "link": null
+  },
+  {
+    "id": "reaction_yield_logic",
+    "name_ru": "Выход продукта реакции",
+    "description_ru": "Расчёт выхода продукта реакции. Практический и теоретический выход. Избыток и недостаток реагента.",
+    "block": "F",
+    "block_name_ru": "Расчёты",
+    "prerequisites": ["calculations_solutions"],
+    "oge_task_types": [27],
+    "link": null
+  },
+  {
+    "id": "electrolyte_logic",
+    "name_ru": "Электролиты и диссоциация",
+    "description_ru": "Электролиты и неэлектролиты. Сильные и слабые электролиты. Электролитическая диссоциация кислот, оснований и солей.",
+    "block": "G",
+    "block_name_ru": "Растворы и электролиты",
+    "prerequisites": ["classification"],
+    "oge_task_types": [23],
+    "link": null
+  }
+]

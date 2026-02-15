@@ -1,21 +1,6 @@
-import type { CompetencyId } from '../../types/competency';
+import type { CompetencyId, CompetencyNode } from '../../types/competency';
 import type { CompetencyLevel } from '../../lib/bkt-engine';
 import { getLevel } from '../../lib/bkt-engine';
-
-const COMPETENCY_NAMES: Record<CompetencyId, string> = {
-  periodic_table: 'Периодическая таблица',
-  electron_config: 'Электронная конфигурация',
-  oxidation_states: 'Степени окисления',
-  classification: 'Классификация веществ',
-  naming: 'Номенклатура',
-  reactions_exchange: 'Реакции ионного обмена',
-  gas_precipitate_logic: 'Признаки реакций',
-  reactions_redox: 'Окислительно-восстановительные реакции',
-  reaction_energy_profile: 'Скорость и равновесие',
-  catalyst_role_understanding: 'Катализ и энергетика',
-  calculations_basic: 'Базовые расчёты',
-  calculations_solutions: 'Расчёты растворов',
-};
 
 const LEVEL_LABELS: Record<CompetencyLevel, string> = {
   none: 'Начальный',
@@ -24,26 +9,15 @@ const LEVEL_LABELS: Record<CompetencyLevel, string> = {
   automatic: 'Автоматизм',
 };
 
-const COMPETENCY_ORDER: CompetencyId[] = [
-  'periodic_table',
-  'electron_config',
-  'oxidation_states',
-  'classification',
-  'naming',
-  'reactions_exchange',
-  'gas_precipitate_logic',
-  'reactions_redox',
-  'reaction_energy_profile',
-  'catalyst_role_understanding',
-  'calculations_basic',
-  'calculations_solutions',
-];
-
 interface ResultsSummaryProps {
   results: Map<CompetencyId, number>;
+  competencies: CompetencyNode[];
 }
 
-export default function ResultsSummary({ results }: ResultsSummaryProps) {
+export default function ResultsSummary({ results, competencies }: ResultsSummaryProps) {
+  // Only show competencies that have results
+  const shown = competencies.filter(c => results.has(c.id));
+
   return (
     <div className="diag-results">
       <h2 className="diag-results__title">Результаты диагностики</h2>
@@ -52,14 +26,14 @@ export default function ResultsSummary({ results }: ResultsSummaryProps) {
       </p>
 
       <div className="diag-results__list">
-        {COMPETENCY_ORDER.map((id) => {
-          const pL = results.get(id) ?? 0.25;
+        {shown.map((c) => {
+          const pL = results.get(c.id) ?? 0.25;
           const level = getLevel(pL);
           const percent = Math.round(pL * 100);
 
           return (
-            <div key={id} className="comp-bar">
-              <span className="comp-bar__name">{COMPETENCY_NAMES[id]}</span>
+            <div key={c.id} className="comp-bar">
+              <span className="comp-bar__name">{c.name_ru}</span>
               <div className="comp-bar__track">
                 <div
                   className={`comp-bar__fill comp-bar__fill--${level}`}

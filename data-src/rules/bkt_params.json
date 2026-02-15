@@ -14,7 +14,28 @@
     "P_G": 0.20
   },
   {
+    "competency_id": "periodic_trends",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
     "competency_id": "oxidation_states",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "bond_type",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "crystal_structure_type",
     "P_L0": 0.25,
     "P_T": 0.12,
     "P_S": 0.10,
@@ -29,6 +50,13 @@
   },
   {
     "competency_id": "naming",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "amphoterism_logic",
     "P_L0": 0.25,
     "P_T": 0.12,
     "P_S": 0.10,
@@ -50,6 +78,20 @@
   },
   {
     "competency_id": "reactions_redox",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "genetic_chain_logic",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "qualitative_analysis_logic",
     "P_L0": 0.25,
     "P_T": 0.12,
     "P_S": 0.10,
@@ -78,6 +120,20 @@
   },
   {
     "competency_id": "calculations_solutions",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "reaction_yield_logic",
+    "P_L0": 0.25,
+    "P_T": 0.12,
+    "P_S": 0.10,
+    "P_G": 0.20
+  },
+  {
+    "competency_id": "electrolyte_logic",
     "P_L0": 0.25,
     "P_T": 0.12,
     "P_S": 0.10,

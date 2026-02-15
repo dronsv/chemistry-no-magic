@@ -77,10 +77,11 @@ async function main() {
   const electronConfigExceptions = await loadJson(join(DATA_SRC, 'electron-config-exceptions.json'));
   const periodicTableContent = await loadJson(join(DATA_SRC, 'periodic-table-content.json'));
   const periodicTableExercises = await loadJson(join(DATA_SRC, 'exercises', 'periodic-table-exercises.json'));
+  const competencies = await loadJson(join(DATA_SRC, 'rules', 'competencies.json'));
   const periodicTableTheory = await loadJson(join(DATA_SRC, 'rules', 'periodic-table-theory.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
-  console.log(`  ${diagnosticQuestions.length} diagnostic questions`);
+  console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${electronConfigExceptions.length} electron config exceptions, ${periodicTableExercises.exercise_types.length} exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates\n`);
 
@@ -153,6 +154,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'activity_series.json'), JSON.stringify(activitySeries));
   await writeFile(join(bundleDir, 'rules', 'applicability_rules.json'), JSON.stringify(applicabilityRules));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
+  await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 
   await mkdir(join(bundleDir, 'templates'), { recursive: true });
   await writeFile(join(bundleDir, 'templates', 'reaction_templates.json'), JSON.stringify(reactionTemplates));
