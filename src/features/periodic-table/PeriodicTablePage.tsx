@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElectronConfigException } from '../../types/electron-config';
 import { loadElements, loadElectronConfigExceptions } from '../../lib/data-loader';
@@ -25,6 +25,25 @@ export default function PeriodicTablePage() {
   const [hoveredElementGroup, setHoveredElementGroup] = useState<ElementGroup | null>(null);
   const [showTrends, setShowTrends] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const tableWrapperRef = useRef<HTMLDivElement>(null);
+  const [tableScale, setTableScale] = useState(1);
+
+  const updateScale = useCallback(() => {
+    const wrapper = tableWrapperRef.current;
+    if (!wrapper) return;
+    const grid = wrapper.firstElementChild as HTMLElement | null;
+    if (!grid) return;
+    const gridWidth = grid.scrollWidth;
+    const containerWidth = wrapper.clientWidth;
+    setTableScale(containerWidth < gridWidth ? containerWidth / gridWidth : 1);
+  }, []);
+
+  useEffect(() => {
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, [updateScale, elements, formType]);
 
   useEffect(() => {
     Promise.all([loadElements(), loadElectronConfigExceptions()])
@@ -111,16 +130,25 @@ export default function PeriodicTablePage() {
       />
 
       {/* Periodic table */}
-      <div className="pt-page__table">
-        <TableComponent
-          elements={elements}
-          onSelect={setSelectedElement}
-          highlightedGroup={highlightedGroup ?? hoveredElementGroup}
-          searchMatchedZ={searchMatchedZ}
-          onHoverElement={setHoveredElementGroup}
-          onHoverElementEnd={() => setHoveredElementGroup(null)}
-        />
-        {showTrends && <TrendsOverlay gridWidth={18} gridHeight={10} />}
+      <div
+        ref={tableWrapperRef}
+        className="pt-page__table"
+        style={tableScale < 1 ? { height: `${(tableWrapperRef.current?.firstElementChild as HTMLElement)?.scrollHeight * tableScale}px` } : undefined}
+      >
+        <div
+          className="pt-page__table-inner"
+          style={tableScale < 1 ? { transform: `scale(${tableScale})`, transformOrigin: 'top left' } : undefined}
+        >
+          <TableComponent
+            elements={elements}
+            onSelect={setSelectedElement}
+            highlightedGroup={highlightedGroup ?? hoveredElementGroup}
+            searchMatchedZ={searchMatchedZ}
+            onHoverElement={setHoveredElementGroup}
+            onHoverElementEnd={() => setHoveredElementGroup(null)}
+          />
+          {showTrends && <TrendsOverlay gridWidth={18} gridHeight={10} />}
+        </div>
       </div>
 
       {/* Element detail panel */}
