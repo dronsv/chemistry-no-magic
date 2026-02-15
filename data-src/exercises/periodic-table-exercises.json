@@ -1,0 +1,76 @@
+{
+  "exercise_types": [
+    {
+      "id": "find_period_group",
+      "type_label_ru": "Положение в таблице",
+      "question_template_ru": "Элемент с порядковым номером {Z} расположен в:",
+      "format": "multiple_choice",
+      "competency_map": { "periodic_table": "P" },
+      "distractor_strategy": "nearby_period_group",
+      "explanation_template_ru": "{symbol} ({name_ru}): электронная конфигурация {config}, значит {period}-й период, {group_explanation}."
+    },
+    {
+      "id": "select_electron_config",
+      "type_label_ru": "Электронная конфигурация",
+      "question_template_ru": "Какая электронная конфигурация соответствует элементу {name_ru} ({symbol})?",
+      "format": "multiple_choice",
+      "competency_map": { "electron_config": "P" },
+      "distractor_strategy": "swap_subshells",
+      "explanation_template_ru": "{symbol} (Z={Z}): последовательно заполняем подуровни по правилу Клечковского — {config}. Обратите внимание на порядок заполнения: {filling_order}."
+    },
+    {
+      "id": "fill_orbital_boxes",
+      "type_label_ru": "Орбитальная диаграмма",
+      "question_template_ru": "Заполните орбитальную диаграмму для атома {name_ru} ({symbol}, Z={Z}) в основном состоянии.",
+      "format": "interactive_orbital",
+      "competency_map": { "electron_config": "P" },
+      "distractor_strategy": null,
+      "explanation_template_ru": "{symbol} имеет {Z} электронов. Заполняем орбитали по правилу Клечковского с учётом правила Хунда: {orbital_diagram}. Валентные электроны расположены на {valence_subshells}."
+    },
+    {
+      "id": "count_valence",
+      "type_label_ru": "Валентные электроны",
+      "question_template_ru": "Сколько валентных электронов у атома {name_ru} ({symbol}) в основном состоянии?",
+      "format": "multiple_choice",
+      "competency_map": { "electron_config": "P", "periodic_table": "S" },
+      "distractor_strategy": "nearby_numbers",
+      "explanation_template_ru": "Конфигурация {symbol}: {config}. Валентные электроны — это электроны внешнего энергетического уровня ({valence_subshells}), их {valence_count}. Номер группы {group} подтверждает это."
+    },
+    {
+      "id": "identify_exception",
+      "type_label_ru": "Провал электрона",
+      "question_template_ru": "У какого из перечисленных элементов наблюдается провал электрона (аномальная электронная конфигурация)?",
+      "format": "multiple_choice",
+      "competency_map": { "electron_config": "P" },
+      "distractor_strategy": "exception_vs_normal",
+      "explanation_template_ru": "У {symbol} ({name_ru}) происходит провал электрона: вместо ожидаемой конфигурации {expected_config} реальная конфигурация — {actual_config}. Это связано с повышенной устойчивостью {stability_reason}."
+    },
+    {
+      "id": "element_from_config",
+      "type_label_ru": "Элемент по конфигурации",
+      "question_template_ru": "Какому элементу соответствует электронная конфигурация {config}?",
+      "format": "multiple_choice",
+      "competency_map": { "periodic_table": "P", "electron_config": "S" },
+      "distractor_strategy": "nearby_Z",
+      "explanation_template_ru": "Подсчитаем общее число электронов в конфигурации {config}: всего {Z} электронов. Элемент с порядковым номером {Z} — это {name_ru} ({symbol}), расположен в {period}-м периоде, {group}-й группе."
+    },
+    {
+      "id": "predict_oxidation",
+      "type_label_ru": "Степени окисления",
+      "question_template_ru": "Какие степени окисления характерны для элемента {name_ru} ({symbol}) исходя из его электронной конфигурации?",
+      "format": "multiple_choice",
+      "competency_map": { "oxidation_states": "P", "electron_config": "S" },
+      "distractor_strategy": "wrong_ox_states",
+      "explanation_template_ru": "Конфигурация {symbol}: {config}. На внешнем уровне {valence_count} электронов. Максимальная положительная степень окисления: {max_ox}, минимальная: {min_ox}. Характерные степени окисления: {typical_ox_states}."
+    },
+    {
+      "id": "compare_electronegativity",
+      "type_label_ru": "Сравнение электроотрицательности",
+      "question_template_ru": "Какой из двух элементов — {name_ru_1} ({symbol_1}) или {name_ru_2} ({symbol_2}) — обладает большей электроотрицательностью?",
+      "format": "multiple_choice",
+      "competency_map": { "periodic_table": "P" },
+      "distractor_strategy": "two_elements",
+      "explanation_template_ru": "Электроотрицательность растёт в периоде слева направо и в группе снизу вверх. {symbol_1} находится в {period_1}-м периоде, {group_1}-й группе, а {symbol_2} — в {period_2}-м периоде, {group_2}-й группе. Поэтому {answer_symbol} ({answer_name_ru}) более электроотрицателен ({en_1} против {en_2} по шкале Полинга)."
+    }
+  ]
+}
