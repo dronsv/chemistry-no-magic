@@ -777,6 +777,11 @@
   margin-bottom: var(--space-md);
 }
 
+.detail-panel__orbital-full {
+  margin-bottom: var(--space-md);
+  overflow-x: auto;
+}
+
 .detail-panel__vizs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

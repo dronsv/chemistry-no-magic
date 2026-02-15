@@ -49,10 +49,14 @@ export default function ElementDetailPanel({ element, exceptions, onClose }: Pro
         Период {element.period} · Группа {element.group} · {METAL_TYPE_RU[element.metal_type]}
       </div>
 
-      {/* Visualizations */}
+      {/* Orbital diagram — full width, right after header */}
+      <div className="detail-panel__orbital-full">
+        <OrbitalBoxDiagram Z={Z} />
+      </div>
+
+      {/* Formula + Energy diagram side by side */}
       <div className="detail-panel__vizs">
         <ElectronFormula Z={Z} />
-        <OrbitalBoxDiagram Z={Z} />
         <EnergyLevelDiagram Z={Z} />
       </div>
 

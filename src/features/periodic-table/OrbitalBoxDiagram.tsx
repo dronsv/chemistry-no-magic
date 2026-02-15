@@ -60,7 +60,6 @@ export default function OrbitalBoxDiagram({ Z }: Props) {
       <svg
         viewBox={`0 0 ${Math.max(totalW, 1)} ${totalH}`}
         width="100%"
-        style={{ maxHeight: '80px' }}
         role="img"
         aria-label="Орбитальная диаграмма"
       >
