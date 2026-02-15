@@ -1211,6 +1211,15 @@
   margin-top: var(--space-md);
 }
 
+.theory-panel__hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-alt);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 0.25rem;
+  margin-bottom: var(--space-sm);
+}
+
 /* General principle block */
 .theory-principle {
   padding: var(--space-md);

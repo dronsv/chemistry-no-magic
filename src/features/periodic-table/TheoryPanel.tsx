@@ -137,6 +137,9 @@ export default function TheoryPanel() {
 
               {/* Property trends */}
               <h3 className="theory-panel__heading">Тренды свойств</h3>
+              <p className="theory-panel__hint">
+                Нажмите кнопку <strong>Тренды</strong> над таблицей, чтобы увидеть направления изменения свойств на самой таблице.
+              </p>
               {theory.property_trends.map(trend => (
                 <TrendCard key={trend.id} trend={trend} />
               ))}
