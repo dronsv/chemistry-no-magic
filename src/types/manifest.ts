@@ -6,6 +6,9 @@ export interface ManifestEntrypoints {
   substances: string;
   indices: Record<string, string>;
   diagnostic?: string;
+  electron_config_exceptions?: string;
+  periodic_table_content?: string;
+  exercises?: Record<string, string>;
 }
 
 export interface ManifestStats {

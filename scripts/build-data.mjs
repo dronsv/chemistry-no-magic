@@ -74,9 +74,13 @@ async function main() {
   const taskTemplates = await loadJson(join(DATA_SRC, 'templates', 'task_templates.json'));
   const substances = await loadSubstances();
   const diagnosticQuestions = await loadJson(join(DATA_SRC, 'diagnostic', 'questions.json'));
+  const electronConfigExceptions = await loadJson(join(DATA_SRC, 'electron-config-exceptions.json'));
+  const periodicTableContent = await loadJson(join(DATA_SRC, 'periodic-table-content.json'));
+  const periodicTableExercises = await loadJson(join(DATA_SRC, 'exercises', 'periodic-table-exercises.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
   console.log(`  ${diagnosticQuestions.length} diagnostic questions`);
+  console.log(`  ${electronConfigExceptions.length} electron config exceptions, ${periodicTableExercises.exercise_types.length} exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates\n`);
 
   // 2. Validate
@@ -160,6 +164,11 @@ async function main() {
 
   await mkdir(join(bundleDir, 'diagnostic'), { recursive: true });
   await writeFile(join(bundleDir, 'diagnostic', 'questions.json'), JSON.stringify(diagnosticQuestions));
+
+  await writeFile(join(bundleDir, 'electron-config-exceptions.json'), JSON.stringify(electronConfigExceptions));
+  await writeFile(join(bundleDir, 'periodic-table-content.json'), JSON.stringify(periodicTableContent));
+  await mkdir(join(bundleDir, 'exercises'), { recursive: true });
+  await writeFile(join(bundleDir, 'exercises', 'periodic-table-exercises.json'), JSON.stringify(periodicTableExercises));
 
   // 7. Generate indices
   console.log('Generating indices...');

@@ -5,6 +5,7 @@ import type { Substance } from '../types/substance';
 import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
+import type { ElectronConfigException } from '../types/electron-config';
 
 /** Module-level cache for the manifest to avoid repeated fetches. */
 let manifestCache: Manifest | null = null;
@@ -154,6 +155,53 @@ export async function loadDiagnosticQuestions(): Promise<DiagnosticQuestion[]> {
   }
 
   return loadDataFile<DiagnosticQuestion[]>(path);
+}
+
+/** Load electron config exceptions. */
+export async function loadElectronConfigExceptions(): Promise<ElectronConfigException[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.electron_config_exceptions;
+
+  if (!path) {
+    throw new Error(
+      'Electron config exceptions not found in manifest. Expected key "electron_config_exceptions" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<ElectronConfigException[]>(path);
+}
+
+/** Load periodic table content (theory blocks, explanations). */
+export async function loadPeriodicTableContent(): Promise<unknown> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.periodic_table_content;
+
+  if (!path) {
+    throw new Error(
+      'Periodic table content not found in manifest. Expected key "periodic_table_content" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<unknown>(path);
+}
+
+/** Load exercise templates by module name. */
+export async function loadExercises(module: string): Promise<unknown> {
+  const manifest = await getManifest();
+  const exercises = manifest.entrypoints.exercises;
+
+  if (!exercises) {
+    throw new Error('Exercises not found in manifest. Expected key "exercises" in entrypoints.');
+  }
+
+  const path = exercises[module];
+  if (!path) {
+    throw new Error(
+      `Exercise module "${module}" not found. Available: ${Object.keys(exercises).join(', ')}`,
+    );
+  }
+
+  return loadDataFile<unknown>(path);
 }
 
 /** Load all reaction templates. */
