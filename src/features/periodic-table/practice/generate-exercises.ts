@@ -107,7 +107,7 @@ const generators: Record<string, GeneratorFn> = {
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${el.symbol}: конфигурация ${getShorthandFormula(el.Z)}, валентных электронов: ${count}.`,
+      explanation: `${el.symbol}: конфигурация ${getShorthandFormula(el.Z)}. Валентные электроны — на внешнем уровне (n=${el.period}): ${valence.map(v => `${v.n}${v.l}(${v.electrons})`).join(' + ')} = ${count}.`,
       competencyMap: { electron_config: 'P', periodic_table: 'S' },
     };
   },
