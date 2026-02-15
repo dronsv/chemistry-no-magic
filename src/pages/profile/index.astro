@@ -1,12 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import ProfileApp from '../../features/profile/ProfileApp';
 ---
 
 <BaseLayout title="Профиль" description="Ваш профиль компетенций по химии: прогресс, сильные и слабые стороны, рекомендации.">
-  <Placeholder
-    title="Профиль компетенций"
-    stage={1}
-    description="Карта ваших компетенций по химии с отображением прогресса и персональными рекомендациями."
-  />
+  <ProfileApp client:idle />
 </BaseLayout>

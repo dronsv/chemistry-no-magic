@@ -1,5 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { readFile } from 'node:fs/promises';
+
+const sourcesRaw = await readFile(new URL('../../data-src/sources_list.json', import.meta.url), 'utf-8');
+const sourcesData = JSON.parse(sourcesRaw);
+const sources = sourcesData.sources as {
+  source_id: string;
+  title: string;
+  org: string;
+  description: string;
+  link: string;
+  ui: { cta: string; target: string; rel: string };
+}[];
 ---
 
 <BaseLayout title="Химия без магии" description="Адаптивная платформа подготовки к ОГЭ по химии. Персональная диагностика, интерактивная таблица Менделеева, умные задания.">
@@ -34,6 +46,123 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
     <a href="/diagnostics/" class="btn btn-primary">Начать диагностику</a>
+  </section>
+
+  <section class="about">
+    <h2 class="about__title">О проекте</h2>
+
+    <div class="about__section">
+      <h3>Как всё началось</h3>
+      <p>
+        Этот проект появился не как бизнес-идея, а как практическое решение конкретной задачи —
+        быстро и точно понять, в чём именно есть пробелы по химии у моей дочери,
+        и закрыть их максимально эффективно.
+      </p>
+      <p>
+        Дочь учится в 9 классе. Значит ориентир понятен — школьная программа и ОГЭ по химии.
+      </p>
+      <p>Материалов вокруг много. Но возникли проблемы:</p>
+      <ul>
+        <li>курсы подаются линейно и одинаково для всех,</li>
+        <li>почти нет формального измерения понимания,</li>
+        <li>объяснения иногда выглядят как «магия»,</li>
+        <li>структура знаний размыта.</li>
+      </ul>
+      <p class="about__accent">
+        А химия — не магия.<br/>
+        Это строгая модель частиц, энергии и структуры вещества.
+      </p>
+    </div>
+
+    <div class="about__section">
+      <h3>Что не устроило в классическом формате</h3>
+      <ul>
+        <li>Прогресс оценивается по баллам, а не по структуре навыков.</li>
+        <li>Нет карты зависимостей между темами.</li>
+        <li>Не видно, какая ошибка — фундаментальная, а какая — локальная.</li>
+        <li>Мало внимания причинности: почему именно так идёт реакция?</li>
+      </ul>
+      <p>В какой-то момент стало понятно: нужен инструмент, а не просто курс.</p>
+    </div>
+
+    <div class="about__section">
+      <h3>Поэтому я сделал свой</h3>
+      <p>
+        Я не являюсь химиком по образованию — я инженер.
+        И привык мыслить через системы, модели и зависимости.
+      </p>
+      <p>Этот сайт — попытка:</p>
+      <ul>
+        <li>разложить химию 9 класса на компетенции,</li>
+        <li>связать их зависимостями,</li>
+        <li>измерять понимание через вероятностную модель (BKT),</li>
+        <li>подбирать задания адаптивно,</li>
+        <li>использовать задания ОГЭ как формальный стандарт проверки.</li>
+      </ul>
+      <p>
+        Контент и объяснения генерируются нейронными сетями по моим запросам.
+        Это значит: возможны неточности, ошибки и упрощения.
+        Если вы их заметили — используйте баг-репорты.
+      </p>
+    </div>
+
+    <div class="about__section">
+      <h3>Методологические принципы</h3>
+      <div class="principles">
+        <div class="principle">
+          <strong>1. Химия — это система</strong>
+          <span>Мы работаем не с темами, а с картой компетенций и их зависимостей.</span>
+        </div>
+        <div class="principle">
+          <strong>2. Понимание измеряется</strong>
+          <span>Используется вероятностная модель освоения навыков, а не просто «решил / не решил».</span>
+        </div>
+        <div class="principle">
+          <strong>3. ОГЭ — инструмент калибровки</strong>
+          <span>Задания ОГЭ отражают структуру 9 класса и позволяют формально проверять готовность.</span>
+        </div>
+        <div class="principle">
+          <strong>4. Никакой магии</strong>
+          <span>Если есть правило — есть объяснение: через электронные конфигурации, электроотрицательность, строение вещества, энергетику процессов.</span>
+        </div>
+        <div class="principle">
+          <strong>5. Минимум воды — максимум структуры</strong>
+          <span>Модель → примеры → вариации → закрепление.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__section">
+      <h3>Полезные ресурсы</h3>
+      <p class="about__muted">
+        Ресурсы, которые можно использовать параллельно для проверки и расширения материала.
+      </p>
+      <div class="sources">
+        {sources.map((s) => (
+          <div class="source-card">
+            <div class="source-card__header">
+              <span class="source-card__org">{s.org}</span>
+              <strong class="source-card__title">{s.title}</strong>
+            </div>
+            <p class="source-card__desc">{s.description}</p>
+            <a
+              href={s.link}
+              class="source-card__link"
+              target={s.ui.target}
+              rel={s.ui.rel}
+            >{s.ui.cta}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="about__section about__disclaimer">
+      <p>
+        Этот проект не заменяет школьную программу и не конкурирует с крупными образовательными платформами.
+        Это попытка построить структурированный, адаптивный инструмент диагностики и обучения,
+        который можно использовать вместе с официальными и проверенными источниками.
+      </p>
+    </div>
   </section>
 </BaseLayout>
 
@@ -71,4 +200,159 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .feature strong { font-size: 1rem; }
   .feature span { font-size: 0.9rem; color: var(--color-text-muted); }
+
+  /* ---- About section ---- */
+
+  .about {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-xl);
+  }
+
+  .about__section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .about__section h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .about__section p {
+    color: var(--color-text);
+    line-height: 1.7;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .about__section ul {
+    margin: 0 0 var(--space-sm);
+    padding-left: 1.5rem;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .about__section li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .about__accent {
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0.25rem;
+    margin-top: var(--space-md);
+  }
+
+  .about__muted {
+    color: var(--color-text-muted);
+  }
+
+  /* ---- Principles ---- */
+
+  .principles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .principle {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: 0.375rem;
+  }
+
+  .principle strong {
+    font-size: 0.9375rem;
+  }
+
+  .principle span {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* ---- Sources ---- */
+
+  .sources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .source-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .source-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .source-card__org {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .source-card__title {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .source-card__desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0 0 var(--space-sm);
+    flex: 1;
+  }
+
+  .source-card__link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .source-card__link:hover {
+    text-decoration: underline;
+  }
+
+  /* ---- Disclaimer ---- */
+
+  .about__disclaimer {
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .about__disclaimer p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+  }
 </style>

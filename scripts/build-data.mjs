@@ -73,8 +73,10 @@ async function main() {
   const reactionTemplates = await loadJson(join(DATA_SRC, 'templates', 'reaction_templates.json'));
   const taskTemplates = await loadJson(join(DATA_SRC, 'templates', 'task_templates.json'));
   const substances = await loadSubstances();
+  const diagnosticQuestions = await loadJson(join(DATA_SRC, 'diagnostic', 'questions.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
+  console.log(`  ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates\n`);
 
   // 2. Validate
@@ -155,6 +157,9 @@ async function main() {
   for (const { filename, data } of substances) {
     await writeFile(join(bundleDir, 'substances', filename), JSON.stringify(data));
   }
+
+  await mkdir(join(bundleDir, 'diagnostic'), { recursive: true });
+  await writeFile(join(bundleDir, 'diagnostic', 'questions.json'), JSON.stringify(diagnosticQuestions));
 
   // 7. Generate indices
   console.log('Generating indices...');

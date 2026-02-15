@@ -1,0 +1,170 @@
+[
+  {
+    "id": "diag_1",
+    "competency_id": "periodic_table",
+    "task_type": 1,
+    "question_ru": "Элемент с порядковым номером 17 расположен в...",
+    "options": [
+      { "id": "a", "text": "3 периоде, VIIA группе" },
+      { "id": "b", "text": "3 периоде, IIIA группе" },
+      { "id": "c", "text": "2 периоде, VIIA группе" },
+      { "id": "d", "text": "4 периоде, VIA группе" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Z = 17 — хлор (Cl). Электронная конфигурация 2-8-7, значит 3 период, 7 электронов на внешнем уровне → VIIA группа."
+  },
+  {
+    "id": "diag_2",
+    "competency_id": "electron_config",
+    "task_type": 2,
+    "question_ru": "Сколько электронов на внешнем энергетическом уровне у атома кислорода (Z = 8)?",
+    "options": [
+      { "id": "a", "text": "6" },
+      { "id": "b", "text": "8" },
+      { "id": "c", "text": "2" },
+      { "id": "d", "text": "4" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Кислород: 1s² 2s² 2p⁴. На внешнем (втором) уровне: 2 + 4 = 6 электронов."
+  },
+  {
+    "id": "diag_3",
+    "competency_id": "oxidation_states",
+    "task_type": 3,
+    "question_ru": "Какова степень окисления серы в соединении H₂SO₄?",
+    "options": [
+      { "id": "a", "text": "+6" },
+      { "id": "b", "text": "+4" },
+      { "id": "c", "text": "−2" },
+      { "id": "d", "text": "+2" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "В H₂SO₄: водород +1 (×2 = +2), кислород −2 (×4 = −8). Сумма = 0, значит S = 0 − 2 − (−8) = +6."
+  },
+  {
+    "id": "diag_4",
+    "competency_id": "classification",
+    "task_type": 4,
+    "question_ru": "К какому классу неорганических веществ относится вещество Na₂CO₃?",
+    "options": [
+      { "id": "a", "text": "Соль" },
+      { "id": "b", "text": "Оксид" },
+      { "id": "c", "text": "Основание" },
+      { "id": "d", "text": "Кислота" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Na₂CO₃ — карбонат натрия. Состоит из катиона металла (Na⁺) и аниона кислотного остатка (CO₃²⁻), значит это соль."
+  },
+  {
+    "id": "diag_5",
+    "competency_id": "naming",
+    "task_type": 5,
+    "question_ru": "Как называется вещество с формулой CuSO₄?",
+    "options": [
+      { "id": "a", "text": "Сульфат меди(II)" },
+      { "id": "b", "text": "Сульфит меди(II)" },
+      { "id": "c", "text": "Сульфид меди(II)" },
+      { "id": "d", "text": "Хлорид меди(II)" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "SO₄²⁻ — сульфат-ион. Медь в степени окисления +2. Название: сульфат меди(II)."
+  },
+  {
+    "id": "diag_6",
+    "competency_id": "reactions_exchange",
+    "task_type": 6,
+    "question_ru": "Какие продукты образуются при сливании растворов хлорида бария BaCl₂ и сульфата натрия Na₂SO₄?",
+    "options": [
+      { "id": "a", "text": "BaSO₄↓ и NaCl" },
+      { "id": "b", "text": "BaNa₂ и ClSO₄" },
+      { "id": "c", "text": "Ba(OH)₂ и NaCl" },
+      { "id": "d", "text": "Реакция не идёт" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Реакция ионного обмена: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Сульфат бария — нерастворимый осадок, поэтому реакция протекает."
+  },
+  {
+    "id": "diag_7",
+    "competency_id": "gas_precipitate_logic",
+    "task_type": 7,
+    "question_ru": "Реакция ионного обмена между растворами NaNO₃ и KCl идёт до конца?",
+    "options": [
+      { "id": "a", "text": "Нет, т.к. нет осадка, газа или воды" },
+      { "id": "b", "text": "Да, образуется осадок KNO₃" },
+      { "id": "c", "text": "Да, выделяется газ" },
+      { "id": "d", "text": "Да, образуется вода" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "NaNO₃ + KCl → NaCl + KNO₃. Все продукты растворимы, газ и вода не образуются. Реакция не идёт до конца."
+  },
+  {
+    "id": "diag_8",
+    "competency_id": "reactions_redox",
+    "task_type": 8,
+    "question_ru": "В реакции Zn + CuSO₄ → ZnSO₄ + Cu окислителем является:",
+    "options": [
+      { "id": "a", "text": "Cu²⁺ (ион меди)" },
+      { "id": "b", "text": "Zn (цинк)" },
+      { "id": "c", "text": "SO₄²⁻ (сульфат-ион)" },
+      { "id": "d", "text": "Zn²⁺ (ион цинка)" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Cu²⁺ принимает 2 электрона и восстанавливается до Cu⁰. Принятие электронов — это окисление, значит Cu²⁺ — окислитель."
+  },
+  {
+    "id": "diag_9",
+    "competency_id": "reaction_energy_profile",
+    "task_type": 9,
+    "question_ru": "Какой фактор НЕ влияет на скорость химической реакции?",
+    "options": [
+      { "id": "a", "text": "Цвет реагентов" },
+      { "id": "b", "text": "Температура" },
+      { "id": "c", "text": "Концентрация реагентов" },
+      { "id": "d", "text": "Площадь поверхности соприкосновения" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Цвет вещества не влияет на скорость реакции. Скорость зависит от температуры, концентрации, площади поверхности, природы веществ и катализатора."
+  },
+  {
+    "id": "diag_10",
+    "competency_id": "catalyst_role_understanding",
+    "task_type": 10,
+    "question_ru": "Какое утверждение о катализаторе верно?",
+    "options": [
+      { "id": "a", "text": "Ускоряет реакцию, но не расходуется" },
+      { "id": "b", "text": "Смещает химическое равновесие" },
+      { "id": "c", "text": "Увеличивает выход продукта" },
+      { "id": "d", "text": "Всегда является металлом" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Катализатор ускоряет реакцию, снижая энергию активации, и не расходуется в процессе. Он не смещает равновесие и не влияет на выход продукта."
+  },
+  {
+    "id": "diag_11",
+    "competency_id": "calculations_basic",
+    "task_type": 11,
+    "question_ru": "Какова массовая доля кислорода в воде H₂O? (M(H)=1, M(O)=16)",
+    "options": [
+      { "id": "a", "text": "88,9%" },
+      { "id": "b", "text": "11,1%" },
+      { "id": "c", "text": "50,0%" },
+      { "id": "d", "text": "66,7%" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "M(H₂O) = 2·1 + 16 = 18 г/моль. ω(O) = 16/18 ≈ 0,889 = 88,9%."
+  },
+  {
+    "id": "diag_12",
+    "competency_id": "calculations_solutions",
+    "task_type": 12,
+    "question_ru": "В 200 г воды растворили 50 г соли. Какова массовая доля соли в растворе?",
+    "options": [
+      { "id": "a", "text": "20%" },
+      { "id": "b", "text": "25%" },
+      { "id": "c", "text": "50%" },
+      { "id": "d", "text": "10%" }
+    ],
+    "correct_option": "a",
+    "explanation_ru": "Масса раствора = 200 + 50 = 250 г. ω = 50/250 = 0,20 = 20%."
+  }
+]

@@ -1,0 +1,71 @@
+/* ========================================
+   Profile — Competency Map
+   ======================================== */
+
+.profile {
+  max-width: 640px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-md);
+}
+
+.profile__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-lg);
+}
+
+.profile__empty {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-muted);
+}
+
+.profile__empty-link {
+  display: inline-block;
+  margin-top: var(--space-md);
+}
+
+.profile__group {
+  margin-bottom: var(--space-xl);
+}
+
+.profile__group-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile__bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.profile__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-lg);
+}
+
+.profile__clear {
+  font-size: 0.875rem;
+  color: #e03131;
+  background: none;
+  border: 1px solid #e03131;
+  border-radius: 0.375rem;
+  padding: var(--space-sm) var(--space-lg);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.profile__clear:hover {
+  background: #fff5f5;
+}

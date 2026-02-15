@@ -31,6 +31,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         task_templates: 'templates/task_templates.json',
       },
       substances: 'substances',
+      diagnostic: 'diagnostic/questions.json',
       indices: {
         substances_index: 'indices/substances_index.json',
       },

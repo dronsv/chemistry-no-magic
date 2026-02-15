@@ -1,0 +1,301 @@
+/* ========================================
+   Diagnostics — Quiz Flow
+   ======================================== */
+
+.diag {
+  max-width: 640px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-md);
+}
+
+/* ---- Intro ---- */
+
+.diag-intro {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.diag-intro__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+  color: var(--color-text);
+}
+
+.diag-intro__desc {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.diag-intro__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.diag-intro__retake {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.diag-intro__retake:hover {
+  color: var(--color-text);
+}
+
+/* ---- Progress Bar ---- */
+
+.diag-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.diag-progress__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.diag-progress__track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.diag-progress__fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ---- Question Card ---- */
+
+.diag-question__text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text);
+}
+
+.diag-question__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.diag-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.diag-option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: #f0f5ff;
+}
+
+.diag-option:disabled {
+  cursor: default;
+}
+
+.diag-option--correct {
+  border-color: #2b8a3e;
+  background: #ebfbee;
+}
+
+.diag-option--wrong {
+  border-color: #e03131;
+  background: #fff5f5;
+}
+
+.diag-option--missed {
+  border-color: #2b8a3e;
+  background: #ebfbee;
+  opacity: 0.7;
+}
+
+/* ---- Feedback ---- */
+
+.diag-feedback {
+  padding: var(--space-md);
+  border-radius: 0.5rem;
+  margin-bottom: var(--space-lg);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.diag-feedback--correct {
+  background: #ebfbee;
+  border-left: 3px solid #2b8a3e;
+  color: #2b8a3e;
+}
+
+.diag-feedback--wrong {
+  background: #fff5f5;
+  border-left: 3px solid #e03131;
+  color: #c92a2a;
+}
+
+.diag-feedback__label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.diag-next {
+  display: block;
+  margin-left: auto;
+}
+
+/* ---- Results Summary ---- */
+
+.diag-results {
+  padding: var(--space-lg) 0;
+}
+
+.diag-results__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+  text-align: center;
+}
+
+.diag-results__subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 0 0 var(--space-xl);
+}
+
+.diag-results__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.diag-results__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ---- Competency Bar (shared by results + profile) ---- */
+
+.comp-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.comp-bar__name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.comp-bar__track {
+  flex: 1;
+  height: 20px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  min-width: 100px;
+}
+
+.comp-bar__fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.comp-bar__fill--none { background: #e03131; }
+.comp-bar__fill--basic { background: #f59f00; }
+.comp-bar__fill--confident { background: #2b8a3e; }
+.comp-bar__fill--automatic { background: var(--color-primary); }
+
+.comp-bar__value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.comp-bar__level {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.comp-bar__level--none { background: #fff5f5; color: #e03131; }
+.comp-bar__level--basic { background: #fff9db; color: #e67700; }
+.comp-bar__level--confident { background: #ebfbee; color: #2b8a3e; }
+.comp-bar__level--automatic { background: #dbe4ff; color: var(--color-primary); }
+
+/* ---- Loading / Error ---- */
+
+.diag-loading,
+.diag-error {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-muted);
+}
+
+.diag-error {
+  color: #e03131;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 600px) {
+  .comp-bar {
+    flex-wrap: wrap;
+  }
+
+  .comp-bar__name {
+    width: 100%;
+  }
+
+  .comp-bar__track {
+    min-width: 0;
+  }
+
+  .diag-intro__title {
+    font-size: 1.375rem;
+  }
+}

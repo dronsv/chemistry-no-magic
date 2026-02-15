@@ -1,0 +1,95 @@
+{
+  "schema": "chemistry-course.sources.v1",
+  "updated_at": "2026-02-15",
+  "sources": [
+    {
+      "source_id": "fipi_oge_chemistry",
+      "title": "ФИПИ — ОГЭ по химии: демоверсии, спецификации, кодификаторы",
+      "org": "ФИПИ",
+      "type": "official",
+      "level": [
+        "oge",
+        "grade9"
+      ],
+      "tags": [
+        "ОГЭ",
+        "официально",
+        "кодификатор",
+        "демоверсия"
+      ],
+      "link": "https://fipi.ru/oge/demoversii-specifikacii-kodifikatory#!/tab/173801626-3",
+      "description": "Официальные материалы ОГЭ по химии: демоверсия, спецификация, кодификатор.",
+      "ui": {
+        "cta": "Перейти на сайт ФИПИ →",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "source_id": "sdamgia_chem_oge",
+      "title": "Решу ОГЭ — химия",
+      "org": "sdamgia.ru",
+      "type": "tasks",
+      "level": [
+        "oge",
+        "grade9"
+      ],
+      "tags": [
+        "ОГЭ",
+        "задачи",
+        "практика",
+        "разборы"
+      ],
+      "link": "https://chem-oge.sdamgia.ru",
+      "description": "Банк заданий ОГЭ по химии с решениями и статистикой.",
+      "ui": {
+        "cta": "Открыть задания →",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "source_id": "foxford_chem_9",
+      "title": "Фоксфорд — химия 9 класс",
+      "org": "Фоксфорд",
+      "type": "course",
+      "level": [
+        "grade9"
+      ],
+      "tags": [
+        "9 класс",
+        "курс",
+        "теория",
+        "практика"
+      ],
+      "link": "https://foxford.ru/catalog/chemistry/9-klass",
+      "description": "Онлайн-курсы химии для 9 класса.",
+      "ui": {
+        "cta": "Посмотреть курсы →",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "source_id": "interneturok_chem_9",
+      "title": "ИнтернетУрок — химия 9 класс",
+      "org": "ИнтернетУрок",
+      "type": "course",
+      "level": [
+        "grade9"
+      ],
+      "tags": [
+        "9 класс",
+        "видеоуроки",
+        "теория"
+      ],
+      "link": "https://interneturok.ru/subject/chemistry/class/9",
+      "description": "Видеоуроки и материалы по программе 9 класса.",
+      "ui": {
+        "cta": "Смотреть курс →",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    }
+  ]
+}

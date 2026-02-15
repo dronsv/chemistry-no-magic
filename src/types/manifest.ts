@@ -5,6 +5,7 @@ export interface ManifestEntrypoints {
   templates: Record<string, string>;
   substances: string;
   indices: Record<string, string>;
+  diagnostic?: string;
 }
 
 export interface ManifestStats {

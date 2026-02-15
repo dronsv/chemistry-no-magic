@@ -4,6 +4,7 @@ import type { Ion } from '../types/ion';
 import type { Substance } from '../types/substance';
 import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
+import type { DiagnosticQuestion } from '../types/diagnostic';
 
 /** Module-level cache for the manifest to avoid repeated fetches. */
 let manifestCache: Manifest | null = null;
@@ -139,6 +140,20 @@ export async function loadTaskTemplates(): Promise<TaskTemplate[]> {
   }
 
   return loadDataFile<TaskTemplate[]>(path);
+}
+
+/** Load diagnostic questions. */
+export async function loadDiagnosticQuestions(): Promise<DiagnosticQuestion[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.diagnostic;
+
+  if (!path) {
+    throw new Error(
+      'Diagnostic questions not found in manifest. Expected key "diagnostic" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<DiagnosticQuestion[]>(path);
 }
 
 /** Load all reaction templates. */
