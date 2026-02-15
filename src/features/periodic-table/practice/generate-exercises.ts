@@ -113,7 +113,9 @@ const generators: Record<string, GeneratorFn> = {
   },
 
   identify_exception(elements) {
-    const exceptions = mainElements(elements).filter(e => isException(e.Z));
+    // Only Cr and Cu are expected knowledge for ОГЭ level
+    const OGE_EXCEPTION_Z = [24, 29];
+    const exceptions = elements.filter(e => OGE_EXCEPTION_Z.includes(e.Z));
     const normals = mainElements(elements).filter(e => !isException(e.Z));
     const excEl = pick(exceptions);
     const normalEls = pickN(normals, 3);

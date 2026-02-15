@@ -6,6 +6,7 @@ import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
 import type { ElectronConfigException } from '../types/electron-config';
+import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 
 /** Module-level cache for the manifest to avoid repeated fetches. */
 let manifestCache: Manifest | null = null;
@@ -202,6 +203,20 @@ export async function loadExercises(module: string): Promise<unknown> {
   }
 
   return loadDataFile<unknown>(path);
+}
+
+/** Load periodic table theory (property trends, exception consequences). */
+export async function loadPeriodicTableTheory(): Promise<PeriodicTableTheory> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.rules['periodic_table_theory'];
+
+  if (!path) {
+    throw new Error(
+      'Periodic table theory not found in manifest. Expected key "periodic_table_theory" in entrypoints.rules.',
+    );
+  }
+
+  return loadDataFile<PeriodicTableTheory>(path);
 }
 
 /** Load all reaction templates. */

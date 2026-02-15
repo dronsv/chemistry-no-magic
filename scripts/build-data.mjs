@@ -77,6 +77,7 @@ async function main() {
   const electronConfigExceptions = await loadJson(join(DATA_SRC, 'electron-config-exceptions.json'));
   const periodicTableContent = await loadJson(join(DATA_SRC, 'periodic-table-content.json'));
   const periodicTableExercises = await loadJson(join(DATA_SRC, 'exercises', 'periodic-table-exercises.json'));
+  const periodicTableTheory = await loadJson(join(DATA_SRC, 'rules', 'periodic-table-theory.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
   console.log(`  ${diagnosticQuestions.length} diagnostic questions`);
@@ -167,6 +168,7 @@ async function main() {
 
   await writeFile(join(bundleDir, 'electron-config-exceptions.json'), JSON.stringify(electronConfigExceptions));
   await writeFile(join(bundleDir, 'periodic-table-content.json'), JSON.stringify(periodicTableContent));
+  await writeFile(join(bundleDir, 'rules', 'periodic-table-theory.json'), JSON.stringify(periodicTableTheory));
   await mkdir(join(bundleDir, 'exercises'), { recursive: true });
   await writeFile(join(bundleDir, 'exercises', 'periodic-table-exercises.json'), JSON.stringify(periodicTableExercises));
 

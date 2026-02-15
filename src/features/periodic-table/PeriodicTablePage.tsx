@@ -8,6 +8,7 @@ import ElementDetailPanel from './ElementDetailPanel';
 import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import PracticeSection from './practice/PracticeSection';
+import TheoryPanel from './TheoryPanel';
 import './periodic-table.css';
 
 type FormType = 'long' | 'short';
@@ -130,6 +131,9 @@ export default function PeriodicTablePage() {
           onClose={() => setSelectedElement(null)}
         />
       )}
+
+      {/* Theory panel — lazy-loaded on expand */}
+      <TheoryPanel />
 
       {/* Practice section */}
       {elements.length > 0 && <PracticeSection elements={elements} />}
