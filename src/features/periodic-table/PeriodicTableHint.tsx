@@ -7,12 +7,13 @@ import ElementDetails from './ElementDetails';
 import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import { GROUP_INFO } from './group-info';
+import { usePanelState } from '../../lib/use-panel-state';
 import './periodic-table.css';
 
 type FormType = 'long' | 'short';
 
 export default function PeriodicTableHint() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen, pos, setPos, hasMoved, setHasMoved, toggle: panelToggle, close: panelClose } = usePanelState('periodic-table');
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
   const [elements, setElements] = useState<Element[]>([]);
@@ -44,19 +45,17 @@ export default function PeriodicTableHint() {
 
   // Drag state
   const panelRef = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [hasMoved, setHasMoved] = useState(false);
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
 
   const toggle = useCallback(() => {
-    setIsOpen((prev) => !prev);
     if (isOpen) setSelectedElement(null);
-  }, [isOpen]);
+    panelToggle();
+  }, [isOpen, panelToggle]);
 
   const close = useCallback(() => {
-    setIsOpen(false);
     setSelectedElement(null);
-  }, []);
+    panelClose();
+  }, [panelClose]);
 
   // Load elements on first open
   useEffect(() => {

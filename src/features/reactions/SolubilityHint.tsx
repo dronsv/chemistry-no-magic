@@ -1,16 +1,12 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import SolubilityTable from './SolubilityTable';
+import { usePanelState } from '../../lib/use-panel-state';
 import './solubility-hint.css';
 
 export default function SolubilityHint() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, pos, setPos, hasMoved, setHasMoved, toggle, close } = usePanelState('solubility');
   const panelRef = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [hasMoved, setHasMoved] = useState(false);
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
-
-  const toggle = useCallback(() => setIsOpen(prev => !prev), []);
-  const close = useCallback(() => setIsOpen(false), []);
 
   useEffect(() => {
     if (!isOpen) return;
