@@ -3,26 +3,6 @@ import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-export async function getStaticPaths() {
-  const substancesDir = join(process.cwd(), 'data-src', 'substances');
-  let files: string[];
-  try {
-    files = await readdir(substancesDir);
-  } catch {
-    return [];
-  }
-
-  const paths = [];
-  for (const file of files) {
-    if (!file.endsWith('.json')) continue;
-    const id = file.replace('.json', '');
-    const raw = await readFile(join(substancesDir, file), 'utf-8');
-    const substance = JSON.parse(raw);
-    paths.push({ params: { id }, props: { substance } });
-  }
-  return paths;
-}
-
 interface SubstanceData {
   id: string;
   formula: string;
@@ -34,8 +14,136 @@ interface SubstanceData {
   tags?: string[];
 }
 
-const { substance } = Astro.props as { substance: SubstanceData };
+interface ClassificationRule {
+  id: string;
+  class: string;
+  subclass: string;
+  description_ru: string;
+  examples: string[];
+}
+
+interface NamingRule {
+  id: string;
+  class: string;
+  template_ru: string;
+  examples: Array<{ formula: string; name_ru: string }>;
+}
+
+const CLASS_LABELS: Record<string, string> = {
+  oxide: 'Оксид',
+  acid: 'Кислота',
+  base: 'Основание',
+  salt: 'Соль',
+  other: 'Другое',
+};
+
+const SUBCLASS_LABELS: Record<string, string> = {
+  basic: 'основный',
+  acidic: 'кислотный',
+  amphoteric: 'амфотерный',
+  indifferent: 'несолеобразующий',
+  oxygen_containing: 'кислородсодержащая',
+  oxygen_free: 'бескислородная',
+  soluble: 'растворимое (щёлочь)',
+  insoluble: 'нерастворимое',
+  normal: 'средняя (нормальная)',
+  acidic_salt: 'кислая',
+  basic_salt: 'основная',
+  hydride: 'гидрид',
+};
+
+export async function getStaticPaths() {
+  const substancesDir = join(process.cwd(), 'data-src', 'substances');
+  const rulesDir = join(process.cwd(), 'data-src', 'rules');
+
+  let files: string[];
+  try {
+    files = await readdir(substancesDir);
+  } catch {
+    return [];
+  }
+
+  // Load rules at build time
+  let classificationRules: ClassificationRule[] = [];
+  let namingRules: NamingRule[] = [];
+  let allSubstances: SubstanceData[] = [];
+
+  try {
+    classificationRules = JSON.parse(
+      await readFile(join(rulesDir, 'classification_rules.json'), 'utf-8')
+    );
+    namingRules = JSON.parse(
+      await readFile(join(rulesDir, 'naming_rules.json'), 'utf-8')
+    );
+  } catch { /* rules optional */ }
+
+  const paths = [];
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+    const id = file.replace('.json', '');
+    const raw = await readFile(join(substancesDir, file), 'utf-8');
+    const substance: SubstanceData = JSON.parse(raw);
+    allSubstances.push(substance);
+    paths.push({ params: { id }, props: { substance, classificationRules, namingRules } });
+  }
+
+  // Add allSubstances to each path for related substances
+  return paths.map(p => ({
+    ...p,
+    props: { ...p.props, allSubstances },
+  }));
+}
+
+interface Props {
+  substance: SubstanceData;
+  classificationRules: ClassificationRule[];
+  namingRules: NamingRule[];
+  allSubstances: SubstanceData[];
+}
+
+const { substance, classificationRules, namingRules, allSubstances } = Astro.props as Props;
 const displayName = substance.name_ru ?? substance.formula;
+
+// Find matching classification rule
+const classRule = classificationRules.find(
+  r => r.class === substance.class && r.subclass === substance.subclass
+);
+
+// Find matching naming rule — check which rule's examples include this formula
+const namingRule = namingRules.find(
+  r => r.examples.some(ex => ex.formula === substance.formula)
+) ?? namingRules.find(r => r.class === substance.class);
+
+// Find the exact example for this substance (if exists in the matched rule)
+const namingExample = namingRule?.examples.find(ex => ex.formula === substance.formula);
+
+// Human-readable template: replace placeholders
+const TEMPLATE_PLACEHOLDERS: Record<string, string> = {
+  '{metal_genitive}': 'металла',
+  '{roman_numeral}': 'степень окисления',
+  '{nonmetal_genitive}': 'неметалла',
+};
+function humanizeTemplate(tpl: string): string {
+  let result = tpl;
+  for (const [key, label] of Object.entries(TEMPLATE_PLACEHOLDERS)) {
+    result = result.replace(key, `[${label}]`);
+  }
+  return result;
+}
+const readableTemplate = namingRule ? humanizeTemplate(namingRule.template_ru) : null;
+
+// Related substances (same class, same subclass first, then same class)
+const related = allSubstances
+  .filter(s => s.id !== substance.id && s.class === substance.class)
+  .sort((a, b) => {
+    const aMatch = a.subclass === substance.subclass ? 0 : 1;
+    const bMatch = b.subclass === substance.subclass ? 0 : 1;
+    return aMatch - bMatch;
+  })
+  .slice(0, 8);
+
+const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
+const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
 ---
 
 <BaseLayout
@@ -48,7 +156,7 @@ const displayName = substance.name_ru ?? substance.formula;
       "@type": "ChemicalSubstance",
       "name": displayName,
       "molecularFormula": substance.formula,
-      "description": `${displayName} — ${substance.class}`,
+      "description": `${displayName} — ${classLabel}`,
     })} />
   </Fragment>
 
@@ -58,7 +166,12 @@ const displayName = substance.name_ru ?? substance.formula;
 
     <dl class="substance-props">
       <dt>Класс</dt>
-      <dd>{substance.class}{substance.subclass ? ` (${substance.subclass})` : ''}</dd>
+      <dd>
+        <span class={`subst-card__badge subst-card__badge--${substance.class}`}>
+          {classLabel}
+        </span>
+        {subclassLabel && <span class="substance-subclass"> ({subclassLabel})</span>}
+      </dd>
 
       {substance.ions && substance.ions.length > 0 && (
         <>
@@ -77,7 +190,44 @@ const displayName = substance.name_ru ?? substance.formula;
 
     {substance.notes && <p class="substance-notes">{substance.notes}</p>}
 
-    <a href="/substances/">&larr; Каталог веществ</a>
+    {classRule && (
+      <div class="subst-detail__section">
+        <h3>Классификация</h3>
+        <div class="subst-detail__explanation">{classRule.description_ru}</div>
+      </div>
+    )}
+
+    {namingRule && (
+      <div class="subst-detail__section">
+        <h3>Номенклатура</h3>
+        <div class="subst-detail__explanation">
+          <div>Шаблон: <span class="subst-detail__template">{readableTemplate}</span></div>
+          {namingExample && (
+            <div class="subst-detail__naming-result">
+              {namingExample.formula} &rarr; <strong>{namingExample.name_ru}</strong>
+            </div>
+          )}
+        </div>
+      </div>
+    )}
+
+    {related.length > 0 && (
+      <div class="subst-detail__section">
+        <h3>Похожие вещества</h3>
+        <div class="subst-detail__related">
+          {related.map(r => (
+            <a href={`/substances/${r.id}/`} class="subst-detail__related-link">
+              {r.formula}{r.name_ru ? ` (${r.name_ru})` : ''}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="substance-page__actions">
+      <a href="/substances/">&larr; Каталог веществ</a>
+      <a href="/substances/" class="btn btn-primary substance-page__practice-link">Потренироваться</a>
+    </div>
   </article>
 </BaseLayout>
 
@@ -95,11 +245,16 @@ const displayName = substance.name_ru ?? substance.formula;
     font-size: 1.2rem;
     margin: 0 0 var(--space-xl);
   }
+  .substance-subclass {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
   .substance-props {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--space-sm) var(--space-lg);
     margin-bottom: var(--space-xl);
+    align-items: center;
   }
   .substance-props dt {
     font-weight: 600;
@@ -109,5 +264,16 @@ const displayName = substance.name_ru ?? substance.formula;
   .substance-notes {
     color: var(--color-text-muted);
     margin-bottom: var(--space-xl);
+  }
+  .substance-page__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+  .substance-page__practice-link {
+    margin-left: auto;
   }
 </style>

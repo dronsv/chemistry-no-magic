@@ -1,12 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import SubstancesPage from '../../features/substances/SubstancesPage';
 ---
 
-<BaseLayout title="Каталог веществ" description="Справочник химических веществ: оксиды, кислоты, основания, соли. Классификация, свойства, реакции.">
-  <Placeholder
-    title="Каталог веществ"
-    stage={3}
-    description="Справочник веществ с классификацией, свойствами и характерными реакциями."
-  />
+<BaseLayout title="Каталог веществ" description="Справочник химических веществ: оксиды, кислоты, основания, соли. Классификация, номенклатура, практика для подготовки к ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Каталог химических веществ",
+      "description": "Справочник неорганических веществ: оксиды, кислоты, основания, соли. Классификация и номенклатура.",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Химия без магии",
+        "url": Astro.site?.toString(),
+      },
+    })} />
+  </Fragment>
+  <SubstancesPage client:idle />
 </BaseLayout>

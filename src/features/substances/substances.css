@@ -1,0 +1,289 @@
+/* ========================================
+   Substances Page
+   ======================================== */
+
+.substances-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+/* ========================================
+   Substance Catalog
+   ======================================== */
+
+.subst-catalog__loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-muted);
+}
+
+.subst-catalog__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+}
+
+.subst-catalog__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.subst-catalog__filters {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--color-bg-alt);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+.subst-catalog__filter-btn {
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.subst-catalog__filter-btn:hover { color: var(--color-text); }
+
+.subst-catalog__filter-btn--active {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.subst-catalog__search {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  width: 260px;
+  max-width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.subst-catalog__search::placeholder { color: var(--color-text-muted); }
+.subst-catalog__search:focus { border-color: var(--color-primary); }
+
+.subst-catalog__count {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.subst-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.subst-catalog__empty {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Substance Card
+   ======================================== */
+
+.subst-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: var(--space-md) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.subst-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subst-card__formula {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.subst-card__name {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.subst-card__badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  margin-top: 0.25rem;
+}
+
+.subst-card__badge--oxide {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.subst-card__badge--acid {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.subst-card__badge--base {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.subst-card__badge--salt {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.subst-card__badge--other {
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Theory Panel — Classification specifics
+   ======================================== */
+
+.subst-theory__rule {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.subst-theory__rule:last-child {
+  border-bottom: none;
+}
+
+.subst-theory__rule-header {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.subst-theory__rule-desc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.subst-theory__rule-examples {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.subst-theory__naming-examples {
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.subst-theory__naming-pair {
+  white-space: nowrap;
+}
+
+/* ========================================
+   Detail page enhancements
+   ======================================== */
+
+.subst-detail__section {
+  margin-bottom: var(--space-lg);
+}
+
+.subst-detail__section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+
+.subst-detail__explanation {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.subst-detail__template {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.subst-detail__naming-result {
+  margin-top: var(--space-xs);
+  font-size: 0.9375rem;
+}
+
+.subst-detail__related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.subst-detail__related-link {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s;
+}
+
+.subst-detail__related-link:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+  .subst-catalog__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .subst-catalog__filters {
+    overflow-x: auto;
+  }
+
+  .subst-catalog__search {
+    width: 100%;
+  }
+
+  .subst-catalog__grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
