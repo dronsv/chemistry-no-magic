@@ -79,8 +79,10 @@ async function main() {
   const periodicTableExercises = await loadJson(join(DATA_SRC, 'exercises', 'periodic-table-exercises.json'));
   const competencies = await loadJson(join(DATA_SRC, 'rules', 'competencies.json'));
   const periodicTableTheory = await loadJson(join(DATA_SRC, 'rules', 'periodic-table-theory.json'));
+  const reactions = await loadJson(join(DATA_SRC, 'reactions', 'reactions.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
+  console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${electronConfigExceptions.length} electron config exceptions, ${periodicTableExercises.exercise_types.length} exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates\n`);
@@ -174,6 +176,9 @@ async function main() {
   await mkdir(join(bundleDir, 'exercises'), { recursive: true });
   await writeFile(join(bundleDir, 'exercises', 'periodic-table-exercises.json'), JSON.stringify(periodicTableExercises));
 
+  await mkdir(join(bundleDir, 'reactions'), { recursive: true });
+  await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));
+
   // 7. Generate indices
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
@@ -186,6 +191,7 @@ async function main() {
     substances_count: substances.length,
     reaction_templates_count: reactionTemplates.length,
     task_templates_count: taskTemplates.length,
+    reactions_count: reactions.length,
   };
   await generateManifest({
     bundleHash,

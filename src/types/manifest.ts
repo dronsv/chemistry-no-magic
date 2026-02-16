@@ -8,6 +8,7 @@ export interface ManifestEntrypoints {
   diagnostic?: string;
   electron_config_exceptions?: string;
   periodic_table_content?: string;
+  reactions?: string;
   exercises?: Record<string, string>;
 }
 
@@ -17,6 +18,7 @@ export interface ManifestStats {
   substances_count: number;
   reaction_templates_count: number;
   task_templates_count: number;
+  reactions_count?: number;
 }
 
 export interface Manifest {

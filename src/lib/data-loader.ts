@@ -8,6 +8,9 @@ import type { DiagnosticQuestion } from '../types/diagnostic';
 import type { CompetencyNode } from '../types/competency';
 import type { ElectronConfigException } from '../types/electron-config';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
+import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
+import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
+import type { Reaction } from '../types/reaction';
 
 /** Module-level cache for the manifest to avoid repeated fetches. */
 let manifestCache: Manifest | null = null;
@@ -232,6 +235,51 @@ export async function loadPeriodicTableTheory(): Promise<PeriodicTableTheory> {
   }
 
   return loadDataFile<PeriodicTableTheory>(path);
+}
+
+/** Load classification rules. */
+export async function loadClassificationRules(): Promise<ClassificationRule[]> {
+  return loadRule('classification_rules') as Promise<ClassificationRule[]>;
+}
+
+/** Load naming rules. */
+export async function loadNamingRules(): Promise<NamingRule[]> {
+  return loadRule('naming_rules') as Promise<NamingRule[]>;
+}
+
+/** Load substances index. */
+export async function loadSubstancesIndex(): Promise<SubstanceIndexEntry[]> {
+  const data = await loadIndex('substances_index');
+  return (data as { substances: SubstanceIndexEntry[] }).substances;
+}
+
+/** Load solubility rules. */
+export async function loadSolubilityRules(): Promise<SolubilityEntry[]> {
+  return loadRule('solubility_rules_light') as Promise<SolubilityEntry[]>;
+}
+
+/** Load activity series of metals. */
+export async function loadActivitySeries(): Promise<ActivitySeriesEntry[]> {
+  return loadRule('activity_series') as Promise<ActivitySeriesEntry[]>;
+}
+
+/** Load applicability rules. */
+export async function loadApplicabilityRules(): Promise<ApplicabilityRule[]> {
+  return loadRule('applicability_rules') as Promise<ApplicabilityRule[]>;
+}
+
+/** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
+export async function loadReactions(): Promise<Reaction[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.reactions;
+
+  if (!path) {
+    throw new Error(
+      'Reactions not found in manifest. Expected key "reactions" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<Reaction[]>(path);
 }
 
 /** Load all reaction templates. */
