@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { SolubilityEntry } from '../../types/rules';
 import type { Ion } from '../../types/ion';
 import { loadSolubilityRules, loadIons } from '../../lib/data-loader';
+import './solubility-table.css';
 
 const SOLUBILITY_LABELS: Record<string, string> = {
   soluble: 'Р',
