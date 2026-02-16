@@ -12,6 +12,26 @@ const TAG_FILTERS = [
   { value: 'decomposition', label: 'Разложение' },
 ];
 
+const TAG_LABELS: Record<string, string> = {
+  exchange: 'Обмена',
+  neutralization: 'Нейтрализация',
+  precipitation: 'Осадок',
+  gas_evolution: 'Газ',
+  gas_absorption: 'Поглощение газа',
+  amphoteric: 'Амфотерность',
+  complexation: 'Комплекс',
+  acidic_oxide: 'Оксиды',
+  decomposition: 'Разложение',
+  qualitative_test: 'Качественная',
+};
+
+/** Pick the most descriptive (specific) tag for the card badge */
+function getBadgeTag(tags: string[]): string {
+  // Prefer specific tags over generic "exchange"
+  const specific = tags.find(t => t !== 'exchange');
+  return specific ?? tags[0] ?? 'exchange';
+}
+
 const DRIVING_FORCE_LABELS: Record<string, { icon: string; label: string }> = {
   precipitation: { icon: '↓', label: 'Осадок' },
   gas_release: { icon: '↑', label: 'Газ' },
@@ -170,7 +190,7 @@ function ReactionCard({ reaction }: { reaction: Reaction }) {
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>('molecular');
 
-  const primaryTag = reaction.type_tags[0] ?? 'exchange';
+  const badgeTag = getBadgeTag(reaction.type_tags);
 
   return (
     <div className={`rxn-card ${expanded ? 'rxn-card--open' : ''}`}>
@@ -179,8 +199,8 @@ function ReactionCard({ reaction }: { reaction: Reaction }) {
         className="rxn-card__header"
         onClick={() => setExpanded(!expanded)}
       >
-        <span className={`rxn-card__type-badge rxn-card__type-badge--${primaryTag}`}>
-          {TAG_FILTERS.find(f => f.value === primaryTag)?.label ?? primaryTag}
+        <span className={`rxn-card__type-badge rxn-card__type-badge--${badgeTag}`}>
+          {TAG_LABELS[badgeTag] ?? badgeTag}
         </span>
         <span className="rxn-card__title">{reaction.title}</span>
         <span className="rxn-card__arrow">{expanded ? '▾' : '▸'}</span>
