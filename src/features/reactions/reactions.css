@@ -80,6 +80,7 @@
 
 .rxn-card--open {
   border-color: var(--color-primary);
+  overflow: visible;
 }
 
 .rxn-card__header {

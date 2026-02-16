@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
 import type { Reaction } from '../../types/reaction';
-import { loadReactions } from '../../lib/data-loader';
+import type { SubstanceIndexEntry } from '../../types/classification';
+import type { MetalType } from '../../types/element';
+import { loadReactions, loadSubstancesIndex, loadElements } from '../../lib/data-loader';
+import { parseFormula } from '../../lib/formula-parser';
+import { calcOxidationStates } from '../../lib/oxidation-state';
+import FormulaChip from '../../components/FormulaChip';
+
+type ElementInfo = { group: number; metal_type: MetalType };
+
+/** Normalize Unicode subscript digits (₀-₉) to ASCII for formula key matching. */
+function normalizeFormula(f: string): string {
+  return f.replace(/[₀₁₂₃₄₅₆₇₈₉]/g, ch => String(ch.charCodeAt(0) - 0x2080));
+}
 
 const TAG_FILTERS = [
   { value: 'all', label: 'Все' },
@@ -56,28 +68,41 @@ const TABS: { id: TabId; label: string }[] = [
   { id: 'speed', label: 'Как ускорить' },
 ];
 
-function MolecularTab({ reaction }: { reaction: Reaction }) {
+function MolecularTab({ reaction, substanceMap, elementMap }: {
+  reaction: Reaction;
+  substanceMap: Map<string, SubstanceIndexEntry>;
+  elementMap: Map<string, ElementInfo>;
+}) {
+  const renderItem = (item: { formula: string; name?: string; coeff: number }, i: number) => {
+    const sub = substanceMap.get(item.formula);
+    const parsed = parseFormula(item.formula);
+    const ox = calcOxidationStates(parsed, elementMap, item.formula);
+
+    return (
+      <span key={i} className="rxn-molecular-item">
+        {item.coeff > 1 ? `${item.coeff} ` : ''}
+        <FormulaChip
+          formula={item.formula}
+          name={sub?.name_ru ?? item.name}
+          substanceClass={sub?.class}
+          substanceId={sub?.id}
+          oxidationStates={!ox.error ? ox.assignments : undefined}
+        />
+      </span>
+    );
+  };
+
   return (
     <div className="rxn-tab-content">
       <div className="rxn-equation">{reaction.equation}</div>
       <div className="rxn-molecular-lists">
         <div className="rxn-molecular-group">
           <span className="rxn-molecular-label">Реагенты:</span>
-          {reaction.molecular.reactants.map((r, i) => (
-            <span key={i} className="rxn-molecular-item">
-              {r.coeff > 1 ? `${r.coeff} ` : ''}{r.formula}
-              {r.name && <span className="rxn-molecular-name"> — {r.name}</span>}
-            </span>
-          ))}
+          {reaction.molecular.reactants.map(renderItem)}
         </div>
         <div className="rxn-molecular-group">
           <span className="rxn-molecular-label">Продукты:</span>
-          {reaction.molecular.products.map((p, i) => (
-            <span key={i} className="rxn-molecular-item">
-              {p.coeff > 1 ? `${p.coeff} ` : ''}{p.formula}
-              {p.name && <span className="rxn-molecular-name"> — {p.name}</span>}
-            </span>
-          ))}
+          {reaction.molecular.products.map(renderItem)}
         </div>
       </div>
       <div className="rxn-meta">
@@ -186,7 +211,11 @@ function SpeedTab({ reaction }: { reaction: Reaction }) {
   );
 }
 
-function ReactionCard({ reaction }: { reaction: Reaction }) {
+function ReactionCard({ reaction, substanceMap, elementMap }: {
+  reaction: Reaction;
+  substanceMap: Map<string, SubstanceIndexEntry>;
+  elementMap: Map<string, ElementInfo>;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>('molecular');
 
@@ -219,7 +248,7 @@ function ReactionCard({ reaction }: { reaction: Reaction }) {
               </button>
             ))}
           </div>
-          {activeTab === 'molecular' && <MolecularTab reaction={reaction} />}
+          {activeTab === 'molecular' && <MolecularTab reaction={reaction} substanceMap={substanceMap} elementMap={elementMap} />}
           {activeTab === 'ionic' && <IonicTab reaction={reaction} />}
           {activeTab === 'why' && <WhyTab reaction={reaction} />}
           {activeTab === 'speed' && <SpeedTab reaction={reaction} />}
@@ -231,14 +260,24 @@ function ReactionCard({ reaction }: { reaction: Reaction }) {
 
 export default function ReactionCards() {
   const [reactions, setReactions] = useState<Reaction[]>([]);
+  const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
+  const [elementMap, setElementMap] = useState<Map<string, ElementInfo>>(new Map());
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadReactions().then(data => {
-      setReactions(data);
-      setLoading(false);
-    });
+    Promise.all([loadReactions(), loadSubstancesIndex(), loadElements()]).then(
+      ([rxns, subs, elems]) => {
+        setReactions(rxns);
+        const sMap = new Map<string, SubstanceIndexEntry>();
+        for (const s of subs) sMap.set(normalizeFormula(s.formula), s);
+        setSubstanceMap(sMap);
+        const eMap = new Map<string, ElementInfo>();
+        for (const e of elems) eMap.set(e.symbol, { group: e.group, metal_type: e.metal_type });
+        setElementMap(eMap);
+        setLoading(false);
+      },
+    );
   }, []);
 
   if (loading) {
@@ -272,7 +311,7 @@ export default function ReactionCards() {
 
       <div className="rxn-catalog__list">
         {filtered.map(r => (
-          <ReactionCard key={r.reaction_id} reaction={r} />
+          <ReactionCard key={r.reaction_id} reaction={r} substanceMap={substanceMap} elementMap={elementMap} />
         ))}
       </div>
     </section>
