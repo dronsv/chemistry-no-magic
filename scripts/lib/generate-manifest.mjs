@@ -37,7 +37,6 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       substances: 'substances',
       diagnostic: 'diagnostic/questions.json',
       element_groups: 'element-groups.json',
-      electron_config_exceptions: 'electron-config-exceptions.json',
       periodic_table_content: 'periodic-table-content.json',
       reactions: 'reactions/reactions.json',
       exercises: {

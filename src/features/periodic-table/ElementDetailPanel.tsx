@@ -1,28 +1,24 @@
 import type { Element } from '../../types/element';
-import type { ElectronConfigException } from '../../types/electron-config';
 import type { ElementGroupDict } from '../../types/element-group';
-import { getValenceElectrons, isException, getShorthandFormula } from '../../lib/electron-config';
+import { getValenceElectrons, getShorthandFormula } from '../../lib/electron-config';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
 import EnergyLevelDiagram from './EnergyLevelDiagram';
 
 interface Props {
   element: Element;
-  exceptions: ElectronConfigException[];
   groups: ElementGroupDict;
   onClose: () => void;
 }
 
-export default function ElementDetailPanel({ element, exceptions, groups, onClose }: Props) {
+export default function ElementDetailPanel({ element, groups, onClose }: Props) {
   const Z = element.Z;
   const valence = getValenceElectrons(Z);
   const valenceCount = valence.reduce((s, v) => s + v.electrons, 0);
   const oxStates = element.typical_oxidation_states
     .map(s => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
-  const exception = isException(Z)
-    ? exceptions.find(e => e.Z === Z)
-    : null;
+  const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
 
   return (
@@ -74,14 +70,14 @@ export default function ElementDetailPanel({ element, exceptions, groups, onClos
       </div>
 
       {/* Exception block */}
-      {exception && (
+      {exc && (
         <div className="detail-panel__exception">
           <strong>Провал электрона</strong>
           <div className="detail-panel__exception-compare">
-            <span>Ожидаемая: <s>{exception.expected_formula}</s></span>
-            <span>Реальная: <b>{exception.actual_formula}</b></span>
+            <span>Ожидаемая: <s>{exc.expected_formula}</s></span>
+            <span>Реальная: <b>{exc.actual_formula}</b></span>
           </div>
-          <p className="detail-panel__exception-reason">{exception.reason_ru}</p>
+          <p className="detail-panel__exception-reason">{exc.reason_ru}</p>
         </div>
       )}
 

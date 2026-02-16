@@ -26,12 +26,3 @@ export interface EnergyLevel {
   is_valence: boolean;
 }
 
-/** Exception element data (loaded from JSON). */
-export interface ElectronConfigException {
-  Z: number;
-  symbol: string;
-  expected_formula: string;
-  actual_formula: string;
-  rule: 'half_filled_stability' | 'full_filled_stability' | 'exchange_energy';
-  reason_ru: string;
-}

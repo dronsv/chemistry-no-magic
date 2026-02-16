@@ -74,7 +74,6 @@ async function main() {
   const taskTemplates = await loadJson(join(DATA_SRC, 'templates', 'task_templates.json'));
   const substances = await loadSubstances();
   const diagnosticQuestions = await loadJson(join(DATA_SRC, 'diagnostic', 'questions.json'));
-  const electronConfigExceptions = await loadJson(join(DATA_SRC, 'electron-config-exceptions.json'));
   const periodicTableContent = await loadJson(join(DATA_SRC, 'periodic-table-content.json'));
   const periodicTableExercises = await loadJson(join(DATA_SRC, 'exercises', 'periodic-table-exercises.json'));
   const competencies = await loadJson(join(DATA_SRC, 'rules', 'competencies.json'));
@@ -90,7 +89,7 @@ async function main() {
   console.log(`  ${Object.keys(elementGroups).length} element groups`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
-  console.log(`  ${electronConfigExceptions.length} electron config exceptions, ${periodicTableExercises.exercise_types.length} exercise templates`);
+  console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates`);
   console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises`);
   console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises\n`);
@@ -179,7 +178,6 @@ async function main() {
   await writeFile(join(bundleDir, 'diagnostic', 'questions.json'), JSON.stringify(diagnosticQuestions));
 
   await writeFile(join(bundleDir, 'element-groups.json'), JSON.stringify(elementGroups));
-  await writeFile(join(bundleDir, 'electron-config-exceptions.json'), JSON.stringify(electronConfigExceptions));
   await writeFile(join(bundleDir, 'periodic-table-content.json'), JSON.stringify(periodicTableContent));
   await writeFile(join(bundleDir, 'rules', 'periodic-table-theory.json'), JSON.stringify(periodicTableTheory));
   await writeFile(join(bundleDir, 'rules', 'bond_theory.json'), JSON.stringify(bondTheory));

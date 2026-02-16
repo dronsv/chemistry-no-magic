@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
-import type { ElectronConfigException } from '../../types/electron-config';
 import type { ElementGroupDict } from '../../types/element-group';
-import { loadElements, loadElectronConfigExceptions, loadElementGroups } from '../../lib/data-loader';
+import { loadElements, loadElementGroups } from '../../lib/data-loader';
+import { setConfigOverrides } from '../../lib/electron-config';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetailPanel from './ElementDetailPanel';
@@ -16,7 +16,6 @@ type FormType = 'long' | 'short';
 
 export default function PeriodicTablePage() {
   const [elements, setElements] = useState<Element[]>([]);
-  const [exceptions, setExceptions] = useState<ElectronConfigException[]>([]);
   const [groups, setGroups] = useState<ElementGroupDict>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -48,10 +47,10 @@ export default function PeriodicTablePage() {
   }, [updateScale, elements, formType]);
 
   useEffect(() => {
-    Promise.all([loadElements(), loadElectronConfigExceptions(), loadElementGroups()])
-      .then(([els, exc, grps]) => {
+    Promise.all([loadElements(), loadElementGroups()])
+      .then(([els, grps]) => {
+        setConfigOverrides(els);
         setElements(els);
-        setExceptions(exc);
         setGroups(grps);
         setLoading(false);
       })
@@ -62,8 +61,8 @@ export default function PeriodicTablePage() {
   }, []);
 
   const exceptionZSet = useMemo(
-    () => new Set(exceptions.map(e => e.Z)),
-    [exceptions],
+    () => new Set(elements.filter(e => e.electron_exception).map(e => e.Z)),
+    [elements],
   );
 
   const searchMatchedZ = useMemo(() => {
@@ -165,7 +164,6 @@ export default function PeriodicTablePage() {
       {selectedElement && (
         <ElementDetailPanel
           element={selectedElement}
-          exceptions={exceptions}
           groups={groups}
           onClose={() => setSelectedElement(null)}
         />

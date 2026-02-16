@@ -6,7 +6,6 @@ import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
 import type { CompetencyNode } from '../types/competency';
-import type { ElectronConfigException } from '../types/electron-config';
 import type { ElementGroupDict } from '../types/element-group';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
@@ -197,19 +196,6 @@ export async function loadElementGroups(): Promise<ElementGroupDict> {
   return loadDataFile<ElementGroupDict>(path);
 }
 
-/** Load electron config exceptions. */
-export async function loadElectronConfigExceptions(): Promise<ElectronConfigException[]> {
-  const manifest = await getManifest();
-  const path = manifest.entrypoints.electron_config_exceptions;
-
-  if (!path) {
-    throw new Error(
-      'Electron config exceptions not found in manifest. Expected key "electron_config_exceptions" in entrypoints.',
-    );
-  }
-
-  return loadDataFile<ElectronConfigException[]>(path);
-}
 
 /** Load periodic table content (theory blocks, explanations). */
 export async function loadPeriodicTableContent(): Promise<unknown> {

@@ -7,7 +7,6 @@ export interface ManifestEntrypoints {
   indices: Record<string, string>;
   diagnostic?: string;
   element_groups?: string;
-  electron_config_exceptions?: string;
   periodic_table_content?: string;
   reactions?: string;
   exercises?: Record<string, string>;

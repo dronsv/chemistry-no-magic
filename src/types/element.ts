@@ -18,6 +18,14 @@ export interface ElementDiscovery {
   country_ru?: string;
 }
 
+export interface ElectronException {
+  config_override: [number, string, number][];
+  expected_formula: string;
+  actual_formula: string;
+  rule: string;
+  reason_ru: string;
+}
+
 export interface Element {
   Z: number;
   symbol: string;
@@ -41,4 +49,5 @@ export interface Element {
   production_ru?: string;
   abundance_ru?: string;
   fun_facts_ru?: string[];
+  electron_exception?: ElectronException;
 }

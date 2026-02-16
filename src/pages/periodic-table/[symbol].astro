@@ -32,6 +32,13 @@ interface ElementData {
   production_ru?: string;
   abundance_ru?: string;
   fun_facts_ru?: string[];
+  electron_exception?: {
+    config_override: [number, string, number][];
+    expected_formula: string;
+    actual_formula: string;
+    rule: string;
+    reason_ru: string;
+  };
 }
 
 interface ReactionMolecularItem {
@@ -186,6 +193,17 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
         </>
       )}
     </dl>
+
+    {el.electron_exception && (
+      <section class="element-page__section element-page__exception">
+        <h2>Провал электрона</h2>
+        <div class="element-page__exception-compare">
+          <span>Ожидаемая: <s>{el.electron_exception.expected_formula}</s></span>
+          <span>Реальная: <b>{el.electron_exception.actual_formula}</b></span>
+        </div>
+        <p class="element-page__text">{el.electron_exception.reason_ru}</p>
+      </section>
+    )}
 
     {hasPhysical && (
       <section class="element-page__section">
@@ -369,6 +387,21 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
     line-height: 1.6;
     margin: 0;
     color: var(--color-text);
+  }
+
+  .element-page__exception {
+    padding: var(--space-md);
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 0.5rem;
+  }
+  .element-page__exception-compare {
+    display: flex;
+    gap: var(--space-lg);
+    font-size: 0.9375rem;
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
   }
 
   .element-page__discovery {

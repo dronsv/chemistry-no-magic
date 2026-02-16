@@ -1,20 +1,18 @@
 import type { Element } from '../../types/element';
-import type { ElectronConfigException } from '../../types/electron-config';
 import type { ElementGroupDict } from '../../types/element-group';
 
 interface ElementDetailsProps {
   element: Element;
-  exceptions?: ElectronConfigException[];
   groups: ElementGroupDict;
   onClose: () => void;
 }
 
-export default function ElementDetails({ element, exceptions, groups, onClose }: ElementDetailsProps) {
+export default function ElementDetails({ element, groups, onClose }: ElementDetailsProps) {
   const oxStates = element.typical_oxidation_states
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
 
-  const exception = exceptions?.find(e => e.Z === element.Z);
+  const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
 
   return (
@@ -55,9 +53,9 @@ export default function ElementDetails({ element, exceptions, groups, onClose }:
         <dd>{element.electronegativity ?? '—'}</dd>
       </dl>
 
-      {exception && (
+      {exc && (
         <p className="pt-details__exception-note">
-          ⚠ Провал электрона: {exception.reason_ru}
+          ⚠ Провал электрона: {exc.reason_ru}
         </p>
       )}
     </div>
