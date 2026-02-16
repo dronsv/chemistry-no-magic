@@ -1,5 +1,6 @@
 ---
 import PeriodicTableHint from '../features/periodic-table/PeriodicTableHint';
+import SolubilityHint from '../features/reactions/SolubilityHint';
 
 const currentPath = Astro.url.pathname;
 
@@ -34,6 +35,7 @@ function isActive(href: string): boolean {
       ))}
     </ul>
     <PeriodicTableHint client:idle />
+    <SolubilityHint client:idle />
   </div>
 </nav>
 

@@ -207,7 +207,7 @@ export default function PeriodicTableHint() {
           <span /><span /><span />
           <span /><span /><span />
         </span>
-        Таблица
+        Периодическая
       </button>
 
       {/* Floating panel (non-modal, draggable) */}
