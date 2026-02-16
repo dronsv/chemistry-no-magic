@@ -4,5 +4,8 @@ import ProfileApp from '../../features/profile/ProfileApp';
 ---
 
 <BaseLayout title="Профиль" description="Ваш профиль компетенций по химии: прогресс, сильные и слабые стороны, рекомендации.">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
   <ProfileApp client:idle />
 </BaseLayout>

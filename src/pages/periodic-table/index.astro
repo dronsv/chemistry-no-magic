@@ -4,5 +4,21 @@ import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
 ---
 
 <BaseLayout title="Периодическая таблица" description="Интерактивная периодическая таблица Менделеева: электронные конфигурации, орбитальные диаграммы, энергетические уровни и практика.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Интерактивная периодическая таблица Менделеева",
+      "description": "Периодическая таблица с электронными конфигурациями, орбитальными диаграммами и упражнениями для подготовки к ОГЭ.",
+      "educationalLevel": "ОГЭ (9 класс)",
+      "learningResourceType": "Interactive resource",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Химия без магии",
+        "url": Astro.site?.toString(),
+      },
+    })} />
+  </Fragment>
   <PeriodicTablePage client:idle />
 </BaseLayout>

@@ -4,5 +4,20 @@ import DiagnosticsApp from '../../features/diagnostics/DiagnosticsApp';
 ---
 
 <BaseLayout title="Диагностика" description="Диагностический тест для определения уровня знаний по химии. 15 минут — и вы узнаете свои сильные и слабые стороны.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Диагностика знаний по химии",
+      "description": "Диагностический тест для определения уровня знаний по химии. 12 вопросов, 15 минут.",
+      "educationalLevel": "ОГЭ (9 класс)",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Химия без магии",
+        "url": Astro.site?.toString(),
+      },
+    })} />
+  </Fragment>
   <DiagnosticsApp client:idle />
 </BaseLayout>
