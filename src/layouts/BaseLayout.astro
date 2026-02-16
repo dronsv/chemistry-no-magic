@@ -18,8 +18,28 @@ const {
 } = Astro.props;
 
 const fullTitle = title === 'Химия без магии' ? title : `${title} | Химия без магии`;
-const siteUrl = Astro.site?.toString() ?? '';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const canonical = canonicalUrl ?? Astro.url.href;
+
+// Breadcrumb segments from URL path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { name: 'Главная', url: `${siteUrl}/` },
+  ...pathSegments.map((seg, i) => ({
+    name: seg,
+    url: `${siteUrl}/${pathSegments.slice(0, i + 1).join('/')}/`,
+  })),
+];
+const breadcrumbLd = pathSegments.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": item.url,
+  })),
+} : null;
 ---
 
 <!doctype html>
@@ -36,13 +56,42 @@ const canonical = canonicalUrl ?? Astro.url.href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="Химия без магии" />
     {ogImage && <meta property="og:image" content={ogImage} />}
 
+    <!-- Breadcrumb structured data -->
+    {breadcrumbLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+    )}
+
     <ViewTransitions />
+
+    <!-- Yandex.Metrika counter -->
+    <script is:inline>
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106842347', 'ym');
+
+      ym(106842347, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+
+      // Track ViewTransitions page navigations
+      document.addEventListener('astro:page-load', function() {
+        if (typeof ym !== 'undefined') {
+          ym(106842347, 'hit', location.href, { referer: document.referrer });
+        }
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106842347" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <slot name="head" />
   </head>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /profile/
+Disallow: /data/
+
+Sitemap: https://chemistry.svistunov.online/sitemap-index.xml
+
+Host: chemistry.svistunov.online
