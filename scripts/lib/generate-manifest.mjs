@@ -27,6 +27,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         bkt_params: 'rules/bkt_params.json',
         competencies: 'rules/competencies.json',
         periodic_table_theory: 'rules/periodic-table-theory.json',
+        bond_theory: 'rules/bond_theory.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
@@ -39,6 +40,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       reactions: 'reactions/reactions.json',
       exercises: {
         periodic_table: 'exercises/periodic-table-exercises.json',
+        bonds: 'exercises/bonds-exercises.json',
       },
       indices: {
         substances_index: 'indices/substances_index.json',

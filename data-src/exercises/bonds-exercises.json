@@ -1,0 +1,50 @@
+[
+  {
+    "id": "identify_bond_type",
+    "name_ru": "Определи тип связи",
+    "competencies": { "bond_type": "P", "periodic_table": "S" },
+    "description_ru": "Дана формула вещества — определить тип химической связи",
+    "format": "multiple_choice",
+    "distractor_strategy": "other_bond_types"
+  },
+  {
+    "id": "identify_crystal_structure",
+    "name_ru": "Определи тип решётки",
+    "competencies": { "crystal_structure_type": "P", "bond_type": "S" },
+    "description_ru": "Дана формула — определить тип кристаллической решётки",
+    "format": "multiple_choice",
+    "distractor_strategy": "other_crystal_types"
+  },
+  {
+    "id": "select_substance_by_bond",
+    "name_ru": "Выбери вещество с заданным типом связи",
+    "competencies": { "bond_type": "P" },
+    "description_ru": "Дан тип связи — выбрать вещество, в котором такая связь",
+    "format": "multiple_choice",
+    "distractor_strategy": "substances_with_other_bonds"
+  },
+  {
+    "id": "predict_property_by_structure",
+    "name_ru": "Предскажи свойство по решётке",
+    "competencies": { "crystal_structure_type": "P" },
+    "description_ru": "Дано вещество и его решётка — предсказать физическое свойство",
+    "format": "multiple_choice",
+    "distractor_strategy": "properties_of_other_structures"
+  },
+  {
+    "id": "compare_melting_points",
+    "name_ru": "Сравни температуры плавления",
+    "competencies": { "crystal_structure_type": "P", "bond_type": "S" },
+    "description_ru": "Даны два вещества — определить, у какого выше т.пл.",
+    "format": "multiple_choice",
+    "distractor_strategy": "wrong_comparison"
+  },
+  {
+    "id": "bond_from_delta_chi",
+    "name_ru": "Тип связи по Δχ",
+    "competencies": { "bond_type": "P", "periodic_table": "S" },
+    "description_ru": "Даны два элемента и их χ — определить тип связи по разности",
+    "format": "multiple_choice",
+    "distractor_strategy": "other_bond_types"
+  }
+]

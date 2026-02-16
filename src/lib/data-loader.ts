@@ -11,6 +11,7 @@ import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
 import type { Reaction } from '../types/reaction';
+import type { BondTheory } from '../types/bond';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -270,6 +271,11 @@ export async function loadActivitySeries(): Promise<ActivitySeriesEntry[]> {
 /** Load applicability rules. */
 export async function loadApplicabilityRules(): Promise<ApplicabilityRule[]> {
   return loadRule('applicability_rules') as Promise<ApplicabilityRule[]>;
+}
+
+/** Load bond theory content (bond types + crystal structures). */
+export async function loadBondTheory(): Promise<BondTheory> {
+  return loadRule('bond_theory') as Promise<BondTheory>;
 }
 
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
