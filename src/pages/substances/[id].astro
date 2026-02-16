@@ -14,6 +14,14 @@ interface SubstanceData {
   tags?: string[];
 }
 
+interface IonData {
+  id: string;
+  formula: string;
+  name_ru: string;
+  charge: number;
+  type: string;
+}
+
 interface ClassificationRule {
   id: string;
   class: string;
@@ -63,10 +71,11 @@ export async function getStaticPaths() {
     return [];
   }
 
-  // Load rules at build time
+  // Load rules and ions at build time
   let classificationRules: ClassificationRule[] = [];
   let namingRules: NamingRule[] = [];
   let allSubstances: SubstanceData[] = [];
+  let ionMap = new Map<string, IonData>();
 
   try {
     classificationRules = JSON.parse(
@@ -76,6 +85,13 @@ export async function getStaticPaths() {
       await readFile(join(rulesDir, 'naming_rules.json'), 'utf-8')
     );
   } catch { /* rules optional */ }
+
+  try {
+    const ions: IonData[] = JSON.parse(
+      await readFile(join(process.cwd(), 'data-src', 'ions.json'), 'utf-8')
+    );
+    for (const ion of ions) ionMap.set(ion.id, ion);
+  } catch { /* ions optional */ }
 
   const paths = [];
   for (const file of files) {
@@ -87,10 +103,13 @@ export async function getStaticPaths() {
     paths.push({ params: { id }, props: { substance, classificationRules, namingRules } });
   }
 
-  // Add allSubstances to each path for related substances
+  // Convert ionMap to plain object for serialization
+  const ionRecord: Record<string, IonData> = Object.fromEntries(ionMap);
+
+  // Add allSubstances and ions to each path
   return paths.map(p => ({
     ...p,
-    props: { ...p.props, allSubstances },
+    props: { ...p.props, allSubstances, ions: ionRecord },
   }));
 }
 
@@ -99,9 +118,10 @@ interface Props {
   classificationRules: ClassificationRule[];
   namingRules: NamingRule[];
   allSubstances: SubstanceData[];
+  ions: Record<string, IonData>;
 }
 
-const { substance, classificationRules, namingRules, allSubstances } = Astro.props as Props;
+const { substance, classificationRules, namingRules, allSubstances, ions } = Astro.props as Props;
 const displayName = substance.name_ru ?? substance.formula;
 
 // Find matching classification rule
@@ -142,6 +162,17 @@ const related = allSubstances
   })
   .slice(0, 8);
 
+const TAG_LABELS: Record<string, string> = {
+  soluble: 'растворимое',
+  insoluble: 'нерастворимое',
+  slightly_soluble: 'малорастворимое',
+  strong_electrolyte: 'сильный электролит',
+  weak_electrolyte: 'слабый электролит',
+  amphoteric: 'амфотерное',
+  oxidizer: 'окислитель',
+  reducer: 'восстановитель',
+};
+
 const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
 const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
 ---
@@ -176,14 +207,32 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
       {substance.ions && substance.ions.length > 0 && (
         <>
           <dt>Ионы</dt>
-          <dd>{substance.ions.join(', ')}</dd>
+          <dd class="substance-ions">
+            {substance.ions.map((ionId, i) => {
+              const ion = ions[ionId];
+              return (
+                <>
+                  {i > 0 && ', '}
+                  {ion ? (
+                    <span class={`substance-ion substance-ion--${ion.type}`} title={ion.name_ru}>
+                      {ion.formula}
+                    </span>
+                  ) : ionId}
+                </>
+              );
+            })}
+          </dd>
         </>
       )}
 
       {substance.tags && substance.tags.length > 0 && (
         <>
-          <dt>Теги</dt>
-          <dd>{substance.tags.join(', ')}</dd>
+          <dt>Свойства</dt>
+          <dd class="substance-tags">
+            {substance.tags.map(tag => (
+              <span class="substance-tag">{TAG_LABELS[tag] ?? tag}</span>
+            ))}
+          </dd>
         </>
       )}
     </dl>
@@ -261,6 +310,40 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
     color: var(--color-text-muted);
   }
   .substance-props dd { margin: 0; }
+  .substance-ions {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    flex-wrap: wrap;
+  }
+  .substance-ion {
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    cursor: help;
+  }
+  .substance-ion--cation {
+    background: #eff6ff;
+    color: #1e40af;
+  }
+  .substance-ion--anion {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+  .substance-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+  .substance-tag {
+    font-size: 0.8125rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    color: var(--color-text-muted);
+  }
   .substance-notes {
     color: var(--color-text-muted);
     margin-bottom: var(--space-xl);
