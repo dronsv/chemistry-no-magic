@@ -1,13 +1,13 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElectronConfigException } from '../../types/electron-config';
-import { loadElements, loadElectronConfigExceptions } from '../../lib/data-loader';
+import type { ElementGroupDict } from '../../types/element-group';
+import { loadElements, loadElectronConfigExceptions, loadElementGroups } from '../../lib/data-loader';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetails from './ElementDetails';
 import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
-import { GROUP_INFO } from './group-info';
 import { usePanelState } from '../../lib/use-panel-state';
 import './periodic-table.css';
 
@@ -19,6 +19,7 @@ export default function PeriodicTableHint() {
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
   const [elements, setElements] = useState<Element[]>([]);
   const [exceptions, setExceptions] = useState<ElectronConfigException[]>([]);
+  const [groups, setGroups] = useState<ElementGroupDict>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [highlightedGroup, setHighlightedGroup] = useState<ElementGroup | null>(null);
@@ -67,11 +68,12 @@ export default function PeriodicTableHint() {
     setLoading(true);
     setError(null);
 
-    Promise.all([loadElements(), loadElectronConfigExceptions()])
-      .then(([els, exc]) => {
+    Promise.all([loadElements(), loadElectronConfigExceptions(), loadElementGroups()])
+      .then(([els, exc, grps]) => {
         if (!cancelled) {
           setElements(els);
           setExceptions(exc);
+          setGroups(grps);
         }
       })
       .catch((err) => {
@@ -200,7 +202,7 @@ export default function PeriodicTableHint() {
     ? { top: pos.y, left: pos.x, right: 'auto', transform: 'none' }
     : {};
 
-  const groupInfo = highlightedGroup ? GROUP_INFO[highlightedGroup] : null;
+  const groupInfo = highlightedGroup ? groups[highlightedGroup] : null;
 
   return (
     <>
@@ -280,8 +282,8 @@ export default function PeriodicTableHint() {
             {/* Group info tooltip — absolutely positioned over content */}
             {groupInfo && (
               <div className="pt-group-tooltip">
-                <strong>{groupInfo.label}</strong>
-                <span>{groupInfo.properties}</span>
+                <strong>{groupInfo.name_ru}</strong>
+                <span>{groupInfo.description_ru}</span>
               </div>
             )}
 
@@ -315,6 +317,7 @@ export default function PeriodicTableHint() {
             <ElementDetails
               element={selectedElement}
               exceptions={exceptions}
+              groups={groups}
               onClose={handleCloseDetails}
             />
           )}
@@ -322,6 +325,7 @@ export default function PeriodicTableHint() {
           {/* Legend */}
           {!showTrends && (
             <Legend
+              groups={groups}
               highlightedGroup={highlightedGroup ?? hoveredElementGroup}
               onHoverGroup={handleLegendHover}
               onHoverGroupEnd={handleLegendHoverEnd}

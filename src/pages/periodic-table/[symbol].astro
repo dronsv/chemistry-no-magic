@@ -57,28 +57,18 @@ interface SubstanceEntry {
   class: string;
 }
 
-const METAL_TYPE_RU: Record<string, string> = {
-  metal: 'Металл',
-  nonmetal: 'Неметалл',
-  metalloid: 'Металлоид',
-};
-
-const GROUP_RU: Record<string, string> = {
-  alkali_metal: 'Щелочной металл',
-  alkaline_earth: 'Щёлочноземельный металл',
-  transition_metal: 'Переходный металл',
-  post_transition_metal: 'Постпереходный металл',
-  metalloid: 'Металлоид',
-  nonmetal: 'Неметалл',
-  halogen: 'Галоген',
-  noble_gas: 'Благородный газ',
-  lanthanide: 'Лантаноид',
-  actinide: 'Актиноид',
-};
+interface ElementGroupInfo {
+  name_ru: string;
+  name_singular_ru: string;
+}
 
 export async function getStaticPaths() {
   const elementsPath = join(process.cwd(), 'data-src', 'elements.json');
   const elements: ElementData[] = JSON.parse(await readFile(elementsPath, 'utf-8'));
+
+  // Load element groups for display names
+  const groupsPath = join(process.cwd(), 'data-src', 'element-groups.json');
+  const groupsDict: Record<string, ElementGroupInfo> = JSON.parse(await readFile(groupsPath, 'utf-8'));
 
   // Load reactions for cross-referencing
   const reactionsPath = join(process.cwd(), 'data-src', 'reactions', 'reactions.json');
@@ -121,9 +111,11 @@ export async function getStaticPaths() {
       return reStart.test(s.formula) || re.test(s.formula);
     });
 
+    const groupLabel = groupsDict[el.element_group]?.name_singular_ru ?? el.element_group;
+
     return {
       params: { symbol: el.symbol },
-      props: { element: el, elementReactions, relatedSubstances },
+      props: { element: el, elementReactions, relatedSubstances, groupLabel },
     };
   });
 }
@@ -132,17 +124,15 @@ interface Props {
   element: ElementData;
   elementReactions: ReactionData[];
   relatedSubstances: SubstanceEntry[];
+  groupLabel: string;
 }
 
-const { element, elementReactions, relatedSubstances } = Astro.props as Props;
+const { element, elementReactions, relatedSubstances, groupLabel } = Astro.props as Props;
 const el = element;
 
 const oxStates = el.typical_oxidation_states
   .map(s => (s > 0 ? `+${s}` : String(s)))
   .join(', ');
-
-const groupLabel = GROUP_RU[el.element_group] ?? el.element_group;
-const metalLabel = METAL_TYPE_RU[el.metal_type] ?? el.metal_type;
 
 const hasPhysical = el.melting_point_C != null || el.boiling_point_C != null || el.density_g_cm3 != null;
 const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist_ru);
@@ -180,7 +170,7 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
       <dd>{el.group} / {el.period}</dd>
 
       <dt>Тип</dt>
-      <dd>{metalLabel} · {groupLabel}</dd>
+      <dd>{groupLabel}</dd>
 
       {oxStates && (
         <>

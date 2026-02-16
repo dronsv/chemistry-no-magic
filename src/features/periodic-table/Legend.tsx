@@ -1,47 +1,45 @@
 import type { ElementGroup } from '../../types/element';
+import type { ElementGroupDict } from '../../types/element-group';
 
-interface LegendEntry {
-  group: ElementGroup;
-  label: string;
-  cssVar: string;
-}
-
-const LEGEND_ITEMS: LegendEntry[] = [
-  { group: 'alkali_metal', label: 'Щелочные металлы', cssVar: 'var(--color-alkali-metal)' },
-  { group: 'alkaline_earth', label: 'Щёлочноземельные', cssVar: 'var(--color-alkaline-earth)' },
-  { group: 'transition_metal', label: 'Переходные металлы', cssVar: 'var(--color-transition-metal)' },
-  { group: 'post_transition_metal', label: 'Постпереходные металлы', cssVar: 'var(--color-post-transition-metal)' },
-  { group: 'metalloid', label: 'Металлоиды', cssVar: 'var(--color-metalloid)' },
-  { group: 'nonmetal', label: 'Неметаллы', cssVar: 'var(--color-nonmetal)' },
-  { group: 'halogen', label: 'Галогены', cssVar: 'var(--color-halogen)' },
-  { group: 'noble_gas', label: 'Благородные газы', cssVar: 'var(--color-noble-gas)' },
-  { group: 'lanthanide', label: 'Лантаноиды', cssVar: 'var(--color-lanthanide)' },
-  { group: 'actinide', label: 'Актиноиды', cssVar: 'var(--color-actinide)' },
+/** Order of groups in the legend display. */
+const GROUP_ORDER: ElementGroup[] = [
+  'alkali_metal', 'alkaline_earth', 'transition_metal', 'post_transition_metal',
+  'metalloid', 'nonmetal', 'halogen', 'noble_gas', 'lanthanide', 'actinide',
 ];
 
+/** CSS variable derived from group id: alkali_metal → var(--color-alkali-metal) */
+function groupCssVar(id: string): string {
+  return `var(--color-${id.replace(/_/g, '-')})`;
+}
+
 interface LegendProps {
+  groups: ElementGroupDict;
   highlightedGroup: ElementGroup | null;
   onHoverGroup: (group: ElementGroup) => void;
   onHoverGroupEnd: () => void;
 }
 
-export default function Legend({ highlightedGroup, onHoverGroup, onHoverGroupEnd }: LegendProps) {
+export default function Legend({ groups, highlightedGroup, onHoverGroup, onHoverGroupEnd }: LegendProps) {
   return (
     <div className="pt-legend">
-      {LEGEND_ITEMS.map((item) => (
-        <div
-          className={`pt-legend__item ${highlightedGroup === item.group ? 'pt-legend__item--active' : ''}`}
-          key={item.group}
-          onMouseEnter={() => onHoverGroup(item.group)}
-          onMouseLeave={onHoverGroupEnd}
-        >
-          <span
-            className="pt-legend__swatch"
-            style={{ backgroundColor: item.cssVar }}
-          />
-          <span className="pt-legend__label">{item.label}</span>
-        </div>
-      ))}
+      {GROUP_ORDER.map((id) => {
+        const info = groups[id];
+        if (!info) return null;
+        return (
+          <div
+            className={`pt-legend__item ${highlightedGroup === id ? 'pt-legend__item--active' : ''}`}
+            key={id}
+            onMouseEnter={() => onHoverGroup(id)}
+            onMouseLeave={onHoverGroupEnd}
+          >
+            <span
+              className="pt-legend__swatch"
+              style={{ backgroundColor: groupCssVar(id) }}
+            />
+            <span className="pt-legend__label">{info.name_ru}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -1,24 +1,13 @@
 import { useState, useMemo } from 'react';
 import type { Element } from '../../types/element';
+import type { ElementGroupDict } from '../../types/element-group';
 
 interface Props {
   elements: Element[];
+  groups: ElementGroupDict;
 }
 
-const GROUP_RU: Record<string, string> = {
-  alkali_metal: 'Щелочной металл',
-  alkaline_earth: 'Щёлочноземельный',
-  transition_metal: 'Переходный металл',
-  post_transition_metal: 'Постпереходный',
-  metalloid: 'Металлоид',
-  nonmetal: 'Неметалл',
-  halogen: 'Галоген',
-  noble_gas: 'Благородный газ',
-  lanthanide: 'Лантаноид',
-  actinide: 'Актиноид',
-};
-
-export default function ElementList({ elements }: Props) {
+export default function ElementList({ elements, groups }: Props) {
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
@@ -52,7 +41,7 @@ export default function ElementList({ elements }: Props) {
             <span className="element-list__item-z">{el.Z}</span>
             <span className="element-list__item-symbol">{el.symbol}</span>
             <span className="element-list__item-name">{el.name_ru}</span>
-            <span className="element-list__item-group">{GROUP_RU[el.element_group] ?? ''}</span>
+            <span className="element-list__item-group">{groups[el.element_group]?.name_singular_ru ?? ''}</span>
           </a>
         ))}
       </div>

@@ -23,16 +23,30 @@ const NOBLE_GASES = [
 
 /** Exception overrides: Z → [n, l, electron_count] tuples replacing Aufbau result. */
 const EXCEPTIONS: Record<number, [number, SubshellType, number][]> = {
+  // Period 4
   24: [[3,'d',5],[4,'s',1]],    // Cr: half-filled 3d
   29: [[3,'d',10],[4,'s',1]],   // Cu: full 3d
+  // Period 5
   41: [[4,'d',4],[5,'s',1]],    // Nb
   42: [[4,'d',5],[5,'s',1]],    // Mo: half-filled 4d
   44: [[4,'d',7],[5,'s',1]],    // Ru
   45: [[4,'d',8],[5,'s',1]],    // Rh
   46: [[4,'d',10],[5,'s',0]],   // Pd: full 4d, empty 5s
   47: [[4,'d',10],[5,'s',1]],   // Ag: full 4d
+  // Lanthanides
+  57: [[4,'f',0],[5,'d',1]],    // La: 5d¹ instead of 4f¹
+  58: [[4,'f',1],[5,'d',1]],    // Ce: 4f¹5d¹ instead of 4f²
+  64: [[4,'f',7],[5,'d',1]],    // Gd: half-filled 4f
+  // Period 6 transition metals
   78: [[4,'f',14],[5,'d',9],[6,'s',1]],  // Pt
   79: [[4,'f',14],[5,'d',10],[6,'s',1]], // Au: full 5d
+  // Actinides
+  89: [[5,'f',0],[6,'d',1]],    // Ac: 6d¹ instead of 5f¹
+  90: [[5,'f',0],[6,'d',2]],    // Th: 6d² instead of 5f²
+  91: [[5,'f',2],[6,'d',1]],    // Pa: 5f²6d¹ instead of 5f³
+  92: [[5,'f',3],[6,'d',1]],    // U: 5f³6d¹ instead of 5f⁴
+  93: [[5,'f',4],[6,'d',1]],    // Np: 5f⁴6d¹ instead of 5f⁵
+  96: [[5,'f',7],[6,'d',1]],    // Cm: half-filled 5f
 };
 
 const SUPERSCRIPT: Record<string, string> = {
@@ -72,9 +86,12 @@ function applyExceptions(config: OrbitalFilling[], Z: number): OrbitalFilling[] 
     const idx = result.findIndex(e => e.n === n && e.l === l);
     if (idx !== -1) {
       result[idx].electrons = electrons;
+    } else {
+      // Subshell not in Aufbau config (e.g. 5d for La) — insert it
+      result.push({ n, l, electrons, max: SUBSHELL_CAPACITY[l] });
     }
   }
-  // Remove zero-electron entries (Pd: 5s⁰)
+  // Remove zero-electron entries (Pd: 5s⁰, La: 4f⁰)
   return result.filter(e => e.electrons > 0);
 }
 
@@ -144,11 +161,17 @@ export function getValenceElectrons(Z: number): OrbitalFilling[] {
   const config = getElectronConfig(Z);
   if (config.length === 0) return [];
 
-  const maxN = Math.max(...config.map(e => e.n));
+  // Use Aufbau config to determine the outer shell number (= period).
+  // This matters for exceptions like Pd where 5s⁰ is filtered out and actual
+  // maxN drops to 4, which would incorrectly report the entire 4th shell (18e⁻)
+  // as valence. In school, Pd's outer shell is 5 and it has 0 valence electrons.
+  const aufbau = buildAufbau(Z);
+  const outerN = Math.max(...aufbau.map(e => e.n));
+
+  const outerShell = config.filter(e => e.n === outerN);
   // For transition metals, include (n-1)d if partially filled along with ns
-  const outerShell = config.filter(e => e.n === maxN);
   const penultimateD = config.find(
-    e => e.n === maxN - 1 && e.l === 'd' && e.electrons < e.max,
+    e => e.n === outerN - 1 && e.l === 'd' && e.electrons < e.max,
   );
 
   if (penultimateD) {

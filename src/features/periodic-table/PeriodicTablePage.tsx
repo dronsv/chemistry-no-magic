@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElectronConfigException } from '../../types/electron-config';
-import { loadElements, loadElectronConfigExceptions } from '../../lib/data-loader';
+import type { ElementGroupDict } from '../../types/element-group';
+import { loadElements, loadElectronConfigExceptions, loadElementGroups } from '../../lib/data-loader';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetailPanel from './ElementDetailPanel';
@@ -9,7 +10,6 @@ import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import PracticeSection from './practice/PracticeSection';
 import TheoryPanel from './TheoryPanel';
-import ElementList from './ElementList';
 import './periodic-table.css';
 
 type FormType = 'long' | 'short';
@@ -17,6 +17,7 @@ type FormType = 'long' | 'short';
 export default function PeriodicTablePage() {
   const [elements, setElements] = useState<Element[]>([]);
   const [exceptions, setExceptions] = useState<ElectronConfigException[]>([]);
+  const [groups, setGroups] = useState<ElementGroupDict>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,10 +48,11 @@ export default function PeriodicTablePage() {
   }, [updateScale, elements, formType]);
 
   useEffect(() => {
-    Promise.all([loadElements(), loadElectronConfigExceptions()])
-      .then(([els, exc]) => {
+    Promise.all([loadElements(), loadElectronConfigExceptions(), loadElementGroups()])
+      .then(([els, exc, grps]) => {
         setElements(els);
         setExceptions(exc);
+        setGroups(grps);
         setLoading(false);
       })
       .catch(err => {
@@ -130,6 +132,7 @@ export default function PeriodicTablePage() {
 
       {/* Legend */}
       <Legend
+        groups={groups}
         highlightedGroup={highlightedGroup ?? hoveredElementGroup}
         onHoverGroup={setHighlightedGroup}
         onHoverGroupEnd={() => setHighlightedGroup(null)}
@@ -163,6 +166,7 @@ export default function PeriodicTablePage() {
         <ElementDetailPanel
           element={selectedElement}
           exceptions={exceptions}
+          groups={groups}
           onClose={() => setSelectedElement(null)}
         />
       )}
@@ -173,8 +177,6 @@ export default function PeriodicTablePage() {
       {/* Practice section */}
       {elements.length > 0 && <PracticeSection elements={elements} />}
 
-      {/* All elements list */}
-      {elements.length > 0 && <ElementList elements={elements} />}
     </div>
   );
 }

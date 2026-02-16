@@ -7,6 +7,7 @@ import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
 import type { CompetencyNode } from '../types/competency';
 import type { ElectronConfigException } from '../types/electron-config';
+import type { ElementGroupDict } from '../types/element-group';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
@@ -180,6 +181,20 @@ export async function loadDiagnosticQuestions(): Promise<DiagnosticQuestion[]> {
   }
 
   return loadDataFile<DiagnosticQuestion[]>(path);
+}
+
+/** Load element groups dictionary. */
+export async function loadElementGroups(): Promise<ElementGroupDict> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.element_groups;
+
+  if (!path) {
+    throw new Error(
+      'Element groups not found in manifest. Expected key "element_groups" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<ElementGroupDict>(path);
 }
 
 /** Load electron config exceptions. */

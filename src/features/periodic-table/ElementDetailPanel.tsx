@@ -1,23 +1,19 @@
-import type { Element, MetalType } from '../../types/element';
+import type { Element } from '../../types/element';
 import type { ElectronConfigException } from '../../types/electron-config';
+import type { ElementGroupDict } from '../../types/element-group';
 import { getValenceElectrons, isException, getShorthandFormula } from '../../lib/electron-config';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
 import EnergyLevelDiagram from './EnergyLevelDiagram';
 
-const METAL_TYPE_RU: Record<MetalType, string> = {
-  metal: 'Металл',
-  nonmetal: 'Неметалл',
-  metalloid: 'Металлоид',
-};
-
 interface Props {
   element: Element;
   exceptions: ElectronConfigException[];
+  groups: ElementGroupDict;
   onClose: () => void;
 }
 
-export default function ElementDetailPanel({ element, exceptions, onClose }: Props) {
+export default function ElementDetailPanel({ element, exceptions, groups, onClose }: Props) {
   const Z = element.Z;
   const valence = getValenceElectrons(Z);
   const valenceCount = valence.reduce((s, v) => s + v.electrons, 0);
@@ -27,6 +23,7 @@ export default function ElementDetailPanel({ element, exceptions, onClose }: Pro
   const exception = isException(Z)
     ? exceptions.find(e => e.Z === Z)
     : null;
+  const groupInfo = groups[element.element_group];
 
   return (
     <div className="detail-panel">
@@ -39,14 +36,14 @@ export default function ElementDetailPanel({ element, exceptions, onClose }: Pro
         &times;
       </button>
 
-      {/* Header */}
-      <div className="detail-panel__header">
+      {/* Header — clickable, navigates to element page */}
+      <a href={`/periodic-table/${element.symbol}/`} className="detail-panel__header detail-panel__header--link">
         <span className="detail-panel__z">Z={Z}</span>
         <span className="detail-panel__symbol">{element.symbol}</span>
         <span className="detail-panel__name">{element.name_ru}</span>
-      </div>
+      </a>
       <div className="detail-panel__meta">
-        Период {element.period} · Группа {element.group} · {METAL_TYPE_RU[element.metal_type]}
+        Период {element.period} · Группа {element.group} · {groupInfo?.name_singular_ru ?? element.element_group}
       </div>
 
       {/* Orbital diagram — full width, right after header */}
@@ -99,12 +96,6 @@ export default function ElementDetailPanel({ element, exceptions, onClose }: Pro
         </div>
       )}
 
-      <a
-        href={`/periodic-table/${element.symbol}/`}
-        className="detail-panel__more-link"
-      >
-        Подробнее &rarr;
-      </a>
     </div>
   );
 }
