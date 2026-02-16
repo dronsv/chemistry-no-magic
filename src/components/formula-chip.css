@@ -1,0 +1,85 @@
+.formula-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: default;
+  transition: filter 0.15s;
+}
+
+.formula-chip--link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.formula-chip--link:hover {
+  filter: brightness(0.92);
+}
+
+/* Substance class colors (matching substances.css badge palette) */
+
+.formula-chip--oxide {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.formula-chip--acid {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.formula-chip--base {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.formula-chip--salt {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.formula-chip--simple,
+.formula-chip--unknown {
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+/* Tooltip */
+
+.formula-chip__tooltip {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.15s;
+  line-height: 1.4;
+}
+
+.formula-chip:hover .formula-chip__tooltip {
+  opacity: 1;
+}
+
+.formula-chip__tooltip-name {
+  font-weight: 600;
+}
+
+.formula-chip__tooltip-sep {
+  margin: 0 0.2rem;
+  opacity: 0.5;
+}
+
+.formula-chip__tooltip-ox {
+  font-family: monospace;
+  letter-spacing: 0.02em;
+}
