@@ -5,5 +5,14 @@
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": ["H_plus", "NO3_minus"],
-  "tags": ["soluble", "strong_electrolyte", "strong_acid", "oxidizer"]
+  "tags": ["soluble", "strong_electrolyte", "strong_acid", "oxidizer"],
+  "melting_point_C": -41.6,
+  "boiling_point_C": 83,
+  "density_g_cm3": 1.51,
+  "appearance_ru": "Бесцветная жидкость с резким запахом, дымит на воздухе",
+  "hazards_ru": ["Коррозионное", "Сильный окислитель", "Вызывает тяжёлые ожоги"],
+  "storage_ru": "Хранить в тёмной стеклянной таре, вдали от органических веществ",
+  "industrial_ru": "Производство удобрений (аммиачная селитра), взрывчатых веществ, красителей",
+  "production_ru": "Окисление аммиака на платиновом катализаторе (метод Оствальда)",
+  "fun_facts_ru": ["Смесь HNO₃ и HCl (3:1) — «царская водка», растворяющая золото и платину", "Азотная кислота окрашивает кожу в жёлтый цвет (ксантопротеиновая реакция на белки)"]
 }

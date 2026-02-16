@@ -5,5 +5,12 @@
   "class": "base",
   "subclass": "amphoteric",
   "ions": ["Al_3plus", "OH_minus"],
-  "tags": ["insoluble", "amphoteric", "white", "gelatinous"]
+  "tags": ["insoluble", "amphoteric", "white", "gelatinous"],
+  "melting_point_C": 300,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.42,
+  "appearance_ru": "Белое студенистое вещество",
+  "industrial_ru": "Производство алюминия, антацидных препаратов, адсорбентов",
+  "production_ru": "Осаждение из растворов солей алюминия щёлочью",
+  "fun_facts_ru": ["Входит в состав многих антацидных препаратов (средств от изжоги)", "При нагревании разлагается на Al₂O₃ и воду"]
 }

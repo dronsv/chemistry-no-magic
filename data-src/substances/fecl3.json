@@ -5,5 +5,13 @@
   "class": "salt",
   "subclass": "normal",
   "ions": ["Fe_3plus", "Cl_minus"],
-  "tags": ["soluble"]
+  "tags": ["soluble"],
+  "melting_point_C": 306,
+  "boiling_point_C": 316,
+  "density_g_cm3": 2.9,
+  "appearance_ru": "Тёмно-коричневые кристаллы, расплываются на воздухе",
+  "hazards_ru": ["Коррозионное", "Раздражает кожу"],
+  "industrial_ru": "Очистка сточных вод, травление печатных плат, катализатор",
+  "production_ru": "Взаимодействие железа с хлором при нагревании",
+  "fun_facts_ru": ["Раствор FeCl₃ — качественный реактив на фенолы (даёт фиолетовое окрашивание)"]
 }

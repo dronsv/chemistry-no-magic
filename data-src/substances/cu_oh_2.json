@@ -5,5 +5,12 @@
   "class": "base",
   "subclass": "insoluble",
   "ions": ["Cu_2plus", "OH_minus"],
-  "tags": ["insoluble", "blue", "decomposes_on_heating"]
+  "tags": ["insoluble", "blue", "decomposes_on_heating"],
+  "melting_point_C": 80,
+  "boiling_point_C": null,
+  "density_g_cm3": 3.37,
+  "appearance_ru": "Голубой студенистый осадок",
+  "industrial_ru": "Производство фунгицидов (бордоская жидкость), реактив в аналитической химии",
+  "production_ru": "Осаждение из растворов солей меди(II) щёлочью",
+  "fun_facts_ru": ["При нагревании чернеет, превращаясь в CuO и воду", "Растворяется в аммиаке с образованием ярко-синего раствора (реактив Швейцера)"]
 }

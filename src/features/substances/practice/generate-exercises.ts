@@ -97,21 +97,17 @@ const generators: Record<string, GeneratorFn> = {
   },
 
   classify_subclass(substances, classRules) {
-    // Pick a substance that has a class with multiple subclasses
-    const pool = mainSubstances(substances);
+    // Pick a substance that has subclass and a class with multiple subclasses
+    const pool = mainSubstances(substances).filter(s => s.subclass);
+    if (pool.length === 0) return generators.classify_by_formula(substances, classRules, []);
     const s = pick(pool);
     const rulesForClass = classRules.filter(r => r.class === s.class);
     if (rulesForClass.length < 2) {
-      // Fallback to classify_by_formula if not enough subclasses
       return generators.classify_by_formula(substances, classRules, []);
     }
-    const matchingRule = rulesForClass.find(r => r.subclass === (substances.find(sub => sub.id === s.id) as SubstanceIndexEntry & { subclass?: string })?.class);
-    // We need to find the substance's subclass from the full data — but index doesn't have it
-    // So we match by checking which rule's examples contain this formula
-    const correctRule = rulesForClass.find(r => r.examples.some(ex => ex === s.formula))
-      ?? rulesForClass[0];
-    const correctLabel = SUBCLASS_LABELS[correctRule.subclass] ?? correctRule.subclass;
-    const distractorRules = rulesForClass.filter(r => r.id !== correctRule.id);
+
+    const correctLabel = SUBCLASS_LABELS[s.subclass!] ?? s.subclass!;
+    const distractorRules = rulesForClass.filter(r => r.subclass !== s.subclass);
     const distractorLabels = distractorRules.map(r => SUBCLASS_LABELS[r.subclass] ?? r.subclass);
 
     // Ensure we have exactly 3 distractors
@@ -119,6 +115,7 @@ const generators: Record<string, GeneratorFn> = {
       distractorLabels.push('несолеобразующий');
     }
 
+    const matchingRule = rulesForClass.find(r => r.subclass === s.subclass) ?? rulesForClass[0];
     const options = shuffleOptions([
       { id: 'correct', text: correctLabel },
       ...distractorLabels.slice(0, 3).map((d, i) => ({ id: `d${i}`, text: d })),
@@ -129,7 +126,7 @@ const generators: Record<string, GeneratorFn> = {
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${s.formula} — ${correctRule.description_ru}`,
+      explanation: `${s.formula} — ${matchingRule.description_ru}`,
       competencyMap: { classification: 'P' },
     };
   },
@@ -222,6 +219,90 @@ const generators: Record<string, GeneratorFn> = {
       correctId: 'correct',
       explanation: `${s.name_ru} — ${correctFormula}.`,
       competencyMap: { naming: 'P', classification: 'S' },
+    };
+  },
+
+  identify_amphoteric(substances, classRules) {
+    // "Which substance is amphoteric?" — pick from oxides/hydroxides pool
+    const amphotericPool = mainSubstances(substances).filter(
+      s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
+    );
+    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, []);
+    const correct = pick(amphotericPool);
+
+    // Distractors: non-amphoteric oxides/bases
+    const nonAmphoteric = mainSubstances(substances).filter(
+      s => s.subclass !== 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
+    );
+    const distractors = pickN(nonAmphoteric, 3);
+
+    // If not enough distractors from oxides/bases, add from other classes
+    if (distractors.length < 3) {
+      const others = mainSubstances(substances).filter(
+        s => s.formula !== correct.formula && !distractors.some(d => d.formula === s.formula),
+      );
+      distractors.push(...pickN(others, 3 - distractors.length));
+    }
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correct.formula },
+      ...distractors.slice(0, 3).map((d, i) => ({ id: `d${i}`, text: d.formula })),
+    ]);
+    return {
+      type: 'identify_amphoteric',
+      question: 'Какое из веществ является амфотерным?',
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${correct.formula}${correct.name_ru ? ` (${correct.name_ru})` : ''} — амфотерное вещество: реагирует и с кислотами, и с щелочами.`,
+      competencyMap: { amphoterism_logic: 'P', classification: 'S' },
+    };
+  },
+
+  amphoteric_reaction_partner(substances, classRules) {
+    // "With what does Al₂O₃ react?" — correct: both acids and bases
+    const amphotericPool = mainSubstances(substances).filter(
+      s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
+    );
+    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, []);
+    const s = pick(amphotericPool);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: 'И с кислотами, и с щелочами' },
+      { id: 'd0', text: 'Только с кислотами' },
+      { id: 'd1', text: 'Только с щелочами' },
+      { id: 'd2', text: 'Не реагирует ни с кислотами, ни с щелочами' },
+    ]);
+    return {
+      type: 'amphoteric_reaction_partner',
+      question: `С чем реагирует ${s.formula}?`,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${s.formula} — амфотерное вещество, поэтому реагирует и с кислотами, и с щелочами.`,
+      competencyMap: { amphoterism_logic: 'P' },
+    };
+  },
+
+  amphoteric_elements(substances, classRules) {
+    // "Which element forms an amphoteric oxide?"
+    const AMPHOTERIC_METALS = ['Al', 'Zn', 'Be', 'Cr', 'Fe', 'Pb', 'Sn'];
+    const NON_AMPHOTERIC = ['Na', 'K', 'Ca', 'Mg', 'Cu', 'Ba', 'Li', 'Ag'];
+    const correct = pick(AMPHOTERIC_METALS);
+    const distractors = pickN(NON_AMPHOTERIC, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correct },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+    return {
+      type: 'amphoteric_elements',
+      question: 'Какой элемент образует амфотерный оксид?',
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${correct} образует амфотерный оксид. Типичные амфотерные металлы: Al, Zn, Be, Cr.`,
+      competencyMap: { amphoterism_logic: 'P', classification: 'S' },
     };
   },
 

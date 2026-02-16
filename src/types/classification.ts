@@ -20,4 +20,5 @@ export interface SubstanceIndexEntry {
   formula: string;
   name_ru?: string;
   class: string;
+  subclass?: string;
 }

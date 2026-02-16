@@ -5,5 +5,13 @@
   "class": "base",
   "subclass": "soluble",
   "ions": ["Ca_2plus", "OH_minus"],
-  "tags": ["slightly_soluble", "alkali"]
+  "tags": ["slightly_soluble", "alkali"],
+  "melting_point_C": 580,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.21,
+  "appearance_ru": "Белый порошок",
+  "hazards_ru": ["Коррозионное", "Раздражает кожу и глаза"],
+  "industrial_ru": "Строительство (гашёная известь), очистка воды, сельское хозяйство",
+  "production_ru": "Гашение негашёной извести водой: CaO + H₂O → Ca(OH)₂",
+  "fun_facts_ru": ["Известковая вода (раствор Ca(OH)₂) — качественный реактив на CO₂: мутнеет при пропускании углекислого газа", "Гашёная известь используется в строительстве более 5000 лет"]
 }

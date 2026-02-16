@@ -12,6 +12,31 @@ interface SubstanceData {
   ions?: string[];
   notes?: string;
   tags?: string[];
+  melting_point_C?: number | null;
+  boiling_point_C?: number | null;
+  density_g_cm3?: number | null;
+  appearance_ru?: string;
+  hazards_ru?: string[];
+  storage_ru?: string;
+  industrial_ru?: string;
+  production_ru?: string;
+  fun_facts_ru?: string[];
+}
+
+interface ReactionMolecularItem {
+  formula: string;
+  name?: string;
+  coeff: number;
+}
+
+interface ReactionData {
+  reaction_id: string;
+  title: string;
+  equation: string;
+  molecular: {
+    reactants: ReactionMolecularItem[];
+    products: ReactionMolecularItem[];
+  };
 }
 
 interface IonData {
@@ -93,6 +118,14 @@ export async function getStaticPaths() {
     for (const ion of ions) ionMap.set(ion.id, ion);
   } catch { /* ions optional */ }
 
+  // Load reactions for cross-referencing
+  let reactions: ReactionData[] = [];
+  try {
+    reactions = JSON.parse(
+      await readFile(join(process.cwd(), 'data-src', 'reactions', 'reactions.json'), 'utf-8')
+    );
+  } catch { /* reactions optional */ }
+
   const paths = [];
   for (const file of files) {
     if (!file.endsWith('.json')) continue;
@@ -106,10 +139,36 @@ export async function getStaticPaths() {
   // Convert ionMap to plain object for serialization
   const ionRecord: Record<string, IonData> = Object.fromEntries(ionMap);
 
-  // Add allSubstances and ions to each path
+  // Build reactions map: for each substance, find reactions where its formula appears
+  function findReactions(formula: string): ReactionData[] {
+    // Normalize formula for comparison: strip Unicode subscripts for matching
+    const normalized = formula
+      .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
+      .replace(/₅/g, '5').replace(/₆/g, '6').replace(/₇/g, '7')
+      .replace(/₈/g, '8').replace(/₉/g, '9');
+    return reactions.filter(r => {
+      const allFormulas = [
+        ...r.molecular.reactants.map(x => x.formula),
+        ...r.molecular.products.map(x => x.formula),
+      ];
+      return allFormulas.some(f => {
+        const fn = f.replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
+          .replace(/₅/g, '5').replace(/₆/g, '6').replace(/₇/g, '7')
+          .replace(/₈/g, '8').replace(/₉/g, '9');
+        return fn === normalized;
+      });
+    });
+  }
+
+  // Add allSubstances, ions and reactions to each path
   return paths.map(p => ({
     ...p,
-    props: { ...p.props, allSubstances, ions: ionRecord },
+    props: {
+      ...p.props,
+      allSubstances,
+      ions: ionRecord,
+      substanceReactions: findReactions(p.props.substance.formula),
+    },
   }));
 }
 
@@ -119,9 +178,10 @@ interface Props {
   namingRules: NamingRule[];
   allSubstances: SubstanceData[];
   ions: Record<string, IonData>;
+  substanceReactions: ReactionData[];
 }
 
-const { substance, classificationRules, namingRules, allSubstances, ions } = Astro.props as Props;
+const { substance, classificationRules, namingRules, allSubstances, ions, substanceReactions } = Astro.props as Props;
 const displayName = substance.name_ru ?? substance.formula;
 
 // Find matching classification rule
@@ -175,6 +235,11 @@ const TAG_LABELS: Record<string, string> = {
 
 const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
 const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
+
+const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance_ru;
+const hasHazards = (substance.hazards_ru && substance.hazards_ru.length > 0) || substance.storage_ru;
+const hasProduction = substance.production_ru || substance.industrial_ru;
+const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 ---
 
 <BaseLayout
@@ -257,6 +322,88 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
             </div>
           )}
         </div>
+      </div>
+    )}
+
+    {hasPhysical && (
+      <div class="subst-detail__section">
+        <h3>Физические свойства</h3>
+        {substance.appearance_ru && (
+          <p class="subst-detail__appearance">{substance.appearance_ru}</p>
+        )}
+        <dl class="subst-detail__phys-props">
+          {substance.melting_point_C != null && (
+            <>
+              <dt>Т. плавления</dt>
+              <dd>{substance.melting_point_C} °C</dd>
+            </>
+          )}
+          {substance.boiling_point_C != null && (
+            <>
+              <dt>Т. кипения</dt>
+              <dd>{substance.boiling_point_C} °C</dd>
+            </>
+          )}
+          {substance.density_g_cm3 != null && (
+            <>
+              <dt>Плотность</dt>
+              <dd>{substance.density_g_cm3} г/см³</dd>
+            </>
+          )}
+        </dl>
+      </div>
+    )}
+
+    {hasHazards && (
+      <div class="subst-detail__section">
+        <h3>Опасность и хранение</h3>
+        {substance.hazards_ru && substance.hazards_ru.length > 0 && (
+          <div class="subst-detail__hazards">
+            {substance.hazards_ru.map(h => (
+              <span class="subst-detail__hazard-tag">{h}</span>
+            ))}
+          </div>
+        )}
+        {substance.storage_ru && (
+          <p class="subst-detail__storage">{substance.storage_ru}</p>
+        )}
+      </div>
+    )}
+
+    {hasProduction && (
+      <div class="subst-detail__section">
+        <h3>Получение и применение</h3>
+        {substance.production_ru && (
+          <div class="subst-detail__explanation">{substance.production_ru}</div>
+        )}
+        {substance.industrial_ru && (
+          <p class="subst-detail__text">{substance.industrial_ru}</p>
+        )}
+      </div>
+    )}
+
+    {substanceReactions.length > 0 && (
+      <div class="subst-detail__section">
+        <h3>Реакции</h3>
+        <ul class="subst-detail__reactions">
+          {substanceReactions.map(r => (
+            <li>
+              <a href={`/reactions/#${r.reaction_id}`}>{r.equation}</a>
+              <span class="subst-detail__reaction-title">{r.title}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {hasFacts && (
+      <div class="subst-detail__section">
+        <h3>Интересные факты</h3>
+        <ul class="subst-detail__facts">
+          {substance.fun_facts_ru!.map(f => (
+            <li>{f}</li>
+          ))}
+        </ul>
       </div>
     )}
 
@@ -358,5 +505,142 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
   }
   .substance-page__practice-link {
     margin-left: auto;
+  }
+
+  /* Section styles (inline since substances.css is only loaded on index) */
+  .subst-detail__section {
+    margin-bottom: var(--space-lg);
+  }
+  .subst-detail__section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text);
+  }
+  .subst-detail__explanation {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0.25rem;
+    margin-bottom: var(--space-sm);
+  }
+  .subst-detail__template {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .subst-detail__naming-result {
+    margin-top: var(--space-xs);
+    font-size: 0.9375rem;
+  }
+  .subst-detail__related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  .subst-detail__related-link {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 0.8125rem;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: border-color 0.15s;
+  }
+  .subst-detail__related-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Physical properties */
+  .subst-detail__appearance {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm);
+    font-style: italic;
+  }
+  .subst-detail__phys-props {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xs) var(--space-lg);
+    font-size: 0.875rem;
+  }
+  .subst-detail__phys-props dt {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+  .subst-detail__phys-props dd {
+    margin: 0;
+  }
+
+  /* Hazards */
+  .subst-detail__hazards {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-sm);
+  }
+  .subst-detail__hazard-tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.8125rem;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 0.25rem;
+    font-weight: 500;
+  }
+  .subst-detail__storage {
+    font-size: 0.875rem;
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0.25rem;
+  }
+  .subst-detail__text {
+    font-size: 0.875rem;
+    margin: var(--space-xs) 0 0;
+    line-height: 1.6;
+  }
+
+  /* Reactions */
+  .subst-detail__reactions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .subst-detail__reactions li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .subst-detail__reactions li:last-child {
+    border-bottom: none;
+  }
+  .subst-detail__reactions a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+  .subst-detail__reaction-title {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Facts */
+  .subst-detail__facts {
+    margin: 0;
+    padding-left: var(--space-lg);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .subst-detail__facts li {
+    margin-bottom: var(--space-xs);
   }
 </style>

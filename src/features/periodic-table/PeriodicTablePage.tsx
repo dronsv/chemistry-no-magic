@@ -9,6 +9,7 @@ import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import PracticeSection from './practice/PracticeSection';
 import TheoryPanel from './TheoryPanel';
+import ElementList from './ElementList';
 import './periodic-table.css';
 
 type FormType = 'long' | 'short';
@@ -171,6 +172,9 @@ export default function PeriodicTablePage() {
 
       {/* Practice section */}
       {elements.length > 0 && <PracticeSection elements={elements} />}
+
+      {/* All elements list */}
+      {elements.length > 0 && <ElementList elements={elements} />}
     </div>
   );
 }

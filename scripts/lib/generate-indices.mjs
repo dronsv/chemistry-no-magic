@@ -21,6 +21,7 @@ export async function generateIndices(substances, taskTemplates, outDir) {
       formula: s.data.formula,
       name_ru: s.data.name_ru,
       class: s.data.class,
+      subclass: s.data.subclass,
     })),
   };
   await writeFile(

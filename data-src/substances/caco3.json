@@ -5,5 +5,12 @@
   "class": "salt",
   "subclass": "normal",
   "ions": ["Ca_2plus", "CO3_2minus"],
-  "tags": ["insoluble"]
+  "tags": ["insoluble"],
+  "melting_point_C": 825,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.71,
+  "appearance_ru": "Белый порошок или кристаллы",
+  "industrial_ru": "Строительство (мел, известняк, мрамор), производство цемента",
+  "production_ru": "Добыча природных минералов (известняк, мел, мрамор)",
+  "fun_facts_ru": ["Мел, мрамор, известняк, ракушки и яичная скорлупа — всё это CaCO₃", "При нагревании разлагается на CaO и CO₂ — основа производства извести"]
 }

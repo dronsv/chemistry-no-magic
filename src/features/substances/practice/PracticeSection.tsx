@@ -22,7 +22,7 @@ const LEVEL_LABELS: Record<string, string> = {
   automatic: 'Автоматизм',
 };
 
-const COMPETENCY_IDS = ['classification', 'naming'] as const;
+const COMPETENCY_IDS = ['classification', 'naming', 'amphoterism_logic'] as const;
 
 export default function PracticeSection() {
   const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
@@ -91,9 +91,7 @@ export default function PracticeSection() {
 
   if (loading) return null;
 
-  const classPL = pLevels.get('classification') ?? 0;
-  const namingPL = pLevels.get('naming') ?? 0;
-  const mastered = classPL >= 0.8 && namingPL >= 0.8;
+  const mastered = COMPETENCY_IDS.every(id => (pLevels.get(id) ?? 0) >= 0.8);
 
   return (
     <section className="practice-section">
@@ -120,7 +118,7 @@ export default function PracticeSection() {
 
       {mastered && (
         <div className="practice-section__mastered">
-          Отлично! Обе компетенции на уровне «Уверенный» или выше.
+          Отлично! Все компетенции на уровне «Уверенный» или выше.
           Можете переходить к следующему модулю.
         </div>
       )}

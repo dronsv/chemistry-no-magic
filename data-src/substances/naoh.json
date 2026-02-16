@@ -5,5 +5,14 @@
   "class": "base",
   "subclass": "soluble",
   "ions": ["Na_plus", "OH_minus"],
-  "tags": ["soluble", "strong_electrolyte", "alkali"]
+  "tags": ["soluble", "strong_electrolyte", "alkali"],
+  "melting_point_C": 323,
+  "boiling_point_C": 1388,
+  "density_g_cm3": 2.13,
+  "appearance_ru": "Белое твёрдое вещество, гигроскопичное",
+  "hazards_ru": ["Коррозионное", "Вызывает тяжёлые ожоги"],
+  "storage_ru": "Хранить в герметичной таре, беречь от влаги",
+  "industrial_ru": "Производство мыла, бумаги, вискозы, очистка нефтепродуктов",
+  "production_ru": "Электролиз раствора хлорида натрия (хлорщелочной процесс)",
+  "fun_facts_ru": ["NaOH называют «едкий натр» или «каустическая сода»", "На воздухе поглощает CO₂ и влагу, постепенно превращаясь в Na₂CO₃"]
 }

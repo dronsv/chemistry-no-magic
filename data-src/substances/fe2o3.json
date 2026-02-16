@@ -5,5 +5,12 @@
   "class": "oxide",
   "subclass": "amphoteric",
   "ions": [],
-  "tags": ["insoluble", "red_brown", "amphoteric"]
+  "tags": ["insoluble", "red_brown", "amphoteric"],
+  "melting_point_C": 1565,
+  "boiling_point_C": null,
+  "density_g_cm3": 5.24,
+  "appearance_ru": "Красно-коричневый порошок",
+  "industrial_ru": "Металлургия (руда для получения чугуна), пигменты, полировальные порошки",
+  "production_ru": "Обжиг пирита (FeS₂) или прокаливание гидроксида железа(III)",
+  "fun_facts_ru": ["Минерал гематит (Fe₂O₃) — главная железная руда на Земле", "Красный цвет почвы Марса обусловлен наличием Fe₂O₃"]
 }

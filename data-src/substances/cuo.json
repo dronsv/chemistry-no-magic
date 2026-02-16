@@ -5,5 +5,12 @@
   "class": "oxide",
   "subclass": "basic",
   "ions": [],
-  "tags": ["insoluble", "black"]
+  "tags": ["insoluble", "black"],
+  "melting_point_C": 1326,
+  "boiling_point_C": null,
+  "density_g_cm3": 6.31,
+  "appearance_ru": "Чёрный порошок",
+  "industrial_ru": "Производство керамики, пигментов, катализаторов",
+  "production_ru": "Прокаливание гидроксида меди(II) или нагревание меди на воздухе",
+  "fun_facts_ru": ["Легко восстанавливается водородом до металлической меди — классический опыт школьного курса"]
 }

@@ -5,5 +5,13 @@
   "class": "salt",
   "subclass": "normal",
   "ions": ["Fe_2plus", "SO4_2minus"],
-  "tags": ["soluble"]
+  "tags": ["soluble"],
+  "melting_point_C": 64,
+  "boiling_point_C": null,
+  "density_g_cm3": 1.9,
+  "appearance_ru": "Зеленовато-голубые кристаллы (гептагидрат)",
+  "hazards_ru": ["Раздражает кожу и глаза"],
+  "industrial_ru": "Очистка воды, производство чернил, сельское хозяйство (микроудобрение)",
+  "production_ru": "Растворение железа в разбавленной серной кислоте",
+  "fun_facts_ru": ["Гептагидрат FeSO₄·7H₂O известен как железный купорос — одно из древнейших химических соединений"]
 }

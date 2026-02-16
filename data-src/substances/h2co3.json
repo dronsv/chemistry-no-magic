@@ -5,5 +5,12 @@
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": ["H_plus", "CO3_2minus"],
-  "tags": ["unstable", "weak_acid", "diprotic", "decomposes"]
+  "tags": ["unstable", "weak_acid", "diprotic", "decomposes"],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": null,
+  "appearance_ru": "Существует только в водном растворе, бесцветная жидкость",
+  "industrial_ru": "Газированные напитки содержат растворённый CO₂, образующий угольную кислоту",
+  "production_ru": "Растворение CO₂ в воде: CO₂ + H₂O ⇌ H₂CO₃",
+  "fun_facts_ru": ["Одна из самых неустойчивых кислот — разлагается на воду и CO₂ почти мгновенно", "Шипение газировки — это выделение CO₂ при разложении угольной кислоты"]
 }

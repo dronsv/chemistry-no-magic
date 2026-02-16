@@ -98,6 +98,13 @@ export default function ElementDetailPanel({ element, exceptions, onClose }: Pro
           </p>
         </div>
       )}
+
+      <a
+        href={`/periodic-table/${element.symbol}/`}
+        className="detail-panel__more-link"
+      >
+        Подробнее &rarr;
+      </a>
     </div>
   );
 }

@@ -12,6 +12,12 @@ export type ElementGroup =
   | 'lanthanide'
   | 'actinide';
 
+export interface ElementDiscovery {
+  year?: number;
+  scientist_ru?: string;
+  country_ru?: string;
+}
+
 export interface Element {
   Z: number;
   symbol: string;
@@ -25,4 +31,14 @@ export interface Element {
   atomic_mass: number;
   typical_oxidation_states: number[];
   electronegativity: number | null;
+  melting_point_C?: number | null;
+  boiling_point_C?: number | null;
+  density_g_cm3?: number | null;
+  discovery?: ElementDiscovery;
+  hazards_ru?: string[];
+  storage_ru?: string;
+  industrial_ru?: string;
+  production_ru?: string;
+  abundance_ru?: string;
+  fun_facts_ru?: string[];
 }

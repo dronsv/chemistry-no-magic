@@ -150,6 +150,44 @@ export default function ClassificationTheoryPanel() {
                 </CollapsibleSection>
               ))}
 
+              <h3 className="theory-panel__heading">Амфотерность</h3>
+              <CollapsibleSection title="Что такое амфотерность?">
+                <div className="subst-theory__rule">
+                  <p className="subst-theory__rule-desc">
+                    <strong>Амфотерные</strong> вещества проявляют двойственные свойства: реагируют и с кислотами (как основания), и с щелочами (как кислоты).
+                  </p>
+                  <p className="subst-theory__rule-desc">
+                    Типичные амфотерные металлы: <strong>Al, Zn, Be, Cr(III), Fe(III), Pb(II), Sn(II)</strong>.
+                  </p>
+                </div>
+              </CollapsibleSection>
+              <CollapsibleSection title="Амфотерные оксиды">
+                <div className="subst-theory__rule">
+                  <p className="subst-theory__rule-desc">
+                    Примеры: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃
+                  </p>
+                  <p className="subst-theory__rule-desc">
+                    Реакция с кислотой: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O
+                  </p>
+                  <p className="subst-theory__rule-desc">
+                    Реакция с щёлочью: Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O
+                  </p>
+                </div>
+              </CollapsibleSection>
+              <CollapsibleSection title="Амфотерные гидроксиды">
+                <div className="subst-theory__rule">
+                  <p className="subst-theory__rule-desc">
+                    Примеры: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃
+                  </p>
+                  <p className="subst-theory__rule-desc">
+                    Реакция с кислотой: Al(OH)₃ + 3HCl → AlCl₃ + 3H₂O
+                  </p>
+                  <p className="subst-theory__rule-desc">
+                    Реакция с щёлочью: Al(OH)₃ + NaOH → NaAlO₂ + 2H₂O
+                  </p>
+                </div>
+              </CollapsibleSection>
+
               <h3 className="theory-panel__heading">Номенклатура</h3>
               {namingGroups.map(group => (
                 <CollapsibleSection key={group.cls} title={group.label}>

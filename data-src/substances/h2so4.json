@@ -5,5 +5,14 @@
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": ["H_plus", "SO4_2minus"],
-  "tags": ["soluble", "strong_electrolyte", "strong_acid", "diprotic"]
+  "tags": ["soluble", "strong_electrolyte", "strong_acid", "diprotic"],
+  "melting_point_C": 10.31,
+  "boiling_point_C": 337,
+  "density_g_cm3": 1.84,
+  "appearance_ru": "Бесцветная маслянистая жидкость",
+  "hazards_ru": ["Коррозионное", "Вызывает тяжёлые ожоги"],
+  "storage_ru": "Хранить в стеклянной или полиэтиленовой таре, вдали от щелочей",
+  "industrial_ru": "Производство удобрений, аккумуляторов, моющих средств",
+  "production_ru": "Контактный способ: обжиг серы → SO₂ → SO₃ → H₂SO₄",
+  "fun_facts_ru": ["Серную кислоту называют «хлебом химии» — она используется почти во всех химических производствах", "При разбавлении нужно лить кислоту в воду, а не наоборот — иначе произойдёт бурное вскипание"]
 }

@@ -5,5 +5,14 @@
   "class": "base",
   "subclass": "soluble",
   "ions": ["K_plus", "OH_minus"],
-  "tags": ["soluble", "strong_electrolyte", "alkali"]
+  "tags": ["soluble", "strong_electrolyte", "alkali"],
+  "melting_point_C": 360,
+  "boiling_point_C": 1327,
+  "density_g_cm3": 2.12,
+  "appearance_ru": "Белое твёрдое вещество, гигроскопичное",
+  "hazards_ru": ["Коррозионное", "Вызывает тяжёлые ожоги"],
+  "storage_ru": "Хранить в герметичной таре, беречь от влаги и CO₂",
+  "industrial_ru": "Производство мягкого мыла, электролитов для щелочных аккумуляторов",
+  "production_ru": "Электролиз раствора хлорида калия",
+  "fun_facts_ru": ["KOH называют «едкое кали» — легко разрушает органические ткани", "Поглощает CO₂ из воздуха, превращаясь в карбонат калия"]
 }

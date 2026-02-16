@@ -5,5 +5,12 @@
   "class": "salt",
   "subclass": "normal",
   "ions": ["Na_plus", "SO4_2minus"],
-  "tags": ["soluble"]
+  "tags": ["soluble"],
+  "melting_point_C": 884,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.66,
+  "appearance_ru": "Бесцветные кристаллы",
+  "industrial_ru": "Производство стекла, моющих средств, целлюлозы",
+  "production_ru": "Взаимодействие серной кислоты с хлоридом натрия или из природных минералов",
+  "fun_facts_ru": ["Декагидрат Na₂SO₄·10H₂O (глауберова соль) был открыт Глаубером в 1625 году и использовался как слабительное"]
 }

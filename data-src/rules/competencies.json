@@ -87,7 +87,7 @@
     "block_name_ru": "Классы веществ и номенклатура",
     "prerequisites": ["classification"],
     "oge_task_types": [9],
-    "link": null
+    "link": "/substances/"
   },
   {
     "id": "reactions_exchange",

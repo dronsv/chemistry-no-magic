@@ -5,5 +5,11 @@
   "class": "oxide",
   "subclass": "amphoteric",
   "ions": ["H_plus", "OH_minus"],
-  "tags": ["soluble", "weak_electrolyte", "amphoteric"]
+  "tags": ["soluble", "weak_electrolyte", "amphoteric"],
+  "melting_point_C": 0,
+  "boiling_point_C": 100,
+  "density_g_cm3": 1.0,
+  "appearance_ru": "Бесцветная жидкость без запаха",
+  "industrial_ru": "Универсальный растворитель, используется во всех отраслях промышленности",
+  "fun_facts_ru": ["Единственное вещество на Земле, встречающееся в природе во всех трёх агрегатных состояниях", "Лёд легче воды — аномальное свойство, без которого жизнь в водоёмах зимой была бы невозможна", "Молекула воды имеет угловую форму с углом 104,5°"]
 }

@@ -5,5 +5,14 @@
   "class": "oxide",
   "subclass": "basic",
   "ions": [],
-  "tags": ["reacts_with_water"]
+  "tags": ["reacts_with_water"],
+  "melting_point_C": 1132,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.27,
+  "appearance_ru": "Белый порошок",
+  "hazards_ru": ["Коррозионное", "Бурно реагирует с водой"],
+  "storage_ru": "Хранить в герметичной таре, беречь от влаги",
+  "industrial_ru": "Компонент стекольных шихт, промежуточный продукт в производстве NaOH",
+  "production_ru": "Нагревание натрия с ограниченным доступом кислорода",
+  "fun_facts_ru": ["На воздухе быстро поглощает влагу и CO₂, превращаясь в Na₂CO₃"]
 }
