@@ -12,29 +12,33 @@ import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../typ
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
 import type { Reaction } from '../types/reaction';
 
-/** Module-level cache for the manifest to avoid repeated fetches. */
-let manifestCache: Manifest | null = null;
+/** Module-level cache: stores the in-flight or resolved manifest promise. */
+let manifestPromise: Promise<Manifest> | null = null;
 
 /**
  * Fetch and cache `/data/latest/manifest.json`.
- * Subsequent calls return the cached value without a network request.
+ * Concurrent callers share the same in-flight request (no stampede).
  */
 export async function getManifest(): Promise<Manifest> {
-  if (manifestCache) {
-    return manifestCache;
+  if (manifestPromise) {
+    return manifestPromise;
   }
 
-  const url = '/data/latest/manifest.json';
-  const response = await fetch(url);
+  manifestPromise = (async () => {
+    const url = '/data/latest/manifest.json';
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(
-      `Failed to load manifest from ${url}: ${response.status} ${response.statusText}`,
-    );
-  }
+    if (!response.ok) {
+      manifestPromise = null; // allow retry on failure
+      throw new Error(
+        `Failed to load manifest from ${url}: ${response.status} ${response.statusText}`,
+      );
+    }
 
-  manifestCache = (await response.json()) as Manifest;
-  return manifestCache;
+    return (await response.json()) as Manifest;
+  })();
+
+  return manifestPromise;
 }
 
 /**
