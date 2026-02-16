@@ -82,13 +82,16 @@ async function main() {
   const reactions = await loadJson(join(DATA_SRC, 'reactions', 'reactions.json'));
   const bondTheory = await loadJson(join(DATA_SRC, 'rules', 'bond_theory.json'));
   const bondsExercises = await loadJson(join(DATA_SRC, 'exercises', 'bonds-exercises.json'));
+  const oxidationTheory = await loadJson(join(DATA_SRC, 'rules', 'oxidation_theory.json'));
+  const oxidationExercises = await loadJson(join(DATA_SRC, 'exercises', 'oxidation-exercises.json'));
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${electronConfigExceptions.length} electron config exceptions, ${periodicTableExercises.exercise_types.length} exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates`);
-  console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises\n`);
+  console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises`);
+  console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises\n`);
 
   // 2. Validate
   console.log('Validating...');
@@ -180,6 +183,8 @@ async function main() {
   await mkdir(join(bundleDir, 'exercises'), { recursive: true });
   await writeFile(join(bundleDir, 'exercises', 'periodic-table-exercises.json'), JSON.stringify(periodicTableExercises));
   await writeFile(join(bundleDir, 'exercises', 'bonds-exercises.json'), JSON.stringify(bondsExercises));
+  await writeFile(join(bundleDir, 'rules', 'oxidation_theory.json'), JSON.stringify(oxidationTheory));
+  await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
   await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));

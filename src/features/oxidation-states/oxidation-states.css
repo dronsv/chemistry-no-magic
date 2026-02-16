@@ -1,0 +1,211 @@
+/* ========================================
+   Oxidation States Page
+   ======================================== */
+
+.oxidation-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+/* ========================================
+   Oxidation Calculator
+   ======================================== */
+
+.ox-calc {
+  margin-bottom: var(--space-lg);
+}
+
+.ox-calc__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+}
+
+.ox-calc__formula-input {
+  margin-bottom: var(--space-md);
+}
+
+.ox-calc__input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.ox-calc__input::placeholder { color: var(--color-text-muted); }
+.ox-calc__input:focus { border-color: var(--color-primary); }
+
+.ox-calc__error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   Oxidation Result Card
+   ======================================== */
+
+.ox-result {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  background: var(--color-bg);
+  margin-bottom: var(--space-lg);
+}
+
+.ox-result__formula-svg {
+  max-width: 400px;
+  margin-bottom: var(--space-sm);
+}
+
+/* ========================================
+   Steps Toggle
+   ======================================== */
+
+.ox-steps-toggle {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  margin-bottom: var(--space-md);
+}
+
+.ox-steps-toggle:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+/* ========================================
+   Step-by-step Explanation
+   ======================================== */
+
+.ox-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.ox-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 3px solid var(--color-border);
+  border-radius: 0 0.375rem 0.375rem 0;
+  background: var(--color-bg-alt);
+}
+
+.ox-step__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ox-step__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.ox-step__rule {
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.ox-step__state {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.ox-step__equation {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: 0.125rem;
+}
+
+/* ========================================
+   Oxidation Theory Panel — specifics
+   ======================================== */
+
+.ox-theory__rule {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ox-theory__rule:last-child {
+  border-bottom: none;
+}
+
+.ox-theory__rule-text {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.ox-theory__rule-examples {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.ox-theory__redox {
+  padding: var(--space-sm) 0;
+}
+
+.ox-theory__redox-item {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.ox-theory__redox-mnemonic {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: var(--space-sm) 0 0;
+  padding: var(--space-sm);
+  background: var(--color-bg-alt);
+  border-radius: 0.375rem;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+  .ox-calc__input {
+    max-width: 100%;
+  }
+
+  .ox-result__formula-svg {
+    max-width: 100%;
+  }
+
+  .ox-step {
+    padding: var(--space-xs) var(--space-sm);
+  }
+}

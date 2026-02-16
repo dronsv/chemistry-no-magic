@@ -37,7 +37,7 @@
     "block_name_ru": "Строение атома и ПСХЭ",
     "prerequisites": ["electron_config"],
     "oge_task_types": [16, 17],
-    "link": null
+    "link": "/oxidation-states/"
   },
   {
     "id": "bond_type",

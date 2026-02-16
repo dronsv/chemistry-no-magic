@@ -28,6 +28,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         competencies: 'rules/competencies.json',
         periodic_table_theory: 'rules/periodic-table-theory.json',
         bond_theory: 'rules/bond_theory.json',
+        oxidation_theory: 'rules/oxidation_theory.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
@@ -41,6 +42,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       exercises: {
         periodic_table: 'exercises/periodic-table-exercises.json',
         bonds: 'exercises/bonds-exercises.json',
+        oxidation: 'exercises/oxidation-exercises.json',
       },
       indices: {
         substances_index: 'indices/substances_index.json',

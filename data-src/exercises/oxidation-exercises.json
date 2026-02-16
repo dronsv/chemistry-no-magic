@@ -1,0 +1,26 @@
+[
+  {
+    "id": "determine_ox_state",
+    "type": "multiple_choice",
+    "competency_primary": "oxidation_states",
+    "description_ru": "Определите СО элемента в соединении"
+  },
+  {
+    "id": "select_compound_by_ox_state",
+    "type": "multiple_choice",
+    "competency_primary": "oxidation_states",
+    "description_ru": "В каком соединении элемент имеет заданную СО"
+  },
+  {
+    "id": "identify_oxidizer_reducer",
+    "type": "multiple_choice",
+    "competency_primary": "oxidation_states",
+    "description_ru": "Определите окислитель/восстановитель"
+  },
+  {
+    "id": "max_min_ox_state",
+    "type": "multiple_choice",
+    "competency_primary": "oxidation_states",
+    "description_ru": "Максимальная/минимальная СО элемента по положению в таблице"
+  }
+]

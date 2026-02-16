@@ -12,6 +12,7 @@ import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../typ
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
 import type { Reaction } from '../types/reaction';
 import type { BondTheory } from '../types/bond';
+import type { OxidationTheory } from '../types/oxidation';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -276,6 +277,11 @@ export async function loadApplicabilityRules(): Promise<ApplicabilityRule[]> {
 /** Load bond theory content (bond types + crystal structures). */
 export async function loadBondTheory(): Promise<BondTheory> {
   return loadRule('bond_theory') as Promise<BondTheory>;
+}
+
+/** Load oxidation state theory content. */
+export async function loadOxidationTheory(): Promise<OxidationTheory> {
+  return loadRule('oxidation_theory') as Promise<OxidationTheory>;
 }
 
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
