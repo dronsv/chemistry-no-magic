@@ -41,6 +41,7 @@ export function validateElements(elements) {
     if (!VALID_METAL_TYPES.includes(el.metal_type)) errors.push(`${prefix}: invalid metal_type "${el.metal_type}"`);
     if (!VALID_ELEMENT_GROUPS.includes(el.element_group)) errors.push(`${prefix}: invalid element_group "${el.element_group}"`);
     if (!Array.isArray(el.typical_oxidation_states)) errors.push(`${prefix}: typical_oxidation_states must be array`);
+    if (typeof el.atomic_mass !== 'number' || el.atomic_mass <= 0) errors.push(`${prefix}: atomic_mass must be positive number`);
     if (el.electronegativity !== null && typeof el.electronegativity !== 'number') errors.push(`${prefix}: electronegativity must be number or null`);
   }
 

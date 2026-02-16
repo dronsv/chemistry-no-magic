@@ -59,6 +59,9 @@ function shuffleOptions(options: ExerciseOption[]): ExerciseOption[] {
   return [...options].sort(() => Math.random() - 0.5);
 }
 
+/** Electron config exception elements (провал электрона). */
+const EXCEPTION_Z = new Set([24, 29, 41, 42, 44, 45, 46, 47, 78, 79]);
+
 function formatState(state: number): string {
   if (state > 0) return `+${state}`;
   if (state < 0) return `\u2212${Math.abs(state)}`;
@@ -167,13 +170,18 @@ const generators: Record<string, GeneratorFn> = {
       ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
     ]);
 
+    let explanation = `${label.charAt(0).toUpperCase() + label.slice(1)} степень окисления ${el.symbol} равна ${correctText}.`;
+    if (EXCEPTION_Z.has(el.Z)) {
+      explanation += ` Обратите внимание: ${el.symbol} — элемент с провалом электрона, что влияет на его электронную конфигурацию.`;
+    }
+
     return {
       type: 'max_min_ox_state',
       question: `Какова ${label} СО ${el.symbol} (${el.name_ru})?`,
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${label.charAt(0).toUpperCase() + label.slice(1)} степень окисления ${el.symbol} равна ${correctText}.`,
+      explanation,
       competencyMap: { oxidation_states: 'P' },
     };
   },

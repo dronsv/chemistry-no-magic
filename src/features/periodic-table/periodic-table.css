@@ -343,6 +343,27 @@
   color: rgba(0, 0, 0, 0.85);
 }
 
+.pt-cell__mass {
+  font-size: 0.5rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.pt-cell__exc {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d97706;
+}
+
 /* ========================================
    Grid — Long form (18 columns)
    ======================================== */
@@ -476,6 +497,17 @@
   font-weight: 600;
 }
 
+.pt-details__exception-note {
+  margin: 0.5rem 0 0;
+  padding: 0.375rem 0.5rem;
+  background: #fef3c7;
+  border-left: 3px solid #d97706;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  color: #92400e;
+  line-height: 1.4;
+}
+
 /* ========================================
    Legend
    ======================================== */
@@ -552,6 +584,15 @@
   .pt-cell__symbol {
     font-size: 0.875rem;
   }
+
+  .pt-cell__mass {
+    font-size: 0.4375rem;
+  }
+
+  .pt-cell__exc {
+    width: 4px;
+    height: 4px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -590,6 +631,18 @@
 
   .pt-cell__symbol {
     font-size: 0.75rem;
+  }
+
+  .pt-cell__mass {
+    font-size: 0.375rem;
+    bottom: 1px;
+  }
+
+  .pt-cell__exc {
+    width: 4px;
+    height: 4px;
+    top: 1px;
+    right: 1px;
   }
 
   .pt-details {
@@ -637,6 +690,17 @@
 
   .pt-cell__symbol {
     font-size: 0.625rem;
+  }
+
+  .pt-cell__mass {
+    display: none;
+  }
+
+  .pt-cell__exc {
+    width: 3px;
+    height: 3px;
+    top: 1px;
+    right: 1px;
   }
 
   .pt-grid-label {

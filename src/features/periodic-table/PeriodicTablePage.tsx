@@ -58,6 +58,11 @@ export default function PeriodicTablePage() {
       });
   }, []);
 
+  const exceptionZSet = useMemo(
+    () => new Set(exceptions.map(e => e.Z)),
+    [exceptions],
+  );
+
   const searchMatchedZ = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q || elements.length === 0) return null;
@@ -144,6 +149,7 @@ export default function PeriodicTablePage() {
             onSelect={setSelectedElement}
             highlightedGroup={highlightedGroup ?? hoveredElementGroup}
             searchMatchedZ={searchMatchedZ}
+            exceptionZSet={exceptionZSet}
             onHoverElement={setHoveredElementGroup}
             onHoverElementEnd={() => setHoveredElementGroup(null)}
           />

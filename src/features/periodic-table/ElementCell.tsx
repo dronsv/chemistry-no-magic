@@ -17,12 +17,13 @@ interface ElementCellProps {
   element: Element;
   dimmed: boolean;
   highlighted?: boolean;
+  isException?: boolean;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
 }
 
-export default function ElementCell({ element, dimmed, highlighted, onSelect, onHoverElement, onHoverElementEnd }: ElementCellProps) {
+export default function ElementCell({ element, dimmed, highlighted, isException, onSelect, onHoverElement, onHoverElementEnd }: ElementCellProps) {
   const bgColor = GROUP_CSS_VAR[element.element_group];
   const cls = [
     'pt-cell',
@@ -41,7 +42,9 @@ export default function ElementCell({ element, dimmed, highlighted, onSelect, on
       type="button"
     >
       <span className="pt-cell__z">{element.Z}</span>
+      {isException && <span className="pt-cell__exc" aria-label="Исключение" />}
       <span className="pt-cell__symbol">{element.symbol}</span>
+      <span className="pt-cell__mass">{Math.round(element.atomic_mass)}</span>
     </button>
   );
 }

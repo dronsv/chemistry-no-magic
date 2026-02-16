@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
-import { loadElements } from '../../lib/data-loader';
+import type { ElectronConfigException } from '../../types/electron-config';
+import { loadElements, loadElectronConfigExceptions } from '../../lib/data-loader';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetails from './ElementDetails';
@@ -17,6 +18,7 @@ export default function PeriodicTableHint() {
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
   const [elements, setElements] = useState<Element[]>([]);
+  const [exceptions, setExceptions] = useState<ElectronConfigException[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [highlightedGroup, setHighlightedGroup] = useState<ElementGroup | null>(null);
@@ -65,9 +67,12 @@ export default function PeriodicTableHint() {
     setLoading(true);
     setError(null);
 
-    loadElements()
-      .then((data) => {
-        if (!cancelled) setElements(data);
+    Promise.all([loadElements(), loadElectronConfigExceptions()])
+      .then(([els, exc]) => {
+        if (!cancelled) {
+          setElements(els);
+          setExceptions(exc);
+        }
       })
       .catch((err) => {
         if (!cancelled) setError(err instanceof Error ? err.message : 'Ошибка загрузки данных');
@@ -184,6 +189,11 @@ export default function PeriodicTableHint() {
     setHoveredElementGroup(null);
   }, []);
 
+  const exceptionZSet = useMemo(
+    () => new Set(exceptions.map(e => e.Z)),
+    [exceptions],
+  );
+
   const TableComponent = formType === 'long' ? PeriodicTableLong : PeriodicTableShort;
 
   const panelStyle: React.CSSProperties = hasMoved
@@ -288,6 +298,7 @@ export default function PeriodicTableHint() {
                 elements={elements}
                 highlightedGroup={highlightedGroup}
                 searchMatchedZ={searchMatchedZ}
+                exceptionZSet={exceptionZSet}
                 onSelect={handleSelect}
                 onHoverElement={handleElementHover}
                 onHoverElementEnd={handleElementHoverEnd}
@@ -303,6 +314,7 @@ export default function PeriodicTableHint() {
           {selectedElement && !showTrends && (
             <ElementDetails
               element={selectedElement}
+              exceptions={exceptions}
               onClose={handleCloseDetails}
             />
           )}

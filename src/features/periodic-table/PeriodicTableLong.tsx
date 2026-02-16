@@ -5,6 +5,7 @@ interface PeriodicTableLongProps {
   elements: Element[];
   highlightedGroup: ElementGroup | null;
   searchMatchedZ: Set<number> | null;
+  exceptionZSet?: Set<number>;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
@@ -29,7 +30,7 @@ function getGridPosition(el: Element): { row: number; col: number } | null {
 }
 
 export default function PeriodicTableLong({
-  elements, highlightedGroup, searchMatchedZ, onSelect, onHoverElement, onHoverElementEnd,
+  elements, highlightedGroup, searchMatchedZ, exceptionZSet, onSelect, onHoverElement, onHoverElementEnd,
 }: PeriodicTableLongProps) {
   const sorted = [...elements].sort((a, b) => a.Z - b.Z);
 
@@ -75,6 +76,7 @@ export default function PeriodicTableLong({
               element={el}
               dimmed={dimmedByGroup || dimmedBySearch}
               highlighted={highlighted}
+              isException={exceptionZSet?.has(el.Z)}
               onSelect={onSelect}
               onHoverElement={onHoverElement}
               onHoverElementEnd={onHoverElementEnd}

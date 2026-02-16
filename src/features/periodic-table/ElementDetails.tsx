@@ -1,4 +1,5 @@
 import type { Element, MetalType } from '../../types/element';
+import type { ElectronConfigException } from '../../types/electron-config';
 
 const METAL_TYPE_RU: Record<MetalType, string> = {
   metal: 'Металл',
@@ -8,13 +9,16 @@ const METAL_TYPE_RU: Record<MetalType, string> = {
 
 interface ElementDetailsProps {
   element: Element;
+  exceptions?: ElectronConfigException[];
   onClose: () => void;
 }
 
-export default function ElementDetails({ element, onClose }: ElementDetailsProps) {
+export default function ElementDetails({ element, exceptions, onClose }: ElementDetailsProps) {
   const oxStates = element.typical_oxidation_states
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
+
+  const exception = exceptions?.find(e => e.Z === element.Z);
 
   return (
     <div className="pt-details">
@@ -35,6 +39,9 @@ export default function ElementDetails({ element, onClose }: ElementDetailsProps
       <h3 className="pt-details__name">{element.name_ru}</h3>
 
       <dl className="pt-details__props">
+        <dt>Атомная масса</dt>
+        <dd>{element.atomic_mass}</dd>
+
         <dt>Группа</dt>
         <dd>{element.group}</dd>
 
@@ -50,6 +57,12 @@ export default function ElementDetails({ element, onClose }: ElementDetailsProps
         <dt>Электроотрицательность</dt>
         <dd>{element.electronegativity ?? '—'}</dd>
       </dl>
+
+      {exception && (
+        <p className="pt-details__exception-note">
+          ⚠ Провал электрона: {exception.reason_ru}
+        </p>
+      )}
     </div>
   );
 }

@@ -5,13 +5,14 @@ interface PeriodicTableShortProps {
   elements: Element[];
   highlightedGroup: ElementGroup | null;
   searchMatchedZ: Set<number> | null;
+  exceptionZSet?: Set<number>;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
 }
 
 export default function PeriodicTableShort({
-  elements, highlightedGroup, searchMatchedZ, onSelect, onHoverElement, onHoverElementEnd,
+  elements, highlightedGroup, searchMatchedZ, exceptionZSet, onSelect, onHoverElement, onHoverElementEnd,
 }: PeriodicTableShortProps) {
   const sorted = [...elements].sort((a, b) => a.Z - b.Z);
 
@@ -89,6 +90,7 @@ export default function PeriodicTableShort({
               element={el}
               dimmed={dimmedByGroup || dimmedBySearch}
               highlighted={highlighted}
+              isException={exceptionZSet?.has(el.Z)}
               onSelect={onSelect}
               onHoverElement={onHoverElement}
               onHoverElementEnd={onHoverElementEnd}
