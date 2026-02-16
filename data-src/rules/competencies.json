@@ -67,7 +67,7 @@
     "block_name_ru": "Классы веществ и номенклатура",
     "prerequisites": ["periodic_trends", "electron_config"],
     "oge_task_types": [7],
-    "link": null
+    "link": "/substances/"
   },
   {
     "id": "naming",
@@ -77,7 +77,7 @@
     "block_name_ru": "Классы веществ и номенклатура",
     "prerequisites": ["classification"],
     "oge_task_types": [8],
-    "link": null
+    "link": "/substances/"
   },
   {
     "id": "amphoterism_logic",
@@ -97,7 +97,7 @@
     "block_name_ru": "Реакции",
     "prerequisites": ["classification"],
     "oge_task_types": [11, 12, 13],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "gas_precipitate_logic",
@@ -107,7 +107,7 @@
     "block_name_ru": "Реакции",
     "prerequisites": ["reactions_exchange"],
     "oge_task_types": [10, 14],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "reactions_redox",
