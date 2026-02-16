@@ -1,0 +1,2093 @@
+{
+  "schema": "chemistry-course.reactions.bundle.v1",
+  "updated_at": "2026-02-16",
+  "language": "ru",
+  "notes": [
+    "Это учебный набор реакций для 9 класса/ОГЭ. Для растворов энергетика дана качественно.",
+    "Ионные уравнения приводятся для водных растворов (aq), если не указано иное."
+  ],
+  "reaction_schema_v1": {
+    "schema_id": "chemistry-course.reaction.v1",
+    "required": [
+      "reaction_id",
+      "title",
+      "equation",
+      "phase",
+      "type_tags",
+      "driving_forces",
+      "molecular",
+      "ionic",
+      "observations",
+      "rate_tips",
+      "heat_effect",
+      "skills"
+    ],
+    "fields": {
+      "reaction_id": "string (stable id)",
+      "title": "string",
+      "equation": "string (pretty, with arrows)",
+      "phase": "object { medium: 'aq|s|l|g|mixed', notes?: string }",
+      "conditions": "object? { temperature?: 'room|heat|cool', catalyst?: string, pressure?: string, excess?: string }",
+      "type_tags": "string[] (e.g., exchange, neutralization, precipitation, gas_evolution, acidic_oxide, amphoteric, complexation)",
+      "driving_forces": "string[] (water_formation|gas_release|precipitation|weak_electrolyte|complex_formation)",
+      "molecular": "object { reactants: [{formula, name?, coeff}], products: [{formula, name?, coeff}] }",
+      "ionic": "object { full?: string, net?: string, notes?: string }",
+      "bond_energy_view": "object? { enabled: boolean, broken?: string[], formed?: string[], disclaimer?: string }",
+      "energy_profile": "object? { qualitative: 'exo|endo|mixed|unknown', narrative?: string }",
+      "observations": "object { gas?: string[], precipitate?: string[], heat?: string, color_change?: string, smell?: string, other?: string[] }",
+      "rate_tips": "object { how_to_speed_up: string[], what_slows_down?: string[], typical_barrier?: string }",
+      "safety_notes": "string[]",
+      "skills": "string[] (skill ids)",
+      "oge": "object? { topics?: string[], typical_tasks?: string[] }",
+      "sources": "string[]? (source_id references from sources bundle)"
+    }
+  },
+  "reactions": [
+    {
+      "reaction_id": "rx_neutral_01_hcl_naoh",
+      "title": "Нейтрализация сильной кислоты и щёлочи",
+      "equation": "HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)",
+      "phase": {
+        "medium": "aq",
+        "notes": "водные растворы"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "name": "гидроксид натрия",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "full": "H⁺ + Cl⁻ + Na⁺ + OH⁻ → Na⁺ + Cl⁻ + H₂O",
+        "net": "H⁺ + OH⁻ → H₂O",
+        "notes": "Na⁺ и Cl⁻ — ионы-наблюдатели."
+      },
+      "observations": {
+        "heat": "обычно выделяется тепло (экзотермично)",
+        "gas": [],
+        "precipitate": [],
+        "other": [
+          "pH стремится к 7 при эквимолярных количествах"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Реакция ионная и очень быстрая; ускорение обычно не требуется.",
+          "Перемешивание помогает быстрее выровнять pH."
+        ],
+        "what_slows_down": [
+          "Сильное разбавление уменьшает скорость из‑за снижения концентраций ионов."
+        ]
+      },
+      "heat_effect": "exo",
+      "safety_notes": [
+        "Работайте в очках и перчатках: кислоты и щёлочи едкие.",
+        "Кислоту добавляют в воду, а не наоборот (при приготовлении растворов)."
+      ],
+      "skills": [
+        "K_EXCHANGE_TYPES",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE",
+        "K_REACTION_RATE",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "кислоты и основания",
+          "ионные уравнения"
+        ],
+        "typical_tasks": [
+          "определить продукты реакции",
+          "сокращённое ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_neutral_02_h2so4_koh",
+      "title": "Нейтрализация двухосновной кислоты",
+      "equation": "H₂SO₄(aq) + 2KOH(aq) → K₂SO₄(aq) + 2H₂O(l)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "H2SO4",
+            "name": "серная кислота",
+            "coeff": 1
+          },
+          {
+            "formula": "KOH",
+            "name": "гидроксид калия",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "K2SO4",
+            "name": "сульфат калия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "full": "2H⁺ + SO₄²⁻ + 2K⁺ + 2OH⁻ → 2K⁺ + SO₄²⁻ + 2H₂O",
+        "net": "2H⁺ + 2OH⁻ → 2H₂O"
+      },
+      "observations": {
+        "heat": "выделяется тепло",
+        "gas": [],
+        "precipitate": []
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание. Реакция быстрая."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "exo",
+      "safety_notes": [
+        "H₂SO₄ концентрированная — опасна; в задачах обычно подразумевается раствор."
+      ],
+      "skills": [
+        "K_EXCHANGE_TYPES",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "нейтрализация",
+          "коэффициенты"
+        ],
+        "typical_tasks": [
+          "расставить коэффициенты",
+          "составить ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_carbonate_01_caco3_hcl",
+      "title": "Карбонат + кислота: выделение CO₂",
+      "equation": "CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)↑",
+      "phase": {
+        "medium": "mixed",
+        "notes": "твёрдый карбонат + раствор кислоты"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CaCO3",
+            "name": "карбонат кальция (мел/мрамор)",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaCl2",
+            "name": "хлорид кальция",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          },
+          {
+            "formula": "CO2",
+            "name": "углекислый газ",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "full": "CaCO₃(s) + 2H⁺ + 2Cl⁻ → Ca²⁺ + 2Cl⁻ + H₂O + CO₂↑",
+        "net": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑",
+        "notes": "Выделение газа уводит продукт и «толкает» реакцию вправо."
+      },
+      "observations": {
+        "gas": [
+          "CO₂ (пузырьки)"
+        ],
+        "heat": "часто слабое тепловыделение",
+        "precipitate": [],
+        "other": [
+          "шипение/вспенивание"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Измельчить CaCO₃ (увеличить площадь поверхности).",
+          "Повысить концентрацию кислоты (умеренно).",
+          "Перемешивать — пузырьки CO₂ снимают с поверхности."
+        ],
+        "what_slows_down": [
+          "Крупные куски карбоната.",
+          "Низкая температура."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "CO₂ в больших количествах может вытеснять кислород в плохо проветриваемом помещении."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_REACTION_RATE",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "карбонаты",
+          "признаки реакций"
+        ],
+        "typical_tasks": [
+          "определить газ",
+          "составить сокращённое ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_carbonate_02_na2co3_h2so4",
+      "title": "Растворимый карбонат + кислота",
+      "equation": "Na₂CO₃(aq) + H₂SO₄(aq) → Na₂SO₄(aq) + H₂O(l) + CO₂(g)↑",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Na2CO3",
+            "name": "карбонат натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2SO4",
+            "name": "серная кислота",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "Na2SO4",
+            "name": "сульфат натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          },
+          {
+            "formula": "CO2",
+            "name": "углекислый газ",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "full": "2Na⁺ + CO₃²⁻ + 2H⁺ + SO₄²⁻ → 2Na⁺ + SO₄²⁻ + H₂O + CO₂↑",
+        "net": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑"
+      },
+      "observations": {
+        "gas": [
+          "CO₂"
+        ],
+        "heat": "может выделяться тепло",
+        "precipitate": []
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание.",
+          "Повышение концентрации реагентов."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "Осторожно с кислотами."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "карбонаты",
+          "ионные уравнения"
+        ],
+        "typical_tasks": [
+          "сокращённое ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_acid_oxide_01_naoh_co2",
+      "title": "Щёлочь + кислотный оксид: образование карбоната",
+      "equation": "2NaOH(aq) + CO₂(g) → Na₂CO₃(aq) + H₂O(l)",
+      "phase": {
+        "medium": "mixed",
+        "notes": "CO₂ поглощается раствором щёлочи"
+      },
+      "conditions": {
+        "temperature": "room",
+        "pressure": "атм"
+      },
+      "type_tags": [
+        "exchange",
+        "acidic_oxide",
+        "gas_absorption"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "NaOH",
+            "name": "гидроксид натрия",
+            "coeff": 2
+          },
+          {
+            "formula": "CO2",
+            "name": "углекислый газ",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "Na2CO3",
+            "name": "карбонат натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "CO₂ + 2OH⁻ → CO₃²⁻ + H₂O",
+        "notes": "Рассматривают как кислотный оксид + щёлочь."
+      },
+      "observations": {
+        "gas": [
+          "CO₂ поглощается"
+        ],
+        "heat": "слабое тепловыделение",
+        "precipitate": []
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Интенсивно перемешивать/барботировать CO₂.",
+          "Увеличить площадь контакта газ–жидкость.",
+          "Повысить давление CO₂ (если возможно)."
+        ],
+        "what_slows_down": [
+          "Плохой массообмен (газ не растворяется/не перемешивается)."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "Щёлочь едкая; избегайте попадания на кожу."
+      ],
+      "skills": [
+        "K_ACIDIC_OXIDES",
+        "K_ACID_BASE",
+        "K_REACTION_RATE"
+      ],
+      "oge": {
+        "topics": [
+          "кислотные оксиды",
+          "карбонаты"
+        ],
+        "typical_tasks": [
+          "дополнить уравнение реакции"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_acid_oxide_02_koh_so2",
+      "title": "Щёлочь + кислотный оксид: образование сульфита",
+      "equation": "2KOH(aq) + SO₂(g) → K₂SO₃(aq) + H₂O(l)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "acidic_oxide",
+        "gas_absorption"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "KOH",
+            "name": "гидроксид калия",
+            "coeff": 2
+          },
+          {
+            "formula": "SO2",
+            "name": "диоксид серы",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "K2SO3",
+            "name": "сульфит калия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "SO₂ + 2OH⁻ → SO₃²⁻ + H₂O"
+      },
+      "observations": {
+        "other": [
+          "SO₂ поглощается раствором щёлочи"
+        ],
+        "heat": "слабое тепловыделение"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание/барботирование газа.",
+          "Повышение концентрации щёлочи."
+        ],
+        "what_slows_down": [
+          "Плохой массообмен газа."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "SO₂ токсичен; учебный пример. В реальности работать только в вытяжке."
+      ],
+      "skills": [
+        "K_ACIDIC_OXIDES",
+        "K_REACTION_RATE",
+        "K_ACID_BASE",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "кислотные оксиды",
+          "соли"
+        ],
+        "typical_tasks": [
+          "выбрать продукты реакции"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_01_baso4",
+      "title": "Осадкообразование: BaSO₄↓",
+      "equation": "BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "BaCl2",
+            "name": "хлорид бария",
+            "coeff": 1
+          },
+          {
+            "formula": "Na2SO4",
+            "name": "сульфат натрия",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "BaSO4",
+            "name": "сульфат бария (осадок)",
+            "coeff": 1
+          },
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "full": "Ba²⁺ + 2Cl⁻ + 2Na⁺ + SO₄²⁻ → BaSO₄↓ + 2Na⁺ + 2Cl⁻",
+        "net": "Ba²⁺ + SO₄²⁻ → BaSO₄↓"
+      },
+      "observations": {
+        "precipitate": [
+          "BaSO₄ (белый осадок)"
+        ],
+        "gas": [],
+        "heat": "обычно без заметного теплового эффекта"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание.",
+          "Достаточные концентрации ионов Ba²⁺ и SO₄²⁻."
+        ],
+        "what_slows_down": [
+          "Сильное разбавление."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Соли бария токсичны (включая BaCl₂). Это учебный пример."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS",
+        "K_DRIVING_FORCES_GAS_PRECIP"
+      ],
+      "oge": {
+        "topics": [
+          "растворимость",
+          "ионные уравнения"
+        ],
+        "typical_tasks": [
+          "выбрать реакцию, идущую до конца"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_02_agcl",
+      "title": "Осадкообразование: AgCl↓ (качественная реакция на Cl⁻)",
+      "equation": "AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation",
+        "qualitative_test"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "AgNO3",
+            "name": "нитрат серебра",
+            "coeff": 1
+          },
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "AgCl",
+            "name": "хлорид серебра (осадок)",
+            "coeff": 1
+          },
+          {
+            "formula": "NaNO3",
+            "name": "нитрат натрия",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "full": "Ag⁺ + NO₃⁻ + Na⁺ + Cl⁻ → AgCl↓ + Na⁺ + NO₃⁻",
+        "net": "Ag⁺ + Cl⁻ → AgCl↓"
+      },
+      "observations": {
+        "precipitate": [
+          "AgCl (белый творожистый осадок)"
+        ],
+        "other": [
+          "на свету темнеет"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Очень разбавленные растворы."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "AgNO₃ оставляет тёмные пятна на коже/одежде; работать аккуратно."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "качественные реакции",
+          "растворимость"
+        ],
+        "typical_tasks": [
+          "распознать ион по признаку"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_03_cuoh2",
+      "title": "Осадкообразование: Cu(OH)₂↓",
+      "equation": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s)↓ + Na₂SO₄(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CuSO4",
+            "name": "сульфат меди(II)",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "name": "гидроксид натрия",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "Cu(OH)2",
+            "name": "гидроксид меди(II) (осадок)",
+            "coeff": 1
+          },
+          {
+            "formula": "Na2SO4",
+            "name": "сульфат натрия",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Cu²⁺ + 2OH⁻ → Cu(OH)₂↓"
+      },
+      "observations": {
+        "precipitate": [
+          "Cu(OH)₂ (голубой осадок)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Соли меди токсичны при попадании внутрь; избегайте контакта."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS",
+        "K_DRIVING_FORCES_GAS_PRECIP"
+      ],
+      "oge": {
+        "topics": [
+          "гидроксиды",
+          "качественные реакции"
+        ],
+        "typical_tasks": [
+          "определить осадок по цвету"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_gas_01_nahco3_hcl",
+      "title": "Гидрокарбонат + кислота: CO₂↑",
+      "equation": "NaHCO₃(aq) + HCl(aq) → NaCl(aq) + H₂O(l) + CO₂(g)↑",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "NaHCO3",
+            "name": "гидрокарбонат натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          },
+          {
+            "formula": "CO2",
+            "name": "углекислый газ",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "HCO₃⁻ + H⁺ → H₂O + CO₂↑"
+      },
+      "observations": {
+        "gas": [
+          "CO₂ (шипение)"
+        ],
+        "other": [
+          "Если пропустить CO₂ через известковую воду — помутнеет (CaCO₃↓)."
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание.",
+          "Повышение концентрации кислоты."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "Осторожно с кислотой."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "карбонаты/гидрокарбонаты",
+          "признаки реакций"
+        ],
+        "typical_tasks": [
+          "определить газ",
+          "сокращённое ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_gas_02_na2s_hcl",
+      "title": "Сульфид + кислота: H₂S↑",
+      "equation": "Na₂S(aq) + 2HCl(aq) → 2NaCl(aq) + H₂S(g)↑",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Na2S",
+            "name": "сульфид натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 2
+          },
+          {
+            "formula": "H2S",
+            "name": "сероводород",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "S²⁻ + 2H⁺ → H₂S↑"
+      },
+      "observations": {
+        "gas": [
+          "H₂S"
+        ],
+        "smell": "запах тухлых яиц"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "H₂S токсичен. Это учебный пример; в реальности только в вытяжке."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "сульфиды",
+          "признаки реакций"
+        ],
+        "typical_tasks": [
+          "определить газ по признакам"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_gas_03_nh4cl_naoh",
+      "title": "Соль аммония + щёлочь: NH₃↑",
+      "equation": "NH₄Cl(aq) + NaOH(aq) → NaCl(aq) + NH₃(g)↑ + H₂O(l)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room",
+        "excess": "избыток щёлочи усиливает выделение NH₃"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution",
+        "qualitative_test"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "NH4Cl",
+            "name": "хлорид аммония",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "name": "гидроксид натрия",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl",
+            "name": "хлорид натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "NH3",
+            "name": "аммиак",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "NH₄⁺ + OH⁻ → NH₃↑ + H₂O"
+      },
+      "observations": {
+        "gas": [
+          "NH₃"
+        ],
+        "smell": "резкий запах аммиака",
+        "other": [
+          "влажная красная лакмусовая бумага синеет"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Небольшой нагрев (если допускается).",
+          "Избыток щёлочи.",
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Аммиак раздражает дыхательные пути; проветривание обязательно."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE",
+        "K_LAB_SAFETY",
+        "K_REACTION_RATE"
+      ],
+      "oge": {
+        "topics": [
+          "соли аммония",
+          "качественные реакции"
+        ],
+        "typical_tasks": [
+          "распознать ион NH₄⁺"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_amph_01_aloh3_hcl",
+      "title": "Амфотерный гидроксид + кислота",
+      "equation": "Al(OH)₃(s) + 3HCl(aq) → AlCl₃(aq) + 3H₂O(l)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization",
+        "amphoteric"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Al(OH)3",
+            "name": "гидроксид алюминия",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 3
+          }
+        ],
+        "products": [
+          {
+            "formula": "AlCl3",
+            "name": "хлорид алюминия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 3
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Al(OH)₃(s) + 3H⁺ → Al³⁺ + 3H₂O"
+      },
+      "observations": {
+        "other": [
+          "осадок Al(OH)₃ растворяется в кислоте"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Раздробить/взболтать осадок.",
+          "Умеренно повысить концентрацию кислоты."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "Кислоты едкие."
+      ],
+      "skills": [
+        "K_AMPHOTERIC",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "амфотерность"
+        ],
+        "typical_tasks": [
+          "выбрать реагенты для растворения осадка"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_amph_02_aloh3_naoh",
+      "title": "Амфотерный гидроксид + щёлочь: комплекс",
+      "equation": "Al(OH)₃(s) + NaOH(aq) → Na[Al(OH)₄](aq)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room",
+        "excess": "избыток NaOH облегчает растворение"
+      },
+      "type_tags": [
+        "exchange",
+        "amphoteric",
+        "complexation"
+      ],
+      "driving_forces": [
+        "complex_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Al(OH)3",
+            "name": "гидроксид алюминия",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "name": "гидроксид натрия",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "Na[Al(OH)4]",
+            "name": "тетрагидроксоалюминат натрия",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Al(OH)₃(s) + OH⁻ → [Al(OH)₄]⁻"
+      },
+      "observations": {
+        "other": [
+          "осадок растворяется в избытке щёлочи"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Добавить избыток щёлочи.",
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Щёлочь едкая."
+      ],
+      "skills": [
+        "K_AMPHOTERIC",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE"
+      ],
+      "oge": {
+        "topics": [
+          "амфотерность"
+        ],
+        "typical_tasks": [
+          "объяснить растворение осадка в избытке щёлочи"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_exchange_01_cuo_hcl",
+      "title": "Основный оксид + кислота",
+      "equation": "CuO(s) + 2HCl(aq) → CuCl₂(aq) + H₂O(l)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CuO",
+            "name": "оксид меди(II)",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "name": "соляная кислота",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "CuCl2",
+            "name": "хлорид меди(II)",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "CuO(s) + 2H⁺ → Cu²⁺ + H₂O"
+      },
+      "observations": {
+        "other": [
+          "CuO растворяется; раствор может стать голубовато‑зелёным (Cu²⁺)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Подогрев (если допускается).",
+          "Перемешивание.",
+          "Измельчение оксида."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "Соли меди токсичны при попадании внутрь."
+      ],
+      "skills": [
+        "K_EXCHANGE_TYPES",
+        "K_IONIC_EQUATIONS",
+        "K_ACID_BASE",
+        "K_REACTION_RATE"
+      ],
+      "oge": {
+        "topics": [
+          "оксиды",
+          "кислоты"
+        ],
+        "typical_tasks": [
+          "дополнить уравнение реакции"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_exchange_02_caoh2_co2",
+      "title": "Известковая вода + CO₂: CaCO₃↓",
+      "equation": "Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s)↓ + H₂O(l)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "precipitation",
+        "acidic_oxide"
+      ],
+      "driving_forces": [
+        "precipitation",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Ca(OH)2",
+            "name": "известковая вода",
+            "coeff": 1
+          },
+          {
+            "formula": "CO2",
+            "name": "углекислый газ",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaCO3",
+            "name": "карбонат кальция (осадок)",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "name": "вода",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Ca²⁺ + 2OH⁻ + CO₂ → CaCO₃↓ + H₂O"
+      },
+      "observations": {
+        "precipitate": [
+          "CaCO₃ (помутнение)"
+        ],
+        "other": [
+          "признак CO₂ — помутнение известковой воды"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Барботирование CO₂.",
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Известковая вода — щёлочная, избегайте попадания в глаза."
+      ],
+      "skills": [
+        "K_ACIDIC_OXIDES",
+        "K_SOLUBILITY_RULES",
+        "K_DRIVING_FORCES_GAS_PRECIP"
+      ],
+      "oge": {
+        "topics": [
+          "качественные реакции",
+          "карбонаты"
+        ],
+        "typical_tasks": [
+          "распознать CO₂"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_04_feoh3",
+      "title": "Осадкообразование: Fe(OH)₃↓",
+      "equation": "FeCl₃(aq) + 3NaOH(aq) → Fe(OH)₃(s)↓ + 3NaCl(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "FeCl3",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "coeff": 3
+          }
+        ],
+        "products": [
+          {
+            "formula": "Fe(OH)3",
+            "coeff": 1
+          },
+          {
+            "formula": "NaCl",
+            "coeff": 3
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Fe³⁺ + 3OH⁻ → Fe(OH)₃↓"
+      },
+      "observations": {
+        "precipitate": [
+          "Fe(OH)₃ (бурый осадок)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Щёлочь едкая."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "гидроксиды"
+        ],
+        "typical_tasks": [
+          "определить осадок по цвету"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_neutral_03_ch3cooh_naoh",
+      "title": "Нейтрализация слабой кислоты (уксусной)",
+      "equation": "CH₃COOH(aq) + NaOH(aq) → CH₃COONa(aq) + H₂O(l)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CH3COOH",
+            "name": "уксусная кислота",
+            "coeff": 1
+          },
+          {
+            "formula": "NaOH",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "CH3COONa",
+            "name": "ацетат натрия",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O",
+        "notes": "Слабую кислоту часто пишут молекулой."
+      },
+      "observations": {
+        "heat": "обычно выделяется тепло (слабее, чем для сильной кислоты)"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Разбавление."
+        ]
+      },
+      "heat_effect": "exo",
+      "safety_notes": [],
+      "skills": [
+        "K_ACID_BASE",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "слабые электролиты"
+        ],
+        "typical_tasks": [
+          "сокращённое ионное уравнение"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_05_caco3_from_salts",
+      "title": "Осадкообразование: CaCO₃↓ из растворов солей",
+      "equation": "Na₂CO₃(aq) + CaCl₂(aq) → CaCO₃(s)↓ + 2NaCl(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Na2CO3",
+            "coeff": 1
+          },
+          {
+            "formula": "CaCl2",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaCO3",
+            "coeff": 1
+          },
+          {
+            "formula": "NaCl",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Ca²⁺ + CO₃²⁻ → CaCO₃↓"
+      },
+      "observations": {
+        "precipitate": [
+          "CaCO₃ (белый осадок)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS",
+        "K_DRIVING_FORCES_GAS_PRECIP"
+      ],
+      "oge": {
+        "topics": [
+          "карбонаты",
+          "растворимость"
+        ],
+        "typical_tasks": [
+          "идёт ли реакция до конца"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_06_pbi2",
+      "title": "Осадкообразование: PbI₂↓ (жёлтый)",
+      "equation": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Pb(NO3)2",
+            "coeff": 1
+          },
+          {
+            "formula": "KI",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "PbI2",
+            "coeff": 1
+          },
+          {
+            "formula": "KNO3",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Pb²⁺ + 2I⁻ → PbI₂↓"
+      },
+      "observations": {
+        "precipitate": [
+          "PbI₂ (жёлтый осадок)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Соединения свинца токсичны. Это учебный пример."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "растворимость"
+        ],
+        "typical_tasks": [
+          "признак реакции"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_07_h2so4_bacl2",
+      "title": "Качественная реакция на SO₄²⁻: BaSO₄↓",
+      "equation": "H₂SO₄(aq) + BaCl₂(aq) → BaSO₄(s)↓ + 2HCl(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation",
+        "qualitative_test"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "H2SO4",
+            "coeff": 1
+          },
+          {
+            "formula": "BaCl2",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "BaSO4",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Ba²⁺ + SO₄²⁻ → BaSO₄↓"
+      },
+      "observations": {
+        "precipitate": [
+          "BaSO₄ (белый осадок)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "Соли бария токсичны."
+      ],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "качественные реакции"
+        ],
+        "typical_tasks": [
+          "распознать сульфат‑ион"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_gas_04_na2so3_hcl",
+      "title": "Сульфит + кислота: SO₂↑",
+      "equation": "Na₂SO₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g)↑ + H₂O(l)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release",
+        "water_formation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "Na2SO3",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "NaCl",
+            "coeff": 2
+          },
+          {
+            "formula": "SO2",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "SO₃²⁻ + 2H⁺ → SO₂↑ + H₂O"
+      },
+      "observations": {
+        "gas": [
+          "SO₂"
+        ],
+        "smell": "резкий удушливый запах"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [
+        "SO₂ токсичен; учебный пример. В реальности только в вытяжке."
+      ],
+      "skills": [
+        "K_DRIVING_FORCES_GAS_PRECIP",
+        "K_IONIC_EQUATIONS",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "соли сернистой кислоты"
+        ],
+        "typical_tasks": [
+          "определить газ по уравнению"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_exchange_03_cao_hcl",
+      "title": "Основный оксид + кислота (пример с CaO)",
+      "equation": "CaO(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l)",
+      "phase": {
+        "medium": "mixed"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CaO",
+            "coeff": 1
+          },
+          {
+            "formula": "HCl",
+            "coeff": 2
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaCl2",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "net": "CaO(s) + 2H⁺ → Ca²⁺ + H₂O"
+      },
+      "observations": {
+        "heat": "может сопровождаться тепловыделением"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Измельчение CaO.",
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "mixed",
+      "safety_notes": [
+        "CaO реагирует с водой с выделением тепла; осторожно."
+      ],
+      "skills": [
+        "K_EXCHANGE_TYPES",
+        "K_ACID_BASE",
+        "K_IONIC_EQUATIONS",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "оксиды",
+          "кислоты"
+        ],
+        "typical_tasks": [
+          "дополнить уравнение реакции"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_neutral_04_hno3_caoh2",
+      "title": "Нейтрализация: HNO₃ + Ca(OH)₂",
+      "equation": "2HNO₃(aq) + Ca(OH)₂(aq) → Ca(NO₃)₂(aq) + 2H₂O(l)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "neutralization"
+      ],
+      "driving_forces": [
+        "water_formation",
+        "weak_electrolyte"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "HNO3",
+            "coeff": 2
+          },
+          {
+            "formula": "Ca(OH)2",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "Ca(NO3)2",
+            "coeff": 1
+          },
+          {
+            "formula": "H2O",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "net": "2H⁺ + 2OH⁻ → 2H₂O"
+      },
+      "observations": {
+        "heat": "выделяется тепло"
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ]
+      },
+      "heat_effect": "exo",
+      "safety_notes": [
+        "Азотная кислота — сильная кислота, едкая."
+      ],
+      "skills": [
+        "K_ACID_BASE",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "нейтрализация"
+        ],
+        "typical_tasks": [
+          "расставить коэффициенты"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_precip_08_caso4",
+      "title": "Осадкообразование: CaSO₄↓ (малорастворим)",
+      "equation": "CaCl₂(aq) + Na₂SO₄(aq) → CaSO₄(s)↓ + 2NaCl(aq)",
+      "phase": {
+        "medium": "aq"
+      },
+      "conditions": {
+        "temperature": "room"
+      },
+      "type_tags": [
+        "exchange",
+        "precipitation"
+      ],
+      "driving_forces": [
+        "precipitation"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CaCl2",
+            "coeff": 1
+          },
+          {
+            "formula": "Na2SO4",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaSO4",
+            "coeff": 1
+          },
+          {
+            "formula": "NaCl",
+            "coeff": 2
+          }
+        ]
+      },
+      "ionic": {
+        "net": "Ca²⁺ + SO₄²⁻ → CaSO₄↓"
+      },
+      "observations": {
+        "precipitate": [
+          "CaSO₄ (белый осадок/помутнение)"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Перемешивание."
+        ],
+        "what_slows_down": [
+          "Разбавление (может не выпадать заметно)."
+        ]
+      },
+      "heat_effect": "unknown",
+      "safety_notes": [],
+      "skills": [
+        "K_SOLUBILITY_RULES",
+        "K_IONIC_EQUATIONS"
+      ],
+      "oge": {
+        "topics": [
+          "растворимость"
+        ],
+        "typical_tasks": [
+          "определить, выпадет ли осадок"
+        ]
+      }
+    },
+    {
+      "reaction_id": "rx_gas_05_caco3_heat",
+      "title": "Термическое разложение карбоната: CaCO₃",
+      "equation": "CaCO₃(s) —t°→ CaO(s) + CO₂(g)↑",
+      "phase": {
+        "medium": "s"
+      },
+      "conditions": {
+        "temperature": "heat"
+      },
+      "type_tags": [
+        "decomposition",
+        "gas_evolution"
+      ],
+      "driving_forces": [
+        "gas_release"
+      ],
+      "molecular": {
+        "reactants": [
+          {
+            "formula": "CaCO3",
+            "coeff": 1
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaO",
+            "coeff": 1
+          },
+          {
+            "formula": "CO2",
+            "coeff": 1
+          }
+        ]
+      },
+      "ionic": {
+        "notes": "Не ионная реакция; протекает при нагревании."
+      },
+      "observations": {
+        "gas": [
+          "CO₂"
+        ],
+        "other": [
+          "масса твёрдого остатка уменьшается"
+        ]
+      },
+      "rate_tips": {
+        "how_to_speed_up": [
+          "Сильный нагрев.",
+          "Измельчение вещества.",
+          "Удаление CO₂ смещает равновесие вправо."
+        ]
+      },
+      "heat_effect": "endo",
+      "safety_notes": [
+        "Работа с нагреванием требует соблюдения техники безопасности."
+      ],
+      "skills": [
+        "K_EXCHANGE_TYPES",
+        "K_REACTION_RATE",
+        "K_LAB_SAFETY"
+      ],
+      "oge": {
+        "topics": [
+          "разложение",
+          "карбонаты"
+        ],
+        "typical_tasks": [
+          "определить продукты разложения"
+        ]
+      }
+    }
+  ]
+}
