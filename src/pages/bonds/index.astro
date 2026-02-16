@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BondsPage from '../../features/bonds/BondsPage';
+---
+
+<BaseLayout title="Химическая связь" description="Определение типа химической связи и кристаллической решётки по формуле вещества. Калькулятор, теория и практика для ОГЭ.">
+  <BondsPage client:idle />
+</BaseLayout>

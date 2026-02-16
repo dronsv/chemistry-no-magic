@@ -47,7 +47,7 @@
     "block_name_ru": "Химическая связь и строение вещества",
     "prerequisites": ["electron_config"],
     "oge_task_types": [5],
-    "link": null
+    "link": "/bonds/"
   },
   {
     "id": "crystal_structure_type",
@@ -57,7 +57,7 @@
     "block_name_ru": "Химическая связь и строение вещества",
     "prerequisites": ["bond_type"],
     "oge_task_types": [6],
-    "link": null
+    "link": "/bonds/"
   },
   {
     "id": "classification",

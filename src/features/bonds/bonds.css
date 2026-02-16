@@ -1,0 +1,314 @@
+/* ========================================
+   Bonds Page
+   ======================================== */
+
+.bonds-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+/* ========================================
+   Bond Calculator
+   ======================================== */
+
+.bond-calc {
+  margin-bottom: var(--space-lg);
+}
+
+.bond-calc__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-md);
+}
+
+.bond-calc__modes {
+  display: flex;
+  gap: 2px;
+  background: var(--color-bg-alt);
+  border-radius: 0.375rem;
+  padding: 2px;
+  margin-bottom: var(--space-md);
+  width: fit-content;
+}
+
+.bond-calc__mode-btn {
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: 0.3rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.bond-calc__mode-btn:hover { color: var(--color-text); }
+
+.bond-calc__mode-btn--active {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bond-calc__formula-input {
+  margin-bottom: var(--space-md);
+}
+
+.bond-calc__input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.bond-calc__input::placeholder { color: var(--color-text-muted); }
+.bond-calc__input:focus { border-color: var(--color-primary); }
+
+.bond-calc__selects {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.bond-calc__select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  min-width: 200px;
+  max-width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.bond-calc__select:focus { border-color: var(--color-primary); }
+
+.bond-calc__error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   Bond Result Card
+   ======================================== */
+
+.bond-result {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  background: var(--color-bg);
+  margin-bottom: var(--space-lg);
+}
+
+.bond-result__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.bond-result__formula {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.bond-result__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.625rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.bond-result__badge--ionic {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.bond-result__badge--covalent_polar {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.bond-result__badge--covalent_nonpolar {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.bond-result__badge--metallic {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.bond-result__delta {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.bond-result__diagram {
+  max-width: 360px;
+  margin: var(--space-sm) 0;
+}
+
+.bond-result__bar {
+  max-width: 400px;
+  margin: var(--space-sm) 0;
+}
+
+.bond-result__crystal {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.bond-result__crystal-label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-sm);
+}
+
+.bond-result__props {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem var(--space-md);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.bond-result__props dt {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.bond-result__props dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* ========================================
+   Bond Theory Panel — specifics
+   ======================================== */
+
+.bond-theory__rule {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bond-theory__rule:last-child {
+  border-bottom: none;
+}
+
+.bond-theory__rule-header {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.bond-theory__rule-text {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.bond-theory__rule-examples {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Crystal Comparison Table
+   ======================================== */
+
+.crystal-table-wrapper {
+  overflow-x: auto;
+  margin-top: var(--space-sm);
+}
+
+.crystal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.crystal-table th,
+.crystal-table td {
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.crystal-table th {
+  background: var(--color-bg-alt);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.crystal-table__type {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+  .bond-calc__selects {
+    flex-direction: column;
+  }
+
+  .bond-calc__select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .bond-calc__input {
+    max-width: 100%;
+  }
+
+  .bond-result__diagram {
+    max-width: 100%;
+  }
+
+  .bond-result__bar {
+    max-width: 100%;
+  }
+
+  .bond-result__props {
+    grid-template-columns: 1fr;
+    gap: 0.125rem;
+  }
+
+  .bond-result__props dt {
+    margin-top: 0.375rem;
+  }
+
+  .crystal-table {
+    font-size: 0.75rem;
+  }
+
+  .crystal-table th,
+  .crystal-table td {
+    padding: 0.25rem 0.375rem;
+  }
+}
