@@ -27,3 +27,10 @@ export interface ActivitySeriesEntry {
   position: number;
   reduces_H: boolean;
 }
+
+export interface ApplicabilityRule {
+  id: string;
+  type: string;
+  condition_ru: string;
+  description_ru: string;
+}

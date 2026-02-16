@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReactionsPage from '../../features/reactions/ReactionsPage';
+---
+
+<BaseLayout title="Реакции" description="Типы химических реакций, реакции ионного обмена, таблица растворимости, ряд активности металлов. Практика для подготовки к ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Химические реакции",
+      "description": "Типы реакций, реакции ионного обмена, движущие силы, таблица растворимости, ряд активности металлов.",
+      "inLanguage": "ru",
+      "educationalLevel": "ОГЭ",
+      "teaches": ["Реакции ионного обмена", "Признаки реакций", "Таблица растворимости", "Ряд активности металлов"],
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Химия без магии",
+        "url": Astro.site?.toString(),
+      },
+    })} />
+  </Fragment>
+  <ReactionsPage client:idle />
+</BaseLayout>

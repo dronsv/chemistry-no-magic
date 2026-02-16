@@ -9,7 +9,7 @@ export interface ReactionTemplate {
   description_ru: string;
   conditions?: string;
   catalyst?: string;
-  examples: Array<{ reactants: string; products: string }>;
+  examples: Array<{ reactants: string[]; products: string[] }>;
 }
 
 export interface TaskTemplate {

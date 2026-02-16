@@ -1,0 +1,173 @@
+import { useState, useEffect } from 'react';
+import type { ReactionTemplate } from '../../types/templates';
+import type { ApplicabilityRule } from '../../types/rules';
+import {
+  loadReactionTemplates,
+  loadApplicabilityRules,
+} from '../../lib/data-loader';
+import SolubilityTable from './SolubilityTable';
+import ActivitySeriesBar from './ActivitySeriesBar';
+
+const TYPE_LABELS: Record<string, string> = {
+  exchange: 'Реакции обмена',
+  substitution: 'Реакции замещения',
+  combination: 'Реакции соединения',
+  decomposition: 'Реакции разложения',
+};
+
+const RULE_TYPE_LABELS: Record<string, string> = {
+  exchange_reaction_condition: 'Условия реакций обмена',
+  activity_series_condition: 'Ряд активности металлов',
+  gas_forming_condition: 'Газообразование',
+  oxide_reaction_condition: 'Реакции оксидов',
+  thermal_condition: 'Термические условия',
+  special_acid_condition: 'Особые кислоты',
+  passivation_condition: 'Пассивация',
+  amphoteric_condition: 'Амфотерность',
+};
+
+function CollapsibleSection({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className={`theory-section ${open ? 'theory-section--open' : ''}`}>
+      <button
+        type="button"
+        className="theory-section__toggle"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <span className="theory-section__title">{title}</span>
+        <span className="theory-section__arrow">{open ? '▾' : '▸'}</span>
+      </button>
+      {open && <div className="theory-section__body">{children}</div>}
+    </div>
+  );
+}
+
+export default function ReactionTheoryPanel() {
+  const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
+  const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!open || templates) return;
+    setLoading(true);
+    Promise.all([loadReactionTemplates(), loadApplicabilityRules()])
+      .then(([t, r]) => {
+        setTemplates(t);
+        setRules(r);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setLoading(false);
+      });
+  }, [open, templates]);
+
+  // Group templates by type
+  const typeOrder = ['exchange', 'substitution', 'combination', 'decomposition'];
+  const templateGroups = templates
+    ? typeOrder
+        .map(type => ({
+          type,
+          label: TYPE_LABELS[type],
+          items: templates.filter(t => t.type === type),
+        }))
+        .filter(g => g.items.length > 0)
+    : [];
+
+  // Group rules by type
+  const ruleGroups = rules
+    ? Object.entries(
+        rules.reduce<Record<string, ApplicabilityRule[]>>((acc, rule) => {
+          (acc[rule.type] ??= []).push(rule);
+          return acc;
+        }, {}),
+      ).map(([type, items]) => ({
+        type,
+        label: RULE_TYPE_LABELS[type] ?? type,
+        items,
+      }))
+    : [];
+
+  return (
+    <div className="theory-panel">
+      <button
+        type="button"
+        className={`theory-panel__trigger ${open ? 'theory-panel__trigger--active' : ''}`}
+        onClick={() => setOpen(!open)}
+      >
+        <span>📖</span>
+        <span>Теория: реакции и движущие силы</span>
+        <span className="theory-panel__trigger-arrow">{open ? '▾' : '▸'}</span>
+      </button>
+
+      {open && (
+        <div className="theory-panel__content">
+          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {error && <div className="theory-panel__error">{error}</div>}
+
+          {templates && rules && (
+            <>
+              <CollapsibleSection title="Типы реакций" defaultOpen>
+                {templateGroups.map(group => (
+                  <div key={group.type} className="rxn-theory__type-group">
+                    <h4 className="rxn-theory__type-title">{group.label}</h4>
+                    {group.items.map(t => (
+                      <div key={t.id} className="rxn-theory__template">
+                        <div className="rxn-theory__desc">{t.description_ru}</div>
+                        <div className="rxn-theory__pattern">{t.pattern}</div>
+                        {t.conditions && (
+                          <div className="rxn-theory__conditions">Условия: {t.conditions}</div>
+                        )}
+                        <div className="rxn-theory__examples">
+                          {t.examples.slice(0, 2).map((ex, i) => (
+                            <div key={i} className="rxn-theory__equation">
+                              {ex.reactants.join(' + ')} → {ex.products.join(' + ')}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </CollapsibleSection>
+
+              <CollapsibleSection title="Движущие силы реакций">
+                {ruleGroups.map(group => (
+                  <div key={group.type} className="rxn-theory__rule-group">
+                    <h4 className="rxn-theory__type-title">{group.label}</h4>
+                    {group.items.map(rule => (
+                      <div key={rule.id} className="rxn-theory__rule">
+                        <div className="rxn-theory__rule-condition">{rule.condition_ru}</div>
+                        <div className="rxn-theory__rule-desc">{rule.description_ru}</div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </CollapsibleSection>
+
+              <CollapsibleSection title="Таблица растворимости">
+                <SolubilityTable />
+              </CollapsibleSection>
+
+              <CollapsibleSection title="Ряд активности металлов">
+                <ActivitySeriesBar />
+              </CollapsibleSection>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
