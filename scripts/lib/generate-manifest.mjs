@@ -49,6 +49,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         bonds: 'exercises/bonds-exercises.json',
         oxidation: 'exercises/oxidation-exercises.json',
       },
+      oge_tasks: 'exam/oge_tasks.json',
+      oge_solution_algorithms: 'exam/oge_solution_algorithms.json',
       indices: {
         substances_index: 'indices/substances_index.json',
       },

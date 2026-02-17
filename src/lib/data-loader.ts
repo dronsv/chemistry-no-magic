@@ -18,6 +18,8 @@ import type { QualitativeTest } from '../types/qualitative';
 import type { GeneticChain } from '../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../types/energy-catalyst';
 import type { CalculationsData } from '../types/calculations';
+import type { OgeTask } from '../types/oge-task';
+import type { OgeSolutionAlgorithm } from '../types/oge-solution';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -336,6 +338,34 @@ export async function loadEnergyCatalystTheory(): Promise<EnergyCatalystTheory> 
 /** Load calculations data (substances + reactions for calc exercises). */
 export async function loadCalculationsData(): Promise<CalculationsData> {
   return loadRule('calculations_data') as Promise<CalculationsData>;
+}
+
+/** Load OGE tasks from all variants. */
+export async function loadOgeTasks(): Promise<OgeTask[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.oge_tasks;
+
+  if (!path) {
+    throw new Error(
+      'OGE tasks not found in manifest. Expected key "oge_tasks" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<OgeTask[]>(path);
+}
+
+/** Load OGE solution algorithms (step-by-step methods for each task number). */
+export async function loadOgeSolutionAlgorithms(): Promise<OgeSolutionAlgorithm[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.oge_solution_algorithms;
+
+  if (!path) {
+    throw new Error(
+      'OGE solution algorithms not found in manifest. Expected key "oge_solution_algorithms" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<OgeSolutionAlgorithm[]>(path);
 }
 
 /** Load a molecule structure by substance ID. */

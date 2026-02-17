@@ -387,3 +387,660 @@
     font-size: 0.6875rem;
   }
 }
+
+/* ========================================
+   Mode selection cards
+   ======================================== */
+
+.exam-modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.exam-mode-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+
+.exam-mode-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.exam-mode-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+  flex: 1;
+}
+
+.exam-mode-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   OGE Practice
+   ======================================== */
+
+.oge-practice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.oge-practice__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.oge-practice__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.oge-practice__task-info {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.oge-practice__intro {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.oge-practice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-sm);
+}
+
+.oge-practice__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.oge-practice__card:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.oge-practice__num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.oge-practice__diff {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 0.25rem;
+}
+
+.oge-practice__diff--Б {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.oge-practice__diff--П {
+  background: #fef3c7;
+  color: #ca8a04;
+}
+
+.oge-practice__diff--В {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.oge-practice__count {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   OGE Task view
+   ======================================== */
+
+.oge-task {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.oge-task__context {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  padding: var(--space-md);
+  background: var(--color-bg-alt);
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--color-primary);
+}
+
+.oge-task__question {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.oge-task__number {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.oge-task__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.oge-task__answer {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.oge-task__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.oge-task__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.oge-task__score {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: var(--space-md);
+  border-radius: 0.5rem;
+}
+
+.oge-task__score--full {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.oge-task__score--partial {
+  color: #ca8a04;
+  background: #fef3c7;
+}
+
+.oge-task__score--zero {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.oge-task__explanation {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  padding: var(--space-md);
+  background: var(--color-bg-alt);
+  border-radius: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+/* -- Algorithm hint / details -- */
+
+.oge-task__algorithm {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0.375rem;
+}
+
+.oge-task__algorithm-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-primary);
+}
+
+.oge-task__algorithm-steps {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--color-text);
+}
+
+.oge-task__algorithm-steps li {
+  margin-bottom: var(--space-xs);
+}
+
+.oge-task__algo-details {
+  margin-top: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.oge-task__algo-details summary {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-alt);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.oge-task__algo-details summary:hover {
+  background: var(--color-border);
+}
+
+.oge-task__algo-content {
+  padding: var(--space-md);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.oge-task__algo-content h4 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin: var(--space-md) 0 var(--space-xs);
+  color: var(--color-primary);
+}
+
+.oge-task__algo-content h4:first-child {
+  margin-top: 0;
+}
+
+.oge-task__algo-content ul,
+.oge-task__algo-content ol {
+  margin: 0 0 var(--space-sm);
+  padding-left: 1.5rem;
+}
+
+.oge-task__algo-content li {
+  margin-bottom: var(--space-xs);
+}
+
+.oge-task__traps li {
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   OGE Answer Components
+   ======================================== */
+
+/* -- Select -- */
+
+.oge-select__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.oge-select__option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.oge-select__option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.oge-select__option--selected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+}
+
+.oge-select__option--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.oge-select__option--wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.oge-select__option--missed {
+  border-color: #ca8a04;
+  background: #fef3c7;
+}
+
+.oge-select__id {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.oge-select__text {
+  flex: 1;
+}
+
+.oge-select__answer,
+.oge-matching__answer {
+  margin-top: var(--space-sm);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+/* -- Matching -- */
+
+.oge-matching__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.oge-matching__row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.oge-matching__row:last-child {
+  border-bottom: none;
+}
+
+.oge-matching__label {
+  font-weight: 700;
+  padding: var(--space-sm);
+  width: 2rem;
+  text-align: center;
+  vertical-align: top;
+}
+
+.oge-matching__text {
+  padding: var(--space-sm);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.oge-matching__choices {
+  padding: var(--space-sm);
+  display: flex;
+  gap: var(--space-xs);
+  vertical-align: top;
+}
+
+.oge-matching__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-bg);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.oge-matching__btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.oge-matching__btn--selected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+  color: var(--color-primary);
+}
+
+.oge-matching__btn--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.oge-matching__btn--wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.oge-matching__btn--missed {
+  border-color: #ca8a04;
+  background: #fef3c7;
+  color: #ca8a04;
+}
+
+/* -- Sequence -- */
+
+.oge-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.oge-sequence__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.oge-sequence__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  background: var(--color-bg);
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.oge-sequence__item:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.oge-sequence__item--used {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.oge-sequence__item-id {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.oge-sequence__slots {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.oge-sequence__slot-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.oge-sequence__arrow {
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+}
+
+.oge-sequence__slot {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--color-bg);
+}
+
+.oge-sequence__slot--filled {
+  border-style: solid;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.oge-sequence__slot--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.oge-sequence__slot--wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* -- Input cells -- */
+
+.oge-cells {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-end;
+}
+
+.oge-cells__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.oge-cells__label {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.oge-cells__input {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+}
+
+.oge-cells__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.oge-cells__input--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.oge-cells__input--wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+/* -- Numeric -- */
+
+.oge-numeric__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.oge-numeric__input {
+  width: 160px;
+  padding: var(--space-sm);
+  font-size: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+}
+
+.oge-numeric__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.oge-numeric__input--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.oge-numeric__input--wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.oge-numeric__correct {
+  margin-top: var(--space-sm);
+  font-size: 0.875rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* -- Free text -- */
+
+.oge-freetext__input {
+  width: 100%;
+  padding: var(--space-sm);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  resize: vertical;
+}
+
+.oge-freetext__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.oge-freetext__note {
+  margin-top: var(--space-sm);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}

@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../types/competency';
 import type { BktParams } from '../../types/bkt';
+import type { OgeTask } from '../../types/oge-task';
+import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
 import type { ExamVariant, ExamAnswer, ExamResults, ExamExerciseResult, CompetencyResult } from '../../types/exam';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../lib/storage';
@@ -20,14 +22,17 @@ import {
   loadCalculationsData,
   loadBktParams,
   loadCompetencies,
+  loadOgeTasks,
+  loadOgeSolutionAlgorithms,
 } from '../../lib/data-loader';
 import { generateVariant } from './generate-variant';
 import type { ExamData } from './generate-variant';
 import ExamSession from './ExamSession';
 import ExamResultsView from './ExamResultsView';
+import OgePractice from './OgePractice';
 import './exam.css';
 
-type Phase = 'start' | 'loading' | 'session' | 'results';
+type Phase = 'start' | 'loading' | 'session' | 'results' | 'oge-practice';
 
 export default function ExamPage() {
   const [phase, setPhase] = useState<Phase>('start');
@@ -36,7 +41,28 @@ export default function ExamPage() {
   const [results, setResults] = useState<ExamResults | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
+  const [ogeTasks, setOgeTasks] = useState<OgeTask[]>([]);
+  const [algorithms, setAlgorithms] = useState<OgeSolutionAlgorithm[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const startOgePractice = useCallback(async () => {
+    setPhase('loading');
+    setError(null);
+    try {
+      if (ogeTasks.length === 0) {
+        const [tasks, algos] = await Promise.all([
+          loadOgeTasks(),
+          loadOgeSolutionAlgorithms(),
+        ]);
+        setOgeTasks(tasks);
+        setAlgorithms(algos);
+      }
+      setPhase('oge-practice');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Ошибка загрузки данных');
+      setPhase('start');
+    }
+  }, [ogeTasks]);
 
   const startExam = useCallback(async () => {
     setPhase('loading');
@@ -190,38 +216,43 @@ export default function ExamPage() {
       <div className="exam-page">
         <h1 className="exam-page__title">Экзамен</h1>
         <p className="exam-page__intro">
-          Пробный вариант ОГЭ по химии. 20 заданий по всем компетенциям, без подсказок и немедленной проверки — как на настоящем экзамене.
+          Подготовка к ОГЭ по химии: тренировка по реальным заданиям или полноценный пробный экзамен.
         </p>
-        <div className="exam-start">
-          <div className="exam-start__info">
-            <div className="exam-start__row">
-              <span>Количество заданий</span>
-              <strong>20</strong>
-            </div>
-            <div className="exam-start__row">
-              <span>Время</span>
-              <strong>2 часа</strong>
-            </div>
-            <div className="exam-start__row">
-              <span>Формат</span>
-              <strong>Тест с выбором ответа</strong>
-            </div>
-            <div className="exam-start__row">
-              <span>Обратная связь</span>
-              <strong>После завершения</strong>
-            </div>
+
+        {error && (
+          <div style={{ color: '#dc2626', marginBottom: 'var(--space-md)' }}>
+            {error}
           </div>
-          {error && (
-            <div style={{ color: '#dc2626', marginBottom: 'var(--space-md)' }}>
-              {error}
+        )}
+
+        <div className="exam-modes">
+          <div className="exam-mode-card">
+            <h2 className="exam-mode-card__title">Задания ОГЭ</h2>
+            <p className="exam-mode-card__desc">
+              Тренировка по реальным заданиям из демоверсий ФИПИ. Формат ввода ответа как на настоящем экзамене.
+            </p>
+            <div className="exam-mode-card__info">
+              <span>Задания 1–19 (часть 1)</span>
+              <span>Мгновенная проверка</span>
             </div>
-          )}
-          <button type="button" className="btn btn-primary" onClick={startExam}>
-            Начать экзамен
-          </button>
-          <p className="exam-start__note">
-            Результаты обновят ваш профиль компетенций. Вы можете свободно перемещаться между заданиями и менять ответы до завершения.
-          </p>
+            <button type="button" className="btn btn-primary" onClick={startOgePractice}>
+              Тренироваться
+            </button>
+          </div>
+
+          <div className="exam-mode-card">
+            <h2 className="exam-mode-card__title">Пробный экзамен</h2>
+            <p className="exam-mode-card__desc">
+              Генерируемый вариант из 20 заданий по всем компетенциям. Без подсказок — как на настоящем экзамене.
+            </p>
+            <div className="exam-mode-card__info">
+              <span>20 заданий, 2 часа</span>
+              <span>Обратная связь после завершения</span>
+            </div>
+            <button type="button" className="btn btn-primary" onClick={startExam}>
+              Начать экзамен
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -242,6 +273,14 @@ export default function ExamPage() {
     return (
       <div className="exam-page">
         <ExamSession variant={variant} onSubmit={handleSubmit} />
+      </div>
+    );
+  }
+
+  if (phase === 'oge-practice') {
+    return (
+      <div className="exam-page">
+        <OgePractice tasks={ogeTasks} algorithms={algorithms} onBack={() => setPhase('start')} />
       </div>
     );
   }

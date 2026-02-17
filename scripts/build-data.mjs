@@ -88,6 +88,8 @@ async function main() {
   const energyCatalystTheory = await loadJson(join(DATA_SRC, 'rules', 'energy_catalyst_theory.json'));
   const calculationsData = await loadJson(join(DATA_SRC, 'rules', 'calculations_data.json'));
   const elementGroups = await loadJson(join(DATA_SRC, 'element-groups.json'));
+  const ogeTasks = await loadJson(join(DATA_SRC, 'exam', 'oge_tasks.json'));
+  const ogeSolutionAlgorithms = await loadJson(join(DATA_SRC, 'exam', 'oge_solution_algorithms.json'));
 
   // Load molecule structures (optional — directory may not exist yet)
   const structuresDir = join(DATA_SRC, 'structures');
@@ -102,6 +104,7 @@ async function main() {
   console.log(`  ${Object.keys(elementGroups).length} element groups`);
   console.log(`  ${qualitativeReactions.length} qualitative reactions, ${geneticChains.length} genetic chains, ${energyCatalystTheory.rate_factors.length} rate factors`);
   console.log(`  ${calculationsData.calc_substances.length} calc substances, ${calculationsData.calc_reactions.length} calc reactions`);
+  console.log(`  ${ogeTasks.length} OGE tasks, ${ogeSolutionAlgorithms.length} solution algorithms`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
@@ -208,6 +211,10 @@ async function main() {
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
   await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));
+
+  await mkdir(join(bundleDir, 'exam'), { recursive: true });
+  await writeFile(join(bundleDir, 'exam', 'oge_tasks.json'), JSON.stringify(ogeTasks));
+  await writeFile(join(bundleDir, 'exam', 'oge_solution_algorithms.json'), JSON.stringify(ogeSolutionAlgorithms));
 
   if (structureFiles.length > 0) {
     await mkdir(join(bundleDir, 'structures'), { recursive: true });

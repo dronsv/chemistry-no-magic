@@ -11,6 +11,8 @@ export interface ManifestEntrypoints {
   reactions?: string;
   structures?: string;
   exercises?: Record<string, string>;
+  oge_tasks?: string;
+  oge_solution_algorithms?: string;
 }
 
 export interface ManifestStats {
