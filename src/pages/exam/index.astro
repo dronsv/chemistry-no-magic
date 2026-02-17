@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExamPage from '../../features/exam/ExamPage';
+---
+
+<BaseLayout title="Экзамен" description="Пробный вариант ОГЭ по химии. 20 заданий по всем компетенциям с таймером и подробным отчётом.">
+  <ExamPage client:idle />
+</BaseLayout>
