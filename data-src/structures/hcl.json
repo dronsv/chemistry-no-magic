@@ -1,0 +1,13 @@
+{
+  "id": "hcl",
+  "atoms": [
+    { "id": "H1", "symbol": "H", "x": -0.7, "y": 0, "ox": 1, "lonePairs": 0 },
+    { "id": "Cl1", "symbol": "Cl", "x": 0.7, "y": 0, "ox": -1, "lonePairs": 3 }
+  ],
+  "bonds": [
+    { "from": "H1", "to": "Cl1", "order": 1 }
+  ],
+  "polarity": [
+    { "from": "H1", "to": "Cl1", "deltaPlus": "H1", "deltaMinus": "Cl1" }
+  ]
+}

@@ -85,7 +85,16 @@ async function main() {
   const oxidationExercises = await loadJson(join(DATA_SRC, 'exercises', 'oxidation-exercises.json'));
   const elementGroups = await loadJson(join(DATA_SRC, 'element-groups.json'));
 
+  // Load molecule structures (optional — directory may not exist yet)
+  const structuresDir = join(DATA_SRC, 'structures');
+  let structureFiles = [];
+  try {
+    const sFiles = await readdir(structuresDir);
+    structureFiles = sFiles.filter(f => f.endsWith('.json'));
+  } catch { /* no structures yet */ }
+
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
+  if (structureFiles.length > 0) console.log(`  ${structureFiles.length} molecule structures`);
   console.log(`  ${Object.keys(elementGroups).length} element groups`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
@@ -189,6 +198,14 @@ async function main() {
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
   await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));
+
+  if (structureFiles.length > 0) {
+    await mkdir(join(bundleDir, 'structures'), { recursive: true });
+    for (const f of structureFiles) {
+      const data = await loadJson(join(structuresDir, f));
+      await writeFile(join(bundleDir, 'structures', f), JSON.stringify(data));
+    }
+  }
 
   // 7. Generate indices
   console.log('Generating indices...');

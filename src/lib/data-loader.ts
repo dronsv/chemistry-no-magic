@@ -13,6 +13,7 @@ import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '..
 import type { Reaction } from '../types/reaction';
 import type { BondTheory } from '../types/bond';
 import type { OxidationTheory } from '../types/oxidation';
+import type { MoleculeStructure } from '../types/molecule';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -311,4 +312,16 @@ export async function loadReactionTemplates(): Promise<ReactionTemplate[]> {
   }
 
   return loadDataFile<ReactionTemplate[]>(path);
+}
+
+/** Load a molecule structure by substance ID. */
+export async function loadStructure(id: string): Promise<MoleculeStructure> {
+  const manifest = await getManifest();
+  const basePath = manifest.entrypoints.structures;
+
+  if (!basePath) {
+    throw new Error('Structures not found in manifest. Expected key "structures" in entrypoints.');
+  }
+
+  return loadDataFile<MoleculeStructure>(`${basePath}/${id}.json`);
 }

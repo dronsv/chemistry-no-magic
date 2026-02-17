@@ -1,0 +1,16 @@
+{
+  "id": "h2o",
+  "atoms": [
+    { "id": "O1", "symbol": "O", "x": 0, "y": 0, "ox": -2, "lonePairs": 2 },
+    { "id": "H1", "symbol": "H", "x": -0.96, "y": 0.6, "ox": 1, "lonePairs": 0 },
+    { "id": "H2", "symbol": "H", "x": 0.96, "y": 0.6, "ox": 1, "lonePairs": 0 }
+  ],
+  "bonds": [
+    { "from": "O1", "to": "H1", "order": 1 },
+    { "from": "O1", "to": "H2", "order": 1 }
+  ],
+  "polarity": [
+    { "from": "O1", "to": "H1", "deltaPlus": "H1", "deltaMinus": "O1" },
+    { "from": "O1", "to": "H2", "deltaPlus": "H2", "deltaMinus": "O1" }
+  ]
+}

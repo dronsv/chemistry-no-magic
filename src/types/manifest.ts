@@ -9,6 +9,7 @@ export interface ManifestEntrypoints {
   element_groups?: string;
   periodic_table_content?: string;
   reactions?: string;
+  structures?: string;
   exercises?: Record<string, string>;
 }
 

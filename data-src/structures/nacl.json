@@ -1,0 +1,8 @@
+{
+  "id": "nacl",
+  "atoms": [
+    { "id": "Na1", "symbol": "Na", "x": -0.8, "y": 0, "ox": 1, "lonePairs": 0, "label": "Na\u207a" },
+    { "id": "Cl1", "symbol": "Cl", "x": 0.8, "y": 0, "ox": -1, "lonePairs": 4, "label": "Cl\u207b" }
+  ],
+  "bonds": []
+}
