@@ -167,7 +167,7 @@
     "block_name_ru": "Расчёты",
     "prerequisites": ["periodic_table"],
     "oge_task_types": [24, 25],
-    "link": null
+    "link": "/calculations/"
   },
   {
     "id": "calculations_solutions",
@@ -177,7 +177,7 @@
     "block_name_ru": "Расчёты",
     "prerequisites": ["calculations_basic"],
     "oge_task_types": [26],
-    "link": null
+    "link": "/calculations/"
   },
   {
     "id": "reaction_yield_logic",
@@ -187,7 +187,7 @@
     "block_name_ru": "Расчёты",
     "prerequisites": ["calculations_solutions"],
     "oge_task_types": [27],
-    "link": null
+    "link": "/calculations/"
   },
   {
     "id": "electrolyte_logic",

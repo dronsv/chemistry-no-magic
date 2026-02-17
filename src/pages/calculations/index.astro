@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CalculationsPage from '../../features/calculations/CalculationsPage';
+---
+
+<BaseLayout title="Расчёты" description="Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций, выход продукта. Практика для подготовки к ОГЭ по химии.">
+  <CalculationsPage client:idle />
+</BaseLayout>

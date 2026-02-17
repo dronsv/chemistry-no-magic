@@ -17,6 +17,7 @@ import type { MoleculeStructure } from '../types/molecule';
 import type { QualitativeTest } from '../types/qualitative';
 import type { GeneticChain } from '../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../types/energy-catalyst';
+import type { CalculationsData } from '../types/calculations';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -330,6 +331,11 @@ export async function loadGeneticChains(): Promise<GeneticChain[]> {
 /** Load energy & catalyst theory content. */
 export async function loadEnergyCatalystTheory(): Promise<EnergyCatalystTheory> {
   return loadRule('energy_catalyst_theory') as Promise<EnergyCatalystTheory>;
+}
+
+/** Load calculations data (substances + reactions for calc exercises). */
+export async function loadCalculationsData(): Promise<CalculationsData> {
+  return loadRule('calculations_data') as Promise<CalculationsData>;
 }
 
 /** Load a molecule structure by substance ID. */

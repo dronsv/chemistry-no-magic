@@ -32,6 +32,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         qualitative_reactions: 'rules/qualitative_reactions.json',
         genetic_chains: 'rules/genetic_chains.json',
         energy_catalyst_theory: 'rules/energy_catalyst_theory.json',
+        calculations_data: 'rules/calculations_data.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',

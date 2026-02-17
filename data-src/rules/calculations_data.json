@@ -1,0 +1,283 @@
+{
+  "calc_substances": [
+    {
+      "formula": "H₂O",
+      "name_ru": "вода",
+      "M": 18,
+      "composition": [
+        { "element": "H", "Ar": 1, "count": 2 },
+        { "element": "O", "Ar": 16, "count": 1 }
+      ]
+    },
+    {
+      "formula": "NaCl",
+      "name_ru": "хлорид натрия",
+      "M": 58.5,
+      "composition": [
+        { "element": "Na", "Ar": 23, "count": 1 },
+        { "element": "Cl", "Ar": 35.5, "count": 1 }
+      ]
+    },
+    {
+      "formula": "CO₂",
+      "name_ru": "углекислый газ",
+      "M": 44,
+      "composition": [
+        { "element": "C", "Ar": 12, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 2 }
+      ]
+    },
+    {
+      "formula": "SO₂",
+      "name_ru": "оксид серы(IV)",
+      "M": 64,
+      "composition": [
+        { "element": "S", "Ar": 32, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 2 }
+      ]
+    },
+    {
+      "formula": "HCl",
+      "name_ru": "хлороводород",
+      "M": 36.5,
+      "composition": [
+        { "element": "H", "Ar": 1, "count": 1 },
+        { "element": "Cl", "Ar": 35.5, "count": 1 }
+      ]
+    },
+    {
+      "formula": "NaOH",
+      "name_ru": "гидроксид натрия",
+      "M": 40,
+      "composition": [
+        { "element": "Na", "Ar": 23, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 1 },
+        { "element": "H", "Ar": 1, "count": 1 }
+      ]
+    },
+    {
+      "formula": "CaO",
+      "name_ru": "оксид кальция",
+      "M": 56,
+      "composition": [
+        { "element": "Ca", "Ar": 40, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 1 }
+      ]
+    },
+    {
+      "formula": "Fe₂O₃",
+      "name_ru": "оксид железа(III)",
+      "M": 160,
+      "composition": [
+        { "element": "Fe", "Ar": 56, "count": 2 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "H₂SO₄",
+      "name_ru": "серная кислота",
+      "M": 98,
+      "composition": [
+        { "element": "H", "Ar": 1, "count": 2 },
+        { "element": "S", "Ar": 32, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 4 }
+      ]
+    },
+    {
+      "formula": "HNO₃",
+      "name_ru": "азотная кислота",
+      "M": 63,
+      "composition": [
+        { "element": "H", "Ar": 1, "count": 1 },
+        { "element": "N", "Ar": 14, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "Ca(OH)₂",
+      "name_ru": "гидроксид кальция",
+      "M": 74,
+      "composition": [
+        { "element": "Ca", "Ar": 40, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 2 },
+        { "element": "H", "Ar": 1, "count": 2 }
+      ]
+    },
+    {
+      "formula": "Na₂CO₃",
+      "name_ru": "карбонат натрия",
+      "M": 106,
+      "composition": [
+        { "element": "Na", "Ar": 23, "count": 2 },
+        { "element": "C", "Ar": 12, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "CaCO₃",
+      "name_ru": "карбонат кальция",
+      "M": 100,
+      "composition": [
+        { "element": "Ca", "Ar": 40, "count": 1 },
+        { "element": "C", "Ar": 12, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "Al₂O₃",
+      "name_ru": "оксид алюминия",
+      "M": 102,
+      "composition": [
+        { "element": "Al", "Ar": 27, "count": 2 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "K₂SO₄",
+      "name_ru": "сульфат калия",
+      "M": 174,
+      "composition": [
+        { "element": "K", "Ar": 39, "count": 2 },
+        { "element": "S", "Ar": 32, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 4 }
+      ]
+    },
+    {
+      "formula": "Cu(OH)₂",
+      "name_ru": "гидроксид меди(II)",
+      "M": 98,
+      "composition": [
+        { "element": "Cu", "Ar": 64, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 2 },
+        { "element": "H", "Ar": 1, "count": 2 }
+      ]
+    },
+    {
+      "formula": "MgO",
+      "name_ru": "оксид магния",
+      "M": 40,
+      "composition": [
+        { "element": "Mg", "Ar": 24, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 1 }
+      ]
+    },
+    {
+      "formula": "KOH",
+      "name_ru": "гидроксид калия",
+      "M": 56,
+      "composition": [
+        { "element": "K", "Ar": 39, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 1 },
+        { "element": "H", "Ar": 1, "count": 1 }
+      ]
+    },
+    {
+      "formula": "NH₃",
+      "name_ru": "аммиак",
+      "M": 17,
+      "composition": [
+        { "element": "N", "Ar": 14, "count": 1 },
+        { "element": "H", "Ar": 1, "count": 3 }
+      ]
+    },
+    {
+      "formula": "Na₂SO₄",
+      "name_ru": "сульфат натрия",
+      "M": 142,
+      "composition": [
+        { "element": "Na", "Ar": 23, "count": 2 },
+        { "element": "S", "Ar": 32, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 4 }
+      ]
+    },
+    {
+      "formula": "ZnO",
+      "name_ru": "оксид цинка",
+      "M": 81,
+      "composition": [
+        { "element": "Zn", "Ar": 65, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 1 }
+      ]
+    },
+    {
+      "formula": "BaCl₂",
+      "name_ru": "хлорид бария",
+      "M": 208,
+      "composition": [
+        { "element": "Ba", "Ar": 137, "count": 1 },
+        { "element": "Cl", "Ar": 35.5, "count": 2 }
+      ]
+    },
+    {
+      "formula": "AgNO₃",
+      "name_ru": "нитрат серебра",
+      "M": 170,
+      "composition": [
+        { "element": "Ag", "Ar": 108, "count": 1 },
+        { "element": "N", "Ar": 14, "count": 1 },
+        { "element": "O", "Ar": 16, "count": 3 }
+      ]
+    },
+    {
+      "formula": "P₂O₅",
+      "name_ru": "оксид фосфора(V)",
+      "M": 142,
+      "composition": [
+        { "element": "P", "Ar": 31, "count": 2 },
+        { "element": "O", "Ar": 16, "count": 5 }
+      ]
+    }
+  ],
+  "calc_reactions": [
+    {
+      "equation_ru": "CaCO₃ → CaO + CO₂",
+      "given": { "formula": "CaCO₃", "coeff": 1, "M": 100 },
+      "find": { "formula": "CaO", "coeff": 1, "M": 56 }
+    },
+    {
+      "equation_ru": "2H₂ + O₂ → 2H₂O",
+      "given": { "formula": "H₂", "coeff": 2, "M": 2 },
+      "find": { "formula": "H₂O", "coeff": 2, "M": 18 }
+    },
+    {
+      "equation_ru": "Zn + 2HCl → ZnCl₂ + H₂↑",
+      "given": { "formula": "Zn", "coeff": 1, "M": 65 },
+      "find": { "formula": "H₂", "coeff": 1, "M": 2 }
+    },
+    {
+      "equation_ru": "Fe₂O₃ + 3H₂ → 2Fe + 3H₂O",
+      "given": { "formula": "Fe₂O₃", "coeff": 1, "M": 160 },
+      "find": { "formula": "Fe", "coeff": 2, "M": 56 }
+    },
+    {
+      "equation_ru": "2Al + 6HCl → 2AlCl₃ + 3H₂↑",
+      "given": { "formula": "Al", "coeff": 2, "M": 27 },
+      "find": { "formula": "H₂", "coeff": 3, "M": 2 }
+    },
+    {
+      "equation_ru": "NaOH + HCl → NaCl + H₂O",
+      "given": { "formula": "NaOH", "coeff": 1, "M": 40 },
+      "find": { "formula": "NaCl", "coeff": 1, "M": 58.5 }
+    },
+    {
+      "equation_ru": "CaO + H₂O → Ca(OH)₂",
+      "given": { "formula": "CaO", "coeff": 1, "M": 56 },
+      "find": { "formula": "Ca(OH)₂", "coeff": 1, "M": 74 }
+    },
+    {
+      "equation_ru": "2Na + 2H₂O → 2NaOH + H₂↑",
+      "given": { "formula": "Na", "coeff": 2, "M": 23 },
+      "find": { "formula": "NaOH", "coeff": 2, "M": 40 }
+    },
+    {
+      "equation_ru": "Mg + 2HCl → MgCl₂ + H₂↑",
+      "given": { "formula": "Mg", "coeff": 1, "M": 24 },
+      "find": { "formula": "H₂", "coeff": 1, "M": 2 }
+    },
+    {
+      "equation_ru": "2KOH + H₂SO₄ → K₂SO₄ + 2H₂O",
+      "given": { "formula": "KOH", "coeff": 2, "M": 56 },
+      "find": { "formula": "K₂SO₄", "coeff": 1, "M": 174 }
+    }
+  ]
+}

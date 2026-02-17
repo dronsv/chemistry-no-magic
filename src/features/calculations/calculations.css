@@ -1,0 +1,82 @@
+/* ========================================
+   Calculations Page
+   ======================================== */
+
+.calculations-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+.calculations-page__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.calculations-page__intro {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin: 0 0 var(--space-lg);
+  line-height: 1.5;
+}
+
+/* ========================================
+   Calculations Theory
+   ======================================== */
+
+.calc-theory {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.calc-theory p {
+  margin: 0 0 var(--space-sm);
+}
+
+.calc-theory__formula {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: var(--space-sm) 0;
+  font-family: 'Times New Roman', serif;
+}
+
+.calc-theory__formula-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0;
+}
+
+.calc-theory__formula-group .calc-theory__formula {
+  margin: 0;
+}
+
+.calc-theory__examples {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.calc-theory__example {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-bg-alt);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.calc-theory__steps {
+  margin: var(--space-sm) 0;
+  padding-left: 1.5rem;
+}
+
+.calc-theory__steps li {
+  margin-bottom: var(--space-xs);
+  font-size: 0.875rem;
+}
