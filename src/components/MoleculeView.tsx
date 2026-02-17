@@ -111,9 +111,26 @@ function buildBondAngles(
 }
 
 /**
+ * Find the angular gaps between bonds around an atom, sorted largest-first.
+ */
+function findAngularGaps(bondAngles: number[]): { start: number; size: number }[] {
+  const sorted = [...bondAngles].sort((a, b) => a - b);
+  const gaps: { start: number; size: number }[] = [];
+
+  for (let i = 0; i < sorted.length; i++) {
+    const start = sorted[i];
+    const end = i + 1 < sorted.length ? sorted[i + 1] : sorted[0] + 2 * Math.PI;
+    gaps.push({ start, size: end - start });
+  }
+
+  gaps.sort((a, b) => b.size - a.size);
+  return gaps;
+}
+
+/**
  * Compute placement angles for lone pairs around an atom.
- * Finds the largest angular gaps between existing bonds and places pairs there.
- * For atoms with no bonds, distributes pairs evenly starting from -PI/2 (top).
+ * Places pairs by repeatedly subdividing the largest available angular gap,
+ * so pairs never overlap with bonds even when there are more pairs than gaps.
  */
 function computeLonePairAngles(
   bondAngles: number[],
@@ -126,27 +143,109 @@ function computeLonePairAngles(
     return Array.from({ length: pairCount }, (_, i) => -Math.PI / 2 + i * step);
   }
 
-  const sorted = [...bondAngles].sort((a, b) => a - b);
-  const gaps: { midAngle: number; size: number }[] = [];
+  const gaps = findAngularGaps(bondAngles);
+  const result: number[] = [];
+
+  for (let p = 0; p < pairCount; p++) {
+    // Always place in the largest available gap, then split it
+    gaps.sort((a, b) => b.size - a.size);
+    const gap = gaps[0];
+    const angle = gap.start + gap.size / 2;
+    result.push(angle);
+
+    // Replace this gap with two halves
+    gaps.splice(0, 1,
+      { start: gap.start, size: gap.size / 2 },
+      { start: angle, size: gap.size / 2 },
+    );
+  }
+
+  return result;
+}
+
+/** Angular half-width an annotation "occupies" (~40°). */
+const OCCUPIED_HALF = 0.35;
+const OX_LABEL_DIST = 14;
+const CHARGE_LABEL_DIST = 14;
+
+interface AtomAnnotations {
+  lonePairAngles: number[];
+  oxOffset: { dx: number; dy: number } | null;
+  chargeOffset: { dx: number; dy: number } | null;
+}
+
+/**
+ * Find the center of the largest remaining angular gap, avoiding occupied zones.
+ * Returns null if no gap is large enough (> 2*OCCUPIED_HALF).
+ */
+function bestFreeAngle(occupied: number[]): number {
+  if (occupied.length === 0) return -Math.PI / 2; // above
+
+  const sorted = [...occupied].sort((a, b) => a - b);
+  const gaps: { start: number; size: number }[] = [];
 
   for (let i = 0; i < sorted.length; i++) {
-    const next = i + 1 < sorted.length ? sorted[i + 1] : sorted[0] + 2 * Math.PI;
-    const size = next - sorted[i];
-    const mid = sorted[i] + size / 2;
-    gaps.push({ midAngle: mid, size });
+    const start = sorted[i];
+    const end = i + 1 < sorted.length ? sorted[i + 1] : sorted[0] + 2 * Math.PI;
+    gaps.push({ start, size: end - start });
   }
 
   gaps.sort((a, b) => b.size - a.size);
+  return gaps[0].start + gaps[0].size / 2;
+}
 
-  const result: number[] = [];
-  for (let i = 0; i < pairCount && i < gaps.length; i++) {
-    result.push(gaps[i].midAngle);
-  }
+/**
+ * Compute all annotation positions per atom in a single pass.
+ * Order: bonds (always occupied) → lone pairs → ox state → charge.
+ * Each placed annotation marks its angle as occupied before the next is placed.
+ */
+function computeAllAnnotations(
+  atoms: MoleculeAtom[],
+  bonds: MoleculeBond[],
+  bondAnglesMap: Map<string, number[]>,
+  vis: { ox: boolean; charges: boolean; lonePairs: boolean },
+  chargeAtomIds: Set<string>,
+): Map<string, AtomAnnotations> {
+  const result = new Map<string, AtomAnnotations>();
 
-  // If more pairs than gaps, distribute remaining evenly
-  while (result.length < pairCount) {
-    const step = (2 * Math.PI) / pairCount;
-    result.push(-Math.PI / 2 + result.length * step);
+  for (const atom of atoms) {
+    const bondAngles = bondAnglesMap.get(atom.id) ?? [];
+
+    // Start occupied list with bond angles
+    const occupied = [...bondAngles];
+
+    // 1. Lone pairs
+    const pairCount = atom.lonePairs ?? 0;
+    const lonePairAngles = computeLonePairAngles(bondAngles, pairCount);
+
+    // Add lone pair angles to occupied only if they are visible
+    if (vis.lonePairs && pairCount > 0) {
+      for (const a of lonePairAngles) occupied.push(a);
+    }
+
+    // 2. Oxidation state label
+    let oxOffset: { dx: number; dy: number } | null = null;
+    if (vis.ox && atom.ox !== undefined) {
+      const angle = bestFreeAngle(occupied);
+      oxOffset = {
+        dx: Math.cos(angle) * OX_LABEL_DIST,
+        dy: Math.sin(angle) * OX_LABEL_DIST,
+      };
+      occupied.push(angle);
+    }
+
+    // 3. Charge label
+    let chargeOffset: { dx: number; dy: number } | null = null;
+    if (vis.charges && chargeAtomIds.has(atom.id)) {
+      const angle = bestFreeAngle(occupied);
+      chargeOffset = {
+        dx: Math.cos(angle) * CHARGE_LABEL_DIST,
+        dy: Math.sin(angle) * CHARGE_LABEL_DIST,
+      };
+      // no need to push — last annotation
+    }
+
+    result.set(atom.id, { lonePairAngles, oxOffset, chargeOffset });
   }
 
   return result;
@@ -220,10 +319,10 @@ function BondLines({ bonds, atoms }: { bonds: MoleculeBond[]; atoms: MoleculeAto
 
 function LonePairDots({
   atoms,
-  bondAnglesMap,
+  annotations,
 }: {
   atoms: MoleculeAtom[];
-  bondAnglesMap: Map<string, number[]>;
+  annotations: Map<string, AtomAnnotations>;
 }) {
   return (
     <>
@@ -231,8 +330,7 @@ function LonePairDots({
         if (!atom.lonePairs || atom.lonePairs <= 0) return null;
 
         const pos = atomPos(atom);
-        const bondAngles = bondAnglesMap.get(atom.id) ?? [];
-        const pairAngles = computeLonePairAngles(bondAngles, atom.lonePairs);
+        const pairAngles = annotations.get(atom.id)?.lonePairAngles ?? [];
 
         return pairAngles.map((angle, pi) => {
           const cx = pos.x + Math.cos(angle) * LONE_PAIR_DIST;
@@ -306,26 +404,25 @@ function AtomLabels({
 
 function OxStateLabels({
   atoms,
-  showCharges,
+  annotations,
 }: {
   atoms: MoleculeAtom[];
-  showCharges: boolean;
+  annotations: Map<string, AtomAnnotations>;
 }) {
-  // When charges are also visible, push ox labels higher to avoid overlap
-  const yOffset = showCharges ? -18 : -12;
-
   return (
     <>
       {atoms.map(atom => {
         if (atom.ox === undefined) return null;
+        const offset = annotations.get(atom.id)?.oxOffset;
+        if (!offset) return null;
         const pos = atomPos(atom);
 
         return (
           <text
             key={atom.id}
             className={`mol-ox ${oxColorClass(atom.ox)}`}
-            x={pos.x}
-            y={pos.y + yOffset}
+            x={pos.x + offset.dx}
+            y={pos.y + offset.dy}
             fontSize={10}
           >
             {formatOxState(atom.ox)}
@@ -338,15 +435,13 @@ function OxStateLabels({
 
 function ChargeLabels({
   structure,
-  showOx,
+  annotations,
 }: {
   structure: MoleculeStructure;
-  showOx: boolean;
+  annotations: Map<string, AtomAnnotations>;
 }) {
   if (!structure.polarity || structure.polarity.length === 0) return <></>;
 
-  // When ox states are also visible, push charges slightly lower (less offset)
-  const yOffset = showOx ? -6 : -12;
   const atomMap = new Map(structure.atoms.map(a => [a.id, a]));
 
   // Collect charge assignments: atom id -> 'plus' | 'minus'
@@ -361,6 +456,8 @@ function ChargeLabels({
       {Array.from(chargeMap.entries()).map(([atomId, type]) => {
         const atom = atomMap.get(atomId);
         if (!atom) return null;
+        const offset = annotations.get(atomId)?.chargeOffset;
+        if (!offset) return null;
         const pos = atomPos(atom);
         const label = type === 'plus' ? '\u03B4+' : '\u03B4\u2212';
         const cls = type === 'plus' ? 'mol-charge mol-charge--plus' : 'mol-charge mol-charge--minus';
@@ -369,8 +466,8 @@ function ChargeLabels({
           <text
             key={`charge-${atomId}`}
             className={cls}
-            x={pos.x}
-            y={pos.y + yOffset}
+            x={pos.x + offset.dx}
+            y={pos.y + offset.dy}
             fontSize={10}
           >
             {label}
@@ -473,6 +570,16 @@ export default function MoleculeView({
     [structure.atoms, structure.bonds],
   );
 
+  // Collect atom ids that have polarity charges
+  const chargeAtomIds = useMemo(() => {
+    const ids = new Set<string>();
+    for (const pol of structure.polarity ?? []) {
+      ids.add(pol.deltaPlus);
+      ids.add(pol.deltaMinus);
+    }
+    return ids;
+  }, [structure.polarity]);
+
   // Compute viewBox from atom positions
   const viewBox = useMemo(() => {
     if (structure.atoms.length === 0) return '0 0 100 100';
@@ -517,6 +624,17 @@ export default function MoleculeView({
   const chargesVisible = visibility.charges ?? false;
   const lonePairsVisible = visibility.lonePairs ?? false;
 
+  const annotations = useMemo(
+    () => computeAllAnnotations(
+      structure.atoms,
+      structure.bonds,
+      bondAnglesMap,
+      { ox: oxVisible, charges: chargesVisible, lonePairs: lonePairsVisible },
+      chargeAtomIds,
+    ),
+    [structure.atoms, structure.bonds, bondAnglesMap, oxVisible, chargesVisible, lonePairsVisible, chargeAtomIds],
+  );
+
   const hoveredAtomData = hoveredAtom ? atomMap.get(hoveredAtom) ?? null : null;
 
   return (
@@ -534,7 +652,7 @@ export default function MoleculeView({
 
         {/* Layer: lone pairs */}
         <g className={`mol-layer${lonePairsVisible ? '' : ' mol-layer--hidden'}`}>
-          <LonePairDots atoms={structure.atoms} bondAnglesMap={bondAnglesMap} />
+          <LonePairDots atoms={structure.atoms} annotations={annotations} />
         </g>
 
         {/* Atom labels (always visible) */}
@@ -551,12 +669,12 @@ export default function MoleculeView({
 
         {/* Layer: oxidation states */}
         <g className={`mol-layer${oxVisible ? '' : ' mol-layer--hidden'}`}>
-          <OxStateLabels atoms={structure.atoms} showCharges={chargesVisible} />
+          <OxStateLabels atoms={structure.atoms} annotations={annotations} />
         </g>
 
         {/* Layer: polarity charges */}
         <g className={`mol-layer${chargesVisible ? '' : ' mol-layer--hidden'}`}>
-          <ChargeLabels structure={structure} showOx={oxVisible} />
+          <ChargeLabels structure={structure} annotations={annotations} />
         </g>
       </svg>
 
