@@ -786,6 +786,13 @@
   position: relative;
 }
 
+@media (max-width: 560px) {
+  .pt-page__table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 .pt-page__table-inner {
   position: relative;
   width: max-content;

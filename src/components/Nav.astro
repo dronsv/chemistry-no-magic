@@ -92,9 +92,15 @@ function isActive(href: string): boolean {
   .nav-toggle-input { display: none; }
   .nav-toggle { display: none; }
 
+  /* Responsive hint-button labels: full on desktop, short on mobile */
+  .nav :global(.hint-label-short) { display: none; }
+
   @media (max-width: 768px) {
     .nav { height: auto; min-height: var(--nav-height); }
     .nav-inner { flex-wrap: wrap; }
+    .nav-brand { display: none; }
+    .nav :global(.hint-label-full) { display: none; }
+    .nav :global(.hint-label-short) { display: inline; }
     .nav-toggle {
       display: flex;
       flex-direction: column;

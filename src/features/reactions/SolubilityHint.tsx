@@ -62,7 +62,8 @@ export default function SolubilityHint() {
           <span /><span /><span />
           <span /><span /><span />
         </span>
-        Растворимости
+        <span className="hint-label-full">Растворимости</span>
+        <span className="hint-label-short">ТР</span>
       </button>
 
       {isOpen && (

@@ -217,7 +217,8 @@ export default function PeriodicTableHint() {
           <span /><span /><span />
           <span /><span /><span />
         </span>
-        Периодическая
+        <span className="hint-label-full">Периодическая</span>
+        <span className="hint-label-short">ПСХЭ</span>
       </button>
 
       {/* Floating panel (non-modal, draggable) */}

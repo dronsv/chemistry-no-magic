@@ -37,6 +37,11 @@ export default function PeriodicTablePage() {
     if (!grid) return;
     const gridWidth = grid.scrollWidth;
     const containerWidth = wrapper.clientWidth;
+    // On narrow screens, don't scale — use horizontal scroll instead
+    if (containerWidth <= 560) {
+      setTableScale(1);
+      return;
+    }
     setTableScale(containerWidth < gridWidth ? containerWidth / gridWidth : 1);
   }, []);
 
