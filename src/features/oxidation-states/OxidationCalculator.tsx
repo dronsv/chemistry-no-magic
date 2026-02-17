@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { Element, MetalType } from '../../types/element';
+import type { MoleculeStructure } from '../../types/molecule';
 import type { ExplainedResult, SolveStep, StepRuleId } from '../../lib/oxidation-state';
 import { explainOxidationSteps } from '../../lib/oxidation-state';
 import { parseFormula } from '../../lib/formula-parser';
-import { loadElements } from '../../lib/data-loader';
+import { loadElements, loadStructure } from '../../lib/data-loader';
 import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
+import MoleculeView from '../../components/MoleculeView';
 
 interface ElementInfo {
   group: number;
@@ -63,6 +65,7 @@ export default function OxidationCalculator() {
   const [elementInfoMap, setElementInfoMap] = useState<Map<string, ElementInfo>>(new Map());
   const [formulaInput, setFormulaInput] = useState('');
   const [result, setResult] = useState<ExplainedResult | null>(null);
+  const [structure, setStructure] = useState<MoleculeStructure | null>(null);
   const [showSteps, setShowSteps] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -80,6 +83,7 @@ export default function OxidationCalculator() {
   const analyze = useCallback(function analyze(formula: string) {
     if (!formula.trim() || elementInfoMap.size === 0) {
       setResult(null);
+      setStructure(null);
       setError(null);
       return;
     }
@@ -113,6 +117,10 @@ export default function OxidationCalculator() {
     setError(null);
     setResult(explained);
     setShowSteps(false);
+
+    // Try to load molecule structure for known substances
+    const substanceId = trimmed.toLowerCase().replace(/\(/g, '_').replace(/\)/g, '');
+    loadStructure(substanceId).then(setStructure).catch(() => setStructure(null));
   }, [elementInfoMap]);
 
   function handleFormulaChange(value: string) {
@@ -157,6 +165,17 @@ export default function OxidationCalculator() {
               counts={counts}
             />
           </div>
+
+          {structure && (
+            <div className="ox-result__structure">
+              <MoleculeView
+                structure={structure}
+                layers={{ bonds: true, oxStates: true, charges: false, lonePairs: false }}
+                size="md"
+                interactive
+              />
+            </div>
+          )}
 
           <button
             type="button"
