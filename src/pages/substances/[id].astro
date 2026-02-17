@@ -2,6 +2,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoleculeView from '../../components/MoleculeView';
 
 interface SubstanceData {
   id: string;
@@ -236,6 +237,15 @@ const TAG_LABELS: Record<string, string> = {
 const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
 const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
 
+// Try to load molecule structure
+let structure = null;
+try {
+  const structRaw = await readFile(
+    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`), 'utf-8'
+  );
+  structure = JSON.parse(structRaw);
+} catch { /* no structure for this substance */ }
+
 const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance_ru;
 const hasHazards = (substance.hazards_ru && substance.hazards_ru.length > 0) || substance.storage_ru;
 const hasProduction = substance.production_ru || substance.industrial_ru;
@@ -322,6 +332,19 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
             </div>
           )}
         </div>
+      </div>
+    )}
+
+    {structure && (
+      <div class="subst-detail__section">
+        <h3>Структурная формула</h3>
+        <MoleculeView
+          client:idle
+          structure={structure}
+          layers={{ bonds: true, oxStates: false, charges: false, lonePairs: false }}
+          size="md"
+          interactive={true}
+        />
       </div>
     )}
 
