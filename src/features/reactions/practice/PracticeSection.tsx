@@ -13,6 +13,7 @@ import {
   loadReactions,
   loadQualitativeTests,
   loadGeneticChains,
+  loadEnergyCatalystTheory,
 } from '../../../lib/data-loader';
 import { generateExercise } from './generate-exercises';
 import type { Exercise, GeneratorContext } from './generate-exercises';
@@ -33,6 +34,7 @@ const COMPETENCY_IDS = [
   'genetic_chain_logic',
   'electrolyte_logic',
   'reaction_energy_profile',
+  'catalyst_role_understanding',
 ] as const;
 
 export default function PracticeSection() {
@@ -55,7 +57,8 @@ export default function PracticeSection() {
       loadReactions(),
       loadQualitativeTests(),
       loadGeneticChains(),
-    ]).then(([tmpl, sol, act, appl, params, comps, rxns, qualTests, genChains]) => {
+      loadEnergyCatalystTheory(),
+    ]).then(([tmpl, sol, act, appl, params, comps, rxns, qualTests, genChains, energyTheory]) => {
       setCtx({
         templates: tmpl,
         solubility: sol,
@@ -64,6 +67,7 @@ export default function PracticeSection() {
         reactions: rxns,
         qualitativeTests: qualTests,
         geneticChains: genChains,
+        energyCatalystTheory: energyTheory,
       });
 
       const map = new Map<string, BktParams>();

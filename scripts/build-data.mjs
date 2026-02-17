@@ -85,6 +85,7 @@ async function main() {
   const oxidationExercises = await loadJson(join(DATA_SRC, 'exercises', 'oxidation-exercises.json'));
   const qualitativeReactions = await loadJson(join(DATA_SRC, 'rules', 'qualitative_reactions.json'));
   const geneticChains = await loadJson(join(DATA_SRC, 'rules', 'genetic_chains.json'));
+  const energyCatalystTheory = await loadJson(join(DATA_SRC, 'rules', 'energy_catalyst_theory.json'));
   const elementGroups = await loadJson(join(DATA_SRC, 'element-groups.json'));
 
   // Load molecule structures (optional — directory may not exist yet)
@@ -98,7 +99,7 @@ async function main() {
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
   if (structureFiles.length > 0) console.log(`  ${structureFiles.length} molecule structures`);
   console.log(`  ${Object.keys(elementGroups).length} element groups`);
-  console.log(`  ${qualitativeReactions.length} qualitative reactions, ${geneticChains.length} genetic chains`);
+  console.log(`  ${qualitativeReactions.length} qualitative reactions, ${geneticChains.length} genetic chains, ${energyCatalystTheory.rate_factors.length} rate factors`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
@@ -199,6 +200,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'oxidation_theory.json'), JSON.stringify(oxidationTheory));
   await writeFile(join(bundleDir, 'rules', 'qualitative_reactions.json'), JSON.stringify(qualitativeReactions));
   await writeFile(join(bundleDir, 'rules', 'genetic_chains.json'), JSON.stringify(geneticChains));
+  await writeFile(join(bundleDir, 'rules', 'energy_catalyst_theory.json'), JSON.stringify(energyCatalystTheory));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });

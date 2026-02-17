@@ -147,7 +147,7 @@
     "block_name_ru": "Энергетика",
     "prerequisites": ["reactions_exchange"],
     "oge_task_types": [21],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "catalyst_role_understanding",
@@ -157,7 +157,7 @@
     "block_name_ru": "Энергетика",
     "prerequisites": ["reaction_energy_profile"],
     "oge_task_types": [22],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "calculations_basic",

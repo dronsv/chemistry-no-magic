@@ -16,6 +16,7 @@ import type { OxidationTheory } from '../types/oxidation';
 import type { MoleculeStructure } from '../types/molecule';
 import type { QualitativeTest } from '../types/qualitative';
 import type { GeneticChain } from '../types/genetic-chain';
+import type { EnergyCatalystTheory } from '../types/energy-catalyst';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -324,6 +325,11 @@ export async function loadQualitativeTests(): Promise<QualitativeTest[]> {
 /** Load genetic chains. */
 export async function loadGeneticChains(): Promise<GeneticChain[]> {
   return loadRule('genetic_chains') as Promise<GeneticChain[]>;
+}
+
+/** Load energy & catalyst theory content. */
+export async function loadEnergyCatalystTheory(): Promise<EnergyCatalystTheory> {
+  return loadRule('energy_catalyst_theory') as Promise<EnergyCatalystTheory>;
 }
 
 /** Load a molecule structure by substance ID. */

@@ -3,11 +3,13 @@ import type { ReactionTemplate } from '../../types/templates';
 import type { ApplicabilityRule } from '../../types/rules';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { GeneticChain } from '../../types/genetic-chain';
+import type { EnergyCatalystTheory } from '../../types/energy-catalyst';
 import {
   loadReactionTemplates,
   loadApplicabilityRules,
   loadQualitativeTests,
   loadGeneticChains,
+  loadEnergyCatalystTheory,
 } from '../../lib/data-loader';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
@@ -61,6 +63,7 @@ export default function ReactionTheoryPanel() {
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
   const [chains, setChains] = useState<GeneticChain[] | null>(null);
+  const [energyTheory, setEnergyTheory] = useState<EnergyCatalystTheory | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -73,12 +76,14 @@ export default function ReactionTheoryPanel() {
       loadApplicabilityRules(),
       loadQualitativeTests(),
       loadGeneticChains(),
+      loadEnergyCatalystTheory(),
     ])
-      .then(([t, r, qt, gc]) => {
+      .then(([t, r, qt, gc, et]) => {
         setTemplates(t);
         setRules(r);
         setQualTests(qt);
         setChains(gc);
+        setEnergyTheory(et);
         setLoading(false);
       })
       .catch(err => {
@@ -259,6 +264,95 @@ export default function ReactionTheoryPanel() {
                         </div>
                       );
                     })}
+                  </div>
+                </CollapsibleSection>
+              )}
+
+              {energyTheory && (
+                <CollapsibleSection title="Скорость реакции и равновесие">
+                  <div className="rxn-theory__energy">
+                    <h4 className="rxn-theory__type-title">Факторы, влияющие на скорость</h4>
+                    <div className="rxn-theory__definitions">
+                      {energyTheory.rate_factors.map(f => (
+                        <div key={f.factor_id} className="rxn-theory__def-item">
+                          <strong>{f.name_ru}</strong> — {f.effect_ru}.
+                          <div className="rxn-theory__rule-desc">{f.detail_ru}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <h4 className="rxn-theory__type-title">Экзо- и эндотермические реакции</h4>
+                    <div className="rxn-theory__definitions">
+                      <div className="rxn-theory__def-item">
+                        <strong>Экзотермическая</strong> — {energyTheory.heat_classification.exothermic_ru.replace('Экзотермическая реакция — ', '')}
+                      </div>
+                      <div className="rxn-theory__def-item">
+                        <strong>Эндотермическая</strong> — {energyTheory.heat_classification.endothermic_ru.replace('Эндотермическая реакция — ', '')}
+                      </div>
+                    </div>
+                    <div className="rxn-theory__rule-desc">
+                      <em>Примеры экзо:</em> {energyTheory.heat_classification.examples_exo_ru.join(', ')}.<br />
+                      <em>Примеры эндо:</em> {energyTheory.heat_classification.examples_endo_ru.join(', ')}.
+                    </div>
+
+                    <h4 className="rxn-theory__type-title">Химическое равновесие (принцип Ле Шателье)</h4>
+                    <p>Если на систему в равновесии оказать внешнее воздействие, равновесие сместится в сторону, ослабляющую это воздействие.</p>
+                    <table className="rxn-theory__qual-table">
+                      <thead>
+                        <tr>
+                          <th>Воздействие</th>
+                          <th>Смещение равновесия</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {energyTheory.equilibrium_shifts.map(s => (
+                          <tr key={s.factor}>
+                            <td>{s.explanation_ru}</td>
+                            <td>{s.shift_ru}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </CollapsibleSection>
+              )}
+
+              {energyTheory && (
+                <CollapsibleSection title="Катализ и энергетика">
+                  <div className="rxn-theory__catalyst">
+                    <p><strong>Катализатор</strong> — вещество, которое ускоряет реакцию, но само не расходуется. Снижает энергию активации, предлагая альтернативный путь реакции.</p>
+
+                    <h4 className="rxn-theory__type-title">Что изменяет катализатор</h4>
+                    <ul className="rxn-theory__steps">
+                      {energyTheory.catalyst_properties.changes_ru.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+
+                    <h4 className="rxn-theory__type-title">Что НЕ изменяет катализатор</h4>
+                    <ul className="rxn-theory__steps">
+                      {energyTheory.catalyst_properties.does_not_change_ru.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+
+                    <h4 className="rxn-theory__type-title">Распространённые катализаторы</h4>
+                    <table className="rxn-theory__qual-table">
+                      <thead>
+                        <tr>
+                          <th>Катализатор</th>
+                          <th>Реакция</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {energyTheory.common_catalysts.map(c => (
+                          <tr key={c.catalyst}>
+                            <td><strong>{c.catalyst}</strong> ({c.name_ru})</td>
+                            <td>{c.reaction_ru}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </CollapsibleSection>
               )}

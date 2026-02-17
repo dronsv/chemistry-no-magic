@@ -3,6 +3,7 @@ import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '..
 import type { Reaction } from '../../../types/reaction';
 import type { QualitativeTest } from '../../../types/qualitative';
 import type { GeneticChain } from '../../../types/genetic-chain';
+import type { EnergyCatalystTheory } from '../../../types/energy-catalyst';
 
 export interface ExerciseOption {
   id: string;
@@ -27,6 +28,7 @@ export interface GeneratorContext {
   reactions: Reaction[];
   qualitativeTests: QualitativeTest[];
   geneticChains: GeneticChain[];
+  energyCatalystTheory: EnergyCatalystTheory | null;
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -732,6 +734,184 @@ const generators: Record<string, GeneratorFn> = {
       competencyMap: { genetic_chain_logic: 'P', reactions_exchange: 'S' },
     };
   },
+  /* ---- Energy & catalyst generators ---- */
+
+  factors_affecting_rate(ctx) {
+    const theory = ctx.energyCatalystTheory!;
+    // Pick a reaction with rate_tips
+    const rxnsWithTips = ctx.reactions.filter(r => r.rate_tips.how_to_speed_up.length > 0);
+    const target = pick(rxnsWithTips.length > 0 ? rxnsWithTips : ctx.reactions);
+
+    // Pick a correct tip from the reaction's rate tips
+    const correctTip = pick(target.rate_tips.how_to_speed_up);
+
+    // Build distractors from what slows down + invented wrong answers
+    const slowdowns = target.rate_tips.what_slows_down ?? [];
+    const wrongAnswers = [
+      ...slowdowns.map(s => s),
+      'Добавить ингибитор',
+      'Понизить температуру',
+      'Уменьшить концентрацию реагентов',
+      'Увеличить размер частиц твёрдого вещества',
+    ];
+    const distractors = [...new Set(wrongAnswers)]
+      .filter(d => d !== correctTip)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctTip },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'factors_affecting_rate',
+      question: `Какой из факторов увеличит скорость реакции: ${target.equation}?`,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${correctTip}. Основные факторы: ${theory.rate_factors.map(f => f.name_ru.toLowerCase()).join(', ')}.`,
+      competencyMap: { reaction_energy_profile: 'P' as const },
+    };
+  },
+
+  exo_endo_classify(ctx) {
+    const theory = ctx.energyCatalystTheory!;
+    const HEAT_LABELS: Record<string, string> = {
+      exo: 'Экзотермическая (с выделением теплоты)',
+      endo: 'Эндотермическая (с поглощением теплоты)',
+    };
+
+    // Pick a reaction with known heat effect (exo or endo)
+    const classified = ctx.reactions.filter(r => r.heat_effect === 'exo' || r.heat_effect === 'endo');
+    if (classified.length === 0) throw new Error('No reactions with exo/endo heat effect');
+
+    const target = pick(classified);
+    const correctLabel = HEAT_LABELS[target.heat_effect];
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctLabel },
+      { id: 'd0', text: target.heat_effect === 'exo' ? HEAT_LABELS['endo'] : HEAT_LABELS['exo'] },
+      { id: 'd1', text: 'Термонейтральная (без теплового эффекта)' },
+      { id: 'd2', text: 'Невозможно определить без калориметра' },
+    ]);
+
+    return {
+      type: 'exo_endo_classify',
+      question: `Реакция ${target.equation} является...?`,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${correctLabel}. ${theory.heat_classification.exothermic_ru}. ${theory.heat_classification.endothermic_ru}.`,
+      competencyMap: { reaction_energy_profile: 'P' as const, catalyst_role_understanding: 'S' as const },
+    };
+  },
+
+  equilibrium_shift(ctx) {
+    const theory = ctx.energyCatalystTheory!;
+    // Pick a random equilibrium shift scenario
+    const shifts = theory.equilibrium_shifts;
+    const target = pick(shifts);
+
+    const FACTOR_LABELS: Record<string, string> = {
+      temperature_increase: 'повышении температуры',
+      temperature_decrease: 'понижении температуры',
+      pressure_increase: 'увеличении давления',
+      pressure_decrease: 'уменьшении давления',
+      concentration_reactant_increase: 'увеличении концентрации реагентов',
+      concentration_product_increase: 'увеличении концентрации продуктов',
+      catalyst_added: 'добавлении катализатора',
+    };
+
+    const factorLabel = FACTOR_LABELS[target.factor] ?? target.factor;
+    const correctAnswer = target.shift_ru;
+
+    const allShifts = [
+      'В сторону продуктов (вправо)',
+      'В сторону реагентов (влево)',
+      'Не смещает равновесие',
+      'Зависит от конкретной реакции',
+    ];
+    const distractors = allShifts.filter(s => s !== correctAnswer).slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctAnswer },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'equilibrium_shift',
+      question: `Как сместится химическое равновесие при ${factorLabel}?`,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${target.explanation_ru} (принцип Ле Шателье).`,
+      competencyMap: { reaction_energy_profile: 'P' as const },
+    };
+  },
+
+  catalyst_properties(ctx) {
+    const theory = ctx.energyCatalystTheory!;
+    // Ask what catalyst DOES or DOES NOT change
+    const askChanges = Math.random() < 0.5;
+    const questionText = askChanges
+      ? 'Что изменяет катализатор?'
+      : 'Что НЕ изменяет катализатор?';
+
+    const correctPool = askChanges
+      ? theory.catalyst_properties.changes_ru
+      : theory.catalyst_properties.does_not_change_ru;
+    const wrongPool = askChanges
+      ? theory.catalyst_properties.does_not_change_ru
+      : theory.catalyst_properties.changes_ru;
+
+    const correct = pick(correctPool);
+    const distractors = wrongPool.sort(() => Math.random() - 0.5).slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correct },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'catalyst_properties',
+      question: questionText,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `Катализатор изменяет: ${theory.catalyst_properties.changes_ru.join('; ')}. Не изменяет: ${theory.catalyst_properties.does_not_change_ru.join('; ')}.`,
+      competencyMap: { catalyst_role_understanding: 'P' as const },
+    };
+  },
+
+  identify_catalyst(ctx) {
+    const theory = ctx.energyCatalystTheory!;
+    const catalysts = theory.common_catalysts;
+    if (catalysts.length < 3) throw new Error('Not enough common catalysts');
+
+    const target = pick(catalysts);
+    const others = catalysts.filter(c => c.catalyst !== target.catalyst);
+    const distractors = others
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2)
+      .map(c => c.catalyst);
+    distractors.push('Катализатор не используется');
+
+    const options = shuffleOptions([
+      { id: 'correct', text: target.catalyst },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'identify_catalyst',
+      question: `Какой катализатор используется в реакции: ${target.reaction_ru}?`,
+      format: 'multiple_choice' as const,
+      options,
+      correctId: 'correct',
+      explanation: `${target.catalyst} (${target.name_ru}) — катализатор этой реакции.`,
+      competencyMap: { catalyst_role_understanding: 'P' as const, reaction_energy_profile: 'S' as const },
+    };
+  },
 };
 
 const EXERCISE_TYPES = Object.keys(generators);
@@ -742,12 +922,17 @@ const NEEDS_REACTIONS = new Set([
 ]);
 const NEEDS_QUALITATIVE = new Set(['identify_reagent_for_ion', 'identify_ion_by_observation']);
 const NEEDS_CHAINS = new Set(['complete_chain_step', 'choose_reagent_for_step']);
+const NEEDS_ENERGY_THEORY = new Set([
+  'factors_affecting_rate', 'exo_endo_classify', 'equilibrium_shift',
+  'catalyst_properties', 'identify_catalyst',
+]);
 
 export function generateExercise(ctx: GeneratorContext, type?: string): Exercise {
   const availableTypes = EXERCISE_TYPES.filter(t => {
     if (NEEDS_REACTIONS.has(t) && ctx.reactions.length === 0) return false;
     if (NEEDS_QUALITATIVE.has(t) && ctx.qualitativeTests.length < 4) return false;
     if (NEEDS_CHAINS.has(t) && ctx.geneticChains.length === 0) return false;
+    if (NEEDS_ENERGY_THEORY.has(t) && !ctx.energyCatalystTheory) return false;
     return true;
   });
   const t = type ?? pick(availableTypes);
