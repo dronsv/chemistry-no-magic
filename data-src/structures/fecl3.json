@@ -1,0 +1,42 @@
+{
+  "id": "fecl3",
+  "atoms": [
+    {
+      "id": "Fe1",
+      "symbol": "Fe",
+      "x": 0,
+      "y": -0.2,
+      "ox": 3,
+      "lonePairs": 0,
+      "label": "Fe³⁺"
+    },
+    {
+      "id": "Cl1",
+      "symbol": "Cl",
+      "x": 0,
+      "y": -1.4,
+      "ox": -1,
+      "lonePairs": 4,
+      "label": "Cl⁻"
+    },
+    {
+      "id": "Cl2",
+      "symbol": "Cl",
+      "x": -1.13,
+      "y": 0.55,
+      "ox": -1,
+      "lonePairs": 4,
+      "label": "Cl⁻"
+    },
+    {
+      "id": "Cl3",
+      "symbol": "Cl",
+      "x": 1.13,
+      "y": 0.55,
+      "ox": -1,
+      "lonePairs": 4,
+      "label": "Cl⁻"
+    }
+  ],
+  "bonds": []
+}

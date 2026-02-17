@@ -1,0 +1,74 @@
+{
+  "id": "nh3",
+  "atoms": [
+    {
+      "id": "N1",
+      "symbol": "N",
+      "x": 0,
+      "y": 0,
+      "ox": -3,
+      "lonePairs": 1
+    },
+    {
+      "id": "H1",
+      "symbol": "H",
+      "x": 0,
+      "y": -1,
+      "ox": 1,
+      "lonePairs": 0
+    },
+    {
+      "id": "H2",
+      "symbol": "H",
+      "x": -0.87,
+      "y": 0.5,
+      "ox": 1,
+      "lonePairs": 0
+    },
+    {
+      "id": "H3",
+      "symbol": "H",
+      "x": 0.87,
+      "y": 0.5,
+      "ox": 1,
+      "lonePairs": 0
+    }
+  ],
+  "bonds": [
+    {
+      "from": "N1",
+      "to": "H1",
+      "order": 1
+    },
+    {
+      "from": "N1",
+      "to": "H2",
+      "order": 1
+    },
+    {
+      "from": "N1",
+      "to": "H3",
+      "order": 1
+    }
+  ],
+  "polarity": [
+    {
+      "from": "N1",
+      "to": "H1",
+      "deltaPlus": "H1",
+      "deltaMinus": "N1"
+    },
+    {
+      "from": "N1",
+      "to": "H2",
+      "deltaPlus": "H2",
+      "deltaMinus": "N1"
+    },
+    {
+      "from": "N1",
+      "to": "H3",
+      "deltaPlus": "H3",
+      "deltaMinus": "N1"
+    }
+  ]
+}

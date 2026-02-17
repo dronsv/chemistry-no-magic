@@ -1,0 +1,24 @@
+{
+  "id": "cao",
+  "atoms": [
+    {
+      "id": "Ca1",
+      "symbol": "Ca",
+      "x": -0.8,
+      "y": 0,
+      "ox": 2,
+      "lonePairs": 0,
+      "label": "Ca²⁺"
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0.8,
+      "y": 0,
+      "ox": -2,
+      "lonePairs": 4,
+      "label": "O²⁻"
+    }
+  ],
+  "bonds": []
+}

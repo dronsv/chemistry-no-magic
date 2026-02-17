@@ -1,0 +1,72 @@
+{
+  "id": "na2co3",
+  "atoms": [
+    {
+      "id": "Na1",
+      "symbol": "Na",
+      "x": -2.5,
+      "y": -0.4,
+      "ox": 1,
+      "lonePairs": 0,
+      "label": "Na⁺"
+    },
+    {
+      "id": "Na2",
+      "symbol": "Na",
+      "x": -2.5,
+      "y": 0.6,
+      "ox": 1,
+      "lonePairs": 0,
+      "label": "Na⁺"
+    },
+    {
+      "id": "C1",
+      "symbol": "C",
+      "x": 0,
+      "y": 0,
+      "ox": 4,
+      "lonePairs": 0
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0,
+      "y": -1.3,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "O2",
+      "symbol": "O",
+      "x": -1.13,
+      "y": 0.65,
+      "ox": -2,
+      "lonePairs": 3
+    },
+    {
+      "id": "O3",
+      "symbol": "O",
+      "x": 1.13,
+      "y": 0.65,
+      "ox": -2,
+      "lonePairs": 3
+    }
+  ],
+  "bonds": [
+    {
+      "from": "C1",
+      "to": "O1",
+      "order": 2
+    },
+    {
+      "from": "C1",
+      "to": "O2",
+      "order": 1
+    },
+    {
+      "from": "C1",
+      "to": "O3",
+      "order": 1
+    }
+  ]
+}

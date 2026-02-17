@@ -1,0 +1,99 @@
+{
+  "id": "fe_oh_3",
+  "atoms": [
+    {
+      "id": "Fe1",
+      "symbol": "Fe",
+      "x": 0,
+      "y": 0,
+      "ox": 3,
+      "lonePairs": 0,
+      "label": "Fe³⁺"
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0,
+      "y": -1.1,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "H1",
+      "symbol": "H",
+      "x": 0.8,
+      "y": -1.7,
+      "ox": 1,
+      "lonePairs": 0
+    },
+    {
+      "id": "O2",
+      "symbol": "O",
+      "x": -1,
+      "y": 0.55,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "H2",
+      "symbol": "H",
+      "x": -1.9,
+      "y": 0.95,
+      "ox": 1,
+      "lonePairs": 0
+    },
+    {
+      "id": "O3",
+      "symbol": "O",
+      "x": 1,
+      "y": 0.55,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "H3",
+      "symbol": "H",
+      "x": 1.9,
+      "y": 0.95,
+      "ox": 1,
+      "lonePairs": 0
+    }
+  ],
+  "bonds": [
+    {
+      "from": "O1",
+      "to": "H1",
+      "order": 1
+    },
+    {
+      "from": "O2",
+      "to": "H2",
+      "order": 1
+    },
+    {
+      "from": "O3",
+      "to": "H3",
+      "order": 1
+    }
+  ],
+  "polarity": [
+    {
+      "from": "O1",
+      "to": "H1",
+      "deltaPlus": "H1",
+      "deltaMinus": "O1"
+    },
+    {
+      "from": "O2",
+      "to": "H2",
+      "deltaPlus": "H2",
+      "deltaMinus": "O2"
+    },
+    {
+      "from": "O3",
+      "to": "H3",
+      "deltaPlus": "H3",
+      "deltaMinus": "O3"
+    }
+  ]
+}

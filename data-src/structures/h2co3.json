@@ -1,12 +1,12 @@
 {
-  "id": "h2so4",
+  "id": "h2co3",
   "atoms": [
     {
-      "id": "S1",
-      "symbol": "S",
+      "id": "C1",
+      "symbol": "C",
       "x": 0,
       "y": 0,
-      "ox": 6,
+      "ox": 4,
       "lonePairs": 0
     },
     {
@@ -20,88 +20,75 @@
     {
       "id": "O2",
       "symbol": "O",
-      "x": 0,
-      "y": 1.3,
+      "x": -1.13,
+      "y": 0.65,
       "ox": -2,
       "lonePairs": 2
     },
     {
       "id": "O3",
       "symbol": "O",
-      "x": -1.3,
-      "y": 0,
-      "ox": -2,
-      "lonePairs": 2
-    },
-    {
-      "id": "O4",
-      "symbol": "O",
-      "x": 1.3,
-      "y": 0,
+      "x": 1.13,
+      "y": 0.65,
       "ox": -2,
       "lonePairs": 2
     },
     {
       "id": "H1",
       "symbol": "H",
-      "x": -2.3,
-      "y": 0,
+      "x": -2,
+      "y": 1.2,
       "ox": 1,
       "lonePairs": 0
     },
     {
       "id": "H2",
       "symbol": "H",
-      "x": 2.3,
-      "y": 0,
+      "x": 2,
+      "y": 1.2,
       "ox": 1,
       "lonePairs": 0
     }
   ],
   "bonds": [
     {
-      "from": "S1",
+      "from": "C1",
       "to": "O1",
       "order": 2
     },
     {
-      "from": "S1",
+      "from": "C1",
       "to": "O2",
-      "order": 2
+      "order": 1
     },
     {
-      "from": "S1",
+      "from": "C1",
       "to": "O3",
       "order": 1
     },
     {
-      "from": "S1",
-      "to": "O4",
-      "order": 1
-    },
-    {
-      "from": "O3",
+      "from": "O2",
       "to": "H1",
       "order": 1
     },
     {
-      "from": "O4",
+      "from": "O3",
       "to": "H2",
       "order": 1
     }
   ],
   "polarity": [
     {
-      "from": "O3",
+      "from": "O2",
       "to": "H1",
       "deltaPlus": "H1",
-      "deltaMinus": "O3"
+      "deltaMinus": "O2"
     },
     {
-      "from": "O4",
+      "from": "O3",
       "to": "H2",
       "deltaPlus": "H2",
-      "deltaMinus": "O4"
+      "deltaMinus": "O3"
     }
   ]
 }

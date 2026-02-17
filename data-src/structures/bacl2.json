@@ -1,0 +1,33 @@
+{
+  "id": "bacl2",
+  "atoms": [
+    {
+      "id": "Cl1",
+      "symbol": "Cl",
+      "x": -1.3,
+      "y": 0,
+      "ox": -1,
+      "lonePairs": 4,
+      "label": "Cl⁻"
+    },
+    {
+      "id": "Ba1",
+      "symbol": "Ba",
+      "x": 0,
+      "y": 0,
+      "ox": 2,
+      "lonePairs": 0,
+      "label": "Ba²⁺"
+    },
+    {
+      "id": "Cl2",
+      "symbol": "Cl",
+      "x": 1.3,
+      "y": 0,
+      "ox": -1,
+      "lonePairs": 4,
+      "label": "Cl⁻"
+    }
+  ],
+  "bonds": []
+}

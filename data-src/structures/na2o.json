@@ -1,0 +1,33 @@
+{
+  "id": "na2o",
+  "atoms": [
+    {
+      "id": "Na1",
+      "symbol": "Na",
+      "x": -1.3,
+      "y": 0,
+      "ox": 1,
+      "lonePairs": 0,
+      "label": "Na⁺"
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0,
+      "y": 0,
+      "ox": -2,
+      "lonePairs": 4,
+      "label": "O²⁻"
+    },
+    {
+      "id": "Na2",
+      "symbol": "Na",
+      "x": 1.3,
+      "y": 0,
+      "ox": 1,
+      "lonePairs": 0,
+      "label": "Na⁺"
+    }
+  ],
+  "bonds": []
+}

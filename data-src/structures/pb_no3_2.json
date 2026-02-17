@@ -1,0 +1,110 @@
+{
+  "id": "pb_no3_2",
+  "atoms": [
+    {
+      "id": "Pb1",
+      "symbol": "Pb",
+      "x": -2.3,
+      "y": 0.2,
+      "ox": 2,
+      "lonePairs": 0,
+      "label": "Pb²⁺"
+    },
+    {
+      "id": "N1",
+      "symbol": "N",
+      "x": 0.3,
+      "y": -1.2,
+      "ox": 5,
+      "lonePairs": 0
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0.3,
+      "y": -2.5,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "O2",
+      "symbol": "O",
+      "x": -0.83,
+      "y": -0.55,
+      "ox": -2,
+      "lonePairs": 3
+    },
+    {
+      "id": "O3",
+      "symbol": "O",
+      "x": 1.43,
+      "y": -0.55,
+      "ox": -2,
+      "lonePairs": 3
+    },
+    {
+      "id": "N2",
+      "symbol": "N",
+      "x": 0.3,
+      "y": 1.6,
+      "ox": 5,
+      "lonePairs": 0
+    },
+    {
+      "id": "O4",
+      "symbol": "O",
+      "x": 0.3,
+      "y": 2.9,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "O5",
+      "symbol": "O",
+      "x": -0.83,
+      "y": 0.95,
+      "ox": -2,
+      "lonePairs": 3
+    },
+    {
+      "id": "O6",
+      "symbol": "O",
+      "x": 1.43,
+      "y": 0.95,
+      "ox": -2,
+      "lonePairs": 3
+    }
+  ],
+  "bonds": [
+    {
+      "from": "N1",
+      "to": "O1",
+      "order": 2
+    },
+    {
+      "from": "N1",
+      "to": "O2",
+      "order": 1
+    },
+    {
+      "from": "N1",
+      "to": "O3",
+      "order": 1
+    },
+    {
+      "from": "N2",
+      "to": "O4",
+      "order": 2
+    },
+    {
+      "from": "N2",
+      "to": "O5",
+      "order": 1
+    },
+    {
+      "from": "N2",
+      "to": "O6",
+      "order": 1
+    }
+  ]
+}

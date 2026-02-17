@@ -1,0 +1,54 @@
+{
+  "id": "so3",
+  "atoms": [
+    {
+      "id": "S1",
+      "symbol": "S",
+      "x": 0,
+      "y": 0,
+      "ox": 6,
+      "lonePairs": 0
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0,
+      "y": -1.3,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "O2",
+      "symbol": "O",
+      "x": -1.13,
+      "y": 0.65,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
+      "id": "O3",
+      "symbol": "O",
+      "x": 1.13,
+      "y": 0.65,
+      "ox": -2,
+      "lonePairs": 2
+    }
+  ],
+  "bonds": [
+    {
+      "from": "S1",
+      "to": "O1",
+      "order": 2
+    },
+    {
+      "from": "S1",
+      "to": "O2",
+      "order": 2
+    },
+    {
+      "from": "S1",
+      "to": "O3",
+      "order": 2
+    }
+  ]
+}

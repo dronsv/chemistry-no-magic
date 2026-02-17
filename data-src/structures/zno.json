@@ -1,0 +1,24 @@
+{
+  "id": "zno",
+  "atoms": [
+    {
+      "id": "Zn1",
+      "symbol": "Zn",
+      "x": -0.8,
+      "y": 0,
+      "ox": 2,
+      "lonePairs": 0,
+      "label": "Zn²⁺"
+    },
+    {
+      "id": "O1",
+      "symbol": "O",
+      "x": 0.8,
+      "y": 0,
+      "ox": -2,
+      "lonePairs": 4,
+      "label": "O²⁻"
+    }
+  ],
+  "bonds": []
+}

@@ -1,14 +1,14 @@
 {
-  "id": "nacl",
+  "id": "kcl",
   "atoms": [
     {
-      "id": "Na1",
-      "symbol": "Na",
+      "id": "K1",
+      "symbol": "K",
       "x": -0.8,
       "y": 0,
       "ox": 1,
       "lonePairs": 0,
-      "label": "Na⁺"
+      "label": "K⁺"
     },
     {
       "id": "Cl1",

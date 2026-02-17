@@ -1,27 +1,44 @@
 {
-  "id": "h2o",
+  "id": "mg_oh_2",
   "atoms": [
+    {
+      "id": "Mg1",
+      "symbol": "Mg",
+      "x": 0,
+      "y": -0.3,
+      "ox": 2,
+      "lonePairs": 0,
+      "label": "Mg²⁺"
+    },
     {
       "id": "O1",
       "symbol": "O",
-      "x": 0,
-      "y": 0,
+      "x": -1.1,
+      "y": 0.7,
       "ox": -2,
       "lonePairs": 2
     },
     {
       "id": "H1",
       "symbol": "H",
-      "x": -0.96,
-      "y": 0.6,
+      "x": -2.1,
+      "y": 1.1,
       "ox": 1,
       "lonePairs": 0
     },
     {
+      "id": "O2",
+      "symbol": "O",
+      "x": 1.1,
+      "y": 0.7,
+      "ox": -2,
+      "lonePairs": 2
+    },
+    {
       "id": "H2",
       "symbol": "H",
-      "x": 0.96,
-      "y": 0.6,
+      "x": 2.1,
+      "y": 1.1,
       "ox": 1,
       "lonePairs": 0
     }
@@ -33,7 +50,7 @@
       "order": 1
     },
     {
-      "from": "O1",
+      "from": "O2",
       "to": "H2",
       "order": 1
     }
@@ -46,10 +63,10 @@
       "deltaMinus": "O1"
     },
     {
-      "from": "O1",
+      "from": "O2",
       "to": "H2",
       "deltaPlus": "H2",
-      "deltaMinus": "O1"
+      "deltaMinus": "O2"
     }
   ]
 }
