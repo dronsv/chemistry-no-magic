@@ -1,358 +1,368 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { readFile } from 'node:fs/promises';
-
-const sourcesRaw = await readFile(new URL('../../data-src/sources_list.json', import.meta.url), 'utf-8');
-const sourcesData = JSON.parse(sourcesRaw);
-const sources = sourcesData.sources as {
-  source_id: string;
-  title: string;
-  org: string;
-  description: string;
-  link: string;
-  ui: { cta: string; target: string; rel: string };
-}[];
 ---
 
-<BaseLayout title="Химия без магии" description="Адаптивная платформа подготовки к ОГЭ по химии. Персональная диагностика, интерактивная таблица Менделеева, умные задания.">
+<BaseLayout title="Химия без магии" description="Бесплатная подготовка к ОГЭ по химии: 78 заданий из демоверсий ФИПИ, интерактивная таблица Менделеева, адаптивные упражнения.">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Химия без магии",
-      "description": "Адаптивная платформа подготовки к ОГЭ по химии",
+      "description": "Бесплатная подготовка к ОГЭ по химии",
       "url": Astro.site?.toString() ?? Astro.url.origin,
     })} />
   </Fragment>
 
   <section class="hero">
-    <h1>Химия без магии</h1>
-    <p class="hero-subtitle">
-      Адаптивная подготовка к ОГЭ по химии. Платформа определяет ваши пробелы
-      и выстраивает персональный маршрут обучения.
+    <p class="hero__badge">ОГЭ 2025 по химии</p>
+    <h1>Разберись в химии.<br/>Сдай на максимум.</h1>
+    <p class="hero__sub">
+      78 заданий из демоверсий ФИПИ, теория по каждой теме, мгновенная проверка.
+      Бесплатно и без регистрации.
     </p>
-    <div class="hero-features">
-      <div class="feature">
+    <div class="hero__actions">
+      <a href="/exam/" class="btn btn-primary btn-lg">Решать задания ОГЭ</a>
+      <a href="/diagnostics/" class="btn btn-outline btn-lg">Пройти диагностику</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <span class="stat__num">78</span>
+      <span class="stat__label">заданий ОГЭ</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">19</span>
+      <span class="stat__label">номеров, часть 1</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">20</span>
+      <span class="stat__label">компетенций</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">118</span>
+      <span class="stat__label">элементов</span>
+    </div>
+  </section>
+
+  <section class="start">
+    <h2 class="section-title">С чего начать</h2>
+    <div class="start__cards">
+      <a href="/diagnostics/" class="start-card start-card--diag">
+        <span class="start-card__icon">&#9881;</span>
         <strong>Диагностика</strong>
-        <span>15 минут — и система знает ваши сильные и слабые стороны</span>
-      </div>
-      <div class="feature">
-        <strong>Адаптивность</strong>
-        <span>Задания подбираются по вашему уровню с помощью модели BKT</span>
-      </div>
-      <div class="feature">
-        <strong>Интерактивность</strong>
-        <span>Периодическая таблица, карточки веществ, генерация реакций</span>
-      </div>
-    </div>
-    <a href="/diagnostics/" class="btn btn-primary">Начать диагностику</a>
-  </section>
-
-  <section class="about">
-    <h2 class="about__title">О проекте</h2>
-
-    <div class="about__section">
-      <h3>Как всё началось</h3>
-      <p>
-        Этот проект появился не как бизнес-идея, а как практическое решение конкретной задачи —
-        быстро и точно понять, в чём именно есть пробелы по химии у моей дочери,
-        и закрыть их максимально эффективно.
-      </p>
-      <p>
-        Дочь учится в 9 классе. Значит ориентир понятен — школьная программа и ОГЭ по химии.
-      </p>
-      <p>Материалов вокруг много. Но возникли проблемы:</p>
-      <ul>
-        <li>курсы подаются линейно и одинаково для всех,</li>
-        <li>почти нет формального измерения понимания,</li>
-        <li>объяснения иногда выглядят как «магия»,</li>
-        <li>структура знаний размыта.</li>
-      </ul>
-      <p class="about__accent">
-        А химия — не магия.<br/>
-        Это строгая модель частиц, энергии и структуры вещества.
-      </p>
-    </div>
-
-    <div class="about__section">
-      <h3>Что не устроило в классическом формате</h3>
-      <ul>
-        <li>Прогресс оценивается по баллам, а не по структуре навыков.</li>
-        <li>Нет карты зависимостей между темами.</li>
-        <li>Не видно, какая ошибка — фундаментальная, а какая — локальная.</li>
-        <li>Мало внимания причинности: почему именно так идёт реакция?</li>
-      </ul>
-      <p>В какой-то момент стало понятно: нужен инструмент, а не просто курс.</p>
-    </div>
-
-    <div class="about__section">
-      <h3>Поэтому я сделал свой</h3>
-      <p>
-        Я не являюсь химиком по образованию — я инженер.
-        И привык мыслить через системы, модели и зависимости.
-      </p>
-      <p>Этот сайт — попытка:</p>
-      <ul>
-        <li>разложить химию 9 класса на компетенции,</li>
-        <li>связать их зависимостями,</li>
-        <li>измерять понимание через вероятностную модель (BKT),</li>
-        <li>подбирать задания адаптивно,</li>
-        <li>использовать задания ОГЭ как формальный стандарт проверки.</li>
-      </ul>
-      <p>
-        Контент и объяснения генерируются нейронными сетями по моим запросам.
-        Это значит: возможны неточности, ошибки и упрощения.
-        Если вы их заметили — используйте баг-репорты.
-      </p>
-    </div>
-
-    <div class="about__section">
-      <h3>Методологические принципы</h3>
-      <div class="principles">
-        <div class="principle">
-          <strong>1. Химия — это система</strong>
-          <span>Мы работаем не с темами, а с картой компетенций и их зависимостей.</span>
-        </div>
-        <div class="principle">
-          <strong>2. Понимание измеряется</strong>
-          <span>Используется вероятностная модель освоения навыков, а не просто «решил / не решил».</span>
-        </div>
-        <div class="principle">
-          <strong>3. ОГЭ — инструмент калибровки</strong>
-          <span>Задания ОГЭ отражают структуру 9 класса и позволяют формально проверять готовность.</span>
-        </div>
-        <div class="principle">
-          <strong>4. Никакой магии</strong>
-          <span>Если есть правило — есть объяснение: через электронные конфигурации, электроотрицательность, строение вещества, энергетику процессов.</span>
-        </div>
-        <div class="principle">
-          <strong>5. Минимум воды — максимум структуры</strong>
-          <span>Модель → примеры → вариации → закрепление.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="about__section">
-      <h3>Полезные ресурсы</h3>
-      <p class="about__muted">
-        Ресурсы, которые можно использовать параллельно для проверки и расширения материала.
-      </p>
-      <div class="sources">
-        {sources.map((s) => (
-          <div class="source-card">
-            <div class="source-card__header">
-              <span class="source-card__org">{s.org}</span>
-              <strong class="source-card__title">{s.title}</strong>
-            </div>
-            <p class="source-card__desc">{s.description}</p>
-            <a
-              href={s.link}
-              class="source-card__link"
-              target={s.ui.target}
-              rel={s.ui.rel}
-            >{s.ui.cta}</a>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="about__section about__disclaimer">
-      <p>
-        Этот проект не заменяет школьную программу и не конкурирует с крупными образовательными платформами.
-        Это попытка построить структурированный, адаптивный инструмент диагностики и обучения,
-        который можно использовать вместе с официальными и проверенными источниками.
-      </p>
+        <p>12 вопросов за 15 минут. Система определит, какие темы ты знаешь, а где пробелы.</p>
+      </a>
+      <a href="/exam/" class="start-card start-card--exam">
+        <span class="start-card__icon">&#9998;</span>
+        <strong>Задания ОГЭ</strong>
+        <p>Реальные задания из демоверсий ФИПИ 2021-2025. Формат ввода как на экзамене.</p>
+      </a>
+      <a href="/profile/" class="start-card start-card--profile">
+        <span class="start-card__icon">&#9733;</span>
+        <strong>Твой профиль</strong>
+        <p>Отслеживай прогресс по каждой компетенции. Видно, что уже освоено, а что нет.</p>
+      </a>
     </div>
   </section>
+
+  <section class="modules">
+    <h2 class="section-title">Темы для изучения</h2>
+    <div class="modules__grid">
+      <a href="/periodic-table/" class="module-card">
+        <span class="module-card__num">1</span>
+        <div>
+          <strong>Периодическая таблица</strong>
+          <p>Элементы, группы, периоды, электронные конфигурации</p>
+        </div>
+      </a>
+      <a href="/substances/" class="module-card">
+        <span class="module-card__num">2</span>
+        <div>
+          <strong>Классы веществ</strong>
+          <p>Оксиды, кислоты, основания, соли, номенклатура</p>
+        </div>
+      </a>
+      <a href="/bonds/" class="module-card">
+        <span class="module-card__num">3</span>
+        <div>
+          <strong>Химическая связь</strong>
+          <p>Ионная, ковалентная, металлическая связь</p>
+        </div>
+      </a>
+      <a href="/oxidation-states/" class="module-card">
+        <span class="module-card__num">4</span>
+        <div>
+          <strong>Степени окисления</strong>
+          <p>Определение СО, электронный баланс, ОВР</p>
+        </div>
+      </a>
+      <a href="/reactions/" class="module-card">
+        <span class="module-card__num">5</span>
+        <div>
+          <strong>Реакции</strong>
+          <p>Типы реакций, условия протекания, качественные реакции</p>
+        </div>
+      </a>
+      <a href="/calculations/" class="module-card">
+        <span class="module-card__num">6</span>
+        <div>
+          <strong>Расчёты</strong>
+          <p>Молярная масса, массовая доля, расчёты по уравнениям</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2 class="section-title">Как это работает</h2>
+    <div class="how__steps">
+      <div class="how__step">
+        <span class="how__num">1</span>
+        <p><strong>Диагностика</strong> &mdash; система определяет твой уровень по 20 компетенциям</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">2</span>
+        <p><strong>Теория + практика</strong> &mdash; изучай материал и решай упражнения по слабым темам</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">3</span>
+        <p><strong>Задания ОГЭ</strong> &mdash; тренируйся на реальных заданиях с мгновенной проверкой</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">4</span>
+        <p><strong>Профиль</strong> &mdash; следи за прогрессом и закрывай оставшиеся пробелы</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <a href="/about/">О проекте</a>
+  </footer>
 </BaseLayout>
 
 <style>
+  /* Hero */
   .hero {
     text-align: center;
-    padding: var(--space-2xl) 0;
-    max-width: 720px;
+    padding: var(--space-2xl) 0 var(--space-xl);
+    max-width: 640px;
     margin: 0 auto;
+  }
+  .hero__badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: #dbeafe;
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    margin: 0 0 var(--space-lg);
   }
   .hero h1 {
-    font-size: 2.5rem;
-    margin: 0 0 var(--space-md);
+    font-size: 2.25rem;
     line-height: 1.2;
+    margin: 0 0 var(--space-md);
   }
-  .hero-subtitle {
-    font-size: 1.15rem;
+  .hero__sub {
+    font-size: 1.05rem;
     color: var(--color-text-muted);
-    margin: 0 0 var(--space-2xl);
+    margin: 0 0 var(--space-xl);
+    line-height: 1.6;
   }
-  .hero-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-lg);
-    text-align: left;
-    margin-bottom: var(--space-2xl);
+  .hero__actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .feature {
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.05rem;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+  .btn-outline:hover {
+    background: #dbeafe;
+    text-decoration: none;
+  }
+
+  /* Stats */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+  }
+  .stat {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-md);
-    border-radius: 0.5rem;
-    background: var(--color-bg-alt);
   }
-  .feature strong { font-size: 1rem; }
-  .feature span { font-size: 0.9rem; color: var(--color-text-muted); }
-
-  /* ---- About section ---- */
-
-  .about {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: var(--space-2xl) 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .about__title {
+  .stat__num {
     font-size: 1.75rem;
     font-weight: 700;
-    margin: 0 0 var(--space-xl);
+    color: var(--color-primary);
   }
-
-  .about__section {
-    margin-bottom: var(--space-xl);
-  }
-
-  .about__section h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-sm);
-  }
-
-  .about__section p {
-    color: var(--color-text);
-    line-height: 1.7;
-    margin: 0 0 var(--space-sm);
-  }
-
-  .about__section ul {
-    margin: 0 0 var(--space-sm);
-    padding-left: 1.5rem;
-    color: var(--color-text);
-    line-height: 1.7;
-  }
-
-  .about__section li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .about__accent {
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: var(--space-md);
-    background: var(--color-bg-alt);
-    border-left: 3px solid var(--color-primary);
-    border-radius: 0.25rem;
-    margin-top: var(--space-md);
-  }
-
-  .about__muted {
+  .stat__label {
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
   }
 
-  /* ---- Principles ---- */
+  /* Section title */
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-lg);
+    text-align: center;
+  }
 
-  .principles {
+  /* Start cards */
+  .start {
+    padding: var(--space-2xl) 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .start__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+  .start-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    color: var(--color-text);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .start-card:hover {
+    text-decoration: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  }
+  .start-card__icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+  .start-card strong {
+    font-size: 1.05rem;
+  }
+  .start-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Modules */
+  .modules {
+    padding: 0 0 var(--space-2xl);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .modules__grid {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
   }
-
-  .principle {
+  .module-card {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
-    background: var(--color-bg-alt);
-    border-radius: 0.375rem;
-  }
-
-  .principle strong {
-    font-size: 0.9375rem;
-  }
-
-  .principle span {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-  }
-
-  /* ---- Sources ---- */
-
-  .sources {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: center;
     gap: var(--space-md);
-    margin-top: var(--space-md);
-  }
-
-  .source-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
     background: var(--color-bg-alt);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
+    color: var(--color-text);
+    transition: border-color 0.15s;
   }
-
-  .source-card__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
-  }
-
-  .source-card__org {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  .source-card__title {
-    font-size: 0.9375rem;
-    line-height: 1.4;
-  }
-
-  .source-card__desc {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    margin: 0 0 var(--space-sm);
-    flex: 1;
-  }
-
-  .source-card__link {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-primary);
+  .module-card:hover {
     text-decoration: none;
+    border-color: var(--color-primary);
   }
-
-  .source-card__link:hover {
-    text-decoration: underline;
-  }
-
-  /* ---- Disclaimer ---- */
-
-  .about__disclaimer {
-    padding: var(--space-md);
-    background: var(--color-bg-alt);
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
-  }
-
-  .about__disclaimer p {
-    color: var(--color-text-muted);
+  .module-card__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
     font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .module-card strong {
+    display: block;
+    font-size: 0.9375rem;
+    margin-bottom: 2px;
+  }
+  .module-card p {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
     margin: 0;
+  }
+
+  /* How it works */
+  .how {
+    padding: 0 0 var(--space-2xl);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .how__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .how__step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  .how__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .how__step p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .landing-footer {
+    text-align: center;
+    padding: var(--space-lg) 0 var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.75rem; }
+    .stats { gap: var(--space-lg); }
+    .stat__num { font-size: 1.5rem; }
   }
 </style>
