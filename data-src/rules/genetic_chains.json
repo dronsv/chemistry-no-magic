@@ -1,0 +1,52 @@
+[
+  {
+    "chain_id": "Ca_chain",
+    "title_ru": "Цепочка кальция",
+    "class_sequence": ["металл", "основный оксид", "основание", "соль"],
+    "steps": [
+      { "substance": "Ca", "reagent": "O₂", "next": "CaO", "type": "combination" },
+      { "substance": "CaO", "reagent": "H₂O", "next": "Ca(OH)₂", "type": "combination" },
+      { "substance": "Ca(OH)₂", "reagent": "HCl", "next": "CaCl₂", "type": "exchange" }
+    ]
+  },
+  {
+    "chain_id": "Na_chain",
+    "title_ru": "Цепочка натрия",
+    "class_sequence": ["металл", "основный оксид", "основание", "соль"],
+    "steps": [
+      { "substance": "Na", "reagent": "O₂", "next": "Na₂O", "type": "combination" },
+      { "substance": "Na₂O", "reagent": "H₂O", "next": "NaOH", "type": "combination" },
+      { "substance": "NaOH", "reagent": "HCl", "next": "NaCl", "type": "exchange" }
+    ]
+  },
+  {
+    "chain_id": "Cu_chain",
+    "title_ru": "Цепочка меди",
+    "class_sequence": ["металл", "основный оксид", "соль", "основание"],
+    "steps": [
+      { "substance": "Cu", "reagent": "O₂", "next": "CuO", "type": "combination" },
+      { "substance": "CuO", "reagent": "HCl", "next": "CuCl₂", "type": "exchange" },
+      { "substance": "CuCl₂", "reagent": "NaOH", "next": "Cu(OH)₂", "type": "exchange" }
+    ]
+  },
+  {
+    "chain_id": "Fe_chain",
+    "title_ru": "Цепочка железа",
+    "class_sequence": ["металл", "соль", "основание", "основный оксид"],
+    "steps": [
+      { "substance": "Fe", "reagent": "HCl", "next": "FeCl₂", "type": "substitution" },
+      { "substance": "FeCl₂", "reagent": "NaOH", "next": "Fe(OH)₂", "type": "exchange" },
+      { "substance": "Fe(OH)₂", "reagent": "нагревание", "next": "FeO", "type": "decomposition" }
+    ]
+  },
+  {
+    "chain_id": "S_chain",
+    "title_ru": "Цепочка серы (неметалл)",
+    "class_sequence": ["неметалл", "кислотный оксид", "кислота", "соль"],
+    "steps": [
+      { "substance": "S", "reagent": "O₂", "next": "SO₂", "type": "combination" },
+      { "substance": "SO₂", "reagent": "H₂O + O₂", "next": "H₂SO₄", "type": "combination" },
+      { "substance": "H₂SO₄", "reagent": "BaCl₂", "next": "BaSO₄", "type": "exchange" }
+    ]
+  }
+]

@@ -117,7 +117,7 @@
     "block_name_ru": "Реакции",
     "prerequisites": ["reactions_exchange"],
     "oge_task_types": [15, 18],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "genetic_chain_logic",
@@ -127,7 +127,7 @@
     "block_name_ru": "Реакции",
     "prerequisites": ["reactions_redox", "reactions_exchange"],
     "oge_task_types": [19],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "qualitative_analysis_logic",
@@ -137,7 +137,7 @@
     "block_name_ru": "Реакции",
     "prerequisites": ["reactions_exchange"],
     "oge_task_types": [20],
-    "link": null
+    "link": "/reactions/"
   },
   {
     "id": "reaction_energy_profile",

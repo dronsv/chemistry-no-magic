@@ -28,6 +28,12 @@ export interface ReactionRateTips {
 
 export type HeatEffect = 'exo' | 'endo' | 'negligible' | 'unknown';
 
+export interface RedoxInfo {
+  oxidizer: { formula: string; element: string; from: number; to: number };
+  reducer: { formula: string; element: string; from: number; to: number };
+  electron_transfer: string;
+}
+
 export interface Reaction {
   reaction_id: string;
   title: string;
@@ -47,5 +53,6 @@ export interface Reaction {
   heat_effect: HeatEffect;
   safety_notes: string[];
   competencies: Partial<Record<CompetencyId, 'P' | 'S'>>;
+  redox?: RedoxInfo;
   oge?: { topics?: string[]; typical_tasks?: string[] };
 }

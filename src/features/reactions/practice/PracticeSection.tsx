@@ -1,9 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
-import type { ReactionTemplate } from '../../../types/templates';
-import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../../../types/rules';
-import type { Reaction } from '../../../types/reaction';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import {
@@ -14,9 +11,11 @@ import {
   loadActivitySeries,
   loadApplicabilityRules,
   loadReactions,
+  loadQualitativeTests,
+  loadGeneticChains,
 } from '../../../lib/data-loader';
 import { generateExercise } from './generate-exercises';
-import type { Exercise } from './generate-exercises';
+import type { Exercise, GeneratorContext } from './generate-exercises';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 
 const LEVEL_LABELS: Record<string, string> = {
@@ -28,18 +27,16 @@ const LEVEL_LABELS: Record<string, string> = {
 
 const COMPETENCY_IDS = [
   'reactions_exchange',
+  'reactions_redox',
   'gas_precipitate_logic',
-  'reaction_energy_profile',
   'qualitative_analysis_logic',
+  'genetic_chain_logic',
   'electrolyte_logic',
+  'reaction_energy_profile',
 ] as const;
 
 export default function PracticeSection() {
-  const [templates, setTemplates] = useState<ReactionTemplate[]>([]);
-  const [solubility, setSolubility] = useState<SolubilityEntry[]>([]);
-  const [activitySeries, setActivitySeries] = useState<ActivitySeriesEntry[]>([]);
-  const [applicabilityRules, setApplicabilityRules] = useState<ApplicabilityRule[]>([]);
-  const [reactions, setReactions] = useState<Reaction[]>([]);
+  const [ctx, setCtx] = useState<GeneratorContext | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -56,12 +53,18 @@ export default function PracticeSection() {
       loadBktParams(),
       loadCompetencies(),
       loadReactions(),
-    ]).then(([tmpl, sol, act, appl, params, comps, rxns]) => {
-      setTemplates(tmpl);
-      setSolubility(sol);
-      setActivitySeries(act);
-      setApplicabilityRules(appl);
-      setReactions(rxns);
+      loadQualitativeTests(),
+      loadGeneticChains(),
+    ]).then(([tmpl, sol, act, appl, params, comps, rxns, qualTests, genChains]) => {
+      setCtx({
+        templates: tmpl,
+        solubility: sol,
+        activitySeries: act,
+        applicabilityRules: appl,
+        reactions: rxns,
+        qualitativeTests: qualTests,
+        geneticChains: genChains,
+      });
 
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
@@ -77,14 +80,14 @@ export default function PracticeSection() {
   }, []);
 
   const nextExercise = useCallback(() => {
-    if (templates.length === 0 || solubility.length === 0 || activitySeries.length === 0) return;
-    setExercise(generateExercise(templates, solubility, activitySeries, applicabilityRules, reactions));
+    if (!ctx || ctx.templates.length === 0 || ctx.solubility.length === 0) return;
+    setExercise(generateExercise(ctx));
     setCount(c => c + 1);
-  }, [templates, solubility, activitySeries, applicabilityRules, reactions]);
+  }, [ctx]);
 
   useEffect(() => {
-    if (!loading && !exercise && templates.length > 0) nextExercise();
-  }, [loading, exercise, templates, nextExercise]);
+    if (!loading && !exercise && ctx) nextExercise();
+  }, [loading, exercise, ctx, nextExercise]);
 
   function handleAnswer(correct: boolean) {
     if (!exercise) return;

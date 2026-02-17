@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { ReactionTemplate } from '../../types/templates';
 import type { ApplicabilityRule } from '../../types/rules';
+import type { QualitativeTest } from '../../types/qualitative';
+import type { GeneticChain } from '../../types/genetic-chain';
 import {
   loadReactionTemplates,
   loadApplicabilityRules,
+  loadQualitativeTests,
+  loadGeneticChains,
 } from '../../lib/data-loader';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
@@ -55,6 +59,8 @@ function CollapsibleSection({
 export default function ReactionTheoryPanel() {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
+  const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
+  const [chains, setChains] = useState<GeneticChain[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -62,10 +68,17 @@ export default function ReactionTheoryPanel() {
   useEffect(() => {
     if (!open || templates) return;
     setLoading(true);
-    Promise.all([loadReactionTemplates(), loadApplicabilityRules()])
-      .then(([t, r]) => {
+    Promise.all([
+      loadReactionTemplates(),
+      loadApplicabilityRules(),
+      loadQualitativeTests(),
+      loadGeneticChains(),
+    ])
+      .then(([t, r, qt, gc]) => {
         setTemplates(t);
         setRules(r);
+        setQualTests(qt);
+        setChains(gc);
         setLoading(false);
       })
       .catch(err => {
@@ -164,6 +177,91 @@ export default function ReactionTheoryPanel() {
               <CollapsibleSection title="Ряд активности металлов">
                 <ActivitySeriesBar />
               </CollapsibleSection>
+
+              <CollapsibleSection title="ОВР: окислитель и восстановитель">
+                <div className="rxn-theory__redox">
+                  <p><strong>Окислительно-восстановительные реакции (ОВР)</strong> — реакции, в которых изменяются степени окисления элементов.</p>
+                  <div className="rxn-theory__definitions">
+                    <div className="rxn-theory__def-item">
+                      <strong>Окислитель</strong> — принимает электроны (степень окисления понижается).
+                    </div>
+                    <div className="rxn-theory__def-item">
+                      <strong>Восстановитель</strong> — отдаёт электроны (степень окисления повышается).
+                    </div>
+                  </div>
+                  <p className="rxn-theory__mnemonic"><em>Мнемоника: «ОВ: Отдал — Восстановитель»</em></p>
+                  <h4 className="rxn-theory__type-title">Метод электронного баланса</h4>
+                  <ol className="rxn-theory__steps">
+                    <li>Определить степени окисления всех элементов до и после реакции.</li>
+                    <li>Найти элементы, у которых степень окисления изменилась.</li>
+                    <li>Составить электронные полуреакции (окисление и восстановление).</li>
+                    <li>Уравнять число отданных и принятых электронов.</li>
+                    <li>Расставить коэффициенты в молекулярном уравнении.</li>
+                  </ol>
+                  <h4 className="rxn-theory__type-title">Примеры</h4>
+                  <div className="rxn-theory__equation">Zn + 2HCl → ZnCl₂ + H₂↑</div>
+                  <div className="rxn-theory__rule-desc">Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель); 2H⁺ + 2e⁻ → H₂⁰ (окислитель)</div>
+                  <div className="rxn-theory__equation">Fe + CuSO₄ → FeSO₄ + Cu↓</div>
+                  <div className="rxn-theory__rule-desc">Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель); Cu²⁺ + 2e⁻ → Cu⁰ (окислитель)</div>
+                </div>
+              </CollapsibleSection>
+
+              {qualTests && qualTests.length > 0 && (
+                <CollapsibleSection title="Качественные реакции">
+                  <div className="rxn-theory__qualitative">
+                    <p>Качественные реакции позволяют определить присутствие конкретного иона или газа по характерному признаку.</p>
+                    <table className="rxn-theory__qual-table">
+                      <thead>
+                        <tr>
+                          <th>Ион / газ</th>
+                          <th>Реагент</th>
+                          <th>Признак</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {qualTests.map(t => (
+                          <tr key={t.target_id}>
+                            <td>{t.target_name_ru}</td>
+                            <td>{t.reagent_name_ru}</td>
+                            <td>{t.observation_ru}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </CollapsibleSection>
+              )}
+
+              {chains && chains.length > 0 && (
+                <CollapsibleSection title="Генетические цепочки">
+                  <div className="rxn-theory__chains">
+                    <p>Генетическая связь — цепочка превращений веществ разных классов, связанных между собой.</p>
+                    <div className="rxn-theory__chain-diagrams">
+                      <div className="rxn-theory__chain-diagram">
+                        <strong>Металлы:</strong> Металл → Основный оксид → Основание → Соль
+                      </div>
+                      <div className="rxn-theory__chain-diagram">
+                        <strong>Неметаллы:</strong> Неметалл → Кислотный оксид → Кислота → Соль
+                      </div>
+                    </div>
+                    <h4 className="rxn-theory__type-title">Примеры цепочек</h4>
+                    {chains.map(chain => {
+                      const allSubstances = [chain.steps[0].substance, ...chain.steps.map(s => s.next)];
+                      return (
+                        <div key={chain.chain_id} className="rxn-theory__chain-example">
+                          <strong>{chain.title_ru}:</strong>{' '}
+                          <span className="rxn-theory__chain-sequence">
+                            {allSubstances.join(' → ')}
+                          </span>
+                          <div className="rxn-theory__chain-classes">
+                            ({chain.class_sequence.join(' → ')})
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </CollapsibleSection>
+              )}
             </>
           )}
         </div>

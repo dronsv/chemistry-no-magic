@@ -1,6 +1,8 @@
 import type { ReactionTemplate } from '../../../types/templates';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../../../types/rules';
 import type { Reaction } from '../../../types/reaction';
+import type { QualitativeTest } from '../../../types/qualitative';
+import type { GeneticChain } from '../../../types/genetic-chain';
 
 export interface ExerciseOption {
   id: string;
@@ -15,6 +17,16 @@ export interface Exercise {
   correctId: string;
   explanation: string;
   competencyMap: Record<string, 'P' | 'S'>;
+}
+
+export interface GeneratorContext {
+  templates: ReactionTemplate[];
+  solubility: SolubilityEntry[];
+  activitySeries: ActivitySeriesEntry[];
+  applicabilityRules: ApplicabilityRule[];
+  reactions: Reaction[];
+  qualitativeTests: QualitativeTest[];
+  geneticChains: GeneticChain[];
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -39,17 +51,10 @@ function shuffleOptions(options: ExerciseOption[]): ExerciseOption[] {
   return [...options].sort(() => Math.random() - 0.5);
 }
 
-type GeneratorFn = (
-  templates: ReactionTemplate[],
-  solubility: SolubilityEntry[],
-  activitySeries: ActivitySeriesEntry[],
-  applicabilityRules: ApplicabilityRule[],
-  reactions: Reaction[],
-) => Exercise;
+type GeneratorFn = (ctx: GeneratorContext) => Exercise;
 
 /* ---- Distractor helpers for predict_exchange_products ---- */
 
-/** Parse leading integer coefficient: "2KOH" → [2, "KOH"]; "NaCl" → [1, "NaCl"] */
 function parseCoeff(s: string): [number, string] {
   const m = s.match(/^(\d+)(\D.*)$/);
   return m ? [parseInt(m[1], 10), m[2]] : [1, s];
@@ -59,7 +64,6 @@ function withCoeff(n: number, formula: string): string {
   return n === 1 ? formula : `${n}${formula}`;
 }
 
-/** Extract element symbols ("Ca", "O", "H") from a formula string */
 function extractElements(s: string): Set<string> {
   return new Set(s.match(/[A-Z][a-z]?/g) ?? []);
 }
@@ -70,7 +74,6 @@ function collectElements(formulas: string[]): Set<string> {
   return all;
 }
 
-/** Strategy 1: tweak coefficients (add / remove / change) */
 function tweakCoefficients(products: string[]): string[] {
   const out: string[] = [];
   for (let i = 0; i < products.length; i++) {
@@ -86,7 +89,6 @@ function tweakCoefficients(products: string[]): string[] {
   return out;
 }
 
-/** Strategy 2: drop one product (multi-product reactions only) */
 function dropOneProduct(products: string[]): string[] {
   if (products.length < 2) return [];
   return products.map((_, i) =>
@@ -94,7 +96,6 @@ function dropOneProduct(products: string[]): string[] {
   );
 }
 
-/** Strategy 3: swap visually similar substances (common student confusions) */
 const SIMILAR_SWAPS: [string, string][] = [
   ['H₂O', 'H₂↑'],
   ['CO₂↑', 'CO↑'],
@@ -117,7 +118,6 @@ function swapSimilar(products: string[]): string[] {
   return out;
 }
 
-/** Strategy 4: add a plausible byproduct (for single-product reactions) */
 const COMMON_BYPRODUCTS = ['H₂↑', 'H₂O', 'O₂↑'];
 
 function addByproduct(products: string[], reactantElements: Set<string>): string[] {
@@ -137,7 +137,6 @@ function addByproduct(products: string[], reactantElements: Set<string>): string
   return out;
 }
 
-/** Collect distractors built from the same elements as the correct answer */
 function generateProductDistractors(products: string[], reactants: string[]): string[] {
   const correct = products.join(' + ');
   const seen = new Set<string>([correct]);
@@ -157,8 +156,8 @@ function generateProductDistractors(products: string[], reactants: string[]): st
 }
 
 const generators: Record<string, GeneratorFn> = {
-  classify_reaction_type(templates) {
-    const t = pick(templates);
+  classify_reaction_type(ctx) {
+    const t = pick(ctx.templates);
     const correctLabel = TYPE_LABELS[t.type] ?? t.type;
     const allTypes = Object.keys(TYPE_LABELS);
     const distractors = allTypes.filter(type => type !== t.type);
@@ -179,8 +178,8 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  predict_exchange_products(templates) {
-    const t = pick(templates);
+  predict_exchange_products(ctx) {
+    const t = pick(ctx.templates);
     const example = pick(t.examples);
     const correctProducts = example.products.join(' + ');
 
@@ -205,18 +204,16 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  identify_driving_force(templates) {
-    // Pick an exchange template that demonstrates a driving force
-    const exchangeTemplates = templates.filter(t => t.type === 'exchange');
-    const t = pick(exchangeTemplates.length > 0 ? exchangeTemplates : templates);
+  identify_driving_force(ctx) {
+    const exchangeTemplates = ctx.templates.filter(t => t.type === 'exchange');
+    const t = pick(exchangeTemplates.length > 0 ? exchangeTemplates : ctx.templates);
     const example = pick(t.examples);
     const equation = `${example.reactants.join(' + ')} → ${example.products.join(' + ')}`;
 
-    // Determine driving force from products
     const productsStr = example.products.join(' ');
     let correctForce: string;
     let explanation: string;
-    if (productsStr.includes('↓') || productsStr.includes('↓')) {
+    if (productsStr.includes('↓')) {
       correctForce = 'Образование осадка';
       explanation = `В продуктах образуется осадок (↓).`;
     } else if (productsStr.includes('↑') || productsStr.includes('CO₂') || productsStr.includes('H₂S') || productsStr.includes('SO₂') || productsStr.includes('NH₃')) {
@@ -249,10 +246,9 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  solubility_lookup(_templates, solubility, _activitySeries, _applicabilityRules, _reactions) {
-    // Filter to standard cation+anion pairs (exclude extra anions like Br⁻, I⁻, F⁻)
+  solubility_lookup(ctx) {
     const mainAnions = new Set(['Cl⁻', 'SO₄²⁻', 'NO₃⁻', 'CO₃²⁻', 'PO₄³⁻', 'S²⁻', 'OH⁻', 'SiO₃²⁻']);
-    const mainEntries = solubility.filter(e => mainAnions.has(e.anion));
+    const mainEntries = ctx.solubility.filter(e => mainAnions.has(e.anion));
     const entry = pick(mainEntries);
     const correctLabel = SOLUBILITY_LABELS[entry.solubility];
 
@@ -275,10 +271,9 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  will_reaction_occur(templates, solubility, _activitySeries, _applicabilityRules, _reactions) {
-    // Pick an exchange reaction and determine if it produces precipitate/gas/water
-    const exchangeTemplates = templates.filter(t => t.type === 'exchange');
-    const t = pick(exchangeTemplates.length > 0 ? exchangeTemplates : templates);
+  will_reaction_occur(ctx) {
+    const exchangeTemplates = ctx.templates.filter(t => t.type === 'exchange');
+    const t = pick(exchangeTemplates.length > 0 ? exchangeTemplates : ctx.templates);
     const example = pick(t.examples);
     const productsStr = example.products.join(' ');
 
@@ -322,9 +317,8 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  activity_series_compare(_templates, _solubility, activitySeries, _applicabilityRules, _reactions) {
-    // Pick two metals and ask if one can displace the other
-    const metals = activitySeries.filter(m => m.symbol !== 'H');
+  activity_series_compare(ctx) {
+    const metals = ctx.activitySeries.filter(m => m.symbol !== 'H');
     const metal1 = pick(metals);
     const remaining = metals.filter(m => m.symbol !== metal1.symbol);
     const metal2 = pick(remaining);
@@ -340,7 +334,6 @@ const generators: Record<string, GeneratorFn> = {
       { id: 'd0', text: canDisplace ? 'Нет' : 'Да' },
     ]);
 
-    // Add two more options for 4 total
     options.push(
       { id: 'd1', text: 'Только при нагревании' },
       { id: 'd2', text: 'Только в присутствии катализатора' },
@@ -353,12 +346,12 @@ const generators: Record<string, GeneratorFn> = {
       options: shuffleOptions(options),
       correctId: 'correct',
       explanation,
-      competencyMap: { reactions_exchange: 'P' },
+      competencyMap: { reactions_redox: 'P' },
     };
   },
 
-  match_ionic_equation(_templates, _solubility, _activitySeries, _applicabilityRules, reactions) {
-    const withIonic = reactions.filter(r => r.ionic.net);
+  match_ionic_equation(ctx) {
+    const withIonic = ctx.reactions.filter(r => r.ionic.net);
     if (withIonic.length < 4) throw new Error('Not enough reactions with ionic equations');
 
     const target = pick(withIonic);
@@ -385,23 +378,21 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  identify_spectator_ions(_templates, _solubility, _activitySeries, _applicabilityRules, reactions) {
-    const withBoth = reactions.filter(r => r.ionic.full && r.ionic.net);
+  identify_spectator_ions(ctx) {
+    const withBoth = ctx.reactions.filter(r => r.ionic.full && r.ionic.net);
     if (withBoth.length === 0) throw new Error('No reactions with full ionic equations');
 
     const target = pick(withBoth);
     const full = target.ionic.full!;
     const net = target.ionic.net!;
 
-    // Extract ions from full that don't appear in net (spectators)
     const ionPattern = /[A-Z][a-z]?(?:[\d₀-₉]*)(?:[⁺⁻²³⁴]?[⁺⁻])/g;
     const fullIons = new Set(full.match(ionPattern) ?? []);
     const netIons = new Set(net.match(ionPattern) ?? []);
     const spectators = [...fullIons].filter(ion => !netIons.has(ion));
 
     if (spectators.length === 0) {
-      // Fallback: use a different exercise type
-      return generators.match_ionic_equation(_templates, _solubility, _activitySeries, _applicabilityRules, reactions);
+      return generators.match_ionic_equation(ctx);
     }
 
     const correctText = spectators.join(', ');
@@ -433,7 +424,7 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  predict_observation(_templates, _solubility, _activitySeries, _applicabilityRules, reactions) {
+  predict_observation(ctx) {
     function describeObservation(r: Reaction): string {
       const parts: string[] = [];
       if (r.observations.precipitate?.length) {
@@ -457,10 +448,10 @@ const generators: Record<string, GeneratorFn> = {
       return parts.join('; ') || 'Видимых признаков нет';
     }
 
-    const target = pick(reactions);
+    const target = pick(ctx.reactions);
     const correctObs = describeObservation(target);
 
-    const others = reactions
+    const others = ctx.reactions
       .filter(r => r.reaction_id !== target.reaction_id)
       .map(r => describeObservation(r))
       .filter(obs => obs !== correctObs && obs !== 'Видимых признаков нет');
@@ -485,27 +476,282 @@ const generators: Record<string, GeneratorFn> = {
       options,
       correctId: 'correct',
       explanation: `${target.equation}. ${correctObs}.`,
-      competencyMap: { gas_precipitate_logic: 'P', qualitative_analysis_logic: 'S' },
+      competencyMap: { qualitative_analysis_logic: 'P', gas_precipitate_logic: 'S' },
+    };
+  },
+
+  /* ---- Redox generators ---- */
+
+  identify_oxidizer_reducer(ctx) {
+    const redoxRxns = ctx.reactions.filter(r => r.redox);
+    if (redoxRxns.length === 0) throw new Error('No redox reactions');
+
+    const target = pick(redoxRxns);
+    const redox = target.redox!;
+
+    // Ask about either oxidizer or reducer randomly
+    const askOxidizer = Math.random() < 0.5;
+    const role = askOxidizer ? 'окислителем' : 'восстановителем';
+    const correct = askOxidizer ? redox.oxidizer.formula : redox.reducer.formula;
+    const wrong = askOxidizer ? redox.reducer.formula : redox.oxidizer.formula;
+
+    // Collect all unique formulas from reactants and products for distractors
+    const allFormulas = [
+      ...target.molecular.reactants.map(r => r.formula),
+      ...target.molecular.products.map(r => r.formula),
+    ];
+    const otherFormulas = [...new Set(allFormulas)].filter(f => f !== correct && f !== wrong);
+    const distractors = [wrong, ...otherFormulas.slice(0, 1), 'Это не ОВР'];
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correct },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'identify_oxidizer_reducer',
+      question: `В реакции ${target.equation} ${role} является...?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `${redox.electron_transfer.replace(/\n/g, '; ')}`,
+      competencyMap: { reactions_redox: 'P', oxidation_states: 'S' },
+    };
+  },
+
+  predict_substitution_products(ctx) {
+    const redoxRxns = ctx.reactions.filter(r => r.redox && r.type_tags.includes('substitution'));
+    if (redoxRxns.length === 0) throw new Error('No substitution redox reactions');
+
+    const target = pick(redoxRxns);
+    const correctProducts = target.molecular.products
+      .map(p => `${p.coeff > 1 ? p.coeff : ''}${p.formula}`)
+      .join(' + ');
+
+    // Build distractors: swap products, wrong product, no reaction
+    const otherRxns = redoxRxns.filter(r => r.reaction_id !== target.reaction_id);
+    const distractors: string[] = [];
+
+    if (otherRxns.length > 0) {
+      const other = pick(otherRxns);
+      distractors.push(
+        other.molecular.products.map(p => `${p.coeff > 1 ? p.coeff : ''}${p.formula}`).join(' + '),
+      );
+    }
+
+    // Reversed products
+    const reversed = [...target.molecular.products].reverse()
+      .map(p => `${p.coeff > 1 ? p.coeff : ''}${p.formula}`)
+      .join(' + ');
+    if (reversed !== correctProducts) distractors.push(reversed);
+
+    distractors.push('Реакция не идёт');
+
+    const reactantStr = target.molecular.reactants
+      .map(r => `${r.coeff > 1 ? r.coeff : ''}${r.formula}`)
+      .join(' + ');
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctProducts },
+      ...distractors.slice(0, 3).map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'predict_substitution_products',
+      question: `Что образуется при реакции ${reactantStr}?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `${target.equation}`,
+      competencyMap: { reactions_redox: 'P' },
+    };
+  },
+
+  will_metal_react(ctx) {
+    const metals = ctx.activitySeries.filter(m => m.symbol !== 'H');
+    if (metals.length < 2) throw new Error('Not enough metals in activity series');
+
+    // Pick a "less active" metal as the one in solution, and a random metal to test
+    const metal1 = pick(metals);
+    const remaining = metals.filter(m => m.symbol !== metal1.symbol);
+    const metal2 = pick(remaining);
+
+    // metal1 tries to displace metal2 from its salt solution
+    const canReact = metal1.position < metal2.position;
+    const correctAnswer = canReact
+      ? `Да, ${metal1.symbol} активнее ${metal2.symbol}`
+      : `Нет, ${metal1.symbol} менее активен, чем ${metal2.symbol}`;
+
+    const wrongAnswer = canReact
+      ? `Нет, ${metal1.symbol} менее активен, чем ${metal2.symbol}`
+      : `Да, ${metal1.symbol} активнее ${metal2.symbol}`;
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctAnswer },
+      { id: 'd0', text: wrongAnswer },
+      { id: 'd1', text: 'Реакция идёт только при нагревании' },
+      { id: 'd2', text: 'Оба металла одинаково активны' },
+    ]);
+
+    return {
+      type: 'will_metal_react',
+      question: `Будет ли реагировать ${metal1.name_ru} (${metal1.symbol}) с раствором соли ${metal2.name_ru} (${metal2.symbol})?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `В ряду активности ${metal1.name_ru} (позиция ${metal1.position}) ${canReact ? 'стоит левее' : 'стоит правее'} ${metal2.name_ru} (позиция ${metal2.position}), поэтому реакция замещения ${canReact ? 'возможна' : 'не идёт'}.`,
+      competencyMap: { reactions_redox: 'P' },
+    };
+  },
+
+  /* ---- Qualitative analysis generators ---- */
+
+  identify_reagent_for_ion(ctx) {
+    const tests = ctx.qualitativeTests;
+    if (tests.length < 4) throw new Error('Not enough qualitative tests');
+
+    const target = pick(tests);
+    const correctReagent = target.reagent_name_ru;
+
+    const others = tests
+      .filter(t => t.target_id !== target.target_id && t.reagent_name_ru !== correctReagent)
+      .map(t => t.reagent_name_ru);
+    const uniqueOthers = [...new Set(others)].sort(() => Math.random() - 0.5);
+    const distractors = uniqueOthers.slice(0, 2);
+    distractors.push('Универсальный индикатор');
+
+    const options = shuffleOptions([
+      { id: 'correct', text: correctReagent },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'identify_reagent_for_ion',
+      question: `Каким реактивом можно обнаружить ${target.target_name_ru}?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `${target.target_name_ru}: реагент — ${target.reagent_name_ru}. ${target.observation_ru}.`,
+      competencyMap: { qualitative_analysis_logic: 'P' },
+    };
+  },
+
+  identify_ion_by_observation(ctx) {
+    const tests = ctx.qualitativeTests;
+    if (tests.length < 4) throw new Error('Not enough qualitative tests');
+
+    const target = pick(tests);
+
+    const others = tests
+      .filter(t => t.target_id !== target.target_id)
+      .map(t => t.target_name_ru);
+    const uniqueOthers = [...new Set(others)].sort(() => Math.random() - 0.5);
+    const distractors = uniqueOthers.slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: target.target_name_ru },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'identify_ion_by_observation',
+      question: `При добавлении ${target.reagent_name_ru} наблюдается: ${target.observation_ru}. Какой ион/газ присутствует?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `Признак «${target.observation_ru}» характерен для ${target.target_name_ru}.`,
+      competencyMap: { qualitative_analysis_logic: 'P' },
+    };
+  },
+
+  /* ---- Genetic chain generators ---- */
+
+  complete_chain_step(ctx) {
+    const chains = ctx.geneticChains;
+    if (chains.length === 0) throw new Error('No genetic chains');
+
+    const chain = pick(chains);
+    const steps = chain.steps;
+    // Pick a random middle substance to hide (not first or last)
+    const allSubstances = [steps[0].substance, ...steps.map(s => s.next)];
+    // Hide index 1..(n-1) — a middle substance
+    const hideIdx = 1 + Math.floor(Math.random() * (allSubstances.length - 2));
+    const hidden = allSubstances[hideIdx];
+
+    const displayed = allSubstances.map((s, i) => i === hideIdx ? '___' : s).join(' → ');
+
+    // Distractors: other substances from other chains
+    const allChainSubstances = ctx.geneticChains.flatMap(c =>
+      [c.steps[0].substance, ...c.steps.map(s => s.next)],
+    );
+    const otherSubstances = [...new Set(allChainSubstances)].filter(s => s !== hidden);
+    const shuffledOther = otherSubstances.sort(() => Math.random() - 0.5);
+    const distractors = shuffledOther.slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: hidden },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'complete_chain_step',
+      question: `${chain.title_ru}: ${displayed}. Что пропущено?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `Полная цепочка: ${allSubstances.join(' → ')}.`,
+      competencyMap: { genetic_chain_logic: 'P', classification: 'S' },
+    };
+  },
+
+  choose_reagent_for_step(ctx) {
+    const chains = ctx.geneticChains;
+    if (chains.length === 0) throw new Error('No genetic chains');
+
+    const chain = pick(chains);
+    const step = pick(chain.steps);
+
+    // Collect reagents from all chains for distractors
+    const allReagents = ctx.geneticChains.flatMap(c => c.steps.map(s => s.reagent));
+    const otherReagents = [...new Set(allReagents)].filter(r => r !== step.reagent);
+    const shuffledOther = otherReagents.sort(() => Math.random() - 0.5);
+    const distractors = shuffledOther.slice(0, 3);
+
+    const options = shuffleOptions([
+      { id: 'correct', text: step.reagent },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+    ]);
+
+    return {
+      type: 'choose_reagent_for_step',
+      question: `Как превратить ${step.substance} в ${step.next}? Какой реагент нужен?`,
+      format: 'multiple_choice',
+      options,
+      correctId: 'correct',
+      explanation: `${step.substance} + ${step.reagent} → ${step.next} (${TYPE_LABELS[step.type] ?? step.type}).`,
+      competencyMap: { genetic_chain_logic: 'P', reactions_exchange: 'S' },
     };
   },
 };
 
 const EXERCISE_TYPES = Object.keys(generators);
 
-export function generateExercise(
-  templates: ReactionTemplate[],
-  solubility: SolubilityEntry[],
-  activitySeries: ActivitySeriesEntry[],
-  applicabilityRules: ApplicabilityRule[],
-  reactions: Reaction[],
-  type?: string,
-): Exercise {
-  // New generators require reactions; if none loaded, pick only from legacy types
-  const availableTypes = reactions.length > 0
-    ? EXERCISE_TYPES
-    : EXERCISE_TYPES.filter(t => !['match_ionic_equation', 'identify_spectator_ions', 'predict_observation'].includes(t));
+const NEEDS_REACTIONS = new Set([
+  'match_ionic_equation', 'identify_spectator_ions', 'predict_observation',
+  'identify_oxidizer_reducer', 'predict_substitution_products', 'will_metal_react',
+]);
+const NEEDS_QUALITATIVE = new Set(['identify_reagent_for_ion', 'identify_ion_by_observation']);
+const NEEDS_CHAINS = new Set(['complete_chain_step', 'choose_reagent_for_step']);
+
+export function generateExercise(ctx: GeneratorContext, type?: string): Exercise {
+  const availableTypes = EXERCISE_TYPES.filter(t => {
+    if (NEEDS_REACTIONS.has(t) && ctx.reactions.length === 0) return false;
+    if (NEEDS_QUALITATIVE.has(t) && ctx.qualitativeTests.length < 4) return false;
+    if (NEEDS_CHAINS.has(t) && ctx.geneticChains.length === 0) return false;
+    return true;
+  });
   const t = type ?? pick(availableTypes);
   const gen = generators[t];
   if (!gen) throw new Error(`Unknown exercise type: ${t}`);
-  return gen(templates, solubility, activitySeries, applicabilityRules, reactions);
+  return gen(ctx);
 }

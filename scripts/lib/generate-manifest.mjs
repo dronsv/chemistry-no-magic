@@ -29,6 +29,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         periodic_table_theory: 'rules/periodic-table-theory.json',
         bond_theory: 'rules/bond_theory.json',
         oxidation_theory: 'rules/oxidation_theory.json',
+        qualitative_reactions: 'rules/qualitative_reactions.json',
+        genetic_chains: 'rules/genetic_chains.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',

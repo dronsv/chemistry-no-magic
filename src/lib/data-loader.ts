@@ -14,6 +14,8 @@ import type { Reaction } from '../types/reaction';
 import type { BondTheory } from '../types/bond';
 import type { OxidationTheory } from '../types/oxidation';
 import type { MoleculeStructure } from '../types/molecule';
+import type { QualitativeTest } from '../types/qualitative';
+import type { GeneticChain } from '../types/genetic-chain';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -312,6 +314,16 @@ export async function loadReactionTemplates(): Promise<ReactionTemplate[]> {
   }
 
   return loadDataFile<ReactionTemplate[]>(path);
+}
+
+/** Load qualitative reaction tests. */
+export async function loadQualitativeTests(): Promise<QualitativeTest[]> {
+  return loadRule('qualitative_reactions') as Promise<QualitativeTest[]>;
+}
+
+/** Load genetic chains. */
+export async function loadGeneticChains(): Promise<GeneticChain[]> {
+  return loadRule('genetic_chains') as Promise<GeneticChain[]>;
 }
 
 /** Load a molecule structure by substance ID. */

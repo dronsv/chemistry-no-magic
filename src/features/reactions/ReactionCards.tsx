@@ -19,6 +19,8 @@ const TAG_FILTERS = [
   { value: 'neutralization', label: 'Нейтрализация' },
   { value: 'precipitation', label: 'Осадок' },
   { value: 'gas_evolution', label: 'Газ' },
+  { value: 'substitution', label: 'Замещение' },
+  { value: 'qualitative_test', label: 'Качественные' },
   { value: 'amphoteric', label: 'Амфотерность' },
   { value: 'acidic_oxide', label: 'Оксиды' },
   { value: 'decomposition', label: 'Разложение' },
@@ -26,6 +28,8 @@ const TAG_FILTERS = [
 
 const TAG_LABELS: Record<string, string> = {
   exchange: 'Обмена',
+  substitution: 'Замещение',
+  redox: 'ОВР',
   neutralization: 'Нейтрализация',
   precipitation: 'Осадок',
   gas_evolution: 'Газ',

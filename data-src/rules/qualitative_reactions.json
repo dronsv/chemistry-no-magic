@@ -1,0 +1,86 @@
+[
+  {
+    "target_id": "Cl-",
+    "target_name_ru": "хлорид-ион Cl⁻",
+    "reagent_formula": "AgNO3",
+    "reagent_name_ru": "нитрат серебра",
+    "observation_ru": "белый творожистый осадок AgCl, темнеет на свету",
+    "reaction_id": "rx_precip_02_agcl"
+  },
+  {
+    "target_id": "SO4^2-",
+    "target_name_ru": "сульфат-ион SO₄²⁻",
+    "reagent_formula": "BaCl2",
+    "reagent_name_ru": "хлорид бария",
+    "observation_ru": "белый осадок BaSO₄, нерастворимый в кислотах",
+    "reaction_id": "rx_precip_07_h2so4_bacl2"
+  },
+  {
+    "target_id": "CO3^2-",
+    "target_name_ru": "карбонат-ион CO₃²⁻",
+    "reagent_formula": "HCl",
+    "reagent_name_ru": "соляная кислота",
+    "observation_ru": "выделяется газ CO₂ (шипение), помутнение известковой воды",
+    "reaction_id": "rx_carbonate_01_caco3_hcl"
+  },
+  {
+    "target_id": "PO4^3-",
+    "target_name_ru": "фосфат-ион PO₄³⁻",
+    "reagent_formula": "AgNO3",
+    "reagent_name_ru": "нитрат серебра",
+    "observation_ru": "жёлтый осадок Ag₃PO₄"
+  },
+  {
+    "target_id": "NH4+",
+    "target_name_ru": "ион аммония NH₄⁺",
+    "reagent_formula": "NaOH",
+    "reagent_name_ru": "гидроксид натрия (при нагревании)",
+    "observation_ru": "выделяется NH₃ с резким запахом, синеет влажная лакмусовая бумага",
+    "reaction_id": "rx_gas_03_nh4cl_naoh"
+  },
+  {
+    "target_id": "Cu^2+",
+    "target_name_ru": "ион меди(II) Cu²⁺",
+    "reagent_formula": "NaOH",
+    "reagent_name_ru": "гидроксид натрия",
+    "observation_ru": "голубой (синий) осадок Cu(OH)₂",
+    "reaction_id": "rx_precip_03_cuoh2"
+  },
+  {
+    "target_id": "Fe^3+",
+    "target_name_ru": "ион железа(III) Fe³⁺",
+    "reagent_formula": "NaOH",
+    "reagent_name_ru": "гидроксид натрия",
+    "observation_ru": "бурый осадок Fe(OH)₃",
+    "reaction_id": "rx_precip_04_feoh3"
+  },
+  {
+    "target_id": "Fe^2+",
+    "target_name_ru": "ион железа(II) Fe²⁺",
+    "reagent_formula": "NaOH",
+    "reagent_name_ru": "гидроксид натрия",
+    "observation_ru": "белый (серо-зелёный) осадок Fe(OH)₂, быстро буреет на воздухе"
+  },
+  {
+    "target_id": "CO2",
+    "target_name_ru": "углекислый газ CO₂",
+    "reagent_formula": "Ca(OH)2",
+    "reagent_name_ru": "известковая вода",
+    "observation_ru": "помутнение известковой воды (осадок CaCO₃)",
+    "reaction_id": "rx_exchange_02_caoh2_co2"
+  },
+  {
+    "target_id": "NH3",
+    "target_name_ru": "аммиак NH₃",
+    "reagent_formula": "лакмус",
+    "reagent_name_ru": "влажная лакмусовая бумага",
+    "observation_ru": "влажная красная лакмусовая бумага синеет"
+  },
+  {
+    "target_id": "H2S",
+    "target_name_ru": "сероводород H₂S",
+    "reagent_formula": "Pb(NO3)2",
+    "reagent_name_ru": "раствор ацетата/нитрата свинца",
+    "observation_ru": "чёрный осадок PbS, характерный запах тухлых яиц"
+  }
+]

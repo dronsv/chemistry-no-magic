@@ -682,7 +682,8 @@
     },
     "competencies": {
       "gas_precipitate_logic": "P",
-      "reactions_exchange": "P"
+      "reactions_exchange": "P",
+      "qualitative_analysis_logic": "P"
     }
   },
   {
@@ -1023,7 +1024,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
-      "reaction_energy_profile": "S"
+      "reaction_energy_profile": "S",
+      "qualitative_analysis_logic": "P"
     }
   },
   {
@@ -1698,7 +1700,8 @@
     },
     "competencies": {
       "gas_precipitate_logic": "P",
-      "reactions_exchange": "P"
+      "reactions_exchange": "P",
+      "qualitative_analysis_logic": "P"
     }
   },
   {
@@ -2062,6 +2065,274 @@
     "competencies": {
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_01_zn_hcl",
+    "title": "Замещение: цинк + соляная кислота",
+    "equation": "Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑",
+    "phase": { "medium": "mixed", "notes": "металл + раствор кислоты" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox", "gas_evolution"],
+    "driving_forces": ["gas_release"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Zn", "name": "цинк", "coeff": 1 },
+        { "formula": "HCl", "name": "соляная кислота", "coeff": 2 }
+      ],
+      "products": [
+        { "formula": "ZnCl2", "name": "хлорид цинка", "coeff": 1 },
+        { "formula": "H2", "name": "водород", "coeff": 1 }
+      ]
+    },
+    "ionic": {
+      "full": "Zn(s) + 2H⁺ + 2Cl⁻ → Zn²⁺ + 2Cl⁻ + H₂↑",
+      "net": "Zn(s) + 2H⁺ → Zn²⁺ + H₂↑"
+    },
+    "observations": {
+      "gas": ["H₂ (пузырьки)"],
+      "precipitate": [],
+      "other": ["цинк растворяется"]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        "Измельчить цинк (увеличить площадь поверхности).",
+        "Повысить концентрацию кислоты.",
+        "Небольшой нагрев."
+      ],
+      "what_slows_down": ["Разбавление кислоты."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["H₂ горюч; не подносить открытое пламя."],
+    "oge": {
+      "topics": ["замещение", "ОВР", "ряд активности"],
+      "typical_tasks": ["определить окислитель и восстановитель"]
+    },
+    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "redox": {
+      "oxidizer": { "formula": "HCl", "element": "H", "from": 1, "to": 0 },
+      "reducer": { "formula": "Zn", "element": "Zn", "from": 0, "to": 2 },
+      "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_02_fe_h2so4",
+    "title": "Замещение: железо + серная кислота (разб.)",
+    "equation": "Fe(s) + H₂SO₄(aq) → FeSO₄(aq) + H₂(g)↑",
+    "phase": { "medium": "mixed" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox", "gas_evolution"],
+    "driving_forces": ["gas_release"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Fe", "name": "железо", "coeff": 1 },
+        { "formula": "H2SO4", "name": "серная кислота (разб.)", "coeff": 1 }
+      ],
+      "products": [
+        { "formula": "FeSO4", "name": "сульфат железа(II)", "coeff": 1 },
+        { "formula": "H2", "name": "водород", "coeff": 1 }
+      ]
+    },
+    "ionic": {
+      "full": "Fe(s) + 2H⁺ + SO₄²⁻ → Fe²⁺ + SO₄²⁻ + H₂↑",
+      "net": "Fe(s) + 2H⁺ → Fe²⁺ + H₂↑"
+    },
+    "observations": {
+      "gas": ["H₂ (пузырьки)"],
+      "precipitate": [],
+      "other": ["железо растворяется"]
+    },
+    "rate_tips": {
+      "how_to_speed_up": ["Измельчить железо.", "Нагреть."],
+      "what_slows_down": ["Разбавление."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["H₂ горюч."],
+    "oge": {
+      "topics": ["замещение", "ОВР"],
+      "typical_tasks": ["составить электронный баланс"]
+    },
+    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "redox": {
+      "oxidizer": { "formula": "H2SO4", "element": "H", "from": 1, "to": 0 },
+      "reducer": { "formula": "Fe", "element": "Fe", "from": 0, "to": 2 },
+      "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_03_mg_hcl",
+    "title": "Замещение: магний + соляная кислота",
+    "equation": "Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)↑",
+    "phase": { "medium": "mixed" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox", "gas_evolution"],
+    "driving_forces": ["gas_release"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Mg", "name": "магний", "coeff": 1 },
+        { "formula": "HCl", "name": "соляная кислота", "coeff": 2 }
+      ],
+      "products": [
+        { "formula": "MgCl2", "name": "хлорид магния", "coeff": 1 },
+        { "formula": "H2", "name": "водород", "coeff": 1 }
+      ]
+    },
+    "ionic": {
+      "full": "Mg(s) + 2H⁺ + 2Cl⁻ → Mg²⁺ + 2Cl⁻ + H₂↑",
+      "net": "Mg(s) + 2H⁺ → Mg²⁺ + H₂↑"
+    },
+    "observations": {
+      "gas": ["H₂ (бурное выделение)"],
+      "precipitate": [],
+      "heat": "заметное тепловыделение"
+    },
+    "rate_tips": {
+      "how_to_speed_up": ["Магний очень активен; реакция идёт быстро."],
+      "what_slows_down": ["Разбавление кислоты."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["Бурная реакция; добавлять кислоту осторожно."],
+    "oge": {
+      "topics": ["замещение", "ОВР"],
+      "typical_tasks": ["определить тип реакции"]
+    },
+    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "redox": {
+      "oxidizer": { "formula": "HCl", "element": "H", "from": 1, "to": 0 },
+      "reducer": { "formula": "Mg", "element": "Mg", "from": 0, "to": 2 },
+      "electron_transfer": "Mg⁰ − 2e⁻ → Mg²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_04_fe_cuso4",
+    "title": "Замещение: железо вытесняет медь",
+    "equation": "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)↓",
+    "phase": { "medium": "mixed", "notes": "металл + раствор соли" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox"],
+    "driving_forces": ["precipitation"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Fe", "name": "железо", "coeff": 1 },
+        { "formula": "CuSO4", "name": "сульфат меди(II)", "coeff": 1 }
+      ],
+      "products": [
+        { "formula": "FeSO4", "name": "сульфат железа(II)", "coeff": 1 },
+        { "formula": "Cu", "name": "медь", "coeff": 1 }
+      ]
+    },
+    "ionic": {
+      "full": "Fe(s) + Cu²⁺ + SO₄²⁻ → Fe²⁺ + SO₄²⁻ + Cu(s)",
+      "net": "Fe(s) + Cu²⁺ → Fe²⁺ + Cu(s)"
+    },
+    "observations": {
+      "precipitate": [],
+      "gas": [],
+      "color_change": "раствор бледнеет (Cu²⁺ исчезает), на железе — красноватый налёт меди",
+      "other": ["на поверхности железа выделяется медь"]
+    },
+    "rate_tips": {
+      "how_to_speed_up": ["Зачистить поверхность железа.", "Перемешивание."],
+      "what_slows_down": ["Оксидная плёнка на железе."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["Соли меди токсичны при попадании внутрь."],
+    "oge": {
+      "topics": ["замещение", "ряд активности"],
+      "typical_tasks": ["предсказать, пойдёт ли реакция"]
+    },
+    "competencies": { "reactions_redox": "P" },
+    "redox": {
+      "oxidizer": { "formula": "CuSO4", "element": "Cu", "from": 2, "to": 0 },
+      "reducer": { "formula": "Fe", "element": "Fe", "from": 0, "to": 2 },
+      "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_05_zn_cuso4",
+    "title": "Замещение: цинк вытесняет медь",
+    "equation": "Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)↓",
+    "phase": { "medium": "mixed" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox"],
+    "driving_forces": ["precipitation"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Zn", "name": "цинк", "coeff": 1 },
+        { "formula": "CuSO4", "name": "сульфат меди(II)", "coeff": 1 }
+      ],
+      "products": [
+        { "formula": "ZnSO4", "name": "сульфат цинка", "coeff": 1 },
+        { "formula": "Cu", "name": "медь", "coeff": 1 }
+      ]
+    },
+    "ionic": {
+      "full": "Zn(s) + Cu²⁺ + SO₄²⁻ → Zn²⁺ + SO₄²⁻ + Cu(s)",
+      "net": "Zn(s) + Cu²⁺ → Zn²⁺ + Cu(s)"
+    },
+    "observations": {
+      "precipitate": [],
+      "gas": [],
+      "color_change": "раствор обесцвечивается, на цинке — красноватый налёт меди"
+    },
+    "rate_tips": {
+      "how_to_speed_up": ["Зачистить поверхность цинка.", "Перемешивание."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["Соли меди токсичны."],
+    "oge": {
+      "topics": ["замещение", "ОВР"],
+      "typical_tasks": ["предсказать продукты"]
+    },
+    "competencies": { "reactions_redox": "P" },
+    "redox": {
+      "oxidizer": { "formula": "CuSO4", "element": "Cu", "from": 2, "to": 0 },
+      "reducer": { "formula": "Zn", "element": "Zn", "from": 0, "to": 2 },
+      "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
+    }
+  },
+  {
+    "reaction_id": "rx_redox_06_cu_agno3",
+    "title": "Замещение: медь вытесняет серебро",
+    "equation": "Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s)↓",
+    "phase": { "medium": "mixed" },
+    "conditions": { "temperature": "room" },
+    "type_tags": ["substitution", "redox"],
+    "driving_forces": ["precipitation"],
+    "molecular": {
+      "reactants": [
+        { "formula": "Cu", "name": "медь", "coeff": 1 },
+        { "formula": "AgNO3", "name": "нитрат серебра", "coeff": 2 }
+      ],
+      "products": [
+        { "formula": "Cu(NO3)2", "name": "нитрат меди(II)", "coeff": 1 },
+        { "formula": "Ag", "name": "серебро", "coeff": 2 }
+      ]
+    },
+    "ionic": {
+      "full": "Cu(s) + 2Ag⁺ + 2NO₃⁻ → Cu²⁺ + 2NO₃⁻ + 2Ag(s)",
+      "net": "Cu(s) + 2Ag⁺ → Cu²⁺ + 2Ag(s)"
+    },
+    "observations": {
+      "precipitate": [],
+      "gas": [],
+      "color_change": "раствор становится голубым (Cu²⁺), на меди — серебристые кристаллы",
+      "other": ["«серебряное дерево» на поверхности меди"]
+    },
+    "rate_tips": {
+      "how_to_speed_up": ["Зачистить медь.", "Перемешивание."]
+    },
+    "heat_effect": "exo",
+    "safety_notes": ["AgNO₃ оставляет тёмные пятна."],
+    "oge": {
+      "topics": ["замещение", "ряд активности"],
+      "typical_tasks": ["определить, пойдёт ли реакция"]
+    },
+    "competencies": { "reactions_redox": "P" },
+    "redox": {
+      "oxidizer": { "formula": "AgNO3", "element": "Ag", "from": 1, "to": 0 },
+      "reducer": { "formula": "Cu", "element": "Cu", "from": 0, "to": 2 },
+      "electron_transfer": "Cu⁰ − 2e⁻ → Cu²⁺ (восстановитель)\n2Ag⁺ + 2e⁻ → 2Ag⁰ (окислитель)"
     }
   }
 ]
