@@ -1,0 +1,223 @@
+/* MoleculeView — layered SVG molecule structure renderer */
+
+/* ── Container ── */
+
+.mol-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.mol-view--inline {
+  display: inline-flex;
+  vertical-align: middle;
+  height: 1.4em;
+}
+
+.mol-view--sm {
+  max-width: 180px;
+}
+
+.mol-view--md {
+  max-width: 320px;
+}
+
+.mol-view--lg {
+  max-width: 500px;
+}
+
+/* ── SVG canvas ── */
+
+.mol-view__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mol-view--inline .mol-view__svg {
+  height: 100%;
+  width: auto;
+}
+
+/* ── Layers ── */
+
+.mol-layer {
+  transition: opacity 0.2s ease;
+}
+
+.mol-layer--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Bonds ── */
+
+.mol-bond {
+  stroke: var(--color-text, #1a1a2e);
+  stroke-linecap: round;
+}
+
+.mol-bond--dative {
+  stroke-dasharray: 5 3;
+}
+
+/* ── Atom labels ── */
+
+.mol-atom-label {
+  fill: currentColor;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  user-select: none;
+}
+
+.mol-atom-label--interactive {
+  cursor: pointer;
+  transition: fill 0.15s;
+}
+
+.mol-atom-label--interactive:hover {
+  fill: var(--color-primary, #2563eb);
+}
+
+/* ── Oxidation states ── */
+
+.mol-ox {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.mol-ox--positive {
+  fill: #dc2626;
+}
+
+.mol-ox--negative {
+  fill: #2563eb;
+}
+
+.mol-ox--zero {
+  fill: #6b7280;
+}
+
+/* ── Polarity charges ── */
+
+.mol-charge {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.mol-charge--plus {
+  fill: #dc2626;
+}
+
+.mol-charge--minus {
+  fill: #2563eb;
+}
+
+/* ── Lone pairs ── */
+
+.mol-lone-pair {
+  fill: var(--color-text-muted, #6b7280);
+}
+
+/* ── Toggle bar ── */
+
+.mol-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: center;
+}
+
+.mol-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 999px;
+  background: var(--color-bg, #ffffff);
+  color: var(--color-text-muted, #6b7280);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  user-select: none;
+  line-height: 1.4;
+}
+
+.mol-toggle-btn:hover {
+  border-color: var(--color-primary, #2563eb);
+  color: var(--color-primary, #2563eb);
+}
+
+.mol-toggle-btn--active {
+  background: var(--color-primary, #2563eb);
+  border-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+}
+
+.mol-toggle-btn--active:hover {
+  background: var(--color-primary-hover, #1d4ed8);
+  border-color: var(--color-primary-hover, #1d4ed8);
+  color: #ffffff;
+}
+
+.mol-toggle-btn--locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Tooltip ── */
+
+.mol-tooltip {
+  position: fixed;
+  z-index: 50;
+  padding: 0.3rem 0.6rem;
+  background: var(--color-text, #1a1a2e);
+  color: var(--color-bg, #ffffff);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── Dark mode ── */
+
+@media (prefers-color-scheme: dark) {
+  .mol-bond {
+    stroke: #e5e7eb;
+  }
+
+  .mol-lone-pair {
+    fill: #9ca3af;
+  }
+
+  .mol-ox--zero {
+    fill: #9ca3af;
+  }
+
+  .mol-toggle-btn {
+    background: transparent;
+    border-color: #4b5563;
+    color: #9ca3af;
+  }
+
+  .mol-toggle-btn:hover {
+    border-color: #60a5fa;
+    color: #60a5fa;
+  }
+
+  .mol-toggle-btn--active {
+    background: var(--color-primary, #2563eb);
+    border-color: var(--color-primary, #2563eb);
+    color: #ffffff;
+  }
+}
