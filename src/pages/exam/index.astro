@@ -4,5 +4,17 @@ import ExamPage from '../../features/exam/ExamPage';
 ---
 
 <BaseLayout title="Экзамен" description="Пробный вариант ОГЭ по химии. 20 заданий по всем компетенциям с таймером и подробным отчётом.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Пробный вариант ОГЭ по химии",
+      "description": "20 заданий по всем компетенциям с таймером и подробным отчётом",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "about": { "@type": "Thing", "name": "ОГЭ по химии" },
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+  </Fragment>
   <ExamPage client:idle />
 </BaseLayout>

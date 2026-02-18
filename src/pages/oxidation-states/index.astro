@@ -4,5 +4,17 @@ import OxidationStatesPage from '../../features/oxidation-states/OxidationStates
 ---
 
 <BaseLayout title="Степени окисления" description="Определение степеней окисления элементов в химических соединениях. Калькулятор с пошаговым решением, теория и практика для ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Степени окисления",
+      "description": "Определение степеней окисления элементов в химических соединениях",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "teaches": ["степень окисления", "электроотрицательность", "окислительно-восстановительные реакции", "электронный баланс"],
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+  </Fragment>
   <OxidationStatesPage client:idle />
 </BaseLayout>

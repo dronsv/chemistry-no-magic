@@ -4,5 +4,17 @@ import CalculationsPage from '../../features/calculations/CalculationsPage';
 ---
 
 <BaseLayout title="Расчёты" description="Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций, выход продукта. Практика для подготовки к ОГЭ по химии.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Расчёты по химии",
+      "description": "Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "teaches": ["молярная масса", "количество вещества", "массовая доля", "расчёты по уравнениям", "выход продукта"],
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+  </Fragment>
   <CalculationsPage client:idle />
 </BaseLayout>

@@ -28,6 +28,8 @@ pnpm-debug.log*
 
 # screenshots
 *.png
+!public/og-default.png
+!public/favicon-32.png
 
 # playwright MCP artifacts
 .playwright-mcp/

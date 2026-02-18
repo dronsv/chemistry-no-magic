@@ -4,5 +4,17 @@ import BondsPage from '../../features/bonds/BondsPage';
 ---
 
 <BaseLayout title="Химическая связь" description="Определение типа химической связи и кристаллической решётки по формуле вещества. Калькулятор, теория и практика для ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Химическая связь",
+      "description": "Определение типа химической связи и кристаллической решётки по формуле вещества",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "teaches": ["ионная связь", "ковалентная полярная связь", "ковалентная неполярная связь", "металлическая связь", "кристаллические решётки"],
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+  </Fragment>
   <BondsPage client:idle />
 </BaseLayout>
