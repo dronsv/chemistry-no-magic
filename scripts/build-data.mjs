@@ -28,6 +28,7 @@ import {
 import { checkIntegrity } from './lib/integrity.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
+import { generateSearchIndex } from './lib/generate-search-index.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -227,6 +228,12 @@ async function main() {
   // 7. Generate indices
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
+
+  // 7b. Generate search index
+  console.log('Generating search index...');
+  const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies });
+  await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
+  console.log(`  ${searchIndex.length} search entries\n`);
 
   // 8. Generate manifest
   console.log('Generating manifest...');

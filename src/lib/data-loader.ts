@@ -20,6 +20,7 @@ import type { EnergyCatalystTheory } from '../types/energy-catalyst';
 import type { CalculationsData } from '../types/calculations';
 import type { OgeTask } from '../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../types/oge-solution';
+import type { SearchIndexEntry } from '../types/search';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -366,6 +367,20 @@ export async function loadOgeSolutionAlgorithms(): Promise<OgeSolutionAlgorithm[
   }
 
   return loadDataFile<OgeSolutionAlgorithm[]>(path);
+}
+
+/** Load search index for global search. */
+export async function loadSearchIndex(): Promise<SearchIndexEntry[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.search_index;
+
+  if (!path) {
+    throw new Error(
+      'Search index not found in manifest. Expected key "search_index" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<SearchIndexEntry[]>(path);
 }
 
 /** Load a molecule structure by substance ID. */

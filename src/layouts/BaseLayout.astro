@@ -115,6 +115,18 @@ const breadcrumbLd = pathSegments.length > 0 ? {
     <noscript><div><img src="https://mc.yandex.ru/watch/106842347" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <!-- Ctrl+K / Cmd+K → search -->
+    <script is:inline>
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          if (location.pathname !== '/search/') {
+            location.href = '/search/';
+          }
+        }
+      });
+    </script>
+
     <slot name="head" />
   </head>
   <body>
