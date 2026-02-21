@@ -1,1 +1,13 @@
-{}
+{
+  "page_home": { "title": "Inicio", "subtitle": "Química sin magia — preparación para el examen", "keywords": ["inicio", "química", "preparación para el examen", "plataforma adaptativa"] },
+  "page_diagnostics": { "title": "Diagnóstico", "subtitle": "Evaluación del nivel de conocimientos", "keywords": ["diagnóstico", "test", "nivel", "conocimientos", "evaluación"] },
+  "page_periodic_table": { "title": "Tabla periódica", "subtitle": "Tabla periódica interactiva de los elementos", "keywords": ["tabla periódica", "Mendeléyev", "elementos"] },
+  "page_substances": { "title": "Sustancias", "subtitle": "Clasificación y nomenclatura", "keywords": ["sustancias", "clasificación", "nomenclatura", "óxidos", "ácidos", "sales", "bases"] },
+  "page_bonds": { "title": "Enlaces químicos", "subtitle": "Tipos de enlaces y estructuras cristalinas", "keywords": ["enlace", "covalente", "iónico", "metálico", "red cristalina"] },
+  "page_oxidation": { "title": "Estados de oxidación", "subtitle": "Determinación y cálculo de estados de oxidación", "keywords": ["estados de oxidación", "determinación", "cálculo"] },
+  "page_reactions": { "title": "Reacciones", "subtitle": "Tipos de reacciones, redox, reacciones cualitativas", "keywords": ["reacciones", "intercambio", "redox", "oxidación-reducción", "cualitativas", "cadenas genéticas"] },
+  "page_calculations": { "title": "Cálculos", "subtitle": "Cálculos químicos y problemas", "keywords": ["cálculos", "masa molar", "fracción de masa", "concentración", "solución", "estequiometría", "rendimiento"] },
+  "page_exam": { "title": "Examen", "subtitle": "Tareas prácticas y examen de prueba", "keywords": ["examen", "tareas", "práctica", "simulacro", "entrenamiento"] },
+  "page_profile": { "title": "Perfil", "subtitle": "Progreso y resultados del aprendizaje", "keywords": ["perfil", "progreso", "resultados", "competencias", "estadísticas"] },
+  "page_about": { "title": "Acerca de", "subtitle": "Acerca de la plataforma", "keywords": ["acerca de", "proyecto", "información", "autor", "metodología"] }
+}

@@ -1,1 +1,50 @@
-{}
+{
+  "diag_1": {
+    "question_ru": "The element with atomic number 17 is located in...",
+    "explanation_ru": "Z = 17 is chlorine (Cl). Its electron configuration is 2-8-7, which means period 3, with 7 electrons in the outer shell → group VIIA."
+  },
+  "diag_2": {
+    "question_ru": "How many electrons are in the outer energy level of an oxygen atom (Z = 8)?",
+    "explanation_ru": "Oxygen: 1s² 2s² 2p⁴. In the outer (second) level: 2 + 4 = 6 electrons."
+  },
+  "diag_3": {
+    "question_ru": "What is the oxidation state of sulfur in H₂SO₄?",
+    "explanation_ru": "In H₂SO₄: hydrogen is +1 (×2 = +2), oxygen is −2 (×4 = −8). The sum equals 0, so S = 0 − 2 − (−8) = +6."
+  },
+  "diag_4": {
+    "question_ru": "Which class of inorganic compounds does Na₂CO₃ belong to?",
+    "explanation_ru": "Na₂CO₃ is sodium carbonate. It consists of a metal cation (Na⁺) and an acid residue anion (CO₃²⁻), making it a salt."
+  },
+  "diag_5": {
+    "question_ru": "What is the name of the compound with the formula CuSO₄?",
+    "explanation_ru": "SO₄²⁻ is the sulfate ion. Copper has an oxidation state of +2. The name is copper(II) sulfate."
+  },
+  "diag_6": {
+    "question_ru": "What products form when solutions of barium chloride BaCl₂ and sodium sulfate Na₂SO₄ are mixed?",
+    "explanation_ru": "Double replacement reaction: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Barium sulfate is an insoluble precipitate, so the reaction proceeds to completion."
+  },
+  "diag_7": {
+    "question_ru": "Does the ion exchange reaction between NaNO₃ and KCl solutions go to completion?",
+    "explanation_ru": "NaNO₃ + KCl → NaCl + KNO₃. All products are soluble; no gas or water is formed. The reaction does not go to completion."
+  },
+  "diag_8": {
+    "question_ru": "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, the oxidizing agent is:",
+    "explanation_ru": "Cu²⁺ accepts 2 electrons and is reduced to Cu⁰. Accepting electrons means being reduced, so Cu²⁺ is the oxidizing agent."
+  },
+  "diag_9": {
+    "question_ru": "Which factor does NOT affect the rate of a chemical reaction?",
+    "explanation_ru": "The color of a substance does not affect the reaction rate. The rate depends on temperature, concentration, surface area, the nature of the substances, and the presence of a catalyst."
+  },
+  "diag_10": {
+    "question_ru": "Which statement about a catalyst is correct?",
+    "explanation_ru": "A catalyst speeds up a reaction by lowering the activation energy and is not consumed in the process. It does not shift equilibrium and does not affect the product yield."
+  },
+  "diag_11": {
+    "question_ru": "What is the mass fraction of oxygen in water H₂O? (M(H)=1, M(O)=16)",
+    "explanation_ru": "M(H₂O) = 2×1 + 16 = 18 g/mol. ω(O) = 16/18 ≈ 0.889 = 88.9%."
+  },
+  "diag_12": {
+    "question_ru": "50 g of salt is dissolved in 200 g of water. What is the mass fraction of salt in the solution?",
+    "explanation_ru": "Mass of solution = 200 + 50 = 250 g. ω = 50/250 = 0.20 = 20%."
+  }
+}

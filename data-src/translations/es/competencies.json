@@ -1,1 +1,102 @@
-{}
+{
+  "periodic_table": {
+    "name_ru": "Tabla periódica",
+    "description_ru": "Determinación de la posición de un elemento en la tabla periódica: período, grupo, subgrupo. Metales y no metales. Número atómico y su relación con la estructura atómica.",
+    "block_name_ru": "Estructura atómica y tabla periódica"
+  },
+  "electron_config": {
+    "name_ru": "Configuración electrónica",
+    "description_ru": "Escritura de la configuración electrónica de los átomos, comprensión de los subniveles, regla de Klechkovsky, regla de Hund. Excepciones (Cr, Cu y otros).",
+    "block_name_ru": "Estructura atómica y tabla periódica"
+  },
+  "property_trends": {
+    "name_ru": "Tendencias de las propiedades",
+    "description_ru": "Patrones en los cambios del radio atómico, la energía de ionización y la electronegatividad a lo largo de períodos y grupos.",
+    "block_name_ru": "Estructura atómica y tabla periódica"
+  },
+  "substance_classes": {
+    "name_ru": "Clases de sustancias",
+    "description_ru": "Clasificación de sustancias en óxidos, ácidos, bases y sales. Determinación de la clase y subclase por fórmula. Conocimiento de los representantes clave.",
+    "block_name_ru": "Clases de sustancias y nomenclatura"
+  },
+  "nomenclature_logic": {
+    "name_ru": "Nomenclatura",
+    "description_ru": "Nombrar sustancias según su fórmula y determinar la fórmula a partir del nombre. Reglas de nomenclatura sistemática y trivial.",
+    "block_name_ru": "Clases de sustancias y nomenclatura"
+  },
+  "amphoterism_logic": {
+    "name_ru": "Anfotericidad",
+    "description_ru": "Comprensión de los óxidos e hidróxidos anfóteros: reacciones tanto con ácidos como con bases. Elementos anfóteros clave (Al, Zn, Be, Fe³⁺, Cr³⁺).",
+    "block_name_ru": "Clases de sustancias y nomenclatura"
+  },
+  "bond_types": {
+    "name_ru": "Enlaces químicos",
+    "description_ru": "Determinación del tipo de enlace según la fórmula: iónico, covalente polar/apolar, metálico. Relación entre el tipo de enlace y las propiedades de la sustancia.",
+    "block_name_ru": "Enlace químico"
+  },
+  "crystal_structures": {
+    "name_ru": "Estructuras cristalinas",
+    "description_ru": "Relación entre el tipo de red cristalina (iónica, atómica, molecular, metálica) y las propiedades físicas: punto de fusión, dureza, conductividad.",
+    "block_name_ru": "Enlace químico"
+  },
+  "oxidation_states": {
+    "name_ru": "Estados de oxidación",
+    "description_ru": "Determinación de los estados de oxidación de los elementos en compuestos. Reglas para calcular y utilizar los estados de oxidación.",
+    "block_name_ru": "Enlace químico"
+  },
+  "reactions_exchange": {
+    "name_ru": "Reacciones de intercambio",
+    "description_ru": "Comprensión de las condiciones para las reacciones de intercambio: formación de precipitado, gas o electrolito débil. Uso de la tabla de solubilidad.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "reactions_substitution": {
+    "name_ru": "Reacciones de sustitución",
+    "description_ru": "Predicción de reacciones de desplazamiento usando la serie de actividad: un metal desplaza a otro metal, desplazamiento de hidrógeno de los ácidos.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "reactions_types": {
+    "name_ru": "Tipos de reacciones",
+    "description_ru": "Clasificación de reacciones: síntesis, descomposición, intercambio, sustitución. Características distintivas y ejemplos.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "redox_basics": {
+    "name_ru": "Reacciones redox",
+    "description_ru": "Identificación de los procesos de oxidación y reducción. Escritura de ecuaciones de balance electrónico. Determinación del oxidante y el reductor.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "qualitative_reactions_knowledge": {
+    "name_ru": "Reacciones cualitativas",
+    "description_ru": "Reconocimiento de iones y gases por sus características: color del precipitado, liberación de gas, cambio de color.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "genetic_chains_logic": {
+    "name_ru": "Cadenas genéticas",
+    "description_ru": "Transformaciones entre clases de sustancias: metal → óxido básico → base → sal. No metal → óxido ácido → ácido → sal.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "reaction_energy_profile": {
+    "name_ru": "Energía de reacción",
+    "description_ru": "Factores que afectan la velocidad de reacción: temperatura, concentración, área superficial, catalizador. Reacciones exo- y endotérmicas. Principio de Le Chatelier.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "catalyst_knowledge": {
+    "name_ru": "Catálisis",
+    "description_ru": "Comprensión del funcionamiento de los catalizadores: reducción de la energía de activación, sin cambio en el equilibrio. Catalizadores comunes y sus aplicaciones.",
+    "block_name_ru": "Reacciones químicas"
+  },
+  "calculations_basic": {
+    "name_ru": "Cálculos básicos",
+    "description_ru": "Cálculo de la masa molar, cantidad de sustancia, fracción de masa de un elemento. Conversión entre masa, moles y volumen.",
+    "block_name_ru": "Cálculos químicos"
+  },
+  "calculations_solutions": {
+    "name_ru": "Cálculos de soluciones",
+    "description_ru": "Cálculo de la fracción de masa del soluto. Problemas de mezcla y dilución. Relaciones entre la masa del soluto y la masa de la solución.",
+    "block_name_ru": "Cálculos químicos"
+  },
+  "reaction_yield_logic": {
+    "name_ru": "Rendimiento de reacción",
+    "description_ru": "Cálculo del rendimiento teórico y práctico del producto. Cálculos estequiométricos usando ecuaciones balanceadas.",
+    "block_name_ru": "Cálculos químicos"
+  }
+}

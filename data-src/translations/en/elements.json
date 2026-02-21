@@ -1,50 +1,581 @@
 {
   "H": {
     "name_ru": "Hydrogen",
-    "industrial_ru": "Ammonia production, oil refining, hydrogen energy.",
-    "production_ru": "Steam methane reforming or water electrolysis.",
-    "abundance_ru": "The most abundant element in the Universe (75% by mass).",
+    "industrial_ru": "Used in ammonia production (Haber process), oil refining, and as a clean energy carrier in hydrogen fuel cells.",
+    "production_ru": "Primarily produced by steam methane reforming; also by water electrolysis using renewable electricity.",
+    "abundance_ru": "The most abundant element in the Universe, making up about 75% of all baryonic mass.",
     "hazards_ru": ["Flammable", "Explosive when mixed with air"],
     "fun_facts_ru": [
       "The lightest element in the periodic table.",
-      "Hydrogen is the main fuel of stars, including the Sun.",
-      "The H\u2082 molecule is the smallest of all diatomic molecules."
+      "Hydrogen is the primary fuel of stars, including the Sun, through nuclear fusion.",
+      "The H₂ molecule is the smallest of all diatomic molecules."
     ]
   },
   "He": {
     "name_ru": "Helium",
-    "industrial_ru": "Cryogenics, inert atmosphere for welding, filling balloons.",
-    "production_ru": "Extracted from natural gas.",
-    "abundance_ru": "Second most abundant element in the Universe.",
+    "industrial_ru": "Essential for cryogenics (cooling MRI magnets), welding shielding gas, and filling lighter-than-air balloons.",
+    "production_ru": "Extracted from natural gas deposits where it accumulates from radioactive alpha decay.",
+    "abundance_ru": "Second most abundant element in the Universe, but relatively rare on Earth.",
     "hazards_ru": ["Non-toxic", "Can cause asphyxiation in enclosed spaces"],
     "fun_facts_ru": [
-      "Named after the Greek sun god Helios.",
-      "Helium was first discovered in the solar spectrum, not on Earth.",
-      "Helium-II is a superfluid near absolute zero."
+      "Named after Helios, the Greek sun god, because it was first detected in the solar spectrum.",
+      "Helium is the only element that cannot be solidified at normal pressure, even at absolute zero.",
+      "Below 2.17 K, helium becomes a superfluid that can climb up and over container walls."
     ]
   },
   "Li": {
-    "name_ru": "Lithium"
+    "name_ru": "Lithium",
+    "industrial_ru": "Critical for rechargeable batteries (Li-ion), ceramics, glass, and pharmaceutical mood stabilizers.",
+    "production_ru": "Extracted from brine pools in salt flats (e.g., in Chile, Argentina) or from spodumene ore by mining.",
+    "abundance_ru": "Relatively rare in Earth's crust at about 20 ppm, concentrated in certain brine deposits and pegmatite minerals.",
+    "hazards_ru": ["Flammable", "Reacts violently with water", "Corrosive"],
+    "fun_facts_ru": [
+      "The lightest metal and the least dense solid element.",
+      "Lithium was one of the three elements produced in the Big Bang nucleosynthesis.",
+      "A lithium fire cannot be extinguished with water — it reacts with it."
+    ]
+  },
+  "Be": {
+    "name_ru": "Beryllium",
+    "industrial_ru": "Used in aerospace alloys, X-ray windows, and nuclear reactor components due to its stiffness and low neutron absorption.",
+    "production_ru": "Extracted from the mineral beryl by chemical processing; the United States is the primary producer.",
+    "abundance_ru": "Rare in Earth's crust at about 2–6 ppm, found mainly in beryl and bertrandite minerals.",
+    "hazards_ru": ["Toxic", "Carcinogenic dust", "Causes chronic beryllium disease"],
+    "fun_facts_ru": [
+      "Beryllium is transparent to X-rays, making it ideal for X-ray tube windows.",
+      "The gemstones emerald and aquamarine are forms of the beryllium mineral beryl.",
+      "Despite being a light metal, beryllium is extremely stiff — six times stiffer than steel per unit weight."
+    ]
+  },
+  "B": {
+    "name_ru": "Boron",
+    "industrial_ru": "Used in borosilicate glass (Pyrex), detergents (borax), fiberglass insulation, and as a neutron absorber in nuclear reactors.",
+    "production_ru": "Mined primarily as borax and kernite deposits; Turkey holds the world's largest reserves.",
+    "abundance_ru": "Relatively scarce in Earth's crust at about 10 ppm, concentrated in evaporite deposits.",
+    "hazards_ru": ["Low toxicity", "Dust may irritate eyes and respiratory tract"],
+    "fun_facts_ru": [
+      "Boron is essential for plant growth but is needed only in trace amounts.",
+      "Boron nitride in its cubic form is nearly as hard as diamond.",
+      "The element's name comes from the Arabic word 'buraq' for borax."
+    ]
   },
   "C": {
-    "name_ru": "Carbon"
+    "name_ru": "Carbon",
+    "industrial_ru": "Foundation of organic chemistry and all known life; used in steel production, fuels, plastics, and advanced materials like carbon fiber and graphene.",
+    "production_ru": "Obtained as coke from coal, charcoal from wood, or as CO₂ from combustion; synthetic diamonds made under high pressure.",
+    "abundance_ru": "Fourth most abundant element in the Universe by mass; forms the basis of all known organic molecules.",
+    "hazards_ru": ["Non-toxic in pure form", "CO and CO₂ are hazardous gases"],
+    "fun_facts_ru": [
+      "Carbon exists in multiple allotropes: diamond, graphite, fullerene, graphene, and more.",
+      "A single sheet of graphene is the strongest material ever measured.",
+      "Carbon-14 dating allows scientists to determine the age of organic materials up to ~50,000 years old."
+    ]
   },
   "N": {
-    "name_ru": "Nitrogen"
+    "name_ru": "Nitrogen",
+    "industrial_ru": "Used to produce ammonia (fertilizers), explosives, and as an inert atmosphere for food packaging and electronics manufacturing.",
+    "production_ru": "Obtained industrially by fractional distillation of liquid air; comprises 78% of Earth's atmosphere.",
+    "abundance_ru": "Makes up 78% of Earth's atmosphere by volume and is the seventh most abundant element in the Universe.",
+    "hazards_ru": ["Asphyxiant in high concentrations", "Liquid nitrogen causes cryogenic burns"],
+    "fun_facts_ru": [
+      "Nitrogen is essential for all life — it is a key component of amino acids and DNA.",
+      "The triple bond in N₂ is one of the strongest chemical bonds, making nitrogen gas very inert.",
+      "Lightning converts atmospheric nitrogen into nitrates, naturally fertilizing the soil."
+    ]
   },
   "O": {
-    "name_ru": "Oxygen"
+    "name_ru": "Oxygen",
+    "industrial_ru": "Essential for steelmaking, medical respiration, welding (oxy-acetylene), wastewater treatment, and rocket propulsion.",
+    "production_ru": "Produced industrially by fractional distillation of liquid air; also generated by electrolysis of water.",
+    "abundance_ru": "The most abundant element in Earth's crust (46% by mass) and third most abundant in the Universe.",
+    "hazards_ru": ["Strong oxidizer", "Supports combustion", "High concentrations toxic to lungs"],
+    "fun_facts_ru": [
+      "Oxygen makes up about 21% of Earth's atmosphere and is essential for aerobic life.",
+      "Liquid oxygen is pale blue and is strongly attracted to magnets (paramagnetic).",
+      "The ozone layer (O₃) in the stratosphere protects life from harmful ultraviolet radiation."
+    ]
+  },
+  "F": {
+    "name_ru": "Fluorine",
+    "industrial_ru": "Used in uranium enrichment (UF₆), Teflon (PTFE) production, refrigerants, toothpaste, and pharmaceuticals.",
+    "production_ru": "Produced by electrolysis of a molten mixture of potassium fluoride and hydrogen fluoride (KF·2HF).",
+    "abundance_ru": "The 13th most abundant element in Earth's crust, found mainly in fluorite (CaF₂) and fluorapatite.",
+    "hazards_ru": ["Extremely toxic", "Highly corrosive", "Strongest oxidizing agent"],
+    "fun_facts_ru": [
+      "Fluorine is the most electronegative and most reactive of all elements.",
+      "Many early chemists were injured or killed attempting to isolate fluorine.",
+      "Fluoride in small amounts strengthens tooth enamel and prevents cavities."
+    ]
+  },
+  "Ne": {
+    "name_ru": "Neon",
+    "industrial_ru": "Used in neon signs, high-voltage indicators, cryogenic refrigeration, and helium-neon lasers.",
+    "production_ru": "Obtained as a byproduct of air liquefaction; present in the atmosphere at about 18 ppm.",
+    "abundance_ru": "Fifth most abundant element in the Universe, but rare in Earth's atmosphere at only 18.2 ppm.",
+    "hazards_ru": ["Non-toxic", "Asphyxiant in high concentrations"],
+    "fun_facts_ru": [
+      "True neon signs glow reddish-orange; other colors use different gases or phosphor coatings.",
+      "Neon has the narrowest liquid range of any element — only 2.6 degrees.",
+      "Neon's name comes from the Greek word 'neos' meaning 'new'."
+    ]
   },
   "Na": {
-    "name_ru": "Sodium"
+    "name_ru": "Sodium",
+    "industrial_ru": "Used in sodium-vapor lamps, as a coolant in nuclear reactors, and to produce sodium compounds like NaOH and NaCl for industry.",
+    "production_ru": "Produced by electrolysis of molten sodium chloride (Downs process).",
+    "abundance_ru": "The sixth most abundant element in Earth's crust (2.3%); found in huge deposits of halite (rock salt).",
+    "hazards_ru": ["Flammable", "Reacts violently with water", "Corrosive"],
+    "fun_facts_ru": [
+      "Sodium is soft enough to cut with a knife and light enough to float on water — but it reacts explosively with it.",
+      "Sodium-vapor lamps produce the characteristic yellow glow of many street lights.",
+      "The human body contains about 100 grams of sodium, essential for nerve function."
+    ]
+  },
+  "Mg": {
+    "name_ru": "Magnesium",
+    "industrial_ru": "Used in lightweight alloys for cars and aircraft, fireworks and flares, and as a structural metal in electronics casings.",
+    "production_ru": "Produced by electrolysis of molten magnesium chloride or by the Pidgeon process (thermal reduction of MgO).",
+    "abundance_ru": "The eighth most abundant element in Earth's crust; abundant in seawater and minerals like dolomite and magnesite.",
+    "hazards_ru": ["Flammable", "Burns with intense white light", "Difficult to extinguish"],
+    "fun_facts_ru": [
+      "Magnesium burns with such an intense white light that it was once used in camera flash powder.",
+      "Magnesium is essential for chlorophyll, the molecule that makes plants green.",
+      "About 0.13% of seawater is magnesium, making the oceans an enormous reserve."
+    ]
+  },
+  "Al": {
+    "name_ru": "Aluminium",
+    "industrial_ru": "The most widely used non-ferrous metal; used in aircraft, cars, beverage cans, construction, and electrical wiring.",
+    "production_ru": "Produced from bauxite ore by the Bayer process (to alumina) followed by the Hall-Heroult electrolysis process.",
+    "abundance_ru": "The most abundant metal in Earth's crust (about 8%), but never found as a free metal in nature.",
+    "hazards_ru": ["Fine powder is flammable", "Dust may cause respiratory irritation"],
+    "fun_facts_ru": [
+      "Before the Hall-Heroult process (1886), aluminium was more expensive than gold.",
+      "Aluminium is 100% recyclable with no loss of quality, and recycling uses only 5% of the energy of primary production.",
+      "The Washington Monument is capped with a 2.8 kg aluminium pyramid, placed in 1884 when aluminium was still precious."
+    ]
+  },
+  "Si": {
+    "name_ru": "Silicon",
+    "industrial_ru": "Foundation of the semiconductor industry (computer chips); also used in glass, cement, silicones, and solar cells.",
+    "production_ru": "Produced by reducing quartz (SiO₂) with carbon in an electric arc furnace; ultra-pure silicon made by the Czochralski process.",
+    "abundance_ru": "The second most abundant element in Earth's crust (about 28%), after oxygen.",
+    "hazards_ru": ["Low toxicity", "Fine silica dust causes silicosis"],
+    "fun_facts_ru": [
+      "Silicon Valley is named after the element, which is the basis of all modern computer chips.",
+      "Silicon is the eighth most abundant element in the Universe by mass.",
+      "Silicon and carbon are in the same group, yet carbon-based life dominates over hypothetical silicon-based life."
+    ]
+  },
+  "P": {
+    "name_ru": "Phosphorus",
+    "industrial_ru": "Essential for fertilizers (phosphates), detergents, matches, steel production, and pesticides.",
+    "production_ru": "Produced from phosphate rock (apatite) by thermal reduction in an electric furnace or by wet acid treatment.",
+    "abundance_ru": "The 11th most abundant element in Earth's crust; found primarily in apatite mineral deposits.",
+    "hazards_ru": ["White phosphorus is extremely toxic and flammable", "Burns on contact with air", "Causes severe chemical burns"],
+    "fun_facts_ru": [
+      "White phosphorus glows in the dark due to chemiluminescence — the origin of the word 'phosphorescence'.",
+      "Phosphorus is essential for life: it is a key component of DNA, RNA, and ATP.",
+      "The element was discovered in 1669 by Hennig Brand, who isolated it from urine."
+    ]
+  },
+  "S": {
+    "name_ru": "Sulfur",
+    "industrial_ru": "Used to produce sulfuric acid (the most-produced industrial chemical), rubber vulcanization, fungicides, and fertilizers.",
+    "production_ru": "Recovered from natural gas and petroleum refining (Claus process); also mined from native sulfur deposits.",
+    "abundance_ru": "The 10th most abundant element in the Universe; found in volcanic regions and as metal sulfide ores.",
+    "hazards_ru": ["Flammable", "SO₂ and H₂S are toxic gases", "Irritant"],
+    "fun_facts_ru": [
+      "Sulfur has been known since antiquity and was called 'brimstone' in the Bible.",
+      "Sulfuric acid is often called the 'king of chemicals' — global production exceeds 200 million tonnes per year.",
+      "Io, a moon of Jupiter, is covered in sulfur and sulfur dioxide, giving it a yellow-orange color."
+    ]
   },
   "Cl": {
-    "name_ru": "Chlorine"
+    "name_ru": "Chlorine",
+    "industrial_ru": "Used for water purification, PVC plastics production, bleach, disinfectants, and manufacturing of numerous organic chemicals.",
+    "production_ru": "Produced by electrolysis of brine (sodium chloride solution) via the chlor-alkali process.",
+    "abundance_ru": "The 21st most abundant element in Earth's crust; abundant in seawater as dissolved chloride ions.",
+    "hazards_ru": ["Toxic gas", "Strong oxidizer", "Corrosive", "Irritates respiratory system"],
+    "fun_facts_ru": [
+      "Chlorine was the first chemical weapon used in warfare (World War I, 1915).",
+      "About 85% of pharmaceutical drugs contain or are manufactured using chlorine chemistry.",
+      "Table salt (NaCl) is the most familiar chlorine compound, essential for human life."
+    ]
+  },
+  "Ar": {
+    "name_ru": "Argon",
+    "industrial_ru": "Used as a shielding gas in welding, in incandescent and fluorescent lighting, and as an inert atmosphere for growing crystals.",
+    "production_ru": "Obtained by fractional distillation of liquid air; argon makes up 0.93% of Earth's atmosphere.",
+    "abundance_ru": "The third most abundant gas in Earth's atmosphere (0.93%), produced by radioactive decay of potassium-40.",
+    "hazards_ru": ["Non-toxic", "Asphyxiant in high concentrations"],
+    "fun_facts_ru": [
+      "Argon's name comes from the Greek 'argos' meaning 'lazy' or 'idle', reflecting its chemical inertness.",
+      "Argon is used to fill the space between double-pane windows for better insulation.",
+      "Argon-argon dating is used by geologists to determine the age of rocks and minerals."
+    ]
+  },
+  "K": {
+    "name_ru": "Potassium",
+    "industrial_ru": "Essential for fertilizers (potash), soap production, and as a component in numerous chemical processes.",
+    "production_ru": "Potassium metal is produced by reduction of KCl with sodium; potash fertilizers are mined from evaporite deposits.",
+    "abundance_ru": "The seventh most abundant element in Earth's crust (2.1%), found in minerals like sylvite and orthoclase.",
+    "hazards_ru": ["Flammable", "Reacts violently with water", "Corrosive"],
+    "fun_facts_ru": [
+      "Potassium was the first metal isolated by electrolysis, by Humphry Davy in 1807.",
+      "Bananas are famously rich in potassium, but potatoes actually contain more per serving.",
+      "The potassium-40 isotope in your body makes you slightly radioactive — about 4,400 disintegrations per second."
+    ]
+  },
+  "Ca": {
+    "name_ru": "Calcium",
+    "industrial_ru": "Used in cement and concrete production, steelmaking (as a deoxidizer), and as a reducing agent for other metals.",
+    "production_ru": "Produced by electrolysis of molten calcium chloride; calcium compounds are mined from limestone and gypsum deposits.",
+    "abundance_ru": "The fifth most abundant element in Earth's crust (about 3.6%), forming vast limestone and chalk deposits.",
+    "hazards_ru": ["Reacts with water", "Irritant", "Flammable as fine powder"],
+    "fun_facts_ru": [
+      "The human body contains about 1 kg of calcium, 99% of which is in bones and teeth.",
+      "Calcium is essential for muscle contraction, nerve signaling, and blood clotting.",
+      "The White Cliffs of Dover are made of calcium carbonate (chalk) from ancient marine organisms."
+    ]
+  },
+  "Sc": {
+    "name_ru": "Scandium"
+  },
+  "Ti": {
+    "name_ru": "Titanium"
+  },
+  "V": {
+    "name_ru": "Vanadium"
+  },
+  "Cr": {
+    "name_ru": "Chromium"
+  },
+  "Mn": {
+    "name_ru": "Manganese"
   },
   "Fe": {
-    "name_ru": "Iron"
+    "name_ru": "Iron",
+    "industrial_ru": "The most important structural metal; used in steel for construction, vehicles, machinery, and tools. Also used in magnets and catalysts.",
+    "production_ru": "Smelted from iron ore (hematite, magnetite) in blast furnaces using coke as a reducing agent.",
+    "abundance_ru": "The fourth most abundant element in Earth's crust and the most abundant element on Earth overall (by mass, in the core).",
+    "hazards_ru": ["Fine powder is flammable", "Rust (iron oxide) is an irritant"],
+    "fun_facts_ru": [
+      "Earth's magnetic field is generated by convection currents in the liquid iron outer core.",
+      "Iron is the heaviest element produced by stellar nucleosynthesis in massive stars before they explode as supernovae.",
+      "The Iron Age began around 1200 BCE and transformed human civilization through stronger tools and weapons."
+    ]
+  },
+  "Co": {
+    "name_ru": "Cobalt"
+  },
+  "Ni": {
+    "name_ru": "Nickel"
   },
   "Cu": {
-    "name_ru": "Copper"
+    "name_ru": "Copper",
+    "industrial_ru": "Essential for electrical wiring, plumbing, electronics, and as an alloying element in bronze and brass.",
+    "production_ru": "Extracted from sulfide ores (chalcopyrite) by smelting and electrolytic refining; also by leaching and solvent extraction.",
+    "abundance_ru": "Makes up about 50 ppm of Earth's crust; found in large deposits in Chile, Peru, and the USA.",
+    "hazards_ru": ["Toxic in large doses", "Compounds can irritate skin and eyes"],
+    "fun_facts_ru": [
+      "Copper was one of the first metals used by humans, dating back over 10,000 years.",
+      "The Statue of Liberty is covered with about 80 tonnes of copper, which has turned green from oxidation.",
+      "Copper has natural antimicrobial properties — bacteria die within hours on copper surfaces."
+    ]
+  },
+  "Zn": {
+    "name_ru": "Zinc",
+    "industrial_ru": "Used for galvanizing steel to prevent rust, in brass alloys, batteries (zinc-carbon and alkaline), and zinc oxide in sunscreens.",
+    "production_ru": "Produced from sphalerite (ZnS) ore by roasting to ZnO followed by reduction with carbon or electrolysis.",
+    "abundance_ru": "The 24th most abundant element in Earth's crust (about 70 ppm), found primarily in sphalerite deposits.",
+    "hazards_ru": ["Zinc fumes cause metal fume fever", "Compounds may be toxic to aquatic life"],
+    "fun_facts_ru": [
+      "Zinc is essential for human health — it supports immune function and is found in every cell.",
+      "About half of all zinc produced is used for galvanizing, which protects 200 million tonnes of steel annually.",
+      "Zinc pennies (post-1982 US cents) are actually 97.5% zinc with a thin copper plating."
+    ]
+  },
+  "Ga": {
+    "name_ru": "Gallium"
+  },
+  "Ge": {
+    "name_ru": "Germanium"
+  },
+  "As": {
+    "name_ru": "Arsenic"
+  },
+  "Se": {
+    "name_ru": "Selenium"
+  },
+  "Br": {
+    "name_ru": "Bromine"
+  },
+  "Kr": {
+    "name_ru": "Krypton"
+  },
+  "Rb": {
+    "name_ru": "Rubidium"
+  },
+  "Sr": {
+    "name_ru": "Strontium"
+  },
+  "Y": {
+    "name_ru": "Yttrium"
+  },
+  "Zr": {
+    "name_ru": "Zirconium"
+  },
+  "Nb": {
+    "name_ru": "Niobium"
+  },
+  "Mo": {
+    "name_ru": "Molybdenum"
+  },
+  "Tc": {
+    "name_ru": "Technetium"
+  },
+  "Ru": {
+    "name_ru": "Ruthenium"
+  },
+  "Rh": {
+    "name_ru": "Rhodium"
+  },
+  "Pd": {
+    "name_ru": "Palladium"
+  },
+  "Ag": {
+    "name_ru": "Silver",
+    "industrial_ru": "Used in jewelry, electronics (best electrical conductor), photography, mirrors, solar panels, and antibacterial coatings.",
+    "production_ru": "Mined from native silver and silver-bearing ores (argentite); also obtained as a byproduct of copper and lead refining.",
+    "abundance_ru": "Rare in Earth's crust at about 0.07 ppm; found in ore deposits across Mexico, Peru, and China.",
+    "hazards_ru": ["Low toxicity", "Colloidal silver can cause argyria (permanent skin discoloration)"],
+    "fun_facts_ru": [
+      "Silver has the highest electrical and thermal conductivity of any element.",
+      "The word 'Argentina' comes from the Latin 'argentum' meaning silver.",
+      "Silver ions are antimicrobial — silver nanoparticles are used in wound dressings and water purification."
+    ]
+  },
+  "Cd": {
+    "name_ru": "Cadmium"
+  },
+  "In": {
+    "name_ru": "Indium"
+  },
+  "Sn": {
+    "name_ru": "Tin"
+  },
+  "Sb": {
+    "name_ru": "Antimony"
+  },
+  "Te": {
+    "name_ru": "Tellurium"
+  },
+  "I": {
+    "name_ru": "Iodine"
+  },
+  "Xe": {
+    "name_ru": "Xenon"
+  },
+  "Cs": {
+    "name_ru": "Caesium"
+  },
+  "Ba": {
+    "name_ru": "Barium"
+  },
+  "La": {
+    "name_ru": "Lanthanum"
+  },
+  "Ce": {
+    "name_ru": "Cerium"
+  },
+  "Pr": {
+    "name_ru": "Praseodymium"
+  },
+  "Nd": {
+    "name_ru": "Neodymium"
+  },
+  "Pm": {
+    "name_ru": "Promethium"
+  },
+  "Sm": {
+    "name_ru": "Samarium"
+  },
+  "Eu": {
+    "name_ru": "Europium"
+  },
+  "Gd": {
+    "name_ru": "Gadolinium"
+  },
+  "Tb": {
+    "name_ru": "Terbium"
+  },
+  "Dy": {
+    "name_ru": "Dysprosium"
+  },
+  "Ho": {
+    "name_ru": "Holmium"
+  },
+  "Er": {
+    "name_ru": "Erbium"
+  },
+  "Tm": {
+    "name_ru": "Thulium"
+  },
+  "Yb": {
+    "name_ru": "Ytterbium"
+  },
+  "Lu": {
+    "name_ru": "Lutetium"
+  },
+  "Hf": {
+    "name_ru": "Hafnium"
+  },
+  "Ta": {
+    "name_ru": "Tantalum"
+  },
+  "W": {
+    "name_ru": "Tungsten"
+  },
+  "Re": {
+    "name_ru": "Rhenium"
+  },
+  "Os": {
+    "name_ru": "Osmium"
+  },
+  "Ir": {
+    "name_ru": "Iridium"
+  },
+  "Pt": {
+    "name_ru": "Platinum"
+  },
+  "Au": {
+    "name_ru": "Gold",
+    "industrial_ru": "Used in jewelry, electronics (connectors, circuit boards), dentistry, aerospace coatings, and as a financial reserve asset.",
+    "production_ru": "Mined from lode deposits and placer deposits; extracted using cyanide leaching or gravity separation.",
+    "abundance_ru": "Very rare in Earth's crust at about 0.004 ppm; most of Earth's gold sank to the core during planetary formation.",
+    "hazards_ru": ["Non-toxic in metallic form", "Some gold compounds can be toxic"],
+    "fun_facts_ru": [
+      "All the gold ever mined would fit into a cube about 21 meters on each side.",
+      "Gold is so malleable that one ounce can be beaten into a sheet covering 28 square meters.",
+      "Gold is formed in neutron star collisions and supernovae — literally stardust."
+    ]
+  },
+  "Hg": {
+    "name_ru": "Mercury"
+  },
+  "Tl": {
+    "name_ru": "Thallium"
+  },
+  "Pb": {
+    "name_ru": "Lead"
+  },
+  "Bi": {
+    "name_ru": "Bismuth"
+  },
+  "Po": {
+    "name_ru": "Polonium"
+  },
+  "At": {
+    "name_ru": "Astatine"
+  },
+  "Rn": {
+    "name_ru": "Radon"
+  },
+  "Fr": {
+    "name_ru": "Francium"
+  },
+  "Ra": {
+    "name_ru": "Radium"
+  },
+  "Ac": {
+    "name_ru": "Actinium"
+  },
+  "Th": {
+    "name_ru": "Thorium"
+  },
+  "Pa": {
+    "name_ru": "Protactinium"
+  },
+  "U": {
+    "name_ru": "Uranium"
+  },
+  "Np": {
+    "name_ru": "Neptunium"
+  },
+  "Pu": {
+    "name_ru": "Plutonium"
+  },
+  "Am": {
+    "name_ru": "Americium"
+  },
+  "Cm": {
+    "name_ru": "Curium"
+  },
+  "Bk": {
+    "name_ru": "Berkelium"
+  },
+  "Cf": {
+    "name_ru": "Californium"
+  },
+  "Es": {
+    "name_ru": "Einsteinium"
+  },
+  "Fm": {
+    "name_ru": "Fermium"
+  },
+  "Md": {
+    "name_ru": "Mendelevium"
+  },
+  "No": {
+    "name_ru": "Nobelium"
+  },
+  "Lr": {
+    "name_ru": "Lawrencium"
+  },
+  "Rf": {
+    "name_ru": "Rutherfordium"
+  },
+  "Db": {
+    "name_ru": "Dubnium"
+  },
+  "Sg": {
+    "name_ru": "Seaborgium"
+  },
+  "Bh": {
+    "name_ru": "Bohrium"
+  },
+  "Hs": {
+    "name_ru": "Hassium"
+  },
+  "Mt": {
+    "name_ru": "Meitnerium"
+  },
+  "Ds": {
+    "name_ru": "Darmstadtium"
+  },
+  "Rg": {
+    "name_ru": "Roentgenium"
+  },
+  "Cn": {
+    "name_ru": "Copernicium"
+  },
+  "Nh": {
+    "name_ru": "Nihonium"
+  },
+  "Fl": {
+    "name_ru": "Flerovium"
+  },
+  "Mc": {
+    "name_ru": "Moscovium"
+  },
+  "Lv": {
+    "name_ru": "Livermorium"
+  },
+  "Ts": {
+    "name_ru": "Tennessine"
+  },
+  "Og": {
+    "name_ru": "Oganesson"
   }
 }

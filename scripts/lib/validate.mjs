@@ -247,3 +247,63 @@ export function validateApplicabilityRules(rules) {
   }
   return errors;
 }
+
+/**
+ * Validate a translation overlay against base data.
+ * Checks that overlay keys exist in base, and translated fields are present.
+ * @param {Record<string, any>} overlay - overlay keyed by item ID
+ * @param {string[]} baseIds - valid IDs from base data
+ * @param {string} locale - locale code
+ * @param {string} dataKey - data category (e.g. 'elements', 'competencies')
+ * @returns {string[]} errors
+ */
+export function validateTranslationOverlay(overlay, baseIds, locale, dataKey) {
+  const errors = [];
+  const prefix = `translations/${locale}/${dataKey}`;
+
+  if (typeof overlay !== 'object' || overlay === null || Array.isArray(overlay)) {
+    return [`${prefix}: must be an object keyed by ID`];
+  }
+
+  const baseIdSet = new Set(baseIds);
+  for (const key of Object.keys(overlay)) {
+    if (!baseIdSet.has(key)) {
+      errors.push(`${prefix}: orphan key "${key}" not found in base data`);
+    }
+    const entry = overlay[key];
+    if (typeof entry !== 'object' || entry === null) {
+      errors.push(`${prefix}["${key}"]: value must be an object`);
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Validate an exam system registry.
+ * @param {any[]} systems
+ * @returns {string[]} errors
+ */
+export function validateExamSystems(systems) {
+  const errors = [];
+  if (!Array.isArray(systems)) return ['exam/systems.json must be an array'];
+
+  const REQUIRED_FIELDS = ['id', 'country', 'name_ru', 'name_en', 'grade', 'duration_min', 'max_score', 'task_count'];
+
+  for (let i = 0; i < systems.length; i++) {
+    const sys = systems[i];
+    const prefix = `exam_systems[${i}]`;
+    for (const field of REQUIRED_FIELDS) {
+      if (sys[field] === undefined || sys[field] === null) {
+        errors.push(`${prefix}: missing ${field}`);
+      }
+    }
+    if (typeof sys.duration_min !== 'number' || sys.duration_min <= 0) {
+      errors.push(`${prefix}: duration_min must be positive number`);
+    }
+    if (!Array.isArray(sys.sections)) {
+      errors.push(`${prefix}: sections must be array`);
+    }
+  }
+  return errors;
+}

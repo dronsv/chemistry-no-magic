@@ -1,1 +1,13 @@
-{}
+{
+  "page_home": { "title": "Strona główna", "subtitle": "Chemia bez magii — przygotowanie do egzaminu", "keywords": ["strona główna", "chemia", "przygotowanie do egzaminu", "platforma adaptacyjna"] },
+  "page_diagnostics": { "title": "Diagnostyka", "subtitle": "Ocena poziomu wiedzy", "keywords": ["diagnostyka", "test", "poziom", "wiedza", "ocena"] },
+  "page_periodic_table": { "title": "Układ okresowy", "subtitle": "Interaktywny układ okresowy pierwiastków", "keywords": ["układ okresowy", "Mendelejew", "pierwiastki"] },
+  "page_substances": { "title": "Substancje", "subtitle": "Klasyfikacja i nomenklatura", "keywords": ["substancje", "klasyfikacja", "nomenklatura", "tlenki", "kwasy", "sole", "zasady"] },
+  "page_bonds": { "title": "Wiązania chemiczne", "subtitle": "Typy wiązań i struktury krystaliczne", "keywords": ["wiązanie", "kowalencyjne", "jonowe", "metaliczne", "sieć krystaliczna"] },
+  "page_oxidation": { "title": "Stopnie utlenienia", "subtitle": "Określanie i obliczanie stopni utlenienia", "keywords": ["stopnie utlenienia", "określanie", "obliczanie"] },
+  "page_reactions": { "title": "Reakcje", "subtitle": "Typy reakcji, redoks, reakcje jakościowe", "keywords": ["reakcje", "wymiana", "redoks", "utlenianie-redukcja", "jakościowe", "łańcuchy genetyczne"] },
+  "page_calculations": { "title": "Obliczenia", "subtitle": "Obliczenia chemiczne i zadania", "keywords": ["obliczenia", "masa molowa", "udział masowy", "stężenie", "roztwór", "stechiometria", "wydajność"] },
+  "page_exam": { "title": "Egzamin", "subtitle": "Zadania praktyczne i egzamin próbny", "keywords": ["egzamin", "zadania", "praktyka", "próbny", "trening"] },
+  "page_profile": { "title": "Profil", "subtitle": "Postępy i wyniki nauki", "keywords": ["profil", "postępy", "wyniki", "kompetencje", "statystyki"] },
+  "page_about": { "title": "O platformie", "subtitle": "Informacje o platformie", "keywords": ["o nas", "projekt", "informacje", "autor", "metodologia"] }
+}
