@@ -1,0 +1,50 @@
+{
+  "H": {
+    "name_ru": "Hydrogen",
+    "industrial_ru": "Ammonia production, oil refining, hydrogen energy.",
+    "production_ru": "Steam methane reforming or water electrolysis.",
+    "abundance_ru": "The most abundant element in the Universe (75% by mass).",
+    "hazards_ru": ["Flammable", "Explosive when mixed with air"],
+    "fun_facts_ru": [
+      "The lightest element in the periodic table.",
+      "Hydrogen is the main fuel of stars, including the Sun.",
+      "The H\u2082 molecule is the smallest of all diatomic molecules."
+    ]
+  },
+  "He": {
+    "name_ru": "Helium",
+    "industrial_ru": "Cryogenics, inert atmosphere for welding, filling balloons.",
+    "production_ru": "Extracted from natural gas.",
+    "abundance_ru": "Second most abundant element in the Universe.",
+    "hazards_ru": ["Non-toxic", "Can cause asphyxiation in enclosed spaces"],
+    "fun_facts_ru": [
+      "Named after the Greek sun god Helios.",
+      "Helium was first discovered in the solar spectrum, not on Earth.",
+      "Helium-II is a superfluid near absolute zero."
+    ]
+  },
+  "Li": {
+    "name_ru": "Lithium"
+  },
+  "C": {
+    "name_ru": "Carbon"
+  },
+  "N": {
+    "name_ru": "Nitrogen"
+  },
+  "O": {
+    "name_ru": "Oxygen"
+  },
+  "Na": {
+    "name_ru": "Sodium"
+  },
+  "Cl": {
+    "name_ru": "Chlorine"
+  },
+  "Fe": {
+    "name_ru": "Iron"
+  },
+  "Cu": {
+    "name_ru": "Copper"
+  }
+}

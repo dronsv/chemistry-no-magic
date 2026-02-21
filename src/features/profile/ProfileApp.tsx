@@ -18,10 +18,10 @@ export default function ProfileApp({ locale = 'ru' }: ProfileAppProps) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    loadCompetencies()
+    loadCompetencies(locale)
       .then(setCompetencies)
       .catch(err => setError(err instanceof Error ? err.message : m.error_loading_short()));
-  }, []);
+  }, [locale]);
 
   if (error) {
     return <div className="profile"><p className="profile__error">{error}</p></div>;

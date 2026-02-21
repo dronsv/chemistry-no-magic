@@ -74,17 +74,17 @@ function ResultGroup({ group }: { group: SearchResultGroup }) {
   );
 }
 
-export default function SearchPage() {
+export default function SearchPage({ locale }: { locale?: string }) {
   const [index, setIndex] = useState<SearchIndexEntry[] | null>(null);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResultGroup[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout>>();
 
-  // Load index
+  // Load locale-specific search index
   useEffect(() => {
-    loadSearchIndex().then(setIndex);
-  }, []);
+    loadSearchIndex(locale as 'ru' | 'en' | 'pl' | 'es' | undefined).then(setIndex);
+  }, [locale]);
 
   // Read initial query from URL
   useEffect(() => {

@@ -41,9 +41,9 @@ export default function DiagnosticsApp({ locale = 'ru' }: DiagnosticsAppProps) {
     async function load() {
       try {
         const [qs, params, comps] = await Promise.all([
-          loadDiagnosticQuestions(),
+          loadDiagnosticQuestions(locale),
           loadBktParams(),
-          loadCompetencies(),
+          loadCompetencies(locale),
         ]);
 
         if (cancelled) return;

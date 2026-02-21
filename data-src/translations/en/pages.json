@@ -1,0 +1,13 @@
+{
+  "page_home": { "title": "Home", "subtitle": "Chemistry Without Magic \u2014 exam preparation", "keywords": "home chemistry exam preparation adaptive platform" },
+  "page_diagnostics": { "title": "Diagnostics", "subtitle": "Knowledge level assessment", "keywords": "diagnostics test level knowledge assessment" },
+  "page_periodic_table": { "title": "Periodic Table", "subtitle": "Interactive Periodic Table of Elements", "keywords": "periodic table mendeleev elements" },
+  "page_substances": { "title": "Substances", "subtitle": "Classification and nomenclature", "keywords": "substances classification nomenclature oxides acids salts bases" },
+  "page_bonds": { "title": "Chemical Bonds", "subtitle": "Bond types and crystal structures", "keywords": "bond covalent ionic metallic crystal lattice" },
+  "page_oxidation": { "title": "Oxidation States", "subtitle": "Determining and calculating oxidation states", "keywords": "oxidation states determination calculation" },
+  "page_reactions": { "title": "Reactions", "subtitle": "Reaction types, redox, qualitative reactions", "keywords": "reactions exchange redox oxidation-reduction qualitative genetic chains" },
+  "page_calculations": { "title": "Calculations", "subtitle": "Chemical calculations and problems", "keywords": "calculations molar mass fraction concentration solution stoichiometry yield" },
+  "page_exam": { "title": "Exam", "subtitle": "Practice tasks and mock exam", "keywords": "exam tasks practice mock training" },
+  "page_profile": { "title": "Profile", "subtitle": "Progress and learning results", "keywords": "profile progress results competencies statistics" },
+  "page_about": { "title": "About", "subtitle": "About the platform", "keywords": "about project information author methodology" }
+}

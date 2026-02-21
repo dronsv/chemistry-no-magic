@@ -25,10 +25,18 @@ export interface ManifestStats {
   reactions_count?: number;
 }
 
+/**
+ * Translation availability per locale.
+ * Keys are locale codes (e.g. 'en', 'pl', 'es').
+ * Values are arrays of available data keys (e.g. ['elements', 'competencies', 'pages']).
+ */
+export type ManifestTranslations = Record<string, string[]>;
+
 export interface Manifest {
   bundle_hash: string;
   created_at: string;
   schema_version: string;
   entrypoints: ManifestEntrypoints;
+  translations: ManifestTranslations;
   stats: ManifestStats;
 }

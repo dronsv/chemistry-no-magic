@@ -1,0 +1,102 @@
+{
+  "periodic_table": {
+    "name_ru": "Periodic Table",
+    "description_ru": "Determining the position of an element in the periodic table: period, group, subgroup. Metals and nonmetals. Atomic number and its relation to atomic structure.",
+    "block_name_ru": "Atomic Structure and Periodic Table"
+  },
+  "electron_config": {
+    "name_ru": "Electron Configuration",
+    "description_ru": "Writing electron configuration of atoms, understanding subshells, Klechkovsky\u2019s rule, Hund\u2019s rule. Exceptions (Cr, Cu and others).",
+    "block_name_ru": "Atomic Structure and Periodic Table"
+  },
+  "property_trends": {
+    "name_ru": "Property Trends",
+    "description_ru": "Patterns in atomic radius, ionization energy, electronegativity changes across periods and groups.",
+    "block_name_ru": "Atomic Structure and Periodic Table"
+  },
+  "substance_classes": {
+    "name_ru": "Substance Classes",
+    "description_ru": "Classifying substances into oxides, acids, bases, salts. Determining class and subclass by formula. Knowing key representatives.",
+    "block_name_ru": "Substance Classes and Nomenclature"
+  },
+  "nomenclature_logic": {
+    "name_ru": "Nomenclature",
+    "description_ru": "Naming substances by formula and determining formula by name. Systematic and trivial naming rules.",
+    "block_name_ru": "Substance Classes and Nomenclature"
+  },
+  "amphoterism_logic": {
+    "name_ru": "Amphoterism",
+    "description_ru": "Understanding amphoteric oxides and hydroxides: reactions with both acids and bases. Key amphoteric elements (Al, Zn, Be, Fe\u00b3\u207a, Cr\u00b3\u207a).",
+    "block_name_ru": "Substance Classes and Nomenclature"
+  },
+  "bond_types": {
+    "name_ru": "Chemical Bonds",
+    "description_ru": "Determining bond type by formula: ionic, covalent polar/nonpolar, metallic. Relationship between bond type and substance properties.",
+    "block_name_ru": "Chemical Bonding"
+  },
+  "crystal_structures": {
+    "name_ru": "Crystal Structures",
+    "description_ru": "Relationship between crystal lattice type (ionic, atomic, molecular, metallic) and physical properties: melting point, hardness, conductivity.",
+    "block_name_ru": "Chemical Bonding"
+  },
+  "oxidation_states": {
+    "name_ru": "Oxidation States",
+    "description_ru": "Determining oxidation states of elements in compounds. Rules for calculating and using oxidation states.",
+    "block_name_ru": "Chemical Bonding"
+  },
+  "reactions_exchange": {
+    "name_ru": "Exchange Reactions",
+    "description_ru": "Understanding conditions for exchange reactions: precipitate, gas, or weak electrolyte formation. Using the solubility table.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "reactions_substitution": {
+    "name_ru": "Substitution Reactions",
+    "description_ru": "Predicting displacement reactions using the activity series: metal displaces metal, hydrogen displacement from acids.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "reactions_types": {
+    "name_ru": "Reaction Types",
+    "description_ru": "Classifying reactions: combination, decomposition, exchange, substitution. Distinguishing features and examples.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "redox_basics": {
+    "name_ru": "Redox Reactions",
+    "description_ru": "Identifying oxidation and reduction processes. Writing electron balance equations. Determining oxidizer and reducer.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "qualitative_reactions_knowledge": {
+    "name_ru": "Qualitative Reactions",
+    "description_ru": "Recognizing ions and gases by characteristic features: precipitate color, gas release, color change.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "genetic_chains_logic": {
+    "name_ru": "Genetic Chains",
+    "description_ru": "Converting between substance classes: metal \u2192 basic oxide \u2192 base \u2192 salt. Nonmetal \u2192 acidic oxide \u2192 acid \u2192 salt.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "reaction_energy_profile": {
+    "name_ru": "Reaction Energy",
+    "description_ru": "Factors affecting reaction rate: temperature, concentration, surface area, catalyst. Exo- and endothermic reactions. Le Chatelier\u2019s principle.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "catalyst_knowledge": {
+    "name_ru": "Catalysis",
+    "description_ru": "Understanding how catalysts work: lowering activation energy, not changing equilibrium. Common catalysts and their applications.",
+    "block_name_ru": "Chemical Reactions"
+  },
+  "calculations_basic": {
+    "name_ru": "Basic Calculations",
+    "description_ru": "Calculating molar mass, amount of substance, mass fraction of an element. Converting between mass, moles, and volume.",
+    "block_name_ru": "Chemical Calculations"
+  },
+  "calculations_solutions": {
+    "name_ru": "Solution Calculations",
+    "description_ru": "Calculating mass fraction of dissolved substance. Mixing and dilution problems. Solute mass and solution mass relationships.",
+    "block_name_ru": "Chemical Calculations"
+  },
+  "reaction_yield_logic": {
+    "name_ru": "Reaction Yield",
+    "description_ru": "Calculating theoretical and practical product yield. Stoichiometric calculations using balanced equations.",
+    "block_name_ru": "Chemical Calculations"
+  }
+}

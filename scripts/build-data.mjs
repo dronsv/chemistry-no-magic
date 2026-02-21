@@ -9,6 +9,7 @@
  */
 
 import { readdir, readFile, mkdir, writeFile, cp, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { computeBundleHash } from './lib/hash.mjs';
@@ -29,6 +30,7 @@ import { checkIntegrity } from './lib/integrity.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
 import { generateSearchIndex } from './lib/generate-search-index.mjs';
+import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -39,6 +41,19 @@ const validateOnly = process.argv.includes('--validate-only');
 async function loadJson(path) {
   const raw = await readFile(path, 'utf-8');
   return JSON.parse(raw);
+}
+
+/** Try to load a JSON file, return null if it doesn't exist or is empty. */
+async function loadJsonOptional(path) {
+  try {
+    const data = await loadJson(path);
+    if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+      return data;
+    }
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 async function loadSubstances() {
@@ -56,6 +71,37 @@ async function loadSubstances() {
     substances.push({ filename: f, data });
   }
   return substances;
+}
+
+/**
+ * Load all translation overlays for a given locale.
+ * Returns { elements, competencies, substances, reactions, pages, ... } or empty object.
+ */
+async function loadTranslationOverlays(locale) {
+  const dir = join(DATA_SRC, 'translations', locale);
+  if (!existsSync(dir)) return { _keys: [] };
+
+  const overlays = {};
+  const availableKeys = [];
+  let files;
+  try {
+    files = await readdir(dir);
+  } catch {
+    return { _keys: [] };
+  }
+
+  for (const f of files) {
+    if (!f.endsWith('.json')) continue;
+    const key = f.replace('.json', '');
+    const data = await loadJsonOptional(join(dir, f));
+    if (data) {
+      overlays[key] = data;
+      availableKeys.push(key);
+    }
+  }
+
+  overlays._keys = availableKeys;
+  return overlays;
 }
 
 async function main() {
@@ -229,14 +275,52 @@ async function main() {
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
 
-  // 7b. Generate search index
+  // 7b. Generate search index (Russian — default)
   console.log('Generating search index...');
   const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies });
   await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
-  console.log(`  ${searchIndex.length} search entries\n`);
+  console.log(`  ${searchIndex.length} search entries (ru)`);
+
+  // 7c. Load translation overlays and generate per-locale data
+  console.log('\nProcessing translations...');
+  const translationsManifest = {};
+
+  for (const locale of TRANSLATION_LOCALES) {
+    const overlays = await loadTranslationOverlays(locale);
+    const keys = overlays._keys;
+
+    if (keys.length === 0) {
+      console.log(`  ${locale}: no translations`);
+      translationsManifest[locale] = [];
+      continue;
+    }
+
+    // Copy overlay files to bundle
+    const localeDir = join(bundleDir, 'translations', locale);
+    await mkdir(localeDir, { recursive: true });
+
+    for (const key of keys) {
+      await writeFile(join(localeDir, `${key}.json`), JSON.stringify(overlays[key]));
+    }
+
+    translationsManifest[locale] = keys;
+    console.log(`  ${locale}: ${keys.length} overlay files (${keys.join(', ')})`);
+
+    // Generate locale-specific search index
+    const localeSearchIndex = generateSearchIndex({
+      elements,
+      substances,
+      reactions,
+      competencies,
+      locale,
+      translations: overlays,
+    });
+    await writeFile(join(bundleDir, `search_index.${locale}.json`), JSON.stringify(localeSearchIndex));
+    console.log(`  ${locale}: ${localeSearchIndex.length} search entries`);
+  }
 
   // 8. Generate manifest
-  console.log('Generating manifest...');
+  console.log('\nGenerating manifest...');
   const stats = {
     elements_count: elements.length,
     ions_count: ions.length,
@@ -251,6 +335,7 @@ async function main() {
     latestDir,
     stats,
     indexKeys,
+    translations: translationsManifest,
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

@@ -9,12 +9,13 @@ import { join } from 'node:path';
  * @param {string} opts.latestDir
  * @param {object} opts.stats
  * @param {object} opts.indexKeys - {classes, ions, competencies}
+ * @param {Record<string, string[]>} [opts.translations] - { en: ['elements', 'competencies', ...], pl: [...], es: [...] }
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
-    schema_version: '1.0.0',
+    schema_version: '1.1.0',
     entrypoints: {
       elements: 'elements.json',
       ions: 'ions.json',
@@ -56,6 +57,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         substances_index: 'indices/substances_index.json',
       },
     },
+    translations: translations || {},
     stats,
   };
 

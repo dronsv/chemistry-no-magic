@@ -21,6 +21,7 @@ import type { CalculationsData } from '../types/calculations';
 import type { OgeTask } from '../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../types/oge-solution';
 import type { SearchIndexEntry } from '../types/search';
+import type { SupportedLocale } from '../types/i18n';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -71,10 +72,87 @@ export async function loadDataFile<T>(path: string): Promise<T> {
   return (await response.json()) as T;
 }
 
+// ---------------------------------------------------------------------------
+// Translation overlay helpers
+// ---------------------------------------------------------------------------
+
+/** Cache for loaded translation overlays: `"en:elements"` → promise */
+const overlayCache = new Map<string, Promise<Record<string, Record<string, unknown>> | null>>();
+
+/**
+ * Load a translation overlay file for a given locale and data key.
+ * Returns null if locale is 'ru', overlay is not available, or fetch fails.
+ */
+async function loadTranslationOverlay(
+  locale: SupportedLocale,
+  dataKey: string,
+): Promise<Record<string, Record<string, unknown>> | null> {
+  if (locale === 'ru') return null;
+
+  const cacheKey = `${locale}:${dataKey}`;
+  const cached = overlayCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+
+  const promise = (async () => {
+    const manifest = await getManifest();
+    const available = manifest.translations?.[locale];
+    if (!available?.includes(dataKey)) return null;
+
+    try {
+      return await loadDataFile<Record<string, Record<string, unknown>>>(
+        `translations/${locale}/${dataKey}.json`,
+      );
+    } catch {
+      return null;
+    }
+  })();
+
+  overlayCache.set(cacheKey, promise);
+  return promise;
+}
+
+/**
+ * Apply a translation overlay to an array of items.
+ * Overlay values are shallow-merged onto matching items, replacing `_ru` fields in-place.
+ */
+function applyOverlay<T extends Record<string, unknown>>(
+  items: T[],
+  overlay: Record<string, Record<string, unknown>> | null,
+  keyFn: (item: T) => string,
+): T[] {
+  if (!overlay) return items;
+  return items.map(item => {
+    const overrides = overlay[keyFn(item)];
+    if (!overrides) return item;
+    return { ...item, ...overrides } as T;
+  });
+}
+
+/**
+ * Apply a translation overlay to a single object (e.g. a substance).
+ */
+function applyOverlaySingle<T extends Record<string, unknown>>(
+  item: T,
+  overlay: Record<string, Record<string, unknown>> | null,
+  key: string,
+): T {
+  if (!overlay) return item;
+  const overrides = overlay[key];
+  if (!overrides) return item;
+  return { ...item, ...overrides } as T;
+}
+
+// ---------------------------------------------------------------------------
+// Data loaders
+// ---------------------------------------------------------------------------
+
 /** Load the full elements list. */
-export async function loadElements(): Promise<Element[]> {
+export async function loadElements(locale?: SupportedLocale): Promise<Element[]> {
   const manifest = await getManifest();
-  return loadDataFile<Element[]>(manifest.entrypoints.elements);
+  const elements = await loadDataFile<Element[]>(manifest.entrypoints.elements);
+  if (!locale || locale === 'ru') return elements;
+  const overlay = await loadTranslationOverlay(locale, 'elements');
+  return applyOverlay(elements, overlay, el => el.symbol);
 }
 
 /** Load the full ions list. */
@@ -88,12 +166,15 @@ export async function loadIons(): Promise<Ion[]> {
  *
  * @param id - Substance identifier (e.g. `"NaCl"`).
  */
-export async function loadSubstance(id: string): Promise<Substance> {
+export async function loadSubstance(id: string, locale?: SupportedLocale): Promise<Substance> {
   const manifest = await getManifest();
   const basePath = manifest.entrypoints.substances;
   // Substances directory contains individual files per substance
   const path = `${basePath}/${id}.json`;
-  return loadDataFile<Substance>(path);
+  const substance = await loadDataFile<Substance>(path);
+  if (!locale || locale === 'ru') return substance;
+  const overlay = await loadTranslationOverlay(locale, 'substances');
+  return applyOverlaySingle(substance, overlay, id);
 }
 
 /**
@@ -135,7 +216,7 @@ export async function loadIndex(name: string): Promise<unknown> {
 }
 
 /** Load competency definitions (names, blocks, prerequisites). */
-export async function loadCompetencies(): Promise<CompetencyNode[]> {
+export async function loadCompetencies(locale?: SupportedLocale): Promise<CompetencyNode[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.rules['competencies'];
 
@@ -145,7 +226,10 @@ export async function loadCompetencies(): Promise<CompetencyNode[]> {
     );
   }
 
-  return loadDataFile<CompetencyNode[]>(path);
+  const competencies = await loadDataFile<CompetencyNode[]>(path);
+  if (!locale || locale === 'ru') return competencies;
+  const overlay = await loadTranslationOverlay(locale, 'competencies');
+  return applyOverlay(competencies, overlay, c => c.id);
 }
 
 /** Load BKT parameters for all competencies. */
@@ -177,7 +261,7 @@ export async function loadTaskTemplates(): Promise<TaskTemplate[]> {
 }
 
 /** Load diagnostic questions. */
-export async function loadDiagnosticQuestions(): Promise<DiagnosticQuestion[]> {
+export async function loadDiagnosticQuestions(locale?: SupportedLocale): Promise<DiagnosticQuestion[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.diagnostic;
 
@@ -187,7 +271,10 @@ export async function loadDiagnosticQuestions(): Promise<DiagnosticQuestion[]> {
     );
   }
 
-  return loadDataFile<DiagnosticQuestion[]>(path);
+  const questions = await loadDataFile<DiagnosticQuestion[]>(path);
+  if (!locale || locale === 'ru') return questions;
+  const overlay = await loadTranslationOverlay(locale, 'diagnostic_questions');
+  return applyOverlay(questions, overlay, q => q.id);
 }
 
 /** Load element groups dictionary. */
@@ -294,7 +381,7 @@ export async function loadOxidationTheory(): Promise<OxidationTheory> {
 }
 
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
-export async function loadReactions(): Promise<Reaction[]> {
+export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.reactions;
 
@@ -304,7 +391,10 @@ export async function loadReactions(): Promise<Reaction[]> {
     );
   }
 
-  return loadDataFile<Reaction[]>(path);
+  const reactions = await loadDataFile<Reaction[]>(path);
+  if (!locale || locale === 'ru') return reactions;
+  const overlay = await loadTranslationOverlay(locale, 'reactions');
+  return applyOverlay(reactions, overlay, r => r.reaction_id);
 }
 
 /** Load all reaction templates. */
@@ -369,18 +459,28 @@ export async function loadOgeSolutionAlgorithms(): Promise<OgeSolutionAlgorithm[
   return loadDataFile<OgeSolutionAlgorithm[]>(path);
 }
 
-/** Load search index for global search. */
-export async function loadSearchIndex(): Promise<SearchIndexEntry[]> {
+/** Load search index for global search. Supports per-locale indices. */
+export async function loadSearchIndex(locale?: SupportedLocale): Promise<SearchIndexEntry[]> {
   const manifest = await getManifest();
-  const path = manifest.entrypoints.search_index;
+  const basePath = manifest.entrypoints.search_index;
 
-  if (!path) {
+  if (!basePath) {
     throw new Error(
       'Search index not found in manifest. Expected key "search_index" in entrypoints.',
     );
   }
 
-  return loadDataFile<SearchIndexEntry[]>(path);
+  // For non-ru locales, try locale-specific search index first
+  if (locale && locale !== 'ru') {
+    const localePath = basePath.replace('.json', `.${locale}.json`);
+    try {
+      return await loadDataFile<SearchIndexEntry[]>(localePath);
+    } catch {
+      // Fall back to default (Russian) search index
+    }
+  }
+
+  return loadDataFile<SearchIndexEntry[]>(basePath);
 }
 
 /** Load a molecule structure by substance ID. */
