@@ -1,0 +1,16 @@
+{
+  "id": "mno2",
+  "formula": "MnO\u2082",
+  "name_ru": "Оксид марганца(IV)",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": [],
+  "tags": ["insoluble", "black", "oxidizer", "catalyst"],
+  "melting_point_C": 535,
+  "boiling_point_C": null,
+  "density_g_cm3": 5.026,
+  "appearance_ru": "Чёрно-бурый порошок",
+  "industrial_ru": "Производство батареек, катализатор разложения H\u2082O\u2082, пигмент",
+  "production_ru": "В природе — минерал пиролюзит",
+  "fun_facts_ru": ["Используется в батарейках с XIX века", "Катализирует разложение перекиси водорода — классический школьный опыт"]
+}

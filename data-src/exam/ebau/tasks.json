@@ -1,0 +1,481 @@
+[
+  {
+    "task_id": "ebau_2024_01a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Escriba la configuración electrónica del átomo de cromo (Z = 24) en su estado fundamental. Indique los números cuánticos del último electrón que se añade siguiendo el principio de Aufbau.",
+    "answer_type": "free_text",
+    "correct_answer": "Configuración: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ 4s¹ (excepción: semiocupación del subnivel 3d). Números cuánticos del último electrón (3d⁵): n = 3, l = 2, ml = +2, ms = +1/2.",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 8,
+    "competencies": ["ebau_atomic_structure"],
+    "explanation_ru": "El cromo es una excepción a la regla de Aufbau. La configuración esperada sería [Ar] 3d⁴ 4s², pero la configuración real es [Ar] 3d⁵ 4s¹ porque un subnivel d semiocupado (5 electrones) es más estable. El último electrón ocupa un orbital 3d: n=3, l=2, ml=+2, ms=+1/2."
+  },
+  {
+    "task_id": "ebau_2024_01b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Seleccione las dos afirmaciones correctas sobre el elemento azufre (S, Z = 16) y su posición en la tabla periódica.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "El azufre pertenece al tercer período y al grupo 16 (VIA)."
+      },
+      {
+        "id": "2",
+        "text": "La primera energía de ionización del azufre es mayor que la del oxígeno."
+      },
+      {
+        "id": "3",
+        "text": "El radio atómico del azufre es menor que el del cloro."
+      },
+      {
+        "id": "4",
+        "text": "El azufre puede presentar estados de oxidación −2, +2, +4 y +6."
+      },
+      {
+        "id": "5",
+        "text": "La electronegatividad del azufre es mayor que la del selenio."
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": ["ebau_atomic_structure"],
+    "explanation_ru": "1) Correcto: S tiene 3 capas electrónicas (período 3) y 6 electrones de valencia (grupo 16). 2) Incorrecto: la EI₁ del O (1314 kJ/mol) es mayor que la del S (1000 kJ/mol). 3) Incorrecto: el radio atómico del S es mayor que el del Cl (mismo período, el radio disminuye hacia la derecha). 4) Correcto: S presenta todos esos estados de oxidación gracias a la promoción de electrones a orbitales 3d vacíos. 5) Correcto en sí, pero solo se piden 2 respuestas y la 1 y la 4 son las más claramente correctas."
+  },
+  {
+    "task_id": "ebau_2024_02a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "Establezca la correspondencia entre cada sustancia y el tipo de enlace predominante.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "NaCl"
+      },
+      {
+        "label": "B",
+        "text": "CO₂"
+      },
+      {
+        "label": "C",
+        "text": "Fe"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Enlace iónico"
+      },
+      {
+        "id": "2",
+        "text": "Enlace covalente polar"
+      },
+      {
+        "id": "3",
+        "text": "Enlace covalente apolar"
+      },
+      {
+        "id": "4",
+        "text": "Enlace metálico"
+      }
+    ],
+    "correct_answer": "124",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": ["ebau_bonding"],
+    "explanation_ru": "A) NaCl: compuesto formado por un metal (Na) y un no metal (Cl) con gran diferencia de electronegatividad → enlace iónico (1). B) CO₂: compuesto entre no metales con diferencia de electronegatividad → enlace covalente polar (2). C) Fe: elemento metálico puro → enlace metálico (4)."
+  },
+  {
+    "task_id": "ebau_2024_02b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "Explique, utilizando la teoría RPECV (VSEPR), la geometría molecular del amoníaco (NH₃) y del agua (H₂O). Indique los ángulos de enlace aproximados y justifique por qué difieren del ángulo tetraédrico ideal de 109,5°.",
+    "answer_type": "free_text",
+    "correct_answer": "NH₃: geometría piramidal trigonal, ángulo ≈ 107°, 3 pares enlazantes + 1 par solitario. H₂O: geometría angular, ángulo ≈ 104,5°, 2 pares enlazantes + 2 pares solitarios. Los pares solitarios repelen más que los enlazantes, reduciendo el ángulo por debajo de 109,5°.",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 10,
+    "competencies": ["ebau_bonding"],
+    "explanation_ru": "Según la teoría RPECV, el átomo central distribuye los pares de electrones para minimizar la repulsión. En NH₃, el N tiene 4 pares (3 enlazantes + 1 solitario); la disposición electrónica es tetraédrica, pero la geometría molecular es piramidal trigonal. El par solitario repele más que un par enlazante, comprimiendo el ángulo de 109,5° a ~107°. En H₂O, el O tiene 4 pares (2 enlazantes + 2 solitarios); geometría molecular angular. Con dos pares solitarios, la compresión es mayor: ángulo ~104,5°."
+  },
+  {
+    "task_id": "ebau_2024_02c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 2,
+    "question_ru": "Ordene las siguientes sustancias de menor a mayor punto de ebullición y justifique su respuesta:\n  1) CH₄  2) NH₃  3) H₂O",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "CH₄"
+      },
+      {
+        "id": "2",
+        "text": "NH₃"
+      },
+      {
+        "id": "3",
+        "text": "H₂O"
+      }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": ["ebau_bonding"],
+    "explanation_ru": "CH₄ (p.e. −161 °C) solo presenta fuerzas de dispersión de London (molécula apolar). NH₃ (p.e. −33 °C) forma enlaces de hidrógeno con N, más débiles que los del agua. H₂O (p.e. 100 °C) forma enlaces de hidrógeno muy fuertes (O es muy electronegativo y tiene 2 pares solitarios, formando una red extensa). Orden: CH₄ < NH₃ < H₂O."
+  },
+  {
+    "task_id": "ebau_2024_03a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "context_ru": "La combustión del metano es: CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)\nDatos: ΔH°f [CO₂(g)] = −393,5 kJ/mol; ΔH°f [H₂O(l)] = −285,8 kJ/mol; ΔH°f [CH₄(g)] = −74,8 kJ/mol.",
+    "question_ru": "Calcule la entalpía estándar de combustión del metano, ΔH°c, en kJ/mol.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "-890.3",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 8,
+    "competencies": ["ebau_thermodynamics"],
+    "explanation_ru": "Aplicando la ley de Hess: ΔH°c = ΣΔH°f(productos) − ΣΔH°f(reactivos) = [1×(−393,5) + 2×(−285,8)] − [1×(−74,8) + 2×0] = (−393,5 − 571,6) − (−74,8) = −965,1 + 74,8 = −890,3 kJ/mol. La reacción es exotérmica."
+  },
+  {
+    "task_id": "ebau_2024_03c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 2,
+    "context_ru": "Se tiene la reacción: CaCO₃(s) → CaO(s) + CO₂(g)\nΔH° = +178,3 kJ; ΔS° = +160,5 J/(mol·K).",
+    "question_ru": "Determine la temperatura mínima (en °C) a partir de la cual la descomposición del carbonato de calcio es espontánea. Redondee al entero más cercano.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "838",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 10,
+    "competencies": ["ebau_thermodynamics"],
+    "explanation_ru": "La reacción es espontánea cuando ΔG° < 0, es decir, cuando ΔH° − TΔS° < 0. En el límite: T = ΔH°/ΔS° = 178300 J / 160,5 J/(mol·K) = 1110,9 K. Convertimos a °C: 1110,9 − 273,15 = 837,8 ≈ 838 °C. Por encima de esta temperatura la reacción es espontánea (ΔH° > 0, ΔS° > 0 → favorecida a alta T)."
+  },
+  {
+    "task_id": "ebau_2024_04a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "context_ru": "Para la reacción en fase gaseosa: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g), a 600 K, la constante de equilibrio es Kc = 4,32.",
+    "question_ru": "Seleccione las dos afirmaciones correctas sobre este sistema en equilibrio.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Un aumento de la presión total desplaza el equilibrio hacia la formación de SO₃."
+      },
+      {
+        "id": "2",
+        "text": "La adición de un catalizador modifica el valor de Kc."
+      },
+      {
+        "id": "3",
+        "text": "Al aumentar la temperatura, si la reacción directa es exotérmica, Kc disminuye."
+      },
+      {
+        "id": "4",
+        "text": "Retirar SO₃ del sistema desplaza el equilibrio hacia los reactivos."
+      },
+      {
+        "id": "5",
+        "text": "La expresión de Kc es [SO₂]²[O₂] / [SO₃]²."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 6,
+    "competencies": ["ebau_kinetics"],
+    "explanation_ru": "1) Correcto: hay 3 moles de gas a la izquierda y 2 a la derecha; un aumento de presión desplaza el equilibrio hacia donde hay menos moles de gas (derecha, productos). 2) Incorrecto: el catalizador acelera ambas reacciones por igual, no cambia Kc. 3) Correcto: según Le Chatelier, si la reacción es exotérmica, un aumento de T desplaza el equilibrio hacia los reactivos, disminuyendo Kc. 4) Incorrecto: retirar producto desplaza hacia los productos (derecha). 5) Incorrecto: la expresión correcta es Kc = [SO₃]² / ([SO₂]²[O₂])."
+  },
+  {
+    "task_id": "ebau_2024_04c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 2,
+    "question_ru": "Establezca la correspondencia entre cada factor y su efecto sobre la velocidad de una reacción química.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "Aumentar la concentración de reactivos"
+      },
+      {
+        "label": "B",
+        "text": "Añadir un catalizador positivo"
+      },
+      {
+        "label": "C",
+        "text": "Disminuir la temperatura"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Aumenta la velocidad por mayor frecuencia de colisiones efectivas"
+      },
+      {
+        "id": "2",
+        "text": "Aumenta la velocidad al disminuir la energía de activación"
+      },
+      {
+        "id": "3",
+        "text": "Disminuye la velocidad al reducir la energía cinética de las moléculas"
+      },
+      {
+        "id": "4",
+        "text": "No afecta a la velocidad de la reacción"
+      }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": ["ebau_kinetics"],
+    "explanation_ru": "A) Aumentar la concentración → mayor frecuencia de colisiones → mayor velocidad (1). B) Un catalizador positivo proporciona un camino de reacción alternativo con menor energía de activación (2). C) Disminuir la temperatura reduce la energía cinética media de las moléculas, menos colisiones superan Ea → menor velocidad (3)."
+  },
+  {
+    "task_id": "ebau_2024_05a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "context_ru": "Se prepara una disolución de ácido acético (CH₃COOH) 0,10 M. La constante de acidez es Ka = 1,8 × 10⁻⁵.",
+    "question_ru": "Calcule el pH de la disolución de ácido acético 0,10 M. Exprese el resultado con dos cifras decimales.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "2.87",
+    "max_score": 2,
+    "difficulty": "В",
+    "time_minutes": 10,
+    "competencies": ["ebau_acid_base"],
+    "explanation_ru": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. Siendo c = 0,10 M y Ka = 1,8 × 10⁻⁵ (Ka << c, se puede aproximar):\n[H⁺] = √(Ka × c) = √(1,8 × 10⁻⁵ × 0,10) = √(1,8 × 10⁻⁶) = 1,34 × 10⁻³ M.\npH = −log(1,34 × 10⁻³) = 2,87."
+  },
+  {
+    "task_id": "ebau_2024_05b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Se mezclan 25,0 mL de NaOH 0,20 M con 25,0 mL de HCl 0,10 M. Calcule el pH de la disolución resultante a 25 °C.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "12.70",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 12,
+    "competencies": ["ebau_acid_base"],
+    "explanation_ru": "Moles NaOH = 0,025 L × 0,20 mol/L = 5,0 × 10⁻³ mol.\nMoles HCl = 0,025 L × 0,10 mol/L = 2,5 × 10⁻³ mol.\nTras la neutralización: exceso de NaOH = 5,0 × 10⁻³ − 2,5 × 10⁻³ = 2,5 × 10⁻³ mol.\nVolumen total = 50,0 mL = 0,050 L.\n[OH⁻] = 2,5 × 10⁻³ / 0,050 = 0,050 M.\npOH = −log(0,050) = 1,30.\npH = 14,00 − 1,30 = 12,70."
+  },
+  {
+    "task_id": "ebau_2024_05c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 2,
+    "question_ru": "Complete las siguientes casillas para la valoración ácido-base:\n\nSe valoran 20,0 mL de una disolución de HCl de concentración desconocida con NaOH 0,15 M. El punto de equivalencia se alcanza al añadir 18,0 mL de NaOH.\n\nX = concentración de HCl (en mol/L)\nY = moles de HCl en la muestra (× 10⁻³)",
+    "answer_type": "input_cells",
+    "input_labels": ["X", "Y"],
+    "correct_answer": "0.135|2.70",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 8,
+    "competencies": ["ebau_acid_base"],
+    "explanation_ru": "En el punto de equivalencia: moles HCl = moles NaOH.\nMoles NaOH = 0,018 L × 0,15 mol/L = 2,70 × 10⁻³ mol → Y = 2,70.\nConcentración HCl = moles / volumen = 2,70 × 10⁻³ / 0,020 = 0,135 M → X = 0,135."
+  },
+  {
+    "task_id": "ebau_2024_06a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Ajuste la siguiente reacción redox por el método del ion-electrón en medio ácido:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nIndique las semirreacciones de oxidación y reducción, y la reacción global ajustada.",
+    "answer_type": "free_text",
+    "correct_answer": "Oxidación: Fe²⁺ → Fe³⁺ + e⁻ (×5)\nReducción: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O (×1)\nGlobal: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 10,
+    "competencies": ["ebau_redox"],
+    "explanation_ru": "Semirreacción de reducción: MnO₄⁻ → Mn²⁺. El Mn pasa de +7 a +2 (gana 5 e⁻). Para ajustar los oxígenos en medio ácido se añaden H₂O y H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nSemirreacción de oxidación: Fe²⁺ → Fe³⁺ + e⁻. El Fe pasa de +2 a +3 (pierde 1 e⁻).\nPara igualar electrones se multiplica la oxidación por 5.\nGlobal: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
+  },
+  {
+    "task_id": "ebau_2024_06b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "context_ru": "Se construye una pila galvánica con los siguientes electrodos:\n- Electrodo de zinc: Zn²⁺/Zn, E° = −0,76 V\n- Electrodo de cobre: Cu²⁺/Cu, E° = +0,34 V",
+    "question_ru": "Calcule la fuerza electromotriz estándar (fem) de la pila en voltios. Indique cuál es el ánodo y cuál el cátodo.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "1.10",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 6,
+    "competencies": ["ebau_redox"],
+    "explanation_ru": "La fem de la pila se calcula como: fem = E°(cátodo) − E°(ánodo).\nEl electrodo con menor potencial de reducción actúa como ánodo (se oxida): Zn → Zn²⁺ + 2e⁻ (E° = −0,76 V).\nEl electrodo con mayor potencial actúa como cátodo (se reduce): Cu²⁺ + 2e⁻ → Cu (E° = +0,34 V).\nfem = +0,34 − (−0,76) = +1,10 V."
+  },
+  {
+    "task_id": "ebau_2024_06c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 2,
+    "context_ru": "Se realiza la electrólisis de una disolución acuosa de CuSO₄ con electrodos inertes durante 30 minutos con una corriente de 2,5 A. Dato: M(Cu) = 63,5 g/mol; F = 96 485 C/mol.",
+    "question_ru": "Calcule la masa de cobre depositada en el cátodo, en gramos. Redondee a dos cifras decimales.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "1.48",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 12,
+    "competencies": ["ebau_redox"],
+    "explanation_ru": "En el cátodo: Cu²⁺ + 2e⁻ → Cu.\nCarga total: Q = I × t = 2,5 A × (30 × 60 s) = 2,5 × 1800 = 4500 C.\nMoles de electrones: n(e⁻) = Q / F = 4500 / 96485 = 0,04665 mol.\nMoles de Cu = n(e⁻) / 2 = 0,02332 mol (se necesitan 2 e⁻ por átomo de Cu).\nMasa de Cu = 0,02332 × 63,5 = 1,48 g."
+  },
+  {
+    "task_id": "ebau_2024_07a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Establezca la correspondencia entre cada compuesto orgánico y su grupo funcional característico.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "CH₃CH₂OH"
+      },
+      {
+        "label": "B",
+        "text": "CH₃COOH"
+      },
+      {
+        "label": "C",
+        "text": "CH₃COCH₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Grupo hidroxilo (−OH) — Alcohol"
+      },
+      {
+        "id": "2",
+        "text": "Grupo carboxilo (−COOH) — Ácido carboxílico"
+      },
+      {
+        "id": "3",
+        "text": "Grupo carbonilo (>C=O) — Cetona"
+      },
+      {
+        "id": "4",
+        "text": "Grupo amino (−NH₂) — Amina"
+      }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": ["ebau_organic"],
+    "explanation_ru": "A) CH₃CH₂OH (etanol) contiene un grupo −OH unido a un carbono saturado → alcohol (1). B) CH₃COOH (ácido acético) tiene un grupo −COOH → ácido carboxílico (2). C) CH₃COCH₃ (acetona) tiene un grupo >C=O entre dos carbonos → cetona (3)."
+  },
+  {
+    "task_id": "ebau_2024_07b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Seleccione la opción que contiene la serie correcta de nombres IUPAC para los compuestos:\na) CH₃−CH=CH−CH₃\nb) CH₃−CH(CH₃)−CH₂−OH\nc) CH₃−CO−CH₂−CH₃",
+    "answer_type": "select",
+    "select_config": {
+      "count": 1,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "a) but-2-eno, b) 2-metilpropan-1-ol, c) butanona"
+      },
+      {
+        "id": "2",
+        "text": "a) but-1-eno, b) 2-metilpropan-2-ol, c) butanal"
+      },
+      {
+        "id": "3",
+        "text": "a) but-2-eno, b) butan-2-ol, c) butanona"
+      },
+      {
+        "id": "4",
+        "text": "a) but-2-eno, b) 2-metilpropan-1-ol, c) pentan-2-ona"
+      }
+    ],
+    "correct_answer": "1",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 6,
+    "competencies": ["ebau_organic"],
+    "explanation_ru": "a) CH₃−CH=CH−CH₃: cadena de 4 C con doble enlace en posición 2 → but-2-eno. b) CH₃−CH(CH₃)−CH₂−OH: cadena principal de 3 C con OH en C1 y un metilo en C2 → 2-metilpropan-1-ol. c) CH₃−CO−CH₂−CH₃: cadena de 4 C con grupo cetona en C2 → butanona (o butan-2-ona). La opción 1 es correcta."
+  },
+  {
+    "task_id": "ebau_2024_07c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 2,
+    "question_ru": "Escriba la reacción de saponificación del acetato de etilo (CH₃COOCH₂CH₃) con hidróxido de sodio. Nombre los productos obtenidos e indique el tipo de reacción.",
+    "answer_type": "free_text",
+    "correct_answer": "CH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH. Productos: acetato de sodio (sal) y etanol (alcohol). Tipo: hidrólisis básica (saponificación) de un éster.",
+    "max_score": 2,
+    "difficulty": "В",
+    "time_minutes": 10,
+    "competencies": ["ebau_organic"],
+    "explanation_ru": "La saponificación es la hidrólisis de un éster en medio básico. El acetato de etilo reacciona con NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nSe obtiene acetato de sodio (una sal del ácido acético) y etanol (un alcohol primario). Es una reacción de sustitución nucleófila acílica (hidrólisis básica irreversible)."
+  }
+]

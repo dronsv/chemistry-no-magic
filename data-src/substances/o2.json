@@ -1,0 +1,16 @@
+{
+  "id": "o2",
+  "formula": "O\u2082",
+  "name_ru": "Кислород",
+  "class": "other",
+  "subclass": "simple_substance",
+  "ions": [],
+  "tags": ["gas", "supports_combustion"],
+  "melting_point_C": -218.79,
+  "boiling_point_C": -182.96,
+  "density_g_cm3": 0.001429,
+  "appearance_ru": "Бесцветный газ без запаха",
+  "industrial_ru": "Металлургия, медицина, сварка, ракетное топливо",
+  "production_ru": "Фракционная перегонка жидкого воздуха или электролиз воды",
+  "fun_facts_ru": ["Составляет 21% атмосферы Земли", "Жидкий кислород имеет голубой цвет и притягивается магнитом"]
+}

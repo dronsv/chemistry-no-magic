@@ -57,7 +57,26 @@ function gradeNumeric(task: OgeTask, userAnswer: string): GradeResult {
 }
 
 function gradeInputCells(task: OgeTask, userAnswer: string): GradeResult {
-  return { score: userAnswer === task.correct_answer ? 1 : 0, maxScore: 1 };
+  const correct = task.correct_answer;
+  // Pipe-separated format: compare per-cell values with tolerance for numeric cells
+  if (correct.includes('|')) {
+    const correctParts = correct.split('|');
+    const userParts = userAnswer.split('|');
+    const allMatch = correctParts.every((c, i) => {
+      const u = (userParts[i] ?? '').trim();
+      const ct = c.trim();
+      // Try numeric comparison with tolerance
+      const cn = parseFloat(ct);
+      const un = parseFloat(u);
+      if (!isNaN(cn) && !isNaN(un)) {
+        return Math.abs(cn - un) < 0.01 * Math.max(1, Math.abs(cn));
+      }
+      return u === ct;
+    });
+    return { score: allMatch ? task.max_score : 0, maxScore: task.max_score };
+  }
+  // Legacy concatenated single-char format
+  return { score: userAnswer === correct ? 1 : 0, maxScore: 1 };
 }
 
 export function gradeOgeTask(task: OgeTask, userAnswer: string): GradeResult {

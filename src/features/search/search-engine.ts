@@ -1,4 +1,5 @@
 import type { SearchIndexEntry, SearchCategory } from '../../types/search';
+import * as m from '../../paraglide/messages.js';
 
 export interface SearchResultGroup {
   category: SearchCategory;
@@ -8,13 +9,15 @@ export interface SearchResultGroup {
 
 const CATEGORY_ORDER: SearchCategory[] = ['element', 'substance', 'reaction', 'competency', 'page'];
 
-const CATEGORY_LABELS: Record<SearchCategory, string> = {
-  element: 'Элементы',
-  substance: 'Вещества',
-  reaction: 'Реакции',
-  competency: 'Компетенции',
-  page: 'Страницы',
-};
+function getCategoryLabel(cat: SearchCategory): string {
+  switch (cat) {
+    case 'element': return m.search_cat_elements();
+    case 'substance': return m.search_cat_substances();
+    case 'reaction': return m.search_cat_reactions();
+    case 'competency': return m.search_cat_competencies();
+    case 'page': return m.search_cat_pages();
+  }
+}
 
 /** Normalize subscripts for ASCII matching. */
 function normalizeFormula(s: string): string {
@@ -79,7 +82,7 @@ export function search(
 
     groups.push({
       category: cat,
-      label: CATEGORY_LABELS[cat],
+      label: getCategoryLabel(cat),
       results: items.slice(0, maxPerCategory).map(i => i.entry),
     });
   }

@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   symbol: string;
 }
@@ -35,7 +37,7 @@ export default function BondDiagramMetallic({ symbol }: Props) {
       viewBox="0 0 300 160"
       width="100%"
       role="img"
-      aria-label={`Металлическая связь: кристаллическая решётка ${symbol}`}
+      aria-label={m.bond_diagram_metallic_aria({ symbol })}
     >
       {/* Electron cloud background */}
       <rect
@@ -104,7 +106,7 @@ export default function BondDiagramMetallic({ symbol }: Props) {
         fontSize={12}
         fill="var(--color-text-muted, #6b7280)"
       >
-        Металлическая связь
+        {m.bond_diagram_metallic_label()}
       </text>
     </svg>
   );

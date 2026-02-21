@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   symbolA: string;
   symbolB: string;
@@ -16,7 +18,7 @@ export default function BondDiagramIonic({ symbolA, symbolB }: Props) {
       viewBox="0 0 300 160"
       width="100%"
       role="img"
-      aria-label={`Ионная связь: ${symbolA} отдаёт электрон ${symbolB}`}
+      aria-label={m.bond_diagram_ionic_aria({ symbolA, symbolB })}
     >
       {/* Metal atom */}
       <circle
@@ -129,7 +131,7 @@ export default function BondDiagramIonic({ symbolA, symbolB }: Props) {
         fontSize={12}
         fill="var(--color-text-muted, #6b7280)"
       >
-        Ионная связь
+        {m.bond_diagram_ionic_label()}
       </text>
     </svg>
   );

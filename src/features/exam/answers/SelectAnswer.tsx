@@ -1,5 +1,7 @@
 import { useCallback } from 'react';
 import type { OgeOption } from '../../../types/oge-task';
+import ChemText from '../../../components/ChemText';
+import * as m from '../../../paraglide/messages.js';
 
 interface Props {
   options: OgeOption[];
@@ -77,13 +79,13 @@ export default function SelectAnswer({
             disabled={disabled}
           >
             <span className="oge-select__id">{opt.id})</span>
-            <span className="oge-select__text">{opt.text}</span>
+            <span className="oge-select__text"><ChemText text={opt.text} /></span>
           </button>
         ))}
       </div>
       {value && (
         <div className="oge-select__answer">
-          Ответ: <strong>{value}</strong>
+          {m.oge_answer_label()} <strong>{value}</strong>
         </div>
       )}
     </div>

@@ -1,0 +1,17 @@
+{
+  "id": "hclo",
+  "formula": "HClO",
+  "name_ru": "Хлорноватистая кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": [],
+  "tags": ["weak_acid", "unstable", "oxidizer"],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": null,
+  "appearance_ru": "Существует только в растворе, бледно-жёлтого цвета",
+  "hazards_ru": ["Окислитель", "Раздражает кожу"],
+  "industrial_ru": "Дезинфекция воды, отбеливание",
+  "production_ru": "Растворение хлора в воде: Cl\u2082 + H\u2082O \u2192 HClO + HCl",
+  "fun_facts_ru": ["Самая слабая из хлорсодержащих кислот", "Именно HClO обеспечивает обеззараживание воды при хлорировании"]
+}

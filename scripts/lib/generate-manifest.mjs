@@ -35,6 +35,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         genetic_chains: 'rules/genetic_chains.json',
         energy_catalyst_theory: 'rules/energy_catalyst_theory.json',
         calculations_data: 'rules/calculations_data.json',
+        topic_mapping: 'rules/topic_mapping.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
@@ -55,6 +56,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       oge_solution_algorithms: 'exam/oge_solution_algorithms.json',
       exam_systems: 'exam/systems.json',
       search_index: 'search_index.json',
+      formula_lookup: 'formula_lookup.json',
       indices: {
         substances_index: 'indices/substances_index.json',
       },

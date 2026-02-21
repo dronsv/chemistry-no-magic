@@ -28,5 +28,71 @@
     "Chemical analysis",
     "Chemistry of the atmosphere",
     "Using resources"
+  ],
+  "competencies": [
+    {
+      "id": "gcse_atomic_structure",
+      "name_en": "Atomic structure and the periodic table",
+      "name_ru": "Строение атома и периодическая таблица"
+    },
+    {
+      "id": "gcse_bonding",
+      "name_en": "Bonding, structure, and properties",
+      "name_ru": "Связи, строение и свойства"
+    },
+    {
+      "id": "gcse_quantitative",
+      "name_en": "Quantitative chemistry",
+      "name_ru": "Количественная химия"
+    },
+    {
+      "id": "gcse_chemical_changes",
+      "name_en": "Chemical changes",
+      "name_ru": "Химические превращения"
+    },
+    {
+      "id": "gcse_energy",
+      "name_en": "Energy changes",
+      "name_ru": "Энергетические изменения"
+    },
+    {
+      "id": "gcse_rates",
+      "name_en": "Rate and extent of chemical change",
+      "name_ru": "Скорость и степень протекания реакций"
+    },
+    {
+      "id": "gcse_organic",
+      "name_en": "Organic chemistry",
+      "name_ru": "Органическая химия"
+    },
+    {
+      "id": "gcse_analysis",
+      "name_en": "Chemical analysis",
+      "name_ru": "Химический анализ"
+    },
+    {
+      "id": "gcse_atmosphere",
+      "name_en": "Chemistry of the atmosphere",
+      "name_ru": "Химия атмосферы"
+    },
+    {
+      "id": "gcse_resources",
+      "name_en": "Using resources",
+      "name_ru": "Использование ресурсов"
+    }
+  ],
+  "official_links": [
+    {
+      "label_en": "AQA GCSE Chemistry specification",
+      "url": "https://www.aqa.org.uk/subjects/science/gcse/chemistry-8462"
+    },
+    {
+      "label_en": "AQA past papers and mark schemes",
+      "url": "https://www.aqa.org.uk/subjects/science/gcse/chemistry-8462/assessment-resources"
+    },
+    {
+      "label_en": "OCR Gateway GCSE Chemistry",
+      "url": "https://www.ocr.org.uk/qualifications/gcse/gateway-science-suite-chemistry-a-j248-from-2016/"
+    }
   ]
 }

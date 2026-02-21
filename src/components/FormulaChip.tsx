@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { OxidationAssignment } from '../lib/oxidation-state';
+import * as m from '../paraglide/messages.js';
 import './formula-chip.css';
 
 const SUPERSCRIPT: Record<string, string> = {
@@ -8,12 +9,12 @@ const SUPERSCRIPT: Record<string, string> = {
   '+': '\u207A', '-': '\u207B',
 };
 
-const CLASS_LABELS: Record<string, string> = {
-  oxide: 'оксид',
-  acid: 'кислота',
-  base: 'основание',
-  salt: 'соль',
-  simple: 'простое вещество',
+const CLASS_LABELS: Record<string, () => string> = {
+  oxide: m.class_oxide_lower,
+  acid: m.class_acid_lower,
+  base: m.class_base_lower,
+  salt: m.class_salt_lower,
+  simple: m.class_simple_lower,
 };
 
 function toSuper(n: number): string {
@@ -58,7 +59,7 @@ export default function FormulaChip({
     <span className="formula-chip__tooltip">
       {name && <span className="formula-chip__tooltip-name">{name}</span>}
       {name && substanceClass && <span className="formula-chip__tooltip-sep">&middot;</span>}
-      {substanceClass && CLASS_LABELS[substanceClass]}
+      {substanceClass && CLASS_LABELS[substanceClass]?.()}
       {oxidationStates && oxidationStates.length > 0 && (
         <>
           {(name || substanceClass) && <span className="formula-chip__tooltip-sep">&middot;</span>}
@@ -71,7 +72,7 @@ export default function FormulaChip({
   // Build plain-text title for accessibility
   const titleParts: string[] = [];
   if (name) titleParts.push(name);
-  if (substanceClass && CLASS_LABELS[substanceClass]) titleParts.push(CLASS_LABELS[substanceClass]);
+  if (substanceClass && CLASS_LABELS[substanceClass]) titleParts.push(CLASS_LABELS[substanceClass]());
   if (oxidationStates && oxidationStates.length > 0) titleParts.push(formatOxLine(oxidationStates));
   const titleText = titleParts.length > 0 ? titleParts.join(' · ') : undefined;
 

@@ -1,0 +1,224 @@
+[
+  {
+    "topic_id": "atomic_structure_periodicity",
+    "name_ru": "Строение атома и периодичность",
+    "name_en": "Atomic Structure & Periodicity",
+    "name_pl": "Budowa atomu i okresowość",
+    "name_es": "Estructura atómica y periodicidad",
+    "description_ru": "Строение атома, электронная конфигурация, периодический закон и закономерности изменения свойств элементов.",
+    "icon": "atom",
+    "color": "#6366f1",
+    "competency_map": {
+      "oge": [
+        { "id": "periodic_table", "weight": 1.0 },
+        { "id": "electron_config", "weight": 1.0 },
+        { "id": "periodic_trends", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_atomic_structure", "weight": 1.0 },
+        { "id": "ege_periodic_law", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_atomic_structure", "weight": 1.0 }
+      ],
+      "egzamin": [
+        { "id": "matura_atomic_structure", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_atomic_structure", "weight": 1.0 }
+      ]
+    }
+  },
+  {
+    "topic_id": "chemical_bonding",
+    "name_ru": "Химическая связь",
+    "name_en": "Chemical Bonding",
+    "name_pl": "Wiązania chemiczne",
+    "name_es": "Enlace químico",
+    "description_ru": "Типы химической связи (ковалентная, ионная, металлическая), кристаллические решётки и их связь со свойствами веществ.",
+    "icon": "bond",
+    "color": "#8b5cf6",
+    "competency_map": {
+      "oge": [
+        { "id": "bond_type", "weight": 1.0 },
+        { "id": "crystal_structure_type", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_bonding", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_bonding", "weight": 1.0 }
+      ],
+      "egzamin": [
+        { "id": "matura_bonding", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_bonding", "weight": 1.0 }
+      ]
+    }
+  },
+  {
+    "topic_id": "inorganic_reactions",
+    "name_ru": "Неорганические реакции",
+    "name_en": "Inorganic Reactions",
+    "name_pl": "Reakcje nieorganiczne",
+    "name_es": "Reacciones inorgánicas",
+    "description_ru": "Классификация веществ, номенклатура, реакции ионного обмена, ОВР, генетические цепочки и качественные реакции.",
+    "icon": "flask",
+    "color": "#059669",
+    "competency_map": {
+      "oge": [
+        { "id": "classification", "weight": 1.0 },
+        { "id": "naming", "weight": 1.0 },
+        { "id": "amphoterism_logic", "weight": 1.0 },
+        { "id": "reactions_exchange", "weight": 1.0 },
+        { "id": "gas_precipitate_logic", "weight": 1.0 },
+        { "id": "reactions_redox", "weight": 1.0 },
+        { "id": "genetic_chain_logic", "weight": 1.0 },
+        { "id": "qualitative_analysis_logic", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_inorganic", "weight": 1.0 },
+        { "id": "ege_redox", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_chemical_changes", "weight": 1.0 },
+        { "id": "gcse_analysis", "weight": 0.5 }
+      ],
+      "egzamin": [
+        { "id": "matura_redox", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_redox", "weight": 0.5 }
+      ]
+    }
+  },
+  {
+    "topic_id": "kinetics_equilibrium",
+    "name_ru": "Кинетика и равновесие",
+    "name_en": "Kinetics & Equilibrium",
+    "name_pl": "Kinetyka i równowaga",
+    "name_es": "Cinética y equilibrio",
+    "description_ru": "Скорость химической реакции, факторы влияния, катализ, химическое равновесие и принцип Ле Шателье.",
+    "icon": "gauge",
+    "color": "#d97706",
+    "competency_map": {
+      "oge": [
+        { "id": "reaction_energy_profile", "weight": 1.0 },
+        { "id": "catalyst_role_understanding", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_kinetics", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_rates", "weight": 1.0 },
+        { "id": "gcse_energy", "weight": 1.0 }
+      ],
+      "egzamin": [
+        { "id": "matura_kinetics", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_kinetics", "weight": 1.0 },
+        { "id": "ebau_thermodynamics", "weight": 1.0 }
+      ]
+    }
+  },
+  {
+    "topic_id": "solutions_electrolytes",
+    "name_ru": "Растворы и электролиты",
+    "name_en": "Solutions & Electrolytes",
+    "name_pl": "Roztwory i elektrolity",
+    "name_es": "Disoluciones y electrolitos",
+    "description_ru": "Электролиты, диссоциация, кислотно-основные реакции в растворах.",
+    "icon": "beaker",
+    "color": "#0891b2",
+    "competency_map": {
+      "oge": [
+        { "id": "electrolyte_logic", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_solutions", "weight": 1.0 }
+      ],
+      "gcse": [],
+      "egzamin": [
+        { "id": "matura_acids_bases", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_acid_base", "weight": 1.0 }
+      ]
+    }
+  },
+  {
+    "topic_id": "calculations",
+    "name_ru": "Расчётные задачи",
+    "name_en": "Calculations",
+    "name_pl": "Obliczenia chemiczne",
+    "name_es": "Cálculos químicos",
+    "description_ru": "Молярная масса, количество вещества, растворы, стехиометрия и выход продукта реакции.",
+    "icon": "calculator",
+    "color": "#dc2626",
+    "competency_map": {
+      "oge": [
+        { "id": "calculations_basic", "weight": 1.0 },
+        { "id": "calculations_solutions", "weight": 1.0 },
+        { "id": "reaction_yield_logic", "weight": 1.0 }
+      ],
+      "ege": [
+        { "id": "ege_calculations", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_quantitative", "weight": 1.0 }
+      ],
+      "egzamin": [
+        { "id": "matura_stoichiometry", "weight": 1.0 }
+      ],
+      "ebau": []
+    }
+  },
+  {
+    "topic_id": "organic_chemistry",
+    "name_ru": "Органическая химия",
+    "name_en": "Organic Chemistry",
+    "name_pl": "Chemia organiczna",
+    "name_es": "Química orgánica",
+    "description_ru": "Классы органических соединений, номенклатура, типы реакций, изомерия.",
+    "icon": "molecule",
+    "color": "#16a34a",
+    "competency_map": {
+      "oge": [],
+      "ege": [
+        { "id": "ege_organic", "weight": 1.0 }
+      ],
+      "gcse": [
+        { "id": "gcse_organic", "weight": 1.0 }
+      ],
+      "egzamin": [
+        { "id": "matura_organic", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_organic", "weight": 1.0 }
+      ]
+    }
+  },
+  {
+    "topic_id": "electrochemistry",
+    "name_ru": "Электрохимия",
+    "name_en": "Electrochemistry",
+    "name_pl": "Elektrochemia",
+    "name_es": "Electroquímica",
+    "description_ru": "Электролиз, гальванические элементы, электродные потенциалы, ряд напряжений.",
+    "icon": "zap",
+    "color": "#eab308",
+    "competency_map": {
+      "oge": [],
+      "ege": [],
+      "gcse": [],
+      "egzamin": [
+        { "id": "matura_electrochemistry", "weight": 1.0 }
+      ],
+      "ebau": [
+        { "id": "ebau_redox", "weight": 0.5 }
+      ]
+    }
+  }
+]

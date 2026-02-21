@@ -52,6 +52,48 @@ export function clearBktState(): void {
   localStorage.removeItem(STORAGE_KEY);
 }
 
+// ---------------------------------------------------------------------------
+// Cross-exam progress (lightweight per-system counters, not BKT)
+// ---------------------------------------------------------------------------
+
+const CROSS_EXAM_KEY = 'chemistry_cross_exam';
+
+interface CrossExamEntry {
+  attempted: number;
+  correct: number;
+}
+
+type CrossExamState = Record<string, Record<string, CrossExamEntry>>;
+
+/** Save a cross-exam attempt (systemId + topicId). */
+export function saveCrossExamAttempt(systemId: string, topicId: string, correct: boolean): void {
+  const state = loadCrossExamState();
+  if (!state[systemId]) state[systemId] = {};
+  if (!state[systemId][topicId]) state[systemId][topicId] = { attempted: 0, correct: 0 };
+  state[systemId][topicId].attempted++;
+  if (correct) state[systemId][topicId].correct++;
+  try {
+    localStorage.setItem(CROSS_EXAM_KEY, JSON.stringify(state));
+  } catch { /* storage full */ }
+}
+
+/** Load all cross-exam progress. */
+export function loadCrossExamProgress(): CrossExamState {
+  return loadCrossExamState();
+}
+
+function loadCrossExamState(): CrossExamState {
+  try {
+    const raw = localStorage.getItem(CROSS_EXAM_KEY);
+    if (!raw) return {};
+    return JSON.parse(raw) as CrossExamState;
+  } catch {
+    return {};
+  }
+}
+
+// ---------------------------------------------------------------------------
+
 function loadStoredState(): StoredState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);

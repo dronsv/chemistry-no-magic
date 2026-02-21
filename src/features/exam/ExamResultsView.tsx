@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ExamResults } from '../../types/exam';
+import ChemText from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
 
 interface Props {
@@ -122,8 +123,8 @@ export default function ExamResultsView({ results, onRestart }: Props) {
                   <span className="exam-review__number">#{e.index + 1}</span>
                   <span className={`exam-review__badge ${badgeCls}`}>{badge}</span>
                 </div>
-                <p className="exam-review__question">{e.question}</p>
-                <div className="exam-review__explanation">{e.explanation}</div>
+                <p className="exam-review__question"><ChemText text={e.question} /></p>
+                <div className="exam-review__explanation"><ChemText text={e.explanation} /></div>
               </div>
             );
           })}

@@ -73,4 +73,6 @@ export interface OgeTask {
   /** Our competency IDs this task primarily tests. */
   competencies: string[];
   explanation_ru: string;
+  /** Tasks with the same group test the same concept in the same way (for deduplication). */
+  similarity_group?: string;
 }

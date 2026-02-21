@@ -1,0 +1,16 @@
+{
+  "id": "mgo",
+  "formula": "MgO",
+  "name_ru": "Оксид магния",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": ["insoluble", "refractory"],
+  "melting_point_C": 2852,
+  "boiling_point_C": 3600,
+  "density_g_cm3": 3.58,
+  "appearance_ru": "Белый порошок",
+  "industrial_ru": "Огнеупоры, медицина (антацид), строительство",
+  "production_ru": "Обжиг магнезита MgCO\u2083 или доломита",
+  "fun_facts_ru": ["Температура плавления MgO (2852\u00b0C) — одна из самых высоких среди оксидов", "Жжёная магнезия используется спортсменами для подсушивания рук"]
+}

@@ -1,5 +1,7 @@
 import { useCallback } from 'react';
 import type { OgeLeftItem, OgeOption } from '../../../types/oge-task';
+import ChemText from '../../../components/ChemText';
+import * as m from '../../../paraglide/messages.js';
 
 interface Props {
   leftItems: OgeLeftItem[];
@@ -59,7 +61,7 @@ export default function MatchingAnswer({
           {leftItems.map((item, rowIndex) => (
             <tr key={item.label} className="oge-matching__row">
               <td className="oge-matching__label">{item.label}</td>
-              <td className="oge-matching__text">{item.text}</td>
+              <td className="oge-matching__text"><ChemText text={item.text} /></td>
               <td className="oge-matching__choices">
                 {options.map(opt => (
                   <button
@@ -80,7 +82,7 @@ export default function MatchingAnswer({
       </table>
       {value && (
         <div className="oge-matching__answer">
-          Ответ: <strong>{value}</strong>
+          {m.oge_answer_label()} <strong>{value}</strong>
         </div>
       )}
     </div>

@@ -1,0 +1,16 @@
+{
+  "id": "n2",
+  "formula": "N\u2082",
+  "name_ru": "Азот",
+  "class": "other",
+  "subclass": "simple_substance",
+  "ions": [],
+  "tags": ["gas", "inert"],
+  "melting_point_C": -210.0,
+  "boiling_point_C": -195.79,
+  "density_g_cm3": 0.001251,
+  "appearance_ru": "Бесцветный газ без запаха",
+  "industrial_ru": "Производство аммиака, инертная атмосфера, заморозка продуктов",
+  "production_ru": "Фракционная перегонка жидкого воздуха",
+  "fun_facts_ru": ["Составляет 78% атмосферы Земли", "Тройная связь N≡N — одна из самых прочных химических связей"]
+}

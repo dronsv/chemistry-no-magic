@@ -39,20 +39,20 @@ function ReactionCard({ template }: { template: ReactionTemplate }) {
       {expanded && (
         <div className="rxn-card__body">
           <div className="rxn-card__pattern">
-            <span className="rxn-card__pattern-label">Схема:</span> {template.pattern}
+            <span className="rxn-card__pattern-label">{m.rxn_tpl_scheme()}</span> {template.pattern}
           </div>
           {template.conditions && (
             <div className="rxn-card__conditions">
-              <span className="rxn-card__conditions-label">Условия:</span> {template.conditions}
+              <span className="rxn-card__conditions-label">{m.rxn_tpl_conditions()}</span> {template.conditions}
             </div>
           )}
           {template.catalyst && (
             <div className="rxn-card__conditions">
-              <span className="rxn-card__conditions-label">Катализатор:</span> {template.catalyst}
+              <span className="rxn-card__conditions-label">{m.rxn_tpl_catalyst()}</span> {template.catalyst}
             </div>
           )}
           <div className="rxn-card__examples">
-            <span className="rxn-card__examples-label">Примеры:</span>
+            <span className="rxn-card__examples-label">{m.rxn_tpl_examples()}</span>
             {template.examples.map((ex, i) => (
               <div key={i} className="rxn-card__equation">
                 {ex.reactants.join(' + ')} → {ex.products.join(' + ')}
@@ -87,7 +87,7 @@ export default function ReactionCatalog() {
 
   return (
     <section>
-      <h2 className="rxn-catalog__title">Каталог реакций</h2>
+      <h2 className="rxn-catalog__title">{m.rxn_catalog_title()}</h2>
 
       <div className="rxn-catalog__filters">
         {FILTER_VALUES.map(value => (
@@ -103,7 +103,7 @@ export default function ReactionCatalog() {
       </div>
 
       <div className="rxn-catalog__count">
-        Показано: {filtered.length} из {templates.length}
+        {m.rxn_shown_count({ filtered: String(filtered.length), total: String(templates.length) })}
       </div>
 
       <div className="rxn-catalog__list">

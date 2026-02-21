@@ -1,0 +1,17 @@
+{
+  "id": "v2o5",
+  "formula": "V\u2082O\u2085",
+  "name_ru": "Оксид ванадия(V)",
+  "class": "oxide",
+  "subclass": "amphoteric",
+  "ions": [],
+  "tags": ["insoluble", "catalyst", "orange"],
+  "melting_point_C": 690,
+  "boiling_point_C": 1750,
+  "density_g_cm3": 3.357,
+  "appearance_ru": "Оранжево-жёлтый порошок",
+  "hazards_ru": ["Токсичное"],
+  "industrial_ru": "Катализатор контактного процесса (производство H\u2082SO\u2084), производство сплавов",
+  "production_ru": "Обжиг ванадиевых руд",
+  "fun_facts_ru": ["Важнейший промышленный катализатор — без него невозможно производство серной кислоты контактным способом"]
+}

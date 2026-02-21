@@ -50,39 +50,39 @@ export default function TrendsOverlay({}: TrendsOverlayProps) {
           {/* Electronegativity: ↗ (bottom-left to top-right) */}
           <line x1="30" y1="190" x2="370" y2="190" stroke="#e03131" strokeWidth="2" markerEnd="url(#arr-red)" />
           <text x="200" y="210" textAnchor="middle" fill="#e03131" fontSize="11" fontWeight="600">
-            Электроотрицательность →
+            {m.trend_electronegativity_right()}
           </text>
 
           <line x1="30" y1="190" x2="30" y2="20" stroke="#e03131" strokeWidth="2" markerEnd="url(#arr-red)" />
           <text x="18" y="105" textAnchor="middle" fill="#e03131" fontSize="11" fontWeight="600"
             transform="rotate(-90, 18, 105)">
-            Электроотрицательность →
+            {m.trend_electronegativity_right()}
           </text>
 
           {/* Metallic character: ↙ (opposite) */}
           <line x1="370" y1="10" x2="90" y2="10" stroke="#2f9e44" strokeWidth="2" markerEnd="url(#arr-green)" />
           <text x="230" y="8" textAnchor="middle" fill="#2f9e44" fontSize="11" fontWeight="600">
-            ← Металличность
+            {m.trend_metallicity_left()}
           </text>
 
           <line x1="370" y1="10" x2="370" y2="180" stroke="#2f9e44" strokeWidth="2" markerEnd="url(#arr-green)" />
           <text x="382" y="105" textAnchor="middle" fill="#2f9e44" fontSize="11" fontWeight="600"
             transform="rotate(90, 382, 105)">
-            Металличность →
+            {m.trend_metallicity_right()}
           </text>
 
           {/* Atomic radius: increases ← and ↓ */}
           <line x1="200" y1="80" x2="200" y2="170" stroke="#1971c2" strokeWidth="1.5" strokeDasharray="6 3" markerEnd="url(#arr-blue)" />
           <line x1="200" y1="80" x2="100" y2="80" stroke="#1971c2" strokeWidth="1.5" strokeDasharray="6 3" markerEnd="url(#arr-blue)" />
           <text x="200" y="75" textAnchor="middle" fill="#1971c2" fontSize="10">
-            Атомный радиус ↓←
+            {m.trend_atomic_radius()}
           </text>
 
           {/* Ionization energy: ↗ */}
           <line x1="100" y1="140" x2="310" y2="40" stroke="#e8590c" strokeWidth="1.5" strokeDasharray="6 3" markerEnd="url(#arr-orange)" />
           <text x="220" y="100" textAnchor="start" fill="#e8590c" fontSize="10"
             transform="rotate(-20, 220, 100)">
-            Энергия ионизации ↗
+            {m.trend_ionization_energy()}
           </text>
         </svg>
       </div>

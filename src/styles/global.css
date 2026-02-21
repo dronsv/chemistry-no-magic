@@ -121,3 +121,24 @@ a:hover { text-decoration: underline; }
     gap: var(--space-sm);
   }
 }
+
+/* Site footer */
+.site-footer {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2xl);
+}
+.site-footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.site-footer__sep {
+  margin: 0 var(--space-sm);
+}

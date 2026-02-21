@@ -1,0 +1,16 @@
+{
+  "id": "fecl2",
+  "formula": "FeCl\u2082",
+  "name_ru": "Хлорид железа(II)",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Fe_2plus", "Cl_minus"],
+  "tags": ["soluble", "green"],
+  "melting_point_C": 677,
+  "boiling_point_C": 1023,
+  "density_g_cm3": 3.16,
+  "appearance_ru": "Зеленоватые гигроскопичные кристаллы",
+  "industrial_ru": "Очистка сточных вод, травление металлов",
+  "production_ru": "Растворение железа в соляной кислоте",
+  "fun_facts_ru": ["На воздухе постепенно окисляется до FeCl\u2083"]
+}

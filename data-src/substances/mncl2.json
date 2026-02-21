@@ -1,0 +1,16 @@
+{
+  "id": "mncl2",
+  "formula": "MnCl\u2082",
+  "name_ru": "Хлорид марганца(II)",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [],
+  "tags": ["soluble", "pink"],
+  "melting_point_C": 654,
+  "boiling_point_C": 1190,
+  "density_g_cm3": 2.977,
+  "appearance_ru": "Розовые кристаллы",
+  "industrial_ru": "Катализатор, производство батареек, текстильная промышленность",
+  "production_ru": "Растворение марганца или MnO\u2082 в соляной кислоте",
+  "fun_facts_ru": ["Раствор имеет характерный бледно-розовый цвет ионов Mn\u00b2\u207a"]
+}

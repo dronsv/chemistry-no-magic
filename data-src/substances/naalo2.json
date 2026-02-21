@@ -1,0 +1,16 @@
+{
+  "id": "naalo2",
+  "formula": "NaAlO\u2082",
+  "name_ru": "Алюминат натрия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [],
+  "tags": ["soluble"],
+  "melting_point_C": 1650,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.59,
+  "appearance_ru": "Белый порошок",
+  "industrial_ru": "Водоочистка (коагулянт), производство цеолитов",
+  "production_ru": "Растворение Al\u2082O\u2083 или Al(OH)\u2083 в растворе NaOH",
+  "fun_facts_ru": ["Образуется при растворении алюминия в щёлочи — типичная реакция амфотерного металла", "Используется в строительстве как ускоритель схватывания бетона"]
+}

@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
 
 export interface ExerciseOption {
@@ -15,26 +16,32 @@ export interface Exercise {
   competencyMap: Record<string, 'P' | 'S'>;
 }
 
-const CLASS_LABELS: Record<string, string> = {
-  oxide: 'Оксид',
-  acid: 'Кислота',
-  base: 'Основание',
-  salt: 'Соль',
-};
+function classLabel(cls: string): string {
+  const labels: Record<string, () => string> = {
+    oxide: m.sub_ex_class_oxide,
+    acid: m.sub_ex_class_acid,
+    base: m.sub_ex_class_base,
+    salt: m.sub_ex_class_salt,
+  };
+  return labels[cls]?.() ?? cls;
+}
 
-const SUBCLASS_LABELS: Record<string, string> = {
-  basic: 'основный',
-  acidic: 'кислотный',
-  amphoteric: 'амфотерный',
-  indifferent: 'несолеобразующий',
-  oxygen_containing: 'кислородсодержащая',
-  oxygen_free: 'бескислородная',
-  soluble: 'растворимое (щёлочь)',
-  insoluble: 'нерастворимое',
-  normal: 'средняя (нормальная)',
-  acidic_salt: 'кислая',
-  basic_salt: 'основная',
-};
+function subclassLabel(sub: string): string {
+  const labels: Record<string, () => string> = {
+    basic: m.sub_ex_subclass_basic,
+    acidic: m.sub_ex_subclass_acidic,
+    amphoteric: m.sub_ex_subclass_amphoteric,
+    indifferent: m.sub_ex_subclass_indifferent,
+    oxygen_containing: m.sub_ex_subclass_oxygen_containing,
+    oxygen_free: m.sub_ex_subclass_oxygen_free,
+    soluble: m.sub_ex_subclass_soluble,
+    insoluble: m.sub_ex_subclass_insoluble,
+    normal: m.sub_ex_subclass_normal,
+    acidic_salt: m.sub_ex_subclass_acidic_salt,
+    basic_salt: m.sub_ex_subclass_basic_salt,
+  };
+  return labels[sub]?.() ?? sub;
+}
 
 const MAIN_CLASSES = ['oxide', 'acid', 'base', 'salt'];
 
@@ -56,7 +63,7 @@ function mainSubstances(substances: SubstanceIndexEntry[]): SubstanceIndexEntry[
   return substances.filter(s => MAIN_CLASSES.includes(s.class));
 }
 
-/** Collect all formula→name pairs from naming rules for distractor pool. */
+/** Collect all formula->name pairs from naming rules for distractor pool. */
 function allNamingExamples(namingRules: NamingRule[]): Array<{ formula: string; name_ru: string }> {
   const examples: Array<{ formula: string; name_ru: string }> = [];
   for (const rule of namingRules) {
@@ -77,27 +84,26 @@ const generators: Record<string, GeneratorFn> = {
   classify_by_formula(substances) {
     const pool = mainSubstances(substances);
     const s = pick(pool);
-    const correctLabel = CLASS_LABELS[s.class] ?? s.class;
+    const correctLbl = classLabel(s.class);
     const distractors = MAIN_CLASSES
       .filter(c => c !== s.class)
-      .map(c => CLASS_LABELS[c]);
+      .map(c => classLabel(c));
     const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
+      { id: 'correct', text: correctLbl },
       ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
     ]);
     return {
       type: 'classify_by_formula',
-      question: `К какому классу относится ${s.formula}?`,
+      question: m.sub_ex_q_class({ formula: s.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${s.formula}${s.name_ru ? ` (${s.name_ru})` : ''} — это ${correctLabel.toLowerCase()}.`,
+      explanation: m.sub_ex_a_class({ formula: s.formula, name: s.name_ru ? ` (${s.name_ru})` : '', label: correctLbl.toLowerCase() }),
       competencyMap: { classification: 'P' },
     };
   },
 
   classify_subclass(substances, classRules) {
-    // Pick a substance that has subclass and a class with multiple subclasses
     const pool = mainSubstances(substances).filter(s => s.subclass);
     if (pool.length === 0) return generators.classify_by_formula(substances, classRules, []);
     const s = pick(pool);
@@ -106,70 +112,66 @@ const generators: Record<string, GeneratorFn> = {
       return generators.classify_by_formula(substances, classRules, []);
     }
 
-    const correctLabel = SUBCLASS_LABELS[s.subclass!] ?? s.subclass!;
+    const correctLbl = subclassLabel(s.subclass!);
     const distractorRules = rulesForClass.filter(r => r.subclass !== s.subclass);
-    const distractorLabels = distractorRules.map(r => SUBCLASS_LABELS[r.subclass] ?? r.subclass);
+    const distractorLabels = distractorRules.map(r => subclassLabel(r.subclass));
 
-    // Ensure we have exactly 3 distractors
     while (distractorLabels.length < 3) {
-      distractorLabels.push('несолеобразующий');
+      distractorLabels.push(subclassLabel('indifferent'));
     }
 
     const matchingRule = rulesForClass.find(r => r.subclass === s.subclass) ?? rulesForClass[0];
     const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
+      { id: 'correct', text: correctLbl },
       ...distractorLabels.slice(0, 3).map((d, i) => ({ id: `d${i}`, text: d })),
     ]);
     return {
       type: 'classify_subclass',
-      question: `К какому подклассу относится ${s.formula}?`,
+      question: m.sub_ex_q_subclass({ formula: s.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${s.formula} — ${matchingRule.description_ru}`,
+      explanation: m.sub_ex_a_subclass({ formula: s.formula, desc: matchingRule.description_ru }),
       competencyMap: { classification: 'P' },
     };
   },
 
   identify_class_by_description(_substances, classRules) {
     const rule = pick(classRules);
-    const correctLabel = `${CLASS_LABELS[rule.class] ?? rule.class} (${SUBCLASS_LABELS[rule.subclass] ?? rule.subclass})`;
+    const correctLbl = `${classLabel(rule.class)} (${subclassLabel(rule.subclass)})`;
     const otherRules = classRules.filter(r => r.id !== rule.id);
     const distractorRules = pickN(otherRules, 3);
     const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
+      { id: 'correct', text: correctLbl },
       ...distractorRules.map((r, i) => ({
         id: `d${i}`,
-        text: `${CLASS_LABELS[r.class] ?? r.class} (${SUBCLASS_LABELS[r.subclass] ?? r.subclass})`,
+        text: `${classLabel(r.class)} (${subclassLabel(r.subclass)})`,
       })),
     ]);
     return {
       type: 'identify_class_by_description',
-      question: `Какой класс/подкласс описывает следующее определение: «${rule.description_ru}»?`,
+      question: m.sub_ex_q_class_by_desc({ desc: rule.description_ru }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Это ${correctLabel}. Примеры: ${rule.examples.join(', ')}.`,
+      explanation: m.sub_ex_a_class_by_desc({ label: correctLbl, examples: rule.examples.join(', ') }),
       competencyMap: { classification: 'P' },
     };
   },
 
   formula_to_name(substances, _classRules, namingRules) {
     const examples = allNamingExamples(namingRules);
-    // Pick a substance that has a name
     const named = mainSubstances(substances).filter(s => s.name_ru);
     if (named.length === 0) return generators.classify_by_formula(substances, _classRules, namingRules);
     const s = pick(named);
     const correctName = s.name_ru!;
 
-    // Build distractors from naming examples of the same class
     const sameClassNames = examples
       .filter(ex => ex.name_ru !== correctName)
       .map(ex => ex.name_ru);
     const uniqueNames = [...new Set(sameClassNames)];
     const distractors = pickN(uniqueNames, 3);
 
-    // Ensure 3 distractors
     while (distractors.length < 3) {
       const fallback = pick(examples.filter(ex => ex.name_ru !== correctName && !distractors.includes(ex.name_ru)));
       if (fallback) distractors.push(fallback.name_ru);
@@ -182,11 +184,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'formula_to_name',
-      question: `Как называется ${s.formula}?`,
+      question: m.sub_ex_q_name({ formula: s.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${s.formula} — ${correctName}.`,
+      explanation: m.sub_ex_a_name({ formula: s.formula, name: correctName }),
       competencyMap: { naming: 'P', classification: 'S' },
     };
   },
@@ -197,11 +199,9 @@ const generators: Record<string, GeneratorFn> = {
     const s = pick(named);
     const correctFormula = s.formula;
 
-    // Build distractors from same class substances
     const sameClass = mainSubstances(substances).filter(sub => sub.class === s.class && sub.formula !== correctFormula);
     let distractorFormulas = pickN(sameClass, 3).map(sub => sub.formula);
 
-    // If not enough same-class, use other classes
     if (distractorFormulas.length < 3) {
       const others = mainSubstances(substances).filter(sub => sub.formula !== correctFormula && !distractorFormulas.includes(sub.formula));
       distractorFormulas = [...distractorFormulas, ...pickN(others, 3 - distractorFormulas.length).map(sub => sub.formula)];
@@ -213,30 +213,27 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'name_to_formula',
-      question: `Какая формула у вещества «${s.name_ru}»?`,
+      question: m.sub_ex_q_formula({ name: s.name_ru! }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${s.name_ru} — ${correctFormula}.`,
+      explanation: m.sub_ex_a_formula({ name: s.name_ru!, formula: correctFormula }),
       competencyMap: { naming: 'P', classification: 'S' },
     };
   },
 
   identify_amphoteric(substances, classRules) {
-    // "Which substance is amphoteric?" — pick from oxides/hydroxides pool
     const amphotericPool = mainSubstances(substances).filter(
       s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
     );
     if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, []);
     const correct = pick(amphotericPool);
 
-    // Distractors: non-amphoteric oxides/bases
     const nonAmphoteric = mainSubstances(substances).filter(
       s => s.subclass !== 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
     );
     const distractors = pickN(nonAmphoteric, 3);
 
-    // If not enough distractors from oxides/bases, add from other classes
     if (distractors.length < 3) {
       const others = mainSubstances(substances).filter(
         s => s.formula !== correct.formula && !distractors.some(d => d.formula === s.formula),
@@ -250,17 +247,16 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'identify_amphoteric',
-      question: 'Какое из веществ является амфотерным?',
+      question: m.sub_ex_q_amphoteric(),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${correct.formula}${correct.name_ru ? ` (${correct.name_ru})` : ''} — амфотерное вещество: реагирует и с кислотами, и с щелочами.`,
+      explanation: m.sub_ex_a_amphoteric({ formula: correct.formula, name: correct.name_ru ? ` (${correct.name_ru})` : '' }),
       competencyMap: { amphoterism_logic: 'P', classification: 'S' },
     };
   },
 
   amphoteric_reaction_partner(substances, classRules) {
-    // "With what does Al₂O₃ react?" — correct: both acids and bases
     const amphotericPool = mainSubstances(substances).filter(
       s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
     );
@@ -268,24 +264,23 @@ const generators: Record<string, GeneratorFn> = {
     const s = pick(amphotericPool);
 
     const options = shuffleOptions([
-      { id: 'correct', text: 'И с кислотами, и с щелочами' },
-      { id: 'd0', text: 'Только с кислотами' },
-      { id: 'd1', text: 'Только с щелочами' },
-      { id: 'd2', text: 'Не реагирует ни с кислотами, ни с щелочами' },
+      { id: 'correct', text: m.sub_ex_both_acids_bases() },
+      { id: 'd0', text: m.sub_ex_only_acids() },
+      { id: 'd1', text: m.sub_ex_only_bases() },
+      { id: 'd2', text: m.sub_ex_neither() },
     ]);
     return {
       type: 'amphoteric_reaction_partner',
-      question: `С чем реагирует ${s.formula}?`,
+      question: m.sub_ex_q_amphoteric_partner({ formula: s.formula }),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${s.formula} — амфотерное вещество, поэтому реагирует и с кислотами, и с щелочами.`,
+      explanation: m.sub_ex_a_amphoteric_partner({ formula: s.formula }),
       competencyMap: { amphoterism_logic: 'P' },
     };
   },
 
   amphoteric_elements(substances, classRules) {
-    // "Which element forms an amphoteric oxide?"
     const AMPHOTERIC_METALS = ['Al', 'Zn', 'Be', 'Cr', 'Fe', 'Pb', 'Sn'];
     const NON_AMPHOTERIC = ['Na', 'K', 'Ca', 'Mg', 'Cu', 'Ba', 'Li', 'Ag'];
     const correct = pick(AMPHOTERIC_METALS);
@@ -297,11 +292,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'amphoteric_elements',
-      question: 'Какой элемент образует амфотерный оксид?',
+      question: m.sub_ex_q_amphoteric_element(),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${correct} образует амфотерный оксид. Типичные амфотерные металлы: Al, Zn, Be, Cr.`,
+      explanation: m.sub_ex_a_amphoteric_element({ symbol: correct }),
       competencyMap: { amphoterism_logic: 'P', classification: 'S' },
     };
   },
@@ -320,11 +315,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'naming_rule_template',
-      question: `По какому шаблону образовано название «${example.name_ru}» (${example.formula})?`,
+      question: m.sub_ex_q_naming_rule({ name: example.name_ru, formula: example.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${example.formula} (${example.name_ru}) — шаблон: «${correctTemplate}».`,
+      explanation: m.sub_ex_a_naming_rule({ formula: example.formula, name: example.name_ru, template: correctTemplate }),
       competencyMap: { naming: 'P' },
     };
   },

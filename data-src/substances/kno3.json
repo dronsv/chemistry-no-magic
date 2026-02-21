@@ -1,0 +1,17 @@
+{
+  "id": "kno3",
+  "formula": "KNO\u2083",
+  "name_ru": "Нитрат калия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["K_plus", "NO3_minus"],
+  "tags": ["soluble", "oxidizer"],
+  "melting_point_C": 334,
+  "boiling_point_C": 400,
+  "density_g_cm3": 2.109,
+  "appearance_ru": "Бесцветные кристаллы",
+  "hazards_ru": ["Окислитель"],
+  "industrial_ru": "Удобрение, консервант (E252), пиротехника, производство стекла",
+  "production_ru": "Реакция KCl с NaNO\u2083 (конверсия)",
+  "fun_facts_ru": ["Калиевая селитра — один из трёх компонентов чёрного пороха (вместе с серой и углём)", "Используется в пищевой промышленности для засолки мяса"]
+}

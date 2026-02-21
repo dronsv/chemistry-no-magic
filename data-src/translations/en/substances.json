@@ -2,274 +2,987 @@
   "agno3": {
     "name_ru": "Silver nitrate",
     "appearance_ru": "Colorless crystals that darken when exposed to light",
-    "hazards_ru": ["Corrosive", "Causes burns", "Hazardous to the environment"],
+    "hazards_ru": [
+      "Corrosive",
+      "Causes burns",
+      "Hazardous to the environment"
+    ],
     "storage_ru": "Store in a dark place, in sealed containers, away from organic substances",
     "industrial_ru": "Production of photographic materials, mirrors, and antiseptics",
     "production_ru": "Dissolving silver in nitric acid",
-    "fun_facts_ru": ["Lunar caustic (silver nitrate) is used in medicine for cauterizing wounds", "Leaves permanent black stains on skin due to reduction to metallic silver"]
-  },
-  "al2o3": {
-    "name_ru": "Aluminium oxide",
-    "appearance_ru": "White crystalline powder",
-    "industrial_ru": "Aluminium production (electrolysis), abrasive materials, ceramics",
-    "production_ru": "Processing of bauxite using the Bayer process",
-    "fun_facts_ru": ["Corundum, ruby, and sapphire are natural forms of Al₂O₃, colored by impurities", "One of the hardest oxides — 9 on the Mohs scale"]
+    "fun_facts_ru": [
+      "Lunar caustic (silver nitrate) is used in medicine for cauterizing wounds",
+      "Leaves permanent black stains on skin due to reduction to metallic silver"
+    ]
   },
   "al_oh_3": {
     "name_ru": "Aluminium hydroxide",
     "appearance_ru": "White gelatinous substance",
     "industrial_ru": "Aluminium production, antacid medications, adsorbents",
     "production_ru": "Precipitation from aluminium salt solutions using alkali",
-    "fun_facts_ru": ["Found in many antacid medications (heartburn remedies)", "Decomposes into Al₂O₃ and water when heated"]
+    "fun_facts_ru": [
+      "Found in many antacid medications (heartburn remedies)",
+      "Decomposes into Al₂O₃ and water when heated"
+    ]
+  },
+  "al2_so4_3": {
+    "name_ru": "Aluminium sulfate",
+    "appearance_ru": "White crystals or powder",
+    "industrial_ru": "Water purification (coagulant), paper manufacturing, leather tanning",
+    "production_ru": "Dissolving Al(OH)₃ or Al₂O₃ in sulfuric acid",
+    "fun_facts_ru": [
+      "One of the most widely used coagulants for drinking water purification",
+      "Undergoes significant hydrolysis when dissolved in water, creating an acidic solution"
+    ]
+  },
+  "al2o3": {
+    "name_ru": "Aluminium oxide",
+    "appearance_ru": "White crystalline powder",
+    "industrial_ru": "Aluminium production (electrolysis), abrasive materials, ceramics",
+    "production_ru": "Processing of bauxite using the Bayer process",
+    "fun_facts_ru": [
+      "Corundum, ruby, and sapphire are natural forms of Al₂O₃, colored by impurities",
+      "One of the hardest oxides — 9 on the Mohs scale"
+    ]
+  },
+  "alcl3": {
+    "name_ru": "Aluminium chloride",
+    "appearance_ru": "White or yellowish powder",
+    "hazards_ru": [
+      "Corrosive",
+      "Reacts vigorously with water"
+    ],
+    "industrial_ru": "Friedel-Crafts catalyst, aluminium production",
+    "production_ru": "Reaction of aluminium with chlorine or HCl",
+    "fun_facts_ru": [
+      "Anhydrous AlCl₃ is a key catalyst in organic synthesis (Friedel-Crafts reaction)",
+      "Its boiling point is lower than its melting point — it sublimes at atmospheric pressure"
+    ]
   },
   "bacl2": {
     "name_ru": "Barium chloride",
     "appearance_ru": "Colorless crystals",
-    "hazards_ru": ["Toxic", "Dangerous if swallowed"],
+    "hazards_ru": [
+      "Toxic",
+      "Dangerous if swallowed"
+    ],
     "storage_ru": "Store in sealed containers in a ventilated area",
     "industrial_ru": "Reagent for detecting sulfate ions in analytical chemistry",
     "production_ru": "Reaction of barium carbonate with hydrochloric acid",
-    "fun_facts_ru": ["A qualitative reagent for sulfate ions — produces a white precipitate of BaSO₄"]
+    "fun_facts_ru": [
+      "A qualitative reagent for sulfate ions — produces a white precipitate of BaSO₄"
+    ]
   },
   "baso4": {
     "name_ru": "Barium sulfate",
     "appearance_ru": "White crystalline powder",
     "industrial_ru": "Radiocontrast agent, filler in paper and plastics manufacturing",
     "production_ru": "Precipitation from barium salt solutions using sulfuric acid or sulfates",
-    "fun_facts_ru": ["Used as a 'barium meal' for stomach X-rays — insoluble and non-toxic", "The mineral barite (BaSO₄) is the main industrial source of barium"]
+    "fun_facts_ru": [
+      "Used as a 'barium meal' for stomach X-rays — insoluble and non-toxic",
+      "The mineral barite (BaSO₄) is the main industrial source of barium"
+    ]
+  },
+  "c2h2": {
+    "name_ru": "Acetylene",
+    "appearance_ru": "Colorless gas (technical grade has an unpleasant odor due to impurities)",
+    "hazards_ru": [
+      "Highly flammable",
+      "Explosive"
+    ],
+    "industrial_ru": "Gas welding and metal cutting, PVC production, synthetic rubber manufacturing",
+    "production_ru": "Carbide method (CaC₂ + H₂O), thermal cracking of methane",
+    "fun_facts_ru": [
+      "An acetylene torch reaches temperatures up to 3150°C",
+      "Pure acetylene is nearly odorless — the unpleasant smell comes from phosphine and hydrogen sulfide impurities"
+    ]
+  },
+  "c2h4": {
+    "name_ru": "Ethylene",
+    "appearance_ru": "Colorless gas with a faint sweet odor",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Production of polyethylene, ethanol, ethylene oxide, styrene",
+    "production_ru": "Thermal cracking of petroleum, dehydration of ethanol",
+    "fun_facts_ru": [
+      "The most produced organic compound in the world (over 150 million tonnes/year)",
+      "A phytohormone — it accelerates fruit ripening"
+    ]
+  },
+  "c2h5oh": {
+    "name_ru": "Ethanol",
+    "appearance_ru": "Colorless volatile liquid with a characteristic odor",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Solvent, fuel, antiseptic, base for alcoholic beverages",
+    "production_ru": "Fermentation of sugars or hydration of ethylene",
+    "fun_facts_ru": [
+      "One of the first organic compounds known to humanity",
+      "Absolute ethanol (99.95%) is obtained by azeotropic distillation with benzene"
+    ]
+  },
+  "c2h6": {
+    "name_ru": "Ethane",
+    "appearance_ru": "Colorless odorless gas",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Ethylene production (pyrolysis), fuel",
+    "production_ru": "Component of natural gas (5–10%), associated petroleum gas",
+    "fun_facts_ru": [
+      "Ethane is the second simplest alkane after methane",
+      "Lakes of liquid ethane and methane exist on Saturn's moon Titan"
+    ]
+  },
+  "c4h10": {
+    "name_ru": "Butane",
+    "appearance_ru": "Colorless odorless gas",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Fuel (bottled household gas), butadiene production, solvent",
+    "production_ru": "Processing of natural gas and petroleum",
+    "fun_facts_ru": [
+      "The main component of lighter gas",
+      "Boils at -0.5°C — almost at 0°C"
+    ]
+  },
+  "c4h6": {
+    "name_ru": "1,3-Butadiene",
+    "appearance_ru": "Colorless gas with a faint odor",
+    "hazards_ru": [
+      "Highly flammable",
+      "Carcinogenic"
+    ],
+    "industrial_ru": "Production of synthetic rubber (polybutadiene, styrene-butadiene rubber)",
+    "production_ru": "Dehydrogenation of butane, byproduct of cracking",
+    "fun_facts_ru": [
+      "The basis of synthetic rubber — invented by S. V. Lebedev (1910)",
+      "Conjugated double bonds give the molecule exceptional stability"
+    ]
+  },
+  "c4h8": {
+    "name_ru": "1-Butene",
+    "appearance_ru": "Colorless gas",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Production of polybutylene, butadiene, gasoline component",
+    "production_ru": "Petroleum cracking, dehydrogenation of butane",
+    "fun_facts_ru": [
+      "Exists as several isomers: 1-butene, 2-butene (cis- and trans-)",
+      "Used to increase the octane rating of gasoline"
+    ]
+  },
+  "c5h10": {
+    "name_ru": "1-Pentene",
+    "appearance_ru": "Colorless mobile liquid",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Polymer production, gasoline component",
+    "production_ru": "Petroleum cracking",
+    "fun_facts_ru": [
+      "1-Pentene is one of the first liquid alkenes (boils at 30°C)"
+    ]
+  },
+  "c6h12o6": {
+    "name_ru": "Glucose",
+    "appearance_ru": "White crystalline powder with a sweet taste",
+    "industrial_ru": "Food industry, medicine (intravenous nutrition), fermentation",
+    "production_ru": "Hydrolysis of starch or cellulose (acid or enzymatic)",
+    "fun_facts_ru": [
+      "The primary energy source for cells in the body",
+      "The silver mirror reaction is a qualitative test for the aldehyde group of glucose"
+    ]
+  },
+  "c6h5cooh": {
+    "name_ru": "Benzoic acid",
+    "appearance_ru": "Colorless needle-shaped crystals",
+    "industrial_ru": "Preservative (E210), dye production, pharmaceuticals",
+    "production_ru": "Oxidation of toluene, hydrolysis of benzotrichloride",
+    "fun_facts_ru": [
+      "Benzoic acid was the first organic acid isolated from a natural source (benzoin resin, 16th century)",
+      "Widely used as a preservative in beverages and food products"
+    ]
+  },
+  "c6h5nh2": {
+    "name_ru": "Aniline",
+    "appearance_ru": "Colorless oily liquid, darkens on exposure to air",
+    "hazards_ru": [
+      "Toxic",
+      "Carcinogenic"
+    ],
+    "industrial_ru": "Production of dyes, polyurethanes, pharmaceuticals, rubber",
+    "production_ru": "Reduction of nitrobenzene (Zinin reaction)",
+    "fun_facts_ru": [
+      "The Zinin reaction (1842) — the first industrial synthesis of aniline — laid the foundation for the aniline dye industry",
+      "The name comes from the Portuguese 'anil' — indigo"
+    ]
+  },
+  "c6h5oh": {
+    "name_ru": "Phenol",
+    "appearance_ru": "Colorless crystals with a characteristic odor (turn pink on exposure to air)",
+    "hazards_ru": [
+      "Toxic",
+      "Causes burns",
+      "Absorbed through the skin"
+    ],
+    "industrial_ru": "Production of phenol-formaldehyde resins, bisphenol A, caprolactam",
+    "production_ru": "Cumene process (from benzene and propylene — simultaneously with acetone)",
+    "fun_facts_ru": [
+      "The first antiseptic used in surgery (Joseph Lister, 1865)",
+      "Carbolic acid (phenol solution) was used to sterilize operating rooms"
+    ]
+  },
+  "c8h18": {
+    "name_ru": "Octane",
+    "appearance_ru": "Colorless liquid",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Gasoline component, octane rating standard",
+    "production_ru": "Petroleum distillation",
+    "fun_facts_ru": [
+      "Isooctane (2,2,4-trimethylpentane) is the reference standard for an octane rating of 100",
+      "The term 'octane number' in gasoline is derived from octane"
+    ]
+  },
+  "ca_oh_2": {
+    "name_ru": "Calcium hydroxide",
+    "appearance_ru": "White powder",
+    "hazards_ru": [
+      "Corrosive",
+      "Irritates skin and eyes"
+    ],
+    "industrial_ru": "Construction (slaked lime), water purification, agriculture",
+    "production_ru": "Slaking quicklime with water: CaO + H₂O → Ca(OH)₂",
+    "fun_facts_ru": [
+      "Limewater (Ca(OH)₂ solution) is a qualitative reagent for CO₂: it turns cloudy when carbon dioxide is passed through it",
+      "Slaked lime has been used in construction for over 5,000 years"
+    ]
   },
   "caco3": {
     "name_ru": "Calcium carbonate",
     "appearance_ru": "White powder or crystals",
     "industrial_ru": "Construction (chalk, limestone, marble), cement production",
     "production_ru": "Mining of natural minerals (limestone, chalk, marble)",
-    "fun_facts_ru": ["Chalk, marble, limestone, seashells, and eggshells are all CaCO₃", "Decomposes into CaO and CO₂ when heated — the basis of lime production"]
-  },
-  "ca_oh_2": {
-    "name_ru": "Calcium hydroxide",
-    "appearance_ru": "White powder",
-    "hazards_ru": ["Corrosive", "Irritates skin and eyes"],
-    "industrial_ru": "Construction (slaked lime), water purification, agriculture",
-    "production_ru": "Slaking quicklime with water: CaO + H₂O → Ca(OH)₂",
-    "fun_facts_ru": ["Limewater (Ca(OH)₂ solution) is a qualitative reagent for CO₂: it turns cloudy when carbon dioxide is passed through it", "Slaked lime has been used in construction for over 5,000 years"]
+    "fun_facts_ru": [
+      "Chalk, marble, limestone, seashells, and eggshells are all CaCO₃",
+      "Decomposes into CaO and CO₂ when heated — the basis of lime production"
+    ]
   },
   "cao": {
     "name_ru": "Calcium oxide",
     "appearance_ru": "White crystalline powder",
-    "hazards_ru": ["Corrosive", "Causes burns on contact with moist skin"],
+    "hazards_ru": [
+      "Corrosive",
+      "Causes burns on contact with moist skin"
+    ],
     "storage_ru": "Store in sealed containers, protect from moisture",
     "industrial_ru": "Cement production, metallurgy, agriculture",
     "production_ru": "Calcination of limestone at 900–1200 °C: CaCO₃ → CaO + CO₂",
-    "fun_facts_ru": ["Quicklime heats up intensely on contact with water — the reaction is highly exothermic", "One of the oldest binding materials used in construction"]
+    "fun_facts_ru": [
+      "Quicklime heats up intensely on contact with water — the reaction is highly exothermic",
+      "One of the oldest binding materials used in construction"
+    ]
+  },
+  "ch3cho": {
+    "name_ru": "Acetaldehyde",
+    "appearance_ru": "Colorless volatile liquid with a sharp fruity odor",
+    "hazards_ru": [
+      "Highly flammable",
+      "Irritates the respiratory tract",
+      "Possible carcinogen"
+    ],
+    "industrial_ru": "Production of acetic acid, ethyl acetate, perfumery",
+    "production_ru": "Oxidation of ethanol, Wacker process (oxidation of ethylene)",
+    "fun_facts_ru": [
+      "Formed in the body during alcohol metabolism — acetaldehyde is what causes hangovers",
+      "Boils at 20°C — almost at room temperature"
+    ]
+  },
+  "ch3coch3": {
+    "name_ru": "Acetone",
+    "appearance_ru": "Colorless volatile liquid with a characteristic odor",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Solvent (varnishes, paints, adhesives), production of methyl methacrylate, bisphenol A",
+    "production_ru": "Cumene process (from benzene and propylene), dehydrogenation of isopropanol",
+    "fun_facts_ru": [
+      "Acetone is the most widely used solvent in the world",
+      "Produced in the body during fasting — the 'acetone breath' in diabetes"
+    ]
+  },
+  "ch3cooc2h5": {
+    "name_ru": "Ethyl acetate",
+    "appearance_ru": "Colorless volatile liquid with a pleasant fruity odor",
+    "hazards_ru": [
+      "Highly flammable"
+    ],
+    "industrial_ru": "Solvent (varnishes, adhesives, paints), food industry (flavoring agent)",
+    "production_ru": "Esterification of acetic acid with ethanol (Fischer esterification)",
+    "fun_facts_ru": [
+      "Ethyl acetate gives the characteristic smell to glue and nail polish remover",
+      "Food additive E1504 — used as a flavoring agent"
+    ]
+  },
+  "ch3cooh": {
+    "name_ru": "Acetic acid",
+    "appearance_ru": "Colorless liquid with a sharp sour odor",
+    "hazards_ru": [
+      "Corrosive",
+      "Causes burns"
+    ],
+    "industrial_ru": "Production of acetate fibers, solvents, vinegar, vinyl acetate",
+    "production_ru": "Oxidation of acetaldehyde, fermentation of ethanol (acetic acid fermentation)",
+    "fun_facts_ru": [
+      "Glacial acetic acid (100%) freezes at 16.6°C — hence the name 'glacial'",
+      "Table vinegar is a 6–9% solution of acetic acid in water"
+    ]
+  },
+  "ch3coona": {
+    "name_ru": "Sodium acetate",
+    "appearance_ru": "Colorless crystals",
+    "industrial_ru": "Food industry (E262), buffer solutions, chemical hand warmers",
+    "production_ru": "Neutralization of acetic acid with baking soda or NaOH",
+    "fun_facts_ru": [
+      "The basis of popular chemical hand warmers — crystallization of a supersaturated solution releases heat",
+      "Its aqueous solution is slightly alkaline (hydrolysis of the anion)"
+    ]
+  },
+  "ch3oh": {
+    "name_ru": "Methanol",
+    "appearance_ru": "Colorless liquid with a faint odor",
+    "hazards_ru": [
+      "Toxic (lethal dose 30–100 mL)",
+      "Highly flammable",
+      "Damages the optic nerve"
+    ],
+    "industrial_ru": "Solvent, formaldehyde production, fuel, antifreeze",
+    "production_ru": "Catalytic synthesis from CO and H₂ (synthesis gas)",
+    "fun_facts_ru": [
+      "Methanol is the simplest alcohol and one of the most toxic household substances",
+      "Used as fuel in Indianapolis 500 racing cars"
+    ]
+  },
+  "ch4": {
+    "name_ru": "Methane",
+    "appearance_ru": "Colorless odorless gas",
+    "hazards_ru": [
+      "Highly flammable",
+      "Forms explosive mixtures with air"
+    ],
+    "industrial_ru": "Fuel (natural gas), production of hydrogen, carbon black, acetylene",
+    "production_ru": "Main component of natural gas, biogas (decomposition of organic matter)",
+    "fun_facts_ru": [
+      "Methane is the second most significant greenhouse gas after CO₂",
+      "A single cow produces up to 500 liters of methane per day"
+    ]
+  },
+  "cl2": {
+    "name_ru": "Chlorine",
+    "appearance_ru": "Yellowish-green gas with a sharp suffocating odor",
+    "hazards_ru": [
+      "Toxic",
+      "Irritates the respiratory tract",
+      "Corrosive"
+    ],
+    "industrial_ru": "PVC production, water disinfection, bleaching",
+    "production_ru": "Electrolysis of NaCl solution (chlor-alkali process)",
+    "fun_facts_ru": [
+      "The first poison gas used in World War I",
+      "Used to purify 98% of the world's drinking water"
+    ]
   },
   "co2": {
     "name_ru": "Carbon dioxide",
     "appearance_ru": "Colorless, odorless gas",
     "industrial_ru": "Carbonation of beverages, fire extinguishing, soda production",
     "production_ru": "Byproduct of fuel combustion, alcoholic fermentation, and limestone calcination",
-    "fun_facts_ru": ["Dry ice is solid CO₂; it sublimes at −78.5 °C, bypassing the liquid phase", "CO₂ makes up about 0.04% of Earth's atmosphere, yet it is a key greenhouse gas"]
+    "fun_facts_ru": [
+      "Dry ice is solid CO₂; it sublimes at −78.5 °C, bypassing the liquid phase",
+      "CO₂ makes up about 0.04% of Earth's atmosphere, yet it is a key greenhouse gas"
+    ]
   },
   "cu_oh_2": {
     "name_ru": "Copper(II) hydroxide",
     "appearance_ru": "Light blue gelatinous precipitate",
     "industrial_ru": "Production of fungicides (Bordeaux mixture), reagent in analytical chemistry",
     "production_ru": "Precipitation from copper(II) salt solutions using alkali",
-    "fun_facts_ru": ["Turns black when heated, decomposing into CuO and water", "Dissolves in ammonia to form a bright blue solution (Schweizer's reagent)"]
+    "fun_facts_ru": [
+      "Turns black when heated, decomposing into CuO and water",
+      "Dissolves in ammonia to form a bright blue solution (Schweizer's reagent)"
+    ]
   },
   "cuo": {
     "name_ru": "Copper(II) oxide",
     "appearance_ru": "Black powder",
     "industrial_ru": "Production of ceramics, pigments, and catalysts",
     "production_ru": "Calcination of copper(II) hydroxide or heating copper in air",
-    "fun_facts_ru": ["Easily reduced by hydrogen to metallic copper — a classic school chemistry experiment"]
+    "fun_facts_ru": [
+      "Easily reduced by hydrogen to metallic copper — a classic school chemistry experiment"
+    ]
   },
   "cuso4": {
     "name_ru": "Copper(II) sulfate",
     "appearance_ru": "White powder (anhydrous) or blue crystals (pentahydrate)",
-    "hazards_ru": ["Toxic", "Hazardous to the environment"],
+    "hazards_ru": [
+      "Toxic",
+      "Hazardous to the environment"
+    ],
     "industrial_ru": "Agriculture (fungicide), electroplating, dye production",
     "production_ru": "Dissolving copper in dilute sulfuric acid with heating and air exposure",
-    "fun_facts_ru": ["The pentahydrate CuSO₄·5H₂O (blue vitriol) is bright blue; it loses water on heating and turns white", "Anhydrous CuSO₄ is used as a moisture indicator — it turns blue on contact with water"]
-  },
-  "fe2o3": {
-    "name_ru": "Iron(III) oxide",
-    "appearance_ru": "Red-brown powder",
-    "industrial_ru": "Metallurgy (ore for pig iron production), pigments, polishing powders",
-    "production_ru": "Roasting of pyrite (FeS₂) or calcination of iron(III) hydroxide",
-    "fun_facts_ru": ["The mineral hematite (Fe₂O₃) is the main iron ore on Earth", "The red color of Martian soil is caused by the presence of Fe₂O₃"]
-  },
-  "fecl3": {
-    "name_ru": "Iron(III) chloride",
-    "appearance_ru": "Dark brown crystals, deliquescent in air",
-    "hazards_ru": ["Corrosive", "Irritates skin"],
-    "industrial_ru": "Wastewater treatment, printed circuit board etching, catalyst",
-    "production_ru": "Reaction of iron with chlorine gas at elevated temperature",
-    "fun_facts_ru": ["FeCl₃ solution is a qualitative reagent for phenols (produces a violet coloration)"]
+    "fun_facts_ru": [
+      "The pentahydrate CuSO₄·5H₂O (blue vitriol) is bright blue; it loses water on heating and turns white",
+      "Anhydrous CuSO₄ is used as a moisture indicator — it turns blue on contact with water"
+    ]
   },
   "fe_oh_3": {
     "name_ru": "Iron(III) hydroxide",
     "appearance_ru": "Brown gelatinous precipitate",
     "industrial_ru": "Water purification (coagulant), pigments",
     "production_ru": "Precipitation from iron(III) salt solutions using alkali",
-    "fun_facts_ru": ["Has no melting point — decomposes into Fe₂O₃ and water when heated", "Rust is a mixture of hydrated iron oxides with a composition close to Fe(OH)₃"]
+    "fun_facts_ru": [
+      "Has no melting point — decomposes into Fe₂O₃ and water when heated",
+      "Rust is a mixture of hydrated iron oxides with a composition close to Fe(OH)₃"
+    ]
+  },
+  "fe2o3": {
+    "name_ru": "Iron(III) oxide",
+    "appearance_ru": "Red-brown powder",
+    "industrial_ru": "Metallurgy (ore for pig iron production), pigments, polishing powders",
+    "production_ru": "Roasting of pyrite (FeS₂) or calcination of iron(III) hydroxide",
+    "fun_facts_ru": [
+      "The mineral hematite (Fe₂O₃) is the main iron ore on Earth",
+      "The red color of Martian soil is caused by the presence of Fe₂O₃"
+    ]
+  },
+  "fecl2": {
+    "name_ru": "Iron(II) chloride",
+    "appearance_ru": "Greenish hygroscopic crystals",
+    "industrial_ru": "Wastewater treatment, metal etching",
+    "production_ru": "Dissolving iron in hydrochloric acid",
+    "fun_facts_ru": [
+      "Gradually oxidizes to FeCl₃ in air"
+    ]
+  },
+  "fecl3": {
+    "name_ru": "Iron(III) chloride",
+    "appearance_ru": "Dark brown crystals, deliquescent in air",
+    "hazards_ru": [
+      "Corrosive",
+      "Irritates skin"
+    ],
+    "industrial_ru": "Wastewater treatment, printed circuit board etching, catalyst",
+    "production_ru": "Reaction of iron with chlorine gas at elevated temperature",
+    "fun_facts_ru": [
+      "FeCl₃ solution is a qualitative reagent for phenols (produces a violet coloration)"
+    ]
+  },
+  "feo": {
+    "name_ru": "Iron(II) oxide",
+    "appearance_ru": "Black powder",
+    "industrial_ru": "Pigment, steel component (deoxidizer)",
+    "production_ru": "Reduction of Fe₂O₃ or thermal decomposition of iron(II) oxalate",
+    "fun_facts_ru": [
+      "Found in nature as the mineral wustite",
+      "Used as a black pigment in ceramics"
+    ]
   },
   "feso4": {
     "name_ru": "Iron(II) sulfate",
     "appearance_ru": "Greenish-blue crystals (heptahydrate)",
-    "hazards_ru": ["Irritates skin and eyes"],
+    "hazards_ru": [
+      "Irritates skin and eyes"
+    ],
     "industrial_ru": "Water purification, ink production, agriculture (micronutrient fertilizer)",
     "production_ru": "Dissolving iron in dilute sulfuric acid",
-    "fun_facts_ru": ["The heptahydrate FeSO₄·7H₂O is known as green vitriol — one of the oldest known chemical compounds"]
+    "fun_facts_ru": [
+      "The heptahydrate FeSO₄·7H₂O is known as green vitriol — one of the oldest known chemical compounds"
+    ]
+  },
+  "h2": {
+    "name_ru": "Hydrogen",
+    "appearance_ru": "Colorless gas with no odor or taste",
+    "hazards_ru": [
+      "Highly flammable",
+      "Forms explosive mixtures with air"
+    ],
+    "industrial_ru": "Ammonia synthesis, fat hydrogenation, rocket fuel, fuel cells",
+    "production_ru": "Steam reforming of methane, electrolysis of water",
+    "fun_facts_ru": [
+      "The lightest and most abundant element in the universe",
+      "A mixture of H₂ with air (4–75%) is explosive — known as 'detonating gas'"
+    ]
   },
   "h2co3": {
     "name_ru": "Carbonic acid",
     "appearance_ru": "Exists only in aqueous solution; colorless liquid",
     "industrial_ru": "Carbonated beverages contain dissolved CO₂, which forms carbonic acid",
     "production_ru": "Dissolving CO₂ in water: CO₂ + H₂O ⇌ H₂CO₃",
-    "fun_facts_ru": ["One of the most unstable acids — decomposes into water and CO₂ almost instantly", "The fizzing of carbonated drinks is CO₂ being released as carbonic acid decomposes"]
+    "fun_facts_ru": [
+      "One of the most unstable acids — decomposes into water and CO₂ almost instantly",
+      "The fizzing of carbonated drinks is CO₂ being released as carbonic acid decomposes"
+    ]
   },
   "h2o": {
     "name_ru": "Water",
     "appearance_ru": "Colorless, odorless liquid",
     "industrial_ru": "Universal solvent used in all branches of industry",
-    "fun_facts_ru": ["The only substance on Earth found naturally in all three states of matter", "Ice is less dense than liquid water — an anomalous property without which aquatic life in winter would be impossible", "The water molecule has a bent geometry with a bond angle of 104.5°"]
+    "fun_facts_ru": [
+      "The only substance on Earth found naturally in all three states of matter",
+      "Ice is less dense than liquid water — an anomalous property without which aquatic life in winter would be impossible",
+      "The water molecule has a bent geometry with a bond angle of 104.5°"
+    ]
+  },
+  "h2o2": {
+    "name_ru": "Hydrogen peroxide",
+    "appearance_ru": "Colorless liquid (concentrated form is syrupy)",
+    "hazards_ru": [
+      "Strong oxidizer",
+      "Causes burns at high concentrations"
+    ],
+    "industrial_ru": "Bleaching, disinfection, rocket propellant, epoxide production",
+    "production_ru": "Anthraquinone process (auto-oxidation of 2-ethylanthrahydroquinone)",
+    "fun_facts_ru": [
+      "The 3% solution is the familiar 'hydrogen peroxide' found in first-aid kits",
+      "Bombardier beetles use H₂O₂ for a defensive 'explosion' at temperatures of ~100°C"
+    ]
+  },
+  "h2s": {
+    "name_ru": "Hydrogen sulfide",
+    "appearance_ru": "Colorless gas with a rotten egg smell",
+    "hazards_ru": [
+      "Highly toxic",
+      "Highly flammable"
+    ],
+    "industrial_ru": "Sulfur production, analytical chemistry (precipitation of sulfides)",
+    "production_ru": "Reaction of sulfides with acids, byproduct of petroleum refining",
+    "fun_facts_ru": [
+      "The lethal concentration is just 0.1% in air",
+      "At high concentrations it paralyzes the sense of smell — the odor can no longer be detected"
+    ]
   },
   "h2so4": {
     "name_ru": "Sulfuric acid",
     "appearance_ru": "Colorless, oily liquid",
-    "hazards_ru": ["Corrosive", "Causes severe burns"],
+    "hazards_ru": [
+      "Corrosive",
+      "Causes severe burns"
+    ],
     "storage_ru": "Store in glass or polyethylene containers, away from alkalis",
     "industrial_ru": "Production of fertilizers, batteries, and detergents",
     "production_ru": "Contact process: sulfur combustion → SO₂ → SO₃ → H₂SO₄",
-    "fun_facts_ru": ["Sulfuric acid is called the 'bread of chemistry' — it is used in nearly all chemical manufacturing", "When diluting, always add acid to water, never the reverse — otherwise violent boiling occurs"]
+    "fun_facts_ru": [
+      "Sulfuric acid is called the 'bread of chemistry' — it is used in nearly all chemical manufacturing",
+      "When diluting, always add acid to water, never the reverse — otherwise violent boiling occurs"
+    ]
   },
   "h3po4": {
     "name_ru": "Phosphoric acid",
     "appearance_ru": "Colorless crystals, deliquescent in air",
-    "hazards_ru": ["Corrosive", "Irritates skin and eyes"],
+    "hazards_ru": [
+      "Corrosive",
+      "Irritates skin and eyes"
+    ],
     "industrial_ru": "Production of mineral fertilizers, food additive (E338), anti-corrosion treatment",
     "production_ru": "Extraction or thermal processing of apatites and phosphorites",
-    "fun_facts_ru": ["Found in Coca-Cola and other soft drinks as an acidity regulator (E338)", "Phosphoric acid is triprotic — it can form three series of salts"]
+    "fun_facts_ru": [
+      "Found in Coca-Cola and other soft drinks as an acidity regulator (E338)",
+      "Phosphoric acid is triprotic — it can form three series of salts"
+    ]
   },
   "hcl": {
     "name_ru": "Hydrochloric acid",
     "appearance_ru": "Colorless liquid with a pungent odor (in solution)",
-    "hazards_ru": ["Corrosive", "Irritates the respiratory tract"],
+    "hazards_ru": [
+      "Corrosive",
+      "Irritates the respiratory tract"
+    ],
     "storage_ru": "Store in glass or polyethylene containers in a well-ventilated area",
     "industrial_ru": "Metal cleaning, chloride production, food industry",
     "production_ru": "Synthesis from hydrogen and chlorine, or as a byproduct of organic chlorination",
-    "fun_facts_ru": ["Hydrochloric acid is present in human gastric juice (pH ≈ 1.5–2)", "Concentrated HCl 'fumes' in air due to the release of gaseous HCl"]
+    "fun_facts_ru": [
+      "Hydrochloric acid is present in human gastric juice (pH ≈ 1.5–2)",
+      "Concentrated HCl 'fumes' in air due to the release of gaseous HCl"
+    ]
+  },
+  "hclo": {
+    "name_ru": "Hypochlorous acid",
+    "appearance_ru": "Exists only in solution, pale yellow in color",
+    "hazards_ru": [
+      "Oxidizer",
+      "Irritates the skin"
+    ],
+    "industrial_ru": "Water disinfection, bleaching",
+    "production_ru": "Dissolving chlorine in water: Cl₂ + H₂O → HClO + HCl",
+    "fun_facts_ru": [
+      "The weakest of the chlorine-containing acids",
+      "HClO is what actually disinfects water during chlorination"
+    ]
+  },
+  "hclo3": {
+    "name_ru": "Chloric acid",
+    "appearance_ru": "Exists only in solution, colorless liquid",
+    "hazards_ru": [
+      "Strong oxidizer",
+      "Unstable compound"
+    ],
+    "industrial_ru": "Production of chlorates (herbicides, pyrotechnics)",
+    "production_ru": "Reaction of Ba(ClO₃)₂ with sulfuric acid",
+    "fun_facts_ru": [
+      "Chlorates (salts of HClO₃) are used in match and firework production",
+      "In its free form it is unstable — decomposes into ClO₂ and HClO₄"
+    ]
+  },
+  "hclo4": {
+    "name_ru": "Perchloric acid",
+    "appearance_ru": "Colorless fuming liquid",
+    "hazards_ru": [
+      "Strong oxidizer",
+      "Corrosive",
+      "Explosive on contact with organic matter"
+    ],
+    "industrial_ru": "Analytical chemistry, production of perchlorates (rocket propellant)",
+    "production_ru": "Reaction of NaClO₄ with HCl or electrochemical oxidation",
+    "fun_facts_ru": [
+      "The strongest of the chlorine-containing acids",
+      "Ammonium perchlorate NH₄ClO₄ is the main component of solid rocket fuel"
+    ]
   },
   "hno3": {
     "name_ru": "Nitric acid",
     "appearance_ru": "Colorless liquid with a pungent odor; fumes in air",
-    "hazards_ru": ["Corrosive", "Strong oxidizer", "Causes severe burns"],
+    "hazards_ru": [
+      "Corrosive",
+      "Strong oxidizer",
+      "Causes severe burns"
+    ],
     "storage_ru": "Store in dark glass containers, away from organic substances",
     "industrial_ru": "Production of fertilizers (ammonium nitrate), explosives, and dyes",
     "production_ru": "Catalytic oxidation of ammonia over a platinum catalyst (Ostwald process)",
-    "fun_facts_ru": ["A mixture of HNO₃ and HCl (1:3) is 'aqua regia', which dissolves gold and platinum", "Nitric acid turns skin yellow (xanthoproteic reaction with proteins)"]
+    "fun_facts_ru": [
+      "A mixture of HNO₃ and HCl (1:3) is 'aqua regia', which dissolves gold and platinum",
+      "Nitric acid turns skin yellow (xanthoproteic reaction with proteins)"
+    ]
+  },
+  "k2so4": {
+    "name_ru": "Potassium sulfate",
+    "appearance_ru": "Colorless crystals",
+    "industrial_ru": "Potassium fertilizer, glass production",
+    "production_ru": "Reaction of KCl with sulfuric acid",
+    "fun_facts_ru": [
+      "One of the oldest mineral fertilizers",
+      "Unlike KCl, it contains no chlorine — preferred for chlorine-sensitive crops (tobacco, grapes, potatoes)"
+    ]
+  },
+  "kbr": {
+    "name_ru": "Potassium bromide",
+    "appearance_ru": "Colorless cubic crystals",
+    "industrial_ru": "Photography (light-sensitive materials), medicine (sedative)",
+    "production_ru": "Reaction of KOH with bromine or HBr",
+    "fun_facts_ru": [
+      "Widely used as a sedative in the 19th century",
+      "KBr crystals are transparent to infrared radiation — used in IR spectroscopy"
+    ]
   },
   "kcl": {
     "name_ru": "Potassium chloride",
     "appearance_ru": "Colorless cubic crystals",
     "industrial_ru": "Production of potash fertilizers, medicine (salt substitute)",
     "production_ru": "Mining of natural minerals sylvite and carnallite",
-    "fun_facts_ru": ["The mineral sylvite (KCl) is the primary source of potash fertilizers", "Used as a table salt substitute in dietary nutrition"]
+    "fun_facts_ru": [
+      "The mineral sylvite (KCl) is the primary source of potash fertilizers",
+      "Used as a table salt substitute in dietary nutrition"
+    ]
+  },
+  "kmno4": {
+    "name_ru": "Potassium permanganate",
+    "appearance_ru": "Dark purple crystals with a metallic luster",
+    "hazards_ru": [
+      "Strong oxidizer",
+      "Can cause burns"
+    ],
+    "industrial_ru": "Disinfection, analytical chemistry (titration), water purification",
+    "production_ru": "Oxidation of manganates in alkaline medium",
+    "fun_facts_ru": [
+      "Known colloquially in Russia as 'margantsovka'",
+      "Its aqueous solution turns a vivid purple even at very low concentrations"
+    ]
+  },
+  "kno3": {
+    "name_ru": "Potassium nitrate",
+    "appearance_ru": "Colorless crystals",
+    "hazards_ru": [
+      "Oxidizer"
+    ],
+    "industrial_ru": "Fertilizer, preservative (E252), pyrotechnics, glass production",
+    "production_ru": "Reaction of KCl with NaNO₃ (conversion)",
+    "fun_facts_ru": [
+      "Saltpeter is one of the three components of black powder (along with sulfur and charcoal)",
+      "Used in the food industry for curing meat"
+    ]
   },
   "koh": {
     "name_ru": "Potassium hydroxide",
     "appearance_ru": "White solid, hygroscopic",
-    "hazards_ru": ["Corrosive", "Causes severe burns"],
+    "hazards_ru": [
+      "Corrosive",
+      "Causes severe burns"
+    ],
     "storage_ru": "Store in sealed containers, protect from moisture and CO₂",
     "industrial_ru": "Production of soft soap, electrolytes for alkaline batteries",
     "production_ru": "Electrolysis of potassium chloride solution",
-    "fun_facts_ru": ["KOH is called 'caustic potash' — it readily destroys organic tissue", "Absorbs CO₂ from the air, converting to potassium carbonate"]
+    "fun_facts_ru": [
+      "KOH is called 'caustic potash' — it readily destroys organic tissue",
+      "Absorbs CO₂ from the air, converting to potassium carbonate"
+    ]
   },
   "mg_oh_2": {
     "name_ru": "Magnesium hydroxide",
     "appearance_ru": "White amorphous powder",
     "industrial_ru": "Antacid medication (heartburn remedy), flame retardant",
     "production_ru": "Precipitation from magnesium salt solutions using alkali",
-    "fun_facts_ru": ["Mg(OH)₂ is the active ingredient in 'Milk of Magnesia', used to treat heartburn", "Decomposes into MgO and water when heated"]
+    "fun_facts_ru": [
+      "Mg(OH)₂ is the active ingredient in 'Milk of Magnesia', used to treat heartburn",
+      "Decomposes into MgO and water when heated"
+    ]
+  },
+  "mgcl2": {
+    "name_ru": "Magnesium chloride",
+    "appearance_ru": "Colorless hygroscopic crystals",
+    "industrial_ru": "Magnesium production (molten salt electrolysis), de-icing agent",
+    "production_ru": "Dissolving MgO or Mg(OH)₂ in hydrochloric acid, evaporation of seawater",
+    "fun_facts_ru": [
+      "The primary source of magnesium from seawater",
+      "Used as a de-icing agent instead of NaCl"
+    ]
+  },
+  "mgo": {
+    "name_ru": "Magnesium oxide",
+    "appearance_ru": "White powder",
+    "industrial_ru": "Refractories, medicine (antacid), construction",
+    "production_ru": "Calcination of magnesite MgCO₃ or dolomite",
+    "fun_facts_ru": [
+      "The melting point of MgO (2852°C) is one of the highest among oxides",
+      "Calcined magnesia is used by athletes to dry their hands"
+    ]
+  },
+  "mncl2": {
+    "name_ru": "Manganese(II) chloride",
+    "appearance_ru": "Pink crystals",
+    "industrial_ru": "Catalyst, battery production, textile industry",
+    "production_ru": "Dissolving manganese or MnO₂ in hydrochloric acid",
+    "fun_facts_ru": [
+      "Its solution has the characteristic pale pink color of Mn²⁺ ions"
+    ]
+  },
+  "mno2": {
+    "name_ru": "Manganese(IV) oxide",
+    "appearance_ru": "Dark brown to black powder",
+    "industrial_ru": "Battery production, catalyst for H₂O₂ decomposition, pigment",
+    "production_ru": "Found in nature as the mineral pyrolusite",
+    "fun_facts_ru": [
+      "Has been used in batteries since the 19th century",
+      "Catalyzes the decomposition of hydrogen peroxide — a classic school experiment"
+    ]
+  },
+  "n2": {
+    "name_ru": "Nitrogen",
+    "appearance_ru": "Colorless odorless gas",
+    "industrial_ru": "Ammonia production, inert atmosphere, food freezing",
+    "production_ru": "Fractional distillation of liquid air",
+    "fun_facts_ru": [
+      "Makes up 78% of Earth's atmosphere",
+      "The triple bond N≡N is one of the strongest chemical bonds"
+    ]
   },
   "na2co3": {
     "name_ru": "Sodium carbonate",
     "appearance_ru": "White powder",
     "industrial_ru": "Production of glass, soap, detergents, and cellulose",
     "production_ru": "Solvay process (ammonia soda process) from NaCl and CaCO₃",
-    "fun_facts_ru": ["Soda ash (Na₂CO₃) is one of the most important products of the chemical industry", "The decahydrate Na₂CO₃·10H₂O is known as 'washing soda'"]
+    "fun_facts_ru": [
+      "Soda ash (Na₂CO₃) is one of the most important products of the chemical industry",
+      "The decahydrate Na₂CO₃·10H₂O is known as 'washing soda'"
+    ]
   },
   "na2o": {
     "name_ru": "Sodium oxide",
     "appearance_ru": "White powder",
-    "hazards_ru": ["Corrosive", "Reacts vigorously with water"],
+    "hazards_ru": [
+      "Corrosive",
+      "Reacts vigorously with water"
+    ],
     "storage_ru": "Store in sealed containers, protect from moisture",
     "industrial_ru": "Component of glass batches, intermediate in NaOH production",
     "production_ru": "Heating sodium with limited oxygen supply",
-    "fun_facts_ru": ["Rapidly absorbs moisture and CO₂ from air, converting to Na₂CO₃"]
+    "fun_facts_ru": [
+      "Rapidly absorbs moisture and CO₂ from air, converting to Na₂CO₃"
+    ]
   },
   "na2so4": {
     "name_ru": "Sodium sulfate",
     "appearance_ru": "Colorless crystals",
     "industrial_ru": "Production of glass, detergents, and cellulose",
     "production_ru": "Reaction of sulfuric acid with sodium chloride, or from natural minerals",
-    "fun_facts_ru": ["The decahydrate Na₂SO₄·10H₂O (Glauber's salt) was discovered by Glauber in 1625 and was used as a laxative"]
+    "fun_facts_ru": [
+      "The decahydrate Na₂SO₄·10H₂O (Glauber's salt) was discovered by Glauber in 1625 and was used as a laxative"
+    ]
+  },
+  "naalo2": {
+    "name_ru": "Sodium aluminate",
+    "appearance_ru": "White powder",
+    "industrial_ru": "Water treatment (coagulant), zeolite production",
+    "production_ru": "Dissolving Al₂O₃ or Al(OH)₃ in NaOH solution",
+    "fun_facts_ru": [
+      "Formed when aluminium dissolves in alkali — a typical reaction of an amphoteric metal",
+      "Used in construction as a concrete setting accelerator"
+    ]
   },
   "nacl": {
     "name_ru": "Sodium chloride",
     "appearance_ru": "Colorless cubic crystals",
     "industrial_ru": "Food industry, soda and chlorine production (electrolysis)",
     "production_ru": "Mining of rock salt or evaporation of seawater",
-    "fun_facts_ru": ["Annual global consumption is about 300 million tonnes", "In Ancient Rome, soldiers were sometimes paid in salt — hence the word 'salary'", "NaCl crystals have a cubic shape, visible even in ordinary table salt"]
+    "fun_facts_ru": [
+      "Annual global consumption is about 300 million tonnes",
+      "In Ancient Rome, soldiers were sometimes paid in salt — hence the word 'salary'",
+      "NaCl crystals have a cubic shape, visible even in ordinary table salt"
+    ]
   },
   "naoh": {
     "name_ru": "Sodium hydroxide",
     "appearance_ru": "White solid, hygroscopic",
-    "hazards_ru": ["Corrosive", "Causes severe burns"],
+    "hazards_ru": [
+      "Corrosive",
+      "Causes severe burns"
+    ],
     "storage_ru": "Store in sealed containers, protect from moisture",
     "industrial_ru": "Production of soap, paper, viscose; petroleum product refining",
     "production_ru": "Electrolysis of sodium chloride solution (chloralkali process)",
-    "fun_facts_ru": ["NaOH is called 'caustic soda' or 'lye'", "Absorbs CO₂ and moisture from air, gradually converting to Na₂CO₃"]
+    "fun_facts_ru": [
+      "NaOH is called 'caustic soda' or 'lye'",
+      "Absorbs CO₂ and moisture from air, gradually converting to Na₂CO₃"
+    ]
   },
   "nh3": {
     "name_ru": "Ammonia",
     "appearance_ru": "Colorless gas with a pungent odor",
-    "hazards_ru": ["Toxic", "Irritates the respiratory tract", "Causes burns to mucous membranes"],
+    "hazards_ru": [
+      "Toxic",
+      "Irritates the respiratory tract",
+      "Causes burns to mucous membranes"
+    ],
     "storage_ru": "Store in steel cylinders in a well-ventilated area",
     "industrial_ru": "Production of nitrogen fertilizers, nitric acid, and explosives",
     "production_ru": "Synthesis from nitrogen and hydrogen at high pressure and temperature (Haber process)",
-    "fun_facts_ru": ["Smelling salts (ammonia solution) are used to revive people who have fainted", "Ammonia is one of the most widely produced chemicals in the world (over 150 million tonnes/year)"]
+    "fun_facts_ru": [
+      "Smelling salts (ammonia solution) are used to revive people who have fainted",
+      "Ammonia is one of the most widely produced chemicals in the world (over 150 million tonnes/year)"
+    ]
+  },
+  "nh4cl": {
+    "name_ru": "Ammonium chloride",
+    "appearance_ru": "Colorless crystals",
+    "industrial_ru": "Soldering flux, fertilizer, battery production",
+    "production_ru": "Reaction of ammonia with hydrochloric acid, byproduct of the Solvay process",
+    "fun_facts_ru": [
+      "Known since antiquity as 'sal ammoniac' — named after the Temple of Ammon in Egypt",
+      "Sublimes when heated, bypassing the liquid phase"
+    ]
+  },
+  "o2": {
+    "name_ru": "Oxygen",
+    "appearance_ru": "Colorless odorless gas",
+    "industrial_ru": "Metallurgy, medicine, welding, rocket propellant",
+    "production_ru": "Fractional distillation of liquid air or electrolysis of water",
+    "fun_facts_ru": [
+      "Makes up 21% of Earth's atmosphere",
+      "Liquid oxygen is blue in color and is attracted by magnets"
+    ]
   },
   "pb_no3_2": {
     "name_ru": "Lead(II) nitrate",
     "appearance_ru": "Colorless or white crystals",
-    "hazards_ru": ["Toxic", "Carcinogenic", "Hazardous to the environment"],
+    "hazards_ru": [
+      "Toxic",
+      "Carcinogenic",
+      "Hazardous to the environment"
+    ],
     "storage_ru": "Store in sealed containers, away from combustible materials, in a ventilated area",
     "industrial_ru": "Production of pigments, flotation reagents, pyrotechnics",
     "production_ru": "Dissolving lead or lead oxide in nitric acid",
-    "fun_facts_ru": ["One of the few soluble lead salts — most Pb²⁺ salts are insoluble", "Decomposes when heated, releasing brown NO₂ gas"]
+    "fun_facts_ru": [
+      "One of the few soluble lead salts — most Pb²⁺ salts are insoluble",
+      "Decomposes when heated, releasing brown NO₂ gas"
+    ]
   },
   "sio2": {
     "name_ru": "Silicon dioxide",
     "appearance_ru": "Colorless crystals or white powder",
     "industrial_ru": "Production of glass, ceramics, optical fiber, and electronics",
     "production_ru": "Mining of natural quartz sand; purification for electronics",
-    "fun_facts_ru": ["Quartz, rock crystal, amethyst, and agate are natural forms of SiO₂", "SiO₂ is the basis of silicon chips that power all modern electronics", "The most abundant mineral in the Earth's crust"]
+    "fun_facts_ru": [
+      "Quartz, rock crystal, amethyst, and agate are natural forms of SiO₂",
+      "SiO₂ is the basis of silicon chips that power all modern electronics",
+      "The most abundant mineral in the Earth's crust"
+    ]
+  },
+  "so2": {
+    "name_ru": "Sulfur dioxide",
+    "appearance_ru": "Colorless gas with a sharp suffocating odor",
+    "hazards_ru": [
+      "Toxic",
+      "Irritates the respiratory tract"
+    ],
+    "industrial_ru": "Sulfuric acid production, preservative (E220), bleaching",
+    "production_ru": "Roasting of sulfur or sulfide ores",
+    "fun_facts_ru": [
+      "One of the main atmospheric pollutants that causes acid rain",
+      "Has been used as a preservative in winemaking for over 2,000 years"
+    ]
   },
   "so3": {
     "name_ru": "Sulfur trioxide",
     "appearance_ru": "Colorless liquid; fumes in air",
-    "hazards_ru": ["Corrosive", "Irritates the respiratory tract", "Causes burns"],
+    "hazards_ru": [
+      "Corrosive",
+      "Irritates the respiratory tract",
+      "Causes burns"
+    ],
     "storage_ru": "Store in sealed containers, protect from moisture",
     "industrial_ru": "Intermediate product in the manufacture of sulfuric acid",
     "production_ru": "Catalytic oxidation of SO₂ with atmospheric oxygen (contact process)",
-    "fun_facts_ru": ["SO₃ avidly absorbs water — when released into the atmosphere it forms sulfuric acid (acid rain)", "A solution of SO₃ in sulfuric acid is called oleum"]
+    "fun_facts_ru": [
+      "SO₃ avidly absorbs water — when released into the atmosphere it forms sulfuric acid (acid rain)",
+      "A solution of SO₃ in sulfuric acid is called oleum"
+    ]
+  },
+  "v2o5": {
+    "name_ru": "Vanadium(V) oxide",
+    "appearance_ru": "Orange-yellow powder",
+    "hazards_ru": [
+      "Toxic"
+    ],
+    "industrial_ru": "Catalyst in the contact process (H₂SO₄ production), alloy manufacturing",
+    "production_ru": "Roasting of vanadium ores",
+    "fun_facts_ru": [
+      "The most important industrial catalyst — sulfuric acid production via the contact process is impossible without it"
+    ]
   },
   "zno": {
     "name_ru": "Zinc oxide",
     "appearance_ru": "White powder; turns yellow when heated",
     "industrial_ru": "Rubber production (vulcanization), zinc white pigment, cosmetics, pharmaceuticals",
     "production_ru": "Oxidation of zinc vapor with atmospheric oxygen",
-    "fun_facts_ru": ["Found in zinc ointment — an antiseptic skin treatment", "Turns yellow when heated and white again when cooled — a thermochromic effect"]
+    "fun_facts_ru": [
+      "Found in zinc ointment — an antiseptic skin treatment",
+      "Turns yellow when heated and white again when cooled — a thermochromic effect"
+    ]
   }
 }

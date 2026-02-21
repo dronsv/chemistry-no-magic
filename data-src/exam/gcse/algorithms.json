@@ -1,0 +1,276 @@
+[
+  {
+    "task_number": 1,
+    "title_ru": "Atomic Structure and the Periodic Table",
+    "topic_ru": "Atoms, elements, isotopes, electronic structure, periodic table trends",
+    "answer_format": "select (2 of 5) or input_cells (group and period)",
+    "algorithm_ru": [
+      "Read the question carefully: identify whether it asks about atomic structure (protons, neutrons, electrons), electronic configuration, or periodic table position.",
+      "For atomic structure questions: remember that the atomic number = number of protons = number of electrons (in a neutral atom). Mass number = protons + neutrons.",
+      "For electronic configuration: fill shells in order (2, 8, 8, ...). The number of occupied shells = period number. The number of outer electrons = group number.",
+      "For isotope questions: isotopes have the same number of protons but different numbers of neutrons.",
+      "Eliminate options that confuse element properties with compound properties, or that incorrectly state universal rules (e.g. 'always same mass number')."
+    ],
+    "key_facts_ru": [
+      "Atomic number = number of protons (defines the element).",
+      "Isotopes: same protons, different neutrons (e.g. carbon-12 and carbon-14).",
+      "Electron shell filling: 1st shell holds 2, 2nd holds 8, 3rd holds 8 (for first 20 elements).",
+      "Group number = number of outer shell electrons; Period number = number of occupied shells.",
+      "Elements in the same group have similar chemical properties because they have the same number of outer electrons."
+    ],
+    "common_traps_ru": [
+      "Confusing atomic number with mass number.",
+      "Assuming all atoms of an element have the same mass number (forgetting isotopes).",
+      "Miscounting electron shells — the third shell can hold 18 electrons total, but for elements 1-20 it holds a maximum of 8 before the 4th shell starts."
+    ],
+    "variability_ru": "Questions vary the element used and whether they ask for group/period identification, isotope properties, or electronic structure interpretation."
+  },
+  {
+    "task_number": 2,
+    "title_ru": "Bonding, Structure, and Properties of Matter",
+    "topic_ru": "Ionic, covalent, and metallic bonding; giant and simple molecular structures; properties",
+    "answer_format": "matching (3 substances to 4 bond types) or free_text (extended answer)",
+    "algorithm_ru": [
+      "Identify the type of substance: metal, non-metal, or compound of metal + non-metal.",
+      "Metal + non-metal → ionic bonding (electron transfer). Non-metal + non-metal → covalent bonding (electron sharing). Metal alone → metallic bonding (delocalised electrons).",
+      "For structure questions: determine if it is a giant structure (ionic lattice, giant covalent, metallic) or simple molecular.",
+      "Link structure to properties: giant structures have high melting points; simple molecular structures have low melting points. Ionic compounds conduct when molten/dissolved. Metals conduct due to delocalised electrons.",
+      "For extended answers: always name the type of bonding AND explain the structure AND link to the property asked about."
+    ],
+    "key_facts_ru": [
+      "Ionic bonding: transfer of electrons from metal to non-metal, forming positive and negative ions attracted by electrostatic forces.",
+      "Covalent bonding: sharing of electron pairs between non-metal atoms.",
+      "Metallic bonding: positive metal ions in a sea of delocalised electrons.",
+      "Diamond: each carbon bonded to 4 others (giant covalent, very hard, high mp).",
+      "Graphite: each carbon bonded to 3 others in layers, with delocalised electrons between layers (conducts electricity, layers slide — soft).",
+      "Simple molecular substances (e.g. H₂O, CO₂): strong covalent bonds within molecules, weak intermolecular forces between molecules → low melting points."
+    ],
+    "common_traps_ru": [
+      "Saying 'covalent bonds are weak' — the bonds within molecules are strong; the intermolecular forces between molecules are weak.",
+      "Forgetting to explain WHY a property exists (e.g. saying graphite conducts but not mentioning delocalised electrons).",
+      "Confusing ionic bonding with covalent: NaCl is ionic (metal + non-metal), HCl is covalent (non-metal + non-metal)."
+    ],
+    "variability_ru": "Questions change the substances used for matching and the specific property to explain (hardness, conductivity, melting point, solubility). Extended answers may compare two allotropes or two types of structure."
+  },
+  {
+    "task_number": 3,
+    "title_ru": "Quantitative Chemistry",
+    "topic_ru": "Relative formula mass, percentage composition, moles, reacting mass calculations",
+    "answer_format": "numeric (integer or to one decimal place)",
+    "algorithm_ru": [
+      "Read the question and identify what is being calculated: Mr, percentage mass, moles, or mass from a balanced equation.",
+      "For relative formula mass (Mr): add up the Ar values of all atoms in the formula. Watch for brackets — multiply the subscript outside by everything inside.",
+      "For percentage by mass: % = (total Ar of the element in formula / Mr of compound) × 100.",
+      "For moles calculations: moles = mass / Mr.",
+      "For reacting masses: (1) Calculate moles of the given substance. (2) Use the balanced equation ratio to find moles of the required substance. (3) Convert back to mass using mass = moles × Mr.",
+      "Always show working and check units."
+    ],
+    "key_facts_ru": [
+      "Moles = mass (g) / Mr (relative formula mass).",
+      "Mass = moles × Mr.",
+      "The balanced equation gives the molar ratio between reactants and products.",
+      "One mole of any gas occupies 24 dm³ at room temperature and pressure (RTP).",
+      "Concentration (mol/dm³) = moles / volume (in dm³)."
+    ],
+    "common_traps_ru": [
+      "Forgetting to multiply Ar by the number of atoms (e.g. in MgCl₂, there are 2 chlorine atoms: Mr = 24 + 2×35.5 = 95, not 59.5).",
+      "Using the wrong substance's Mr when converting between moles and mass.",
+      "Not reading the precision required — some answers need rounding to one decimal place."
+    ],
+    "variability_ru": "Questions change the compound, the element of interest for percentage mass, and the reaction for stoichiometric calculations. The level of difficulty varies from simple Mr calculations to multi-step reacting mass problems."
+  },
+  {
+    "task_number": 4,
+    "title_ru": "Chemical Changes",
+    "topic_ru": "Reactivity series, acids and alkalis, neutralisation, electrolysis, oxidation and reduction",
+    "answer_format": "sequence (order metals by reactivity) or matching (reactions to types)",
+    "algorithm_ru": [
+      "For reactivity series: recall the order — K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (most to least reactive).",
+      "A more reactive metal displaces a less reactive metal from its compound.",
+      "For reaction types: neutralisation = acid + base → salt + water; displacement = more reactive element replaces less reactive one; decomposition = one substance breaks into simpler substances.",
+      "For electrolysis: at the cathode (negative electrode) positive ions gain electrons (reduction). At the anode (positive electrode) negative ions lose electrons (oxidation).",
+      "Remember OIL RIG: Oxidation Is Loss (of electrons), Reduction Is Gain (of electrons)."
+    ],
+    "key_facts_ru": [
+      "Reactivity series (high to low): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au, Pt.",
+      "Metals above carbon are extracted by electrolysis; metals below carbon are extracted by reduction with carbon.",
+      "Acid + metal → salt + hydrogen (only if metal is above H in reactivity series).",
+      "Acid + base → salt + water (neutralisation).",
+      "Acid + carbonate → salt + water + carbon dioxide.",
+      "In electrolysis of aqueous solutions: at cathode, hydrogen is produced if the metal is more reactive than hydrogen; at anode, oxygen is produced unless a halide ion is present."
+    ],
+    "common_traps_ru": [
+      "Confusing oxidation and reduction — remember OIL RIG.",
+      "Thinking copper reacts with dilute acid (it does not — copper is below hydrogen).",
+      "In electrolysis of aqueous solutions, forgetting that water provides H⁺ and OH⁻ ions as alternative discharge products."
+    ],
+    "variability_ru": "Questions vary the metals used in reactivity comparisons, the specific acid reactions tested, and whether electrolysis involves molten or aqueous compounds."
+  },
+  {
+    "task_number": 5,
+    "title_ru": "Energy Changes",
+    "topic_ru": "Exothermic and endothermic reactions, bond energy calculations, reaction profiles",
+    "answer_format": "select (2 of 5) or numeric (energy change calculation)",
+    "algorithm_ru": [
+      "Identify whether the question asks about classifying reactions (exo/endothermic) or calculating energy changes from bond energies.",
+      "Exothermic: releases energy to surroundings, temperature rises, energy of products < energy of reactants.",
+      "Endothermic: absorbs energy from surroundings, temperature falls, energy of products > energy of reactants.",
+      "For bond energy calculations: (1) Calculate total energy needed to break all bonds in reactants. (2) Calculate total energy released forming all bonds in products. (3) Overall change = energy to break bonds − energy released forming bonds.",
+      "If the answer is negative, the reaction is exothermic. If positive, the reaction is endothermic."
+    ],
+    "key_facts_ru": [
+      "Combustion and neutralisation are exothermic reactions.",
+      "Photosynthesis and thermal decomposition are endothermic reactions.",
+      "Bond breaking requires energy (endothermic process).",
+      "Bond forming releases energy (exothermic process).",
+      "Energy change = Σ(bonds broken) − Σ(bonds formed).",
+      "Activation energy is the minimum energy needed for a reaction to occur."
+    ],
+    "common_traps_ru": [
+      "Saying bond breaking releases energy — it always requires energy.",
+      "Forgetting to count all the bonds (e.g. in 2HCl there are TWO H-Cl bonds).",
+      "Getting the sign wrong: if bonds formed release more energy than bonds broken absorb, the overall change is negative (exothermic)."
+    ],
+    "variability_ru": "Questions change the specific reaction used for bond energy calculations and the examples used for classifying exothermic vs endothermic. The reaction and bond energy values change between papers."
+  },
+  {
+    "task_number": 6,
+    "title_ru": "Rate and Extent of Chemical Change",
+    "topic_ru": "Factors affecting rate, collision theory, catalysts, reversible reactions, equilibrium",
+    "answer_format": "select (2 of 5) or free_text (explain using collision theory)",
+    "algorithm_ru": [
+      "Identify the factor being asked about: temperature, concentration, surface area, pressure (gases), or catalyst.",
+      "Apply collision theory: reactions occur when particles collide with sufficient energy (≥ activation energy) and correct orientation.",
+      "Temperature ↑ → particles move faster → more frequent collisions AND more particles exceed activation energy → rate increases.",
+      "Concentration/pressure ↑ → more particles in same volume → more frequent collisions → rate increases.",
+      "Surface area ↑ (smaller pieces/powder) → more particles exposed → more frequent collisions → rate increases.",
+      "Catalyst provides an alternative reaction pathway with a lower activation energy → more particles have enough energy to react → rate increases.",
+      "For extended answers: always link the factor to particle behaviour to collision frequency or energy to rate."
+    ],
+    "key_facts_ru": [
+      "Rate of reaction = amount of product formed (or reactant used) / time.",
+      "Collision theory: particles must collide with enough energy and correct orientation.",
+      "A catalyst speeds up a reaction without being used up, by providing an alternative pathway with lower activation energy.",
+      "For reversible reactions at equilibrium: rate of forward reaction = rate of backward reaction.",
+      "Le Chatelier's principle: if conditions change, the equilibrium shifts to oppose the change."
+    ],
+    "common_traps_ru": [
+      "Saying higher temperature means 'more collisions' without mentioning that particles also have more energy (both factors matter, but the energy factor is more important).",
+      "Confusing rate with yield — a catalyst increases rate but does not change the equilibrium position or yield.",
+      "Forgetting to say 'successful collisions' or 'collisions with energy equal to or greater than the activation energy'."
+    ],
+    "variability_ru": "Questions vary the specific reaction (marble chips + acid, magnesium + acid, decomposition of hydrogen peroxide) and which factor is being investigated. Extended questions always require collision theory explanations."
+  },
+  {
+    "task_number": 7,
+    "title_ru": "Organic Chemistry",
+    "topic_ru": "Hydrocarbons, functional groups, homologous series, reactions of alkanes and alkenes",
+    "answer_format": "matching (compounds to homologous series) or sequence (order by boiling point)",
+    "algorithm_ru": [
+      "Identify the homologous series by the functional group: alkanes (C–C only, CₙH₂ₙ₊₂), alkenes (C=C, CₙH₂ₙ), alcohols (–OH), carboxylic acids (–COOH).",
+      "For boiling point ordering: within a homologous series, longer chains have higher boiling points due to stronger intermolecular forces.",
+      "For reactions: alkanes undergo combustion and substitution (with halogens in UV light). Alkenes undergo addition reactions (with H₂, H₂O, halogens) and can be polymerised.",
+      "Test for alkenes: bromine water turns from orange to colourless (decolourised).",
+      "For polymer questions: identify the monomer (the repeating unit) from the polymer structure, or vice versa."
+    ],
+    "key_facts_ru": [
+      "Alkanes: saturated hydrocarbons, general formula CₙH₂ₙ₊₂, only single C–C bonds.",
+      "Alkenes: unsaturated hydrocarbons, general formula CₙH₂ₙ, contain a C=C double bond.",
+      "Alcohols: contain –OH group, general formula CₙH₂ₙ₊₁OH.",
+      "Carboxylic acids: contain –COOH group, general formula CₙH₂ₙ₊₁COOH.",
+      "Crude oil is a mixture of hydrocarbons separated by fractional distillation.",
+      "Cracking breaks long-chain alkanes into shorter alkanes and alkenes (thermal or catalytic).",
+      "Boiling point increases with chain length within a homologous series."
+    ],
+    "common_traps_ru": [
+      "Confusing alkanes and alkenes — alkENEs have the double bond (think 'e' for 'extra bond').",
+      "Writing wrong general formulae (e.g. alkane CₙH₂ₙ instead of CₙH₂ₙ₊₂).",
+      "Forgetting that alkenes decolourise bromine water but alkanes do not (unless UV light is present)."
+    ],
+    "variability_ru": "Questions change the specific compounds to identify or order, the reactions to describe, and may ask for structural formulae, displayed formulae, or word equations."
+  },
+  {
+    "task_number": 8,
+    "title_ru": "Chemical Analysis",
+    "topic_ru": "Purity, formulations, chromatography, flame tests, gas tests, identification of ions",
+    "answer_format": "input_cells (identify substances) or select (2 of 5)",
+    "algorithm_ru": [
+      "For pH/indicator questions: pH < 7 is acidic, pH = 7 is neutral, pH > 7 is alkaline. Strong acids have very low pH (1-2), weak acids have pH 3-6.",
+      "For chromatography: Rf = distance moved by substance / distance moved by solvent. A pure substance gives one spot; a mixture gives multiple spots.",
+      "For flame tests: Li = crimson, Na = yellow, K = lilac, Ca = orange-red, Cu = green/blue-green.",
+      "For gas tests: hydrogen — squeaky pop; oxygen — relights a glowing splint; carbon dioxide — turns limewater milky; chlorine — bleaches damp litmus paper.",
+      "For ion tests: carbonate + acid → fizzes (CO₂); sulfate + barium chloride → white precipitate; halides + silver nitrate → white (Cl⁻), cream (Br⁻), yellow (I⁻) precipitate."
+    ],
+    "key_facts_ru": [
+      "A pure substance has a sharp, specific melting point. An impure substance melts over a range and at a lower temperature.",
+      "A formulation is a mixture designed for a specific purpose (e.g. paint, medicine).",
+      "Rf value = distance moved by substance ÷ distance moved by solvent front.",
+      "Flame test colours: Li (crimson), Na (yellow), K (lilac), Ca (orange-red), Cu (green).",
+      "Test for hydrogen: squeaky pop with a burning splint.",
+      "Test for oxygen: relights a glowing splint.",
+      "Test for carbon dioxide: turns limewater milky/cloudy."
+    ],
+    "common_traps_ru": [
+      "Confusing the flame test colours — especially crimson (Li) vs orange-red (Ca).",
+      "Forgetting to say 'damp' litmus paper for the chlorine test.",
+      "In chromatography, confusing the solvent front distance with the spot distance when calculating Rf."
+    ],
+    "variability_ru": "Questions vary the substances to identify, the specific test to apply, and may provide chromatography diagrams for Rf calculations. Flame test elements and gas test gases are drawn from the standard GCSE list."
+  },
+  {
+    "task_number": 9,
+    "title_ru": "Chemistry of the Atmosphere",
+    "topic_ru": "Composition of the atmosphere, greenhouse gases, climate change, atmospheric pollutants",
+    "answer_format": "matching (gases to roles) or select (2 of 5)",
+    "algorithm_ru": [
+      "Know the current atmospheric composition: ~78% nitrogen, ~21% oxygen, ~0.04% carbon dioxide, ~1% argon, plus variable water vapour.",
+      "Greenhouse gases (CO₂, methane, water vapour) absorb and re-emit infrared radiation, keeping Earth warm. Increased levels lead to enhanced greenhouse effect and global warming.",
+      "Human activities increasing CO₂: burning fossil fuels, deforestation. Increasing methane: agriculture (cattle, rice), landfill sites.",
+      "Consequences of climate change: rising sea levels, more extreme weather, habitat loss, changes in food production.",
+      "Pollutants from combustion: carbon monoxide (incomplete combustion, toxic), sulfur dioxide (from sulfur impurities, causes acid rain), nitrogen oxides (from high temperatures in engines, cause acid rain and smog), particulates (cause respiratory problems and global dimming)."
+    ],
+    "key_facts_ru": [
+      "Earth's atmosphere: 78% N₂, 21% O₂, 0.9% Ar, 0.04% CO₂.",
+      "Early atmosphere was mostly CO₂ and water vapour (from volcanic activity).",
+      "Oxygen increased due to photosynthesis by early plants and algae.",
+      "CO₂ decreased because it dissolved in oceans, was used in photosynthesis, and formed carbonate rocks and fossil fuels.",
+      "Greenhouse effect: CO₂ and methane absorb infrared radiation re-emitted by Earth's surface.",
+      "Carbon footprint: total greenhouse gas emissions caused by an individual, event, or product."
+    ],
+    "common_traps_ru": [
+      "Confusing the greenhouse effect (natural and necessary) with the enhanced greenhouse effect (caused by human activities).",
+      "Saying CO₂ 'traps heat' — more accurately, it absorbs and re-emits infrared radiation.",
+      "Mixing up the pollutants: SO₂ comes from sulfur in fuels, NOₓ comes from the nitrogen and oxygen in air reacting at high temperatures in engines."
+    ],
+    "variability_ru": "Questions change which gases or pollutants are featured, the specific human activities to identify, and may include data interpretation (graphs of atmospheric CO₂ levels over time, temperature anomaly data)."
+  },
+  {
+    "task_number": 10,
+    "title_ru": "Using Resources",
+    "topic_ru": "Finite and renewable resources, life cycle assessment, recycling, extraction of metals, water treatment, Haber process",
+    "answer_format": "sequence (LCA steps) or numeric (reacting mass from extraction equation)",
+    "algorithm_ru": [
+      "For life cycle assessment (LCA): the four stages are (1) extracting raw materials, (2) manufacturing, (3) use/operation, (4) disposal. Consider energy use, waste, and environmental impact at each stage.",
+      "For metal extraction: metals above carbon in the reactivity series are extracted by electrolysis; metals below carbon are extracted by reduction with carbon in a blast furnace.",
+      "For recycling questions: consider energy savings, reduced mining, reduced landfill, reduced CO₂ emissions.",
+      "For water treatment: sedimentation, filtration, chlorination (or ozonation/UV treatment). Desalination (distillation or reverse osmosis) for seawater.",
+      "For calculation questions: use the balanced equation to calculate moles and masses as in topic 3.",
+      "The Haber process: N₂ + 3H₂ ⇌ 2NH₃, conditions: 450°C, 200 atm, iron catalyst — a compromise between rate and yield."
+    ],
+    "key_facts_ru": [
+      "Finite resources (fossil fuels, metal ores) will run out. Renewable resources (timber, crops) can be replenished.",
+      "LCA stages: raw materials → manufacturing → use → disposal.",
+      "Recycling metals saves energy, reduces mining, and reduces greenhouse gas emissions.",
+      "Potable water: water safe to drink (not necessarily pure). Requires filtration and sterilisation.",
+      "Phytomining: plants absorb metal compounds from soil; plants are burned and metal extracted from ash.",
+      "Bioleaching: bacteria produce acidic solutions (leachate) that dissolve metals from ores.",
+      "Haber process conditions are a compromise: high pressure favours yield but is expensive; moderate temperature gives reasonable rate with acceptable yield."
+    ],
+    "common_traps_ru": [
+      "Thinking 'potable water' means 'pure water' — it just means safe to drink and may contain dissolved minerals.",
+      "Forgetting that LCA can be subjective because assigning environmental impact values involves judgement.",
+      "In extraction calculations, using the wrong molar ratio from the balanced equation."
+    ],
+    "variability_ru": "Questions vary the metal being extracted, the specific LCA product, and the calculation values. Water treatment and the Haber process are common extended response topics."
+  }
+]

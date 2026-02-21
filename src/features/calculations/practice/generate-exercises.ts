@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { CalculationsData, CalcSubstance, CalcReaction } from '../../../types/calculations';
 
 export interface ExerciseOption {
@@ -64,19 +65,19 @@ function calcMolarMass(ctx: GeneratorContext): Exercise {
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
-    { id: 'correct', text: `${correct} г/моль` },
-    ...distractors.map((d, i) => ({ id: `d${i}`, text: `${d} г/моль` })),
+    { id: 'correct', text: m.calc_ex_unit_g_mol({ value: String(correct) }) },
+    ...distractors.map((d, i) => ({ id: `d${i}`, text: m.calc_ex_unit_g_mol({ value: String(d) }) })),
   ]);
 
   const steps = sub.composition.map(c => `${c.Ar}×${c.count}`).join(' + ');
 
   return {
     type: 'calc_molar_mass',
-    question: `Вычислите молярную массу ${sub.formula}.`,
+    question: m.calc_ex_q_molar_mass({ formula: sub.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `M(${sub.formula}) = ${steps} = ${correct} г/моль`,
+    explanation: m.calc_ex_a_molar_mass({ formula: sub.formula, steps, value: String(correct) }),
     competencyMap: { calculations_basic: 'P' },
   };
 }
@@ -98,11 +99,11 @@ function calcMassFraction(ctx: GeneratorContext): Exercise {
 
   return {
     type: 'calc_mass_fraction',
-    question: `Какова массовая доля ${elem.element} в ${sub.formula}?`,
+    question: m.calc_ex_q_mass_fraction({ element: elem.element, formula: sub.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `ω(${elem.element}) = ${elem.Ar}×${elem.count} / ${sub.M} × 100% = ${fraction}%`,
+    explanation: m.calc_ex_a_mass_fraction({ element: elem.element, ar: String(elem.Ar), count: String(elem.count), M: String(sub.M), value: String(fraction) }),
     competencyMap: { calculations_basic: 'P' },
   };
 }
@@ -118,17 +119,17 @@ function calcAmountOfSubstance(ctx: GeneratorContext): Exercise {
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
-    { id: 'correct', text: `${correct} моль` },
-    ...distractors.map((d, i) => ({ id: `d${i}`, text: `${round2(d)} моль` })),
+    { id: 'correct', text: m.calc_ex_unit_mol({ value: String(correct) }) },
+    ...distractors.map((d, i) => ({ id: `d${i}`, text: m.calc_ex_unit_mol({ value: String(round2(d)) }) })),
   ]);
 
   return {
     type: 'calc_amount_of_substance',
-    question: `Какое количество вещества содержится в ${mass} г ${sub.formula}?`,
+    question: m.calc_ex_q_amount({ mass: String(mass), formula: sub.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `n = m/M = ${mass}/${sub.M} = ${correct} моль`,
+    explanation: m.calc_ex_a_amount({ mass: String(mass), M: String(sub.M), value: String(correct) }),
     competencyMap: { calculations_basic: 'P' },
   };
 }
@@ -141,17 +142,17 @@ function calcMassFromMoles(ctx: GeneratorContext): Exercise {
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
-    { id: 'correct', text: `${correct} г` },
-    ...distractors.map((d, i) => ({ id: `d${i}`, text: `${round2(d)} г` })),
+    { id: 'correct', text: m.calc_ex_unit_g({ value: String(correct) }) },
+    ...distractors.map((d, i) => ({ id: `d${i}`, text: m.calc_ex_unit_g({ value: String(round2(d)) }) })),
   ]);
 
   return {
     type: 'calc_mass_from_moles',
-    question: `Какова масса ${nMol} моль ${sub.formula}?`,
+    question: m.calc_ex_q_mass_from_moles({ n: String(nMol), formula: sub.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `m = n × M = ${nMol} × ${sub.M} = ${correct} г`,
+    explanation: m.calc_ex_a_mass_from_moles({ n: String(nMol), M: String(sub.M), value: String(correct) }),
     competencyMap: { calculations_basic: 'P' },
   };
 }
@@ -176,11 +177,11 @@ function calcSolutionConcentration(ctx: GeneratorContext): Exercise {
 
   return {
     type: 'calc_solution_concentration',
-    question: `В ${mSolution} г раствора содержится ${mSolute} г соли. Какова массовая доля соли?`,
+    question: m.calc_ex_q_solution_conc({ mSolution: String(mSolution), mSolute: String(mSolute) }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `ω = m(в-ва)/m(р-ра) × 100% = ${mSolute}/${mSolution} × 100% = ${correct}%`,
+    explanation: m.calc_ex_a_solution_conc({ mSolute: String(mSolute), mSolution: String(mSolution), value: String(correct) }),
     competencyMap: { calculations_solutions: 'P', calculations_basic: 'S' },
   };
 }
@@ -195,17 +196,17 @@ function calcSoluteMass(ctx: GeneratorContext): Exercise {
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
-    { id: 'correct', text: `${correct} г` },
-    ...distractors.map((d, i) => ({ id: `d${i}`, text: `${round1(d)} г` })),
+    { id: 'correct', text: m.calc_ex_unit_g({ value: String(correct) }) },
+    ...distractors.map((d, i) => ({ id: `d${i}`, text: m.calc_ex_unit_g({ value: String(round1(d)) }) })),
   ]);
 
   return {
     type: 'calc_solute_mass',
-    question: `Сколько граммов соли нужно для приготовления ${mSolution} г ${omega}%-ного раствора?`,
+    question: m.calc_ex_q_solute_mass({ mSolution: String(mSolution), omega: String(omega) }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `m(в-ва) = ω × m(р-ра) / 100 = ${omega} × ${mSolution} / 100 = ${correct} г`,
+    explanation: m.calc_ex_a_solute_mass({ omega: String(omega), mSolution: String(mSolution), value: String(correct) }),
     competencyMap: { calculations_solutions: 'P', calculations_basic: 'S' },
   };
 }
@@ -217,6 +218,7 @@ function calcDilution(ctx: GeneratorContext): Exercise {
   const addedWater = pick([100, 200, 300, 400, 500]);
   const finalMass = initialMass + addedWater;
   const correct = round1((initialConc * initialMass) / (finalMass * 100) * 100);
+  const soluteMass = round1(initialConc * initialMass / 100);
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
@@ -226,11 +228,11 @@ function calcDilution(ctx: GeneratorContext): Exercise {
 
   return {
     type: 'calc_dilution',
-    question: `К ${initialMass} г ${initialConc}%-ного раствора добавили ${addedWater} г воды. Какова массовая доля вещества в новом растворе?`,
+    question: m.calc_ex_q_dilution({ initialMass: String(initialMass), initialConc: String(initialConc), addedWater: String(addedWater) }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `m(в-ва) = ${initialConc}% × ${initialMass}/100 = ${round1(initialConc * initialMass / 100)} г. ω₂ = ${round1(initialConc * initialMass / 100)}/${finalMass} × 100% = ${correct}%`,
+    explanation: m.calc_ex_a_dilution({ initialConc: String(initialConc), initialMass: String(initialMass), soluteMass: String(soluteMass), finalMass: String(finalMass), value: String(correct) }),
     competencyMap: { calculations_solutions: 'P', calculations_basic: 'S' },
   };
 }
@@ -249,17 +251,17 @@ function calcByEquation(ctx: GeneratorContext): Exercise {
   const distractors = numericDistractors(correct, 3);
 
   const options = shuffleOptions([
-    { id: 'correct', text: `${correct} г` },
-    ...distractors.map((d, i) => ({ id: `d${i}`, text: `${round2(d)} г` })),
+    { id: 'correct', text: m.calc_ex_unit_g({ value: String(correct) }) },
+    ...distractors.map((d, i) => ({ id: `d${i}`, text: m.calc_ex_unit_g({ value: String(round2(d)) }) })),
   ]);
 
   return {
     type: 'calc_by_equation',
-    question: `По уравнению ${rxn.equation_ru}: сколько граммов ${rxn.find.formula} образуется из ${givenMass} г ${rxn.given.formula}?`,
+    question: m.calc_ex_q_by_equation({ equation: rxn.equation_ru, findFormula: rxn.find.formula, givenMass: String(givenMass), givenFormula: rxn.given.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `n(${rxn.given.formula}) = ${givenMass}/${rxn.given.M} = ${round2(givenMoles)} моль → n(${rxn.find.formula}) = ${round2(findMoles)} моль → m = ${round2(findMoles)} × ${rxn.find.M} = ${correct} г`,
+    explanation: m.calc_ex_a_by_equation({ givenFormula: rxn.given.formula, givenMass: String(givenMass), givenM: String(rxn.given.M), givenMoles: String(round2(givenMoles)), findFormula: rxn.find.formula, findMoles: String(round2(findMoles)), findM: String(rxn.find.M), value: String(correct) }),
     competencyMap: { reaction_yield_logic: 'P', calculations_basic: 'S' },
   };
 }
@@ -285,11 +287,11 @@ function calcYield(ctx: GeneratorContext): Exercise {
 
   return {
     type: 'calc_yield',
-    question: `По уравнению ${rxn.equation_ru}: из ${givenMass} г ${rxn.given.formula} получено ${practicalMass} г ${rxn.find.formula}. Каков выход продукта?`,
+    question: m.calc_ex_q_yield({ equation: rxn.equation_ru, givenMass: String(givenMass), givenFormula: rxn.given.formula, practicalMass: String(practicalMass), findFormula: rxn.find.formula }),
     format: 'multiple_choice',
     options,
     correctId: 'correct',
-    explanation: `Теоретическая масса: ${theoreticalMass} г. η = ${practicalMass}/${theoreticalMass} × 100% = ${yieldPct}%`,
+    explanation: m.calc_ex_a_yield({ theoreticalMass: String(theoreticalMass), practicalMass: String(practicalMass), value: String(yieldPct) }),
     competencyMap: { reaction_yield_logic: 'P', calculations_solutions: 'S' },
   };
 }

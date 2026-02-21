@@ -1,0 +1,17 @@
+{
+  "id": "hclo3",
+  "formula": "HClO\u2083",
+  "name_ru": "Хлорноватая кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": [],
+  "tags": ["strong_acid", "oxidizer", "unstable"],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": null,
+  "appearance_ru": "Существует только в растворе, бесцветная жидкость",
+  "hazards_ru": ["Сильный окислитель", "Нестабильное вещество"],
+  "industrial_ru": "Производство хлоратов (гербициды, пиротехника)",
+  "production_ru": "Реакция Ba(ClO\u2083)\u2082 с серной кислотой",
+  "fun_facts_ru": ["Хлораты (соли HClO\u2083) используются в производстве спичек и фейерверков", "В свободном виде неустойчива — разлагается на ClO\u2082 и HClO\u2084"]
+}

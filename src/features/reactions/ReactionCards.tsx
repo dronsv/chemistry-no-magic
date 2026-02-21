@@ -107,21 +107,21 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
       <div className="rxn-equation">{reaction.equation}</div>
       <div className="rxn-molecular-lists">
         <div className="rxn-molecular-group">
-          <span className="rxn-molecular-label">Реагенты:</span>
+          <span className="rxn-molecular-label">{m.rxn_reactants()}</span>
           {reaction.molecular.reactants.map(renderItem)}
         </div>
         <div className="rxn-molecular-group">
-          <span className="rxn-molecular-label">Продукты:</span>
+          <span className="rxn-molecular-label">{m.rxn_products()}</span>
           {reaction.molecular.products.map(renderItem)}
         </div>
       </div>
       <div className="rxn-meta">
-        <span className="rxn-phase-badge">Среда: {reaction.phase.medium}{reaction.phase.notes ? ` (${reaction.phase.notes})` : ''}</span>
+        <span className="rxn-phase-badge">{m.rxn_medium({ medium: reaction.phase.medium + (reaction.phase.notes ? ` (${reaction.phase.notes})` : '') })}</span>
         {reaction.conditions && (
           <span className="rxn-conditions">
             {reaction.conditions.temperature && reaction.conditions.temperature !== 'room' && m.rxn_temperature({ temp: reaction.conditions.temperature })}
-            {reaction.conditions.catalyst && ` | Катализатор: ${reaction.conditions.catalyst}`}
-            {reaction.conditions.pressure && ` | Давление: ${reaction.conditions.pressure}`}
+            {reaction.conditions.catalyst && ` | ${m.rxn_catalyst({ name: reaction.conditions.catalyst })}`}
+            {reaction.conditions.pressure && ` | ${m.rxn_pressure({ value: reaction.conditions.pressure })}`}
             {reaction.conditions.excess && ` | ${reaction.conditions.excess}`}
           </span>
         )}
@@ -133,19 +133,19 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
 function IonicTab({ reaction }: { reaction: Reaction }) {
   const { ionic } = reaction;
   if (!ionic.full && !ionic.net) {
-    return <div className="rxn-tab-content"><p className="rxn-no-data">Ионное уравнение неприменимо для данной реакции.</p></div>;
+    return <div className="rxn-tab-content"><p className="rxn-no-data">{m.rxn_ionic_na()}</p></div>;
   }
   return (
     <div className="rxn-tab-content">
       {ionic.full && (
         <div className="rxn-ionic-block">
-          <span className="rxn-ionic-label">Полное ионное:</span>
+          <span className="rxn-ionic-label">{m.rxn_ionic_full()}</span>
           <div className="rxn-ionic-full">{ionic.full}</div>
         </div>
       )}
       {ionic.net && (
         <div className="rxn-ionic-block">
-          <span className="rxn-ionic-label">Сокращённое ионное:</span>
+          <span className="rxn-ionic-label">{m.rxn_ionic_net()}</span>
           <div className="rxn-ionic-net">{ionic.net}</div>
         </div>
       )}
@@ -160,7 +160,7 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
   return (
     <div className="rxn-tab-content">
       <div className="rxn-driving-forces">
-        <span className="rxn-section-label">Движущие силы:</span>
+        <span className="rxn-section-label">{m.rxn_driving_label()}</span>
         <div className="rxn-badge-row">
           {reaction.driving_forces.map(f => {
             const info = DRIVING_FORCE_LABELS[f];
@@ -174,13 +174,13 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
         </div>
       </div>
       <div className="rxn-observations">
-        <span className="rxn-section-label">Наблюдения:</span>
+        <span className="rxn-section-label">{m.rxn_observations_label()}</span>
         <ul className="rxn-observation-list">
-          {obs.precipitate?.map((p, i) => <li key={`p${i}`} className="rxn-observation">↓ Осадок: {p}</li>)}
-          {obs.gas?.map((g, i) => <li key={`g${i}`} className="rxn-observation">↑ Газ: {g}</li>)}
-          {obs.color_change && <li className="rxn-observation">Изменение цвета: {obs.color_change}</li>}
-          {obs.smell && <li className="rxn-observation">Запах: {obs.smell}</li>}
-          {obs.heat && <li className="rxn-observation">Тепло: {obs.heat}</li>}
+          {obs.precipitate?.map((p, i) => <li key={`p${i}`} className="rxn-observation">{m.rxn_obs_precipitate({ text: p })}</li>)}
+          {obs.gas?.map((g, i) => <li key={`g${i}`} className="rxn-observation">{m.rxn_obs_gas({ text: g })}</li>)}
+          {obs.color_change && <li className="rxn-observation">{m.rxn_obs_color({ text: obs.color_change })}</li>}
+          {obs.smell && <li className="rxn-observation">{m.rxn_obs_smell({ text: obs.smell })}</li>}
+          {obs.heat && <li className="rxn-observation">{m.rxn_obs_heat({ text: obs.heat })}</li>}
           {obs.other?.map((o, i) => <li key={`o${i}`} className="rxn-observation">{o}</li>)}
         </ul>
       </div>
@@ -196,14 +196,14 @@ function SpeedTab({ reaction }: { reaction: Reaction }) {
   return (
     <div className="rxn-tab-content">
       <div className="rxn-rate-section">
-        <span className="rxn-section-label">Как ускорить:</span>
+        <span className="rxn-section-label">{m.rxn_speed_up()}</span>
         <ul className="rxn-rate-list">
           {rate_tips.how_to_speed_up.map((tip, i) => <li key={i}>{tip}</li>)}
         </ul>
       </div>
       {rate_tips.what_slows_down && rate_tips.what_slows_down.length > 0 && (
         <div className="rxn-rate-section">
-          <span className="rxn-section-label">Что замедляет:</span>
+          <span className="rxn-section-label">{m.rxn_slow_down()}</span>
           <ul className="rxn-rate-list">
             {rate_tips.what_slows_down.map((tip, i) => <li key={i}>{tip}</li>)}
           </ul>
@@ -211,7 +211,7 @@ function SpeedTab({ reaction }: { reaction: Reaction }) {
       )}
       {safety_notes.length > 0 && (
         <div className="rxn-safety">
-          <span className="rxn-safety__label">Безопасность:</span>
+          <span className="rxn-safety__label">{m.rxn_safety()}</span>
           <ul className="rxn-safety__list">
             {safety_notes.map((note, i) => <li key={i}>{note}</li>)}
           </ul>
@@ -300,7 +300,7 @@ export default function ReactionCards() {
 
   return (
     <section>
-      <h2 className="rxn-catalog__title">Каталог реакций</h2>
+      <h2 className="rxn-catalog__title">{m.rxn_catalog_title()}</h2>
 
       <div className="rxn-catalog__filters">
         {TAG_FILTER_VALUES.map(value => (
@@ -316,7 +316,7 @@ export default function ReactionCards() {
       </div>
 
       <div className="rxn-catalog__count">
-        Показано: {filtered.length} из {reactions.length}
+        {m.rxn_shown_count({ filtered: String(filtered.length), total: String(reactions.length) })}
       </div>
 
       <div className="rxn-catalog__list">

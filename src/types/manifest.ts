@@ -15,6 +15,7 @@ export interface ManifestEntrypoints {
   oge_solution_algorithms?: string;
   exam_systems?: string;
   search_index?: string;
+  formula_lookup?: string;
 }
 
 export interface ManifestStats {

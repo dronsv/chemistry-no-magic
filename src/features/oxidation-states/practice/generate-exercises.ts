@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
 
 export interface ExerciseOption {
@@ -93,11 +94,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'determine_ox_state',
-      question: `Определите СО ${example.element} в ${example.formula}?`,
+      question: m.ox_ex_q_determine({ element: example.element, formula: example.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `В ${example.formula} степень окисления ${example.element} равна ${correctText}.`,
+      explanation: m.ox_ex_a_state({ formula: example.formula, element: example.element, state: correctText }),
       competencyMap: { oxidation_states: 'P' },
     };
   },
@@ -126,11 +127,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'select_compound_by_ox_state',
-      question: `В каком соединении ${example.element} имеет СО = ${stateText}?`,
+      question: m.ox_ex_q_compound_by_state({ element: example.element, state: stateText }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `В ${example.formula} степень окисления ${example.element} равна ${stateText}.`,
+      explanation: m.ox_ex_a_state({ formula: example.formula, element: example.element, state: stateText }),
       competencyMap: { oxidation_states: 'P' },
     };
   },
@@ -148,7 +149,7 @@ const generators: Record<string, GeneratorFn> = {
     const states = el.typical_oxidation_states;
     const isMax = Math.random() > 0.5;
     const correctState = isMax ? Math.max(...states) : Math.min(...states);
-    const label = isMax ? 'максимальная' : 'минимальная';
+    const label = isMax ? m.ox_ex_maximum() : m.ox_ex_minimum();
     const correctText = formatState(correctState);
 
     // Distractors: other states from this element + random nearby
@@ -170,14 +171,14 @@ const generators: Record<string, GeneratorFn> = {
       ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
     ]);
 
-    let explanation = `${label.charAt(0).toUpperCase() + label.slice(1)} степень окисления ${el.symbol} равна ${correctText}.`;
+    let explanation = m.ox_ex_a_max_min({ Label: label.charAt(0).toUpperCase() + label.slice(1), symbol: el.symbol, state: correctText });
     if (EXCEPTION_Z.has(el.Z)) {
-      explanation += ` Обратите внимание: ${el.symbol} — элемент с провалом электрона, что влияет на его электронную конфигурацию.`;
+      explanation += ` ${m.ox_ex_a_exception_note({ symbol: el.symbol })}`;
     }
 
     return {
       type: 'max_min_ox_state',
-      question: `Какова ${label} СО ${el.symbol} (${el.name_ru})?`,
+      question: m.ox_ex_q_max_min({ label, symbol: el.symbol, name: el.name_ru }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',

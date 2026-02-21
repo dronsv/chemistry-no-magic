@@ -40,7 +40,7 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
         <span className="detail-panel__name">{element.name_ru}</span>
       </a>
       <div className="detail-panel__meta">
-        Период {element.period} · Группа {element.group} · {groupInfo?.name_singular_ru ?? element.element_group}
+        {m.elem_period_group_meta({ period: String(element.period), group: String(element.group), type: groupInfo?.name_singular_ru ?? element.element_group })}
       </div>
 
       {/* Orbital diagram — full width, right after header */}
@@ -57,15 +57,15 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
       {/* Properties */}
       <div className="detail-panel__props">
         <div className="detail-panel__prop">
-          <span className="detail-panel__prop-label">Валентные электроны</span>
+          <span className="detail-panel__prop-label">{m.elem_valence_electrons()}</span>
           <span className="detail-panel__prop-value">{valenceCount}</span>
         </div>
         <div className="detail-panel__prop">
-          <span className="detail-panel__prop-label">Степени окисления</span>
+          <span className="detail-panel__prop-label">{m.elem_oxidation_states()}</span>
           <span className="detail-panel__prop-value">{oxStates || '—'}</span>
         </div>
         <div className="detail-panel__prop">
-          <span className="detail-panel__prop-label">Электроотрицательность</span>
+          <span className="detail-panel__prop-label">{m.elem_electronegativity()}</span>
           <span className="detail-panel__prop-value">{element.electronegativity ?? '—'}</span>
         </div>
       </div>
@@ -73,10 +73,10 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
       {/* Exception block */}
       {exc && (
         <div className="detail-panel__exception">
-          <strong>Провал электрона</strong>
+          <strong>{m.elem_electron_exception()}</strong>
           <div className="detail-panel__exception-compare">
-            <span>Ожидаемая: <s>{exc.expected_formula}</s></span>
-            <span>Реальная: <b>{exc.actual_formula}</b></span>
+            <span>{m.elem_expected()} <s>{exc.expected_formula}</s></span>
+            <span>{m.elem_actual()} <b>{exc.actual_formula}</b></span>
           </div>
           <p className="detail-panel__exception-reason">{exc.reason_ru}</p>
         </div>
@@ -85,10 +85,9 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
       {/* Why these oxidation states */}
       {element.typical_oxidation_states.length > 0 && (
         <div className="detail-panel__why">
-          <strong>Почему {element.symbol} проявляет СО {oxStates}?</strong>
+          <strong>{m.elem_why_ox_states({ symbol: element.symbol, states: oxStates })}</strong>
           <p>
-            Конфигурация валентных электронов: {getShorthandFormula(Z).split('] ')[1] || getShorthandFormula(Z)}.
-            {' '}Всего {valenceCount} валентных электронов, которые могут участвовать в образовании химических связей.
+            {m.elem_valence_config_text({ config: getShorthandFormula(Z).split('] ')[1] || getShorthandFormula(Z), count: String(valenceCount) })}
           </p>
         </div>
       )}

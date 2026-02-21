@@ -708,6 +708,48 @@
   }
 }
 
+/* Phones ≤ 420px — fit table without horizontal scroll */
+@media (max-width: 420px) {
+  .pt-grid-long {
+    grid-template-columns: 0px repeat(18, minmax(0, 1fr));
+    grid-template-rows: 12px repeat(7, 26px) 6px repeat(2, 26px);
+    width: 100%;
+  }
+
+  .pt-grid-short {
+    grid-template-columns: 0px repeat(16, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .pt-cell {
+    width: 100%;
+    min-width: 0;
+    height: 26px;
+    border-radius: 1px;
+    padding: 0;
+  }
+
+  .pt-cell__z {
+    font-size: 0.3125rem;
+  }
+
+  .pt-cell__symbol {
+    font-size: 0.5625rem;
+  }
+
+  .pt-grid-label {
+    font-size: 0.3125rem;
+  }
+
+  .pt-page__table {
+    overflow-x: hidden;
+  }
+
+  .pt-page__table-inner {
+    width: 100%;
+  }
+}
+
 /* ========================================
    Periodic Table Page (full-page module)
    ======================================== */

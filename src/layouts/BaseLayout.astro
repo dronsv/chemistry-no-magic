@@ -162,5 +162,10 @@ const searchUrl = localizeUrl('/search/', locale);
       <slot />
     </main>
     <slot name="after-main" />
+    <footer class="site-footer">
+      <a href={localizeUrl('/about/', locale)}>{m.footer_about()}</a>
+      <span class="site-footer__sep">&middot;</span>
+      <a href="https://github.com/dronsv/chemistry-no-magic/issues" target="_blank" rel="noopener noreferrer">{m.footer_bug_report()}</a>
+    </footer>
   </body>
 </html>

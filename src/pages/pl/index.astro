@@ -1,369 +1,117 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import * as m from '../../paraglide/messages.js';
+import { localizeUrl } from '../../lib/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
 ---
 
-<BaseLayout title="Chemia bez magii" description="Darmowe przygotowanie do egzaminu z chemii: interaktywny układ okresowy, ćwiczenia adaptacyjne.">
+<BaseLayout title={m.site_name()} description={m.landing_meta_desc()}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Chemia bez magii",
-      "description": "Darmowe przygotowanie do egzaminu z chemii",
+      "name": m.site_name(),
+      "description": m.landing_meta_desc(),
       "url": Astro.site?.toString() ?? Astro.url.origin,
       "inLanguage": "pl",
     })} />
   </Fragment>
 
   <section class="hero">
-    <p class="hero__badge">ОГЭ 2025 по химии</p>
-    <h1>Разберись в химии.<br/>Сдай на максимум.</h1>
-    <p class="hero__sub">
-      78 заданий из демоверсий ФИПИ, теория по каждой теме, мгновенная проверка.
-      Бесплатно и без регистрации.
-    </p>
+    <p class="hero__badge">{m.landing_badge()}</p>
+    <h1 set:html={m.landing_title()} />
+    <p class="hero__sub">{m.landing_subtitle()}</p>
     <div class="hero__actions">
-      <a href="/pl/egzamin/" class="btn btn-primary btn-lg">Решать задания ОГЭ</a>
-      <a href="/pl/diagnostyka/" class="btn btn-outline btn-lg">Пройти диагностику</a>
+      <a href={localizeUrl('/exam/', locale)} class="btn btn-primary btn-lg">{m.landing_btn_exam()}</a>
+      <a href={localizeUrl('/diagnostics/', locale)} class="btn btn-outline btn-lg">{m.landing_btn_diagnostics()}</a>
     </div>
   </section>
 
   <section class="stats">
-    <div class="stat">
-      <span class="stat__num">78</span>
-      <span class="stat__label">заданий ОГЭ</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">19</span>
-      <span class="stat__label">номеров, часть 1</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">20</span>
-      <span class="stat__label">компетенций</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">118</span>
-      <span class="stat__label">элементов</span>
-    </div>
+    <div class="stat"><span class="stat__num">78</span><span class="stat__label">{m.landing_stat_tasks()}</span></div>
+    <div class="stat"><span class="stat__num">19</span><span class="stat__label">{m.landing_stat_numbers()}</span></div>
+    <div class="stat"><span class="stat__num">20</span><span class="stat__label">{m.landing_stat_competencies()}</span></div>
+    <div class="stat"><span class="stat__num">118</span><span class="stat__label">{m.landing_stat_elements()}</span></div>
   </section>
 
   <section class="start">
-    <h2 class="section-title">С чего начать</h2>
+    <h2 class="section-title">{m.landing_section_start()}</h2>
     <div class="start__cards">
-      <a href="/pl/diagnostyka/" class="start-card start-card--diag">
+      <a href={localizeUrl('/diagnostics/', locale)} class="start-card start-card--diag">
         <span class="start-card__icon">&#9881;</span>
-        <strong>Диагностика</strong>
-        <p>12 вопросов за 15 минут. Система определит, какие темы ты знаешь, а где пробелы.</p>
+        <strong>{m.landing_card_diag_title()}</strong>
+        <p>{m.landing_card_diag_desc()}</p>
       </a>
-      <a href="/pl/egzamin/" class="start-card start-card--exam">
+      <a href={localizeUrl('/exam/', locale)} class="start-card start-card--exam">
         <span class="start-card__icon">&#9998;</span>
-        <strong>Задания ОГЭ</strong>
-        <p>Реальные задания из демоверсий ФИПИ 2021-2025. Формат ввода как на экзамене.</p>
+        <strong>{m.landing_card_exam_title()}</strong>
+        <p>{m.landing_card_exam_desc()}</p>
       </a>
-      <a href="/pl/profil/" class="start-card start-card--profile">
+      <a href={localizeUrl('/profile/', locale)} class="start-card start-card--profile">
         <span class="start-card__icon">&#9733;</span>
-        <strong>Твой профиль</strong>
-        <p>Отслеживай прогресс по каждой компетенции. Видно, что уже освоено, а что нет.</p>
+        <strong>{m.landing_card_profile_title()}</strong>
+        <p>{m.landing_card_profile_desc()}</p>
       </a>
     </div>
   </section>
 
   <section class="modules">
-    <h2 class="section-title">Темы для изучения</h2>
+    <h2 class="section-title">{m.landing_section_topics()}</h2>
     <div class="modules__grid">
-      <a href="/pl/tablica-okresowa/" class="module-card">
-        <span class="module-card__num">1</span>
-        <div>
-          <strong>Периодическая таблица</strong>
-          <p>Элементы, группы, периоды, электронные конфигурации</p>
-        </div>
-      </a>
-      <a href="/pl/substancje/" class="module-card">
-        <span class="module-card__num">2</span>
-        <div>
-          <strong>Классы веществ</strong>
-          <p>Оксиды, кислоты, основания, соли, номенклатура</p>
-        </div>
-      </a>
-      <a href="/pl/wiazania/" class="module-card">
-        <span class="module-card__num">3</span>
-        <div>
-          <strong>Химическая связь</strong>
-          <p>Ионная, ковалентная, металлическая связь</p>
-        </div>
-      </a>
-      <a href="/pl/stopnie-utlenienia/" class="module-card">
-        <span class="module-card__num">4</span>
-        <div>
-          <strong>Степени окисления</strong>
-          <p>Определение СО, электронный баланс, ОВР</p>
-        </div>
-      </a>
-      <a href="/pl/reakcje/" class="module-card">
-        <span class="module-card__num">5</span>
-        <div>
-          <strong>Реакции</strong>
-          <p>Типы реакций, условия протекания, качественные реакции</p>
-        </div>
-      </a>
-      <a href="/pl/obliczenia/" class="module-card">
-        <span class="module-card__num">6</span>
-        <div>
-          <strong>Расчёты</strong>
-          <p>Молярная масса, массовая доля, расчёты по уравнениям</p>
-        </div>
-      </a>
+      <a href={localizeUrl('/periodic-table/', locale)} class="module-card"><span class="module-card__num">1</span><div><strong>{m.landing_topic_periodic()}</strong><p>{m.landing_topic_periodic_desc()}</p></div></a>
+      <a href={localizeUrl('/substances/', locale)} class="module-card"><span class="module-card__num">2</span><div><strong>{m.landing_topic_substances()}</strong><p>{m.landing_topic_substances_desc()}</p></div></a>
+      <a href={localizeUrl('/bonds/', locale)} class="module-card"><span class="module-card__num">3</span><div><strong>{m.landing_topic_bonds()}</strong><p>{m.landing_topic_bonds_desc()}</p></div></a>
+      <a href={localizeUrl('/oxidation-states/', locale)} class="module-card"><span class="module-card__num">4</span><div><strong>{m.landing_topic_oxidation()}</strong><p>{m.landing_topic_oxidation_desc()}</p></div></a>
+      <a href={localizeUrl('/reactions/', locale)} class="module-card"><span class="module-card__num">5</span><div><strong>{m.landing_topic_reactions()}</strong><p>{m.landing_topic_reactions_desc()}</p></div></a>
+      <a href={localizeUrl('/calculations/', locale)} class="module-card"><span class="module-card__num">6</span><div><strong>{m.landing_topic_calculations()}</strong><p>{m.landing_topic_calculations_desc()}</p></div></a>
     </div>
   </section>
 
   <section class="how">
-    <h2 class="section-title">Как это работает</h2>
+    <h2 class="section-title">{m.landing_section_how()}</h2>
     <div class="how__steps">
-      <div class="how__step">
-        <span class="how__num">1</span>
-        <p><strong>Диагностика</strong> &mdash; система определяет твой уровень по 20 компетенциям</p>
-      </div>
-      <div class="how__step">
-        <span class="how__num">2</span>
-        <p><strong>Теория + практика</strong> &mdash; изучай материал и решай упражнения по слабым темам</p>
-      </div>
-      <div class="how__step">
-        <span class="how__num">3</span>
-        <p><strong>Задания ОГЭ</strong> &mdash; тренируйся на реальных заданиях с мгновенной проверкой</p>
-      </div>
-      <div class="how__step">
-        <span class="how__num">4</span>
-        <p><strong>Профиль</strong> &mdash; следи за прогрессом и закрывай оставшиеся пробелы</p>
-      </div>
+      <div class="how__step"><span class="how__num">1</span><p set:html={m.landing_how_step1()} /></div>
+      <div class="how__step"><span class="how__num">2</span><p set:html={m.landing_how_step2()} /></div>
+      <div class="how__step"><span class="how__num">3</span><p set:html={m.landing_how_step3()} /></div>
+      <div class="how__step"><span class="how__num">4</span><p set:html={m.landing_how_step4()} /></div>
     </div>
   </section>
 
-  <footer class="landing-footer">
-    <a href="/pl/o-projekcie/">О проекте</a>
-  </footer>
 </BaseLayout>
 
 <style>
-  /* Hero */
-  .hero {
-    text-align: center;
-    padding: var(--space-2xl) 0 var(--space-xl);
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .hero__badge {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: #dbeafe;
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    border-radius: 1rem;
-    margin: 0 0 var(--space-lg);
-  }
-  .hero h1 {
-    font-size: 2.25rem;
-    line-height: 1.2;
-    margin: 0 0 var(--space-md);
-  }
-  .hero__sub {
-    font-size: 1.05rem;
-    color: var(--color-text-muted);
-    margin: 0 0 var(--space-xl);
-    line-height: 1.6;
-  }
-  .hero__actions {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.05rem;
-  }
-  .btn-outline {
-    background: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-  }
-  .btn-outline:hover {
-    background: #dbeafe;
-    text-decoration: none;
-  }
-
-  /* Stats */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-xl);
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-    flex-wrap: wrap;
-  }
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-  }
-  .stat__num {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-  .stat__label {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-  }
-
-  /* Section title */
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-lg);
-    text-align: center;
-  }
-
-  /* Start cards */
-  .start {
-    padding: var(--space-2xl) 0;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .start__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-md);
-  }
-  .start-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    color: var(--color-text);
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .start-card:hover {
-    text-decoration: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
-  }
-  .start-card__icon {
-    font-size: 1.75rem;
-    line-height: 1;
-  }
-  .start-card strong {
-    font-size: 1.05rem;
-  }
-  .start-card p {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* Modules */
-  .modules {
-    padding: 0 0 var(--space-2xl);
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .modules__grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-  .module-card {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md) var(--space-lg);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    color: var(--color-text);
-    transition: border-color 0.15s;
-  }
-  .module-card:hover {
-    text-decoration: none;
-    border-color: var(--color-primary);
-  }
-  .module-card__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: var(--color-primary);
-    color: #fff;
-    font-size: 0.875rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .module-card strong {
-    display: block;
-    font-size: 0.9375rem;
-    margin-bottom: 2px;
-  }
-  .module-card p {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    margin: 0;
-  }
-
-  /* How it works */
-  .how {
-    padding: 0 0 var(--space-2xl);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .how__steps {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-  .how__step {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-  }
-  .how__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    border: 2px solid var(--color-border);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .how__step p {
-    margin: 0;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
-
-  /* Footer */
-  .landing-footer {
-    text-align: center;
-    padding: var(--space-lg) 0 var(--space-2xl);
-    border-top: 1px solid var(--color-border);
-    font-size: 0.875rem;
-  }
-
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 1.75rem; }
-    .stats { gap: var(--space-lg); }
-    .stat__num { font-size: 1.5rem; }
-  }
+  .hero { text-align: center; padding: var(--space-2xl) 0 var(--space-xl); max-width: 640px; margin: 0 auto; }
+  .hero__badge { display: inline-block; padding: var(--space-xs) var(--space-md); background: #dbeafe; color: var(--color-primary); font-size: 0.8125rem; font-weight: 600; border-radius: 1rem; margin: 0 0 var(--space-lg); }
+  .hero h1 { font-size: 2.25rem; line-height: 1.2; margin: 0 0 var(--space-md); }
+  .hero__sub { font-size: 1.05rem; color: var(--color-text-muted); margin: 0 0 var(--space-xl); line-height: 1.6; }
+  .hero__actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+  .btn-lg { padding: 0.75rem 1.5rem; font-size: 1.05rem; }
+  .btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+  .btn-outline:hover { background: #dbeafe; text-decoration: none; }
+  .stats { display: flex; justify-content: center; gap: var(--space-xl); padding: var(--space-lg) 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); }
+  .stat__num { font-size: 1.75rem; font-weight: 700; color: var(--color-primary); }
+  .stat__label { font-size: 0.8125rem; color: var(--color-text-muted); }
+  .section-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 var(--space-lg); text-align: center; }
+  .start { padding: var(--space-2xl) 0; max-width: 900px; margin: 0 auto; }
+  .start__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); }
+  .start-card { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg); background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 0.75rem; color: var(--color-text); transition: border-color 0.15s, box-shadow 0.15s; }
+  .start-card:hover { text-decoration: none; border-color: var(--color-primary); box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1); }
+  .start-card__icon { font-size: 1.75rem; line-height: 1; }
+  .start-card strong { font-size: 1.05rem; }
+  .start-card p { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
+  .modules { padding: 0 0 var(--space-2xl); max-width: 720px; margin: 0 auto; }
+  .modules__grid { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .module-card { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 0.5rem; color: var(--color-text); transition: border-color 0.15s; }
+  .module-card:hover { text-decoration: none; border-color: var(--color-primary); }
+  .module-card__num { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-size: 0.875rem; font-weight: 700; flex-shrink: 0; }
+  .module-card strong { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
+  .module-card p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+  .how { padding: 0 0 var(--space-2xl); max-width: 600px; margin: 0 auto; }
+  .how__steps { display: flex; flex-direction: column; gap: var(--space-md); }
+  .how__step { display: flex; align-items: flex-start; gap: var(--space-md); }
+  .how__num { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; border: 2px solid var(--color-border); font-size: 0.8125rem; font-weight: 700; color: var(--color-text-muted); flex-shrink: 0; margin-top: 2px; }
+  .how__step p { margin: 0; font-size: 0.9375rem; line-height: 1.5; }
+  @media (max-width: 480px) { .hero h1 { font-size: 1.75rem; } .stats { gap: var(--space-lg); } .stat__num { font-size: 1.5rem; } }
 </style>

@@ -35,28 +35,28 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
       <h3 className="pt-details__name">{element.name_ru}</h3>
 
       <dl className="pt-details__props">
-        <dt>Атомная масса</dt>
+        <dt>{m.elem_atomic_mass()}</dt>
         <dd>{element.atomic_mass}</dd>
 
-        <dt>Группа</dt>
+        <dt>{m.elem_group()}</dt>
         <dd>{element.group}</dd>
 
-        <dt>Период</dt>
+        <dt>{m.elem_period()}</dt>
         <dd>{element.period}</dd>
 
-        <dt>Тип</dt>
+        <dt>{m.elem_type()}</dt>
         <dd>{groupInfo?.name_singular_ru ?? element.element_group}</dd>
 
-        <dt>Степени окисления</dt>
+        <dt>{m.elem_oxidation_states()}</dt>
         <dd>{oxStates || '—'}</dd>
 
-        <dt>Электроотрицательность</dt>
+        <dt>{m.elem_electronegativity()}</dt>
         <dd>{element.electronegativity ?? '—'}</dd>
       </dl>
 
       {exc && (
         <p className="pt-details__exception-note">
-          ⚠ Провал электрона: {exc.reason_ru}
+          {m.elem_exception_note({ reason: exc.reason_ru })}
         </p>
       )}
     </div>

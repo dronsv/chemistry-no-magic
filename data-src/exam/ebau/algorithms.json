@@ -1,0 +1,192 @@
+[
+  {
+    "task_number": 1,
+    "title_ru": "Estructura atómica y tabla periódica",
+    "topic_ru": "Configuración electrónica, números cuánticos y propiedades periódicas",
+    "answer_format": "free_text / select (varía según el enunciado)",
+    "algorithm_ru": [
+      "Identifique el elemento por su número atómico (Z) o configuración electrónica.",
+      "Escriba la configuración electrónica siguiendo el orden de llenado (1s, 2s, 2p, 3s, 3p, 4s, 3d...). Compruebe si es una excepción (Cr, Cu, etc.).",
+      "Para los números cuánticos del último electrón: determine n (nivel), l (0=s, 1=p, 2=d, 3=f), ml (de −l a +l) y ms (+1/2 o −1/2).",
+      "Para propiedades periódicas: recuerde las tendencias (EI, EA, EN, radio) en períodos (→) y grupos (↓).",
+      "Justifique siempre con la posición en la tabla periódica y la carga nuclear efectiva."
+    ],
+    "key_facts_ru": [
+      "Orden de llenado (Aufbau): 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d...",
+      "Excepciones: Cr = [Ar] 3d⁵ 4s¹, Cu = [Ar] 3d¹⁰ 4s¹ (subniveles semiocupados o completos son más estables).",
+      "En un período (→): aumenta Z_ef → disminuye radio, aumenta EI, aumenta EN.",
+      "En un grupo (↓): aumenta el número de capas → aumenta radio, disminuye EI, disminuye EN.",
+      "Números cuánticos: n (1,2,3...), l (0 a n−1), ml (−l a +l), ms (+1/2, −1/2)."
+    ],
+    "common_traps_ru": [
+      "Olvidar las excepciones del Cr y Cu en la configuración electrónica.",
+      "Confundir la configuración del átomo neutro con la del ion (al ionizar, se pierden primero los electrones del subnivel de mayor n, no del último en llenarse).",
+      "Invertir las tendencias de EI y radio: recuerde que son opuestas en el mismo período.",
+      "No convertir correctamente entre configuración de valencia y posición en la tabla periódica para elementos de transición."
+    ],
+    "variability_ru": "Cambia el elemento (Z = 1–36 habitualmente), la propiedad periódica que se pide comparar (EI, EN, radio, carácter metálico) y si se pregunta por el átomo neutro o un ion."
+  },
+  {
+    "task_number": 2,
+    "title_ru": "Enlace químico y fuerzas intermoleculares",
+    "topic_ru": "Tipos de enlace, geometría molecular (RPECV), polaridad y fuerzas intermoleculares",
+    "answer_format": "matching / free_text / sequence",
+    "algorithm_ru": [
+      "Determine el tipo de enlace: iónico (metal + no metal, gran ΔEN), covalente (no metales, ΔEN moderada o nula), metálico (metal puro).",
+      "Para geometría RPECV: cuente pares electrónicos del átomo central (enlazantes + solitarios). Determine la geometría electrónica y la molecular.",
+      "Compare ángulos: los pares solitarios repelen más que los enlazantes, reduciendo los ángulos de enlace.",
+      "Para puntos de ebullición/fusión: compare fuerzas intermoleculares (London < dipolo-dipolo < enlace de hidrógeno < iónico/red covalente).",
+      "Justifique la polaridad molecular: una molécula es polar si tiene enlaces polares y geometría asimétrica."
+    ],
+    "key_facts_ru": [
+      "Geometrías RPECV: 2 pares = lineal (180°), 3 = trigonal plana (120°), 4 = tetraédrica (109,5°).",
+      "Pares solitarios comprimen los ángulos: NH₃ ≈ 107°, H₂O ≈ 104,5°.",
+      "Enlace de hidrógeno: se forma cuando H está unido a F, O o N y hay un par solitario en F, O o N cercano.",
+      "Fuerzas de London: presentes en todas las moléculas, aumentan con la masa molar y la superficie.",
+      "Moléculas simétricas (CO₂, BF₃, CH₄, CCl₄) son apolares aunque tengan enlaces polares."
+    ],
+    "common_traps_ru": [
+      "Confundir geometría electrónica con geometría molecular (ej.: NH₃ es tetraédrica electrónicamente pero piramidal molecularmente).",
+      "Decir que CO₂ es polar porque tiene enlaces C=O polares (es lineal y simétrica → apolar).",
+      "Olvidar que las fuerzas de London también contribuyen al punto de ebullición de moléculas polares.",
+      "Confundir enlace de hidrógeno (intermolecular) con enlace covalente O−H (intramolecular)."
+    ],
+    "variability_ru": "Cambian las moléculas a analizar, la propiedad a comparar (punto de ebullición, solubilidad, polaridad) y si se pide la geometría completa o solo el tipo de enlace."
+  },
+  {
+    "task_number": 3,
+    "title_ru": "Termodinámica química",
+    "topic_ru": "Entalpía (ley de Hess), entropía, energía libre de Gibbs y espontaneidad",
+    "answer_format": "numérico (1 valor calculado)",
+    "algorithm_ru": [
+      "Identifique qué magnitud se pide: ΔH° (entalpía), ΔS° (entropía) o ΔG° (energía de Gibbs).",
+      "Para ΔH° por ley de Hess: ΔH° = ΣΔH°f(productos) − ΣΔH°f(reactivos). Recuerde que ΔH°f de elementos en su estado estándar es 0.",
+      "Para ΔG°: aplique ΔG° = ΔH° − TΔS°. ¡Atención a las unidades! Si ΔH° está en kJ y ΔS° en J/(mol·K), convierta dividiendo ΔS° entre 1000.",
+      "Para la temperatura de cambio de espontaneidad: iguale ΔG° = 0 → T = ΔH° / ΔS°. Resultado en K, convierta a °C restando 273,15.",
+      "Interprete el signo de ΔG°: negativo = espontáneo; positivo = no espontáneo."
+    ],
+    "key_facts_ru": [
+      "ΔG° = ΔH° − TΔS°. Si ΔG° < 0, la reacción es espontánea.",
+      "ΔH° < 0 y ΔS° > 0 → espontánea a cualquier T.",
+      "ΔH° > 0 y ΔS° < 0 → nunca espontánea.",
+      "ΔH° > 0 y ΔS° > 0 → espontánea a alta T (T > ΔH°/ΔS°).",
+      "ΔH° < 0 y ΔS° < 0 → espontánea a baja T (T < ΔH°/ΔS°).",
+      "Ley de Hess: ΔH° de reacción es independiente del camino, solo depende del estado inicial y final."
+    ],
+    "common_traps_ru": [
+      "Mezclar unidades: ΔH° en kJ y ΔS° en J/(mol·K). Hay que convertir antes de operar.",
+      "Olvidar que la temperatura en la fórmula de Gibbs debe estar en kelvin (K = °C + 273,15).",
+      "No multiplicar por los coeficientes estequiométricos al aplicar Hess.",
+      "Confundir «la reacción es espontánea» con «la reacción es rápida» (la termodinámica no dice nada sobre la velocidad)."
+    ],
+    "variability_ru": "Cambian la reacción y los datos proporcionados (entalpías de formación, entropías, o directamente ΔH° y ΔS° de la reacción). Pueden pedir ΔH°, ΔG°, T de espontaneidad o interpretación cualitativa."
+  },
+  {
+    "task_number": 4,
+    "title_ru": "Cinética química y equilibrio",
+    "topic_ru": "Velocidad de reacción, factores cinéticos, constante de equilibrio y principio de Le Chatelier",
+    "answer_format": "select / matching / numérico (Kc o Kp)",
+    "algorithm_ru": [
+      "Para Kc: escriba la expresión de equilibrio con los productos en el numerador y los reactivos en el denominador, cada uno elevado a su coeficiente estequiométrico.",
+      "Monte una tabla ICE (Inicial – Cambio – Equilibrio) para calcular las concentraciones en el equilibrio.",
+      "Sustituya en la expresión de Kc y resuelva.",
+      "Para Le Chatelier: identifique la perturbación (T, P, concentración, catalizador) y determine hacia dónde se desplaza el equilibrio.",
+      "Recuerde: un catalizador NO desplaza el equilibrio (no cambia Kc ni Kp), solo acelera el alcance del mismo."
+    ],
+    "key_facts_ru": [
+      "Kc = [productos]^coef / [reactivos]^coef. Solo se incluyen especies en disolución o gaseosas.",
+      "Al aumentar P: el equilibrio se desplaza hacia el lado con menos moles de gas.",
+      "Al aumentar T: si ΔH° < 0 (exotérmica), Kc disminuye; si ΔH° > 0 (endotérmica), Kc aumenta.",
+      "Un catalizador reduce Ea pero no modifica ΔH°, Kc ni la composición de equilibrio.",
+      "Kp = Kc(RT)^Δn, donde Δn = moles gaseosos productos − moles gaseosos reactivos."
+    ],
+    "common_traps_ru": [
+      "Incluir sólidos o líquidos puros en la expresión de Kc (no deben aparecer).",
+      "Confundir «desplazar hacia productos» con «aumentar Kc» (cambiar concentración desplaza el equilibrio pero no cambia Kc; cambiar T sí cambia Kc).",
+      "Errores en la tabla ICE: no respetar la estequiometría al calcular el cambio.",
+      "Olvidar que Kp y Kc solo coinciden cuando Δn = 0."
+    ],
+    "variability_ru": "Cambian la reacción, los datos de partida (concentraciones iniciales, grado de disociación, presiones parciales) y la pregunta (calcular Kc/Kp, predecir desplazamiento, efecto de un factor)."
+  },
+  {
+    "task_number": 5,
+    "title_ru": "Reacciones ácido-base",
+    "topic_ru": "Cálculo de pH, valoraciones y disoluciones reguladoras",
+    "answer_format": "numérico (pH, concentración) / input_cells",
+    "algorithm_ru": [
+      "Para ácidos/bases fuertes: [H⁺] = Ca o [OH⁻] = Cb directamente. Calcule pH = −log[H⁺] o pOH = −log[OH⁻], luego pH = 14 − pOH.",
+      "Para ácidos débiles: plantee el equilibrio y use Ka. Si Ka << c, aproxime: [H⁺] ≈ √(Ka·c).",
+      "Para valoraciones: calcule moles de ácido y base. Determine cuál está en exceso tras la reacción. Calcule la concentración del exceso en el volumen total.",
+      "En el punto de equivalencia: moles ácido = moles base (para ácidos y bases monopróticos).",
+      "Recuerde: pH + pOH = 14 (a 25 °C, Kw = 10⁻¹⁴)."
+    ],
+    "key_facts_ru": [
+      "pH = −log[H⁺]; pOH = −log[OH⁻]; pH + pOH = 14 (a 25 °C).",
+      "Ácido fuerte: disociación completa (HCl, HNO₃, H₂SO₄). Base fuerte: NaOH, KOH, Ca(OH)₂.",
+      "Ácido débil: Ka < 1 (CH₃COOH Ka = 1,8 × 10⁻⁵). [H⁺] ≈ √(Ka × c) si Ka << c.",
+      "En una valoración, el punto de equivalencia es donde n(ácido) = n(base).",
+      "Ecuación de Henderson-Hasselbalch: pH = pKa + log([A⁻]/[HA]) para disoluciones reguladoras."
+    ],
+    "common_traps_ru": [
+      "Confundir ácido fuerte con ácido débil: no usar Ka para HCl (es fuerte, disociación total).",
+      "No sumar los volúmenes al mezclar disoluciones (V_total = V₁ + V₂).",
+      "Aplicar −log a la concentración total en lugar de a [H⁺] o [OH⁻].",
+      "Olvidar que si hay exceso de base fuerte, se calcula pOH primero y luego pH = 14 − pOH."
+    ],
+    "variability_ru": "Cambian el ácido/base (fuertes o débiles), las concentraciones, los volúmenes de mezcla y si se pide pH, concentración, volumen en el punto de equivalencia o interpretación de una curva de valoración."
+  },
+  {
+    "task_number": 6,
+    "title_ru": "Oxidación-reducción y electroquímica",
+    "topic_ru": "Ajuste redox (ion-electrón), pilas galvánicas, fem y electrólisis (ley de Faraday)",
+    "answer_format": "free_text (ajuste) / numérico (fem, masa electrólisis)",
+    "algorithm_ru": [
+      "Para ajustar por ion-electrón: separe en dos semirreacciones (oxidación y reducción). Ajuste átomos, luego O con H₂O, luego H con H⁺ (medio ácido) u OH⁻ (medio básico), finalmente cargas con e⁻.",
+      "Iguale el número de electrones en ambas semirreacciones y sume para obtener la reacción global.",
+      "Para pilas: fem = E°(cátodo) − E°(ánodo). El ánodo es el electrodo con menor E°.",
+      "Para electrólisis (Faraday): Q = I × t; n(e⁻) = Q / F; luego n(sustancia) = n(e⁻) / z (donde z = electrones por ion).",
+      "Masa depositada: m = n(sustancia) × M."
+    ],
+    "key_facts_ru": [
+      "El agente oxidante se reduce (gana e⁻); el agente reductor se oxida (pierde e⁻).",
+      "fem > 0 → la reacción es espontánea. ΔG° = −nFE°.",
+      "Constante de Faraday: F = 96 485 C/mol de electrones.",
+      "En el cátodo siempre ocurre la reducción (tanto en pilas como en electrólisis).",
+      "Potenciales estándar: se miden respecto al electrodo estándar de hidrógeno (E° = 0 V)."
+    ],
+    "common_traps_ru": [
+      "Cambiar el signo del potencial al escribir la semirreacción de oxidación (no se cambia E°, se compara directamente).",
+      "Olvidar convertir minutos a segundos al calcular Q = I × t.",
+      "No ajustar correctamente el H₂O y H⁺ en medio ácido o el OH⁻ en medio básico.",
+      "Confundir ánodo/cátodo entre pila galvánica y celda electrolítica (en la pila el ánodo es −, en electrólisis el ánodo es +, pero en ambos el ánodo es donde ocurre la oxidación)."
+    ],
+    "variability_ru": "Cambia la reacción redox a ajustar, el medio (ácido/básico), los electrodos de la pila, los datos de electrólisis (corriente, tiempo, sustancia) y si se pide fem, masa depositada o tiempo necesario."
+  },
+  {
+    "task_number": 7,
+    "title_ru": "Química orgánica",
+    "topic_ru": "Nomenclatura IUPAC, grupos funcionales, isomería y reacciones orgánicas",
+    "answer_format": "matching / select / free_text",
+    "algorithm_ru": [
+      "Para nombrar: identifique la cadena carbonada más larga que contenga el grupo funcional principal. Numere para dar el localizador más bajo al grupo funcional.",
+      "Identifique y nombre los sustituyentes. Añada prefijos (di-, tri-) si hay sustituyentes repetidos.",
+      "Para grupos funcionales: −OH (alcohol), −COOH (ác. carboxílico), >C=O (cetona/aldehído), −NH₂ (amina), −COO− (éster).",
+      "Para reacciones: identifique el tipo (adición, eliminación, sustitución, condensación, hidrólisis/saponificación, oxidación, reducción).",
+      "Para isomería: determine si es estructural (cadena, posición, función) o estereoisomería (geométrica cis/trans, óptica)."
+    ],
+    "key_facts_ru": [
+      "Prioridad de grupos funcionales (IUPAC): ácido > éster > amida > aldehído > cetona > alcohol > amina.",
+      "Alcanos (C−C): sufijo -ano. Alquenos (C=C): -eno. Alquinos (C≡C): -ino.",
+      "Saponificación: éster + NaOH → sal del ácido + alcohol (hidrólisis básica irreversible).",
+      "Esterificación: ácido + alcohol ⇌ éster + agua (catalizada por H⁺, reversible).",
+      "Isomería cis/trans: requiere doble enlace C=C con sustituyentes distintos en cada carbono."
+    ],
+    "common_traps_ru": [
+      "No elegir la cadena más larga que contenga el grupo funcional como cadena principal.",
+      "Confundir aldehído (−CHO, carbono terminal) con cetona (>C=O, carbono interno).",
+      "Olvidar que la esterificación es reversible pero la saponificación es irreversible.",
+      "No reconocer isómeros de función (ej.: un alcohol y un éter con la misma fórmula molecular)."
+    ],
+    "variability_ru": "Cambian los compuestos a nombrar, las reacciones orgánicas a escribir, el tipo de isomería a identificar y si se pide nomenclatura, mecanismo, producto de reacción o clasificación de grupos funcionales."
+  }
+]

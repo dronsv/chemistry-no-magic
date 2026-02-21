@@ -5,12 +5,14 @@ import type { OgeTask } from '../../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
 import type { ExamSystem } from '../../types/exam-system';
 import { getExamSystemName } from '../../types/exam-system';
+import type { UnifiedTopic } from '../../types/topic-mapping';
 import type { ExamVariant, ExamAnswer, ExamResults, ExamExerciseResult, CompetencyResult } from '../../types/exam';
 import type { SupportedLocale } from '../../types/i18n';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../lib/storage';
 import { localizeUrl } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
+import type { FormulaLookup } from '../../types/formula-lookup';
 import {
   loadElements,
   loadSubstancesIndex,
@@ -31,15 +33,21 @@ import {
   loadOgeSolutionAlgorithms,
   loadExamSystems,
   loadExamSystemMeta,
+  loadExamTasks,
+  loadExamAlgorithms,
+  loadTopicMapping,
+  loadFormulaLookup,
 } from '../../lib/data-loader';
+import { FormulaLookupProvider } from '../../components/ChemText';
 import { generateVariant } from './generate-variant';
 import type { ExamData } from './generate-variant';
 import ExamSession from './ExamSession';
 import ExamResultsView from './ExamResultsView';
 import OgePractice from './OgePractice';
+import TopicPractice from './TopicPractice';
 import './exam.css';
 
-type Phase = 'start' | 'loading' | 'session' | 'results' | 'oge-practice';
+type Phase = 'start' | 'loading' | 'session' | 'results' | 'oge-practice' | 'topic-practice';
 
 /** Map locale to default exam system. */
 const LOCALE_EXAM_MAP: Record<string, string> = {
@@ -65,13 +73,19 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [ogeTasks, setOgeTasks] = useState<OgeTask[]>([]);
   const [algorithms, setAlgorithms] = useState<OgeSolutionAlgorithm[]>([]);
+  const [practiceSystemId, setPracticeSystemId] = useState<string>('');
+  const [topicMapping, setTopicMapping] = useState<UnifiedTopic[] | null>(null);
+  const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Load exam systems on mount
+  // Load exam systems and formula lookup on mount
   useEffect(() => {
     loadExamSystems()
       .then(setExamSystems)
       .catch(() => { /* systems optional */ });
+    loadFormulaLookup()
+      .then(setFormulaLookup)
+      .catch(() => { /* formula lookup optional */ });
   }, []);
 
   // Load meta when system changes
@@ -85,24 +99,61 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
       .catch(() => setSystemMeta(null));
   }, [selectedSystem]);
 
-  const startOgePractice = useCallback(async () => {
+  const startPractice = useCallback(async (systemId: string) => {
     setPhase('loading');
     setError(null);
     try {
-      if (ogeTasks.length === 0) {
+      if (ogeTasks.length === 0 || practiceSystemId !== systemId) {
         const [tasks, algos] = await Promise.all([
-          loadOgeTasks(),
-          loadOgeSolutionAlgorithms(),
+          systemId === 'oge'
+            ? loadOgeTasks()
+            : loadExamTasks(systemId),
+          systemId === 'oge'
+            ? loadOgeSolutionAlgorithms()
+            : loadExamAlgorithms(systemId).catch(() => [] as OgeSolutionAlgorithm[]),
         ]);
         setOgeTasks(tasks);
         setAlgorithms(algos);
+        setPracticeSystemId(systemId);
       }
       setPhase('oge-practice');
     } catch (e) {
       setError(e instanceof Error ? e.message : m.error_loading());
       setPhase('start');
     }
-  }, [ogeTasks]);
+  }, [ogeTasks, practiceSystemId]);
+
+  const startTopicPractice = useCallback(async () => {
+    setPhase('loading');
+    setError(null);
+    try {
+      if (!topicMapping) {
+        const [topics, systems] = await Promise.all([
+          loadTopicMapping(),
+          examSystems ? Promise.resolve(examSystems) : loadExamSystems(),
+        ]);
+        setTopicMapping(topics);
+        if (!examSystems) setExamSystems(systems);
+      }
+      setPhase('topic-practice');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : m.error_loading());
+      setPhase('start');
+    }
+  }, [topicMapping, examSystems]);
+
+  /** On-demand loader for TopicPractice — fetches tasks+algorithms for a system. */
+  const loadSystemTasksForTopic = useCallback(async (systemId: string) => {
+    const [tasks, algos] = await Promise.all([
+      systemId === 'oge'
+        ? loadOgeTasks()
+        : loadExamTasks(systemId),
+      systemId === 'oge'
+        ? loadOgeSolutionAlgorithms()
+        : loadExamAlgorithms(systemId).catch(() => [] as OgeSolutionAlgorithm[]),
+    ]);
+    return { tasks, algorithms: algos };
+  }, []);
 
   const startExam = useCallback(async () => {
     setPhase('loading');
@@ -281,23 +332,26 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
           </div>
         )}
 
-        {/* OGE modes: practice + mock */}
-        {selectedSystem === 'oge' && (
-          <div className="exam-modes">
-            <div className="exam-mode-card">
-              <h2 className="exam-mode-card__title">{m.exam_oge_title()}</h2>
-              <p className="exam-mode-card__desc">
-                {m.exam_oge_desc()}
-              </p>
+        {/* Practice mode — available for all exam systems with tasks */}
+        <div className="exam-modes">
+          <div className="exam-mode-card">
+            <h2 className="exam-mode-card__title">{m.exam_oge_title()}</h2>
+            <p className="exam-mode-card__desc">
+              {m.exam_oge_desc()}
+            </p>
+            {currentSystem && (
               <div className="exam-mode-card__info">
-                <span>{m.exam_oge_info_1()}</span>
-                <span>{m.exam_oge_info_2()}</span>
+                <span>{m.exam_compare_minutes({ min: String(currentSystem.duration_min) })}</span>
+                <span>{m.exam_compare_max_score()}: {currentSystem.max_score}</span>
               </div>
-              <button type="button" className="btn btn-primary" onClick={startOgePractice}>
-                {m.exam_practice()}
-              </button>
-            </div>
+            )}
+            <button type="button" className="btn btn-primary" onClick={() => startPractice(selectedSystem)}>
+              {m.exam_practice()}
+            </button>
+          </div>
 
+          {/* Mock exam only for OGE (generator-based) */}
+          {selectedSystem === 'oge' && (
             <div className="exam-mode-card">
               <h2 className="exam-mode-card__title">{m.exam_mock_title()}</h2>
               <p className="exam-mode-card__desc">
@@ -311,37 +365,24 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
                 {m.exam_start()}
               </button>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Other exam systems: show info + coming soon */}
-        {selectedSystem !== 'oge' && currentSystem && (
+          {/* Topic practice — cross-exam practice grouped by chemistry topic */}
+          <div className="exam-mode-card">
+            <h2 className="exam-mode-card__title">{m.exam_topic_title()}</h2>
+            <p className="exam-mode-card__desc">
+              {m.exam_topic_desc()}
+            </p>
+            <button type="button" className="btn btn-primary" onClick={startTopicPractice}>
+              {m.exam_practice()}
+            </button>
+          </div>
+        </div>
+
+        {/* Exam system info for non-OGE */}
+        {selectedSystem !== 'oge' && currentSystem && systemMeta && (
           <div className="exam-system-info">
-            <div className="exam-system-info__header">
-              <span className="exam-system-info__flag">{currentSystem.flag}</span>
-              <h2 className="exam-system-info__title">
-                {getExamSystemName(currentSystem, locale)}
-              </h2>
-            </div>
-            <div className="exam-system-info__details">
-              <div className="exam-system-info__detail">
-                <span className="exam-system-info__label">{m.exam_compare_grade()}</span>
-                <span>{currentSystem.grade}</span>
-              </div>
-              <div className="exam-system-info__detail">
-                <span className="exam-system-info__label">{m.exam_compare_duration()}</span>
-                <span>{m.exam_compare_minutes({ min: String(currentSystem.duration_min) })}</span>
-              </div>
-              <div className="exam-system-info__detail">
-                <span className="exam-system-info__label">{m.exam_compare_max_score()}</span>
-                <span>{currentSystem.max_score}</span>
-              </div>
-              <div className="exam-system-info__detail">
-                <span className="exam-system-info__label">{m.exam_compare_tasks()}</span>
-                <span>{currentSystem.task_count}</span>
-              </div>
-            </div>
-            {systemMeta && (systemMeta as Record<string, unknown>).topics && (
+            {(systemMeta as Record<string, unknown>).topics && (
               <div className="exam-system-info__topics">
                 <h3>{m.exam_compare_topics()}</h3>
                 <ul>
@@ -351,9 +392,20 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
                 </ul>
               </div>
             )}
-            <div className="exam-system-info__coming-soon">
-              {m.exam_no_tasks()}
-            </div>
+            {(systemMeta as Record<string, unknown>).official_links && (
+              <div className="exam-system-info__links">
+                <h3>{m.exam_official_links()}</h3>
+                <ul>
+                  {((systemMeta as Record<string, unknown>).official_links as Array<Record<string, string>>).map((link, i) => (
+                    <li key={i}>
+                      <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link[`label_${locale}`] ?? link.label_en ?? link.url}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -373,26 +425,48 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
 
   if (phase === 'session' && variant) {
     return (
-      <div className="exam-page">
-        <ExamSession variant={variant} onSubmit={handleSubmit} />
-      </div>
+      <FormulaLookupProvider value={formulaLookup}>
+        <div className="exam-page">
+          <ExamSession variant={variant} onSubmit={handleSubmit} />
+        </div>
+      </FormulaLookupProvider>
     );
   }
 
   if (phase === 'oge-practice') {
     return (
-      <div className="exam-page">
-        <OgePractice tasks={ogeTasks} algorithms={algorithms} onBack={() => setPhase('start')} />
-      </div>
+      <FormulaLookupProvider value={formulaLookup}>
+        <div className="exam-page">
+          <OgePractice tasks={ogeTasks} algorithms={algorithms} onBack={() => setPhase('start')} />
+        </div>
+      </FormulaLookupProvider>
+    );
+  }
+
+  if (phase === 'topic-practice' && topicMapping && examSystems) {
+    return (
+      <FormulaLookupProvider value={formulaLookup}>
+        <div className="exam-page">
+          <TopicPractice
+            topics={topicMapping}
+            examSystems={examSystems}
+            loadSystemTasks={loadSystemTasksForTopic}
+            locale={locale}
+            onBack={() => setPhase('start')}
+          />
+        </div>
+      </FormulaLookupProvider>
     );
   }
 
   if (phase === 'results' && results) {
     return (
-      <div className="exam-page">
-        <h1 className="exam-page__title">{m.exam_results_title()}</h1>
-        <ExamResultsView results={results} onRestart={handleRestart} />
-      </div>
+      <FormulaLookupProvider value={formulaLookup}>
+        <div className="exam-page">
+          <h1 className="exam-page__title">{m.exam_results_title()}</h1>
+          <ExamResultsView results={results} onRestart={handleRestart} />
+        </div>
+      </FormulaLookupProvider>
     );
   }
 

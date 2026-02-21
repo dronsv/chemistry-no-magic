@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
 import {
   getElectronFormula,
@@ -49,11 +50,11 @@ type GeneratorFn = (elements: Element[]) => Exercise;
 const generators: Record<string, GeneratorFn> = {
   find_period_group(elements) {
     const el = pick(mainElements(elements));
-    const correct = `${el.period} период, ${el.group} группа`;
+    const correct = m.pt_ex_period_group({ period: String(el.period), group: String(el.group) });
     const distractors = [
-      `${el.period + 1} период, ${el.group} группа`,
-      `${el.period} период, ${Math.max(1, el.group - 1)} группа`,
-      `${Math.max(1, el.period - 1)} период, ${Math.min(18, el.group + 1)} группа`,
+      m.pt_ex_period_group({ period: String(el.period + 1), group: String(el.group) }),
+      m.pt_ex_period_group({ period: String(el.period), group: String(Math.max(1, el.group - 1)) }),
+      m.pt_ex_period_group({ period: String(Math.max(1, el.period - 1)), group: String(Math.min(18, el.group + 1)) }),
     ];
     const options = shuffleOptions([
       { id: 'correct', text: correct },
@@ -61,11 +62,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'find_period_group',
-      question: `Элемент с порядковым номером ${el.Z} (${el.symbol}) расположен в:`,
+      question: m.pt_ex_q_position({ Z: String(el.Z), symbol: el.symbol }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${el.symbol} (${el.name_ru}): Z=${el.Z}, ${el.period} период, ${el.group} группа.`,
+      explanation: m.pt_ex_a_position({ symbol: el.symbol, name: el.name_ru, Z: String(el.Z), period: String(el.period), group: String(el.group) }),
       competencyMap: { periodic_table: 'P' },
     };
   },
@@ -73,7 +74,6 @@ const generators: Record<string, GeneratorFn> = {
   select_electron_config(elements) {
     const el = pick(mainElements(elements));
     const correctFormula = getShorthandFormula(el.Z);
-    // Generate distractors by tweaking nearby elements
     const nearby = mainElements(elements).filter(e => Math.abs(e.Z - el.Z) > 0 && Math.abs(e.Z - el.Z) <= 3);
     const distElements = pickN(nearby.length >= 3 ? nearby : mainElements(elements).filter(e => e.Z !== el.Z), 3);
     const options = shuffleOptions([
@@ -82,7 +82,7 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'select_electron_config',
-      question: `Выберите правильную электронную конфигурацию элемента ${el.symbol} (Z=${el.Z}):`,
+      question: m.pt_ex_q_electron_config({ symbol: el.symbol, Z: String(el.Z) }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -101,19 +101,19 @@ const generators: Record<string, GeneratorFn> = {
       { id: 'correct', text: String(count) },
       ...distractors.slice(0, 3).map((d, i) => ({ id: `d${i}`, text: String(d) })),
     ]);
+    const details = valence.map(v => `${v.n}${v.l}(${v.electrons})`).join(' + ');
     return {
       type: 'count_valence',
-      question: `Сколько валентных электронов у элемента ${el.symbol} (Z=${el.Z})?`,
+      question: m.pt_ex_q_valence_count({ symbol: el.symbol, Z: String(el.Z) }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${el.symbol}: конфигурация ${getShorthandFormula(el.Z)}. Валентные электроны — на внешнем уровне (n=${el.period}): ${valence.map(v => `${v.n}${v.l}(${v.electrons})`).join(' + ')} = ${count}.`,
+      explanation: m.pt_ex_a_valence_count({ symbol: el.symbol, config: getShorthandFormula(el.Z), period: String(el.period), details, count: String(count) }),
       competencyMap: { electron_config: 'P', periodic_table: 'S' },
     };
   },
 
   identify_exception(elements) {
-    // Only Cr and Cu are expected knowledge for ОГЭ level
     const OGE_EXCEPTION_Z = [24, 29];
     const exceptions = elements.filter(e => OGE_EXCEPTION_Z.includes(e.Z));
     const normals = mainElements(elements).filter(e => !isException(e.Z));
@@ -125,11 +125,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'identify_exception',
-      question: 'Какой элемент имеет аномальную электронную конфигурацию (провал электрона)?',
+      question: m.pt_ex_q_exception(),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${excEl.symbol} — исключение. Реальная конфигурация: ${getShorthandFormula(excEl.Z)}.`,
+      explanation: m.pt_ex_a_exception({ symbol: excEl.symbol, config: getShorthandFormula(excEl.Z) }),
       competencyMap: { electron_config: 'P' },
     };
   },
@@ -145,11 +145,11 @@ const generators: Record<string, GeneratorFn> = {
     ]);
     return {
       type: 'element_from_config',
-      question: `Какому элементу соответствует электронная конфигурация ${config}?`,
+      question: m.pt_ex_q_element_from_config({ config }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Считаем электроны в ${config} → Z=${el.Z}, это ${el.symbol} (${el.name_ru}).`,
+      explanation: m.pt_ex_a_element_from_config({ config, Z: String(el.Z), symbol: el.symbol, name: el.name_ru }),
       competencyMap: { periodic_table: 'P', electron_config: 'S' },
     };
   },
@@ -163,16 +163,16 @@ const generators: Record<string, GeneratorFn> = {
     const options = shuffleOptions([
       { id: 'correct', text: `${higher.symbol} (${higher.electronegativity})` },
       { id: 'd0', text: `${lower.symbol} (${lower.electronegativity})` },
-      { id: 'd1', text: 'Одинаковая' },
-      { id: 'd2', text: 'Невозможно определить' },
+      { id: 'd1', text: m.pt_ex_same_value() },
+      { id: 'd2', text: m.pt_ex_cannot_determine() },
     ]);
     return {
       type: 'compare_electronegativity',
-      question: `Какой элемент имеет большую электроотрицательность: ${a.symbol} или ${b.symbol}?`,
+      question: m.pt_ex_q_electronegativity({ symA: a.symbol, symB: b.symbol }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Электроотрицательность: ${higher.symbol} (${higher.electronegativity}) > ${lower.symbol} (${lower.electronegativity}).`,
+      explanation: m.pt_ex_a_electronegativity({ symHigh: higher.symbol, chiHigh: String(higher.electronegativity), symLow: lower.symbol, chiLow: String(lower.electronegativity) }),
       competencyMap: { periodic_table: 'P' },
     };
   },
@@ -181,7 +181,7 @@ const generators: Record<string, GeneratorFn> = {
     const el = pick(lightElements(elements));
     return {
       type: 'fill_orbital_boxes',
-      question: `Заполните орбитальную диаграмму для элемента ${el.symbol} (Z=${el.Z}):`,
+      question: m.pt_ex_q_orbital({ symbol: el.symbol, Z: String(el.Z) }),
       format: 'interactive_orbital',
       options: [],
       correctId: '',

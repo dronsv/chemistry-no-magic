@@ -63,14 +63,14 @@ export default function SolubilityHint() {
           <span /><span /><span />
           <span /><span /><span />
         </span>
-        <span className="hint-label-full">Растворимости</span>
-        <span className="hint-label-short">ТР</span>
+        <span className="hint-label-full">{m.sol_hint_label_full()}</span>
+        <span className="hint-label-short">{m.sol_hint_label_short()}</span>
       </button>
 
       {isOpen && (
         <div className="sol-hint-panel" ref={panelRef} style={panelStyle}>
           <div className="sol-hint-panel__header" onMouseDown={onDragStart}>
-            <h2 className="sol-hint-panel__title">Таблица растворимости</h2>
+            <h2 className="sol-hint-panel__title">{m.sol_hint_title()}</h2>
             <button className="sol-hint-panel__close" onClick={close} type="button" aria-label={m.close_label()}>&times;</button>
           </div>
           <div className="sol-hint-panel__content">

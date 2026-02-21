@@ -1,1 +1,988 @@
-{}
+{
+  "agno3": {
+    "name_ru": "Nitrato de plata",
+    "appearance_ru": "Cristales incoloros que se oscurecen al exponerse a la luz",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras",
+      "Peligroso para el medio ambiente"
+    ],
+    "storage_ru": "Conservar en un lugar oscuro, en recipientes cerrados, lejos de sustancias orgánicas",
+    "industrial_ru": "Producción de materiales fotográficos, espejos y antisépticos",
+    "production_ru": "Disolución de plata en ácido nítrico",
+    "fun_facts_ru": [
+      "La piedra infernal (nitrato de plata) se utiliza en medicina para cauterizar heridas",
+      "Deja manchas negras permanentes en la piel debido a la reducción a plata metálica"
+    ]
+  },
+  "al2_so4_3": {
+    "name_ru": "Sulfato de aluminio",
+    "appearance_ru": "Cristales o polvo blanco",
+    "industrial_ru": "Purificación de agua (coagulante), fabricación de papel, curtido de cuero",
+    "production_ru": "Disolución de Al(OH)₃ o Al₂O₃ en ácido sulfúrico",
+    "fun_facts_ru": [
+      "Uno de los coagulantes más utilizados para la purificación de agua potable",
+      "Sufre una hidrólisis significativa al disolverse en agua, creando una solución ácida"
+    ]
+  },
+  "al2o3": {
+    "name_ru": "Óxido de aluminio",
+    "appearance_ru": "Polvo cristalino blanco",
+    "industrial_ru": "Producción de aluminio (electrólisis), materiales abrasivos, cerámica",
+    "production_ru": "Procesamiento de bauxita mediante el proceso Bayer",
+    "fun_facts_ru": [
+      "El corindón, el rubí y el zafiro son formas naturales de Al₂O₃, coloreadas por impurezas",
+      "Uno de los óxidos más duros: 9 en la escala de Mohs"
+    ]
+  },
+  "al_oh_3": {
+    "name_ru": "Hidróxido de aluminio",
+    "appearance_ru": "Sustancia gelatinosa blanca",
+    "industrial_ru": "Producción de aluminio, medicamentos antiácidos, adsorbentes",
+    "production_ru": "Precipitación a partir de soluciones de sales de aluminio mediante álcali",
+    "fun_facts_ru": [
+      "Se encuentra en muchos medicamentos antiácidos (remedios para la acidez estomacal)",
+      "Se descompone en Al₂O₃ y agua al calentarse"
+    ]
+  },
+  "alcl3": {
+    "name_ru": "Cloruro de aluminio",
+    "appearance_ru": "Polvo blanco o amarillento",
+    "hazards_ru": [
+      "Corrosivo",
+      "Reacciona vigorosamente con el agua"
+    ],
+    "industrial_ru": "Catalizador de Friedel-Crafts, producción de aluminio",
+    "production_ru": "Reacción de aluminio con cloro o HCl",
+    "fun_facts_ru": [
+      "El AlCl₃ anhidro es un catalizador clave en la síntesis orgánica (reacción de Friedel-Crafts)",
+      "Su punto de ebullición es inferior a su punto de fusión: sublima a presión atmosférica"
+    ]
+  },
+  "bacl2": {
+    "name_ru": "Cloruro de bario",
+    "appearance_ru": "Cristales incoloros",
+    "hazards_ru": [
+      "Tóxico",
+      "Peligroso en caso de ingestión"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados en un área ventilada",
+    "industrial_ru": "Reactivo para la detección de iones sulfato en química analítica",
+    "production_ru": "Reacción de carbonato de bario con ácido clorhídrico",
+    "fun_facts_ru": [
+      "Reactivo cualitativo para iones sulfato: produce un precipitado blanco de BaSO₄"
+    ]
+  },
+  "baso4": {
+    "name_ru": "Sulfato de bario",
+    "appearance_ru": "Polvo cristalino blanco",
+    "industrial_ru": "Agente de radiocontraste, carga en la fabricación de papel y plásticos",
+    "production_ru": "Precipitación a partir de soluciones de sales de bario mediante ácido sulfúrico o sulfatos",
+    "fun_facts_ru": [
+      "Se utiliza como «papilla de bario» para radiografías de estómago: es insoluble y no tóxico",
+      "El mineral barita (BaSO₄) es la principal fuente industrial de bario"
+    ]
+  },
+  "c2h2": {
+    "name_ru": "Acetileno",
+    "appearance_ru": "Gas incoloro (el grado técnico tiene un olor desagradable debido a impurezas)",
+    "hazards_ru": [
+      "Altamente inflamable",
+      "Explosivo"
+    ],
+    "industrial_ru": "Soldadura y corte de metales, producción de PVC, fabricación de caucho sintético",
+    "production_ru": "Método del carburo (CaC₂ + H₂O), craqueo térmico de metano",
+    "fun_facts_ru": [
+      "Un soplete de acetileno alcanza temperaturas de hasta 3150 °C",
+      "El acetileno puro es casi inodoro; el olor desagradable proviene de impurezas de fosfina y sulfuro de hidrógeno"
+    ]
+  },
+  "c2h4": {
+    "name_ru": "Etileno",
+    "appearance_ru": "Gas incoloro con un ligero olor dulce",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Producción de polietileno, etanol, óxido de etileno, estireno",
+    "production_ru": "Craqueo térmico de petróleo, deshidratación de etanol",
+    "fun_facts_ru": [
+      "El compuesto orgánico más producido en el mundo (más de 150 millones de toneladas al año)",
+      "Es una fitohormona: acelera la maduración de los frutos"
+    ]
+  },
+  "c2h5oh": {
+    "name_ru": "Etanol",
+    "appearance_ru": "Líquido volátil incoloro con un olor característico",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Disolvente, combustible, antiséptico, base de bebidas alcohólicas",
+    "production_ru": "Fermentación de azúcares o hidratación de etileno",
+    "fun_facts_ru": [
+      "Uno de los primeros compuestos orgánicos conocidos por la humanidad",
+      "El etanol absoluto (99,95 %) se obtiene por destilación azeotrópica con benceno"
+    ]
+  },
+  "c2h6": {
+    "name_ru": "Etano",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Producción de etileno (pirólisis), combustible",
+    "production_ru": "Componente del gas natural (5–10 %), gas de petróleo asociado",
+    "fun_facts_ru": [
+      "El etano es el segundo alcano más sencillo después del metano",
+      "Existen lagos de etano y metano líquidos en Titán, la luna de Saturno"
+    ]
+  },
+  "c4h10": {
+    "name_ru": "Butano",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Combustible (gas embotellado para uso doméstico), producción de butadieno, disolvente",
+    "production_ru": "Procesamiento de gas natural y petróleo",
+    "fun_facts_ru": [
+      "El componente principal del gas de los encendedores",
+      "Hierve a −0,5 °C, casi a 0 °C"
+    ]
+  },
+  "c4h6": {
+    "name_ru": "1,3-Butadieno",
+    "appearance_ru": "Gas incoloro con un olor tenue",
+    "hazards_ru": [
+      "Altamente inflamable",
+      "Carcinógeno"
+    ],
+    "industrial_ru": "Producción de caucho sintético (polibutadieno, caucho de estireno-butadieno)",
+    "production_ru": "Deshidrogenación de butano, subproducto del craqueo",
+    "fun_facts_ru": [
+      "La base del caucho sintético, inventado por S. V. Lébedev (1910)",
+      "Los dobles enlaces conjugados confieren a la molécula una estabilidad excepcional"
+    ]
+  },
+  "c4h8": {
+    "name_ru": "1-Buteno",
+    "appearance_ru": "Gas incoloro",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Producción de polibutileno, butadieno, componente de gasolina",
+    "production_ru": "Craqueo de petróleo, deshidrogenación de butano",
+    "fun_facts_ru": [
+      "Existe en varios isómeros: 1-buteno, 2-buteno (cis- y trans-)",
+      "Se utiliza para aumentar el índice de octano de la gasolina"
+    ]
+  },
+  "c5h10": {
+    "name_ru": "1-Penteno",
+    "appearance_ru": "Líquido incoloro y fluido",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Producción de polímeros, componente de gasolina",
+    "production_ru": "Craqueo de petróleo",
+    "fun_facts_ru": [
+      "El 1-penteno es uno de los primeros alquenos líquidos (hierve a 30 °C)"
+    ]
+  },
+  "c6h12o6": {
+    "name_ru": "Glucosa",
+    "appearance_ru": "Polvo cristalino blanco de sabor dulce",
+    "industrial_ru": "Industria alimentaria, medicina (nutrición intravenosa), fermentación",
+    "production_ru": "Hidrólisis de almidón o celulosa (ácida o enzimática)",
+    "fun_facts_ru": [
+      "La principal fuente de energía para las células del organismo",
+      "La reacción del espejo de plata es una prueba cualitativa del grupo aldehído de la glucosa"
+    ]
+  },
+  "c6h5cooh": {
+    "name_ru": "Ácido benzoico",
+    "appearance_ru": "Cristales incoloros en forma de aguja",
+    "industrial_ru": "Conservante (E210), producción de colorantes, productos farmacéuticos",
+    "production_ru": "Oxidación de tolueno, hidrólisis de benzotricloruro",
+    "fun_facts_ru": [
+      "El ácido benzoico fue el primer ácido orgánico aislado de una fuente natural (resina de benjuí, siglo XVI)",
+      "Ampliamente utilizado como conservante en bebidas y productos alimenticios"
+    ]
+  },
+  "c6h5nh2": {
+    "name_ru": "Anilina",
+    "appearance_ru": "Líquido oleoso incoloro que se oscurece al exponerse al aire",
+    "hazards_ru": [
+      "Tóxica",
+      "Carcinógena"
+    ],
+    "industrial_ru": "Producción de colorantes, poliuretanos, productos farmacéuticos, caucho",
+    "production_ru": "Reducción de nitrobenceno (reacción de Zinin)",
+    "fun_facts_ru": [
+      "La reacción de Zinin (1842) — la primera síntesis industrial de anilina — sentó las bases de la industria de los colorantes de anilina",
+      "El nombre proviene del portugués «anil» (índigo)"
+    ]
+  },
+  "c6h5oh": {
+    "name_ru": "Fenol",
+    "appearance_ru": "Cristales incoloros con un olor característico (se vuelven rosados al exponerse al aire)",
+    "hazards_ru": [
+      "Tóxico",
+      "Provoca quemaduras",
+      "Se absorbe a través de la piel"
+    ],
+    "industrial_ru": "Producción de resinas fenol-formaldehído, bisfenol A, caprolactama",
+    "production_ru": "Proceso del cumeno (a partir de benceno y propileno, simultáneamente con acetona)",
+    "fun_facts_ru": [
+      "El primer antiséptico utilizado en cirugía (Joseph Lister, 1865)",
+      "El ácido carbólico (solución de fenol) se usaba para esterilizar los quirófanos"
+    ]
+  },
+  "c8h18": {
+    "name_ru": "Octano",
+    "appearance_ru": "Líquido incoloro",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Componente de gasolina, estándar del índice de octano",
+    "production_ru": "Destilación de petróleo",
+    "fun_facts_ru": [
+      "El isooctano (2,2,4-trimetilpentano) es el estándar de referencia para un índice de octano de 100",
+      "El término «número de octano» en la gasolina proviene del octano"
+    ]
+  },
+  "ca_oh_2": {
+    "name_ru": "Hidróxido de calcio",
+    "appearance_ru": "Polvo blanco",
+    "hazards_ru": [
+      "Corrosivo",
+      "Irrita la piel y los ojos"
+    ],
+    "industrial_ru": "Construcción (cal apagada), purificación de agua, agricultura",
+    "production_ru": "Apagado de cal viva con agua: CaO + H₂O → Ca(OH)₂",
+    "fun_facts_ru": [
+      "El agua de cal (solución de Ca(OH)₂) es un reactivo cualitativo para el CO₂: se enturbia cuando se pasa dióxido de carbono a través de ella",
+      "La cal apagada se ha utilizado en la construcción durante más de 5000 años"
+    ]
+  },
+  "caco3": {
+    "name_ru": "Carbonato de calcio",
+    "appearance_ru": "Polvo o cristales blancos",
+    "industrial_ru": "Construcción (tiza, caliza, mármol), producción de cemento",
+    "production_ru": "Extracción de minerales naturales (caliza, tiza, mármol)",
+    "fun_facts_ru": [
+      "La tiza, el mármol, la caliza, las conchas marinas y las cáscaras de huevo son CaCO₃",
+      "Se descompone en CaO y CO₂ al calentarse, lo que constituye la base de la producción de cal"
+    ]
+  },
+  "cao": {
+    "name_ru": "Óxido de calcio",
+    "appearance_ru": "Polvo cristalino blanco",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras en contacto con la piel húmeda"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, proteger de la humedad",
+    "industrial_ru": "Producción de cemento, metalurgia, agricultura",
+    "production_ru": "Calcinación de caliza a 900–1200 °C: CaCO₃ → CaO + CO₂",
+    "fun_facts_ru": [
+      "La cal viva se calienta intensamente en contacto con el agua: la reacción es altamente exotérmica",
+      "Uno de los materiales aglomerantes más antiguos utilizados en la construcción"
+    ]
+  },
+  "ch3cho": {
+    "name_ru": "Acetaldehído",
+    "appearance_ru": "Líquido volátil incoloro con un olor agudo y afrutado",
+    "hazards_ru": [
+      "Altamente inflamable",
+      "Irrita las vías respiratorias",
+      "Posible carcinógeno"
+    ],
+    "industrial_ru": "Producción de ácido acético, acetato de etilo, perfumería",
+    "production_ru": "Oxidación de etanol, proceso Wacker (oxidación de etileno)",
+    "fun_facts_ru": [
+      "Se forma en el organismo durante el metabolismo del alcohol: el acetaldehído es lo que causa la resaca",
+      "Hierve a 20 °C, casi a temperatura ambiente"
+    ]
+  },
+  "ch3coch3": {
+    "name_ru": "Acetona",
+    "appearance_ru": "Líquido volátil incoloro con un olor característico",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Disolvente (barnices, pinturas, adhesivos), producción de metacrilato de metilo, bisfenol A",
+    "production_ru": "Proceso del cumeno (a partir de benceno y propileno), deshidrogenación de isopropanol",
+    "fun_facts_ru": [
+      "La acetona es el disolvente más utilizado en el mundo",
+      "Se produce en el organismo durante el ayuno: el «aliento a acetona» en la diabetes"
+    ]
+  },
+  "ch3cooc2h5": {
+    "name_ru": "Acetato de etilo",
+    "appearance_ru": "Líquido volátil incoloro con un agradable olor afrutado",
+    "hazards_ru": [
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Disolvente (barnices, adhesivos, pinturas), industria alimentaria (aromatizante)",
+    "production_ru": "Esterificación de ácido acético con etanol (esterificación de Fischer)",
+    "fun_facts_ru": [
+      "El acetato de etilo confiere el olor característico a pegamentos y quitaesmaltes de uñas",
+      "Aditivo alimentario E1504: se utiliza como aromatizante"
+    ]
+  },
+  "ch3cooh": {
+    "name_ru": "Ácido acético",
+    "appearance_ru": "Líquido incoloro con un olor agrio y penetrante",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras"
+    ],
+    "industrial_ru": "Producción de fibras de acetato, disolventes, vinagre, acetato de vinilo",
+    "production_ru": "Oxidación de acetaldehído, fermentación de etanol (fermentación acética)",
+    "fun_facts_ru": [
+      "El ácido acético glacial (100 %) se congela a 16,6 °C, de ahí el nombre «glacial»",
+      "El vinagre de mesa es una solución al 6–9 % de ácido acético en agua"
+    ]
+  },
+  "ch3coona": {
+    "name_ru": "Acetato de sodio",
+    "appearance_ru": "Cristales incoloros",
+    "industrial_ru": "Industria alimentaria (E262), soluciones tampón, calentadores de manos químicos",
+    "production_ru": "Neutralización de ácido acético con bicarbonato de sodio o NaOH",
+    "fun_facts_ru": [
+      "La base de los populares calentadores de manos químicos: la cristalización de una solución sobresaturada libera calor",
+      "Su solución acuosa es ligeramente alcalina (hidrólisis del anión)"
+    ]
+  },
+  "ch3oh": {
+    "name_ru": "Metanol",
+    "appearance_ru": "Líquido incoloro con un olor tenue",
+    "hazards_ru": [
+      "Tóxico (dosis letal 30–100 mL)",
+      "Altamente inflamable",
+      "Daña el nervio óptico"
+    ],
+    "industrial_ru": "Disolvente, producción de formaldehído, combustible, anticongelante",
+    "production_ru": "Síntesis catalítica a partir de CO y H₂ (gas de síntesis)",
+    "fun_facts_ru": [
+      "El metanol es el alcohol más sencillo y una de las sustancias domésticas más tóxicas",
+      "Se utiliza como combustible en los coches de carreras de las 500 millas de Indianápolis"
+    ]
+  },
+  "ch4": {
+    "name_ru": "Metano",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "hazards_ru": [
+      "Altamente inflamable",
+      "Forma mezclas explosivas con el aire"
+    ],
+    "industrial_ru": "Combustible (gas natural), producción de hidrógeno, negro de humo, acetileno",
+    "production_ru": "Componente principal del gas natural, biogás (descomposición de materia orgánica)",
+    "fun_facts_ru": [
+      "El metano es el segundo gas de efecto invernadero más importante después del CO₂",
+      "Una sola vaca produce hasta 500 litros de metano al día"
+    ]
+  },
+  "cl2": {
+    "name_ru": "Cloro",
+    "appearance_ru": "Gas verde amarillento con un olor fuerte y sofocante",
+    "hazards_ru": [
+      "Tóxico",
+      "Irrita las vías respiratorias",
+      "Corrosivo"
+    ],
+    "industrial_ru": "Producción de PVC, desinfección de agua, blanqueo",
+    "production_ru": "Electrólisis de solución de NaCl (proceso cloro-álcali)",
+    "fun_facts_ru": [
+      "El primer gas tóxico utilizado en la Primera Guerra Mundial",
+      "Se utiliza para purificar el 98 % del agua potable del mundo"
+    ]
+  },
+  "co2": {
+    "name_ru": "Dióxido de carbono",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "industrial_ru": "Carbonatación de bebidas, extinción de incendios, producción de sosa",
+    "production_ru": "Subproducto de la combustión de combustibles, la fermentación alcohólica y la calcinación de caliza",
+    "fun_facts_ru": [
+      "El hielo seco es CO₂ sólido; sublima a −78,5 °C, sin pasar por la fase líquida",
+      "El CO₂ constituye aproximadamente el 0,04 % de la atmósfera terrestre, pero es un gas de efecto invernadero clave"
+    ]
+  },
+  "cu_oh_2": {
+    "name_ru": "Hidróxido de cobre(II)",
+    "appearance_ru": "Precipitado gelatinoso de color azul claro",
+    "industrial_ru": "Producción de fungicidas (caldo bordelés), reactivo en química analítica",
+    "production_ru": "Precipitación a partir de soluciones de sales de cobre(II) mediante álcali",
+    "fun_facts_ru": [
+      "Se vuelve negro al calentarse, descomponiéndose en CuO y agua",
+      "Se disuelve en amoníaco formando una solución de color azul intenso (reactivo de Schweizer)"
+    ]
+  },
+  "cuo": {
+    "name_ru": "Óxido de cobre(II)",
+    "appearance_ru": "Polvo negro",
+    "industrial_ru": "Producción de cerámica, pigmentos y catalizadores",
+    "production_ru": "Calcinación de hidróxido de cobre(II) o calentamiento de cobre al aire",
+    "fun_facts_ru": [
+      "Se reduce fácilmente con hidrógeno a cobre metálico: un experimento clásico de química escolar"
+    ]
+  },
+  "cuso4": {
+    "name_ru": "Sulfato de cobre(II)",
+    "appearance_ru": "Polvo blanco (anhidro) o cristales azules (pentahidrato)",
+    "hazards_ru": [
+      "Tóxico",
+      "Peligroso para el medio ambiente"
+    ],
+    "industrial_ru": "Agricultura (fungicida), galvanoplastia, producción de colorantes",
+    "production_ru": "Disolución de cobre en ácido sulfúrico diluido con calentamiento y exposición al aire",
+    "fun_facts_ru": [
+      "El pentahidrato CuSO₄·5H₂O (vitriolo azul) es de color azul intenso; pierde agua al calentarse y se vuelve blanco",
+      "El CuSO₄ anhidro se utiliza como indicador de humedad: se vuelve azul en contacto con el agua"
+    ]
+  },
+  "fe2o3": {
+    "name_ru": "Óxido de hierro(III)",
+    "appearance_ru": "Polvo rojo-marrón",
+    "industrial_ru": "Metalurgia (mineral para la producción de arrabio), pigmentos, polvos para pulir",
+    "production_ru": "Tostación de pirita (FeS₂) o calcinación de hidróxido de hierro(III)",
+    "fun_facts_ru": [
+      "El mineral hematita (Fe₂O₃) es el principal mineral de hierro en la Tierra",
+      "El color rojo del suelo marciano se debe a la presencia de Fe₂O₃"
+    ]
+  },
+  "fe_oh_3": {
+    "name_ru": "Hidróxido de hierro(III)",
+    "appearance_ru": "Precipitado gelatinoso marrón",
+    "industrial_ru": "Purificación de agua (coagulante), pigmentos",
+    "production_ru": "Precipitación a partir de soluciones de sales de hierro(III) mediante álcali",
+    "fun_facts_ru": [
+      "No tiene punto de fusión: se descompone en Fe₂O₃ y agua al calentarse",
+      "El óxido es una mezcla de óxidos de hierro hidratados con una composición cercana a Fe(OH)₃"
+    ]
+  },
+  "fecl2": {
+    "name_ru": "Cloruro de hierro(II)",
+    "appearance_ru": "Cristales verdosos higroscópicos",
+    "industrial_ru": "Tratamiento de aguas residuales, grabado de metales",
+    "production_ru": "Disolución de hierro en ácido clorhídrico",
+    "fun_facts_ru": [
+      "Se oxida gradualmente a FeCl₃ en el aire"
+    ]
+  },
+  "fecl3": {
+    "name_ru": "Cloruro de hierro(III)",
+    "appearance_ru": "Cristales de color marrón oscuro, delicuescentes al aire",
+    "hazards_ru": [
+      "Corrosivo",
+      "Irrita la piel"
+    ],
+    "industrial_ru": "Tratamiento de aguas residuales, grabado de circuitos impresos, catalizador",
+    "production_ru": "Reacción de hierro con cloro gaseoso a temperatura elevada",
+    "fun_facts_ru": [
+      "La solución de FeCl₃ es un reactivo cualitativo para fenoles (produce una coloración violeta)"
+    ]
+  },
+  "feo": {
+    "name_ru": "Óxido de hierro(II)",
+    "appearance_ru": "Polvo negro",
+    "industrial_ru": "Pigmento, componente del acero (desoxidante)",
+    "production_ru": "Reducción de Fe₂O₃ o descomposición térmica de oxalato de hierro(II)",
+    "fun_facts_ru": [
+      "Se encuentra en la naturaleza como el mineral wustita",
+      "Se utiliza como pigmento negro en cerámica"
+    ]
+  },
+  "feso4": {
+    "name_ru": "Sulfato de hierro(II)",
+    "appearance_ru": "Cristales verde-azulados (heptahidrato)",
+    "hazards_ru": [
+      "Irrita la piel y los ojos"
+    ],
+    "industrial_ru": "Purificación de agua, producción de tintas, agricultura (fertilizante de micronutrientes)",
+    "production_ru": "Disolución de hierro en ácido sulfúrico diluido",
+    "fun_facts_ru": [
+      "El heptahidrato FeSO₄·7H₂O se conoce como vitriolo verde, uno de los compuestos químicos más antiguos conocidos"
+    ]
+  },
+  "h2": {
+    "name_ru": "Hidrógeno",
+    "appearance_ru": "Gas incoloro, sin olor ni sabor",
+    "hazards_ru": [
+      "Altamente inflamable",
+      "Forma mezclas explosivas con el aire"
+    ],
+    "industrial_ru": "Síntesis de amoníaco, hidrogenación de grasas, combustible para cohetes, pilas de combustible",
+    "production_ru": "Reformado con vapor de metano, electrólisis de agua",
+    "fun_facts_ru": [
+      "El elemento más ligero y más abundante del universo",
+      "Una mezcla de H₂ con aire (4–75 %) es explosiva, conocida como «gas detonante»"
+    ]
+  },
+  "h2co3": {
+    "name_ru": "Ácido carbónico",
+    "appearance_ru": "Existe solo en solución acuosa; líquido incoloro",
+    "industrial_ru": "Las bebidas carbonatadas contienen CO₂ disuelto, que forma ácido carbónico",
+    "production_ru": "Disolución de CO₂ en agua: CO₂ + H₂O ⇌ H₂CO₃",
+    "fun_facts_ru": [
+      "Uno de los ácidos más inestables: se descompone en agua y CO₂ casi instantáneamente",
+      "La efervescencia de las bebidas carbonatadas es CO₂ que se libera al descomponerse el ácido carbónico"
+    ]
+  },
+  "h2o": {
+    "name_ru": "Agua",
+    "appearance_ru": "Líquido incoloro e inodoro",
+    "industrial_ru": "Disolvente universal utilizado en todas las ramas de la industria",
+    "fun_facts_ru": [
+      "La única sustancia en la Tierra que se encuentra naturalmente en los tres estados de la materia",
+      "El hielo es menos denso que el agua líquida, una propiedad anómala sin la cual la vida acuática en invierno sería imposible",
+      "La molécula de agua tiene una geometría angular con un ángulo de enlace de 104,5°"
+    ]
+  },
+  "h2o2": {
+    "name_ru": "Peróxido de hidrógeno",
+    "appearance_ru": "Líquido incoloro (la forma concentrada es siruposa)",
+    "hazards_ru": [
+      "Oxidante fuerte",
+      "Provoca quemaduras en altas concentraciones"
+    ],
+    "industrial_ru": "Blanqueo, desinfección, propulsor de cohetes, producción de epóxidos",
+    "production_ru": "Proceso de antraquinona (autooxidación de 2-etilantrohidroquinona)",
+    "fun_facts_ru": [
+      "La solución al 3 % es el conocido «agua oxigenada» de los botiquines de primeros auxilios",
+      "Los escarabajos bombarderos utilizan H₂O₂ para una «explosión» defensiva a temperaturas de ~100 °C"
+    ]
+  },
+  "h2s": {
+    "name_ru": "Sulfuro de hidrógeno",
+    "appearance_ru": "Gas incoloro con olor a huevo podrido",
+    "hazards_ru": [
+      "Altamente tóxico",
+      "Altamente inflamable"
+    ],
+    "industrial_ru": "Producción de azufre, química analítica (precipitación de sulfuros)",
+    "production_ru": "Reacción de sulfuros con ácidos, subproducto del refinado de petróleo",
+    "fun_facts_ru": [
+      "La concentración letal es de solo el 0,1 % en el aire",
+      "A altas concentraciones paraliza el sentido del olfato: el olor ya no se puede detectar"
+    ]
+  },
+  "h2so4": {
+    "name_ru": "Ácido sulfúrico",
+    "appearance_ru": "Líquido incoloro y oleoso",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras graves"
+    ],
+    "storage_ru": "Conservar en recipientes de vidrio o polietileno, lejos de álcalis",
+    "industrial_ru": "Producción de fertilizantes, baterías y detergentes",
+    "production_ru": "Proceso de contacto: combustión de azufre → SO₂ → SO₃ → H₂SO₄",
+    "fun_facts_ru": [
+      "El ácido sulfúrico se llama el «pan de la química»: se utiliza en casi toda la fabricación química",
+      "Al diluir, siempre se añade el ácido al agua, nunca al revés, ya que de lo contrario se produce una ebullición violenta"
+    ]
+  },
+  "h3po4": {
+    "name_ru": "Ácido fosfórico",
+    "appearance_ru": "Cristales incoloros, delicuescentes al aire",
+    "hazards_ru": [
+      "Corrosivo",
+      "Irrita la piel y los ojos"
+    ],
+    "industrial_ru": "Producción de fertilizantes minerales, aditivo alimentario (E338), tratamiento anticorrosión",
+    "production_ru": "Extracción o procesamiento térmico de apatitas y fosforitas",
+    "fun_facts_ru": [
+      "Se encuentra en la Coca-Cola y otros refrescos como regulador de acidez (E338)",
+      "El ácido fosfórico es triprótico: puede formar tres series de sales"
+    ]
+  },
+  "hcl": {
+    "name_ru": "Ácido clorhídrico",
+    "appearance_ru": "Líquido incoloro con un olor punzante (en solución)",
+    "hazards_ru": [
+      "Corrosivo",
+      "Irrita las vías respiratorias"
+    ],
+    "storage_ru": "Conservar en recipientes de vidrio o polietileno en un área bien ventilada",
+    "industrial_ru": "Limpieza de metales, producción de cloruros, industria alimentaria",
+    "production_ru": "Síntesis a partir de hidrógeno y cloro, o como subproducto de la cloración orgánica",
+    "fun_facts_ru": [
+      "El ácido clorhídrico está presente en el jugo gástrico humano (pH ≈ 1,5–2)",
+      "El HCl concentrado «humea» en el aire debido a la liberación de HCl gaseoso"
+    ]
+  },
+  "hclo": {
+    "name_ru": "Ácido hipocloroso",
+    "appearance_ru": "Existe solo en solución, de color amarillo pálido",
+    "hazards_ru": [
+      "Oxidante",
+      "Irrita la piel"
+    ],
+    "industrial_ru": "Desinfección de agua, blanqueo",
+    "production_ru": "Disolución de cloro en agua: Cl₂ + H₂O → HClO + HCl",
+    "fun_facts_ru": [
+      "El más débil de los ácidos que contienen cloro",
+      "El HClO es lo que realmente desinfecta el agua durante la cloración"
+    ]
+  },
+  "hclo3": {
+    "name_ru": "Ácido clórico",
+    "appearance_ru": "Existe solo en solución, líquido incoloro",
+    "hazards_ru": [
+      "Oxidante fuerte",
+      "Compuesto inestable"
+    ],
+    "industrial_ru": "Producción de cloratos (herbicidas, pirotecnia)",
+    "production_ru": "Reacción de Ba(ClO₃)₂ con ácido sulfúrico",
+    "fun_facts_ru": [
+      "Los cloratos (sales del HClO₃) se utilizan en la fabricación de cerillas y fuegos artificiales",
+      "En forma libre es inestable: se descompone en ClO₂ y HClO₄"
+    ]
+  },
+  "hclo4": {
+    "name_ru": "Ácido perclórico",
+    "appearance_ru": "Líquido incoloro que humea",
+    "hazards_ru": [
+      "Oxidante fuerte",
+      "Corrosivo",
+      "Explosivo en contacto con materia orgánica"
+    ],
+    "industrial_ru": "Química analítica, producción de percloratos (propulsor de cohetes)",
+    "production_ru": "Reacción de NaClO₄ con HCl u oxidación electroquímica",
+    "fun_facts_ru": [
+      "El más fuerte de los ácidos que contienen cloro",
+      "El perclorato de amonio NH₄ClO₄ es el componente principal del combustible sólido para cohetes"
+    ]
+  },
+  "hno3": {
+    "name_ru": "Ácido nítrico",
+    "appearance_ru": "Líquido incoloro con un olor punzante; humea en el aire",
+    "hazards_ru": [
+      "Corrosivo",
+      "Oxidante fuerte",
+      "Provoca quemaduras graves"
+    ],
+    "storage_ru": "Conservar en recipientes de vidrio oscuro, lejos de sustancias orgánicas",
+    "industrial_ru": "Producción de fertilizantes (nitrato de amonio), explosivos y colorantes",
+    "production_ru": "Oxidación catalítica de amoníaco sobre catalizador de platino (proceso de Ostwald)",
+    "fun_facts_ru": [
+      "Una mezcla de HNO₃ y HCl (1:3) es el «agua regia», que disuelve el oro y el platino",
+      "El ácido nítrico tiñe la piel de amarillo (reacción xantoproteica con las proteínas)"
+    ]
+  },
+  "k2so4": {
+    "name_ru": "Sulfato de potasio",
+    "appearance_ru": "Cristales incoloros",
+    "industrial_ru": "Fertilizante potásico, producción de vidrio",
+    "production_ru": "Reacción de KCl con ácido sulfúrico",
+    "fun_facts_ru": [
+      "Uno de los fertilizantes minerales más antiguos",
+      "A diferencia del KCl, no contiene cloro; es preferido para cultivos sensibles al cloro (tabaco, uvas, patatas)"
+    ]
+  },
+  "kbr": {
+    "name_ru": "Bromuro de potasio",
+    "appearance_ru": "Cristales cúbicos incoloros",
+    "industrial_ru": "Fotografía (materiales fotosensibles), medicina (sedante)",
+    "production_ru": "Reacción de KOH con bromo o HBr",
+    "fun_facts_ru": [
+      "Ampliamente utilizado como sedante en el siglo XIX",
+      "Los cristales de KBr son transparentes a la radiación infrarroja y se utilizan en espectroscopía IR"
+    ]
+  },
+  "kcl": {
+    "name_ru": "Cloruro de potasio",
+    "appearance_ru": "Cristales cúbicos incoloros",
+    "industrial_ru": "Producción de fertilizantes potásicos, medicina (sustituto de la sal)",
+    "production_ru": "Extracción de minerales naturales silvita y carnalita",
+    "fun_facts_ru": [
+      "El mineral silvita (KCl) es la principal fuente de fertilizantes potásicos",
+      "Se utiliza como sustituto de la sal de mesa en la nutrición dietética"
+    ]
+  },
+  "kmno4": {
+    "name_ru": "Permanganato de potasio",
+    "appearance_ru": "Cristales de color púrpura oscuro con brillo metálico",
+    "hazards_ru": [
+      "Oxidante fuerte",
+      "Puede provocar quemaduras"
+    ],
+    "industrial_ru": "Desinfección, química analítica (titulación), purificación de agua",
+    "production_ru": "Oxidación de manganatos en medio alcalino",
+    "fun_facts_ru": [
+      "Conocido coloquialmente en Rusia como «margantsovka»",
+      "Su solución acuosa adquiere un color púrpura intenso incluso a concentraciones muy bajas"
+    ]
+  },
+  "kno3": {
+    "name_ru": "Nitrato de potasio",
+    "appearance_ru": "Cristales incoloros",
+    "hazards_ru": [
+      "Oxidante"
+    ],
+    "industrial_ru": "Fertilizante, conservante (E252), pirotecnia, producción de vidrio",
+    "production_ru": "Reacción de KCl con NaNO₃ (conversión)",
+    "fun_facts_ru": [
+      "El salitre es uno de los tres componentes de la pólvora negra (junto con azufre y carbón)",
+      "Se utiliza en la industria alimentaria para el curado de carne"
+    ]
+  },
+  "koh": {
+    "name_ru": "Hidróxido de potasio",
+    "appearance_ru": "Sólido blanco, higroscópico",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras graves"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, proteger de la humedad y el CO₂",
+    "industrial_ru": "Producción de jabón blando, electrolitos para baterías alcalinas",
+    "production_ru": "Electrólisis de solución de cloruro de potasio",
+    "fun_facts_ru": [
+      "El KOH se llama «potasa cáustica»: destruye fácilmente el tejido orgánico",
+      "Absorbe CO₂ del aire, convirtiéndose en carbonato de potasio"
+    ]
+  },
+  "mg_oh_2": {
+    "name_ru": "Hidróxido de magnesio",
+    "appearance_ru": "Polvo amorfo blanco",
+    "industrial_ru": "Medicamento antiácido (remedio para la acidez estomacal), retardante de llama",
+    "production_ru": "Precipitación a partir de soluciones de sales de magnesio mediante álcali",
+    "fun_facts_ru": [
+      "El Mg(OH)₂ es el principio activo de la «leche de magnesia», utilizada para tratar la acidez estomacal",
+      "Se descompone en MgO y agua al calentarse"
+    ]
+  },
+  "mgcl2": {
+    "name_ru": "Cloruro de magnesio",
+    "appearance_ru": "Cristales higroscópicos incoloros",
+    "industrial_ru": "Producción de magnesio (electrólisis de sal fundida), agente antihielo",
+    "production_ru": "Disolución de MgO o Mg(OH)₂ en ácido clorhídrico, evaporación de agua de mar",
+    "fun_facts_ru": [
+      "La principal fuente de magnesio a partir del agua de mar",
+      "Se utiliza como agente antihielo en lugar de NaCl"
+    ]
+  },
+  "mgo": {
+    "name_ru": "Óxido de magnesio",
+    "appearance_ru": "Polvo blanco",
+    "industrial_ru": "Refractarios, medicina (antiácido), construcción",
+    "production_ru": "Calcinación de magnesita MgCO₃ o dolomita",
+    "fun_facts_ru": [
+      "El punto de fusión del MgO (2852 °C) es uno de los más altos entre los óxidos",
+      "La magnesia calcinada es utilizada por los deportistas para secarse las manos"
+    ]
+  },
+  "mncl2": {
+    "name_ru": "Cloruro de manganeso(II)",
+    "appearance_ru": "Cristales rosados",
+    "industrial_ru": "Catalizador, producción de baterías, industria textil",
+    "production_ru": "Disolución de manganeso o MnO₂ en ácido clorhídrico",
+    "fun_facts_ru": [
+      "Su solución tiene el característico color rosa pálido de los iones Mn²⁺"
+    ]
+  },
+  "mno2": {
+    "name_ru": "Óxido de manganeso(IV)",
+    "appearance_ru": "Polvo de color marrón oscuro a negro",
+    "industrial_ru": "Producción de baterías, catalizador de la descomposición de H₂O₂, pigmento",
+    "production_ru": "Se encuentra en la naturaleza como el mineral pirolusita",
+    "fun_facts_ru": [
+      "Se utiliza en baterías desde el siglo XIX",
+      "Cataliza la descomposición del peróxido de hidrógeno: un experimento clásico escolar"
+    ]
+  },
+  "n2": {
+    "name_ru": "Nitrógeno",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "industrial_ru": "Producción de amoníaco, atmósfera inerte, congelación de alimentos",
+    "production_ru": "Destilación fraccionada de aire líquido",
+    "fun_facts_ru": [
+      "Constituye el 78 % de la atmósfera terrestre",
+      "El triple enlace N≡N es uno de los enlaces químicos más fuertes"
+    ]
+  },
+  "na2co3": {
+    "name_ru": "Carbonato de sodio",
+    "appearance_ru": "Polvo blanco",
+    "industrial_ru": "Producción de vidrio, jabón, detergentes y celulosa",
+    "production_ru": "Proceso Solvay (proceso de sosa amoniacal) a partir de NaCl y CaCO₃",
+    "fun_facts_ru": [
+      "La sosa (Na₂CO₃) es uno de los productos más importantes de la industria química",
+      "El decahidrato Na₂CO₃·10H₂O se conoce como «sosa de lavar»"
+    ]
+  },
+  "na2o": {
+    "name_ru": "Óxido de sodio",
+    "appearance_ru": "Polvo blanco",
+    "hazards_ru": [
+      "Corrosivo",
+      "Reacciona vigorosamente con el agua"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, proteger de la humedad",
+    "industrial_ru": "Componente de mezclas para vidrio, intermedio en la producción de NaOH",
+    "production_ru": "Calentamiento de sodio con suministro limitado de oxígeno",
+    "fun_facts_ru": [
+      "Absorbe rápidamente la humedad y el CO₂ del aire, convirtiéndose en Na₂CO₃"
+    ]
+  },
+  "na2so4": {
+    "name_ru": "Sulfato de sodio",
+    "appearance_ru": "Cristales incoloros",
+    "industrial_ru": "Producción de vidrio, detergentes y celulosa",
+    "production_ru": "Reacción de ácido sulfúrico con cloruro de sodio, o a partir de minerales naturales",
+    "fun_facts_ru": [
+      "El decahidrato Na₂SO₄·10H₂O (sal de Glauber) fue descubierto por Glauber en 1625 y se utilizaba como laxante"
+    ]
+  },
+  "naalo2": {
+    "name_ru": "Aluminato de sodio",
+    "appearance_ru": "Polvo blanco",
+    "industrial_ru": "Tratamiento de aguas (coagulante), producción de zeolitas",
+    "production_ru": "Disolución de Al₂O₃ o Al(OH)₃ en solución de NaOH",
+    "fun_facts_ru": [
+      "Se forma cuando el aluminio se disuelve en álcali: una reacción típica de un metal anfótero",
+      "Se utiliza en la construcción como acelerante del fraguado del hormigón"
+    ]
+  },
+  "nacl": {
+    "name_ru": "Cloruro de sodio",
+    "appearance_ru": "Cristales cúbicos incoloros",
+    "industrial_ru": "Industria alimentaria, producción de sosa y cloro (electrólisis)",
+    "production_ru": "Extracción de sal gema o evaporación de agua de mar",
+    "fun_facts_ru": [
+      "El consumo mundial anual es de aproximadamente 300 millones de toneladas",
+      "En la Antigua Roma, a veces se pagaba a los soldados con sal, de ahí la palabra «salario»",
+      "Los cristales de NaCl tienen forma cúbica, visible incluso en la sal de mesa común"
+    ]
+  },
+  "naoh": {
+    "name_ru": "Hidróxido de sodio",
+    "appearance_ru": "Sólido blanco, higroscópico",
+    "hazards_ru": [
+      "Corrosivo",
+      "Provoca quemaduras graves"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, proteger de la humedad",
+    "industrial_ru": "Producción de jabón, papel, viscosa; refinado de productos del petróleo",
+    "production_ru": "Electrólisis de solución de cloruro de sodio (proceso cloro-álcali)",
+    "fun_facts_ru": [
+      "El NaOH se llama «sosa cáustica» o «lejía»",
+      "Absorbe CO₂ y humedad del aire, convirtiéndose gradualmente en Na₂CO₃"
+    ]
+  },
+  "nh3": {
+    "name_ru": "Amoníaco",
+    "appearance_ru": "Gas incoloro con un olor penetrante",
+    "hazards_ru": [
+      "Tóxico",
+      "Irrita las vías respiratorias",
+      "Provoca quemaduras en las mucosas"
+    ],
+    "storage_ru": "Conservar en cilindros de acero en un área bien ventilada",
+    "industrial_ru": "Producción de fertilizantes nitrogenados, ácido nítrico y explosivos",
+    "production_ru": "Síntesis a partir de nitrógeno e hidrógeno a alta presión y temperatura (proceso de Haber)",
+    "fun_facts_ru": [
+      "Las sales aromáticas (solución de amoníaco) se utilizan para reanimar a personas desmayadas",
+      "El amoníaco es uno de los productos químicos más producidos en el mundo (más de 150 millones de toneladas al año)"
+    ]
+  },
+  "nh4cl": {
+    "name_ru": "Cloruro de amonio",
+    "appearance_ru": "Cristales incoloros",
+    "industrial_ru": "Fundente para soldadura, fertilizante, producción de baterías",
+    "production_ru": "Reacción de amoníaco con ácido clorhídrico, subproducto del proceso Solvay",
+    "fun_facts_ru": [
+      "Conocido desde la antigüedad como «sal amoniacal», nombrado así por el Templo de Amón en Egipto",
+      "Sublima al calentarse, sin pasar por la fase líquida"
+    ]
+  },
+  "o2": {
+    "name_ru": "Oxígeno",
+    "appearance_ru": "Gas incoloro e inodoro",
+    "industrial_ru": "Metalurgia, medicina, soldadura, propulsor de cohetes",
+    "production_ru": "Destilación fraccionada de aire líquido o electrólisis de agua",
+    "fun_facts_ru": [
+      "Constituye el 21 % de la atmósfera terrestre",
+      "El oxígeno líquido es de color azul y es atraído por los imanes"
+    ]
+  },
+  "pb_no3_2": {
+    "name_ru": "Nitrato de plomo(II)",
+    "appearance_ru": "Cristales incoloros o blancos",
+    "hazards_ru": [
+      "Tóxico",
+      "Carcinógeno",
+      "Peligroso para el medio ambiente"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, lejos de materiales combustibles, en un área ventilada",
+    "industrial_ru": "Producción de pigmentos, reactivos de flotación, pirotecnia",
+    "production_ru": "Disolución de plomo u óxido de plomo en ácido nítrico",
+    "fun_facts_ru": [
+      "Una de las pocas sales solubles de plomo: la mayoría de las sales de Pb²⁺ son insolubles",
+      "Se descompone al calentarse, liberando gas NO₂ de color marrón"
+    ]
+  },
+  "sio2": {
+    "name_ru": "Dióxido de silicio",
+    "appearance_ru": "Cristales incoloros o polvo blanco",
+    "industrial_ru": "Producción de vidrio, cerámica, fibra óptica y electrónica",
+    "production_ru": "Extracción de arena de cuarzo natural; purificación para electrónica",
+    "fun_facts_ru": [
+      "El cuarzo, el cristal de roca, la amatista y el ágata son formas naturales de SiO₂",
+      "El SiO₂ es la base de los chips de silicio que alimentan toda la electrónica moderna",
+      "El mineral más abundante de la corteza terrestre"
+    ]
+  },
+  "so2": {
+    "name_ru": "Dióxido de azufre",
+    "appearance_ru": "Gas incoloro con un olor fuerte y sofocante",
+    "hazards_ru": [
+      "Tóxico",
+      "Irrita las vías respiratorias"
+    ],
+    "industrial_ru": "Producción de ácido sulfúrico, conservante (E220), blanqueo",
+    "production_ru": "Tostación de azufre o de minerales de sulfuro",
+    "fun_facts_ru": [
+      "Uno de los principales contaminantes atmosféricos que causa lluvia ácida",
+      "Se ha utilizado como conservante en la vinicultura durante más de 2000 años"
+    ]
+  },
+  "so3": {
+    "name_ru": "Trióxido de azufre",
+    "appearance_ru": "Líquido incoloro; humea en el aire",
+    "hazards_ru": [
+      "Corrosivo",
+      "Irrita las vías respiratorias",
+      "Provoca quemaduras"
+    ],
+    "storage_ru": "Conservar en recipientes cerrados, proteger de la humedad",
+    "industrial_ru": "Producto intermedio en la fabricación de ácido sulfúrico",
+    "production_ru": "Oxidación catalítica de SO₂ con oxígeno atmosférico (proceso de contacto)",
+    "fun_facts_ru": [
+      "El SO₃ absorbe ávidamente agua; cuando se libera en la atmósfera forma ácido sulfúrico (lluvia ácida)",
+      "Una solución de SO₃ en ácido sulfúrico se denomina óleum"
+    ]
+  },
+  "v2o5": {
+    "name_ru": "Óxido de vanadio(V)",
+    "appearance_ru": "Polvo amarillo-anaranjado",
+    "hazards_ru": [
+      "Tóxico"
+    ],
+    "industrial_ru": "Catalizador en el proceso de contacto (producción de H₂SO₄), fabricación de aleaciones",
+    "production_ru": "Tostación de minerales de vanadio",
+    "fun_facts_ru": [
+      "El catalizador industrial más importante: la producción de ácido sulfúrico mediante el proceso de contacto es imposible sin él"
+    ]
+  },
+  "zno": {
+    "name_ru": "Óxido de zinc",
+    "appearance_ru": "Polvo blanco; se vuelve amarillo al calentarse",
+    "industrial_ru": "Producción de caucho (vulcanización), pigmento blanco de zinc, cosmética, productos farmacéuticos",
+    "production_ru": "Oxidación de vapor de zinc con oxígeno atmosférico",
+    "fun_facts_ru": [
+      "Se encuentra en la pomada de zinc, un tratamiento antiséptico para la piel",
+      "Se vuelve amarillo al calentarse y blanco de nuevo al enfriarse: un efecto termocrómico"
+    ]
+  }
+}

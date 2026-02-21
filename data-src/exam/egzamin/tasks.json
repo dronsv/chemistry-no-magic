@@ -1,0 +1,432 @@
+[
+  {
+    "task_id": "matura_2024_01a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Atom pewnego pierwiastka ma konfigurację elektronową 1s² 2s² 2p⁶ 3s² 3p⁴. Podaj numer okresu (X) i numer grupy (Y), w których ten pierwiastek znajduje się w układzie okresowym.",
+    "answer_type": "input_cells",
+    "input_labels": ["X", "Y"],
+    "correct_answer": "3|16",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_atomic_structure"],
+    "explanation_ru": "Konfiguracja 1s² 2s² 2p⁶ 3s² 3p⁴ oznacza 16 elektronów (Z = 16, siarka). Trzy powłoki → 3. okres. Grupa = 10 + liczba elektronów s i p na ostatniej powłoce: 2 + 4 = 6, czyli grupa 16 (wg IUPAC). Odpowiedź: X = 3, Y = 16."
+  },
+  {
+    "task_id": "matura_2024_01b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Wybierz dwa poprawne stwierdzenia dotyczące budowy atomu izotopu ⁵⁶Fe.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "Jądro atomu zawiera 26 protonów i 30 neutronów." },
+      { "id": "2", "text": "Atom posiada 56 elektronów." },
+      { "id": "3", "text": "Liczba masowa tego izotopu wynosi 26." },
+      { "id": "4", "text": "W stanie podstawowym atom ma konfigurację [Ar] 3d⁶ 4s²." },
+      { "id": "5", "text": "Atom ma 56 protonów w jądrze." }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_atomic_structure"],
+    "explanation_ru": "⁵⁶Fe: Z = 26 (26 protonów, 26 elektronów), A = 56 (30 neutronów = 56 − 26). Stwierdzenie 1 jest poprawne (26p, 30n). Stwierdzenie 4 jest poprawne — konfiguracja żelaza w stanie podstawowym to [Ar] 3d⁶ 4s². Stwierdzenia 2, 3 i 5 są błędne."
+  },
+  {
+    "task_id": "matura_2024_01c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Uporządkuj poniższe pierwiastki według rosnącej wartości pierwszej energii jonizacji.\n  1) Na  2) Mg  3) Al",
+    "answer_type": "sequence",
+    "items": [
+      { "id": "1", "text": "Na" },
+      { "id": "2", "text": "Mg" },
+      { "id": "3", "text": "Al" }
+    ],
+    "correct_answer": "132",
+    "max_score": 1,
+    "difficulty": "П",
+    "time_minutes": 4,
+    "competencies": ["matura_atomic_structure"],
+    "explanation_ru": "W trzecim okresie energia jonizacji ogólnie rośnie od lewej do prawej, ale Al (3p¹) ma niższą energię jonizacji niż Mg (3s² — pełna podpowłoka s jest stabilna). Prawidłowa kolejność: Na (495,8 kJ/mol) < Al (577,5 kJ/mol) < Mg (737,7 kJ/mol), czyli 1 → 3 → 2."
+  },
+  {
+    "task_id": "matura_2024_02a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "Przyporządkuj każdej substancji odpowiedni typ wiązania chemicznego dominującego w jej strukturze.",
+    "answer_type": "matching",
+    "left_items": [
+      { "label": "A", "text": "NaCl" },
+      { "label": "B", "text": "H₂O" },
+      { "label": "C", "text": "Fe" }
+    ],
+    "options": [
+      { "id": "1", "text": "wiązanie jonowe" },
+      { "id": "2", "text": "wiązanie kowalencyjne spolaryzowane" },
+      { "id": "3", "text": "wiązanie kowalencyjne niespolaryzowane" },
+      { "id": "4", "text": "wiązanie metaliczne" }
+    ],
+    "correct_answer": "124",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_bonding"],
+    "explanation_ru": "NaCl — sól, wiązanie jonowe (1). H₂O — cząsteczka z wiązaniem kowalencyjnym spolaryzowanym O–H (2). Fe — metal, wiązanie metaliczne (4). Odpowiedź: A→1, B→2, C→4."
+  },
+  {
+    "task_id": "matura_2024_02c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 2,
+    "question_ru": "Wyjaśnij, dlaczego temperatura wrzenia wody (100 °C) jest znacznie wyższa niż temperatura wrzenia siarkowodoru H₂S (−60 °C), mimo że H₂S ma większą masę cząsteczkową. W odpowiedzi odwołaj się do rodzaju oddziaływań międzycząsteczkowych.",
+    "answer_type": "free_text",
+    "correct_answer": "Cząsteczki wody tworzą silne wiązania wodorowe (O–H···O) dzięki dużej elektroujemności i małemu rozmiarowi atomu tlenu oraz obecności wolnych par elektronowych. H₂S tworzy jedynie słabe oddziaływania van der Waalsa, ponieważ atom siarki jest za duży i zbyt mało elektroujemny, by tworzyć efektywne wiązania wodorowe. Silniejsze oddziaływania międzycząsteczkowe w wodzie wymagają więcej energii do przejścia w stan gazowy, co skutkuje wyższą temperaturą wrzenia.",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 8,
+    "competencies": ["matura_bonding"],
+    "explanation_ru": "Kluczowe elementy odpowiedzi: (1) woda tworzy wiązania wodorowe O–H···O, (2) siarka jest mniej elektroujemna i ma większy promień niż tlen, więc H₂S nie tworzy skutecznych wiązań wodorowych, (3) silniejsze oddziaływania międzycząsteczkowe = wyższa temperatura wrzenia."
+  },
+  {
+    "task_id": "matura_2024_03a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Oblicz masę molową siarczanu(VI) amonu (NH₄)₂SO₄ i podaj wynik w g/mol z dokładnością do liczb całkowitych.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "132",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_stoichiometry"],
+    "explanation_ru": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 g/mol."
+  },
+  {
+    "task_id": "matura_2024_03b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "W reakcji spalania całkowitego metanu: CH₄ + 2O₂ → CO₂ + 2H₂O, spalono 8,0 g metanu. Oblicz objętość (w dm³) powstałego CO₂ w warunkach normalnych (STP: 1 mol gazu = 22,4 dm³). Podaj wynik z dokładnością do dziesiątych.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "11.2",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 6,
+    "competencies": ["matura_stoichiometry"],
+    "explanation_ru": "M(CH₄) = 16 g/mol. n(CH₄) = 8,0 / 16 = 0,5 mol. Z równania: n(CO₂) = n(CH₄) = 0,5 mol. V(CO₂) = 0,5 × 22,4 = 11,2 dm³."
+  },
+  {
+    "task_id": "matura_2024_03c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Przyporządkuj każdemu opisowi odpowiednie prawo lub pojęcie stechiometryczne.",
+    "answer_type": "matching",
+    "left_items": [
+      { "label": "A", "text": "W jednakowych warunkach T i p równe objętości gazów zawierają tę samą liczbę cząsteczek." },
+      { "label": "B", "text": "Masa substratów w reakcji chemicznej jest równa masie produktów." },
+      { "label": "C", "text": "Stosunek mas pierwiastków w danym związku chemicznym jest stały." }
+    ],
+    "options": [
+      { "id": "1", "text": "prawo Avogadra" },
+      { "id": "2", "text": "prawo zachowania masy (Łomonosow–Lavoisier)" },
+      { "id": "3", "text": "prawo stałości składu (Proust)" },
+      { "id": "4", "text": "prawo Gay-Lussaca" }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_stoichiometry"],
+    "explanation_ru": "A — prawo Avogadra (1): równe objętości gazów → ta sama liczba cząsteczek. B — prawo zachowania masy (2): masa substratów = masa produktów. C — prawo stałości składu Prousta (3): stały stosunek mas pierwiastków."
+  },
+  {
+    "task_id": "matura_2024_04a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Uporządkuj poniższe kwasy według rosnącej mocy kwasowej.\n  1) HClO₄  2) HClO  3) HClO₃",
+    "answer_type": "sequence",
+    "items": [
+      { "id": "1", "text": "HClO₄" },
+      { "id": "2", "text": "HClO" },
+      { "id": "3", "text": "HClO₃" }
+    ],
+    "correct_answer": "231",
+    "max_score": 1,
+    "difficulty": "П",
+    "time_minutes": 4,
+    "competencies": ["matura_acids_bases"],
+    "explanation_ru": "Moc kwasów tlenowych rośnie ze wzrostem stopnia utlenienia atomu centralnego (więcej atomów tlenu zwiększa delokalizację ładunku ujemnego w anionie). HClO (Cl⁺¹, najsłabszy) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, najsilniejszy). Kolejność: 2 → 3 → 1."
+  },
+  {
+    "task_id": "matura_2024_04b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Przyporządkuj każdemu roztworowi odpowiedni charakter chemiczny (odczyn).",
+    "answer_type": "matching",
+    "left_items": [
+      { "label": "A", "text": "0,1 mol/dm³ CH₃COONa" },
+      { "label": "B", "text": "0,1 mol/dm³ NH₄Cl" },
+      { "label": "C", "text": "0,1 mol/dm³ KNO₃" }
+    ],
+    "options": [
+      { "id": "1", "text": "odczyn kwasowy (pH < 7)" },
+      { "id": "2", "text": "odczyn zasadowy (pH > 7)" },
+      { "id": "3", "text": "odczyn obojętny (pH = 7)" },
+      { "id": "4", "text": "silnie kwasowy (pH < 2)" }
+    ],
+    "correct_answer": "213",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": ["matura_acids_bases"],
+    "explanation_ru": "CH₃COONa — sól słabego kwasu i mocnej zasady → hydroliza anionowa → pH > 7 (2). NH₄Cl — sól słabej zasady i mocnego kwasu → hydroliza kationowa → pH < 7 (1). KNO₃ — sól mocnego kwasu i mocnej zasady → brak hydrolizy → pH = 7 (3)."
+  },
+  {
+    "task_id": "matura_2024_05a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Dla reakcji: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O podaj stopnie utlenienia manganu w substracie (X) i produkcie (Y).",
+    "answer_type": "input_cells",
+    "input_labels": ["X", "Y"],
+    "correct_answer": "+7|+2",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_redox"],
+    "explanation_ru": "W KMnO₄: K⁺¹, O²⁻, więc Mn: +1 + x + 4×(−2) = 0 → x = +7. W MnCl₂: Cl⁻¹, więc Mn: x + 2×(−1) = 0 → x = +2. Mangan ulega redukcji z +7 do +2."
+  },
+  {
+    "task_id": "matura_2024_05b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Wybierz dwa procesy, które są przykładami utleniania.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "Fe²⁺ → Fe³⁺ + e⁻" },
+      { "id": "2", "text": "Cu²⁺ + 2e⁻ → Cu" },
+      { "id": "3", "text": "S²⁻ → S⁰ + 2e⁻" },
+      { "id": "4", "text": "Cl₂ + 2e⁻ → 2Cl⁻" },
+      { "id": "5", "text": "Ag⁺ + e⁻ → Ag" }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_redox"],
+    "explanation_ru": "Utlenianie to oddawanie elektronów (wzrost stopnia utlenienia). Fe²⁺ → Fe³⁺ + e⁻ (1) — utlenianie żelaza. S²⁻ → S⁰ + 2e⁻ (3) — utlenianie siarki. Pozostałe (2, 4, 5) to redukcja (przyjmowanie elektronów)."
+  },
+  {
+    "task_id": "matura_2024_06a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Przyporządkuj każdemu związkowi organicznemu odpowiednią grupę funkcyjną.",
+    "answer_type": "matching",
+    "left_items": [
+      { "label": "A", "text": "CH₃COOH" },
+      { "label": "B", "text": "CH₃CHO" },
+      { "label": "C", "text": "C₂H₅OH" }
+    ],
+    "options": [
+      { "id": "1", "text": "grupa hydroksylowa −OH" },
+      { "id": "2", "text": "grupa karboksylowa −COOH" },
+      { "id": "3", "text": "grupa aldehydowa −CHO" },
+      { "id": "4", "text": "grupa aminowa −NH₂" }
+    ],
+    "correct_answer": "231",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": ["matura_organic"],
+    "explanation_ru": "CH₃COOH — kwas octowy, zawiera grupę karboksylową −COOH (2). CH₃CHO — aldehyd octowy (etanal), zawiera grupę aldehydową −CHO (3). C₂H₅OH — etanol, zawiera grupę hydroksylową −OH (1)."
+  },
+  {
+    "task_id": "matura_2024_06b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Wybierz dwa związki, które dadzą pozytywny wynik próby Tollensa (reakcja z lustrem srebrowym).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "metanal (HCHO)" },
+      { "id": "2", "text": "propanon (aceton, CH₃COCH₃)" },
+      { "id": "3", "text": "glukoza (C₆H₁₂O₆)" },
+      { "id": "4", "text": "etanol (C₂H₅OH)" },
+      { "id": "5", "text": "kwas benzoesowy (C₆H₅COOH)" }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "П",
+    "time_minutes": 4,
+    "competencies": ["matura_organic"],
+    "explanation_ru": "Próba Tollensa wykrywa grupę aldehydową (−CHO). Metanal (HCHO) jest aldehydem (1) — daje lustro srebrowe. Glukoza (3) ma ukrytą grupę aldehydową w formie otwartołańcuchowej. Aceton jest ketonem (nie reaguje), etanol to alkohol, kwas benzoesowy to kwas karboksylowy — żaden z nich nie daje pozytywnej próby Tollensa."
+  },
+  {
+    "task_id": "matura_2024_06c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 2,
+    "question_ru": "Napisz równanie reakcji estryfikacji kwasu octowego z etanolem. Podaj nazwę systematyczną (IUPAC) powstałego estru oraz warunki prowadzenia tej reakcji.",
+    "answer_type": "free_text",
+    "correct_answer": "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Powstaje octan etylu (etanian etylu wg IUPAC). Reakcja zachodzi w obecności katalizatora kwasowego (np. H₂SO₄ stężony) i jest odwracalna.",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 7,
+    "competencies": ["matura_organic"],
+    "explanation_ru": "Estryfikacja: kwas karboksylowy + alkohol ⇌ ester + woda. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Nazwa IUPAC: etanian etylu (potocznie octan etylu). Katalizator: stężony H₂SO₄. Reakcja odwracalna — przesunięcie równowagi w stronę produktów np. przez usuwanie wody."
+  },
+  {
+    "task_id": "matura_2024_07a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Dla reakcji równowagowej: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ\nWybierz dwa czynniki, które przesuwają równowagę w stronę produktów (w prawo).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "zwiększenie ciśnienia" },
+      { "id": "2", "text": "podwyższenie temperatury" },
+      { "id": "3", "text": "obniżenie temperatury" },
+      { "id": "4", "text": "dodanie katalizatora" },
+      { "id": "5", "text": "zmniejszenie ciśnienia" }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "П",
+    "time_minutes": 4,
+    "competencies": ["matura_kinetics"],
+    "explanation_ru": "Zasada Le Chateliera: (1) Zwiększenie ciśnienia przesuwa równowagę w stronę mniejszej liczby moli gazowych: 4 mole substratów → 2 mole produktów, więc w prawo. (3) Obniżenie temperatury sprzyja reakcji egzotermicznej (ΔH < 0), czyli w prawo. Katalizator (4) nie przesuwa równowagi. Podwyższenie temperatury (2) i zmniejszenie ciśnienia (5) przesuwają w lewo."
+  },
+  {
+    "task_id": "matura_2024_07b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "context_ru": "W pewnym doświadczeniu zbadano szybkość reakcji rozkładu nadtlenku wodoru: 2H₂O₂ → 2H₂O + O₂. Zmierzono objętość wydzielonego O₂ w funkcji czasu. W doświadczeniu A użyto 50 cm³ roztworu H₂O₂ o stężeniu 0,5 mol/dm³ w temperaturze 20 °C. W doświadczeniu B zmieniono jeden warunek.",
+    "question_ru": "Który z poniższych czynników mógłby spowodować, że w doświadczeniu B gaz wydzielał się szybciej, ale końcowa objętość O₂ była taka sama jak w A? Podaj numer i uzasadnij wybór.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 1,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "Zwiększenie stężenia H₂O₂ do 1,0 mol/dm³ przy zachowaniu objętości 50 cm³." },
+      { "id": "2", "text": "Dodanie MnO₂ jako katalizatora." },
+      { "id": "3", "text": "Zmniejszenie objętości roztworu do 25 cm³ przy zachowaniu stężenia 0,5 mol/dm³." }
+    ],
+    "correct_answer": "2",
+    "max_score": 2,
+    "difficulty": "В",
+    "time_minutes": 6,
+    "competencies": ["matura_kinetics"],
+    "explanation_ru": "Katalizator (MnO₂) przyspiesza reakcję, ale nie zmienia ilości substratów — końcowa objętość O₂ jest taka sama (ta sama liczba moli H₂O₂). Zwiększenie stężenia (1) zwiększyłoby szybkość, ale też końcową objętość (więcej moli H₂O₂). Zmniejszenie objętości (3) dałoby mniejszą końcową objętość."
+  },
+  {
+    "task_id": "matura_2024_08a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Przyporządkuj każdemu procesowi elektrochemicznemu odpowiedni opis.",
+    "answer_type": "matching",
+    "left_items": [
+      { "label": "A", "text": "Elektroliza wodnego roztworu NaCl" },
+      { "label": "B", "text": "Ogniwo Daniella (Zn|Cu)" },
+      { "label": "C", "text": "Korozja żelaza w wilgotnym powietrzu" }
+    ],
+    "options": [
+      { "id": "1", "text": "Energia elektryczna jest zamieniana na energię chemiczną; na katodzie wydziela się H₂." },
+      { "id": "2", "text": "Energia chemiczna jest zamieniana na elektryczną; anodą jest cynk." },
+      { "id": "3", "text": "Samorzutny proces elektrochemiczny prowadzący do destrukcji metalu." },
+      { "id": "4", "text": "Energia elektryczna jest zamieniana na cieplną." }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": ["matura_electrochemistry"],
+    "explanation_ru": "Elektroliza NaCl(aq): proces niesamorzutny, na katodzie: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Ogniwo Daniella: zamiana energii chemicznej na elektryczną, Zn jest anodą (bardziej aktywny metal) (2). Korozja żelaza: samorzutny proces elektrochemiczny niszczący metal (3)."
+  },
+  {
+    "task_id": "matura_2024_08b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Podczas elektrolizy wodnego roztworu CuSO₄ z elektrodami platynowymi (biernymi) na katodzie wydzieliło się 3,2 g miedzi. Oblicz objętość gazu (w dm³, warunki normalne) wydzielonego na anodzie. M(Cu) = 64 g/mol; V_m = 22,4 dm³/mol. Podaj wynik z dokładnością do dziesiątych.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "0.6",
+    "max_score": 2,
+    "difficulty": "В",
+    "time_minutes": 7,
+    "competencies": ["matura_electrochemistry"],
+    "explanation_ru": "Na katodzie: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3,2/64 = 0,05 mol. Przeniesiono 0,05 × 2 = 0,1 mol elektronów.\nNa anodzie (bierne elektrody): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0,1/4 = 0,025 mol.\nV(O₂) = 0,025 × 22,4 = 0,56 dm³ ≈ 0,6 dm³."
+  },
+  {
+    "task_id": "matura_2024_08c",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 8,
+    "part": 2,
+    "question_ru": "Wyjaśnij, dlaczego cynkowanie jest skuteczną metodą ochrony żelaza przed korozją, nawet gdy powłoka cynkowa zostanie uszkodzona (zarysowana). Odwołaj się do potencjałów standardowych: E°(Zn²⁺/Zn) = −0,76 V; E°(Fe²⁺/Fe) = −0,44 V.",
+    "answer_type": "free_text",
+    "correct_answer": "Cynk ma niższy potencjał standardowy (−0,76 V) niż żelazo (−0,44 V), więc jest metalem bardziej aktywnym. Po uszkodzeniu powłoki powstaje ogniwo galwaniczne, w którym cynk pełni rolę anody (ulega utlenieniu: Zn → Zn²⁺ + 2e⁻), a żelazo jest katodą (jest chronione). Cynk poświęca się, chroniąc żelazo — jest to tzw. ochrona katodowa (protektorowa). Dopóki cynk jest obecny, żelazo nie koroduje.",
+    "max_score": 3,
+    "difficulty": "В",
+    "time_minutes": 8,
+    "competencies": ["matura_electrochemistry"],
+    "explanation_ru": "Kluczowe elementy: (1) E°(Zn) < E°(Fe), więc cynk jest anodą, (2) cynk utlenia się zamiast żelaza — ochrona protektorowa/katodowa, (3) żelazo staje się katodą i nie koroduje, dopóki jest kontakt z cynkiem."
+  }
+]

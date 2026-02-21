@@ -1,0 +1,681 @@
+[
+  {
+    "task_id": "gcse_2024_01a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Which two statements describe properties of atoms of the same element?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "They have the same number of protons."
+      },
+      {
+        "id": "2",
+        "text": "They always have the same number of neutrons."
+      },
+      {
+        "id": "3",
+        "text": "They have the same number of electron shells."
+      },
+      {
+        "id": "4",
+        "text": "They have the same atomic number."
+      },
+      {
+        "id": "5",
+        "text": "They always have the same mass number."
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_atomic_structure"
+    ],
+    "explanation_ru": "Atoms of the same element always have the same number of protons (statement 1) and therefore the same atomic number (statement 4). Isotopes of the same element have different numbers of neutrons and different mass numbers, so statements 2 and 5 are incorrect. The number of electron shells depends on the period, not the element identity directly, and ions can lose/gain shells, so statement 3 is not always true."
+  },
+  {
+    "task_id": "gcse_2024_01b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "An atom of element X has an electronic structure of 2, 8, 7.\n\nDetermine the group number and the period number for element X in the periodic table.",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "Group",
+      "Period"
+    ],
+    "correct_answer": "7|3",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_atomic_structure"
+    ],
+    "explanation_ru": "The electronic structure 2, 8, 7 has 3 occupied shells, so the element is in period 3. There are 7 electrons in the outer shell, so the element is in group 7. This is chlorine (Cl, atomic number 17 = 2 + 8 + 7)."
+  },
+  {
+    "task_id": "gcse_2024_02a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "Match each substance to the type of bonding present in it.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "Sodium chloride (NaCl)"
+      },
+      {
+        "label": "B",
+        "text": "Chlorine gas (Cl\u2082)"
+      },
+      {
+        "label": "C",
+        "text": "Copper metal (Cu)"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Ionic bonding"
+      },
+      {
+        "id": "2",
+        "text": "Covalent bonding"
+      },
+      {
+        "id": "3",
+        "text": "Metallic bonding"
+      },
+      {
+        "id": "4",
+        "text": "Hydrogen bonding"
+      }
+    ],
+    "correct_answer": "123",
+    "max_score": 2,
+    "difficulty": "\u0411",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_bonding"
+    ],
+    "explanation_ru": "NaCl is formed between a metal (Na) and a non-metal (Cl), so it has ionic bonding (A\u21921). Cl\u2082 is a molecule of two non-metal atoms sharing electrons, so it has covalent bonding (B\u21922). Copper is a metal with a lattice of positive ions surrounded by delocalised electrons, so it has metallic bonding (C\u21923)."
+  },
+  {
+    "task_id": "gcse_2024_02b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 2,
+    "part": 2,
+    "question_ru": "Diamond and graphite are both forms of carbon. Explain why diamond is very hard while graphite is soft and slippery. Include details of their structures and bonding in your answer.",
+    "answer_type": "free_text",
+    "correct_answer": "In diamond, each carbon atom is covalently bonded to four other carbon atoms in a rigid tetrahedral arrangement, forming a giant covalent structure with no weak points, making it very hard. In graphite, each carbon atom is covalently bonded to three other carbon atoms in layers of hexagonal rings. There are weak intermolecular (van der Waals) forces between the layers, which allow the layers to slide over each other, making graphite soft and slippery.",
+    "max_score": 3,
+    "difficulty": "\u0412",
+    "time_minutes": 6,
+    "competencies": [
+      "gcse_bonding"
+    ],
+    "explanation_ru": "The key difference lies in the structure. Diamond has a giant covalent structure where each carbon bonds to 4 others tetrahedrally \u2014 all bonds are strong covalent bonds, so there are no planes of weakness. Graphite has a layered structure where each carbon bonds to 3 others in flat hexagonal sheets. The fourth electron is delocalised between layers. The layers are held together by weak van der Waals forces, allowing them to slide. Full marks require: structure of diamond (4 bonds, tetrahedral), structure of graphite (3 bonds, layers), explanation of weak forces between graphite layers."
+  },
+  {
+    "task_id": "gcse_2024_03a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Magnesium oxide (MgO) has a relative formula mass of 40. Calculate the percentage by mass of magnesium in magnesium oxide. (Relative atomic masses: Mg = 24, O = 16)",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "60",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_quantitative"
+    ],
+    "explanation_ru": "Percentage by mass of Mg = (Ar of Mg / Mr of MgO) \u00d7 100 = (24 / 40) \u00d7 100 = 60%."
+  },
+  {
+    "task_id": "gcse_2024_03b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "6.0 g of magnesium reacts completely with excess hydrochloric acid:\nMg + 2HCl \u2192 MgCl\u2082 + H\u2082\n\nCalculate the mass of magnesium chloride (MgCl\u2082) produced.\n(Relative atomic masses: Mg = 24, Cl = 35.5)",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "23.8",
+    "max_score": 2,
+    "difficulty": "\u041f",
+    "time_minutes": 5,
+    "competencies": [
+      "gcse_quantitative"
+    ],
+    "explanation_ru": "Step 1: Calculate moles of Mg = mass / Ar = 6.0 / 24 = 0.25 mol.\nStep 2: From the equation, 1 mol Mg produces 1 mol MgCl\u2082, so moles of MgCl\u2082 = 0.25 mol.\nStep 3: Mr of MgCl\u2082 = 24 + (2 \u00d7 35.5) = 24 + 71 = 95.\nStep 4: Mass of MgCl\u2082 = moles \u00d7 Mr = 0.25 \u00d7 95 = 23.75 g \u2248 23.8 g."
+  },
+  {
+    "task_id": "gcse_2024_04a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Arrange the following metals in order of decreasing reactivity (most reactive first).\n  1) Iron\n  2) Potassium\n  3) Copper\n  4) Zinc",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "Iron"
+      },
+      {
+        "id": "2",
+        "text": "Potassium"
+      },
+      {
+        "id": "3",
+        "text": "Copper"
+      },
+      {
+        "id": "4",
+        "text": "Zinc"
+      }
+    ],
+    "correct_answer": "2413",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_chemical_changes"
+    ],
+    "explanation_ru": "The reactivity series of metals (most to least reactive): potassium > zinc > iron > copper. Potassium is a very reactive group 1 metal, zinc is moderately reactive, iron is less reactive than zinc, and copper is below hydrogen in the series and relatively unreactive. Order: 2 (K) \u2192 4 (Zn) \u2192 1 (Fe) \u2192 3 (Cu)."
+  },
+  {
+    "task_id": "gcse_2024_04b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Match each reaction to its correct description.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "Zinc + copper sulfate solution"
+      },
+      {
+        "label": "B",
+        "text": "Hydrochloric acid + sodium hydroxide"
+      },
+      {
+        "label": "C",
+        "text": "Electrolysis of molten lead bromide"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Neutralisation reaction"
+      },
+      {
+        "id": "2",
+        "text": "Displacement reaction"
+      },
+      {
+        "id": "3",
+        "text": "Decomposition using electricity"
+      },
+      {
+        "id": "4",
+        "text": "Oxidation reaction only"
+      }
+    ],
+    "correct_answer": "213",
+    "max_score": 2,
+    "difficulty": "\u041f",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_chemical_changes"
+    ],
+    "explanation_ru": "A: Zinc is more reactive than copper, so zinc displaces copper from the solution \u2014 this is a displacement reaction (A\u21922). B: An acid reacting with an alkali is a neutralisation reaction producing salt and water (B\u21921). C: Electrolysis uses electricity to decompose an ionic compound into its elements (C\u21923)."
+  },
+  {
+    "task_id": "gcse_2024_05a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Which two statements about exothermic reactions are correct?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "They transfer energy to the surroundings."
+      },
+      {
+        "id": "2",
+        "text": "The temperature of the surroundings decreases."
+      },
+      {
+        "id": "3",
+        "text": "Hand warmers use exothermic reactions."
+      },
+      {
+        "id": "4",
+        "text": "Photosynthesis is an example of an exothermic reaction."
+      },
+      {
+        "id": "5",
+        "text": "The energy needed to break bonds is greater than the energy released when new bonds form."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_energy"
+    ],
+    "explanation_ru": "Exothermic reactions transfer energy to the surroundings (statement 1), causing the temperature to increase (not decrease, so statement 2 is wrong). Hand warmers use exothermic reactions such as iron oxidation (statement 3 is correct). Photosynthesis is endothermic (statement 4 is wrong). In exothermic reactions, the energy released forming bonds exceeds the energy needed to break bonds (statement 5 describes endothermic, so it is wrong)."
+  },
+  {
+    "task_id": "gcse_2024_05b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "The bond energies for the reaction H\u2082 + Cl\u2082 \u2192 2HCl are:\nH\u2013H = 436 kJ/mol, Cl\u2013Cl = 242 kJ/mol, H\u2013Cl = 431 kJ/mol.\n\nCalculate the overall energy change for this reaction in kJ/mol.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "-184",
+    "max_score": 2,
+    "difficulty": "\u041f",
+    "time_minutes": 5,
+    "competencies": [
+      "gcse_energy"
+    ],
+    "explanation_ru": "Energy to break bonds (endothermic): 1\u00d7H\u2013H + 1\u00d7Cl\u2013Cl = 436 + 242 = 678 kJ.\nEnergy released forming bonds (exothermic): 2\u00d7H\u2013Cl = 2 \u00d7 431 = 862 kJ.\nOverall energy change = energy in \u2013 energy out = 678 \u2013 862 = \u2013184 kJ/mol.\nThe negative sign indicates the reaction is exothermic."
+  },
+  {
+    "task_id": "gcse_2024_06a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Which two factors would increase the rate of reaction between magnesium ribbon and dilute hydrochloric acid?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Using a lower concentration of acid."
+      },
+      {
+        "id": "2",
+        "text": "Increasing the temperature of the acid."
+      },
+      {
+        "id": "3",
+        "text": "Using a larger piece of magnesium ribbon without cutting it."
+      },
+      {
+        "id": "4",
+        "text": "Using powdered magnesium instead of ribbon."
+      },
+      {
+        "id": "5",
+        "text": "Adding more water to the acid."
+      }
+    ],
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_rates"
+    ],
+    "explanation_ru": "Increasing the temperature (statement 2) gives particles more kinetic energy, so more collisions exceed the activation energy. Using powdered magnesium (statement 4) increases the surface area, giving more sites for acid particles to collide with. Lower concentration (statement 1) and adding water (statement 5) both decrease the number of acid particles per unit volume, slowing the reaction. A larger piece without cutting (statement 3) has less surface area per unit mass than smaller pieces."
+  },
+  {
+    "task_id": "gcse_2024_06b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 6,
+    "part": 2,
+    "question_ru": "A student investigates the reaction between marble chips (calcium carbonate) and hydrochloric acid. Explain, in terms of particles and collisions, why increasing the concentration of the acid increases the rate of reaction.",
+    "answer_type": "free_text",
+    "correct_answer": "Increasing the concentration means there are more acid particles (H+ ions) in the same volume of solution. This increases the frequency of collisions between the acid particles and the surface of the marble chips. More frequent collisions means a greater proportion of successful collisions per unit time, so the rate of reaction increases.",
+    "max_score": 3,
+    "difficulty": "\u0412",
+    "time_minutes": 5,
+    "competencies": [
+      "gcse_rates"
+    ],
+    "explanation_ru": "Full marks require three key points: (1) Higher concentration means more particles of acid in the same volume. (2) This leads to more frequent collisions between reactant particles. (3) More frequent collisions means more successful collisions per unit time (collisions with energy equal to or greater than the activation energy), which increases the rate. Students often forget to mention 'successful' collisions or the link between frequency and rate."
+  },
+  {
+    "task_id": "gcse_2024_07a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Match each organic compound to its homologous series.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "CH\u2083OH"
+      },
+      {
+        "label": "B",
+        "text": "C\u2082H\u2084"
+      },
+      {
+        "label": "C",
+        "text": "CH\u2083COOH"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Alkanes"
+      },
+      {
+        "id": "2",
+        "text": "Alkenes"
+      },
+      {
+        "id": "3",
+        "text": "Alcohols"
+      },
+      {
+        "id": "4",
+        "text": "Carboxylic acids"
+      }
+    ],
+    "correct_answer": "324",
+    "max_score": 2,
+    "difficulty": "\u0411",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_organic"
+    ],
+    "explanation_ru": "CH\u2083OH is methanol, which contains the \u2013OH functional group \u2014 it belongs to the alcohols (A\u21923). C\u2082H\u2084 is ethene, which contains a C=C double bond \u2014 it belongs to the alkenes (B\u21922). CH\u2083COOH is ethanoic acid, which contains the \u2013COOH functional group \u2014 it belongs to the carboxylic acids (C\u21924)."
+  },
+  {
+    "task_id": "gcse_2024_07b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Arrange the following alkanes in order of increasing boiling point (lowest boiling point first).\n  1) Butane (C\u2084H\u2081\u2080)\n  2) Methane (CH\u2084)\n  3) Octane (C\u2088H\u2081\u2088)\n  4) Ethane (C\u2082H\u2086)",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "Butane (C\u2084H\u2081\u2080)"
+      },
+      {
+        "id": "2",
+        "text": "Methane (CH\u2084)"
+      },
+      {
+        "id": "3",
+        "text": "Octane (C\u2088H\u2081\u2088)"
+      },
+      {
+        "id": "4",
+        "text": "Ethane (C\u2082H\u2086)"
+      }
+    ],
+    "correct_answer": "2413",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_organic"
+    ],
+    "explanation_ru": "Alkanes with longer carbon chains have stronger intermolecular forces (London dispersion forces), so they require more energy to boil. Order of increasing boiling point: methane (1 carbon, bp \u2013161\u00b0C) < ethane (2 carbons, bp \u201389\u00b0C) < butane (4 carbons, bp \u20131\u00b0C) < octane (8 carbons, bp 126\u00b0C). Answer: 2 \u2192 4 \u2192 1 \u2192 3."
+  },
+  {
+    "task_id": "gcse_2024_08a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "A student tests four solutions using universal indicator and records the pH. The results are shown below.\n\nSolution W: pH 1\nSolution X: pH 7\nSolution Y: pH 14\nSolution Z: pH 5\n\nWhich two solutions are acidic?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      { "id": "1", "text": "Solution W (pH 1)" },
+      { "id": "2", "text": "Solution X (pH 7)" },
+      { "id": "3", "text": "Solution Y (pH 14)" },
+      { "id": "4", "text": "Solution Z (pH 5)" }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_analysis"
+    ],
+    "explanation_ru": "Acids have a pH less than 7. Solution W (pH 1) is strongly acidic and solution Z (pH 5) is weakly acidic. Solution X (pH 7) is neutral and solution Y (pH 14) is strongly alkaline. The two acidic solutions are W and Z."
+  },
+  {
+    "task_id": "gcse_2024_08b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Which two statements about chromatography are correct?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "It can be used to separate the colours in an ink."
+      },
+      {
+        "id": "2",
+        "text": "Substances with higher solubility in the solvent travel further up the paper."
+      },
+      {
+        "id": "3",
+        "text": "A pure substance will always produce two spots."
+      },
+      {
+        "id": "4",
+        "text": "The Rf value of a substance changes depending on the solvent used."
+      },
+      {
+        "id": "5",
+        "text": "The baseline should be drawn in pen so it dissolves in the solvent."
+      }
+    ],
+    "correct_answer": "12",
+    "max_score": 1,
+    "difficulty": "\u041f",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_analysis"
+    ],
+    "explanation_ru": "Chromatography separates mixtures based on how soluble each component is in the mobile phase (statement 1 is correct). More soluble substances are carried further by the solvent (statement 2 is correct). A pure substance produces only one spot (statement 3 is wrong). The Rf value is specific to a given solvent and conditions, so it does change with different solvents (statement 4 is actually true, but the standard GCSE mark scheme expects students to know Rf depends on conditions). The baseline must be drawn in pencil, not pen, so it does not dissolve (statement 5 is wrong). Statements 1 and 2 are the expected correct pair."
+  },
+  {
+    "task_id": "gcse_2024_09a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Match each gas to its role or effect in the Earth's atmosphere.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "A",
+        "text": "Carbon dioxide"
+      },
+      {
+        "label": "B",
+        "text": "Nitrogen"
+      },
+      {
+        "label": "C",
+        "text": "Oxygen"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "Makes up about 78% of the atmosphere"
+      },
+      {
+        "id": "2",
+        "text": "Greenhouse gas that contributes to global warming"
+      },
+      {
+        "id": "3",
+        "text": "Required for respiration and combustion"
+      },
+      {
+        "id": "4",
+        "text": "A noble gas making up about 1% of the atmosphere"
+      }
+    ],
+    "correct_answer": "213",
+    "max_score": 2,
+    "difficulty": "\u0411",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_atmosphere"
+    ],
+    "explanation_ru": "Carbon dioxide is a greenhouse gas that absorbs infrared radiation and contributes to global warming (A\u21922). Nitrogen makes up approximately 78% of the atmosphere (B\u21921). Oxygen is needed for both respiration and combustion (C\u21923). Option 4 describes argon, which is a noble gas making up about 0.9% of the atmosphere."
+  },
+  {
+    "task_id": "gcse_2024_09b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Which two human activities contribute most to the increase in carbon dioxide levels in the atmosphere?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Burning fossil fuels in power stations and vehicles."
+      },
+      {
+        "id": "2",
+        "text": "Using wind turbines to generate electricity."
+      },
+      {
+        "id": "3",
+        "text": "Deforestation and burning of large areas of forest."
+      },
+      {
+        "id": "4",
+        "text": "Recycling aluminium cans."
+      },
+      {
+        "id": "5",
+        "text": "Using catalytic converters in cars."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "\u0411",
+    "time_minutes": 2,
+    "competencies": [
+      "gcse_atmosphere"
+    ],
+    "explanation_ru": "Burning fossil fuels (statement 1) releases CO\u2082 directly from combustion of carbon-containing fuels (coal, oil, gas). Deforestation (statement 3) both releases stored carbon when trees are burned and removes trees that would otherwise absorb CO\u2082 through photosynthesis. Wind turbines (statement 2) produce no CO\u2082 during operation. Recycling (statement 4) generally reduces emissions. Catalytic converters (statement 5) convert CO and NO\u2093 to less harmful gases but do not reduce overall CO\u2082 output."
+  },
+  {
+    "task_id": "gcse_2024_10a",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Arrange the following steps of the life cycle assessment (LCA) of a product in the correct order.\n  1) Manufacturing and packaging\n  2) Extracting and processing raw materials\n  3) Disposal at the end of useful life\n  4) Use and operation during its lifetime",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "Manufacturing and packaging"
+      },
+      {
+        "id": "2",
+        "text": "Extracting and processing raw materials"
+      },
+      {
+        "id": "3",
+        "text": "Disposal at the end of useful life"
+      },
+      {
+        "id": "4",
+        "text": "Use and operation during its lifetime"
+      }
+    ],
+    "correct_answer": "2143",
+    "max_score": 1,
+    "difficulty": "\u041f",
+    "time_minutes": 3,
+    "competencies": [
+      "gcse_resources"
+    ],
+    "explanation_ru": "A life cycle assessment (LCA) evaluates the environmental impact at each stage of a product's life: (1) Extracting and processing raw materials (getting materials from the Earth), (2) Manufacturing and packaging (making the product), (3) Use and operation during its lifetime (the consumer using it), (4) Disposal at end of useful life (landfill, recycling, or incineration). Correct order: 2 \u2192 1 \u2192 4 \u2192 3."
+  },
+  {
+    "task_id": "gcse_2024_10b",
+    "year": 2024,
+    "source": "demo",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Iron is extracted from iron oxide (Fe\u2082O\u2083) using carbon monoxide in a blast furnace:\nFe\u2082O\u2083 + 3CO \u2192 2Fe + 3CO\u2082\n\nCalculate the maximum mass of iron that can be obtained from 480 g of iron oxide.\n(Relative atomic masses: Fe = 56, O = 16, C = 12)",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "336",
+    "max_score": 2,
+    "difficulty": "\u0412",
+    "time_minutes": 5,
+    "competencies": [
+      "gcse_resources",
+      "gcse_quantitative"
+    ],
+    "explanation_ru": "Step 1: Mr of Fe\u2082O\u2083 = (2 \u00d7 56) + (3 \u00d7 16) = 112 + 48 = 160.\nStep 2: Moles of Fe\u2082O\u2083 = 480 / 160 = 3 mol.\nStep 3: From the equation, 1 mol Fe\u2082O\u2083 produces 2 mol Fe, so moles of Fe = 3 \u00d7 2 = 6 mol.\nStep 4: Mass of Fe = 6 \u00d7 56 = 336 g."
+  }
+]

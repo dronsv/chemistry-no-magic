@@ -3,6 +3,6 @@ Allow: /
 Disallow: /profile/
 Disallow: /data/
 
-Sitemap: https://chemistry.svistunov.online/sitemap-index.xml
+Sitemap: https://chemistry.svistunov.online/sitemap.xml
 
 Host: chemistry.svistunov.online

@@ -24,7 +24,7 @@ export default function ElementList({ elements, groups }: Props) {
 
   return (
     <div className="element-list">
-      <h2 className="element-list__title">Все элементы</h2>
+      <h2 className="element-list__title">{m.elem_list_all()}</h2>
       <input
         type="search"
         className="element-list__search"

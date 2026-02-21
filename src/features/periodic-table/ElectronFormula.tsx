@@ -22,7 +22,7 @@ export default function ElectronFormula({ Z, showShorthand: initialShorthand = t
   return (
     <div className="electron-formula">
       <div className="electron-formula__label">
-        Электронная формула
+        {m.elem_electron_formula()}
         <button
           className="electron-formula__toggle"
           onClick={() => setShorthand(!shorthand)}
@@ -34,14 +34,14 @@ export default function ElectronFormula({ Z, showShorthand: initialShorthand = t
       <div className="electron-formula__value">{formula}</div>
       {exception && (
         <div className="electron-formula__exception">
-          <span className="electron-formula__badge">Провал электрона</span>
+          <span className="electron-formula__badge">{m.elem_electron_exception()}</span>
           <div className="electron-formula__expected">
-            Ожидаемая: <span className="electron-formula__struck">{getExpectedShorthandValence(Z)}</span>
+            {m.elem_expected()} <span className="electron-formula__struck">{getExpectedShorthandValence(Z)}</span>
           </div>
         </div>
       )}
       <div className="electron-formula__valence">
-        Валентные: {valence.map(v => `${v.n}${v.l}`).join(', ')} ({valence.reduce((s, v) => s + v.electrons, 0)} эл.)
+        {m.elem_valence_short({ orbitals: valence.map(v => `${v.n}${v.l}`).join(', '), count: String(valence.reduce((s, v) => s + v.electrons, 0)) })}
       </div>
     </div>
   );

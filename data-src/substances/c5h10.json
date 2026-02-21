@@ -1,0 +1,17 @@
+{
+  "id": "c5h10",
+  "formula": "C\u2085H\u2081\u2080",
+  "name_ru": "Пентен-1",
+  "class": "other",
+  "subclass": "alkene",
+  "ions": [],
+  "tags": ["liquid", "flammable"],
+  "melting_point_C": -165.2,
+  "boiling_point_C": 30.0,
+  "density_g_cm3": 0.641,
+  "appearance_ru": "Бесцветная подвижная жидкость",
+  "hazards_ru": ["Легковоспламеняемое"],
+  "industrial_ru": "Производство полимеров, компонент бензина",
+  "production_ru": "Крекинг нефти",
+  "fun_facts_ru": ["Пентен-1 — один из первых жидких алкенов (кипит при 30°C)"]
+}

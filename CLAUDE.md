@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-"Chemistry Without Magic" (Химия без магии) — an adaptive learning platform for OGE (Russian high school chemistry exam) preparation. CDN-first static site with no backend; all personalization runs client-side.
+"Chemistry Without Magic" (Химия без магии) — an adaptive chemistry learning platform with exam preparation for OGE, EGE, GCSE, Matura, and EBAU. CDN-first static site with no backend; all personalization runs client-side.
 
-**Language**: Russian for all user-facing content, documentation, and data fields (name_ru, etc.).
+**Repository**: [github.com/dronsv/chemistry-no-magic](https://github.com/dronsv/chemistry-no-magic)
+
+**Language**: Russian is the default locale. UI strings are internationalized via Paraglide.js (4 locales: ru, en, pl, es). Data fields use `_ru` suffix with translation overlays in `data-src/translations/`.
 
 ## Commands
 
@@ -31,7 +33,9 @@ No test runner is configured yet. When added, it will likely be Vitest (per tech
 - `src/components/` — Astro and React components
 - `src/layouts/` — Page layout templates
 - `public/` — Static assets served as-is
-- `Docs/` — 10 project specification documents (Russian). Start with `02_technical_spec.md` for features, `09_mvp_roadmap.md` for phases
+- `data-src/` — Source chemistry data (JSON), processed by build pipeline
+- `data-src/translations/` — Translation overlays per locale (en, pl, es)
+- `Docs/` — 13 project specification documents (Russian). Start with `02_technical_spec.md` for features, `09_mvp_roadmap.md` for phases
 
 ### Data Architecture (CDN-first)
 All chemistry data lives in static JSON bundles under `/data/{bundle_hash}/`:
@@ -59,7 +63,7 @@ The project follows a 8-stage MVP roadmap (Docs/09_mvp_roadmap.md):
 - Stages 2–6: Content modules (periodic table, classification, reactions, energetics, calculations)
 - Stage 7: Polish — search, PWA, expanded reference
 
-Stage 0 (Foundation) and Stage 1 (Diagnostics + BKT) are complete. Currently working on Stage 2 (Periodic table learning module).
+All MVP stages (0–7) are complete. Current work focuses on multi-exam architecture (5 exam systems), cross-exam topic practice, and i18n.
 
 ## Coding Practices
 

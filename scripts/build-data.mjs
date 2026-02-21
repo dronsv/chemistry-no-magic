@@ -30,6 +30,7 @@ import { checkIntegrity } from './lib/integrity.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
 import { generateSearchIndex } from './lib/generate-search-index.mjs';
+import { generateFormulaLookup } from './lib/generate-formula-lookup.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -138,6 +139,7 @@ async function main() {
   const ogeTasks = await loadJson(join(DATA_SRC, 'exam', 'oge_tasks.json'));
   const ogeSolutionAlgorithms = await loadJson(join(DATA_SRC, 'exam', 'oge_solution_algorithms.json'));
   const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
+  const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
 
   // Load per-system exam metadata
   const examMetas = {};
@@ -161,6 +163,7 @@ async function main() {
   console.log(`  ${qualitativeReactions.length} qualitative reactions, ${geneticChains.length} genetic chains, ${energyCatalystTheory.rate_factors.length} rate factors`);
   console.log(`  ${calculationsData.calc_substances.length} calc substances, ${calculationsData.calc_reactions.length} calc reactions`);
   console.log(`  ${ogeTasks.length} OGE tasks, ${ogeSolutionAlgorithms.length} solution algorithms`);
+  console.log(`  ${topicMapping.length} unified topics`);
   console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
@@ -264,6 +267,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'genetic_chains.json'), JSON.stringify(geneticChains));
   await writeFile(join(bundleDir, 'rules', 'energy_catalyst_theory.json'), JSON.stringify(energyCatalystTheory));
   await writeFile(join(bundleDir, 'rules', 'calculations_data.json'), JSON.stringify(calculationsData));
+  await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
@@ -304,13 +308,18 @@ async function main() {
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
 
-  // 7b. Generate search index (Russian — default)
+  // 7b. Generate formula lookup (elements + substances → display formula → id)
+  console.log('Generating formula lookup...');
+  const formulaCount = await generateFormulaLookup(elements, substances, bundleDir);
+  console.log(`  ${formulaCount} formula entries`);
+
+  // 7c. Generate search index (Russian — default)
   console.log('Generating search index...');
   const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies });
   await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
   console.log(`  ${searchIndex.length} search entries (ru)`);
 
-  // 7c. Load translation overlays and generate per-locale data
+  // 7d. Load translation overlays and generate per-locale data
   console.log('\nProcessing translations...');
   const translationsManifest = {};
 

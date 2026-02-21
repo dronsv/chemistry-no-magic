@@ -1,0 +1,16 @@
+{
+  "id": "nh4cl",
+  "formula": "NH\u2084Cl",
+  "name_ru": "Хлорид аммония",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["NH4_plus", "Cl_minus"],
+  "tags": ["soluble", "sublimes"],
+  "melting_point_C": 340,
+  "boiling_point_C": null,
+  "density_g_cm3": 1.527,
+  "appearance_ru": "Бесцветные кристаллы",
+  "industrial_ru": "Флюс при пайке, удобрение, производство батареек",
+  "production_ru": "Реакция аммиака с соляной кислотой, побочный продукт содового процесса",
+  "fun_facts_ru": ["Известен с древности как «нашатырь» — назван по имени храма Аммона в Египте", "Возгоняется при нагревании, минуя жидкую фазу"]
+}

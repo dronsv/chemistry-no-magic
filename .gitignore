@@ -26,8 +26,13 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
+# IDE settings
 .idea/
+.vscode/
+
+# internal design docs
+Docs/
+docs/plans/
 
 # screenshots
 *.png
@@ -36,3 +41,6 @@ pnpm-debug.log*
 
 # playwright MCP artifacts
 .playwright-mcp/
+
+# Claude Code settings
+.claude/

@@ -22,6 +22,8 @@ import type { OgeTask } from '../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../types/oge-solution';
 import type { ExamSystem, ExamSystemMeta } from '../types/exam-system';
 import type { SearchIndexEntry } from '../types/search';
+import type { UnifiedTopic } from '../types/topic-mapping';
+import type { FormulaLookup } from '../types/formula-lookup';
 import type { SupportedLocale } from '../types/i18n';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
@@ -511,6 +513,25 @@ export async function loadExamTasks(systemId: string): Promise<OgeTask[]> {
 /** Load solution algorithms for a specific exam system. */
 export async function loadExamAlgorithms(systemId: string): Promise<OgeSolutionAlgorithm[]> {
   return loadDataFile<OgeSolutionAlgorithm[]>(`exam/${systemId}/algorithms.json`);
+}
+
+/** Load unified topic mapping (cross-exam competency map). */
+export async function loadTopicMapping(): Promise<UnifiedTopic[]> {
+  return loadRule('topic_mapping') as Promise<UnifiedTopic[]>;
+}
+
+/** Load formula lookup (display formula → substance/element info). */
+export async function loadFormulaLookup(): Promise<FormulaLookup> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.formula_lookup;
+
+  if (!path) {
+    throw new Error(
+      'Formula lookup not found in manifest. Expected key "formula_lookup" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<FormulaLookup>(path);
 }
 
 /** Load a molecule structure by substance ID. */

@@ -155,36 +155,36 @@ export default function ClassificationTheoryPanel() {
               <CollapsibleSection title={m.subst_amphoteric_title()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
-                    <strong>Амфотерные</strong> вещества проявляют двойственные свойства: реагируют и с кислотами (как основания), и с щелочами (как кислоты).
+                    {m.class_theory_amphoteric_desc()}
                   </p>
                   <p className="subst-theory__rule-desc">
-                    Типичные амфотерные металлы: <strong>Al, Zn, Be, Cr(III), Fe(III), Pb(II), Sn(II)</strong>.
+                    {m.class_theory_amphoteric_metals()}
                   </p>
                 </div>
               </CollapsibleSection>
               <CollapsibleSection title={m.subst_amphoteric_oxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
-                    Примеры: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃
+                    {m.class_theory_oxide_examples()}
                   </p>
                   <p className="subst-theory__rule-desc">
-                    Реакция с кислотой: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O
+                    {m.class_theory_acid_reaction({ equation: 'Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O' })}
                   </p>
                   <p className="subst-theory__rule-desc">
-                    Реакция с щёлочью: Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O
+                    {m.class_theory_base_reaction({ equation: 'Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O' })}
                   </p>
                 </div>
               </CollapsibleSection>
               <CollapsibleSection title={m.subst_amphoteric_hydroxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
-                    Примеры: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃
+                    {m.class_theory_hydroxide_examples()}
                   </p>
                   <p className="subst-theory__rule-desc">
-                    Реакция с кислотой: Al(OH)₃ + 3HCl → AlCl₃ + 3H₂O
+                    {m.class_theory_acid_reaction({ equation: 'Al(OH)₃ + 3HCl → AlCl₃ + 3H₂O' })}
                   </p>
                   <p className="subst-theory__rule-desc">
-                    Реакция с щёлочью: Al(OH)₃ + NaOH → NaAlO₂ + 2H₂O
+                    {m.class_theory_base_reaction({ equation: 'Al(OH)₃ + NaOH → NaAlO₂ + 2H₂O' })}
                   </p>
                 </div>
               </CollapsibleSection>

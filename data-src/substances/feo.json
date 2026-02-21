@@ -1,0 +1,16 @@
+{
+  "id": "feo",
+  "formula": "FeO",
+  "name_ru": "Оксид железа(II)",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": ["insoluble", "black"],
+  "melting_point_C": 1377,
+  "boiling_point_C": 3414,
+  "density_g_cm3": 5.745,
+  "appearance_ru": "Чёрный порошок",
+  "industrial_ru": "Пигмент, компонент стали (раскислитель)",
+  "production_ru": "Восстановление Fe\u2082O\u2083 или термическое разложение оксалата железа(II)",
+  "fun_facts_ru": ["В природе встречается как минерал вюстит", "Используется как чёрный пигмент в керамике"]
+}

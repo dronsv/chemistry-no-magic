@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import type { OgeOption } from '../../../types/oge-task';
+import ChemText from '../../../components/ChemText';
 
 interface Props {
   items: OgeOption[];
@@ -64,7 +65,7 @@ export default function SequenceAnswer({
             disabled={disabled || placed.includes(item.id)}
           >
             <span className="oge-sequence__item-id">{item.id})</span>
-            {item.text}
+            <ChemText text={item.text} />
           </button>
         ))}
       </div>

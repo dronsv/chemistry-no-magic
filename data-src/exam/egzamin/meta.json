@@ -1,26 +1,96 @@
 {
   "id": "egzamin",
-  "full_name_ru": "Экзамен восьмиклассника — Химия (Польша)",
-  "full_name_en": "Eighth-Grader Exam — Chemistry (Poland)",
-  "full_name_pl": "Egzamin ósmoklasisty — Chemia",
-  "description_ru": "Экзамен для учеников 8 класса в Польше. Химия входит в блок естественных наук.",
-  "description_en": "Exam for 8th-grade students in Poland. Chemistry is part of the natural sciences section.",
-  "description_pl": "Egzamin z chemii dla uczniów klasy ósmej. Chemia jest częścią bloku przyrodniczego.",
+  "full_name_ru": "Матура по химии — уровень расширенный (Польша)",
+  "full_name_en": "Matura Chemistry — Extended Level (Poland)",
+  "full_name_pl": "Matura z chemii — poziom rozszerzony",
+  "description_ru": "Экзамен по химии в рамках польской матуры (выпускной экзамен). Расширенный уровень для учеников, планирующих изучение естественных наук в университете.",
+  "description_en": "Chemistry exam within the Polish Matura (school-leaving exam). Extended level for students planning to study sciences at university.",
+  "description_pl": "Egzamin maturalny z chemii na poziomie rozszerzonym. Dla uczniów planujących studia przyrodnicze na uczelniach wyższych.",
   "country": "PL",
-  "grade": "8",
-  "duration_min": 90,
-  "max_score": 30,
-  "task_count": 25,
+  "grade": "12",
+  "duration_min": 180,
+  "max_score": 60,
+  "task_count": 45,
   "scoring": {
     "grade_thresholds": {
-      "pass": 12
+      "pass": 18
     }
   },
   "topics": [
-    "Substancje i ich właściwości",
-    "Wewnętrzna budowa materii",
-    "Reakcje chemiczne",
-    "Kwasy, zasady i sole",
-    "Węgiel i jego związki"
+    "Budowa atomu i konfiguracja elektronowa",
+    "Układ okresowy pierwiastków",
+    "Wiązania chemiczne i budowa cząsteczek",
+    "Reakcje chemiczne i stechiometria",
+    "Roztwory i stężenia",
+    "Kinetyka chemiczna i równowaga",
+    "Kwasy, zasady i pH",
+    "Reakcje utleniania-redukcji",
+    "Elektrochemia",
+    "Termochemia",
+    "Chemia organiczna — węglowodory",
+    "Chemia organiczna — związki funkcyjne",
+    "Chemia organiczna — polimery i biochemia"
+  ],
+  "competencies": [
+    {
+      "id": "matura_atomic_structure",
+      "name_pl": "Budowa atomu i układ okresowy",
+      "name_en": "Atomic structure and periodic table",
+      "name_ru": "Строение атома и периодическая таблица"
+    },
+    {
+      "id": "matura_bonding",
+      "name_pl": "Wiązania chemiczne",
+      "name_en": "Chemical bonding",
+      "name_ru": "Химические связи"
+    },
+    {
+      "id": "matura_stoichiometry",
+      "name_pl": "Obliczenia stechiometryczne",
+      "name_en": "Stoichiometric calculations",
+      "name_ru": "Стехиометрические расчёты"
+    },
+    {
+      "id": "matura_acids_bases",
+      "name_pl": "Kwasy, zasady i pH",
+      "name_en": "Acids, bases, and pH",
+      "name_ru": "Кислоты, основания и pH"
+    },
+    {
+      "id": "matura_redox",
+      "name_pl": "Reakcje utleniania-redukcji",
+      "name_en": "Redox reactions",
+      "name_ru": "Окислительно-восстановительные реакции"
+    },
+    {
+      "id": "matura_organic",
+      "name_pl": "Chemia organiczna",
+      "name_en": "Organic chemistry",
+      "name_ru": "Органическая химия"
+    },
+    {
+      "id": "matura_kinetics",
+      "name_pl": "Kinetyka i równowaga chemiczna",
+      "name_en": "Kinetics and chemical equilibrium",
+      "name_ru": "Кинетика и химическое равновесие"
+    },
+    {
+      "id": "matura_electrochemistry",
+      "name_pl": "Elektrochemia",
+      "name_en": "Electrochemistry",
+      "name_ru": "Электрохимия"
+    }
+  ],
+  "official_links": [
+    {
+      "label_pl": "CKE — Matura z chemii, arkusze i informatory",
+      "label_en": "CKE — Matura Chemistry, papers and guides",
+      "url": "https://cke.gov.pl/egzamin-maturalny/"
+    },
+    {
+      "label_pl": "Arkusze maturalne z chemii (CKE)",
+      "label_en": "Past Matura Chemistry papers (CKE)",
+      "url": "https://cke.gov.pl/egzamin-maturalny/arkusze/"
+    }
   ]
 }

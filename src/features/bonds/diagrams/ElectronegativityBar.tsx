@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   symbolA: string;
   symbolB: string;
@@ -12,10 +14,10 @@ const SCALE_Y = 42;
 const CHI_MAX = 4.0;
 
 const ZONES = [
-  { from: 0, to: 0.4, fill: '#dcfce7', label: 'неполярная' },
-  { from: 0.4, to: 1.7, fill: '#fef9c3', label: 'полярная' },
-  { from: 1.7, to: CHI_MAX, fill: '#fee2e2', label: 'ионная' },
-] as const;
+  { from: 0, to: 0.4, fill: '#dcfce7', id: 'nonpolar', label: () => m.bond_zone_nonpolar() },
+  { from: 0.4, to: 1.7, fill: '#fef9c3', id: 'polar', label: () => m.bond_zone_polar() },
+  { from: 1.7, to: CHI_MAX, fill: '#fee2e2', id: 'ionic', label: () => m.bond_zone_ionic() },
+];
 
 function chiToX(chi: number): number {
   return SCALE_LEFT + (chi / CHI_MAX) * SCALE_WIDTH;
@@ -41,7 +43,7 @@ export default function ElectronegativityBar({ symbolA, symbolB, chiA, chiB }: P
       viewBox="0 0 340 80"
       width="100%"
       role="img"
-      aria-label={`Электроотрицательность: ${symbolA} (${chiA}) и ${symbolB} (${chiB}), Δχ = ${delta.toFixed(2)}`}
+      aria-label={m.bond_electronegativity_aria({ symbolA, chiA: String(chiA), symbolB, chiB: String(chiB), delta: delta.toFixed(2) })}
     >
       {/* Background zone fills */}
       {ZONES.map((zone) => {
@@ -49,7 +51,7 @@ export default function ElectronegativityBar({ symbolA, symbolB, chiA, chiB }: P
         const zoneRightX = chiToX(zone.to);
         return (
           <rect
-            key={zone.label}
+            key={zone.id}
             x={zoneLeftX}
             y={SCALE_Y - 14}
             width={zoneRightX - zoneLeftX}

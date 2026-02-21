@@ -1,1 +1,988 @@
-{}
+{
+  "agno3": {
+    "name_ru": "Azotan srebra",
+    "appearance_ru": "Bezbarwne kryształy ciemniejące pod wpływem światła",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje oparzenia",
+      "Niebezpieczny dla środowiska"
+    ],
+    "storage_ru": "Przechowywać w ciemnym miejscu, w szczelnie zamkniętych pojemnikach, z dala od substancji organicznych",
+    "industrial_ru": "Produkcja materiałów fotograficznych, luster i środków antyseptycznych",
+    "production_ru": "Rozpuszczanie srebra w kwasie azotowym",
+    "fun_facts_ru": [
+      "Lapis (azotan srebra) jest stosowany w medycynie do przyżegania ran",
+      "Pozostawia trwałe czarne plamy na skórze w wyniku redukcji do srebra metalicznego"
+    ]
+  },
+  "al2_so4_3": {
+    "name_ru": "Siarczan glinu",
+    "appearance_ru": "Białe kryształy lub proszek",
+    "industrial_ru": "Oczyszczanie wody (koagulant), produkcja papieru, garbowanie skór",
+    "production_ru": "Rozpuszczanie Al(OH)₃ lub Al₂O₃ w kwasie siarkowym",
+    "fun_facts_ru": [
+      "Jeden z najczęściej stosowanych koagulantów do oczyszczania wody pitnej",
+      "Po rozpuszczeniu w wodzie ulega znacznej hydrolizie, tworząc roztwór o odczynie kwaśnym"
+    ]
+  },
+  "al2o3": {
+    "name_ru": "Tlenek glinu",
+    "appearance_ru": "Biały krystaliczny proszek",
+    "industrial_ru": "Produkcja aluminium (elektroliza), materiały ścierne, ceramika",
+    "production_ru": "Przetwarzanie boksytu metodą Bayera",
+    "fun_facts_ru": [
+      "Korund, rubin i szafir to naturalne formy Al₂O₃, zabarwione przez domieszki",
+      "Jeden z najtwardszych tlenków — 9 w skali Mohsa"
+    ]
+  },
+  "al_oh_3": {
+    "name_ru": "Wodorotlenek glinu",
+    "appearance_ru": "Biała galaretowata substancja",
+    "industrial_ru": "Produkcja aluminium, leki zobojętniające kwas, adsorbenty",
+    "production_ru": "Strącanie z roztworów soli glinu za pomocą zasady",
+    "fun_facts_ru": [
+      "Znajduje się w wielu lekach zobojętniających kwas (środkach na zgagę)",
+      "Rozkłada się na Al₂O₃ i wodę pod wpływem ogrzewania"
+    ]
+  },
+  "alcl3": {
+    "name_ru": "Chlorek glinu",
+    "appearance_ru": "Biały lub żółtawy proszek",
+    "hazards_ru": [
+      "Żrący",
+      "Gwałtownie reaguje z wodą"
+    ],
+    "industrial_ru": "Katalizator Friedela-Craftsa, produkcja aluminium",
+    "production_ru": "Reakcja glinu z chlorem lub HCl",
+    "fun_facts_ru": [
+      "Bezwodny AlCl₃ jest kluczowym katalizatorem w syntezie organicznej (reakcja Friedela-Craftsa)",
+      "Jego temperatura wrzenia jest niższa od temperatury topnienia — sublimuje pod ciśnieniem atmosferycznym"
+    ]
+  },
+  "bacl2": {
+    "name_ru": "Chlorek baru",
+    "appearance_ru": "Bezbarwne kryształy",
+    "hazards_ru": [
+      "Toksyczny",
+      "Niebezpieczny w przypadku połknięcia"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach w wentylowanym pomieszczeniu",
+    "industrial_ru": "Odczynnik do wykrywania jonów siarczanowych w chemii analitycznej",
+    "production_ru": "Reakcja węglanu baru z kwasem solnym",
+    "fun_facts_ru": [
+      "Odczynnik jakościowy na jony siarczanowe — tworzy biały osad BaSO₄"
+    ]
+  },
+  "baso4": {
+    "name_ru": "Siarczan baru",
+    "appearance_ru": "Biały krystaliczny proszek",
+    "industrial_ru": "Środek kontrastowy w rentgenografii, wypełniacz w produkcji papieru i tworzyw sztucznych",
+    "production_ru": "Strącanie z roztworów soli baru za pomocą kwasu siarkowego lub siarczanów",
+    "fun_facts_ru": [
+      "Stosowany jako 'papka barowa' do prześwietleń żołądka — nierozpuszczalny i nietoksyczny",
+      "Minerał baryt (BaSO₄) jest głównym przemysłowym źródłem baru"
+    ]
+  },
+  "c2h2": {
+    "name_ru": "Acetylen",
+    "appearance_ru": "Bezbarwny gaz (techniczny ma nieprzyjemny zapach z powodu zanieczyszczeń)",
+    "hazards_ru": [
+      "Wysoce łatwopalny",
+      "Wybuchowy"
+    ],
+    "industrial_ru": "Spawanie i cięcie metali, produkcja PVC, produkcja kauczuku syntetycznego",
+    "production_ru": "Metoda karbidowa (CaC₂ + H₂O), termiczny kraking metanu",
+    "fun_facts_ru": [
+      "Palnik acetylenowy osiąga temperaturę do 3150°C",
+      "Czysty acetylen jest prawie bezwonny — nieprzyjemny zapach pochodzi od zanieczyszczeń fosfiną i siarkowodorem"
+    ]
+  },
+  "c2h4": {
+    "name_ru": "Etylen",
+    "appearance_ru": "Bezbarwny gaz o słabo słodkawym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Produkcja polietylenu, etanolu, tlenku etylenu, styrenu",
+    "production_ru": "Termiczny kraking ropy naftowej, dehydratacja etanolu",
+    "fun_facts_ru": [
+      "Najczęściej produkowany związek organiczny na świecie (ponad 150 mln ton/rok)",
+      "Fitohormon — przyspiesza dojrzewanie owoców"
+    ]
+  },
+  "c2h5oh": {
+    "name_ru": "Etanol",
+    "appearance_ru": "Bezbarwna lotna ciecz o charakterystycznym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Rozpuszczalnik, paliwo, środek antyseptyczny, baza napojów alkoholowych",
+    "production_ru": "Fermentacja cukrów lub hydratacja etylenu",
+    "fun_facts_ru": [
+      "Jeden z pierwszych związków organicznych znanych ludzkości",
+      "Etanol absolutny (99,95%) otrzymuje się przez destylację azeotropową z benzenem"
+    ]
+  },
+  "c2h6": {
+    "name_ru": "Etan",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Produkcja etylenu (piroliza), paliwo",
+    "production_ru": "Składnik gazu ziemnego (5–10%), gaz towarzyszący ropie naftowej",
+    "fun_facts_ru": [
+      "Etan jest drugim najprostszym alkanem po metanie",
+      "Na Tytanie, księżycu Saturna, istnieją jeziora ciekłego etanu i metanu"
+    ]
+  },
+  "c4h10": {
+    "name_ru": "Butan",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Paliwo (gaz w butlach), produkcja butadienu, rozpuszczalnik",
+    "production_ru": "Przetwarzanie gazu ziemnego i ropy naftowej",
+    "fun_facts_ru": [
+      "Główny składnik gazu w zapalniczkach",
+      "Wrze w temperaturze -0,5°C — prawie w 0°C"
+    ]
+  },
+  "c4h6": {
+    "name_ru": "1,3-Butadien",
+    "appearance_ru": "Bezbarwny gaz o słabym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny",
+      "Rakotwórczy"
+    ],
+    "industrial_ru": "Produkcja kauczuku syntetycznego (polibutadien, kauczuk styrenowo-butadienowy)",
+    "production_ru": "Dehydrogenacja butanu, produkt uboczny krakingu",
+    "fun_facts_ru": [
+      "Podstawa kauczuku syntetycznego — wynalezionego przez S. W. Lebiediewa (1910)",
+      "Sprzężone wiązania podwójne nadają cząsteczce wyjątkową stabilność"
+    ]
+  },
+  "c4h8": {
+    "name_ru": "1-Buten",
+    "appearance_ru": "Bezbarwny gaz",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Produkcja polibutylenu, butadienu, składnik benzyny",
+    "production_ru": "Kraking ropy naftowej, dehydrogenacja butanu",
+    "fun_facts_ru": [
+      "Występuje w postaci kilku izomerów: 1-buten, 2-buten (cis- i trans-)",
+      "Stosowany do zwiększania liczby oktanowej benzyny"
+    ]
+  },
+  "c5h10": {
+    "name_ru": "1-Penten",
+    "appearance_ru": "Bezbarwna ruchliwa ciecz",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Produkcja polimerów, składnik benzyny",
+    "production_ru": "Kraking ropy naftowej",
+    "fun_facts_ru": [
+      "1-Penten jest jednym z pierwszych ciekłych alkenów (wrze w temperaturze 30°C)"
+    ]
+  },
+  "c6h12o6": {
+    "name_ru": "Glukoza",
+    "appearance_ru": "Biały krystaliczny proszek o słodkim smaku",
+    "industrial_ru": "Przemysł spożywczy, medycyna (żywienie dożylne), fermentacja",
+    "production_ru": "Hydroliza skrobi lub celulozy (kwasowa lub enzymatyczna)",
+    "fun_facts_ru": [
+      "Główne źródło energii dla komórek organizmu",
+      "Próba lustra srebrnego jest testem jakościowym na grupę aldehydową glukozy"
+    ]
+  },
+  "c6h5cooh": {
+    "name_ru": "Kwas benzoesowy",
+    "appearance_ru": "Bezbarwne kryształy w kształcie igieł",
+    "industrial_ru": "Konserwant (E210), produkcja barwników, farmaceutyka",
+    "production_ru": "Utlenianie toluenu, hydroliza benzotrichlorku",
+    "fun_facts_ru": [
+      "Kwas benzoesowy był pierwszym kwasem organicznym wyizolowanym ze źródła naturalnego (żywica benzoinowa, XVI wiek)",
+      "Szeroko stosowany jako konserwant w napojach i produktach spożywczych"
+    ]
+  },
+  "c6h5nh2": {
+    "name_ru": "Anilina",
+    "appearance_ru": "Bezbarwna oleista ciecz, ciemnieje pod wpływem powietrza",
+    "hazards_ru": [
+      "Toksyczna",
+      "Rakotwórcza"
+    ],
+    "industrial_ru": "Produkcja barwników, poliuretanów, farmaceutyków, gumy",
+    "production_ru": "Redukcja nitrobenzenu (reakcja Zinina)",
+    "fun_facts_ru": [
+      "Reakcja Zinina (1842) — pierwsza przemysłowa synteza aniliny — położyła podwaliny pod przemysł barwników anilinowych",
+      "Nazwa pochodzi od portugalskiego 'anil' — indygo"
+    ]
+  },
+  "c6h5oh": {
+    "name_ru": "Fenol",
+    "appearance_ru": "Bezbarwne kryształy o charakterystycznym zapachu (różowieją pod wpływem powietrza)",
+    "hazards_ru": [
+      "Toksyczny",
+      "Powoduje oparzenia",
+      "Wchłania się przez skórę"
+    ],
+    "industrial_ru": "Produkcja żywic fenolowo-formaldehydowych, bisfenolu A, kaprolaktamu",
+    "production_ru": "Proces kumenowy (z benzenu i propylenu — jednocześnie z acetonem)",
+    "fun_facts_ru": [
+      "Pierwszy antyseptyk zastosowany w chirurgii (Joseph Lister, 1865)",
+      "Kwas karbolowy (roztwór fenolu) był używany do sterylizacji sal operacyjnych"
+    ]
+  },
+  "c8h18": {
+    "name_ru": "Oktan",
+    "appearance_ru": "Bezbarwna ciecz",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Składnik benzyny, wzorzec liczby oktanowej",
+    "production_ru": "Destylacja ropy naftowej",
+    "fun_facts_ru": [
+      "Izooktan (2,2,4-trimetylopentan) jest wzorcem odpowiadającym liczbie oktanowej 100",
+      "Termin 'liczba oktanowa' w benzynie pochodzi od oktanu"
+    ]
+  },
+  "ca_oh_2": {
+    "name_ru": "Wodorotlenek wapnia",
+    "appearance_ru": "Biały proszek",
+    "hazards_ru": [
+      "Żrący",
+      "Drażni skórę i oczy"
+    ],
+    "industrial_ru": "Budownictwo (wapno gaszone), oczyszczanie wody, rolnictwo",
+    "production_ru": "Gaszenie wapna palonego wodą: CaO + H₂O → Ca(OH)₂",
+    "fun_facts_ru": [
+      "Woda wapienna (roztwór Ca(OH)₂) jest odczynnikiem jakościowym na CO₂: mętnieje po przepuszczeniu dwutlenku węgla",
+      "Wapno gaszone jest stosowane w budownictwie od ponad 5000 lat"
+    ]
+  },
+  "caco3": {
+    "name_ru": "Węglan wapnia",
+    "appearance_ru": "Biały proszek lub kryształy",
+    "industrial_ru": "Budownictwo (kreda, wapień, marmur), produkcja cementu",
+    "production_ru": "Wydobycie minerałów naturalnych (wapień, kreda, marmur)",
+    "fun_facts_ru": [
+      "Kreda, marmur, wapień, muszle i skorupki jaj — to wszystko CaCO₃",
+      "Rozkłada się na CaO i CO₂ pod wpływem ogrzewania — podstawa produkcji wapna"
+    ]
+  },
+  "cao": {
+    "name_ru": "Tlenek wapnia",
+    "appearance_ru": "Biały krystaliczny proszek",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje oparzenia przy kontakcie z wilgotną skórą"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, chronić przed wilgocią",
+    "industrial_ru": "Produkcja cementu, metalurgia, rolnictwo",
+    "production_ru": "Prażenie wapienia w temperaturze 900–1200 °C: CaCO₃ → CaO + CO₂",
+    "fun_facts_ru": [
+      "Wapno palone intensywnie się nagrzewa w kontakcie z wodą — reakcja jest silnie egzotermiczna",
+      "Jeden z najstarszych materiałów wiążących stosowanych w budownictwie"
+    ]
+  },
+  "ch3cho": {
+    "name_ru": "Aldehyd octowy",
+    "appearance_ru": "Bezbarwna lotna ciecz o ostrym owocowym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny",
+      "Drażni drogi oddechowe",
+      "Możliwe działanie rakotwórcze"
+    ],
+    "industrial_ru": "Produkcja kwasu octowego, octanu etylu, perfumeria",
+    "production_ru": "Utlenianie etanolu, proces Wackera (utlenianie etylenu)",
+    "fun_facts_ru": [
+      "Powstaje w organizmie podczas metabolizmu alkoholu — aldehyd octowy powoduje kaca",
+      "Wrze w temperaturze 20°C — prawie w temperaturze pokojowej"
+    ]
+  },
+  "ch3coch3": {
+    "name_ru": "Aceton",
+    "appearance_ru": "Bezbarwna lotna ciecz o charakterystycznym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Rozpuszczalnik (lakiery, farby, kleje), produkcja metakrylanu metylu, bisfenolu A",
+    "production_ru": "Proces kumenowy (z benzenu i propylenu), dehydrogenacja izopropanolu",
+    "fun_facts_ru": [
+      "Aceton jest najczęściej stosowanym rozpuszczalnikiem na świecie",
+      "Produkowany w organizmie podczas głodzenia — 'oddech acetonowy' w cukrzycy"
+    ]
+  },
+  "ch3cooc2h5": {
+    "name_ru": "Octan etylu",
+    "appearance_ru": "Bezbarwna lotna ciecz o przyjemnym owocowym zapachu",
+    "hazards_ru": [
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Rozpuszczalnik (lakiery, kleje, farby), przemysł spożywczy (środek aromatyzujący)",
+    "production_ru": "Estryfikacja kwasu octowego z etanolem (estryfikacja Fischera)",
+    "fun_facts_ru": [
+      "Octan etylu nadaje charakterystyczny zapach klejom i zmywaczom do paznokci",
+      "Dodatek do żywności E1504 — stosowany jako środek aromatyzujący"
+    ]
+  },
+  "ch3cooh": {
+    "name_ru": "Kwas octowy",
+    "appearance_ru": "Bezbarwna ciecz o ostrym kwaśnym zapachu",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje oparzenia"
+    ],
+    "industrial_ru": "Produkcja włókien octanowych, rozpuszczalników, octu, octanu winylu",
+    "production_ru": "Utlenianie aldehydu octowego, fermentacja etanolu (fermentacja octowa)",
+    "fun_facts_ru": [
+      "Lodowaty kwas octowy (100%) krzepnie w temperaturze 16,6°C — stąd nazwa 'lodowaty'",
+      "Ocet stołowy to 6–9% roztwór kwasu octowego w wodzie"
+    ]
+  },
+  "ch3coona": {
+    "name_ru": "Octan sodu",
+    "appearance_ru": "Bezbarwne kryształy",
+    "industrial_ru": "Przemysł spożywczy (E262), roztwory buforowe, chemiczne ogrzewacze do rąk",
+    "production_ru": "Neutralizacja kwasu octowego sodą oczyszczoną lub NaOH",
+    "fun_facts_ru": [
+      "Podstawa popularnych chemicznych ogrzewaczy do rąk — krystalizacja roztworu przesyconego wydziela ciepło",
+      "Jego roztwór wodny ma odczyn lekko zasadowy (hydroliza anionu)"
+    ]
+  },
+  "ch3oh": {
+    "name_ru": "Metanol",
+    "appearance_ru": "Bezbarwna ciecz o słabym zapachu",
+    "hazards_ru": [
+      "Toksyczny (dawka śmiertelna 30–100 ml)",
+      "Wysoce łatwopalny",
+      "Uszkadza nerw wzrokowy"
+    ],
+    "industrial_ru": "Rozpuszczalnik, produkcja formaldehydu, paliwo, płyn niezamarzający",
+    "production_ru": "Synteza katalityczna z CO i H₂ (gaz syntezowy)",
+    "fun_facts_ru": [
+      "Metanol jest najprostszym alkoholem i jedną z najbardziej toksycznych substancji domowych",
+      "Stosowany jako paliwo w wyścigach Indianapolis 500"
+    ]
+  },
+  "ch4": {
+    "name_ru": "Metan",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "hazards_ru": [
+      "Wysoce łatwopalny",
+      "Tworzy mieszaniny wybuchowe z powietrzem"
+    ],
+    "industrial_ru": "Paliwo (gaz ziemny), produkcja wodoru, sadzy, acetylenu",
+    "production_ru": "Główny składnik gazu ziemnego, biogaz (rozkład materii organicznej)",
+    "fun_facts_ru": [
+      "Metan jest drugim pod względem znaczenia gazem cieplarnianym po CO₂",
+      "Jedna krowa produkuje do 500 litrów metanu dziennie"
+    ]
+  },
+  "cl2": {
+    "name_ru": "Chlor",
+    "appearance_ru": "Żółtozielony gaz o ostrym duszącym zapachu",
+    "hazards_ru": [
+      "Toksyczny",
+      "Drażni drogi oddechowe",
+      "Żrący"
+    ],
+    "industrial_ru": "Produkcja PVC, dezynfekcja wody, bielenie",
+    "production_ru": "Elektroliza roztworu NaCl (proces chloroalkaliczny)",
+    "fun_facts_ru": [
+      "Pierwszy gaz bojowy użyty podczas I wojny światowej",
+      "Stosowany do oczyszczania 98% wody pitnej na świecie"
+    ]
+  },
+  "co2": {
+    "name_ru": "Dwutlenek węgla",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "industrial_ru": "Gazowanie napojów, gaśnice, produkcja sody",
+    "production_ru": "Produkt uboczny spalania paliw, fermentacji alkoholowej i prażenia wapienia",
+    "fun_facts_ru": [
+      "Suchy lód to stały CO₂; sublimuje w temperaturze −78,5 °C, omijając fazę ciekłą",
+      "CO₂ stanowi około 0,04% atmosfery Ziemi, lecz jest kluczowym gazem cieplarnianym"
+    ]
+  },
+  "cu_oh_2": {
+    "name_ru": "Wodorotlenek miedzi(II)",
+    "appearance_ru": "Jasnobłękitny galaretowaty osad",
+    "industrial_ru": "Produkcja fungicydów (ciecz bordoska), odczynnik w chemii analitycznej",
+    "production_ru": "Strącanie z roztworów soli miedzi(II) za pomocą zasady",
+    "fun_facts_ru": [
+      "Czernieje podczas ogrzewania, rozkładając się na CuO i wodę",
+      "Rozpuszcza się w amoniaku, tworząc intensywnie niebieski roztwór (odczynnik Schweizera)"
+    ]
+  },
+  "cuo": {
+    "name_ru": "Tlenek miedzi(II)",
+    "appearance_ru": "Czarny proszek",
+    "industrial_ru": "Produkcja ceramiki, pigmentów i katalizatorów",
+    "production_ru": "Prażenie wodorotlenku miedzi(II) lub ogrzewanie miedzi w powietrzu",
+    "fun_facts_ru": [
+      "Łatwo redukowany wodorem do miedzi metalicznej — klasyczne doświadczenie szkolne z chemii"
+    ]
+  },
+  "cuso4": {
+    "name_ru": "Siarczan miedzi(II)",
+    "appearance_ru": "Biały proszek (bezwodny) lub niebieskie kryształy (pentahydrat)",
+    "hazards_ru": [
+      "Toksyczny",
+      "Niebezpieczny dla środowiska"
+    ],
+    "industrial_ru": "Rolnictwo (fungicyd), galwanizacja, produkcja barwników",
+    "production_ru": "Rozpuszczanie miedzi w rozcieńczonym kwasie siarkowym z ogrzewaniem i dostępem powietrza",
+    "fun_facts_ru": [
+      "Pentahydrat CuSO₄·5H₂O (siarczan miedzi) ma intensywnie niebieski kolor; po ogrzaniu traci wodę i bieleeje",
+      "Bezwodny CuSO₄ służy jako wskaźnik wilgoci — sinieje w kontakcie z wodą"
+    ]
+  },
+  "fe2o3": {
+    "name_ru": "Tlenek żelaza(III)",
+    "appearance_ru": "Czerwonobrązowy proszek",
+    "industrial_ru": "Metalurgia (ruda do produkcji surówki), pigmenty, proszki do polerowania",
+    "production_ru": "Prażenie pirytu (FeS₂) lub kalcynacja wodorotlenku żelaza(III)",
+    "fun_facts_ru": [
+      "Minerał hematyt (Fe₂O₃) jest główną rudą żelaza na Ziemi",
+      "Czerwony kolor gleby marsjańskiej jest spowodowany obecnością Fe₂O₃"
+    ]
+  },
+  "fe_oh_3": {
+    "name_ru": "Wodorotlenek żelaza(III)",
+    "appearance_ru": "Brązowy galaretowaty osad",
+    "industrial_ru": "Oczyszczanie wody (koagulant), pigmenty",
+    "production_ru": "Strącanie z roztworów soli żelaza(III) za pomocą zasady",
+    "fun_facts_ru": [
+      "Nie ma temperatury topnienia — rozkłada się na Fe₂O₃ i wodę pod wpływem ogrzewania",
+      "Rdza jest mieszaniną uwodnionych tlenków żelaza o składzie zbliżonym do Fe(OH)₃"
+    ]
+  },
+  "fecl2": {
+    "name_ru": "Chlorek żelaza(II)",
+    "appearance_ru": "Zielonkawe higroskopijne kryształy",
+    "industrial_ru": "Oczyszczanie ścieków, trawienie metali",
+    "production_ru": "Rozpuszczanie żelaza w kwasie solnym",
+    "fun_facts_ru": [
+      "Stopniowo utlenia się do FeCl₃ na powietrzu"
+    ]
+  },
+  "fecl3": {
+    "name_ru": "Chlorek żelaza(III)",
+    "appearance_ru": "Ciemnobrązowe kryształy, rozływające się na powietrzu",
+    "hazards_ru": [
+      "Żrący",
+      "Drażni skórę"
+    ],
+    "industrial_ru": "Oczyszczanie ścieków, trawienie obwodów drukowanych, katalizator",
+    "production_ru": "Reakcja żelaza z gazowym chlorem w podwyższonej temperaturze",
+    "fun_facts_ru": [
+      "Roztwór FeCl₃ jest odczynnikiem jakościowym na fenole (daje fioletowe zabarwienie)"
+    ]
+  },
+  "feo": {
+    "name_ru": "Tlenek żelaza(II)",
+    "appearance_ru": "Czarny proszek",
+    "industrial_ru": "Pigment, składnik stali (odtleniacz)",
+    "production_ru": "Redukcja Fe₂O₃ lub termiczny rozkład szczawianu żelaza(II)",
+    "fun_facts_ru": [
+      "Występuje w przyrodzie jako minerał wüstyt",
+      "Stosowany jako czarny pigment w ceramice"
+    ]
+  },
+  "feso4": {
+    "name_ru": "Siarczan żelaza(II)",
+    "appearance_ru": "Zielonkawoniebieskie kryształy (heptahydrat)",
+    "hazards_ru": [
+      "Drażni skórę i oczy"
+    ],
+    "industrial_ru": "Oczyszczanie wody, produkcja atramentu, rolnictwo (nawóz mikroelementowy)",
+    "production_ru": "Rozpuszczanie żelaza w rozcieńczonym kwasie siarkowym",
+    "fun_facts_ru": [
+      "Heptahydrat FeSO₄·7H₂O jest znany jako zielony witriol — jeden z najstarszych znanych związków chemicznych"
+    ]
+  },
+  "h2": {
+    "name_ru": "Wodór",
+    "appearance_ru": "Bezbarwny gaz bez zapachu i smaku",
+    "hazards_ru": [
+      "Wysoce łatwopalny",
+      "Tworzy mieszaniny wybuchowe z powietrzem"
+    ],
+    "industrial_ru": "Synteza amoniaku, uwodornienie tłuszczów, paliwo rakietowe, ogniwa paliwowe",
+    "production_ru": "Reforming parowy metanu, elektroliza wody",
+    "fun_facts_ru": [
+      "Najlżejszy i najliczniej występujący pierwiastek we Wszechświecie",
+      "Mieszanina H₂ z powietrzem (4–75%) jest wybuchowa — znana jako 'gaz piorunujący'"
+    ]
+  },
+  "h2co3": {
+    "name_ru": "Kwas węglowy",
+    "appearance_ru": "Istnieje tylko w roztworze wodnym; bezbarwna ciecz",
+    "industrial_ru": "Napoje gazowane zawierają rozpuszczony CO₂, który tworzy kwas węglowy",
+    "production_ru": "Rozpuszczanie CO₂ w wodzie: CO₂ + H₂O ⇌ H₂CO₃",
+    "fun_facts_ru": [
+      "Jeden z najbardziej niestabilnych kwasów — rozkłada się na wodę i CO₂ prawie natychmiast",
+      "Bąbelki w napojach gazowanych to CO₂ uwalniany podczas rozkładu kwasu węglowego"
+    ]
+  },
+  "h2o": {
+    "name_ru": "Woda",
+    "appearance_ru": "Bezbarwna, bezwonna ciecz",
+    "industrial_ru": "Uniwersalny rozpuszczalnik stosowany we wszystkich gałęziach przemysłu",
+    "fun_facts_ru": [
+      "Jedyna substancja na Ziemi występująca naturalnie we wszystkich trzech stanach skupienia",
+      "Lód jest mniej gęsty niż woda w stanie ciekłym — anomalna właściwość, bez której życie wodne w zimie byłoby niemożliwe",
+      "Cząsteczka wody ma geometrię kątową z kątem wiązania 104,5°"
+    ]
+  },
+  "h2o2": {
+    "name_ru": "Nadtlenek wodoru",
+    "appearance_ru": "Bezbarwna ciecz (stężona jest syropowata)",
+    "hazards_ru": [
+      "Silny utleniacz",
+      "Powoduje oparzenia w wysokich stężeniach"
+    ],
+    "industrial_ru": "Bielenie, dezynfekcja, paliwo rakietowe, produkcja epoksydów",
+    "production_ru": "Proces antrachinonowy (autooksydacja 2-etyloantrahydrochinonu)",
+    "fun_facts_ru": [
+      "Roztwór 3% to znana 'woda utleniona' z apteczki",
+      "Chrząszcze bombardiery wykorzystują H₂O₂ do obronnej 'eksplozji' w temperaturze ~100°C"
+    ]
+  },
+  "h2s": {
+    "name_ru": "Siarkowodór",
+    "appearance_ru": "Bezbarwny gaz o zapachu zgniłych jaj",
+    "hazards_ru": [
+      "Wysoce toksyczny",
+      "Wysoce łatwopalny"
+    ],
+    "industrial_ru": "Produkcja siarki, chemia analityczna (strącanie siarczków)",
+    "production_ru": "Reakcja siarczków z kwasami, produkt uboczny rafinacji ropy naftowej",
+    "fun_facts_ru": [
+      "Stężenie śmiertelne wynosi zaledwie 0,1% w powietrzu",
+      "W wysokich stężeniach paraliżuje zmysł węchu — zapachu nie da się już wykryć"
+    ]
+  },
+  "h2so4": {
+    "name_ru": "Kwas siarkowy",
+    "appearance_ru": "Bezbarwna, oleista ciecz",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje ciężkie oparzenia"
+    ],
+    "storage_ru": "Przechowywać w pojemnikach szklanych lub polietylenowych, z dala od zasad",
+    "industrial_ru": "Produkcja nawozów, akumulatorów i detergentów",
+    "production_ru": "Metoda kontaktowa: spalanie siarki → SO₂ → SO₃ → H₂SO₄",
+    "fun_facts_ru": [
+      "Kwas siarkowy jest nazywany 'chlebem chemii' — stosuje się go w niemal każdej produkcji chemicznej",
+      "Przy rozcieńczaniu zawsze dodawaj kwas do wody, nigdy odwrotnie — w przeciwnym razie następuje gwałtowne wrzenie"
+    ]
+  },
+  "h3po4": {
+    "name_ru": "Kwas fosforowy",
+    "appearance_ru": "Bezbarwne kryształy, rozływające się na powietrzu",
+    "hazards_ru": [
+      "Żrący",
+      "Drażni skórę i oczy"
+    ],
+    "industrial_ru": "Produkcja nawozów mineralnych, dodatek do żywności (E338), ochrona antykorozyjna",
+    "production_ru": "Ekstrakcja lub termiczna obróbka apatytów i fosforytów",
+    "fun_facts_ru": [
+      "Obecny w Coca-Coli i innych napojach gazowanych jako regulator kwasowości (E338)",
+      "Kwas fosforowy jest trójprotonowy — może tworzyć trzy serie soli"
+    ]
+  },
+  "hcl": {
+    "name_ru": "Kwas solny",
+    "appearance_ru": "Bezbarwna ciecz o ostrym zapachu (w roztworze)",
+    "hazards_ru": [
+      "Żrący",
+      "Drażni drogi oddechowe"
+    ],
+    "storage_ru": "Przechowywać w pojemnikach szklanych lub polietylenowych w dobrze wentylowanym pomieszczeniu",
+    "industrial_ru": "Czyszczenie metali, produkcja chlorków, przemysł spożywczy",
+    "production_ru": "Synteza z wodoru i chloru lub jako produkt uboczny chlorowania związków organicznych",
+    "fun_facts_ru": [
+      "Kwas solny jest obecny w soku żołądkowym człowieka (pH ≈ 1,5–2)",
+      "Stężony HCl 'dymi' na powietrzu z powodu uwalniania gazowego HCl"
+    ]
+  },
+  "hclo": {
+    "name_ru": "Kwas podchlorawy",
+    "appearance_ru": "Istnieje tylko w roztworze, bladożółty",
+    "hazards_ru": [
+      "Utleniacz",
+      "Drażni skórę"
+    ],
+    "industrial_ru": "Dezynfekcja wody, bielenie",
+    "production_ru": "Rozpuszczanie chloru w wodzie: Cl₂ + H₂O → HClO + HCl",
+    "fun_facts_ru": [
+      "Najsłabszy z kwasów zawierających chlor",
+      "HClO jest substancją, która faktycznie dezynfekuje wodę podczas chlorowania"
+    ]
+  },
+  "hclo3": {
+    "name_ru": "Kwas chlorowy",
+    "appearance_ru": "Istnieje tylko w roztworze, bezbarwna ciecz",
+    "hazards_ru": [
+      "Silny utleniacz",
+      "Związek niestabilny"
+    ],
+    "industrial_ru": "Produkcja chloranów (herbicydy, pirotechnika)",
+    "production_ru": "Reakcja Ba(ClO₃)₂ z kwasem siarkowym",
+    "fun_facts_ru": [
+      "Chlorany (sole HClO₃) są stosowane w produkcji zapałek i ogni sztucznych",
+      "W postaci wolnej jest niestabilny — rozkłada się na ClO₂ i HClO₄"
+    ]
+  },
+  "hclo4": {
+    "name_ru": "Kwas nadchlorowy",
+    "appearance_ru": "Bezbarwna dymiąca ciecz",
+    "hazards_ru": [
+      "Silny utleniacz",
+      "Żrący",
+      "Wybuchowy w kontakcie z materią organiczną"
+    ],
+    "industrial_ru": "Chemia analityczna, produkcja nadchloranów (paliwo rakietowe)",
+    "production_ru": "Reakcja NaClO₄ z HCl lub utlenianie elektrochemiczne",
+    "fun_facts_ru": [
+      "Najmocniejszy z kwasów zawierających chlor",
+      "Nadchloran amonu NH₄ClO₄ jest głównym składnikiem stałego paliwa rakietowego"
+    ]
+  },
+  "hno3": {
+    "name_ru": "Kwas azotowy",
+    "appearance_ru": "Bezbarwna ciecz o ostrym zapachu; dymi na powietrzu",
+    "hazards_ru": [
+      "Żrący",
+      "Silny utleniacz",
+      "Powoduje ciężkie oparzenia"
+    ],
+    "storage_ru": "Przechowywać w ciemnych szklanych pojemnikach, z dala od substancji organicznych",
+    "industrial_ru": "Produkcja nawozów (azotan amonu), materiałów wybuchowych i barwników",
+    "production_ru": "Katalityczne utlenianie amoniaku na katalizatorze platynowym (proces Ostwalda)",
+    "fun_facts_ru": [
+      "Mieszanina HNO₃ i HCl (1:3) to 'woda królewska', która rozpuszcza złoto i platynę",
+      "Kwas azotowy barwi skórę na żółto (reakcja ksantoproteinowa z białkami)"
+    ]
+  },
+  "k2so4": {
+    "name_ru": "Siarczan potasu",
+    "appearance_ru": "Bezbarwne kryształy",
+    "industrial_ru": "Nawóz potasowy, produkcja szkła",
+    "production_ru": "Reakcja KCl z kwasem siarkowym",
+    "fun_facts_ru": [
+      "Jeden z najstarszych nawozów mineralnych",
+      "W odróżnieniu od KCl nie zawiera chloru — preferowany dla roślin wrażliwych na chlor (tytoń, winogrona, ziemniaki)"
+    ]
+  },
+  "kbr": {
+    "name_ru": "Bromek potasu",
+    "appearance_ru": "Bezbarwne kryształy regularne",
+    "industrial_ru": "Fotografia (materiały światłoczułe), medycyna (środek uspokajający)",
+    "production_ru": "Reakcja KOH z bromem lub HBr",
+    "fun_facts_ru": [
+      "Szeroko stosowany jako środek uspokajający w XIX wieku",
+      "Kryształy KBr są przezroczyste dla promieniowania podczerwonego — stosowane w spektroskopii IR"
+    ]
+  },
+  "kcl": {
+    "name_ru": "Chlorek potasu",
+    "appearance_ru": "Bezbarwne kryształy regularne",
+    "industrial_ru": "Produkcja nawozów potasowych, medycyna (zamiennik soli kuchennej)",
+    "production_ru": "Wydobycie minerałów naturalnych sylwinu i karnalitu",
+    "fun_facts_ru": [
+      "Minerał sylwin (KCl) jest głównym źródłem nawozów potasowych",
+      "Stosowany jako zamiennik soli kuchennej w dietetyce"
+    ]
+  },
+  "kmno4": {
+    "name_ru": "Nadmanganian potasu",
+    "appearance_ru": "Ciemnofioletowe kryształy o metalicznym połysku",
+    "hazards_ru": [
+      "Silny utleniacz",
+      "Może powodować oparzenia"
+    ],
+    "industrial_ru": "Dezynfekcja, chemia analityczna (miareczkowanie), oczyszczanie wody",
+    "production_ru": "Utlenianie manganianów w środowisku zasadowym",
+    "fun_facts_ru": [
+      "Potocznie znany w Polsce jako 'nadmanganian'",
+      "Jego roztwór wodny ma intensywnie fioletowy kolor nawet przy bardzo niskim stężeniu"
+    ]
+  },
+  "kno3": {
+    "name_ru": "Azotan potasu",
+    "appearance_ru": "Bezbarwne kryształy",
+    "hazards_ru": [
+      "Utleniacz"
+    ],
+    "industrial_ru": "Nawóz, konserwant (E252), pirotechnika, produkcja szkła",
+    "production_ru": "Reakcja KCl z NaNO₃ (konwersja)",
+    "fun_facts_ru": [
+      "Saletra jest jednym z trzech składników prochu czarnego (obok siarki i węgla drzewnego)",
+      "Stosowany w przemyśle spożywczym do peklowania mięsa"
+    ]
+  },
+  "koh": {
+    "name_ru": "Wodorotlenek potasu",
+    "appearance_ru": "Biała substancja stała, higroskopijny",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje ciężkie oparzenia"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, chronić przed wilgocią i CO₂",
+    "industrial_ru": "Produkcja mydła potasowego, elektrolity do baterii alkalicznych",
+    "production_ru": "Elektroliza roztworu chlorku potasu",
+    "fun_facts_ru": [
+      "KOH jest nazywany 'potasem żrącym' — łatwo niszczy tkankę organiczną",
+      "Pochłania CO₂ z powietrza, przekształcając się w węglan potasu"
+    ]
+  },
+  "mg_oh_2": {
+    "name_ru": "Wodorotlenek magnezu",
+    "appearance_ru": "Biały bezpostaciowy proszek",
+    "industrial_ru": "Lek zobojętniający kwas (na zgagę), środek zmniejszający palność",
+    "production_ru": "Strącanie z roztworów soli magnezu za pomocą zasady",
+    "fun_facts_ru": [
+      "Mg(OH)₂ jest substancją czynną 'mleczka magnezowego', stosowanego w leczeniu zgagi",
+      "Rozkłada się na MgO i wodę pod wpływem ogrzewania"
+    ]
+  },
+  "mgcl2": {
+    "name_ru": "Chlorek magnezu",
+    "appearance_ru": "Bezbarwne higroskopijne kryształy",
+    "industrial_ru": "Produkcja magnezu (elektroliza stopionych soli), środek odladzający",
+    "production_ru": "Rozpuszczanie MgO lub Mg(OH)₂ w kwasie solnym, odparowanie wody morskiej",
+    "fun_facts_ru": [
+      "Główne źródło magnezu z wody morskiej",
+      "Stosowany jako środek odladzający zamiast NaCl"
+    ]
+  },
+  "mgo": {
+    "name_ru": "Tlenek magnezu",
+    "appearance_ru": "Biały proszek",
+    "industrial_ru": "Materiały ogniotrwałe, medycyna (lek zobojętniający), budownictwo",
+    "production_ru": "Prażenie magnezytu MgCO₃ lub dolomitu",
+    "fun_facts_ru": [
+      "Temperatura topnienia MgO (2852°C) jest jedną z najwyższych wśród tlenków",
+      "Magnezja palona jest stosowana przez sportowców do osuszania rąk"
+    ]
+  },
+  "mncl2": {
+    "name_ru": "Chlorek manganu(II)",
+    "appearance_ru": "Różowe kryształy",
+    "industrial_ru": "Katalizator, produkcja baterii, przemysł tekstylny",
+    "production_ru": "Rozpuszczanie manganu lub MnO₂ w kwasie solnym",
+    "fun_facts_ru": [
+      "Jego roztwór ma charakterystyczny bladoróżowy kolor jonów Mn²⁺"
+    ]
+  },
+  "mno2": {
+    "name_ru": "Tlenek manganu(IV)",
+    "appearance_ru": "Ciemnobrązowy do czarnego proszek",
+    "industrial_ru": "Produkcja baterii, katalizator rozkładu H₂O₂, pigment",
+    "production_ru": "Występuje w przyrodzie jako minerał piroluzyt",
+    "fun_facts_ru": [
+      "Stosowany w bateriach od XIX wieku",
+      "Katalizuje rozkład nadtlenku wodoru — klasyczne doświadczenie szkolne"
+    ]
+  },
+  "n2": {
+    "name_ru": "Azot",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "industrial_ru": "Produkcja amoniaku, atmosfera obojętna, zamrażanie żywności",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza",
+    "fun_facts_ru": [
+      "Stanowi 78% atmosfery Ziemi",
+      "Potrójne wiązanie N≡N jest jednym z najsilniejszych wiązań chemicznych"
+    ]
+  },
+  "na2co3": {
+    "name_ru": "Węglan sodu",
+    "appearance_ru": "Biały proszek",
+    "industrial_ru": "Produkcja szkła, mydła, detergentów i celulozy",
+    "production_ru": "Proces Solvaya (metoda sodowo-amoniakalny) z NaCl i CaCO₃",
+    "fun_facts_ru": [
+      "Soda kalcynowana (Na₂CO₃) jest jednym z najważniejszych produktów przemysłu chemicznego",
+      "Dekahydrat Na₂CO₃·10H₂O jest znany jako 'soda krystaliczna'"
+    ]
+  },
+  "na2o": {
+    "name_ru": "Tlenek sodu",
+    "appearance_ru": "Biały proszek",
+    "hazards_ru": [
+      "Żrący",
+      "Gwałtownie reaguje z wodą"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, chronić przed wilgocią",
+    "industrial_ru": "Składnik zestawów szklarskich, produkt pośredni w produkcji NaOH",
+    "production_ru": "Ogrzewanie sodu z ograniczonym dostępem tlenu",
+    "fun_facts_ru": [
+      "Szybko pochłania wilgoć i CO₂ z powietrza, przekształcając się w Na₂CO₃"
+    ]
+  },
+  "na2so4": {
+    "name_ru": "Siarczan sodu",
+    "appearance_ru": "Bezbarwne kryształy",
+    "industrial_ru": "Produkcja szkła, detergentów i celulozy",
+    "production_ru": "Reakcja kwasu siarkowego z chlorkiem sodu lub z minerałów naturalnych",
+    "fun_facts_ru": [
+      "Dekahydrat Na₂SO₄·10H₂O (sól Glaubera) został odkryty przez Glaubera w 1625 roku i był stosowany jako środek przeczyszczający"
+    ]
+  },
+  "naalo2": {
+    "name_ru": "Glinian sodu",
+    "appearance_ru": "Biały proszek",
+    "industrial_ru": "Oczyszczanie wody (koagulant), produkcja zeolitów",
+    "production_ru": "Rozpuszczanie Al₂O₃ lub Al(OH)₃ w roztworze NaOH",
+    "fun_facts_ru": [
+      "Powstaje przy rozpuszczaniu glinu w zasadzie — typowa reakcja metalu amfoterycznego",
+      "Stosowany w budownictwie jako przyspieszacz wiązania betonu"
+    ]
+  },
+  "nacl": {
+    "name_ru": "Chlorek sodu",
+    "appearance_ru": "Bezbarwne kryształy regularne",
+    "industrial_ru": "Przemysł spożywczy, produkcja sody i chloru (elektroliza)",
+    "production_ru": "Wydobycie soli kamiennej lub odparowanie wody morskiej",
+    "fun_facts_ru": [
+      "Roczne światowe zużycie wynosi około 300 milionów ton",
+      "W starożytnym Rzymie żołnierzom płacono solą — stąd słowo 'salary' (pensja)",
+      "Kryształy NaCl mają kształt sześcianu, widoczny nawet w zwykłej soli kuchennej"
+    ]
+  },
+  "naoh": {
+    "name_ru": "Wodorotlenek sodu",
+    "appearance_ru": "Biała substancja stała, higroskopijny",
+    "hazards_ru": [
+      "Żrący",
+      "Powoduje ciężkie oparzenia"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, chronić przed wilgocią",
+    "industrial_ru": "Produkcja mydła, papieru, wiskozy; rafinacja produktów naftowych",
+    "production_ru": "Elektroliza roztworu chlorku sodu (proces chloroalkaliczny)",
+    "fun_facts_ru": [
+      "NaOH jest nazywany 'sodą kaustyczną' lub 'ługiem sodowym'",
+      "Pochłania CO₂ i wilgoć z powietrza, stopniowo przekształcając się w Na₂CO₃"
+    ]
+  },
+  "nh3": {
+    "name_ru": "Amoniak",
+    "appearance_ru": "Bezbarwny gaz o ostrym zapachu",
+    "hazards_ru": [
+      "Toksyczny",
+      "Drażni drogi oddechowe",
+      "Powoduje oparzenia błon śluzowych"
+    ],
+    "storage_ru": "Przechowywać w stalowych butlach w dobrze wentylowanym pomieszczeniu",
+    "industrial_ru": "Produkcja nawozów azotowych, kwasu azotowego i materiałów wybuchowych",
+    "production_ru": "Synteza z azotu i wodoru pod wysokim ciśnieniem i w wysokiej temperaturze (proces Habera)",
+    "fun_facts_ru": [
+      "Sole trzeźwiące (roztwór amoniaku) stosuje się do cucenia osób, które zemdlały",
+      "Amoniak jest jedną z najczęściej produkowanych substancji chemicznych na świecie (ponad 150 mln ton/rok)"
+    ]
+  },
+  "nh4cl": {
+    "name_ru": "Chlorek amonu",
+    "appearance_ru": "Bezbarwne kryształy",
+    "industrial_ru": "Topnik lutowniczy, nawóz, produkcja baterii",
+    "production_ru": "Reakcja amoniaku z kwasem solnym, produkt uboczny procesu Solvaya",
+    "fun_facts_ru": [
+      "Znany od starożytności jako 'salmiak' — nazwa pochodzi od Świątyni Ammona w Egipcie",
+      "Sublimuje pod wpływem ogrzewania, omijając fazę ciekłą"
+    ]
+  },
+  "o2": {
+    "name_ru": "Tlen",
+    "appearance_ru": "Bezbarwny, bezwonny gaz",
+    "industrial_ru": "Metalurgia, medycyna, spawanie, utleniacz w paliwach rakietowych",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza lub elektroliza wody",
+    "fun_facts_ru": [
+      "Stanowi 21% atmosfery Ziemi",
+      "Ciekły tlen ma niebieski kolor i jest przyciągany przez magnesy"
+    ]
+  },
+  "pb_no3_2": {
+    "name_ru": "Azotan ołowiu(II)",
+    "appearance_ru": "Bezbarwne lub białe kryształy",
+    "hazards_ru": [
+      "Toksyczny",
+      "Rakotwórczy",
+      "Niebezpieczny dla środowiska"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, z dala od materiałów palnych, w wentylowanym pomieszczeniu",
+    "industrial_ru": "Produkcja pigmentów, odczynników flotacyjnych, pirotechnika",
+    "production_ru": "Rozpuszczanie ołowiu lub tlenku ołowiu w kwasie azotowym",
+    "fun_facts_ru": [
+      "Jedna z niewielu rozpuszczalnych soli ołowiu — większość soli Pb²⁺ jest nierozpuszczalna",
+      "Rozkłada się pod wpływem ogrzewania, wydzielając brązowy gaz NO₂"
+    ]
+  },
+  "sio2": {
+    "name_ru": "Dwutlenek krzemu",
+    "appearance_ru": "Bezbarwne kryształy lub biały proszek",
+    "industrial_ru": "Produkcja szkła, ceramiki, światłowodów i elektroniki",
+    "production_ru": "Wydobycie naturalnego piasku kwarcowego; oczyszczanie dla elektroniki",
+    "fun_facts_ru": [
+      "Kwarc, kryształ górski, ametyst i agat to naturalne formy SiO₂",
+      "SiO₂ jest podstawą chipów krzemowych, które napędzają całą nowoczesną elektronikę",
+      "Najobficiej występujący minerał w skorupie ziemskiej"
+    ]
+  },
+  "so2": {
+    "name_ru": "Dwutlenek siarki",
+    "appearance_ru": "Bezbarwny gaz o ostrym duszącym zapachu",
+    "hazards_ru": [
+      "Toksyczny",
+      "Drażni drogi oddechowe"
+    ],
+    "industrial_ru": "Produkcja kwasu siarkowego, konserwant (E220), bielenie",
+    "production_ru": "Spalanie siarki lub prażenie rud siarczkowych",
+    "fun_facts_ru": [
+      "Jeden z głównych zanieczyszczeń atmosfery powodujących kwaśne deszcze",
+      "Stosowany jako konserwant w winiarstwie od ponad 2000 lat"
+    ]
+  },
+  "so3": {
+    "name_ru": "Trójtlenek siarki",
+    "appearance_ru": "Bezbarwna ciecz; dymi na powietrzu",
+    "hazards_ru": [
+      "Żrący",
+      "Drażni drogi oddechowe",
+      "Powoduje oparzenia"
+    ],
+    "storage_ru": "Przechowywać w szczelnie zamkniętych pojemnikach, chronić przed wilgocią",
+    "industrial_ru": "Produkt pośredni w produkcji kwasu siarkowego",
+    "production_ru": "Katalityczne utlenianie SO₂ tlenem atmosferycznym (metoda kontaktowa)",
+    "fun_facts_ru": [
+      "SO₃ chciwie pochłania wodę — uwolniony do atmosfery tworzy kwas siarkowy (kwaśne deszcze)",
+      "Roztwór SO₃ w kwasie siarkowym nazywa się oleum"
+    ]
+  },
+  "v2o5": {
+    "name_ru": "Tlenek wanadu(V)",
+    "appearance_ru": "Pomarańczowożółty proszek",
+    "hazards_ru": [
+      "Toksyczny"
+    ],
+    "industrial_ru": "Katalizator w metodzie kontaktowej (produkcja H₂SO₄), produkcja stopów",
+    "production_ru": "Prażenie rud wanadu",
+    "fun_facts_ru": [
+      "Najważniejszy katalizator przemysłowy — bez niego produkcja kwasu siarkowego metodą kontaktową byłaby niemożliwa"
+    ]
+  },
+  "zno": {
+    "name_ru": "Tlenek cynku",
+    "appearance_ru": "Biały proszek; żółknie pod wpływem ogrzewania",
+    "industrial_ru": "Produkcja gumy (wulkanizacja), pigment biel cynkowa, kosmetyka, farmaceutyka",
+    "production_ru": "Utlenianie par cynku tlenem atmosferycznym",
+    "fun_facts_ru": [
+      "Znajduje się w maści cynkowej — antyseptycznym środku do pielęgnacji skóry",
+      "Żółknie pod wpływem ogrzewania i bieleeje po ostudzeniu — efekt termochromowy"
+    ]
+  }
+}

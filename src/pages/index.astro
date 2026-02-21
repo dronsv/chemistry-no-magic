@@ -1,145 +1,143 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import * as m from '../paraglide/messages.js';
+import { localizeUrl } from '../lib/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
 ---
 
-<BaseLayout title="Химия без магии" description="Бесплатная подготовка к ОГЭ по химии: 78 заданий из демоверсий ФИПИ, интерактивная таблица Менделеева, адаптивные упражнения.">
+<BaseLayout title={m.site_name()} description={m.landing_meta_desc()}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Химия без магии",
-      "description": "Бесплатная подготовка к ОГЭ по химии",
+      "name": m.site_name(),
+      "description": m.landing_meta_desc(),
       "url": Astro.site?.toString() ?? Astro.url.origin,
       "inLanguage": "ru",
     })} />
   </Fragment>
 
   <section class="hero">
-    <p class="hero__badge">ОГЭ 2025 по химии</p>
-    <h1>Разберись в химии.<br/>Сдай на максимум.</h1>
-    <p class="hero__sub">
-      78 заданий из демоверсий ФИПИ, теория по каждой теме, мгновенная проверка.
-      Бесплатно и без регистрации.
-    </p>
+    <p class="hero__badge">{m.landing_badge()}</p>
+    <h1 set:html={m.landing_title()} />
+    <p class="hero__sub">{m.landing_subtitle()}</p>
     <div class="hero__actions">
-      <a href="/exam/" class="btn btn-primary btn-lg">Решать задания ОГЭ</a>
-      <a href="/diagnostics/" class="btn btn-outline btn-lg">Пройти диагностику</a>
+      <a href={localizeUrl('/exam/', locale)} class="btn btn-primary btn-lg">{m.landing_btn_exam()}</a>
+      <a href={localizeUrl('/diagnostics/', locale)} class="btn btn-outline btn-lg">{m.landing_btn_diagnostics()}</a>
     </div>
   </section>
 
   <section class="stats">
     <div class="stat">
       <span class="stat__num">78</span>
-      <span class="stat__label">заданий ОГЭ</span>
+      <span class="stat__label">{m.landing_stat_tasks()}</span>
     </div>
     <div class="stat">
       <span class="stat__num">19</span>
-      <span class="stat__label">номеров, часть 1</span>
+      <span class="stat__label">{m.landing_stat_numbers()}</span>
     </div>
     <div class="stat">
       <span class="stat__num">20</span>
-      <span class="stat__label">компетенций</span>
+      <span class="stat__label">{m.landing_stat_competencies()}</span>
     </div>
     <div class="stat">
       <span class="stat__num">118</span>
-      <span class="stat__label">элементов</span>
+      <span class="stat__label">{m.landing_stat_elements()}</span>
     </div>
   </section>
 
   <section class="start">
-    <h2 class="section-title">С чего начать</h2>
+    <h2 class="section-title">{m.landing_section_start()}</h2>
     <div class="start__cards">
-      <a href="/diagnostics/" class="start-card start-card--diag">
+      <a href={localizeUrl('/diagnostics/', locale)} class="start-card start-card--diag">
         <span class="start-card__icon">&#9881;</span>
-        <strong>Диагностика</strong>
-        <p>12 вопросов за 15 минут. Система определит, какие темы ты знаешь, а где пробелы.</p>
+        <strong>{m.landing_card_diag_title()}</strong>
+        <p>{m.landing_card_diag_desc()}</p>
       </a>
-      <a href="/exam/" class="start-card start-card--exam">
+      <a href={localizeUrl('/exam/', locale)} class="start-card start-card--exam">
         <span class="start-card__icon">&#9998;</span>
-        <strong>Задания ОГЭ</strong>
-        <p>Реальные задания из демоверсий ФИПИ 2021-2025. Формат ввода как на экзамене.</p>
+        <strong>{m.landing_card_exam_title()}</strong>
+        <p>{m.landing_card_exam_desc()}</p>
       </a>
-      <a href="/profile/" class="start-card start-card--profile">
+      <a href={localizeUrl('/profile/', locale)} class="start-card start-card--profile">
         <span class="start-card__icon">&#9733;</span>
-        <strong>Твой профиль</strong>
-        <p>Отслеживай прогресс по каждой компетенции. Видно, что уже освоено, а что нет.</p>
+        <strong>{m.landing_card_profile_title()}</strong>
+        <p>{m.landing_card_profile_desc()}</p>
       </a>
     </div>
   </section>
 
   <section class="modules">
-    <h2 class="section-title">Темы для изучения</h2>
+    <h2 class="section-title">{m.landing_section_topics()}</h2>
     <div class="modules__grid">
-      <a href="/periodic-table/" class="module-card">
+      <a href={localizeUrl('/periodic-table/', locale)} class="module-card">
         <span class="module-card__num">1</span>
         <div>
-          <strong>Периодическая таблица</strong>
-          <p>Элементы, группы, периоды, электронные конфигурации</p>
+          <strong>{m.landing_topic_periodic()}</strong>
+          <p>{m.landing_topic_periodic_desc()}</p>
         </div>
       </a>
-      <a href="/substances/" class="module-card">
+      <a href={localizeUrl('/substances/', locale)} class="module-card">
         <span class="module-card__num">2</span>
         <div>
-          <strong>Классы веществ</strong>
-          <p>Оксиды, кислоты, основания, соли, номенклатура</p>
+          <strong>{m.landing_topic_substances()}</strong>
+          <p>{m.landing_topic_substances_desc()}</p>
         </div>
       </a>
-      <a href="/bonds/" class="module-card">
+      <a href={localizeUrl('/bonds/', locale)} class="module-card">
         <span class="module-card__num">3</span>
         <div>
-          <strong>Химическая связь</strong>
-          <p>Ионная, ковалентная, металлическая связь</p>
+          <strong>{m.landing_topic_bonds()}</strong>
+          <p>{m.landing_topic_bonds_desc()}</p>
         </div>
       </a>
-      <a href="/oxidation-states/" class="module-card">
+      <a href={localizeUrl('/oxidation-states/', locale)} class="module-card">
         <span class="module-card__num">4</span>
         <div>
-          <strong>Степени окисления</strong>
-          <p>Определение СО, электронный баланс, ОВР</p>
+          <strong>{m.landing_topic_oxidation()}</strong>
+          <p>{m.landing_topic_oxidation_desc()}</p>
         </div>
       </a>
-      <a href="/reactions/" class="module-card">
+      <a href={localizeUrl('/reactions/', locale)} class="module-card">
         <span class="module-card__num">5</span>
         <div>
-          <strong>Реакции</strong>
-          <p>Типы реакций, условия протекания, качественные реакции</p>
+          <strong>{m.landing_topic_reactions()}</strong>
+          <p>{m.landing_topic_reactions_desc()}</p>
         </div>
       </a>
-      <a href="/calculations/" class="module-card">
+      <a href={localizeUrl('/calculations/', locale)} class="module-card">
         <span class="module-card__num">6</span>
         <div>
-          <strong>Расчёты</strong>
-          <p>Молярная масса, массовая доля, расчёты по уравнениям</p>
+          <strong>{m.landing_topic_calculations()}</strong>
+          <p>{m.landing_topic_calculations_desc()}</p>
         </div>
       </a>
     </div>
   </section>
 
   <section class="how">
-    <h2 class="section-title">Как это работает</h2>
+    <h2 class="section-title">{m.landing_section_how()}</h2>
     <div class="how__steps">
       <div class="how__step">
         <span class="how__num">1</span>
-        <p><strong>Диагностика</strong> &mdash; система определяет твой уровень по 20 компетенциям</p>
+        <p set:html={m.landing_how_step1()} />
       </div>
       <div class="how__step">
         <span class="how__num">2</span>
-        <p><strong>Теория + практика</strong> &mdash; изучай материал и решай упражнения по слабым темам</p>
+        <p set:html={m.landing_how_step2()} />
       </div>
       <div class="how__step">
         <span class="how__num">3</span>
-        <p><strong>Задания ОГЭ</strong> &mdash; тренируйся на реальных заданиях с мгновенной проверкой</p>
+        <p set:html={m.landing_how_step3()} />
       </div>
       <div class="how__step">
         <span class="how__num">4</span>
-        <p><strong>Профиль</strong> &mdash; следи за прогрессом и закрывай оставшиеся пробелы</p>
+        <p set:html={m.landing_how_step4()} />
       </div>
     </div>
   </section>
 
-  <footer class="landing-footer">
-    <a href="/about/">О проекте</a>
-  </footer>
 </BaseLayout>
 
 <style>
@@ -351,14 +349,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
     font-size: 0.9375rem;
     line-height: 1.5;
-  }
-
-  /* Footer */
-  .landing-footer {
-    text-align: center;
-    padding: var(--space-lg) 0 var(--space-2xl);
-    border-top: 1px solid var(--color-border);
-    font-size: 0.875rem;
   }
 
   @media (max-width: 480px) {

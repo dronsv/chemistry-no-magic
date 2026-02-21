@@ -1,0 +1,210 @@
+[
+  {
+    "task_number": 1,
+    "title_ru": "Budowa atomu i układ okresowy",
+    "topic_ru": "Konfiguracja elektronowa, izotopy, energie jonizacji, trendy w układzie okresowym",
+    "answer_format": "input_cells / select / sequence",
+    "algorithm_ru": [
+      "Przeczytaj uważnie treść — określ, czego dotyczy pytanie: konfiguracji elektronowej, izotopów czy trendów okresowych.",
+      "Dla konfiguracji elektronowej: zapisz kolejno podpowłoki wg zasady aufbau (1s → 2s → 2p → 3s → ...). Liczba powłok = numer okresu. Suma elektronów walencyjnych (s + p na ostatniej powłoce) = numer grupy (blok s i p).",
+      "Dla izotopów: pamiętaj, że Z = liczba protonów = liczba elektronów (atom obojętny), A = Z + N (neutrony).",
+      "Dla trendów: w okresie (→) rośnie energia jonizacji, elektroujemność, maleje promień atomowy. W grupie (↓) odwrotnie.",
+      "Uwaga na anomalie: np. E_j(Al) < E_j(Mg) ze względu na pełną podpowłokę 3s² magnezu."
+    ],
+    "key_facts_ru": [
+      "Konfiguracja elektronowa budowana wg zasady aufbau: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p...",
+      "Reguła Hunda: elektrony zajmują osobne orbitale tego samego podpoziomu przed sparowaniem.",
+      "Zakaz Pauliego: dwa elektrony na jednym orbitalu muszą mieć przeciwne spiny.",
+      "Izotopy — atomy tego samego pierwiastka różniące się liczbą neutronów.",
+      "Energia jonizacji generalnie rośnie w okresie i maleje w grupie, ale są wyjątki (pełne i półpełne podpowłoki są stabilniejsze)."
+    ],
+    "common_traps_ru": [
+      "Nie myl liczby masowej (A = p + n) z liczbą atomową (Z = p).",
+      "Pamiętaj o anomaliach energii jonizacji (np. B < Be, O < N).",
+      "Dla pierwiastków bloku d konfiguracja jonu różni się od atomu — najpierw usuwane są elektrony z podpowłoki s (np. Fe²⁺: [Ar]3d⁶, nie [Ar]3d⁴4s²)."
+    ],
+    "variability_ru": "Zmienia się pierwiastek, rodzaj pytania (konfiguracja, izotopy, porównanie trendów). Zasady są uniwersalne."
+  },
+  {
+    "task_number": 2,
+    "title_ru": "Wiązania chemiczne i oddziaływania międzycząsteczkowe",
+    "topic_ru": "Typy wiązań (jonowe, kowalencyjne, metaliczne, koordynacyjne), hybrydyzacja, wiązania wodorowe, siły van der Waalsa",
+    "answer_format": "matching / select / free_text",
+    "algorithm_ru": [
+      "Określ typ wiązania na podstawie różnicy elektroujemności: ΔEN > 1,7 → jonowe; 0,4 < ΔEN < 1,7 → kowalencyjne spolaryzowane; ΔEN < 0,4 → kowalencyjne niespolaryzowane; metal–metal → metaliczne.",
+      "Wiązanie koordynacyjne: jeden atom dostarcza obie elektrony pary wiążącej (np. NH₄⁺, H₃O⁺, kompleksy metali przejściowych).",
+      "Oddziaływania międzycząsteczkowe: wiązania wodorowe (N–H···X, O–H···X, F–H···X) > dipol–dipol > dyspersyjne (London).",
+      "Porównując temperatury wrzenia: silniejsze oddziaływania → wyższa T_w. Wiązania wodorowe znacząco podnoszą T_w.",
+      "W pytaniach opisowych: zawsze odwołuj się do konkretnych oddziaływań i podaj uzasadnienie (elektroujemność, wolne pary elektronowe, rozmiar atomu)."
+    ],
+    "key_facts_ru": [
+      "Wiązanie jonowe: między metalem a niemetalem (duża ΔEN), tworzy kryształ jonowy.",
+      "Wiązanie kowalencyjne: współdzielenie par elektronowych między niemetalami.",
+      "Wiązanie metaliczne: «morze» zdelokalizowanych elektronów walencyjnych między kationami metali.",
+      "Wiązanie wodorowe: O–H···O jest najsilniejszym typem wiązania wodorowego w chemii nieorganicznej.",
+      "Wiązanie koordynacyjne po utworzeniu jest nieodróżnialne od zwykłego kowalencyjnego."
+    ],
+    "common_traps_ru": [
+      "Nie myl wiązań międzycząsteczkowych (słabych) z wiązaniami chemicznymi (silnymi).",
+      "HF ma wyższą T_w niż HCl, ale niższą niż H₂O — mimo że F jest bardziej elektroujemny, H₂O tworzy więcej wiązań wodorowych (2 wolne pary, 2 atomy H).",
+      "W pytaniach o wiązanie koordynacyjne pamiętaj o joniu NH₄⁺ i H₃O⁺ — to klasyczne przykłady."
+    ],
+    "variability_ru": "Zmienia się zestaw substancji i typ wiązania do przyporządkowania. Mogą pojawić się pytania o hybrydyzację (sp, sp², sp³), kształt cząsteczki i jej polarność."
+  },
+  {
+    "task_number": 3,
+    "title_ru": "Obliczenia stechiometryczne",
+    "topic_ru": "Masa molowa, mol, objętość molowa, skład procentowy, obliczenia z równań reakcji",
+    "answer_format": "numeric / matching",
+    "algorithm_ru": [
+      "Zapisz dane i szukane wielkości. Ustal, jakie przeliczenie jest potrzebne.",
+      "Masa molowa: zsumuj masy atomowe wszystkich atomów w wzorze sumarycznym. Pamiętaj o indeksach i nawiasach.",
+      "Obliczenia z równań: (1) zapisz zbilansowane równanie, (2) oblicz n = m/M lub n = V/V_m, (3) przelicz mole wg współczynników stechiometrycznych, (4) oblicz szukaną wielkość.",
+      "Objętość molowa gazu w warunkach normalnych: V_m = 22,4 dm³/mol.",
+      "Udział masowy pierwiastka: ω = (n × M_pierwiastka) / M_związku × 100%."
+    ],
+    "key_facts_ru": [
+      "1 mol = 6,022 × 10²³ cząsteczek (liczba Avogadra).",
+      "n = m/M (mol = masa/masa molowa); n = V/V_m (dla gazów w warunkach normalnych).",
+      "Prawo zachowania masy: masa substratów = masa produktów.",
+      "Prawo Avogadra: w tych samych warunkach T i p, równe objętości gazów zawierają taką samą liczbę cząsteczek.",
+      "Prawo stałości składu (Proust): związek chemiczny ma stały skład ilościowy."
+    ],
+    "common_traps_ru": [
+      "Nie zapomnij o nawiasach w wzorach — np. (NH₄)₂SO₄ ma 2 atomy N, 8 atomów H.",
+      "V_m = 22,4 dm³/mol obowiązuje tylko w warunkach normalnych (0 °C, 1013 hPa).",
+      "Sprawdź, czy równanie jest zbilansowane, zanim zaczniesz obliczenia."
+    ],
+    "variability_ru": "Zmienia się substancja i typ obliczenia (masa molowa, objętość gazu, skład procentowy, obliczenia z równania). Zasady przeliczeniowe są takie same."
+  },
+  {
+    "task_number": 4,
+    "title_ru": "Kwasy, zasady i pH",
+    "topic_ru": "Teorie kwasów i zasad, pH, hydroliza soli, roztwory buforowe",
+    "answer_format": "sequence / matching / numeric",
+    "algorithm_ru": [
+      "Określ moc kwasu/zasady: kwasy mocne (HCl, H₂SO₄, HNO₃, HClO₄) dysocjują całkowicie; kwasy słabe (CH₃COOH, H₂CO₃, HF) — częściowo.",
+      "pH = −log[H⁺]. Dla mocnych kwasów: [H⁺] = stężenie kwasu. Dla mocnych zasad: [OH⁻] = stężenie zasady, pOH = −log[OH⁻], pH = 14 − pOH.",
+      "Moc kwasów tlenowych: rośnie z liczbą atomów tlenu niezwiązanych z wodorem (więcej O → mocniejszy kwas).",
+      "Hydroliza soli: sól słabego kwasu + mocna zasada → pH > 7 (zasadowy); sól mocnego kwasu + słaba zasada → pH < 7 (kwasowy); obie mocne → pH ≈ 7.",
+      "Porównując moc kwasów, uwzględnij stopień utlenienia atomu centralnego i stabilność anionu."
+    ],
+    "key_facts_ru": [
+      "Skala pH: 0–14; pH < 7 → kwasowy, pH = 7 → obojętny, pH > 7 → zasadowy.",
+      "Kwasy bezwodnikowe (HF, HCl, HBr, HI): moc rośnie w grupie (HF < HCl < HBr < HI).",
+      "Kwasy tlenowe tego samego pierwiastka: moc rośnie ze stopniem utlenienia (HClO < HClO₂ < HClO₃ < HClO₄).",
+      "Roztwór buforowy: utrzymuje w przybliżeniu stałe pH po dodaniu niewielkich ilości kwasu lub zasady.",
+      "K_w = [H⁺][OH⁻] = 10⁻¹⁴ (w 25 °C)."
+    ],
+    "common_traps_ru": [
+      "HF jest kwasem słabym, mimo że fluor jest najsilniejszym utleniaczem — nie myl elektroujemności z mocą kwasu.",
+      "Nie myl kwasu «stężonego» z «mocnym» — to różne pojęcia (stężenie vs stopień dysocjacji).",
+      "Przy obliczaniu pH roztworu soli musisz uwzględnić hydrolizę — nie wystarczy znać stężenie soli."
+    ],
+    "variability_ru": "Zmienia się kwas/zasada/sól, typ pytania (porównanie mocy, obliczanie pH, przewidywanie odczynu roztworu). Zasady klasyfikacji i obliczeń są uniwersalne."
+  },
+  {
+    "task_number": 5,
+    "title_ru": "Reakcje utleniania-redukcji (redoks)",
+    "topic_ru": "Stopnie utlenienia, bilans elektronowy, utleniacze i reduktory, bilansowanie równań redoks",
+    "answer_format": "input_cells / select",
+    "algorithm_ru": [
+      "Wyznacz stopnie utlenienia wszystkich atomów w substratach i produktach.",
+      "Zidentyfikuj, który atom zmienia stopień utlenienia — ustal, kto jest utleniaczem (zmniejsza s.u., przyjmuje e⁻), a kto reduktorem (zwiększa s.u., oddaje e⁻).",
+      "Zapisz półreakcje utleniania i redukcji z liczbą wymienianych elektronów.",
+      "Zbilansuj elektrony: znajdź NWW oddanych i przyjętych elektronów.",
+      "Bilansuj równanie: współczynniki z bilansu elektronowego → uzupełnij resztę atomów (H, O) za pomocą H₂O i H⁺ (lub OH⁻ w środowisku zasadowym)."
+    ],
+    "key_facts_ru": [
+      "Utlenianie = oddawanie elektronów = wzrost stopnia utlenienia.",
+      "Redukcja = przyjmowanie elektronów = spadek stopnia utlenienia.",
+      "Typowe utleniacze: KMnO₄, K₂Cr₂O₇, HNO₃(stęż.), H₂SO₄(stęż.), Cl₂, O₂.",
+      "Typowe reduktory: metale aktywne (Zn, Fe, Al), H₂S, SO₂, C, CO.",
+      "W reakcjach dysproporcjonowania ten sam pierwiastek ulega jednocześnie utlenieniu i redukcji."
+    ],
+    "common_traps_ru": [
+      "Nie myl utleniacza (substancji, która się redukuje) z utlenianiem (procesem oddawania elektronów).",
+      "Przy bilansowaniu równań z HNO₃: część azotu jest utleniaczem (→ NO, NO₂), a część tworzy sól — uwzględnij obie role.",
+      "Stopień utlenienia H jest prawie zawsze +1, O prawie zawsze −2 (wyjątki: NaH → H⁻¹, H₂O₂ → O⁻¹, OF₂ → O⁺²)."
+    ],
+    "variability_ru": "Zmienia się reakcja redoks, pytany atom, format (stopnie utlenienia, bilansowanie, identyfikacja utleniacza/reduktora). Metoda bilansu elektronowego jest uniwersalna."
+  },
+  {
+    "task_number": 6,
+    "title_ru": "Chemia organiczna",
+    "topic_ru": "Grupy funkcyjne, nazewnictwo, reakcje organiczne (substytucja, addycja, eliminacja, estryfikacja), identyfikacja",
+    "answer_format": "matching / select / free_text",
+    "algorithm_ru": [
+      "Zidentyfikuj grupę funkcyjną: −OH (alkohol/fenol), −CHO (aldehyd), −CO− (keton), −COOH (kwas karboksylowy), −NH₂ (amina), −COO− (ester).",
+      "Reakcje charakterystyczne: aldehydy → próba Tollensa (lustro srebrowe) i Fehlinga; alkeny → odbarwianie wody bromowej; alkohole → próba z Na (wydzielanie H₂).",
+      "Estryfikacja: kwas + alkohol ⇌ ester + H₂O (katalizator: H₂SO₄ stęż., reakcja odwracalna).",
+      "Polimery: reakcja addycji (poliaddycji) — np. polietylen z etylenu; reakcja kondensacji (polikondensacji) — np. PET, nylon.",
+      "Nazewnictwo IUPAC: znajdź najdłuższy łańcuch, ponumeruj od końca bliższego podstawnikowi, nazwij podstawniki z prefiksami (metylo-, etylo-...)."
+    ],
+    "key_facts_ru": [
+      "Szeregi homologiczne: alkany (C_nH_{2n+2}), alkeny (C_nH_{2n}), alkiny (C_nH_{2n−2}).",
+      "Próba Tollensa wykrywa aldehydy (i glukozę — aldehydocukry) — wydziela się metaliczne srebro.",
+      "Próba Lucasa: rozróżnia alkohole I°, II° i III° rzędu na podstawie szybkości reakcji z HCl/ZnCl₂.",
+      "Alkohole I° → utlenianie → aldehyd → dalsze utlenianie → kwas karboksylowy.",
+      "Izomeria: strukturalna (łańcuchowa, pozycyjna, grup funkcyjnych) i geometryczna (cis/trans)."
+    ],
+    "common_traps_ru": [
+      "Aceton (propanon) jest ketonem — NIE daje pozytywnej próby Tollensa (w odróżnieniu od aldehydów).",
+      "Fenol (C₆H₅OH) ma właściwości kwasowe, mimo że zawiera grupę −OH jak alkohole.",
+      "Glukoza ma formę otwartołańcuchową z grupą −CHO, dlatego daje próbę Tollensa, mimo że w roztworze dominuje forma cykliczna."
+    ],
+    "variability_ru": "Zmienia się typ związku organicznego, reakcja i sposób identyfikacji. Kluczowe jest rozpoznawanie grup funkcyjnych i znajomość charakterystycznych reakcji każdej klasy."
+  },
+  {
+    "task_number": 7,
+    "title_ru": "Kinetyka chemiczna i równowaga",
+    "topic_ru": "Szybkość reakcji, czynniki wpływające na szybkość, równowaga chemiczna, zasada Le Chateliera, stała równowagi",
+    "answer_format": "select",
+    "algorithm_ru": [
+      "Czynniki wpływające na szybkość reakcji: temperatura, stężenie (ciśnienie dla gazów), powierzchnia kontaktu, katalizator, natura reagentów.",
+      "Reguła van't Hoffa: wzrost temperatury o 10 °C zwiększa szybkość 2–4 razy.",
+      "Zasada Le Chateliera: układ w równowadze reaguje na zmianę warunków tak, aby częściowo zniwelować tę zmianę.",
+      "Przesunięcie równowagi: ↑ciśnienie → w stronę mniejszej liczby moli gazu; ↑temperatura → w stronę reakcji endotermicznej; ↑stężenie substratu → w stronę produktów.",
+      "Katalizator NIE przesuwa równowagi — przyspiesza zarówno reakcję w przód, jak i w tył, skraca czas osiągnięcia stanu równowagi."
+    ],
+    "key_facts_ru": [
+      "K_c = [produkty]^n / [substraty]^m — stała równowagi (zależy tylko od temperatury).",
+      "K_c > 1 → równowaga przesunięta w stronę produktów; K_c < 1 → w stronę substratów.",
+      "Katalizator obniża energię aktywacji reakcji, ale nie zmienia ΔH ani K_c.",
+      "Reakcja egzotermiczna (ΔH < 0): wzrost temperatury przesuwa równowagę w lewo (w stronę substratów).",
+      "Zmiana ciśnienia wpływa na równowagę tylko wtedy, gdy liczba moli gazowych substratów ≠ liczba moli gazowych produktów."
+    ],
+    "common_traps_ru": [
+      "Katalizator NIE przesuwa równowagi — to najczęstszy błąd na egzaminie.",
+      "Dodanie ciała stałego (np. węgla w reakcji C + CO₂ ⇌ 2CO) nie przesuwa równowagi, bo stężenie ciała stałego jest stałe.",
+      "Przy analizie wpływu ciśnienia: policz mole gazowe po obu stronach równania (ignoruj ciała stałe i ciecze)."
+    ],
+    "variability_ru": "Zmienia się reakcja równowagowa i rodzaj czynnika (T, p, stężenie, katalizator). Zasada Le Chateliera jest zawsze ta sama."
+  },
+  {
+    "task_number": 8,
+    "title_ru": "Elektrochemia",
+    "topic_ru": "Ogniwa galwaniczne, elektroliza, potencjały standardowe, korozja, ochrona metali",
+    "answer_format": "matching / numeric / free_text",
+    "algorithm_ru": [
+      "Ogniwo galwaniczne: metal o niższym E° jest anodą (utlenianie), metal o wyższym E° jest katodą (redukcja). SEM = E°(katoda) − E°(anoda).",
+      "Elektroliza: proces odwrotny do ogniwa — wymaga dostarczenia energii elektrycznej. Na katodzie: redukcja (wydzielanie metalu lub H₂). Na anodzie: utlenianie.",
+      "Elektroliza roztworów wodnych: na katodzie mogą wydzielać się metal lub H₂ (zależy od E° metalu); na anodzie: O₂, Cl₂ lub utlenianie anody.",
+      "Korozja: samorzutny proces elektrochemiczny. Ochrona: powłoki, anoda protektorowa (cynkowanie), ochrona katodowa.",
+      "Prawo Faradaya: m = (M × I × t) / (n × F), gdzie F = 96500 C/mol."
+    ],
+    "key_facts_ru": [
+      "Szereg elektrochemiczny (wybrane): Li < K < Ca < Na < Mg < Al < Zn < Fe < Ni < Sn < Pb < H₂ < Cu < Ag < Au.",
+      "SEM (siła elektromotoryczna) = E°(katoda) − E°(anoda); SEM > 0 → ogniwo działa samorzutnie.",
+      "Elektroliza NaCl(aq): katoda → H₂, anoda → Cl₂ (nie O₂, bo nadnapięcie anodowe).",
+      "Cynkowanie = ochrona protektorowa: Zn (E° = −0,76 V) ulega korozji zamiast Fe (E° = −0,44 V).",
+      "1 Faraday (F) = 96 500 C/mol = ładunek 1 mola elektronów."
+    ],
+    "common_traps_ru": [
+      "Nie myl anody i katody: w ogniwie anoda jest ujemna (−), w elektrolizerze — dodatnia (+), ale zawsze: na anodzie zachodzi utlenianie.",
+      "Przy elektrolizie roztworów wodnych: metale o E° > E°(H₂O/H₂) ≈ −0,83 V wydzielają się na katodzie; bardziej aktywne → wydziela się H₂.",
+      "SEM musi być dodatnie, aby ogniwo działało samorzutnie. Jeśli obliczysz ujemne SEM, zamieniłeś anodę z katodą."
+    ],
+    "variability_ru": "Zmienia się para metali w ogniwie, elektrolit w elektrolizie, rodzaj ochrony przed korozją. Zasady działania ogniw i elektrolizy są stałe."
+  }
+]

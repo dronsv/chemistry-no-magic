@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { ExamVariant, ExamAnswer } from '../../types/exam';
+import ChemText from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
 
 interface Props {
@@ -86,7 +87,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
       {/* Current question */}
       <div className="exam-question">
         <div className="exam-question__number">{m.exam_task_number({ number: String(currentIdx + 1) })}</div>
-        <p className="exam-question__text">{exercise.question}</p>
+        <p className="exam-question__text"><ChemText text={exercise.question} /></p>
         <div className="exam-question__options">
           {exercise.options.map(opt => (
             <button
@@ -95,7 +96,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
               className={`exam-option${answers.get(currentIdx) === opt.id ? ' exam-option--selected' : ''}`}
               onClick={() => selectOption(opt.id)}
             >
-              {opt.text}
+              <ChemText text={opt.text} />
             </button>
           ))}
         </div>

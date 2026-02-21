@@ -1,0 +1,97 @@
+{
+  "id": "ege",
+  "full_name_ru": "Единый государственный экзамен по химии",
+  "full_name_en": "Unified State Examination — Chemistry (Russia)",
+  "description_ru": "Экзамен для выпускников 11 класса, необходимый для поступления в вузы на химические, медицинские и естественнонаучные направления. Включает неорганическую, органическую и общую химию.",
+  "description_en": "Final exam for 11th-grade graduates, required for admission to universities in chemistry, medicine, and natural science fields. Covers inorganic, organic, and general chemistry.",
+  "country": "RU",
+  "grade": "11",
+  "duration_min": 210,
+  "max_score": 56,
+  "passing_score": 12,
+  "task_count": 34,
+  "part_1_tasks": 28,
+  "part_2_tasks": 6,
+  "scoring": {
+    "part_1_max": 38,
+    "part_2_max": 18,
+    "grade_thresholds": {
+      "min": 12,
+      "good": 30,
+      "excellent": 45
+    }
+  },
+  "topics": [
+    "Строение атома. Электронные конфигурации",
+    "Периодический закон и ПСХЭ Д.И. Менделеева",
+    "Химическая связь и строение вещества",
+    "Неорганическая химия: классы соединений, свойства",
+    "Органическая химия: углеводороды",
+    "Органическая химия: кислородсодержащие и азотсодержащие соединения",
+    "Химическая кинетика и химическое равновесие",
+    "Растворы. Электролитическая диссоциация",
+    "Гидролиз солей",
+    "Окислительно-восстановительные реакции",
+    "Электролиз",
+    "Расчёты по химическим формулам и уравнениям реакций"
+  ],
+  "competencies": [
+    {
+      "id": "ege_atomic_structure",
+      "name_ru": "Строение атома и электронные конфигурации",
+      "name_en": "Atomic structure and electron configurations"
+    },
+    {
+      "id": "ege_periodic_law",
+      "name_ru": "Периодический закон и ПСХЭ",
+      "name_en": "Periodic law and periodic table"
+    },
+    {
+      "id": "ege_bonding",
+      "name_ru": "Химическая связь и строение вещества",
+      "name_en": "Chemical bonding and structure of matter"
+    },
+    {
+      "id": "ege_inorganic",
+      "name_ru": "Свойства неорганических веществ",
+      "name_en": "Properties of inorganic substances"
+    },
+    {
+      "id": "ege_organic",
+      "name_ru": "Органическая химия",
+      "name_en": "Organic chemistry"
+    },
+    {
+      "id": "ege_kinetics",
+      "name_ru": "Химическая кинетика и равновесие",
+      "name_en": "Chemical kinetics and equilibrium"
+    },
+    {
+      "id": "ege_solutions",
+      "name_ru": "Растворы, электролитическая диссоциация, гидролиз",
+      "name_en": "Solutions, electrolytic dissociation, hydrolysis"
+    },
+    {
+      "id": "ege_redox",
+      "name_ru": "ОВР и электролиз",
+      "name_en": "Redox reactions and electrolysis"
+    },
+    {
+      "id": "ege_calculations",
+      "name_ru": "Расчёты по химическим формулам и уравнениям",
+      "name_en": "Calculations by chemical formulas and equations"
+    }
+  ],
+  "official_links": [
+    {
+      "label_ru": "ФИПИ — демоверсии, спецификации, кодификаторы ЕГЭ",
+      "label_en": "FIPI — EGE demo versions, specifications, codifiers",
+      "url": "https://fipi.ru/ege/demoversii-specifikacii-kodifikatory"
+    },
+    {
+      "label_ru": "Открытый банк заданий ЕГЭ (ФИПИ)",
+      "label_en": "Open EGE task bank (FIPI)",
+      "url": "https://ege.fipi.ru/bank/index.php?proj=ACC6848B63A2B0198B292E5C1DECC7AB"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import { loadActivitySeries } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
 export default function ActivitySeriesBar() {
   const [metals, setMetals] = useState<ActivitySeriesEntry[]>([]);
@@ -42,10 +43,10 @@ export default function ActivitySeriesBar() {
       </div>
       <div className="activity-series__labels">
         <span className="activity-series__label activity-series__label--active">
-          Вытесняют H₂ из кислот
+          {m.activity_displace_h2()}
         </span>
         <span className="activity-series__label activity-series__label--noble">
-          Не вытесняют H₂
+          {m.activity_no_displace_h2()}
         </span>
       </div>
     </div>

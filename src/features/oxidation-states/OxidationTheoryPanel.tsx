@@ -88,10 +88,10 @@ export default function OxidationTheoryPanel() {
               <h3 className="theory-panel__heading">{m.theory_redox_heading()}</h3>
               <div className="ox-theory__redox">
                 <p className="ox-theory__redox-item">
-                  <strong>Окислитель:</strong> {theory.redox_concepts.oxidizer_ru}
+                  <strong>{m.rxn_theory_oxidizer()}:</strong> {theory.redox_concepts.oxidizer_ru}
                 </p>
                 <p className="ox-theory__redox-item">
-                  <strong>Восстановитель:</strong> {theory.redox_concepts.reducer_ru}
+                  <strong>{m.rxn_theory_reducer()}:</strong> {theory.redox_concepts.reducer_ru}
                 </p>
                 <p className="ox-theory__redox-mnemonic">
                   {theory.redox_concepts.mnemonic_ru}

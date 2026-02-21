@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
 import type { BondType, CrystalStructure } from '../../../lib/bond-calculator';
 
@@ -16,26 +17,38 @@ export interface Exercise {
   competencyMap: Record<string, 'P' | 'S'>;
 }
 
-const BOND_TYPE_LABELS: Record<BondType, string> = {
-  ionic: 'Ионная',
-  covalent_polar: 'Ковалентная полярная',
-  covalent_nonpolar: 'Ковалентная неполярная',
-  metallic: 'Металлическая',
-};
+function getBondTypeLabel(type: BondType): string {
+  switch (type) {
+    case 'ionic': return m.bond_ionic();
+    case 'covalent_polar': return m.bond_covalent_polar();
+    case 'covalent_nonpolar': return m.bond_covalent_nonpolar();
+    case 'metallic': return m.bond_metallic();
+  }
+}
 
-const CRYSTAL_LABELS: Record<CrystalStructure, string> = {
-  ionic: 'Ионная решётка',
-  molecular: 'Молекулярная решётка',
-  atomic: 'Атомная решётка',
-  metallic: 'Металлическая решётка',
-};
+function getCrystalLabel(type: CrystalStructure): string {
+  switch (type) {
+    case 'ionic': return m.crystal_ionic();
+    case 'molecular': return m.crystal_molecular();
+    case 'atomic': return m.crystal_atomic();
+    case 'metallic': return m.crystal_metallic();
+  }
+}
 
-const CRYSTAL_PROPERTIES: Record<CrystalStructure, { melting: string; conductivity: string }> = {
-  ionic: { melting: 'Высокая (800\u20133000 \u00B0C)', conductivity: 'В расплаве и растворе' },
-  molecular: { melting: 'Низкая (< 300 \u00B0C)', conductivity: 'Не проводят' },
-  atomic: { melting: 'Очень высокая (> 1500 \u00B0C)', conductivity: 'Не проводят (кроме графита)' },
-  metallic: { melting: 'Разная (\u221239 \u00B0C Hg \u2026 3422 \u00B0C W)', conductivity: 'Высокая' },
-};
+function getCrystalProperty(type: CrystalStructure, prop: 'melting' | 'conductivity'): string {
+  const key = `crystal_${type}_${prop}` as const;
+  const lookup: Record<string, () => string> = {
+    crystal_ionic_melting: m.crystal_ionic_melting,
+    crystal_ionic_conductivity: m.crystal_ionic_conductivity,
+    crystal_molecular_melting: m.crystal_molecular_melting,
+    crystal_molecular_conductivity: m.crystal_molecular_conductivity,
+    crystal_atomic_melting: m.crystal_atomic_melting,
+    crystal_atomic_conductivity: m.crystal_atomic_conductivity,
+    crystal_metallic_melting: m.crystal_metallic_melting,
+    crystal_metallic_conductivity: m.crystal_metallic_conductivity,
+  };
+  return lookup[key]();
+}
 
 interface BondExample {
   formula: string;
@@ -111,10 +124,10 @@ type GeneratorFn = (elements: Element[]) => Exercise;
 const generators: Record<string, GeneratorFn> = {
   identify_bond_type() {
     const example = pick(BOND_EXAMPLES);
-    const correctLabel = BOND_TYPE_LABELS[example.bondType];
+    const correctLabel = getBondTypeLabel(example.bondType);
     const distractors = ALL_BOND_TYPES
       .filter(t => t !== example.bondType)
-      .map(t => BOND_TYPE_LABELS[t]);
+      .map(t => getBondTypeLabel(t));
 
     const options = shuffleOptions([
       { id: 'correct', text: correctLabel },
@@ -123,21 +136,21 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_bond_type',
-      question: `Какой тип связи в ${example.formula}?`,
+      question: m.bond_ex_q_identify_type({ formula: example.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `В ${example.formula} \u2014 ${correctLabel.toLowerCase()} связь.`,
+      explanation: m.bond_ex_a_identify_type({ formula: example.formula, label: correctLabel.toLowerCase() }),
       competencyMap: { bond_type: 'P' },
     };
   },
 
   identify_crystal_structure() {
     const example = pick(BOND_EXAMPLES);
-    const correctLabel = CRYSTAL_LABELS[example.crystal];
+    const correctLabel = getCrystalLabel(example.crystal);
     const distractors = ALL_CRYSTAL_TYPES
       .filter(t => t !== example.crystal)
-      .map(t => CRYSTAL_LABELS[t]);
+      .map(t => getCrystalLabel(t));
 
     const options = shuffleOptions([
       { id: 'correct', text: correctLabel },
@@ -146,11 +159,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_crystal_structure',
-      question: `Какая кристаллическая решётка у ${example.formula}?`,
+      question: m.bond_ex_q_identify_crystal({ formula: example.formula }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${example.formula} имеет ${correctLabel.toLowerCase().replace('\u0440\u0435\u0448\u0451\u0442\u043A\u0430', '\u0440\u0435\u0448\u0451\u0442\u043A\u0443')}.`,
+      explanation: m.bond_ex_a_identify_crystal({ formula: example.formula, label: correctLabel.toLowerCase() }),
       competencyMap: { crystal_structure_type: 'P' },
     };
   },
@@ -168,13 +181,14 @@ const generators: Record<string, GeneratorFn> = {
       ...distractors.map((d, i) => ({ id: `d${i}`, text: d.formula })),
     ]);
 
+    const label = getBondTypeLabel(targetType).toLowerCase();
     return {
       type: 'select_substance_by_bond',
-      question: `В каком веществе ${BOND_TYPE_LABELS[targetType].toLowerCase()} связь?`,
+      question: m.bond_ex_q_substance_by_bond({ label }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${correct.formula} \u2014 ${BOND_TYPE_LABELS[targetType].toLowerCase()} связь.`,
+      explanation: m.bond_ex_a_substance_by_bond({ formula: correct.formula, label }),
       competencyMap: { bond_type: 'P' },
     };
   },
@@ -183,15 +197,17 @@ const generators: Record<string, GeneratorFn> = {
     const example = pick(BOND_EXAMPLES);
     const crystal = example.crystal;
     const propertyKey = pick(['melting', 'conductivity'] as const);
-    const correctValue = CRYSTAL_PROPERTIES[crystal][propertyKey];
+    const correctValue = getCrystalProperty(crystal, propertyKey);
 
     const distractorValues = ALL_CRYSTAL_TYPES
       .filter(t => t !== crystal)
-      .map(t => CRYSTAL_PROPERTIES[t][propertyKey]);
+      .map(t => getCrystalProperty(t, propertyKey));
 
-    const questionLabel = propertyKey === 'melting'
-      ? 'температура плавления'
-      : 'электропроводность';
+    const propertyLabel = propertyKey === 'melting'
+      ? m.bond_ex_melting_point()
+      : m.bond_ex_conductivity();
+
+    const crystalLabel = getCrystalLabel(crystal).toLowerCase();
 
     const options = shuffleOptions([
       { id: 'correct', text: correctValue },
@@ -200,11 +216,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'predict_property_by_structure',
-      question: `Какова ${questionLabel} у ${example.formula} (${CRYSTAL_LABELS[crystal].toLowerCase()})?`,
+      question: m.bond_ex_q_predict_property({ property: propertyLabel, formula: example.formula, crystal: crystalLabel }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${example.formula} имеет ${CRYSTAL_LABELS[crystal].toLowerCase()}, поэтому ${questionLabel}: ${correctValue.toLowerCase()}.`,
+      explanation: m.bond_ex_a_predict_property({ formula: example.formula, crystal: crystalLabel, property: propertyLabel, value: correctValue.toLowerCase() }),
       competencyMap: { crystal_structure_type: 'P', bond_type: 'S' },
     };
   },
@@ -238,15 +254,14 @@ const generators: Record<string, GeneratorFn> = {
       { id: rankA >= rankB ? 'a' : 'b', text: a.formula },
       { id: rankA >= rankB ? 'b' : 'a', text: b.formula },
     ]);
-    const correctId = 'a';
 
     return {
       type: 'compare_melting_points',
-      question: `У какого вещества выше температура плавления: ${a.formula} или ${b.formula}?`,
+      question: m.bond_ex_q_compare_melting({ formulaA: a.formula, formulaB: b.formula }),
       format: 'multiple_choice',
       options: options.map(o => ({ id: o.id === 'a' ? 'correct' : 'd0', text: o.text })),
       correctId: 'correct',
-      explanation: `${higherFormula} имеет ${CRYSTAL_LABELS[higherCrystal].toLowerCase()}, которая обычно обеспечивает более высокую температуру плавления.`,
+      explanation: m.bond_ex_a_compare_melting({ formula: higherFormula, crystal: getCrystalLabel(higherCrystal).toLowerCase() }),
       competencyMap: { crystal_structure_type: 'P' },
     };
   },
@@ -275,10 +290,10 @@ const generators: Record<string, GeneratorFn> = {
       correctType = 'covalent_nonpolar';
     }
 
-    const correctLabel = BOND_TYPE_LABELS[correctType];
+    const correctLabel = getBondTypeLabel(correctType);
     const distractors = ALL_BOND_TYPES
       .filter(t => t !== correctType)
-      .map(t => BOND_TYPE_LABELS[t]);
+      .map(t => getBondTypeLabel(t));
 
     const options = shuffleOptions([
       { id: 'correct', text: correctLabel },
@@ -287,11 +302,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'bond_from_delta_chi',
-      question: `\u03C7(${symA}) = ${chiA.toFixed(2)}, \u03C7(${symB}) = ${chiB.toFixed(2)}. Какой тип связи?`,
+      question: m.bond_ex_q_delta_chi({ symA, chiA: chiA.toFixed(2), symB, chiB: chiB.toFixed(2) }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `\u0394\u03C7 = ${delta.toFixed(2)}. ${correctLabel} связь.`,
+      explanation: m.bond_ex_a_delta_chi({ delta: delta.toFixed(2), label: correctLabel }),
       competencyMap: { bond_type: 'P' },
     };
   },

@@ -218,8 +218,8 @@ export default function PeriodicTableHint() {
           <span /><span /><span />
           <span /><span /><span />
         </span>
-        <span className="hint-label-full">Периодическая</span>
-        <span className="hint-label-short">ПСХЭ</span>
+        <span className="hint-label-full">{m.pt_hint_label_full()}</span>
+        <span className="hint-label-short">{m.pt_hint_label_short()}</span>
       </button>
 
       {/* Floating panel (non-modal, draggable) */}
@@ -232,7 +232,7 @@ export default function PeriodicTableHint() {
             onTouchStart={onTouchDragStart}
           >
             <h2 className="pt-panel__title">
-              Периодическая таблица
+              {m.pt_hint_title()}
             </h2>
             <button
               className="pt-panel__close"

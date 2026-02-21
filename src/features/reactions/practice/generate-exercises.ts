@@ -1,3 +1,4 @@
+import * as m from '../../../paraglide/messages.js';
 import type { ReactionTemplate } from '../../../types/templates';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../../../types/rules';
 import type { Reaction } from '../../../types/reaction';
@@ -31,19 +32,25 @@ export interface GeneratorContext {
   energyCatalystTheory: EnergyCatalystTheory | null;
 }
 
-const TYPE_LABELS: Record<string, string> = {
-  exchange: 'обмена',
-  substitution: 'замещения',
-  combination: 'соединения',
-  decomposition: 'разложения',
-};
+function typeLabel(type: string): string {
+  const labels: Record<string, () => string> = {
+    exchange: m.rxn_ex_type_exchange,
+    substitution: m.rxn_ex_type_substitution,
+    combination: m.rxn_ex_type_combination,
+    decomposition: m.rxn_ex_type_decomposition,
+  };
+  return labels[type]?.() ?? type;
+}
 
-const SOLUBILITY_LABELS: Record<string, string> = {
-  soluble: 'Растворимое (Р)',
-  insoluble: 'Нерастворимое (Н)',
-  slightly_soluble: 'Малорастворимое (М)',
-  decomposes: 'Разлагается водой',
-};
+function solubilityLabel(key: string): string {
+  const labels: Record<string, () => string> = {
+    soluble: m.rxn_ex_sol_soluble,
+    insoluble: m.rxn_ex_sol_insoluble,
+    slightly_soluble: m.rxn_ex_sol_slightly,
+    decomposes: m.rxn_ex_sol_decomposes,
+  };
+  return labels[key]?.() ?? key;
+}
 
 function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -58,8 +65,8 @@ type GeneratorFn = (ctx: GeneratorContext) => Exercise;
 /* ---- Distractor helpers for predict_exchange_products ---- */
 
 function parseCoeff(s: string): [number, string] {
-  const m = s.match(/^(\d+)(\D.*)$/);
-  return m ? [parseInt(m[1], 10), m[2]] : [1, s];
+  const match = s.match(/^(\d+)(\D.*)$/);
+  return match ? [parseInt(match[1], 10), match[2]] : [1, s];
 }
 
 function withCoeff(n: number, formula: string): string {
@@ -160,22 +167,22 @@ function generateProductDistractors(products: string[], reactants: string[]): st
 const generators: Record<string, GeneratorFn> = {
   classify_reaction_type(ctx) {
     const t = pick(ctx.templates);
-    const correctLabel = TYPE_LABELS[t.type] ?? t.type;
-    const allTypes = Object.keys(TYPE_LABELS);
+    const correctLabel = typeLabel(t.type);
+    const allTypes = ['exchange', 'substitution', 'combination', 'decomposition'];
     const distractors = allTypes.filter(type => type !== t.type);
 
     const options = shuffleOptions([
-      { id: 'correct', text: `Реакция ${correctLabel}` },
-      ...distractors.map((d, i) => ({ id: `d${i}`, text: `Реакция ${TYPE_LABELS[d]}` })),
+      { id: 'correct', text: m.rxn_ex_reaction_label({ label: correctLabel }) },
+      ...distractors.map((d, i) => ({ id: `d${i}`, text: m.rxn_ex_reaction_label({ label: typeLabel(d) }) })),
     ]);
 
     return {
       type: 'classify_reaction_type',
-      question: `К какому типу относится реакция: «${t.description_ru}»?`,
+      question: m.rxn_ex_q_type({ desc: t.description_ru }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Это реакция ${correctLabel}. Схема: ${t.pattern}.`,
+      explanation: m.rxn_ex_a_type({ label: correctLabel, pattern: t.pattern }),
       competencyMap: { reactions_exchange: 'P' },
     };
   },
@@ -188,7 +195,7 @@ const generators: Record<string, GeneratorFn> = {
     const candidates = generateProductDistractors(example.products, example.reactants);
     const shuffled = [...candidates].sort(() => Math.random() - 0.5);
     const distractors = shuffled.slice(0, 2);
-    distractors.push('Реакция не идёт');
+    distractors.push(m.rxn_ex_no_reaction());
 
     const options = shuffleOptions([
       { id: 'correct', text: correctProducts },
@@ -197,11 +204,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'predict_exchange_products',
-      question: `Какие продукты реакции ${example.reactants.join(' + ')}?`,
+      question: m.rxn_ex_q_products({ reactants: example.reactants.join(' + ') }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${example.reactants.join(' + ')} → ${correctProducts}. Тип: ${t.description_ru}.`,
+      explanation: m.rxn_ex_a_products({ reactants: example.reactants.join(' + '), products: correctProducts, desc: t.description_ru }),
       competencyMap: { reactions_exchange: 'P' },
     };
   },
@@ -216,20 +223,20 @@ const generators: Record<string, GeneratorFn> = {
     let correctForce: string;
     let explanation: string;
     if (productsStr.includes('↓')) {
-      correctForce = 'Образование осадка';
-      explanation = `В продуктах образуется осадок (↓).`;
+      correctForce = m.rxn_ex_force_precipitate();
+      explanation = m.rxn_ex_a_force_precipitate();
     } else if (productsStr.includes('↑') || productsStr.includes('CO₂') || productsStr.includes('H₂S') || productsStr.includes('SO₂') || productsStr.includes('NH₃')) {
-      correctForce = 'Выделение газа';
-      explanation = `В продуктах выделяется газ (↑).`;
+      correctForce = m.rxn_ex_force_gas();
+      explanation = m.rxn_ex_a_force_gas();
     } else if (productsStr.includes('H₂O') || productsStr.includes('вод')) {
-      correctForce = 'Образование воды';
-      explanation = `В продуктах образуется вода (слабый электролит).`;
+      correctForce = m.rxn_ex_force_water();
+      explanation = m.rxn_ex_a_force_water();
     } else {
-      correctForce = 'Образование воды';
-      explanation = `Движущая сила — образование слабого электролита.`;
+      correctForce = m.rxn_ex_force_water();
+      explanation = m.rxn_ex_a_force_weak_electrolyte();
     }
 
-    const allForces = ['Образование осадка', 'Выделение газа', 'Образование воды', 'Реакция не идёт'];
+    const allForces = [m.rxn_ex_force_precipitate(), m.rxn_ex_force_gas(), m.rxn_ex_force_water(), m.rxn_ex_no_reaction()];
     const distractors = allForces.filter(f => f !== correctForce);
 
     const options = shuffleOptions([
@@ -239,7 +246,7 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_driving_force',
-      question: `Какая движущая сила реакции: ${equation}?`,
+      question: m.rxn_ex_q_driving_force({ equation }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -252,9 +259,10 @@ const generators: Record<string, GeneratorFn> = {
     const mainAnions = new Set(['Cl⁻', 'SO₄²⁻', 'NO₃⁻', 'CO₃²⁻', 'PO₄³⁻', 'S²⁻', 'OH⁻', 'SiO₃²⁻']);
     const mainEntries = ctx.solubility.filter(e => mainAnions.has(e.anion));
     const entry = pick(mainEntries);
-    const correctLabel = SOLUBILITY_LABELS[entry.solubility];
+    const correctLabel = solubilityLabel(entry.solubility);
 
-    const allSolLabels = Object.values(SOLUBILITY_LABELS);
+    const allSolKeys = ['soluble', 'insoluble', 'slightly_soluble', 'decomposes'];
+    const allSolLabels = allSolKeys.map(k => solubilityLabel(k));
     const distractors = allSolLabels.filter(l => l !== correctLabel);
 
     const options = shuffleOptions([
@@ -264,11 +272,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'solubility_lookup',
-      question: `Какова растворимость соединения ${entry.cation} и ${entry.anion}?`,
+      question: m.rxn_ex_q_solubility({ cation: entry.cation, anion: entry.anion }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Соединение ${entry.cation} + ${entry.anion} — ${correctLabel.toLowerCase()}.`,
+      explanation: m.rxn_ex_a_solubility({ cation: entry.cation, anion: entry.anion, label: correctLabel.toLowerCase() }),
       competencyMap: { gas_precipitate_logic: 'P' },
     };
   },
@@ -282,24 +290,24 @@ const generators: Record<string, GeneratorFn> = {
     let correctAnswer: string;
     let explanation: string;
     if (productsStr.includes('↓')) {
-      correctAnswer = 'Да, образуется осадок';
-      explanation = `Реакция идёт, так как один из продуктов выпадает в осадок.`;
+      correctAnswer = m.rxn_ex_occur_precipitate();
+      explanation = m.rxn_ex_a_occur_precipitate();
     } else if (productsStr.includes('↑') || productsStr.includes('CO₂')) {
-      correctAnswer = 'Да, выделяется газ';
-      explanation = `Реакция идёт, так как выделяется газ.`;
+      correctAnswer = m.rxn_ex_occur_gas();
+      explanation = m.rxn_ex_a_occur_gas();
     } else if (productsStr.includes('H₂O')) {
-      correctAnswer = 'Да, образуется вода';
-      explanation = `Реакция идёт, так как образуется вода (слабый электролит).`;
+      correctAnswer = m.rxn_ex_occur_water();
+      explanation = m.rxn_ex_a_occur_water();
     } else {
-      correctAnswer = 'Да, образуется вода';
-      explanation = `Реакция идёт с образованием слабого электролита.`;
+      correctAnswer = m.rxn_ex_occur_water();
+      explanation = m.rxn_ex_a_occur_weak();
     }
 
     const allAnswers = [
-      'Да, образуется осадок',
-      'Да, выделяется газ',
-      'Да, образуется вода',
-      'Нет, реакция не идёт',
+      m.rxn_ex_occur_precipitate(),
+      m.rxn_ex_occur_gas(),
+      m.rxn_ex_occur_water(),
+      m.rxn_ex_occur_no(),
     ];
     const distractors = allAnswers.filter(a => a !== correctAnswer);
 
@@ -310,7 +318,7 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'will_reaction_occur',
-      question: `Пойдёт ли реакция ${example.reactants.join(' + ')}? Почему?`,
+      question: m.rxn_ex_q_will_occur({ reactants: example.reactants.join(' + ') }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -320,30 +328,30 @@ const generators: Record<string, GeneratorFn> = {
   },
 
   activity_series_compare(ctx) {
-    const metals = ctx.activitySeries.filter(m => m.symbol !== 'H');
+    const metals = ctx.activitySeries.filter(entry => entry.symbol !== 'H');
     const metal1 = pick(metals);
-    const remaining = metals.filter(m => m.symbol !== metal1.symbol);
+    const remaining = metals.filter(entry => entry.symbol !== metal1.symbol);
     const metal2 = pick(remaining);
 
     const canDisplace = metal1.position < metal2.position;
-    const correctAnswer = canDisplace ? 'Да' : 'Нет';
+    const correctAnswer = canDisplace ? m.rxn_ex_yes() : m.rxn_ex_no();
     const explanation = canDisplace
-      ? `${metal1.name_ru} (позиция ${metal1.position}) активнее ${metal2.name_ru} (позиция ${metal2.position}) в ряду активности, поэтому может вытеснить его из раствора соли.`
-      : `${metal1.name_ru} (позиция ${metal1.position}) менее активен, чем ${metal2.name_ru} (позиция ${metal2.position}) в ряду активности, поэтому не может вытеснить его из раствора соли.`;
+      ? m.rxn_ex_a_activity_yes({ metal1: metal1.name_ru, pos1: String(metal1.position), metal2: metal2.name_ru, pos2: String(metal2.position) })
+      : m.rxn_ex_a_activity_no({ metal1: metal1.name_ru, pos1: String(metal1.position), metal2: metal2.name_ru, pos2: String(metal2.position) });
 
     const options = shuffleOptions([
       { id: 'correct', text: correctAnswer },
-      { id: 'd0', text: canDisplace ? 'Нет' : 'Да' },
+      { id: 'd0', text: canDisplace ? m.rxn_ex_no() : m.rxn_ex_yes() },
     ]);
 
     options.push(
-      { id: 'd1', text: 'Только при нагревании' },
-      { id: 'd2', text: 'Только в присутствии катализатора' },
+      { id: 'd1', text: m.rxn_ex_only_heating() },
+      { id: 'd2', text: m.rxn_ex_only_catalyst() },
     );
 
     return {
       type: 'activity_series_compare',
-      question: `Вытеснит ли ${metal1.name_ru} (${metal1.symbol}) металл ${metal2.name_ru} (${metal2.symbol}) из раствора его соли?`,
+      question: m.rxn_ex_q_activity({ metal1: metal1.name_ru, sym1: metal1.symbol, metal2: metal2.name_ru, sym2: metal2.symbol }),
       format: 'multiple_choice',
       options: shuffleOptions(options),
       correctId: 'correct',
@@ -362,7 +370,7 @@ const generators: Record<string, GeneratorFn> = {
     const others = withIonic.filter(r => r.reaction_id !== target.reaction_id && r.ionic.net !== correctNet);
     const shuffledOthers = [...others].sort(() => Math.random() - 0.5);
     const distractorNets = shuffledOthers.slice(0, 2).map(r => r.ionic.net!);
-    distractorNets.push('Реакция не идёт (ионное уравнение не составляется)');
+    distractorNets.push(m.rxn_ex_no_ionic());
 
     const options = shuffleOptions([
       { id: 'correct', text: correctNet },
@@ -371,11 +379,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'match_ionic_equation',
-      question: `Сокращённое ионное уравнение для реакции: ${target.equation}`,
+      question: m.rxn_ex_q_ionic({ equation: target.equation }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Полное ионное: ${target.ionic.full ?? '—'}. Сокращённое: ${correctNet}.${target.ionic.notes ? ' ' + target.ionic.notes : ''}`,
+      explanation: m.rxn_ex_a_ionic({ full: target.ionic.full ?? '—', net: correctNet, notes: target.ionic.notes ? ' ' + target.ionic.notes : '' }),
       competencyMap: { reactions_exchange: 'P' },
     };
   },
@@ -408,7 +416,7 @@ const generators: Record<string, GeneratorFn> = {
     if (nonSpectators.length >= 2) {
       distractors.push(nonSpectators.slice(0, 2).join(', '));
     }
-    distractors.push('Ионов-наблюдателей нет');
+    distractors.push(m.rxn_ex_no_spectators());
 
     const options = shuffleOptions([
       { id: 'correct', text: correctText },
@@ -417,11 +425,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_spectator_ions',
-      question: `Ионы-наблюдатели в реакции: ${target.equation}`,
+      question: m.rxn_ex_q_spectators({ equation: target.equation }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Полное: ${full}. Сокращённое: ${net}. Ионы ${correctText} не изменились — они наблюдатели.`,
+      explanation: m.rxn_ex_a_spectators({ full, net, ions: correctText }),
       competencyMap: { reactions_exchange: 'P', electrolyte_logic: 'S' },
     };
   },
@@ -430,10 +438,10 @@ const generators: Record<string, GeneratorFn> = {
     function describeObservation(r: Reaction): string {
       const parts: string[] = [];
       if (r.observations.precipitate?.length) {
-        parts.push(`Выпадает осадок: ${r.observations.precipitate.join(', ')}`);
+        parts.push(m.rxn_ex_obs_precipitate({ list: r.observations.precipitate.join(', ') }));
       }
       if (r.observations.gas?.length) {
-        parts.push(`Выделяется газ: ${r.observations.gas.join(', ')}`);
+        parts.push(m.rxn_ex_obs_gas({ list: r.observations.gas.join(', ') }));
       }
       if (r.observations.smell) {
         parts.push(r.observations.smell);
@@ -447,7 +455,7 @@ const generators: Record<string, GeneratorFn> = {
       if (parts.length === 0 && r.observations.other?.length) {
         parts.push(r.observations.other[0]);
       }
-      return parts.join('; ') || 'Видимых признаков нет';
+      return parts.join('; ') || m.rxn_ex_obs_none();
     }
 
     const target = pick(ctx.reactions);
@@ -456,15 +464,15 @@ const generators: Record<string, GeneratorFn> = {
     const others = ctx.reactions
       .filter(r => r.reaction_id !== target.reaction_id)
       .map(r => describeObservation(r))
-      .filter(obs => obs !== correctObs && obs !== 'Видимых признаков нет');
+      .filter(obs => obs !== correctObs && obs !== m.rxn_ex_obs_none());
 
     const uniqueOthers = [...new Set(others)].sort(() => Math.random() - 0.5);
     const distractors = uniqueOthers.slice(0, 2);
-    distractors.push('Видимых признаков нет');
+    distractors.push(m.rxn_ex_obs_none());
 
     const reactantNames = target.molecular.reactants
       .map(r => r.name ?? r.formula)
-      .join(' и ');
+      .join(m.rxn_ex_and());
 
     const options = shuffleOptions([
       { id: 'correct', text: correctObs },
@@ -473,7 +481,7 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'predict_observation',
-      question: `Что наблюдается при смешивании ${reactantNames}?`,
+      question: m.rxn_ex_q_observation({ reactants: reactantNames }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -491,19 +499,17 @@ const generators: Record<string, GeneratorFn> = {
     const target = pick(redoxRxns);
     const redox = target.redox!;
 
-    // Ask about either oxidizer or reducer randomly
     const askOxidizer = Math.random() < 0.5;
-    const role = askOxidizer ? 'окислителем' : 'восстановителем';
+    const role = askOxidizer ? m.rxn_ex_role_oxidizer() : m.rxn_ex_role_reducer();
     const correct = askOxidizer ? redox.oxidizer.formula : redox.reducer.formula;
     const wrong = askOxidizer ? redox.reducer.formula : redox.oxidizer.formula;
 
-    // Collect all unique formulas from reactants and products for distractors
     const allFormulas = [
       ...target.molecular.reactants.map(r => r.formula),
       ...target.molecular.products.map(r => r.formula),
     ];
     const otherFormulas = [...new Set(allFormulas)].filter(f => f !== correct && f !== wrong);
-    const distractors = [wrong, ...otherFormulas.slice(0, 1), 'Это не ОВР'];
+    const distractors = [wrong, ...otherFormulas.slice(0, 1), m.rxn_ex_not_redox()];
 
     const options = shuffleOptions([
       { id: 'correct', text: correct },
@@ -512,7 +518,7 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_oxidizer_reducer',
-      question: `В реакции ${target.equation} ${role} является...?`,
+      question: m.rxn_ex_q_oxidizer_reducer({ equation: target.equation, role }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -530,7 +536,6 @@ const generators: Record<string, GeneratorFn> = {
       .map(p => `${p.coeff > 1 ? p.coeff : ''}${p.formula}`)
       .join(' + ');
 
-    // Build distractors: swap products, wrong product, no reaction
     const otherRxns = redoxRxns.filter(r => r.reaction_id !== target.reaction_id);
     const distractors: string[] = [];
 
@@ -541,13 +546,12 @@ const generators: Record<string, GeneratorFn> = {
       );
     }
 
-    // Reversed products
     const reversed = [...target.molecular.products].reverse()
       .map(p => `${p.coeff > 1 ? p.coeff : ''}${p.formula}`)
       .join(' + ');
     if (reversed !== correctProducts) distractors.push(reversed);
 
-    distractors.push('Реакция не идёт');
+    distractors.push(m.rxn_ex_no_reaction());
 
     const reactantStr = target.molecular.reactants
       .map(r => `${r.coeff > 1 ? r.coeff : ''}${r.formula}`)
@@ -560,7 +564,7 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'predict_substitution_products',
-      question: `Что образуется при реакции ${reactantStr}?`,
+      question: m.rxn_ex_q_substitution_products({ reactants: reactantStr }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
@@ -570,38 +574,39 @@ const generators: Record<string, GeneratorFn> = {
   },
 
   will_metal_react(ctx) {
-    const metals = ctx.activitySeries.filter(m => m.symbol !== 'H');
+    const metals = ctx.activitySeries.filter(entry => entry.symbol !== 'H');
     if (metals.length < 2) throw new Error('Not enough metals in activity series');
 
-    // Pick a "less active" metal as the one in solution, and a random metal to test
     const metal1 = pick(metals);
-    const remaining = metals.filter(m => m.symbol !== metal1.symbol);
+    const remaining = metals.filter(entry => entry.symbol !== metal1.symbol);
     const metal2 = pick(remaining);
 
-    // metal1 tries to displace metal2 from its salt solution
     const canReact = metal1.position < metal2.position;
     const correctAnswer = canReact
-      ? `Да, ${metal1.symbol} активнее ${metal2.symbol}`
-      : `Нет, ${metal1.symbol} менее активен, чем ${metal2.symbol}`;
+      ? m.rxn_ex_metal_yes({ sym1: metal1.symbol, sym2: metal2.symbol })
+      : m.rxn_ex_metal_no({ sym1: metal1.symbol, sym2: metal2.symbol });
 
     const wrongAnswer = canReact
-      ? `Нет, ${metal1.symbol} менее активен, чем ${metal2.symbol}`
-      : `Да, ${metal1.symbol} активнее ${metal2.symbol}`;
+      ? m.rxn_ex_metal_no({ sym1: metal1.symbol, sym2: metal2.symbol })
+      : m.rxn_ex_metal_yes({ sym1: metal1.symbol, sym2: metal2.symbol });
+
+    const comparison = canReact ? m.rxn_ex_left_of() : m.rxn_ex_right_of();
+    const result = canReact ? m.rxn_ex_possible() : m.rxn_ex_not_possible();
 
     const options = shuffleOptions([
       { id: 'correct', text: correctAnswer },
       { id: 'd0', text: wrongAnswer },
-      { id: 'd1', text: 'Реакция идёт только при нагревании' },
-      { id: 'd2', text: 'Оба металла одинаково активны' },
+      { id: 'd1', text: m.rxn_ex_metal_heating() },
+      { id: 'd2', text: m.rxn_ex_metal_equal() },
     ]);
 
     return {
       type: 'will_metal_react',
-      question: `Будет ли реагировать ${metal1.name_ru} (${metal1.symbol}) с раствором соли ${metal2.name_ru} (${metal2.symbol})?`,
+      question: m.rxn_ex_q_will_metal_react({ metal1: metal1.name_ru, sym1: metal1.symbol, metal2: metal2.name_ru, sym2: metal2.symbol }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `В ряду активности ${metal1.name_ru} (позиция ${metal1.position}) ${canReact ? 'стоит левее' : 'стоит правее'} ${metal2.name_ru} (позиция ${metal2.position}), поэтому реакция замещения ${canReact ? 'возможна' : 'не идёт'}.`,
+      explanation: m.rxn_ex_a_metal_react({ metal1: metal1.name_ru, pos1: String(metal1.position), comparison, metal2: metal2.name_ru, pos2: String(metal2.position), result }),
       competencyMap: { reactions_redox: 'P' },
     };
   },
@@ -620,7 +625,7 @@ const generators: Record<string, GeneratorFn> = {
       .map(t => t.reagent_name_ru);
     const uniqueOthers = [...new Set(others)].sort(() => Math.random() - 0.5);
     const distractors = uniqueOthers.slice(0, 2);
-    distractors.push('Универсальный индикатор');
+    distractors.push(m.rxn_ex_universal_indicator());
 
     const options = shuffleOptions([
       { id: 'correct', text: correctReagent },
@@ -629,11 +634,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_reagent_for_ion',
-      question: `Каким реактивом можно обнаружить ${target.target_name_ru}?`,
+      question: m.rxn_ex_q_reagent_for_ion({ target: target.target_name_ru }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${target.target_name_ru}: реагент — ${target.reagent_name_ru}. ${target.observation_ru}.`,
+      explanation: m.rxn_ex_a_reagent_for_ion({ target: target.target_name_ru, reagent: target.reagent_name_ru, observation: target.observation_ru }),
       competencyMap: { qualitative_analysis_logic: 'P' },
     };
   },
@@ -657,11 +662,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_ion_by_observation',
-      question: `При добавлении ${target.reagent_name_ru} наблюдается: ${target.observation_ru}. Какой ион/газ присутствует?`,
+      question: m.rxn_ex_q_ion_by_observation({ reagent: target.reagent_name_ru, observation: target.observation_ru }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Признак «${target.observation_ru}» характерен для ${target.target_name_ru}.`,
+      explanation: m.rxn_ex_a_ion_by_observation({ observation: target.observation_ru, target: target.target_name_ru }),
       competencyMap: { qualitative_analysis_logic: 'P' },
     };
   },
@@ -674,15 +679,12 @@ const generators: Record<string, GeneratorFn> = {
 
     const chain = pick(chains);
     const steps = chain.steps;
-    // Pick a random middle substance to hide (not first or last)
     const allSubstances = [steps[0].substance, ...steps.map(s => s.next)];
-    // Hide index 1..(n-1) — a middle substance
     const hideIdx = 1 + Math.floor(Math.random() * (allSubstances.length - 2));
     const hidden = allSubstances[hideIdx];
 
     const displayed = allSubstances.map((s, i) => i === hideIdx ? '___' : s).join(' → ');
 
-    // Distractors: other substances from other chains
     const allChainSubstances = ctx.geneticChains.flatMap(c =>
       [c.steps[0].substance, ...c.steps.map(s => s.next)],
     );
@@ -697,11 +699,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'complete_chain_step',
-      question: `${chain.title_ru}: ${displayed}. Что пропущено?`,
+      question: m.rxn_ex_q_chain_step({ title: chain.title_ru, chain: displayed }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `Полная цепочка: ${allSubstances.join(' → ')}.`,
+      explanation: m.rxn_ex_a_chain_step({ chain: allSubstances.join(' → ') }),
       competencyMap: { genetic_chain_logic: 'P', classification: 'S' },
     };
   },
@@ -713,7 +715,6 @@ const generators: Record<string, GeneratorFn> = {
     const chain = pick(chains);
     const step = pick(chain.steps);
 
-    // Collect reagents from all chains for distractors
     const allReagents = ctx.geneticChains.flatMap(c => c.steps.map(s => s.reagent));
     const otherReagents = [...new Set(allReagents)].filter(r => r !== step.reagent);
     const shuffledOther = otherReagents.sort(() => Math.random() - 0.5);
@@ -726,33 +727,31 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'choose_reagent_for_step',
-      question: `Как превратить ${step.substance} в ${step.next}? Какой реагент нужен?`,
+      question: m.rxn_ex_q_chain_reagent({ from: step.substance, to: step.next }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: `${step.substance} + ${step.reagent} → ${step.next} (${TYPE_LABELS[step.type] ?? step.type}).`,
+      explanation: m.rxn_ex_a_chain_reagent({ from: step.substance, reagent: step.reagent, to: step.next, type: typeLabel(step.type) }),
       competencyMap: { genetic_chain_logic: 'P', reactions_exchange: 'S' },
     };
   },
+
   /* ---- Energy & catalyst generators ---- */
 
   factors_affecting_rate(ctx) {
     const theory = ctx.energyCatalystTheory!;
-    // Pick a reaction with rate_tips
     const rxnsWithTips = ctx.reactions.filter(r => r.rate_tips.how_to_speed_up.length > 0);
     const target = pick(rxnsWithTips.length > 0 ? rxnsWithTips : ctx.reactions);
 
-    // Pick a correct tip from the reaction's rate tips
     const correctTip = pick(target.rate_tips.how_to_speed_up);
 
-    // Build distractors from what slows down + invented wrong answers
     const slowdowns = target.rate_tips.what_slows_down ?? [];
     const wrongAnswers = [
       ...slowdowns.map(s => s),
-      'Добавить ингибитор',
-      'Понизить температуру',
-      'Уменьшить концентрацию реагентов',
-      'Увеличить размер частиц твёрдого вещества',
+      m.rxn_ex_add_inhibitor(),
+      m.rxn_ex_lower_temp(),
+      m.rxn_ex_lower_conc(),
+      m.rxn_ex_increase_particle_size(),
     ];
     const distractors = [...new Set(wrongAnswers)]
       .filter(d => d !== correctTip)
@@ -766,39 +765,34 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'factors_affecting_rate',
-      question: `Какой из факторов увеличит скорость реакции: ${target.equation}?`,
+      question: m.rxn_ex_q_rate_factor({ equation: target.equation }),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${correctTip}. Основные факторы: ${theory.rate_factors.map(f => f.name_ru.toLowerCase()).join(', ')}.`,
+      explanation: m.rxn_ex_a_rate_factor({ tip: correctTip, factors: theory.rate_factors.map(f => f.name_ru.toLowerCase()).join(', ') }),
       competencyMap: { reaction_energy_profile: 'P' as const },
     };
   },
 
   exo_endo_classify(ctx) {
     const theory = ctx.energyCatalystTheory!;
-    const HEAT_LABELS: Record<string, string> = {
-      exo: 'Экзотермическая (с выделением теплоты)',
-      endo: 'Эндотермическая (с поглощением теплоты)',
-    };
 
-    // Pick a reaction with known heat effect (exo or endo)
     const classified = ctx.reactions.filter(r => r.heat_effect === 'exo' || r.heat_effect === 'endo');
     if (classified.length === 0) throw new Error('No reactions with exo/endo heat effect');
 
     const target = pick(classified);
-    const correctLabel = HEAT_LABELS[target.heat_effect];
+    const correctLabel = target.heat_effect === 'exo' ? m.rxn_ex_heat_exo() : m.rxn_ex_heat_endo();
 
     const options = shuffleOptions([
       { id: 'correct', text: correctLabel },
-      { id: 'd0', text: target.heat_effect === 'exo' ? HEAT_LABELS['endo'] : HEAT_LABELS['exo'] },
-      { id: 'd1', text: 'Термонейтральная (без теплового эффекта)' },
-      { id: 'd2', text: 'Невозможно определить без калориметра' },
+      { id: 'd0', text: target.heat_effect === 'exo' ? m.rxn_ex_heat_endo() : m.rxn_ex_heat_exo() },
+      { id: 'd1', text: m.rxn_ex_heat_neutral() },
+      { id: 'd2', text: m.rxn_ex_heat_unknown() },
     ]);
 
     return {
       type: 'exo_endo_classify',
-      question: `Реакция ${target.equation} является...?`,
+      question: m.rxn_ex_q_exo_endo({ equation: target.equation }),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
@@ -809,28 +803,27 @@ const generators: Record<string, GeneratorFn> = {
 
   equilibrium_shift(ctx) {
     const theory = ctx.energyCatalystTheory!;
-    // Pick a random equilibrium shift scenario
     const shifts = theory.equilibrium_shifts;
     const target = pick(shifts);
 
-    const FACTOR_LABELS: Record<string, string> = {
-      temperature_increase: 'повышении температуры',
-      temperature_decrease: 'понижении температуры',
-      pressure_increase: 'увеличении давления',
-      pressure_decrease: 'уменьшении давления',
-      concentration_reactant_increase: 'увеличении концентрации реагентов',
-      concentration_product_increase: 'увеличении концентрации продуктов',
-      catalyst_added: 'добавлении катализатора',
+    const FACTOR_LABELS: Record<string, () => string> = {
+      temperature_increase: m.rxn_ex_factor_temp_up,
+      temperature_decrease: m.rxn_ex_factor_temp_down,
+      pressure_increase: m.rxn_ex_factor_press_up,
+      pressure_decrease: m.rxn_ex_factor_press_down,
+      concentration_reactant_increase: m.rxn_ex_factor_conc_react_up,
+      concentration_product_increase: m.rxn_ex_factor_conc_prod_up,
+      catalyst_added: m.rxn_ex_factor_catalyst,
     };
 
-    const factorLabel = FACTOR_LABELS[target.factor] ?? target.factor;
+    const factorLabel = FACTOR_LABELS[target.factor]?.() ?? target.factor;
     const correctAnswer = target.shift_ru;
 
     const allShifts = [
-      'В сторону продуктов (вправо)',
-      'В сторону реагентов (влево)',
-      'Не смещает равновесие',
-      'Зависит от конкретной реакции',
+      m.rxn_ex_shift_products(),
+      m.rxn_ex_shift_reactants(),
+      m.rxn_ex_shift_none(),
+      m.rxn_ex_shift_depends(),
     ];
     const distractors = allShifts.filter(s => s !== correctAnswer).slice(0, 3);
 
@@ -841,22 +834,21 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'equilibrium_shift',
-      question: `Как сместится химическое равновесие при ${factorLabel}?`,
+      question: m.rxn_ex_q_equilibrium({ factor: factorLabel }),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${target.explanation_ru} (принцип Ле Шателье).`,
+      explanation: m.rxn_ex_a_equilibrium({ explanation: target.explanation_ru }),
       competencyMap: { reaction_energy_profile: 'P' as const },
     };
   },
 
   catalyst_properties(ctx) {
     const theory = ctx.energyCatalystTheory!;
-    // Ask what catalyst DOES or DOES NOT change
     const askChanges = Math.random() < 0.5;
     const questionText = askChanges
-      ? 'Что изменяет катализатор?'
-      : 'Что НЕ изменяет катализатор?';
+      ? m.rxn_ex_q_catalyst_prop()
+      : m.rxn_ex_q_catalyst_not_prop();
 
     const correctPool = askChanges
       ? theory.catalyst_properties.changes_ru
@@ -879,7 +871,7 @@ const generators: Record<string, GeneratorFn> = {
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `Катализатор изменяет: ${theory.catalyst_properties.changes_ru.join('; ')}. Не изменяет: ${theory.catalyst_properties.does_not_change_ru.join('; ')}.`,
+      explanation: m.rxn_ex_a_catalyst_prop({ changes: theory.catalyst_properties.changes_ru.join('; '), doesNot: theory.catalyst_properties.does_not_change_ru.join('; ') }),
       competencyMap: { catalyst_role_understanding: 'P' as const },
     };
   },
@@ -895,7 +887,7 @@ const generators: Record<string, GeneratorFn> = {
       .sort(() => Math.random() - 0.5)
       .slice(0, 2)
       .map(c => c.catalyst);
-    distractors.push('Катализатор не используется');
+    distractors.push(m.rxn_ex_no_catalyst());
 
     const options = shuffleOptions([
       { id: 'correct', text: target.catalyst },
@@ -904,11 +896,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'identify_catalyst',
-      question: `Какой катализатор используется в реакции: ${target.reaction_ru}?`,
+      question: m.rxn_ex_q_identify_catalyst({ reaction: target.reaction_ru }),
       format: 'multiple_choice' as const,
       options,
       correctId: 'correct',
-      explanation: `${target.catalyst} (${target.name_ru}) — катализатор этой реакции.`,
+      explanation: m.rxn_ex_a_identify_catalyst({ catalyst: target.catalyst, name: target.name_ru }),
       competencyMap: { catalyst_role_understanding: 'P' as const, reaction_energy_profile: 'S' as const },
     };
   },

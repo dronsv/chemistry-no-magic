@@ -3,6 +3,7 @@ import type { OgeTask } from '../../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
 import * as m from '../../paraglide/messages.js';
 import OgeAnswerRouter from './answers/OgeAnswerRouter';
+import ChemText from '../../components/ChemText';
 import { gradeOgeTask } from './oge-scoring';
 
 interface Props {
@@ -135,11 +136,11 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
 
       <div className="oge-task">
         {currentTask.context_ru && (
-          <div className="oge-task__context">{currentTask.context_ru}</div>
+          <div className="oge-task__context"><ChemText text={currentTask.context_ru} /></div>
         )}
         <div className="oge-task__question">
           <span className="oge-task__number">{m.exam_task_number({ number: String(currentTask.task_number) })}</span>
-          <p className="oge-task__text">{currentTask.question_ru}</p>
+          <p className="oge-task__text"><ChemText text={currentTask.question_ru} /></p>
         </div>
 
         <div className="oge-task__answer">
@@ -179,7 +180,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
             <h4 className="oge-task__algorithm-title">{m.oge_algorithm_title()}</h4>
             <ol className="oge-task__algorithm-steps">
               {algo.algorithm_ru.map((step, i) => (
-                <li key={i}>{step}</li>
+                <li key={i}><ChemText text={step} /></li>
               ))}
             </ol>
           </div>
@@ -191,7 +192,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
               {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? m.oge_score_unit_1() : m.oge_score_unit_2()}
             </div>
             <div className="oge-task__explanation">
-              {currentTask.explanation_ru}
+              <ChemText text={currentTask.explanation_ru} />
             </div>
 
             {algo && (
@@ -201,21 +202,21 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
                   <h4>{algo.title_ru}</h4>
                   <ol className="oge-task__algorithm-steps">
                     {algo.algorithm_ru.map((step, i) => (
-                      <li key={i}>{step}</li>
+                      <li key={i}><ChemText text={step} /></li>
                     ))}
                   </ol>
 
                   <h4>{m.oge_key_facts()}</h4>
                   <ul>
                     {algo.key_facts_ru.map((fact, i) => (
-                      <li key={i}>{fact}</li>
+                      <li key={i}><ChemText text={fact} /></li>
                     ))}
                   </ul>
 
                   <h4>{m.oge_common_traps()}</h4>
                   <ul className="oge-task__traps">
                     {algo.common_traps_ru.map((trap, i) => (
-                      <li key={i}>{trap}</li>
+                      <li key={i}><ChemText text={trap} /></li>
                     ))}
                   </ul>
                 </div>

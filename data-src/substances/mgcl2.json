@@ -1,0 +1,16 @@
+{
+  "id": "mgcl2",
+  "formula": "MgCl\u2082",
+  "name_ru": "Хлорид магния",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["Mg_2plus", "Cl_minus"],
+  "tags": ["soluble", "hygroscopic"],
+  "melting_point_C": 714,
+  "boiling_point_C": 1412,
+  "density_g_cm3": 2.32,
+  "appearance_ru": "Бесцветные гигроскопичные кристаллы",
+  "industrial_ru": "Производство магния (электролиз расплава), противообледенительный реагент",
+  "production_ru": "Растворение MgO или Mg(OH)\u2082 в соляной кислоте, выпаривание морской воды",
+  "fun_facts_ru": ["Основной источник магния из морской воды", "Используется как противогололёдный реагент вместо NaCl"]
+}

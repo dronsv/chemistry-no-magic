@@ -1,4 +1,5 @@
 import type { Element, ElementGroup } from '../../types/element';
+import * as m from '../../paraglide/messages.js';
 import ElementCell from './ElementCell';
 
 interface PeriodicTableShortProps {
@@ -58,16 +59,16 @@ export default function PeriodicTableShort({
       ))}
 
       <div className="pt-short-sub" style={{ gridRow: 2, gridColumn: '2 / span 2' }}>
-        A &nbsp;&nbsp; A
+        {m.pt_group_a()} &nbsp;&nbsp; {m.pt_group_a()}
       </div>
       {[4, 6, 8, 10, 12].map((col) => (
         <div key={`sub-${col}`} className="pt-short-sub"
           style={{ gridRow: 2, gridColumn: `${col} / span 2` }}>
-          Б &nbsp; A
+          {m.pt_group_b()} &nbsp; {m.pt_group_a()}
         </div>
       ))}
       <div className="pt-short-sub" style={{ gridRow: 2, gridColumn: '14 / span 4' }}>
-        Б &nbsp; Б &nbsp; Б &nbsp; A
+        {m.pt_group_b()} &nbsp; {m.pt_group_b()} &nbsp; {m.pt_group_b()} &nbsp; {m.pt_group_a()}
       </div>
 
       {[1, 2, 3, 4, 5, 6, 7].map((p) => (

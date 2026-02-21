@@ -127,8 +127,8 @@ export default function SolubilityTable() {
         <thead>
           <tr>
             <th className="sol-table__corner">
-              <span className="sol-table__corner-label sol-table__corner-anion">анионы →</span>
-              <span className="sol-table__corner-label sol-table__corner-cation">↓ катионы</span>
+              <span className="sol-table__corner-label sol-table__corner-anion">{m.sol_corner_anions()}</span>
+              <span className="sol-table__corner-label sol-table__corner-cation">{m.sol_corner_cations()}</span>
             </th>
             {anions.map(anion => {
               const ion = ionMap.get(anion);
@@ -189,10 +189,10 @@ export default function SolubilityTable() {
         </tbody>
       </table>
       <div className="sol-legend">
-        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--soluble"></span>Р — растворимое</span>
-        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--insoluble"></span>Н — нерастворимое</span>
-        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--slightly"></span>М — малорастворимое</span>
-        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--decomposes"></span>— — разлагается</span>
+        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--soluble"></span>{m.sol_legend_soluble()}</span>
+        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--insoluble"></span>{m.sol_legend_insoluble()}</span>
+        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--slightly"></span>{m.sol_legend_slightly()}</span>
+        <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--decomposes"></span>{m.sol_legend_decomposes()}</span>
       </div>
     </div>
   );

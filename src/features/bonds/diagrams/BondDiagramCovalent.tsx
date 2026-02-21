@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   symbolA: string;
   symbolB: string;
@@ -17,7 +19,7 @@ export default function BondDiagramCovalent({ symbolA, symbolB, polar }: Props) 
       viewBox="0 0 300 160"
       width="100%"
       role="img"
-      aria-label={`Ковалентная ${polar ? 'полярная' : 'неполярная'} связь: ${symbolA}–${symbolB}`}
+      aria-label={m.bond_diagram_covalent_aria({ polarity: polar ? m.bond_diagram_covalent_polar_label() : m.bond_diagram_covalent_nonpolar_label(), symbolA, symbolB })}
     >
       {/* Atom A */}
       <circle
@@ -99,7 +101,7 @@ export default function BondDiagramCovalent({ symbolA, symbolB, polar }: Props) 
         fontSize={12}
         fill="var(--color-text-muted, #6b7280)"
       >
-        {polar ? 'Ковалентная полярная' : 'Ковалентная неполярная'}
+        {polar ? m.bond_diagram_covalent_polar_label() : m.bond_diagram_covalent_nonpolar_label()}
       </text>
     </svg>
   );

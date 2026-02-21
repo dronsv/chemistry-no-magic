@@ -147,7 +147,7 @@ export default function ReactionTheoryPanel() {
                         <div className="rxn-theory__desc">{t.description_ru}</div>
                         <div className="rxn-theory__pattern">{t.pattern}</div>
                         {t.conditions && (
-                          <div className="rxn-theory__conditions">Условия: {t.conditions}</div>
+                          <div className="rxn-theory__conditions">{m.rxn_theory_conditions_label({ conditions: t.conditions })}</div>
                         )}
                         <div className="rxn-theory__examples">
                           {t.examples.slice(0, 2).map((ex, i) => (
@@ -186,42 +186,42 @@ export default function ReactionTheoryPanel() {
 
               <CollapsibleSection title={m.rxn_theory_redox()}>
                 <div className="rxn-theory__redox">
-                  <p><strong>Окислительно-восстановительные реакции (ОВР)</strong> — реакции, в которых изменяются степени окисления элементов.</p>
+                  <p>{m.rxn_theory_redox_desc()}</p>
                   <div className="rxn-theory__definitions">
                     <div className="rxn-theory__def-item">
-                      <strong>Окислитель</strong> — принимает электроны (степень окисления понижается).
+                      <strong>{m.rxn_theory_oxidizer()}</strong> — {m.rxn_theory_oxidizer_desc()}
                     </div>
                     <div className="rxn-theory__def-item">
-                      <strong>Восстановитель</strong> — отдаёт электроны (степень окисления повышается).
+                      <strong>{m.rxn_theory_reducer()}</strong> — {m.rxn_theory_reducer_desc()}
                     </div>
                   </div>
-                  <p className="rxn-theory__mnemonic"><em>Мнемоника: «ОВ: Отдал — Восстановитель»</em></p>
-                  <h4 className="rxn-theory__type-title">Метод электронного баланса</h4>
+                  <p className="rxn-theory__mnemonic"><em>{m.rxn_theory_mnemonic()}</em></p>
+                  <h4 className="rxn-theory__type-title">{m.rxn_theory_electron_balance()}</h4>
                   <ol className="rxn-theory__steps">
-                    <li>Определить степени окисления всех элементов до и после реакции.</li>
-                    <li>Найти элементы, у которых степень окисления изменилась.</li>
-                    <li>Составить электронные полуреакции (окисление и восстановление).</li>
-                    <li>Уравнять число отданных и принятых электронов.</li>
-                    <li>Расставить коэффициенты в молекулярном уравнении.</li>
+                    <li>{m.rxn_theory_eb_step1()}</li>
+                    <li>{m.rxn_theory_eb_step2()}</li>
+                    <li>{m.rxn_theory_eb_step3()}</li>
+                    <li>{m.rxn_theory_eb_step4()}</li>
+                    <li>{m.rxn_theory_eb_step5()}</li>
                   </ol>
-                  <h4 className="rxn-theory__type-title">Примеры</h4>
+                  <h4 className="rxn-theory__type-title">{m.rxn_theory_examples()}</h4>
                   <div className="rxn-theory__equation">Zn + 2HCl → ZnCl₂ + H₂↑</div>
-                  <div className="rxn-theory__rule-desc">Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель); 2H⁺ + 2e⁻ → H₂⁰ (окислитель)</div>
+                  <div className="rxn-theory__rule-desc">{m.rxn_theory_redox_ex1_half()}</div>
                   <div className="rxn-theory__equation">Fe + CuSO₄ → FeSO₄ + Cu↓</div>
-                  <div className="rxn-theory__rule-desc">Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель); Cu²⁺ + 2e⁻ → Cu⁰ (окислитель)</div>
+                  <div className="rxn-theory__rule-desc">{m.rxn_theory_redox_ex2_half()}</div>
                 </div>
               </CollapsibleSection>
 
               {qualTests && qualTests.length > 0 && (
                 <CollapsibleSection title={m.rxn_theory_qualitative()}>
                   <div className="rxn-theory__qualitative">
-                    <p>Качественные реакции позволяют определить присутствие конкретного иона или газа по характерному признаку.</p>
+                    <p>{m.rxn_theory_qual_desc()}</p>
                     <table className="rxn-theory__qual-table">
                       <thead>
                         <tr>
-                          <th>Ион / газ</th>
-                          <th>Реагент</th>
-                          <th>Признак</th>
+                          <th>{m.rxn_theory_qual_ion()}</th>
+                          <th>{m.rxn_theory_qual_reagent()}</th>
+                          <th>{m.rxn_theory_qual_sign()}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -241,16 +241,16 @@ export default function ReactionTheoryPanel() {
               {chains && chains.length > 0 && (
                 <CollapsibleSection title={m.rxn_theory_chains()}>
                   <div className="rxn-theory__chains">
-                    <p>Генетическая связь — цепочка превращений веществ разных классов, связанных между собой.</p>
+                    <p>{m.rxn_theory_genetic_desc()}</p>
                     <div className="rxn-theory__chain-diagrams">
                       <div className="rxn-theory__chain-diagram">
-                        <strong>Металлы:</strong> Металл → Основный оксид → Основание → Соль
+                        <strong>{m.rxn_theory_metals_label()}</strong> {m.rxn_theory_metals_chain()}
                       </div>
                       <div className="rxn-theory__chain-diagram">
-                        <strong>Неметаллы:</strong> Неметалл → Кислотный оксид → Кислота → Соль
+                        <strong>{m.rxn_theory_nonmetals_label()}</strong> {m.rxn_theory_nonmetals_chain()}
                       </div>
                     </div>
-                    <h4 className="rxn-theory__type-title">Примеры цепочек</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_chain_examples()}</h4>
                     {chains.map(chain => {
                       const allSubstances = [chain.steps[0].substance, ...chain.steps.map(s => s.next)];
                       return (
@@ -272,7 +272,7 @@ export default function ReactionTheoryPanel() {
               {energyTheory && (
                 <CollapsibleSection title={m.rxn_theory_speed()}>
                   <div className="rxn-theory__energy">
-                    <h4 className="rxn-theory__type-title">Факторы, влияющие на скорость</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_rate_factors()}</h4>
                     <div className="rxn-theory__definitions">
                       {energyTheory.rate_factors.map(f => (
                         <div key={f.factor_id} className="rxn-theory__def-item">
@@ -282,27 +282,27 @@ export default function ReactionTheoryPanel() {
                       ))}
                     </div>
 
-                    <h4 className="rxn-theory__type-title">Экзо- и эндотермические реакции</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_exo_endo()}</h4>
                     <div className="rxn-theory__definitions">
                       <div className="rxn-theory__def-item">
-                        <strong>Экзотермическая</strong> — {energyTheory.heat_classification.exothermic_ru.replace('Экзотермическая реакция — ', '')}
+                        <strong>{m.rxn_theory_exothermic()}</strong> — {energyTheory.heat_classification.exothermic_ru.replace('Экзотермическая реакция — ', '')}
                       </div>
                       <div className="rxn-theory__def-item">
-                        <strong>Эндотермическая</strong> — {energyTheory.heat_classification.endothermic_ru.replace('Эндотермическая реакция — ', '')}
+                        <strong>{m.rxn_theory_endothermic()}</strong> — {energyTheory.heat_classification.endothermic_ru.replace('Эндотермическая реакция — ', '')}
                       </div>
                     </div>
                     <div className="rxn-theory__rule-desc">
-                      <em>Примеры экзо:</em> {energyTheory.heat_classification.examples_exo_ru.join(', ')}.<br />
-                      <em>Примеры эндо:</em> {energyTheory.heat_classification.examples_endo_ru.join(', ')}.
+                      <em>{m.rxn_theory_exo_examples()}</em> {energyTheory.heat_classification.examples_exo_ru.join(', ')}.<br />
+                      <em>{m.rxn_theory_endo_examples()}</em> {energyTheory.heat_classification.examples_endo_ru.join(', ')}.
                     </div>
 
-                    <h4 className="rxn-theory__type-title">Химическое равновесие (принцип Ле Шателье)</h4>
-                    <p>Если на систему в равновесии оказать внешнее воздействие, равновесие сместится в сторону, ослабляющую это воздействие.</p>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_equilibrium()}</h4>
+                    <p>{m.rxn_theory_equilibrium_desc()}</p>
                     <table className="rxn-theory__qual-table">
                       <thead>
                         <tr>
-                          <th>Воздействие</th>
-                          <th>Смещение равновесия</th>
+                          <th>{m.rxn_theory_eq_factor()}</th>
+                          <th>{m.rxn_theory_eq_shift()}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -321,28 +321,28 @@ export default function ReactionTheoryPanel() {
               {energyTheory && (
                 <CollapsibleSection title={m.rxn_theory_catalysis()}>
                   <div className="rxn-theory__catalyst">
-                    <p><strong>Катализатор</strong> — вещество, которое ускоряет реакцию, но само не расходуется. Снижает энергию активации, предлагая альтернативный путь реакции.</p>
+                    <p>{m.rxn_theory_catalyst_desc()}</p>
 
-                    <h4 className="rxn-theory__type-title">Что изменяет катализатор</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_catalyst_changes()}</h4>
                     <ul className="rxn-theory__steps">
                       {energyTheory.catalyst_properties.changes_ru.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
 
-                    <h4 className="rxn-theory__type-title">Что НЕ изменяет катализатор</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_catalyst_not_changes()}</h4>
                     <ul className="rxn-theory__steps">
                       {energyTheory.catalyst_properties.does_not_change_ru.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
 
-                    <h4 className="rxn-theory__type-title">Распространённые катализаторы</h4>
+                    <h4 className="rxn-theory__type-title">{m.rxn_theory_common_catalysts()}</h4>
                     <table className="rxn-theory__qual-table">
                       <thead>
                         <tr>
-                          <th>Катализатор</th>
-                          <th>Реакция</th>
+                          <th>{m.rxn_theory_catalyst_col()}</th>
+                          <th>{m.rxn_theory_reaction_col()}</th>
                         </tr>
                       </thead>
                       <tbody>

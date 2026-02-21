@@ -1,0 +1,16 @@
+{
+  "id": "k2so4",
+  "formula": "K\u2082SO\u2084",
+  "name_ru": "Сульфат калия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": ["K_plus", "SO4_2minus"],
+  "tags": ["soluble"],
+  "melting_point_C": 1069,
+  "boiling_point_C": 1689,
+  "density_g_cm3": 2.66,
+  "appearance_ru": "Бесцветные кристаллы",
+  "industrial_ru": "Калийное удобрение, производство стекла",
+  "production_ru": "Реакция KCl с серной кислотой",
+  "fun_facts_ru": ["Одно из старейших минеральных удобрений", "В отличие от KCl, не содержит хлора — предпочтителен для хлорофобных культур (табак, виноград, картофель)"]
+}

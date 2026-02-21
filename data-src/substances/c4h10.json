@@ -1,0 +1,17 @@
+{
+  "id": "c4h10",
+  "formula": "C\u2084H\u2081\u2080",
+  "name_ru": "Бутан",
+  "class": "other",
+  "subclass": "alkane",
+  "ions": [],
+  "tags": ["gas", "flammable", "liquefied_gas"],
+  "melting_point_C": -138.3,
+  "boiling_point_C": -0.5,
+  "density_g_cm3": 0.00248,
+  "appearance_ru": "Бесцветный газ без запаха",
+  "hazards_ru": ["Легковоспламеняемое"],
+  "industrial_ru": "Топливо (бытовой газ в баллонах), производство бутадиена, растворитель",
+  "production_ru": "Переработка природного газа и нефти",
+  "fun_facts_ru": ["Основной компонент газа для зажигалок", "Кипит при -0.5°C — почти при 0°C"]
+}
