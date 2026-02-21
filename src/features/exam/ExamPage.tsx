@@ -6,6 +6,7 @@ import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
 import type { ExamVariant, ExamAnswer, ExamResults, ExamExerciseResult, CompetencyResult } from '../../types/exam';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../lib/storage';
+import * as m from '../../paraglide/messages.js';
 import {
   loadElements,
   loadSubstancesIndex,
@@ -59,7 +60,7 @@ export default function ExamPage() {
       }
       setPhase('oge-practice');
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Ошибка загрузки данных');
+      setError(e instanceof Error ? e.message : m.error_loading());
       setPhase('start');
     }
   }, [ogeTasks]);
@@ -124,7 +125,7 @@ export default function ExamPage() {
       setVariant(v);
       setPhase('session');
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Ошибка загрузки данных');
+      setError(e instanceof Error ? e.message : m.error_loading());
       setPhase('start');
     }
   }, [examData]);
@@ -214,9 +215,9 @@ export default function ExamPage() {
   if (phase === 'start') {
     return (
       <div className="exam-page">
-        <h1 className="exam-page__title">Экзамен</h1>
+        <h1 className="exam-page__title">{m.exam_title()}</h1>
         <p className="exam-page__intro">
-          Подготовка к ОГЭ по химии: тренировка по реальным заданиям или полноценный пробный экзамен.
+          {m.exam_intro()}
         </p>
 
         {error && (
@@ -227,30 +228,30 @@ export default function ExamPage() {
 
         <div className="exam-modes">
           <div className="exam-mode-card">
-            <h2 className="exam-mode-card__title">Задания ОГЭ</h2>
+            <h2 className="exam-mode-card__title">{m.exam_oge_title()}</h2>
             <p className="exam-mode-card__desc">
-              Тренировка по реальным заданиям из демоверсий ФИПИ. Формат ввода ответа как на настоящем экзамене.
+              {m.exam_oge_desc()}
             </p>
             <div className="exam-mode-card__info">
-              <span>Задания 1–19 (часть 1)</span>
-              <span>Мгновенная проверка</span>
+              <span>{m.exam_oge_info_1()}</span>
+              <span>{m.exam_oge_info_2()}</span>
             </div>
             <button type="button" className="btn btn-primary" onClick={startOgePractice}>
-              Тренироваться
+              {m.exam_practice()}
             </button>
           </div>
 
           <div className="exam-mode-card">
-            <h2 className="exam-mode-card__title">Пробный экзамен</h2>
+            <h2 className="exam-mode-card__title">{m.exam_mock_title()}</h2>
             <p className="exam-mode-card__desc">
-              Генерируемый вариант из 20 заданий по всем компетенциям. Без подсказок — как на настоящем экзамене.
+              {m.exam_mock_desc()}
             </p>
             <div className="exam-mode-card__info">
-              <span>20 заданий, 2 часа</span>
-              <span>Обратная связь после завершения</span>
+              <span>{m.exam_mock_info_1()}</span>
+              <span>{m.exam_mock_info_2()}</span>
             </div>
             <button type="button" className="btn btn-primary" onClick={startExam}>
-              Начать экзамен
+              {m.exam_start()}
             </button>
           </div>
         </div>
@@ -261,9 +262,9 @@ export default function ExamPage() {
   if (phase === 'loading') {
     return (
       <div className="exam-page">
-        <h1 className="exam-page__title">Экзамен</h1>
+        <h1 className="exam-page__title">{m.exam_title()}</h1>
         <div className="exam-start">
-          <p>Загрузка данных и генерация варианта...</p>
+          <p>{m.exam_loading()}</p>
         </div>
       </div>
     );
@@ -288,7 +289,7 @@ export default function ExamPage() {
   if (phase === 'results' && results) {
     return (
       <div className="exam-page">
-        <h1 className="exam-page__title">Результаты экзамена</h1>
+        <h1 className="exam-page__title">{m.exam_results_title()}</h1>
         <ExamResultsView results={results} onRestart={handleRestart} />
       </div>
     );

@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 import type { CompetencyNode } from '../../types/competency';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadCompetencies } from '../../lib/data-loader';
 import { loadBktState, clearBktState } from '../../lib/storage';
+import { localizeUrl } from '../../lib/i18n';
+import * as m from '../../paraglide/messages.js';
 import CompetencyBar from './CompetencyBar';
 import './profile.css';
 
-export default function ProfileApp() {
+interface ProfileAppProps {
+  locale?: SupportedLocale;
+}
+
+export default function ProfileApp({ locale = 'ru' }: ProfileAppProps) {
   const [state, setState] = useState(() => loadBktState());
   const [competencies, setCompetencies] = useState<CompetencyNode[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -13,7 +20,7 @@ export default function ProfileApp() {
   useEffect(() => {
     loadCompetencies()
       .then(setCompetencies)
-      .catch(err => setError(err instanceof Error ? err.message : 'Ошибка загрузки'));
+      .catch(err => setError(err instanceof Error ? err.message : m.error_loading_short()));
   }, []);
 
   if (error) {
@@ -21,17 +28,17 @@ export default function ProfileApp() {
   }
 
   if (!competencies) {
-    return <div className="profile"><p className="profile__loading">Загрузка...</p></div>;
+    return <div className="profile"><p className="profile__loading">{m.loading()}</p></div>;
   }
 
   if (state.size === 0) {
     return (
       <div className="profile">
-        <h1 className="profile__title">Профиль компетенций</h1>
+        <h1 className="profile__title">{m.profile_title()}</h1>
         <div className="profile__empty">
-          <p>Данных пока нет. Пройдите диагностику, чтобы увидеть свой профиль.</p>
-          <a href="/diagnostics/" className="btn btn-primary profile__empty-link">
-            Пройти диагностику
+          <p>{m.profile_empty()}</p>
+          <a href={localizeUrl('/diagnostics/', locale)} className="btn btn-primary profile__empty-link">
+            {m.profile_run_diagnostics()}
           </a>
         </div>
       </div>
@@ -55,7 +62,7 @@ export default function ProfileApp() {
 
   return (
     <div className="profile">
-      <h1 className="profile__title">Профиль компетенций</h1>
+      <h1 className="profile__title">{m.profile_title()}</h1>
 
       {[...blocks.entries()].map(([key, group]) => (
         <div key={key} className="profile__group">
@@ -73,11 +80,11 @@ export default function ProfileApp() {
       ))}
 
       <div className="profile__actions">
-        <a href="/diagnostics/" className="btn btn-primary">
-          Пройти диагностику заново
+        <a href={localizeUrl('/diagnostics/', locale)} className="btn btn-primary">
+          {m.profile_retake()}
         </a>
         <button type="button" className="profile__clear" onClick={handleClear}>
-          Сбросить результаты
+          {m.profile_clear()}
         </button>
       </div>
     </div>

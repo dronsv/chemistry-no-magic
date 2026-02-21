@@ -1,33 +1,44 @@
 ---
 import PeriodicTableHint from '../features/periodic-table/PeriodicTableHint';
 import SolubilityHint from '../features/reactions/SolubilityHint';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import * as m from '../paraglide/messages.js';
+import type { SupportedLocale } from '../types/i18n';
+import { localizeUrl } from '../lib/i18n';
 
+interface Props {
+  locale?: SupportedLocale;
+}
+
+const locale = Astro.props.locale ?? (Astro.currentLocale as SupportedLocale) ?? 'ru';
 const currentPath = Astro.url.pathname;
 
 const links = [
-  { href: '/', label: 'Главная' },
-  { href: '/diagnostics/', label: 'Диагностика' },
-  { href: '/periodic-table/', label: 'Элементы' },
-  { href: '/substances/', label: 'Вещества' },
-  { href: '/bonds/', label: 'Связи' },
-  { href: '/oxidation-states/', label: 'СО' },
-  { href: '/reactions/', label: 'Реакции' },
-  { href: '/calculations/', label: 'Расчёты' },
-  { href: '/exam/', label: 'Экзамен' },
-  { href: '/profile/', label: 'Профиль' },
+  { href: localizeUrl('/', locale), label: m.nav_home() },
+  { href: localizeUrl('/diagnostics/', locale), label: m.nav_diagnostics() },
+  { href: localizeUrl('/periodic-table/', locale), label: m.nav_elements() },
+  { href: localizeUrl('/substances/', locale), label: m.nav_substances() },
+  { href: localizeUrl('/bonds/', locale), label: m.nav_bonds() },
+  { href: localizeUrl('/oxidation-states/', locale), label: m.nav_oxidation_states() },
+  { href: localizeUrl('/reactions/', locale), label: m.nav_reactions() },
+  { href: localizeUrl('/calculations/', locale), label: m.nav_calculations() },
+  { href: localizeUrl('/exam/', locale), label: m.nav_exam() },
+  { href: localizeUrl('/profile/', locale), label: m.nav_profile() },
 ];
 
 function isActive(href: string): boolean {
-  if (href === '/') return currentPath === '/';
+  if (href === '/' || href === '/en/' || href === '/pl/' || href === '/es/') return currentPath === href;
   return currentPath.startsWith(href);
 }
+
+const searchUrl = localizeUrl('/search/', locale);
 ---
 
 <nav class="nav">
   <div class="nav-inner container">
-    <a href="/" class="nav-brand">Химия без магии</a>
+    <a href={localizeUrl('/', locale)} class="nav-brand">{m.site_name()}</a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
-    <label for="nav-toggle" class="nav-toggle" aria-label="Меню">
+    <label for="nav-toggle" class="nav-toggle" aria-label={m.nav_menu_label()}>
       <span></span><span></span><span></span>
     </label>
     <ul class="nav-links">
@@ -41,13 +52,14 @@ function isActive(href: string): boolean {
     </ul>
     <PeriodicTableHint client:idle />
     <SolubilityHint client:idle />
-    <a href="/search/" class="search-trigger" aria-label="Поиск">
+    <a href={searchUrl} class="search-trigger" aria-label={m.nav_search()}>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
-      <span class="hint-label-full">Поиск</span>
-      <span class="hint-label-short">Поиск</span>
+      <span class="hint-label-full">{m.nav_search()}</span>
+      <span class="hint-label-short">{m.nav_search()}</span>
     </a>
+    <LanguageSwitcher locale={locale} />
   </div>
 </nav>
 

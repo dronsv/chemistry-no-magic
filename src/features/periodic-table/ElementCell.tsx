@@ -1,4 +1,5 @@
 import type { Element, ElementGroup } from '../../types/element';
+import * as m from '../../paraglide/messages.js';
 
 const GROUP_CSS_VAR: Record<ElementGroup, string> = {
   alkali_metal: 'var(--color-alkali-metal)',
@@ -42,7 +43,7 @@ export default function ElementCell({ element, dimmed, highlighted, isException,
       type="button"
     >
       <span className="pt-cell__z">{element.Z}</span>
-      {isException && <span className="pt-cell__exc" aria-label="Исключение" />}
+      {isException && <span className="pt-cell__exc" aria-label={m.pt_exception_label()} />}
       <span className="pt-cell__symbol">{element.symbol}</span>
       <span className="pt-cell__mass">{Math.round(element.atomic_mass)}</span>
     </button>

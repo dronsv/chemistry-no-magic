@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   assignments: Array<{ symbol: string; state: number }>;
   counts: Record<string, number>;
@@ -29,7 +31,7 @@ function buildAriaLabel(
     const countStr = count > 1 ? `${count}` : "";
     return `${symbol}${countStr}: ${formatState(state)}`;
   });
-  return `Степени окисления: ${parts.join(", ")}`;
+  return m.pt_ox_states({ parts: parts.join(", ") });
 }
 
 export default function FormulaWithOxStates({ assignments, counts }: Props) {

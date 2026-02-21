@@ -1,4 +1,5 @@
 import { getEnergyLevels } from '../../lib/electron-config';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   Z: number;
@@ -20,13 +21,13 @@ export default function EnergyLevelDiagram({ Z }: Props) {
 
   return (
     <div className="energy-level-diagram">
-      <div className="energy-level-diagram__label">Энергетическая диаграмма</div>
+      <div className="energy-level-diagram__label">{m.pt_energy_diagram()}</div>
       <svg
         viewBox={`0 0 ${svgW} ${svgH}`}
         width="100%"
         style={{ maxHeight: '300px' }}
         role="img"
-        aria-label="Энергетическая диаграмма"
+        aria-label={m.pt_energy_diagram()}
       >
         {/* Energy axis */}
         <line

@@ -1,0 +1,10 @@
+{
+	"baseLocale": "ru",
+	"locales": ["ru", "en", "pl", "es"],
+	"modules": [
+		"https://cdn.jsdelivr.net/npm/@inlang/plugin-message-format@latest/dist/index.js"
+	],
+	"plugin.inlang.messageFormat": {
+		"pathPattern": "./messages/{locale}.json"
+	}
+}

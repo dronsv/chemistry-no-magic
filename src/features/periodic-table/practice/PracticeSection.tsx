@@ -5,16 +5,17 @@ import type { BktParams } from '../../../types/bkt';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
+import * as m from '../../../paraglide/messages.js';
 import { generateExercise } from './generate-exercises';
 import type { Exercise } from './generate-exercises';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import OrbitalFillingExercise from './OrbitalFillingExercise';
 
-const LEVEL_LABELS: Record<string, string> = {
-  none: 'Начальный',
-  basic: 'Базовый',
-  confident: 'Уверенный',
-  automatic: 'Автоматизм',
+const LEVEL_LABELS: Record<string, () => string> = {
+  none: m.level_none,
+  basic: m.level_basic,
+  confident: m.level_confident,
+  automatic: m.level_automatic,
 };
 
 interface Props {
@@ -78,7 +79,7 @@ export default function PracticeSection({ elements }: Props) {
 
   return (
     <section className="practice-section">
-      <h2 className="practice-section__title">Практика</h2>
+      <h2 className="practice-section__title">{m.practice_title()}</h2>
 
       {/* Competency levels */}
       <div className="practice-section__levels">
@@ -94,7 +95,7 @@ export default function PracticeSection({ elements }: Props) {
                   style={{ width: `${Math.round(pL * 100)}%` }}
                 />
               </div>
-              <span className="practice-level__label">{LEVEL_LABELS[level]}</span>
+              <span className="practice-level__label">{LEVEL_LABELS[level]?.() ?? level}</span>
             </div>
           );
         })}
@@ -102,15 +103,14 @@ export default function PracticeSection({ elements }: Props) {
 
       {mastered && (
         <div className="practice-section__mastered">
-          Отлично! Обе компетенции на уровне «Уверенный» или выше.
-          Можете переходить к следующему модулю.
+          {m.practice_mastered_both()}
         </div>
       )}
 
       {/* Exercise */}
       {exercise && (
         <div className="practice-section__exercise">
-          <div className="practice-section__counter">Задание #{count}</div>
+          <div className="practice-section__counter">{m.practice_task_counter({ count: String(count) })}</div>
           {exercise.format === 'multiple_choice' ? (
             <MultipleChoiceExercise
               key={count}

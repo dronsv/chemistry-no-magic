@@ -6,6 +6,7 @@ import {
   getValenceElectrons,
 } from '../../lib/electron-config';
 import { useState } from 'react';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   Z: number;
@@ -27,7 +28,7 @@ export default function ElectronFormula({ Z, showShorthand: initialShorthand = t
           onClick={() => setShorthand(!shorthand)}
           type="button"
         >
-          {shorthand ? 'Полная' : 'Краткая'}
+          {shorthand ? m.pt_electron_full() : m.pt_electron_short()}
         </button>
       </div>
       <div className="electron-formula__value">{formula}</div>

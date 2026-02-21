@@ -1,7 +1,11 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
+import LanguageBanner from '../components/LanguageBanner';
 import '../styles/global.css';
+import * as m from '../paraglide/messages.js';
+import type { SupportedLocale } from '../types/i18n';
+import { OG_LOCALE_MAP, SITE_NAME, getCanonicalPath, getAlternateUrls, SUPPORTED_LOCALES, localizeUrl } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -17,14 +21,20 @@ const {
   ogImage,
 } = Astro.props;
 
-const fullTitle = title === 'Химия без магии' ? title : `${title} | Химия без магии`;
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const siteName = SITE_NAME[locale];
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const canonical = canonicalUrl ?? Astro.url.href;
+
+// i18n: get canonical path and alternate URLs for hreflang
+const { canonical: canonicalPath } = getCanonicalPath(Astro.url.pathname);
+const alternateUrls = getAlternateUrls(canonicalPath);
 
 // Breadcrumb segments from URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const breadcrumbItems = [
-  { name: 'Главная', url: `${siteUrl}/` },
+  { name: m.breadcrumb_home(), url: `${siteUrl}/` },
   ...pathSegments.map((seg, i) => ({
     name: seg,
     url: `${siteUrl}/${pathSegments.slice(0, i + 1).join('/')}/`,
@@ -40,10 +50,12 @@ const breadcrumbLd = pathSegments.length > 0 ? {
     "item": item.url,
   })),
 } : null;
+
+const searchUrl = localizeUrl('/search/', locale);
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,13 +70,22 @@ const breadcrumbLd = pathSegments.length > 0 ? {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    <!-- hreflang alternate links -->
+    {SUPPORTED_LOCALES.map((loc) => (
+      <link rel="alternate" hreflang={loc} href={`${siteUrl}${alternateUrls[loc]}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${alternateUrls['ru']}`} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:site_name" content="Химия без магии" />
+    <meta property="og:locale" content={OG_LOCALE_MAP[locale]} />
+    {SUPPORTED_LOCALES.filter(l => l !== locale).map(l => (
+      <meta property="og:locale:alternate" content={OG_LOCALE_MAP[l]} />
+    ))}
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={ogImage ?? `${siteUrl}/og-default.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -116,21 +137,27 @@ const breadcrumbLd = pathSegments.length > 0 ? {
     <!-- /Yandex.Metrika counter -->
 
     <!-- Ctrl+K / Cmd+K → search -->
-    <script is:inline>
+    <script is:inline define:vars={{ searchUrl }}>
       document.addEventListener('keydown', function(e) {
         if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
           e.preventDefault();
-          if (location.pathname !== '/search/') {
-            location.href = '/search/';
+          if (!location.pathname.includes('search') && !location.pathname.includes('szukaj') && !location.pathname.includes('buscar')) {
+            location.href = searchUrl;
           }
         }
       });
     </script>
 
+    <!-- Set Paraglide locale for client-side React islands -->
+    <script is:inline define:vars={{ locale }}>
+      document.cookie = 'PARAGLIDE_LOCALE=' + locale + ';path=/;max-age=34560000;SameSite=Lax';
+    </script>
+
     <slot name="head" />
   </head>
   <body>
-    <Nav />
+    <LanguageBanner client:idle currentLocale={locale} />
+    <Nav locale={locale} />
     <main class="container">
       <slot />
     </main>

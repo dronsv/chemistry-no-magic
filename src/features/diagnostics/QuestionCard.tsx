@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { DiagnosticQuestion } from '../../types/diagnostic';
+import * as m from '../../paraglide/messages.js';
 
 interface QuestionCardProps {
   question: DiagnosticQuestion;
@@ -53,7 +54,7 @@ export default function QuestionCard({ question, onAnswer }: QuestionCardProps) 
         <>
           <div className={`diag-feedback diag-feedback--${isCorrect ? 'correct' : 'wrong'}`}>
             <span className="diag-feedback__label">
-              {isCorrect ? 'Верно!' : 'Неверно'}
+              {isCorrect ? m.correct() : m.wrong()}
             </span>
             {question.explanation_ru}
           </div>
@@ -62,7 +63,7 @@ export default function QuestionCard({ question, onAnswer }: QuestionCardProps) 
             className="btn btn-primary diag-next"
             onClick={handleNext}
           >
-            Далее
+            {m.next()}
           </button>
         </>
       )}

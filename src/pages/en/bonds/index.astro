@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BondsPage from '../../../features/bonds/BondsPage';
+---
+
+<BaseLayout title="Chemical Bonds" description="Determine bond types and crystal lattices by substance formula. Calculator, theory, and practice.">
+  <BondsPage client:idle />
+</BaseLayout>

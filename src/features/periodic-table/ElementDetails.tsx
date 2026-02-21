@@ -1,5 +1,6 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import * as m from '../../paraglide/messages.js';
 
 interface ElementDetailsProps {
   element: Element;
@@ -21,7 +22,7 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
         className="pt-details__close"
         onClick={onClose}
         type="button"
-        aria-label="Закрыть"
+        aria-label={m.close_label()}
       >
         &times;
       </button>

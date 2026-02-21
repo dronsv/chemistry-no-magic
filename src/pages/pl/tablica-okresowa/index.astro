@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
+---
+
+<BaseLayout title="Układ okresowy" description="Interaktywny układ okresowy: konfiguracje elektronowe, diagramy orbitalne, poziomy energetyczne.">
+  <PeriodicTablePage client:idle />
+</BaseLayout>

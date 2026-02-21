@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as m from '../../paraglide/messages.js';
 
 function CollapsibleSection({
   title,
@@ -37,13 +38,13 @@ export default function CalculationsTheoryPanel() {
         onClick={() => setOpen(!open)}
       >
         <span>📖</span>
-        <span>Теория: расчёты по химии</span>
+        <span>{m.theory_calc_trigger()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '▾' : '▸'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          <CollapsibleSection title="Молярная масса" defaultOpen>
+          <CollapsibleSection title={m.calc_molar_mass()} defaultOpen>
             <div className="calc-theory">
               <p><strong>Молярная масса (M)</strong> — масса одного моля вещества, измеряется в г/моль.</p>
               <div className="calc-theory__formula">
@@ -61,7 +62,7 @@ export default function CalculationsTheoryPanel() {
             </div>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Количество вещества">
+          <CollapsibleSection title={m.calc_amount()}>
             <div className="calc-theory">
               <p><strong>Количество вещества (n)</strong> — число молей, связывает массу с молярной массой.</p>
               <div className="calc-theory__formula-group">
@@ -81,7 +82,7 @@ export default function CalculationsTheoryPanel() {
             </div>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Массовая доля элемента">
+          <CollapsibleSection title={m.calc_mass_fraction()}>
             <div className="calc-theory">
               <p><strong>Массовая доля элемента (ω)</strong> — доля массы данного элемента в общей массе вещества.</p>
               <div className="calc-theory__formula">
@@ -99,7 +100,7 @@ export default function CalculationsTheoryPanel() {
             </div>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Массовая доля растворённого вещества">
+          <CollapsibleSection title={m.calc_solution_fraction()}>
             <div className="calc-theory">
               <p><strong>Массовая доля растворённого вещества (ω)</strong> — отношение массы растворённого вещества к массе раствора.</p>
               <div className="calc-theory__formula-group">
@@ -119,7 +120,7 @@ export default function CalculationsTheoryPanel() {
             </div>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Расчёты по уравнению реакции">
+          <CollapsibleSection title={m.calc_equation()}>
             <div className="calc-theory">
               <p><strong>Алгоритм расчёта по уравнению реакции:</strong></p>
               <ol className="calc-theory__steps">
@@ -137,7 +138,7 @@ export default function CalculationsTheoryPanel() {
             </div>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Выход продукта реакции">
+          <CollapsibleSection title={m.calc_yield()}>
             <div className="calc-theory">
               <p><strong>Выход продукта (η)</strong> — отношение практически полученной массы продукта к теоретически возможной.</p>
               <div className="calc-theory__formula-group">

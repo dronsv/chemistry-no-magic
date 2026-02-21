@@ -6,6 +6,7 @@ import { loadReactions, loadSubstancesIndex, loadElements } from '../../lib/data
 import { parseFormula } from '../../lib/formula-parser';
 import { calcOxidationStates } from '../../lib/oxidation-state';
 import FormulaChip from '../../components/FormulaChip';
+import * as m from '../../paraglide/messages.js';
 
 type ElementInfo = { group: number; metal_type: MetalType };
 
@@ -14,31 +15,36 @@ function normalizeFormula(f: string): string {
   return f.replace(/[₀₁₂₃₄₅₆₇₈₉]/g, ch => String(ch.charCodeAt(0) - 0x2080));
 }
 
-const TAG_FILTERS = [
-  { value: 'all', label: 'Все' },
-  { value: 'neutralization', label: 'Нейтрализация' },
-  { value: 'precipitation', label: 'Осадок' },
-  { value: 'gas_evolution', label: 'Газ' },
-  { value: 'substitution', label: 'Замещение' },
-  { value: 'qualitative_test', label: 'Качественные' },
-  { value: 'amphoteric', label: 'Амфотерность' },
-  { value: 'acidic_oxide', label: 'Оксиды' },
-  { value: 'decomposition', label: 'Разложение' },
-];
+const TAG_FILTER_VALUES = [
+  'all', 'neutralization', 'precipitation', 'gas_evolution', 'substitution',
+  'qualitative_test', 'amphoteric', 'acidic_oxide', 'decomposition',
+] as const;
 
-const TAG_LABELS: Record<string, string> = {
-  exchange: 'Обмена',
-  substitution: 'Замещение',
-  redox: 'ОВР',
-  neutralization: 'Нейтрализация',
-  precipitation: 'Осадок',
-  gas_evolution: 'Газ',
-  gas_absorption: 'Поглощение газа',
-  amphoteric: 'Амфотерность',
-  complexation: 'Комплекс',
-  acidic_oxide: 'Оксиды',
-  decomposition: 'Разложение',
-  qualitative_test: 'Качественная',
+const TAG_FILTER_LABELS: Record<string, () => string> = {
+  all: m.rxn_filter_all,
+  neutralization: m.rxn_filter_neutralization,
+  precipitation: m.rxn_filter_precipitation,
+  gas_evolution: m.rxn_filter_gas_evolution,
+  substitution: m.rxn_filter_substitution,
+  qualitative_test: m.rxn_filter_qualitative,
+  amphoteric: m.rxn_filter_amphoteric,
+  acidic_oxide: m.rxn_filter_acidic_oxide,
+  decomposition: m.rxn_filter_decomposition,
+};
+
+const TAG_LABELS: Record<string, () => string> = {
+  exchange: m.rxn_tag_exchange,
+  substitution: m.rxn_tag_substitution,
+  redox: m.rxn_tag_redox,
+  neutralization: m.rxn_tag_neutralization,
+  precipitation: m.rxn_tag_precipitation,
+  gas_evolution: m.rxn_tag_gas_evolution,
+  gas_absorption: m.rxn_tag_gas_absorption,
+  amphoteric: m.rxn_tag_amphoteric,
+  complexation: m.rxn_tag_complexation,
+  acidic_oxide: m.rxn_tag_acidic_oxide,
+  decomposition: m.rxn_tag_decomposition,
+  qualitative_test: m.rxn_tag_qualitative_test,
 };
 
 /** Pick the most descriptive (specific) tag for the card badge */
@@ -48,28 +54,28 @@ function getBadgeTag(tags: string[]): string {
   return specific ?? tags[0] ?? 'exchange';
 }
 
-const DRIVING_FORCE_LABELS: Record<string, { icon: string; label: string }> = {
-  precipitation: { icon: '↓', label: 'Осадок' },
-  gas_release: { icon: '↑', label: 'Газ' },
-  water_formation: { icon: '💧', label: 'Вода' },
-  weak_electrolyte: { icon: '~', label: 'Слабый электролит' },
-  complex_formation: { icon: '⟨⟩', label: 'Комплекс' },
+const DRIVING_FORCE_LABELS: Record<string, { icon: string; label: () => string }> = {
+  precipitation: { icon: '↓', label: m.rxn_force_precipitation },
+  gas_release: { icon: '↑', label: m.rxn_force_gas_release },
+  water_formation: { icon: '💧', label: m.rxn_force_water_formation },
+  weak_electrolyte: { icon: '~', label: m.rxn_force_weak_electrolyte },
+  complex_formation: { icon: '⟨⟩', label: m.rxn_force_complex_formation },
 };
 
-const HEAT_LABELS: Record<string, { label: string; className: string }> = {
-  exo: { label: 'Экзотермическая', className: 'rxn-heat-badge--exo' },
-  endo: { label: 'Эндотермическая', className: 'rxn-heat-badge--endo' },
-  negligible: { label: 'Незначительный тепловой эффект', className: 'rxn-heat-badge--negligible' },
-  unknown: { label: 'Тепловой эффект не определён', className: 'rxn-heat-badge--unknown' },
+const HEAT_LABELS: Record<string, { label: () => string; className: string }> = {
+  exo: { label: m.rxn_heat_exo, className: 'rxn-heat-badge--exo' },
+  endo: { label: m.rxn_heat_endo, className: 'rxn-heat-badge--endo' },
+  negligible: { label: m.rxn_heat_negligible, className: 'rxn-heat-badge--negligible' },
+  unknown: { label: m.rxn_heat_unknown, className: 'rxn-heat-badge--unknown' },
 };
 
 type TabId = 'molecular' | 'ionic' | 'why' | 'speed';
 
-const TABS: { id: TabId; label: string }[] = [
-  { id: 'molecular', label: 'Молекулярное' },
-  { id: 'ionic', label: 'Ионное' },
-  { id: 'why', label: 'Почему идёт' },
-  { id: 'speed', label: 'Как ускорить' },
+const TABS: { id: TabId; label: () => string }[] = [
+  { id: 'molecular', label: m.rxn_view_molecular },
+  { id: 'ionic', label: m.rxn_view_ionic },
+  { id: 'why', label: m.rxn_view_why },
+  { id: 'speed', label: m.rxn_view_speed },
 ];
 
 function MolecularTab({ reaction, substanceMap, elementMap }: {
@@ -113,7 +119,7 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
         <span className="rxn-phase-badge">Среда: {reaction.phase.medium}{reaction.phase.notes ? ` (${reaction.phase.notes})` : ''}</span>
         {reaction.conditions && (
           <span className="rxn-conditions">
-            {reaction.conditions.temperature && reaction.conditions.temperature !== 'room' && `Температура: ${reaction.conditions.temperature}`}
+            {reaction.conditions.temperature && reaction.conditions.temperature !== 'room' && m.rxn_temperature({ temp: reaction.conditions.temperature })}
             {reaction.conditions.catalyst && ` | Катализатор: ${reaction.conditions.catalyst}`}
             {reaction.conditions.pressure && ` | Давление: ${reaction.conditions.pressure}`}
             {reaction.conditions.excess && ` | ${reaction.conditions.excess}`}
@@ -161,7 +167,7 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
             return (
               <span key={f} className="rxn-driving-badge">
                 <span className="rxn-driving-badge__icon">{info?.icon ?? '?'}</span>
-                {info?.label ?? f}
+                {info?.label() ?? f}
               </span>
             );
           })}
@@ -179,7 +185,7 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
         </ul>
       </div>
       {heat && (
-        <span className={`rxn-heat-badge ${heat.className}`}>{heat.label}</span>
+        <span className={`rxn-heat-badge ${heat.className}`}>{heat.label()}</span>
       )}
     </div>
   );
@@ -233,7 +239,7 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
         onClick={() => setExpanded(!expanded)}
       >
         <span className={`rxn-card__type-badge rxn-card__type-badge--${badgeTag}`}>
-          {TAG_LABELS[badgeTag] ?? badgeTag}
+          {TAG_LABELS[badgeTag]?.() ?? badgeTag}
         </span>
         <span className="rxn-card__title">{reaction.title}</span>
         <span className="rxn-card__arrow">{expanded ? '▾' : '▸'}</span>
@@ -248,7 +254,7 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
                 className={`rxn-tab-btn ${activeTab === tab.id ? 'rxn-tab-btn--active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
               >
-                {tab.label}
+                {tab.label()}
               </button>
             ))}
           </div>
@@ -285,7 +291,7 @@ export default function ReactionCards() {
   }, []);
 
   if (loading) {
-    return <div className="rxn-catalog__loading">Загрузка...</div>;
+    return <div className="rxn-catalog__loading">{m.loading()}</div>;
   }
 
   const filtered = filter === 'all'
@@ -297,14 +303,14 @@ export default function ReactionCards() {
       <h2 className="rxn-catalog__title">Каталог реакций</h2>
 
       <div className="rxn-catalog__filters">
-        {TAG_FILTERS.map(opt => (
+        {TAG_FILTER_VALUES.map(value => (
           <button
-            key={opt.value}
+            key={value}
             type="button"
-            className={`rxn-catalog__filter-btn ${filter === opt.value ? 'rxn-catalog__filter-btn--active' : ''}`}
-            onClick={() => setFilter(opt.value)}
+            className={`rxn-catalog__filter-btn ${filter === value ? 'rxn-catalog__filter-btn--active' : ''}`}
+            onClick={() => setFilter(value)}
           >
-            {opt.label}
+            {TAG_FILTER_LABELS[value]?.() ?? value}
           </button>
         ))}
       </div>

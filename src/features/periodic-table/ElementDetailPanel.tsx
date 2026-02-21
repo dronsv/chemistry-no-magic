@@ -1,6 +1,7 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import { getValenceElectrons, getShorthandFormula } from '../../lib/electron-config';
+import * as m from '../../paraglide/messages.js';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
 import EnergyLevelDiagram from './EnergyLevelDiagram';
@@ -27,7 +28,7 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
         className="detail-panel__close"
         onClick={onClose}
         type="button"
-        aria-label="Закрыть"
+        aria-label={m.close_label()}
       >
         &times;
       </button>

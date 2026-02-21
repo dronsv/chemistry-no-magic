@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as m from '../../../paraglide/messages.js';
 import { getOrbitalBoxes, getElectronConfig } from '../../../lib/electron-config';
 import type { OrbitalBox, Spin, SubshellType } from '../../../types/electron-config';
 import type { Exercise } from './generate-exercises';
@@ -88,7 +89,7 @@ export default function OrbitalFillingExercise({ exercise, onAnswer }: Props) {
     <div className="practice-orbital">
       <p className="practice-orbital__question">{exercise.question}</p>
       <p className="practice-orbital__hint">
-        Нажимайте на ячейки, чтобы заполнить электроны (↑ → ↓ → пусто)
+        {m.practice_orbital_hint()}
       </p>
       <div className="practice-orbital__grid">
         {groups.map(group => (
@@ -122,7 +123,7 @@ export default function OrbitalFillingExercise({ exercise, onAnswer }: Props) {
 
       {!submitted && (
         <button type="button" className="btn btn-primary" onClick={handleSubmit}>
-          Проверить
+          {m.oge_check()}
         </button>
       )}
 
@@ -130,7 +131,7 @@ export default function OrbitalFillingExercise({ exercise, onAnswer }: Props) {
         <>
           <div className={`practice-feedback practice-feedback--${correct ? 'correct' : 'wrong'}`}>
             <span className="practice-feedback__label">
-              {correct ? 'Верно!' : 'Неверно'}
+              {correct ? m.correct() : m.wrong()}
             </span>
             {exercise.explanation}
           </div>
@@ -139,7 +140,7 @@ export default function OrbitalFillingExercise({ exercise, onAnswer }: Props) {
             className="btn btn-primary practice-next"
             onClick={() => onAnswer(correct)}
           >
-            Следующее задание
+            {m.practice_next_task()}
           </button>
         </>
       )}

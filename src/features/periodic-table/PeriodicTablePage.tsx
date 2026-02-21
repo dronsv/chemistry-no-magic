@@ -3,6 +3,7 @@ import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import { loadElements, loadElementGroups } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
+import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetailPanel from './ElementDetailPanel';
@@ -60,7 +61,7 @@ export default function PeriodicTablePage() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки данных');
+        setError(err instanceof Error ? err.message : m.error_loading());
         setLoading(false);
       });
   }, []);
@@ -89,7 +90,7 @@ export default function PeriodicTablePage() {
   }, [searchQuery, elements]);
 
   if (loading) {
-    return <div className="pt-page__loading">Загрузка...</div>;
+    return <div className="pt-page__loading">{m.loading()}</div>;
   }
 
   if (error) {
@@ -105,7 +106,7 @@ export default function PeriodicTablePage() {
         <input
           type="search"
           className="pt-page__search"
-          placeholder="Поиск элемента..."
+          placeholder={m.pt_search_placeholder()}
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
@@ -115,21 +116,21 @@ export default function PeriodicTablePage() {
             className={`pt-page__btn ${formType === 'long' ? 'pt-page__btn--active' : ''}`}
             onClick={() => setFormType('long')}
           >
-            Длинная
+            {m.pt_form_long()}
           </button>
           <button
             type="button"
             className={`pt-page__btn ${formType === 'short' ? 'pt-page__btn--active' : ''}`}
             onClick={() => setFormType('short')}
           >
-            Короткая
+            {m.pt_form_short()}
           </button>
           <button
             type="button"
             className={`pt-page__btn ${showTrends ? 'pt-page__btn--active' : ''}`}
             onClick={() => setShowTrends(!showTrends)}
           >
-            Тренды
+            {m.pt_trends()}
           </button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useRef } from 'react';
 import SolubilityTable from './SolubilityTable';
 import { usePanelState } from '../../lib/use-panel-state';
+import * as m from '../../paraglide/messages.js';
 import './solubility-hint.css';
 
 export default function SolubilityHint() {
@@ -55,7 +56,7 @@ export default function SolubilityHint() {
         className={`sol-trigger ${isOpen ? 'sol-trigger--active' : ''}`}
         onClick={toggle}
         type="button"
-        aria-label="Открыть таблицу растворимости"
+        aria-label={m.sol_open_table()}
       >
         <span className="sol-trigger__icon" aria-hidden="true">
           <span /><span /><span />
@@ -70,7 +71,7 @@ export default function SolubilityHint() {
         <div className="sol-hint-panel" ref={panelRef} style={panelStyle}>
           <div className="sol-hint-panel__header" onMouseDown={onDragStart}>
             <h2 className="sol-hint-panel__title">Таблица растворимости</h2>
-            <button className="sol-hint-panel__close" onClick={close} type="button" aria-label="Закрыть">&times;</button>
+            <button className="sol-hint-panel__close" onClick={close} type="button" aria-label={m.close_label()}>&times;</button>
           </div>
           <div className="sol-hint-panel__content">
             <SolubilityTable />

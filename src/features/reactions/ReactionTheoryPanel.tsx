@@ -13,23 +13,24 @@ import {
 } from '../../lib/data-loader';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
+import * as m from '../../paraglide/messages.js';
 
-const TYPE_LABELS: Record<string, string> = {
-  exchange: 'Реакции обмена',
-  substitution: 'Реакции замещения',
-  combination: 'Реакции соединения',
-  decomposition: 'Реакции разложения',
+const TYPE_LABELS: Record<string, () => string> = {
+  exchange: m.rxn_type_exchange,
+  substitution: m.rxn_type_substitution,
+  combination: m.rxn_type_combination,
+  decomposition: m.rxn_type_decomposition,
 };
 
-const RULE_TYPE_LABELS: Record<string, string> = {
-  exchange_reaction_condition: 'Условия реакций обмена',
-  activity_series_condition: 'Ряд активности металлов',
-  gas_forming_condition: 'Газообразование',
-  oxide_reaction_condition: 'Реакции оксидов',
-  thermal_condition: 'Термические условия',
-  special_acid_condition: 'Особые кислоты',
-  passivation_condition: 'Пассивация',
-  amphoteric_condition: 'Амфотерность',
+const RULE_TYPE_LABELS: Record<string, () => string> = {
+  exchange_reaction_condition: m.rxn_rule_exchange,
+  activity_series_condition: m.rxn_rule_activity,
+  gas_forming_condition: m.rxn_rule_gas,
+  oxide_reaction_condition: m.rxn_rule_oxide,
+  thermal_condition: m.rxn_rule_thermal,
+  special_acid_condition: m.rxn_rule_special_acid,
+  passivation_condition: m.rxn_rule_passivation,
+  amphoteric_condition: m.rxn_rule_amphoteric,
 };
 
 function CollapsibleSection({
@@ -87,7 +88,7 @@ export default function ReactionTheoryPanel() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
   }, [open, templates]);
@@ -98,7 +99,7 @@ export default function ReactionTheoryPanel() {
     ? typeOrder
         .map(type => ({
           type,
-          label: TYPE_LABELS[type],
+          label: TYPE_LABELS[type]?.() ?? type,
           items: templates.filter(t => t.type === type),
         }))
         .filter(g => g.items.length > 0)
@@ -113,7 +114,7 @@ export default function ReactionTheoryPanel() {
         }, {}),
       ).map(([type, items]) => ({
         type,
-        label: RULE_TYPE_LABELS[type] ?? type,
+        label: RULE_TYPE_LABELS[type]?.() ?? type,
         items,
       }))
     : [];
@@ -126,18 +127,18 @@ export default function ReactionTheoryPanel() {
         onClick={() => setOpen(!open)}
       >
         <span>📖</span>
-        <span>Теория: реакции и движущие силы</span>
+        <span>{m.theory_rxn_trigger()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '▾' : '▸'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
           {templates && rules && (
             <>
-              <CollapsibleSection title="Типы реакций" defaultOpen>
+              <CollapsibleSection title={m.rxn_theory_types()} defaultOpen>
                 {templateGroups.map(group => (
                   <div key={group.type} className="rxn-theory__type-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
@@ -161,7 +162,7 @@ export default function ReactionTheoryPanel() {
                 ))}
               </CollapsibleSection>
 
-              <CollapsibleSection title="Движущие силы реакций">
+              <CollapsibleSection title={m.rxn_theory_forces()}>
                 {ruleGroups.map(group => (
                   <div key={group.type} className="rxn-theory__rule-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
@@ -175,15 +176,15 @@ export default function ReactionTheoryPanel() {
                 ))}
               </CollapsibleSection>
 
-              <CollapsibleSection title="Таблица растворимости">
+              <CollapsibleSection title={m.rxn_theory_solubility()}>
                 <SolubilityTable />
               </CollapsibleSection>
 
-              <CollapsibleSection title="Ряд активности металлов">
+              <CollapsibleSection title={m.rxn_theory_activity()}>
                 <ActivitySeriesBar />
               </CollapsibleSection>
 
-              <CollapsibleSection title="ОВР: окислитель и восстановитель">
+              <CollapsibleSection title={m.rxn_theory_redox()}>
                 <div className="rxn-theory__redox">
                   <p><strong>Окислительно-восстановительные реакции (ОВР)</strong> — реакции, в которых изменяются степени окисления элементов.</p>
                   <div className="rxn-theory__definitions">
@@ -212,7 +213,7 @@ export default function ReactionTheoryPanel() {
               </CollapsibleSection>
 
               {qualTests && qualTests.length > 0 && (
-                <CollapsibleSection title="Качественные реакции">
+                <CollapsibleSection title={m.rxn_theory_qualitative()}>
                   <div className="rxn-theory__qualitative">
                     <p>Качественные реакции позволяют определить присутствие конкретного иона или газа по характерному признаку.</p>
                     <table className="rxn-theory__qual-table">
@@ -238,7 +239,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {chains && chains.length > 0 && (
-                <CollapsibleSection title="Генетические цепочки">
+                <CollapsibleSection title={m.rxn_theory_chains()}>
                   <div className="rxn-theory__chains">
                     <p>Генетическая связь — цепочка превращений веществ разных классов, связанных между собой.</p>
                     <div className="rxn-theory__chain-diagrams">
@@ -269,7 +270,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {energyTheory && (
-                <CollapsibleSection title="Скорость реакции и равновесие">
+                <CollapsibleSection title={m.rxn_theory_speed()}>
                   <div className="rxn-theory__energy">
                     <h4 className="rxn-theory__type-title">Факторы, влияющие на скорость</h4>
                     <div className="rxn-theory__definitions">
@@ -318,7 +319,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {energyTheory && (
-                <CollapsibleSection title="Катализ и энергетика">
+                <CollapsibleSection title={m.rxn_theory_catalysis()}>
                   <div className="rxn-theory__catalyst">
                     <p><strong>Катализатор</strong> — вещество, которое ускоряет реакцию, но само не расходуется. Снижает энергию активации, предлагая альтернативный путь реакции.</p>
 

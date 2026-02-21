@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { OxidationTheory, OxidationRule } from '../../types/oxidation';
 import { loadOxidationTheory } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
 function CollapsibleSection({
   title,
@@ -33,7 +34,7 @@ function RuleCard({ rule }: { rule: OxidationRule }) {
     <div className="ox-theory__rule">
       <p className="ox-theory__rule-text">{rule.rule_ru}</p>
       <div className="ox-theory__rule-examples">
-        Примеры: {rule.examples.join(', ')}
+        {m.theory_examples_label()} {rule.examples.join(', ')}
       </div>
     </div>
   );
@@ -54,7 +55,7 @@ export default function OxidationTheoryPanel() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
   }, [open, theory]);
@@ -66,25 +67,25 @@ export default function OxidationTheoryPanel() {
         className={`theory-panel__trigger ${open ? 'theory-panel__trigger--active' : ''}`}
         onClick={() => setOpen(!open)}
       >
-        <span>Теория</span>
+        <span>{m.theory_label()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '\u25BE' : '\u25B8'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
           {theory && (
             <>
-              <h3 className="theory-panel__heading">Правила определения СО</h3>
+              <h3 className="theory-panel__heading">{m.theory_ox_rules_heading()}</h3>
               {theory.rules.map(rule => (
                 <CollapsibleSection key={rule.id} title={rule.name_ru}>
                   <RuleCard rule={rule} />
                 </CollapsibleSection>
               ))}
 
-              <h3 className="theory-panel__heading">Окислитель и восстановитель</h3>
+              <h3 className="theory-panel__heading">{m.theory_redox_heading()}</h3>
               <div className="ox-theory__redox">
                 <p className="ox-theory__redox-item">
                   <strong>Окислитель:</strong> {theory.redox_concepts.oxidizer_ru}

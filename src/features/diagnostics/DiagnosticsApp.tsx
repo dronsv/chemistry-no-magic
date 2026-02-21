@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import type { DiagnosticQuestion } from '../../types/diagnostic';
 import type { BktParams } from '../../types/bkt';
 import type { CompetencyId, CompetencyNode } from '../../types/competency';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadDiagnosticQuestions, loadBktParams, loadCompetencies } from '../../lib/data-loader';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { hasDiagnosticsResult, saveBktState, clearBktState } from '../../lib/storage';
+import { localizeUrl } from '../../lib/i18n';
+import * as m from '../../paraglide/messages.js';
 import ProgressBar from './ProgressBar';
 import QuestionCard from './QuestionCard';
 import ResultsSummary from './ResultsSummary';
@@ -17,7 +20,11 @@ interface Answer {
   correct: boolean;
 }
 
-export default function DiagnosticsApp() {
+interface DiagnosticsAppProps {
+  locale?: SupportedLocale;
+}
+
+export default function DiagnosticsApp({ locale = 'ru' }: DiagnosticsAppProps) {
   const [phase, setPhase] = useState<Phase>('loading');
   const [questions, setQuestions] = useState<DiagnosticQuestion[]>([]);
   const [paramsMap, setParamsMap] = useState<Map<CompetencyId, BktParams>>(new Map());
@@ -53,7 +60,7 @@ export default function DiagnosticsApp() {
         setPhase('intro');
       } catch (err) {
         if (cancelled) return;
-        setErrorMsg(err instanceof Error ? err.message : 'Ошибка загрузки данных');
+        setErrorMsg(err instanceof Error ? err.message : m.error_loading());
         setPhase('error');
       }
     }
@@ -104,7 +111,7 @@ export default function DiagnosticsApp() {
   }
 
   if (phase === 'loading') {
-    return <div className="diag"><p className="diag-loading">Загрузка...</p></div>;
+    return <div className="diag"><p className="diag-loading">{m.loading()}</p></div>;
   }
 
   if (phase === 'error') {
@@ -115,18 +122,17 @@ export default function DiagnosticsApp() {
     return (
       <div className="diag">
         <div className="diag-intro">
-          <h1 className="diag-intro__title">Диагностика</h1>
+          <h1 className="diag-intro__title">{m.diag_title()}</h1>
           <p className="diag-intro__desc">
-            12 вопросов по ключевым темам химии ОГЭ. Тест займёт около 15 минут
-            и определит ваш уровень по каждой компетенции.
+            {m.diag_intro()}
           </p>
           <div className="diag-intro__actions">
             <button type="button" className="btn btn-primary" onClick={startQuiz}>
-              {hasExisting ? 'Пройти заново' : 'Начать'}
+              {hasExisting ? m.diag_retake() : m.diag_start()}
             </button>
             {hasExisting && (
-              <a href="/profile/" className="diag-intro__retake">
-                Посмотреть текущий профиль
+              <a href={localizeUrl('/profile/', locale)} className="diag-intro__retake">
+                {m.diag_view_profile()}
               </a>
             )}
           </div>
@@ -150,7 +156,7 @@ export default function DiagnosticsApp() {
 
   return (
     <div className="diag">
-      <ResultsSummary results={results} competencies={competencies} />
+      <ResultsSummary results={results} competencies={competencies} locale={locale} />
     </div>
   );
 }

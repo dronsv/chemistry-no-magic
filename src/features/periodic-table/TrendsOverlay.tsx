@@ -1,3 +1,5 @@
+import * as m from '../../paraglide/messages.js';
+
 interface TrendsOverlayProps {
   /** Grid dimensions for positioning arrows relative to the table */
   gridWidth: number;
@@ -6,17 +8,17 @@ interface TrendsOverlayProps {
 
 interface Trend {
   id: string;
-  label: string;
+  label: () => string;
   color: string;
   /** Direction: 'right' = left→right, 'up' = bottom→top, 'diagonal' = bottom-left→top-right */
   direction: 'right' | 'up' | 'diagonal';
 }
 
 const TRENDS: Trend[] = [
-  { id: 'en', label: 'Электроотрицательность ↗', color: '#e03131', direction: 'diagonal' },
-  { id: 'metal', label: 'Металличность ↙', color: '#2f9e44', direction: 'diagonal' },
-  { id: 'radius', label: 'Атомный радиус ↓→', color: '#1971c2', direction: 'diagonal' },
-  { id: 'ionization', label: 'Энергия ионизации ↗', color: '#e8590c', direction: 'diagonal' },
+  { id: 'en', label: m.pt_trend_en, color: '#e03131', direction: 'diagonal' },
+  { id: 'metal', label: m.pt_trend_metal, color: '#2f9e44', direction: 'diagonal' },
+  { id: 'radius', label: m.pt_trend_radius, color: '#1971c2', direction: 'diagonal' },
+  { id: 'ionization', label: m.pt_trend_ionization, color: '#e8590c', direction: 'diagonal' },
 ];
 
 export default function TrendsOverlay({}: TrendsOverlayProps) {
@@ -88,7 +90,7 @@ export default function TrendsOverlay({}: TrendsOverlayProps) {
         {TRENDS.map((t) => (
           <span key={t.id} className="pt-trends__item" style={{ color: t.color }}>
             <span className="pt-trends__dot" style={{ backgroundColor: t.color }} />
-            {t.label}
+            {t.label()}
           </span>
         ))}
       </div>

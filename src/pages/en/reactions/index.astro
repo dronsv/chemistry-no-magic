@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReactionsPage from '../../../features/reactions/ReactionsPage';
+---
+
+<BaseLayout title="Chemical Reactions" description="Types of chemical reactions: exchange, substitution, decomposition, combination. Ionic equations and practice.">
+  <ReactionsPage client:idle />
+</BaseLayout>

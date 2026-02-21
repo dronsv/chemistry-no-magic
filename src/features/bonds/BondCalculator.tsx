@@ -7,28 +7,29 @@ import BondDiagramIonic from './diagrams/BondDiagramIonic';
 import BondDiagramCovalent from './diagrams/BondDiagramCovalent';
 import BondDiagramMetallic from './diagrams/BondDiagramMetallic';
 import ElectronegativityBar from './diagrams/ElectronegativityBar';
+import * as m from '../../paraglide/messages.js';
 
 type InputMode = 'formula' | 'pair';
 
-const BOND_TYPE_LABELS: Record<BondType, string> = {
-  ionic: 'Ионная',
-  covalent_polar: 'Ковалентная полярная',
-  covalent_nonpolar: 'Ковалентная неполярная',
-  metallic: 'Металлическая',
+const BOND_TYPE_LABELS: Record<BondType, () => string> = {
+  ionic: m.bond_ionic,
+  covalent_polar: m.bond_covalent_polar,
+  covalent_nonpolar: m.bond_covalent_nonpolar,
+  metallic: m.bond_metallic,
 };
 
-const CRYSTAL_LABELS: Record<CrystalStructure, string> = {
-  ionic: 'Ионная решётка',
-  molecular: 'Молекулярная решётка',
-  atomic: 'Атомная решётка',
-  metallic: 'Металлическая решётка',
+const CRYSTAL_LABELS: Record<CrystalStructure, () => string> = {
+  ionic: m.crystal_ionic,
+  molecular: m.crystal_molecular,
+  atomic: m.crystal_atomic,
+  metallic: m.crystal_metallic,
 };
 
-const CRYSTAL_PROPERTIES: Record<CrystalStructure, { melting: string; hardness: string; conductivity: string; solubility: string }> = {
-  ionic: { melting: 'Высокая (800-3000 \u00B0C)', hardness: 'Твёрдые, хрупкие', conductivity: 'В расплаве и растворе', solubility: 'Часто растворимы' },
-  molecular: { melting: 'Низкая (< 300 \u00B0C)', hardness: 'Мягкие', conductivity: 'Не проводят', solubility: 'По-разному' },
-  atomic: { melting: 'Очень высокая (> 1500 \u00B0C)', hardness: 'Очень твёрдые', conductivity: 'Не проводят (кроме графита)', solubility: 'Нерастворимы' },
-  metallic: { melting: 'Разная (\u221239 \u00B0C Hg \u2026 3422 \u00B0C W)', hardness: 'Разная', conductivity: 'Высокая', solubility: 'Нерастворимы' },
+const CRYSTAL_PROPERTIES: Record<CrystalStructure, { melting: () => string; hardness: () => string; conductivity: () => string; solubility: () => string }> = {
+  ionic: { melting: m.crystal_ionic_melting, hardness: m.crystal_ionic_hardness, conductivity: m.crystal_ionic_conductivity, solubility: m.crystal_ionic_solubility },
+  molecular: { melting: m.crystal_molecular_melting, hardness: m.crystal_molecular_hardness, conductivity: m.crystal_molecular_conductivity, solubility: m.crystal_molecular_solubility },
+  atomic: { melting: m.crystal_atomic_melting, hardness: m.crystal_atomic_hardness, conductivity: m.crystal_atomic_conductivity, solubility: m.crystal_atomic_solubility },
+  metallic: { melting: m.crystal_metallic_melting, hardness: m.crystal_metallic_hardness, conductivity: m.crystal_metallic_conductivity, solubility: m.crystal_metallic_solubility },
 };
 
 interface AnalysisResult {
@@ -69,7 +70,7 @@ export default function BondCalculator() {
     const analysis: FormulaAnalysis = analyzeFormula(formula.trim(), elementMap);
 
     if (analysis.bonds.length === 0) {
-      setError('Не удалось распознать формулу. Проверьте написание.');
+      setError(m.formula_parse_error());
       setResult(null);
       return;
     }
@@ -143,7 +144,7 @@ export default function BondCalculator() {
 
   return (
     <section className="bond-calc">
-      <h2 className="bond-calc__title">Определение типа связи</h2>
+      <h2 className="bond-calc__title">{m.bond_title()}</h2>
 
       <div className="bond-calc__modes">
         <button
@@ -151,14 +152,14 @@ export default function BondCalculator() {
           className={`bond-calc__mode-btn ${mode === 'formula' ? 'bond-calc__mode-btn--active' : ''}`}
           onClick={() => handleModeChange('formula')}
         >
-          По формуле
+          {m.bond_by_formula()}
         </button>
         <button
           type="button"
           className={`bond-calc__mode-btn ${mode === 'pair' ? 'bond-calc__mode-btn--active' : ''}`}
           onClick={() => handleModeChange('pair')}
         >
-          По паре элементов
+          {m.bond_by_pair()}
         </button>
       </div>
 
@@ -167,7 +168,7 @@ export default function BondCalculator() {
           <input
             type="text"
             className="bond-calc__input"
-            placeholder="Введите формулу, например NaCl, H2O, Fe..."
+            placeholder={m.bond_formula_placeholder()}
             value={formulaInput}
             onChange={e => handleFormulaChange(e.target.value)}
             onKeyDown={handleFormulaKeyDown}
@@ -182,7 +183,7 @@ export default function BondCalculator() {
             value={symbolA}
             onChange={e => handlePairChange(e.target.value, symbolB)}
           >
-            <option value="">Элемент A</option>
+            <option value="">{m.bond_element_a()}</option>
             {sortedElements.map(el => (
               <option key={el.symbol} value={el.symbol}>
                 {el.symbol} — {el.name_ru}
@@ -194,7 +195,7 @@ export default function BondCalculator() {
             value={symbolB}
             onChange={e => handlePairChange(symbolA, e.target.value)}
           >
-            <option value="">Элемент B</option>
+            <option value="">{m.bond_element_b()}</option>
             {sortedElements.map(el => (
               <option key={el.symbol} value={el.symbol}>
                 {el.symbol} — {el.name_ru}
@@ -224,7 +225,7 @@ function BondResultCard({ result }: BondResultCardProps) {
       <div className="bond-result__header">
         <span className="bond-result__formula">{formula}</span>
         <span className={`bond-result__badge bond-result__badge--${bond.bondType}`}>
-          {BOND_TYPE_LABELS[bond.bondType]}
+          {BOND_TYPE_LABELS[bond.bondType]()}
         </span>
       </div>
 
@@ -251,17 +252,17 @@ function BondResultCard({ result }: BondResultCardProps) {
 
       <div className="bond-result__crystal">
         <div className="bond-result__crystal-label">
-          {CRYSTAL_LABELS[crystalStructure]}
+          {CRYSTAL_LABELS[crystalStructure]()}
         </div>
         <dl className="bond-result__props">
-          <dt>Т. плавления</dt>
-          <dd>{props.melting}</dd>
-          <dt>Твёрдость</dt>
-          <dd>{props.hardness}</dd>
-          <dt>Электропроводность</dt>
-          <dd>{props.conductivity}</dd>
-          <dt>Растворимость</dt>
-          <dd>{props.solubility}</dd>
+          <dt>{m.prop_melting()}</dt>
+          <dd>{props.melting()}</dd>
+          <dt>{m.prop_hardness()}</dt>
+          <dd>{props.hardness()}</dd>
+          <dt>{m.prop_conductivity()}</dt>
+          <dd>{props.conductivity()}</dd>
+          <dt>{m.prop_solubility()}</dt>
+          <dd>{props.solubility()}</dd>
         </dl>
       </div>
     </div>

@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import type { SolubilityEntry } from '../../types/rules';
 import type { Ion } from '../../types/ion';
 import { loadSolubilityRules, loadIons } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 import './solubility-table.css';
 
-const SOLUBILITY_LABELS: Record<string, string> = {
-  soluble: 'Р',
-  insoluble: 'Н',
-  slightly_soluble: 'М',
-  decomposes: '—',
+const SOLUBILITY_LABELS: Record<string, () => string> = {
+  soluble: m.sol_soluble,
+  insoluble: m.sol_insoluble,
+  slightly_soluble: m.sol_slightly_soluble,
+  decomposes: () => '—',
 };
 
 const SOLUBILITY_CLASSES: Record<string, string> = {
@@ -170,7 +171,7 @@ export default function SolubilityTable() {
                   const isHighlighted = highlightRow === cation || highlightCol === anion;
                   const catName = ionMap.get(cation)?.name_ru ?? cation;
                   const anName = ionMap.get(anion)?.name_ru ?? anion;
-                  const solLabel = sol ? SOLUBILITY_LABELS[sol] : '';
+                  const solLabel = sol ? SOLUBILITY_LABELS[sol]?.() ?? '' : '';
                   return (
                     <td
                       key={anion}

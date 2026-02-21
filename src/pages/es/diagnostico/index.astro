@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DiagnosticsApp from '../../../features/diagnostics/DiagnosticsApp';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+---
+
+<BaseLayout title="Diagnóstico" description="Test diagnóstico de nivel de conocimientos en química. 15 minutos para conocer tus fortalezas y debilidades.">
+  <DiagnosticsApp locale={locale} client:idle />
+</BaseLayout>

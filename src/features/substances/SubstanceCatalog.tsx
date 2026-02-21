@@ -1,21 +1,22 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { SubstanceIndexEntry } from '../../types/classification';
 import { loadSubstancesIndex } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
-const CLASS_LABELS: Record<string, string> = {
-  oxide: 'Оксид',
-  acid: 'Кислота',
-  base: 'Основание',
-  salt: 'Соль',
-  other: 'Другое',
+const CLASS_LABELS: Record<string, () => string> = {
+  oxide: m.class_oxide,
+  acid: m.class_acid,
+  base: m.class_base,
+  salt: m.class_salt,
+  other: m.class_other,
 };
 
-const FILTER_BUTTONS: Array<{ key: string; label: string }> = [
-  { key: 'all', label: 'Все' },
-  { key: 'oxide', label: 'Оксиды' },
-  { key: 'acid', label: 'Кислоты' },
-  { key: 'base', label: 'Основания' },
-  { key: 'salt', label: 'Соли' },
+const FILTER_BUTTONS: Array<{ key: string; label: () => string }> = [
+  { key: 'all', label: m.class_all },
+  { key: 'oxide', label: m.class_oxides },
+  { key: 'acid', label: m.class_acids },
+  { key: 'base', label: m.class_bases },
+  { key: 'salt', label: m.class_salts },
 ];
 
 export default function SubstanceCatalog() {
@@ -49,11 +50,11 @@ export default function SubstanceCatalog() {
     return list;
   }, [substances, filter, search]);
 
-  if (loading) return <div className="subst-catalog__loading">Загрузка каталога...</div>;
+  if (loading) return <div className="subst-catalog__loading">{m.loading_catalog()}</div>;
 
   return (
     <section className="subst-catalog">
-      <h2 className="subst-catalog__title">Каталог веществ</h2>
+      <h2 className="subst-catalog__title">{m.subst_catalog_title()}</h2>
 
       <div className="subst-catalog__controls">
         <div className="subst-catalog__filters">
@@ -64,21 +65,21 @@ export default function SubstanceCatalog() {
               className={`subst-catalog__filter-btn ${filter === btn.key ? 'subst-catalog__filter-btn--active' : ''}`}
               onClick={() => setFilter(btn.key)}
             >
-              {btn.label}
+              {btn.label()}
             </button>
           ))}
         </div>
         <input
           type="search"
           className="subst-catalog__search"
-          placeholder="Поиск по формуле или названию..."
+          placeholder={m.subst_search_placeholder()}
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
       </div>
 
       <div className="subst-catalog__count">
-        {filtered.length} из {substances.length} веществ
+        {m.subst_count({ filtered: String(filtered.length), total: String(substances.length) })}
       </div>
 
       <div className="subst-catalog__grid">
@@ -87,14 +88,14 @@ export default function SubstanceCatalog() {
             <span className="subst-card__formula">{s.formula}</span>
             {s.name_ru && <span className="subst-card__name">{s.name_ru}</span>}
             <span className={`subst-card__badge subst-card__badge--${s.class}`}>
-              {CLASS_LABELS[s.class] ?? s.class}
+              {CLASS_LABELS[s.class]?.() ?? s.class}
             </span>
           </a>
         ))}
       </div>
 
       {filtered.length === 0 && (
-        <div className="subst-catalog__empty">Ничего не найдено</div>
+        <div className="subst-catalog__empty">{m.nothing_found()}</div>
       )}
     </section>
   );

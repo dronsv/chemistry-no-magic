@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ExamResults } from '../../types/exam';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   results: ExamResults;
@@ -7,9 +8,9 @@ interface Props {
 }
 
 function formatTime(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return `${m} мин ${s} сек`;
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return m.exam_time_format({ m: String(mins), s: String(secs) });
 }
 
 function scoreClass(ratio: number): string {
@@ -42,14 +43,14 @@ export default function ExamResultsView({ results, onRestart }: Props) {
           {results.totalCorrect} / {results.totalQuestions}
         </div>
         <div className="exam-results__details">
-          {percent}% правильных ответов за {formatTime(results.timeSpentSec)}
+          {m.exam_results_pct({ percent: String(percent), time: formatTime(results.timeSpentSec) })}
         </div>
       </div>
 
       {/* Weak competencies */}
       {weak.length > 0 && (
         <div className="exam-results__competencies">
-          <h3 className="exam-results__comp-title">Что подтянуть</h3>
+          <h3 className="exam-results__comp-title">{m.exam_weak()}</h3>
           {weak.map(c => {
             const r = c.total > 0 ? c.correct / c.total : 0;
             return (
@@ -71,7 +72,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
       {/* Strong competencies */}
       {strong.length > 0 && (
         <div className="exam-results__competencies">
-          <h3 className="exam-results__comp-title">Сильные стороны</h3>
+          <h3 className="exam-results__comp-title">{m.exam_strong()}</h3>
           {strong.map(c => {
             const r = c.total > 0 ? c.correct / c.total : 0;
             return (
@@ -93,7 +94,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
       {/* Exercise review */}
       <div>
         <h3 className="exam-results__exercises-title">
-          {showAll ? 'Все задания' : `Ошибки (${wrongExercises.length})`}
+          {showAll ? m.exam_all_tasks() : m.exam_errors_count({ count: String(wrongExercises.length) })}
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-sm)' }}>
@@ -103,15 +104,15 @@ export default function ExamResultsView({ results, onRestart }: Props) {
             let badgeCls = '';
             if (e.selectedId === null) {
               cls += ' exam-review--skipped';
-              badge = 'Пропущено';
+              badge = m.exam_skipped();
               badgeCls = 'exam-review__badge--skipped';
             } else if (e.correct) {
               cls += ' exam-review--correct';
-              badge = 'Верно';
+              badge = m.correct();
               badgeCls = 'exam-review__badge--correct';
             } else {
               cls += ' exam-review--wrong';
-              badge = 'Неверно';
+              badge = m.wrong();
               badgeCls = 'exam-review__badge--wrong';
             }
 
@@ -135,7 +136,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
             style={{ marginTop: 'var(--space-sm)' }}
             onClick={() => setShowAll(true)}
           >
-            Показать все задания ({results.exercises.length})
+            {m.exam_show_all({ count: String(results.exercises.length) })}
           </button>
         )}
       </div>
@@ -143,7 +144,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
       {/* Restart */}
       <div style={{ textAlign: 'center', padding: 'var(--space-lg) 0' }}>
         <button type="button" className="btn btn-primary" onClick={onRestart}>
-          Пройти ещё раз
+          {m.exam_retry()}
         </button>
       </div>
     </div>

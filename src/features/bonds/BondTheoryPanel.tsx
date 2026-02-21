@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { BondTheory, BondTypeInfo, CrystalStructureInfo } from '../../types/bond';
 import { loadBondTheory } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
 function CollapsibleSection({
   title,
@@ -33,14 +34,14 @@ function BondTypeCard({ info }: { info: BondTypeInfo }) {
     <div className="bond-theory__rule">
       <div className="bond-theory__rule-header">{info.name_ru}</div>
       <p className="bond-theory__rule-text">
-        <strong>Правило:</strong> {info.rule_ru}
+        <strong>{m.theory_rule_label()}</strong> {info.rule_ru}
       </p>
       <p className="bond-theory__rule-text">{info.description_ru}</p>
       <p className="bond-theory__rule-text">
-        <strong>Свойства:</strong> {info.properties_ru}
+        <strong>{m.theory_properties_label()}</strong> {info.properties_ru}
       </p>
       <div className="bond-theory__rule-examples">
-        Примеры: {info.examples.join(', ')}
+        {m.theory_examples_label()} {info.examples.join(', ')}
       </div>
     </div>
   );
@@ -52,12 +53,12 @@ function CrystalComparisonTable({ structures }: { structures: CrystalStructureIn
       <table className="crystal-table">
         <thead>
           <tr>
-            <th>Тип</th>
-            <th>В узлах</th>
-            <th>Т.пл.</th>
-            <th>Твёрдость</th>
-            <th>Проводимость</th>
-            <th>Растворимость</th>
+            <th>{m.theory_table_type()}</th>
+            <th>{m.theory_table_nodes()}</th>
+            <th>{m.theory_table_melting()}</th>
+            <th>{m.theory_table_hardness()}</th>
+            <th>{m.theory_table_conductivity()}</th>
+            <th>{m.theory_table_solubility()}</th>
           </tr>
         </thead>
         <tbody>
@@ -92,7 +93,7 @@ export default function BondTheoryPanel() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
   }, [open, theory]);
@@ -104,25 +105,25 @@ export default function BondTheoryPanel() {
         className={`theory-panel__trigger ${open ? 'theory-panel__trigger--active' : ''}`}
         onClick={() => setOpen(!open)}
       >
-        <span>Теория</span>
+        <span>{m.theory_label()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '\u25BE' : '\u25B8'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
           {theory && (
             <>
-              <h3 className="theory-panel__heading">Типы химической связи</h3>
+              <h3 className="theory-panel__heading">{m.theory_bond_types_heading()}</h3>
               {theory.bond_types.map(bt => (
                 <CollapsibleSection key={bt.id} title={bt.name_ru}>
                   <BondTypeCard info={bt} />
                 </CollapsibleSection>
               ))}
 
-              <h3 className="theory-panel__heading">Сравнение кристаллических решёток</h3>
+              <h3 className="theory-panel__heading">{m.theory_crystal_comparison_heading()}</h3>
               <CrystalComparisonTable structures={theory.crystal_structures} />
             </>
           )}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { ExamVariant, ExamAnswer } from '../../types/exam';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   variant: ExamVariant;
@@ -75,7 +76,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
       {/* Header with progress and timer */}
       <div className="exam-header">
         <span className="exam-header__progress">
-          Вопрос {currentIdx + 1} из {total} (отвечено: {answeredCount})
+          {m.exam_question_progress({ current: String(currentIdx + 1), total: String(total), answered: String(answeredCount) })}
         </span>
         <span className={`exam-header__timer${isWarning ? ' exam-header__timer--warning' : ''}`}>
           {formatTime(remaining)}
@@ -84,7 +85,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
 
       {/* Current question */}
       <div className="exam-question">
-        <div className="exam-question__number">Задание {currentIdx + 1}</div>
+        <div className="exam-question__number">{m.exam_task_number({ number: String(currentIdx + 1) })}</div>
         <p className="exam-question__text">{exercise.question}</p>
         <div className="exam-question__options">
           {exercise.options.map(opt => (
@@ -127,7 +128,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
           onClick={() => goTo(currentIdx - 1)}
           disabled={currentIdx === 0}
         >
-          Назад
+          {m.back()}
         </button>
         {currentIdx < total - 1 ? (
           <button
@@ -135,7 +136,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
             className="btn btn-primary exam-actions__next"
             onClick={() => goTo(currentIdx + 1)}
           >
-            Далее
+            {m.next()}
           </button>
         ) : (
           <button
@@ -143,7 +144,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
             className="btn btn-primary exam-actions__submit"
             onClick={handleSubmit}
           >
-            Завершить экзамен ({answeredCount}/{total})
+            {m.exam_finish({ answered: String(answeredCount), total: String(total) })}
           </button>
         )}
         {currentIdx < total - 1 && (
@@ -152,7 +153,7 @@ export default function ExamSession({ variant, onSubmit }: Props) {
             className="btn exam-actions__submit"
             onClick={handleSubmit}
           >
-            Завершить
+            {m.exam_finish_short()}
           </button>
         )}
       </div>

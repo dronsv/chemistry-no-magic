@@ -1,21 +1,24 @@
 import { useState, useEffect } from 'react';
 import type { ReactionTemplate } from '../../types/templates';
 import { loadReactionTemplates } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
-const TYPE_LABELS: Record<string, string> = {
-  exchange: 'Обмена',
-  substitution: 'Замещения',
-  combination: 'Соединения',
-  decomposition: 'Разложения',
+const TYPE_LABELS: Record<string, () => string> = {
+  exchange: m.rxn_catalog_exchange,
+  substitution: m.rxn_catalog_substitution,
+  combination: m.rxn_catalog_combination,
+  decomposition: m.rxn_catalog_decomposition,
 };
 
-const FILTER_OPTIONS = [
-  { value: 'all', label: 'Все' },
-  { value: 'exchange', label: 'Обмена' },
-  { value: 'substitution', label: 'Замещения' },
-  { value: 'combination', label: 'Соединения' },
-  { value: 'decomposition', label: 'Разложения' },
-];
+const FILTER_VALUES = ['all', 'exchange', 'substitution', 'combination', 'decomposition'] as const;
+
+const FILTER_LABELS: Record<string, () => string> = {
+  all: m.rxn_filter_all,
+  exchange: m.rxn_catalog_exchange,
+  substitution: m.rxn_catalog_substitution,
+  combination: m.rxn_catalog_combination,
+  decomposition: m.rxn_catalog_decomposition,
+};
 
 function ReactionCard({ template }: { template: ReactionTemplate }) {
   const [expanded, setExpanded] = useState(false);
@@ -28,7 +31,7 @@ function ReactionCard({ template }: { template: ReactionTemplate }) {
         onClick={() => setExpanded(!expanded)}
       >
         <span className={`rxn-card__type-badge rxn-card__type-badge--${template.type}`}>
-          {TYPE_LABELS[template.type] ?? template.type}
+          {TYPE_LABELS[template.type]?.() ?? template.type}
         </span>
         <span className="rxn-card__title">{template.description_ru}</span>
         <span className="rxn-card__arrow">{expanded ? '▾' : '▸'}</span>
@@ -75,7 +78,7 @@ export default function ReactionCatalog() {
   }, []);
 
   if (loading) {
-    return <div className="rxn-catalog__loading">Загрузка...</div>;
+    return <div className="rxn-catalog__loading">{m.loading()}</div>;
   }
 
   const filtered = filter === 'all'
@@ -87,14 +90,14 @@ export default function ReactionCatalog() {
       <h2 className="rxn-catalog__title">Каталог реакций</h2>
 
       <div className="rxn-catalog__filters">
-        {FILTER_OPTIONS.map(opt => (
+        {FILTER_VALUES.map(value => (
           <button
-            key={opt.value}
+            key={value}
             type="button"
-            className={`rxn-catalog__filter-btn ${filter === opt.value ? 'rxn-catalog__filter-btn--active' : ''}`}
-            onClick={() => setFilter(opt.value)}
+            className={`rxn-catalog__filter-btn ${filter === value ? 'rxn-catalog__filter-btn--active' : ''}`}
+            onClick={() => setFilter(value)}
           >
-            {opt.label}
+            {FILTER_LABELS[value]?.() ?? value}
           </button>
         ))}
       </div>

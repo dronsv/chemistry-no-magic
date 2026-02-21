@@ -3,6 +3,7 @@ import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import { loadElements, loadElementGroups } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
+import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetails from './ElementDetails';
@@ -76,7 +77,7 @@ export default function PeriodicTableHint() {
         }
       })
       .catch((err) => {
-        if (!cancelled) setError(err instanceof Error ? err.message : 'Ошибка загрузки данных');
+        if (!cancelled) setError(err instanceof Error ? err.message : m.error_loading());
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -210,7 +211,7 @@ export default function PeriodicTableHint() {
         className={`pt-trigger ${isOpen ? 'pt-trigger--active' : ''}`}
         onClick={toggle}
         type="button"
-        aria-label="Открыть периодическую таблицу"
+        aria-label={m.pt_open_table()}
       >
         <span className="pt-trigger__icon" aria-hidden="true">
           <span /><span /><span />
@@ -237,7 +238,7 @@ export default function PeriodicTableHint() {
               className="pt-panel__close"
               onClick={close}
               type="button"
-              aria-label="Закрыть"
+              aria-label={m.close_label()}
             >
               &times;
             </button>
@@ -251,20 +252,20 @@ export default function PeriodicTableHint() {
                 onClick={() => { setFormType('long'); setShowTrends(false); }}
                 type="button"
               >
-                Длинная
+                {m.pt_form_long()}
               </button>
               <button
                 className={`pt-toggle__btn ${formType === 'short' ? 'pt-toggle__btn--active' : ''}`}
                 onClick={() => { setFormType('short'); setShowTrends(false); }}
                 type="button"
               >
-                Короткая
+                {m.pt_form_short()}
               </button>
             </div>
             <input
               className="pt-search"
               type="text"
-              placeholder="Поиск..."
+              placeholder={m.pt_search_generic()}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -273,7 +274,7 @@ export default function PeriodicTableHint() {
               onClick={() => setShowTrends((prev) => !prev)}
               type="button"
             >
-              Тренды
+              {m.pt_trends()}
             </button>
           </div>
 
@@ -288,7 +289,7 @@ export default function PeriodicTableHint() {
             )}
 
             {loading && (
-              <div className="pt-panel__loading">Загрузка...</div>
+              <div className="pt-panel__loading">{m.loading()}</div>
             )}
 
             {error && (

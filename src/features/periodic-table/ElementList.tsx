@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   elements: Element[];
@@ -27,7 +28,7 @@ export default function ElementList({ elements, groups }: Props) {
       <input
         type="search"
         className="element-list__search"
-        placeholder="Поиск по названию, символу или номеру..."
+        placeholder={m.pt_search_by_name()}
         value={query}
         onChange={e => setQuery(e.target.value)}
       />
@@ -46,7 +47,7 @@ export default function ElementList({ elements, groups }: Props) {
         ))}
       </div>
       {filtered.length === 0 && (
-        <p className="element-list__empty">Ничего не найдено</p>
+        <p className="element-list__empty">{m.nothing_found()}</p>
       )}
     </div>
   );

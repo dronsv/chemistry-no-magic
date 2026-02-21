@@ -7,23 +7,24 @@ import { parseFormula } from '../../lib/formula-parser';
 import { loadElements, loadStructure } from '../../lib/data-loader';
 import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
 import MoleculeView from '../../components/MoleculeView';
+import * as m from '../../paraglide/messages.js';
 
 interface ElementInfo {
   group: number;
   metal_type: MetalType;
 }
 
-const RULE_LABELS: Record<StepRuleId, string> = {
-  simple_substance: 'Простое вещество \u2192 СО = 0',
-  fluorine: 'Фтор \u2192 всегда \u22121',
-  group1: 'Щелочной металл (I группа) \u2192 +1',
-  group2: 'Щёлочноземельный металл (II группа) \u2192 +2',
-  aluminum: 'Алюминий \u2192 +3',
-  oxygen: 'Кислород \u2192 \u22122',
-  oxygen_peroxide: 'Кислород в пероксиде \u2192 \u22121',
-  hydrogen: 'Водород \u2192 +1',
-  hydrogen_hydride: 'Водород в гидриде \u2192 \u22121',
-  algebraic: 'Алгебраический расчёт',
+const RULE_LABELS: Record<StepRuleId, () => string> = {
+  simple_substance: m.ox_rule_simple_substance,
+  fluorine: m.ox_rule_fluorine,
+  group1: m.ox_rule_group1,
+  group2: m.ox_rule_group2,
+  aluminum: m.ox_rule_aluminum,
+  oxygen: m.ox_rule_oxygen,
+  oxygen_peroxide: m.ox_rule_oxygen_peroxide,
+  hydrogen: m.ox_rule_hydrogen,
+  hydrogen_hydride: m.ox_rule_hydrogen_hydride,
+  algebraic: m.ox_rule_algebraic,
 };
 
 function formatState(state: number): string {
@@ -49,7 +50,7 @@ function StepCard({ step }: StepCardProps) {
     <div className="ox-step" style={{ borderLeftColor: borderColor }}>
       <span className="ox-step__badge">{step.symbol}</span>
       <div className="ox-step__content">
-        <div className="ox-step__rule">{RULE_LABELS[step.rule_id]}</div>
+        <div className="ox-step__rule">{RULE_LABELS[step.rule_id]()}</div>
         <span className="ox-step__state" style={{ color: stateColor(step.state) }}>
           {formatState(step.state)}
         </span>
@@ -92,7 +93,7 @@ export default function OxidationCalculator() {
     const parsed = parseFormula(trimmed);
 
     if (Object.keys(parsed).length === 0) {
-      setError('Не удалось распознать формулу. Проверьте написание.');
+      setError(m.formula_parse_error());
       setResult(null);
       return;
     }
@@ -100,7 +101,7 @@ export default function OxidationCalculator() {
     // Check all symbols exist in element map
     for (const sym of Object.keys(parsed)) {
       if (!elementInfoMap.has(sym)) {
-        setError(`Неизвестный элемент: ${sym}`);
+        setError(m.unknown_element({ symbol: sym }));
         setResult(null);
         return;
       }
@@ -109,7 +110,7 @@ export default function OxidationCalculator() {
     const explained = explainOxidationSteps(parsed, elementInfoMap, trimmed);
 
     if (explained.error === 'ambiguous') {
-      setError('Невозможно однозначно определить СО: несколько неизвестных.');
+      setError(m.ox_ambiguous());
       setResult(null);
       return;
     }
@@ -142,13 +143,13 @@ export default function OxidationCalculator() {
 
   return (
     <section className="ox-calc">
-      <h2 className="ox-calc__title">Степени окисления</h2>
+      <h2 className="ox-calc__title">{m.ox_title()}</h2>
 
       <div className="ox-calc__formula-input">
         <input
           type="text"
           className="ox-calc__input"
-          placeholder="Введите формулу, например KMnO4, H2O, NaH..."
+          placeholder={m.ox_placeholder()}
           value={formulaInput}
           onChange={e => handleFormulaChange(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -182,7 +183,7 @@ export default function OxidationCalculator() {
             className="ox-steps-toggle"
             onClick={() => setShowSteps(!showSteps)}
           >
-            {showSteps ? 'Скрыть решение' : 'Показать решение'}
+            {showSteps ? m.hide_solution() : m.show_solution()}
           </button>
 
           {showSteps && (

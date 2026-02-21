@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react';
 import type { ClassificationRule, NamingRule } from '../../types/classification';
 import { loadClassificationRules, loadNamingRules } from '../../lib/data-loader';
+import * as m from '../../paraglide/messages.js';
 
-const CLASS_LABELS: Record<string, string> = {
-  oxide: 'Оксиды',
-  acid: 'Кислоты',
-  base: 'Основания',
-  salt: 'Соли',
+const CLASS_LABELS: Record<string, () => string> = {
+  oxide: m.class_oxides,
+  acid: m.class_acids,
+  base: m.class_bases,
+  salt: m.class_salts,
 };
 
-const SUBCLASS_LABELS: Record<string, string> = {
-  basic: 'Основные',
-  acidic: 'Кислотные',
-  amphoteric: 'Амфотерные',
-  indifferent: 'Несолеобразующие',
-  oxygen_containing: 'Кислородсодержащие',
-  oxygen_free: 'Бескислородные',
-  soluble: 'Растворимые (щёлочи)',
-  insoluble: 'Нерастворимые',
-  normal: 'Средние (нормальные)',
-  acidic_salt: 'Кислые',
-  basic_salt: 'Основные',
+const SUBCLASS_LABELS: Record<string, () => string> = {
+  basic: m.subclass_basic,
+  acidic: m.subclass_acidic,
+  amphoteric: m.subclass_amphoteric,
+  indifferent: m.subclass_indifferent,
+  oxygen_containing: m.subclass_oxygen_containing,
+  oxygen_free: m.subclass_oxygen_free,
+  soluble: m.subclass_soluble,
+  insoluble: m.subclass_insoluble,
+  normal: m.subclass_normal,
+  acidic_salt: m.subclass_acidic_salt,
+  basic_salt: m.subclass_basic_salt,
 };
 
 const CLASS_ORDER = ['oxide', 'acid', 'base', 'salt'];
@@ -55,7 +56,7 @@ function ClassificationRuleCard({ rule }: { rule: ClassificationRule }) {
   return (
     <div className="subst-theory__rule">
       <div className="subst-theory__rule-header">
-        {SUBCLASS_LABELS[rule.subclass] ?? rule.subclass}
+        {SUBCLASS_LABELS[rule.subclass]?.() ?? rule.subclass}
       </div>
       <p className="subst-theory__rule-desc">{rule.description_ru}</p>
       <div className="subst-theory__rule-examples">
@@ -100,7 +101,7 @@ export default function ClassificationTheoryPanel() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
   }, [open, classRules]);
@@ -109,7 +110,7 @@ export default function ClassificationTheoryPanel() {
   const classGroups = classRules
     ? CLASS_ORDER.map(cls => ({
         cls,
-        label: CLASS_LABELS[cls],
+        label: CLASS_LABELS[cls]?.() ?? cls,
         rules: classRules.filter(r => r.class === cls),
       }))
     : [];
@@ -117,7 +118,7 @@ export default function ClassificationTheoryPanel() {
   const namingGroups = namingRules
     ? CLASS_ORDER.map(cls => ({
         cls,
-        label: CLASS_LABELS[cls],
+        label: CLASS_LABELS[cls]?.() ?? cls,
         rules: namingRules.filter(r => r.class === cls),
       }))
     : [];
@@ -130,18 +131,18 @@ export default function ClassificationTheoryPanel() {
         onClick={() => setOpen(!open)}
       >
         <span>📖</span>
-        <span>Теория: классификация и номенклатура</span>
+        <span>{m.theory_classification_title()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '▾' : '▸'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
           {classRules && namingRules && (
             <>
-              <h3 className="theory-panel__heading">Классификация неорганических веществ</h3>
+              <h3 className="theory-panel__heading">{m.theory_classification_heading()}</h3>
               {classGroups.map(group => (
                 <CollapsibleSection key={group.cls} title={group.label}>
                   {group.rules.map(rule => (
@@ -150,8 +151,8 @@ export default function ClassificationTheoryPanel() {
                 </CollapsibleSection>
               ))}
 
-              <h3 className="theory-panel__heading">Амфотерность</h3>
-              <CollapsibleSection title="Что такое амфотерность?">
+              <h3 className="theory-panel__heading">{m.theory_amphoterism_heading()}</h3>
+              <CollapsibleSection title={m.subst_amphoteric_title()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     <strong>Амфотерные</strong> вещества проявляют двойственные свойства: реагируют и с кислотами (как основания), и с щелочами (как кислоты).
@@ -161,7 +162,7 @@ export default function ClassificationTheoryPanel() {
                   </p>
                 </div>
               </CollapsibleSection>
-              <CollapsibleSection title="Амфотерные оксиды">
+              <CollapsibleSection title={m.subst_amphoteric_oxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     Примеры: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃
@@ -174,7 +175,7 @@ export default function ClassificationTheoryPanel() {
                   </p>
                 </div>
               </CollapsibleSection>
-              <CollapsibleSection title="Амфотерные гидроксиды">
+              <CollapsibleSection title={m.subst_amphoteric_hydroxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     Примеры: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃
@@ -188,7 +189,7 @@ export default function ClassificationTheoryPanel() {
                 </div>
               </CollapsibleSection>
 
-              <h3 className="theory-panel__heading">Номенклатура</h3>
+              <h3 className="theory-panel__heading">{m.theory_nomenclature_heading()}</h3>
               {namingGroups.map(group => (
                 <CollapsibleSection key={group.cls} title={group.label}>
                   {group.rules.map(rule => (

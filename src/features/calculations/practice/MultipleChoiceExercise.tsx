@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as m from '../../../paraglide/messages.js';
 import type { Exercise } from './generate-exercises';
 
 interface Props {
@@ -48,7 +49,7 @@ export default function MultipleChoiceExercise({ exercise, onAnswer }: Props) {
         <>
           <div className={`practice-feedback practice-feedback--${isCorrect ? 'correct' : 'wrong'}`}>
             <span className="practice-feedback__label">
-              {isCorrect ? 'Верно!' : 'Неверно'}
+              {isCorrect ? m.correct() : m.wrong()}
             </span>
             {exercise.explanation}
           </div>
@@ -57,7 +58,7 @@ export default function MultipleChoiceExercise({ exercise, onAnswer }: Props) {
             className="btn btn-primary practice-next"
             onClick={() => onAnswer(isCorrect)}
           >
-            Следующее задание
+            {m.practice_next_task()}
           </button>
         </>
       )}

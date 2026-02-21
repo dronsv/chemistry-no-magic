@@ -1,3 +1,5 @@
+import * as m from '../../paraglide/messages.js';
+
 interface ProgressBarProps {
   current: number;
   total: number;
@@ -9,7 +11,7 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
   return (
     <div className="diag-progress">
       <span className="diag-progress__label">
-        Вопрос {current} из {total}
+        {m.diag_progress({ current: String(current), total: String(total) })}
       </span>
       <div className="diag-progress__track">
         <div

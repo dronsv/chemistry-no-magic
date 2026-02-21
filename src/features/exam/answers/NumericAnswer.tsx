@@ -1,3 +1,5 @@
+import * as m from '../../../paraglide/messages.js';
+
 interface Props {
   precision: 'integer' | 'tenths';
   value: string;
@@ -32,12 +34,12 @@ export default function NumericAnswer({
     return classes.join(' ');
   }
 
-  const placeholder = precision === 'integer' ? 'Целое число' : 'Число (с десятыми)';
+  const placeholder = precision === 'integer' ? m.oge_numeric_integer() : m.oge_numeric_tenths();
 
   return (
     <div className="oge-numeric">
       <label className="oge-numeric__label">
-        Ответ:
+        {m.oge_answer_label()}
         <input
           type="text"
           inputMode={precision === 'integer' ? 'numeric' : 'decimal'}
@@ -50,7 +52,7 @@ export default function NumericAnswer({
       </label>
       {showResult && correct === false && (
         <div className="oge-numeric__correct">
-          Правильный ответ: {correct_answer}
+          {m.oge_correct_answer({ answer: correct_answer })}
         </div>
       )}
     </div>

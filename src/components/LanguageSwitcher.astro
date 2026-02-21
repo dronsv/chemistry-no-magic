@@ -1,0 +1,143 @@
+---
+import type { SupportedLocale } from '../types/i18n';
+import { SUPPORTED_LOCALES, getCanonicalPath, getAlternateUrls } from '../lib/i18n';
+
+interface Props {
+  locale?: SupportedLocale;
+}
+
+const locale = Astro.props.locale ?? (Astro.currentLocale as SupportedLocale) ?? 'ru';
+const { canonical } = getCanonicalPath(Astro.url.pathname);
+const alternateUrls = getAlternateUrls(canonical);
+
+const LOCALE_LABELS: Record<SupportedLocale, string> = {
+  ru: 'RU',
+  en: 'EN',
+  pl: 'PL',
+  es: 'ES',
+};
+
+const LOCALE_FLAGS: Record<SupportedLocale, string> = {
+  ru: '\u{1F1F7}\u{1F1FA}',
+  en: '\u{1F1EC}\u{1F1E7}',
+  pl: '\u{1F1F5}\u{1F1F1}',
+  es: '\u{1F1EA}\u{1F1F8}',
+};
+---
+
+<div class="lang-switcher">
+  <button class="lang-current" aria-label="Change language" aria-expanded="false">
+    <span class="lang-flag">{LOCALE_FLAGS[locale]}</span>
+    <span class="lang-code">{LOCALE_LABELS[locale]}</span>
+    <svg class="lang-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <ul class="lang-dropdown" role="menu">
+    {SUPPORTED_LOCALES.map(loc => (
+      <li role="menuitem">
+        <a
+          href={alternateUrls[loc]}
+          class:list={['lang-option', { active: loc === locale }]}
+          aria-current={loc === locale ? 'true' : undefined}
+        >
+          <span class="lang-flag">{LOCALE_FLAGS[loc]}</span>
+          {LOCALE_LABELS[loc]}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const switcher = document.querySelector('.lang-switcher');
+    const btn = switcher?.querySelector('.lang-current') as HTMLButtonElement | null;
+    const dropdown = switcher?.querySelector('.lang-dropdown') as HTMLElement | null;
+    if (!btn || !dropdown) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      dropdown.classList.remove('open');
+    });
+  });
+</script>
+
+<style>
+  .lang-switcher {
+    position: relative;
+    margin-left: var(--space-xs);
+  }
+  .lang-current {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .lang-current:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+  }
+  .lang-flag { font-size: 1rem; }
+  .lang-code { font-weight: 500; }
+  .lang-chevron {
+    transition: transform 0.2s;
+  }
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    padding: var(--space-xs) 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 80px;
+    z-index: 200;
+  }
+  .lang-dropdown.open { display: block; }
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .lang-option:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .lang-option.active {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .lang-code { display: none; }
+    .lang-chevron { display: none; }
+    .lang-current {
+      padding: var(--space-sm);
+    }
+  }
+</style>

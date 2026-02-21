@@ -1,5 +1,6 @@
 import { getOrbitalBoxes, getValenceElectrons } from '../../lib/electron-config';
 import type { OrbitalBox, SubshellType } from '../../types/electron-config';
+import * as m from '../../paraglide/messages.js';
 
 interface Props {
   Z: number;
@@ -56,12 +57,12 @@ export default function OrbitalBoxDiagram({ Z }: Props) {
 
   return (
     <div className="orbital-box-diagram">
-      <div className="orbital-box-diagram__label">Орбитальная диаграмма</div>
+      <div className="orbital-box-diagram__label">{m.pt_orbital_diagram()}</div>
       <svg
         viewBox={`0 0 ${Math.max(totalW, 1)} ${totalH}`}
         width="100%"
         role="img"
-        aria-label="Орбитальная диаграмма"
+        aria-label={m.pt_orbital_diagram()}
       >
         {groupPositions.map(({ key, x, boxes: groupBoxes }) => {
           const isValence = valenceKeys.has(key);

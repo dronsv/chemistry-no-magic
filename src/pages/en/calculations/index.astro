@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CalculationsPage from '../../../features/calculations/CalculationsPage';
+---
+
+<BaseLayout title="Calculations" description="Chemical calculations: molar mass, mass fraction, solutions, and reaction yield.">
+  <CalculationsPage client:idle />
+</BaseLayout>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import * as m from '../../paraglide/messages.js';
 import type { PeriodicTableTheory, PropertyTrend, ExceptionConsequence } from '../../types/periodic-table-theory';
 import { loadPeriodicTableTheory } from '../../lib/data-loader';
 
@@ -37,27 +38,27 @@ function TrendCard({ trend }: { trend: PropertyTrend }) {
       <div className="theory-trend">
         <div className="theory-trend__directions">
           <div className="theory-trend__dir">
-            <span className="theory-trend__arrow-label">→ В периоде:</span>
+            <span className="theory-trend__arrow-label">{m.theory_pt_period()}</span>
             <span>{trend.trend_period_ru}</span>
           </div>
           <div className="theory-trend__dir">
-            <span className="theory-trend__arrow-label">↓ В группе:</span>
+            <span className="theory-trend__arrow-label">{m.theory_pt_group()}</span>
             <span>{trend.trend_group_ru}</span>
           </div>
         </div>
 
         <div className="theory-trend__why">
-          <strong>Почему в периоде?</strong>
+          <strong>{m.theory_pt_why_period()}</strong>
           <p>{trend.why_period_ru}</p>
         </div>
         <div className="theory-trend__why">
-          <strong>Почему в группе?</strong>
+          <strong>{m.theory_pt_why_group()}</strong>
           <p>{trend.why_group_ru}</p>
         </div>
 
         {trend.examples_ru.length > 0 && (
           <div className="theory-trend__examples">
-            <strong>Примеры:</strong>
+            <strong>{m.theory_examples_label()}</strong>
             <ul>
               {trend.examples_ru.map((ex, i) => (
                 <li key={i}>{ex}</li>
@@ -104,7 +105,7 @@ export default function TheoryPanel() {
         setLoading(false);
       })
       .catch(err => {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки');
+        setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
   }, [open, theory]);
@@ -117,13 +118,13 @@ export default function TheoryPanel() {
         onClick={() => setOpen(!open)}
       >
         <span>📖</span>
-        <span>Теория: свойства и тренды</span>
+        <span>{m.theory_pt_trigger()}</span>
         <span className="theory-panel__trigger-arrow">{open ? '▾' : '▸'}</span>
       </button>
 
       {open && (
         <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">Загрузка...</div>}
+          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
           {theory && (
@@ -136,16 +137,16 @@ export default function TheoryPanel() {
               </div>
 
               {/* Property trends */}
-              <h3 className="theory-panel__heading">Тренды свойств</h3>
+              <h3 className="theory-panel__heading">{m.theory_pt_trends_heading()}</h3>
               <p className="theory-panel__hint">
-                Нажмите кнопку <strong>Тренды</strong> над таблицей, чтобы увидеть направления изменения свойств на самой таблице.
+                {m.theory_pt_trends_hint()}
               </p>
               {theory.property_trends.map(trend => (
                 <TrendCard key={trend.id} trend={trend} />
               ))}
 
               {/* Exception consequences */}
-              <h3 className="theory-panel__heading">Последствия провала электрона</h3>
+              <h3 className="theory-panel__heading">{m.theory_pt_exceptions_heading()}</h3>
               {theory.exception_consequences.map(exc => (
                 <ExceptionCard key={exc.id} exc={exc} />
               ))}

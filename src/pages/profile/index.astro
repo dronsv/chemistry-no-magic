@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProfileApp from '../../features/profile/ProfileApp';
+import type { SupportedLocale } from '../../types/i18n';
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Профиль" description="Ваш профиль компетенций по химии: прогресс, сильные и слабые стороны, рекомендации.">
   <Fragment slot="head">
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>
-  <ProfileApp client:idle />
+  <ProfileApp locale={locale} client:idle />
 </BaseLayout>

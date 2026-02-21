@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import * as m from '../paraglide/messages.js';
 import type {
   MoleculeStructure,
   MoleculeLayerVisibility,
@@ -31,14 +32,14 @@ interface MoleculeViewProps {
 
 interface LayerKey {
   id: keyof MoleculeLayerVisibility;
-  label: string;
+  label: () => string;
 }
 
 const LAYER_KEYS: LayerKey[] = [
-  { id: 'bonds', label: 'Связи' },
-  { id: 'oxStates', label: 'С.О.' },
-  { id: 'charges', label: 'Заряды' },
-  { id: 'lonePairs', label: 'Пары' },
+  { id: 'bonds', label: m.mol_layer_bonds },
+  { id: 'oxStates', label: m.mol_layer_ox_states },
+  { id: 'charges', label: m.mol_layer_charges },
+  { id: 'lonePairs', label: m.mol_layer_lone_pairs },
 ];
 
 const DEFAULT_VISIBILITY: MoleculeLayerVisibility = {
@@ -507,10 +508,10 @@ function ToggleBar({
             className={cls}
             disabled={isLocked}
             onClick={() => onToggle(id)}
-            title={label}
+            title={label()}
             type="button"
           >
-            {showLabels ? label : label.charAt(0)}
+            {showLabels ? label() : label().charAt(0)}
           </button>
         );
       })}
@@ -643,7 +644,7 @@ export default function MoleculeView({
         className="mol-view__svg"
         viewBox={viewBox}
         role="img"
-        aria-label={`Структура молекулы ${structure.id}`}
+        aria-label={m.mol_structure_aria({ id: structure.id })}
       >
         {/* Layer: bonds */}
         <g className={`mol-layer${bondsVisible ? '' : ' mol-layer--hidden'}`}>

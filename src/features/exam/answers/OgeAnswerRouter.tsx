@@ -1,4 +1,5 @@
 import type { OgeTask } from '../../../types/oge-task';
+import * as m from '../../../paraglide/messages.js';
 import SelectAnswer from './SelectAnswer';
 import MatchingAnswer from './MatchingAnswer';
 import SequenceAnswer from './SequenceAnswer';
@@ -86,11 +87,11 @@ export default function OgeAnswerRouter({
             onChange={e => onChange(e.target.value)}
             disabled={disabled}
             rows={6}
-            placeholder="Запишите развёрнутый ответ..."
+            placeholder={m.oge_freetext_placeholder()}
           />
           {disabled && (
             <div className="oge-freetext__note">
-              Задания с развёрнутым ответом проверяются вручную.
+              {m.oge_freetext_note()}
             </div>
           )}
         </div>

@@ -1,6 +1,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import type { OgeTask } from '../../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
+import * as m from '../../paraglide/messages.js';
 import OgeAnswerRouter from './answers/OgeAnswerRouter';
 import { gradeOgeTask } from './oge-scoring';
 
@@ -12,10 +13,10 @@ interface Props {
 
 type Phase = 'select' | 'solve' | 'review';
 
-const DIFFICULTY_LABEL: Record<string, string> = {
-  'Б': 'базовый',
-  'П': 'повышенный',
-  'В': 'высокий',
+const DIFFICULTY_LABEL: Record<string, () => string> = {
+  'Б': m.oge_diff_basic,
+  'П': m.oge_diff_advanced,
+  'В': m.oge_diff_high,
 };
 
 /** Group tasks by task_number. */
@@ -84,12 +85,12 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
       <div className="oge-practice">
         <div className="oge-practice__header">
           <button type="button" className="btn" onClick={onBack}>
-            Назад
+            {m.back()}
           </button>
-          <h2 className="oge-practice__title">Задания ОГЭ по номерам</h2>
+          <h2 className="oge-practice__title">{m.oge_title()}</h2>
         </div>
         <p className="oge-practice__intro">
-          Выберите номер задания для тренировки. Формат ввода ответа совпадает с реальным экзаменом.
+          {m.oge_intro()}
         </p>
         <div className="oge-practice__grid">
           {taskNumbers.map(num => {
@@ -104,10 +105,10 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
               >
                 <span className="oge-practice__num">{num}</span>
                 <span className={`oge-practice__diff oge-practice__diff--${sample.difficulty}`}>
-                  {DIFFICULTY_LABEL[sample.difficulty] ?? sample.difficulty}
+                  {DIFFICULTY_LABEL[sample.difficulty]?.() ?? sample.difficulty}
                 </span>
                 <span className="oge-practice__count">
-                  {group.length} {group.length === 1 ? 'вариант' : group.length < 5 ? 'варианта' : 'вариантов'}
+                  {group.length} {group.length === 1 ? m.oge_variant_one() : group.length < 5 ? m.oge_variant_few() : m.oge_variant_many()}
                 </span>
               </button>
             );
@@ -125,10 +126,10 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
     <div className="oge-practice">
       <div className="oge-practice__header">
         <button type="button" className="btn" onClick={handleBackToSelect}>
-          К списку заданий
+          {m.oge_to_list()}
         </button>
         <span className="oge-practice__task-info">
-          Задание {currentTask.task_number} ({currentTask.year}, {currentTask.source === 'demo' ? 'демо' : 'реальный'})
+          {m.oge_task_info({ number: String(currentTask.task_number), year: String(currentTask.year), source: currentTask.source === 'demo' ? m.oge_source_demo() : m.oge_source_real() })}
         </span>
       </div>
 
@@ -137,7 +138,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
           <div className="oge-task__context">{currentTask.context_ru}</div>
         )}
         <div className="oge-task__question">
-          <span className="oge-task__number">Задание {currentTask.task_number}</span>
+          <span className="oge-task__number">{m.exam_task_number({ number: String(currentTask.task_number) })}</span>
           <p className="oge-task__text">{currentTask.question_ru}</p>
         </div>
 
@@ -159,7 +160,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
               onClick={handleCheck}
               disabled={!answer}
             >
-              Проверить
+              {m.oge_check()}
             </button>
             {algo && (
               <button
@@ -167,7 +168,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
                 className="btn"
                 onClick={() => setShowAlgorithm(v => !v)}
               >
-                {showAlgorithm ? 'Скрыть подсказку' : 'Подсказка'}
+                {showAlgorithm ? m.oge_hide_hint() : m.oge_hint()}
               </button>
             )}
           </div>
@@ -175,7 +176,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
 
         {phase === 'solve' && showAlgorithm && algo && (
           <div className="oge-task__algorithm">
-            <h4 className="oge-task__algorithm-title">Алгоритм решения</h4>
+            <h4 className="oge-task__algorithm-title">{m.oge_algorithm_title()}</h4>
             <ol className="oge-task__algorithm-steps">
               {algo.algorithm_ru.map((step, i) => (
                 <li key={i}>{step}</li>
@@ -187,7 +188,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
         {phase === 'review' && gradeResult && (
           <div className="oge-task__result">
             <div className={`oge-task__score oge-task__score--${gradeResult.score === gradeResult.maxScore ? 'full' : gradeResult.score > 0 ? 'partial' : 'zero'}`}>
-              {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? 'балл' : 'балла'}
+              {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? m.oge_score_unit_1() : m.oge_score_unit_2()}
             </div>
             <div className="oge-task__explanation">
               {currentTask.explanation_ru}
@@ -195,7 +196,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
 
             {algo && (
               <details className="oge-task__algo-details">
-                <summary>Алгоритм решения задания {currentTask.task_number}</summary>
+                <summary>{m.oge_algorithm_summary({ number: String(currentTask.task_number) })}</summary>
                 <div className="oge-task__algo-content">
                   <h4>{algo.title_ru}</h4>
                   <ol className="oge-task__algorithm-steps">
@@ -204,14 +205,14 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
                     ))}
                   </ol>
 
-                  <h4>Ключевые факты</h4>
+                  <h4>{m.oge_key_facts()}</h4>
                   <ul>
                     {algo.key_facts_ru.map((fact, i) => (
                       <li key={i}>{fact}</li>
                     ))}
                   </ul>
 
-                  <h4>Типичные ловушки</h4>
+                  <h4>{m.oge_common_traps()}</h4>
                   <ul className="oge-task__traps">
                     {algo.common_traps_ru.map((trap, i) => (
                       <li key={i}>{trap}</li>
@@ -223,10 +224,10 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
 
             <div className="oge-task__actions">
               <button type="button" className="btn btn-primary" onClick={handleNext}>
-                Следующий вариант
+                {m.oge_next_variant()}
               </button>
               <button type="button" className="btn" onClick={handleBackToSelect}>
-                Другое задание
+                {m.oge_other_task()}
               </button>
             </div>
           </div>
