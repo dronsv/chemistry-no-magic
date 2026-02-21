@@ -333,5 +333,22 @@
   "mol_layer_ox_states": "E.O.",
   "mol_layer_charges": "Cargas",
   "mol_layer_lone_pairs": "Pares",
-  "mol_structure_aria": "Estructura molecular de {id}"
+  "mol_structure_aria": "Estructura molecular de {id}",
+  "exam_systems_title": "Exámenes por país",
+  "exam_systems_desc": "Elige un examen para practicar o compara los formatos.",
+  "exam_compare_formats": "Comparar formatos",
+  "exam_no_tasks": "Tareas aún no disponibles",
+  "exam_tasks_available": "{count} tareas",
+  "exam_compare_title": "Comparación de formatos de exámenes",
+  "exam_compare_intro": "Compara los formatos de exámenes de química de diferentes países.",
+  "exam_compare_country": "País",
+  "exam_compare_grade": "Curso",
+  "exam_compare_duration": "Duración",
+  "exam_compare_max_score": "Puntuación máx.",
+  "exam_compare_tasks": "Tareas",
+  "exam_compare_sections": "Secciones",
+  "exam_compare_topics": "Temas",
+  "exam_compare_minutes": "{min} min",
+  "exam_back_to_exam": "← Volver a exámenes",
+  "exam_system_choose": "Seleccionar"
 }

@@ -1,0 +1,32 @@
+{
+  "id": "gcse",
+  "full_name_ru": "GCSE Chemistry (Великобритания)",
+  "full_name_en": "General Certificate of Secondary Education — Chemistry",
+  "description_ru": "Экзамен по химии в Великобритании для учеников 10–11 классов. Охватывает как неорганическую, так и органическую химию.",
+  "description_en": "UK chemistry exam for Year 10-11 students. Covers both inorganic and organic chemistry, quantitative chemistry, and analytical techniques.",
+  "country": "GB",
+  "grade": "10-11",
+  "duration_min": 105,
+  "max_score": 100,
+  "task_count": 30,
+  "scoring": {
+    "grade_thresholds": {
+      "4": 38,
+      "5": 50,
+      "7": 68,
+      "9": 85
+    }
+  },
+  "topics": [
+    "Atomic structure and the periodic table",
+    "Bonding, structure, and properties of matter",
+    "Quantitative chemistry",
+    "Chemical changes",
+    "Energy changes",
+    "Rate and extent of chemical change",
+    "Organic chemistry",
+    "Chemical analysis",
+    "Chemistry of the atmosphere",
+    "Using resources"
+  ]
+}

@@ -20,6 +20,7 @@ import type { EnergyCatalystTheory } from '../types/energy-catalyst';
 import type { CalculationsData } from '../types/calculations';
 import type { OgeTask } from '../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../types/oge-solution';
+import type { ExamSystem, ExamSystemMeta } from '../types/exam-system';
 import type { SearchIndexEntry } from '../types/search';
 import type { SupportedLocale } from '../types/i18n';
 
@@ -481,6 +482,35 @@ export async function loadSearchIndex(locale?: SupportedLocale): Promise<SearchI
   }
 
   return loadDataFile<SearchIndexEntry[]>(basePath);
+}
+
+/** Load all exam systems from registry. */
+export async function loadExamSystems(): Promise<ExamSystem[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.exam_systems;
+
+  if (!path) {
+    throw new Error(
+      'Exam systems not found in manifest. Expected key "exam_systems" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<ExamSystem[]>(path);
+}
+
+/** Load metadata for a specific exam system. */
+export async function loadExamSystemMeta(systemId: string): Promise<ExamSystemMeta> {
+  return loadDataFile<ExamSystemMeta>(`exam/${systemId}/meta.json`);
+}
+
+/** Load tasks for a specific exam system. */
+export async function loadExamTasks(systemId: string): Promise<OgeTask[]> {
+  return loadDataFile<OgeTask[]>(`exam/${systemId}/tasks.json`);
+}
+
+/** Load solution algorithms for a specific exam system. */
+export async function loadExamAlgorithms(systemId: string): Promise<OgeSolutionAlgorithm[]> {
+  return loadDataFile<OgeSolutionAlgorithm[]>(`exam/${systemId}/algorithms.json`);
 }
 
 /** Load a molecule structure by substance ID. */

@@ -1,0 +1,35 @@
+{
+  "id": "oge",
+  "full_name_ru": "Основной государственный экзамен по химии",
+  "full_name_en": "Basic State Examination in Chemistry",
+  "description_ru": "Обязательный экзамен для выпускников 9 класса. Проверяет знания по неорганической химии: строение атома, классы веществ, реакции, расчёты.",
+  "description_en": "Mandatory exam for 9th-grade graduates. Tests knowledge of inorganic chemistry: atomic structure, substance classes, reactions, calculations.",
+  "country": "RU",
+  "grade": "9",
+  "duration_min": 180,
+  "max_score": 40,
+  "passing_score": 10,
+  "task_count": 24,
+  "part_1_tasks": 19,
+  "part_2_tasks": 5,
+  "scoring": {
+    "part_1_max": 24,
+    "part_2_max": 16,
+    "grade_thresholds": {
+      "3": 10,
+      "4": 21,
+      "5": 31
+    }
+  },
+  "topics": [
+    "Строение атома, Периодический закон",
+    "Классы неорганических веществ",
+    "Химическая связь и кристаллические решётки",
+    "Степени окисления и ОВР",
+    "Типы химических реакций",
+    "Растворы и электролитическая диссоциация",
+    "Качественные реакции",
+    "Химические расчёты"
+  ],
+  "url_official": "https://fipi.ru/oge/demoversii-specifikacii-kodifikatory"
+}

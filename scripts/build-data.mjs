@@ -137,6 +137,15 @@ async function main() {
   const elementGroups = await loadJson(join(DATA_SRC, 'element-groups.json'));
   const ogeTasks = await loadJson(join(DATA_SRC, 'exam', 'oge_tasks.json'));
   const ogeSolutionAlgorithms = await loadJson(join(DATA_SRC, 'exam', 'oge_solution_algorithms.json'));
+  const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
+
+  // Load per-system exam metadata
+  const examMetas = {};
+  for (const sys of examSystems) {
+    try {
+      examMetas[sys.id] = await loadJson(join(DATA_SRC, 'exam', sys.id, 'meta.json'));
+    } catch { /* meta optional for systems without tasks yet */ }
+  }
 
   // Load molecule structures (optional — directory may not exist yet)
   const structuresDir = join(DATA_SRC, 'structures');
@@ -152,6 +161,7 @@ async function main() {
   console.log(`  ${qualitativeReactions.length} qualitative reactions, ${geneticChains.length} genetic chains, ${energyCatalystTheory.rate_factors.length} rate factors`);
   console.log(`  ${calculationsData.calc_substances.length} calc substances, ${calculationsData.calc_reactions.length} calc reactions`);
   console.log(`  ${ogeTasks.length} OGE tasks, ${ogeSolutionAlgorithms.length} solution algorithms`);
+  console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
@@ -263,6 +273,25 @@ async function main() {
   await writeFile(join(bundleDir, 'exam', 'oge_tasks.json'), JSON.stringify(ogeTasks));
   await writeFile(join(bundleDir, 'exam', 'oge_solution_algorithms.json'), JSON.stringify(ogeSolutionAlgorithms));
 
+  // Multi-exam system files
+  await writeFile(join(bundleDir, 'exam', 'systems.json'), JSON.stringify(examSystems));
+  for (const sys of examSystems) {
+    const sysDir = join(bundleDir, 'exam', sys.id);
+    await mkdir(sysDir, { recursive: true });
+    if (examMetas[sys.id]) {
+      await writeFile(join(sysDir, 'meta.json'), JSON.stringify(examMetas[sys.id]));
+    }
+    // Copy per-system tasks and algorithms if they exist
+    try {
+      const tasks = await loadJson(join(DATA_SRC, 'exam', sys.id, 'tasks.json'));
+      await writeFile(join(sysDir, 'tasks.json'), JSON.stringify(tasks));
+    } catch { /* no tasks yet for this system */ }
+    try {
+      const algos = await loadJson(join(DATA_SRC, 'exam', sys.id, 'algorithms.json'));
+      await writeFile(join(sysDir, 'algorithms.json'), JSON.stringify(algos));
+    } catch { /* no algorithms yet for this system */ }
+  }
+
   if (structureFiles.length > 0) {
     await mkdir(join(bundleDir, 'structures'), { recursive: true });
     for (const f of structureFiles) {
@@ -336,6 +365,7 @@ async function main() {
     stats,
     indexKeys,
     translations: translationsManifest,
+    examSystemIds: examSystems.map(s => s.id),
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

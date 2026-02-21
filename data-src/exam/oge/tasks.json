@@ -1,0 +1,3153 @@
+[
+  {
+    "task_id": "demo_2025_01",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Выберите два утверждения, в которых говорится об алюминии как о химическом элементе.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Алюминий по распространённости в земной коре занимает третье место, уступая только кислороду и кремнию."
+      },
+      {
+        "id": "2",
+        "text": "До конца XIX в. алюминий в промышленных масштабах не производился."
+      },
+      {
+        "id": "3",
+        "text": "Алюминий образует прочную химическую связь с кислородом."
+      },
+      {
+        "id": "4",
+        "text": "Алюминий практически не подвержен коррозии."
+      },
+      {
+        "id": "5",
+        "text": "При производстве сплавов для авиационной промышленности используется алюминий."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table"
+    ],
+    "explanation_ru": "Утверждения 1 и 3 описывают алюминий как химический элемент (распространённость в земной коре — свойство элемента; образование химической связи — свойство элемента). Утверждения 2, 4 и 5 описывают алюминий как простое вещество (производство, коррозия, сплавы)."
+  },
+  {
+    "task_id": "sdamgia_5830_01",
+    "year": 2024,
+    "source": "real",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Выберите два высказывания, в которых говорится о фосфоре как о химическом элементе.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Молекула фосфина состоит из трёх атомов водорода и одного атома фосфора."
+      },
+      {
+        "id": "2",
+        "text": "Фосфор входит в состав смеси, наносимой на стенку спичечной коробки."
+      },
+      {
+        "id": "3",
+        "text": "Фосфор имеет несколько аллотропных модификаций."
+      },
+      {
+        "id": "4",
+        "text": "Фосфор входит в состав растительных и животных белков."
+      },
+      {
+        "id": "5",
+        "text": "Чёрный фосфор обладает полупроводниковыми свойствами."
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table"
+    ],
+    "explanation_ru": "В предложениях 1 и 4 о фосфоре говорится как о химическом элементе (атом в молекуле фосфина; элемент в составе белков). Остальные — о простом веществе (применение, аллотропия, физические свойства)."
+  },
+  {
+    "task_id": "sdamgia_5831_01",
+    "year": 2024,
+    "source": "real",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Выберите два высказывания, в которых говорится о сере как о химическом элементе.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Сера входит в состав некоторых аминокислот."
+      },
+      {
+        "id": "2",
+        "text": "Сера — это порошок жёлтого цвета, который не смачивается водой."
+      },
+      {
+        "id": "3",
+        "text": "Молекула сероводорода состоит из двух атомов водорода и одного атома серы."
+      },
+      {
+        "id": "4",
+        "text": "Сера не притягивается магнитом."
+      },
+      {
+        "id": "5",
+        "text": "Серу применяют для вулканизации каучука."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table"
+    ],
+    "explanation_ru": "В предложениях 1 и 3 о сере говорится как о химическом элементе (элемент в составе аминокислот; атом в молекуле сероводорода). Остальные — о простом веществе."
+  },
+  {
+    "task_id": "demo_2025_02",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "На рисунке изображена модель атома химического элемента с распределением электронов по слоям: 2, 8, 5.\n\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "correct_answer": "35",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table",
+      "electron_config"
+    ],
+    "explanation_ru": "Распределение электронов 2, 8, 5 — это 3 электронных слоя (период 3) и 5 электронов на внешнем слое (группа V). Это фосфор (P), расположенный в 3-м периоде, V группе."
+  },
+  {
+    "task_id": "sdamgia_10710_02",
+    "year": 2024,
+    "source": "real",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: кальций (Ca), Z=20, электронная конфигурация 2, 8, 8, 2.",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "correct_answer": "42",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table",
+      "electron_config"
+    ],
+    "explanation_ru": "Кальций (Ca, Z=20) расположен в 4-м периоде, IIA группе. 4 электронных слоя (период 4), 2 валентных электрона (группа II). Ответ: X=4, Y=2."
+  },
+  {
+    "task_id": "sdamgia_type_02_cl",
+    "year": 2024,
+    "source": "real",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: хлор (Cl), Z=17, электронная конфигурация 2, 8, 7.",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "correct_answer": "37",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table",
+      "electron_config"
+    ],
+    "explanation_ru": "Хлор (Cl, Z=17) расположен в 3-м периоде, VIIA группе. 3 электронных слоя, 7 валентных электронов. Ответ: X=3, Y=7."
+  },
+  {
+    "task_id": "demo_2025_03",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Расположите химические элементы\n  1) сера  2) кремний  3) хлор\nв порядке увеличения неметаллических свойств образуемых ими простых веществ.\nЗапишите указанные номера элементов в соответствующем порядке.",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "сера"
+      },
+      {
+        "id": "2",
+        "text": "кремний"
+      },
+      {
+        "id": "3",
+        "text": "хлор"
+      }
+    ],
+    "correct_answer": "213",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends"
+    ],
+    "explanation_ru": "Неметаллические свойства увеличиваются в периоде слева направо и в группе снизу вверх. Si (период 3, группа IV) < S (период 3, группа VI) < Cl (период 3, группа VII). Порядок: кремний → сера → хлор, то есть 2 → 1 → 3."
+  },
+  {
+    "task_id": "sdamgia_10733_03",
+    "year": 2024,
+    "source": "real",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Расположите химические элементы\n  1) кальций  2) алюминий  3) сера\nв порядке изменения от кислотных к основным свойств их высших оксидов.\nЗапишите номера элементов в соответствующем порядке.",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "кальций"
+      },
+      {
+        "id": "2",
+        "text": "алюминий"
+      },
+      {
+        "id": "3",
+        "text": "сера"
+      }
+    ],
+    "correct_answer": "321",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends"
+    ],
+    "explanation_ru": "SO₃ — кислотный оксид, Al₂O₃ — амфотерный, CaO — основный. От кислотных к основным: сера → алюминий → кальций."
+  },
+  {
+    "task_id": "sdamgia_10736_03",
+    "year": 2024,
+    "source": "real",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Расположите химические элементы\n  1) галлий  2) кислород  3) фосфор\nв порядке уменьшения радиуса атома.\nЗапишите номера элементов в соответствующем порядке.",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "галлий"
+      },
+      {
+        "id": "2",
+        "text": "кислород"
+      },
+      {
+        "id": "3",
+        "text": "фосфор"
+      }
+    ],
+    "correct_answer": "132",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends"
+    ],
+    "explanation_ru": "Радиус атома уменьшается слева направо по периоду и снизу вверх по группе. Ga (4-й период) > P (3-й период) > O (2-й период). Порядок уменьшения: галлий → фосфор → кислород."
+  },
+  {
+    "task_id": "demo_2025_04",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Установите соответствие между веществом и степенью окисления брома в данном веществе: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "NH₄Br"
+      },
+      {
+        "label": "Б",
+        "text": "KBrO₄"
+      },
+      {
+        "label": "В",
+        "text": "HBrO"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "−1"
+      },
+      {
+        "id": "2",
+        "text": "+1"
+      },
+      {
+        "id": "3",
+        "text": "+3"
+      },
+      {
+        "id": "4",
+        "text": "+7"
+      }
+    ],
+    "correct_answer": "142",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "oxidation_states"
+    ],
+    "explanation_ru": "А) NH₄Br: N имеет СО −3, H +1, значит Br = −1.\nБ) KBrO₄: K +1, O −2, 4 атома O = −8, значит Br = +7.\nВ) HBrO: H +1, O −2, значит Br = +1."
+  },
+  {
+    "task_id": "bank_fipi_04_n",
+    "year": 2024,
+    "source": "real",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой соединения и степенью окисления азота в этом соединении.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "N₂O₅"
+      },
+      {
+        "label": "Б",
+        "text": "NH₃"
+      },
+      {
+        "label": "В",
+        "text": "NO"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "−3"
+      },
+      {
+        "id": "2",
+        "text": "+2"
+      },
+      {
+        "id": "3",
+        "text": "+4"
+      },
+      {
+        "id": "4",
+        "text": "+5"
+      }
+    ],
+    "correct_answer": "412",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "oxidation_states"
+    ],
+    "explanation_ru": "А) N₂O₅: O=−2, 2x + 5(−2) = 0, x = +5 → 4.\nБ) NH₃: H=+1, x + 3(+1) = 0, x = −3 → 1.\nВ) NO: O=−2, x + (−2) = 0, x = +2 → 2."
+  },
+  {
+    "task_id": "bank_fipi_04_s",
+    "year": 2024,
+    "source": "real",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой соединения и степенью окисления серы в этом соединении.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "H₂S"
+      },
+      {
+        "label": "Б",
+        "text": "SO₃"
+      },
+      {
+        "label": "В",
+        "text": "Na₂SO₄"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "−2"
+      },
+      {
+        "id": "2",
+        "text": "+4"
+      },
+      {
+        "id": "3",
+        "text": "+6"
+      },
+      {
+        "id": "4",
+        "text": "0"
+      }
+    ],
+    "correct_answer": "133",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "oxidation_states"
+    ],
+    "explanation_ru": "А) H₂S: H=+1, 2(+1) + x = 0, x = −2 → 1.\nБ) SO₃: O=−2, x + 3(−2) = 0, x = +6 → 3.\nВ) Na₂SO₄: Na=+1, O=−2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
+  },
+  {
+    "task_id": "demo_2025_05",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества с ковалентной полярной связью.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "NH₃"
+      },
+      {
+        "id": "2",
+        "text": "Na"
+      },
+      {
+        "id": "3",
+        "text": "MgF₂"
+      },
+      {
+        "id": "4",
+        "text": "F₂"
+      },
+      {
+        "id": "5",
+        "text": "PBr₃"
+      }
+    ],
+    "correct_answer": "15",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "bond_type"
+    ],
+    "explanation_ru": "NH₃ — ковалентная полярная связь (между неметаллами с разной ЭО). Na — металлическая связь. MgF₂ — ионная связь (металл + неметалл). F₂ — ковалентная неполярная (одинаковые атомы). PBr₃ — ковалентная полярная (неметаллы с разной ЭО)."
+  },
+  {
+    "task_id": "bank_fipi_05_ion",
+    "year": 2024,
+    "source": "real",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества с ионной связью.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "MgO"
+      },
+      {
+        "id": "2",
+        "text": "CO₂"
+      },
+      {
+        "id": "3",
+        "text": "H₂O"
+      },
+      {
+        "id": "4",
+        "text": "KBr"
+      },
+      {
+        "id": "5",
+        "text": "N₂"
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "bond_type"
+    ],
+    "explanation_ru": "Ионная связь образуется между металлом и неметаллом. MgO (Mg — металл, O — неметалл) и KBr (K — металл, Br — неметалл) — ионная связь. CO₂, H₂O — ковалентная полярная. N₂ — ковалентная неполярная."
+  },
+  {
+    "task_id": "bank_fipi_05_nonpol",
+    "year": 2024,
+    "source": "real",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества с ковалентной неполярной связью.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CaCl₂"
+      },
+      {
+        "id": "2",
+        "text": "Cl₂"
+      },
+      {
+        "id": "3",
+        "text": "SO₂"
+      },
+      {
+        "id": "4",
+        "text": "F₂"
+      },
+      {
+        "id": "5",
+        "text": "KF"
+      }
+    ],
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "bond_type"
+    ],
+    "explanation_ru": "Ковалентная неполярная связь — между одинаковыми атомами неметаллов. Cl₂ (Cl−Cl) и F₂ (F−F) — ковалентная неполярная. CaCl₂, KF — ионная. SO₂ — ковалентная полярная."
+  },
+  {
+    "task_id": "demo_2025_06",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Выберите два верных продолжения для следующего утверждения.\nСходство бора, углерода и азота проявляется в том, что…",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "в ядрах их атомов одинаковое число протонов."
+      },
+      {
+        "id": "2",
+        "text": "в их атомах одинаковое число электронных слоёв, заполняемых электронами."
+      },
+      {
+        "id": "3",
+        "text": "образуемые ими простые вещества являются неметаллами."
+      },
+      {
+        "id": "4",
+        "text": "в соединениях они проявляют только положительные степени окисления."
+      },
+      {
+        "id": "5",
+        "text": "образуемые ими высшие оксиды относятся к основным оксидам."
+      }
+    ],
+    "correct_answer": "23",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends",
+      "electron_config"
+    ],
+    "explanation_ru": "B, C, N находятся во 2-м периоде → одинаковое число электронных слоёв (2). Все три — неметаллы (бор — полуметалл, но в контексте ОГЭ считается неметаллом). Число протонов у них разное (5, 6, 7). Азот проявляет отрицательные СО. Высшие оксиды B₂O₃ и CO₂ — кислотные."
+  },
+  {
+    "task_id": "sdamgia_258_06",
+    "year": 2024,
+    "source": "real",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Какие два утверждения верны для характеристики как натрия, так и алюминия?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Наличие 12 протонов в ядрах их атомов."
+      },
+      {
+        "id": "2",
+        "text": "Нахождение валентных электронов в третьем электронном слое."
+      },
+      {
+        "id": "3",
+        "text": "Образование простых веществ-металлов."
+      },
+      {
+        "id": "4",
+        "text": "Существование в природе в виде двухатомных молекул."
+      },
+      {
+        "id": "5",
+        "text": "Образование ими высших оксидов с общей формулой Э₂O."
+      }
+    ],
+    "correct_answer": "23",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends",
+      "electron_config"
+    ],
+    "explanation_ru": "Na и Al — элементы 3-го периода, валентные электроны в 3-м слое (2 — верно). Оба — металлы (3 — верно). 12 протонов — только у Mg (1 — нет). Двухатомных молекул не образуют (4 — нет). Na₂O — да, но Al₂O₃, не Al₂O (5 — нет)."
+  },
+  {
+    "task_id": "sdamgia_5851_06",
+    "year": 2024,
+    "source": "real",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Какие два утверждения верны для характеристики как хлора, так и брома?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "В ядре атома химического элемента содержится 17 протонов."
+      },
+      {
+        "id": "2",
+        "text": "Электроны в атоме расположены на трёх электронных слоях."
+      },
+      {
+        "id": "3",
+        "text": "Химический элемент является неметаллом."
+      },
+      {
+        "id": "4",
+        "text": "Соответствующее простое вещество существует в виде двухатомных молекул."
+      },
+      {
+        "id": "5",
+        "text": "Соответствующее простое вещество при н. у. является жидкостью."
+      }
+    ],
+    "correct_answer": "34",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends",
+      "electron_config"
+    ],
+    "explanation_ru": "17 протонов только у Cl (1 — нет). Cl — 3 слоя, Br — 4 слоя (2 — нет). Оба неметаллы (3 — да). Cl₂ и Br₂ — двухатомные молекулы (4 — да). Cl₂ — газ при н. у. (5 — нет)."
+  },
+  {
+    "task_id": "demo_2025_07",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Из предложенного перечня веществ выберите основный оксид и амфотерный гидроксид.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nЗапишите в поле ответа сначала номер основного оксида, а затем номер амфотерного гидроксида.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": true
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Al(OH)₃"
+      },
+      {
+        "id": "2",
+        "text": "Mg(OH)₂"
+      },
+      {
+        "id": "3",
+        "text": "OF₂"
+      },
+      {
+        "id": "4",
+        "text": "N₂O"
+      },
+      {
+        "id": "5",
+        "text": "FeO"
+      }
+    ],
+    "correct_answer": "51",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "classification",
+      "amphoterism_logic"
+    ],
+    "explanation_ru": "FeO — основный оксид (оксид металла с невысокой СО). Al(OH)₃ — амфотерный гидроксид (алюминий — амфотерный элемент). Mg(OH)₂ — основание (не амфотерный). OF₂ — не оксид (кислород в СО +2). N₂O — несолеобразующий оксид."
+  },
+  {
+    "task_id": "sdamgia_1008_07",
+    "year": 2024,
+    "source": "real",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Ангидридом хлорной кислоты HClO₄ является",
+    "answer_type": "select",
+    "select_config": {
+      "count": 1,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Cl₂O"
+      },
+      {
+        "id": "2",
+        "text": "Cl₂O₃"
+      },
+      {
+        "id": "3",
+        "text": "ClO₂"
+      },
+      {
+        "id": "4",
+        "text": "Cl₂O₇"
+      }
+    ],
+    "correct_answer": "4",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "classification"
+    ],
+    "explanation_ru": "Cl в HClO₄ имеет степень окисления +7. Оксид, соответствующий этой степени окисления: Cl₂O₇. Проверка: Cl₂O₇ + H₂O = 2HClO₄."
+  },
+  {
+    "task_id": "bank_fipi_07",
+    "year": 2024,
+    "source": "real",
+    "task_number": 7,
+    "part": 1,
+    "question_ru": "Из предложенного перечня веществ выберите кислотный оксид и основание.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nЗапишите в поле ответа сначала номер кислотного оксида, а затем номер основания.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": true
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CO"
+      },
+      {
+        "id": "2",
+        "text": "Mg(OH)₂"
+      },
+      {
+        "id": "3",
+        "text": "SO₂"
+      },
+      {
+        "id": "4",
+        "text": "NaClO₄"
+      },
+      {
+        "id": "5",
+        "text": "Al(OH)₃"
+      }
+    ],
+    "correct_answer": "32",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "classification",
+      "amphoterism_logic"
+    ],
+    "explanation_ru": "SO₂ — кислотный оксид (3). Mg(OH)₂ — основание (2). CO — несолеобразующий оксид. NaClO₄ — соль. Al(OH)₃ — амфотерный гидроксид (не основание). Ответ: сначала кислотный оксид (3), затем основание (2)."
+  },
+  {
+    "task_id": "demo_2025_08",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Какие два из перечисленных веществ не вступают в реакцию с фосфором?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Na₂SO₄"
+      },
+      {
+        "id": "2",
+        "text": "HNO₃"
+      },
+      {
+        "id": "3",
+        "text": "O₂"
+      },
+      {
+        "id": "4",
+        "text": "Mg"
+      },
+      {
+        "id": "5",
+        "text": "CO"
+      }
+    ],
+    "correct_answer": "15",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "Фосфор реагирует с O₂ (горение: 4P + 5O₂ → 2P₂O₅), с HNO₃ (сильный окислитель), с Mg (образуя фосфид: 3Mg + 2P → Mg₃P₂). Не реагирует с Na₂SO₄ (соль, нет движущей силы) и CO (инертный оксид, слабый восстановитель)."
+  },
+  {
+    "task_id": "sdamgia_10869_08",
+    "year": 2024,
+    "source": "real",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите две пары веществ, с каждым из которых реагирует оксид меди(II).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "H₂O и CO₂"
+      },
+      {
+        "id": "2",
+        "text": "O₂ и C"
+      },
+      {
+        "id": "3",
+        "text": "H₂ и HNO₃"
+      },
+      {
+        "id": "4",
+        "text": "HCl и NaOH"
+      },
+      {
+        "id": "5",
+        "text": "CO и HCl"
+      }
+    ],
+    "correct_answer": "35",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "CuO — основный оксид. Реагирует с кислотами (HNO₃, HCl) и восстановителями (H₂, CO). Пара 3: H₂ + HNO₃ — оба реагируют с CuO. Пара 5: CO + HCl — оба реагируют с CuO. Пара 4: HCl — да, но NaOH с основным оксидом не реагирует (CuO не амфотерный)."
+  },
+  {
+    "task_id": "bank_fipi_08_subst",
+    "year": 2024,
+    "source": "real",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите две реакции замещения.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CaCO₃ → CaO + CO₂"
+      },
+      {
+        "id": "2",
+        "text": "Fe + CuSO₄ → FeSO₄ + Cu"
+      },
+      {
+        "id": "3",
+        "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O"
+      },
+      {
+        "id": "4",
+        "text": "Zn + 2HCl → ZnCl₂ + H₂"
+      },
+      {
+        "id": "5",
+        "text": "2H₂O → 2H₂ + O₂"
+      }
+    ],
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "Замещение — простое + сложное → простое + сложное. Fe + CuSO₄ (2) — замещение. Zn + HCl (4) — замещение. CaCO₃ → CaO + CO₂ (1) — разложение. NaOH + H₂SO₄ (3) — обмен. 2H₂O → 2H₂ + O₂ (5) — разложение (электролиз)."
+  },
+  {
+    "task_id": "demo_2025_09",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и продуктами их взаимодействия: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Fe₂(SO₄)₃ и BaCl₂"
+      },
+      {
+        "label": "Б",
+        "text": "Fe и H₂SO₄ (разб.)"
+      },
+      {
+        "label": "В",
+        "text": "Fe₂O₃ и H₂SO₄ (разб.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "FeSO₄ и H₂"
+      },
+      {
+        "id": "2",
+        "text": "FeCl₃ и BaSO₄"
+      },
+      {
+        "id": "3",
+        "text": "FeSO₄ и H₂O"
+      },
+      {
+        "id": "4",
+        "text": "Fe₂(SO₄)₃ и H₂O"
+      },
+      {
+        "id": "5",
+        "text": "FeCl₂ и BaSO₄"
+      }
+    ],
+    "correct_answer": "214",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → ответ 2.\nБ) Fe + H₂SO₄(разб.) → FeSO₄ + H₂↑ (Fe двухвалентно с разб. кислотой) → ответ 1.\nВ) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → ответ 4."
+  },
+  {
+    "task_id": "sdamgia_327_09",
+    "year": 2024,
+    "source": "real",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Na₂CO₃ и HCl"
+      },
+      {
+        "label": "Б",
+        "text": "Na₂CO₃ и CO₂ и H₂O"
+      },
+      {
+        "label": "В",
+        "text": "Na₂CO₃ и CaCl₂"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "NaCl и CO₂ и H₂O"
+      },
+      {
+        "id": "2",
+        "text": "NaHCO₃ и HCl"
+      },
+      {
+        "id": "3",
+        "text": "NaOH и NaHCO₃"
+      },
+      {
+        "id": "4",
+        "text": "NaHCO₃"
+      },
+      {
+        "id": "5",
+        "text": "NaCl и CaCO₃"
+      }
+    ],
+    "correct_answer": "145",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nБ) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (средняя соль + кислотный оксид + вода → кислая соль) → 4.\nВ) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (обмен) → 5."
+  },
+  {
+    "task_id": "sdamgia_6445_09",
+    "year": 2024,
+    "source": "real",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Fe и Cl₂"
+      },
+      {
+        "label": "Б",
+        "text": "Fe и HCl"
+      },
+      {
+        "label": "В",
+        "text": "Fe и H₂SO₄ (разб.)"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "FeCl₃ и H₂"
+      },
+      {
+        "id": "2",
+        "text": "FeCl₂ и H₂"
+      },
+      {
+        "id": "3",
+        "text": "Fe₂(SO₄)₃ и H₂"
+      },
+      {
+        "id": "4",
+        "text": "FeCl₃"
+      },
+      {
+        "id": "5",
+        "text": "FeSO₄ и H₂"
+      }
+    ],
+    "correct_answer": "425",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) Fe + Cl₂ → FeCl₃ (Cl₂ — сильный окислитель, даёт Fe³⁺) → 4.\nБ) Fe + 2HCl → FeCl₂ + H₂ (разбавленная кислота → Fe²⁺) → 2.\nВ) Fe + H₂SO₄(разб.) → FeSO₄ + H₂ (разбавленная серная → Fe²⁺) → 5."
+  },
+  {
+    "task_id": "demo_2025_10",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Установите соответствие между веществом и реагентами, с каждым из которых оно может вступать в реакцию: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Al"
+      },
+      {
+        "label": "Б",
+        "text": "Ca(OH)₂"
+      },
+      {
+        "label": "В",
+        "text": "SO₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "CO₂, Al₂O₃"
+      },
+      {
+        "id": "2",
+        "text": "CaO, N₂"
+      },
+      {
+        "id": "3",
+        "text": "H₂S, Na₂O"
+      },
+      {
+        "id": "4",
+        "text": "Fe₂O₃, O₂"
+      }
+    ],
+    "correct_answer": "413",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "А) Al реагирует с Fe₂O₃ (алюмотермия) и O₂ (горение) → 4.\nБ) Ca(OH)₂ реагирует с CO₂ (помутнение известковой воды) и Al₂O₃ (амфотерный оксид) → 1.\nВ) SO₃ (кислотный оксид) реагирует с H₂S (ОВР) и Na₂O (основный оксид) → 3."
+  },
+  {
+    "task_id": "sdamgia_2145_10",
+    "year": 2024,
+    "source": "real",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой вещества и реагентами, с каждым из которых это вещество может взаимодействовать.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "CaCl₂"
+      },
+      {
+        "label": "Б",
+        "text": "SO₂"
+      },
+      {
+        "label": "В",
+        "text": "H₂"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "N₂, Fe₂O₃"
+      },
+      {
+        "id": "2",
+        "text": "CaO, Ba(OH)₂"
+      },
+      {
+        "id": "3",
+        "text": "H₂O, NaNO₃"
+      },
+      {
+        "id": "4",
+        "text": "Na₂CO₃, AgNO₃"
+      }
+    ],
+    "correct_answer": "421",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "А) CaCl₂ реагирует с Na₂CO₃ (→ CaCO₃↓) и AgNO₃ (→ AgCl↓) → 4.\nБ) SO₂ (кислотный оксид) реагирует с CaO (основный оксид) и Ba(OH)₂ (щёлочь) → 2.\nВ) H₂ реагирует с N₂ (→ NH₃) и Fe₂O₃ (восстановление → Fe + H₂O) → 1."
+  },
+  {
+    "task_id": "bank_fipi_10",
+    "year": 2024,
+    "source": "real",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой вещества и реагентами, с каждым из которых это вещество может взаимодействовать.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Fe"
+      },
+      {
+        "label": "Б",
+        "text": "CO₂"
+      },
+      {
+        "label": "В",
+        "text": "NaOH"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "HCl, CuSO₄"
+      },
+      {
+        "id": "2",
+        "text": "Na₂O, KOH"
+      },
+      {
+        "id": "3",
+        "text": "H₂SO₄, Cl₂"
+      },
+      {
+        "id": "4",
+        "text": "CuSO₄, CO₂"
+      }
+    ],
+    "correct_answer": "124",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "А) Fe: с HCl → FeCl₂ + H₂, с CuSO₄ → FeSO₄ + Cu (Fe левее Cu в ряду активности) → 1.\nБ) CO₂ (кислотный оксид): с Na₂O → Na₂CO₃, с KOH → K₂CO₃ + H₂O → 2.\nВ) NaOH: с CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, с CO₂ → Na₂CO₃ + H₂O → 4."
+  },
+  {
+    "task_id": "demo_2025_11",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 11,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите две пары веществ, между которыми протекает реакция обмена.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "бром и иодид калия"
+      },
+      {
+        "id": "2",
+        "text": "серная кислота и цинк"
+      },
+      {
+        "id": "3",
+        "text": "гидроксид натрия и алюминий"
+      },
+      {
+        "id": "4",
+        "text": "сульфат натрия и хлорид бария"
+      },
+      {
+        "id": "5",
+        "text": "гидроксид натрия и соляная кислота"
+      }
+    ],
+    "correct_answer": "45",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_exchange"
+    ],
+    "explanation_ru": "Реакция обмена — два сложных вещества обмениваются составными частями. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (обмен). NaOH + HCl → NaCl + H₂O (нейтрализация = разновидность обмена). Br₂ + 2KI → 2KBr + I₂ — замещение. H₂SO₄ + Zn → ZnSO₄ + H₂ — замещение. NaOH + Al — нестандартная реакция."
+  },
+  {
+    "task_id": "bank_fipi_11_decomp",
+    "year": 2024,
+    "source": "real",
+    "task_number": 11,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два уравнения экзотермических реакций.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CaCO₃ → CaO + CO₂"
+      },
+      {
+        "id": "2",
+        "text": "2Mg + O₂ → 2MgO"
+      },
+      {
+        "id": "3",
+        "text": "2H₂O → 2H₂ + O₂"
+      },
+      {
+        "id": "4",
+        "text": "C + O₂ → CO₂"
+      },
+      {
+        "id": "5",
+        "text": "N₂ + O₂ → 2NO"
+      }
+    ],
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_exchange"
+    ],
+    "explanation_ru": "Горение магния (2) и горение углерода (4) — экзотермические реакции. Разложение CaCO₃ (1) и электролиз воды (3) — эндотермические. Реакция N₂ + O₂ → 2NO (5) — тоже эндотермическая (идёт только при очень высоких температурах)."
+  },
+  {
+    "task_id": "bank_fipi_11_signs",
+    "year": 2024,
+    "source": "real",
+    "task_number": 11,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два верных утверждения о признаках химических реакций.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "При сливании растворов нитрата серебра и хлорида натрия образуется белый творожистый осадок."
+      },
+      {
+        "id": "2",
+        "text": "При сливании растворов карбоната натрия и соляной кислоты выделяется бурый газ."
+      },
+      {
+        "id": "3",
+        "text": "При сливании растворов сульфата меди(II) и гидроксида натрия образуется голубой осадок."
+      },
+      {
+        "id": "4",
+        "text": "При сливании растворов хлорида бария и серной кислоты выделяется газ."
+      },
+      {
+        "id": "5",
+        "text": "При сливании растворов нитрата свинца(II) и иодида калия образуется ярко-жёлтый осадок."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_exchange"
+    ],
+    "explanation_ru": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl белый творожистый (верно). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ бесцветный, не бурый (неверно). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ голубой осадок (верно). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — осадок, не газ (неверно). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — жёлтый осадок (верно, но нужно только 2 ответа)."
+  },
+  {
+    "task_id": "demo_2025_12",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 12,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "HCl и Na₂SiO₃"
+      },
+      {
+        "label": "Б",
+        "text": "H₂S и CuCl₂"
+      },
+      {
+        "label": "В",
+        "text": "HCl и Na₂CO₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "выпадение чёрного осадка"
+      },
+      {
+        "id": "2",
+        "text": "выделение газа"
+      },
+      {
+        "id": "3",
+        "text": "выпадение бесцветного желеобразного осадка"
+      },
+      {
+        "id": "4",
+        "text": "выпадение голубого осадка"
+      }
+    ],
+    "correct_answer": "312",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — кремниевая кислота образует бесцветный желеобразный осадок → 3.\nБ) H₂S + CuCl₂ → CuS↓ + 2HCl — сульфид меди(II) — чёрный осадок → 1.\nВ) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — выделение газа → 2."
+  },
+  {
+    "task_id": "bank_fipi_12a",
+    "year": 2024,
+    "source": "real",
+    "task_number": 12,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "CuSO₄ и NaOH"
+      },
+      {
+        "label": "Б",
+        "text": "Na₂S и HCl"
+      },
+      {
+        "label": "В",
+        "text": "FeCl₃ и NaOH"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "выделение газа с запахом тухлых яиц"
+      },
+      {
+        "id": "2",
+        "text": "выпадение голубого осадка"
+      },
+      {
+        "id": "3",
+        "text": "выпадение бурого осадка"
+      },
+      {
+        "id": "4",
+        "text": "видимых признаков реакции не наблюдается"
+      }
+    ],
+    "correct_answer": "213",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ голубой осадок → 2.\nБ) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S газ с запахом тухлых яиц → 1.\nВ) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ бурый осадок → 3."
+  },
+  {
+    "task_id": "bank_fipi_12b",
+    "year": 2024,
+    "source": "real",
+    "task_number": 12,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "BaCl₂ и Na₂SO₄"
+      },
+      {
+        "label": "Б",
+        "text": "NH₄Cl и KOH"
+      },
+      {
+        "label": "В",
+        "text": "NaCl и AgNO₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "выпадение белого осадка"
+      },
+      {
+        "id": "2",
+        "text": "выделение газа с резким запахом"
+      },
+      {
+        "id": "3",
+        "text": "выделение бесцветного газа без запаха"
+      },
+      {
+        "id": "4",
+        "text": "растворение осадка"
+      }
+    ],
+    "correct_answer": "121",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "А) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ белый осадок → 1.\nБ) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ газ с резким запахом → 2.\nВ) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl белый творожистый осадок → 1."
+  },
+  {
+    "task_id": "demo_2025_13",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 13,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два неэлектролита.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CH₄"
+      },
+      {
+        "id": "2",
+        "text": "CO"
+      },
+      {
+        "id": "3",
+        "text": "HNO₃"
+      },
+      {
+        "id": "4",
+        "text": "KClO"
+      },
+      {
+        "id": "5",
+        "text": "CuSO₄"
+      }
+    ],
+    "correct_answer": "12",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Электролиты — вещества, растворы или расплавы которых проводят электрический ток: кислоты, основания, соли. CH₄ (метан) — ковалентное неполярное соединение, неэлектролит. CO (оксид углерода(II)) — ковалентное соединение, не диссоциирует, неэлектролит. HNO₃ — сильная кислота (электролит). KClO — соль (электролит). CuSO₄ — соль (электролит)."
+  },
+  {
+    "task_id": "bank_fipi_13_ions",
+    "year": 2024,
+    "source": "real",
+    "task_number": 13,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества, при полной диссоциации 1 моль которых образуется 3 моль ионов.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Na₂SO₄"
+      },
+      {
+        "id": "2",
+        "text": "NaCl"
+      },
+      {
+        "id": "3",
+        "text": "CaCl₂"
+      },
+      {
+        "id": "4",
+        "text": "Al₂(SO₄)₃"
+      },
+      {
+        "id": "5",
+        "text": "KNO₃"
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 иона (верно). NaCl → Na⁺ + Cl⁻ — 2 иона. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 иона (верно). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 ионов. KNO₃ → K⁺ + NO₃⁻ — 2 иона."
+  },
+  {
+    "task_id": "bank_fipi_13_weak",
+    "year": 2024,
+    "source": "real",
+    "task_number": 13,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два слабых электролита.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "H₂SO₄"
+      },
+      {
+        "id": "2",
+        "text": "CH₃COOH"
+      },
+      {
+        "id": "3",
+        "text": "NaOH"
+      },
+      {
+        "id": "4",
+        "text": "H₂CO₃"
+      },
+      {
+        "id": "5",
+        "text": "KCl"
+      }
+    ],
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "H₂SO₄ — сильная кислота (сильный электролит). CH₃COOH — уксусная кислота (слабый электролит). NaOH — щёлочь (сильный электролит). H₂CO₃ — угольная кислота (слабый электролит, нестойкая). KCl — растворимая соль (сильный электролит)."
+  },
+  {
+    "task_id": "demo_2025_14",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 14,
+    "part": 1,
+    "question_ru": "Выберите два исходных вещества, взаимодействию водных растворов которых соответствует сокращённое ионное уравнение реакции\n  H⁺ + OH⁻ = H₂O",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "H₂S"
+      },
+      {
+        "id": "2",
+        "text": "HI"
+      },
+      {
+        "id": "3",
+        "text": "H₂SO₄"
+      },
+      {
+        "id": "4",
+        "text": "Al(OH)₃"
+      },
+      {
+        "id": "5",
+        "text": "Ba(OH)₂"
+      },
+      {
+        "id": "6",
+        "text": "Mg(OH)₂"
+      }
+    ],
+    "correct_answer": "25",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Сокращённое ионное уравнение H⁺ + OH⁻ = H₂O соответствует реакции сильной кислоты с растворимым основанием, при которой образуется растворимая соль. HI — сильная кислота (диссоциирует полностью). Ba(OH)₂ — растворимое основание. HI + Ba(OH)₂ → BaI₂ (растворим) + H₂O. H₂S — слабая кислота. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — ионное уравнение будет другим."
+  },
+  {
+    "task_id": "bank_4ege_14_co3",
+    "year": 2024,
+    "source": "real",
+    "task_number": 14,
+    "part": 1,
+    "question_ru": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Na₂CO₃"
+      },
+      {
+        "id": "2",
+        "text": "NaHCO₃"
+      },
+      {
+        "id": "3",
+        "text": "CaCO₃"
+      },
+      {
+        "id": "4",
+        "text": "BaCO₃"
+      },
+      {
+        "id": "5",
+        "text": "HBr"
+      },
+      {
+        "id": "6",
+        "text": "HNO₂"
+      }
+    ],
+    "correct_answer": "15",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Нужны: 1) растворимый карбонат (CO₃²⁻ в виде иона) — Na₂CO₃ (1); CaCO₃ и BaCO₃ нерастворимы; NaHCO₃ — гидрокарбонат (HCO₃⁻). 2) Сильная кислота (H⁺) — HBr (5); HNO₂ — слабая кислота. Ответ: 15."
+  },
+  {
+    "task_id": "bank_4ege_14_s2",
+    "year": 2024,
+    "source": "real",
+    "task_number": 14,
+    "part": 1,
+    "question_ru": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  2H⁺ + S²⁻ = H₂S",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "HCl"
+      },
+      {
+        "id": "2",
+        "text": "CuS"
+      },
+      {
+        "id": "3",
+        "text": "S"
+      },
+      {
+        "id": "4",
+        "text": "HF"
+      },
+      {
+        "id": "5",
+        "text": "K₂S"
+      },
+      {
+        "id": "6",
+        "text": "Al₂S₃"
+      }
+    ],
+    "correct_answer": "15",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Нужны: 1) сильная кислота (H⁺) — HCl (1); HF — слабая (4). 2) Растворимый сульфид (S²⁻ в виде иона) — K₂S (5); CuS нерастворим (2); S — простое вещество (3); Al₂S₃ гидролизуется (6). Ответ: 15."
+  },
+  {
+    "task_id": "demo_2025_15",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 15,
+    "part": 1,
+    "question_ru": "Установите соответствие между схемой процесса, происходящего в окислительно-восстановительной реакции, и названием этого процесса: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "I⁺⁵ → I⁺⁷"
+      },
+      {
+        "label": "Б",
+        "text": "Si⁺⁴ → Si⁰"
+      },
+      {
+        "label": "В",
+        "text": "N₂⁰ → 2N⁻³"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "окисление"
+      },
+      {
+        "id": "2",
+        "text": "восстановление"
+      }
+    ],
+    "correct_answer": "122",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 4,
+    "competencies": [
+      "reactions_redox"
+    ],
+    "explanation_ru": "А) I⁺⁵ → I⁺⁷: СО увеличивается (+5 → +7), элемент отдаёт электроны → окисление → 1.\nБ) Si⁺⁴ → Si⁰: СО уменьшается (+4 → 0), элемент принимает электроны → восстановление → 2.\nВ) N⁰ → N⁻³: СО уменьшается (0 → −3), элемент принимает электроны → восстановление → 2."
+  },
+  {
+    "task_id": "bank_fipi_15_fe2o3",
+    "year": 2024,
+    "source": "real",
+    "task_number": 15,
+    "part": 1,
+    "question_ru": "Дана схема окислительно-восстановительной реакции:\n  Fe₂O₃ + CO → Fe + CO₂\nУстановите соответствие между формулой вещества и его ролью в данной реакции.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Fe₂O₃"
+      },
+      {
+        "label": "Б",
+        "text": "CO"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "окислитель"
+      },
+      {
+        "id": "2",
+        "text": "восстановитель"
+      },
+      {
+        "id": "3",
+        "text": "и окислитель, и восстановитель"
+      }
+    ],
+    "correct_answer": "12",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 4,
+    "competencies": [
+      "reactions_redox"
+    ],
+    "explanation_ru": "Fe в Fe₂O₃: +3 → 0 (понижение, принимает e⁻) — окислитель → 1.\nC в CO: +2 → +4 (повышение, отдаёт e⁻) — восстановитель → 2."
+  },
+  {
+    "task_id": "bank_fipi_15_cu",
+    "year": 2024,
+    "source": "real",
+    "task_number": 15,
+    "part": 1,
+    "question_ru": "Дана схема окислительно-восстановительной реакции:\n  Cu + HNO₃(разб.) → Cu(NO₃)₂ + NO + H₂O\nУстановите соответствие между формулой вещества и его ролью в данной реакции.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "Cu"
+      },
+      {
+        "label": "Б",
+        "text": "HNO₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "окислитель"
+      },
+      {
+        "id": "2",
+        "text": "восстановитель"
+      },
+      {
+        "id": "3",
+        "text": "и окислитель, и восстановитель"
+      }
+    ],
+    "correct_answer": "21",
+    "max_score": 2,
+    "difficulty": "Б",
+    "time_minutes": 4,
+    "competencies": [
+      "reactions_redox"
+    ],
+    "explanation_ru": "Cu: 0 → +2 (повышение, отдаёт e⁻) — восстановитель → 2.\nN в HNO₃: +5 → +2 в NO (понижение, принимает e⁻) — окислитель → 1."
+  },
+  {
+    "task_id": "demo_2025_16",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 16,
+    "part": 1,
+    "question_ru": "Из перечисленных суждений о чистых веществах и смесях выберите верное(-ые) суждение(-я).\n\n1) Чугун является чистым веществом.\n2) Для разделения смеси машинного масла и воды можно использовать делительную воронку.\n3) Очистить озёрную воду от примеси песка можно с помощью отстаивания и фильтрования.\n4) Магнит применяют для разделения двухкомпонентных неоднородных смесей, содержащих железные опилки.\n\nЗапишите в поле ответа номер(а) верного(-ых) суждения(-ий).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 3,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Чугун является чистым веществом."
+      },
+      {
+        "id": "2",
+        "text": "Для разделения смеси машинного масла и воды можно использовать делительную воронку."
+      },
+      {
+        "id": "3",
+        "text": "Очистить озёрную воду от примеси песка можно с помощью отстаивания и фильтрования."
+      },
+      {
+        "id": "4",
+        "text": "Магнит применяют для разделения двухкомпонентных неоднородных смесей, содержащих железные опилки."
+      }
+    ],
+    "correct_answer": "234",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "classification"
+    ],
+    "explanation_ru": "1) Чугун — сплав железа с углеродом, это смесь, а не чистое вещество → неверно.\n2) Масло и вода — несмешивающиеся жидкости, разделяются делительной воронкой → верно.\n3) Песок — нерастворимая примесь, удаляется отстаиванием и фильтрованием → верно.\n4) Магнит притягивает железные опилки, позволяя отделить их от немагнитного компонента → верно."
+  },
+  {
+    "task_id": "sdamgia_10893_16",
+    "year": 2024,
+    "source": "real",
+    "task_number": 16,
+    "part": 1,
+    "question_ru": "Из перечисленных суждений о правилах безопасной работы в химической лаборатории и с препаратами бытовой химии выберите верное(-ые) суждение(-я).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "В лаборатории наличие кислоты в растворе определяют на вкус."
+      },
+      {
+        "id": "2",
+        "text": "При работе с препаратами бытовой химии, содержащими щёлочь, необходимо использовать резиновые перчатки."
+      },
+      {
+        "id": "3",
+        "text": "При попадании раствора кислоты на кожу её следует промыть водой и обработать раствором питьевой соды."
+      },
+      {
+        "id": "4",
+        "text": "Легковоспламеняющиеся жидкости, например ацетон, разрешается хранить только в холодильнике."
+      }
+    ],
+    "correct_answer": "23",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "classification"
+    ],
+    "explanation_ru": "1) В лаборатории запрещено пробовать вещества на вкус (неверно). 2) С щелочами — в перчатках (верно). 3) Кислоту с кожи смывают водой и обрабатывают содой (верно). 4) ЛВЖ хранят вдали от нагревательных приборов, но не обязательно в холодильнике (неверно)."
+  },
+  {
+    "task_id": "sdamgia_10898_16",
+    "year": 2024,
+    "source": "real",
+    "task_number": 16,
+    "part": 1,
+    "question_ru": "Из перечисленных суждений о способах разделения смесей выберите верное(-ые) суждение(-я).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Для разделения смеси речного песка и железных опилок можно использовать магнит."
+      },
+      {
+        "id": "2",
+        "text": "Очистить морскую воду от растворённых в ней солей можно с помощью фильтрования."
+      },
+      {
+        "id": "3",
+        "text": "Для отделения осадка от раствора можно использовать фильтровальную бумагу."
+      },
+      {
+        "id": "4",
+        "text": "Перегонка является химическим способом разделения смесей."
+      }
+    ],
+    "correct_answer": "13",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "classification"
+    ],
+    "explanation_ru": "1) Железо притягивается магнитом, песок — нет (верно). 2) Морская вода — гомогенный раствор, фильтрование не удалит растворённые соли (неверно). 3) Фильтровальная бумага отделяет осадок от раствора (верно). 4) Перегонка — физический метод, не химический (неверно)."
+  },
+  {
+    "task_id": "demo_2025_17",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 17,
+    "part": 1,
+    "question_ru": "Установите соответствие между двумя веществами, взятыми в виде водных растворов, и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "KF и KCl"
+      },
+      {
+        "label": "Б",
+        "text": "NaCl и HCl"
+      },
+      {
+        "label": "В",
+        "text": "KCl и MgCl₂"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "AgNO₃"
+      },
+      {
+        "id": "2",
+        "text": "H₂SO₄"
+      },
+      {
+        "id": "3",
+        "text": "BaCO₃"
+      },
+      {
+        "id": "4",
+        "text": "KOH"
+      }
+    ],
+    "correct_answer": "134",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) KF и KCl: AgNO₃ даёт осадок AgCl с KCl, но AgF растворим → различает → 1.\nБ) NaCl и HCl: BaCO₃ реагирует с HCl (выделение CO₂), но не с NaCl → различает → 3.\nВ) KCl и MgCl₂: KOH даёт осадок Mg(OH)₂ с MgCl₂, но не с KCl → различает → 4."
+  },
+  {
+    "task_id": "sdamgia_1123_17",
+    "year": 2024,
+    "source": "real",
+    "task_number": 17,
+    "part": 1,
+    "question_ru": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "NaCl и KNO₃"
+      },
+      {
+        "label": "Б",
+        "text": "Ba(NO₃)₂ и NaNO₃"
+      },
+      {
+        "label": "В",
+        "text": "NH₄Cl и ZnCl₂"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "KOH"
+      },
+      {
+        "id": "2",
+        "text": "Na₂SO₄"
+      },
+      {
+        "id": "3",
+        "text": "FeO"
+      },
+      {
+        "id": "4",
+        "text": "AgNO₃"
+      }
+    ],
+    "correct_answer": "421",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) AgNO₃: NaCl → AgCl↓ (белый), KNO₃ не реагирует → различает → 4.\nБ) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (белый), NaNO₃ не реагирует → различает → 2.\nВ) KOH: NH₄Cl → NH₃↑ (запах), ZnCl₂ → Zn(OH)₂↓ (белый) → различает → 1."
+  },
+  {
+    "task_id": "sdamgia_855_17",
+    "year": 2024,
+    "source": "real",
+    "task_number": 17,
+    "part": 1,
+    "question_ru": "Установите соответствие между двумя солями и реактивом, с помощью которого можно различить эти соли.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "label": "А",
+        "text": "NaCl и NH₄Cl"
+      },
+      {
+        "label": "Б",
+        "text": "KF и BaBr₂"
+      },
+      {
+        "label": "В",
+        "text": "K₂SO₄ и Na₂CO₃"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "KOH"
+      },
+      {
+        "id": "2",
+        "text": "Cu(OH)₂"
+      },
+      {
+        "id": "3",
+        "text": "AgNO₃"
+      },
+      {
+        "id": "4",
+        "text": "HCl"
+      }
+    ],
+    "correct_answer": "134",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 7,
+    "competencies": [
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) KOH: NH₄Cl + KOH → NH₃↑ (запах), NaCl не реагирует → различает → 1.\nБ) AgNO₃: AgF растворим, AgBr↓ (желтоватый) → различает → 3.\nВ) HCl: Na₂CO₃ + HCl → CO₂↑ (газ), K₂SO₄ не реагирует → различает → 4."
+  },
+  {
+    "task_id": "demo_2025_18",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 18,
+    "part": 1,
+    "context_ru": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой Mg₃(C₆H₅O₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека.",
+    "question_ru": "Вычислите в процентах массовую долю магния в цитрате магния. Запишите число с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "16",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 г/моль.\nω(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+  },
+  {
+    "task_id": "sdamgia_10943_18",
+    "year": 2024,
+    "source": "real",
+    "task_number": 18,
+    "part": 1,
+    "context_ru": "Оксид железа(III) — химическое соединение Fe₂O₃, применяется при выплавке чугуна.",
+    "question_ru": "Вычислите в процентах массовую долю железа в оксиде железа(III). Запишите число с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "70",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 г/моль.\nω(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+  },
+  {
+    "task_id": "sdamgia_10938_18",
+    "year": 2024,
+    "source": "real",
+    "task_number": 18,
+    "part": 1,
+    "context_ru": "Нитрат кальция — химическое соединение Ca(NO₃)₂, в пиротехнике используется как недорогой источник кирпично-красного пламени.",
+    "question_ru": "Вычислите в процентах массовую долю кальция в нитрате кальция. Запишите число с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "24",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 г/моль.\nω(Ca) = 40/164 × 100% = 24,4% ≈ 24%."
+  },
+  {
+    "task_id": "demo_2025_19",
+    "year": 2025,
+    "source": "demo",
+    "task_number": 19,
+    "part": 1,
+    "context_ru": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой Mg₃(C₆H₅O₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека.",
+    "question_ru": "Чтобы покрывать суточную потребность животного в магнии, собаке массой около 20 кг ежедневно в пищу добавляют одну мерную ложечку (10 г) цитрата магния. Вычислите, сколько граммов (г) магния ежедневно получает собака с этим препаратом. Запишите число с точностью до десятых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "tenths"
+    },
+    "correct_answer": "1.6",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "Из задания 18: ω(Mg) = 16% = 0,16.\nm(Mg) = m(цитрата) × ω(Mg) = 10 г × 0,16 = 1,6 г."
+  },
+  {
+    "task_id": "sdamgia_10980_19",
+    "year": 2024,
+    "source": "real",
+    "task_number": 19,
+    "part": 1,
+    "context_ru": "Оксид железа(III) — химическое соединение Fe₂O₃, применяется при выплавке чугуна.",
+    "question_ru": "Для приготовления сплава для выплавки одного орудия необходимо 600 кг чистого железа. Какое количество (в кг) железной руды (основная часть — гематит Fe₂O₃) нужно переработать для выплавки трёх орудий? Считать, что из руды извлекают 100% железа. Запишите ответ с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "2571",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "Нужно железа: 600 × 3 = 1800 кг.\nω(Fe) в Fe₂O₃ = 70% = 0,70.\nm(Fe₂O₃) = 1800 / 0,70 = 2571,4 ≈ 2571 кг."
+  },
+  {
+    "task_id": "sdamgia_10979_19",
+    "year": 2024,
+    "source": "real",
+    "task_number": 19,
+    "part": 1,
+    "context_ru": "Нитрат кальция — химическое соединение Ca(NO₃)₂, в пиротехнике используется как недорогой источник кирпично-красного пламени.",
+    "question_ru": "Для приготовления одного заряда фейерверка требуется 50 г кальция. Сколько граммов нитрата кальция нужно взвесить? Запишите ответ с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "208",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 5,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "ω(Ca) в Ca(NO₃)₂ = 24% = 0,24.\nm(Ca(NO₃)₂) = 50 / 0,24 = 208,3 ≈ 208 г."
+  },
+  {
+    "task_id": "demo_2021_01",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 1,
+    "part": 1,
+    "question_ru": "Выберите два высказывания, в которых говорится о железе как о химическом элементе.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Железо реагирует с хлором."
+      },
+      {
+        "id": "2",
+        "text": "Железо быстро ржавеет во влажном воздухе."
+      },
+      {
+        "id": "3",
+        "text": "Пирит является сырьём для получения железа."
+      },
+      {
+        "id": "4",
+        "text": "Гемоглобин, содержащий железо, переносит кислород."
+      },
+      {
+        "id": "5",
+        "text": "В состав ржавчины входит железо."
+      }
+    ],
+    "correct_answer": "45",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_table"
+    ],
+    "explanation_ru": "Железо как химический элемент упоминается в контексте состава веществ (гемоглобин содержит железо, ржавчина содержит железо). В остальных высказываниях речь идёт о железе как о простом веществе (реагирует, ржавеет, является сырьём)."
+  },
+  {
+    "task_id": "demo_2021_02",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "На приведённом рисунке изображена модель атома химического элемента. Запишите в таблицу величину заряда ядра (X) атома химического элемента, модель которого изображена на рисунке, и номер группы (Y), в которой этот элемент расположен в Периодической системе химических элементов Д.И. Менделеева. (Для записи ответа используйте арабские цифры.)",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "correct_answer": "155",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electron_config"
+    ],
+    "explanation_ru": "На рисунке изображена модель атома с зарядом ядра +15 и 5 электронами на внешнем слое. Это фосфор (P), расположенный в 3 периоде, V группе (группа 5). X = 15, Y = 5."
+  },
+  {
+    "task_id": "demo_2021_03",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 3,
+    "part": 1,
+    "question_ru": "Расположите химические элементы\n1) сера\n2) хлор\n3) фосфор\nв порядке увеличения их электроотрицательности. Запишите номера выбранных элементов в соответствующем порядке.",
+    "answer_type": "sequence",
+    "items": [
+      {
+        "id": "1",
+        "text": "сера"
+      },
+      {
+        "id": "2",
+        "text": "хлор"
+      },
+      {
+        "id": "3",
+        "text": "фосфор"
+      }
+    ],
+    "correct_answer": "312",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "periodic_trends"
+    ],
+    "explanation_ru": "Электроотрицательность увеличивается в периоде слева направо и в группе снизу вверх. Фосфор (P) < сера (S) < хлор (Cl). Порядок номеров: 3, 1, 2."
+  },
+  {
+    "task_id": "demo_2021_04",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 4,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой соединения и степенью окисления азота в этом соединении: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "HNO₃",
+        "label": "А"
+      },
+      {
+        "text": "N₂O",
+        "label": "Б"
+      },
+      {
+        "text": "NH₃",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "+1"
+      },
+      {
+        "id": "2",
+        "text": "–3"
+      },
+      {
+        "id": "3",
+        "text": "+3"
+      },
+      {
+        "id": "4",
+        "text": "+5"
+      }
+    ],
+    "correct_answer": "412",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "oxidation_states"
+    ],
+    "explanation_ru": "HNO₃: азот в степени окисления +5 (4). N₂O: азот в степени окисления +1 (1). NH₃: азот в степени окисления –3 (2). Ответ: 412."
+  },
+  {
+    "task_id": "demo_2021_05",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 5,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества, для которых характерна ионная связь.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CaO"
+      },
+      {
+        "id": "2",
+        "text": "PCl₃"
+      },
+      {
+        "id": "3",
+        "text": "Br₂"
+      },
+      {
+        "id": "4",
+        "text": "Li₃N"
+      },
+      {
+        "id": "5",
+        "text": "H₂S"
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "bond_type"
+    ],
+    "explanation_ru": "Ионная связь образуется между металлом и неметаллом с большой разницей электроотрицательностей. CaO (кальций + кислород) и Li₃N (литий + азот) — ионные соединения. PCl₃ — ковалентная полярная, Br₂ — ковалентная неполярная, H₂S — ковалентная полярная."
+  },
+  {
+    "task_id": "demo_2021_06",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 6,
+    "part": 1,
+    "question_ru": "Какие два утверждения верны для характеристики как магния, так и кремния?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Электроны в атоме расположены на трёх электронных слоях."
+      },
+      {
+        "id": "2",
+        "text": "Соответствующее простое вещество существует в виде двухатомных молекул."
+      },
+      {
+        "id": "3",
+        "text": "Химический элемент относится к металлам."
+      },
+      {
+        "id": "4",
+        "text": "Значение электроотрицательности меньше, чем у фосфора."
+      },
+      {
+        "id": "5",
+        "text": "Химический элемент образует высшие оксиды с общей формулой ЭО₂."
+      }
+    ],
+    "correct_answer": "14",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electron_config",
+      "periodic_trends"
+    ],
+    "explanation_ru": "Магний (Mg, Z=12) и кремний (Si, Z=14) оба в 3-м периоде — 3 электронных слоя (1). Оба имеют электроотрицательность меньше, чем у фосфора (4). Mg — металл, Si — неметалл, поэтому (3) неверно. Высший оксид Mg — MgO (не ЭО₂), поэтому (5) неверно."
+  },
+  {
+    "task_id": "demo_2021_08",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 8,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите два вещества, которые реагируют с оксидом алюминия.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Cu(OH)₂"
+      },
+      {
+        "id": "2",
+        "text": "HNO₃"
+      },
+      {
+        "id": "3",
+        "text": "O₂"
+      },
+      {
+        "id": "4",
+        "text": "Be(OH)₂"
+      },
+      {
+        "id": "5",
+        "text": "Na₂O"
+      }
+    ],
+    "correct_answer": "25",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "Al₂O₃ — амфотерный оксид, реагирует с кислотами и основными оксидами/щелочами. Реагирует с HNO₃ (кислота, 2) и Na₂O (основный оксид, 5). Cu(OH)₂ — слабое нерастворимое основание, не реагирует. O₂ — не реагирует (Al уже в высшей степени окисления). Be(OH)₂ — амфотерный гидроксид, не реагирует с амфотерным оксидом."
+  },
+  {
+    "task_id": "demo_2021_09",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 9,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "MgO + SO₃ →",
+        "label": "А"
+      },
+      {
+        "text": "Mg(OH)₂ + H₂SO₄ →",
+        "label": "Б"
+      },
+      {
+        "text": "Mg + H₂SO₄(разб.) →",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "→ MgSO₃ + H₂"
+      },
+      {
+        "id": "2",
+        "text": "→ MgSO₄ + H₂O"
+      },
+      {
+        "id": "3",
+        "text": "→ MgSO₃ + H₂O"
+      },
+      {
+        "id": "4",
+        "text": "→ MgSO₄ + H₂"
+      },
+      {
+        "id": "5",
+        "text": "→ MgSO₄"
+      }
+    ],
+    "correct_answer": "524",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_exchange",
+      "gas_precipitate_logic"
+    ],
+    "explanation_ru": "A) MgO + SO₃ = MgSO₄ (основный оксид + кислотный оксид = соль, без воды) — ответ 5. Б) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (основание + кислота = соль + вода) — ответ 2. В) Mg + H₂SO₄(разб.) = MgSO₄ + H₂ (металл + кислота = соль + водород) — ответ 4."
+  },
+  {
+    "task_id": "demo_2021_10",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 10,
+    "part": 1,
+    "question_ru": "Установите соответствие между формулой вещества и реагентами, с которыми это вещество может вступать в реакцию: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "C",
+        "label": "А"
+      },
+      {
+        "text": "Al₂O₃",
+        "label": "Б"
+      },
+      {
+        "text": "CuCl₂",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "O₂, H₂SO₄(конц.)"
+      },
+      {
+        "id": "2",
+        "text": "Mg, AgNO₃(р-р)"
+      },
+      {
+        "id": "3",
+        "text": "KOH, HCl(р-р)"
+      },
+      {
+        "id": "4",
+        "text": "N₂, K₂SO₄(р-р)"
+      }
+    ],
+    "correct_answer": "132",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_exchange",
+      "reactions_redox"
+    ],
+    "explanation_ru": "А) Углерод C реагирует с O₂ (горение) и H₂SO₄(конц.) (окислительно-восстановительная) — ответ 1. Б) Al₂O₃ — амфотерный оксид, реагирует с KOH и HCl — ответ 3. В) CuCl₂ реагирует с Mg (замещение) и AgNO₃ (обмен, образуется AgCl) — ответ 2."
+  },
+  {
+    "task_id": "demo_2021_11",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 11,
+    "part": 1,
+    "question_ru": "Из предложенного перечня выберите две пары веществ, между которыми протекает реакция замещения.",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "железо и нитрат серебра"
+      },
+      {
+        "id": "2",
+        "text": "оксид серы (VI) и оксид железа (III)"
+      },
+      {
+        "id": "3",
+        "text": "оксид меди (II) и соляная кислота"
+      },
+      {
+        "id": "4",
+        "text": "алюминий и хлор"
+      },
+      {
+        "id": "5",
+        "text": "натрий и вода"
+      }
+    ],
+    "correct_answer": "15",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "reactions_exchange"
+    ],
+    "explanation_ru": "Реакция замещения — один элемент замещает другой. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (замещение, 1). Na + H₂O → NaOH + H₂ (замещение, 5). Остальные: (2) — соединение, (3) — обмен, (4) — соединение."
+  },
+  {
+    "task_id": "demo_2021_12",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 12,
+    "part": 1,
+    "question_ru": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "FeCl₃(р-р) и NaOH(р-р)",
+        "label": "А"
+      },
+      {
+        "text": "FeSO₄(р-р) и Ba(NO₃)₂(р-р)",
+        "label": "Б"
+      },
+      {
+        "text": "FeS и H₂SO₄(р-р)",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "выпадение белого осадка"
+      },
+      {
+        "id": "2",
+        "text": "выпадение бурого осадка"
+      },
+      {
+        "id": "3",
+        "text": "выпадение серо-зелёного осадка"
+      },
+      {
+        "id": "4",
+        "text": "выделение газа"
+      }
+    ],
+    "correct_answer": "214",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "gas_precipitate_logic",
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ — бурый осадок (2). Б) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ — белый осадок (1). В) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Выделение газа (4)."
+  },
+  {
+    "task_id": "demo_2021_13",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 13,
+    "part": 1,
+    "question_ru": "При полной диссоциации 1 моль каких двух из представленных веществ образуется 2 моль анионов?",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "нитрат магния"
+      },
+      {
+        "id": "2",
+        "text": "гидроксид бария"
+      },
+      {
+        "id": "3",
+        "text": "хлорид натрия"
+      },
+      {
+        "id": "4",
+        "text": "фосфат калия"
+      },
+      {
+        "id": "5",
+        "text": "сульфат натрия"
+      }
+    ],
+    "correct_answer": "12",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 моль анионов, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 моль анионов, 2). NaCl → Na⁺ + Cl⁻ (1 моль). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 моль анионов). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 моль анионов)."
+  },
+  {
+    "task_id": "demo_2021_14",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 14,
+    "part": 1,
+    "question_ru": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
+    "answer_type": "select",
+    "select_config": {
+      "count": 2,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "CaO"
+      },
+      {
+        "id": "2",
+        "text": "Ca"
+      },
+      {
+        "id": "3",
+        "text": "CaCl₂"
+      },
+      {
+        "id": "4",
+        "text": "K₂SO₃"
+      },
+      {
+        "id": "5",
+        "text": "H₂SO₃"
+      },
+      {
+        "id": "6",
+        "text": "SO₂"
+      }
+    ],
+    "correct_answer": "34",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electrolyte_logic"
+    ],
+    "explanation_ru": "Сокращённое ионное уравнение Ca²⁺ + SO₃²⁻ = CaSO₃↓ означает, что Ca²⁺ и SO₃²⁻ существуют в растворе в виде ионов. CaCl₂ (3) — растворимая соль, даёт Ca²⁺. K₂SO₃ (4) — растворимая соль, даёт SO₃²⁻. CaO и Ca не диссоциируют, H₂SO₃ — слабая кислота."
+  },
+  {
+    "task_id": "demo_2021_15",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 15,
+    "part": 1,
+    "question_ru": "Установите соответствие между схемой процесса, происходящего в окислительно-восстановительной реакции, и названием этого процесса: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "S⁻² → S⁰",
+        "label": "А"
+      },
+      {
+        "text": "H₂⁰ → 2H⁺",
+        "label": "Б"
+      },
+      {
+        "text": "Cr⁺⁶ → Cr⁺³",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "окисление"
+      },
+      {
+        "id": "2",
+        "text": "восстановление"
+      }
+    ],
+    "correct_answer": "112",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "reactions_redox",
+      "oxidation_states"
+    ],
+    "explanation_ru": "А) S⁻² → S⁰: степень окисления повышается (–2 → 0), это окисление (1). Б) H₂⁰ → 2H⁺: степень окисления повышается (0 → +1), это окисление (1). В) Cr⁺⁶ → Cr⁺³: степень окисления понижается (+6 → +3), это восстановление (2)."
+  },
+  {
+    "task_id": "demo_2021_16",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 16,
+    "part": 1,
+    "question_ru": "Из перечисленных суждений о правилах работы с веществами в лаборатории и быту выберите верное(-ые) суждение(-я).\n1. Хлор можно получать только в вытяжном шкафу.\n2. При приготовлении раствора кислоты концентрированную серную кислоту приливают к воде.\n3. При нагревании раствора пробирку с жидкостью держат строго вертикально.\n4. Работу с едкими веществами следует проводить в резиновых перчатках.\nЗапишите в поле ответа номер(а) верного(-ых) суждения(-й).",
+    "answer_type": "select",
+    "select_config": {
+      "count": 3,
+      "ordered": false
+    },
+    "options": [
+      {
+        "id": "1",
+        "text": "Хлор можно получать только в вытяжном шкафу."
+      },
+      {
+        "id": "2",
+        "text": "При приготовлении раствора кислоты концентрированную серную кислоту приливают к воде."
+      },
+      {
+        "id": "3",
+        "text": "При нагревании раствора пробирку с жидкостью держат строго вертикально."
+      },
+      {
+        "id": "4",
+        "text": "Работу с едкими веществами следует проводить в резиновых перчатках."
+      }
+    ],
+    "correct_answer": "124",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "classification"
+    ],
+    "explanation_ru": "Верны суждения 1 (хлор — ядовитый газ, получают в вытяжном шкафу), 2 (кислоту льют в воду, не наоборот) и 4 (едкие вещества — в перчатках). Суждение 3 неверно: пробирку при нагревании держат под углом, а не вертикально."
+  },
+  {
+    "task_id": "demo_2021_17",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 17,
+    "part": 1,
+    "question_ru": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "KCl и K₂SiO₃",
+        "label": "А"
+      },
+      {
+        "text": "K₂CO₃ и Li₂CO₃",
+        "label": "Б"
+      },
+      {
+        "text": "Na₂SO₄ и NaOH",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "CuCl₂"
+      },
+      {
+        "id": "2",
+        "text": "HCl"
+      },
+      {
+        "id": "3",
+        "text": "MgO"
+      },
+      {
+        "id": "4",
+        "text": "K₃PO₄"
+      }
+    ],
+    "correct_answer": "241",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) KCl и K₂SiO₃: добавляем HCl (2) — с K₂SiO₃ образуется нерастворимая кремниевая кислота (осадок), с KCl реакции нет. Б) K₂CO₃ и Li₂CO₃: добавляем K₃PO₄ (4) — Li₃PO₄ нерастворим (осадок), K₃PO₄ растворим. В) Na₂SO₄ и NaOH: добавляем CuCl₂ (1) — с NaOH образуется голубой осадок Cu(OH)₂, с Na₂SO₄ реакции нет."
+  },
+  {
+    "task_id": "demo_2021_18",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 18,
+    "part": 1,
+    "question_ru": "Нитрат аммония (аммиачная селитра) — химическое соединение NH₄NO₃, соль азотной кислоты, используется в качестве азотного удобрения.\nВычислите в процентах массовую долю азота в нитрате аммония. Запишите число с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "35",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 г/моль. В формуле 2 атома азота: 2 × 14 = 28. ω(N) = 28/80 × 100% = 35%."
+  },
+  {
+    "task_id": "demo_2021_19",
+    "year": 2021,
+    "source": "demo",
+    "task_number": 19,
+    "part": 1,
+    "question_ru": "При подкормках овощных и цветочных культур в почву вносится 200 г азота на 100 м². Вычислите, сколько граммов аммиачной селитры надо внести на земельный участок площадью 70 м². Запишите число с точностью до целых.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "400",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "Необходимо азота на 70 м²: 200 × 70/100 = 140 г азота. Массовая доля азота в NH₄NO₃ = 35% (из задания 18). Масса NH₄NO₃ = 140/0,35 = 400 г."
+  },
+  {
+    "task_id": "demo_2022_02",
+    "year": 2022,
+    "source": "demo",
+    "task_number": 2,
+    "part": 1,
+    "question_ru": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых расположен химический элемент, модель которого изображена на рисунке. (Для записи ответа используйте арабские цифры.)\n\nНа рисунке: модель атома с 2 электронными слоями (2 и 5 электронов). Это азот (N, Z=7).",
+    "answer_type": "input_cells",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "correct_answer": "25",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "electron_config"
+    ],
+    "explanation_ru": "На рисунке изображена модель атома с 2 электронными слоями: на первом 2 электрона, на втором 5 электронов. Всего 7 электронов = заряд ядра 7 = азот (N). Азот расположен во 2-м периоде (2 электронных слоя), V группе (5 электронов на внешнем слое). X = 2, Y = 5."
+  },
+  {
+    "task_id": "demo_2022_17",
+    "year": 2022,
+    "source": "demo",
+    "task_number": 17,
+    "part": 1,
+    "question_ru": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.\n\nВЕЩЕСТВА                     РЕАКТИВ\nА) K₂CO₃ и K₂SiO₃            1) CuCl₂\nБ) K₂CO₃ и Li₂CO₃            2) HCl\nВ) Na₂SO₄ и NaOH             3) MgO\n                              4) K₃PO₄\n\nЗапишите в таблицу выбранные цифры под соответствующими буквами.",
+    "answer_type": "matching",
+    "left_items": [
+      {
+        "text": "K₂CO₃ и K₂SiO₃",
+        "label": "А"
+      },
+      {
+        "text": "K₂CO₃ и Li₂CO₃",
+        "label": "Б"
+      },
+      {
+        "text": "Na₂SO₄ и NaOH",
+        "label": "В"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "text": "CuCl₂"
+      },
+      {
+        "id": "2",
+        "text": "HCl"
+      },
+      {
+        "id": "3",
+        "text": "MgO"
+      },
+      {
+        "id": "4",
+        "text": "K₃PO₄"
+      }
+    ],
+    "correct_answer": "241",
+    "max_score": 2,
+    "difficulty": "П",
+    "time_minutes": 5,
+    "competencies": [
+      "qualitative_analysis_logic"
+    ],
+    "explanation_ru": "А) K₂CO₃ и K₂SiO₃: добавляем HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (газ). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (осадок). Различные признаки — различаются.\nБ) K₂CO₃ и Li₂CO₃: добавляем K₃PO₄ (4). Li₃PO₄ нерастворим (выпадает осадок), K₃PO₄ + K₂CO₃ — реакции нет.\nВ) Na₂SO₄ и NaOH: добавляем CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (голубой осадок) + 2NaCl. Na₂SO₄ + CuCl₂ — нет осадка (CuSO₄ растворим)."
+  },
+  {
+    "task_id": "demo_2022_19",
+    "year": 2022,
+    "source": "demo",
+    "task_number": 19,
+    "part": 1,
+    "question_ru": "При подкормках овощных и цветочных культур в почву вносится 200 г азота на 100 м². Вычислите, сколько граммов аммиачной селитры надо внести на земельный участок площадью 100 м². Запишите число с точностью до целых.\n\nИспользуйте величину, которая определена в задании 18, с указанной в нём степенью точности.",
+    "answer_type": "numeric",
+    "numeric_config": {
+      "precision": "integer"
+    },
+    "correct_answer": "571",
+    "max_score": 1,
+    "difficulty": "Б",
+    "time_minutes": 3,
+    "competencies": [
+      "calculations_basic"
+    ],
+    "explanation_ru": "Из задания 18: ω(N) в NH₄NO₃ = 35% = 0,35.\nНа 100 м² нужно 200 г азота.\nМасса NH₄NO₃ = m(N) / ω(N) = 200 / 0,35 = 571,4 ≈ 571 г."
+  }
+]

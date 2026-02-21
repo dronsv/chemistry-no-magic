@@ -1,0 +1,26 @@
+{
+  "id": "egzamin",
+  "full_name_ru": "Экзамен восьмиклассника — Химия (Польша)",
+  "full_name_en": "Eighth-Grader Exam — Chemistry (Poland)",
+  "full_name_pl": "Egzamin ósmoklasisty — Chemia",
+  "description_ru": "Экзамен для учеников 8 класса в Польше. Химия входит в блок естественных наук.",
+  "description_en": "Exam for 8th-grade students in Poland. Chemistry is part of the natural sciences section.",
+  "description_pl": "Egzamin z chemii dla uczniów klasy ósmej. Chemia jest częścią bloku przyrodniczego.",
+  "country": "PL",
+  "grade": "8",
+  "duration_min": 90,
+  "max_score": 30,
+  "task_count": 25,
+  "scoring": {
+    "grade_thresholds": {
+      "pass": 12
+    }
+  },
+  "topics": [
+    "Substancje i ich właściwości",
+    "Wewnętrzna budowa materii",
+    "Reakcje chemiczne",
+    "Kwasy, zasady i sole",
+    "Węgiel i jego związki"
+  ]
+}

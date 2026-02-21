@@ -10,8 +10,9 @@ import { join } from 'node:path';
  * @param {object} opts.stats
  * @param {object} opts.indexKeys - {classes, ions, competencies}
  * @param {Record<string, string[]>} [opts.translations] - { en: ['elements', 'competencies', ...], pl: [...], es: [...] }
+ * @param {string[]} [opts.examSystemIds] - IDs of available exam systems
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -52,6 +53,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       },
       oge_tasks: 'exam/oge_tasks.json',
       oge_solution_algorithms: 'exam/oge_solution_algorithms.json',
+      exam_systems: 'exam/systems.json',
       search_index: 'search_index.json',
       indices: {
         substances_index: 'indices/substances_index.json',

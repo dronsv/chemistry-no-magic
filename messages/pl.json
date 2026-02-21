@@ -333,5 +333,22 @@
   "mol_layer_ox_states": "S.U.",
   "mol_layer_charges": "Ładunki",
   "mol_layer_lone_pairs": "Pary",
-  "mol_structure_aria": "Struktura cząsteczki {id}"
+  "mol_structure_aria": "Struktura cząsteczki {id}",
+  "exam_systems_title": "Egzaminy różnych krajów",
+  "exam_systems_desc": "Wybierz egzamin do ćwiczeń lub porównaj formaty egzaminów.",
+  "exam_compare_formats": "Porównaj formaty",
+  "exam_no_tasks": "Zadania jeszcze niedostępne",
+  "exam_tasks_available": "{count} zadań",
+  "exam_compare_title": "Porównanie formatów egzaminów",
+  "exam_compare_intro": "Porównaj formaty egzaminów z chemii w różnych krajach.",
+  "exam_compare_country": "Kraj",
+  "exam_compare_grade": "Klasa",
+  "exam_compare_duration": "Czas trwania",
+  "exam_compare_max_score": "Maks. punkty",
+  "exam_compare_tasks": "Zadań",
+  "exam_compare_sections": "Sekcje",
+  "exam_compare_topics": "Tematy",
+  "exam_compare_minutes": "{min} min",
+  "exam_back_to_exam": "← Do egzaminów",
+  "exam_system_choose": "Wybierz"
 }

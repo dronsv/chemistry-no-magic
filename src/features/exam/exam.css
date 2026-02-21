@@ -1044,3 +1044,241 @@
   font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
+
+/* ========================================
+   Exam System Selector
+   ======================================== */
+
+.exam-systems {
+  margin-bottom: var(--space-lg);
+}
+
+.exam-systems__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.exam-systems__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.exam-systems__tab:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.exam-systems__tab--active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+  font-weight: 600;
+}
+
+.exam-systems__flag {
+  font-size: 1.25rem;
+}
+
+.exam-systems__compare {
+  font-size: 0.8125rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.exam-systems__compare:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Exam System Info (non-OGE)
+   ======================================== */
+
+.exam-system-info {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-bg);
+  margin-top: var(--space-md);
+}
+
+.exam-system-info__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.exam-system-info__flag {
+  font-size: 2rem;
+}
+
+.exam-system-info__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.exam-system-info__details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.exam-system-info__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-sm);
+  background: var(--color-bg-alt);
+  border-radius: 0.375rem;
+}
+
+.exam-system-info__label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.exam-system-info__topics {
+  margin-bottom: var(--space-md);
+}
+
+.exam-system-info__topics h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.exam-system-info__topics ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.exam-system-info__coming-soon {
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  background: var(--color-bg-alt);
+  border-radius: 0.375rem;
+}
+
+/* ========================================
+   Exam Comparison Page
+   ======================================== */
+
+.exam-compare {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+.exam-compare__back {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: var(--space-md);
+}
+
+.exam-compare__back:hover {
+  text-decoration: underline;
+}
+
+.exam-compare__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.exam-compare__intro {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space-lg);
+}
+
+.exam-compare__error {
+  color: #dc2626;
+}
+
+.exam-compare__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.exam-compare__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.exam-compare__table th,
+.exam-compare__table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.exam-compare__table th {
+  background: var(--color-bg-alt);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.exam-compare__table td {
+  text-align: center;
+}
+
+.exam-compare__flag {
+  font-size: 1.5rem;
+}
+
+.exam-compare__label {
+  font-weight: 600;
+  text-align: left !important;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}
+
+.exam-compare__topics {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+  text-align: left;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .exam-systems__tabs {
+    gap: var(--space-xs);
+  }
+  .exam-systems__tab {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.8125rem;
+  }
+  .exam-compare__table {
+    font-size: 0.8125rem;
+  }
+  .exam-compare__table th,
+  .exam-compare__table td {
+    padding: var(--space-xs) var(--space-sm);
+  }
+}

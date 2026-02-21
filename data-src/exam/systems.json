@@ -1,0 +1,62 @@
+[
+  {
+    "id": "oge",
+    "country": "RU",
+    "name_ru": "ОГЭ по химии",
+    "name_en": "OGE Chemistry (Russia)",
+    "name_pl": "OGE Chemia (Rosja)",
+    "name_es": "OGE Química (Rusia)",
+    "grade": "9",
+    "duration_min": 180,
+    "max_score": 40,
+    "task_count": 24,
+    "sections": ["multiple_choice", "open_answer", "extended"],
+    "primary_locale": "ru",
+    "flag": "🇷🇺"
+  },
+  {
+    "id": "gcse",
+    "country": "GB",
+    "name_ru": "GCSE Chemistry (Великобритания)",
+    "name_en": "GCSE Chemistry",
+    "name_pl": "GCSE Chemia (Wielka Brytania)",
+    "name_es": "GCSE Química (Reino Unido)",
+    "grade": "10-11",
+    "duration_min": 105,
+    "max_score": 100,
+    "task_count": 30,
+    "sections": ["multiple_choice", "structured", "extended"],
+    "primary_locale": "en",
+    "flag": "🇬🇧"
+  },
+  {
+    "id": "egzamin",
+    "country": "PL",
+    "name_ru": "Экзамен 8-классника (Польша)",
+    "name_en": "Eighth-Grader Exam (Poland)",
+    "name_pl": "Egzamin ósmoklasisty",
+    "name_es": "Examen de octavo grado (Polonia)",
+    "grade": "8",
+    "duration_min": 90,
+    "max_score": 30,
+    "task_count": 25,
+    "sections": ["closed", "open"],
+    "primary_locale": "pl",
+    "flag": "🇵🇱"
+  },
+  {
+    "id": "ebau",
+    "country": "ES",
+    "name_ru": "EBAU/Selectividad (Испания)",
+    "name_en": "EBAU/Selectividad (Spain)",
+    "name_pl": "EBAU/Selectividad (Hiszpania)",
+    "name_es": "EBAU Química",
+    "grade": "12",
+    "duration_min": 90,
+    "max_score": 10,
+    "task_count": 6,
+    "sections": ["problems", "theory"],
+    "primary_locale": "es",
+    "flag": "🇪🇸"
+  }
+]

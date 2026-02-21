@@ -13,6 +13,7 @@ export interface ManifestEntrypoints {
   exercises?: Record<string, string>;
   oge_tasks?: string;
   oge_solution_algorithms?: string;
+  exam_systems?: string;
   search_index?: string;
 }
 

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ExamComparison from '../../../../features/exam/ExamComparison';
+---
+
+<BaseLayout title="Comparar exámenes" description="Comparación de formatos de exámenes de química: OGE, GCSE, Egzamin, EBAU.">
+  <ExamComparison client:idle locale="es" />
+</BaseLayout>

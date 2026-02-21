@@ -333,5 +333,22 @@
   "mol_layer_ox_states": "С.О.",
   "mol_layer_charges": "Заряды",
   "mol_layer_lone_pairs": "Пары",
-  "mol_structure_aria": "Структура молекулы {id}"
+  "mol_structure_aria": "Структура молекулы {id}",
+  "exam_systems_title": "Экзамены разных стран",
+  "exam_systems_desc": "Выберите экзамен для тренировки или сравните форматы экзаменов.",
+  "exam_compare_formats": "Сравнить форматы",
+  "exam_no_tasks": "Задания пока не добавлены",
+  "exam_tasks_available": "{count} заданий",
+  "exam_compare_title": "Сравнение форматов экзаменов",
+  "exam_compare_intro": "Сравните форматы экзаменов по химии в разных странах.",
+  "exam_compare_country": "Страна",
+  "exam_compare_grade": "Класс",
+  "exam_compare_duration": "Длительность",
+  "exam_compare_max_score": "Макс. балл",
+  "exam_compare_tasks": "Заданий",
+  "exam_compare_sections": "Разделы",
+  "exam_compare_topics": "Темы",
+  "exam_compare_minutes": "{min} мин",
+  "exam_back_to_exam": "← К экзаменам",
+  "exam_system_choose": "Выбрать"
 }

@@ -1,0 +1,28 @@
+{
+  "id": "ebau",
+  "full_name_ru": "EBAU/Selectividad — Химия (Испания)",
+  "full_name_en": "EBAU/Selectividad — Chemistry (Spain)",
+  "full_name_es": "Evaluación de Bachillerato para el Acceso a la Universidad — Química",
+  "description_ru": "Вступительный экзамен в университеты Испании. Углублённая химия для 12 класса.",
+  "description_en": "University entrance exam in Spain. Advanced chemistry for 12th grade.",
+  "description_es": "Examen de acceso a la universidad. Química avanzada de 2.º de Bachillerato.",
+  "country": "ES",
+  "grade": "12",
+  "duration_min": 90,
+  "max_score": 10,
+  "task_count": 6,
+  "scoring": {
+    "grade_thresholds": {
+      "pass": 4
+    }
+  },
+  "topics": [
+    "Estructura atómica y tabla periódica",
+    "Enlace químico",
+    "Termodinámica química",
+    "Cinética química y equilibrio",
+    "Reacciones ácido-base",
+    "Reacciones de oxidación-reducción",
+    "Química orgánica"
+  ]
+}
