@@ -1,9 +1,10 @@
+import type { SupportedLocale } from '../../types/i18n';
 import CalculationsTheoryPanel from './CalculationsTheoryPanel';
 import PracticeSection from './practice/PracticeSection';
 import * as m from '../../paraglide/messages.js';
 import './calculations.css';
 
-export default function CalculationsPage() {
+export default function CalculationsPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   return (
     <div className="calculations-page">
       <h1 className="calculations-page__title">{m.calc_title()}</h1>
@@ -11,7 +12,7 @@ export default function CalculationsPage() {
         {m.calc_intro()}
       </p>
       <CalculationsTheoryPanel />
-      <PracticeSection />
+      <PracticeSection locale={locale} />
     </div>
   );
 }

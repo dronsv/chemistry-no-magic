@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
 ---
 
 <BaseLayout title="Estados de oxidación" description="Determinación de estados de oxidación en compuestos químicos. Reglas, calculadora y práctica.">
-  <OxidationStatesPage client:idle />
+  <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

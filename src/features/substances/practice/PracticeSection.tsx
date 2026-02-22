@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
+import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import {
@@ -25,7 +26,11 @@ const LEVEL_LABELS: Record<string, () => string> = {
 
 const COMPETENCY_IDS = ['classification', 'naming', 'amphoterism_logic'] as const;
 
-export default function PracticeSection() {
+interface Props {
+  locale?: SupportedLocale;
+}
+
+export default function PracticeSection({ locale }: Props) {
   const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
   const [classRules, setClassRules] = useState<ClassificationRule[]>([]);
   const [namingRules, setNamingRules] = useState<NamingRule[]>([]);
@@ -42,7 +47,7 @@ export default function PracticeSection() {
       loadClassificationRules(),
       loadNamingRules(),
       loadBktParams(),
-      loadCompetencies(),
+      loadCompetencies(locale),
     ]).then(([subs, cRules, nRules, params, comps]) => {
       setSubstances(subs);
       setClassRules(cRules);

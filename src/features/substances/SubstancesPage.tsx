@@ -9,7 +9,7 @@ export default function SubstancesPage({ locale = 'ru' as SupportedLocale }: { l
     <div className="substances-page">
       <SubstanceCatalog locale={locale} />
       <ClassificationTheoryPanel />
-      <PracticeSection />
+      <PracticeSection locale={locale} />
     </div>
   );
 }

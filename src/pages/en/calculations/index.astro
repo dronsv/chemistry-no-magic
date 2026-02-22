@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Calculations" description="Chemical calculations: molar mass, mass fraction, solutions, and reaction yield.">
-  <CalculationsPage client:idle />
+  <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

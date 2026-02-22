@@ -50,7 +50,7 @@ export interface ExamExerciseResult {
 /** Aggregated result per competency. */
 export interface CompetencyResult {
   competencyId: string;
-  name_ru: string;
+  name: string;
   total: number;
   correct: number;
   pL: number;

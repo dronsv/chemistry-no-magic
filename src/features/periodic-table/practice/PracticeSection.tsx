@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import type { Element } from '../../../types/element';
 import type { CompetencyId, CompetencyNode } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
+import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
@@ -20,9 +21,10 @@ const LEVEL_LABELS: Record<string, () => string> = {
 
 interface Props {
   elements: Element[];
+  locale?: SupportedLocale;
 }
 
-export default function PracticeSection({ elements }: Props) {
+export default function PracticeSection({ elements, locale }: Props) {
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -35,7 +37,7 @@ export default function PracticeSection({ elements }: Props) {
       for (const p of params) map.set(p.competency_id, p);
       setBktParamsMap(map);
     });
-    loadCompetencies().then(comps => {
+    loadCompetencies(locale).then(comps => {
       const names = new Map<string, string>();
       for (const c of comps) names.set(c.id, c.name_ru);
       setCompNames(names);

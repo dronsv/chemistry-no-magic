@@ -56,7 +56,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
             const r = c.total > 0 ? c.correct / c.total : 0;
             return (
               <div key={c.competencyId} className="exam-comp">
-                <span className="exam-comp__name">{c.name_ru}</span>
+                <span className="exam-comp__name">{c.name}</span>
                 <span className="exam-comp__score">{c.correct}/{c.total}</span>
                 <div className="exam-comp__bar">
                   <div
@@ -78,7 +78,7 @@ export default function ExamResultsView({ results, onRestart }: Props) {
             const r = c.total > 0 ? c.correct / c.total : 0;
             return (
               <div key={c.competencyId} className="exam-comp">
-                <span className="exam-comp__name">{c.name_ru}</span>
+                <span className="exam-comp__name">{c.name}</span>
                 <span className="exam-comp__score">{c.correct}/{c.total}</span>
                 <div className="exam-comp__bar">
                   <div

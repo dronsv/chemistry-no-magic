@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import type { Element } from '../../../types/element';
+import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import { loadBktParams, loadCompetencies, loadElements } from '../../../lib/data-loader';
@@ -19,7 +20,11 @@ const LEVEL_LABELS: Record<string, () => string> = {
 
 const COMPETENCY_IDS = ['bond_type', 'crystal_structure_type'] as const;
 
-export default function PracticeSection() {
+interface Props {
+  locale?: SupportedLocale;
+}
+
+export default function PracticeSection({ locale }: Props) {
   const [elements, setElements] = useState<Element[]>([]);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
@@ -32,7 +37,7 @@ export default function PracticeSection() {
     Promise.all([
       loadElements(),
       loadBktParams(),
-      loadCompetencies(),
+      loadCompetencies(locale),
     ]).then(([elems, params, comps]) => {
       setElements(elems);
 

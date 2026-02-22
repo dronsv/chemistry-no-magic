@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
+import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import {
@@ -26,7 +27,11 @@ const COMPETENCY_IDS = [
   'reaction_yield_logic',
 ] as const;
 
-export default function PracticeSection() {
+interface Props {
+  locale?: SupportedLocale;
+}
+
+export default function PracticeSection({ locale }: Props) {
   const [ctx, setCtx] = useState<GeneratorContext | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
@@ -39,7 +44,7 @@ export default function PracticeSection() {
     Promise.all([
       loadCalculationsData(),
       loadBktParams(),
-      loadCompetencies(),
+      loadCompetencies(locale),
     ]).then(([calcData, params, comps]) => {
       setCtx({ data: calcData });
 

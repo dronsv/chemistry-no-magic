@@ -174,7 +174,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
       <TheoryPanel />
 
       {/* Practice section */}
-      {elements.length > 0 && <PracticeSection elements={elements} />}
+      {elements.length > 0 && <PracticeSection elements={elements} locale={locale} />}
 
     </div>
   );

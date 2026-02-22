@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ReactionsPage from '../../../features/reactions/ReactionsPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
 ---
 
 <BaseLayout title="Reacciones químicas" description="Tipos de reacciones químicas: intercambio, sustitución, descomposición, síntesis. Ecuaciones iónicas y práctica.">
-  <ReactionsPage client:idle />
+  <ReactionsPage locale={locale} client:idle />
 </BaseLayout>

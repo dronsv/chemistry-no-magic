@@ -183,7 +183,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
           loadEnergyCatalystTheory(),
           loadCalculationsData(),
           loadBktParams(),
-          loadCompetencies(),
+          loadCompetencies(locale),
         ]);
 
         data = {
@@ -267,7 +267,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
     for (const [compId, stats] of compMap) {
       competencyResults.push({
         competencyId: compId,
-        name_ru: compNames.get(compId) ?? compId,
+        name: compNames.get(compId) ?? compId,
         total: stats.total,
         correct: stats.correct,
         pL: pLevels.get(compId) ?? 0,

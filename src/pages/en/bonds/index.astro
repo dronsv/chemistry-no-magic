@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BondsPage from '../../../features/bonds/BondsPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Chemical Bonds" description="Determine bond types and crystal lattices by substance formula. Calculator, theory, and practice.">
-  <BondsPage client:idle />
+  <BondsPage locale={locale} client:idle />
 </BaseLayout>
