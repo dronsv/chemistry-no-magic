@@ -1,6 +1,8 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import type { SupportedLocale } from '../../types/i18n';
 import { getValenceElectrons, getShorthandFormula } from '../../lib/electron-config';
+import { localizeUrl } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
@@ -9,10 +11,11 @@ import EnergyLevelDiagram from './EnergyLevelDiagram';
 interface Props {
   element: Element;
   groups: ElementGroupDict;
+  locale?: SupportedLocale;
   onClose: () => void;
 }
 
-export default function ElementDetailPanel({ element, groups, onClose }: Props) {
+export default function ElementDetailPanel({ element, groups, locale = 'ru', onClose }: Props) {
   const Z = element.Z;
   const valence = getValenceElectrons(Z);
   const valenceCount = valence.reduce((s, v) => s + v.electrons, 0);
@@ -34,7 +37,7 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
       </button>
 
       {/* Header — clickable, navigates to element page */}
-      <a href={`/periodic-table/${element.symbol}/`} className="detail-panel__header detail-panel__header--link">
+      <a href={localizeUrl(`/periodic-table/${element.symbol}/`, locale)} className="detail-panel__header detail-panel__header--link">
         <span className="detail-panel__z">Z={Z}</span>
         <span className="detail-panel__symbol">{element.symbol}</span>
         <span className="detail-panel__name">{element.name_ru}</span>
@@ -91,6 +94,14 @@ export default function ElementDetailPanel({ element, groups, onClose }: Props) 
           </p>
         </div>
       )}
+
+      {/* Link to full element page */}
+      <a
+        href={localizeUrl(`/periodic-table/${element.symbol}/`, locale)}
+        className="detail-panel__more-link"
+      >
+        {m.elem_more_details({ symbol: element.symbol })}
+      </a>
 
     </div>
   );

@@ -1,0 +1,42 @@
+{
+  "alkali_metal": {
+    "name_ru": "Metale alkaliczne",
+    "name_singular_ru": "Metal alkaliczny"
+  },
+  "alkaline_earth": {
+    "name_ru": "Metale ziem alkalicznych",
+    "name_singular_ru": "Metal ziem alkalicznych"
+  },
+  "transition_metal": {
+    "name_ru": "Metale przejściowe",
+    "name_singular_ru": "Metal przejściowy"
+  },
+  "post_transition_metal": {
+    "name_ru": "Metale po-przejściowe",
+    "name_singular_ru": "Metal po-przejściowy"
+  },
+  "metalloid": {
+    "name_ru": "Metaloidy",
+    "name_singular_ru": "Metaloid"
+  },
+  "nonmetal": {
+    "name_ru": "Niemetale",
+    "name_singular_ru": "Niemetal"
+  },
+  "halogen": {
+    "name_ru": "Fluorowce",
+    "name_singular_ru": "Fluorowiec"
+  },
+  "noble_gas": {
+    "name_ru": "Gazy szlachetne",
+    "name_singular_ru": "Gaz szlachetny"
+  },
+  "lanthanide": {
+    "name_ru": "Lantanowce",
+    "name_singular_ru": "Lantanowiec"
+  },
+  "actinide": {
+    "name_ru": "Aktynowce",
+    "name_singular_ru": "Aktynowiec"
+  }
+}

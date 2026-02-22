@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadElements, loadElementGroups } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
 import * as m from '../../paraglide/messages.js';
@@ -14,7 +15,7 @@ import './periodic-table.css';
 
 type FormType = 'long' | 'short';
 
-export default function PeriodicTableHint() {
+export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const { isOpen, setIsOpen, pos, setPos, hasMoved, setHasMoved, toggle: panelToggle, close: panelClose } = usePanelState('periodic-table');
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -68,7 +69,7 @@ export default function PeriodicTableHint() {
     setLoading(true);
     setError(null);
 
-    Promise.all([loadElements(), loadElementGroups()])
+    Promise.all([loadElements(locale), loadElementGroups(locale)])
       .then(([els, grps]) => {
         if (!cancelled) {
           setConfigOverrides(els);

@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { SubstanceIndexEntry } from '../../types/classification';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadSubstancesIndex } from '../../lib/data-loader';
+import { localizeUrl } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
 
 const CLASS_LABELS: Record<string, () => string> = {
@@ -19,14 +21,14 @@ const FILTER_BUTTONS: Array<{ key: string; label: () => string }> = [
   { key: 'salt', label: m.class_salts },
 ];
 
-export default function SubstanceCatalog() {
+export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    loadSubstancesIndex()
+    loadSubstancesIndex(locale)
       .then(subs => {
         setSubstances(subs);
         setLoading(false);
@@ -39,11 +41,13 @@ export default function SubstanceCatalog() {
     if (filter !== 'all') {
       list = list.filter(s => s.class === filter);
     }
-    const q = search.trim().toLowerCase();
-    if (q) {
+    const raw = search.trim();
+    if (raw) {
+      const q = raw.toLowerCase();
+      const hasUpper = raw !== q;
       list = list.filter(
         s =>
-          s.formula.toLowerCase().includes(q) ||
+          (hasUpper ? s.formula.includes(raw) : s.formula.toLowerCase().includes(q)) ||
           (s.name_ru && s.name_ru.toLowerCase().includes(q)),
       );
     }
@@ -84,7 +88,7 @@ export default function SubstanceCatalog() {
 
       <div className="subst-catalog__grid">
         {filtered.map(s => (
-          <a key={s.id} href={`/substances/${s.id}/`} className="subst-card">
+          <a key={s.id} href={localizeUrl(`/substances/${s.id}/`, locale)} className="subst-card">
             <span className="subst-card__formula">{s.formula}</span>
             {s.name_ru && <span className="subst-card__name">{s.name_ru}</span>}
             <span className={`subst-card__badge subst-card__badge--${s.class}`}>

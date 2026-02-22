@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
 ---
 
 <BaseLayout title="Tabla periódica" description="Tabla periódica interactiva: configuraciones electrónicas, diagramas orbitales, niveles de energía.">
-  <PeriodicTablePage client:idle />
+  <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>

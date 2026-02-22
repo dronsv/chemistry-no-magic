@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadElements, loadElementGroups } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
 import * as m from '../../paraglide/messages.js';
@@ -15,7 +16,7 @@ import './periodic-table.css';
 
 type FormType = 'long' | 'short';
 
-export default function PeriodicTablePage() {
+export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [elements, setElements] = useState<Element[]>([]);
   const [groups, setGroups] = useState<ElementGroupDict>({});
   const [loading, setLoading] = useState(true);
@@ -53,7 +54,7 @@ export default function PeriodicTablePage() {
   }, [updateScale, elements, formType]);
 
   useEffect(() => {
-    Promise.all([loadElements(), loadElementGroups()])
+    Promise.all([loadElements(locale), loadElementGroups(locale)])
       .then(([els, grps]) => {
         setConfigOverrides(els);
         setElements(els);
@@ -171,6 +172,7 @@ export default function PeriodicTablePage() {
         <ElementDetailPanel
           element={selectedElement}
           groups={groups}
+          locale={locale}
           onClose={() => setSelectedElement(null)}
         />
       )}

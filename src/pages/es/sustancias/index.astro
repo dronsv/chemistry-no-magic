@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SubstancesPage from '../../../features/substances/SubstancesPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
 ---
 
 <BaseLayout title="Sustancias" description="Clasificación de sustancias: óxidos, ácidos, bases, sales. Propiedades, nomenclatura y práctica.">
-  <SubstancesPage client:idle />
+  <SubstancesPage locale={locale} client:idle />
 </BaseLayout>
