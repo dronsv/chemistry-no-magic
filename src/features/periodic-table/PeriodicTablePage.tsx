@@ -8,7 +8,6 @@ import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetailPanel from './ElementDetailPanel';
-import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import PracticeSection from './practice/PracticeSection';
 import TheoryPanel from './TheoryPanel';
@@ -136,14 +135,6 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
         </div>
       </div>
 
-      {/* Legend */}
-      <Legend
-        groups={groups}
-        highlightedGroup={highlightedGroup ?? hoveredElementGroup}
-        onHoverGroup={setHighlightedGroup}
-        onHoverGroupEnd={() => setHighlightedGroup(null)}
-      />
-
       {/* Periodic table */}
       <div
         ref={tableWrapperRef}
@@ -162,6 +153,8 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
             exceptionZSet={exceptionZSet}
             onHoverElement={setHoveredElementGroup}
             onHoverElementEnd={() => setHoveredElementGroup(null)}
+            onHoverGroup={setHighlightedGroup}
+            onHoverGroupEnd={() => setHighlightedGroup(null)}
           />
           {showTrends && <TrendsOverlay gridWidth={18} gridHeight={10} />}
         </div>

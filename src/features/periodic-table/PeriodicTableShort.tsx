@@ -10,6 +10,8 @@ interface PeriodicTableShortProps {
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
+  onHoverGroup?: (group: ElementGroup) => void;
+  onHoverGroupEnd?: () => void;
 }
 
 export default function PeriodicTableShort({

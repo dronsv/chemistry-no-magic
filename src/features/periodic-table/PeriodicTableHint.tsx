@@ -8,7 +8,6 @@ import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
 import ElementDetails from './ElementDetails';
-import Legend from './Legend';
 import TrendsOverlay from './TrendsOverlay';
 import { usePanelState } from '../../lib/use-panel-state';
 import './periodic-table.css';
@@ -306,6 +305,8 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
                 onSelect={handleSelect}
                 onHoverElement={handleElementHover}
                 onHoverElementEnd={handleElementHoverEnd}
+                onHoverGroup={handleLegendHover}
+                onHoverGroupEnd={handleLegendHoverEnd}
               />
             )}
 
@@ -323,15 +324,6 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
             />
           )}
 
-          {/* Legend */}
-          {!showTrends && (
-            <Legend
-              groups={groups}
-              highlightedGroup={highlightedGroup ?? hoveredElementGroup}
-              onHoverGroup={handleLegendHover}
-              onHoverGroupEnd={handleLegendHoverEnd}
-            />
-          )}
         </div>
       )}
     </>

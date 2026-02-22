@@ -1,5 +1,6 @@
 import type { Element, ElementGroup } from '../../types/element';
 import ElementCell from './ElementCell';
+import GroupBlocks from './GroupBlocks';
 
 interface PeriodicTableLongProps {
   elements: Element[];
@@ -9,6 +10,8 @@ interface PeriodicTableLongProps {
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
+  onHoverGroup: (group: ElementGroup) => void;
+  onHoverGroupEnd: () => void;
 }
 
 function getGridPosition(el: Element): { row: number; col: number } | null {
@@ -30,7 +33,7 @@ function getGridPosition(el: Element): { row: number; col: number } | null {
 }
 
 export default function PeriodicTableLong({
-  elements, highlightedGroup, searchMatchedZ, exceptionZSet, onSelect, onHoverElement, onHoverElementEnd,
+  elements, highlightedGroup, searchMatchedZ, exceptionZSet, onSelect, onHoverElement, onHoverElementEnd, onHoverGroup, onHoverGroupEnd,
 }: PeriodicTableLongProps) {
   const sorted = [...elements].sort((a, b) => a.Z - b.Z);
 
@@ -61,6 +64,8 @@ export default function PeriodicTableLong({
 
       <div className="pt-grid-label pt-grid-label--period" style={{ gridRow: 10, gridColumn: 1 }}>6*</div>
       <div className="pt-grid-label pt-grid-label--period" style={{ gridRow: 11, gridColumn: 1 }}>7*</div>
+
+      <GroupBlocks highlightedGroup={highlightedGroup} onHoverGroup={onHoverGroup} onHoverGroupEnd={onHoverGroupEnd} />
 
       {sorted.map((el) => {
         const pos = getGridPosition(el);
