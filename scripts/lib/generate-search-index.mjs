@@ -32,6 +32,7 @@ const PAGES_RU = [
   { id: 'page_calculations', title: 'Расчёты', subtitle: 'Химические расчёты и задачи', keywords: 'расчёты молярная масса доля концентрация раствор стехиометрия выход', url: '/calculations/' },
   { id: 'page_exam', title: 'Экзамен ОГЭ', subtitle: 'Задания и пробный экзамен', keywords: 'экзамен огэ задания пробный тренировка', url: '/exam/' },
   { id: 'page_profile', title: 'Профиль', subtitle: 'Прогресс и результаты обучения', keywords: 'профиль прогресс результаты компетенции статистика', url: '/profile/' },
+  { id: 'page_ions', title: 'Ионы', subtitle: 'Справочник катионов и анионов', keywords: 'ионы катионы анионы заряд растворимость', url: '/ions/' },
   { id: 'page_about', title: 'О проекте', subtitle: 'Информация о платформе', keywords: 'о проекте информация автор методика', url: '/about/' },
 ];
 
@@ -41,11 +42,12 @@ const PAGES_RU = [
  * @param {Array<{filename: string, data: any}>} data.substances
  * @param {any[]} data.reactions
  * @param {any[]} data.competencies
+ * @param {any[]} [data.ions] - Ion data array
  * @param {string} [data.locale] - Locale code ('ru', 'en', 'pl', 'es'). Defaults to 'ru'.
- * @param {object} [data.translations] - Translation overlays: { elements, competencies, substances, pages }
+ * @param {object} [data.translations] - Translation overlays: { elements, competencies, substances, pages, ions }
  * @returns {any[]} SearchIndexEntry[]
  */
-export function generateSearchIndex({ elements, substances, reactions, competencies, locale = 'ru', translations = null }) {
+export function generateSearchIndex({ elements, substances, reactions, competencies, ions = [], locale = 'ru', translations = null }) {
   const entries = [];
   const loc = locale;
 
@@ -148,6 +150,32 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
       url: comp.link ? localizeUrl(comp.link, loc) : localizeUrl('/profile/', loc),
       meta: {
         block: blockName,
+      },
+    });
+  }
+
+  // Ions
+  for (const ion of ions) {
+    const ionOverlay = translations?.ions?.[ion.id];
+    const name = ionOverlay?.name_ru ?? ion.name_ru;
+    const normalized = normalizeFormula(ion.formula);
+
+    entries.push({
+      id: `ion_${ion.id}`,
+      category: 'ion',
+      title: ion.formula,
+      subtitle: name,
+      search: buildSearch([
+        ion.formula,
+        normalized,
+        name,
+        ion.type,
+        ...(ion.tags || []),
+      ]),
+      url: localizeUrl('/ions/', loc),
+      meta: {
+        charge: String(ion.charge),
+        ionType: ion.type,
       },
     });
   }

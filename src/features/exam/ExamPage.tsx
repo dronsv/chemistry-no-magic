@@ -39,6 +39,7 @@ import {
   loadFormulaLookup,
 } from '../../lib/data-loader';
 import { FormulaLookupProvider } from '../../components/ChemText';
+import { IonDetailsProvider } from '../../components/IonDetailsProvider';
 import { generateVariant } from './generate-variant';
 import type { ExamData } from './generate-variant';
 import ExamSession from './ExamSession';
@@ -426,9 +427,11 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   if (phase === 'session' && variant) {
     return (
       <FormulaLookupProvider value={formulaLookup}>
-        <div className="exam-page">
-          <ExamSession variant={variant} onSubmit={handleSubmit} />
-        </div>
+        <IonDetailsProvider locale={locale}>
+          <div className="exam-page">
+            <ExamSession variant={variant} onSubmit={handleSubmit} />
+          </div>
+        </IonDetailsProvider>
       </FormulaLookupProvider>
     );
   }
@@ -436,9 +439,11 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   if (phase === 'oge-practice') {
     return (
       <FormulaLookupProvider value={formulaLookup}>
-        <div className="exam-page">
-          <OgePractice tasks={ogeTasks} algorithms={algorithms} onBack={() => setPhase('start')} />
-        </div>
+        <IonDetailsProvider locale={locale}>
+          <div className="exam-page">
+            <OgePractice tasks={ogeTasks} algorithms={algorithms} onBack={() => setPhase('start')} />
+          </div>
+        </IonDetailsProvider>
       </FormulaLookupProvider>
     );
   }
@@ -446,15 +451,17 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   if (phase === 'topic-practice' && topicMapping && examSystems) {
     return (
       <FormulaLookupProvider value={formulaLookup}>
-        <div className="exam-page">
-          <TopicPractice
-            topics={topicMapping}
-            examSystems={examSystems}
-            loadSystemTasks={loadSystemTasksForTopic}
-            locale={locale}
-            onBack={() => setPhase('start')}
-          />
-        </div>
+        <IonDetailsProvider locale={locale}>
+          <div className="exam-page">
+            <TopicPractice
+              topics={topicMapping}
+              examSystems={examSystems}
+              loadSystemTasks={loadSystemTasksForTopic}
+              locale={locale}
+              onBack={() => setPhase('start')}
+            />
+          </div>
+        </IonDetailsProvider>
       </FormulaLookupProvider>
     );
   }
@@ -462,10 +469,12 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   if (phase === 'results' && results) {
     return (
       <FormulaLookupProvider value={formulaLookup}>
-        <div className="exam-page">
-          <h1 className="exam-page__title">{m.exam_results_title()}</h1>
-          <ExamResultsView results={results} onRestart={handleRestart} />
-        </div>
+        <IonDetailsProvider locale={locale}>
+          <div className="exam-page">
+            <h1 className="exam-page__title">{m.exam_results_title()}</h1>
+            <ExamResultsView results={results} onRestart={handleRestart} />
+          </div>
+        </IonDetailsProvider>
       </FormulaLookupProvider>
     );
   }

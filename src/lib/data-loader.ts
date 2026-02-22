@@ -6,7 +6,7 @@ import type { BktParams } from '../types/bkt';
 import type { TaskTemplate, ReactionTemplate } from '../types/templates';
 import type { DiagnosticQuestion } from '../types/diagnostic';
 import type { CompetencyNode } from '../types/competency';
-import type { ElementGroupDict } from '../types/element-group';
+import type { ElementGroupDict, ElementGroupInfo } from '../types/element-group';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
@@ -159,9 +159,12 @@ export async function loadElements(locale?: SupportedLocale): Promise<Element[]>
 }
 
 /** Load the full ions list. */
-export async function loadIons(): Promise<Ion[]> {
+export async function loadIons(locale?: SupportedLocale): Promise<Ion[]> {
   const manifest = await getManifest();
-  return loadDataFile<Ion[]>(manifest.entrypoints.ions);
+  const ions = await loadDataFile<Ion[]>(manifest.entrypoints.ions);
+  if (!locale || locale === 'ru') return ions;
+  const overlay = await loadTranslationOverlay(locale, 'ions');
+  return applyOverlay(ions, overlay, ion => ion.id);
 }
 
 /**
@@ -281,7 +284,7 @@ export async function loadDiagnosticQuestions(locale?: SupportedLocale): Promise
 }
 
 /** Load element groups dictionary. */
-export async function loadElementGroups(): Promise<ElementGroupDict> {
+export async function loadElementGroups(locale?: SupportedLocale): Promise<ElementGroupDict> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.element_groups;
 
@@ -291,7 +294,16 @@ export async function loadElementGroups(): Promise<ElementGroupDict> {
     );
   }
 
-  return loadDataFile<ElementGroupDict>(path);
+  const groups = await loadDataFile<ElementGroupDict>(path);
+  if (!locale || locale === 'ru') return groups;
+  const overlay = await loadTranslationOverlay(locale, 'element_groups');
+  if (!overlay) return groups;
+  const result: ElementGroupDict = {};
+  for (const [key, value] of Object.entries(groups)) {
+    const overrides = overlay[key];
+    result[key] = overrides ? { ...value, ...overrides } as ElementGroupInfo : value;
+  }
+  return result;
 }
 
 
@@ -353,9 +365,12 @@ export async function loadNamingRules(): Promise<NamingRule[]> {
 }
 
 /** Load substances index. */
-export async function loadSubstancesIndex(): Promise<SubstanceIndexEntry[]> {
+export async function loadSubstancesIndex(locale?: SupportedLocale): Promise<SubstanceIndexEntry[]> {
   const data = await loadIndex('substances_index');
-  return (data as { substances: SubstanceIndexEntry[] }).substances;
+  const substances = (data as { substances: SubstanceIndexEntry[] }).substances;
+  if (!locale || locale === 'ru') return substances;
+  const overlay = await loadTranslationOverlay(locale, 'substances');
+  return applyOverlay(substances, overlay, s => s.id);
 }
 
 /** Load solubility rules. */

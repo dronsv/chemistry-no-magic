@@ -7,11 +7,12 @@ export interface SearchResultGroup {
   results: SearchIndexEntry[];
 }
 
-const CATEGORY_ORDER: SearchCategory[] = ['element', 'substance', 'reaction', 'competency', 'page'];
+const CATEGORY_ORDER: SearchCategory[] = ['element', 'ion', 'substance', 'reaction', 'competency', 'page'];
 
 function getCategoryLabel(cat: SearchCategory): string {
   switch (cat) {
     case 'element': return m.search_cat_elements();
+    case 'ion': return m.search_cat_ions();
     case 'substance': return m.search_cat_substances();
     case 'reaction': return m.search_cat_reactions();
     case 'competency': return m.search_cat_competencies();

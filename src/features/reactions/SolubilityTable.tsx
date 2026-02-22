@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { SolubilityEntry } from '../../types/rules';
 import type { Ion } from '../../types/ion';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadSolubilityRules, loadIons } from '../../lib/data-loader';
+import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
 import './solubility-table.css';
 
@@ -28,60 +30,11 @@ const ANION_ORDER = [
   'Cl⁻', 'SO₄²⁻', 'NO₃⁻', 'CO₃²⁻', 'PO₄³⁻', 'S²⁻', 'OH⁻', 'SiO₃²⁻',
 ];
 
-// Unicode superscript/subscript ranges
-const SUPERSCRIPTS = '\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079\u207A\u207B';
-const SUBSCRIPTS = '\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089';
-
-/** Render ion formula with HTML <sup>/<sub> for proper classical notation. */
-function renderIonFormula(formula: string): React.ReactNode {
-  const parts: React.ReactNode[] = [];
-  let i = 0;
-  let key = 0;
-
-  while (i < formula.length) {
-    const ch = formula[i];
-    if (SUPERSCRIPTS.includes(ch)) {
-      // Collect consecutive superscript chars
-      let sup = '';
-      while (i < formula.length && SUPERSCRIPTS.includes(formula[i])) {
-        sup += decodeSuperscript(formula[i]);
-        i++;
-      }
-      parts.push(<sup key={key++} className="sol-ion__charge">{sup}</sup>);
-    } else if (SUBSCRIPTS.includes(ch)) {
-      let sub = '';
-      while (i < formula.length && SUBSCRIPTS.includes(formula[i])) {
-        sub += decodeSubscript(formula[i]);
-        i++;
-      }
-      parts.push(<sub key={key++} className="sol-ion__sub">{sub}</sub>);
-    } else {
-      // Regular char — collect consecutive regular chars
-      let text = '';
-      while (i < formula.length && !SUPERSCRIPTS.includes(formula[i]) && !SUBSCRIPTS.includes(formula[i])) {
-        text += formula[i];
-        i++;
-      }
-      parts.push(<span key={key++}>{text}</span>);
-    }
-  }
-  return parts;
+interface SolubilityTableProps {
+  locale?: SupportedLocale;
 }
 
-function decodeSuperscript(ch: string): string {
-  const map: Record<string, string> = {
-    '\u2070': '0', '\u00B9': '1', '\u00B2': '2', '\u00B3': '3',
-    '\u2074': '4', '\u2075': '5', '\u2076': '6', '\u2077': '7',
-    '\u2078': '8', '\u2079': '9', '\u207A': '+', '\u207B': '\u2212',
-  };
-  return map[ch] ?? ch;
-}
-
-function decodeSubscript(ch: string): string {
-  return String(ch.charCodeAt(0) - 0x2080);
-}
-
-export default function SolubilityTable() {
+export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps) {
   const [entries, setEntries] = useState<SolubilityEntry[]>([]);
   const [ionMap, setIonMap] = useState<Map<string, Ion>>(new Map());
   const [loading, setLoading] = useState(true);
@@ -89,14 +42,14 @@ export default function SolubilityTable() {
   const [highlightCol, setHighlightCol] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([loadSolubilityRules(), loadIons()]).then(([sol, ions]) => {
+    Promise.all([loadSolubilityRules(), loadIons(locale)]).then(([sol, ions]) => {
       setEntries(sol);
       const iMap = new Map<string, Ion>();
       for (const ion of ions) iMap.set(ion.formula, ion);
       setIonMap(iMap);
       setLoading(false);
     });
-  }, []);
+  }, [locale]);
 
   if (loading) return null;
 
@@ -136,14 +89,18 @@ export default function SolubilityTable() {
               return (
                 <th
                   key={anion}
-                  className={`sol-table__anion-header sol-ion sol-ion--anion ${isHl ? 'sol-table__header--highlight' : ''}`}
-                  title={ion?.name_ru}
+                  className={`sol-table__anion-header ${isHl ? 'sol-table__header--highlight' : ''}`}
                   onClick={() => {
                     setHighlightCol(highlightCol === anion ? null : anion);
                     setHighlightRow(null);
                   }}
                 >
-                  {renderIonFormula(anion)}
+                  <FormulaChip
+                    formula={anion}
+                    ionType="anion"
+                    ionId={ion?.id}
+                    name={ion?.name_ru}
+                  />
                 </th>
               );
             })}
@@ -156,14 +113,18 @@ export default function SolubilityTable() {
             return (
               <tr key={cation}>
                 <th
-                  className={`sol-table__cation-header sol-ion sol-ion--cation ${isRowHl ? 'sol-table__header--highlight' : ''}`}
-                  title={catIon?.name_ru}
+                  className={`sol-table__cation-header ${isRowHl ? 'sol-table__header--highlight' : ''}`}
                   onClick={() => {
                     setHighlightRow(highlightRow === cation ? null : cation);
                     setHighlightCol(null);
                   }}
                 >
-                  {renderIonFormula(cation)}
+                  <FormulaChip
+                    formula={cation}
+                    ionType="cation"
+                    ionId={catIon?.id}
+                    name={catIon?.name_ru}
+                  />
                 </th>
                 {anions.map(anion => {
                   const entry = lookup.get(`${cation}|${anion}`);

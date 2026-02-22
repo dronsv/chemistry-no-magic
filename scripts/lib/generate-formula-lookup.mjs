@@ -2,24 +2,25 @@ import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 /**
- * Generate formula_lookup.json — maps display formulas to substance/element info.
+ * Generate formula_lookup.json — maps display formulas to substance/element/ion info.
  *
  * Used by ChemText component to recognize chemical formulas in task text
  * and wrap them in interactive FormulaChip components.
  *
  * Priority: substance formulas first (longer, more specific),
- * then element symbols (shorter, lower priority).
+ * then ion formulas, then element symbols (shortest, lowest priority).
  * At runtime, longest match wins.
  *
  * @param {Array<{Z: number, symbol: string}>} elements
  * @param {Array<{filename: string, data: {id: string, formula: string, class: string}}>} substances
+ * @param {Array<{id: string, formula: string, type: 'cation'|'anion'}>} ions
  * @param {string} outDir - Bundle output directory
  * @returns {number} Total entries in lookup
  */
-export async function generateFormulaLookup(elements, substances, outDir) {
+export async function generateFormulaLookup(elements, substances, ions, outDir) {
   const lookup = {};
 
-  // 1. Add substance formulas (higher priority — typically longer)
+  // 1. Add substance formulas (highest priority — typically longer)
   for (const { data } of substances) {
     lookup[data.formula] = {
       type: 'substance',
@@ -28,9 +29,20 @@ export async function generateFormulaLookup(elements, substances, outDir) {
     };
   }
 
-  // 2. Add element symbols (lower priority — 1-2 chars)
+  // 2. Add ion formulas (medium priority — don't override substances)
+  for (const ion of ions) {
+    if (!lookup[ion.formula]) {
+      lookup[ion.formula] = {
+        type: 'ion',
+        id: ion.id,
+        ionType: ion.type,
+      };
+    }
+  }
+
+  // 3. Add element symbols (lowest priority — 1-2 chars)
   for (const el of elements) {
-    // Don't override if an element symbol happens to match a substance formula
+    // Don't override if an element symbol happens to match a substance or ion formula
     if (!lookup[el.symbol]) {
       lookup[el.symbol] = {
         type: 'element',

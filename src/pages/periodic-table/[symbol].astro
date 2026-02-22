@@ -69,6 +69,14 @@ interface ElementGroupInfo {
   name_singular_ru: string;
 }
 
+interface IonData {
+  id: string;
+  formula: string;
+  name_ru: string;
+  charge: number;
+  type: 'cation' | 'anion';
+}
+
 export async function getStaticPaths() {
   const elementsPath = join(process.cwd(), 'data-src', 'elements.json');
   const elements: ElementData[] = JSON.parse(await readFile(elementsPath, 'utf-8'));
@@ -76,6 +84,12 @@ export async function getStaticPaths() {
   // Load element groups for display names
   const groupsPath = join(process.cwd(), 'data-src', 'element-groups.json');
   const groupsDict: Record<string, ElementGroupInfo> = JSON.parse(await readFile(groupsPath, 'utf-8'));
+
+  // Load ions for cross-referencing
+  let allIons: IonData[] = [];
+  try {
+    allIons = JSON.parse(await readFile(join(process.cwd(), 'data-src', 'ions.json'), 'utf-8'));
+  } catch { /* optional */ }
 
   // Load reactions for cross-referencing
   const reactionsPath = join(process.cwd(), 'data-src', 'reactions', 'reactions.json');
@@ -120,9 +134,16 @@ export async function getStaticPaths() {
 
     const groupLabel = groupsDict[el.element_group]?.name_singular_ru ?? el.element_group;
 
+    // Find ions that contain this element's symbol
+    const elementIons = allIons.filter(ion => {
+      // Match element symbol at start or after non-letter chars
+      const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
+      return re.test(ion.formula);
+    });
+
     return {
       params: { symbol: el.symbol },
-      props: { element: el, elementReactions, relatedSubstances, groupLabel },
+      props: { element: el, elementReactions, relatedSubstances, groupLabel, elementIons },
     };
   });
 }
@@ -132,9 +153,10 @@ interface Props {
   elementReactions: ReactionData[];
   relatedSubstances: SubstanceEntry[];
   groupLabel: string;
+  elementIons: IonData[];
 }
 
-const { element, elementReactions, relatedSubstances, groupLabel } = Astro.props as Props;
+const { element, elementReactions, relatedSubstances, groupLabel, elementIons } = Astro.props as Props;
 const el = element;
 
 const oxStates = el.typical_oxidation_states
@@ -287,6 +309,20 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
             </li>
           ))}
         </ul>
+      </section>
+    )}
+
+    {elementIons.length > 0 && (
+      <section class="element-page__section">
+        <h2>Ионы</h2>
+        <div class="element-page__ions">
+          {elementIons.map(ion => (
+            <span class={`element-page__ion element-page__ion--${ion.type}`} title={ion.name_ru}>
+              {ion.formula}
+              <span class="element-page__ion-name">{ion.name_ru}</span>
+            </span>
+          ))}
+        </div>
       </section>
     )}
 
@@ -467,6 +503,35 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
   .element-page__reaction-title {
     font-size: 0.8125rem;
     color: var(--color-text-muted);
+  }
+
+  .element-page__ions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .element-page__ion {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .element-page__ion--cation {
+    background: #eff6ff;
+    color: #1e40af;
+  }
+  .element-page__ion--anion {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+  .element-page__ion-name {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    opacity: 0.7;
   }
 
   .element-page__substances {

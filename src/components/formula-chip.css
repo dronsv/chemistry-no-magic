@@ -46,6 +46,16 @@
   color: var(--color-text-muted);
 }
 
+.formula-chip--cation {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.formula-chip--anion {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
 /* Tooltip */
 
 .formula-chip__tooltip {
@@ -82,4 +92,102 @@
 .formula-chip__tooltip-ox {
   font-family: monospace;
   letter-spacing: 0.02em;
+}
+
+/* Ion Details Popup */
+
+.ion-details-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.ion-details-popup {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 1rem;
+  z-index: 1001;
+  min-width: 220px;
+}
+
+.ion-details-popup__loading {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  padding: 0.5rem;
+}
+
+.ion-details-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.ion-details-popup__formula {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.ion-details-popup__formula--cation {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.ion-details-popup__formula--anion {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.ion-details-popup__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0 0.25rem;
+}
+
+.ion-details-popup__close:hover {
+  color: var(--color-text);
+}
+
+.ion-details-popup__name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.ion-details-popup__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.375rem;
+}
+
+.ion-details-popup__meta-label {
+  color: var(--color-text-muted);
+}
+
+.ion-details-popup__badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.ion-details-popup__badge--cation {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.ion-details-popup__badge--anion {
+  background: #fef2f2;
+  color: #991b1b;
 }

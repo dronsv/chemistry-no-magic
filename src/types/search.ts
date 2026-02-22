@@ -1,4 +1,4 @@
-export type SearchCategory = 'element' | 'substance' | 'reaction' | 'competency' | 'page';
+export type SearchCategory = 'element' | 'substance' | 'reaction' | 'competency' | 'page' | 'ion';
 
 export interface SearchIndexEntry {
   id: string;

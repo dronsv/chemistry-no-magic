@@ -9,5 +9,6 @@
   "page_calculations": { "title": "Calculations", "subtitle": "Chemical calculations and problems", "keywords": "calculations molar mass fraction concentration solution stoichiometry yield" },
   "page_exam": { "title": "Exam", "subtitle": "Practice tasks and mock exam", "keywords": "exam tasks practice mock training" },
   "page_profile": { "title": "Profile", "subtitle": "Progress and learning results", "keywords": "profile progress results competencies statistics" },
+  "page_ions": { "title": "Ions", "subtitle": "Cation and anion reference", "keywords": "ions cations anions charge solubility" },
   "page_about": { "title": "About", "subtitle": "About the platform", "keywords": "about project information author methodology" }
 }

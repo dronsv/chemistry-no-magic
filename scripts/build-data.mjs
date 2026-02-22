@@ -308,14 +308,14 @@ async function main() {
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
 
-  // 7b. Generate formula lookup (elements + substances → display formula → id)
+  // 7b. Generate formula lookup (elements + substances + ions → display formula → id)
   console.log('Generating formula lookup...');
-  const formulaCount = await generateFormulaLookup(elements, substances, bundleDir);
+  const formulaCount = await generateFormulaLookup(elements, substances, ions, bundleDir);
   console.log(`  ${formulaCount} formula entries`);
 
   // 7c. Generate search index (Russian — default)
   console.log('Generating search index...');
-  const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies });
+  const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies, ions });
   await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
   console.log(`  ${searchIndex.length} search entries (ru)`);
 
@@ -350,6 +350,7 @@ async function main() {
       substances,
       reactions,
       competencies,
+      ions,
       locale,
       translations: overlays,
     });

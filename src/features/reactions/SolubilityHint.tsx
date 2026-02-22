@@ -1,10 +1,16 @@
 import { useEffect, useCallback, useRef } from 'react';
+import type { SupportedLocale } from '../../types/i18n';
 import SolubilityTable from './SolubilityTable';
+import { IonDetailsProvider } from '../../components/IonDetailsProvider';
 import { usePanelState } from '../../lib/use-panel-state';
 import * as m from '../../paraglide/messages.js';
 import './solubility-hint.css';
 
-export default function SolubilityHint() {
+interface SolubilityHintProps {
+  locale?: SupportedLocale;
+}
+
+export default function SolubilityHint({ locale = 'ru' }: SolubilityHintProps) {
   const { isOpen, pos, setPos, hasMoved, setHasMoved, toggle, close } = usePanelState('solubility');
   const panelRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
@@ -74,7 +80,9 @@ export default function SolubilityHint() {
             <button className="sol-hint-panel__close" onClick={close} type="button" aria-label={m.close_label()}>&times;</button>
           </div>
           <div className="sol-hint-panel__content">
-            <SolubilityTable />
+            <IonDetailsProvider locale={locale}>
+              <SolubilityTable locale={locale} />
+            </IonDetailsProvider>
           </div>
         </div>
       )}

@@ -125,6 +125,15 @@ export default function ChemText({ text }: Props) {
             substanceClass={entry.cls}
           />,
         );
+      } else if (entry.type === 'ion') {
+        result.push(
+          <FormulaChip
+            key={keyIdx++}
+            formula={formula}
+            ionType={entry.ionType}
+            ionId={entry.id}
+          />,
+        );
       } else {
         // Element — styled chip, no substance link
         result.push(

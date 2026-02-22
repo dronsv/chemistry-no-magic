@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IonsPage from '../../features/ions/IonsPage';
+import type { SupportedLocale } from '../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+---
+
+<BaseLayout title="Iones" description="Referencia de iones: cationes y aniones, cargas, ácidos de origen.">
+  <IonsPage locale={locale} client:idle />
+</BaseLayout>

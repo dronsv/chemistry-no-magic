@@ -21,6 +21,7 @@ const links = [
   { href: localizeUrl('/bonds/', locale), label: m.nav_bonds() },
   { href: localizeUrl('/oxidation-states/', locale), label: m.nav_oxidation_states() },
   { href: localizeUrl('/reactions/', locale), label: m.nav_reactions() },
+  { href: localizeUrl('/ions/', locale), label: m.nav_ions() },
   { href: localizeUrl('/calculations/', locale), label: m.nav_calculations() },
   { href: localizeUrl('/exam/', locale), label: m.nav_exam() },
   { href: localizeUrl('/profile/', locale), label: m.nav_profile() },
@@ -50,8 +51,8 @@ const searchUrl = localizeUrl('/search/', locale);
         </li>
       ))}
     </ul>
-    <PeriodicTableHint client:idle />
-    <SolubilityHint client:idle />
+    <PeriodicTableHint locale={locale} client:idle />
+    <SolubilityHint locale={locale} client:idle />
     <a href={searchUrl} class="search-trigger" aria-label={m.nav_search()}>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />

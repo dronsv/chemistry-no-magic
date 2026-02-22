@@ -18,6 +18,7 @@ const SLUG_MAP = {
   '/exam/': { ru: '/exam/', en: '/en/exam/', pl: '/pl/egzamin/', es: '/es/examen/' },
   '/profile/': { ru: '/profile/', en: '/en/profile/', pl: '/pl/profil/', es: '/es/perfil/' },
   '/search/': { ru: '/search/', en: '/en/search/', pl: '/pl/szukaj/', es: '/es/buscar/' },
+  '/ions/': { ru: '/ions/', en: '/en/ions/', pl: '/pl/jony/', es: '/es/iones/' },
   '/about/': { ru: '/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
 };
 

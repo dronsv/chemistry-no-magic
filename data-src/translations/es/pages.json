@@ -9,5 +9,6 @@
   "page_calculations": { "title": "Cálculos", "subtitle": "Cálculos químicos y problemas", "keywords": ["cálculos", "masa molar", "fracción de masa", "concentración", "solución", "estequiometría", "rendimiento"] },
   "page_exam": { "title": "Examen", "subtitle": "Tareas prácticas y examen de prueba", "keywords": ["examen", "tareas", "práctica", "simulacro", "entrenamiento"] },
   "page_profile": { "title": "Perfil", "subtitle": "Progreso y resultados del aprendizaje", "keywords": ["perfil", "progreso", "resultados", "competencias", "estadísticas"] },
+  "page_ions": { "title": "Iones", "subtitle": "Referencia de cationes y aniones", "keywords": ["iones", "cationes", "aniones", "carga", "solubilidad"] },
   "page_about": { "title": "Acerca de", "subtitle": "Acerca de la plataforma", "keywords": ["acerca de", "proyecto", "información", "autor", "metodología"] }
 }

@@ -9,5 +9,6 @@
   "page_calculations": { "title": "Obliczenia", "subtitle": "Obliczenia chemiczne i zadania", "keywords": ["obliczenia", "masa molowa", "udział masowy", "stężenie", "roztwór", "stechiometria", "wydajność"] },
   "page_exam": { "title": "Egzamin", "subtitle": "Zadania praktyczne i egzamin próbny", "keywords": ["egzamin", "zadania", "praktyka", "próbny", "trening"] },
   "page_profile": { "title": "Profil", "subtitle": "Postępy i wyniki nauki", "keywords": ["profil", "postępy", "wyniki", "kompetencje", "statystyki"] },
+  "page_ions": { "title": "Jony", "subtitle": "Informator kationy i aniony", "keywords": ["jony", "kationy", "aniony", "ładunek", "rozpuszczalność"] },
   "page_about": { "title": "O platformie", "subtitle": "Informacje o platformie", "keywords": ["o nas", "projekt", "informacje", "autor", "metodologia"] }
 }
