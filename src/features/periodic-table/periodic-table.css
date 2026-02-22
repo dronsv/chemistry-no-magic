@@ -394,12 +394,12 @@
 }
 
 /* ========================================
-   Grid — Short form (16 columns)
+   Grid — Short form (Mendeleev 11-row layout)
    ======================================== */
 
 .pt-grid-short {
   display: grid;
-  grid-template-columns: 24px repeat(16, 50px);
+  grid-template-columns: 24px 24px repeat(7, 50px) repeat(3, 50px) 50px;
   gap: 2px;
   justify-content: center;
 }
@@ -415,13 +415,80 @@
   border-bottom: 2px solid var(--color-border);
 }
 
-.pt-short-sub {
+/* Parenthesized hydrogen (H in group I) */
+.pt-cell-paren {
+  position: relative;
+}
+
+.pt-cell-paren::before {
+  content: '(';
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.pt-cell-paren::after {
+  content: ')';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* La* / Ac** marker */
+.pt-short-fblock-marker {
+  position: relative;
+}
+
+.pt-short-marker {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  line-height: 1;
+  z-index: 5;
+}
+
+/* Short form wrapper (grid + f-block rows below) */
+.pt-short-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Lanthanide / actinide f-block rows below the main grid */
+.pt-short-fblock-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 4px;
+}
+
+.pt-short-fblock-label {
   font-size: 0.625rem;
   color: var(--color-text-muted);
-  padding: 0.125rem 0;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.pt-short-fblock-cells {
+  display: flex;
+  gap: 2px;
+}
+
+.pt-short-fblock-cell {
+  flex-shrink: 0;
 }
 
 /* ========================================
@@ -603,7 +670,7 @@
   }
 
   .pt-grid-short {
-    grid-template-columns: 20px repeat(16, 38px);
+    grid-template-columns: 20px 20px repeat(7, 38px) repeat(3, 38px) 38px;
   }
 
   .pt-cell {
@@ -651,7 +718,7 @@
   }
 
   .pt-grid-short {
-    grid-template-columns: 16px repeat(16, 30px);
+    grid-template-columns: 16px 16px repeat(7, 30px) repeat(3, 30px) 30px;
   }
 
   .pt-cell {
@@ -707,7 +774,7 @@
   }
 
   .pt-grid-short {
-    grid-template-columns: 14px repeat(16, 24px);
+    grid-template-columns: 14px 14px repeat(7, 24px) repeat(3, 24px) 24px;
   }
 
   .pt-cell {
@@ -755,7 +822,7 @@
   }
 
   .pt-grid-short {
-    grid-template-columns: 0px repeat(16, minmax(0, 1fr));
+    grid-template-columns: 0px 0px repeat(7, minmax(0, 1fr)) repeat(3, minmax(0, 1fr)) minmax(0, 1fr);
     width: 100%;
   }
 
