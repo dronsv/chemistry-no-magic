@@ -1,0 +1,486 @@
+---
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoleculeView from '../../components/MoleculeView';
+import type { SupportedLocale } from '../../types/i18n';
+import { localizeUrl } from '../../lib/i18n';
+import { CLASS_LABELS, SUBCLASS_LABELS, TAG_LABELS } from './substance-detail-paths';
+import type { Props } from './substance-detail-paths';
+
+const { substance, classificationRules, namingRules, allSubstances, ions, substanceReactions } = Astro.props as Props;
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const displayName = substance.name_ru ?? substance.formula;
+
+// Find matching classification rule
+const classRule = classificationRules.find(
+  r => r.class === substance.class && r.subclass === substance.subclass
+);
+
+// Find matching naming rule — check which rule's examples include this formula
+const namingRule = namingRules.find(
+  r => r.examples.some(ex => ex.formula === substance.formula)
+) ?? namingRules.find(r => r.class === substance.class);
+
+// Find the exact example for this substance (if exists in the matched rule)
+const namingExample = namingRule?.examples.find(ex => ex.formula === substance.formula);
+
+// Human-readable template: replace placeholders
+const TEMPLATE_PLACEHOLDERS: Record<string, string> = {
+  '{metal_genitive}': 'металла',
+  '{roman_numeral}': 'степень окисления',
+  '{nonmetal_genitive}': 'неметалла',
+};
+function humanizeTemplate(tpl: string): string {
+  let result = tpl;
+  for (const [key, label] of Object.entries(TEMPLATE_PLACEHOLDERS)) {
+    result = result.replace(key, `[${label}]`);
+  }
+  return result;
+}
+const readableTemplate = namingRule ? humanizeTemplate(namingRule.template_ru) : null;
+
+// Related substances (same class, same subclass first, then same class)
+const related = allSubstances
+  .filter(s => s.id !== substance.id && s.class === substance.class)
+  .sort((a, b) => {
+    const aMatch = a.subclass === substance.subclass ? 0 : 1;
+    const bMatch = b.subclass === substance.subclass ? 0 : 1;
+    return aMatch - bMatch;
+  })
+  .slice(0, 8);
+
+const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
+const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
+
+// Try to load molecule structure
+let structure = null;
+try {
+  const structRaw = await readFile(
+    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`), 'utf-8'
+  );
+  structure = JSON.parse(structRaw);
+} catch { /* no structure for this substance */ }
+
+const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance_ru;
+const hasHazards = (substance.hazards_ru && substance.hazards_ru.length > 0) || substance.storage_ru;
+const hasProduction = substance.production_ru || substance.industrial_ru;
+const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
+---
+
+<BaseLayout
+  title={displayName}
+  description={`${displayName} (${substance.formula}) — свойства, классификация, реакции.`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ChemicalSubstance",
+      "name": displayName,
+      "molecularFormula": substance.formula,
+      "description": `${displayName} — ${classLabel}`,
+      "inLanguage": locale,
+    })} />
+  </Fragment>
+
+  <article class="substance-page">
+    <h1>{substance.formula}</h1>
+    {substance.name_ru && <p class="substance-name">{substance.name_ru}</p>}
+
+    <dl class="substance-props">
+      <dt>Класс</dt>
+      <dd>
+        <span class={`subst-card__badge subst-card__badge--${substance.class}`}>
+          {classLabel}
+        </span>
+        {subclassLabel && <span class="substance-subclass"> ({subclassLabel})</span>}
+      </dd>
+
+      {substance.ions && substance.ions.length > 0 && (
+        <>
+          <dt>Ионы</dt>
+          <dd class="substance-ions">
+            {substance.ions.map((ionId, i) => {
+              const ion = ions[ionId];
+              return (
+                <>
+                  {i > 0 && ', '}
+                  {ion ? (
+                    <span class={`substance-ion substance-ion--${ion.type}`} title={ion.name_ru}>
+                      {ion.formula}
+                    </span>
+                  ) : ionId}
+                </>
+              );
+            })}
+          </dd>
+        </>
+      )}
+
+      {substance.tags && substance.tags.length > 0 && (
+        <>
+          <dt>Свойства</dt>
+          <dd class="substance-tags">
+            {substance.tags.map(tag => (
+              <span class="substance-tag">{TAG_LABELS[tag] ?? tag}</span>
+            ))}
+          </dd>
+        </>
+      )}
+    </dl>
+
+    {substance.notes && <p class="substance-notes">{substance.notes}</p>}
+
+    {classRule && (
+      <div class="subst-detail__section">
+        <h3>Классификация</h3>
+        <div class="subst-detail__explanation">{classRule.description_ru}</div>
+      </div>
+    )}
+
+    {namingRule && (
+      <div class="subst-detail__section">
+        <h3>Номенклатура</h3>
+        <div class="subst-detail__explanation">
+          <div>Шаблон: <span class="subst-detail__template">{readableTemplate}</span></div>
+          {namingExample && (
+            <div class="subst-detail__naming-result">
+              {namingExample.formula} &rarr; <strong>{namingExample.name_ru}</strong>
+            </div>
+          )}
+        </div>
+      </div>
+    )}
+
+    {structure && (
+      <div class="subst-detail__section">
+        <h3>Структурная формула</h3>
+        <MoleculeView
+          client:idle
+          structure={structure}
+          layers={{ bonds: true, oxStates: false, charges: false, lonePairs: false }}
+          size="md"
+          interactive={true}
+        />
+      </div>
+    )}
+
+    {hasPhysical && (
+      <div class="subst-detail__section">
+        <h3>Физические свойства</h3>
+        {substance.appearance_ru && (
+          <p class="subst-detail__appearance">{substance.appearance_ru}</p>
+        )}
+        <dl class="subst-detail__phys-props">
+          {substance.melting_point_C != null && (
+            <>
+              <dt>Т. плавления</dt>
+              <dd>{substance.melting_point_C} °C</dd>
+            </>
+          )}
+          {substance.boiling_point_C != null && (
+            <>
+              <dt>Т. кипения</dt>
+              <dd>{substance.boiling_point_C} °C</dd>
+            </>
+          )}
+          {substance.density_g_cm3 != null && (
+            <>
+              <dt>Плотность</dt>
+              <dd>{substance.density_g_cm3} г/см³</dd>
+            </>
+          )}
+        </dl>
+      </div>
+    )}
+
+    {hasHazards && (
+      <div class="subst-detail__section">
+        <h3>Опасность и хранение</h3>
+        {substance.hazards_ru && substance.hazards_ru.length > 0 && (
+          <div class="subst-detail__hazards">
+            {substance.hazards_ru.map(h => (
+              <span class="subst-detail__hazard-tag">{h}</span>
+            ))}
+          </div>
+        )}
+        {substance.storage_ru && (
+          <p class="subst-detail__storage">{substance.storage_ru}</p>
+        )}
+      </div>
+    )}
+
+    {hasProduction && (
+      <div class="subst-detail__section">
+        <h3>Получение и применение</h3>
+        {substance.production_ru && (
+          <div class="subst-detail__explanation">{substance.production_ru}</div>
+        )}
+        {substance.industrial_ru && (
+          <p class="subst-detail__text">{substance.industrial_ru}</p>
+        )}
+      </div>
+    )}
+
+    {substanceReactions.length > 0 && (
+      <div class="subst-detail__section">
+        <h3>Реакции</h3>
+        <ul class="subst-detail__reactions">
+          {substanceReactions.map(r => (
+            <li>
+              <a href={`${localizeUrl('/reactions/', locale)}#${r.reaction_id}`}>{r.equation}</a>
+              <span class="subst-detail__reaction-title">{r.title}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {hasFacts && (
+      <div class="subst-detail__section">
+        <h3>Интересные факты</h3>
+        <ul class="subst-detail__facts">
+          {substance.fun_facts_ru!.map(f => (
+            <li>{f}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {related.length > 0 && (
+      <div class="subst-detail__section">
+        <h3>Похожие вещества</h3>
+        <div class="subst-detail__related">
+          {related.map(r => (
+            <a href={`${localizeUrl('/substances/', locale)}${r.id}/`} class="subst-detail__related-link">
+              {r.formula}{r.name_ru ? ` (${r.name_ru})` : ''}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="substance-page__actions">
+      <a href={localizeUrl('/substances/', locale)}>&larr; Каталог веществ</a>
+      <a href={localizeUrl('/substances/', locale)} class="btn btn-primary substance-page__practice-link">Потренироваться</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .substance-page {
+    max-width: 640px;
+    padding: var(--space-xl) 0;
+  }
+  .substance-page h1 {
+    font-size: 2rem;
+    margin: 0 0 var(--space-xs);
+  }
+  .substance-name {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    margin: 0 0 var(--space-xl);
+  }
+  .substance-subclass {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+  .substance-props {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-xl);
+    align-items: center;
+  }
+  .substance-props dt {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+  .substance-props dd { margin: 0; }
+  .substance-ions {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    flex-wrap: wrap;
+  }
+  .substance-ion {
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    cursor: help;
+  }
+  .substance-ion--cation {
+    background: #eff6ff;
+    color: #1e40af;
+  }
+  .substance-ion--anion {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+  .substance-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+  .substance-tag {
+    font-size: 0.8125rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    color: var(--color-text-muted);
+  }
+  .substance-notes {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+  }
+  .substance-page__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+  .substance-page__practice-link {
+    margin-left: auto;
+  }
+
+  /* Section styles (inline since substances.css is only loaded on index) */
+  .subst-detail__section {
+    margin-bottom: var(--space-lg);
+  }
+  .subst-detail__section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text);
+  }
+  .subst-detail__explanation {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0.25rem;
+    margin-bottom: var(--space-sm);
+  }
+  .subst-detail__template {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .subst-detail__naming-result {
+    margin-top: var(--space-xs);
+    font-size: 0.9375rem;
+  }
+  .subst-detail__related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  .subst-detail__related-link {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 0.8125rem;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: border-color 0.15s;
+  }
+  .subst-detail__related-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Physical properties */
+  .subst-detail__appearance {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm);
+    font-style: italic;
+  }
+  .subst-detail__phys-props {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xs) var(--space-lg);
+    font-size: 0.875rem;
+  }
+  .subst-detail__phys-props dt {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+  .subst-detail__phys-props dd {
+    margin: 0;
+  }
+
+  /* Hazards */
+  .subst-detail__hazards {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-sm);
+  }
+  .subst-detail__hazard-tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.8125rem;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 0.25rem;
+    font-weight: 500;
+  }
+  .subst-detail__storage {
+    font-size: 0.875rem;
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-left: 3px solid #f59e0b;
+    border-radius: 0.25rem;
+  }
+  .subst-detail__text {
+    font-size: 0.875rem;
+    margin: var(--space-xs) 0 0;
+    line-height: 1.6;
+  }
+
+  /* Reactions */
+  .subst-detail__reactions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .subst-detail__reactions li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .subst-detail__reactions li:last-child {
+    border-bottom: none;
+  }
+  .subst-detail__reactions a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+  .subst-detail__reaction-title {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Facts */
+  .subst-detail__facts {
+    margin: 0;
+    padding-left: var(--space-lg);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .subst-detail__facts li {
+    margin-bottom: var(--space-xs);
+  }
+</style>

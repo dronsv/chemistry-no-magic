@@ -1,0 +1,407 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompetencyMasteryIsland from '../../features/profile/CompetencyMasteryIsland';
+import CompetencyPracticeIsland from '../../features/competency/CompetencyPracticeIsland';
+import ChainsContent from '../../components/competency-content/ChainsContent.astro';
+import QualTestsContent from '../../components/competency-content/QualTestsContent.astro';
+import RateContent from '../../components/competency-content/RateContent.astro';
+import CatalystContent from '../../components/competency-content/CatalystContent.astro';
+import ExchangeContent from '../../components/competency-content/ExchangeContent.astro';
+import ClassRulesContent from '../../components/competency-content/ClassRulesContent.astro';
+import NamingContent from '../../components/competency-content/NamingContent.astro';
+import SolubilityTable from '../../features/reactions/SolubilityTable';
+import type { SupportedLocale } from '../../types/i18n';
+import { localizeUrl, SITE_NAME } from '../../lib/i18n';
+import * as m from '../../paraglide/messages.js';
+import type { Props } from './competency-detail-paths';
+
+const { competency, prereqs, unlocks, contentProps } = Astro.props as Props;
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const siteName = SITE_NAME[locale];
+const cid = competency.id;
+---
+
+<BaseLayout
+  title={`${competency.name_ru} — ${siteName}`}
+  description={competency.description_ru}
+>
+  <article class="comp-page container">
+    <div class="comp-page__header">
+      <span class="comp-page__badge">{m.comp_block()} {competency.block} — {competency.block_name_ru}</span>
+      <h1 class="comp-page__title">{competency.name_ru}</h1>
+      <p class="comp-page__desc">{competency.description_ru}</p>
+    </div>
+
+    <section class="comp-page__section">
+      <h2>{m.comp_mastery()}</h2>
+      <CompetencyMasteryIsland client:idle id={competency.id} name={competency.name_ru} />
+    </section>
+
+    {/* Reference content section */}
+    <section class="comp-page__content comp-page__section">
+      <h2>{m.comp_reference()}</h2>
+
+      {cid === 'periodic_table' && (
+        <div>
+          <p class="comp-content__intro">{m.comp_ref_periodic_desc()}</p>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_periodic_metals()}</li>
+            <li>{m.comp_ref_periodic_z()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'electron_config' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_econfig_klechkowski()}</li>
+            <li>{m.comp_ref_econfig_hund()}</li>
+            <li>{m.comp_ref_econfig_pauli()}</li>
+          </ul>
+          <div class="comp-content__formula">{m.comp_ref_econfig_order()}</div>
+          <p class="comp-content__note">{m.comp_ref_econfig_exceptions()}</p>
+        </div>
+      )}
+
+      {cid === 'periodic_trends' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_trends_radius()}</li>
+            <li>{m.comp_ref_trends_en()}</li>
+            <li>{m.comp_ref_trends_ie()}</li>
+            <li>{m.comp_ref_trends_metallic()}</li>
+          </ul>
+          <p class="comp-content__note">{m.comp_ref_trends_reason()}</p>
+        </div>
+      )}
+
+      {cid === 'oxidation_states' && (
+        <div>
+          <p class="comp-content__intro">{m.comp_ref_ox_rules()}</p>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_ox_rule1()}</li>
+            <li>{m.comp_ref_ox_rule2()}</li>
+            <li>{m.comp_ref_ox_rule3()}</li>
+            <li>{m.comp_ref_ox_rule4()}</li>
+            <li>{m.comp_ref_ox_rule5()}</li>
+            <li>{m.comp_ref_ox_rule6()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'bond_type' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_bond_ionic()}</li>
+            <li>{m.comp_ref_bond_cov_polar()}</li>
+            <li>{m.comp_ref_bond_cov_nonpolar()}</li>
+            <li>{m.comp_ref_bond_metallic()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'crystal_structure_type' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_crystal_ionic()}</li>
+            <li>{m.comp_ref_crystal_molecular()}</li>
+            <li>{m.comp_ref_crystal_atomic()}</li>
+            <li>{m.comp_ref_crystal_metallic()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'amphoterism_logic' && (
+        <div>
+          <p class="comp-content__intro">{m.comp_ref_ampho_elements()}</p>
+          <div class="comp-content__formula">
+            <div>{m.comp_ref_ampho_acid()}</div>
+            <div>{m.comp_ref_ampho_base()}</div>
+          </div>
+          <p class="comp-content__note">{m.comp_ref_ampho_sign()}</p>
+        </div>
+      )}
+
+      {cid === 'reactions_redox' && (
+        <div>
+          <p class="comp-content__intro">{m.rxn_theory_redox_desc()}</p>
+          <ul class="comp-content__list">
+            <li><strong>{m.rxn_theory_oxidizer()}</strong> — {m.rxn_theory_oxidizer_desc()}</li>
+            <li><strong>{m.rxn_theory_reducer()}</strong> — {m.rxn_theory_reducer_desc()}</li>
+          </ul>
+          <p class="comp-content__note">{m.rxn_theory_mnemonic()}</p>
+          <p class="comp-content__subtitle">{m.rxn_theory_electron_balance()}</p>
+          <ol class="comp-content__list">
+            <li>{m.rxn_theory_eb_step1()}</li>
+            <li>{m.rxn_theory_eb_step2()}</li>
+            <li>{m.rxn_theory_eb_step3()}</li>
+            <li>{m.rxn_theory_eb_step4()}</li>
+            <li>{m.rxn_theory_eb_step5()}</li>
+          </ol>
+        </div>
+      )}
+
+      {cid === 'gas_precipitate_logic' && (
+        <div>
+          <p class="comp-content__intro">{m.rxn_theory_forces()}</p>
+          <p class="comp-content__subtitle">{m.rxn_theory_solubility()}</p>
+          <SolubilityTable client:idle />
+        </div>
+      )}
+
+      {cid === 'electrolyte_logic' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_electro_strong()}</li>
+            <li>{m.comp_ref_electro_weak()}</li>
+            <li>{m.comp_ref_electro_non()}</li>
+          </ul>
+          <p class="comp-content__note">{m.comp_ref_electro_dissoc()}</p>
+        </div>
+      )}
+
+      {cid === 'calculations_basic' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_calc_basic_mr()}</li>
+            <li>{m.comp_ref_calc_basic_n()}</li>
+            <li>{m.comp_ref_calc_basic_omega()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'calculations_solutions' && (
+        <div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_calc_sol_omega()}</li>
+            <li>{m.comp_ref_calc_sol_mass()}</li>
+            <li>{m.comp_ref_calc_sol_dilution()}</li>
+          </ul>
+        </div>
+      )}
+
+      {cid === 'reaction_yield_logic' && (
+        <div>
+          <div class="comp-content__formula">{m.comp_ref_calc_yield_formula()}</div>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_calc_yield_steps()}</li>
+            <li>{m.comp_ref_calc_yield_excess()}</li>
+          </ul>
+        </div>
+      )}
+
+      {contentProps.type === 'chains' && <ChainsContent chains={contentProps.chains as any} />}
+      {contentProps.type === 'qualTests' && <QualTestsContent tests={contentProps.tests as any} />}
+      {contentProps.type === 'rate' && <RateContent theory={contentProps.theory as any} />}
+      {contentProps.type === 'catalyst' && <CatalystContent catalystProperties={contentProps.catalystProperties as any} commonCatalysts={contentProps.commonCatalysts as any} />}
+      {contentProps.type === 'exchange' && <ExchangeContent templates={contentProps.templates as any} rules={contentProps.rules as any} />}
+      {contentProps.type === 'classRules' && <ClassRulesContent rules={contentProps.rules as any} />}
+      {contentProps.type === 'naming' && <NamingContent rules={contentProps.rules as any} />}
+    </section>
+
+    <section class="comp-page__section">
+      <CompetencyPracticeIsland
+        client:idle
+        competencyId={competency.id}
+        competencyName={competency.name_ru}
+        locale={locale}
+      />
+    </section>
+
+    <section class="comp-page__section">
+      <h2>{m.comp_prerequisites()}</h2>
+      {prereqs.length > 0 ? (
+        <ul class="comp-page__dep-list">
+          {prereqs.map(p => (
+            <li>
+              <a href={localizeUrl(`/competency/${p.id}/`, locale)}>{p.name_ru}</a>
+              <span class="comp-page__dep-block">{p.block}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="comp-page__empty">{m.comp_no_prerequisites()}</p>
+      )}
+    </section>
+
+    <section class="comp-page__section">
+      <h2>{m.comp_unlocks()}</h2>
+      {unlocks.length > 0 ? (
+        <ul class="comp-page__dep-list">
+          {unlocks.map(u => (
+            <li>
+              <a href={localizeUrl(`/competency/${u.id}/`, locale)}>{u.name_ru}</a>
+              <span class="comp-page__dep-block">{u.block}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="comp-page__empty">{m.comp_no_unlocks()}</p>
+      )}
+    </section>
+
+    {competency.link && (
+      <section class="comp-page__section">
+        <h2>{m.comp_materials()}</h2>
+        <a href={localizeUrl(competency.link, locale)} class="comp-page__material-link">
+          {competency.name_ru} &rarr;
+        </a>
+      </section>
+    )}
+
+    {competency.oge_task_types.length > 0 && (
+      <section class="comp-page__section">
+        <h2>{m.comp_oge_tasks()}</h2>
+        <div class="comp-page__tasks">
+          {competency.oge_task_types.map(n => (
+            <a href={localizeUrl('/exam/', locale)} class="comp-page__task-badge">
+              {n}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="comp-page__actions">
+      <a href={localizeUrl('/profile/', locale)}>&larr; {m.comp_back_to_profile()}</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .comp-page {
+    max-width: 720px;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .comp-page__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .comp-page__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    background: #dbe4ff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .comp-page__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: var(--space-sm) 0;
+  }
+
+  .comp-page__desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .comp-page__section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .comp-page__section h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .comp-page__dep-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .comp-page__dep-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .comp-page__dep-list a {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .comp-page__dep-block {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: var(--color-border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 0.2rem;
+    margin-left: auto;
+  }
+
+  .comp-page__empty {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .comp-page__material-link {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: border-color 0.15s;
+  }
+
+  .comp-page__material-link:hover {
+    border-color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .comp-page__tasks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .comp-page__task-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    color: var(--color-text);
+    transition: border-color 0.15s;
+  }
+
+  .comp-page__task-badge:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .comp-page__actions {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+</style>
