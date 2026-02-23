@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "locale": "pl",
+  "description": "Query normalization synonyms for Polish locale.",
+  "entries": [
+    { "key": "woda utleniona",    "expand": ["nadtlenek wodoru", "h2o2"] },
+    { "key": "amoniak",           "expand": ["nh3"] },
+    { "key": "sól kuchenna",      "expand": ["chlorek sodu", "nacl"] },
+    { "key": "soda oczyszczona",  "expand": ["wodorowęglan sodu", "nahco3"] },
+    { "key": "soda kalcynowana",  "expand": ["węglan sodu", "na2co3"] },
+    { "key": "soda kaustyczna",   "expand": ["wodorotlenek sodu", "naoh"] },
+    { "key": "wapno palone",      "expand": ["tlenek wapnia", "cao"] },
+    { "key": "wapno gaszone",     "expand": ["wodorotlenek wapnia", "ca(oh)2"] },
+    { "key": "siarczan miedzi",   "expand": ["cuso4"] },
+    { "key": "nadmanganian potasu", "expand": ["kmno4"] },
+    { "key": "etanol",            "expand": ["alkohol etylowy", "c2h5oh"] },
+    { "key": "metanol",           "expand": ["alkohol metylowy", "ch3oh"] },
+    { "key": "kwas octowy",       "expand": ["kwas etanowy", "ch3cooh"] },
+    { "key": "aceton",            "expand": ["propanon", "ch3coch3"] },
+    { "key": "kwas siarkowy",     "expand": ["h2so4"] },
+    { "key": "kwas solny",        "expand": ["kwas chlorowodorowy", "hcl"] },
+    { "key": "kwas azotowy",      "expand": ["hno3"] },
+    { "key": "glukoza",           "expand": ["c6h12o6"] }
+  ]
+}

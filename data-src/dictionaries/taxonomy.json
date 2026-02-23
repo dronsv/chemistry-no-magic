@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "description": "Canonical substance taxonomy. Single source of truth for valid type/class/subclass codes. Labels live in Paraglide (taxonomy.type.*, taxonomy.class.*, taxonomy.subclass.*).",
+
+  "types": ["simple", "inorganic", "organic"],
+
+  "classes": {
+    "simple": ["simple_substance"],
+    "inorganic": ["oxide", "acid", "base", "salt", "other_inorganic"],
+    "organic": [
+      "hydrocarbon",
+      "alcohol",
+      "carboxylic_acid",
+      "aldehyde",
+      "ketone",
+      "ester",
+      "amine",
+      "phenol",
+      "carbohydrate",
+      "other_organic"
+    ]
+  },
+
+  "subclasses": {
+    "simple_substance": ["metal", "nonmetal", "noble_gas", "allotrope"],
+    "oxide": ["basic", "acidic", "amphoteric", "indifferent"],
+    "acid": ["oxygen_containing", "oxygen_free"],
+    "base": ["soluble", "insoluble", "amphoteric"],
+    "salt": ["normal", "acidic", "basic"],
+    "other_inorganic": ["peroxide", "hydride"],
+    "hydrocarbon": ["alkane", "alkene", "alkyne", "diene", "aromatic"]
+  },
+
+  "ui_filters": [
+    { "id": "all",      "kind": "system" },
+    { "id": "simple",   "kind": "type",  "match": { "type": "simple" } },
+    { "id": "oxide",    "kind": "class", "match": { "class": "oxide" } },
+    { "id": "acid",     "kind": "class", "match": { "class": "acid" } },
+    { "id": "base",     "kind": "class", "match": { "class": "base" } },
+    { "id": "salt",     "kind": "class", "match": { "class": "salt" } },
+    { "id": "organic",  "kind": "type",  "match": { "type": "organic" } },
+    { "id": "other_inorganic", "kind": "class", "match": { "class": "other_inorganic" } }
+  ]
+}

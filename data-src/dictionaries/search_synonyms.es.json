@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "locale": "es",
+  "description": "Query normalization synonyms for Spanish locale.",
+  "entries": [
+    { "key": "agua oxigenada",    "expand": ["peróxido de hidrógeno", "h2o2"] },
+    { "key": "amoníaco",          "expand": ["nh3"] },
+    { "key": "sal de mesa",       "expand": ["cloruro de sodio", "nacl"] },
+    { "key": "bicarbonato",       "expand": ["bicarbonato de sodio", "nahco3"] },
+    { "key": "sosa cáustica",     "expand": ["hidróxido de sodio", "naoh"] },
+    { "key": "cal viva",          "expand": ["óxido de calcio", "cao"] },
+    { "key": "cal apagada",       "expand": ["hidróxido de calcio", "ca(oh)2"] },
+    { "key": "sulfato de cobre",  "expand": ["cuso4", "vitriolo azul"] },
+    { "key": "permanganato de potasio", "expand": ["kmno4"] },
+    { "key": "etanol",            "expand": ["alcohol etílico", "c2h5oh"] },
+    { "key": "metanol",           "expand": ["alcohol metílico", "ch3oh"] },
+    { "key": "ácido acético",     "expand": ["ácido etanoico", "ch3cooh", "vinagre"] },
+    { "key": "acetona",           "expand": ["propanona", "ch3coch3"] },
+    { "key": "ácido sulfúrico",   "expand": ["h2so4"] },
+    { "key": "ácido clorhídrico", "expand": ["ácido muriático", "hcl"] },
+    { "key": "ácido nítrico",     "expand": ["hno3"] },
+    { "key": "glucosa",           "expand": ["c6h12o6", "dextrosa"] }
+  ]
+}

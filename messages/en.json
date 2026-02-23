@@ -55,6 +55,7 @@
   "class_acids": "Acids",
   "class_bases": "Bases",
   "class_salts": "Salts",
+  "class_others": "Other",
   "subclass_basic": "Basic",
   "subclass_acidic": "Acidic",
   "subclass_amphoteric": "Amphoteric",

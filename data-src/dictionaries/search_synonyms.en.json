@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "locale": "en",
+  "description": "Query normalization synonyms for English locale.",
+  "entries": [
+    { "key": "hydrogen peroxide", "expand": ["peroxide", "h2o2"] },
+    { "key": "ammonia",           "expand": ["nh3"] },
+    { "key": "table salt",        "expand": ["sodium chloride", "nacl"] },
+    { "key": "baking soda",       "expand": ["sodium bicarbonate", "nahco3"] },
+    { "key": "washing soda",      "expand": ["sodium carbonate", "na2co3"] },
+    { "key": "caustic soda",      "expand": ["sodium hydroxide", "naoh", "lye"] },
+    { "key": "quicklime",         "expand": ["calcium oxide", "cao"] },
+    { "key": "slaked lime",       "expand": ["calcium hydroxide", "ca(oh)2"] },
+    { "key": "blue vitriol",      "expand": ["copper sulfate", "cuso4"] },
+    { "key": "potassium permanganate", "expand": ["kmno4"] },
+    { "key": "ethanol",           "expand": ["ethyl alcohol", "c2h5oh", "alcohol"] },
+    { "key": "methanol",          "expand": ["methyl alcohol", "ch3oh", "wood alcohol"] },
+    { "key": "acetic acid",       "expand": ["ethanoic acid", "ch3cooh", "vinegar"] },
+    { "key": "acetone",           "expand": ["propanone", "ch3coch3"] },
+    { "key": "formaldehyde",      "expand": ["methanal", "ch2o"] },
+    { "key": "sulfuric acid",     "expand": ["h2so4"] },
+    { "key": "hydrochloric acid", "expand": ["muriatic acid", "hcl"] },
+    { "key": "nitric acid",       "expand": ["hno3"] },
+    { "key": "glucose",           "expand": ["c6h12o6", "dextrose"] }
+  ]
+}

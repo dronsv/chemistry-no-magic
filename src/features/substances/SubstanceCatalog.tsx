@@ -19,6 +19,7 @@ const FILTER_BUTTONS: Array<{ key: string; label: () => string }> = [
   { key: 'acid', label: m.class_acids },
   { key: 'base', label: m.class_bases },
   { key: 'salt', label: m.class_salts },
+  { key: 'other', label: m.class_others },
 ];
 
 export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
