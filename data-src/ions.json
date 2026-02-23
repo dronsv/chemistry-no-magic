@@ -142,6 +142,13 @@
     "name_ru": "Фторид-ион",
     "name_ru_genitive": "фторида",
     "parent_acid": "HF",
+    "naming": {
+      "root_ru": "фтор",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "oxidation_state": -1,
+      "derivation_ru": "бескислородная → -ид"
+    },
     "tags": ["fluoride", "halide"]
   },
   {
@@ -152,6 +159,13 @@
     "name_ru": "Хлорид-ион",
     "name_ru_genitive": "хлорида",
     "parent_acid": "HCl",
+    "naming": {
+      "root_ru": "хлор",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "oxidation_state": -1,
+      "derivation_ru": "бескислородная → -ид"
+    },
     "tags": ["chloride", "halide"]
   },
   {
@@ -162,6 +176,13 @@
     "name_ru": "Бромид-ион",
     "name_ru_genitive": "бромида",
     "parent_acid": "HBr",
+    "naming": {
+      "root_ru": "бром",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "oxidation_state": -1,
+      "derivation_ru": "бескислородная → -ид"
+    },
     "tags": ["bromide", "halide"]
   },
   {
@@ -172,6 +193,13 @@
     "name_ru": "Иодид-ион",
     "name_ru_genitive": "иодида",
     "parent_acid": "HI",
+    "naming": {
+      "root_ru": "иод",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "oxidation_state": -1,
+      "derivation_ru": "бескислородная → -ид"
+    },
     "tags": ["iodide", "halide"]
   },
   {
@@ -182,6 +210,13 @@
     "name_ru": "Сульфид-ион",
     "name_ru_genitive": "сульфида",
     "parent_acid": "H\u2082S",
+    "naming": {
+      "root_ru": "сульф",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "oxidation_state": -2,
+      "derivation_ru": "бескислородная → -ид"
+    },
     "tags": ["sulfide"]
   },
   {
@@ -192,6 +227,14 @@
     "name_ru": "Сульфат-ион",
     "name_ru_genitive": "сульфата",
     "parent_acid": "H\u2082SO\u2084",
+    "naming": {
+      "root_ru": "сульф",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 6,
+      "pair_id": "SO3_2minus",
+      "derivation_ru": "макс. СО серы (+6) → -ат"
+    },
     "tags": ["sulfate"]
   },
   {
@@ -202,6 +245,14 @@
     "name_ru": "Сульфит-ион",
     "name_ru_genitive": "сульфита",
     "parent_acid": "H\u2082SO\u2083",
+    "naming": {
+      "root_ru": "сульф",
+      "suffix_ru": "-ит",
+      "suffix_en": "-ite",
+      "oxidation_state": 4,
+      "pair_id": "SO4_2minus",
+      "derivation_ru": "меньшая СО серы (+4) → -ит"
+    },
     "tags": ["sulfite", "gas_forming"]
   },
   {
@@ -212,6 +263,14 @@
     "name_ru": "Нитрат-ион",
     "name_ru_genitive": "нитрата",
     "parent_acid": "HNO\u2083",
+    "naming": {
+      "root_ru": "нитр",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 5,
+      "pair_id": "NO2_minus",
+      "derivation_ru": "макс. СО азота (+5) → -ат"
+    },
     "tags": ["nitrate"]
   },
   {
@@ -222,6 +281,14 @@
     "name_ru": "Нитрит-ион",
     "name_ru_genitive": "нитрита",
     "parent_acid": "HNO\u2082",
+    "naming": {
+      "root_ru": "нитр",
+      "suffix_ru": "-ит",
+      "suffix_en": "-ite",
+      "oxidation_state": 3,
+      "pair_id": "NO3_minus",
+      "derivation_ru": "меньшая СО азота (+3) → -ит"
+    },
     "tags": ["nitrite"]
   },
   {
@@ -232,6 +299,13 @@
     "name_ru": "Карбонат-ион",
     "name_ru_genitive": "карбоната",
     "parent_acid": "H\u2082CO\u2083",
+    "naming": {
+      "root_ru": "карбон",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 4,
+      "derivation_ru": "кислородная → -ат"
+    },
     "tags": ["carbonate", "gas_forming"]
   },
   {
@@ -242,6 +316,13 @@
     "name_ru": "Силикат-ион",
     "name_ru_genitive": "силиката",
     "parent_acid": "H\u2082SiO\u2083",
+    "naming": {
+      "root_ru": "силик",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 4,
+      "derivation_ru": "кислородная → -ат"
+    },
     "tags": ["silicate"]
   },
   {
@@ -252,6 +333,13 @@
     "name_ru": "Фосфат-ион",
     "name_ru_genitive": "фосфата",
     "parent_acid": "H\u2083PO\u2084",
+    "naming": {
+      "root_ru": "фосф",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 5,
+      "derivation_ru": "кислородная → -ат"
+    },
     "tags": ["phosphate"]
   },
   {
@@ -262,6 +350,13 @@
     "name_ru": "Ацетат-ион",
     "name_ru_genitive": "ацетата",
     "parent_acid": "CH\u2083COOH",
+    "naming": {
+      "root_ru": "ацет",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 3,
+      "derivation_ru": "кислородная (орг.) → -ат"
+    },
     "tags": ["acetate", "organic"]
   },
   {
@@ -272,6 +367,15 @@
     "name_ru": "Перманганат-ион",
     "name_ru_genitive": "перманганата",
     "parent_acid": "HMnO\u2084",
+    "naming": {
+      "root_ru": "манган",
+      "prefix_ru": "пер-",
+      "suffix_ru": "-ат",
+      "prefix_en": "per-",
+      "suffix_en": "-ate",
+      "oxidation_state": 7,
+      "derivation_ru": "СО Mn (+7), выше макс. → пер-...-ат"
+    },
     "tags": ["permanganate", "oxidizer"]
   },
   {
@@ -282,6 +386,14 @@
     "name_ru": "Хромат-ион",
     "name_ru_genitive": "хромата",
     "parent_acid": "H\u2082CrO\u2084",
+    "naming": {
+      "root_ru": "хром",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 6,
+      "pair_id": "Cr2O7_2minus",
+      "derivation_ru": "кислородная → -ат"
+    },
     "tags": ["chromate"]
   },
   {
@@ -292,6 +404,14 @@
     "name_ru": "Дихромат-ион",
     "name_ru_genitive": "дихромата",
     "parent_acid": "H\u2082Cr\u2082O\u2087",
+    "naming": {
+      "root_ru": "дихром",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 6,
+      "pair_id": "CrO4_2minus",
+      "derivation_ru": "кислородная → -ат"
+    },
     "tags": ["dichromate", "oxidizer"]
   }
 ]
