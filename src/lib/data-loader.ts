@@ -26,6 +26,7 @@ import type { UnifiedTopic } from '../types/topic-mapping';
 import type { FormulaLookup } from '../types/formula-lookup';
 import type { ProcessVocabEntry } from '../types/process-vocab';
 import type { QuantitiesUnitsOntology } from '../types/quantities-units';
+import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
@@ -449,6 +450,11 @@ export async function loadEnergyCatalystTheory(): Promise<EnergyCatalystTheory> 
 /** Load calculations data (substances + reactions for calc exercises). */
 export async function loadCalculationsData(): Promise<CalculationsData> {
   return loadRule('calculations_data') as Promise<CalculationsData>;
+}
+
+/** Load ion nomenclature rules (suffix derivation system). */
+export async function loadIonNomenclature(): Promise<IonNomenclatureRules> {
+  return loadRule('ion_nomenclature') as Promise<IonNomenclatureRules>;
 }
 
 /** Load OGE tasks from all variants. */

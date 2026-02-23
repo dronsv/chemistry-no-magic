@@ -142,6 +142,7 @@ async function main() {
   const ogeSolutionAlgorithms = await loadJson(join(DATA_SRC, 'exam', 'oge_solution_algorithms.json'));
   const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
   const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
+  const ionNomenclature = await loadJson(join(DATA_SRC, 'rules', 'ion_nomenclature.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
 
@@ -168,6 +169,7 @@ async function main() {
   console.log(`  ${calculationsData.calc_substances.length} calc substances, ${calculationsData.calc_reactions.length} calc reactions`);
   console.log(`  ${ogeTasks.length} OGE tasks, ${ogeSolutionAlgorithms.length} solution algorithms`);
   console.log(`  ${topicMapping.length} unified topics`);
+  console.log(`  ${ionNomenclature.suffix_rules.length} ion nomenclature rules, ${ionNomenclature.acid_to_anion_pairs.length} acid-anion pairs`);
   console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
   console.log(`  ${processVocab.length} process vocab entries, ${quantitiesUnits.quantities.length} quantities, ${quantitiesUnits.units.length} units`);
   console.log(`  ${reactions.length} reactions`);
@@ -275,6 +277,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'energy_catalyst_theory.json'), JSON.stringify(energyCatalystTheory));
   await writeFile(join(bundleDir, 'rules', 'calculations_data.json'), JSON.stringify(calculationsData));
   await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
+  await writeFile(join(bundleDir, 'rules', 'ion_nomenclature.json'), JSON.stringify(ionNomenclature));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));

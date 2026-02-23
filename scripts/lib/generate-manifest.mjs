@@ -36,6 +36,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         energy_catalyst_theory: 'rules/energy_catalyst_theory.json',
         calculations_data: 'rules/calculations_data.json',
         topic_mapping: 'rules/topic_mapping.json',
+        ion_nomenclature: 'rules/ion_nomenclature.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
