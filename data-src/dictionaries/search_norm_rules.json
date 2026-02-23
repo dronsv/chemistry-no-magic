@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "description": "Formula normalization rules for search. Applied at build-time when generating search indices and at query-time in search engine.",
+
+  "subscript_to_ascii": {
+    "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4",
+    "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9"
+  },
+
+  "superscript_to_ascii": {
+    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4",
+    "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9",
+    "⁺": "+", "⁻": "-"
+  },
+
+  "char_replacements": {
+    "•": "·",
+    "→": "->",
+    "↑": "",
+    "↓": "",
+    "−": "-"
+  },
+
+  "formula_detect_pattern": "^[A-Za-z\\[\\]()0-9·.+\\-]+$",
+
+  "pipeline": [
+    { "op": "trim" },
+    { "op": "apply_map", "map": "subscript_to_ascii" },
+    { "op": "apply_map", "map": "superscript_to_ascii" },
+    { "op": "apply_map", "map": "char_replacements" },
+    { "op": "remove_spaces" },
+    { "op": "preserve_element_case", "note": "Keep uppercase first letter of element symbols: Na, not na" }
+  ],
+
+  "text_pipeline": {
+    "ru": [
+      { "op": "lowercase" },
+      { "op": "trim" },
+      { "op": "replace_char", "from": "ё", "to": "е" },
+      { "op": "collapse_spaces" }
+    ],
+    "en": [
+      { "op": "lowercase" },
+      { "op": "trim" },
+      { "op": "collapse_spaces" }
+    ],
+    "pl": [
+      { "op": "lowercase" },
+      { "op": "trim" },
+      { "op": "collapse_spaces" }
+    ],
+    "es": [
+      { "op": "lowercase" },
+      { "op": "trim" },
+      { "op": "collapse_spaces" }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "description": "Exam profiles: per-exam configuration for topic weights, required substance classes, and UI customization. Separates exam requirements from chemical taxonomy.",
+
+  "profiles": [
+    {
+      "id": "ru_oge",
+      "name_ru": "ОГЭ по химии",
+      "country": "RU",
+      "default_locale": "ru",
+      "data_dir": "exam/oge",
+      "required_taxonomy_classes": [
+        "simple_substance", "oxide", "acid", "base", "salt", "other_inorganic"
+      ],
+      "topic_weights": {
+        "periodic_table": 1.2,
+        "oxidation_states": 1.2,
+        "classification": 1.1,
+        "reactions_exchange": 1.1,
+        "reactions_redox": 1.0,
+        "calculations_basic": 1.0,
+        "calculations_solutions": 1.0,
+        "electrolyte_logic": 1.0
+      },
+      "substance_boosts": {
+        "h2o2": 1.1,
+        "naoh": 1.2,
+        "hcl": 1.2,
+        "h2so4": 1.2,
+        "caco3": 1.1,
+        "nacl": 1.1
+      },
+      "task_count": 24,
+      "max_score": 40,
+      "time_minutes": 180
+    },
+    {
+      "id": "ru_ege",
+      "name_ru": "ЕГЭ по химии",
+      "country": "RU",
+      "default_locale": "ru",
+      "data_dir": "exam/ege",
+      "required_taxonomy_classes": [
+        "simple_substance", "oxide", "acid", "base", "salt",
+        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid",
+        "aldehyde", "ketone", "ester", "amine", "phenol"
+      ],
+      "topic_weights": {
+        "periodic_table": 1.0,
+        "electron_config": 1.2,
+        "oxidation_states": 1.1,
+        "bond_type": 1.1,
+        "reactions_redox": 1.2,
+        "calculations_basic": 1.1,
+        "calculations_solutions": 1.1,
+        "reaction_yield_logic": 1.2
+      },
+      "substance_boosts": {
+        "kmno4": 1.2,
+        "h2so4": 1.2,
+        "c2h5oh": 1.1,
+        "ch3cooh": 1.1
+      },
+      "task_count": 34,
+      "max_score": 56,
+      "time_minutes": 210
+    },
+    {
+      "id": "gb_gcse",
+      "name_ru": "GCSE Chemistry",
+      "country": "GB",
+      "default_locale": "en",
+      "data_dir": "exam/gcse",
+      "required_taxonomy_classes": [
+        "simple_substance", "oxide", "acid", "base", "salt", "other_inorganic"
+      ],
+      "topic_weights": {
+        "periodic_table": 1.1,
+        "bond_type": 1.2,
+        "crystal_structure_type": 1.1,
+        "reaction_energy_profile": 1.2,
+        "calculations_basic": 1.1
+      },
+      "substance_boosts": {
+        "h2o2": 1.2,
+        "nacl": 1.1,
+        "hcl": 1.1
+      },
+      "task_count": 30,
+      "time_minutes": 105
+    },
+    {
+      "id": "pl_matura",
+      "name_ru": "Matura z chemii",
+      "country": "PL",
+      "default_locale": "pl",
+      "data_dir": "exam/egzamin",
+      "required_taxonomy_classes": [
+        "simple_substance", "oxide", "acid", "base", "salt",
+        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid"
+      ],
+      "topic_weights": {
+        "periodic_table": 1.0,
+        "oxidation_states": 1.1,
+        "reactions_redox": 1.2,
+        "calculations_basic": 1.2,
+        "calculations_solutions": 1.1,
+        "reaction_yield_logic": 1.1
+      },
+      "substance_boosts": {
+        "h2so4": 1.1,
+        "naoh": 1.1
+      },
+      "task_count": 30,
+      "time_minutes": 180
+    },
+    {
+      "id": "es_ebau",
+      "name_ru": "EBAU Química",
+      "country": "ES",
+      "default_locale": "es",
+      "data_dir": "exam/ebau",
+      "required_taxonomy_classes": [
+        "simple_substance", "oxide", "acid", "base", "salt",
+        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid"
+      ],
+      "topic_weights": {
+        "periodic_table": 1.0,
+        "periodic_trends": 1.1,
+        "bond_type": 1.1,
+        "reaction_energy_profile": 1.2,
+        "calculations_basic": 1.2,
+        "reaction_yield_logic": 1.1
+      },
+      "substance_boosts": {},
+      "task_count": 10,
+      "time_minutes": 90
+    }
+  ]
+}
