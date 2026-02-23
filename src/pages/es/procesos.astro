@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProcessesPage from '../../features/processes/ProcessesPage';
+import type { SupportedLocale } from '../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+---
+
+<BaseLayout title="Referencia de procesos" description="Procesos físicos, químicos y de laboratorio">
+  <ProcessesPage locale={locale} client:idle />
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProcessesPage from '../features/processes/ProcessesPage';
+---
+
+<BaseLayout title="Справочник процессов" description="Физические, химические и лабораторные процессы">
+  <ProcessesPage client:idle />
+</BaseLayout>
