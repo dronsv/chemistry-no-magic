@@ -1,0 +1,74 @@
+{
+  "suffix_rules": [
+    {
+      "id": "binary_ide",
+      "condition": "no oxygen in anion (simple binary)",
+      "suffix_ru": "-ид",
+      "suffix_en": "-ide",
+      "description_ru": "Бескислородные кислоты → анион с суффиксом -ид",
+      "examples": ["Cl⁻ (хлорид)", "S²⁻ (сульфид)", "Br⁻ (бромид)"]
+    },
+    {
+      "id": "oxy_max_ate",
+      "condition": "oxoacid with max oxidation state",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "description_ru": "Кислородная кислота с макс. СО центрального атома → -ат",
+      "examples": ["SO₄²⁻ (сульфат, S⁶⁺)", "NO₃⁻ (нитрат, N⁵⁺)"]
+    },
+    {
+      "id": "oxy_lower_ite",
+      "condition": "oxoacid with lower oxidation state",
+      "suffix_ru": "-ит",
+      "suffix_en": "-ite",
+      "description_ru": "Кислородная кислота с меньшей СО → -ит",
+      "examples": ["SO₃²⁻ (сульфит, S⁴⁺)", "NO₂⁻ (нитрит, N³⁺)"]
+    },
+    {
+      "id": "per_prefix",
+      "condition": "oxidation state above typical maximum",
+      "prefix_ru": "пер-",
+      "prefix_en": "per-",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "description_ru": "СО выше обычного максимума → приставка пер- + суффикс -ат",
+      "examples": ["MnO₄⁻ (перманганат, Mn⁷⁺)"]
+    },
+    {
+      "id": "hypo_prefix",
+      "condition": "oxidation state below typical minimum for oxy",
+      "prefix_ru": "гипо-",
+      "prefix_en": "hypo-",
+      "suffix_ru": "-ит",
+      "suffix_en": "-ite",
+      "description_ru": "СО ниже обычного минимума → приставка гипо- + суффикс -ит",
+      "examples": ["ClO⁻ (гипохлорит, Cl¹⁺)"]
+    }
+  ],
+  "multilingual_comparison": {
+    "description_ru": "Система суффиксов в разных языках: -ид/-ит/-ат (рус.) ≈ -ide/-ite/-ate (англ.) ≈ -ek/-an/-ian (пол.) ≈ -uro/-ito/-ato (исп.)",
+    "columns": ["ru", "en", "pl", "es"],
+    "binary": ["-ид", "-ide", "-ek", "-uro"],
+    "oxy_max": ["-ат", "-ate", "-an", "-ato"],
+    "oxy_lower": ["-ит", "-ite", "-ian", "-ito"]
+  },
+  "mnemonic_ru": "Нет кислорода → -ИД. Есть кислород: макс. СО → -АТ, меньше → -ИТ. Ещё выше → ПЕР-...-АТ, ещё ниже → ГИПО-...-ИТ.",
+  "acid_to_anion_pairs": [
+    { "acid": "HCl", "anion_id": "Cl_minus", "acid_name_ru": "соляная кислота" },
+    { "acid": "HBr", "anion_id": "Br_minus", "acid_name_ru": "бромоводородная кислота" },
+    { "acid": "HI", "anion_id": "I_minus", "acid_name_ru": "иодоводородная кислота" },
+    { "acid": "HF", "anion_id": "F_minus", "acid_name_ru": "фтороводородная кислота" },
+    { "acid": "H₂S", "anion_id": "S_2minus", "acid_name_ru": "сероводородная кислота" },
+    { "acid": "H₂SO₄", "anion_id": "SO4_2minus", "acid_name_ru": "серная кислота" },
+    { "acid": "H₂SO₃", "anion_id": "SO3_2minus", "acid_name_ru": "сернистая кислота" },
+    { "acid": "HNO₃", "anion_id": "NO3_minus", "acid_name_ru": "азотная кислота" },
+    { "acid": "HNO₂", "anion_id": "NO2_minus", "acid_name_ru": "азотистая кислота" },
+    { "acid": "H₂CO₃", "anion_id": "CO3_2minus", "acid_name_ru": "угольная кислота" },
+    { "acid": "H₂SiO₃", "anion_id": "SiO3_2minus", "acid_name_ru": "кремниевая кислота" },
+    { "acid": "H₃PO₄", "anion_id": "PO4_3minus", "acid_name_ru": "фосфорная кислота" },
+    { "acid": "CH₃COOH", "anion_id": "CH3COO_minus", "acid_name_ru": "уксусная кислота" },
+    { "acid": "HMnO₄", "anion_id": "MnO4_minus", "acid_name_ru": "марганцовая кислота" },
+    { "acid": "H₂CrO₄", "anion_id": "CrO4_2minus", "acid_name_ru": "хромовая кислота" },
+    { "acid": "H₂Cr₂O₇", "anion_id": "Cr2O7_2minus", "acid_name_ru": "дихромовая кислота" }
+  ]
+}
