@@ -53,7 +53,7 @@ All chemistry data lives in static JSON bundles under `/data/{bundle_hash}/`:
 ### Client-Side Storage
 - **localStorage**: BKT P(L) values, user settings
 - **IndexedDB**: attempt history, cached data
-- PWA with offline support planned
+- **PWA**: Service Worker (`public/sw.js`) with network-first pages, cache-first assets/data bundles, offline fallback page (`public/offline.html`). Web App Manifest at `public/manifest.webmanifest`.
 
 ## Development Stages
 
