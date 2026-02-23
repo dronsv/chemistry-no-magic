@@ -1,0 +1,110 @@
+{
+  "chemical_reaction": {
+    "name_ru": "reacción química"
+  },
+  "neutralization": {
+    "name_ru": "neutralización"
+  },
+  "displacement": {
+    "name_ru": "desplazamiento"
+  },
+  "heating": {
+    "name_ru": "calentamiento"
+  },
+  "cooling": {
+    "name_ru": "enfriamiento"
+  },
+  "stirring": {
+    "name_ru": "agitación"
+  },
+  "grinding": {
+    "name_ru": "trituración"
+  },
+  "dilution": {
+    "name_ru": "dilución"
+  },
+  "add_excess_reagent": {
+    "name_ru": "exceso de reactivo"
+  },
+  "filtration": {
+    "name_ru": "filtración"
+  },
+  "washing": {
+    "name_ru": "lavado"
+  },
+  "drying": {
+    "name_ru": "secado"
+  },
+  "evaporation": {
+    "name_ru": "evaporación"
+  },
+  "decantation": {
+    "name_ru": "decantación"
+  },
+  "distillation": {
+    "name_ru": "destilación"
+  },
+  "dissolution": {
+    "name_ru": "disolución"
+  },
+  "crystallization": {
+    "name_ru": "cristalización"
+  },
+  "sublimation": {
+    "name_ru": "sublimación"
+  },
+  "condensation": {
+    "name_ru": "condensación"
+  },
+  "melting": {
+    "name_ru": "fusión"
+  },
+  "boiling": {
+    "name_ru": "ebullición"
+  },
+  "dissociation": {
+    "name_ru": "disociación"
+  },
+  "precipitation": {
+    "name_ru": "precipitación"
+  },
+  "gas_evolution": {
+    "name_ru": "desprendimiento de gas"
+  },
+  "gas_absorption": {
+    "name_ru": "absorción de gas"
+  },
+  "complexation": {
+    "name_ru": "formación de complejos"
+  },
+  "water_formation": {
+    "name_ru": "formación de agua"
+  },
+  "weak_electrolyte_formation": {
+    "name_ru": "formación de electrolito débil"
+  },
+  "catalysis": {
+    "name_ru": "catálisis"
+  },
+  "adsorption": {
+    "name_ru": "adsorción"
+  },
+  "photodecomposition": {
+    "name_ru": "fotodescomposición"
+  },
+  "electrolysis": {
+    "name_ru": "electrólisis"
+  },
+  "remove_gas": {
+    "name_ru": "eliminación de gas"
+  },
+  "remove_solid": {
+    "name_ru": "eliminación de precipitado"
+  },
+  "closed_system": {
+    "name_ru": "sistema cerrado"
+  },
+  "excess_condition": {
+    "name_ru": "condición de exceso"
+  }
+}

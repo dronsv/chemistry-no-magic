@@ -57,6 +57,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       exam_systems: 'exam/systems.json',
       search_index: 'search_index.json',
       formula_lookup: 'formula_lookup.json',
+      process_vocab: 'process_vocab.json',
+      quantities_units: 'quantities_units.json',
       indices: {
         substances_index: 'indices/substances_index.json',
       },

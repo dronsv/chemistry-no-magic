@@ -284,6 +284,81 @@ export function validateTranslationOverlay(overlay, baseIds, locale, dataKey) {
  * @param {any[]} systems
  * @returns {string[]} errors
  */
+/**
+ * @param {any[]} vocab
+ * @returns {string[]} errors
+ */
+export function validateProcessVocab(vocab) {
+  const errors = [];
+  if (!Array.isArray(vocab)) return ['process_vocab.json must be an array'];
+
+  const VALID_KINDS = ['chemical', 'operation', 'physical', 'physchem', 'constraint'];
+  const seen = new Set();
+
+  for (let i = 0; i < vocab.length; i++) {
+    const v = vocab[i];
+    const prefix = `process_vocab[${i}]`;
+    if (typeof v.id !== 'string' || !v.id) errors.push(`${prefix}: missing id`);
+    if (!VALID_KINDS.includes(v.kind)) errors.push(`${prefix}: invalid kind "${v.kind}"`);
+    if (typeof v.name_ru !== 'string' || !v.name_ru) errors.push(`${prefix}: missing name_ru`);
+    if (typeof v.description_ru !== 'string' || !v.description_ru) errors.push(`${prefix}: missing description_ru`);
+    if (v.params !== undefined && !Array.isArray(v.params)) errors.push(`${prefix}: params must be array`);
+    if (v.params && !v.params.every(p => typeof p === 'string')) errors.push(`${prefix}: params entries must be strings`);
+    if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
+    seen.add(v.id);
+  }
+  return errors;
+}
+
+/**
+ * @param {any} ont
+ * @returns {string[]} errors
+ */
+export function validateQuantitiesUnits(ont) {
+  const errors = [];
+  if (typeof ont !== 'object' || ont === null || Array.isArray(ont)) {
+    return ['quantities_units_ontology.json must be an object'];
+  }
+
+  if (!ont.meta || typeof ont.meta !== 'object') errors.push('missing meta');
+  if (!Array.isArray(ont.quantities)) return [...errors, 'quantities must be an array'];
+  if (!Array.isArray(ont.units)) return [...errors, 'units must be an array'];
+
+  const quantityIds = new Set();
+  for (let i = 0; i < ont.quantities.length; i++) {
+    const q = ont.quantities[i];
+    const prefix = `quantities[${i}]`;
+    if (typeof q.id !== 'string' || !q.id.startsWith('q:')) errors.push(`${prefix}: id must start with "q:"`);
+    if (typeof q.name_ru !== 'string' || !q.name_ru) errors.push(`${prefix}: missing name_ru`);
+    if (typeof q.dimension !== 'string') errors.push(`${prefix}: missing dimension`);
+    if (!Array.isArray(q.recommended_units)) errors.push(`${prefix}: recommended_units must be array`);
+    quantityIds.add(q.id);
+  }
+
+  const unitIds = new Set();
+  for (let i = 0; i < ont.units.length; i++) {
+    const u = ont.units[i];
+    const prefix = `units[${i}]`;
+    if (typeof u.id !== 'string' || !u.id.startsWith('unit:')) errors.push(`${prefix}: id must start with "unit:"`);
+    if (typeof u.name_ru !== 'string' || !u.name_ru) errors.push(`${prefix}: missing name_ru`);
+    if (typeof u.quantity !== 'string') errors.push(`${prefix}: missing quantity`);
+    if (!quantityIds.has(u.quantity)) errors.push(`${prefix}: quantity "${u.quantity}" not found in quantities`);
+    if (u.to_SI !== null && typeof u.to_SI !== 'object') errors.push(`${prefix}: to_SI must be object or null`);
+    unitIds.add(u.id);
+  }
+
+  // Cross-reference: recommended_units must reference existing unit IDs
+  for (let i = 0; i < ont.quantities.length; i++) {
+    const q = ont.quantities[i];
+    if (!Array.isArray(q.recommended_units)) continue;
+    for (const uid of q.recommended_units) {
+      if (!unitIds.has(uid)) errors.push(`quantities[${i}]: recommended_unit "${uid}" not found in units`);
+    }
+  }
+
+  return errors;
+}
+
 export function validateExamSystems(systems) {
   const errors = [];
   if (!Array.isArray(systems)) return ['exam/systems.json must be an array'];

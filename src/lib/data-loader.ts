@@ -24,6 +24,8 @@ import type { ExamSystem, ExamSystemMeta } from '../types/exam-system';
 import type { SearchIndexEntry } from '../types/search';
 import type { UnifiedTopic } from '../types/topic-mapping';
 import type { FormulaLookup } from '../types/formula-lookup';
+import type { ProcessVocabEntry } from '../types/process-vocab';
+import type { QuantitiesUnitsOntology } from '../types/quantities-units';
 import type { SupportedLocale } from '../types/i18n';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
@@ -547,6 +549,37 @@ export async function loadFormulaLookup(): Promise<FormulaLookup> {
   }
 
   return loadDataFile<FormulaLookup>(path);
+}
+
+/** Load process vocabulary (lab operations, reaction types, constraints). */
+export async function loadProcessVocab(locale?: SupportedLocale): Promise<ProcessVocabEntry[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.process_vocab;
+
+  if (!path) {
+    throw new Error(
+      'Process vocab not found in manifest. Expected key "process_vocab" in entrypoints.',
+    );
+  }
+
+  const data = await loadDataFile<ProcessVocabEntry[]>(path);
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'process_vocab');
+  return overlay ? applyOverlay(data, overlay, item => item.id) : data;
+}
+
+/** Load quantities & units ontology. */
+export async function loadQuantitiesUnits(): Promise<QuantitiesUnitsOntology> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.quantities_units;
+
+  if (!path) {
+    throw new Error(
+      'Quantities/units ontology not found in manifest. Expected key "quantities_units" in entrypoints.',
+    );
+  }
+
+  return loadDataFile<QuantitiesUnitsOntology>(path);
 }
 
 /** Load a molecule structure by substance ID. */

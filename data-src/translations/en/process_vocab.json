@@ -1,0 +1,146 @@
+{
+  "chemical_reaction": {
+    "name_ru": "chemical reaction",
+    "description_ru": "Chemical transformation that changes the composition of substances. The base process type — all other processes describe conditions, effects, and operations around the reaction."
+  },
+  "neutralization": {
+    "name_ru": "neutralization",
+    "description_ru": "Reaction of an acid with a base producing salt and water. Exothermic. Driving force — formation of the weak electrolyte H₂O."
+  },
+  "displacement": {
+    "name_ru": "displacement",
+    "description_ru": "A more active metal displaces a less active one from its salt solution. Governed by the activity series of metals."
+  },
+  "heating": {
+    "name_ru": "heating",
+    "description_ru": "Raising the system temperature. Increases reaction rate (van't Hoff rule), may shift equilibrium (toward products for endothermic). Modes: water bath, calcination, fusion."
+  },
+  "cooling": {
+    "name_ru": "cooling",
+    "description_ru": "Lowering the system temperature. Reduces reaction rate, shifts equilibrium toward products for exothermic reactions. Used for crystallization and condensation."
+  },
+  "stirring": {
+    "name_ru": "stirring",
+    "description_ru": "Mechanical agitation of the reaction mixture. Increases reagent contact area and mass transfer rate, accelerating heterogeneous reactions."
+  },
+  "grinding": {
+    "name_ru": "grinding",
+    "description_ru": "Reducing the particle size of a solid substance. Increases surface area, accelerating heterogeneous reactions and dissolution."
+  },
+  "dilution": {
+    "name_ru": "dilution",
+    "description_ru": "Adding solvent to a solution. Decreases reagent concentration, reducing reaction rate and potentially shifting equilibrium."
+  },
+  "add_excess_reagent": {
+    "name_ru": "excess reagent",
+    "description_ru": "Adding one reagent in excess. Shifts equilibrium toward products (Le Chatelier's principle), ensures complete consumption of the limiting reagent."
+  },
+  "filtration": {
+    "name_ru": "filtration",
+    "description_ru": "Separating solid and liquid phases by passing through a filter. The precipitate remains on the filter, the filtrate passes through."
+  },
+  "washing": {
+    "name_ru": "washing",
+    "description_ru": "Removing impurities from the surface of a precipitate with wash liquid (usually distilled water). Performed after filtration."
+  },
+  "drying": {
+    "name_ru": "drying",
+    "description_ru": "Removing moisture from a solid substance. Modes: air drying, desiccator, drying oven. Unlike calcination — must not cause chemical decomposition."
+  },
+  "evaporation": {
+    "name_ru": "evaporation",
+    "description_ru": "Removing solvent by heating a solution. Used to obtain solid from solution (evaporative crystallization) or to concentrate a solution."
+  },
+  "decantation": {
+    "name_ru": "decantation",
+    "description_ru": "Pouring off liquid from a sediment without filtration. Used when the precipitate is heavy and settles well."
+  },
+  "distillation": {
+    "name_ru": "distillation",
+    "description_ru": "Separating a liquid mixture into fractions by evaporation and condensation. Based on differences in boiling points of components."
+  },
+  "dissolution": {
+    "name_ru": "dissolution",
+    "description_ru": "Transfer of a substance into solution on contact with a solvent. Can be exo- or endothermic. Depends on temperature, stirring, and degree of grinding."
+  },
+  "crystallization": {
+    "name_ru": "crystallization",
+    "description_ru": "Formation of solid crystals from a supersaturated solution. The reverse of dissolution. Accelerated by cooling or evaporation."
+  },
+  "sublimation": {
+    "name_ru": "sublimation",
+    "description_ru": "Transition of a substance from solid to gas bypassing the liquid phase. Classic example — iodine sublimation. Used for purification."
+  },
+  "condensation": {
+    "name_ru": "condensation",
+    "description_ru": "Transition of a substance from gas to liquid upon cooling or pressure increase."
+  },
+  "melting": {
+    "name_ru": "melting",
+    "description_ru": "Transition of a substance from solid to liquid when heated to the melting point."
+  },
+  "boiling": {
+    "name_ru": "boiling",
+    "description_ru": "Vigorous transition of liquid to gas at the boiling point. Boiling point depends on pressure."
+  },
+  "dissociation": {
+    "name_ru": "dissociation",
+    "description_ru": "Breakdown of an electrolyte into ions in solution or melt. Strong electrolytes dissociate completely (α≈1), weak ones partially (α≪1, characterized by K_diss)."
+  },
+  "precipitation": {
+    "name_ru": "precipitation",
+    "description_ru": "Formation of an insoluble solid (precipitate) from solution. Driving force of ion exchange reactions — product leaves the solution. Characterized by Ksp."
+  },
+  "gas_evolution": {
+    "name_ru": "gas evolution",
+    "description_ru": "Formation of a gaseous product that leaves the reaction medium. Driving force — product exits the system, shifting equilibrium to the right."
+  },
+  "gas_absorption": {
+    "name_ru": "gas absorption",
+    "description_ru": "Dissolving a gas in liquid with possible chemical interaction. Example: CO₂ + NaOH → Na₂CO₃. Depends on pressure and temperature."
+  },
+  "complexation": {
+    "name_ru": "complexation",
+    "description_ru": "Formation of a complex ion from a central atom (metal ion) and ligands. Example: Al(OH)₃ + NaOH(excess) → Na[Al(OH)₄]. Characterized by stability constant β."
+  },
+  "water_formation": {
+    "name_ru": "water formation",
+    "description_ru": "Formation of the weak electrolyte H₂O from H⁺ and OH⁻ ions. The main driving force of neutralization and many ion exchange reactions."
+  },
+  "weak_electrolyte_formation": {
+    "name_ru": "weak electrolyte formation",
+    "description_ru": "Formation of a weakly dissociating substance from ions in solution. Generalization of water_formation — includes weak acids (HF, H₂CO₃, H₂S), NH₃·H₂O, etc."
+  },
+  "catalysis": {
+    "name_ru": "catalysis",
+    "description_ru": "Changing reaction rate via a catalyst that is not consumed. Lowers activation energy, does not change ΔH or equilibrium position."
+  },
+  "adsorption": {
+    "name_ru": "adsorption",
+    "description_ru": "Uptake of a substance from solution or gas onto the surface of a solid (adsorbent). Example: activated carbon removes impurities from water."
+  },
+  "photodecomposition": {
+    "name_ru": "photodecomposition",
+    "description_ru": "Decomposition of a substance by light. Example: AgCl darkens in light (2AgCl → 2Ag + Cl₂). Used as a qualitative test for silver chloride."
+  },
+  "electrolysis": {
+    "name_ru": "electrolysis",
+    "description_ru": "Redox process at electrodes when direct current passes through an electrolyte solution or melt. Cathode — reduction, anode — oxidation."
+  },
+  "remove_gas": {
+    "name_ru": "gas removal",
+    "description_ru": "Formal constraint: gaseous product leaves the system (open vessel, venting). Shifts equilibrium toward gas formation — reaction goes to completion."
+  },
+  "remove_solid": {
+    "name_ru": "solid removal",
+    "description_ru": "Formal constraint: precipitate exits the solution (sedimentation or filtration). Reduces product concentration in solution, shifting equilibrium to the right."
+  },
+  "closed_system": {
+    "name_ru": "closed system",
+    "description_ru": "Constraint: the system does not exchange matter with the surroundings. Gases are not removed, equilibrium is established. Important for equilibrium and Le Chatelier's principle problems."
+  },
+  "excess_condition": {
+    "name_ru": "excess condition",
+    "description_ru": "Formal constraint: one reagent is present in excess. Determines stoichiometry (limiting reagent is fully consumed) and may affect the product (e.g., CO₂+NaOH with excess/deficit)."
+  }
+}

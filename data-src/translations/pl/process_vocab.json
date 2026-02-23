@@ -1,0 +1,110 @@
+{
+  "chemical_reaction": {
+    "name_ru": "reakcja chemiczna"
+  },
+  "neutralization": {
+    "name_ru": "neutralizacja"
+  },
+  "displacement": {
+    "name_ru": "wypieranie"
+  },
+  "heating": {
+    "name_ru": "ogrzewanie"
+  },
+  "cooling": {
+    "name_ru": "chłodzenie"
+  },
+  "stirring": {
+    "name_ru": "mieszanie"
+  },
+  "grinding": {
+    "name_ru": "rozdrabnianie"
+  },
+  "dilution": {
+    "name_ru": "rozcieńczanie"
+  },
+  "add_excess_reagent": {
+    "name_ru": "nadmiar reagenta"
+  },
+  "filtration": {
+    "name_ru": "filtracja"
+  },
+  "washing": {
+    "name_ru": "przemywanie"
+  },
+  "drying": {
+    "name_ru": "suszenie"
+  },
+  "evaporation": {
+    "name_ru": "odparowanie"
+  },
+  "decantation": {
+    "name_ru": "dekantacja"
+  },
+  "distillation": {
+    "name_ru": "destylacja"
+  },
+  "dissolution": {
+    "name_ru": "rozpuszczanie"
+  },
+  "crystallization": {
+    "name_ru": "krystalizacja"
+  },
+  "sublimation": {
+    "name_ru": "sublimacja"
+  },
+  "condensation": {
+    "name_ru": "kondensacja"
+  },
+  "melting": {
+    "name_ru": "topnienie"
+  },
+  "boiling": {
+    "name_ru": "wrzenie"
+  },
+  "dissociation": {
+    "name_ru": "dysocjacja"
+  },
+  "precipitation": {
+    "name_ru": "wytrącanie"
+  },
+  "gas_evolution": {
+    "name_ru": "wydzielanie gazu"
+  },
+  "gas_absorption": {
+    "name_ru": "absorpcja gazu"
+  },
+  "complexation": {
+    "name_ru": "kompleksowanie"
+  },
+  "water_formation": {
+    "name_ru": "tworzenie wody"
+  },
+  "weak_electrolyte_formation": {
+    "name_ru": "tworzenie słabego elektrolitu"
+  },
+  "catalysis": {
+    "name_ru": "kataliza"
+  },
+  "adsorption": {
+    "name_ru": "adsorpcja"
+  },
+  "photodecomposition": {
+    "name_ru": "fotodekompozycja"
+  },
+  "electrolysis": {
+    "name_ru": "elektroliza"
+  },
+  "remove_gas": {
+    "name_ru": "usuwanie gazu"
+  },
+  "remove_solid": {
+    "name_ru": "usuwanie osadu"
+  },
+  "closed_system": {
+    "name_ru": "układ zamknięty"
+  },
+  "excess_condition": {
+    "name_ru": "warunek nadmiaru"
+  }
+}

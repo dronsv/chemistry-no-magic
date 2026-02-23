@@ -3,397 +3,358 @@
     "id": "chemical_reaction",
     "kind": "chemical",
     "name_ru": "химическая реакция",
-    "name_en": "chemical reaction",
-    "name_pl": "reakcja chemiczna",
-    "name_es": "reacción química",
-    "description_ru": "Химическое превращение с изменением состава веществ. Базовый тип процесса — остальные процессы описывают условия, эффекты и операции вокруг реакции.",
-    "description_en": "Chemical transformation that changes the composition of substances. The base process type — all other processes describe conditions, effects, and operations around the reaction."
+    "description_ru": "Химическое превращение с изменением состава веществ. Базовый тип процесса — остальные процессы описывают условия, эффекты и операции вокруг реакции."
   },
   {
     "id": "neutralization",
     "kind": "chemical",
     "name_ru": "нейтрализация",
-    "name_en": "neutralization",
-    "name_pl": "neutralizacja",
-    "name_es": "neutralización",
     "description_ru": "Реакция кислоты с основанием с образованием соли и воды. Экзотермична. Движущая сила — образование слабого электролита (H₂O).",
-    "description_en": "Reaction of an acid with a base producing salt and water. Exothermic. Driving force — formation of the weak electrolyte H₂O.",
-    "params": ["acid_substance_id", "base_substance_id"]
+    "params": [
+      "acid_substance_id",
+      "base_substance_id"
+    ]
   },
   {
     "id": "displacement",
     "kind": "chemical",
     "name_ru": "замещение",
-    "name_en": "displacement",
-    "name_pl": "wypieranie",
-    "name_es": "desplazamiento",
     "description_ru": "Более активный металл вытесняет менее активный из раствора его соли. Определяется рядом активности металлов.",
-    "description_en": "A more active metal displaces a less active one from its salt solution. Governed by the activity series of metals.",
-    "params": ["metal_substance_id", "salt_substance_id"]
+    "params": [
+      "metal_substance_id",
+      "salt_substance_id"
+    ]
   },
-
   {
     "id": "heating",
     "kind": "operation",
     "name_ru": "нагревание",
-    "name_en": "heating",
-    "name_pl": "ogrzewanie",
-    "name_es": "calentamiento",
     "description_ru": "Повышение температуры системы. Увеличивает скорость реакции (правило Вант-Гоффа), может сместить равновесие (для эндотермических — вправо). Режимы: нагрев на водяной бане, прокаливание, сплавление.",
-    "description_en": "Raising the system temperature. Increases reaction rate (van't Hoff rule), may shift equilibrium (toward products for endothermic). Modes: water bath, calcination, fusion.",
-    "params": ["T_target_K", "mode", "duration_s", "Q_input_kJ"]
+    "params": [
+      "T_target_K",
+      "mode",
+      "duration_s",
+      "Q_input_kJ"
+    ]
   },
   {
     "id": "cooling",
     "kind": "operation",
     "name_ru": "охлаждение",
-    "name_en": "cooling",
-    "name_pl": "chłodzenie",
-    "name_es": "enfriamiento",
     "description_ru": "Понижение температуры системы. Снижает скорость реакции, смещает равновесие экзотермической реакции вправо. Используется для кристаллизации и конденсации.",
-    "description_en": "Lowering the system temperature. Reduces reaction rate, shifts equilibrium toward products for exothermic reactions. Used for crystallization and condensation.",
-    "params": ["T_target_K", "mode"]
+    "params": [
+      "T_target_K",
+      "mode"
+    ]
   },
   {
     "id": "stirring",
     "kind": "operation",
     "name_ru": "перемешивание",
-    "name_en": "stirring",
-    "name_pl": "mieszanie",
-    "name_es": "agitación",
     "description_ru": "Механическое перемешивание реакционной смеси. Увеличивает площадь контакта реагентов и скорость массопереноса, ускоряя реакцию в гетерогенных системах.",
-    "description_en": "Mechanical agitation of the reaction mixture. Increases reagent contact area and mass transfer rate, accelerating heterogeneous reactions.",
-    "params": ["intensity", "duration_s"]
+    "params": [
+      "intensity",
+      "duration_s"
+    ]
   },
   {
     "id": "grinding",
     "kind": "operation",
     "name_ru": "измельчение",
-    "name_en": "grinding",
-    "name_pl": "rozdrabnianie",
-    "name_es": "trituración",
     "description_ru": "Уменьшение размера частиц твёрдого вещества. Увеличивает площадь поверхности, ускоряя гетерогенные реакции и растворение.",
-    "description_en": "Reducing the particle size of a solid substance. Increases surface area, accelerating heterogeneous reactions and dissolution.",
-    "params": ["particle_size"]
+    "params": [
+      "particle_size"
+    ]
   },
   {
     "id": "dilution",
     "kind": "operation",
     "name_ru": "разбавление",
-    "name_en": "dilution",
-    "name_pl": "rozcieńczanie",
-    "name_es": "dilución",
     "description_ru": "Добавление растворителя к раствору. Уменьшает концентрацию реагентов, что снижает скорость реакции и может сместить равновесие.",
-    "description_en": "Adding solvent to a solution. Decreases reagent concentration, reducing reaction rate and potentially shifting equilibrium.",
-    "params": ["factor", "volume_added_ml"]
+    "params": [
+      "factor",
+      "volume_added_ml"
+    ]
   },
   {
     "id": "add_excess_reagent",
     "kind": "operation",
     "name_ru": "избыток реагента",
-    "name_en": "excess reagent",
-    "name_pl": "nadmiar reagenta",
-    "name_es": "exceso de reactivo",
     "description_ru": "Добавление одного из реагентов в избытке. Смещает равновесие в сторону продуктов (принцип Ле Шателье), обеспечивает полное расходование лимитирующего реагента.",
-    "description_en": "Adding one reagent in excess. Shifts equilibrium toward products (Le Chatelier's principle), ensures complete consumption of the limiting reagent.",
-    "params": ["reagent_substance_id", "excess_ratio"]
+    "params": [
+      "reagent_substance_id",
+      "excess_ratio"
+    ]
   },
   {
     "id": "filtration",
     "kind": "operation",
     "name_ru": "фильтрование",
-    "name_en": "filtration",
-    "name_pl": "filtracja",
-    "name_es": "filtración",
     "description_ru": "Разделение твёрдой и жидкой фаз пропусканием через фильтр. Осадок остаётся на фильтре, фильтрат проходит через него.",
-    "description_en": "Separating solid and liquid phases by passing through a filter. The precipitate remains on the filter, the filtrate passes through.",
-    "params": ["solid_substance_id"]
+    "params": [
+      "solid_substance_id"
+    ]
   },
   {
     "id": "washing",
     "kind": "operation",
     "name_ru": "промывание",
-    "name_en": "washing",
-    "name_pl": "przemywanie",
-    "name_es": "lavado",
     "description_ru": "Удаление примесей с поверхности осадка промывной жидкостью (обычно дистиллированной водой). Выполняется после фильтрования.",
-    "description_en": "Removing impurities from the surface of a precipitate with wash liquid (usually distilled water). Performed after filtration.",
-    "params": ["solvent", "cycles"]
+    "params": [
+      "solvent",
+      "cycles"
+    ]
   },
   {
     "id": "drying",
     "kind": "operation",
     "name_ru": "сушка",
-    "name_en": "drying",
-    "name_pl": "suszenie",
-    "name_es": "secado",
     "description_ru": "Удаление влаги из твёрдого вещества. Режимы: на воздухе, в эксикаторе, в сушильном шкафу. Отличается от прокаливания — не должна вызывать химического разложения.",
-    "description_en": "Removing moisture from a solid substance. Modes: air drying, desiccator, drying oven. Unlike calcination — must not cause chemical decomposition.",
-    "params": ["mode", "T_K"]
+    "params": [
+      "mode",
+      "T_K"
+    ]
   },
   {
     "id": "evaporation",
     "kind": "operation",
     "name_ru": "выпаривание",
-    "name_en": "evaporation",
-    "name_pl": "odparowanie",
-    "name_es": "evaporación",
     "description_ru": "Удаление растворителя нагреванием раствора. Используется для получения твёрдого вещества из раствора (кристаллизация выпариванием) или концентрирования раствора.",
-    "description_en": "Removing solvent by heating a solution. Used to obtain solid from solution (evaporative crystallization) or to concentrate a solution.",
-    "params": ["T_K", "mode"]
+    "params": [
+      "T_K",
+      "mode"
+    ]
   },
   {
     "id": "decantation",
     "kind": "operation",
     "name_ru": "декантация",
-    "name_en": "decantation",
-    "name_pl": "dekantacja",
-    "name_es": "decantación",
     "description_ru": "Сливание жидкости с осадка без фильтрования. Применяется когда осадок тяжёлый и хорошо оседает.",
-    "description_en": "Pouring off liquid from a sediment without filtration. Used when the precipitate is heavy and settles well.",
-    "params": ["solid_substance_id"]
+    "params": [
+      "solid_substance_id"
+    ]
   },
   {
     "id": "distillation",
     "kind": "operation",
     "name_ru": "перегонка",
-    "name_en": "distillation",
-    "name_pl": "destylacja",
-    "name_es": "destilación",
     "description_ru": "Разделение жидкой смеси на фракции путём испарения и конденсации. Основано на различии температур кипения компонентов.",
-    "description_en": "Separating a liquid mixture into fractions by evaporation and condensation. Based on differences in boiling points of components.",
-    "params": ["T_boiling_K", "fraction_substance_id"]
+    "params": [
+      "T_boiling_K",
+      "fraction_substance_id"
+    ]
   },
-
   {
     "id": "dissolution",
     "kind": "physical",
     "name_ru": "растворение",
-    "name_en": "dissolution",
-    "name_pl": "rozpuszczanie",
-    "name_es": "disolución",
     "description_ru": "Переход вещества в раствор при контакте с растворителем. Может быть экзо- или эндотермическим. Зависит от температуры, перемешивания, степени измельчения.",
-    "description_en": "Transfer of a substance into solution on contact with a solvent. Can be exo- or endothermic. Depends on temperature, stirring, and degree of grinding.",
-    "params": ["solvent", "T_K", "stirring", "particle_size", "deltaH_solution_kJ_mol"]
+    "params": [
+      "solvent",
+      "T_K",
+      "stirring",
+      "particle_size",
+      "deltaH_solution_kJ_mol"
+    ]
   },
   {
     "id": "crystallization",
     "kind": "physical",
     "name_ru": "кристаллизация",
-    "name_en": "crystallization",
-    "name_pl": "krystalizacja",
-    "name_es": "cristalización",
     "description_ru": "Выделение твёрдого вещества из пересыщенного раствора в виде кристаллов. Обратный процесс растворения. Ускоряется охлаждением или выпариванием.",
-    "description_en": "Formation of solid crystals from a supersaturated solution. The reverse of dissolution. Accelerated by cooling or evaporation.",
-    "params": ["substance_id", "T_K", "mode"]
+    "params": [
+      "substance_id",
+      "T_K",
+      "mode"
+    ]
   },
   {
     "id": "sublimation",
     "kind": "physical",
     "name_ru": "возгонка",
-    "name_en": "sublimation",
-    "name_pl": "sublimacja",
-    "name_es": "sublimación",
     "description_ru": "Переход вещества из твёрдого состояния в газообразное минуя жидкую фазу. Классический пример — возгонка иода. Используется для очистки веществ.",
-    "description_en": "Transition of a substance from solid to gas bypassing the liquid phase. Classic example — iodine sublimation. Used for purification.",
-    "params": ["substance_id", "T_K"]
+    "params": [
+      "substance_id",
+      "T_K"
+    ]
   },
   {
     "id": "condensation",
     "kind": "physical",
     "name_ru": "конденсация",
-    "name_en": "condensation",
-    "name_pl": "kondensacja",
-    "name_es": "condensación",
     "description_ru": "Переход вещества из газообразного состояния в жидкое при охлаждении или повышении давления.",
-    "description_en": "Transition of a substance from gas to liquid upon cooling or pressure increase.",
-    "params": ["substance_id", "T_K", "p_bar"]
+    "params": [
+      "substance_id",
+      "T_K",
+      "p_bar"
+    ]
   },
   {
     "id": "melting",
     "kind": "physical",
     "name_ru": "плавление",
-    "name_en": "melting",
-    "name_pl": "topnienie",
-    "name_es": "fusión",
     "description_ru": "Переход вещества из твёрдого состояния в жидкое при нагревании до температуры плавления.",
-    "description_en": "Transition of a substance from solid to liquid when heated to the melting point.",
-    "params": ["substance_id", "T_melting_K"]
+    "params": [
+      "substance_id",
+      "T_melting_K"
+    ]
   },
   {
     "id": "boiling",
     "kind": "physical",
     "name_ru": "кипение",
-    "name_en": "boiling",
-    "name_pl": "wrzenie",
-    "name_es": "ebullición",
     "description_ru": "Интенсивный переход жидкости в газ при температуре кипения. Температура кипения зависит от давления.",
-    "description_en": "Vigorous transition of liquid to gas at the boiling point. Boiling point depends on pressure.",
-    "params": ["substance_id", "T_boiling_K", "p_bar"]
+    "params": [
+      "substance_id",
+      "T_boiling_K",
+      "p_bar"
+    ]
   },
-
   {
     "id": "dissociation",
     "kind": "physchem",
     "name_ru": "диссоциация",
-    "name_en": "dissociation",
-    "name_pl": "dysocjacja",
-    "name_es": "disociación",
     "description_ru": "Распад электролита на ионы в растворе или расплаве. Сильные электролиты диссоциируют полностью (α≈1), слабые — частично (α≪1, характеризуется K_diss).",
-    "description_en": "Breakdown of an electrolyte into ions in solution or melt. Strong electrolytes dissociate completely (α≈1), weak ones partially (α≪1, characterized by K_diss).",
-    "params": ["medium", "strength", "K"]
+    "params": [
+      "medium",
+      "strength",
+      "K"
+    ]
   },
   {
     "id": "precipitation",
     "kind": "physchem",
     "name_ru": "осаждение",
-    "name_en": "precipitation",
-    "name_pl": "wytrącanie",
-    "name_es": "precipitación",
     "description_ru": "Образование нерастворимого твёрдого вещества (осадка) из раствора. Движущая сила реакций ионного обмена — продукт покидает раствор. Характеризуется ПР (Ksp).",
-    "description_en": "Formation of an insoluble solid (precipitate) from solution. Driving force of ion exchange reactions — product leaves the solution. Characterized by Ksp.",
-    "params": ["solid_substance_id", "color", "Ksp", "T_K"]
+    "params": [
+      "solid_substance_id",
+      "color",
+      "Ksp",
+      "T_K"
+    ]
   },
   {
     "id": "gas_evolution",
     "kind": "physchem",
     "name_ru": "выделение газа",
-    "name_en": "gas evolution",
-    "name_pl": "wydzielanie gazu",
-    "name_es": "desprendimiento de gas",
     "description_ru": "Образование газообразного продукта, покидающего реакционную среду. Движущая сила реакций — продукт уходит из системы, смещая равновесие вправо.",
-    "description_en": "Formation of a gaseous product that leaves the reaction medium. Driving force — product exits the system, shifting equilibrium to the right.",
-    "params": ["gas_substance_id", "vented", "p_bar"]
+    "params": [
+      "gas_substance_id",
+      "vented",
+      "p_bar"
+    ]
   },
   {
     "id": "gas_absorption",
     "kind": "physchem",
     "name_ru": "поглощение газа",
-    "name_en": "gas absorption",
-    "name_pl": "absorpcja gazu",
-    "name_es": "absorción de gas",
     "description_ru": "Растворение газа в жидкости с возможным химическим взаимодействием. Пример: CO₂ + NaOH → Na₂CO₃. Зависит от давления и температуры.",
-    "description_en": "Dissolving a gas in liquid with possible chemical interaction. Example: CO₂ + NaOH → Na₂CO₃. Depends on pressure and temperature.",
-    "params": ["gas_substance_id", "liquid_medium", "mass_transfer", "p_bar"]
+    "params": [
+      "gas_substance_id",
+      "liquid_medium",
+      "mass_transfer",
+      "p_bar"
+    ]
   },
   {
     "id": "complexation",
     "kind": "physchem",
     "name_ru": "комплексообразование",
-    "name_en": "complexation",
-    "name_pl": "kompleksowanie",
-    "name_es": "formación de complejos",
     "description_ru": "Образование комплексного иона из центрального атома (иона металла) и лигандов. Пример: Al(OH)₃ + NaOH(изб.) → Na[Al(OH)₄]. Характеризуется константой устойчивости β.",
-    "description_en": "Formation of a complex ion from a central atom (metal ion) and ligands. Example: Al(OH)₃ + NaOH(excess) → Na[Al(OH)₄]. Characterized by stability constant β.",
-    "params": ["complex_substance_id", "ligands", "beta"]
+    "params": [
+      "complex_substance_id",
+      "ligands",
+      "beta"
+    ]
   },
   {
     "id": "water_formation",
     "kind": "physchem",
     "name_ru": "образование воды",
-    "name_en": "water formation",
-    "name_pl": "tworzenie wody",
-    "name_es": "formación de agua",
-    "description_ru": "Образование слабого электролита H₂O из ионов H⁺ и OH⁻. Основная движущая сила реакций нейтрализации и многих реакций ионного обмена.",
-    "description_en": "Formation of the weak electrolyte H₂O from H⁺ and OH⁻ ions. The main driving force of neutralization and many ion exchange reactions."
+    "description_ru": "Образование слабого электролита H₂O из ионов H⁺ и OH⁻. Основная движущая сила реакций нейтрализации и многих реакций ионного обмена."
   },
   {
     "id": "weak_electrolyte_formation",
     "kind": "physchem",
     "name_ru": "образование слабого электролита",
-    "name_en": "weak electrolyte formation",
-    "name_pl": "tworzenie słabego elektrolitu",
-    "name_es": "formación de electrolito débil",
     "description_ru": "Образование малодиссоциирующего вещества из ионов в растворе. Обобщение water_formation — включает образование слабых кислот (HF, H₂CO₃, H₂S), NH₃·H₂O и др.",
-    "description_en": "Formation of a weakly dissociating substance from ions in solution. Generalization of water_formation — includes weak acids (HF, H₂CO₃, H₂S), NH₃·H₂O, etc.",
-    "params": ["product_substance_id"]
+    "params": [
+      "product_substance_id"
+    ]
   },
   {
     "id": "catalysis",
     "kind": "physchem",
     "name_ru": "катализ",
-    "name_en": "catalysis",
-    "name_pl": "kataliza",
-    "name_es": "catálisis",
     "description_ru": "Изменение скорости реакции за счёт катализатора, который не расходуется. Снижает энергию активации, не изменяет ΔH и положение равновесия.",
-    "description_en": "Changing reaction rate via a catalyst that is not consumed. Lowers activation energy, does not change ΔH or equilibrium position.",
-    "params": ["catalyst_substance_id", "type"]
+    "params": [
+      "catalyst_substance_id",
+      "type"
+    ]
   },
   {
     "id": "adsorption",
     "kind": "physchem",
     "name_ru": "адсорбция",
-    "name_en": "adsorption",
-    "name_pl": "adsorpcja",
-    "name_es": "adsorción",
     "description_ru": "Поглощение вещества из раствора или газа поверхностью твёрдого тела (адсорбента). Пример: активированный уголь поглощает примеси из воды.",
-    "description_en": "Uptake of a substance from solution or gas onto the surface of a solid (adsorbent). Example: activated carbon removes impurities from water.",
-    "params": ["adsorbent_substance_id", "adsorbate_substance_id"]
+    "params": [
+      "adsorbent_substance_id",
+      "adsorbate_substance_id"
+    ]
   },
   {
     "id": "photodecomposition",
     "kind": "physchem",
     "name_ru": "фоторазложение",
-    "name_en": "photodecomposition",
-    "name_pl": "fotodekompozycja",
-    "name_es": "fotodescomposición",
     "description_ru": "Разложение вещества под действием света. Пример: AgCl темнеет на свету (2AgCl → 2Ag + Cl₂). Используется как качественная реакция на хлорид серебра.",
-    "description_en": "Decomposition of a substance by light. Example: AgCl darkens in light (2AgCl → 2Ag + Cl₂). Used as a qualitative test for silver chloride.",
-    "params": ["substance_id", "light_wavelength"]
+    "params": [
+      "substance_id",
+      "light_wavelength"
+    ]
   },
   {
     "id": "electrolysis",
     "kind": "physchem",
     "name_ru": "электролиз",
-    "name_en": "electrolysis",
-    "name_pl": "elektroliza",
-    "name_es": "electrólisis",
     "description_ru": "Окислительно-восстановительный процесс на электродах при прохождении постоянного тока через раствор или расплав электролита. Катод — восстановление, анод — окисление.",
-    "description_en": "Redox process at electrodes when direct current passes through an electrolyte solution or melt. Cathode — reduction, anode — oxidation.",
-    "params": ["electrolyte_substance_id", "medium", "electrode_material"]
+    "params": [
+      "electrolyte_substance_id",
+      "medium",
+      "electrode_material"
+    ]
   },
-
   {
     "id": "remove_gas",
     "kind": "constraint",
     "name_ru": "удаление газа",
-    "name_en": "gas removal",
-    "name_pl": "usuwanie gazu",
-    "name_es": "eliminación de gas",
     "description_ru": "Формальное ограничение: газообразный продукт покидает систему (открытый сосуд, вентиляция). Смещает равновесие в сторону образования газа — реакция идёт до конца.",
-    "description_en": "Formal constraint: gaseous product leaves the system (open vessel, venting). Shifts equilibrium toward gas formation — reaction goes to completion.",
-    "params": ["gas_substance_id"]
+    "params": [
+      "gas_substance_id"
+    ]
   },
   {
     "id": "remove_solid",
     "kind": "constraint",
     "name_ru": "удаление осадка",
-    "name_en": "solid removal",
-    "name_pl": "usuwanie osadu",
-    "name_es": "eliminación de precipitado",
     "description_ru": "Формальное ограничение: осадок выходит из раствора (седиментация или фильтрование). Снижает концентрацию продукта в растворе, смещая равновесие вправо.",
-    "description_en": "Formal constraint: precipitate exits the solution (sedimentation or filtration). Reduces product concentration in solution, shifting equilibrium to the right.",
-    "params": ["solid_substance_id"]
+    "params": [
+      "solid_substance_id"
+    ]
   },
   {
     "id": "closed_system",
     "kind": "constraint",
     "name_ru": "замкнутая система",
-    "name_en": "closed system",
-    "name_pl": "układ zamknięty",
-    "name_es": "sistema cerrado",
-    "description_ru": "Ограничение: система не обменивается веществом с окружающей средой. Газы не удаляются, равновесие устанавливается. Важно для задач на равновесие и принцип Ле Шателье.",
-    "description_en": "Constraint: the system does not exchange matter with the surroundings. Gases are not removed, equilibrium is established. Important for equilibrium and Le Chatelier's principle problems."
+    "description_ru": "Ограничение: система не обменивается веществом с окружающей средой. Газы не удаляются, равновесие устанавливается. Важно для задач на равновесие и принцип Ле Шателье."
   },
   {
     "id": "excess_condition",
     "kind": "constraint",
     "name_ru": "условие избытка",
-    "name_en": "excess condition",
-    "name_pl": "warunek nadmiaru",
-    "name_es": "condición de exceso",
     "description_ru": "Формальное ограничение: один из реагентов присутствует в избытке. Определяет стехиометрию (лимитирующий реагент расходуется полностью) и может влиять на продукт (напр., CO₂+NaOH при избытке/недостатке).",
-    "description_en": "Formal constraint: one reagent is present in excess. Determines stoichiometry (limiting reagent is fully consumed) and may affect the product (e.g., CO₂+NaOH with excess/deficit).",
-    "params": ["reagent_substance_id", "excess_or_deficit"]
+    "params": [
+      "reagent_substance_id",
+      "excess_or_deficit"
+    ]
   }
 ]

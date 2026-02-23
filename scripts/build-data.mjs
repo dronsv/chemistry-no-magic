@@ -25,6 +25,8 @@ import {
   validateTaskTemplates,
   validateSubstance,
   validateApplicabilityRules,
+  validateProcessVocab,
+  validateQuantitiesUnits,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
@@ -140,6 +142,8 @@ async function main() {
   const ogeSolutionAlgorithms = await loadJson(join(DATA_SRC, 'exam', 'oge_solution_algorithms.json'));
   const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
   const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
+  const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
+  const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
 
   // Load per-system exam metadata
   const examMetas = {};
@@ -165,6 +169,7 @@ async function main() {
   console.log(`  ${ogeTasks.length} OGE tasks, ${ogeSolutionAlgorithms.length} solution algorithms`);
   console.log(`  ${topicMapping.length} unified topics`);
   console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
+  console.log(`  ${processVocab.length} process vocab entries, ${quantitiesUnits.quantities.length} quantities, ${quantitiesUnits.units.length} units`);
   console.log(`  ${reactions.length} reactions`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
@@ -185,6 +190,8 @@ async function main() {
     ...validateBktParams(bktParams),
     ...validateReactionTemplates(reactionTemplates),
     ...validateTaskTemplates(taskTemplates),
+    ...validateProcessVocab(processVocab),
+    ...validateQuantitiesUnits(quantitiesUnits),
   ];
 
   for (const { filename, data } of substances) {
@@ -269,6 +276,9 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'calculations_data.json'), JSON.stringify(calculationsData));
   await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
+
+  await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));
+  await writeFile(join(bundleDir, 'quantities_units.json'), JSON.stringify(quantitiesUnits));
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
   await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));

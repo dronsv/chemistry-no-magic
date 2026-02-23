@@ -16,6 +16,8 @@ export interface ManifestEntrypoints {
   exam_systems?: string;
   search_index?: string;
   formula_lookup?: string;
+  process_vocab?: string;
+  quantities_units?: string;
 }
 
 export interface ManifestStats {
