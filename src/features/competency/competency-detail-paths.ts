@@ -22,6 +22,7 @@ export function getStaticPaths() {
   const applicabilityRules = loadJson('data-src/rules/applicability_rules.json');
   const classificationRules = loadJson('data-src/rules/classification_rules.json');
   const namingRules = loadJson('data-src/rules/naming_rules.json');
+  const ionNomenclature = loadJson('data-src/rules/ion_nomenclature.json');
 
   return competencies.map(c => {
     const unlocks = competencies.filter(u => u.prerequisites.includes(c.id));
@@ -53,6 +54,9 @@ export function getStaticPaths() {
         break;
       case 'naming':
         contentProps = { type: 'naming', rules: namingRules };
+        break;
+      case 'ion_nomenclature':
+        contentProps = { type: 'ionNomenclature', rules: ionNomenclature };
         break;
     }
 

@@ -160,6 +160,19 @@ const cid = competency.id;
         </div>
       )}
 
+      {cid === 'ion_nomenclature' && (
+        <div>
+          <p class="comp-content__intro">{m.comp_ref_ion_nomen_intro()}</p>
+          <ul class="comp-content__list">
+            <li>{m.comp_ref_ion_nomen_ide()}</li>
+            <li>{m.comp_ref_ion_nomen_ate()}</li>
+            <li>{m.comp_ref_ion_nomen_ite()}</li>
+            <li>{m.comp_ref_ion_nomen_per()}</li>
+            <li>{m.comp_ref_ion_nomen_hypo()}</li>
+          </ul>
+        </div>
+      )}
+
       {cid === 'calculations_basic' && (
         <div>
           <ul class="comp-content__list">
