@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { Ion } from '../../types/ion';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadIons } from '../../lib/data-loader';
+import type { IonNomenclatureRules } from '../../types/ion-nomenclature';
+import { loadIons, loadIonNomenclature } from '../../lib/data-loader';
 import FormulaChip from '../../components/FormulaChip';
 import { IonDetailsProvider } from '../../components/IonDetailsProvider';
+import IonNomenclatureTheory from './IonNomenclatureTheory';
 import * as m from '../../paraglide/messages.js';
 import './ions-page.css';
 
@@ -11,13 +13,18 @@ type Filter = 'all' | 'cation' | 'anion';
 
 export default function IonsPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [ions, setIons] = useState<Ion[]>([]);
+  const [nomenclatureRules, setNomenclatureRules] = useState<IonNomenclatureRules | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>('all');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    loadIons(locale).then(data => {
-      setIons(data);
+    Promise.all([
+      loadIons(locale),
+      loadIonNomenclature(),
+    ]).then(([ionsData, rulesData]) => {
+      setIons(ionsData);
+      setNomenclatureRules(rulesData);
       setLoading(false);
     });
   }, [locale]);
@@ -55,6 +62,10 @@ export default function IonsPage({ locale = 'ru' as SupportedLocale }: { locale?
     <IonDetailsProvider locale={locale}>
       <div className="ions-page">
         <h1 className="ions-page__title">{m.ion_page_title()}</h1>
+
+        {nomenclatureRules && (
+          <IonNomenclatureTheory rules={nomenclatureRules} />
+        )}
 
         <div className="ions-page__filters">
           {filterButtons.map(fb => (
