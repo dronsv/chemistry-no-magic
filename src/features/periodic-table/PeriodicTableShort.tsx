@@ -1,6 +1,7 @@
 import type { Element, ElementGroup } from '../../types/element';
 import * as m from '../../paraglide/messages.js';
 import ElementCell from './ElementCell';
+import GroupBlocks from './GroupBlocks';
 
 interface PeriodicTableShortProps {
   elements: Element[];
@@ -18,7 +19,7 @@ interface PeriodicTableShortProps {
 function getShortCol(group: number, period: number): number {
   if (period <= 3) {
     const map: Record<number, number> = {
-      1: 3, 2: 4, 13: 5, 14: 6, 15: 7, 16: 8, 17: 9, 18: 13,
+      1: 3, 2: 4, 13: 5, 14: 6, 15: 7, 16: 8, 17: 9, 18: 10,
     };
     return map[group] ?? 3;
   }
@@ -26,7 +27,7 @@ function getShortCol(group: number, period: number): number {
   if (group <= 10) return group + 2; // 1->3 .. 10->12
   if (group <= 12) return group - 8; // 11->3, 12->4
   if (group <= 17) return group - 8; // 13->5 .. 17->9
-  return 13; // 18 -> noble gas column
+  return 10; // 18 -> noble gas, right after halogens (col 9)
 }
 
 /**
@@ -72,6 +73,8 @@ export default function PeriodicTableShort({
   onSelect,
   onHoverElement,
   onHoverElementEnd,
+  onHoverGroup,
+  onHoverGroupEnd,
 }: PeriodicTableShortProps) {
   const byZ = new Map<number, Element>();
   for (const el of elements) {
@@ -129,12 +132,12 @@ export default function PeriodicTableShort({
         </div>
       );
     }
-    // Group VIII spans cols 10-13
+    // Group VIII spans cols 10-12
     return (
       <div
         key={label}
         className="pt-short-header"
-        style={{ gridRow: 1, gridColumn: '10 / span 4' }}
+        style={{ gridRow: 1, gridColumn: '10 / span 3' }}
       >
         {label}
       </div>
@@ -229,27 +232,40 @@ export default function PeriodicTableShort({
 
   return (
     <div className="pt-short-wrapper">
-      {/* Main 11-row grid */}
-      <div className="pt-grid-short">
-        {/* Header labels */}
-        <div
-          className="pt-grid-label pt-grid-label--period"
-          style={{ gridRow: 1, gridColumn: 1 }}
-        >
-          {m.elem_period()}
-        </div>
-        <div
-          className="pt-grid-label pt-grid-label--period"
-          style={{ gridRow: 1, gridColumn: 2 }}
-        >
-          {m.pt_short_row()}
+      {/* Grid + legend side by side */}
+      <div className="pt-short-row">
+        {/* Main 11-row grid */}
+        <div className="pt-grid-short">
+          {/* Header labels */}
+          <div
+            className="pt-grid-label pt-grid-label--period"
+            style={{ gridRow: 1, gridColumn: 1 }}
+          >
+            {m.pt_short_period()}
+          </div>
+          <div
+            className="pt-grid-label pt-grid-label--period"
+            style={{ gridRow: 1, gridColumn: 2 }}
+          >
+            {m.pt_short_row()}
+          </div>
+
+          {groupHeaders}
+          {periodLabels}
+          {rowLabels}
+          {hydrogenCells}
+          {mainCells}
         </div>
 
-        {groupHeaders}
-        {periodLabels}
-        {rowLabels}
-        {hydrogenCells}
-        {mainCells}
+        {/* Group legend to the right */}
+        {onHoverGroup && onHoverGroupEnd && (
+          <GroupBlocks
+            highlightedGroup={highlightedGroup}
+            onHoverGroup={onHoverGroup}
+            onHoverGroupEnd={onHoverGroupEnd}
+            vertical
+          />
+        )}
       </div>
 
       {/* Lanthanide series */}

@@ -280,14 +280,6 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
 
           {/* Content */}
           <div className="pt-panel__content">
-            {/* Group info tooltip — absolutely positioned over content */}
-            {groupInfo && (
-              <div className="pt-group-tooltip">
-                <strong>{groupInfo.name_ru}</strong>
-                <span>{groupInfo.description_ru}</span>
-              </div>
-            )}
-
             {loading && (
               <div className="pt-panel__loading">{m.loading()}</div>
             )}
@@ -313,6 +305,18 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
             {!loading && !error && elements.length > 0 && showTrends && (
               <TrendsOverlay gridWidth={960} gridHeight={600} />
             )}
+
+            {/* Info bar — always present, shows group details or default hint */}
+            <div className="pt-info-bar">
+              {groupInfo ? (
+                <>
+                  <strong>{groupInfo.name_ru}</strong>
+                  <span>{groupInfo.description_ru}</span>
+                </>
+              ) : (
+                <span>{m.pt_info_default()}</span>
+              )}
+            </div>
           </div>
 
           {/* Selected element details */}
