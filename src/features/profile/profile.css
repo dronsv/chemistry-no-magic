@@ -78,6 +78,20 @@
   gap: var(--space-sm);
 }
 
+.comp-bar--link {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.375rem;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  transition: background-color 0.15s;
+}
+
+.comp-bar--link:hover {
+  background: var(--color-bg-alt);
+  text-decoration: none;
+}
+
 .comp-bar__name {
   font-size: 0.8125rem;
   font-weight: 500;

@@ -197,6 +197,6 @@
     "block_name_ru": "Растворы и электролиты",
     "prerequisites": ["classification"],
     "oge_task_types": [23],
-    "link": null
+    "link": "/ions/"
   }
 ]

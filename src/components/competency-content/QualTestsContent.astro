@@ -1,0 +1,41 @@
+---
+import * as m from '../../paraglide/messages.js';
+
+interface QualitativeTest {
+  target_id: string;
+  target_name_ru: string;
+  reagent_formula: string;
+  reagent_name_ru: string;
+  observation_ru: string;
+  reaction_id?: string;
+}
+
+interface Props {
+  tests: QualitativeTest[];
+}
+
+const { tests } = Astro.props;
+---
+
+<div class="comp-content__intro">
+  {m.rxn_theory_qual_desc()}
+</div>
+
+<table class="comp-content__table">
+  <thead>
+    <tr>
+      <th>{m.rxn_theory_qual_ion()}</th>
+      <th>{m.rxn_theory_qual_reagent()}</th>
+      <th>{m.rxn_theory_qual_sign()}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {tests.map(t => (
+      <tr>
+        <td>{t.target_name_ru}</td>
+        <td>{t.reagent_name_ru} ({t.reagent_formula})</td>
+        <td>{t.observation_ru}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

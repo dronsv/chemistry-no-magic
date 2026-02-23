@@ -1,0 +1,66 @@
+---
+import * as m from '../../paraglide/messages.js';
+
+interface ReactionTemplate {
+  id: string;
+  type: string;
+  pattern: string;
+  description_ru: string;
+  conditions: string | null;
+  catalyst: string | null;
+  examples: { reactants: string[]; products: string[] }[];
+}
+
+interface ApplicabilityRule {
+  id: string;
+  type: string;
+  condition_ru: string;
+  description_ru: string;
+}
+
+interface Props {
+  templates: ReactionTemplate[];
+  rules: ApplicabilityRule[];
+}
+
+const { templates, rules } = Astro.props;
+const exchangeTemplates = templates.filter(t => t.type === 'exchange');
+---
+
+<p class="comp-content__subtitle">{m.rxn_theory_types()}</p>
+<table class="comp-content__table">
+  <thead>
+    <tr>
+      <th>Шаблон</th>
+      <th>Примеры</th>
+    </tr>
+  </thead>
+  <tbody>
+    {exchangeTemplates.map(t => (
+      <tr>
+        <td>
+          <strong>{t.description_ru}</strong>
+          {t.conditions && <div class="comp-content__note">{m.rxn_theory_conditions_label({ conditions: t.conditions })}</div>}
+        </td>
+        <td>
+          {t.examples.slice(0, 2).map(ex => (
+            <div style="font-size: 0.8125rem; margin-bottom: 0.25rem;">
+              {ex.reactants.join(' + ')} → {ex.products.join(' + ')}
+            </div>
+          ))}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+{rules.length > 0 && (
+  <>
+    <p class="comp-content__subtitle">{m.rxn_theory_forces()}</p>
+    <ul class="comp-content__list">
+      {rules.map(r => (
+        <li><strong>{r.condition_ru}</strong> — {r.description_ru}</li>
+      ))}
+    </ul>
+  </>
+)}

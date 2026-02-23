@@ -1,0 +1,176 @@
+/* ========================================
+   Competency Practice Island
+   ======================================== */
+
+.comp-practice {
+  margin-bottom: var(--space-xl);
+}
+
+.comp-practice__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.comp-practice__mastery {
+  margin-bottom: var(--space-md);
+}
+
+.comp-practice__exercise {
+  margin-top: var(--space-md);
+}
+
+.comp-practice__counter {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.comp-practice__question {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.comp-practice__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.comp-practice__mc {
+  /* inherits practice-option styles from global practice CSS */
+}
+
+.comp-practice__error {
+  color: #e03131;
+  font-size: 0.875rem;
+}
+
+.comp-practice__mastered {
+  background: #d1fae5;
+  border: 1px solid #10b981;
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+  font-weight: 600;
+  color: #065f46;
+}
+
+/* ========================================
+   Competency Page — Reference Content
+   ======================================== */
+
+.comp-page__content {
+  margin-bottom: var(--space-xl);
+}
+
+.comp-page__content h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.comp-content__intro {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.comp-content__list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 var(--space-md);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.comp-content__list li {
+  margin-bottom: var(--space-xs);
+}
+
+.comp-content__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-md);
+}
+
+.comp-content__table th,
+.comp-content__table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.comp-content__table th {
+  background: var(--color-bg-alt);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.comp-content__table td {
+  vertical-align: top;
+}
+
+.comp-content__chain {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-size: 0.875rem;
+}
+
+.comp-content__chain-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.comp-content__chain-seq {
+  font-family: var(--font-mono, monospace);
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.comp-content__formula {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875rem;
+  padding: var(--space-md);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  margin-bottom: var(--space-md);
+  line-height: 1.8;
+}
+
+.comp-content__subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.comp-content__note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.comp-content__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .comp-content__columns {
+    grid-template-columns: 1fr;
+  }
+}

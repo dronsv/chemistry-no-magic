@@ -1,0 +1,56 @@
+---
+import * as m from '../../paraglide/messages.js';
+
+interface CommonCatalyst {
+  catalyst: string;
+  name_ru: string;
+  reaction_ru: string;
+}
+interface CatalystProps {
+  changes_ru: string[];
+  does_not_change_ru: string[];
+}
+interface Props {
+  catalystProperties: CatalystProps;
+  commonCatalysts: CommonCatalyst[];
+}
+
+const { catalystProperties, commonCatalysts } = Astro.props;
+---
+
+<div class="comp-content__intro">
+  {m.rxn_theory_catalyst_desc()}
+</div>
+
+<div class="comp-content__columns">
+  <div>
+    <p class="comp-content__subtitle">{m.rxn_theory_catalyst_changes()}</p>
+    <ul class="comp-content__list">
+      {catalystProperties.changes_ru.map(c => <li>{c}</li>)}
+    </ul>
+  </div>
+  <div>
+    <p class="comp-content__subtitle">{m.rxn_theory_catalyst_not_changes()}</p>
+    <ul class="comp-content__list">
+      {catalystProperties.does_not_change_ru.map(c => <li>{c}</li>)}
+    </ul>
+  </div>
+</div>
+
+<p class="comp-content__subtitle">{m.rxn_theory_common_catalysts()}</p>
+<table class="comp-content__table">
+  <thead>
+    <tr>
+      <th>{m.rxn_theory_catalyst_col()}</th>
+      <th>{m.rxn_theory_reaction_col()}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {commonCatalysts.map(c => (
+      <tr>
+        <td><strong>{c.catalyst}</strong> ({c.name_ru})</td>
+        <td>{c.reaction_ru}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

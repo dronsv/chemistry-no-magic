@@ -73,6 +73,7 @@ export default function ProfileApp({ locale = 'ru' }: ProfileAppProps) {
                 key={c.id}
                 name={c.name_ru}
                 pL={state.get(c.id) ?? 0.25}
+                href={localizeUrl(`/competency/${c.id}/`, locale)}
               />
             ))}
           </div>

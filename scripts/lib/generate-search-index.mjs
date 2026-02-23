@@ -34,6 +34,8 @@ const PAGES_RU = [
   { id: 'page_profile', title: 'Профиль', subtitle: 'Прогресс и результаты обучения', keywords: 'профиль прогресс результаты компетенции статистика', url: '/profile/' },
   { id: 'page_ions', title: 'Ионы', subtitle: 'Справочник катионов и анионов', keywords: 'ионы катионы анионы заряд растворимость', url: '/ions/' },
   { id: 'page_about', title: 'О проекте', subtitle: 'Информация о платформе', keywords: 'о проекте информация автор методика', url: '/about/' },
+  { id: 'page_competencies', title: 'Карта компетенций', subtitle: 'Граф зависимостей навыков', keywords: 'компетенции навыки граф зависимости карта профиль уровень', url: '/competencies/' },
+  { id: 'page_processes', title: 'Справочник процессов', subtitle: 'Физические, химические и лабораторные процессы', keywords: 'процессы фильтрация выпаривание нагревание лабораторные операции', url: '/processes/' },
 ];
 
 /**
@@ -147,7 +149,7 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
       title: name,
       subtitle: description,
       search: buildSearch([name, description, blockName]),
-      url: comp.link ? localizeUrl(comp.link, loc) : localizeUrl('/profile/', loc),
+      url: localizeUrl(`/competency/${comp.id}/`, loc),
       meta: {
         block: blockName,
       },

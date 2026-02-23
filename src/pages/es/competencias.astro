@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompetencyGraphIsland from '../../features/competency/CompetencyGraphIsland';
+import type { SupportedLocale } from '../../types/i18n';
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+---
+
+<BaseLayout title="Mapa de competencias" description="Grafo de dependencias de habilidades: de lo básico a lo avanzado">
+  <CompetencyGraphIsland locale={locale} client:idle />
+</BaseLayout>

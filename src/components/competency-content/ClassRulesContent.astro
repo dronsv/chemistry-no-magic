@@ -1,0 +1,54 @@
+---
+interface ClassificationRule {
+  id: string;
+  class: string;
+  subclass: string;
+  pattern: string;
+  description_ru: string;
+  examples: string[];
+}
+
+interface Props {
+  rules: ClassificationRule[];
+}
+
+const { rules } = Astro.props;
+
+const classLabels: Record<string, string> = {
+  oxide: 'Оксиды',
+  acid: 'Кислоты',
+  base: 'Основания',
+  salt: 'Соли',
+};
+
+const grouped = new Map<string, ClassificationRule[]>();
+for (const r of rules) {
+  const list = grouped.get(r.class) || [];
+  list.push(r);
+  grouped.set(r.class, list);
+}
+---
+
+{[...grouped.entries()].map(([cls, items]) => (
+  <div style="margin-bottom: var(--space-md);">
+    <p class="comp-content__subtitle">{classLabels[cls] ?? cls}</p>
+    <table class="comp-content__table">
+      <thead>
+        <tr>
+          <th>Подкласс</th>
+          <th>Описание</th>
+          <th>Примеры</th>
+        </tr>
+      </thead>
+      <tbody>
+        {items.map(r => (
+          <tr>
+            <td><strong>{r.subclass}</strong></td>
+            <td>{r.description_ru}</td>
+            <td style="font-size: 0.8125rem;">{r.examples.join(', ')}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+))}

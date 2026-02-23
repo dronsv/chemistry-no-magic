@@ -1,0 +1,51 @@
+---
+interface NamingExample {
+  formula: string;
+  name_ru: string;
+}
+interface NamingRule {
+  id: string;
+  class: string;
+  pattern: string;
+  template_ru: string;
+  examples: NamingExample[];
+}
+
+interface Props {
+  rules: NamingRule[];
+}
+
+const { rules } = Astro.props;
+
+const classLabels: Record<string, string> = {
+  oxide: 'Оксиды',
+  acid: 'Кислоты',
+  base: 'Основания',
+  salt: 'Соли',
+};
+
+const grouped = new Map<string, NamingRule[]>();
+for (const r of rules) {
+  const list = grouped.get(r.class) || [];
+  list.push(r);
+  grouped.set(r.class, list);
+}
+---
+
+{[...grouped.entries()].map(([cls, items]) => (
+  <div style="margin-bottom: var(--space-md);">
+    <p class="comp-content__subtitle">{classLabels[cls] ?? cls}</p>
+    {items.map(rule => (
+      <div class="comp-content__chain">
+        <div class="comp-content__chain-title">{rule.template_ru}</div>
+        <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
+          {rule.examples.slice(0, 4).map((ex, i) => (
+            <span>
+              {ex.formula} — {ex.name_ru}{i < Math.min(rule.examples.length, 4) - 1 ? '; ' : ''}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+))}

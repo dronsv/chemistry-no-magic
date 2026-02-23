@@ -1,16 +1,8 @@
 import type { CompetencyId, CompetencyNode } from '../../types/competency';
-import type { CompetencyLevel } from '../../lib/bkt-engine';
 import type { SupportedLocale } from '../../types/i18n';
-import { getLevel } from '../../lib/bkt-engine';
 import { localizeUrl } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
-
-const LEVEL_LABELS: Record<CompetencyLevel, () => string> = {
-  none: m.level_none,
-  basic: m.level_basic,
-  confident: m.level_confident,
-  automatic: m.level_automatic,
-};
+import CompetencyBar from '../profile/CompetencyBar';
 
 interface ResultsSummaryProps {
   results: Map<CompetencyId, number>;
@@ -30,27 +22,14 @@ export default function ResultsSummary({ results, competencies, locale = 'ru' }:
       </p>
 
       <div className="diag-results__list">
-        {shown.map((c) => {
-          const pL = results.get(c.id) ?? 0.25;
-          const level = getLevel(pL);
-          const percent = Math.round(pL * 100);
-
-          return (
-            <div key={c.id} className="comp-bar">
-              <span className="comp-bar__name">{c.name_ru}</span>
-              <div className="comp-bar__track">
-                <div
-                  className={`comp-bar__fill comp-bar__fill--${level}`}
-                  style={{ width: `${percent}%` }}
-                />
-              </div>
-              <span className="comp-bar__value">{percent}%</span>
-              <span className={`comp-bar__level comp-bar__level--${level}`}>
-                {LEVEL_LABELS[level]?.() ?? m.level_none()}
-              </span>
-            </div>
-          );
-        })}
+        {shown.map((c) => (
+          <CompetencyBar
+            key={c.id}
+            name={c.name_ru}
+            pL={results.get(c.id) ?? 0.25}
+            href={localizeUrl(`/competency/${c.id}/`, locale)}
+          />
+        ))}
       </div>
 
       <div className="diag-results__actions">

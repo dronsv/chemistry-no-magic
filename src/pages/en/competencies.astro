@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompetencyGraphIsland from '../../features/competency/CompetencyGraphIsland';
+import type { SupportedLocale } from '../../types/i18n';
+const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
+---
+
+<BaseLayout title="Competency Map" description="Skill dependency graph: from basic to advanced">
+  <CompetencyGraphIsland locale={locale} client:idle />
+</BaseLayout>

@@ -1,0 +1,86 @@
+---
+import * as m from '../../paraglide/messages.js';
+
+interface RateFactor {
+  factor_id: string;
+  name_ru: string;
+  effect_ru: string;
+  detail_ru: string;
+  applies_to: string;
+}
+interface EquilibriumShift {
+  factor: string;
+  shift_ru: string;
+  explanation_ru: string;
+}
+interface EnergyCatalystTheory {
+  rate_factors: RateFactor[];
+  equilibrium_shifts: EquilibriumShift[];
+  heat_classification: {
+    exothermic_ru: string;
+    endothermic_ru: string;
+    examples_exo_ru: string[];
+    examples_endo_ru: string[];
+  };
+}
+
+interface Props {
+  theory: EnergyCatalystTheory;
+}
+
+const { theory } = Astro.props;
+---
+
+<p class="comp-content__subtitle">{m.rxn_theory_rate_factors()}</p>
+<table class="comp-content__table">
+  <thead>
+    <tr>
+      <th>Фактор</th>
+      <th>Влияние</th>
+    </tr>
+  </thead>
+  <tbody>
+    {theory.rate_factors.map(f => (
+      <tr>
+        <td><strong>{f.name_ru}</strong></td>
+        <td>{f.effect_ru}. {f.detail_ru}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<p class="comp-content__subtitle">{m.rxn_theory_equilibrium()}</p>
+<div class="comp-content__intro">{m.rxn_theory_equilibrium_desc()}</div>
+
+<table class="comp-content__table">
+  <thead>
+    <tr>
+      <th>{m.rxn_theory_eq_factor()}</th>
+      <th>{m.rxn_theory_eq_shift()}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {theory.equilibrium_shifts.map(s => (
+      <tr>
+        <td>{s.explanation_ru}</td>
+        <td>{s.shift_ru}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<p class="comp-content__subtitle">{m.rxn_theory_exo_endo()}</p>
+<div class="comp-content__columns">
+  <div>
+    <strong>{m.rxn_theory_exothermic()}</strong> (ΔH &lt; 0)
+    <ul class="comp-content__list">
+      {theory.heat_classification.examples_exo_ru.map(e => <li>{e}</li>)}
+    </ul>
+  </div>
+  <div>
+    <strong>{m.rxn_theory_endothermic()}</strong> (ΔH &gt; 0)
+    <ul class="comp-content__list">
+      {theory.heat_classification.examples_endo_ru.map(e => <li>{e}</li>)}
+    </ul>
+  </div>
+</div>

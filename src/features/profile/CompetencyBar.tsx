@@ -12,14 +12,15 @@ const LEVEL_LABELS: Record<CompetencyLevel, () => string> = {
 interface CompetencyBarProps {
   name: string;
   pL: number;
+  href?: string;
 }
 
-export default function CompetencyBar({ name, pL }: CompetencyBarProps) {
+export default function CompetencyBar({ name, pL, href }: CompetencyBarProps) {
   const level = getLevel(pL);
   const percent = Math.round(pL * 100);
 
-  return (
-    <div className="comp-bar">
+  const content = (
+    <>
       <span className="comp-bar__name">{name}</span>
       <div className="comp-bar__track">
         <div
@@ -31,6 +32,16 @@ export default function CompetencyBar({ name, pL }: CompetencyBarProps) {
       <span className={`comp-bar__level comp-bar__level--${level}`}>
         {LEVEL_LABELS[level]?.() ?? m.level_none()}
       </span>
-    </div>
+    </>
   );
+
+  if (href) {
+    return (
+      <a href={href} className="comp-bar comp-bar--link">
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="comp-bar">{content}</div>;
 }

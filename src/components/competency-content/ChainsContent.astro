@@ -1,0 +1,56 @@
+---
+import * as m from '../../paraglide/messages.js';
+
+interface ChainStep {
+  substance: string;
+  reagent: string;
+  next: string;
+  type: string;
+}
+interface GeneticChain {
+  chain_id: string;
+  title_ru: string;
+  class_sequence: string[];
+  steps: ChainStep[];
+}
+
+interface Props {
+  chains: GeneticChain[];
+}
+
+const { chains } = Astro.props;
+---
+
+<div class="comp-content__intro">
+  {m.rxn_theory_genetic_desc()}
+</div>
+
+<p class="comp-content__subtitle">{m.rxn_theory_metals_label()}</p>
+<div class="comp-content__formula">
+  {m.rxn_theory_metals_chain()}
+</div>
+
+<p class="comp-content__subtitle">{m.rxn_theory_nonmetals_label()}</p>
+<div class="comp-content__formula">
+  {m.rxn_theory_nonmetals_chain()}
+</div>
+
+<p class="comp-content__subtitle">{m.rxn_theory_chain_examples()}</p>
+{chains.map(chain => (
+  <div class="comp-content__chain">
+    <div class="comp-content__chain-title">{chain.title_ru}</div>
+    <div class="comp-content__chain-seq">{chain.class_sequence.join(' → ')}</div>
+    <div style="margin-top: 0.25rem; font-size: 0.8125rem;">
+      {chain.steps.map((step, i) => (
+        <span>
+          {step.substance}
+          {i < chain.steps.length - 1 ? (
+            <span style="color: var(--color-text-muted);"> —({step.reagent})→ {step.next}{i < chain.steps.length - 2 ? ' ' : ''}</span>
+          ) : (
+            <span style="color: var(--color-text-muted);"> —({step.reagent})→ {step.next}</span>
+          )}
+        </span>
+      ))}
+    </div>
+  </div>
+))}
