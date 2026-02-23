@@ -198,5 +198,15 @@
     "prerequisites": ["classification"],
     "oge_task_types": [23],
     "link": "/ions/"
+  },
+  {
+    "id": "ion_nomenclature",
+    "name_ru": "Номенклатура ионов",
+    "description_ru": "Названия ионов по суффиксной системе: -ид (бескислородные), -ит/-ат (кислородсодержащие). Связь названия аниона с кислотой-родителем и степенью окисления центрального атома.",
+    "block": "G",
+    "block_name_ru": "Растворы и электролиты",
+    "prerequisites": ["naming"],
+    "oge_task_types": [23],
+    "link": "/ions/"
   }
 ]

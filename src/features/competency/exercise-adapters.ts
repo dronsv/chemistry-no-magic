@@ -22,6 +22,7 @@ const COMPETENCY_FEATURE: Record<string, string> = {
   calculations_basic: 'calculations',
   calculations_solutions: 'calculations',
   reaction_yield_logic: 'calculations',
+  ion_nomenclature: 'ions',
 };
 
 export interface ExerciseOption {
@@ -123,6 +124,18 @@ export async function loadAdapter(competencyId: string, locale?: SupportedLocale
       ]);
       const data = await loadCalculationsData();
       return { generate: () => generateExercise({ data }) };
+    }
+
+    case 'ions': {
+      const [{ generateExercise }, dl] = await Promise.all([
+        import('../ions/practice/generate-exercises'),
+        import('../../lib/data-loader'),
+      ]);
+      const [ions, nomenclatureRules] = await Promise.all([
+        dl.loadIons(locale),
+        dl.loadIonNomenclature(),
+      ]);
+      return { generate: () => generateExercise({ ions, nomenclatureRules }) };
     }
 
     default:

@@ -19,6 +19,7 @@ const VALID_COMPETENCY_IDS = [
   'reaction_energy_profile', 'catalyst_role_understanding',
   'calculations_basic', 'calculations_solutions', 'reaction_yield_logic',
   'electrolyte_logic',
+  'ion_nomenclature',
 ];
 const VALID_COVERAGES = ['P', 'S', 'O'];
 
