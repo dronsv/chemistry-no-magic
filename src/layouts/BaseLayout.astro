@@ -61,7 +61,8 @@ const searchUrl = localizeUrl('/search/', locale);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#2563eb" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index, follow" />
@@ -151,6 +152,13 @@ const searchUrl = localizeUrl('/search/', locale);
     <!-- Set Paraglide locale for client-side React islands -->
     <script is:inline define:vars={{ locale }}>
       document.cookie = 'PARAGLIDE_LOCALE=' + locale + ';path=/;max-age=34560000;SameSite=Lax';
+    </script>
+
+    <!-- Service Worker registration -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
     </script>
 
     <slot name="head" />

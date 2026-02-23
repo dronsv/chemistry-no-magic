@@ -123,6 +123,9 @@
   border-radius: 0.25rem;
   white-space: nowrap;
   flex-shrink: 0;
+  width: 90px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .comp-bar__level--none { background: #fff5f5; color: #e03131; }

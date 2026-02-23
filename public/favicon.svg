@@ -5,7 +5,7 @@
       .flask-neck { fill: #e8edf4; stroke: #2563eb; stroke-width: 3; }
       .neck-rim { fill: none; stroke: #2563eb; stroke-width: 4; stroke-linecap: round; }
       .liquid { fill: #10b981; }
-      .five { fill: #dc2626; font-family: system-ui, Arial, sans-serif; }
+      .pct { fill: #dc2626; font-family: system-ui, Arial, sans-serif; }
       .bubble { fill: #6ee7b7; }
       .vapor { fill: #10b981; opacity: 0.35; }
       @media (prefers-color-scheme: dark) {
@@ -13,7 +13,7 @@
         .flask-neck { fill: #1e293b; stroke: #60a5fa; }
         .neck-rim { stroke: #60a5fa; }
         .liquid { fill: #059669; }
-        .five { fill: #f87171; }
+        .pct { fill: #f87171; }
         .bubble { fill: #6ee7b7; }
         .vapor { fill: #34d399; opacity: 0.4; }
       }
@@ -54,6 +54,6 @@
   <circle class="bubble" cx="86" cy="96" r="2.5"/>
   <circle class="bubble" cx="50" cy="86" r="2"/>
 
-  <!-- Number 5 — large, centered in flask -->
-  <text class="five" x="64" y="112" font-size="56" font-weight="800" text-anchor="middle">5</text>
+  <!-- 100% — universal, centered in flask -->
+  <text class="pct" x="64" y="110" font-size="30" font-weight="800" text-anchor="middle">100%</text>
 </svg>

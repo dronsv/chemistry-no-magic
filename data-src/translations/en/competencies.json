@@ -6,97 +6,97 @@
   },
   "electron_config": {
     "name_ru": "Electron Configuration",
-    "description_ru": "Writing electron configuration of atoms, understanding subshells, Klechkovsky\u2019s rule, Hund\u2019s rule. Exceptions (Cr, Cu and others).",
+    "description_ru": "Writing electron configuration of atoms, understanding subshells, Klechkovsky's rule, Hund's rule. Exceptions (Cr, Cu and others).",
     "block_name_ru": "Atomic Structure and Periodic Table"
   },
-  "property_trends": {
-    "name_ru": "Property Trends",
-    "description_ru": "Patterns in atomic radius, ionization energy, electronegativity changes across periods and groups.",
+  "periodic_trends": {
+    "name_ru": "Periodic Trends",
+    "description_ru": "Patterns in element properties across periods and groups: radius, electronegativity, ionization energy, metallic character. Explained through electronic structure.",
     "block_name_ru": "Atomic Structure and Periodic Table"
   },
-  "substance_classes": {
-    "name_ru": "Substance Classes",
-    "description_ru": "Classifying substances into oxides, acids, bases, salts. Determining class and subclass by formula. Knowing key representatives.",
+  "oxidation_states": {
+    "name_ru": "Oxidation States",
+    "description_ru": "Determining oxidation states of elements in compounds. Relationship with electron configuration and position in the table. Oxidizer and reducer.",
+    "block_name_ru": "Atomic Structure and Periodic Table"
+  },
+  "bond_type": {
+    "name_ru": "Chemical Bond Types",
+    "description_ru": "Covalent (polar and nonpolar), ionic, metallic bonds. Determining bond type by electronegativity difference and substance composition.",
+    "block_name_ru": "Chemical Bonding and Structure"
+  },
+  "crystal_structure_type": {
+    "name_ru": "Crystal Lattice Types",
+    "description_ru": "Ionic, molecular, atomic, and metallic lattices. Relationship of lattice type with physical properties (melting point, solubility, conductivity).",
+    "block_name_ru": "Chemical Bonding and Structure"
+  },
+  "classification": {
+    "name_ru": "Substance Classification",
+    "description_ru": "Oxides (basic, acidic, amphoteric), acids, bases, salts. Determining class by composition and properties.",
     "block_name_ru": "Substance Classes and Nomenclature"
   },
-  "nomenclature_logic": {
+  "naming": {
     "name_ru": "Nomenclature",
-    "description_ru": "Naming substances by formula and determining formula by name. Systematic and trivial naming rules.",
+    "description_ru": "Systematic and trivial names of substances. Name from formula and formula from name.",
     "block_name_ru": "Substance Classes and Nomenclature"
   },
   "amphoterism_logic": {
     "name_ru": "Amphoterism",
-    "description_ru": "Understanding amphoteric oxides and hydroxides: reactions with both acids and bases. Key amphoteric elements (Al, Zn, Be, Fe\u00b3\u207a, Cr\u00b3\u207a).",
+    "description_ru": "Amphoteric oxides and hydroxides: reactions with acids and alkalis. Typical amphoteric elements (Al, Zn, Be, Cr).",
     "block_name_ru": "Substance Classes and Nomenclature"
   },
-  "bond_types": {
-    "name_ru": "Chemical Bonds",
-    "description_ru": "Determining bond type by formula: ionic, covalent polar/nonpolar, metallic. Relationship between bond type and substance properties.",
-    "block_name_ru": "Chemical Bonding"
-  },
-  "crystal_structures": {
-    "name_ru": "Crystal Structures",
-    "description_ru": "Relationship between crystal lattice type (ionic, atomic, molecular, metallic) and physical properties: melting point, hardness, conductivity.",
-    "block_name_ru": "Chemical Bonding"
-  },
-  "oxidation_states": {
-    "name_ru": "Oxidation States",
-    "description_ru": "Determining oxidation states of elements in compounds. Rules for calculating and using oxidation states.",
-    "block_name_ru": "Chemical Bonding"
-  },
   "reactions_exchange": {
-    "name_ru": "Exchange Reactions",
-    "description_ru": "Understanding conditions for exchange reactions: precipitate, gas, or weak electrolyte formation. Using the solubility table.",
-    "block_name_ru": "Chemical Reactions"
+    "name_ru": "Ion Exchange Reactions",
+    "description_ru": "Exchange reactions in solutions: neutralization, salt + acid, salt + alkali, salt + salt. Full and net ionic equations.",
+    "block_name_ru": "Reactions"
   },
-  "reactions_substitution": {
-    "name_ru": "Substitution Reactions",
-    "description_ru": "Predicting displacement reactions using the activity series: metal displaces metal, hydrogen displacement from acids.",
-    "block_name_ru": "Chemical Reactions"
+  "gas_precipitate_logic": {
+    "name_ru": "Reaction Signs",
+    "description_ru": "Driving forces of ion exchange reactions: formation of precipitate, gas, or water. Solubility table. Carbonate + acid → CO₂.",
+    "block_name_ru": "Reactions"
   },
-  "reactions_types": {
-    "name_ru": "Reaction Types",
-    "description_ru": "Classifying reactions: combination, decomposition, exchange, substitution. Distinguishing features and examples.",
-    "block_name_ru": "Chemical Reactions"
-  },
-  "redox_basics": {
+  "reactions_redox": {
     "name_ru": "Redox Reactions",
-    "description_ru": "Identifying oxidation and reduction processes. Writing electron balance equations. Determining oxidizer and reducer.",
-    "block_name_ru": "Chemical Reactions"
+    "description_ru": "Substitution, balancing redox reactions using electron balance method. Activity series of metals. Metal + salt, metal + acid.",
+    "block_name_ru": "Reactions"
   },
-  "qualitative_reactions_knowledge": {
-    "name_ru": "Qualitative Reactions",
-    "description_ru": "Recognizing ions and gases by characteristic features: precipitate color, gas release, color change.",
-    "block_name_ru": "Chemical Reactions"
-  },
-  "genetic_chains_logic": {
+  "genetic_chain_logic": {
     "name_ru": "Genetic Chains",
-    "description_ru": "Converting between substance classes: metal \u2192 basic oxide \u2192 base \u2192 salt. Nonmetal \u2192 acidic oxide \u2192 acid \u2192 salt.",
-    "block_name_ru": "Chemical Reactions"
+    "description_ru": "Genetic relationship between substance classes: transformation chains metal → oxide → hydroxide → salt, etc.",
+    "block_name_ru": "Reactions"
+  },
+  "qualitative_analysis_logic": {
+    "name_ru": "Qualitative Reactions",
+    "description_ru": "Identifying substances by characteristic reactions: precipitate color, gas evolution, indicator color change.",
+    "block_name_ru": "Reactions"
   },
   "reaction_energy_profile": {
-    "name_ru": "Reaction Energy",
-    "description_ru": "Factors affecting reaction rate: temperature, concentration, surface area, catalyst. Exo- and endothermic reactions. Le Chatelier\u2019s principle.",
-    "block_name_ru": "Chemical Reactions"
+    "name_ru": "Rate and Equilibrium",
+    "description_ru": "Factors affecting reaction rate (temperature, concentration, catalyst, surface area). Activation energy. Chemical equilibrium.",
+    "block_name_ru": "Energetics"
   },
-  "catalyst_knowledge": {
-    "name_ru": "Catalysis",
-    "description_ru": "Understanding how catalysts work: lowering activation energy, not changing equilibrium. Common catalysts and their applications.",
-    "block_name_ru": "Chemical Reactions"
+  "catalyst_role_understanding": {
+    "name_ru": "Catalysis and Energetics",
+    "description_ru": "Role of a catalyst: what it changes (rate, Ea) and what it doesn't (product composition, heat effect, equilibrium). Exo- and endothermic reactions.",
+    "block_name_ru": "Energetics"
   },
   "calculations_basic": {
     "name_ru": "Basic Calculations",
-    "description_ru": "Calculating molar mass, amount of substance, mass fraction of an element. Converting between mass, moles, and volume.",
-    "block_name_ru": "Chemical Calculations"
+    "description_ru": "Molar mass (Mr), amount of substance (n = m/M), mass fraction of an element. Calculations from substance formula.",
+    "block_name_ru": "Calculations"
   },
   "calculations_solutions": {
     "name_ru": "Solution Calculations",
-    "description_ru": "Calculating mass fraction of dissolved substance. Mixing and dilution problems. Solute mass and solution mass relationships.",
-    "block_name_ru": "Chemical Calculations"
+    "description_ru": "Mass fraction of dissolved substance (ω). Problems on preparing, diluting, and mixing solutions.",
+    "block_name_ru": "Calculations"
   },
   "reaction_yield_logic": {
     "name_ru": "Reaction Yield",
-    "description_ru": "Calculating theoretical and practical product yield. Stoichiometric calculations using balanced equations.",
-    "block_name_ru": "Chemical Calculations"
+    "description_ru": "Calculating product yield. Practical and theoretical yield. Excess and limiting reagent.",
+    "block_name_ru": "Calculations"
+  },
+  "electrolyte_logic": {
+    "name_ru": "Electrolytes and Dissociation",
+    "description_ru": "Electrolytes and non-electrolytes. Strong and weak electrolytes. Electrolytic dissociation of acids, bases, and salts.",
+    "block_name_ru": "Solutions and Electrolytes"
   }
 }

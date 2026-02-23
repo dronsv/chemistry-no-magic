@@ -9,94 +9,94 @@
     "description_ru": "Zapisywanie konfiguracji elektronowej atomów, rozumienie podpowłok, reguła Klechkowskiego, reguła Hunda. Wyjątki (Cr, Cu i inne).",
     "block_name_ru": "Budowa atomu i układ okresowy"
   },
-  "property_trends": {
-    "name_ru": "Trendy właściwości",
-    "description_ru": "Prawidłowości zmian promienia atomowego, energii jonizacji, elektroujemności w okresach i grupach.",
+  "periodic_trends": {
+    "name_ru": "Trendy okresowe",
+    "description_ru": "Prawidłowości zmian promienia atomowego, energii jonizacji, elektroujemności w okresach i grupach. Wyjaśnienie przez strukturę elektronową.",
     "block_name_ru": "Budowa atomu i układ okresowy"
   },
-  "substance_classes": {
-    "name_ru": "Klasy substancji",
-    "description_ru": "Klasyfikacja substancji na tlenki, kwasy, zasady, sole. Określanie klasy i podklasy na podstawie wzoru. Znajomość kluczowych przedstawicieli.",
+  "oxidation_states": {
+    "name_ru": "Stopnie utlenienia",
+    "description_ru": "Określanie stopni utlenienia pierwiastków w związkach. Związek z konfiguracją elektronową i pozycją w tablicy. Utleniacz i reduktor.",
+    "block_name_ru": "Budowa atomu i układ okresowy"
+  },
+  "bond_type": {
+    "name_ru": "Typy wiązań chemicznych",
+    "description_ru": "Kowalencyjne (polarne i niepolarne), jonowe, metaliczne wiązania. Określanie typu wiązania na podstawie różnicy elektroujemności i składu substancji.",
+    "block_name_ru": "Wiązania chemiczne i budowa substancji"
+  },
+  "crystal_structure_type": {
+    "name_ru": "Typy sieci krystalicznych",
+    "description_ru": "Jonowa, molekularna, atomowa i metaliczna sieć krystaliczna. Związek typu sieci z właściwościami fizycznymi (temperatura topnienia, rozpuszczalność, przewodnictwo).",
+    "block_name_ru": "Wiązania chemiczne i budowa substancji"
+  },
+  "classification": {
+    "name_ru": "Klasyfikacja substancji",
+    "description_ru": "Tlenki (zasadowe, kwasowe, amfoteryczne), kwasy, zasady, sole. Określanie klasy na podstawie składu i właściwości.",
     "block_name_ru": "Klasy substancji i nomenklatura"
   },
-  "nomenclature_logic": {
+  "naming": {
     "name_ru": "Nomenklatura",
-    "description_ru": "Nazywanie substancji na podstawie wzoru i określanie wzoru na podstawie nazwy. Zasady nazewnictwa systematycznego i zwyczajowego.",
+    "description_ru": "Nazwy systematyczne i zwyczajowe substancji. Nazwa na podstawie wzoru i wzór na podstawie nazwy.",
     "block_name_ru": "Klasy substancji i nomenklatura"
   },
   "amphoterism_logic": {
     "name_ru": "Amfoteryczność",
-    "description_ru": "Rozumienie tlenków i wodorotlenków amfoterycznych: reakcje zarówno z kwasami, jak i z zasadami. Kluczowe pierwiastki amfoteryczne (Al, Zn, Be, Fe³⁺, Cr³⁺).",
+    "description_ru": "Tlenki i wodorotlenki amfoteryczne: reakcje z kwasami i zasadami. Typowe pierwiastki amfoteryczne (Al, Zn, Be, Cr).",
     "block_name_ru": "Klasy substancji i nomenklatura"
   },
-  "bond_types": {
-    "name_ru": "Wiązania chemiczne",
-    "description_ru": "Określanie typu wiązania na podstawie wzoru: jonowe, kowalencyjne polarne/niepolarne, metaliczne. Związek między typem wiązania a właściwościami substancji.",
-    "block_name_ru": "Wiązania chemiczne"
-  },
-  "crystal_structures": {
-    "name_ru": "Struktury krystaliczne",
-    "description_ru": "Związek między typem sieci krystalicznej (jonowa, atomowa, molekularna, metaliczna) a właściwościami fizycznymi: temperatura topnienia, twardość, przewodnictwo.",
-    "block_name_ru": "Wiązania chemiczne"
-  },
-  "oxidation_states": {
-    "name_ru": "Stopnie utlenienia",
-    "description_ru": "Określanie stopni utlenienia pierwiastków w związkach. Zasady obliczania i stosowania stopni utlenienia.",
-    "block_name_ru": "Wiązania chemiczne"
-  },
   "reactions_exchange": {
-    "name_ru": "Reakcje wymiany",
-    "description_ru": "Rozumienie warunków przebiegu reakcji wymiany: powstawanie osadu, gazu lub słabego elektrolitu. Korzystanie z tabeli rozpuszczalności.",
+    "name_ru": "Reakcje wymiany jonowej",
+    "description_ru": "Reakcje wymiany w roztworach: neutralizacja, sól + kwas, sól + zasada, sól + sól. Pełne i skrócone równania jonowe.",
     "block_name_ru": "Reakcje chemiczne"
   },
-  "reactions_substitution": {
-    "name_ru": "Reakcje podstawienia",
-    "description_ru": "Przewidywanie reakcji wypierania na podstawie szeregu aktywności: metal wypiera metal, wypieranie wodoru z kwasów.",
+  "gas_precipitate_logic": {
+    "name_ru": "Oznaki reakcji",
+    "description_ru": "Siły napędowe reakcji wymiany jonowej: powstawanie osadu, gazu lub wody. Tabela rozpuszczalności. Węglan + kwas → CO₂.",
     "block_name_ru": "Reakcje chemiczne"
   },
-  "reactions_types": {
-    "name_ru": "Typy reakcji",
-    "description_ru": "Klasyfikacja reakcji: syntezy, rozkładu, wymiany, podstawienia. Cechy rozróżniające i przykłady.",
-    "block_name_ru": "Reakcje chemiczne"
-  },
-  "redox_basics": {
+  "reactions_redox": {
     "name_ru": "Reakcje redoks",
-    "description_ru": "Identyfikacja procesów utleniania i redukcji. Zapisywanie równań bilansu elektronowego. Określanie utleniacza i reduktora.",
+    "description_ru": "Podstawienie, bilansowanie reakcji redoks metodą bilansu elektronowego. Szereg aktywności metali. Metal + sól, metal + kwas.",
     "block_name_ru": "Reakcje chemiczne"
   },
-  "qualitative_reactions_knowledge": {
-    "name_ru": "Reakcje jakościowe",
-    "description_ru": "Rozpoznawanie jonów i gazów na podstawie charakterystycznych cech: kolor osadu, wydzielanie gazu, zmiana barwy.",
-    "block_name_ru": "Reakcje chemiczne"
-  },
-  "genetic_chains_logic": {
+  "genetic_chain_logic": {
     "name_ru": "Łańcuchy genetyczne",
-    "description_ru": "Przemiany między klasami substancji: metal → tlenek zasadowy → zasada → sól. Niemetal → tlenek kwasowy → kwas → sól.",
+    "description_ru": "Związek genetyczny między klasami substancji: łańcuchy przemian metal → tlenek → zasada → sól itd.",
+    "block_name_ru": "Reakcje chemiczne"
+  },
+  "qualitative_analysis_logic": {
+    "name_ru": "Reakcje jakościowe",
+    "description_ru": "Rozpoznawanie substancji na podstawie charakterystycznych reakcji: kolor osadu, wydzielanie gazu, zmiana barwy wskaźnika.",
     "block_name_ru": "Reakcje chemiczne"
   },
   "reaction_energy_profile": {
-    "name_ru": "Energia reakcji",
-    "description_ru": "Czynniki wpływające na szybkość reakcji: temperatura, stężenie, powierzchnia, katalizator. Reakcje egzo- i endotermiczne. Zasada Le Chateliera.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name_ru": "Szybkość i równowaga",
+    "description_ru": "Czynniki wpływające na szybkość reakcji (temperatura, stężenie, katalizator, powierzchnia). Energia aktywacji. Równowaga chemiczna.",
+    "block_name_ru": "Energetyka"
   },
-  "catalyst_knowledge": {
-    "name_ru": "Kataliza",
-    "description_ru": "Rozumienie działania katalizatorów: obniżanie energii aktywacji, brak wpływu na równowagę. Popularne katalizatory i ich zastosowania.",
-    "block_name_ru": "Reakcje chemiczne"
+  "catalyst_role_understanding": {
+    "name_ru": "Kataliza i energetyka",
+    "description_ru": "Rola katalizatora: co zmienia (szybkość, Ea) i czego nie zmienia (skład produktów, efekt cieplny, równowaga). Reakcje egzo- i endotermiczne.",
+    "block_name_ru": "Energetyka"
   },
   "calculations_basic": {
     "name_ru": "Obliczenia podstawowe",
-    "description_ru": "Obliczanie masy molowej, ilości substancji, udziału masowego pierwiastka. Przeliczanie między masą, molami a objętością.",
+    "description_ru": "Masa molowa (Mr), ilość substancji (n = m/M), udział masowy pierwiastka. Obliczenia na podstawie wzoru substancji.",
     "block_name_ru": "Obliczenia chemiczne"
   },
   "calculations_solutions": {
     "name_ru": "Obliczenia roztworów",
-    "description_ru": "Obliczanie udziału masowego substancji rozpuszczonej. Zadania na mieszanie i rozcieńczanie. Zależności między masą substancji rozpuszczonej a masą roztworu.",
+    "description_ru": "Stężenie procentowe (ω). Zadania na przygotowanie, rozcieńczanie i mieszanie roztworów.",
     "block_name_ru": "Obliczenia chemiczne"
   },
   "reaction_yield_logic": {
     "name_ru": "Wydajność reakcji",
-    "description_ru": "Obliczanie teoretycznej i praktycznej wydajności produktu. Obliczenia stechiometryczne na podstawie zbilansowanych równań.",
+    "description_ru": "Obliczanie wydajności produktu reakcji. Wydajność praktyczna i teoretyczna. Nadmiar i niedomiar reagenta.",
     "block_name_ru": "Obliczenia chemiczne"
+  },
+  "electrolyte_logic": {
+    "name_ru": "Elektrolity i dysocjacja",
+    "description_ru": "Elektrolity i nieelektrolity. Elektrolity mocne i słabe. Dysocjacja elektrolityczna kwasów, zasad i soli.",
+    "block_name_ru": "Roztwory i elektrolity"
   }
 }
