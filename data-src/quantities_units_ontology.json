@@ -1,0 +1,536 @@
+{
+  "meta": {
+    "title": "Quantities & Units Ontology (MVP) for Chemistry Course",
+    "version": "1.1",
+    "generated_utc": "2026-02-22T20:33:04Z",
+    "namespaces": {
+      "quantity": "q:",
+      "unit": "unit:",
+      "measurement": "meas:",
+      "problem": "prob:"
+    }
+  },
+  "quantities": [
+    {
+      "id": "q:mass",
+      "name_ru": "масса",
+      "dimension": "M",
+      "recommended_units": [
+        "unit:g",
+        "unit:kg"
+      ]
+    },
+    {
+      "id": "q:amount",
+      "name_ru": "количество вещества",
+      "dimension": "N",
+      "recommended_units": [
+        "unit:mol"
+      ]
+    },
+    {
+      "id": "q:volume",
+      "name_ru": "объём",
+      "dimension": "L3",
+      "recommended_units": [
+        "unit:L",
+        "unit:m3"
+      ]
+    },
+    {
+      "id": "q:concentration",
+      "name_ru": "молярная концентрация",
+      "dimension": "N/L3",
+      "recommended_units": [
+        "unit:mol_per_L",
+        "unit:mol_per_m3"
+      ]
+    },
+    {
+      "id": "q:temperature",
+      "name_ru": "температура",
+      "dimension": "Theta",
+      "recommended_units": [
+        "unit:K",
+        "unit:degC"
+      ]
+    },
+    {
+      "id": "q:pressure",
+      "name_ru": "давление",
+      "dimension": "P",
+      "recommended_units": [
+        "unit:Pa",
+        "unit:bar",
+        "unit:atm"
+      ]
+    },
+    {
+      "id": "q:energy",
+      "name_ru": "энергия/теплота",
+      "dimension": "E",
+      "recommended_units": [
+        "unit:J",
+        "unit:kJ"
+      ]
+    },
+    {
+      "id": "q:density",
+      "name_ru": "плотность",
+      "dimension": "M/L3",
+      "recommended_units": [
+        "unit:g_per_mL",
+        "unit:kg_per_m3"
+      ],
+      "optional": true
+    },
+    {
+      "id": "q:molar_mass",
+      "name_ru": "молярная масса",
+      "dimension": "M/N",
+      "recommended_units": [
+        "unit:g_per_mol",
+        "unit:kg_per_mol"
+      ],
+      "notes": "Обычно вычисляется из состава, но удобно иметь как quantity-type для задач и кэша."
+    },
+    {
+      "id": "q:mass_fraction",
+      "name_ru": "массовая доля",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:fraction",
+        "unit:percent"
+      ],
+      "notes": "ω = m(компонента) / m(смеси). Безразмерная (0..1) или в процентах. Используется для растворов и элементного состава."
+    },
+    {
+      "id": "q:volume_fraction",
+      "name_ru": "объёмная доля",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:fraction",
+        "unit:percent"
+      ],
+      "notes": "φ = V(компонента) / V(смеси). Безразмерная. Используется для газовых смесей."
+    },
+    {
+      "id": "q:molar_volume",
+      "name_ru": "молярный объём",
+      "dimension": "L3/N",
+      "recommended_units": [
+        "unit:L_per_mol"
+      ],
+      "notes": "Vm = V / n. При н.у. (0°C, 1 атм) = 22.4 л/моль. Ключевая величина для задач на газы."
+    },
+    {
+      "id": "q:solubility",
+      "name_ru": "растворимость",
+      "dimension": "M/M",
+      "recommended_units": [
+        "unit:g_per_100g"
+      ],
+      "notes": "Масса вещества, растворяющегося в 100 г растворителя при данной температуре."
+    },
+    {
+      "id": "q:yield",
+      "name_ru": "выход продукта",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:fraction",
+        "unit:percent"
+      ],
+      "notes": "η = m(практ.) / m(теор.). Безразмерная (0..1) или в процентах."
+    },
+    {
+      "id": "q:enthalpy",
+      "name_ru": "энтальпия реакции",
+      "dimension": "E/N",
+      "recommended_units": [
+        "unit:kJ_per_mol"
+      ],
+      "notes": "ΔH реакции в кДж/моль. Отрицательная — экзотермическая, положительная — эндотермическая."
+    },
+    {
+      "id": "q:condition",
+      "name_ru": "качественное условие",
+      "dimension": "enum",
+      "recommended_units": [
+        "unit:enum"
+      ],
+      "notes": "Для заданий вида 'в избытке', 'н.у.' и т.п."
+    }
+  ],
+  "units": [
+    {
+      "id": "unit:g",
+      "name_ru": "г",
+      "quantity": "q:mass",
+      "to_SI": {
+        "unit": "kg",
+        "factor": 0.001
+      }
+    },
+    {
+      "id": "unit:kg",
+      "name_ru": "кг",
+      "quantity": "q:mass",
+      "to_SI": {
+        "unit": "kg",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:mol",
+      "name_ru": "моль",
+      "quantity": "q:amount",
+      "to_SI": {
+        "unit": "mol",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:L",
+      "name_ru": "л",
+      "quantity": "q:volume",
+      "to_SI": {
+        "unit": "m3",
+        "factor": 0.001
+      }
+    },
+    {
+      "id": "unit:m3",
+      "name_ru": "м³",
+      "quantity": "q:volume",
+      "to_SI": {
+        "unit": "m3",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:mol_per_L",
+      "name_ru": "моль/л",
+      "quantity": "q:concentration",
+      "to_SI": {
+        "unit": "mol_per_m3",
+        "factor": 1000.0
+      }
+    },
+    {
+      "id": "unit:mol_per_m3",
+      "name_ru": "моль/м³",
+      "quantity": "q:concentration",
+      "to_SI": {
+        "unit": "mol_per_m3",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:K",
+      "name_ru": "K",
+      "quantity": "q:temperature",
+      "to_SI": {
+        "unit": "K",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:degC",
+      "name_ru": "°C",
+      "quantity": "q:temperature",
+      "to_SI": {
+        "unit": "K",
+        "offset": 273.15,
+        "factor": 1.0
+      },
+      "notes": "K = °C + 273.15"
+    },
+    {
+      "id": "unit:Pa",
+      "name_ru": "Па",
+      "quantity": "q:pressure",
+      "to_SI": {
+        "unit": "Pa",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:bar",
+      "name_ru": "бар",
+      "quantity": "q:pressure",
+      "to_SI": {
+        "unit": "Pa",
+        "factor": 100000.0
+      }
+    },
+    {
+      "id": "unit:atm",
+      "name_ru": "атм",
+      "quantity": "q:pressure",
+      "to_SI": {
+        "unit": "Pa",
+        "factor": 101325.0
+      }
+    },
+    {
+      "id": "unit:J",
+      "name_ru": "Дж",
+      "quantity": "q:energy",
+      "to_SI": {
+        "unit": "J",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:kJ",
+      "name_ru": "кДж",
+      "quantity": "q:energy",
+      "to_SI": {
+        "unit": "J",
+        "factor": 1000.0
+      }
+    },
+    {
+      "id": "unit:g_per_mL",
+      "name_ru": "г/мл",
+      "quantity": "q:density",
+      "to_SI": {
+        "unit": "kg_per_m3",
+        "factor": 1000.0
+      }
+    },
+    {
+      "id": "unit:kg_per_m3",
+      "name_ru": "кг/м³",
+      "quantity": "q:density",
+      "to_SI": {
+        "unit": "kg_per_m3",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:g_per_mol",
+      "name_ru": "г/моль",
+      "quantity": "q:molar_mass",
+      "to_SI": {
+        "unit": "kg_per_mol",
+        "factor": 0.001
+      }
+    },
+    {
+      "id": "unit:kg_per_mol",
+      "name_ru": "кг/моль",
+      "quantity": "q:molar_mass",
+      "to_SI": {
+        "unit": "kg_per_mol",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:mL",
+      "name_ru": "мл",
+      "quantity": "q:volume",
+      "to_SI": {
+        "unit": "m3",
+        "factor": 1e-6
+      }
+    },
+    {
+      "id": "unit:kPa",
+      "name_ru": "кПа",
+      "quantity": "q:pressure",
+      "to_SI": {
+        "unit": "Pa",
+        "factor": 1000.0
+      }
+    },
+    {
+      "id": "unit:mmHg",
+      "name_ru": "мм рт. ст.",
+      "quantity": "q:pressure",
+      "to_SI": {
+        "unit": "Pa",
+        "factor": 133.322
+      }
+    },
+    {
+      "id": "unit:fraction",
+      "name_ru": "доля",
+      "quantity": "q:mass_fraction",
+      "to_SI": null,
+      "notes": "Безразмерная доля (0..1). Используется для ω, φ, η."
+    },
+    {
+      "id": "unit:percent",
+      "name_ru": "%",
+      "quantity": "q:mass_fraction",
+      "to_SI": {
+        "unit": "fraction",
+        "factor": 0.01
+      },
+      "notes": "Проценты → доля: x% = x·0.01"
+    },
+    {
+      "id": "unit:L_per_mol",
+      "name_ru": "л/моль",
+      "quantity": "q:molar_volume",
+      "to_SI": {
+        "unit": "m3_per_mol",
+        "factor": 0.001
+      }
+    },
+    {
+      "id": "unit:g_per_100g",
+      "name_ru": "г/100 г",
+      "quantity": "q:solubility",
+      "to_SI": null,
+      "notes": "Специфическая единица растворимости. Не имеет прямого SI-эквивалента."
+    },
+    {
+      "id": "unit:kJ_per_mol",
+      "name_ru": "кДж/моль",
+      "quantity": "q:enthalpy",
+      "to_SI": {
+        "unit": "J_per_mol",
+        "factor": 1000.0
+      }
+    },
+    {
+      "id": "unit:J_per_mol",
+      "name_ru": "Дж/моль",
+      "quantity": "q:enthalpy",
+      "to_SI": {
+        "unit": "J_per_mol",
+        "factor": 1.0
+      }
+    },
+    {
+      "id": "unit:enum",
+      "name_ru": "enum",
+      "quantity": "q:condition",
+      "to_SI": null
+    }
+  ],
+  "structures": {
+    "Measurement": {
+      "type": "object",
+      "required": [
+        "quantity",
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Optional ID like meas:1"
+        },
+        "quantity": {
+          "type": "string",
+          "description": "Quantity type ID, e.g. q:mass"
+        },
+        "value": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "description": "Numeric value, or string for enum conditions"
+        },
+        "unit": {
+          "type": "string",
+          "description": "Unit ID, e.g. unit:g"
+        },
+        "of": {
+          "type": "string",
+          "description": "Optional link to chemical entity, e.g. sub:Zn_s"
+        },
+        "at": {
+          "type": "array",
+          "description": "Optional conditions (Measurements) for this measurement",
+          "items": {
+            "$ref": "#/structures/Measurement"
+          }
+        }
+      }
+    },
+    "Problem": {
+      "type": "object",
+      "required": [
+        "id",
+        "given",
+        "unknown"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Problem ID like prob:..."
+        },
+        "reaction_id": {
+          "type": "string",
+          "description": "Optional link to rx:*"
+        },
+        "scenario_id": {
+          "type": "string",
+          "description": "Optional link to sc:*"
+        },
+        "given": {
+          "type": "array",
+          "items": {
+            "$ref": "#/structures/Measurement"
+          }
+        },
+        "unknown": {
+          "type": "array",
+          "description": "Targets to find; can use Measurement-like objects with missing value",
+          "items": {
+            "$ref": "#/structures/Measurement"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "examples": {
+    "problem": {
+      "id": "prob:stoich_zn_hcl_001",
+      "reaction_id": "rx:gas_zn_hcl_001",
+      "given": [
+        {
+          "id": "meas:1",
+          "quantity": "q:mass",
+          "value": 5,
+          "unit": "unit:g",
+          "of": "sub:Zn_s"
+        },
+        {
+          "id": "meas:2",
+          "quantity": "q:condition",
+          "value": "excess",
+          "unit": "unit:enum",
+          "of": "sub:HCl_aq"
+        }
+      ],
+      "unknown": [
+        {
+          "quantity": "q:volume",
+          "unit": "unit:L",
+          "of": "sub:H2_g",
+          "at": [
+            {
+              "quantity": "q:temperature",
+              "value": 273.15,
+              "unit": "unit:K"
+            },
+            {
+              "quantity": "q:pressure",
+              "value": 1.0,
+              "unit": "unit:atm"
+            }
+          ]
+        }
+      ],
+      "notes": "Пример формулировки: найти объём H2 при н.у. из 5 г Zn при избытке HCl."
+    }
+  }
+}
