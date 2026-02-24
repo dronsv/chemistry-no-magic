@@ -363,6 +363,82 @@ export function validateQuantitiesUnits(ont) {
   return errors;
 }
 
+/**
+ * @param {any[]} entries
+ * @returns {string[]} errors
+ */
+export function validateProperties(entries) {
+  const errors = [];
+  if (!Array.isArray(entries)) return ['properties.json must be an array'];
+  const ids = new Set();
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    const p = `properties[${i}]`;
+    if (!e.id) errors.push(`${p}: missing id`);
+    if (ids.has(e.id)) errors.push(`${p}: duplicate id "${e.id}"`);
+    ids.add(e.id);
+    if (!e.value_field) errors.push(`${p}: missing value_field`);
+    if (!e.i18n?.ru) errors.push(`${p}: missing i18n.ru`);
+  }
+  return errors;
+}
+
+/**
+ * @param {any} data
+ * @returns {string[]} errors
+ */
+export function validateBondExamples(data) {
+  const errors = [];
+  if (!data.examples || !Array.isArray(data.examples)) return ['bond_examples.json must have "examples" array'];
+  for (let i = 0; i < data.examples.length; i++) {
+    const e = data.examples[i];
+    const p = `bond_examples[${i}]`;
+    if (!e.formula) errors.push(`${p}: missing formula`);
+    if (!e.bond_type) errors.push(`${p}: missing bond_type`);
+    if (!e.crystal_type) errors.push(`${p}: missing crystal_type`);
+  }
+  return errors;
+}
+
+/**
+ * @param {any[]} entries
+ * @returns {string[]} errors
+ */
+export function validateOxidationExamples(entries) {
+  const errors = [];
+  if (!Array.isArray(entries)) return ['oxidation_examples.json must be an array'];
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    const p = `oxidation_examples[${i}]`;
+    if (!e.formula) errors.push(`${p}: missing formula`);
+    if (!e.target_element) errors.push(`${p}: missing target_element`);
+    if (typeof e.oxidation_state !== 'number') errors.push(`${p}: missing/invalid oxidation_state`);
+  }
+  return errors;
+}
+
+/**
+ * @param {any[]} templates  — engine task templates
+ * @returns {string[]} errors
+ */
+export function validateEngineTaskTemplates(templates) {
+  const errors = [];
+  if (!Array.isArray(templates)) return ['engine/task_templates.json must be an array'];
+
+  const ids = new Set();
+  for (let i = 0; i < templates.length; i++) {
+    const t = templates[i];
+    const p = `engine_task_templates[${i}]`;
+    if (!t.template_id) errors.push(`${p}: missing template_id`);
+    if (ids.has(t.template_id)) errors.push(`${p}: duplicate template_id "${t.template_id}"`);
+    ids.add(t.template_id);
+    if (!t.meta || typeof t.meta !== 'object') errors.push(`${p}: missing meta`);
+    if (!t.pipeline || typeof t.pipeline !== 'object') errors.push(`${p}: missing pipeline`);
+    if (!t.prompt_template_id) errors.push(`${p}: missing prompt_template_id`);
+  }
+  return errors;
+}
+
 export function validateExamSystems(systems) {
   const errors = [];
   if (!Array.isArray(systems)) return ['exam/systems.json must be an array'];

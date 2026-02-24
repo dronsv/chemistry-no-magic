@@ -39,10 +39,18 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         topic_mapping: 'rules/topic_mapping.json',
         ion_nomenclature: 'rules/ion_nomenclature.json',
         oxidation_examples: 'rules/oxidation_examples.json',
+        properties: 'rules/properties.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
         task_templates: 'templates/task_templates.json',
+      },
+      engine: {
+        task_templates: 'engine/task_templates.json',
+        prompt_templates_ru: 'engine/prompt_templates.ru.json',
+        prompt_templates_en: 'engine/prompt_templates.en.json',
+        prompt_templates_pl: 'engine/prompt_templates.pl.json',
+        prompt_templates_es: 'engine/prompt_templates.es.json',
       },
       substances: 'substances',
       diagnostic: 'diagnostic/questions.json',

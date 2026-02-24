@@ -27,6 +27,10 @@ import {
   validateApplicabilityRules,
   validateProcessVocab,
   validateQuantitiesUnits,
+  validateProperties,
+  validateBondExamples,
+  validateOxidationExamples,
+  validateEngineTaskTemplates,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
@@ -147,6 +151,12 @@ async function main() {
   const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
+  const properties = await loadJson(join(DATA_SRC, 'rules', 'properties.json'));
+  const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
+  const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
+  const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
+  const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
+  const promptTemplatesEs = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.es.json'));
 
   // Load per-system exam metadata
   const examMetas = {};
@@ -179,7 +189,9 @@ async function main() {
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates`);
   console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises, ${bondExamples.examples.length} bond examples`);
-  console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples\n`);
+  console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples`);
+  console.log(`  ${properties.length} property definitions, ${engineTaskTemplates.length} engine task templates`);
+  console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)\n`);
 
   // 2. Validate
   console.log('Validating...');
@@ -196,6 +208,10 @@ async function main() {
     ...validateTaskTemplates(taskTemplates),
     ...validateProcessVocab(processVocab),
     ...validateQuantitiesUnits(quantitiesUnits),
+    ...validateProperties(properties),
+    ...validateBondExamples(bondExamples),
+    ...validateOxidationExamples(oxidationExamples),
+    ...validateEngineTaskTemplates(engineTaskTemplates),
   ];
 
   for (const { filename, data } of substances) {
@@ -282,7 +298,15 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
   await writeFile(join(bundleDir, 'rules', 'ion_nomenclature.json'), JSON.stringify(ionNomenclature));
   await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
+  await writeFile(join(bundleDir, 'rules', 'properties.json'), JSON.stringify(properties));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
+
+  await mkdir(join(bundleDir, 'engine'), { recursive: true });
+  await writeFile(join(bundleDir, 'engine', 'task_templates.json'), JSON.stringify(engineTaskTemplates));
+  await writeFile(join(bundleDir, 'engine', 'prompt_templates.ru.json'), JSON.stringify(promptTemplatesRu));
+  await writeFile(join(bundleDir, 'engine', 'prompt_templates.en.json'), JSON.stringify(promptTemplatesEn));
+  await writeFile(join(bundleDir, 'engine', 'prompt_templates.pl.json'), JSON.stringify(promptTemplatesPl));
+  await writeFile(join(bundleDir, 'engine', 'prompt_templates.es.json'), JSON.stringify(promptTemplatesEs));
 
   await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));
   await writeFile(join(bundleDir, 'quantities_units.json'), JSON.stringify(quantitiesUnits));
@@ -340,7 +364,9 @@ async function main() {
   console.log('\nProcessing translations...');
   const translationsManifest = {};
 
-  for (const locale of TRANSLATION_LOCALES) {
+  // Process all translation locales + ru (for morphology and other ru-only overlays)
+  const allTranslationLocales = ['ru', ...TRANSLATION_LOCALES];
+  for (const locale of allTranslationLocales) {
     const overlays = await loadTranslationOverlays(locale);
     const keys = overlays._keys;
 
