@@ -133,6 +133,10 @@ export interface OntologyData {
   oxidationExamples: import('../../types/oxidation').OxidationExample[];
   morphology: MorphologyData | null;
   promptTemplates: PromptTemplateMap;
+  // Phase 2 — optional, loaded when templates need them
+  bondExamples?: import('../../types/bond').BondExamplesData;
+  substanceIndex?: import('../../types/classification').SubstanceIndexEntry[];
+  reactions?: import('../../types/reaction').Reaction[];
 }
 
 // ── Evaluation result ──────────────────────────────────────────
