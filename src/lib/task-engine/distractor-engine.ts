@@ -42,8 +42,8 @@ export function generateDistractors(
     candidates = generateMeltingCompareDistractors(correctAnswer, slots);
   }
   // 3. Domain enum context
-  else if (typeof correctAnswer === 'string' && generateDomainEnumDistractors(correctAnswer) !== null) {
-    candidates = generateDomainEnumDistractors(correctAnswer)!;
+  else if (typeof correctAnswer === 'string' && generateDomainEnumDistractors(correctAnswer, slots) !== null) {
+    candidates = generateDomainEnumDistractors(correctAnswer, slots)!;
   }
   // 4. Solubility context
   else if (
@@ -126,7 +126,17 @@ const DOMAIN_ENUMS: Record<string, string[]> = {
   reaction_type: ['exchange', 'substitution', 'decomposition', 'redox'],
 };
 
-function generateDomainEnumDistractors(correctAnswer: string): string[] | null {
+function generateDomainEnumDistractors(correctAnswer: string, slots?: SlotValues): string[] | null {
+  // If slots contain a key matching a domain name, prefer that domain
+  // (e.g., slots.crystal_type exists → use crystal_type domain, not bond_type)
+  if (slots) {
+    for (const [domain, values] of Object.entries(DOMAIN_ENUMS)) {
+      if (slots[domain] !== undefined && values.includes(correctAnswer)) {
+        return values.filter(v => v !== correctAnswer);
+      }
+    }
+  }
+  // Fallback: first domain that contains the answer
   for (const values of Object.values(DOMAIN_ENUMS)) {
     if (values.includes(correctAnswer)) {
       return values.filter(v => v !== correctAnswer);

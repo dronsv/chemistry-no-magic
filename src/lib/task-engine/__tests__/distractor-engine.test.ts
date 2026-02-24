@@ -324,6 +324,34 @@ describe('generateDistractors', () => {
       expect(distractors).not.toContain('Na');
       expect(distractors).not.toContain('Cl');
     });
+
+    it('"ionic" with crystal_type slot prefers crystal_type domain', () => {
+      const distractors = generateDistractors(
+        'ionic',
+        { formula: 'NaCl', crystal_type: 'ionic' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('molecular');
+      expect(distractors).toContain('atomic');
+      expect(distractors).toContain('metallic');
+    });
+
+    it('"ionic" with bond_type slot prefers bond_type domain', () => {
+      const distractors = generateDistractors(
+        'ionic',
+        { formula: 'NaCl', bond_type: 'ionic' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('covalent_polar');
+      expect(distractors).toContain('covalent_nonpolar');
+      expect(distractors).toContain('metallic');
+    });
   });
 
   describe('substance formula context', () => {

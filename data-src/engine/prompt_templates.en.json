@@ -54,7 +54,7 @@
     }
   },
   "prompt.select_by_class": {
-    "question": "Which substance is an {substance_class}?",
+    "question": "Which substance is a {substance_class}?",
     "slots": {
       "substance_class": {
         "oxide": "oxide",
