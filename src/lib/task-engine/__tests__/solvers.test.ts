@@ -184,6 +184,99 @@ describe('solver.solubility_check', () => {
   });
 });
 
+// ── solver.slot_lookup ────────────────────────────────────────────
+
+describe('solver.slot_lookup', () => {
+  it('returns a string slot value', () => {
+    const result = runSolver(
+      'solver.slot_lookup',
+      { answer_field: 'bond_type' },
+      { formula: 'NaCl', bond_type: 'ionic', crystal_type: 'ionic' },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe('ionic');
+  });
+
+  it('returns a number slot value as number', () => {
+    const result = runSolver(
+      'solver.slot_lookup',
+      { answer_field: 'period' },
+      { element: 'Na', period: 3, group: 1 },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(3);
+  });
+
+  it('throws when the field does not exist in slots', () => {
+    expect(() =>
+      runSolver(
+        'solver.slot_lookup',
+        { answer_field: 'missing_field' },
+        { formula: 'NaCl' },
+        MOCK_DATA,
+      ),
+    ).toThrow('Slot "missing_field" not found in slots');
+  });
+});
+
+// ── solver.compare_crystal_melting ───────────────────────────────
+
+const MOCK_DATA_WITH_BONDS: OntologyData = {
+  ...MOCK_DATA,
+  bondExamples: {
+    examples: [],
+    crystal_melting_rank: { molecular: 1, metallic: 2, ionic: 3, atomic: 4 },
+  },
+};
+
+describe('solver.compare_crystal_melting', () => {
+  it('returns higher-ranked formula as winner', () => {
+    const result = runSolver(
+      'solver.compare_crystal_melting', {},
+      { formulaA: 'NaCl', formulaB: 'H2O', crystal_typeA: 'ionic', crystal_typeB: 'molecular' },
+      MOCK_DATA_WITH_BONDS,
+    );
+    expect(result.answer).toBe('NaCl');
+    expect(result.explanation_slots).toBeDefined();
+    expect(result.explanation_slots!.winner).toBe('NaCl');
+    expect(result.explanation_slots!.loser).toBe('H2O');
+    expect(result.explanation_slots!.crystal_winner).toBe('ionic');
+    expect(result.explanation_slots!.crystal_loser).toBe('molecular');
+  });
+
+  it('returns B when B has higher rank', () => {
+    const result = runSolver(
+      'solver.compare_crystal_melting', {},
+      { formulaA: 'Fe', formulaB: 'SiO2', crystal_typeA: 'metallic', crystal_typeB: 'atomic' },
+      MOCK_DATA_WITH_BONDS,
+    );
+    expect(result.answer).toBe('SiO2');
+    expect(result.explanation_slots!.winner).toBe('SiO2');
+    expect(result.explanation_slots!.loser).toBe('Fe');
+  });
+
+  it('returns A when ranks are equal', () => {
+    const result = runSolver(
+      'solver.compare_crystal_melting', {},
+      { formulaA: 'NaCl', formulaB: 'KBr', crystal_typeA: 'ionic', crystal_typeB: 'ionic' },
+      MOCK_DATA_WITH_BONDS,
+    );
+    expect(result.answer).toBe('NaCl');
+  });
+
+  it('throws when crystal_melting_rank is not available', () => {
+    expect(() =>
+      runSolver(
+        'solver.compare_crystal_melting', {},
+        { formulaA: 'NaCl', formulaB: 'H2O', crystal_typeA: 'ionic', crystal_typeB: 'molecular' },
+        MOCK_DATA,
+      ),
+    ).toThrow('crystal_melting_rank not available');
+  });
+});
+
+// ── Registry tests ───────────────────────────────────────────────
+
 describe('runSolver', () => {
   it('throws on unknown solver ID', () => {
     expect(() => runSolver('solver.nonexistent', {}, {}, MOCK_DATA)).toThrow('Unknown solver');

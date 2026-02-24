@@ -243,6 +243,49 @@ function solveSolubilityCheck(
   return { answer };
 }
 
+function solveSlotLookup(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  const field = String(params.answer_field);
+  const val = slots[field];
+  if (val === undefined || val === null) {
+    throw new Error(`Slot "${field}" not found in slots`);
+  }
+  return { answer: typeof val === 'number' ? val : String(val) };
+}
+
+function solveCompareCrystalMelting(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+  data: OntologyData,
+): SolverResult {
+  void params;
+  const crystalA = String(slots.crystal_typeA);
+  const crystalB = String(slots.crystal_typeB);
+  const formulaA = String(slots.formulaA);
+  const formulaB = String(slots.formulaB);
+
+  const rank = data.bondExamples?.crystal_melting_rank;
+  if (!rank) throw new Error('crystal_melting_rank not available');
+
+  const rankA = rank[crystalA] ?? 0;
+  const rankB = rank[crystalB] ?? 0;
+
+  const winner = rankA >= rankB ? formulaA : formulaB;
+  const loser = winner === formulaA ? formulaB : formulaA;
+
+  return {
+    answer: winner,
+    explanation_slots: {
+      winner,
+      loser,
+      crystal_winner: winner === formulaA ? crystalA : crystalB,
+      crystal_loser: winner === formulaA ? crystalB : crystalA,
+    },
+  };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -257,6 +300,8 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.oxidation_states': (params, slots) => solveOxidationStates(params, slots),
   'solver.compose_salt_formula': solveComposeSaltFormula,
   'solver.solubility_check': solveSolubilityCheck,
+  'solver.slot_lookup': (params, slots) => solveSlotLookup(params, slots),
+  'solver.compare_crystal_melting': solveCompareCrystalMelting,
 };
 
 export function runSolver(
