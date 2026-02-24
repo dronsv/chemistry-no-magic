@@ -1,0 +1,72 @@
+[
+  {
+    "id": "electronegativity",
+    "value_field": "electronegativity",
+    "object": "element",
+    "unit": null,
+    "trend_hint": { "period": "increases", "group": "decreases" },
+    "filter": { "min_Z": 1, "max_Z": 86, "exclude_groups": [18] },
+    "i18n": {
+      "ru": { "nom": "электроотрицательность", "gen": "электроотрицательности" },
+      "en": { "name": "electronegativity" },
+      "pl": { "name": "elektroujemność" },
+      "es": { "name": "electronegatividad" }
+    }
+  },
+  {
+    "id": "atomic_mass",
+    "value_field": "atomic_mass",
+    "object": "element",
+    "unit": "u",
+    "trend_hint": null,
+    "filter": null,
+    "i18n": {
+      "ru": { "nom": "атомная масса", "gen": "атомной массы" },
+      "en": { "name": "atomic mass" },
+      "pl": { "name": "masa atomowa" },
+      "es": { "name": "masa atómica" }
+    }
+  },
+  {
+    "id": "melting_point",
+    "value_field": "melting_point_C",
+    "object": "element",
+    "unit": "°C",
+    "trend_hint": null,
+    "filter": null,
+    "i18n": {
+      "ru": { "nom": "температура плавления", "gen": "температуры плавления" },
+      "en": { "name": "melting point" },
+      "pl": { "name": "temperatura topnienia" },
+      "es": { "name": "punto de fusión" }
+    }
+  },
+  {
+    "id": "boiling_point",
+    "value_field": "boiling_point_C",
+    "object": "element",
+    "unit": "°C",
+    "trend_hint": null,
+    "filter": null,
+    "i18n": {
+      "ru": { "nom": "температура кипения", "gen": "температуры кипения" },
+      "en": { "name": "boiling point" },
+      "pl": { "name": "temperatura wrzenia" },
+      "es": { "name": "punto de ebullición" }
+    }
+  },
+  {
+    "id": "density",
+    "value_field": "density_g_cm3",
+    "object": "element",
+    "unit": "g/cm³",
+    "trend_hint": null,
+    "filter": null,
+    "i18n": {
+      "ru": { "nom": "плотность", "gen": "плотности" },
+      "en": { "name": "density" },
+      "pl": { "name": "gęstość" },
+      "es": { "name": "densidad" }
+    }
+  }
+]
