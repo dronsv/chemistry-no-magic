@@ -1,0 +1,102 @@
+[
+  {
+    "template_id": "tmpl.pt.compare_property.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["element", "property"],
+      "reasoning": ["ordering_by_trend"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_pair", "params": { "filter": "main_group", "require_field": "{property}" } },
+      "solvers": [{ "id": "solver.compare_property", "params": { "property": "{property}" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.compare_property",
+    "explanation_template_id": "explain.compare_property",
+    "evidence_rules": ["use_period_trend:{property}", "compare_elements"],
+    "difficulty_model": { "features": { "same_period": "auto", "adjacent_groups": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "periodic_trends": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.order_by_property.v1",
+    "meta": {
+      "interaction": "order_dragdrop",
+      "objects": ["element", "property"],
+      "reasoning": ["ordering_by_trend"],
+      "evaluation": { "mode": "partial_credit", "partial_credit": true }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_elements_same_period", "params": { "k": 4, "require_field": "{property}" } },
+      "solvers": [{ "id": "solver.periodic_trend_order", "params": { "property": "{property}", "order": "{order}" } }],
+      "renderers": [{ "id": "view.order_dragdrop", "params": { "layout": "auto" } }]
+    },
+    "prompt_template_id": "prompt.order_by_property",
+    "explanation_template_id": "explain.order_by_property",
+    "evidence_rules": ["use_period_trend:{property}", "sort_elements"],
+    "difficulty_model": { "features": { "k": "auto", "adjacent_groups": "auto" }, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "periodic_trends": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.ox.determine_state.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["substance", "element"],
+      "reasoning": ["constraint_satisfaction"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_oxidation_example", "params": { "difficulty": "{level}" } },
+      "solvers": [{ "id": "solver.oxidation_states", "params": { "target_element": "{element}" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": { "min": -8, "max": 8, "step": 1 } }]
+    },
+    "prompt_template_id": "prompt.determine_oxidation_state",
+    "explanation_template_id": "explain.determine_oxidation_state",
+    "evidence_rules": ["determine_oxidation_state"],
+    "difficulty_model": { "features": { "has_polyatomic": "auto", "exception_case": "auto" }, "target_band": [0.25, 0.7] },
+    "exam_tags": ["oge", "ege"],
+    "competency_hint": { "oxidation_states": "P" }
+  },
+  {
+    "template_id": "tmpl.ion.compose_salt.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["ion", "substance"],
+      "reasoning": ["constraint_satisfaction"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_ion_pair", "params": { "cation_charge": [1, 2, 3], "anion_charge": [-1, -2, -3] } },
+      "solvers": [{ "id": "solver.compose_salt_formula", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": { "option_count": 4 } }]
+    },
+    "prompt_template_id": "prompt.compose_salt",
+    "explanation_template_id": "explain.compose_salt",
+    "evidence_rules": ["balance_charges", "write_formula"],
+    "difficulty_model": { "features": { "lcm_charge": "auto", "polyatomic": "auto" }, "target_band": [0.2, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "naming": "P", "classification": "S" }
+  },
+  {
+    "template_id": "tmpl.sol.check_pair.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["ion", "property"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_salt_pair", "params": { "ruleset": "solubility.light_pairs.v1" } },
+      "solvers": [{ "id": "solver.solubility_check", "params": { "ruleset": "solubility.light_pairs.v1" } }],
+      "renderers": [{ "id": "view.choice_single", "params": { "option_count": 4 } }]
+    },
+    "prompt_template_id": "prompt.solubility_of_salt",
+    "explanation_template_id": "explain.solubility_of_salt",
+    "evidence_rules": ["check_solubility"],
+    "difficulty_model": { "features": { "exception_pair": "auto" }, "target_band": [0.2, 0.45] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "gas_precipitate_logic": "P" }
+  }
+]
