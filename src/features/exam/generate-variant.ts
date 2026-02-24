@@ -7,6 +7,7 @@ import type { QualitativeTest } from '../../types/qualitative';
 import type { GeneticChain } from '../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../types/energy-catalyst';
 import type { CalculationsData } from '../../types/calculations';
+import type { BondExamplesData } from '../../types/bond';
 import type { ExamExercise, ExamVariant } from '../../types/exam';
 
 import { generateExercise as genPeriodicTable } from '../periodic-table/practice/generate-exercises';
@@ -33,6 +34,7 @@ export interface ExamData {
   geneticChains: GeneticChain[];
   energyCatalystTheory: EnergyCatalystTheory | null;
   calculationsData: CalculationsData;
+  bondExamples: BondExamplesData;
 }
 
 /**
@@ -116,7 +118,7 @@ function callGenerator(
     case 'periodic-table':
       return genPeriodicTable(data.elements, type);
     case 'bonds':
-      return genBonds(data.elements, type);
+      return genBonds(data.elements, data.bondExamples, type);
     case 'oxidation-states':
       return genOxidation(data.elements, type);
     case 'substances':

@@ -37,6 +37,7 @@ import {
   loadExamAlgorithms,
   loadTopicMapping,
   loadFormulaLookup,
+  loadBondExamples,
 } from '../../lib/data-loader';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import { IonDetailsProvider } from '../../components/IonDetailsProvider';
@@ -167,7 +168,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
           elements, substances, classRules, nameRules,
           reactionTemplates, solubility, activitySeries, appRules,
           reactions, qualTests, chains, energyTheory,
-          calcData, params, comps,
+          calcData, bondExamples, params, comps,
         ] = await Promise.all([
           loadElements(),
           loadSubstancesIndex(),
@@ -182,6 +183,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
           loadGeneticChains(),
           loadEnergyCatalystTheory(),
           loadCalculationsData(),
+          loadBondExamples(),
           loadBktParams(),
           loadCompetencies(locale),
         ]);
@@ -200,6 +202,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
           geneticChains: chains,
           energyCatalystTheory: energyTheory,
           calculationsData: calcData,
+          bondExamples,
         };
         setExamData(data);
 

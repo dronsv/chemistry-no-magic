@@ -118,6 +118,7 @@
     "period": 2,
     "metal_type": "metal",
     "element_group": "alkaline_earth",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2
@@ -433,6 +434,7 @@
     "period": 3,
     "metal_type": "metal",
     "element_group": "post_transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       3
@@ -809,6 +811,7 @@
     "period": 4,
     "metal_type": "metal",
     "element_group": "transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2,
@@ -897,6 +900,7 @@
     "period": 4,
     "metal_type": "metal",
     "element_group": "transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2,
@@ -1042,6 +1046,7 @@
     "period": 4,
     "metal_type": "metal",
     "element_group": "transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2
@@ -1783,6 +1788,7 @@
     "period": 5,
     "metal_type": "metal",
     "element_group": "post_transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2,
@@ -2890,6 +2896,7 @@
     "period": 6,
     "metal_type": "metal",
     "element_group": "post_transition_metal",
+    "amphoteric": true,
     "typical_oxidation_states": [
       0,
       2,

@@ -36,6 +36,7 @@ export interface Element {
   period: number;
   metal_type: MetalType;
   element_group: ElementGroup;
+  amphoteric?: boolean;
   atomic_mass: number;
   typical_oxidation_states: number[];
   electronegativity: number | null;

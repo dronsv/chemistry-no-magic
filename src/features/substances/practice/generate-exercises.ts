@@ -1,5 +1,6 @@
 import * as m from '../../../paraglide/messages.js';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
+import type { Element } from '../../../types/element';
 
 export interface ExerciseOption {
   id: string;
@@ -78,6 +79,7 @@ type GeneratorFn = (
   substances: SubstanceIndexEntry[],
   classRules: ClassificationRule[],
   namingRules: NamingRule[],
+  elements: Element[],
 ) => Exercise;
 
 const generators: Record<string, GeneratorFn> = {
@@ -105,11 +107,11 @@ const generators: Record<string, GeneratorFn> = {
 
   classify_subclass(substances, classRules) {
     const pool = mainSubstances(substances).filter(s => s.subclass);
-    if (pool.length === 0) return generators.classify_by_formula(substances, classRules, []);
+    if (pool.length === 0) return generators.classify_by_formula(substances, classRules, [], []);
     const s = pick(pool);
     const rulesForClass = classRules.filter(r => r.class === s.class);
     if (rulesForClass.length < 2) {
-      return generators.classify_by_formula(substances, classRules, []);
+      return generators.classify_by_formula(substances, classRules, [], []);
     }
 
     const correctLbl = subclassLabel(s.subclass!);
@@ -162,7 +164,7 @@ const generators: Record<string, GeneratorFn> = {
   formula_to_name(substances, _classRules, namingRules) {
     const examples = allNamingExamples(namingRules);
     const named = mainSubstances(substances).filter(s => s.name_ru);
-    if (named.length === 0) return generators.classify_by_formula(substances, _classRules, namingRules);
+    if (named.length === 0) return generators.classify_by_formula(substances, _classRules, namingRules, []);
     const s = pick(named);
     const correctName = s.name_ru!;
 
@@ -195,7 +197,7 @@ const generators: Record<string, GeneratorFn> = {
 
   name_to_formula(substances, _classRules, namingRules) {
     const named = mainSubstances(substances).filter(s => s.name_ru);
-    if (named.length === 0) return generators.classify_by_formula(substances, _classRules, namingRules);
+    if (named.length === 0) return generators.classify_by_formula(substances, _classRules, namingRules, []);
     const s = pick(named);
     const correctFormula = s.formula;
 
@@ -226,7 +228,7 @@ const generators: Record<string, GeneratorFn> = {
     const amphotericPool = mainSubstances(substances).filter(
       s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
     );
-    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, []);
+    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, [], []);
     const correct = pick(amphotericPool);
 
     const nonAmphoteric = mainSubstances(substances).filter(
@@ -260,7 +262,7 @@ const generators: Record<string, GeneratorFn> = {
     const amphotericPool = mainSubstances(substances).filter(
       s => s.subclass === 'amphoteric' && (s.class === 'oxide' || s.class === 'base'),
     );
-    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, []);
+    if (amphotericPool.length === 0) return generators.classify_by_formula(substances, classRules, [], []);
     const s = pick(amphotericPool);
 
     const options = shuffleOptions([
@@ -280,11 +282,15 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  amphoteric_elements(substances, classRules) {
-    const AMPHOTERIC_METALS = ['Al', 'Zn', 'Be', 'Cr', 'Fe', 'Pb', 'Sn'];
-    const NON_AMPHOTERIC = ['Na', 'K', 'Ca', 'Mg', 'Cu', 'Ba', 'Li', 'Ag'];
-    const correct = pick(AMPHOTERIC_METALS);
-    const distractors = pickN(NON_AMPHOTERIC, 3);
+  amphoteric_elements(_substances, _classRules, _namingRules, elements) {
+    const amphotericMetals = elements
+      .filter(e => e.amphoteric)
+      .map(e => e.symbol);
+    const nonAmphotericMetals = elements
+      .filter(e => e.metal_type === 'metal' && !e.amphoteric)
+      .map(e => e.symbol);
+    const correct = pick(amphotericMetals);
+    const distractors = pickN(nonAmphotericMetals, 3);
 
     const options = shuffleOptions([
       { id: 'correct', text: correct },
@@ -331,10 +337,11 @@ export function generateExercise(
   substances: SubstanceIndexEntry[],
   classificationRules: ClassificationRule[],
   namingRules: NamingRule[],
+  elements: Element[] = [],
   type?: string,
 ): Exercise {
   const t = type ?? pick(EXERCISE_TYPES);
   const gen = generators[t];
   if (!gen) throw new Error(`Unknown exercise type: ${t}`);
-  return gen(substances, classificationRules, namingRules);
+  return gen(substances, classificationRules, namingRules, elements);
 }

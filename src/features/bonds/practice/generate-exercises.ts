@@ -1,5 +1,6 @@
 import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
+import type { BondExamplesData } from '../../../types/bond';
 import type { BondType, CrystalStructure } from '../../../lib/bond-calculator';
 
 export interface ExerciseOption {
@@ -56,33 +57,14 @@ interface BondExample {
   crystal: CrystalStructure;
 }
 
-const BOND_EXAMPLES: BondExample[] = [
-  { formula: 'NaCl', bondType: 'ionic', crystal: 'ionic' },
-  { formula: 'KBr', bondType: 'ionic', crystal: 'ionic' },
-  { formula: 'CaO', bondType: 'ionic', crystal: 'ionic' },
-  { formula: 'MgF2', bondType: 'ionic', crystal: 'ionic' },
-  { formula: 'H2O', bondType: 'covalent_polar', crystal: 'molecular' },
-  { formula: 'HCl', bondType: 'covalent_polar', crystal: 'molecular' },
-  { formula: 'NH3', bondType: 'covalent_polar', crystal: 'molecular' },
-  { formula: 'CO2', bondType: 'covalent_polar', crystal: 'molecular' },
-  { formula: 'H2', bondType: 'covalent_nonpolar', crystal: 'molecular' },
-  { formula: 'O2', bondType: 'covalent_nonpolar', crystal: 'molecular' },
-  { formula: 'N2', bondType: 'covalent_nonpolar', crystal: 'molecular' },
-  { formula: 'Cl2', bondType: 'covalent_nonpolar', crystal: 'molecular' },
-  { formula: 'Fe', bondType: 'metallic', crystal: 'metallic' },
-  { formula: 'Cu', bondType: 'metallic', crystal: 'metallic' },
-  { formula: 'Na', bondType: 'metallic', crystal: 'metallic' },
-  { formula: 'Al', bondType: 'metallic', crystal: 'metallic' },
-  { formula: 'SiO2', bondType: 'covalent_polar', crystal: 'atomic' },
-];
-
-/** Crystal melting-point order for comparison questions. */
-const CRYSTAL_MELTING_RANK: Record<CrystalStructure, number> = {
-  molecular: 1,
-  metallic: 2,
-  ionic: 3,
-  atomic: 4,
-};
+/** Convert data-file entries to internal BondExample format. */
+function toBondExamples(data: BondExamplesData): BondExample[] {
+  return data.examples.map(e => ({
+    formula: e.formula,
+    bondType: e.bond_type as BondType,
+    crystal: e.crystal_type as CrystalStructure,
+  }));
+}
 
 const ALL_BOND_TYPES: BondType[] = ['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic'];
 const ALL_CRYSTAL_TYPES: CrystalStructure[] = ['ionic', 'molecular', 'atomic', 'metallic'];
@@ -100,12 +82,8 @@ function shuffleOptions(options: ExerciseOption[]): ExerciseOption[] {
   return [...options].sort(() => Math.random() - 0.5);
 }
 
-function examplesOfType(bondType: BondType): BondExample[] {
-  return BOND_EXAMPLES.filter(e => e.bondType === bondType);
-}
-
-function examplesOfCrystal(crystal: CrystalStructure): BondExample[] {
-  return BOND_EXAMPLES.filter(e => e.crystal === crystal);
+function examplesOfType(examples: BondExample[], bondType: BondType): BondExample[] {
+  return examples.filter(e => e.bondType === bondType);
 }
 
 /** Electronegativity map from elements array. */
@@ -119,204 +97,209 @@ function chiMap(elements: Element[]): Map<string, number> {
   return map;
 }
 
-type GeneratorFn = (elements: Element[]) => Exercise;
+type GeneratorFn = (elements: Element[], examples: BondExample[], meltingRank: Record<string, number>) => Exercise;
 
-const generators: Record<string, GeneratorFn> = {
-  identify_bond_type() {
-    const example = pick(BOND_EXAMPLES);
-    const correctLabel = getBondTypeLabel(example.bondType);
-    const distractors = ALL_BOND_TYPES
-      .filter(t => t !== example.bondType)
-      .map(t => getBondTypeLabel(t));
+function buildGenerators(): Record<string, GeneratorFn> {
+  return {
+    identify_bond_type(_elements, examples) {
+      const example = pick(examples);
+      const correctLabel = getBondTypeLabel(example.bondType);
+      const distractors = ALL_BOND_TYPES
+        .filter(t => t !== example.bondType)
+        .map(t => getBondTypeLabel(t));
 
-    const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
-      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
-    ]);
+      const options = shuffleOptions([
+        { id: 'correct', text: correctLabel },
+        ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+      ]);
 
-    return {
-      type: 'identify_bond_type',
-      question: m.bond_ex_q_identify_type({ formula: example.formula }),
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
-      explanation: m.bond_ex_a_identify_type({ formula: example.formula, label: correctLabel.toLowerCase() }),
-      competencyMap: { bond_type: 'P' },
-    };
-  },
+      return {
+        type: 'identify_bond_type',
+        question: m.bond_ex_q_identify_type({ formula: example.formula }),
+        format: 'multiple_choice',
+        options,
+        correctId: 'correct',
+        explanation: m.bond_ex_a_identify_type({ formula: example.formula, label: correctLabel.toLowerCase() }),
+        competencyMap: { bond_type: 'P' },
+      };
+    },
 
-  identify_crystal_structure() {
-    const example = pick(BOND_EXAMPLES);
-    const correctLabel = getCrystalLabel(example.crystal);
-    const distractors = ALL_CRYSTAL_TYPES
-      .filter(t => t !== example.crystal)
-      .map(t => getCrystalLabel(t));
+    identify_crystal_structure(_elements, examples) {
+      const example = pick(examples);
+      const correctLabel = getCrystalLabel(example.crystal);
+      const distractors = ALL_CRYSTAL_TYPES
+        .filter(t => t !== example.crystal)
+        .map(t => getCrystalLabel(t));
 
-    const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
-      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
-    ]);
+      const options = shuffleOptions([
+        { id: 'correct', text: correctLabel },
+        ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+      ]);
 
-    return {
-      type: 'identify_crystal_structure',
-      question: m.bond_ex_q_identify_crystal({ formula: example.formula }),
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
-      explanation: m.bond_ex_a_identify_crystal({ formula: example.formula, label: correctLabel.toLowerCase() }),
-      competencyMap: { crystal_structure_type: 'P' },
-    };
-  },
+      return {
+        type: 'identify_crystal_structure',
+        question: m.bond_ex_q_identify_crystal({ formula: example.formula }),
+        format: 'multiple_choice',
+        options,
+        correctId: 'correct',
+        explanation: m.bond_ex_a_identify_crystal({ formula: example.formula, label: correctLabel.toLowerCase() }),
+        competencyMap: { crystal_structure_type: 'P' },
+      };
+    },
 
-  select_substance_by_bond() {
-    const targetType = pick(ALL_BOND_TYPES);
-    const correctPool = examplesOfType(targetType);
-    const correct = pick(correctPool);
+    select_substance_by_bond(_elements, examples) {
+      const targetType = pick(ALL_BOND_TYPES);
+      const correctPool = examplesOfType(examples, targetType);
+      const correct = pick(correctPool);
 
-    const distractorPool = BOND_EXAMPLES.filter(e => e.bondType !== targetType);
-    const distractors = pickN(distractorPool, 3);
+      const distractorPool = examples.filter(e => e.bondType !== targetType);
+      const distractors = pickN(distractorPool, 3);
 
-    const options = shuffleOptions([
-      { id: 'correct', text: correct.formula },
-      ...distractors.map((d, i) => ({ id: `d${i}`, text: d.formula })),
-    ]);
+      const options = shuffleOptions([
+        { id: 'correct', text: correct.formula },
+        ...distractors.map((d, i) => ({ id: `d${i}`, text: d.formula })),
+      ]);
 
-    const label = getBondTypeLabel(targetType).toLowerCase();
-    return {
-      type: 'select_substance_by_bond',
-      question: m.bond_ex_q_substance_by_bond({ label }),
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
-      explanation: m.bond_ex_a_substance_by_bond({ formula: correct.formula, label }),
-      competencyMap: { bond_type: 'P' },
-    };
-  },
+      const label = getBondTypeLabel(targetType).toLowerCase();
+      return {
+        type: 'select_substance_by_bond',
+        question: m.bond_ex_q_substance_by_bond({ label }),
+        format: 'multiple_choice',
+        options,
+        correctId: 'correct',
+        explanation: m.bond_ex_a_substance_by_bond({ formula: correct.formula, label }),
+        competencyMap: { bond_type: 'P' },
+      };
+    },
 
-  predict_property_by_structure() {
-    const example = pick(BOND_EXAMPLES);
-    const crystal = example.crystal;
-    const propertyKey = pick(['melting', 'conductivity'] as const);
-    const correctValue = getCrystalProperty(crystal, propertyKey);
+    predict_property_by_structure(_elements, examples) {
+      const example = pick(examples);
+      const crystal = example.crystal;
+      const propertyKey = pick(['melting', 'conductivity'] as const);
+      const correctValue = getCrystalProperty(crystal, propertyKey);
 
-    const distractorValues = ALL_CRYSTAL_TYPES
-      .filter(t => t !== crystal)
-      .map(t => getCrystalProperty(t, propertyKey));
+      const distractorValues = ALL_CRYSTAL_TYPES
+        .filter(t => t !== crystal)
+        .map(t => getCrystalProperty(t, propertyKey));
 
-    const propertyLabel = propertyKey === 'melting'
-      ? m.bond_ex_melting_point()
-      : m.bond_ex_conductivity();
+      const propertyLabel = propertyKey === 'melting'
+        ? m.bond_ex_melting_point()
+        : m.bond_ex_conductivity();
 
-    const crystalLabel = getCrystalLabel(crystal).toLowerCase();
+      const crystalLabel = getCrystalLabel(crystal).toLowerCase();
 
-    const options = shuffleOptions([
-      { id: 'correct', text: correctValue },
-      ...distractorValues.map((d, i) => ({ id: `d${i}`, text: d })),
-    ]);
+      const options = shuffleOptions([
+        { id: 'correct', text: correctValue },
+        ...distractorValues.map((d, i) => ({ id: `d${i}`, text: d })),
+      ]);
 
-    return {
-      type: 'predict_property_by_structure',
-      question: m.bond_ex_q_predict_property({ property: propertyLabel, formula: example.formula, crystal: crystalLabel }),
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
-      explanation: m.bond_ex_a_predict_property({ formula: example.formula, crystal: crystalLabel, property: propertyLabel, value: correctValue.toLowerCase() }),
-      competencyMap: { crystal_structure_type: 'P', bond_type: 'S' },
-    };
-  },
+      return {
+        type: 'predict_property_by_structure',
+        question: m.bond_ex_q_predict_property({ property: propertyLabel, formula: example.formula, crystal: crystalLabel }),
+        format: 'multiple_choice',
+        options,
+        correctId: 'correct',
+        explanation: m.bond_ex_a_predict_property({ formula: example.formula, crystal: crystalLabel, property: propertyLabel, value: correctValue.toLowerCase() }),
+        competencyMap: { crystal_structure_type: 'P', bond_type: 'S' },
+      };
+    },
 
-  compare_melting_points() {
-    // Pick two examples with different crystal types
-    const shuffled = pickN(BOND_EXAMPLES, BOND_EXAMPLES.length);
-    let a: BondExample | null = null;
-    let b: BondExample | null = null;
+    compare_melting_points(_elements, examples, meltingRank) {
+      // Pick two examples with different crystal types
+      const shuffled = pickN(examples, examples.length);
+      let a: BondExample | null = null;
+      let b: BondExample | null = null;
 
-    for (let i = 0; i < shuffled.length && (!a || !b); i++) {
-      if (!a) {
-        a = shuffled[i];
-      } else if (shuffled[i].crystal !== a.crystal) {
-        b = shuffled[i];
+      for (let i = 0; i < shuffled.length && (!a || !b); i++) {
+        if (!a) {
+          a = shuffled[i];
+        } else if (shuffled[i].crystal !== a.crystal) {
+          b = shuffled[i];
+        }
       }
-    }
 
-    if (!a || !b) {
-      // Fallback: just pick two different ones
-      a = BOND_EXAMPLES[0];
-      b = BOND_EXAMPLES[4];
-    }
+      if (!a || !b) {
+        // Fallback: just pick two different ones
+        a = examples[0];
+        b = examples[4];
+      }
 
-    const rankA = CRYSTAL_MELTING_RANK[a.crystal];
-    const rankB = CRYSTAL_MELTING_RANK[b.crystal];
-    const higherFormula = rankA >= rankB ? a.formula : b.formula;
-    const higherCrystal = rankA >= rankB ? a.crystal : b.crystal;
+      const rankA = meltingRank[a.crystal] ?? 0;
+      const rankB = meltingRank[b.crystal] ?? 0;
+      const higherFormula = rankA >= rankB ? a.formula : b.formula;
+      const higherCrystal = rankA >= rankB ? a.crystal : b.crystal;
 
-    const options = shuffleOptions([
-      { id: rankA >= rankB ? 'a' : 'b', text: a.formula },
-      { id: rankA >= rankB ? 'b' : 'a', text: b.formula },
-    ]);
+      const options = shuffleOptions([
+        { id: rankA >= rankB ? 'a' : 'b', text: a.formula },
+        { id: rankA >= rankB ? 'b' : 'a', text: b.formula },
+      ]);
 
-    return {
-      type: 'compare_melting_points',
-      question: m.bond_ex_q_compare_melting({ formulaA: a.formula, formulaB: b.formula }),
-      format: 'multiple_choice',
-      options: options.map(o => ({ id: o.id === 'a' ? 'correct' : 'd0', text: o.text })),
-      correctId: 'correct',
-      explanation: m.bond_ex_a_compare_melting({ formula: higherFormula, crystal: getCrystalLabel(higherCrystal).toLowerCase() }),
-      competencyMap: { crystal_structure_type: 'P' },
-    };
-  },
+      return {
+        type: 'compare_melting_points',
+        question: m.bond_ex_q_compare_melting({ formulaA: a.formula, formulaB: b.formula }),
+        format: 'multiple_choice',
+        options: options.map(o => ({ id: o.id === 'a' ? 'correct' : 'd0', text: o.text })),
+        correctId: 'correct',
+        explanation: m.bond_ex_a_compare_melting({ formula: higherFormula, crystal: getCrystalLabel(higherCrystal).toLowerCase() }),
+        competencyMap: { crystal_structure_type: 'P' },
+      };
+    },
 
-  bond_from_delta_chi(elements) {
-    // Pick two elements that have electronegativity values
-    const chi = chiMap(elements);
-    const symbolsWithChi = [...chi.keys()];
+    bond_from_delta_chi(elements, examples, meltingRank) {
+      // Pick two elements that have electronegativity values
+      const chi = chiMap(elements);
+      const symbolsWithChi = [...chi.keys()];
 
-    if (symbolsWithChi.length < 2) {
-      // Fallback to identify_bond_type
-      return generators.identify_bond_type(elements);
-    }
+      if (symbolsWithChi.length < 2) {
+        // Fallback to identify_bond_type
+        return gens.identify_bond_type(elements, examples, meltingRank);
+      }
 
-    const [symA, symB] = pickN(symbolsWithChi, 2);
-    const chiA = chi.get(symA)!;
-    const chiB = chi.get(symB)!;
-    const delta = Math.abs(chiA - chiB);
+      const [symA, symB] = pickN(symbolsWithChi, 2);
+      const chiA = chi.get(symA)!;
+      const chiB = chi.get(symB)!;
+      const delta = Math.abs(chiA - chiB);
 
-    let correctType: BondType;
-    if (delta >= 1.7) {
-      correctType = 'ionic';
-    } else if (delta > 0.4) {
-      correctType = 'covalent_polar';
-    } else {
-      correctType = 'covalent_nonpolar';
-    }
+      let correctType: BondType;
+      if (delta >= 1.7) {
+        correctType = 'ionic';
+      } else if (delta > 0.4) {
+        correctType = 'covalent_polar';
+      } else {
+        correctType = 'covalent_nonpolar';
+      }
 
-    const correctLabel = getBondTypeLabel(correctType);
-    const distractors = ALL_BOND_TYPES
-      .filter(t => t !== correctType)
-      .map(t => getBondTypeLabel(t));
+      const correctLabel = getBondTypeLabel(correctType);
+      const distractors = ALL_BOND_TYPES
+        .filter(t => t !== correctType)
+        .map(t => getBondTypeLabel(t));
 
-    const options = shuffleOptions([
-      { id: 'correct', text: correctLabel },
-      ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
-    ]);
+      const options = shuffleOptions([
+        { id: 'correct', text: correctLabel },
+        ...distractors.map((d, i) => ({ id: `d${i}`, text: d })),
+      ]);
 
-    return {
-      type: 'bond_from_delta_chi',
-      question: m.bond_ex_q_delta_chi({ symA, chiA: chiA.toFixed(2), symB, chiB: chiB.toFixed(2) }),
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
-      explanation: m.bond_ex_a_delta_chi({ delta: delta.toFixed(2), label: correctLabel }),
-      competencyMap: { bond_type: 'P' },
-    };
-  },
-};
+      return {
+        type: 'bond_from_delta_chi',
+        question: m.bond_ex_q_delta_chi({ symA, chiA: chiA.toFixed(2), symB, chiB: chiB.toFixed(2) }),
+        format: 'multiple_choice',
+        options,
+        correctId: 'correct',
+        explanation: m.bond_ex_a_delta_chi({ delta: delta.toFixed(2), label: correctLabel }),
+        competencyMap: { bond_type: 'P' },
+      };
+    },
+  };
+}
 
-const EXERCISE_TYPES = Object.keys(generators);
+const gens = buildGenerators();
+const EXERCISE_TYPES = Object.keys(gens);
 
-export function generateExercise(elements: Element[], type?: string): Exercise {
+export function generateExercise(elements: Element[], bondExamplesData: BondExamplesData, type?: string): Exercise {
+  const examples = toBondExamples(bondExamplesData);
+  const meltingRank = bondExamplesData.crystal_melting_rank;
   const t = type ?? pick(EXERCISE_TYPES);
-  const gen = generators[t];
+  const gen = gens[t];
   if (!gen) throw new Error(`Unknown exercise type: ${t}`);
-  return gen(elements);
+  return gen(elements, examples, meltingRank);
 }

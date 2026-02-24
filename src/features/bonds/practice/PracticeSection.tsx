@@ -2,10 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import type { Element } from '../../../types/element';
+import type { BondExamplesData } from '../../../types/bond';
 import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
-import { loadBktParams, loadCompetencies, loadElements } from '../../../lib/data-loader';
+import { loadBktParams, loadCompetencies, loadElements, loadBondExamples } from '../../../lib/data-loader';
 import { generateExercise } from './generate-exercises';
 import type { Exercise } from './generate-exercises';
 import MultipleChoiceExercise from '../../substances/practice/MultipleChoiceExercise';
@@ -26,6 +27,7 @@ interface Props {
 
 export default function PracticeSection({ locale }: Props) {
   const [elements, setElements] = useState<Element[]>([]);
+  const [bondExamples, setBondExamples] = useState<BondExamplesData | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -38,8 +40,10 @@ export default function PracticeSection({ locale }: Props) {
       loadElements(),
       loadBktParams(),
       loadCompetencies(locale),
-    ]).then(([elems, params, comps]) => {
+      loadBondExamples(),
+    ]).then(([elems, params, comps, examples]) => {
       setElements(elems);
+      setBondExamples(examples);
 
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
@@ -55,10 +59,10 @@ export default function PracticeSection({ locale }: Props) {
   }, []);
 
   const nextExercise = useCallback(() => {
-    if (elements.length === 0) return;
-    setExercise(generateExercise(elements));
+    if (elements.length === 0 || !bondExamples) return;
+    setExercise(generateExercise(elements, bondExamples));
     setCount(c => c + 1);
-  }, [elements]);
+  }, [elements, bondExamples]);
 
   useEffect(() => {
     if (!loading && !exercise && elements.length > 0) nextExercise();

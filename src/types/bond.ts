@@ -25,3 +25,14 @@ export interface BondTheory {
   bond_types: BondTypeInfo[];
   crystal_structures: CrystalStructureInfo[];
 }
+
+export interface BondExampleEntry {
+  formula: string;
+  bond_type: string;
+  crystal_type: string;
+}
+
+export interface BondExamplesData {
+  examples: BondExampleEntry[];
+  crystal_melting_rank: Record<string, number>;
+}
