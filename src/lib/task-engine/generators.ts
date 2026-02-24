@@ -1,3 +1,4 @@
+import type { BondExampleEntry } from '../../types/bond';
 import type { Element } from '../../types/element';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
 
@@ -247,6 +248,139 @@ function genPickSaltPair(params: Record<string, unknown>, data: OntologyData): S
   };
 }
 
+// ── Bond & substance generators ──────────────────────────────────
+
+const BOND_TYPES = ['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic'] as const;
+
+function genPickBondExample(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.bondExamples) throw new Error('bondExamples not available in data');
+
+  let examples: BondExampleEntry[] = [...data.bondExamples.examples];
+
+  const raw = typeof params.bond_type === 'string' ? params.bond_type : undefined;
+  if (raw) {
+    const m = raw.match(/^\{(.+)\}$/);
+    if (m) {
+      // Placeholder — pick random bond type, then filter
+      const bondType = pickRandom([...BOND_TYPES]);
+      examples = examples.filter(ex => ex.bond_type === bondType);
+    } else {
+      examples = examples.filter(ex => ex.bond_type === raw);
+    }
+  }
+
+  const ex = pickRandom(examples);
+  return {
+    formula: ex.formula,
+    bond_type: ex.bond_type,
+    crystal_type: ex.crystal_type,
+  };
+}
+
+function genPickBondPair(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.bondExamples) throw new Error('bondExamples not available in data');
+
+  // Group examples by crystal_type
+  const byCrystal = new Map<string, BondExampleEntry[]>();
+  for (const ex of data.bondExamples.examples) {
+    const arr = byCrystal.get(ex.crystal_type) ?? [];
+    arr.push(ex);
+    byCrystal.set(ex.crystal_type, arr);
+  }
+
+  const crystalTypes = [...byCrystal.keys()];
+  const [typeA, typeB] = pickK(crystalTypes, 2);
+  const exA = pickRandom(byCrystal.get(typeA)!);
+  const exB = pickRandom(byCrystal.get(typeB)!);
+
+  return {
+    formulaA: exA.formula,
+    formulaB: exB.formula,
+    crystal_typeA: exA.crystal_type,
+    crystal_typeB: exB.crystal_type,
+  };
+}
+
+const SUBSTANCE_CLASSES = ['oxide', 'acid', 'base', 'salt'] as const;
+
+function genPickSubstanceByClass(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.substanceIndex) throw new Error('substanceIndex not available in data');
+
+  let candidates = [...data.substanceIndex];
+
+  const raw = typeof params.substance_class === 'string' ? params.substance_class : undefined;
+  if (raw) {
+    const m = raw.match(/^\{(.+)\}$/);
+    if (m) {
+      const cls = pickRandom([...SUBSTANCE_CLASSES]);
+      candidates = candidates.filter(s => s.class === cls);
+    } else {
+      candidates = candidates.filter(s => s.class === raw);
+    }
+  }
+
+  const s = pickRandom(candidates);
+  return {
+    formula: s.formula,
+    substance_class: s.class,
+    substance_subclass: s.subclass ?? '',
+  };
+}
+
+const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox'] as const;
+const PRIMARY_TAGS_SET = new Set<string>(REACTION_TYPE_TAGS);
+
+function genPickReaction(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.reactions) throw new Error('reactions not available in data');
+
+  let candidates = [...data.reactions];
+
+  const raw = typeof params.type_tag === 'string' ? params.type_tag : undefined;
+  if (raw) {
+    const m = raw.match(/^\{(.+)\}$/);
+    if (m) {
+      const tag = pickRandom([...REACTION_TYPE_TAGS]);
+      candidates = candidates.filter(r => r.type_tags.includes(tag));
+    } else {
+      candidates = candidates.filter(r => r.type_tags.includes(raw));
+    }
+  }
+
+  const r = pickRandom(candidates);
+  const reactionType = r.type_tags.find(t => PRIMARY_TAGS_SET.has(t)) ?? r.type_tags[0];
+
+  return {
+    equation: r.equation,
+    reaction_type: reactionType,
+    reaction_id: r.reaction_id,
+  };
+}
+
+function genPickElementPosition(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const candidates = data.elements.filter(
+    el =>
+      el.period >= 1 &&
+      el.period <= 6 &&
+      el.group >= 1 &&
+      el.group <= 18 &&
+      el.element_group !== 'lanthanide' &&
+      el.element_group !== 'actinide',
+  );
+
+  const el = pickRandom(candidates);
+  const maxOx =
+    el.typical_oxidation_states.length > 0
+      ? Math.max(...el.typical_oxidation_states)
+      : 0;
+
+  return {
+    element: el.symbol,
+    period: el.period,
+    group: el.group,
+    max_oxidation_state: maxOx,
+  };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 const GENERATORS: Record<string, (params: Record<string, unknown>, data: OntologyData) => SlotValues> = {
@@ -255,6 +389,11 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_oxidation_example': genPickOxidationExample,
   'gen.pick_ion_pair': genPickIonPair,
   'gen.pick_salt_pair': genPickSaltPair,
+  'gen.pick_bond_example': genPickBondExample,
+  'gen.pick_bond_pair': genPickBondPair,
+  'gen.pick_substance_by_class': genPickSubstanceByClass,
+  'gen.pick_reaction': genPickReaction,
+  'gen.pick_element_position': genPickElementPosition,
 };
 
 export function runGenerator(

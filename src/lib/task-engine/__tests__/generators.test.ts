@@ -236,6 +236,193 @@ describe('gen.pick_salt_pair', () => {
   });
 });
 
+// ── Mock data for new generators ─────────────────────────────────
+
+const MOCK_BOND_EXAMPLES = {
+  examples: [
+    { formula: 'NaCl', bond_type: 'ionic', crystal_type: 'ionic' },
+    { formula: 'H2O', bond_type: 'covalent_polar', crystal_type: 'molecular' },
+    { formula: 'H2', bond_type: 'covalent_nonpolar', crystal_type: 'molecular' },
+    { formula: 'Fe', bond_type: 'metallic', crystal_type: 'metallic' },
+    { formula: 'SiO2', bond_type: 'covalent_polar', crystal_type: 'atomic' },
+  ],
+  crystal_melting_rank: { molecular: 1, metallic: 2, ionic: 3, atomic: 4 },
+};
+
+const MOCK_SUBSTANCE_INDEX = [
+  { id: 'nacl', formula: 'NaCl', class: 'salt', subclass: 'middle_salt' },
+  { id: 'hcl', formula: 'HCl', class: 'acid', subclass: 'oxygen_free_acid' },
+  { id: 'naoh', formula: 'NaOH', class: 'base', subclass: 'soluble_base' },
+  { id: 'cao', formula: 'CaO', class: 'oxide', subclass: 'basic_oxide' },
+  { id: 'h2so4', formula: 'H2SO4', class: 'acid', subclass: 'oxygen_acid' },
+];
+
+const MOCK_REACTIONS = [
+  { reaction_id: 'rx1', equation: 'NaOH + HCl → NaCl + H2O', type_tags: ['exchange', 'neutralization'], title: '', phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {} },
+  { reaction_id: 'rx2', equation: 'Zn + CuSO4 → ZnSO4 + Cu', type_tags: ['substitution', 'redox'], title: '', phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {} },
+  { reaction_id: 'rx3', equation: 'CaCO3 → CaO + CO2', type_tags: ['decomposition'], title: '', phase: { medium: 's' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'endo' as const, safety_notes: [], competencies: {} },
+];
+
+const dataWithBonds: OntologyData = { ...MOCK_DATA, bondExamples: MOCK_BOND_EXAMPLES };
+const dataWithSubstances: OntologyData = { ...MOCK_DATA, substanceIndex: MOCK_SUBSTANCE_INDEX };
+const dataWithReactions: OntologyData = { ...MOCK_DATA, reactions: MOCK_REACTIONS };
+
+// ── Bond generator tests ─────────────────────────────────────────
+
+describe('gen.pick_bond_example', () => {
+  it('returns formula, bond_type, and crystal_type', () => {
+    const result = runGenerator('gen.pick_bond_example', {}, dataWithBonds);
+    expect(result).toHaveProperty('formula');
+    expect(result).toHaveProperty('bond_type');
+    expect(result).toHaveProperty('crystal_type');
+    expect(typeof result.formula).toBe('string');
+    expect(typeof result.bond_type).toBe('string');
+    expect(typeof result.crystal_type).toBe('string');
+  });
+
+  it('filters by specific bond_type', () => {
+    const result = runGenerator('gen.pick_bond_example', { bond_type: 'ionic' }, dataWithBonds);
+    expect(result.formula).toBe('NaCl');
+    expect(result.bond_type).toBe('ionic');
+  });
+
+  it('resolves placeholder bond_type to a valid type', () => {
+    const validTypes = ['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic'];
+    const result = runGenerator('gen.pick_bond_example', { bond_type: '{bond_type}' }, dataWithBonds);
+    expect(validTypes).toContain(result.bond_type);
+  });
+
+  it('throws when bondExamples is missing', () => {
+    expect(() => runGenerator('gen.pick_bond_example', {}, MOCK_DATA)).toThrow('bondExamples not available');
+  });
+});
+
+describe('gen.pick_bond_pair', () => {
+  it('returns two formulas with different crystal types', () => {
+    const result = runGenerator('gen.pick_bond_pair', {}, dataWithBonds);
+    expect(result).toHaveProperty('formulaA');
+    expect(result).toHaveProperty('formulaB');
+    expect(result).toHaveProperty('crystal_typeA');
+    expect(result).toHaveProperty('crystal_typeB');
+    expect(result.crystal_typeA).not.toBe(result.crystal_typeB);
+  });
+
+  it('throws when bondExamples is missing', () => {
+    expect(() => runGenerator('gen.pick_bond_pair', {}, MOCK_DATA)).toThrow('bondExamples not available');
+  });
+});
+
+// ── Substance generator tests ────────────────────────────────────
+
+describe('gen.pick_substance_by_class', () => {
+  it('returns formula, substance_class, and substance_subclass', () => {
+    const result = runGenerator('gen.pick_substance_by_class', {}, dataWithSubstances);
+    expect(result).toHaveProperty('formula');
+    expect(result).toHaveProperty('substance_class');
+    expect(result).toHaveProperty('substance_subclass');
+    expect(typeof result.formula).toBe('string');
+    expect(typeof result.substance_class).toBe('string');
+  });
+
+  it('filters by specific substance_class', () => {
+    const result = runGenerator('gen.pick_substance_by_class', { substance_class: 'salt' }, dataWithSubstances);
+    expect(result.substance_class).toBe('salt');
+    expect(result.formula).toBe('NaCl');
+  });
+
+  it('resolves placeholder substance_class to a valid class', () => {
+    const validClasses = ['oxide', 'acid', 'base', 'salt'];
+    const result = runGenerator('gen.pick_substance_by_class', { substance_class: '{substance_class}' }, dataWithSubstances);
+    expect(validClasses).toContain(result.substance_class);
+  });
+
+  it('throws when substanceIndex is missing', () => {
+    expect(() => runGenerator('gen.pick_substance_by_class', {}, MOCK_DATA)).toThrow('substanceIndex not available');
+  });
+});
+
+// ── Reaction generator tests ─────────────────────────────────────
+
+describe('gen.pick_reaction', () => {
+  it('returns equation, reaction_type, and reaction_id', () => {
+    const result = runGenerator('gen.pick_reaction', {}, dataWithReactions);
+    expect(result).toHaveProperty('equation');
+    expect(result).toHaveProperty('reaction_type');
+    expect(result).toHaveProperty('reaction_id');
+    expect(typeof result.equation).toBe('string');
+    expect(typeof result.reaction_type).toBe('string');
+    expect(typeof result.reaction_id).toBe('string');
+  });
+
+  it('filters by specific type_tag', () => {
+    const result = runGenerator('gen.pick_reaction', { type_tag: 'decomposition' }, dataWithReactions);
+    expect(result.reaction_id).toBe('rx3');
+    expect(result.reaction_type).toBe('decomposition');
+  });
+
+  it('resolves placeholder type_tag to a valid tag', () => {
+    const validTags = ['exchange', 'substitution', 'decomposition', 'redox'];
+    const result = runGenerator('gen.pick_reaction', { type_tag: '{type_tag}' }, dataWithReactions);
+    expect(validTags).toContain(result.reaction_type);
+  });
+
+  it('uses first primary tag as reaction_type', () => {
+    const result = runGenerator('gen.pick_reaction', { type_tag: 'substitution' }, dataWithReactions);
+    expect(result.reaction_type).toBe('substitution');
+  });
+
+  it('throws when reactions is missing', () => {
+    expect(() => runGenerator('gen.pick_reaction', {}, MOCK_DATA)).toThrow('reactions not available');
+  });
+});
+
+// ── Element position generator tests ─────────────────────────────
+
+describe('gen.pick_element_position', () => {
+  it('returns element, period, group, and max_oxidation_state', () => {
+    const result = runGenerator('gen.pick_element_position', {}, MOCK_DATA);
+    expect(result).toHaveProperty('element');
+    expect(result).toHaveProperty('period');
+    expect(result).toHaveProperty('group');
+    expect(result).toHaveProperty('max_oxidation_state');
+    expect(typeof result.element).toBe('string');
+    expect(typeof result.period).toBe('number');
+    expect(typeof result.group).toBe('number');
+    expect(typeof result.max_oxidation_state).toBe('number');
+  });
+
+  it('picks from valid elements (period 1-6, not lanthanide/actinide)', () => {
+    const result = runGenerator('gen.pick_element_position', {}, MOCK_DATA);
+    const el = MOCK_ELEMENTS.find(e => e.symbol === result.element);
+    expect(el).toBeDefined();
+    expect(el!.period).toBeGreaterThanOrEqual(1);
+    expect(el!.period).toBeLessThanOrEqual(6);
+    expect(el!.element_group).not.toBe('lanthanide');
+    expect(el!.element_group).not.toBe('actinide');
+  });
+
+  it('computes max_oxidation_state correctly', () => {
+    // P has typical_oxidation_states: [-3, 3, 5], max should be 5
+    // Run several times to try hitting P
+    let found = false;
+    for (let i = 0; i < 50; i++) {
+      const result = runGenerator('gen.pick_element_position', {}, MOCK_DATA);
+      if (result.element === 'P') {
+        expect(result.max_oxidation_state).toBe(5);
+        found = true;
+        break;
+      }
+    }
+    // If we didn't find P in 50 tries (very unlikely), at least verify shape
+    if (!found) {
+      const result = runGenerator('gen.pick_element_position', {}, MOCK_DATA);
+      expect(typeof result.max_oxidation_state).toBe('number');
+    }
+  });
+});
+
+// ── Registry tests ───────────────────────────────────────────────
+
 describe('runGenerator', () => {
   it('throws on unknown generator ID', () => {
     expect(() => runGenerator('gen.nonexistent', {}, MOCK_DATA)).toThrow('Unknown generator');
