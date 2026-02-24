@@ -152,11 +152,20 @@ export async function loadAdapter(competencyId: string, locale?: SupportedLocale
 
 /** Competency IDs that the generative engine can serve. */
 const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
+  // Phase 1
   periodic_trends: ['tmpl.pt.compare_property.v1', 'tmpl.pt.order_by_property.v1'],
-  periodic_table: ['tmpl.pt.compare_property.v1', 'tmpl.pt.order_by_property.v1'],
-  oxidation_states: ['tmpl.ox.determine_state.v1'],
+  periodic_table: [
+    'tmpl.pt.compare_property.v1', 'tmpl.pt.order_by_property.v1',
+    'tmpl.pt.find_period.v1', 'tmpl.pt.find_group.v1',
+  ],
+  oxidation_states: ['tmpl.ox.determine_state.v1', 'tmpl.ox.max_state.v1'],
   naming: ['tmpl.ion.compose_salt.v1'],
   gas_precipitate_logic: ['tmpl.sol.check_pair.v1'],
+  // Phase 2
+  bond_type: ['tmpl.bond.identify_type.v1', 'tmpl.bond.select_by_type.v1'],
+  crystal_structure_type: ['tmpl.bond.identify_crystal.v1', 'tmpl.bond.compare_melting.v1'],
+  classification: ['tmpl.class.classify.v1', 'tmpl.class.select_by_class.v1'],
+  reactions_exchange: ['tmpl.rxn.identify_type.v1'],
 };
 
 /**
@@ -172,7 +181,7 @@ export async function loadEngineAdapter(competencyId: string, locale?: Supported
     import('../../lib/data-loader'),
   ]);
 
-  const [elements, ions, properties, solubilityPairs, oxidationExamples, promptTemplates, morphology, templates] = await Promise.all([
+  const [elements, ions, properties, solubilityPairs, oxidationExamples, promptTemplates, morphology, templates, bondExamples, substanceIndex, reactions] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
     dl.loadProperties(),
@@ -181,10 +190,14 @@ export async function loadEngineAdapter(competencyId: string, locale?: Supported
     dl.loadPromptTemplates(locale ?? 'ru'),
     locale === 'ru' || !locale ? dl.loadMorphology() : Promise.resolve(null),
     dl.loadTaskTemplates(),
+    dl.loadBondExamples(),
+    dl.loadSubstancesIndex(locale),
+    dl.loadReactions(),
   ]);
 
   const ontology = {
-    elements, ions, properties, solubilityPairs, oxidationExamples, morphology, promptTemplates,
+    elements, ions, properties, solubilityPairs, oxidationExamples,
+    morphology, promptTemplates, bondExamples, substanceIndex, reactions,
   };
 
   const engine = createTaskEngine(templates, ontology);

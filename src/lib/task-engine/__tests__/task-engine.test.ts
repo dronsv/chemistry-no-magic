@@ -1,9 +1,14 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { createTaskEngine } from '../task-engine';
 import type { OntologyData, PropertyDef, TaskTemplate, PromptTemplateMap } from '../types';
 import type { Element } from '../../../types/element';
 import type { Ion } from '../../../types/ion';
 import type { OxidationExample } from '../../../types/oxidation';
+import type { BondExamplesData } from '../../../types/bond';
+import type { SubstanceIndexEntry } from '../../../types/classification';
+import type { Reaction } from '../../../types/reaction';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
 
@@ -266,6 +271,294 @@ describe('TaskEngine', () => {
       const correctOption = exercise.options.find(o => o.id === 'correct');
       expect(correctOption).toBeDefined();
       expect(correctOption!.text).toBe(String(task.correct_answer));
+    });
+  });
+});
+
+// ── Phase 2 integration tests ─────────────────────────────────────
+
+const PHASE2_PROMPTS: PromptTemplateMap = {
+  ...MOCK_PROMPTS,
+  'prompt.compare_property': {
+    question: 'Which element has higher {property}: {elementA} or {elementB}?',
+    slots: { property: 'lookup:properties.{property}.i18n.en.nom' },
+  },
+  'prompt.order_by_property': {
+    question: 'Arrange {elements} in {order} order of {property}.',
+    slots: {
+      order: { ascending: 'ascending', descending: 'descending' },
+      property: 'lookup:properties.{property}.i18n.en.nom',
+    },
+  },
+  'prompt.determine_oxidation_state': {
+    question: 'Determine the oxidation state of {element} in {formula}.',
+    slots: {},
+  },
+  'prompt.compose_salt': {
+    question: 'What is the formula of the salt from {cation} and {anion}?',
+    slots: {},
+  },
+  'prompt.solubility_of_salt': {
+    question: 'Is {salt_formula} soluble?',
+    slots: {},
+  },
+  'prompt.identify_bond_type': {
+    question: 'Identify the bond type in {formula}.',
+    slots: {},
+  },
+  'prompt.identify_crystal_type': {
+    question: 'Identify the crystal structure of {formula}.',
+    slots: {},
+  },
+  'prompt.compare_melting_points': {
+    question: 'Which has higher melting point: {formulaA} or {formulaB}?',
+    slots: {},
+  },
+  'prompt.classify_substance': {
+    question: 'Classify the substance {formula}.',
+    slots: {},
+  },
+  'prompt.identify_reaction_type': {
+    question: 'Identify the reaction type: {equation}',
+    slots: {},
+  },
+  'prompt.select_by_bond_type': {
+    question: 'Which substance has a {bond_type} bond?',
+    slots: {
+      bond_type: {
+        ionic: 'ionic', covalent_polar: 'covalent polar',
+        covalent_nonpolar: 'covalent nonpolar', metallic: 'metallic',
+      },
+    },
+  },
+  'prompt.select_by_class': {
+    question: 'Which substance is an {substance_class}?',
+    slots: {
+      substance_class: { oxide: 'oxide', acid: 'acid', base: 'base', salt: 'salt' },
+    },
+  },
+  'prompt.max_oxidation_state': {
+    question: 'What is the max oxidation state of {element}?',
+    slots: {},
+  },
+  'prompt.find_period': {
+    question: 'In which period is {element}?',
+    slots: {},
+  },
+  'prompt.find_group': {
+    question: 'In which group is {element}?',
+    slots: {},
+  },
+};
+
+const PHASE2_BOND_EXAMPLES: BondExamplesData = {
+  examples: [
+    { formula: 'NaCl', bond_type: 'ionic', crystal_type: 'ionic' },
+    { formula: 'H2O', bond_type: 'covalent_polar', crystal_type: 'molecular' },
+    { formula: 'H2', bond_type: 'covalent_nonpolar', crystal_type: 'molecular' },
+    { formula: 'Fe', bond_type: 'metallic', crystal_type: 'metallic' },
+    { formula: 'SiO2', bond_type: 'covalent_polar', crystal_type: 'atomic' },
+  ],
+  crystal_melting_rank: { molecular: 1, metallic: 2, ionic: 3, atomic: 4 },
+};
+
+const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
+  { id: 'nacl', formula: 'NaCl', class: 'salt' },
+  { id: 'hcl', formula: 'HCl', class: 'acid' },
+  { id: 'naoh', formula: 'NaOH', class: 'base' },
+  { id: 'na2o', formula: 'Na\u2082O', class: 'oxide' },
+  { id: 'h2so4', formula: 'H\u2082SO\u2084', class: 'acid' },
+  { id: 'cao', formula: 'CaO', class: 'oxide' },
+];
+
+const PHASE2_REACTIONS: Reaction[] = [
+  {
+    reaction_id: 'rx1', title: 'Neutralization', equation: 'HCl + NaOH \u2192 NaCl + H\u2082O',
+    type_tags: ['exchange', 'neutralization'], driving_forces: ['water_formation'],
+    phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo',
+  },
+  {
+    reaction_id: 'rx2', title: 'Decomposition', equation: 'CaCO\u2083 \u2192 CaO + CO\u2082',
+    type_tags: ['decomposition'], driving_forces: ['gas_evolution'],
+    phase: { medium: 's' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'endo',
+  },
+  {
+    reaction_id: 'rx3', title: 'Substitution', equation: 'Fe + CuSO\u2084 \u2192 FeSO\u2084 + Cu',
+    type_tags: ['substitution'], driving_forces: ['activity_series'],
+    phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo',
+  },
+  {
+    reaction_id: 'rx4', title: 'Redox', equation: '2H\u2082 + O\u2082 \u2192 2H\u2082O',
+    type_tags: ['redox'], driving_forces: ['energy_release'],
+    phase: { medium: 'g' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo',
+  },
+] as Reaction[];
+
+function loadAllTemplates(): TaskTemplate[] {
+  const raw = readFileSync(
+    resolve(__dirname, '../../../../data-src/engine/task_templates.json'),
+    'utf-8',
+  );
+  return JSON.parse(raw) as TaskTemplate[];
+}
+
+function buildPhase2Ontology(): OntologyData {
+  return {
+    ...MOCK_DATA,
+    promptTemplates: PHASE2_PROMPTS,
+    bondExamples: PHASE2_BOND_EXAMPLES,
+    substanceIndex: PHASE2_SUBSTANCE_INDEX,
+    reactions: PHASE2_REACTIONS,
+  };
+}
+
+describe('TaskEngine — Phase 2 integration', () => {
+  const allTemplates = loadAllTemplates();
+  const ontology = buildPhase2Ontology();
+
+  it('loads all 15 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(15);
+  });
+
+  describe('bond templates', () => {
+    it('identify_type returns a bond type', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.identify_type.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.identify_type.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ bond_type: 'P' });
+    });
+
+    it('identify_crystal returns a crystal type', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.identify_crystal.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.identify_crystal.v1');
+      expect(['ionic', 'molecular', 'atomic', 'metallic']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ crystal_structure_type: 'P' });
+    });
+
+    it('compare_melting returns a formula', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.compare_melting.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.compare_melting.v1');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFormulas = PHASE2_BOND_EXAMPLES.examples.map(e => e.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+    });
+
+    it('select_by_type returns a formula', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.select_by_type.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.select_by_type.v1');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFormulas = PHASE2_BOND_EXAMPLES.examples.map(e => e.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+    });
+  });
+
+  describe('classification templates', () => {
+    it('classify returns a substance class', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.class.classify.v1');
+
+      expect(task.template_id).toBe('tmpl.class.classify.v1');
+      expect(['oxide', 'acid', 'base', 'salt']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ classification: 'P' });
+    });
+
+    it('select_by_class returns a formula', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.class.select_by_class.v1');
+
+      expect(task.template_id).toBe('tmpl.class.select_by_class.v1');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFormulas = PHASE2_SUBSTANCE_INDEX.map(s => s.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+    });
+  });
+
+  describe('reaction template', () => {
+    it('identify_type returns a reaction type', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.rxn.identify_type.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.identify_type.v1');
+      expect(['exchange', 'substitution', 'decomposition', 'redox']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
+    });
+  });
+
+  describe('position templates', () => {
+    it('find_period returns a period number (1-6)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.find_period.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.find_period.v1');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThanOrEqual(1);
+      expect(task.correct_answer).toBeLessThanOrEqual(6);
+      expect(task.competency_map).toEqual({ periodic_table: 'P' });
+    });
+
+    it('find_group returns a group number (1-18)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.find_group.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.find_group.v1');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThanOrEqual(1);
+      expect(task.correct_answer).toBeLessThanOrEqual(18);
+    });
+
+    it('max_state returns a number', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.ox.max_state.v1');
+
+      expect(task.template_id).toBe('tmpl.ox.max_state.v1');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.competency_map).toEqual({ oxidation_states: 'P' });
+    });
+  });
+
+  describe('competency routing', () => {
+    it('generateForCompetency returns bond template for bond_type', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('bond_type');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('bond_type');
+      }
+    });
+
+    it('generateForCompetency returns classification template for classification', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('classification');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('classification');
+      }
+    });
+
+    it('generateForCompetency returns reaction template for reactions_exchange', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('reactions_exchange');
+        expect(task).not.toBeNull();
+        expect(task!.template_id).toBe('tmpl.rxn.identify_type.v1');
+      }
     });
   });
 });
