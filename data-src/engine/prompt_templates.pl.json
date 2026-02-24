@@ -1,0 +1,45 @@
+{
+  "prompt.compare_property": {
+    "question": "Który pierwiastek ma wyższą wartość {property}: {elementA} czy {elementB}?",
+    "slots": { "property": "lookup:properties.{property}.i18n.pl.name" }
+  },
+  "prompt.order_by_property": {
+    "question": "Ułóż pierwiastki {elements} w kolejności {order} {property}.",
+    "slots": {
+      "order": { "ascending": "rosnącej", "descending": "malejącej" },
+      "property": "lookup:properties.{property}.i18n.pl.name"
+    }
+  },
+  "prompt.determine_oxidation_state": {
+    "question": "Określ stopień utlenienia {element} w {formula}.",
+    "slots": {}
+  },
+  "prompt.compose_salt": {
+    "question": "Jaki jest wzór soli utworzonej z jonów {cation} i {anion}?",
+    "slots": {}
+  },
+  "prompt.solubility_of_salt": {
+    "question": "Czy sól {salt_formula} jest rozpuszczalna w wodzie?",
+    "slots": {}
+  },
+  "prompt.classify_substance": {
+    "question": "Sklasyfikuj substancję {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_bond_type": {
+    "question": "Określ typ wiązania chemicznego w {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_crystal_type": {
+    "question": "Określ typ sieci krystalicznej {formula}.",
+    "slots": {}
+  },
+  "prompt.compare_melting_points": {
+    "question": "Która substancja ma wyższą temperaturę topnienia: {formulaA} czy {formulaB}?",
+    "slots": {}
+  },
+  "prompt.identify_reaction_type": {
+    "question": "Określ typ reakcji chemicznej: {equation}",
+    "slots": {}
+  }
+}

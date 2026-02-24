@@ -1,0 +1,45 @@
+{
+  "prompt.compare_property": {
+    "question": "Какой из элементов имеет большее значение {property_gen}: {elementA} или {elementB}?",
+    "slots": { "property_gen": "lookup:properties.{property}.i18n.ru.gen" }
+  },
+  "prompt.order_by_property": {
+    "question": "Расположите элементы {elements} в порядке {order} {property_gen}.",
+    "slots": {
+      "order": { "ascending": "возрастания", "descending": "убывания" },
+      "property_gen": "lookup:properties.{property}.i18n.ru.gen"
+    }
+  },
+  "prompt.determine_oxidation_state": {
+    "question": "Определите степень окисления {element_gen} в {formula}.",
+    "slots": { "element_gen": "morph:elements.{element}.gen" }
+  },
+  "prompt.compose_salt": {
+    "question": "Какая формула соли получится из ионов {cation} и {anion}?",
+    "slots": {}
+  },
+  "prompt.solubility_of_salt": {
+    "question": "Определите растворимость соли {salt_formula} в воде.",
+    "slots": {}
+  },
+  "prompt.classify_substance": {
+    "question": "Определите класс вещества {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_bond_type": {
+    "question": "Определите тип химической связи в веществе {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_crystal_type": {
+    "question": "Определите тип кристаллической решётки вещества {formula}.",
+    "slots": {}
+  },
+  "prompt.compare_melting_points": {
+    "question": "У какого из веществ выше температура плавления: {formulaA} или {formulaB}?",
+    "slots": {}
+  },
+  "prompt.identify_reaction_type": {
+    "question": "Определите тип химической реакции: {equation}",
+    "slots": {}
+  }
+}

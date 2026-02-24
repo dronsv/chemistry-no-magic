@@ -1,0 +1,45 @@
+{
+  "prompt.compare_property": {
+    "question": "Which element has a higher {property}: {elementA} or {elementB}?",
+    "slots": { "property": "lookup:properties.{property}.i18n.en.name" }
+  },
+  "prompt.order_by_property": {
+    "question": "Arrange the elements {elements} in {order} order of {property}.",
+    "slots": {
+      "order": { "ascending": "ascending", "descending": "descending" },
+      "property": "lookup:properties.{property}.i18n.en.name"
+    }
+  },
+  "prompt.determine_oxidation_state": {
+    "question": "Determine the oxidation state of {element} in {formula}.",
+    "slots": {}
+  },
+  "prompt.compose_salt": {
+    "question": "What is the formula of the salt formed from ions {cation} and {anion}?",
+    "slots": {}
+  },
+  "prompt.solubility_of_salt": {
+    "question": "Is the salt {salt_formula} soluble in water?",
+    "slots": {}
+  },
+  "prompt.classify_substance": {
+    "question": "Classify the substance {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_bond_type": {
+    "question": "Identify the type of chemical bond in {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_crystal_type": {
+    "question": "Identify the crystal structure of {formula}.",
+    "slots": {}
+  },
+  "prompt.compare_melting_points": {
+    "question": "Which substance has a higher melting point: {formulaA} or {formulaB}?",
+    "slots": {}
+  },
+  "prompt.identify_reaction_type": {
+    "question": "Identify the reaction type: {equation}",
+    "slots": {}
+  }
+}

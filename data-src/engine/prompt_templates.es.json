@@ -1,0 +1,45 @@
+{
+  "prompt.compare_property": {
+    "question": "¿Qué elemento tiene mayor {property}: {elementA} o {elementB}?",
+    "slots": { "property": "lookup:properties.{property}.i18n.es.name" }
+  },
+  "prompt.order_by_property": {
+    "question": "Ordena los elementos {elements} en orden {order} de {property}.",
+    "slots": {
+      "order": { "ascending": "creciente", "descending": "decreciente" },
+      "property": "lookup:properties.{property}.i18n.es.name"
+    }
+  },
+  "prompt.determine_oxidation_state": {
+    "question": "Determina el estado de oxidación de {element} en {formula}.",
+    "slots": {}
+  },
+  "prompt.compose_salt": {
+    "question": "¿Cuál es la fórmula de la sal formada por los iones {cation} y {anion}?",
+    "slots": {}
+  },
+  "prompt.solubility_of_salt": {
+    "question": "¿Es soluble en agua la sal {salt_formula}?",
+    "slots": {}
+  },
+  "prompt.classify_substance": {
+    "question": "Clasifica la sustancia {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_bond_type": {
+    "question": "Identifica el tipo de enlace químico en {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_crystal_type": {
+    "question": "Identifica el tipo de red cristalina de {formula}.",
+    "slots": {}
+  },
+  "prompt.compare_melting_points": {
+    "question": "¿Qué sustancia tiene mayor punto de fusión: {formulaA} o {formulaB}?",
+    "slots": {}
+  },
+  "prompt.identify_reaction_type": {
+    "question": "Identifica el tipo de reacción: {equation}",
+    "slots": {}
+  }
+}
