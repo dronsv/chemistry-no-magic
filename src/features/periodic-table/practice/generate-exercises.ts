@@ -161,8 +161,8 @@ const generators: Record<string, GeneratorFn> = {
     const higher = a.electronegativity! > b.electronegativity! ? a : b;
     const lower = higher === a ? b : a;
     const options = shuffleOptions([
-      { id: 'correct', text: `${higher.symbol} (${higher.electronegativity})` },
-      { id: 'd0', text: `${lower.symbol} (${lower.electronegativity})` },
+      { id: 'correct', text: higher.symbol },
+      { id: 'd0', text: lower.symbol },
       { id: 'd1', text: m.pt_ex_same_value() },
       { id: 'd2', text: m.pt_ex_cannot_determine() },
     ]);
