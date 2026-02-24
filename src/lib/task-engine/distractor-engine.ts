@@ -4,13 +4,16 @@ import type { OntologyData, InteractionType, SlotValues } from './types';
  * Generate plausible wrong answer options (distractors) for a task.
  *
  * Strategy is chosen based on context clues in slots, interaction type,
- * and the shape of the correct answer:
+ * and the shape of the correct answer (in priority order):
  *
- *  - element compare (slots have elementA, elementB): other element + "одинаково" + "нельзя определить"
- *  - solubility (answer is "soluble"/"insoluble"): opposite + "slightly soluble" variants
- *  - numeric_input or numeric answer: nearby values (±1, ±2, ×2, ×0.5)
- *  - formula (slots have cation_id): swap subscripts, other anions from ontology
- *  - fallback: generic "wrong" options from ontology elements
+ *  1. element compare (slots have elementA, elementB): other element + "одинаково" + "нельзя определить"
+ *  2. melting compare (slots have formulaA, formulaB, crystal_typeA): other formula + "одинаково" + "нельзя определить"
+ *  3. domain enum (answer matches a known domain like bond_type, crystal_type, etc.)
+ *  4. solubility (answer is "soluble"/"insoluble"): opposite + "slightly soluble" variants
+ *  5. numeric_input or numeric answer: nearby values (±1, ±2, ×2, ×0.5)
+ *  6. formula (slots have cation_id): swap subscripts, other anions from ontology
+ *  7. substance formula (slots have bond_type or substance_class): formulas from same data source
+ *  8. fallback: generic "wrong" options from ontology elements
  *
  * Returned distractors never include the correct answer and are unique.
  */
@@ -31,22 +34,40 @@ export function generateDistractors(
   if (slots.elementA && slots.elementB && typeof correctAnswer === 'string') {
     candidates = generateElementCompareDistractors(correctAnswer, slots);
   }
-  // 2. Solubility context
+  // 2. Melting point comparison context
+  else if (
+    slots.formulaA && slots.formulaB && slots.crystal_typeA &&
+    typeof correctAnswer === 'string'
+  ) {
+    candidates = generateMeltingCompareDistractors(correctAnswer, slots);
+  }
+  // 3. Domain enum context
+  else if (typeof correctAnswer === 'string' && generateDomainEnumDistractors(correctAnswer) !== null) {
+    candidates = generateDomainEnumDistractors(correctAnswer)!;
+  }
+  // 4. Solubility context
   else if (
     (slots.expected_solubility !== undefined || isSolubilityAnswer(correctAnswer)) &&
     typeof correctAnswer === 'string'
   ) {
     candidates = generateSolubilityDistractors(correctAnswer);
   }
-  // 3. Numeric context
+  // 5. Numeric context
   else if (interaction === 'numeric_input' || typeof correctAnswer === 'number') {
     candidates = generateNumericDistractors(correctAnswer);
   }
-  // 4. Formula / ion context
+  // 6. Formula / ion context
   else if (slots.cation_id && typeof correctAnswer === 'string') {
     candidates = generateFormulaDistractors(correctAnswer, slots, data);
   }
-  // 5. Fallback
+  // 7. Substance formula context
+  else if (
+    (slots.bond_type || slots.substance_class) &&
+    typeof correctAnswer === 'string'
+  ) {
+    candidates = generateSubstanceFormulaDistractors(correctAnswer, slots, data);
+  }
+  // 8. Fallback
   else {
     candidates = generateFallbackDistractors(correctAnswer, data);
   }
@@ -82,6 +103,36 @@ function generateElementCompareDistractors(
   const b = String(slots.elementB);
   const other = correctAnswer === a ? b : a;
   return [other, 'одинаково', 'нельзя определить'];
+}
+
+// ── Strategy: melting point comparison ────────────────────────────
+
+function generateMeltingCompareDistractors(
+  correctAnswer: string,
+  slots: SlotValues,
+): string[] {
+  const a = String(slots.formulaA);
+  const b = String(slots.formulaB);
+  const other = correctAnswer === a ? b : a;
+  return [other, 'одинаково', 'нельзя определить'];
+}
+
+// ── Strategy: domain enum ────────────────────────────────────────
+
+const DOMAIN_ENUMS: Record<string, string[]> = {
+  bond_type: ['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic'],
+  crystal_type: ['ionic', 'molecular', 'atomic', 'metallic'],
+  substance_class: ['oxide', 'acid', 'base', 'salt'],
+  reaction_type: ['exchange', 'substitution', 'decomposition', 'redox'],
+};
+
+function generateDomainEnumDistractors(correctAnswer: string): string[] | null {
+  for (const values of Object.values(DOMAIN_ENUMS)) {
+    if (values.includes(correctAnswer)) {
+      return values.filter(v => v !== correctAnswer);
+    }
+  }
+  return null;
 }
 
 // ── Strategy: solubility ─────────────────────────────────────────
@@ -166,6 +217,40 @@ function stripCharge(formula: string): string {
     end--;
   }
   return formula.slice(0, end);
+}
+
+// ── Strategy: substance formula ──────────────────────────────────
+
+function generateSubstanceFormulaDistractors(
+  correctAnswer: string,
+  slots: SlotValues,
+  data: OntologyData,
+): string[] {
+  const candidates: string[] = [];
+
+  if (slots.bond_type && data.bondExamples?.examples) {
+    for (const ex of data.bondExamples.examples) {
+      if (ex.formula !== correctAnswer) {
+        candidates.push(ex.formula);
+      }
+    }
+  }
+
+  if (slots.substance_class && data.substanceIndex) {
+    for (const s of data.substanceIndex) {
+      if (s.class !== slots.substance_class && s.formula !== correctAnswer) {
+        candidates.push(s.formula);
+      }
+    }
+  }
+
+  // Shuffle (Fisher-Yates)
+  for (let i = candidates.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+  }
+
+  return candidates;
 }
 
 // ── Strategy: fallback ───────────────────────────────────────────

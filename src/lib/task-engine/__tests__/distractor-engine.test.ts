@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { generateDistractors } from '../distractor-engine';
 import type { OntologyData, PropertyDef } from '../types';
 import type { Element } from '../../../types/element';
+import type { BondExamplesData } from '../../../types/bond';
+import type { SubstanceIndexEntry } from '../../../types/classification';
 import type { Ion } from '../../../types/ion';
 
 // ── Minimal mock ontology ────────────────────────────────────────
@@ -40,6 +42,24 @@ const MOCK_IONS: Ion[] = [
   { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name_ru: 'Фосфат-ион', tags: ['phosphate'] },
 ];
 
+const MOCK_BOND_EXAMPLES: BondExamplesData = {
+  examples: [
+    { formula: 'NaCl', bond_type: 'ionic', crystal_type: 'ionic' },
+    { formula: 'H\u2082O', bond_type: 'covalent_polar', crystal_type: 'molecular' },
+    { formula: 'O\u2082', bond_type: 'covalent_nonpolar', crystal_type: 'molecular' },
+    { formula: 'Fe', bond_type: 'metallic', crystal_type: 'metallic' },
+    { formula: 'SiO\u2082', bond_type: 'covalent_polar', crystal_type: 'atomic' },
+  ],
+  crystal_melting_rank: { ionic: 3, molecular: 1, atomic: 4, metallic: 2 },
+};
+
+const MOCK_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
+  { id: 'CaO', formula: 'CaO', name_ru: 'Оксид кальция', class: 'oxide' },
+  { id: 'HCl', formula: 'HCl', name_ru: 'Соляная кислота', class: 'acid' },
+  { id: 'NaOH', formula: 'NaOH', name_ru: 'Гидроксид натрия', class: 'base' },
+  { id: 'NaCl', formula: 'NaCl', name_ru: 'Хлорид натрия', class: 'salt' },
+];
+
 const MOCK_DATA: OntologyData = {
   elements: MOCK_ELEMENTS,
   ions: MOCK_IONS,
@@ -48,6 +68,8 @@ const MOCK_DATA: OntologyData = {
   oxidationExamples: [],
   morphology: null,
   promptTemplates: {},
+  bondExamples: MOCK_BOND_EXAMPLES,
+  substanceIndex: MOCK_SUBSTANCE_INDEX,
 };
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -196,6 +218,145 @@ describe('generateDistractors', () => {
       expect(distractors).not.toContain('Na\u2082SO\u2084');
       // Should have a variant with subscript 3 instead of 2
       expect(distractors.some(d => d.includes('\u2083'))).toBe(true);
+    });
+  });
+
+  describe('melting compare context', () => {
+    it('returns other formula, "одинаково", and "нельзя определить"', () => {
+      const distractors = generateDistractors(
+        'NaCl',
+        { formulaA: 'NaCl', formulaB: 'SiO\u2082', crystal_typeA: 'ionic', crystal_typeB: 'atomic' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('SiO\u2082');
+      expect(distractors).toContain('одинаково');
+      expect(distractors).toContain('нельзя определить');
+    });
+
+    it('never includes the correct answer', () => {
+      const distractors = generateDistractors(
+        'SiO\u2082',
+        { formulaA: 'NaCl', formulaB: 'SiO\u2082', crystal_typeA: 'ionic', crystal_typeB: 'atomic' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).not.toContain('SiO\u2082');
+      expect(distractors).toContain('NaCl');
+    });
+  });
+
+  describe('domain enum context', () => {
+    it('generates other bond types for a bond type answer', () => {
+      const distractors = generateDistractors(
+        'covalent_polar',
+        { formula: 'H\u2082O' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('ionic');
+      expect(distractors).toContain('covalent_nonpolar');
+      expect(distractors).toContain('metallic');
+      expect(distractors).not.toContain('covalent_polar');
+    });
+
+    it('generates other crystal types for a crystal type answer', () => {
+      const distractors = generateDistractors(
+        'molecular',
+        { formula: 'H\u2082O' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).not.toContain('molecular');
+      expect(distractors).toContain('atomic');
+    });
+
+    it('generates other substance classes for a substance class answer', () => {
+      const distractors = generateDistractors(
+        'acid',
+        { formula: 'HCl' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('oxide');
+      expect(distractors).toContain('base');
+      expect(distractors).toContain('salt');
+      expect(distractors).not.toContain('acid');
+    });
+
+    it('generates other reaction types for a reaction type answer', () => {
+      const distractors = generateDistractors(
+        'exchange',
+        { reaction_id: 'r1' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('substitution');
+      expect(distractors).toContain('decomposition');
+      expect(distractors).toContain('redox');
+      expect(distractors).not.toContain('exchange');
+    });
+
+    it('"ionic" answer without element slots uses domain enum, not element compare', () => {
+      const distractors = generateDistractors(
+        'ionic',
+        { formula: 'NaCl' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toHaveLength(3);
+      expect(distractors).toContain('covalent_polar');
+      expect(distractors).toContain('covalent_nonpolar');
+      expect(distractors).toContain('metallic');
+      // Should NOT contain element symbols (that would be fallback behavior)
+      expect(distractors).not.toContain('Na');
+      expect(distractors).not.toContain('Cl');
+    });
+  });
+
+  describe('substance formula context', () => {
+    it('generates other formulas from bond examples when bond_type slot is set', () => {
+      const distractors = generateDistractors(
+        'H\u2082O',
+        { bond_type: 'covalent_polar', formula: 'H\u2082O' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(3);
+      expect(distractors).not.toContain('H\u2082O');
+      // Should contain formulas from bond examples
+      for (const d of distractors) {
+        expect(MOCK_BOND_EXAMPLES.examples.some(ex => ex.formula === d)).toBe(true);
+      }
+    });
+
+    it('generates formulas from substance index when substance_class slot is set', () => {
+      const distractors = generateDistractors(
+        'CaO',
+        { substance_class: 'oxide', formula: 'CaO' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(2);
+      expect(distractors).not.toContain('CaO');
+      // Should contain formulas from other substance classes
+      for (const d of distractors) {
+        expect(MOCK_SUBSTANCE_INDEX.some(s => s.formula === d)).toBe(true);
+      }
     });
   });
 
