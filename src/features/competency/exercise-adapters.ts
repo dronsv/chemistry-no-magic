@@ -149,3 +149,51 @@ export async function loadAdapter(competencyId: string, locale?: SupportedLocale
       throw new Error(`Unknown feature: ${feature}`);
   }
 }
+
+/** Competency IDs that the generative engine can serve. */
+const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
+  periodic_trends: ['tmpl.pt.compare_property.v1', 'tmpl.pt.order_by_property.v1'],
+  periodic_table: ['tmpl.pt.compare_property.v1', 'tmpl.pt.order_by_property.v1'],
+  oxidation_states: ['tmpl.ox.determine_state.v1'],
+  naming: ['tmpl.ion.compose_salt.v1'],
+  gas_precipitate_logic: ['tmpl.sol.check_pair.v1'],
+};
+
+/**
+ * Load an engine-based exercise adapter for a competency.
+ * Returns null if no engine templates are available for this competency.
+ * This is a parallel alternative to `loadAdapter` — not a replacement.
+ */
+export async function loadEngineAdapter(competencyId: string, locale?: SupportedLocale): Promise<Adapter | null> {
+  if (!ENGINE_COMPETENCY_MAP[competencyId]) return null;
+
+  const [{ createTaskEngine }, dl] = await Promise.all([
+    import('../../lib/task-engine'),
+    import('../../lib/data-loader'),
+  ]);
+
+  const [elements, ions, properties, solubilityPairs, oxidationExamples, promptTemplates, morphology, templates] = await Promise.all([
+    dl.loadElements(locale),
+    dl.loadIons(locale),
+    dl.loadProperties(),
+    dl.loadSolubilityRules(),
+    dl.loadOxidationExamples(),
+    dl.loadPromptTemplates(locale ?? 'ru'),
+    locale === 'ru' || !locale ? dl.loadMorphology() : Promise.resolve(null),
+    dl.loadTaskTemplates(),
+  ]);
+
+  const ontology = {
+    elements, ions, properties, solubilityPairs, oxidationExamples, morphology, promptTemplates,
+  };
+
+  const engine = createTaskEngine(templates, ontology);
+
+  return {
+    generate: () => {
+      const task = engine.generateForCompetency(competencyId);
+      if (!task) throw new Error(`No engine template for competency: ${competencyId}`);
+      return engine.toExercise(task);
+    },
+  };
+}
