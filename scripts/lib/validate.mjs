@@ -113,9 +113,12 @@ export function validateNamingRules(rules) {
  * @param {any[]} entries
  * @returns {string[]} errors
  */
-export function validateSolubility(entries) {
+export function validateSolubility(data) {
   const errors = [];
-  if (!Array.isArray(entries)) return ['solubility_rules_light.json must be an array'];
+  const entries = Array.isArray(data) ? data : (data.pairs || []);
+  if (!Array.isArray(data) && !Array.isArray(data?.pairs)) {
+    return ['solubility_rules_light.json must be an array or object with pairs'];
+  }
 
   for (let i = 0; i < entries.length; i++) {
     const e = entries[i];

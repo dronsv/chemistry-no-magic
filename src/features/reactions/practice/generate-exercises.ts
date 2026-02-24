@@ -62,6 +62,22 @@ function shuffleOptions(options: ExerciseOption[]): ExerciseOption[] {
 
 type GeneratorFn = (ctx: GeneratorContext) => Exercise;
 
+/** Map ion IDs (used in solubility data) to Unicode display formulas. */
+const ION_FORMULA: Record<string, string> = {
+  Na_plus: 'Na⁺', K_plus: 'K⁺', H_plus: 'H⁺', NH4_plus: 'NH₄⁺',
+  Ba_2plus: 'Ba²⁺', Ca_2plus: 'Ca²⁺', Mg_2plus: 'Mg²⁺',
+  Al_3plus: 'Al³⁺', Fe_2plus: 'Fe²⁺', Fe_3plus: 'Fe³⁺',
+  Cu_2plus: 'Cu²⁺', Zn_2plus: 'Zn²⁺', Ag_plus: 'Ag⁺', Pb_2plus: 'Pb²⁺',
+  Cl_minus: 'Cl⁻', SO4_2minus: 'SO₄²⁻', NO3_minus: 'NO₃⁻',
+  CO3_2minus: 'CO₃²⁻', PO4_3minus: 'PO₄³⁻', S_2minus: 'S²⁻',
+  OH_minus: 'OH⁻', SiO3_2minus: 'SiO₃²⁻',
+  Br_minus: 'Br⁻', I_minus: 'I⁻', F_minus: 'F⁻',
+};
+
+function ionFormula(id: string): string {
+  return ION_FORMULA[id] ?? id;
+}
+
 /* ---- Distractor helpers for predict_exchange_products ---- */
 
 function parseCoeff(s: string): [number, string] {
@@ -256,10 +272,17 @@ const generators: Record<string, GeneratorFn> = {
   },
 
   solubility_lookup(ctx) {
-    const mainAnions = new Set(['Cl⁻', 'SO₄²⁻', 'NO₃⁻', 'CO₃²⁻', 'PO₄³⁻', 'S²⁻', 'OH⁻', 'SiO₃²⁻']);
-    const mainEntries = ctx.solubility.filter(e => mainAnions.has(e.anion));
+    const mainAnions = new Set([
+      'Cl_minus', 'SO4_2minus', 'NO3_minus', 'CO3_2minus',
+      'PO4_3minus', 'S_2minus', 'OH_minus', 'SiO3_2minus',
+    ]);
+    const solubilityEntries = Array.isArray(ctx.solubility) ? ctx.solubility : ((ctx.solubility as any).pairs ?? []);
+    const mainEntries = solubilityEntries.filter((e: SolubilityEntry) => mainAnions.has(e.anion));
     const entry = pick(mainEntries);
     const correctLabel = solubilityLabel(entry.solubility);
+
+    const cationDisplay = ionFormula(entry.cation);
+    const anionDisplay = ionFormula(entry.anion);
 
     const allSolKeys = ['soluble', 'insoluble', 'slightly_soluble', 'decomposes'];
     const allSolLabels = allSolKeys.map(k => solubilityLabel(k));
@@ -272,11 +295,11 @@ const generators: Record<string, GeneratorFn> = {
 
     return {
       type: 'solubility_lookup',
-      question: m.rxn_ex_q_solubility({ cation: entry.cation, anion: entry.anion }),
+      question: m.rxn_ex_q_solubility({ cation: cationDisplay, anion: anionDisplay }),
       format: 'multiple_choice',
       options,
       correctId: 'correct',
-      explanation: m.rxn_ex_a_solubility({ cation: entry.cation, anion: entry.anion, label: correctLabel.toLowerCase() }),
+      explanation: m.rxn_ex_a_solubility({ cation: cationDisplay, anion: anionDisplay, label: correctLabel.toLowerCase() }),
       competencyMap: { gas_precipitate_logic: 'P' },
     };
   },

@@ -376,9 +376,11 @@ export async function loadSubstancesIndex(locale?: SupportedLocale): Promise<Sub
   return applyOverlay(substances, overlay, s => s.id);
 }
 
-/** Load solubility rules. */
+/** Load solubility rules (unwraps v2 object format). */
 export async function loadSolubilityRules(): Promise<SolubilityEntry[]> {
-  return loadRule('solubility_rules_light') as Promise<SolubilityEntry[]>;
+  const raw = await loadRule('solubility_rules_light');
+  if (Array.isArray(raw)) return raw as SolubilityEntry[];
+  return (raw as { pairs: SolubilityEntry[] }).pairs ?? [];
 }
 
 /** Load activity series of metals. */
