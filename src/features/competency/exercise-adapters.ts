@@ -64,21 +64,27 @@ export async function loadAdapter(competencyId: string, locale?: SupportedLocale
     }
 
     case 'bonds': {
-      const [{ generateExercise }, { loadElements }] = await Promise.all([
+      const [{ generateExercise }, dl] = await Promise.all([
         import('../bonds/practice/generate-exercises'),
         import('../../lib/data-loader'),
       ]);
-      const elements = await loadElements(locale);
-      return { generate: () => generateExercise(elements) };
+      const [elements, bondExamples] = await Promise.all([
+        dl.loadElements(locale),
+        dl.loadBondExamples(),
+      ]);
+      return { generate: () => generateExercise(elements, bondExamples) };
     }
 
     case 'oxidation-states': {
-      const [{ generateExercise }, { loadElements }] = await Promise.all([
+      const [{ generateExercise }, dl] = await Promise.all([
         import('../oxidation-states/practice/generate-exercises'),
         import('../../lib/data-loader'),
       ]);
-      const elements = await loadElements(locale);
-      return { generate: () => generateExercise(elements) };
+      const [elements, oxidationExamples] = await Promise.all([
+        dl.loadElements(locale),
+        dl.loadOxidationExamples(),
+      ]);
+      return { generate: () => generateExercise({ elements, oxidationExamples }) };
     }
 
     case 'substances': {
@@ -86,12 +92,13 @@ export async function loadAdapter(competencyId: string, locale?: SupportedLocale
         import('../substances/practice/generate-exercises'),
         import('../../lib/data-loader'),
       ]);
-      const [substances, classRules, namingRules] = await Promise.all([
+      const [substances, classRules, namingRules, elements] = await Promise.all([
         dl.loadSubstancesIndex(locale),
         dl.loadClassificationRules(),
         dl.loadNamingRules(),
+        dl.loadElements(locale),
       ]);
-      return { generate: () => generateExercise(substances, classRules, namingRules) };
+      return { generate: () => generateExercise(substances, classRules, namingRules, elements) };
     }
 
     case 'reactions': {

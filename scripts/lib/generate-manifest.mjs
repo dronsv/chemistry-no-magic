@@ -30,6 +30,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         competencies: 'rules/competencies.json',
         periodic_table_theory: 'rules/periodic-table-theory.json',
         bond_theory: 'rules/bond_theory.json',
+        bond_examples: 'rules/bond_examples.json',
         oxidation_theory: 'rules/oxidation_theory.json',
         qualitative_reactions: 'rules/qualitative_reactions.json',
         genetic_chains: 'rules/genetic_chains.json',
@@ -37,6 +38,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         calculations_data: 'rules/calculations_data.json',
         topic_mapping: 'rules/topic_mapping.json',
         ion_nomenclature: 'rules/ion_nomenclature.json',
+        oxidation_examples: 'rules/oxidation_examples.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',

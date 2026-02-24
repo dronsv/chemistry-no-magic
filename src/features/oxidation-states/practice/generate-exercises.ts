@@ -1,5 +1,6 @@
 import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
+import type { OxidationExample } from '../../../types/oxidation';
 
 export interface ExerciseOption {
   id: string;
@@ -16,36 +17,16 @@ export interface Exercise {
   competencyMap: Record<string, 'P' | 'S'>;
 }
 
+export interface GeneratorContext {
+  elements: Element[];
+  oxidationExamples: OxidationExample[];
+}
+
 interface OxExample {
   formula: string;
   element: string;
   state: number;
 }
-
-const OX_EXAMPLES: OxExample[] = [
-  { formula: 'KMnO4', element: 'Mn', state: 7 },
-  { formula: 'H2SO4', element: 'S', state: 6 },
-  { formula: 'HNO3', element: 'N', state: 5 },
-  { formula: 'Fe2O3', element: 'Fe', state: 3 },
-  { formula: 'CuSO4', element: 'Cu', state: 2 },
-  { formula: 'CuSO4', element: 'S', state: 6 },
-  { formula: 'NaH', element: 'H', state: -1 },
-  { formula: 'H2O2', element: 'O', state: -1 },
-  { formula: 'NH3', element: 'N', state: -3 },
-  { formula: 'CO2', element: 'C', state: 4 },
-  { formula: 'Na2O', element: 'Na', state: 1 },
-  { formula: 'CaCl2', element: 'Ca', state: 2 },
-  { formula: 'CaCl2', element: 'Cl', state: -1 },
-  { formula: 'Al2O3', element: 'Al', state: 3 },
-  { formula: 'P2O5', element: 'P', state: 5 },
-  { formula: 'SO3', element: 'S', state: 6 },
-  { formula: 'Cr2O3', element: 'Cr', state: 3 },
-  { formula: 'K2Cr2O7', element: 'Cr', state: 6 },
-  { formula: 'MnO2', element: 'Mn', state: 4 },
-  { formula: 'FeCl3', element: 'Fe', state: 3 },
-  { formula: 'CuO', element: 'Cu', state: 2 },
-  { formula: 'N2O5', element: 'N', state: 5 },
-];
 
 function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -69,11 +50,20 @@ function formatState(state: number): string {
   return '0';
 }
 
-type GeneratorFn = (elements: Element[]) => Exercise;
+/** Map data-file format to internal generator format. */
+function toOxExamples(examples: OxidationExample[]): OxExample[] {
+  return examples.map(e => ({
+    formula: e.formula,
+    element: e.target_element,
+    state: e.oxidation_state,
+  }));
+}
+
+type GeneratorFn = (elements: Element[], oxExamples: OxExample[]) => Exercise;
 
 const generators: Record<string, GeneratorFn> = {
-  determine_ox_state() {
-    const example = pick(OX_EXAMPLES);
+  determine_ox_state(_elements, oxExamples) {
+    const example = pick(oxExamples);
     const correctText = formatState(example.state);
 
     // Generate 3 distinct distractors
@@ -103,17 +93,17 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  select_compound_by_ox_state() {
-    const example = pick(OX_EXAMPLES);
+  select_compound_by_ox_state(_elements, oxExamples) {
+    const example = pick(oxExamples);
     const stateText = formatState(example.state);
 
     // Find distractors: formulas where this element has a different state
-    const sameElement = OX_EXAMPLES.filter(
+    const sameElement = oxExamples.filter(
       e => e.element === example.element && e.state !== example.state,
     );
 
     // Fill remaining distractors with other formulas
-    const otherFormulas = OX_EXAMPLES.filter(
+    const otherFormulas = oxExamples.filter(
       e => e.formula !== example.formula && e.element !== example.element,
     );
 
@@ -136,13 +126,13 @@ const generators: Record<string, GeneratorFn> = {
     };
   },
 
-  max_min_ox_state(elements) {
+  max_min_ox_state(elements, oxExamples) {
     // Pick a non-noble-gas element with multiple typical oxidation states
     const candidates = elements.filter(
       el => el.typical_oxidation_states.length >= 2 && el.element_group !== 'noble_gas',
     );
     if (candidates.length === 0) {
-      return generators.determine_ox_state(elements);
+      return generators.determine_ox_state(elements, oxExamples);
     }
 
     const el = pick(candidates);
@@ -190,9 +180,10 @@ const generators: Record<string, GeneratorFn> = {
 
 const EXERCISE_TYPES = Object.keys(generators);
 
-export function generateExercise(elements: Element[], type?: string): Exercise {
+export function generateExercise(ctx: GeneratorContext, type?: string): Exercise {
   const t = type ?? pick(EXERCISE_TYPES);
   const gen = generators[t];
   if (!gen) throw new Error(`Unknown exercise type: ${t}`);
-  return gen(elements);
+  const oxExamples = toOxExamples(ctx.oxidationExamples);
+  return gen(ctx.elements, oxExamples);
 }

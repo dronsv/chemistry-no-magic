@@ -11,8 +11,8 @@ import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
 import type { Reaction } from '../types/reaction';
-import type { BondTheory } from '../types/bond';
-import type { OxidationTheory } from '../types/oxidation';
+import type { BondTheory, BondExamplesData } from '../types/bond';
+import type { OxidationTheory, OxidationExample } from '../types/oxidation';
 import type { MoleculeStructure } from '../types/molecule';
 import type { QualitativeTest } from '../types/qualitative';
 import type { GeneticChain } from '../types/genetic-chain';
@@ -398,9 +398,19 @@ export async function loadBondTheory(): Promise<BondTheory> {
   return loadRule('bond_theory') as Promise<BondTheory>;
 }
 
+/** Load bond examples (substance-to-bond/crystal mapping for exercises). */
+export async function loadBondExamples(): Promise<BondExamplesData> {
+  return loadRule('bond_examples') as Promise<BondExamplesData>;
+}
+
 /** Load oxidation state theory content. */
 export async function loadOxidationTheory(): Promise<OxidationTheory> {
   return loadRule('oxidation_theory') as Promise<OxidationTheory>;
+}
+
+/** Load oxidation state examples (formula + target element + expected state). */
+export async function loadOxidationExamples(): Promise<OxidationExample[]> {
+  return loadRule('oxidation_examples') as Promise<OxidationExample[]>;
 }
 
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */

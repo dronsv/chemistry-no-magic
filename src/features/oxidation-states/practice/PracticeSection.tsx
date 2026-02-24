@@ -2,10 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import type { Element } from '../../../types/element';
+import type { OxidationExample } from '../../../types/oxidation';
 import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
-import { loadBktParams, loadCompetencies, loadElements } from '../../../lib/data-loader';
+import { loadBktParams, loadCompetencies, loadElements, loadOxidationExamples } from '../../../lib/data-loader';
 import { generateExercise } from './generate-exercises';
 import type { Exercise } from './generate-exercises';
 import MultipleChoiceExercise from '../../substances/practice/MultipleChoiceExercise';
@@ -26,6 +27,7 @@ interface Props {
 
 export default function PracticeSection({ locale }: Props) {
   const [elements, setElements] = useState<Element[]>([]);
+  const [oxidationExamples, setOxidationExamples] = useState<OxidationExample[]>([]);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -36,10 +38,12 @@ export default function PracticeSection({ locale }: Props) {
   useEffect(() => {
     Promise.all([
       loadElements(),
+      loadOxidationExamples(),
       loadBktParams(),
       loadCompetencies(locale),
-    ]).then(([elems, params, comps]) => {
+    ]).then(([elems, oxExamples, params, comps]) => {
       setElements(elems);
+      setOxidationExamples(oxExamples);
 
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
@@ -55,10 +59,10 @@ export default function PracticeSection({ locale }: Props) {
   }, []);
 
   const nextExercise = useCallback(() => {
-    if (elements.length === 0) return;
-    setExercise(generateExercise(elements));
+    if (elements.length === 0 || oxidationExamples.length === 0) return;
+    setExercise(generateExercise({ elements, oxidationExamples }));
     setCount(c => c + 1);
-  }, [elements]);
+  }, [elements, oxidationExamples]);
 
   useEffect(() => {
     if (!loading && !exercise && elements.length > 0) nextExercise();

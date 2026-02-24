@@ -130,6 +130,7 @@ async function main() {
   const periodicTableTheory = await loadJson(join(DATA_SRC, 'rules', 'periodic-table-theory.json'));
   const reactions = await loadJson(join(DATA_SRC, 'reactions', 'reactions.json'));
   const bondTheory = await loadJson(join(DATA_SRC, 'rules', 'bond_theory.json'));
+  const bondExamples = await loadJson(join(DATA_SRC, 'rules', 'bond_examples.json'));
   const bondsExercises = await loadJson(join(DATA_SRC, 'exercises', 'bonds-exercises.json'));
   const oxidationTheory = await loadJson(join(DATA_SRC, 'rules', 'oxidation_theory.json'));
   const oxidationExercises = await loadJson(join(DATA_SRC, 'exercises', 'oxidation-exercises.json'));
@@ -143,6 +144,7 @@ async function main() {
   const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
   const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
   const ionNomenclature = await loadJson(join(DATA_SRC, 'rules', 'ion_nomenclature.json'));
+  const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
 
@@ -176,8 +178,8 @@ async function main() {
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates`);
-  console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises`);
-  console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises\n`);
+  console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises, ${bondExamples.examples.length} bond examples`);
+  console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples\n`);
 
   // 2. Validate
   console.log('Validating...');
@@ -268,6 +270,7 @@ async function main() {
   await writeFile(join(bundleDir, 'periodic-table-content.json'), JSON.stringify(periodicTableContent));
   await writeFile(join(bundleDir, 'rules', 'periodic-table-theory.json'), JSON.stringify(periodicTableTheory));
   await writeFile(join(bundleDir, 'rules', 'bond_theory.json'), JSON.stringify(bondTheory));
+  await writeFile(join(bundleDir, 'rules', 'bond_examples.json'), JSON.stringify(bondExamples));
   await mkdir(join(bundleDir, 'exercises'), { recursive: true });
   await writeFile(join(bundleDir, 'exercises', 'periodic-table-exercises.json'), JSON.stringify(periodicTableExercises));
   await writeFile(join(bundleDir, 'exercises', 'bonds-exercises.json'), JSON.stringify(bondsExercises));
@@ -278,6 +281,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'calculations_data.json'), JSON.stringify(calculationsData));
   await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
   await writeFile(join(bundleDir, 'rules', 'ion_nomenclature.json'), JSON.stringify(ionNomenclature));
+  await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));

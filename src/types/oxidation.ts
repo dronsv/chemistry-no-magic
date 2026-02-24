@@ -16,3 +16,10 @@ export interface OxidationTheory {
   rules: OxidationRule[];
   redox_concepts: RedoxConcepts;
 }
+
+export interface OxidationExample {
+  formula: string;
+  target_element: string;
+  oxidation_state: number;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
