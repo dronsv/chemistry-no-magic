@@ -28,6 +28,7 @@ import type { ProcessVocabEntry } from '../types/process-vocab';
 import type { QuantitiesUnitsOntology } from '../types/quantities-units';
 import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
+import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -267,6 +268,41 @@ export async function loadTaskTemplates(): Promise<TaskTemplate[]> {
   }
 
   return loadDataFile<TaskTemplate[]>(path);
+}
+
+const PROMPT_LOCALE_MAP: Record<string, string> = {
+  ru: 'prompt_templates_ru',
+  en: 'prompt_templates_en',
+  pl: 'prompt_templates_pl',
+  es: 'prompt_templates_es',
+};
+
+/** Load prompt templates for a given locale. */
+export async function loadPromptTemplates(locale: SupportedLocale = 'ru'): Promise<PromptTemplateMap> {
+  const manifest = await getManifest();
+  const engine = manifest.entrypoints.engine;
+  if (!engine) throw new Error('Engine section not found in manifest');
+  const key = PROMPT_LOCALE_MAP[locale] ?? PROMPT_LOCALE_MAP['ru'];
+  const path = engine[key as keyof typeof engine];
+  if (!path) throw new Error(`Prompt templates for locale "${locale}" not found in manifest`);
+  return loadDataFile<PromptTemplateMap>(path);
+}
+
+/** Load property definitions. */
+export async function loadProperties(): Promise<PropertyDef[]> {
+  return loadRule('properties') as Promise<PropertyDef[]>;
+}
+
+/** Load Russian morphology data. */
+export async function loadMorphology(): Promise<MorphologyData | null> {
+  try {
+    const manifest = await getManifest();
+    const available = manifest.translations?.['ru'];
+    if (!available?.includes('morphology')) return null;
+    return await loadDataFile<MorphologyData>(`translations/ru/morphology.json`);
+  } catch {
+    return null;
+  }
 }
 
 /** Load diagnostic questions. */

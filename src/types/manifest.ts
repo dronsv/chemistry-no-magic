@@ -18,6 +18,13 @@ export interface ManifestEntrypoints {
   formula_lookup?: string;
   process_vocab?: string;
   quantities_units?: string;
+  engine?: {
+    task_templates: string;
+    prompt_templates_ru: string;
+    prompt_templates_en: string;
+    prompt_templates_pl: string;
+    prompt_templates_es: string;
+  };
 }
 
 export interface ManifestStats {
