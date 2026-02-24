@@ -41,5 +41,39 @@
   "prompt.identify_reaction_type": {
     "question": "Określ typ reakcji chemicznej: {equation}",
     "slots": {}
+  },
+  "prompt.select_by_bond_type": {
+    "question": "Która substancja ma wiązanie {bond_type}?",
+    "slots": {
+      "bond_type": {
+        "ionic": "jonowe",
+        "covalent_polar": "kowalencyjne polarne",
+        "covalent_nonpolar": "kowalencyjne niepolarne",
+        "metallic": "metaliczne"
+      }
+    }
+  },
+  "prompt.select_by_class": {
+    "question": "Która substancja jest {substance_class}?",
+    "slots": {
+      "substance_class": {
+        "oxide": "tlenkiem",
+        "acid": "kwasem",
+        "base": "zasadą",
+        "salt": "solą"
+      }
+    }
+  },
+  "prompt.max_oxidation_state": {
+    "question": "Jaki jest maksymalny typowy stopień utlenienia {element}?",
+    "slots": {}
+  },
+  "prompt.find_period": {
+    "question": "W którym okresie znajduje się pierwiastek {element}?",
+    "slots": {}
+  },
+  "prompt.find_group": {
+    "question": "W której grupie znajduje się pierwiastek {element}?",
+    "slots": {}
   }
 }

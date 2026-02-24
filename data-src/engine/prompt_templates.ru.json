@@ -41,5 +41,39 @@
   "prompt.identify_reaction_type": {
     "question": "Определите тип химической реакции: {equation}",
     "slots": {}
+  },
+  "prompt.select_by_bond_type": {
+    "question": "Какое из веществ имеет {bond_type} связь?",
+    "slots": {
+      "bond_type": {
+        "ionic": "ионную",
+        "covalent_polar": "ковалентную полярную",
+        "covalent_nonpolar": "ковалентную неполярную",
+        "metallic": "металлическую"
+      }
+    }
+  },
+  "prompt.select_by_class": {
+    "question": "Какое из веществ является {substance_class}?",
+    "slots": {
+      "substance_class": {
+        "oxide": "оксидом",
+        "acid": "кислотой",
+        "base": "основанием",
+        "salt": "солью"
+      }
+    }
+  },
+  "prompt.max_oxidation_state": {
+    "question": "Какова максимальная типичная степень окисления {element}?",
+    "slots": {}
+  },
+  "prompt.find_period": {
+    "question": "В каком периоде находится элемент {element}?",
+    "slots": {}
+  },
+  "prompt.find_group": {
+    "question": "В какой группе находится элемент {element}?",
+    "slots": {}
   }
 }

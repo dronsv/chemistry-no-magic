@@ -41,5 +41,39 @@
   "prompt.identify_reaction_type": {
     "question": "Identify the reaction type: {equation}",
     "slots": {}
+  },
+  "prompt.select_by_bond_type": {
+    "question": "Which substance has a {bond_type} bond?",
+    "slots": {
+      "bond_type": {
+        "ionic": "ionic",
+        "covalent_polar": "covalent polar",
+        "covalent_nonpolar": "covalent nonpolar",
+        "metallic": "metallic"
+      }
+    }
+  },
+  "prompt.select_by_class": {
+    "question": "Which substance is an {substance_class}?",
+    "slots": {
+      "substance_class": {
+        "oxide": "oxide",
+        "acid": "acid",
+        "base": "base",
+        "salt": "salt"
+      }
+    }
+  },
+  "prompt.max_oxidation_state": {
+    "question": "What is the maximum typical oxidation state of {element}?",
+    "slots": {}
+  },
+  "prompt.find_period": {
+    "question": "In which period is the element {element}?",
+    "slots": {}
+  },
+  "prompt.find_group": {
+    "question": "In which group is the element {element}?",
+    "slots": {}
   }
 }
