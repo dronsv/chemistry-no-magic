@@ -653,13 +653,23 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
   // amount = mass / M
   const amount = Math.round((mass / sub.M) * 10000) / 10000;
 
+  // Pick the first element from composition for mass_fraction tasks
+  const element = sub.composition.length > 0 ? sub.composition[0].element : '';
+
+  // Build composition as JSON object for solvers (element → count)
+  const compositionObj: Record<string, number> = {};
+  for (const c of sub.composition) {
+    compositionObj[c.element] = c.count;
+  }
+
   return {
     formula: sub.formula,
     name: sub.name_ru,
     M: sub.M,
     mass,
     amount,
-    composition: sub.composition.map(c => `${c.element}:${c.Ar}×${c.count}`),
+    element,
+    composition: JSON.stringify(compositionObj),
   };
 }
 
@@ -678,6 +688,9 @@ function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyDat
   // find mass = find_moles * find_M
   const findMass = Math.round(findMoles * rx.find.M * 100) / 100;
 
+  // Random yield percentage (60-95%) for reaction_yield tasks
+  const yieldPercent = 60 + Math.floor(Math.random() * 36);
+
   return {
     equation: rx.equation_ru,
     given_formula: rx.given.formula,
@@ -688,6 +701,7 @@ function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyDat
     find_coeff: rx.find.coeff,
     find_M: rx.find.M,
     find_mass: findMass,
+    yield_percent: yieldPercent,
   };
 }
 
@@ -696,13 +710,20 @@ function genPickSolutionParams(_params: Record<string, unknown>, _data: Ontology
   const mSolute = Math.round((5 + Math.random() * 45) * 10) / 10;
   // Random solution mass: solute + 50..250 g of solvent (rounded to 1 decimal)
   const mSolution = Math.round((mSolute + 50 + Math.random() * 200) * 10) / 10;
-  // omega (mass fraction) = m_solute / m_solution
-  const omega = Math.round((mSolute / mSolution) * 10000) / 10000;
+  // omega (mass fraction %) = m_solute / m_solution * 100
+  const omega = Math.round((mSolute / mSolution) * 10000) / 100;
+  // omega_target for dilution tasks: half the current concentration
+  const omegaTarget = +(omega / 2).toFixed(1);
 
   return {
     m_solute: mSolute,
     m_solution: mSolution,
     omega,
+    omega_target: omegaTarget,
+    // Aliases for solver.concentration (dilution mode reads omega1, m1, omega2)
+    omega1: omega,
+    m1: mSolution,
+    omega2: omegaTarget,
   };
 }
 

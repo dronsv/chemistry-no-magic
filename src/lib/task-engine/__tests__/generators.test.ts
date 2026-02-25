@@ -709,10 +709,17 @@ describe('gen.pick_calc_substance', () => {
     expect(result).toHaveProperty('mass');
     expect(result).toHaveProperty('amount');
     expect(result).toHaveProperty('composition');
+    expect(result).toHaveProperty('element');
     expect(typeof result.formula).toBe('string');
     expect(typeof result.M).toBe('number');
     expect(typeof result.mass).toBe('number');
     expect(typeof result.amount).toBe('number');
+    expect(typeof result.element).toBe('string');
+    expect((result.element as string).length).toBeGreaterThan(0);
+    // composition should be a JSON string
+    expect(typeof result.composition).toBe('string');
+    const parsed = JSON.parse(result.composition as string);
+    expect(typeof parsed).toBe('object');
     expect(result.mass as number).toBeGreaterThanOrEqual(10);
     expect(result.mass as number).toBeLessThanOrEqual(100);
     // amount should approximately equal mass / M
@@ -737,10 +744,13 @@ describe('gen.pick_calc_reaction', () => {
     expect(result).toHaveProperty('find_coeff');
     expect(result).toHaveProperty('find_M');
     expect(result).toHaveProperty('find_mass');
+    expect(result).toHaveProperty('yield_percent');
     expect(typeof result.equation).toBe('string');
     expect(typeof result.find_mass).toBe('number');
     expect(result.given_mass as number).toBeGreaterThanOrEqual(10);
     expect(result.given_mass as number).toBeLessThanOrEqual(100);
+    expect(result.yield_percent as number).toBeGreaterThanOrEqual(60);
+    expect(result.yield_percent as number).toBeLessThanOrEqual(95);
   });
 
   it('throws when calculations is missing', () => {
@@ -759,12 +769,19 @@ describe('gen.pick_solution_params', () => {
     expect(typeof result.omega).toBe('number');
     // m_solution > m_solute
     expect(result.m_solution as number).toBeGreaterThan(result.m_solute as number);
-    // omega = m_solute / m_solution (within rounding tolerance)
-    const expectedOmega = (result.m_solute as number) / (result.m_solution as number);
-    expect(Math.abs((result.omega as number) - expectedOmega)).toBeLessThan(0.001);
-    // omega should be between 0 and 1
+    // omega = (m_solute / m_solution) * 100 percentage (within rounding tolerance)
+    const expectedOmega = ((result.m_solute as number) / (result.m_solution as number)) * 100;
+    expect(Math.abs((result.omega as number) - expectedOmega)).toBeLessThan(0.01);
+    // omega should be between 0 and 100 (percentage)
     expect(result.omega as number).toBeGreaterThan(0);
-    expect(result.omega as number).toBeLessThan(1);
+    expect(result.omega as number).toBeLessThan(100);
+    // Should also have omega_target and dilution aliases
+    expect(result).toHaveProperty('omega_target');
+    expect(typeof result.omega_target).toBe('number');
+    expect(result.omega_target as number).toBeLessThan(result.omega as number);
+    expect(result).toHaveProperty('omega1');
+    expect(result).toHaveProperty('m1');
+    expect(result).toHaveProperty('omega2');
   });
 
   it('m_solute is in range 5-50', () => {

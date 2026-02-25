@@ -214,5 +214,41 @@
   "prompt.identify_catalyst": {
     "question": "Определите катализатор данной реакции.",
     "slots": {}
+  },
+  "prompt.calc_molar_mass": {
+    "question": "Вычислите молярную массу {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_fraction": {
+    "question": "Вычислите массовую долю {element} в {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_amount": {
+    "question": "Вычислите количество вещества (моль) для {mass} г {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_from_moles": {
+    "question": "Вычислите массу {amount} моль {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_concentration": {
+    "question": "Вычислите массовую долю раствора, если {m_solute} г растворённого вещества растворено в {m_solution} г раствора.",
+    "slots": {}
+  },
+  "prompt.calc_solute_mass": {
+    "question": "Вычислите массу растворённого вещества для {m_solution} г {omega}% раствора.",
+    "slots": {}
+  },
+  "prompt.calc_dilution": {
+    "question": "Сколько раствора нужно для разбавления {m_solution} г {omega}% раствора до {omega_target}%?",
+    "slots": {}
+  },
+  "prompt.calc_by_equation": {
+    "question": "Вычислите массу {find_formula}, полученного из {given_mass} г {given_formula}. Уравнение: {equation}",
+    "slots": {}
+  },
+  "prompt.calc_yield": {
+    "question": "Вычислите практический выход {find_formula} из {given_mass} г {given_formula} при выходе {yield_percent}%.",
+    "slots": {}
   }
 }

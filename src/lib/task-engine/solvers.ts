@@ -472,7 +472,9 @@ function solveMassFraction(
   slots: SlotValues,
   data: OntologyData,
 ): SolverResult {
-  const targetElement = String(params.target_element);
+  // Read target_element from params or fall back to slots.element
+  const rawTarget = params.target_element ?? slots.element;
+  const targetElement = String(rawTarget);
   const M = Number(slots.M);
   const compositionRaw = slots.composition;
   let composition: Record<string, number>;

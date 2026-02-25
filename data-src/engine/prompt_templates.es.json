@@ -214,5 +214,41 @@
   "prompt.identify_catalyst": {
     "question": "Identifica el catalizador de la reacción dada.",
     "slots": {}
+  },
+  "prompt.calc_molar_mass": {
+    "question": "Calcula la masa molar de {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_fraction": {
+    "question": "Calcula la fracción masiva de {element} en {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_amount": {
+    "question": "Calcula la cantidad de sustancia (mol) para {mass} g de {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_from_moles": {
+    "question": "Calcula la masa de {amount} mol de {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_concentration": {
+    "question": "Calcula la fracción masiva si {m_solute} g de soluto se disuelven en {m_solution} g de solución.",
+    "slots": {}
+  },
+  "prompt.calc_solute_mass": {
+    "question": "Calcula la masa de soluto necesaria para {m_solution} g de solución al {omega}%.",
+    "slots": {}
+  },
+  "prompt.calc_dilution": {
+    "question": "¿Cuánta solución se necesita para diluir {m_solution} g de solución al {omega}% hasta el {omega_target}%?",
+    "slots": {}
+  },
+  "prompt.calc_by_equation": {
+    "question": "Calcula la masa de {find_formula} a partir de {given_mass} g de {given_formula}. Ecuación: {equation}",
+    "slots": {}
+  },
+  "prompt.calc_yield": {
+    "question": "Calcula el rendimiento práctico de {find_formula} a partir de {given_mass} g de {given_formula} con un rendimiento del {yield_percent}%.",
+    "slots": {}
   }
 }

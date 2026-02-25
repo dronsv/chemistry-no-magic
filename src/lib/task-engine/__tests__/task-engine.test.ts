@@ -13,6 +13,7 @@ import type { ActivitySeriesEntry } from '../../../types/rules';
 import type { QualitativeTest } from '../../../types/qualitative';
 import type { GeneticChain } from '../../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../../types/energy-catalyst';
+import type { CalculationsData } from '../../../types/calculations';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
 
@@ -44,6 +45,16 @@ const MOCK_ELEMENTS: Element[] = [
     atomic_mass: 65.38, typical_oxidation_states: [2], electronegativity: 1.65,
     amphoteric: true,
   } as Element,
+  {
+    Z: 1, symbol: 'H', name_ru: '\u0412\u043E\u0434\u043E\u0440\u043E\u0434', name_en: 'Hydrogen', name_latin: 'Hydrogenium',
+    group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
+    atomic_mass: 1.008, typical_oxidation_states: [1, -1], electronegativity: 2.2,
+  },
+  {
+    Z: 8, symbol: 'O', name_ru: '\u041A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', name_en: 'Oxygen', name_latin: 'Oxygenium',
+    group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
+    atomic_mass: 15.999, typical_oxidation_states: [-2], electronegativity: 3.44,
+  },
 ];
 
 const MOCK_PROPERTIES: PropertyDef[] = [
@@ -499,6 +510,42 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'Identify the catalyst for the given reaction.',
     slots: {},
   },
+  'prompt.calc_molar_mass': {
+    question: 'Calculate the molar mass of {formula}.',
+    slots: {},
+  },
+  'prompt.calc_mass_fraction': {
+    question: 'Calculate the mass fraction of {element} in {formula}.',
+    slots: {},
+  },
+  'prompt.calc_amount': {
+    question: 'Calculate the amount of substance (mol) for {mass} g of {formula}.',
+    slots: {},
+  },
+  'prompt.calc_mass_from_moles': {
+    question: 'Calculate the mass of {amount} mol of {formula}.',
+    slots: {},
+  },
+  'prompt.calc_concentration': {
+    question: 'Calculate the mass fraction if {m_solute} g of solute is dissolved in {m_solution} g of solution.',
+    slots: {},
+  },
+  'prompt.calc_solute_mass': {
+    question: 'Calculate the mass of solute needed for {m_solution} g of {omega}% solution.',
+    slots: {},
+  },
+  'prompt.calc_dilution': {
+    question: 'How much solution is needed to dilute {m_solution} g of {omega}% solution to {omega_target}%?',
+    slots: {},
+  },
+  'prompt.calc_by_equation': {
+    question: 'Calculate the mass of {find_formula} from {given_mass} g of {given_formula}. Equation: {equation}',
+    slots: {},
+  },
+  'prompt.calc_yield': {
+    question: 'Calculate the practical yield of {find_formula} from {given_mass} g of {given_formula} at {yield_percent}% yield.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -682,6 +729,36 @@ const PHASE2_REACTIONS_EXTENDED: Reaction[] = [
   },
 ] as Reaction[];
 
+const MOCK_CALCULATIONS: CalculationsData = {
+  calc_substances: [
+    {
+      formula: 'H₂O',
+      name_ru: 'Вода',
+      M: 18.015,
+      composition: [
+        { element: 'H', Ar: 1.008, count: 2 },
+        { element: 'O', Ar: 15.999, count: 1 },
+      ],
+    },
+    {
+      formula: 'NaCl',
+      name_ru: 'Хлорид натрия',
+      M: 58.44,
+      composition: [
+        { element: 'Na', Ar: 22.99, count: 1 },
+        { element: 'Cl', Ar: 35.45, count: 1 },
+      ],
+    },
+  ],
+  calc_reactions: [
+    {
+      equation_ru: '2H₂ + O₂ → 2H₂O',
+      given: { formula: 'H₂', coeff: 2, M: 2.016 },
+      find: { formula: 'H₂O', coeff: 2, M: 18.015 },
+    },
+  ],
+};
+
 function loadAllTemplates(): TaskTemplate[] {
   const raw = readFileSync(
     resolve(__dirname, '../../../../data-src/engine/task_templates.json'),
@@ -706,6 +783,7 @@ function buildPhase2Ontology(): OntologyData {
       substances: PHASE2_SUBSTANCE_INDEX,
       reactions: PHASE2_REACTIONS_EXTENDED,
       geneticChains: MOCK_GENETIC_CHAINS,
+      calculations: MOCK_CALCULATIONS,
     },
     i18n: { ...MOCK_DATA.i18n, promptTemplates: PHASE2_PROMPTS },
   };
@@ -715,8 +793,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 48 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(48);
+  it('loads all 57 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(57);
   });
 
   describe('bond templates', () => {
@@ -1360,6 +1438,164 @@ describe('TaskEngine — Reactions batch integration', () => {
         const task = engine.generateForCompetency('equilibrium_shift');
         expect(task).not.toBeNull();
         expect(task!.competency_map).toHaveProperty('equilibrium_shift');
+      }
+    });
+  });
+
+  describe('calculation templates — substance-based', () => {
+    it('molar_mass returns a numeric answer', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.molar_mass.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.molar_mass.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ calculations_basic: 'P' });
+      // Should have formula slot
+      expect(task.slots.formula).toBeDefined();
+    });
+
+    it('mass_fraction returns a percentage (0-100)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.mass_fraction.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.mass_fraction.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.correct_answer).toBeLessThanOrEqual(100);
+      expect(task.competency_map).toEqual({ calculations_basic: 'P' });
+      // Should have element and formula slots
+      expect(task.slots.element).toBeDefined();
+      expect(task.slots.formula).toBeDefined();
+    });
+
+    it('amount returns a positive number (n = m/M)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.amount.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.amount.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ calculations_basic: 'P' });
+      expect(task.slots.mass).toBeDefined();
+      expect(task.slots.M).toBeDefined();
+    });
+
+    it('mass_from_moles returns a positive number (m = n*M)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.mass_from_moles.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.mass_from_moles.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ calculations_basic: 'P' });
+      expect(task.slots.amount).toBeDefined();
+      expect(task.slots.M).toBeDefined();
+    });
+  });
+
+  describe('calculation templates — solution-based', () => {
+    it('concentration returns a percentage', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.concentration.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.concentration.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.correct_answer).toBeLessThan(100);
+      expect(task.competency_map).toEqual({ calculations_solutions: 'P' });
+      expect(task.slots.m_solute).toBeDefined();
+      expect(task.slots.m_solution).toBeDefined();
+    });
+
+    it('solute_mass returns a positive mass', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.solute_mass.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.solute_mass.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ calculations_solutions: 'P' });
+      expect(task.slots.omega).toBeDefined();
+      expect(task.slots.m_solution).toBeDefined();
+    });
+
+    it('dilution returns a positive solution mass', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.dilution.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.dilution.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ calculations_solutions: 'P' });
+      expect(task.slots.omega_target).toBeDefined();
+      // Result should be larger than original solution mass (dilution adds volume)
+      expect(task.correct_answer).toBeGreaterThan(Number(task.slots.m_solution));
+    });
+  });
+
+  describe('calculation templates — reaction-based', () => {
+    it('by_equation returns a positive product mass', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.by_equation.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.by_equation.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ reaction_yield_logic: 'P' });
+      expect(task.slots.equation).toBeDefined();
+      expect(task.slots.given_formula).toBeDefined();
+      expect(task.slots.find_formula).toBeDefined();
+      expect(task.slots.given_mass).toBeDefined();
+    });
+
+    it('yield returns a positive mass less than theoretical', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.yield.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.yield.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThan(0);
+      expect(task.competency_map).toEqual({ reaction_yield_logic: 'P' });
+      expect(task.slots.yield_percent).toBeDefined();
+      expect(Number(task.slots.yield_percent)).toBeGreaterThanOrEqual(60);
+      expect(Number(task.slots.yield_percent)).toBeLessThanOrEqual(95);
+      // Practical yield should be less than find_mass (theoretical)
+      expect(task.correct_answer).toBeLessThan(Number(task.slots.find_mass));
+    });
+  });
+
+  describe('competency routing for calculation templates', () => {
+    it('generateForCompetency returns calculations_basic templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('calculations_basic');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('calculations_basic');
+      }
+    });
+
+    it('generateForCompetency returns calculations_solutions templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('calculations_solutions');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('calculations_solutions');
+      }
+    });
+
+    it('generateForCompetency returns reaction_yield_logic templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('reaction_yield_logic');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('reaction_yield_logic');
       }
     });
   });

@@ -214,5 +214,41 @@
   "prompt.identify_catalyst": {
     "question": "Zidentyfikuj katalizator danej reakcji.",
     "slots": {}
+  },
+  "prompt.calc_molar_mass": {
+    "question": "Oblicz mas\u0119 molow\u0105 {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_fraction": {
+    "question": "Oblicz udzia\u0142 masowy {element} w {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_amount": {
+    "question": "Oblicz ilo\u015b\u0107 substancji (mol) dla {mass} g {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_mass_from_moles": {
+    "question": "Oblicz mas\u0119 {amount} mol {formula}.",
+    "slots": {}
+  },
+  "prompt.calc_concentration": {
+    "question": "Oblicz st\u0119\u017cenie masowe, je\u015bli {m_solute} g substancji rozpuszczono w {m_solution} g roztworu.",
+    "slots": {}
+  },
+  "prompt.calc_solute_mass": {
+    "question": "Oblicz mas\u0119 substancji rozpuszczonej dla {m_solution} g {omega}% roztworu.",
+    "slots": {}
+  },
+  "prompt.calc_dilution": {
+    "question": "Ile roztworu potrzeba, aby rozcie\u0144czy\u0107 {m_solution} g {omega}% roztworu do {omega_target}%?",
+    "slots": {}
+  },
+  "prompt.calc_by_equation": {
+    "question": "Oblicz mas\u0119 {find_formula} z {given_mass} g {given_formula}. R\u00f3wnanie: {equation}",
+    "slots": {}
+  },
+  "prompt.calc_yield": {
+    "question": "Oblicz praktyczn\u0105 wydajno\u015b\u0107 {find_formula} z {given_mass} g {given_formula} przy wydajno\u015bci {yield_percent}%.",
+    "slots": {}
   }
 }

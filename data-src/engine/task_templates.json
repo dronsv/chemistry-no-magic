@@ -793,5 +793,140 @@
     "difficulty_model": { "features": { "catalyst_type": "auto" }, "target_band": [0.25, 0.55] },
     "exam_tags": ["oge"],
     "competency_hint": { "catalysis_concept": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.molar_mass.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["property_lookup"], "evaluation": { "mode": "tolerance", "tolerance": 0.1 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_substance", "params": {} },
+      "solvers": [{ "id": "solver.molar_mass", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_molar_mass",
+    "explanation_template_id": "explain.calc_molar_mass",
+    "evidence_rules": ["molar_mass_calculation"],
+    "difficulty_model": { "features": { "element_count": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_basic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.mass_fraction.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["property_lookup"], "evaluation": { "mode": "tolerance", "tolerance": 0.1 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_substance", "params": {} },
+      "solvers": [{ "id": "solver.mass_fraction", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_mass_fraction",
+    "explanation_template_id": "explain.calc_mass_fraction",
+    "evidence_rules": ["mass_fraction_calculation"],
+    "difficulty_model": { "features": { "element_count": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_basic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.amount.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.1 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_substance", "params": {} },
+      "solvers": [{ "id": "solver.amount_calc", "params": { "mode": "n" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_amount",
+    "explanation_template_id": "explain.calc_amount",
+    "evidence_rules": ["amount_calculation"],
+    "difficulty_model": { "features": { "M_magnitude": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_basic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.mass_from_moles.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.5 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_substance", "params": {} },
+      "solvers": [{ "id": "solver.amount_calc", "params": { "mode": "m" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_mass_from_moles",
+    "explanation_template_id": "explain.calc_mass_from_moles",
+    "evidence_rules": ["amount_calculation"],
+    "difficulty_model": { "features": { "M_magnitude": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_basic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.concentration.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.1 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_solution_params", "params": {} },
+      "solvers": [{ "id": "solver.concentration", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_concentration",
+    "explanation_template_id": "explain.calc_concentration",
+    "evidence_rules": ["concentration_calculation"],
+    "difficulty_model": { "features": {}, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_solutions": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.solute_mass.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.1 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_solution_params", "params": {} },
+      "solvers": [{ "id": "solver.concentration", "params": { "mode": "inverse" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_solute_mass",
+    "explanation_template_id": "explain.calc_solute_mass",
+    "evidence_rules": ["concentration_calculation"],
+    "difficulty_model": { "features": {}, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_solutions": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.dilution.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["substance"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.5 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_solution_params", "params": {} },
+      "solvers": [{ "id": "solver.concentration", "params": { "mode": "dilution" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_dilution",
+    "explanation_template_id": "explain.calc_dilution",
+    "evidence_rules": ["dilution_calculation"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_solutions": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.by_equation.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["reaction"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.5 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_reaction", "params": {} },
+      "solvers": [{ "id": "solver.stoichiometry", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_by_equation",
+    "explanation_template_id": "explain.calc_by_equation",
+    "evidence_rules": ["stoichiometry_calculation"],
+    "difficulty_model": { "features": { "coeff_ratio": "auto" }, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_yield_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.yield.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["reaction"], "reasoning": ["conservation_laws"], "evaluation": { "mode": "tolerance", "tolerance": 0.5 } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_reaction", "params": {} },
+      "solvers": [{ "id": "solver.reaction_yield", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_yield",
+    "explanation_template_id": "explain.calc_yield",
+    "evidence_rules": ["reaction_yield_calculation"],
+    "difficulty_model": { "features": { "yield_percent": "auto" }, "target_band": [0.35, 0.7] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_yield_logic": "P" }
   }
 ]
