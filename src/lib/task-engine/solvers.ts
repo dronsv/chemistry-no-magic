@@ -286,6 +286,301 @@ function solveCompareCrystalMelting(
   };
 }
 
+// ── Periodic Table solvers ────────────────────────────────────────
+
+/** Unicode superscript digit map for electron config notation. */
+const SUPERSCRIPT_DIGITS: Record<number, string> = {
+  0: '\u2070', 1: '\u00b9', 2: '\u00b2', 3: '\u00b3',
+  4: '\u2074', 5: '\u2075', 6: '\u2076', 7: '\u2077',
+  8: '\u2078', 9: '\u2079',
+};
+
+/** Convert an integer to Unicode superscript string. */
+function toSuperscript(n: number): string {
+  return String(n).split('').map(d => SUPERSCRIPT_DIGITS[Number(d)] ?? d).join('');
+}
+
+/** Klechkowski filling order: [n, l_letter, capacity]. */
+const KLECHKOWSKI_ORDER: [number, string, number][] = [
+  [1, 's', 2], [2, 's', 2], [2, 'p', 6], [3, 's', 2], [3, 'p', 6],
+  [4, 's', 2], [3, 'd', 10], [4, 'p', 6], [5, 's', 2], [4, 'd', 10],
+  [5, 'p', 6], [6, 's', 2], [4, 'f', 14], [5, 'd', 10], [6, 'p', 6],
+  [7, 's', 2], [5, 'f', 14], [6, 'd', 10], [7, 'p', 6],
+];
+
+function solveElectronConfig(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const Z = Number(slots.Z);
+  if (!Number.isInteger(Z) || Z < 1) {
+    throw new Error(`Invalid Z: ${slots.Z}`);
+  }
+
+  let remaining = Z;
+  const parts: string[] = [];
+
+  for (const [n, l, capacity] of KLECHKOWSKI_ORDER) {
+    if (remaining <= 0) break;
+    const electrons = Math.min(remaining, capacity);
+    parts.push(`${n}${l}${toSuperscript(electrons)}`);
+    remaining -= electrons;
+  }
+
+  return { answer: parts.join(' ') };
+}
+
+function solveCountValence(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const group = Number(slots.group);
+
+  let valence: number;
+  if (group >= 1 && group <= 2) {
+    valence = group;
+  } else if (group >= 13 && group <= 18) {
+    valence = group - 10;
+  } else {
+    // Transition metals (3-12): approximate as group number
+    valence = group;
+  }
+
+  return { answer: valence };
+}
+
+function solveDeltaChi(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+  data: OntologyData,
+): SolverResult {
+  void params;
+  const symbolA = String(slots.elementA);
+  const symbolB = String(slots.elementB);
+
+  const elA = findElement(symbolA, data);
+  const elB = findElement(symbolB, data);
+
+  const chiA = elA.electronegativity;
+  const chiB = elB.electronegativity;
+
+  if (chiA === null || chiA === undefined || chiB === null || chiB === undefined) {
+    throw new Error(`Missing electronegativity for ${symbolA} or ${symbolB}`);
+  }
+
+  const delta = Math.abs(chiA - chiB);
+  const rounded = Math.round(delta * 100) / 100;
+
+  let bondType: string;
+  if (delta >= 1.7) {
+    bondType = 'ionic';
+  } else if (delta >= 0.4) {
+    bondType = 'covalent_polar';
+  } else {
+    bondType = 'covalent_nonpolar';
+  }
+
+  return {
+    answer: bondType,
+    explanation_slots: {
+      delta: String(rounded),
+      chiA: String(chiA),
+      chiB: String(chiB),
+    },
+  };
+}
+
+// ── Reaction solvers ─────────────────────────────────────────────
+
+function solveDrivingForce(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+
+  const checks: [string, string][] = [
+    ['has_precipitate', 'precipitate'],
+    ['has_gas', 'gas'],
+    ['has_water', 'water'],
+    ['has_weak_electrolyte', 'weak_electrolyte'],
+  ];
+
+  for (const [slotKey, label] of checks) {
+    const val = slots[slotKey];
+    if (val === true || val === 'true' || val === 1) {
+      return { answer: label };
+    }
+  }
+
+  return { answer: 'none' };
+}
+
+function solveActivityCompare(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const posA = Number(slots.positionA);
+  const posB = Number(slots.positionB);
+
+  return { answer: posA < posB ? 'yes' : 'no' };
+}
+
+function solvePredictObservation(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const observation = slots.observation;
+  if (observation === undefined || observation === null) {
+    throw new Error('observation slot not found');
+  }
+  return { answer: String(observation) };
+}
+
+// ── Calculation solvers ──────────────────────────────────────────
+
+function solveMolarMass(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+  data: OntologyData,
+): SolverResult {
+  void params;
+  const compositionRaw = slots.composition;
+  let composition: Record<string, number>;
+
+  if (typeof compositionRaw === 'string') {
+    composition = JSON.parse(compositionRaw) as Record<string, number>;
+  } else {
+    throw new Error('composition slot must be a JSON string');
+  }
+
+  let totalMass = 0;
+  for (const [symbol, count] of Object.entries(composition)) {
+    const el = findElement(symbol, data);
+    totalMass += el.atomic_mass * count;
+  }
+
+  const rounded = Math.round(totalMass * 100) / 100;
+  return { answer: rounded };
+}
+
+function solveMassFraction(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+  data: OntologyData,
+): SolverResult {
+  const targetElement = String(params.target_element);
+  const M = Number(slots.M);
+  const compositionRaw = slots.composition;
+  let composition: Record<string, number>;
+
+  if (typeof compositionRaw === 'string') {
+    composition = JSON.parse(compositionRaw) as Record<string, number>;
+  } else {
+    throw new Error('composition slot must be a JSON string');
+  }
+
+  const count = composition[targetElement];
+  if (count === undefined) {
+    throw new Error(`Element ${targetElement} not in composition`);
+  }
+
+  const el = findElement(targetElement, data);
+  const fraction = (el.atomic_mass * count / M) * 100;
+  const rounded = Math.round(fraction * 10) / 10;
+
+  return { answer: rounded };
+}
+
+function solveAmountCalc(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  const mode = String(params.mode ?? 'n');
+
+  if (mode === 'n') {
+    const mass = Number(slots.mass);
+    const M = Number(slots.M);
+    const n = mass / M;
+    return { answer: Math.round(n * 1000) / 1000 };
+  } else if (mode === 'm') {
+    const amount = Number(slots.amount);
+    const M = Number(slots.M);
+    const m = amount * M;
+    return { answer: Math.round(m * 100) / 100 };
+  }
+
+  throw new Error(`Unknown amount_calc mode: ${mode}`);
+}
+
+function solveConcentration(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  const mode = String(params.mode ?? 'omega');
+
+  if (mode === 'omega') {
+    const mSolute = Number(slots.m_solute);
+    const mSolution = Number(slots.m_solution);
+    const omega = (mSolute / mSolution) * 100;
+    return { answer: Math.round(omega * 10) / 10 };
+  } else if (mode === 'inverse') {
+    const omega = Number(slots.omega);
+    const mSolution = Number(slots.m_solution);
+    const mSolute = omega * mSolution / 100;
+    return { answer: Math.round(mSolute * 10) / 10 };
+  } else if (mode === 'dilution') {
+    const omega1 = Number(slots.omega1);
+    const m1 = Number(slots.m1);
+    const omega2 = Number(slots.omega2);
+    const m2 = omega1 * m1 / omega2;
+    return { answer: Math.round(m2 * 10) / 10 };
+  }
+
+  throw new Error(`Unknown concentration mode: ${mode}`);
+}
+
+function solveStoichiometry(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const givenMass = Number(slots.given_mass);
+  const givenCoeff = Number(slots.given_coeff);
+  const givenM = Number(slots.given_M);
+  const findCoeff = Number(slots.find_coeff);
+  const findM = Number(slots.find_M);
+
+  const nGiven = givenMass / givenM;
+  const nFind = nGiven * (findCoeff / givenCoeff);
+  const mFind = nFind * findM;
+
+  return { answer: Math.round(mFind * 100) / 100 };
+}
+
+function solveReactionYield(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  const givenMass = Number(slots.given_mass);
+  const givenCoeff = Number(slots.given_coeff);
+  const givenM = Number(slots.given_M);
+  const findCoeff = Number(slots.find_coeff);
+  const findM = Number(slots.find_M);
+  const yieldPercent = Number(slots.yield_percent);
+
+  const nGiven = givenMass / givenM;
+  const nFind = nGiven * (findCoeff / givenCoeff);
+  const mTheoretical = nFind * findM;
+  const mPractical = mTheoretical * yieldPercent / 100;
+
+  return { answer: Math.round(mPractical * 100) / 100 };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -302,6 +597,21 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.solubility_check': solveSolubilityCheck,
   'solver.slot_lookup': (params, slots) => solveSlotLookup(params, slots),
   'solver.compare_crystal_melting': solveCompareCrystalMelting,
+  // Phase 3: Periodic Table
+  'solver.electron_config': (params, slots) => solveElectronConfig(params, slots),
+  'solver.count_valence': (params, slots) => solveCountValence(params, slots),
+  'solver.delta_chi': solveDeltaChi,
+  // Phase 3: Reactions
+  'solver.driving_force': (params, slots) => solveDrivingForce(params, slots),
+  'solver.activity_compare': (params, slots) => solveActivityCompare(params, slots),
+  'solver.predict_observation': (params, slots) => solvePredictObservation(params, slots),
+  // Phase 3: Calculations
+  'solver.molar_mass': solveMolarMass,
+  'solver.mass_fraction': solveMassFraction,
+  'solver.amount_calc': (params, slots) => solveAmountCalc(params, slots),
+  'solver.concentration': (params, slots) => solveConcentration(params, slots),
+  'solver.stoichiometry': (params, slots) => solveStoichiometry(params, slots),
+  'solver.reaction_yield': (params, slots) => solveReactionYield(params, slots),
 };
 
 export function runSolver(

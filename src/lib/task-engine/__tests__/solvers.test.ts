@@ -8,6 +8,21 @@ import type { Ion } from '../../../types/ion';
 
 const MOCK_ELEMENTS: Element[] = [
   {
+    Z: 1, symbol: 'H', name_ru: 'Водород', name_en: 'Hydrogen', name_latin: 'Hydrogenium',
+    group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
+    atomic_mass: 1.008, typical_oxidation_states: [-1, 1], electronegativity: 2.2,
+  },
+  {
+    Z: 6, symbol: 'C', name_ru: 'Углерод', name_en: 'Carbon', name_latin: 'Carboneum',
+    group: 14, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
+    atomic_mass: 12.011, typical_oxidation_states: [-4, 2, 4], electronegativity: 2.55,
+  },
+  {
+    Z: 8, symbol: 'O', name_ru: 'Кислород', name_en: 'Oxygen', name_latin: 'Oxygenium',
+    group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
+    atomic_mass: 16.0, typical_oxidation_states: [-2], electronegativity: 3.44,
+  },
+  {
     Z: 11, symbol: 'Na', name_ru: 'Натрий', name_en: 'Sodium', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
@@ -21,6 +36,11 @@ const MOCK_ELEMENTS: Element[] = [
     Z: 17, symbol: 'Cl', name_ru: 'Хлор', name_en: 'Chlorine', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
+  },
+  {
+    Z: 26, symbol: 'Fe', name_ru: 'Железо', name_en: 'Iron', name_latin: 'Ferrum',
+    group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal',
+    atomic_mass: 55.845, typical_oxidation_states: [2, 3], electronegativity: 1.83,
   },
 ];
 
@@ -272,6 +292,351 @@ describe('solver.compare_crystal_melting', () => {
         MOCK_DATA,
       ),
     ).toThrow('crystal_melting_rank not available');
+  });
+});
+
+// ── solver.electron_config ───────────────────────────────────────
+
+describe('solver.electron_config', () => {
+  it('Na (Z=11): 1s\u00b2 2s\u00b2 2p\u2076 3s\u00b9', () => {
+    const result = runSolver('solver.electron_config', {}, { Z: 11 }, MOCK_DATA);
+    expect(result.answer).toBe('1s\u00b2 2s\u00b2 2p\u2076 3s\u00b9');
+  });
+
+  it('H (Z=1): 1s\u00b9', () => {
+    const result = runSolver('solver.electron_config', {}, { Z: 1 }, MOCK_DATA);
+    expect(result.answer).toBe('1s\u00b9');
+  });
+
+  it('He (Z=2): 1s\u00b2', () => {
+    const result = runSolver('solver.electron_config', {}, { Z: 2 }, MOCK_DATA);
+    expect(result.answer).toBe('1s\u00b2');
+  });
+
+  it('Cl (Z=17): 1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2075', () => {
+    const result = runSolver('solver.electron_config', {}, { Z: 17 }, MOCK_DATA);
+    expect(result.answer).toBe('1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2075');
+  });
+
+  it('Fe (Z=26): includes 3d\u2076', () => {
+    const result = runSolver('solver.electron_config', {}, { Z: 26 }, MOCK_DATA);
+    expect(result.answer).toBe('1s\u00b2 2s\u00b2 2p\u2076 3s\u00b2 3p\u2076 4s\u00b2 3d\u2076');
+  });
+
+  it('throws for invalid Z', () => {
+    expect(() => runSolver('solver.electron_config', {}, { Z: 0 }, MOCK_DATA)).toThrow('Invalid Z');
+  });
+});
+
+// ── solver.count_valence ────────────────────────────────────────
+
+describe('solver.count_valence', () => {
+  it('group 1 → 1 valence electron', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 1 }, MOCK_DATA);
+    expect(result.answer).toBe(1);
+  });
+
+  it('group 2 → 2 valence electrons', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 2 }, MOCK_DATA);
+    expect(result.answer).toBe(2);
+  });
+
+  it('group 17 → 7 valence electrons', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 17 }, MOCK_DATA);
+    expect(result.answer).toBe(7);
+  });
+
+  it('group 14 → 4 valence electrons', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 14 }, MOCK_DATA);
+    expect(result.answer).toBe(4);
+  });
+
+  it('group 18 → 8 valence electrons', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 18 }, MOCK_DATA);
+    expect(result.answer).toBe(8);
+  });
+
+  it('transition metal group 8 → 8 (approx)', () => {
+    const result = runSolver('solver.count_valence', {}, { group: 8 }, MOCK_DATA);
+    expect(result.answer).toBe(8);
+  });
+});
+
+// ── solver.delta_chi ────────────────────────────────────────────
+
+describe('solver.delta_chi', () => {
+  it('Na-Cl: \u0394\u03c7 = 2.23 → ionic', () => {
+    const result = runSolver('solver.delta_chi', {}, { elementA: 'Na', elementB: 'Cl' }, MOCK_DATA);
+    expect(result.answer).toBe('ionic');
+    expect(result.explanation_slots).toBeDefined();
+    expect(result.explanation_slots!.delta).toBe('2.23');
+    expect(result.explanation_slots!.chiA).toBe('0.93');
+    expect(result.explanation_slots!.chiB).toBe('3.16');
+  });
+
+  it('C-Cl: \u0394\u03c7 = 0.61 → covalent_polar', () => {
+    const result = runSolver('solver.delta_chi', {}, { elementA: 'C', elementB: 'Cl' }, MOCK_DATA);
+    expect(result.answer).toBe('covalent_polar');
+    expect(result.explanation_slots!.delta).toBe('0.61');
+  });
+
+  it('H-H (same element): \u0394\u03c7 = 0 → covalent_nonpolar', () => {
+    const result = runSolver('solver.delta_chi', {}, { elementA: 'H', elementB: 'H' }, MOCK_DATA);
+    expect(result.answer).toBe('covalent_nonpolar');
+    expect(result.explanation_slots!.delta).toBe('0');
+  });
+});
+
+// ── solver.driving_force ────────────────────────────────────────
+
+describe('solver.driving_force', () => {
+  it('precipitate takes priority', () => {
+    const result = runSolver('solver.driving_force', {}, {
+      has_precipitate: true, has_gas: true, has_water: false, has_weak_electrolyte: false,
+    }, MOCK_DATA);
+    expect(result.answer).toBe('precipitate');
+  });
+
+  it('gas when no precipitate', () => {
+    const result = runSolver('solver.driving_force', {}, {
+      has_precipitate: false, has_gas: true, has_water: false, has_weak_electrolyte: false,
+    }, MOCK_DATA);
+    expect(result.answer).toBe('gas');
+  });
+
+  it('water as driving force', () => {
+    const result = runSolver('solver.driving_force', {}, {
+      has_precipitate: false, has_gas: false, has_water: 'true', has_weak_electrolyte: false,
+    }, MOCK_DATA);
+    expect(result.answer).toBe('water');
+  });
+
+  it('weak_electrolyte as driving force', () => {
+    const result = runSolver('solver.driving_force', {}, {
+      has_precipitate: false, has_gas: false, has_water: false, has_weak_electrolyte: 1,
+    }, MOCK_DATA);
+    expect(result.answer).toBe('weak_electrolyte');
+  });
+
+  it('none when no driving force', () => {
+    const result = runSolver('solver.driving_force', {}, {
+      has_precipitate: false, has_gas: false, has_water: false, has_weak_electrolyte: false,
+    }, MOCK_DATA);
+    expect(result.answer).toBe('none');
+  });
+});
+
+// ── solver.activity_compare ─────────────────────────────────────
+
+describe('solver.activity_compare', () => {
+  it('lower position is more active: posA=3, posB=10 → yes', () => {
+    const result = runSolver('solver.activity_compare', {}, { positionA: 3, positionB: 10 }, MOCK_DATA);
+    expect(result.answer).toBe('yes');
+  });
+
+  it('higher position is less active: posA=10, posB=3 → no', () => {
+    const result = runSolver('solver.activity_compare', {}, { positionA: 10, positionB: 3 }, MOCK_DATA);
+    expect(result.answer).toBe('no');
+  });
+
+  it('equal position: posA=5, posB=5 → no', () => {
+    const result = runSolver('solver.activity_compare', {}, { positionA: 5, positionB: 5 }, MOCK_DATA);
+    expect(result.answer).toBe('no');
+  });
+});
+
+// ── solver.predict_observation ──────────────────────────────────
+
+describe('solver.predict_observation', () => {
+  it('returns observation string directly', () => {
+    const result = runSolver('solver.predict_observation', {}, {
+      observation: 'white precipitate forms',
+    }, MOCK_DATA);
+    expect(result.answer).toBe('white precipitate forms');
+  });
+
+  it('throws when observation slot is missing', () => {
+    expect(() =>
+      runSolver('solver.predict_observation', {}, {}, MOCK_DATA),
+    ).toThrow('observation slot not found');
+  });
+});
+
+// ── solver.molar_mass ───────────────────────────────────────────
+
+describe('solver.molar_mass', () => {
+  it('H\u2082O: 2\u00d71.008 + 1\u00d716.0 = 18.016', () => {
+    const result = runSolver('solver.molar_mass', {},
+      { composition: JSON.stringify({ H: 2, O: 1 }) },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(18.02);
+  });
+
+  it('NaCl: 22.99 + 35.45 = 58.44', () => {
+    const result = runSolver('solver.molar_mass', {},
+      { composition: JSON.stringify({ Na: 1, Cl: 1 }) },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(58.44);
+  });
+
+  it('CO\u2082: 12.011 + 2\u00d716.0 = 44.011', () => {
+    const result = runSolver('solver.molar_mass', {},
+      { composition: JSON.stringify({ C: 1, O: 2 }) },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(44.01);
+  });
+});
+
+// ── solver.mass_fraction ────────────────────────────────────────
+
+describe('solver.mass_fraction', () => {
+  it('O in H\u2082O: (16.0 \u00d7 1 / 18.016) \u00d7 100 \u2248 88.8%', () => {
+    const result = runSolver('solver.mass_fraction',
+      { target_element: 'O' },
+      { M: 18.016, composition: JSON.stringify({ H: 2, O: 1 }) },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(88.8);
+  });
+
+  it('H in H\u2082O: (1.008 \u00d7 2 / 18.016) \u00d7 100 \u2248 11.2%', () => {
+    const result = runSolver('solver.mass_fraction',
+      { target_element: 'H' },
+      { M: 18.016, composition: JSON.stringify({ H: 2, O: 1 }) },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(11.2);
+  });
+
+  it('throws when target element not in composition', () => {
+    expect(() =>
+      runSolver('solver.mass_fraction',
+        { target_element: 'Fe' },
+        { M: 18.016, composition: JSON.stringify({ H: 2, O: 1 }) },
+        MOCK_DATA,
+      ),
+    ).toThrow('Element Fe not in composition');
+  });
+});
+
+// ── solver.amount_calc ──────────────────────────────────────────
+
+describe('solver.amount_calc', () => {
+  it('mode n: n = 36 / 18 = 2.000', () => {
+    const result = runSolver('solver.amount_calc', { mode: 'n' }, { mass: 36, M: 18 }, MOCK_DATA);
+    expect(result.answer).toBe(2);
+  });
+
+  it('mode m: m = 0.5 \u00d7 58.44 = 29.22', () => {
+    const result = runSolver('solver.amount_calc', { mode: 'm' }, { amount: 0.5, M: 58.44 }, MOCK_DATA);
+    expect(result.answer).toBe(29.22);
+  });
+
+  it('mode n with decimal: n = 10 / 44 \u2248 0.227', () => {
+    const result = runSolver('solver.amount_calc', { mode: 'n' }, { mass: 10, M: 44 }, MOCK_DATA);
+    expect(result.answer).toBe(0.227);
+  });
+
+  it('throws on unknown mode', () => {
+    expect(() =>
+      runSolver('solver.amount_calc', { mode: 'x' }, { mass: 10, M: 18 }, MOCK_DATA),
+    ).toThrow('Unknown amount_calc mode: x');
+  });
+});
+
+// ── solver.concentration ────────────────────────────────────────
+
+describe('solver.concentration', () => {
+  it('default (omega): \u03c9 = (10 / 200) \u00d7 100 = 5.0', () => {
+    const result = runSolver('solver.concentration', {},
+      { m_solute: 10, m_solution: 200 },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(5);
+  });
+
+  it('inverse: m_solute = 5 \u00d7 200 / 100 = 10.0', () => {
+    const result = runSolver('solver.concentration', { mode: 'inverse' },
+      { omega: 5, m_solution: 200 },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(10);
+  });
+
+  it('dilution: m\u2082 = 20 \u00d7 100 / 5 = 400.0', () => {
+    const result = runSolver('solver.concentration', { mode: 'dilution' },
+      { omega1: 20, m1: 100, omega2: 5 },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBe(400);
+  });
+
+  it('throws on unknown mode', () => {
+    expect(() =>
+      runSolver('solver.concentration', { mode: 'molar' }, {}, MOCK_DATA),
+    ).toThrow('Unknown concentration mode: molar');
+  });
+});
+
+// ── solver.stoichiometry ────────────────────────────────────────
+
+describe('solver.stoichiometry', () => {
+  it('2H\u2082 + O\u2082 \u2192 2H\u2082O: given 4g H\u2082 (M=2, coeff=2), find H\u2082O (coeff=2, M=18) \u2192 36', () => {
+    const result = runSolver('solver.stoichiometry', {}, {
+      given_mass: 4, given_coeff: 2, given_M: 2,
+      find_coeff: 2, find_M: 18,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(36);
+  });
+
+  it('given 11.2g Fe (M=56, coeff=1), find product (coeff=1, M=160) \u2192 32', () => {
+    const result = runSolver('solver.stoichiometry', {}, {
+      given_mass: 11.2, given_coeff: 1, given_M: 56,
+      find_coeff: 1, find_M: 160,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(32);
+  });
+
+  it('given 10g CaCO3 (M=100, coeff=1), find CO2 (coeff=1, M=44) \u2192 4.4', () => {
+    const result = runSolver('solver.stoichiometry', {}, {
+      given_mass: 10, given_coeff: 1, given_M: 100,
+      find_coeff: 1, find_M: 44,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(4.4);
+  });
+});
+
+// ── solver.reaction_yield ───────────────────────────────────────
+
+describe('solver.reaction_yield', () => {
+  it('theoretical 36g with 80% yield \u2192 28.8', () => {
+    const result = runSolver('solver.reaction_yield', {}, {
+      given_mass: 4, given_coeff: 2, given_M: 2,
+      find_coeff: 2, find_M: 18,
+      yield_percent: 80,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(28.8);
+  });
+
+  it('100% yield equals stoichiometry result', () => {
+    const result = runSolver('solver.reaction_yield', {}, {
+      given_mass: 10, given_coeff: 1, given_M: 100,
+      find_coeff: 1, find_M: 44,
+      yield_percent: 100,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(4.4);
+  });
+
+  it('50% yield halves the theoretical mass', () => {
+    const result = runSolver('solver.reaction_yield', {}, {
+      given_mass: 10, given_coeff: 1, given_M: 100,
+      find_coeff: 1, find_M: 44,
+      yield_percent: 50,
+    }, MOCK_DATA);
+    expect(result.answer).toBe(2.2);
   });
 });
 
