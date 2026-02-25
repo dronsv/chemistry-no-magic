@@ -4,7 +4,9 @@ export type InteractionType =
   | 'choice_multi'
   | 'order_dragdrop'
   | 'numeric_input'
-  | 'match_pairs';
+  | 'match_pairs'
+  | 'interactive_orbital'
+  | 'guided_selection';
 
 // ── Object types ───────────────────────────────────────────────
 export type ObjectType = 'element' | 'ion' | 'substance' | 'property' | 'reaction';
