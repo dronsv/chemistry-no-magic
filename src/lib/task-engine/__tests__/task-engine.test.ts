@@ -71,6 +71,25 @@ const MOCK_IONS: Ion[] = [
   { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'] },
 ];
 
+const MOCK_IONS_WITH_NAMING: Ion[] = [
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root_ru: '\u0445\u043b\u043e\u0440', suffix_ru: '-\u0438\u0434', oxidation_state: -1 } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root_ru: '\u0441\u0443\u043b\u044c\u0444', suffix_ru: '-\u0430\u0442', oxidation_state: 6 } },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
+];
+
+const MOCK_ION_NOMENCLATURE = {
+  suffix_rules: [
+    { id: 'binary_anion', condition: '\u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430', suffix_ru: '-\u0438\u0434', suffix_en: '-ide', description_ru: '\u0414\u043b\u044f \u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u044b\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432', examples: ['Cl\u207b \u2014 \u0445\u043b\u043e\u0440\u0438\u0434'] },
+    { id: 'oxy_max', condition: '\u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0435\u043f\u0435\u043d\u044c \u043e\u043a\u0438\u0441\u043b\u0435\u043d\u0438\u044f', suffix_ru: '-\u0430\u0442', suffix_en: '-ate', description_ru: '\u0414\u043b\u044f \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0441\u043e\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432 (\u043c\u0430\u043a\u0441. \u0441.\u043e.)', examples: ['SO\u2084\u00b2\u207b \u2014 \u0441\u0443\u043b\u044c\u0444\u0430\u0442'] },
+  ],
+  multilingual_comparison: { description_ru: '\u0421\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0435', columns: ['ru', 'en'], binary: ['\u0445\u043b\u043e\u0440\u0438\u0434', 'chloride'], oxy_max: ['\u0441\u0443\u043b\u044c\u0444\u0430\u0442', 'sulfate'], oxy_lower: ['\u0441\u0443\u043b\u044c\u0444\u0438\u0442', 'sulfite'] },
+  mnemonic_ru: '\u0410\u0442 \u2014 \u0431\u043e\u043b\u044c\u0448\u0435 \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0430, \u0438\u0442 \u2014 \u043c\u0435\u043d\u044c\u0448\u0435',
+  acid_to_anion_pairs: [
+    { acid: 'HCl', anion_id: 'Cl_minus', acid_name_ru: '\u0441\u043e\u043b\u044f\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
+    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name_ru: '\u0441\u0435\u0440\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
+  ],
+};
+
 const MOCK_OXIDATION_EXAMPLES: OxidationExample[] = [
   { formula: 'H\u2082SO\u2084', target_element: 'S', oxidation_state: 6, difficulty: 'medium' },
   { formula: 'NaCl', target_element: 'Na', oxidation_state: 1, difficulty: 'easy' },
@@ -546,6 +565,38 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'Calculate the practical yield of {find_formula} from {given_mass} g of {given_formula} at {yield_percent}% yield.',
     slots: {},
   },
+  'prompt.ion_formula_to_name': {
+    question: 'What is the name of the ion {ionA_formula}?',
+    slots: {},
+  },
+  'prompt.ion_name_to_formula': {
+    question: 'Write the formula of the ion {ionA_name}.',
+    slots: {},
+  },
+  'prompt.ion_suffix_rule': {
+    question: 'What suffix does the ion {ionA_formula} use in nomenclature?',
+    slots: {},
+  },
+  'prompt.acid_to_anion': {
+    question: 'What anion does {acid_name} ({acid_formula}) form?',
+    slots: {},
+  },
+  'prompt.anion_to_acid': {
+    question: 'Which acid produces the anion {anion_formula}?',
+    slots: {},
+  },
+  'prompt.ate_ite_pair': {
+    question: 'What is the suffix of the ion {ionB_formula}?',
+    slots: {},
+  },
+  'prompt.ox_state_to_suffix': {
+    question: 'Which suffix corresponds to the condition: {condition}?',
+    slots: {},
+  },
+  'prompt.classify_suffix_type': {
+    question: 'What is the naming condition for the suffix "{suffix_ru}"?',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -770,6 +821,10 @@ function loadAllTemplates(): TaskTemplate[] {
 function buildPhase2Ontology(): OntologyData {
   return {
     ...MOCK_DATA,
+    core: {
+      ...MOCK_DATA.core,
+      ions: MOCK_IONS_WITH_NAMING,
+    },
     rules: {
       ...MOCK_DATA.rules,
       bondExamples: PHASE2_BOND_EXAMPLES,
@@ -778,6 +833,7 @@ function buildPhase2Ontology(): OntologyData {
       activitySeries: MOCK_ACTIVITY_SERIES,
       qualitativeTests: MOCK_QUALITATIVE_TESTS,
       energyCatalyst: MOCK_ENERGY_CATALYST,
+      ionNomenclature: MOCK_ION_NOMENCLATURE,
     },
     data: {
       substances: PHASE2_SUBSTANCE_INDEX,
@@ -793,8 +849,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 57 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(57);
+  it('loads all 65 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(65);
   });
 
   describe('bond templates', () => {
@@ -1596,6 +1652,127 @@ describe('TaskEngine — Reactions batch integration', () => {
         const task = engine.generateForCompetency('reaction_yield_logic');
         expect(task).not.toBeNull();
         expect(task!.competency_map).toHaveProperty('reaction_yield_logic');
+      }
+    });
+  });
+});
+
+// ── Ions batch integration tests ───────────────────────────────────
+
+describe('TaskEngine — Ions batch integration', () => {
+  const allTemplates = loadAllTemplates();
+  const ontology = buildPhase2Ontology();
+  const engine = createTaskEngine(allTemplates, ontology);
+
+  describe('ion formula/name templates', () => {
+    it('formula_to_name returns an ion name', () => {
+      const task = engine.generate('tmpl.ion.formula_to_name.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.formula_to_name.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allNames = MOCK_IONS_WITH_NAMING.map(i => i.name_ru);
+      expect(allNames).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.ionA_formula).toBeDefined();
+    });
+
+    it('name_to_formula returns an ion formula', () => {
+      const task = engine.generate('tmpl.ion.name_to_formula.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.name_to_formula.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFormulas = MOCK_IONS_WITH_NAMING.map(i => i.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.ionA_name).toBeDefined();
+    });
+  });
+
+  describe('ion suffix templates', () => {
+    it('suffix_rule returns a suffix string', () => {
+      const task = engine.generate('tmpl.ion.suffix_rule.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.suffix_rule.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      // Suffixes from our mock ions with naming
+      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix_ru);
+      expect(allSuffixes).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.ionA_formula).toBeDefined();
+    });
+
+    it('ate_ite_pair returns a suffix for the partner ion', () => {
+      const task = engine.generate('tmpl.ion.ate_ite_pair.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.ate_ite_pair.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix_ru);
+      expect(allSuffixes).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.ionB_formula).toBeDefined();
+    });
+  });
+
+  describe('acid-anion pair templates', () => {
+    it('acid_to_anion returns an anion name', () => {
+      const task = engine.generate('tmpl.ion.acid_to_anion.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.acid_to_anion.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ naming: 'P', classification: 'S' });
+      expect(task.slots.acid_name).toBeDefined();
+      expect(task.slots.acid_formula).toBeDefined();
+    });
+
+    it('anion_to_acid returns an acid name', () => {
+      const task = engine.generate('tmpl.ion.anion_to_acid.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.anion_to_acid.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ naming: 'P', classification: 'S' });
+      expect(task.slots.anion_formula).toBeDefined();
+    });
+  });
+
+  describe('suffix rule templates (default mode)', () => {
+    it('ox_state_to_suffix returns a suffix string', () => {
+      const task = engine.generate('tmpl.ion.ox_state_to_suffix.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.ox_state_to_suffix.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allSuffixes = MOCK_ION_NOMENCLATURE.suffix_rules.map(r => r.suffix_ru);
+      expect(allSuffixes).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.condition).toBeDefined();
+    });
+
+    it('classify_suffix_type returns a condition string', () => {
+      const task = engine.generate('tmpl.ion.classify_suffix_type.v1');
+
+      expect(task.template_id).toBe('tmpl.ion.classify_suffix_type.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allConditions = MOCK_ION_NOMENCLATURE.suffix_rules.map(r => r.condition);
+      expect(allConditions).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      expect(task.slots.suffix_ru).toBeDefined();
+    });
+  });
+
+  describe('competency routing for ion templates', () => {
+    it('generateForCompetency returns naming templates (includes ion templates)', () => {
+      const engine2 = createTaskEngine(allTemplates, ontology);
+      for (let i = 0; i < 20; i++) {
+        const task = engine2.generateForCompetency('naming');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('naming');
       }
     });
   });

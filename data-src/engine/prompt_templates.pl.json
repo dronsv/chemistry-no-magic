@@ -250,5 +250,37 @@
   "prompt.calc_yield": {
     "question": "Oblicz praktyczn\u0105 wydajno\u015b\u0107 {find_formula} z {given_mass} g {given_formula} przy wydajno\u015bci {yield_percent}%.",
     "slots": {}
+  },
+  "prompt.ion_formula_to_name": {
+    "question": "Jak nazywa si\u0119 jon {ionA_formula}?",
+    "slots": {}
+  },
+  "prompt.ion_name_to_formula": {
+    "question": "Zapisz wz\u00f3r jonu \u201e{ionA_name}\u201d.",
+    "slots": {}
+  },
+  "prompt.ion_suffix_rule": {
+    "question": "Jaki sufiks stosuje jon {ionA_formula} w nazewnictwie?",
+    "slots": {}
+  },
+  "prompt.acid_to_anion": {
+    "question": "Jaki anion tworzy {acid_name} ({acid_formula})?",
+    "slots": {}
+  },
+  "prompt.anion_to_acid": {
+    "question": "Jaki kwas tworzy anion {anion_formula}?",
+    "slots": {}
+  },
+  "prompt.ate_ite_pair": {
+    "question": "Jaki sufiks ma jon {ionB_formula}?",
+    "slots": {}
+  },
+  "prompt.ox_state_to_suffix": {
+    "question": "Jaki sufiks odpowiada warunkowi: {condition}?",
+    "slots": {}
+  },
+  "prompt.classify_suffix_type": {
+    "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix_ru}\u201d?",
+    "slots": {}
   }
 }

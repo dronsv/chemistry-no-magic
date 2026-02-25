@@ -250,5 +250,37 @@
   "prompt.calc_yield": {
     "question": "Calcula el rendimiento práctico de {find_formula} a partir de {given_mass} g de {given_formula} con un rendimiento del {yield_percent}%.",
     "slots": {}
+  },
+  "prompt.ion_formula_to_name": {
+    "question": "\u00bfC\u00f3mo se llama el ion {ionA_formula}?",
+    "slots": {}
+  },
+  "prompt.ion_name_to_formula": {
+    "question": "Escribe la f\u00f3rmula del ion \u00ab{ionA_name}\u00bb.",
+    "slots": {}
+  },
+  "prompt.ion_suffix_rule": {
+    "question": "\u00bfQu\u00e9 sufijo usa el ion {ionA_formula} en la nomenclatura?",
+    "slots": {}
+  },
+  "prompt.acid_to_anion": {
+    "question": "\u00bfQu\u00e9 ani\u00f3n forma {acid_name} ({acid_formula})?",
+    "slots": {}
+  },
+  "prompt.anion_to_acid": {
+    "question": "\u00bfQu\u00e9 \u00e1cido produce el ani\u00f3n {anion_formula}?",
+    "slots": {}
+  },
+  "prompt.ate_ite_pair": {
+    "question": "\u00bfQu\u00e9 sufijo tiene el ion {ionB_formula}?",
+    "slots": {}
+  },
+  "prompt.ox_state_to_suffix": {
+    "question": "\u00bfQu\u00e9 sufijo corresponde a la condici\u00f3n: {condition}?",
+    "slots": {}
+  },
+  "prompt.classify_suffix_type": {
+    "question": "\u00bfQu\u00e9 condici\u00f3n de nomenclatura corresponde al sufijo \u00ab{suffix_ru}\u00bb?",
+    "slots": {}
   }
 }

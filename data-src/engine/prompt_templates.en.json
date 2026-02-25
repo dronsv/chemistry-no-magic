@@ -250,5 +250,37 @@
   "prompt.calc_yield": {
     "question": "Calculate the practical yield of {find_formula} from {given_mass} g of {given_formula} at {yield_percent}% yield.",
     "slots": {}
+  },
+  "prompt.ion_formula_to_name": {
+    "question": "What is the name of the ion {ionA_formula}?",
+    "slots": {}
+  },
+  "prompt.ion_name_to_formula": {
+    "question": "Write the formula of the ion {ionA_name}.",
+    "slots": {}
+  },
+  "prompt.ion_suffix_rule": {
+    "question": "What suffix does the ion {ionA_formula} use in nomenclature?",
+    "slots": {}
+  },
+  "prompt.acid_to_anion": {
+    "question": "What anion does {acid_name} ({acid_formula}) form?",
+    "slots": {}
+  },
+  "prompt.anion_to_acid": {
+    "question": "Which acid produces the anion {anion_formula}?",
+    "slots": {}
+  },
+  "prompt.ate_ite_pair": {
+    "question": "What is the suffix of the ion {ionB_formula}?",
+    "slots": {}
+  },
+  "prompt.ox_state_to_suffix": {
+    "question": "Which suffix corresponds to the condition: {condition}?",
+    "slots": {}
+  },
+  "prompt.classify_suffix_type": {
+    "question": "What is the naming condition for the suffix \"{suffix_ru}\"?",
+    "slots": {}
   }
 }

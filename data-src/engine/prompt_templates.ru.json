@@ -250,5 +250,37 @@
   "prompt.calc_yield": {
     "question": "Вычислите практический выход {find_formula} из {given_mass} г {given_formula} при выходе {yield_percent}%.",
     "slots": {}
+  },
+  "prompt.ion_formula_to_name": {
+    "question": "Как называется ион {ionA_formula}?",
+    "slots": {}
+  },
+  "prompt.ion_name_to_formula": {
+    "question": "Запишите формулу иона «{ionA_name}».",
+    "slots": {}
+  },
+  "prompt.ion_suffix_rule": {
+    "question": "Какой суффикс использует ион {ionA_formula} в номенклатуре?",
+    "slots": {}
+  },
+  "prompt.acid_to_anion": {
+    "question": "Какой анион образует {acid_name} ({acid_formula})?",
+    "slots": {}
+  },
+  "prompt.anion_to_acid": {
+    "question": "Какая кислота образует анион {anion_formula}?",
+    "slots": {}
+  },
+  "prompt.ate_ite_pair": {
+    "question": "Какой суффикс у иона {ionB_formula}?",
+    "slots": {}
+  },
+  "prompt.ox_state_to_suffix": {
+    "question": "Какой суффикс соответствует условию: {condition}?",
+    "slots": {}
+  },
+  "prompt.classify_suffix_type": {
+    "question": "Какое условие номенклатуры соответствует суффиксу «{suffix_ru}»?",
+    "slots": {}
   }
 }
