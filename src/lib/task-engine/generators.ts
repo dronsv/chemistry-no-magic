@@ -328,12 +328,33 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
     }
   }
 
+  // Amphoteric filter: keep only substances containing an amphoteric element
+  if (params.amphoteric) {
+    const amphotericSymbols = new Set(
+      data.core.elements
+        .filter(el => (el as unknown as Record<string, unknown>).amphoteric === true)
+        .map(el => el.symbol),
+    );
+    candidates = candidates.filter(s =>
+      [...amphotericSymbols].some(sym => s.formula.includes(sym)),
+    );
+  }
+
   const s = pickRandom(candidates);
-  return {
+
+  const result: SlotValues = {
     formula: s.formula,
+    name: s.name_ru ?? '',
     substance_class: s.class,
     substance_subclass: s.subclass ?? '',
   };
+
+  // When amphoteric filter is active, also provide reaction_partners
+  if (params.amphoteric) {
+    result.reaction_partners = ['acid', 'base'];
+  }
+
+  return result;
 }
 
 const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox'] as const;

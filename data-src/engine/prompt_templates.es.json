@@ -114,5 +114,33 @@
   "prompt.min_oxidation_state": {
     "question": "¿Cuál es el estado de oxidación mínimo típico de {element}?",
     "slots": {}
+  },
+  "prompt.classify_subclass": {
+    "question": "Clasifica la subclase de la sustancia {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_class_by_desc": {
+    "question": "¿Qué clase de sustancias inorgánicas corresponde a esta descripción: {description}?",
+    "slots": {}
+  },
+  "prompt.formula_to_name": {
+    "question": "¿Cómo se llama la sustancia {formula}?",
+    "slots": {}
+  },
+  "prompt.name_to_formula": {
+    "question": "Escribe la fórmula de la sustancia «{name}».",
+    "slots": {}
+  },
+  "prompt.identify_amphoteric": {
+    "question": "¿Qué sustancia es anfótera?",
+    "slots": {}
+  },
+  "prompt.amphoteric_reaction_partner": {
+    "question": "La sustancia {formula} es anfótera. ¿Con qué tipos de sustancias puede reaccionar?",
+    "slots": {}
+  },
+  "prompt.naming_rule_template": {
+    "question": "¿Qué regla de nomenclatura se aplica a la sustancia {formula}?",
+    "slots": {}
   }
 }

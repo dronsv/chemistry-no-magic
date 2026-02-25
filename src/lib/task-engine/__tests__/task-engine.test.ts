@@ -7,27 +7,39 @@ import type { Element } from '../../../types/element';
 import type { Ion } from '../../../types/ion';
 import type { OxidationExample } from '../../../types/oxidation';
 import type { BondExamplesData } from '../../../types/bond';
-import type { SubstanceIndexEntry } from '../../../types/classification';
+import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
 import type { Reaction } from '../../../types/reaction';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
 
 const MOCK_ELEMENTS: Element[] = [
   {
-    Z: 11, symbol: 'Na', name_ru: 'Натрий', name_en: 'Sodium', name_latin: 'Natrium',
+    Z: 11, symbol: 'Na', name_ru: '\u041D\u0430\u0442\u0440\u0438\u0439', name_en: 'Sodium', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
   },
   {
-    Z: 12, symbol: 'Mg', name_ru: 'Магний', name_en: 'Magnesium', name_latin: 'Magnesium',
+    Z: 12, symbol: 'Mg', name_ru: '\u041C\u0430\u0433\u043D\u0438\u0439', name_en: 'Magnesium', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
   },
   {
-    Z: 17, symbol: 'Cl', name_ru: 'Хлор', name_en: 'Chlorine', name_latin: 'Chlorum',
+    Z: 17, symbol: 'Cl', name_ru: '\u0425\u043B\u043E\u0440', name_en: 'Chlorine', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
   },
+  {
+    Z: 13, symbol: 'Al', name_ru: '\u0410\u043B\u044E\u043C\u0438\u043D\u0438\u0439', name_en: 'Aluminium', name_latin: 'Aluminium',
+    group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition',
+    atomic_mass: 26.98, typical_oxidation_states: [3], electronegativity: 1.61,
+    amphoteric: true,
+  } as Element,
+  {
+    Z: 30, symbol: 'Zn', name_ru: '\u0426\u0438\u043D\u043A', name_en: 'Zinc', name_latin: 'Zincum',
+    group: 12, period: 4, metal_type: 'metal', element_group: 'transition_metal',
+    atomic_mass: 65.38, typical_oxidation_states: [2], electronegativity: 1.65,
+    amphoteric: true,
+  } as Element,
 ];
 
 const MOCK_PROPERTIES: PropertyDef[] = [
@@ -383,6 +395,34 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'What is the minimum typical oxidation state of {element}?',
     slots: {},
   },
+  'prompt.classify_subclass': {
+    question: 'Classify the subclass of the substance {formula}.',
+    slots: {},
+  },
+  'prompt.identify_class_by_desc': {
+    question: 'Which class of inorganic substances matches this description: {description}?',
+    slots: {},
+  },
+  'prompt.formula_to_name': {
+    question: 'What is the name of the substance {formula}?',
+    slots: {},
+  },
+  'prompt.name_to_formula': {
+    question: 'Write the formula of the substance "{name}".',
+    slots: {},
+  },
+  'prompt.identify_amphoteric': {
+    question: 'Which substance is amphoteric?',
+    slots: {},
+  },
+  'prompt.amphoteric_reaction_partner': {
+    question: 'The substance {formula} is amphoteric. With which types of substances can it react?',
+    slots: {},
+  },
+  'prompt.naming_rule_template': {
+    question: 'Which naming rule applies to the substance {formula}?',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -397,12 +437,14 @@ const PHASE2_BOND_EXAMPLES: BondExamplesData = {
 };
 
 const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
-  { id: 'nacl', formula: 'NaCl', class: 'salt' },
-  { id: 'hcl', formula: 'HCl', class: 'acid' },
-  { id: 'naoh', formula: 'NaOH', class: 'base' },
-  { id: 'na2o', formula: 'Na\u2082O', class: 'oxide' },
-  { id: 'h2so4', formula: 'H\u2082SO\u2084', class: 'acid' },
-  { id: 'cao', formula: 'CaO', class: 'oxide' },
+  { id: 'nacl', formula: 'NaCl', name_ru: '\u0425\u043B\u043E\u0440\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'salt', subclass: 'medium_salt' },
+  { id: 'hcl', formula: 'HCl', name_ru: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'non_oxygenated' },
+  { id: 'naoh', formula: 'NaOH', name_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'base', subclass: 'soluble_base' },
+  { id: 'na2o', formula: 'Na\u2082O', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
+  { id: 'h2so4', formula: 'H\u2082SO\u2084', name_ru: '\u0421\u0435\u0440\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'oxygenated' },
+  { id: 'cao', formula: 'CaO', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
+  { id: 'al2o3', formula: 'Al\u2082O\u2083', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u0430\u043B\u044E\u043C\u0438\u043D\u0438\u044F', class: 'oxide', subclass: 'amphoteric_oxide' },
+  { id: 'zno', formula: 'ZnO', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u0446\u0438\u043D\u043A\u0430', class: 'oxide', subclass: 'amphoteric_oxide' },
 ];
 
 const PHASE2_REACTIONS: Reaction[] = [
@@ -436,6 +478,19 @@ const PHASE2_REACTIONS: Reaction[] = [
   },
 ] as Reaction[];
 
+const PHASE2_CLASSIFICATION_RULES: ClassificationRule[] = [
+  { id: 'rule_oxide', class: 'oxide', subclass: 'basic_oxide', pattern: 'Me_xO_y', description_ru: '\u041E\u043A\u0441\u0438\u0434\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430 \u0438\u0437 \u0434\u0432\u0443\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043E\u0434\u0438\u043D \u0438\u0437 \u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', examples: ['Na\u2082O', 'CaO'] },
+  { id: 'rule_acid', class: 'acid', subclass: 'oxygenated', pattern: 'H_xAcid', description_ru: '\u041A\u0438\u0441\u043B\u043E\u0442\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0438\u043E\u043D\u044B \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u0430', examples: ['HCl', 'H\u2082SO\u2084'] },
+  { id: 'rule_base', class: 'base', subclass: 'soluble_base', pattern: 'Me(OH)_x', description_ru: '\u041E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u044F \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0433\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434-\u0438\u043E\u043D\u044B', examples: ['NaOH', 'Ca(OH)\u2082'] },
+  { id: 'rule_salt', class: 'salt', subclass: 'medium_salt', pattern: 'Me_xAcid_y', description_ru: '\u0421\u043E\u043B\u0438 \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0441\u0442\u043E\u044F\u0449\u0438\u0435 \u0438\u0437 \u043A\u0430\u0442\u0438\u043E\u043D\u043E\u0432 \u043C\u0435\u0442\u0430\u043B\u043B\u0430 \u0438 \u0430\u043D\u0438\u043E\u043D\u043E\u0432 \u043A\u0438\u0441\u043B\u043E\u0442\u043D\u043E\u0433\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u0430', examples: ['NaCl', 'CaSO\u2084'] },
+];
+
+const PHASE2_NAMING_RULES: NamingRule[] = [
+  { id: 'naming_oxide', class: 'oxide', pattern: 'Me_xO_y', template_ru: '\u041E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430 (\u0441.\u043E.)', examples: [{ formula: 'Na\u2082O', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
+  { id: 'naming_acid_non_oxy', class: 'acid', pattern: 'H_xHal', template_ru: '\u0411\u0435\u0441\u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434\u043D\u044B\u0435: \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 + \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F', examples: [{ formula: 'HCl', name_ru: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430' }] },
+  { id: 'naming_base', class: 'base', pattern: 'Me(OH)_x', template_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043C\u0435\u0442\u0430\u043B\u043B\u0430', examples: [{ formula: 'NaOH', name_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
+];
+
 function loadAllTemplates(): TaskTemplate[] {
   const raw = readFileSync(
     resolve(__dirname, '../../../../data-src/engine/task_templates.json'),
@@ -447,7 +502,12 @@ function loadAllTemplates(): TaskTemplate[] {
 function buildPhase2Ontology(): OntologyData {
   return {
     ...MOCK_DATA,
-    rules: { ...MOCK_DATA.rules, bondExamples: PHASE2_BOND_EXAMPLES },
+    rules: {
+      ...MOCK_DATA.rules,
+      bondExamples: PHASE2_BOND_EXAMPLES,
+      classificationRules: PHASE2_CLASSIFICATION_RULES,
+      namingRules: PHASE2_NAMING_RULES,
+    },
     data: { substances: PHASE2_SUBSTANCE_INDEX, reactions: PHASE2_REACTIONS },
     i18n: { ...MOCK_DATA.i18n, promptTemplates: PHASE2_PROMPTS },
   };
@@ -457,8 +517,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 23 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(23);
+  it('loads all 30 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(30);
   });
 
   describe('bond templates', () => {
@@ -609,8 +669,8 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.template_id).toBe('tmpl.ox.min_state.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('number');
-      // For our mock elements: Na=1, Mg=2, Cl=-1
-      expect([1, 2, -1]).toContain(task.correct_answer);
+      // For our mock elements: Na=1, Mg=2, Cl=-1, Al=3, Zn=2
+      expect([1, 2, -1, 3]).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ oxidation_states: 'P' });
     });
   });
@@ -702,6 +762,105 @@ describe('TaskEngine — Phase 2 integration', () => {
         expect(task).not.toBeNull();
         expect(task!.template_id).toBe('tmpl.rxn.identify_type.v1');
       }
+    });
+  });
+
+  describe('substance classification templates', () => {
+    it('classify_subclass returns a subclass string', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.class.classify_subclass.v1');
+
+      expect(task.template_id).toBe('tmpl.class.classify_subclass.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ classification: 'P' });
+      // All substances in mock have subclass set
+      const allSubclasses = PHASE2_SUBSTANCE_INDEX.map(s => s.subclass).filter(Boolean);
+      expect(allSubclasses).toContain(task.correct_answer);
+    });
+
+    it('identify_by_description returns a class label from classification rules', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.class.identify_by_description.v1');
+
+      expect(task.template_id).toBe('tmpl.class.identify_by_description.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(['oxide', 'acid', 'base', 'salt']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ classification: 'P' });
+      // Question should contain a description
+      expect(task.slots.description).toBeDefined();
+    });
+  });
+
+  describe('substance naming templates', () => {
+    it('formula_to_name returns a substance name', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.sub.formula_to_name.v1');
+
+      expect(task.template_id).toBe('tmpl.sub.formula_to_name.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ naming: 'P', classification: 'S' });
+      // Answer should be one of the known substance names
+      const allNames = PHASE2_SUBSTANCE_INDEX.map(s => s.name_ru).filter(Boolean);
+      expect(allNames).toContain(task.correct_answer);
+      // Question should contain a formula
+      expect(task.slots.formula).toBeDefined();
+    });
+
+    it('name_to_formula returns a substance formula', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.sub.name_to_formula.v1');
+
+      expect(task.template_id).toBe('tmpl.sub.name_to_formula.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ naming: 'P', classification: 'S' });
+      const allFormulas = PHASE2_SUBSTANCE_INDEX.map(s => s.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+      // Question should contain a name
+      expect(task.slots.name).toBeDefined();
+    });
+
+    it('naming_rule returns a naming template string', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.sub.naming_rule.v1');
+
+      expect(task.template_id).toBe('tmpl.sub.naming_rule.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ naming: 'P' });
+      // Answer should be one of the naming rule templates
+      const allTemplateStrs = PHASE2_NAMING_RULES.map(r => r.template_ru);
+      expect(allTemplateStrs).toContain(task.correct_answer);
+    });
+  });
+
+  describe('amphoteric templates', () => {
+    it('identify_amphoteric returns a formula of an amphoteric substance', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.sub.identify_amphoteric.v1');
+
+      expect(task.template_id).toBe('tmpl.sub.identify_amphoteric.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(task.competency_map).toEqual({ amphoterism_logic: 'P', classification: 'S' });
+      // Must be one of the amphoteric substances (Al\u2082O\u2083 or ZnO)
+      expect(['Al\u2082O\u2083', 'ZnO']).toContain(task.correct_answer);
+    });
+
+    it('amphoteric_partner returns reaction partners (acid and base)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.sub.amphoteric_partner.v1');
+
+      expect(task.template_id).toBe('tmpl.sub.amphoteric_partner.v1');
+      expect(task.interaction).toBe('choice_multi');
+      expect(Array.isArray(task.correct_answer)).toBe(true);
+      expect(task.correct_answer).toEqual(['acid', 'base']);
+      expect(task.competency_map).toEqual({ amphoterism_logic: 'P' });
+      // Slots should include reaction_partners
+      expect(task.slots.reaction_partners).toEqual(['acid', 'base']);
     });
   });
 });

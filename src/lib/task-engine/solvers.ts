@@ -252,7 +252,7 @@ function solveSlotLookup(
   if (val === undefined || val === null) {
     throw new Error(`Slot "${field}" not found in slots`);
   }
-  return { answer: typeof val === 'number' ? val : String(val) };
+  return { answer: Array.isArray(val) ? val : (typeof val === 'number' ? val : String(val)) };
 }
 
 function solveCompareCrystalMelting(

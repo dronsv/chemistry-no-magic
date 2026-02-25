@@ -114,5 +114,33 @@
   "prompt.min_oxidation_state": {
     "question": "What is the minimum typical oxidation state of {element}?",
     "slots": {}
+  },
+  "prompt.classify_subclass": {
+    "question": "Classify the subclass of the substance {formula}.",
+    "slots": {}
+  },
+  "prompt.identify_class_by_desc": {
+    "question": "Which class of inorganic substances matches this description: {description}?",
+    "slots": {}
+  },
+  "prompt.formula_to_name": {
+    "question": "What is the name of the substance {formula}?",
+    "slots": {}
+  },
+  "prompt.name_to_formula": {
+    "question": "Write the formula of the substance \"{name}\".",
+    "slots": {}
+  },
+  "prompt.identify_amphoteric": {
+    "question": "Which substance is amphoteric?",
+    "slots": {}
+  },
+  "prompt.amphoteric_reaction_partner": {
+    "question": "The substance {formula} is amphoteric. With which types of substances can it react?",
+    "slots": {}
+  },
+  "prompt.naming_rule_template": {
+    "question": "Which naming rule applies to the substance {formula}?",
+    "slots": {}
   }
 }
