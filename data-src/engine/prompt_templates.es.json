@@ -142,5 +142,77 @@
   "prompt.naming_rule_template": {
     "question": "¿Qué regla de nomenclatura se aplica a la sustancia {formula}?",
     "slots": {}
+  },
+  "prompt.predict_exchange_products": {
+    "question": "Predice los productos de la reacción de intercambio: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_driving_force": {
+    "question": "¿Cuál es la fuerza impulsora de la reacción: {equation}?",
+    "slots": {}
+  },
+  "prompt.will_reaction_occur": {
+    "question": "¿Ocurrirá esta reacción? {equation}",
+    "slots": {}
+  },
+  "prompt.activity_series_compare": {
+    "question": "¿Puede {metalA} desplazar a {metalB} de una solución de su sal?",
+    "slots": {}
+  },
+  "prompt.will_metal_react": {
+    "question": "¿Reaccionará {metalA} con ácido diluido (liberando H\u2082)?",
+    "slots": {}
+  },
+  "prompt.match_ionic_equation": {
+    "question": "Relaciona la ecuación molecular con su forma iónica neta.",
+    "slots": {}
+  },
+  "prompt.identify_spectator_ions": {
+    "question": "Identifica los iones espectadores en la reacción: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_reagent_for_ion": {
+    "question": "¿Qué reactivo se usa para detectar el ion {target_name}?",
+    "slots": {}
+  },
+  "prompt.identify_ion_by_obs": {
+    "question": "¿Qué ion se detecta por la observación: {observation}?",
+    "slots": {}
+  },
+  "prompt.complete_chain_step": {
+    "question": "Completa la sustancia faltante en la cadena: {chain_substances}",
+    "slots": {}
+  },
+  "prompt.choose_reagent_for_step": {
+    "question": "¿Qué reactivo se necesita para la transformación: {substance} \u2192 ?",
+    "slots": {}
+  },
+  "prompt.identify_oxidizer_reducer": {
+    "question": "Identifica el agente oxidante en la reacción: {equation}",
+    "slots": {}
+  },
+  "prompt.predict_substitution": {
+    "question": "Predice los productos de la reacción de sustitución: {equation}",
+    "slots": {}
+  },
+  "prompt.factors_affecting_rate": {
+    "question": "¿Qué factor afecta la velocidad de reacción?",
+    "slots": {}
+  },
+  "prompt.exo_endo_classify": {
+    "question": "¿La reacción es exotérmica o endotérmica: {equation}?",
+    "slots": {}
+  },
+  "prompt.equilibrium_shift": {
+    "question": "¿Cómo se desplazará el equilibrio al cambiar {eq_factor}?",
+    "slots": {}
+  },
+  "prompt.catalyst_properties": {
+    "question": "¿Qué catalizador se usa en la reacción: {catalyst_reaction}?",
+    "slots": {}
+  },
+  "prompt.identify_catalyst": {
+    "question": "Identifica el catalizador de la reacción dada.",
+    "slots": {}
   }
 }

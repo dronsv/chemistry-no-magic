@@ -142,5 +142,77 @@
   "prompt.naming_rule_template": {
     "question": "Какое правило названия применяется к веществу {formula}?",
     "slots": {}
+  },
+  "prompt.predict_exchange_products": {
+    "question": "Предскажите продукты реакции обмена: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_driving_force": {
+    "question": "Какова движущая сила реакции: {equation}?",
+    "slots": {}
+  },
+  "prompt.will_reaction_occur": {
+    "question": "Будет ли протекать данная реакция? {equation}",
+    "slots": {}
+  },
+  "prompt.activity_series_compare": {
+    "question": "Может ли {metalA} вытеснить {metalB} из раствора его соли?",
+    "slots": {}
+  },
+  "prompt.will_metal_react": {
+    "question": "Будет ли {metalA} реагировать с разбавленной кислотой (выделять H\u2082)?",
+    "slots": {}
+  },
+  "prompt.match_ionic_equation": {
+    "question": "Сопоставьте молекулярное уравнение с его ионной формой.",
+    "slots": {}
+  },
+  "prompt.identify_spectator_ions": {
+    "question": "Определите ионы-наблюдатели в реакции: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_reagent_for_ion": {
+    "question": "Какой реактив используется для обнаружения иона {target_name}?",
+    "slots": {}
+  },
+  "prompt.identify_ion_by_obs": {
+    "question": "Какой ион обнаруживается по наблюдению: {observation}?",
+    "slots": {}
+  },
+  "prompt.complete_chain_step": {
+    "question": "Вставьте пропущенное вещество в цепочке: {chain_substances}",
+    "slots": {}
+  },
+  "prompt.choose_reagent_for_step": {
+    "question": "Какой реагент нужен для превращения: {substance} \u2192 ?",
+    "slots": {}
+  },
+  "prompt.identify_oxidizer_reducer": {
+    "question": "Определите окислитель в реакции: {equation}",
+    "slots": {}
+  },
+  "prompt.predict_substitution": {
+    "question": "Предскажите продукты реакции замещения: {equation}",
+    "slots": {}
+  },
+  "prompt.factors_affecting_rate": {
+    "question": "Какой фактор влияет на скорость реакции?",
+    "slots": {}
+  },
+  "prompt.exo_endo_classify": {
+    "question": "Реакция экзотермическая или эндотермическая: {equation}?",
+    "slots": {}
+  },
+  "prompt.equilibrium_shift": {
+    "question": "Как сместится равновесие при изменении {eq_factor}?",
+    "slots": {}
+  },
+  "prompt.catalyst_properties": {
+    "question": "Какой катализатор используется в реакции: {catalyst_reaction}?",
+    "slots": {}
+  },
+  "prompt.identify_catalyst": {
+    "question": "Определите катализатор данной реакции.",
+    "slots": {}
   }
 }

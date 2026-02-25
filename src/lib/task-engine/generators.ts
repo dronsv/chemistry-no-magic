@@ -379,11 +379,43 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
   const r = pickRandom(candidates);
   const reactionType = r.type_tags.find(t => PRIMARY_TAGS_SET.has(t)) ?? r.type_tags[0];
 
-  return {
+  // Extract reactants (left side of equation before →)
+  const arrowIdx = r.equation.indexOf('→');
+  const reactants = arrowIdx >= 0 ? r.equation.slice(0, arrowIdx).trim() : r.equation;
+
+  // Driving force booleans
+  const df = r.driving_forces ?? [];
+  const hasPrecipitate = df.some(f => f === 'precipitate' || f === 'precipitation');
+  const hasGas = df.some(f => f === 'gas_evolution' || f === 'gas');
+  const hasWater = df.some(f => f === 'water_formation' || f === 'water');
+  const hasWeakElectrolyte = df.includes('weak_electrolyte');
+
+  const slots: SlotValues = {
     equation: r.equation,
     reaction_type: reactionType,
     reaction_id: r.reaction_id,
+    reactants,
+    heat_effect: r.heat_effect ?? 'unknown',
+    has_precipitate: hasPrecipitate ? 1 : 0,
+    has_gas: hasGas ? 1 : 0,
+    has_water: hasWater ? 1 : 0,
+    has_weak_electrolyte: hasWeakElectrolyte ? 1 : 0,
+    will_occur: df.length > 0 ? 'yes' : 'no',
   };
+
+  // Ionic data (if available)
+  if (r.ionic) {
+    if (r.ionic.net) slots.net_ionic = r.ionic.net;
+    if (r.ionic.notes) slots.spectator_ions = r.ionic.notes;
+  }
+
+  // Redox data (if available)
+  if (r.redox) {
+    slots.oxidizer = r.redox.oxidizer.formula;
+    slots.reducer = r.redox.reducer.formula;
+  }
+
+  return slots;
 }
 
 function genPickElementPosition(_params: Record<string, unknown>, data: OntologyData): SlotValues {

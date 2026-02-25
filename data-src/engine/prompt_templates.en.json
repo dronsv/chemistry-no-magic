@@ -142,5 +142,77 @@
   "prompt.naming_rule_template": {
     "question": "Which naming rule applies to the substance {formula}?",
     "slots": {}
+  },
+  "prompt.predict_exchange_products": {
+    "question": "Predict the products of the exchange reaction: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_driving_force": {
+    "question": "What is the driving force of the reaction: {equation}?",
+    "slots": {}
+  },
+  "prompt.will_reaction_occur": {
+    "question": "Will this reaction occur? {equation}",
+    "slots": {}
+  },
+  "prompt.activity_series_compare": {
+    "question": "Can {metalA} displace {metalB} from a salt solution?",
+    "slots": {}
+  },
+  "prompt.will_metal_react": {
+    "question": "Will {metalA} react with dilute acid (release H\u2082)?",
+    "slots": {}
+  },
+  "prompt.match_ionic_equation": {
+    "question": "Match the molecular equation to its net ionic form.",
+    "slots": {}
+  },
+  "prompt.identify_spectator_ions": {
+    "question": "Identify the spectator ions in the reaction: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_reagent_for_ion": {
+    "question": "What reagent is used to detect the ion {target_name}?",
+    "slots": {}
+  },
+  "prompt.identify_ion_by_obs": {
+    "question": "Which ion is detected by the observation: {observation}?",
+    "slots": {}
+  },
+  "prompt.complete_chain_step": {
+    "question": "Complete the missing substance in the chain: {chain_substances}",
+    "slots": {}
+  },
+  "prompt.choose_reagent_for_step": {
+    "question": "What reagent is needed for the step: {substance} \u2192 ?",
+    "slots": {}
+  },
+  "prompt.identify_oxidizer_reducer": {
+    "question": "Identify the oxidizing agent in the reaction: {equation}",
+    "slots": {}
+  },
+  "prompt.predict_substitution": {
+    "question": "Predict the products of the substitution reaction: {equation}",
+    "slots": {}
+  },
+  "prompt.factors_affecting_rate": {
+    "question": "Which factor affects the reaction rate?",
+    "slots": {}
+  },
+  "prompt.exo_endo_classify": {
+    "question": "Is the reaction exothermic or endothermic: {equation}?",
+    "slots": {}
+  },
+  "prompt.equilibrium_shift": {
+    "question": "How will the equilibrium shift if {eq_factor} changes?",
+    "slots": {}
+  },
+  "prompt.catalyst_properties": {
+    "question": "What catalyst is used for the reaction: {catalyst_reaction}?",
+    "slots": {}
+  },
+  "prompt.identify_catalyst": {
+    "question": "Identify the catalyst for the given reaction.",
+    "slots": {}
   }
 }

@@ -142,5 +142,77 @@
   "prompt.naming_rule_template": {
     "question": "Jaka reguła nazewnictwa dotyczy substancji {formula}?",
     "slots": {}
+  },
+  "prompt.predict_exchange_products": {
+    "question": "Przewidź produkty reakcji wymiany: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_driving_force": {
+    "question": "Jaka jest siła napędowa reakcji: {equation}?",
+    "slots": {}
+  },
+  "prompt.will_reaction_occur": {
+    "question": "Czy ta reakcja zajdzie? {equation}",
+    "slots": {}
+  },
+  "prompt.activity_series_compare": {
+    "question": "Czy {metalA} może wyprzeć {metalB} z roztworu jego soli?",
+    "slots": {}
+  },
+  "prompt.will_metal_react": {
+    "question": "Czy {metalA} będzie reagować z rozcieńczonym kwasem (wydzielać H\u2082)?",
+    "slots": {}
+  },
+  "prompt.match_ionic_equation": {
+    "question": "Dopasuj równanie cząsteczkowe do jego formy jonowej.",
+    "slots": {}
+  },
+  "prompt.identify_spectator_ions": {
+    "question": "Określ jony obserwatorów w reakcji: {equation}",
+    "slots": {}
+  },
+  "prompt.identify_reagent_for_ion": {
+    "question": "Jaki odczynnik jest używany do wykrywania jonu {target_name}?",
+    "slots": {}
+  },
+  "prompt.identify_ion_by_obs": {
+    "question": "Jaki jon jest wykrywany na podstawie obserwacji: {observation}?",
+    "slots": {}
+  },
+  "prompt.complete_chain_step": {
+    "question": "Uzupełnij brakującą substancję w łańcuchu: {chain_substances}",
+    "slots": {}
+  },
+  "prompt.choose_reagent_for_step": {
+    "question": "Jaki odczynnik jest potrzebny do przemiany: {substance} \u2192 ?",
+    "slots": {}
+  },
+  "prompt.identify_oxidizer_reducer": {
+    "question": "Zidentyfikuj utleniacz w reakcji: {equation}",
+    "slots": {}
+  },
+  "prompt.predict_substitution": {
+    "question": "Przewidź produkty reakcji podstawienia: {equation}",
+    "slots": {}
+  },
+  "prompt.factors_affecting_rate": {
+    "question": "Jaki czynnik wpływa na szybkość reakcji?",
+    "slots": {}
+  },
+  "prompt.exo_endo_classify": {
+    "question": "Czy reakcja jest egzotermiczna czy endotermiczna: {equation}?",
+    "slots": {}
+  },
+  "prompt.equilibrium_shift": {
+    "question": "Jak przesunie się równowaga przy zmianie {eq_factor}?",
+    "slots": {}
+  },
+  "prompt.catalyst_properties": {
+    "question": "Jaki katalizator jest używany w reakcji: {catalyst_reaction}?",
+    "slots": {}
+  },
+  "prompt.identify_catalyst": {
+    "question": "Zidentyfikuj katalizator danej reakcji.",
+    "slots": {}
   }
 }

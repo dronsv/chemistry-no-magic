@@ -9,6 +9,10 @@ import type { OxidationExample } from '../../../types/oxidation';
 import type { BondExamplesData } from '../../../types/bond';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
 import type { Reaction } from '../../../types/reaction';
+import type { ActivitySeriesEntry } from '../../../types/rules';
+import type { QualitativeTest } from '../../../types/qualitative';
+import type { GeneticChain } from '../../../types/genetic-chain';
+import type { EnergyCatalystTheory } from '../../../types/energy-catalyst';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
 
@@ -423,6 +427,78 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'Which naming rule applies to the substance {formula}?',
     slots: {},
   },
+  'prompt.predict_exchange_products': {
+    question: 'Predict the products of the exchange reaction: {equation}',
+    slots: {},
+  },
+  'prompt.identify_driving_force': {
+    question: 'What is the driving force of the reaction: {equation}?',
+    slots: {},
+  },
+  'prompt.will_reaction_occur': {
+    question: 'Will this reaction occur? {equation}',
+    slots: {},
+  },
+  'prompt.activity_series_compare': {
+    question: 'Can {metalA} displace {metalB} from a salt solution?',
+    slots: {},
+  },
+  'prompt.will_metal_react': {
+    question: 'Will {metalA} react with dilute acid (release H\u2082)?',
+    slots: {},
+  },
+  'prompt.match_ionic_equation': {
+    question: 'Match the molecular equation to its net ionic form.',
+    slots: {},
+  },
+  'prompt.identify_spectator_ions': {
+    question: 'Identify the spectator ions in the reaction: {equation}',
+    slots: {},
+  },
+  'prompt.identify_reagent_for_ion': {
+    question: 'What reagent is used to detect the ion {target_name}?',
+    slots: {},
+  },
+  'prompt.identify_ion_by_obs': {
+    question: 'Which ion is detected by the observation: {observation}?',
+    slots: {},
+  },
+  'prompt.complete_chain_step': {
+    question: 'Complete the missing substance in the chain: {chain_substances}',
+    slots: {},
+  },
+  'prompt.choose_reagent_for_step': {
+    question: 'What reagent is needed for the step: {substance} \u2192 ?',
+    slots: {},
+  },
+  'prompt.identify_oxidizer_reducer': {
+    question: 'Identify the oxidizing agent in the reaction: {equation}',
+    slots: {},
+  },
+  'prompt.predict_substitution': {
+    question: 'Predict the products of the substitution reaction: {equation}',
+    slots: {},
+  },
+  'prompt.factors_affecting_rate': {
+    question: 'Which factor affects the reaction rate?',
+    slots: {},
+  },
+  'prompt.exo_endo_classify': {
+    question: 'Is the reaction exothermic or endothermic: {equation}?',
+    slots: {},
+  },
+  'prompt.equilibrium_shift': {
+    question: 'How will the equilibrium shift if {eq_factor} changes?',
+    slots: {},
+  },
+  'prompt.catalyst_properties': {
+    question: 'What catalyst is used for the reaction: {catalyst_reaction}?',
+    slots: {},
+  },
+  'prompt.identify_catalyst': {
+    question: 'Identify the catalyst for the given reaction.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -491,6 +567,121 @@ const PHASE2_NAMING_RULES: NamingRule[] = [
   { id: 'naming_base', class: 'base', pattern: 'Me(OH)_x', template_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043C\u0435\u0442\u0430\u043B\u043B\u0430', examples: [{ formula: 'NaOH', name_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
 ];
 
+// ── Mock data for reactions batch ────────────────────────────────
+
+const MOCK_ACTIVITY_SERIES: ActivitySeriesEntry[] = [
+  { symbol: 'Li', name_ru: 'Литий', position: 1, reduces_H: true },
+  { symbol: 'Na', name_ru: 'Натрий', position: 3, reduces_H: true },
+  { symbol: 'Mg', name_ru: 'Магний', position: 4, reduces_H: true },
+  { symbol: 'Zn', name_ru: 'Цинк', position: 8, reduces_H: true },
+  { symbol: 'Fe', name_ru: 'Железо', position: 9, reduces_H: true },
+  { symbol: 'Cu', name_ru: 'Медь', position: 14, reduces_H: false },
+  { symbol: 'Ag', name_ru: 'Серебро', position: 16, reduces_H: false },
+  { symbol: 'Au', name_ru: 'Золото', position: 18, reduces_H: false },
+];
+
+const MOCK_QUALITATIVE_TESTS: QualitativeTest[] = [
+  { target_id: 'Cl_minus', target_name_ru: 'Хлорид-ион', reagent_formula: 'AgNO₃', reagent_name_ru: 'Нитрат серебра', observation_ru: 'Белый творожистый осадок AgCl' },
+  { target_id: 'SO4_2minus', target_name_ru: 'Сульфат-ион', reagent_formula: 'BaCl₂', reagent_name_ru: 'Хлорид бария', observation_ru: 'Белый осадок BaSO₄, нерастворимый в кислотах' },
+  { target_id: 'CO3_2minus', target_name_ru: 'Карбонат-ион', reagent_formula: 'HCl', reagent_name_ru: 'Соляная кислота', observation_ru: 'Выделение газа CO₂ (помутнение известковой воды)' },
+];
+
+const MOCK_GENETIC_CHAINS: GeneticChain[] = [
+  {
+    chain_id: 'chain_Ca',
+    title_ru: 'Цепочка превращений кальция',
+    class_sequence: ['element', 'oxide', 'hydroxide', 'salt'],
+    steps: [
+      { substance: 'Ca', reagent: 'O₂', next: 'CaO', type: 'oxidation' },
+      { substance: 'CaO', reagent: 'H₂O', next: 'Ca(OH)₂', type: 'hydration' },
+      { substance: 'Ca(OH)₂', reagent: 'HCl', next: 'CaCl₂', type: 'neutralization' },
+    ],
+  },
+  {
+    chain_id: 'chain_S',
+    title_ru: 'Цепочка превращений серы',
+    class_sequence: ['element', 'oxide', 'acid'],
+    steps: [
+      { substance: 'S', reagent: 'O₂', next: 'SO₂', type: 'oxidation' },
+      { substance: 'SO₂', reagent: 'H₂O', next: 'H₂SO₃', type: 'hydration' },
+    ],
+  },
+];
+
+const MOCK_ENERGY_CATALYST: EnergyCatalystTheory = {
+  rate_factors: [
+    { factor_id: 'temperature', name_ru: 'Температура', effect_ru: 'Повышение температуры увеличивает скорость реакции', detail_ru: 'Правило Вант-Гоффа', applies_to: 'all' },
+    { factor_id: 'concentration', name_ru: 'Концентрация', effect_ru: 'Увеличение концентрации ускоряет реакцию', detail_ru: 'Закон действующих масс', applies_to: 'homogeneous' },
+    { factor_id: 'surface_area', name_ru: 'Площадь поверхности', effect_ru: 'Измельчение твёрдого вещества увеличивает скорость', detail_ru: 'Гетерогенные реакции', applies_to: 'heterogeneous' },
+  ],
+  catalyst_properties: {
+    changes_ru: ['Скорость реакции'],
+    does_not_change_ru: ['Положение равновесия', 'Тепловой эффект'],
+  },
+  common_catalysts: [
+    { catalyst: 'MnO₂', name_ru: 'Диоксид марганца', reaction_ru: 'Разложение H₂O₂' },
+    { catalyst: 'V₂O₅', name_ru: 'Оксид ванадия(V)', reaction_ru: 'Контактный метод получения H₂SO₄' },
+    { catalyst: 'Pt', name_ru: 'Платина', reaction_ru: 'Окисление аммиака' },
+  ],
+  equilibrium_shifts: [
+    { factor: 'увеличение температуры', shift_ru: 'в сторону эндотермической реакции', explanation_ru: 'Принцип Ле Шателье' },
+    { factor: 'увеличение давления', shift_ru: 'в сторону меньшего объёма газов', explanation_ru: 'Принцип Ле Шателье' },
+    { factor: 'увеличение концентрации реагентов', shift_ru: 'в сторону продуктов', explanation_ru: 'Принцип Ле Шателье' },
+  ],
+  heat_classification: {
+    exothermic_ru: 'Экзотермическая реакция',
+    endothermic_ru: 'Эндотермическая реакция',
+    examples_exo_ru: ['Горение', 'Нейтрализация'],
+    examples_endo_ru: ['Разложение', 'Электролиз'],
+  },
+};
+
+// Extend reactions with redox info for testing
+const PHASE2_REACTIONS_EXTENDED: Reaction[] = [
+  {
+    reaction_id: 'rx1', title: 'Neutralization', equation: 'HCl + NaOH → NaCl + H₂O',
+    type_tags: ['exchange', 'neutralization'], driving_forces: ['water_formation'],
+    phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
+    ionic: { net: 'H⁺ + OH⁻ → H₂O', notes: 'Na⁺, Cl⁻' },
+    observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo', safety_notes: [], competencies: {},
+  },
+  {
+    reaction_id: 'rx2', title: 'Decomposition', equation: 'CaCO₃ → CaO + CO₂',
+    type_tags: ['decomposition'], driving_forces: ['gas_evolution'],
+    phase: { medium: 's' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'endo', safety_notes: [], competencies: {},
+  },
+  {
+    reaction_id: 'rx3', title: 'Substitution', equation: 'Fe + CuSO₄ → FeSO₄ + Cu',
+    type_tags: ['substitution'], driving_forces: ['activity_series'],
+    phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo', safety_notes: [], competencies: {},
+  },
+  {
+    reaction_id: 'rx4', title: 'Combustion of hydrogen', equation: '2H₂ + O₂ → 2H₂O',
+    type_tags: ['redox'], driving_forces: ['energy_release'],
+    phase: { medium: 'g' }, molecular: { reactants: [], products: [] },
+    ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo', safety_notes: [], competencies: {},
+    redox: {
+      oxidizer: { formula: 'O₂', element: 'O', from: 0, to: -2 },
+      reducer: { formula: 'H₂', element: 'H', from: 0, to: 1 },
+      electron_transfer: '2e⁻ per O atom',
+    },
+  },
+  {
+    reaction_id: 'rx5', title: 'Precipitation', equation: 'NaCl + AgNO₃ → AgCl↓ + NaNO₃',
+    type_tags: ['exchange'], driving_forces: ['precipitate'],
+    phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
+    ionic: { net: 'Ag⁺ + Cl⁻ → AgCl↓', notes: 'Na⁺, NO₃⁻' },
+    observations: {}, rate_tips: { how_to_speed_up: [] },
+    heat_effect: 'exo', safety_notes: [], competencies: {},
+  },
+] as Reaction[];
+
 function loadAllTemplates(): TaskTemplate[] {
   const raw = readFileSync(
     resolve(__dirname, '../../../../data-src/engine/task_templates.json'),
@@ -507,8 +698,15 @@ function buildPhase2Ontology(): OntologyData {
       bondExamples: PHASE2_BOND_EXAMPLES,
       classificationRules: PHASE2_CLASSIFICATION_RULES,
       namingRules: PHASE2_NAMING_RULES,
+      activitySeries: MOCK_ACTIVITY_SERIES,
+      qualitativeTests: MOCK_QUALITATIVE_TESTS,
+      energyCatalyst: MOCK_ENERGY_CATALYST,
     },
-    data: { substances: PHASE2_SUBSTANCE_INDEX, reactions: PHASE2_REACTIONS },
+    data: {
+      substances: PHASE2_SUBSTANCE_INDEX,
+      reactions: PHASE2_REACTIONS_EXTENDED,
+      geneticChains: MOCK_GENETIC_CHAINS,
+    },
     i18n: { ...MOCK_DATA.i18n, promptTemplates: PHASE2_PROMPTS },
   };
 }
@@ -517,8 +715,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 30 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(30);
+  it('loads all 48 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(48);
   });
 
   describe('bond templates', () => {
@@ -760,7 +958,7 @@ describe('TaskEngine — Phase 2 integration', () => {
       for (let i = 0; i < 10; i++) {
         const task = engine.generateForCompetency('reactions_exchange');
         expect(task).not.toBeNull();
-        expect(task!.template_id).toBe('tmpl.rxn.identify_type.v1');
+        expect(task!.competency_map).toHaveProperty('reactions_exchange');
       }
     });
   });
@@ -861,6 +1059,308 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.competency_map).toEqual({ amphoterism_logic: 'P' });
       // Slots should include reaction_partners
       expect(task.slots.reaction_partners).toEqual(['acid', 'base']);
+    });
+  });
+});
+
+// ── Reactions batch integration tests ──────────────────────────────
+
+describe('TaskEngine — Reactions batch integration', () => {
+  const allTemplates = loadAllTemplates();
+  const ontology = buildPhase2Ontology();
+  const engine = createTaskEngine(allTemplates, ontology);
+
+  describe('exchange reaction templates', () => {
+    it('predict_exchange returns an equation for exchange reactions', () => {
+      const task = engine.generate('tmpl.rxn.predict_exchange.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.predict_exchange.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(String(task.correct_answer)).toContain('\u2192');
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
+    });
+
+    it('driving_force returns a driving force label', () => {
+      const task = engine.generate('tmpl.rxn.driving_force.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.driving_force.v1');
+      expect(task.interaction).toBe('choice_single');
+      // Driving forces for exchange reactions: water, precipitate, gas, weak_electrolyte, none
+      expect(['water', 'precipitate', 'gas', 'weak_electrolyte', 'none']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P', gas_precipitate_logic: 'S' });
+    });
+
+    it('will_occur returns yes or no', () => {
+      const task = engine.generate('tmpl.rxn.will_occur.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.will_occur.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['yes', 'no']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P', gas_precipitate_logic: 'S' });
+    });
+  });
+
+  describe('activity series templates', () => {
+    it('activity_compare returns yes or no', () => {
+      const task = engine.generate('tmpl.rxn.activity_compare.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.activity_compare.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['yes', 'no']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ activity_series_logic: 'P' });
+      // Slots should have metalA and metalB
+      expect(task.slots.metalA).toBeDefined();
+      expect(task.slots.metalB).toBeDefined();
+    });
+
+    it('will_metal_react returns 0 or 1', () => {
+      const task = engine.generate('tmpl.rxn.will_metal_react.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.will_metal_react.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect([0, 1]).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ activity_series_logic: 'P' });
+    });
+  });
+
+  describe('ionic equation templates', () => {
+    it('match_ionic template exists and loads correctly', () => {
+      const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.match_ionic.v1');
+      expect(tmpl).toBeDefined();
+      expect(tmpl!.meta.interaction).toBe('match_pairs');
+      expect(tmpl!.competency_hint).toEqual({ ionic_spectators_logic: 'P' });
+    });
+
+    it('spectator_ions template exists and loads correctly', () => {
+      const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.spectator_ions.v1');
+      expect(tmpl).toBeDefined();
+      expect(tmpl!.meta.interaction).toBe('choice_single');
+      expect(tmpl!.competency_hint).toEqual({ ionic_spectators_logic: 'P' });
+    });
+
+    it('spectator_ions works with a reaction that has ionic.notes', () => {
+      // rx1 and rx5 have ionic.notes set, but random pick may choose one without
+      let found = false;
+      for (let i = 0; i < 30; i++) {
+        try {
+          const t = engine.generate('tmpl.rxn.spectator_ions.v1');
+          if (t.correct_answer) {
+            found = true;
+            expect(typeof t.correct_answer).toBe('string');
+            break;
+          }
+        } catch {
+          // Some reactions don't have spectator_ions, which is expected
+        }
+      }
+      // At least some reactions should have ionic data (rx1, rx5)
+      expect(found).toBe(true);
+    });
+  });
+
+  describe('qualitative analysis templates', () => {
+    it('identify_reagent returns a reagent formula', () => {
+      const task = engine.generate('tmpl.qual.identify_reagent.v1');
+
+      expect(task.template_id).toBe('tmpl.qual.identify_reagent.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allReagents = MOCK_QUALITATIVE_TESTS.map(t => t.reagent_formula);
+      expect(allReagents).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ qualitative_reactions: 'P' });
+      expect(task.slots.target_name).toBeDefined();
+    });
+
+    it('identify_ion returns an ion name', () => {
+      const task = engine.generate('tmpl.qual.identify_ion.v1');
+
+      expect(task.template_id).toBe('tmpl.qual.identify_ion.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allTargets = MOCK_QUALITATIVE_TESTS.map(t => t.target_name_ru);
+      expect(allTargets).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ qualitative_reactions: 'P' });
+      expect(task.slots.observation).toBeDefined();
+    });
+  });
+
+  describe('genetic chain templates', () => {
+    it('complete_step returns the next substance in the chain', () => {
+      const task = engine.generate('tmpl.chain.complete_step.v1');
+
+      expect(task.template_id).toBe('tmpl.chain.complete_step.v1');
+      expect(task.interaction).toBe('guided_selection');
+      expect(typeof task.correct_answer).toBe('string');
+      // The answer should be one of the substances in any chain
+      const allNext = MOCK_GENETIC_CHAINS.flatMap(c => c.steps.map(s => s.next));
+      expect(allNext).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ genetic_chains_logic: 'P' });
+      expect(task.slots.chain_substances).toBeDefined();
+      expect(Array.isArray(task.slots.chain_substances)).toBe(true);
+    });
+
+    it('choose_reagent returns a reagent string', () => {
+      const task = engine.generate('tmpl.chain.choose_reagent.v1');
+
+      expect(task.template_id).toBe('tmpl.chain.choose_reagent.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allReagents = MOCK_GENETIC_CHAINS.flatMap(c => c.steps.map(s => s.reagent));
+      expect(allReagents).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ genetic_chains_logic: 'P' });
+      expect(task.slots.substance).toBeDefined();
+    });
+  });
+
+  describe('redox templates', () => {
+    it('identify_oxidizer template exists with correct competency', () => {
+      const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.identify_oxidizer.v1');
+      expect(tmpl).toBeDefined();
+      expect(tmpl!.meta.interaction).toBe('choice_single');
+      expect(tmpl!.competency_hint).toEqual({ redox_basic: 'P' });
+      expect(tmpl!.pipeline.generator.params.type_tag).toBe('redox');
+    });
+
+    it('identify_oxidizer returns the oxidizer formula for redox reactions', () => {
+      const task = engine.generate('tmpl.rxn.identify_oxidizer.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.identify_oxidizer.v1');
+      expect(task.interaction).toBe('choice_single');
+      // rx4 is the only redox reaction, its oxidizer is O₂
+      expect(task.correct_answer).toBe('O\u2082');
+      expect(task.competency_map).toEqual({ redox_basic: 'P' });
+    });
+
+    it('predict_substitution returns an equation', () => {
+      const task = engine.generate('tmpl.rxn.predict_substitution.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.predict_substitution.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(String(task.correct_answer)).toContain('\u2192');
+      expect(task.competency_map).toEqual({ activity_series_logic: 'P', reactions_exchange: 'S' });
+    });
+  });
+
+  describe('energy & catalysis templates', () => {
+    it('factors_rate returns a factor name', () => {
+      const task = engine.generate('tmpl.rxn.factors_rate.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.factors_rate.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFactors = MOCK_ENERGY_CATALYST.rate_factors.map(f => f.name_ru);
+      expect(allFactors).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ reaction_rate_factors: 'P' });
+    });
+
+    it('exo_endo returns heat_effect (exo or endo)', () => {
+      const task = engine.generate('tmpl.rxn.exo_endo.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.exo_endo.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['exo', 'endo', 'negligible', 'unknown']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ reaction_rate_factors: 'P' });
+    });
+
+    it('equilibrium_shift returns a shift description', () => {
+      const task = engine.generate('tmpl.rxn.equilibrium_shift.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.equilibrium_shift.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allShifts = MOCK_ENERGY_CATALYST.equilibrium_shifts.map(s => s.shift_ru);
+      expect(allShifts).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ equilibrium_shift: 'P' });
+      expect(task.slots.eq_factor).toBeDefined();
+    });
+
+    it('catalyst_props returns a catalyst name', () => {
+      const task = engine.generate('tmpl.rxn.catalyst_props.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.catalyst_props.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allNames = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.name_ru);
+      expect(allNames).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ catalysis_concept: 'P' });
+      expect(task.slots.catalyst_reaction).toBeDefined();
+    });
+
+    it('identify_catalyst returns a catalyst formula', () => {
+      const task = engine.generate('tmpl.rxn.identify_catalyst.v1');
+
+      expect(task.template_id).toBe('tmpl.rxn.identify_catalyst.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allCatalysts = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.catalyst);
+      expect(allCatalysts).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ catalysis_concept: 'P' });
+    });
+  });
+
+  describe('gen.pick_reaction extended slots', () => {
+    it('includes driving force booleans and heat_effect', () => {
+      const task = engine.generate('tmpl.rxn.will_occur.v1');
+
+      // All reactions in our mock have driving forces, so will_occur should be "yes"
+      expect(task.slots.has_precipitate).toBeDefined();
+      expect(task.slots.has_gas).toBeDefined();
+      expect(task.slots.has_water).toBeDefined();
+      expect(task.slots.has_weak_electrolyte).toBeDefined();
+      expect(task.slots.will_occur).toBeDefined();
+      expect(task.slots.heat_effect).toBeDefined();
+      expect(task.slots.reactants).toBeDefined();
+    });
+
+    it('extracts reactants from equation', () => {
+      const task = engine.generate('tmpl.rxn.exo_endo.v1');
+      const reactants = String(task.slots.reactants);
+      // Reactants should not contain →
+      expect(reactants).not.toContain('\u2192');
+    });
+  });
+
+  describe('competency routing for new templates', () => {
+    it('generateForCompetency returns activity_series_logic templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('activity_series_logic');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('activity_series_logic');
+      }
+    });
+
+    it('generateForCompetency returns qualitative_reactions templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('qualitative_reactions');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('qualitative_reactions');
+      }
+    });
+
+    it('generateForCompetency returns genetic_chains_logic templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('genetic_chains_logic');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('genetic_chains_logic');
+      }
+    });
+
+    it('generateForCompetency returns catalysis_concept templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('catalysis_concept');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('catalysis_concept');
+      }
+    });
+
+    it('generateForCompetency returns equilibrium_shift templates', () => {
+      for (let i = 0; i < 10; i++) {
+        const task = engine.generateForCompetency('equilibrium_shift');
+        expect(task).not.toBeNull();
+        expect(task!.competency_map).toHaveProperty('equilibrium_shift');
+      }
     });
   });
 });

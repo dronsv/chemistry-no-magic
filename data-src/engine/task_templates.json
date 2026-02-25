@@ -523,5 +523,275 @@
     "difficulty_model": { "features": { "class": "auto" }, "target_band": [0.25, 0.55] },
     "exam_tags": ["oge"],
     "competency_hint": { "naming": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.predict_exchange.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": { "type_tag": "exchange" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "equation" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.predict_exchange_products",
+    "explanation_template_id": "explain.predict_exchange_products",
+    "evidence_rules": ["predict_exchange_products"],
+    "difficulty_model": { "features": { "multi_product": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reactions_exchange": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.driving_force.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": { "type_tag": "exchange" } },
+      "solvers": [{ "id": "solver.driving_force", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_driving_force",
+    "explanation_template_id": "explain.identify_driving_force",
+    "evidence_rules": ["identify_driving_force"],
+    "difficulty_model": { "features": { "multiple_forces": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reactions_exchange": "P", "gas_precipitate_logic": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.will_occur.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "will_occur" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.will_reaction_occur",
+    "explanation_template_id": "explain.will_reaction_occur",
+    "evidence_rules": ["reaction_feasibility"],
+    "difficulty_model": { "features": { "has_driving_force": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reactions_exchange": "P", "gas_precipitate_logic": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.activity_compare.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["ordering_by_trend"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_activity_pair", "params": {} },
+      "solvers": [{ "id": "solver.activity_compare", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.activity_series_compare",
+    "explanation_template_id": "explain.activity_series_compare",
+    "evidence_rules": ["activity_series"],
+    "difficulty_model": { "features": { "adjacent_positions": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "activity_series_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.will_metal_react.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_activity_pair", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "reduces_H_A" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.will_metal_react",
+    "explanation_template_id": "explain.will_metal_react",
+    "evidence_rules": ["activity_series"],
+    "difficulty_model": { "features": { "near_hydrogen": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "activity_series_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.match_ionic.v1",
+    "meta": { "interaction": "match_pairs", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "partial_credit", "partial_credit": true } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "net_ionic" } }],
+      "renderers": [{ "id": "view.match_pairs", "params": {} }]
+    },
+    "prompt_template_id": "prompt.match_ionic_equation",
+    "explanation_template_id": "explain.match_ionic_equation",
+    "evidence_rules": ["ionic_equations"],
+    "difficulty_model": { "features": { "polyatomic_ions": "auto" }, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "ionic_spectators_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.spectator_ions.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction", "ion"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "spectator_ions" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_spectator_ions",
+    "explanation_template_id": "explain.identify_spectator_ions",
+    "evidence_rules": ["ionic_equations"],
+    "difficulty_model": { "features": { "polyatomic_ions": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "ionic_spectators_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.qual.identify_reagent.v1",
+    "meta": { "interaction": "choice_single", "objects": ["ion", "substance"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_qualitative_test", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "reagent_formula" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_reagent_for_ion",
+    "explanation_template_id": "explain.identify_reagent_for_ion",
+    "evidence_rules": ["qualitative_analysis"],
+    "difficulty_model": { "features": { "common_reagent": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "qualitative_reactions": "P" }
+  },
+  {
+    "template_id": "tmpl.qual.identify_ion.v1",
+    "meta": { "interaction": "choice_single", "objects": ["ion"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_qualitative_test", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "target_name" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_ion_by_obs",
+    "explanation_template_id": "explain.identify_ion_by_obs",
+    "evidence_rules": ["qualitative_analysis"],
+    "difficulty_model": { "features": { "distinct_observation": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "qualitative_reactions": "P" }
+  },
+  {
+    "template_id": "tmpl.chain.complete_step.v1",
+    "meta": { "interaction": "guided_selection", "objects": ["substance", "reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_chain_step", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "next" } }],
+      "renderers": [{ "id": "view.guided_selection", "params": {} }]
+    },
+    "prompt_template_id": "prompt.complete_chain_step",
+    "explanation_template_id": "explain.complete_chain_step",
+    "evidence_rules": ["genetic_chains"],
+    "difficulty_model": { "features": { "chain_length": "auto" }, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "genetic_chains_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.chain.choose_reagent.v1",
+    "meta": { "interaction": "choice_single", "objects": ["substance", "reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_chain_step", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "reagent" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.choose_reagent_for_step",
+    "explanation_template_id": "explain.choose_reagent_for_step",
+    "evidence_rules": ["genetic_chains"],
+    "difficulty_model": { "features": { "reaction_type": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "genetic_chains_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.identify_oxidizer.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["classification"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": { "type_tag": "redox" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "oxidizer" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_oxidizer_reducer",
+    "explanation_template_id": "explain.identify_oxidizer_reducer",
+    "evidence_rules": ["redox_analysis"],
+    "difficulty_model": { "features": { "multi_element": "auto" }, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "redox_basic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.predict_substitution.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": { "type_tag": "substitution" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "equation" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.predict_substitution",
+    "explanation_template_id": "explain.predict_substitution",
+    "evidence_rules": ["substitution_prediction"],
+    "difficulty_model": { "features": { "activity_series": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "activity_series_logic": "P", "reactions_exchange": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.factors_rate.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_energy_catalyst", "params": { "mode": "rate" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "factor_name" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.factors_affecting_rate",
+    "explanation_template_id": "explain.factors_affecting_rate",
+    "evidence_rules": ["rate_factors"],
+    "difficulty_model": { "features": { "applies_to": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_rate_factors": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.exo_endo.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["classification"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "heat_effect" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.exo_endo_classify",
+    "explanation_template_id": "explain.exo_endo_classify",
+    "evidence_rules": ["heat_effect_classification"],
+    "difficulty_model": { "features": { "reaction_type": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_rate_factors": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.equilibrium_shift.v1",
+    "meta": { "interaction": "choice_single", "objects": ["reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_energy_catalyst", "params": { "mode": "eq" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "eq_shift" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.equilibrium_shift",
+    "explanation_template_id": "explain.equilibrium_shift",
+    "evidence_rules": ["equilibrium_shift"],
+    "difficulty_model": { "features": { "factor_type": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "equilibrium_shift": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.catalyst_props.v1",
+    "meta": { "interaction": "choice_single", "objects": ["substance", "reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_energy_catalyst", "params": { "mode": "cat" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "catalyst_name" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.catalyst_properties",
+    "explanation_template_id": "explain.catalyst_properties",
+    "evidence_rules": ["catalyst_identification"],
+    "difficulty_model": { "features": { "catalyst_type": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "catalysis_concept": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.identify_catalyst.v1",
+    "meta": { "interaction": "choice_single", "objects": ["substance", "reaction"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_energy_catalyst", "params": { "mode": "cat" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "catalyst" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.identify_catalyst",
+    "explanation_template_id": "explain.identify_catalyst",
+    "evidence_rules": ["catalyst_identification"],
+    "difficulty_model": { "features": { "catalyst_type": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "catalysis_concept": "P" }
   }
 ]
