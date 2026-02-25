@@ -106,5 +106,13 @@
   "prompt.bond_from_delta_chi": {
     "question": "Определите тип связи в соединении, образованном элементами {elementA} и {elementB}, по разности электроотрицательностей.",
     "slots": {}
+  },
+  "prompt.select_compound_by_state": {
+    "question": "В каком соединении {element} имеет степень окисления {expected_state}?",
+    "slots": {}
+  },
+  "prompt.min_oxidation_state": {
+    "question": "Какова минимальная типичная степень окисления {element}?",
+    "slots": {}
   }
 }

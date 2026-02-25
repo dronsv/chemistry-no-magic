@@ -106,5 +106,13 @@
   "prompt.bond_from_delta_chi": {
     "question": "Determina el tipo de enlace en el compuesto formado por {elementA} y {elementB} según la diferencia de electronegatividad.",
     "slots": {}
+  },
+  "prompt.select_compound_by_state": {
+    "question": "¿En qué compuesto {element} tiene estado de oxidación {expected_state}?",
+    "slots": {}
+  },
+  "prompt.min_oxidation_state": {
+    "question": "¿Cuál es el estado de oxidación mínimo típico de {element}?",
+    "slots": {}
   }
 }

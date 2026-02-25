@@ -375,6 +375,14 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'Determine the bond type in the compound formed by {elementA} and {elementB} based on electronegativity difference.',
     slots: {},
   },
+  'prompt.select_compound_by_state': {
+    question: 'In which compound does {element} have an oxidation state of {expected_state}?',
+    slots: {},
+  },
+  'prompt.min_oxidation_state': {
+    question: 'What is the minimum typical oxidation state of {element}?',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -449,8 +457,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 21 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(21);
+  it('loads all 23 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(23);
   });
 
   describe('bond templates', () => {
@@ -574,6 +582,35 @@ describe('TaskEngine — Phase 2 integration', () => {
 
       expect(task.template_id).toBe('tmpl.ox.max_state.v1');
       expect(typeof task.correct_answer).toBe('number');
+      expect(task.competency_map).toEqual({ oxidation_states: 'P' });
+    });
+  });
+
+  describe('oxidation state templates', () => {
+    it('select_by_state returns a formula from oxidation examples', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.ox.select_by_state.v1');
+
+      expect(task.template_id).toBe('tmpl.ox.select_by_state.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      const allFormulas = MOCK_OXIDATION_EXAMPLES.map(e => e.formula);
+      expect(allFormulas).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ oxidation_states: 'P' });
+      // Question should contain the element and expected_state slots
+      expect(task.slots.element).toBeDefined();
+      expect(task.slots.expected_state).toBeDefined();
+    });
+
+    it('min_state returns a number (minimum oxidation state)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.ox.min_state.v1');
+
+      expect(task.template_id).toBe('tmpl.ox.min_state.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('number');
+      // For our mock elements: Na=1, Mg=2, Cl=-1
+      expect([1, 2, -1]).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ oxidation_states: 'P' });
     });
   });

@@ -381,12 +381,17 @@ function genPickElementPosition(_params: Record<string, unknown>, data: Ontology
     el.typical_oxidation_states.length > 0
       ? Math.max(...el.typical_oxidation_states)
       : 0;
+  const minOx =
+    el.typical_oxidation_states.length > 0
+      ? Math.min(...el.typical_oxidation_states)
+      : 0;
 
   return {
     element: el.symbol,
     period: el.period,
     group: el.group,
     max_oxidation_state: maxOx,
+    min_oxidation_state: minOx,
   };
 }
 

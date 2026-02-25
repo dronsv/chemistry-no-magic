@@ -106,5 +106,13 @@
   "prompt.bond_from_delta_chi": {
     "question": "Determine the bond type in the compound formed by {elementA} and {elementB} based on electronegativity difference.",
     "slots": {}
+  },
+  "prompt.select_compound_by_state": {
+    "question": "In which compound does {element} have an oxidation state of {expected_state}?",
+    "slots": {}
+  },
+  "prompt.min_oxidation_state": {
+    "question": "What is the minimum typical oxidation state of {element}?",
+    "slots": {}
   }
 }

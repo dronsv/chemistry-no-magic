@@ -106,5 +106,13 @@
   "prompt.bond_from_delta_chi": {
     "question": "Określ typ wiązania w związku utworzonym przez {elementA} i {elementB} na podstawie różnicy elektroujemności.",
     "slots": {}
+  },
+  "prompt.select_compound_by_state": {
+    "question": "W którym związku {element} ma stopień utlenienia {expected_state}?",
+    "slots": {}
+  },
+  "prompt.min_oxidation_state": {
+    "question": "Jaki jest minimalny typowy stopień utlenienia {element}?",
+    "slots": {}
   }
 }

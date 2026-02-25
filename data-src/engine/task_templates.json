@@ -388,5 +388,35 @@
     "difficulty_model": { "features": { "delta_range": "auto" }, "target_band": [0.3, 0.6] },
     "exam_tags": ["oge"],
     "competency_hint": { "bond_type": "P", "periodic_trends": "S" }
+  },
+  {
+    "template_id": "tmpl.ox.select_by_state.v1",
+    "meta": { "interaction": "choice_single", "objects": ["substance", "element"], "reasoning": ["constraint_satisfaction"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_oxidation_example", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "formula" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.select_compound_by_state",
+    "explanation_template_id": "explain.select_compound_by_state",
+    "evidence_rules": ["determine_oxidation_state"],
+    "difficulty_model": { "features": { "has_polyatomic": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "oxidation_states": "P" }
+  },
+  {
+    "template_id": "tmpl.ox.min_state.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_position", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "min_oxidation_state" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.min_oxidation_state",
+    "explanation_template_id": "explain.min_oxidation_state",
+    "evidence_rules": ["determine_oxidation_state"],
+    "difficulty_model": { "features": { "variable_states": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "oxidation_states": "P" }
   }
 ]
