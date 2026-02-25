@@ -16,9 +16,13 @@ import { generateDistractors } from './distractor-engine';
 export interface Exercise {
   type: string;
   question: string;
-  format: 'multiple_choice' | 'interactive_orbital';
+  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection';
   options: Array<{ id: string; text: string }>;
   correctId: string;
+  correctIds?: string[];
+  pairs?: Array<{ left: string; right: string }>;
+  targetZ?: number;
+  context?: { chain: string[]; gapIndex: number };
   explanation: string;
   competencyMap: Record<string, 'P' | 'S'>;
 }
@@ -62,30 +66,112 @@ export function createTaskEngine(
     return executeTemplate(template, ontology);
   }
 
-  function toExercise(task: GeneratedTask): Exercise {
-    // Build options: correct + distractors, shuffled
-    const options: Array<{ id: string; text: string }> = [
-      { id: 'correct', text: String(task.correct_answer) },
-    ];
-    for (let i = 0; i < task.distractors.length; i++) {
-      options.push({ id: `wrong_${i}`, text: task.distractors[i] });
-    }
-
-    // Fisher-Yates shuffle
+  function shuffleOptions(options: Array<{ id: string; text: string }>): void {
     for (let i = options.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [options[i], options[j]] = [options[j], options[i]];
     }
+  }
 
-    return {
+  function toExercise(task: GeneratedTask): Exercise {
+    const base = {
       type: task.template_id,
       question: task.question,
-      format: 'multiple_choice',
-      options,
-      correctId: 'correct',
       explanation: task.explanation,
       competencyMap: task.competency_map,
     };
+
+    switch (task.interaction) {
+      case 'choice_multi': {
+        const correctArr = Array.isArray(task.correct_answer)
+          ? task.correct_answer
+          : [String(task.correct_answer)];
+        const options: Array<{ id: string; text: string }> = correctArr.map(
+          (ans, i) => ({ id: `correct_${i}`, text: String(ans) }),
+        );
+        for (let i = 0; i < task.distractors.length; i++) {
+          options.push({ id: `wrong_${i}`, text: task.distractors[i] });
+        }
+        shuffleOptions(options);
+        return {
+          ...base,
+          format: 'multiple_choice_multi',
+          options,
+          correctId: '',
+          correctIds: correctArr.map((_, i) => `correct_${i}`),
+        };
+      }
+
+      case 'match_pairs': {
+        const pairStrs = Array.isArray(task.correct_answer)
+          ? task.correct_answer
+          : [String(task.correct_answer)];
+        const pairs = pairStrs.map((p) => {
+          const [left, right] = String(p).split(':');
+          return { left, right };
+        });
+        return {
+          ...base,
+          format: 'match_pairs',
+          options: [],
+          correctId: '',
+          pairs,
+        };
+      }
+
+      case 'interactive_orbital': {
+        const targetZ = typeof task.slots.Z === 'number'
+          ? task.slots.Z
+          : Number(task.slots.Z);
+        return {
+          ...base,
+          format: 'interactive_orbital',
+          options: [],
+          correctId: 'correct',
+          targetZ,
+        };
+      }
+
+      case 'guided_selection': {
+        const chain = Array.isArray(task.slots.chain_substances)
+          ? task.slots.chain_substances.map(String)
+          : [];
+        const gapIndex = typeof task.slots.gap_index === 'number'
+          ? task.slots.gap_index
+          : Number(task.slots.gap_index);
+        const options: Array<{ id: string; text: string }> = [
+          { id: 'correct', text: String(task.correct_answer) },
+        ];
+        for (let i = 0; i < task.distractors.length; i++) {
+          options.push({ id: `wrong_${i}`, text: task.distractors[i] });
+        }
+        shuffleOptions(options);
+        return {
+          ...base,
+          format: 'guided_selection',
+          options,
+          correctId: 'correct',
+          context: { chain, gapIndex },
+        };
+      }
+
+      default: {
+        // choice_single, numeric_input, order_dragdrop — default behavior
+        const options: Array<{ id: string; text: string }> = [
+          { id: 'correct', text: String(task.correct_answer) },
+        ];
+        for (let i = 0; i < task.distractors.length; i++) {
+          options.push({ id: `wrong_${i}`, text: task.distractors[i] });
+        }
+        shuffleOptions(options);
+        return {
+          ...base,
+          format: 'multiple_choice',
+          options,
+          correctId: 'correct',
+        };
+      }
+    }
   }
 
   return { generate, generateRandom, generateForCompetency, toExercise };

@@ -33,12 +33,15 @@ export interface ExerciseOption {
 export interface Exercise {
   type: string;
   question: string;
-  format: 'multiple_choice' | 'interactive_orbital';
+  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection';
   options: ExerciseOption[];
   correctId: string;
+  correctIds?: string[];
+  pairs?: Array<{ left: string; right: string }>;
+  targetZ?: number;
+  context?: { chain: string[]; gapIndex: number };
   explanation: string;
   competencyMap: Record<string, 'P' | 'S'>;
-  targetZ?: number;
 }
 
 export interface Adapter {

@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { createTaskEngine } from '../task-engine';
-import type { OntologyData, PropertyDef, TaskTemplate, PromptTemplateMap } from '../types';
+import type { OntologyData, PropertyDef, TaskTemplate, PromptTemplateMap, GeneratedTask } from '../types';
 import type { Element } from '../../../types/element';
 import type { Ion } from '../../../types/ion';
 import type { OxidationExample } from '../../../types/oxidation';
@@ -556,5 +556,106 @@ describe('TaskEngine — Phase 2 integration', () => {
         expect(task!.template_id).toBe('tmpl.rxn.identify_type.v1');
       }
     });
+  });
+});
+
+// ── toExercise format routing tests ──────────────────────────────
+
+describe('toExercise format routing', () => {
+  const engine = createTaskEngine([], MOCK_DATA);
+
+  it('choice_multi → multiple_choice_multi with correctIds', () => {
+    const multiTask: GeneratedTask = {
+      template_id: 'test.multi',
+      interaction: 'choice_multi',
+      question: 'Select all acids',
+      correct_answer: ['HCl', 'H₂SO₄'],
+      distractors: ['NaOH', 'NaCl'],
+      explanation: '',
+      competency_map: {},
+      difficulty: 0.5,
+      exam_tags: [],
+      slots: {},
+    };
+    const ex = engine.toExercise(multiTask);
+
+    expect(ex.format).toBe('multiple_choice_multi');
+    expect(ex.correctIds).toBeDefined();
+    expect(ex.correctIds!.length).toBe(2);
+    expect(ex.options.length).toBe(4);
+    // All correct IDs must be present in options
+    for (const cid of ex.correctIds!) {
+      expect(ex.options.find(o => o.id === cid)).toBeDefined();
+    }
+  });
+
+  it('match_pairs → match_pairs with parsed pairs', () => {
+    const matchTask: GeneratedTask = {
+      template_id: 'test.match',
+      interaction: 'match_pairs',
+      question: 'Match ions to reagents',
+      correct_answer: ['Cl⁻:AgNO₃', 'SO₄²⁻:BaCl₂'],
+      distractors: [],
+      explanation: '',
+      competency_map: {},
+      difficulty: 0.5,
+      exam_tags: [],
+      slots: {},
+    };
+    const ex = engine.toExercise(matchTask);
+
+    expect(ex.format).toBe('match_pairs');
+    expect(ex.pairs).toBeDefined();
+    expect(ex.pairs!.length).toBe(2);
+    expect(ex.pairs![0]).toEqual({ left: 'Cl⁻', right: 'AgNO₃' });
+    expect(ex.pairs![1]).toEqual({ left: 'SO₄²⁻', right: 'BaCl₂' });
+    expect(ex.options).toEqual([]);
+  });
+
+  it('interactive_orbital → interactive_orbital with targetZ', () => {
+    const orbitalTask: GeneratedTask = {
+      template_id: 'test.orbital',
+      interaction: 'interactive_orbital',
+      question: 'Fill orbital for Na',
+      correct_answer: '1s² 2s² 2p⁶ 3s¹',
+      distractors: [],
+      explanation: '',
+      competency_map: {},
+      difficulty: 0.5,
+      exam_tags: [],
+      slots: { element: 'Na', Z: 11 },
+    };
+    const ex = engine.toExercise(orbitalTask);
+
+    expect(ex.format).toBe('interactive_orbital');
+    expect(ex.targetZ).toBe(11);
+    expect(ex.options).toEqual([]);
+  });
+
+  it('guided_selection → guided_selection with context and options', () => {
+    const guidedTask: GeneratedTask = {
+      template_id: 'test.guided',
+      interaction: 'guided_selection',
+      question: 'Complete the chain step',
+      correct_answer: 'CaO',
+      distractors: ['NaCl', 'HCl'],
+      explanation: '',
+      competency_map: {},
+      difficulty: 0.5,
+      exam_tags: [],
+      slots: { chain_substances: ['CaCO₃', '?', 'Ca(OH)₂'], gap_index: 1 },
+    };
+    const ex = engine.toExercise(guidedTask);
+
+    expect(ex.format).toBe('guided_selection');
+    expect(ex.context).toBeDefined();
+    expect(ex.context!.chain).toEqual(['CaCO₃', '?', 'Ca(OH)₂']);
+    expect(ex.context!.chain.length).toBe(3);
+    expect(ex.context!.gapIndex).toBe(1);
+    expect(ex.options.length).toBe(3);
+    expect(ex.correctId).toBe('correct');
+    // Correct option must exist
+    expect(ex.options.find(o => o.id === 'correct')).toBeDefined();
+    expect(ex.options.find(o => o.id === 'correct')!.text).toBe('CaO');
   });
 });
