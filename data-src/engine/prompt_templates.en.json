@@ -91,5 +91,20 @@
   "prompt.fill_orbital": {
     "question": "Fill the orbital diagram for {element}.",
     "slots": {}
+  },
+  "prompt.predict_crystal_property": {
+    "question": "Which physical properties are characteristic of substances with a {crystal_type} crystal structure?",
+    "slots": {
+      "crystal_type": {
+        "ionic": "ionic",
+        "molecular": "molecular",
+        "atomic": "atomic",
+        "metallic": "metallic"
+      }
+    }
+  },
+  "prompt.bond_from_delta_chi": {
+    "question": "Determine the bond type in the compound formed by {elementA} and {elementB} based on electronegativity difference.",
+    "slots": {}
   }
 }

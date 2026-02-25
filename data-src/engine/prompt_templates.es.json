@@ -91,5 +91,20 @@
   "prompt.fill_orbital": {
     "question": "Completa el diagrama orbital del átomo de {element}.",
     "slots": {}
+  },
+  "prompt.predict_crystal_property": {
+    "question": "¿Qué propiedades físicas son características de sustancias con estructura cristalina {crystal_type}?",
+    "slots": {
+      "crystal_type": {
+        "ionic": "iónica",
+        "molecular": "molecular",
+        "atomic": "atómica",
+        "metallic": "metálica"
+      }
+    }
+  },
+  "prompt.bond_from_delta_chi": {
+    "question": "Determina el tipo de enlace en el compuesto formado por {elementA} y {elementB} según la diferencia de electronegatividad.",
+    "slots": {}
   }
 }

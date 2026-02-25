@@ -91,5 +91,20 @@
   "prompt.fill_orbital": {
     "question": "Заполните орбитальную диаграмму для атома {element}.",
     "slots": {}
+  },
+  "prompt.predict_crystal_property": {
+    "question": "Какие физические свойства характерны для веществ с {crystal_type} кристаллической решёткой?",
+    "slots": {
+      "crystal_type": {
+        "ionic": "ионной",
+        "molecular": "молекулярной",
+        "atomic": "атомной",
+        "metallic": "металлической"
+      }
+    }
+  },
+  "prompt.bond_from_delta_chi": {
+    "question": "Определите тип связи в соединении, образованном элементами {elementA} и {elementB}, по разности электроотрицательностей.",
+    "slots": {}
   }
 }

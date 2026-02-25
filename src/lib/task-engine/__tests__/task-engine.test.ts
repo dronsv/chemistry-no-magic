@@ -362,6 +362,19 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'Fill the orbital diagram for {element}.',
     slots: {},
   },
+  'prompt.predict_crystal_property': {
+    question: 'Which physical properties are characteristic of substances with a {crystal_type} crystal structure?',
+    slots: {
+      crystal_type: {
+        ionic: 'ionic', molecular: 'molecular',
+        atomic: 'atomic', metallic: 'metallic',
+      },
+    },
+  },
+  'prompt.bond_from_delta_chi': {
+    question: 'Determine the bond type in the compound formed by {elementA} and {elementB} based on electronegativity difference.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -436,8 +449,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 19 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(19);
+  it('loads all 21 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(21);
   });
 
   describe('bond templates', () => {
@@ -478,6 +491,26 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allFormulas = PHASE2_BOND_EXAMPLES.examples.map(e => e.formula);
       expect(allFormulas).toContain(task.correct_answer);
+    });
+
+    it('predict_property returns a crystal type', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.predict_property.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.predict_property.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['ionic', 'molecular', 'atomic', 'metallic']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ crystal_structure_type: 'P', bond_type: 'S' });
+    });
+
+    it('delta_chi returns a bond type from electronegativity difference', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.bond.delta_chi.v1');
+
+      expect(task.template_id).toBe('tmpl.bond.delta_chi.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(['ionic', 'covalent_polar', 'covalent_nonpolar']).toContain(task.correct_answer);
+      expect(task.competency_map).toEqual({ bond_type: 'P', periodic_trends: 'S' });
     });
   });
 

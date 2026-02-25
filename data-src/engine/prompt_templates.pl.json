@@ -91,5 +91,20 @@
   "prompt.fill_orbital": {
     "question": "Wypełnij diagram orbitalny dla atomu {element}.",
     "slots": {}
+  },
+  "prompt.predict_crystal_property": {
+    "question": "Jakie właściwości fizyczne są charakterystyczne dla substancji o sieci krystalicznej {crystal_type}?",
+    "slots": {
+      "crystal_type": {
+        "ionic": "jonowej",
+        "molecular": "molekularnej",
+        "atomic": "atomowej",
+        "metallic": "metalicznej"
+      }
+    }
+  },
+  "prompt.bond_from_delta_chi": {
+    "question": "Określ typ wiązania w związku utworzonym przez {elementA} i {elementB} na podstawie różnicy elektroujemności.",
+    "slots": {}
   }
 }

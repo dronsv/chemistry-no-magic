@@ -358,5 +358,35 @@
     "difficulty_model": { "features": { "Z_range": "auto", "has_d_block": "auto" }, "target_band": [0.3, 0.7] },
     "exam_tags": ["oge", "ege"],
     "competency_hint": { "electron_config": "P" }
+  },
+  {
+    "template_id": "tmpl.bond.predict_property.v1",
+    "meta": { "interaction": "choice_single", "objects": ["substance"], "reasoning": ["classification"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_bond_example", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "crystal_type" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.predict_crystal_property",
+    "explanation_template_id": "explain.predict_crystal_property",
+    "evidence_rules": ["crystal_property_prediction"],
+    "difficulty_model": { "features": { "crystal_type": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "crystal_structure_type": "P", "bond_type": "S" }
+  },
+  {
+    "template_id": "tmpl.bond.delta_chi.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["classification"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_pair", "params": { "require_field": "electronegativity" } },
+      "solvers": [{ "id": "solver.delta_chi", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.bond_from_delta_chi",
+    "explanation_template_id": "explain.bond_from_delta_chi",
+    "evidence_rules": ["delta_chi_bond_type"],
+    "difficulty_model": { "features": { "delta_range": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "bond_type": "P", "periodic_trends": "S" }
   }
 ]
