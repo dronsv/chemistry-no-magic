@@ -125,18 +125,42 @@ export interface GeneratedTask {
 }
 
 // ── Ontology data bundle (passed to generators/solvers) ────────
-export interface OntologyData {
+
+export interface OntologyCore {
   elements: import('../../types/element').Element[];
   ions: import('../../types/ion').Ion[];
   properties: PropertyDef[];
+}
+
+export interface OntologyRules {
   solubilityPairs: Array<{ cation: string; anion: string; solubility: string }>;
   oxidationExamples: import('../../types/oxidation').OxidationExample[];
+  bondExamples?: import('../../types/bond').BondExamplesData;
+  activitySeries?: import('../../types/rules').ActivitySeriesEntry[];
+  classificationRules?: import('../../types/classification').ClassificationRule[];
+  namingRules?: import('../../types/classification').NamingRule[];
+  qualitativeTests?: import('../../types/qualitative').QualitativeTest[];
+  energyCatalyst?: import('../../types/energy-catalyst').EnergyCatalystTheory;
+  ionNomenclature?: import('../../types/ion-nomenclature').IonNomenclatureRules;
+}
+
+export interface OntologyDataSources {
+  substances?: import('../../types/classification').SubstanceIndexEntry[];
+  reactions?: import('../../types/reaction').Reaction[];
+  geneticChains?: import('../../types/genetic-chain').GeneticChain[];
+  calculations?: import('../../types/calculations').CalculationsData;
+}
+
+export interface OntologyI18n {
   morphology: MorphologyData | null;
   promptTemplates: PromptTemplateMap;
-  // Phase 2 — optional, loaded when templates need them
-  bondExamples?: import('../../types/bond').BondExamplesData;
-  substanceIndex?: import('../../types/classification').SubstanceIndexEntry[];
-  reactions?: import('../../types/reaction').Reaction[];
+}
+
+export interface OntologyData {
+  core: OntologyCore;
+  rules: OntologyRules;
+  data: OntologyDataSources;
+  i18n: OntologyI18n;
 }
 
 // ── Evaluation result ──────────────────────────────────────────

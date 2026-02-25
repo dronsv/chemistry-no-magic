@@ -196,8 +196,10 @@ export async function loadEngineAdapter(competencyId: string, locale?: Supported
   ]);
 
   const ontology = {
-    elements, ions, properties, solubilityPairs, oxidationExamples,
-    morphology, promptTemplates, bondExamples, substanceIndex, reactions,
+    core: { elements, ions, properties },
+    rules: { solubilityPairs, oxidationExamples, bondExamples },
+    data: { substances: substanceIndex, reactions },
+    i18n: { morphology, promptTemplates },
   };
 
   const engine = createTaskEngine(templates, ontology);

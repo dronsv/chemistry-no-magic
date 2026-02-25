@@ -76,13 +76,10 @@ const MOCK_OXIDATION_EXAMPLES: OxidationExample[] = [
 ];
 
 const MOCK_DATA: OntologyData = {
-  elements: MOCK_ELEMENTS,
-  ions: MOCK_IONS,
-  properties: MOCK_PROPERTIES,
-  solubilityPairs: MOCK_SOLUBILITY_PAIRS,
-  oxidationExamples: MOCK_OXIDATION_EXAMPLES,
-  morphology: null,
-  promptTemplates: {},
+  core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
+  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: MOCK_OXIDATION_EXAMPLES },
+  data: {},
+  i18n: { morphology: null, promptTemplates: {} },
 };
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -263,9 +260,9 @@ const MOCK_REACTIONS = [
   { reaction_id: 'rx3', equation: 'CaCO3 → CaO + CO2', type_tags: ['decomposition'], title: '', phase: { medium: 's' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'endo' as const, safety_notes: [], competencies: {} },
 ];
 
-const dataWithBonds: OntologyData = { ...MOCK_DATA, bondExamples: MOCK_BOND_EXAMPLES };
-const dataWithSubstances: OntologyData = { ...MOCK_DATA, substanceIndex: MOCK_SUBSTANCE_INDEX };
-const dataWithReactions: OntologyData = { ...MOCK_DATA, reactions: MOCK_REACTIONS };
+const dataWithBonds: OntologyData = { ...MOCK_DATA, rules: { ...MOCK_DATA.rules, bondExamples: MOCK_BOND_EXAMPLES } };
+const dataWithSubstances: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, substances: MOCK_SUBSTANCE_INDEX } };
+const dataWithReactions: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, reactions: MOCK_REACTIONS } };
 
 // ── Bond generator tests ─────────────────────────────────────────
 

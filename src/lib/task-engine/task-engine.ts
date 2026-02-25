@@ -109,9 +109,9 @@ function executeTemplate(
 
   // 3. Render prompt
   const renderCtx: RenderContext = {
-    promptTemplates: ontology.promptTemplates,
-    properties: ontology.properties,
-    morphology: ontology.morphology,
+    promptTemplates: ontology.i18n.promptTemplates,
+    properties: ontology.core.properties,
+    morphology: ontology.i18n.morphology,
   };
   const question = renderPrompt(template.prompt_template_id, slots, renderCtx);
 

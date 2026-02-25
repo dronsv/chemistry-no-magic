@@ -38,10 +38,10 @@ function resolveParam(
   if (!m) return raw;
   // It's a placeholder — pick a random property
   const inner = m[1];
-  const match = data.properties.find(p => p.id === inner);
+  const match = data.core.properties.find(p => p.id === inner);
   if (match) return match.id; // exact match — but caller wanted random? No, just return the id.
   // Generic placeholder like {property} — pick random property
-  return pickRandom(data.properties).id;
+  return pickRandom(data.core.properties).id;
 }
 
 /** Get the value of a property field from an element. */
@@ -80,11 +80,11 @@ function applyPropertyFilter(elements: Element[], prop: PropertyDef): Element[] 
 function genPickElementPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
   const filter = typeof params.filter === 'string' ? params.filter : undefined;
   const requireFieldRaw = params.require_field;
-  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.properties).id;
-  const prop = data.properties.find(p => p.id === propertyId);
+  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.core.properties).id;
+  const prop = data.core.properties.find(p => p.id === propertyId);
   if (!prop) throw new Error(`Unknown property: ${propertyId}`);
 
-  let candidates = [...data.elements];
+  let candidates = [...data.core.elements];
 
   // Apply filter
   if (filter === 'main_group') {
@@ -110,11 +110,11 @@ function genPickElementPair(params: Record<string, unknown>, data: OntologyData)
 function genPickElementsSamePeriod(params: Record<string, unknown>, data: OntologyData): SlotValues {
   const k = typeof params.k === 'number' ? params.k : 4;
   const requireFieldRaw = params.require_field;
-  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.properties).id;
-  const prop = data.properties.find(p => p.id === propertyId);
+  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.core.properties).id;
+  const prop = data.core.properties.find(p => p.id === propertyId);
   if (!prop) throw new Error(`Unknown property: ${propertyId}`);
 
-  let candidates = [...data.elements];
+  let candidates = [...data.core.elements];
 
   // Apply property-level filter
   candidates = applyPropertyFilter(candidates, prop);
@@ -160,7 +160,7 @@ function genPickElementsSamePeriod(params: Record<string, unknown>, data: Ontolo
 }
 
 function genPickOxidationExample(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  let examples = [...data.oxidationExamples];
+  let examples = [...data.rules.oxidationExamples];
 
   // Optional difficulty filter
   const difficulty = typeof params.difficulty === 'string' ? params.difficulty : undefined;
@@ -183,8 +183,8 @@ function genPickOxidationExample(params: Record<string, unknown>, data: Ontology
 }
 
 function genPickIonPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  const cations = data.ions.filter(i => i.type === 'cation');
-  const anions = data.ions.filter(i => i.type === 'anion');
+  const cations = data.core.ions.filter(i => i.type === 'cation');
+  const anions = data.core.ions.filter(i => i.type === 'anion');
 
   let filteredCations = cations;
   let filteredAnions = anions;
@@ -222,15 +222,15 @@ function genPickIonPair(params: Record<string, unknown>, data: OntologyData): Sl
 
 function genPickSaltPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
   void params; // no params used currently
-  if (data.solubilityPairs.length === 0) {
+  if (data.rules.solubilityPairs.length === 0) {
     throw new Error('No solubility pairs available');
   }
 
-  const pair = pickRandom(data.solubilityPairs);
+  const pair = pickRandom(data.rules.solubilityPairs);
 
   // Look up ion formulas for display
-  const catIon = data.ions.find(i => i.id === pair.cation);
-  const anIon = data.ions.find(i => i.id === pair.anion);
+  const catIon = data.core.ions.find(i => i.id === pair.cation);
+  const anIon = data.core.ions.find(i => i.id === pair.anion);
 
   const catFormula = catIon?.formula ?? pair.cation;
   const anFormula = anIon?.formula ?? pair.anion;
@@ -253,9 +253,9 @@ function genPickSaltPair(params: Record<string, unknown>, data: OntologyData): S
 const BOND_TYPES = ['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic'] as const;
 
 function genPickBondExample(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  if (!data.bondExamples) throw new Error('bondExamples not available in data');
+  if (!data.rules.bondExamples) throw new Error('bondExamples not available in data');
 
-  let examples: BondExampleEntry[] = [...data.bondExamples.examples];
+  let examples: BondExampleEntry[] = [...data.rules.bondExamples.examples];
 
   const raw = typeof params.bond_type === 'string' ? params.bond_type : undefined;
   if (raw) {
@@ -278,11 +278,11 @@ function genPickBondExample(params: Record<string, unknown>, data: OntologyData)
 }
 
 function genPickBondPair(_params: Record<string, unknown>, data: OntologyData): SlotValues {
-  if (!data.bondExamples) throw new Error('bondExamples not available in data');
+  if (!data.rules.bondExamples) throw new Error('bondExamples not available in data');
 
   // Group examples by crystal_type
   const byCrystal = new Map<string, BondExampleEntry[]>();
-  for (const ex of data.bondExamples.examples) {
+  for (const ex of data.rules.bondExamples.examples) {
     const arr = byCrystal.get(ex.crystal_type) ?? [];
     arr.push(ex);
     byCrystal.set(ex.crystal_type, arr);
@@ -304,9 +304,9 @@ function genPickBondPair(_params: Record<string, unknown>, data: OntologyData): 
 const SUBSTANCE_CLASSES = ['oxide', 'acid', 'base', 'salt'] as const;
 
 function genPickSubstanceByClass(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  if (!data.substanceIndex) throw new Error('substanceIndex not available in data');
+  if (!data.data.substances) throw new Error('substanceIndex not available in data');
 
-  let candidates = [...data.substanceIndex];
+  let candidates = [...data.data.substances];
 
   const raw = typeof params.substance_class === 'string' ? params.substance_class : undefined;
   if (raw) {
@@ -331,9 +331,9 @@ const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox'
 const PRIMARY_TAGS_SET = new Set<string>(REACTION_TYPE_TAGS);
 
 function genPickReaction(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  if (!data.reactions) throw new Error('reactions not available in data');
+  if (!data.data.reactions) throw new Error('reactions not available in data');
 
-  let candidates = [...data.reactions];
+  let candidates = [...data.data.reactions];
 
   const raw = typeof params.type_tag === 'string' ? params.type_tag : undefined;
   if (raw) {
@@ -357,7 +357,7 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
 }
 
 function genPickElementPosition(_params: Record<string, unknown>, data: OntologyData): SlotValues {
-  const candidates = data.elements.filter(
+  const candidates = data.core.elements.filter(
     el =>
       el.period >= 1 &&
       el.period <= 6 &&

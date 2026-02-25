@@ -196,7 +196,7 @@ function generateFormulaDistractors(
   const candidates: string[] = [];
 
   // Use other anions from the ontology to produce plausible wrong formulas
-  const anions = data.ions.filter(i => i.type === 'anion');
+  const anions = data.core.ions.filter(i => i.type === 'anion');
   const currentAnionId = String(slots.anion_id ?? '');
 
   for (const an of anions) {
@@ -238,16 +238,16 @@ function generateSubstanceFormulaDistractors(
 ): string[] {
   const candidates: string[] = [];
 
-  if (slots.bond_type && data.bondExamples?.examples) {
-    for (const ex of data.bondExamples.examples) {
+  if (slots.bond_type && data.rules.bondExamples?.examples) {
+    for (const ex of data.rules.bondExamples.examples) {
       if (ex.formula !== correctAnswer) {
         candidates.push(ex.formula);
       }
     }
   }
 
-  if (slots.substance_class && data.substanceIndex) {
-    for (const s of data.substanceIndex) {
+  if (slots.substance_class && data.data.substances) {
+    for (const s of data.data.substances) {
       if (s.class !== slots.substance_class && s.formula !== correctAnswer) {
         candidates.push(s.formula);
       }
@@ -275,7 +275,7 @@ function generateFallbackDistractors(
 
   // Pick element symbols that are not the correct answer
   const candidates: string[] = [];
-  for (const el of data.elements) {
+  for (const el of data.core.elements) {
     if (el.symbol !== correctStr) {
       candidates.push(el.symbol);
     }

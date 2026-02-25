@@ -63,13 +63,10 @@ const MOCK_PROMPTS: PromptTemplateMap = {
 };
 
 const MOCK_DATA: OntologyData = {
-  elements: MOCK_ELEMENTS,
-  ions: MOCK_IONS,
-  properties: MOCK_PROPERTIES,
-  solubilityPairs: [],
-  oxidationExamples: MOCK_OXIDATION_EXAMPLES,
-  morphology: null,
-  promptTemplates: MOCK_PROMPTS,
+  core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
+  rules: { solubilityPairs: [], oxidationExamples: MOCK_OXIDATION_EXAMPLES },
+  data: {},
+  i18n: { morphology: null, promptTemplates: MOCK_PROMPTS },
 };
 
 // ── Mock templates ───────────────────────────────────────────────
@@ -413,10 +410,9 @@ function loadAllTemplates(): TaskTemplate[] {
 function buildPhase2Ontology(): OntologyData {
   return {
     ...MOCK_DATA,
-    promptTemplates: PHASE2_PROMPTS,
-    bondExamples: PHASE2_BOND_EXAMPLES,
-    substanceIndex: PHASE2_SUBSTANCE_INDEX,
-    reactions: PHASE2_REACTIONS,
+    rules: { ...MOCK_DATA.rules, bondExamples: PHASE2_BOND_EXAMPLES },
+    data: { substances: PHASE2_SUBSTANCE_INDEX, reactions: PHASE2_REACTIONS },
+    i18n: { ...MOCK_DATA.i18n, promptTemplates: PHASE2_PROMPTS },
   };
 }
 

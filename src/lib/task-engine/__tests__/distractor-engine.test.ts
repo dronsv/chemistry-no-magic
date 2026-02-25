@@ -61,15 +61,10 @@ const MOCK_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
 ];
 
 const MOCK_DATA: OntologyData = {
-  elements: MOCK_ELEMENTS,
-  ions: MOCK_IONS,
-  properties: MOCK_PROPERTIES,
-  solubilityPairs: [],
-  oxidationExamples: [],
-  morphology: null,
-  promptTemplates: {},
-  bondExamples: MOCK_BOND_EXAMPLES,
-  substanceIndex: MOCK_SUBSTANCE_INDEX,
+  core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
+  rules: { solubilityPairs: [], oxidationExamples: [], bondExamples: MOCK_BOND_EXAMPLES },
+  data: { substances: MOCK_SUBSTANCE_INDEX },
+  i18n: { morphology: null, promptTemplates: {} },
 };
 
 // ── Tests ────────────────────────────────────────────────────────

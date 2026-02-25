@@ -62,14 +62,14 @@ function getElementValue(el: Element, valueField: string): number | null {
 
 /** Find a property definition by ID. */
 function findProperty(propertyId: string, data: OntologyData): PropertyDef {
-  const prop = data.properties.find(p => p.id === propertyId);
+  const prop = data.core.properties.find(p => p.id === propertyId);
   if (!prop) throw new Error(`Unknown property: ${propertyId}`);
   return prop;
 }
 
 /** Find an element by symbol. */
 function findElement(symbol: string, data: OntologyData): Element {
-  const el = data.elements.find(e => e.symbol === symbol);
+  const el = data.core.elements.find(e => e.symbol === symbol);
   if (!el) throw new Error(`Unknown element: ${symbol}`);
   return el;
 }
@@ -174,8 +174,8 @@ function solveComposeSaltFormula(
   const cationId = String(slots.cation_id);
   const anionId = String(slots.anion_id);
 
-  const catIon = data.ions.find(i => i.id === cationId);
-  const anIon = data.ions.find(i => i.id === anionId);
+  const catIon = data.core.ions.find(i => i.id === cationId);
+  const anIon = data.core.ions.find(i => i.id === anionId);
 
   if (!catIon || !anIon) {
     throw new Error(`Cannot find ions: ${cationId}, ${anionId}`);
@@ -229,7 +229,7 @@ function solveSolubilityCheck(
   const cationId = String(slots.cation_id);
   const anionId = String(slots.anion_id);
 
-  const pair = data.solubilityPairs.find(
+  const pair = data.rules.solubilityPairs.find(
     p => p.cation === cationId && p.anion === anionId,
   );
 
@@ -266,7 +266,7 @@ function solveCompareCrystalMelting(
   const formulaA = String(slots.formulaA);
   const formulaB = String(slots.formulaB);
 
-  const rank = data.bondExamples?.crystal_melting_rank;
+  const rank = data.rules.bondExamples?.crystal_melting_rank;
   if (!rank) throw new Error('crystal_melting_rank not available');
 
   const rankA = rank[crystalA] ?? 0;

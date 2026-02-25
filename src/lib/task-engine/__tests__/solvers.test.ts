@@ -50,13 +50,10 @@ const MOCK_SOLUBILITY_PAIRS = [
 ];
 
 const MOCK_DATA: OntologyData = {
-  elements: MOCK_ELEMENTS,
-  ions: MOCK_IONS,
-  properties: MOCK_PROPERTIES,
-  solubilityPairs: MOCK_SOLUBILITY_PAIRS,
-  oxidationExamples: [],
-  morphology: null,
-  promptTemplates: {},
+  core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
+  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: [] },
+  data: {},
+  i18n: { morphology: null, promptTemplates: {} },
 };
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -223,9 +220,12 @@ describe('solver.slot_lookup', () => {
 
 const MOCK_DATA_WITH_BONDS: OntologyData = {
   ...MOCK_DATA,
-  bondExamples: {
-    examples: [],
-    crystal_melting_rank: { molecular: 1, metallic: 2, ionic: 3, atomic: 4 },
+  rules: {
+    ...MOCK_DATA.rules,
+    bondExamples: {
+      examples: [],
+      crystal_melting_rank: { molecular: 1, metallic: 2, ionic: 3, atomic: 4 },
+    },
   },
 };
 
