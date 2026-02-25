@@ -75,5 +75,21 @@
   "prompt.find_group": {
     "question": "¿En qué grupo se encuentra el elemento {element}?",
     "slots": {}
+  },
+  "prompt.select_electron_config": {
+    "question": "¿Cuál es la configuración electrónica del átomo de {element}?",
+    "slots": {}
+  },
+  "prompt.count_valence": {
+    "question": "¿Cuántos electrones de valencia tiene el átomo de {element}?",
+    "slots": {}
+  },
+  "prompt.element_from_config": {
+    "question": "¿Qué elemento tiene la configuración electrónica {config}?",
+    "slots": {}
+  },
+  "prompt.fill_orbital": {
+    "question": "Completa el diagrama orbital del átomo de {element}.",
+    "slots": {}
   }
 }

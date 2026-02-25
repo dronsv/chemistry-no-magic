@@ -392,6 +392,39 @@ function genPickElementPosition(_params: Record<string, unknown>, data: Ontology
 
 // ── Phase 3 generators ───────────────────────────────────────────
 
+/** Klechkowski filling order for electron config computation. */
+const KLECHKOWSKI_ORDER: [number, string, number][] = [
+  [1, 's', 2], [2, 's', 2], [2, 'p', 6], [3, 's', 2], [3, 'p', 6],
+  [4, 's', 2], [3, 'd', 10], [4, 'p', 6], [5, 's', 2], [4, 'd', 10],
+  [5, 'p', 6], [6, 's', 2], [4, 'f', 14], [5, 'd', 10], [6, 'p', 6],
+  [7, 's', 2], [5, 'f', 14], [6, 'd', 10], [7, 'p', 6],
+];
+
+/** Unicode superscript digit map. */
+const SUPERSCRIPT_DIGITS: Record<number, string> = {
+  0: '\u2070', 1: '\u00b9', 2: '\u00b2', 3: '\u00b3',
+  4: '\u2074', 5: '\u2075', 6: '\u2076', 7: '\u2077',
+  8: '\u2078', 9: '\u2079',
+};
+
+/** Convert an integer to Unicode superscript string. */
+function toSuperscript(n: number): string {
+  return String(n).split('').map(d => SUPERSCRIPT_DIGITS[Number(d)] ?? d).join('');
+}
+
+/** Compute electron configuration string from atomic number. */
+function computeElectronConfig(Z: number): string {
+  let remaining = Z;
+  const parts: string[] = [];
+  for (const [n, l, capacity] of KLECHKOWSKI_ORDER) {
+    if (remaining <= 0) break;
+    const electrons = Math.min(remaining, capacity);
+    parts.push(`${n}${l}${toSuperscript(electrons)}`);
+    remaining -= electrons;
+  }
+  return parts.join(' ');
+}
+
 function genPickElementForConfig(_params: Record<string, unknown>, data: OntologyData): SlotValues {
   // Pick a random element with Z <= 36 (first 4 periods, covers d-block)
   const candidates = data.core.elements.filter(el => el.Z <= 36);
@@ -402,6 +435,7 @@ function genPickElementForConfig(_params: Record<string, unknown>, data: Ontolog
     Z: el.Z,
     period: el.period,
     group: el.group,
+    config: computeElectronConfig(el.Z),
   };
 }
 

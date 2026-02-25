@@ -75,5 +75,21 @@
   "prompt.find_group": {
     "question": "В какой группе находится элемент {element}?",
     "slots": {}
+  },
+  "prompt.select_electron_config": {
+    "question": "Какова электронная конфигурация атома {element}?",
+    "slots": {}
+  },
+  "prompt.count_valence": {
+    "question": "Сколько валентных электронов у атома {element}?",
+    "slots": {}
+  },
+  "prompt.element_from_config": {
+    "question": "Какой элемент имеет электронную конфигурацию {config}?",
+    "slots": {}
+  },
+  "prompt.fill_orbital": {
+    "question": "Заполните орбитальную диаграмму для атома {element}.",
+    "slots": {}
   }
 }

@@ -346,6 +346,22 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'In which group is {element}?',
     slots: {},
   },
+  'prompt.select_electron_config': {
+    question: 'What is the electron configuration of {element}?',
+    slots: {},
+  },
+  'prompt.count_valence': {
+    question: 'How many valence electrons does {element} have?',
+    slots: {},
+  },
+  'prompt.element_from_config': {
+    question: 'Which element has the electron configuration {config}?',
+    slots: {},
+  },
+  'prompt.fill_orbital': {
+    question: 'Fill the orbital diagram for {element}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -420,8 +436,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 15 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(15);
+  it('loads all 19 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(19);
   });
 
   describe('bond templates', () => {
@@ -526,6 +542,67 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.template_id).toBe('tmpl.ox.max_state.v1');
       expect(typeof task.correct_answer).toBe('number');
       expect(task.competency_map).toEqual({ oxidation_states: 'P' });
+    });
+  });
+
+  describe('electron config templates', () => {
+    it('select_electron_config returns a config string', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.select_electron_config.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.select_electron_config.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      // Config string should start with "1s"
+      expect(String(task.correct_answer)).toMatch(/^1s/);
+      expect(task.competency_map).toEqual({ electron_config: 'P', periodic_table: 'S' });
+      expect(task.question).toContain('electron configuration');
+    });
+
+    it('count_valence returns a number between 1 and 18', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.count_valence.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.count_valence.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      expect(task.correct_answer).toBeGreaterThanOrEqual(1);
+      expect(task.correct_answer).toBeLessThanOrEqual(18);
+      expect(task.competency_map).toEqual({ electron_config: 'P', periodic_table: 'S' });
+    });
+
+    it('element_from_config returns an element symbol', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.element_from_config.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.element_from_config.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(typeof task.correct_answer).toBe('string');
+      // Answer must be an element symbol from our mock data
+      const allSymbols = MOCK_ELEMENTS.map(e => e.symbol);
+      expect(allSymbols).toContain(task.correct_answer);
+      // Question should contain a config string (from generator's config slot)
+      expect(task.slots.config).toBeDefined();
+      expect(String(task.slots.config)).toMatch(/^1s/);
+      expect(task.competency_map).toEqual({ electron_config: 'P', periodic_table: 'S' });
+    });
+
+    it('fill_orbital returns a config string and has interactive_orbital interaction', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.pt.fill_orbital.v1');
+
+      expect(task.template_id).toBe('tmpl.pt.fill_orbital.v1');
+      expect(task.interaction).toBe('interactive_orbital');
+      expect(typeof task.correct_answer).toBe('string');
+      expect(String(task.correct_answer)).toMatch(/^1s/);
+      expect(task.slots.Z).toBeDefined();
+      expect(typeof task.slots.Z).toBe('number');
+      expect(task.competency_map).toEqual({ electron_config: 'P' });
+
+      // toExercise should produce interactive_orbital format
+      const exercise = engine.toExercise(task);
+      expect(exercise.format).toBe('interactive_orbital');
+      expect(exercise.targetZ).toBe(task.slots.Z);
     });
   });
 

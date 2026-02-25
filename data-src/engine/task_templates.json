@@ -298,5 +298,65 @@
     "difficulty_model": { "features": { "transition_metal": "auto" }, "target_band": [0.2, 0.45] },
     "exam_tags": ["oge"],
     "competency_hint": { "periodic_table": "P" }
+  },
+  {
+    "template_id": "tmpl.pt.select_electron_config.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_for_config", "params": {} },
+      "solvers": [{ "id": "solver.electron_config", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.select_electron_config",
+    "explanation_template_id": "explain.select_electron_config",
+    "evidence_rules": ["electron_config"],
+    "difficulty_model": { "features": { "Z_range": "auto" }, "target_band": [0.25, 0.55] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electron_config": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.count_valence.v1",
+    "meta": { "interaction": "numeric_input", "objects": ["element"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_position", "params": {} },
+      "solvers": [{ "id": "solver.count_valence", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": { "min": 1, "max": 8, "step": 1 } }]
+    },
+    "prompt_template_id": "prompt.count_valence",
+    "explanation_template_id": "explain.count_valence",
+    "evidence_rules": ["count_valence"],
+    "difficulty_model": { "features": { "transition_metal": "auto" }, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electron_config": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.element_from_config.v1",
+    "meta": { "interaction": "choice_single", "objects": ["element"], "reasoning": ["property_lookup"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_for_config", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "element" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.element_from_config",
+    "explanation_template_id": "explain.element_from_config",
+    "evidence_rules": ["electron_config"],
+    "difficulty_model": { "features": { "Z_range": "auto" }, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electron_config": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.fill_orbital.v1",
+    "meta": { "interaction": "interactive_orbital", "objects": ["element"], "reasoning": ["constraint_satisfaction"], "evaluation": { "mode": "exact" } },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_for_config", "params": {} },
+      "solvers": [{ "id": "solver.electron_config", "params": {} }],
+      "renderers": [{ "id": "view.interactive_orbital", "params": {} }]
+    },
+    "prompt_template_id": "prompt.fill_orbital",
+    "explanation_template_id": "explain.fill_orbital",
+    "evidence_rules": ["electron_config"],
+    "difficulty_model": { "features": { "Z_range": "auto", "has_d_block": "auto" }, "target_band": [0.3, 0.7] },
+    "exam_tags": ["oge", "ege"],
+    "competency_hint": { "electron_config": "P" }
   }
 ]

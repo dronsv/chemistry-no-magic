@@ -75,5 +75,21 @@
   "prompt.find_group": {
     "question": "W której grupie znajduje się pierwiastek {element}?",
     "slots": {}
+  },
+  "prompt.select_electron_config": {
+    "question": "Jaka jest konfiguracja elektronowa atomu {element}?",
+    "slots": {}
+  },
+  "prompt.count_valence": {
+    "question": "Ile elektronów walencyjnych ma atom {element}?",
+    "slots": {}
+  },
+  "prompt.element_from_config": {
+    "question": "Który pierwiastek ma konfigurację elektronową {config}?",
+    "slots": {}
+  },
+  "prompt.fill_orbital": {
+    "question": "Wypełnij diagram orbitalny dla atomu {element}.",
+    "slots": {}
   }
 }
