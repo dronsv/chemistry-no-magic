@@ -418,6 +418,406 @@ describe('gen.pick_element_position', () => {
   });
 });
 
+// ── Phase 3 mock data ────────────────────────────────────────────
+
+const MOCK_CLASSIFICATION_RULES = [
+  { id: 'oxide_basic', class: 'oxide', subclass: 'basic_oxide', pattern: 'MeₓOᵧ', description_ru: 'Оксид металла', examples: ['Na2O', 'CaO'] },
+  { id: 'acid_oxygen', class: 'acid', pattern: 'HₓAcidRest', description_ru: 'Кислородсодержащая кислота', examples: ['H2SO4', 'HNO3'] },
+];
+
+const MOCK_NAMING_RULES = [
+  { id: 'oxide_naming', class: 'oxide', pattern: 'MeₓOᵧ', template_ru: 'оксид {Me}', examples: [{ formula: 'Na2O', name_ru: 'оксид натрия' }, { formula: 'CaO', name_ru: 'оксид кальция' }] },
+  { id: 'acid_naming', class: 'acid', pattern: 'HₓAcidRest', template_ru: '{root}ая кислота', examples: [{ formula: 'H2SO4', name_ru: 'серная кислота' }] },
+];
+
+const MOCK_ACTIVITY_SERIES = [
+  { symbol: 'Li', name_ru: 'Литий', position: 1, reduces_H: true },
+  { symbol: 'Na', name_ru: 'Натрий', position: 3, reduces_H: true },
+  { symbol: 'Cu', name_ru: 'Медь', position: 15, reduces_H: false },
+];
+
+const MOCK_QUALITATIVE_TESTS = [
+  { target_id: 'Cl_minus', target_name_ru: 'Хлорид-ион', reagent_formula: 'AgNO3', reagent_name_ru: 'нитрат серебра', observation_ru: 'белый творожистый осадок', reaction_id: 'rx_ag_cl' },
+  { target_id: 'SO4_2minus', target_name_ru: 'Сульфат-ион', reagent_formula: 'BaCl2', reagent_name_ru: 'хлорид бария', observation_ru: 'белый осадок' },
+];
+
+const MOCK_GENETIC_CHAINS = [
+  {
+    chain_id: 'metal_chain',
+    title_ru: 'Цепочка металла',
+    class_sequence: ['metal', 'oxide', 'base', 'salt'],
+    steps: [
+      { substance: 'Na', reagent: 'O2', next: 'Na2O', type: 'oxidation' },
+      { substance: 'Na2O', reagent: 'H2O', next: 'NaOH', type: 'hydration' },
+      { substance: 'NaOH', reagent: 'HCl', next: 'NaCl', type: 'neutralization' },
+    ],
+  },
+];
+
+const MOCK_ENERGY_CATALYST = {
+  rate_factors: [
+    { factor_id: 'temperature', name_ru: 'Температура', effect_ru: 'Увеличивает скорость', detail_ru: 'Правило Вант-Гоффа', applies_to: 'all' as const },
+    { factor_id: 'concentration', name_ru: 'Концентрация', effect_ru: 'Увеличивает скорость', detail_ru: 'Закон действующих масс', applies_to: 'homogeneous' as const },
+  ],
+  catalyst_properties: { changes_ru: ['скорость реакции'], does_not_change_ru: ['равновесие'] },
+  common_catalysts: [
+    { catalyst: 'MnO2', name_ru: 'Оксид марганца(IV)', reaction_ru: 'Разложение пероксида водорода' },
+  ],
+  equilibrium_shifts: [
+    { factor: 'temperature_increase', shift_ru: 'В сторону эндотермической реакции', explanation_ru: 'Принцип Ле Шателье' },
+  ],
+  heat_classification: { exothermic_ru: 'Экзотермическая', endothermic_ru: 'Эндотермическая', examples_exo_ru: ['горение'], examples_endo_ru: ['разложение'] },
+};
+
+const MOCK_CALCULATIONS_DATA = {
+  calc_substances: [
+    { formula: 'H2O', name_ru: 'вода', M: 18, composition: [{ element: 'H', Ar: 1, count: 2 }, { element: 'O', Ar: 16, count: 1 }] },
+    { formula: 'NaCl', name_ru: 'хлорид натрия', M: 58.5, composition: [{ element: 'Na', Ar: 23, count: 1 }, { element: 'Cl', Ar: 35.5, count: 1 }] },
+  ],
+  calc_reactions: [
+    { equation_ru: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
+  ],
+};
+
+const MOCK_ION_NOMENCLATURE = {
+  suffix_rules: [
+    { id: 'binary_anion', condition: 'бескислородная кислота', suffix_ru: '-ид', suffix_en: '-ide', description_ru: 'Для бескислородных анионов', examples: ['Cl⁻ — хлорид'] },
+    { id: 'oxy_max', condition: 'максимальная степень окисления', suffix_ru: '-ат', suffix_en: '-ate', description_ru: 'Для кислородсодержащих анионов (макс. с.о.)', examples: ['SO₄²⁻ — сульфат'] },
+  ],
+  multilingual_comparison: { description_ru: 'Сравнение', columns: ['ru', 'en'], binary: ['хлорид', 'chloride'], oxy_max: ['сульфат', 'sulfate'], oxy_lower: ['сульфит', 'sulfite'] },
+  mnemonic_ru: 'Ат — больше кислорода, ит — меньше',
+  acid_to_anion_pairs: [
+    { acid: 'HCl', anion_id: 'Cl_minus', acid_name_ru: 'соляная кислота' },
+    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name_ru: 'серная кислота' },
+  ],
+};
+
+const MOCK_IONS_WITH_NAMING: Ion[] = [
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'], naming: { root_ru: 'хлор', suffix_ru: '-ид', oxidation_state: -1 } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: 'Сульфат-ион', tags: ['sulfate'], naming: { root_ru: 'сульф', suffix_ru: '-ат', oxidation_state: 6 } },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: 'Ион натрия', tags: ['alkali'] },
+];
+
+const dataWithClassification: OntologyData = {
+  ...MOCK_DATA,
+  rules: { ...MOCK_DATA.rules, classificationRules: MOCK_CLASSIFICATION_RULES, namingRules: MOCK_NAMING_RULES },
+};
+
+const dataWithActivity: OntologyData = {
+  ...MOCK_DATA,
+  rules: { ...MOCK_DATA.rules, activitySeries: MOCK_ACTIVITY_SERIES },
+};
+
+const dataWithQualitative: OntologyData = {
+  ...MOCK_DATA,
+  rules: { ...MOCK_DATA.rules, qualitativeTests: MOCK_QUALITATIVE_TESTS },
+};
+
+const dataWithChains: OntologyData = {
+  ...MOCK_DATA,
+  data: { ...MOCK_DATA.data, geneticChains: MOCK_GENETIC_CHAINS },
+};
+
+const dataWithEnergy: OntologyData = {
+  ...MOCK_DATA,
+  rules: { ...MOCK_DATA.rules, energyCatalyst: MOCK_ENERGY_CATALYST },
+};
+
+const dataWithCalc: OntologyData = {
+  ...MOCK_DATA,
+  data: { ...MOCK_DATA.data, calculations: MOCK_CALCULATIONS_DATA },
+};
+
+const dataWithIonNomenclature: OntologyData = {
+  ...MOCK_DATA,
+  core: { ...MOCK_DATA.core, ions: MOCK_IONS_WITH_NAMING },
+  rules: { ...MOCK_DATA.rules, ionNomenclature: MOCK_ION_NOMENCLATURE },
+};
+
+// ── Phase 3 generator tests ─────────────────────────────────────
+
+describe('gen.pick_element_for_config', () => {
+  it('returns element, Z, period, group for Z <= 36', () => {
+    const result = runGenerator('gen.pick_element_for_config', {}, MOCK_DATA);
+    expect(result).toHaveProperty('element');
+    expect(result).toHaveProperty('Z');
+    expect(result).toHaveProperty('period');
+    expect(result).toHaveProperty('group');
+    expect(typeof result.element).toBe('string');
+    expect(typeof result.Z).toBe('number');
+    expect(result.Z as number).toBeLessThanOrEqual(36);
+  });
+
+  it('picks from mock elements (all Z <= 36)', () => {
+    const result = runGenerator('gen.pick_element_for_config', {}, MOCK_DATA);
+    expect(MOCK_ELEMENTS.some(e => e.symbol === result.element)).toBe(true);
+  });
+});
+
+describe('gen.pick_classification_rule', () => {
+  it('returns rule slots with correct shape', () => {
+    const result = runGenerator('gen.pick_classification_rule', {}, dataWithClassification);
+    expect(result).toHaveProperty('rule_id');
+    expect(result).toHaveProperty('class_label');
+    expect(result).toHaveProperty('pattern');
+    expect(result).toHaveProperty('description');
+    expect(result).toHaveProperty('example');
+    expect(result).toHaveProperty('examples');
+    expect(typeof result.rule_id).toBe('string');
+    expect(typeof result.class_label).toBe('string');
+  });
+
+  it('throws when classificationRules is missing', () => {
+    expect(() => runGenerator('gen.pick_classification_rule', {}, MOCK_DATA)).toThrow('classificationRules not available');
+  });
+});
+
+describe('gen.pick_naming_rule', () => {
+  it('returns naming rule slots with correct shape', () => {
+    const result = runGenerator('gen.pick_naming_rule', {}, dataWithClassification);
+    expect(result).toHaveProperty('rule_id');
+    expect(result).toHaveProperty('class_label');
+    expect(result).toHaveProperty('pattern');
+    expect(result).toHaveProperty('template');
+    expect(result).toHaveProperty('example_formula');
+    expect(result).toHaveProperty('example_name');
+    expect(typeof result.template).toBe('string');
+  });
+
+  it('throws when namingRules is missing', () => {
+    expect(() => runGenerator('gen.pick_naming_rule', {}, MOCK_DATA)).toThrow('namingRules not available');
+  });
+});
+
+describe('gen.pick_activity_pair', () => {
+  it('returns two metals with position data', () => {
+    const result = runGenerator('gen.pick_activity_pair', {}, dataWithActivity);
+    expect(result).toHaveProperty('metalA');
+    expect(result).toHaveProperty('metalB');
+    expect(result).toHaveProperty('positionA');
+    expect(result).toHaveProperty('positionB');
+    expect(result).toHaveProperty('more_active');
+    expect(typeof result.metalA).toBe('string');
+    expect(typeof result.metalB).toBe('string');
+    expect(result.metalA).not.toBe(result.metalB);
+    // more_active should be one of the two
+    expect([result.metalA, result.metalB]).toContain(result.more_active);
+  });
+
+  it('correctly identifies the more active metal', () => {
+    const result = runGenerator('gen.pick_activity_pair', {}, dataWithActivity);
+    const posA = result.positionA as number;
+    const posB = result.positionB as number;
+    const expected = posA < posB ? result.metalA : result.metalB;
+    expect(result.more_active).toBe(expected);
+  });
+
+  it('throws when activitySeries is missing', () => {
+    expect(() => runGenerator('gen.pick_activity_pair', {}, MOCK_DATA)).toThrow('activitySeries not available');
+  });
+});
+
+describe('gen.pick_qualitative_test', () => {
+  it('returns test slots with correct shape', () => {
+    const result = runGenerator('gen.pick_qualitative_test', {}, dataWithQualitative);
+    expect(result).toHaveProperty('target_id');
+    expect(result).toHaveProperty('target_name');
+    expect(result).toHaveProperty('reagent_formula');
+    expect(result).toHaveProperty('reagent_name');
+    expect(result).toHaveProperty('observation');
+    expect(typeof result.target_id).toBe('string');
+    expect(typeof result.reagent_formula).toBe('string');
+    expect(typeof result.observation).toBe('string');
+  });
+
+  it('throws when qualitativeTests is missing', () => {
+    expect(() => runGenerator('gen.pick_qualitative_test', {}, MOCK_DATA)).toThrow('qualitativeTests not available');
+  });
+});
+
+describe('gen.pick_chain_step', () => {
+  it('returns chain step slots with gap', () => {
+    const result = runGenerator('gen.pick_chain_step', {}, dataWithChains);
+    expect(result).toHaveProperty('chain_id');
+    expect(result).toHaveProperty('substance');
+    expect(result).toHaveProperty('reagent');
+    expect(result).toHaveProperty('next');
+    expect(result).toHaveProperty('step_type');
+    expect(result).toHaveProperty('gap_index');
+    expect(result).toHaveProperty('chain_substances');
+    expect(typeof result.chain_id).toBe('string');
+    expect(Array.isArray(result.chain_substances)).toBe(true);
+    // chain_substances should contain exactly one '?'
+    const subs = result.chain_substances as string[];
+    expect(subs.filter(s => s === '?').length).toBe(1);
+    expect(subs.indexOf('?')).toBe(result.gap_index as number);
+  });
+
+  it('chain_substances has correct length (steps + 1)', () => {
+    const result = runGenerator('gen.pick_chain_step', {}, dataWithChains);
+    // MOCK_GENETIC_CHAINS[0] has 3 steps → 4 substances
+    expect((result.chain_substances as string[]).length).toBe(4);
+  });
+
+  it('throws when geneticChains is missing', () => {
+    expect(() => runGenerator('gen.pick_chain_step', {}, MOCK_DATA)).toThrow('geneticChains not available');
+  });
+});
+
+describe('gen.pick_energy_catalyst', () => {
+  it('returns rate factor slots when mode=rate', () => {
+    const result = runGenerator('gen.pick_energy_catalyst', { mode: 'rate' }, dataWithEnergy);
+    expect(result.mode).toBe('rate');
+    expect(result).toHaveProperty('factor_id');
+    expect(result).toHaveProperty('factor_name');
+    expect(result).toHaveProperty('factor_effect');
+    expect(result).toHaveProperty('applies_to');
+  });
+
+  it('returns catalyst slots when mode=cat', () => {
+    const result = runGenerator('gen.pick_energy_catalyst', { mode: 'cat' }, dataWithEnergy);
+    expect(result.mode).toBe('cat');
+    expect(result).toHaveProperty('catalyst');
+    expect(result).toHaveProperty('catalyst_name');
+    expect(result).toHaveProperty('catalyst_reaction');
+  });
+
+  it('returns equilibrium slots when mode=eq', () => {
+    const result = runGenerator('gen.pick_energy_catalyst', { mode: 'eq' }, dataWithEnergy);
+    expect(result.mode).toBe('eq');
+    expect(result).toHaveProperty('eq_factor');
+    expect(result).toHaveProperty('eq_shift');
+    expect(result).toHaveProperty('eq_explanation');
+  });
+
+  it('resolves placeholder mode to a valid mode', () => {
+    const result = runGenerator('gen.pick_energy_catalyst', { mode: '{mode}' }, dataWithEnergy);
+    expect(['rate', 'cat', 'eq']).toContain(result.mode);
+  });
+
+  it('throws when energyCatalyst is missing', () => {
+    expect(() => runGenerator('gen.pick_energy_catalyst', {}, MOCK_DATA)).toThrow('energyCatalyst not available');
+  });
+});
+
+describe('gen.pick_calc_substance', () => {
+  it('returns substance slots with computed values', () => {
+    const result = runGenerator('gen.pick_calc_substance', {}, dataWithCalc);
+    expect(result).toHaveProperty('formula');
+    expect(result).toHaveProperty('name');
+    expect(result).toHaveProperty('M');
+    expect(result).toHaveProperty('mass');
+    expect(result).toHaveProperty('amount');
+    expect(result).toHaveProperty('composition');
+    expect(typeof result.formula).toBe('string');
+    expect(typeof result.M).toBe('number');
+    expect(typeof result.mass).toBe('number');
+    expect(typeof result.amount).toBe('number');
+    expect(result.mass as number).toBeGreaterThanOrEqual(10);
+    expect(result.mass as number).toBeLessThanOrEqual(100);
+    // amount should approximately equal mass / M
+    const expectedAmount = (result.mass as number) / (result.M as number);
+    expect(Math.abs((result.amount as number) - expectedAmount)).toBeLessThan(0.01);
+  });
+
+  it('throws when calculations is missing', () => {
+    expect(() => runGenerator('gen.pick_calc_substance', {}, MOCK_DATA)).toThrow('calculations data not available');
+  });
+});
+
+describe('gen.pick_calc_reaction', () => {
+  it('returns reaction slots with computed values', () => {
+    const result = runGenerator('gen.pick_calc_reaction', {}, dataWithCalc);
+    expect(result).toHaveProperty('equation');
+    expect(result).toHaveProperty('given_formula');
+    expect(result).toHaveProperty('given_coeff');
+    expect(result).toHaveProperty('given_M');
+    expect(result).toHaveProperty('given_mass');
+    expect(result).toHaveProperty('find_formula');
+    expect(result).toHaveProperty('find_coeff');
+    expect(result).toHaveProperty('find_M');
+    expect(result).toHaveProperty('find_mass');
+    expect(typeof result.equation).toBe('string');
+    expect(typeof result.find_mass).toBe('number');
+    expect(result.given_mass as number).toBeGreaterThanOrEqual(10);
+    expect(result.given_mass as number).toBeLessThanOrEqual(100);
+  });
+
+  it('throws when calculations is missing', () => {
+    expect(() => runGenerator('gen.pick_calc_reaction', {}, MOCK_DATA)).toThrow('calculations data not available');
+  });
+});
+
+describe('gen.pick_solution_params', () => {
+  it('returns solution parameters with correct relationships', () => {
+    const result = runGenerator('gen.pick_solution_params', {}, MOCK_DATA);
+    expect(result).toHaveProperty('m_solute');
+    expect(result).toHaveProperty('m_solution');
+    expect(result).toHaveProperty('omega');
+    expect(typeof result.m_solute).toBe('number');
+    expect(typeof result.m_solution).toBe('number');
+    expect(typeof result.omega).toBe('number');
+    // m_solution > m_solute
+    expect(result.m_solution as number).toBeGreaterThan(result.m_solute as number);
+    // omega = m_solute / m_solution (within rounding tolerance)
+    const expectedOmega = (result.m_solute as number) / (result.m_solution as number);
+    expect(Math.abs((result.omega as number) - expectedOmega)).toBeLessThan(0.001);
+    // omega should be between 0 and 1
+    expect(result.omega as number).toBeGreaterThan(0);
+    expect(result.omega as number).toBeLessThan(1);
+  });
+
+  it('m_solute is in range 5-50', () => {
+    const result = runGenerator('gen.pick_solution_params', {}, MOCK_DATA);
+    expect(result.m_solute as number).toBeGreaterThanOrEqual(5);
+    expect(result.m_solute as number).toBeLessThanOrEqual(50);
+  });
+});
+
+describe('gen.pick_ion_nomenclature', () => {
+  it('returns suffix rule slots in default mode', () => {
+    const result = runGenerator('gen.pick_ion_nomenclature', {}, dataWithIonNomenclature);
+    expect(result.mode).toBe('default');
+    expect(result).toHaveProperty('rule_id');
+    expect(result).toHaveProperty('condition');
+    expect(result).toHaveProperty('suffix_ru');
+    expect(result).toHaveProperty('suffix_en');
+    expect(result).toHaveProperty('description');
+    expect(result).toHaveProperty('examples');
+  });
+
+  it('returns acid pair slots when mode=acid_pair', () => {
+    const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'acid_pair' }, dataWithIonNomenclature);
+    expect(result.mode).toBe('acid_pair');
+    expect(result).toHaveProperty('acid_formula');
+    expect(result).toHaveProperty('acid_name');
+    expect(result).toHaveProperty('anion_id');
+    expect(result).toHaveProperty('anion_formula');
+    expect(typeof result.acid_formula).toBe('string');
+  });
+
+  it('returns paired ions slots when mode=paired', () => {
+    const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, dataWithIonNomenclature);
+    expect(result.mode).toBe('paired');
+    expect(result).toHaveProperty('ionA_id');
+    expect(result).toHaveProperty('ionA_formula');
+    expect(result).toHaveProperty('ionA_suffix');
+    expect(result).toHaveProperty('ionB_id');
+    expect(result).toHaveProperty('ionB_formula');
+    expect(result).toHaveProperty('ionB_suffix');
+    expect(result.ionA_id).not.toBe(result.ionB_id);
+  });
+
+  it('resolves placeholder mode', () => {
+    const result = runGenerator('gen.pick_ion_nomenclature', { mode: '{mode}' }, dataWithIonNomenclature);
+    expect(['default', 'acid_pair', 'paired']).toContain(result.mode);
+  });
+
+  it('throws when ionNomenclature suffix_rules is missing (default mode)', () => {
+    expect(() => runGenerator('gen.pick_ion_nomenclature', {}, MOCK_DATA)).toThrow('ionNomenclature suffix_rules not available');
+  });
+});
+
 // ── Registry tests ───────────────────────────────────────────────
 
 describe('runGenerator', () => {

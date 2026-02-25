@@ -1,5 +1,14 @@
 import type { BondExampleEntry } from '../../types/bond';
+import type { CalcReaction, CalcSubstance } from '../../types/calculations';
+import type { ClassificationRule } from '../../types/classification';
 import type { Element } from '../../types/element';
+import type { CommonCatalyst, EquilibriumShift, RateFactor } from '../../types/energy-catalyst';
+import type { ChainStep, GeneticChain } from '../../types/genetic-chain';
+import type { Ion } from '../../types/ion';
+import type { AcidAnionPair, SuffixRule } from '../../types/ion-nomenclature';
+import type { NamingRule } from '../../types/classification';
+import type { QualitativeTest } from '../../types/qualitative';
+import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -381,6 +390,285 @@ function genPickElementPosition(_params: Record<string, unknown>, data: Ontology
   };
 }
 
+// ── Phase 3 generators ───────────────────────────────────────────
+
+function genPickElementForConfig(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  // Pick a random element with Z <= 36 (first 4 periods, covers d-block)
+  const candidates = data.core.elements.filter(el => el.Z <= 36);
+  if (candidates.length === 0) throw new Error('No elements with Z <= 36');
+  const el = pickRandom(candidates);
+  return {
+    element: el.symbol,
+    Z: el.Z,
+    period: el.period,
+    group: el.group,
+  };
+}
+
+function genPickClassificationRule(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.classificationRules || data.rules.classificationRules.length === 0) {
+    throw new Error('classificationRules not available in data');
+  }
+  const rule: ClassificationRule = pickRandom(data.rules.classificationRules);
+  return {
+    rule_id: rule.id,
+    class_label: rule.class,
+    subclass: rule.subclass ?? '',
+    pattern: rule.pattern,
+    description: rule.description_ru,
+    example: rule.examples.length > 0 ? rule.examples[0] : '',
+    examples: rule.examples,
+  };
+}
+
+function genPickNamingRule(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.namingRules || data.rules.namingRules.length === 0) {
+    throw new Error('namingRules not available in data');
+  }
+  const rule: NamingRule = pickRandom(data.rules.namingRules);
+  const ex = rule.examples.length > 0 ? pickRandom(rule.examples) : null;
+  return {
+    rule_id: rule.id,
+    class_label: rule.class,
+    pattern: rule.pattern,
+    template: rule.template_ru,
+    example_formula: ex?.formula ?? '',
+    example_name: ex?.name_ru ?? '',
+  };
+}
+
+function genPickActivityPair(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.activitySeries || data.rules.activitySeries.length < 2) {
+    throw new Error('activitySeries not available or too few entries');
+  }
+  const [a, b]: ActivitySeriesEntry[] = pickK(data.rules.activitySeries, 2);
+  return {
+    metalA: a.symbol,
+    metalB: b.symbol,
+    nameA: a.name_ru,
+    nameB: b.name_ru,
+    positionA: a.position,
+    positionB: b.position,
+    reduces_H_A: a.reduces_H ? 1 : 0,
+    reduces_H_B: b.reduces_H ? 1 : 0,
+    more_active: a.position < b.position ? a.symbol : b.symbol,
+  };
+}
+
+function genPickQualitativeTest(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.qualitativeTests || data.rules.qualitativeTests.length === 0) {
+    throw new Error('qualitativeTests not available in data');
+  }
+  const test: QualitativeTest = pickRandom(data.rules.qualitativeTests);
+  return {
+    target_id: test.target_id,
+    target_name: test.target_name_ru,
+    reagent_formula: test.reagent_formula,
+    reagent_name: test.reagent_name_ru,
+    observation: test.observation_ru,
+    reaction_id: test.reaction_id ?? '',
+  };
+}
+
+function genPickChainStep(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.data.geneticChains || data.data.geneticChains.length === 0) {
+    throw new Error('geneticChains not available in data');
+  }
+  const chain: GeneticChain = pickRandom(data.data.geneticChains);
+  if (chain.steps.length === 0) throw new Error('Empty chain steps');
+
+  const stepIdx = Math.floor(Math.random() * chain.steps.length);
+  const step: ChainStep = chain.steps[stepIdx];
+
+  // Build chain_substances: all substances in the chain, with '?' at the gap position
+  // A chain's substances = [step0.substance, step1.substance, ..., lastStep.next]
+  const substances: string[] = chain.steps.map(s => s.substance);
+  substances.push(chain.steps[chain.steps.length - 1].next);
+
+  // Gap position: hide the "next" substance of the selected step (= position stepIdx + 1)
+  const gapIndex = stepIdx + 1;
+  const chainWithGap = substances.map((s, i) => (i === gapIndex ? '?' : s));
+
+  return {
+    chain_id: chain.chain_id,
+    substance: step.substance,
+    reagent: step.reagent,
+    next: step.next,
+    step_type: step.type,
+    gap_index: gapIndex,
+    chain_substances: chainWithGap,
+  };
+}
+
+const ENERGY_MODES = ['rate', 'cat', 'eq'] as const;
+
+function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.energyCatalyst) {
+    throw new Error('energyCatalyst not available in data');
+  }
+  const ec = data.rules.energyCatalyst;
+
+  // Resolve mode
+  let mode: string;
+  const rawMode = typeof params.mode === 'string' ? params.mode : undefined;
+  if (rawMode) {
+    const m = rawMode.match(/^\{(.+)\}$/);
+    mode = m ? pickRandom([...ENERGY_MODES]) : rawMode;
+  } else {
+    mode = pickRandom([...ENERGY_MODES]);
+  }
+
+  if (mode === 'rate') {
+    if (ec.rate_factors.length === 0) throw new Error('No rate factors available');
+    const factor: RateFactor = pickRandom(ec.rate_factors);
+    return {
+      mode: 'rate',
+      factor_id: factor.factor_id,
+      factor_name: factor.name_ru,
+      factor_effect: factor.effect_ru,
+      applies_to: factor.applies_to,
+    };
+  } else if (mode === 'cat') {
+    if (ec.common_catalysts.length === 0) throw new Error('No common catalysts available');
+    const cat: CommonCatalyst = pickRandom(ec.common_catalysts);
+    return {
+      mode: 'cat',
+      catalyst: cat.catalyst,
+      catalyst_name: cat.name_ru,
+      catalyst_reaction: cat.reaction_ru,
+    };
+  } else {
+    // eq
+    if (ec.equilibrium_shifts.length === 0) throw new Error('No equilibrium shifts available');
+    const shift: EquilibriumShift = pickRandom(ec.equilibrium_shifts);
+    return {
+      mode: 'eq',
+      eq_factor: shift.factor,
+      eq_shift: shift.shift_ru,
+      eq_explanation: shift.explanation_ru,
+    };
+  }
+}
+
+function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.data.calculations || data.data.calculations.calc_substances.length === 0) {
+    throw new Error('calculations data not available');
+  }
+  const sub: CalcSubstance = pickRandom(data.data.calculations.calc_substances);
+
+  // Generate random mass between 10 and 100 g (rounded to 1 decimal)
+  const mass = Math.round((10 + Math.random() * 90) * 10) / 10;
+  // amount = mass / M
+  const amount = Math.round((mass / sub.M) * 10000) / 10000;
+
+  return {
+    formula: sub.formula,
+    name: sub.name_ru,
+    M: sub.M,
+    mass,
+    amount,
+    composition: sub.composition.map(c => `${c.element}:${c.Ar}×${c.count}`),
+  };
+}
+
+function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.data.calculations || data.data.calculations.calc_reactions.length === 0) {
+    throw new Error('calculations data not available');
+  }
+  const rx: CalcReaction = pickRandom(data.data.calculations.calc_reactions);
+
+  // Generate random given mass (10-100 g, rounded to 1 decimal)
+  const givenMass = Math.round((10 + Math.random() * 90) * 10) / 10;
+  // given moles = mass / M
+  const givenMoles = givenMass / rx.given.M;
+  // find moles = given_moles * (find_coeff / given_coeff)
+  const findMoles = givenMoles * (rx.find.coeff / rx.given.coeff);
+  // find mass = find_moles * find_M
+  const findMass = Math.round(findMoles * rx.find.M * 100) / 100;
+
+  return {
+    equation: rx.equation_ru,
+    given_formula: rx.given.formula,
+    given_coeff: rx.given.coeff,
+    given_M: rx.given.M,
+    given_mass: givenMass,
+    find_formula: rx.find.formula,
+    find_coeff: rx.find.coeff,
+    find_M: rx.find.M,
+    find_mass: findMass,
+  };
+}
+
+function genPickSolutionParams(_params: Record<string, unknown>, _data: OntologyData): SlotValues {
+  // Random solute mass: 5-50 g (rounded to 1 decimal)
+  const mSolute = Math.round((5 + Math.random() * 45) * 10) / 10;
+  // Random solution mass: solute + 50..250 g of solvent (rounded to 1 decimal)
+  const mSolution = Math.round((mSolute + 50 + Math.random() * 200) * 10) / 10;
+  // omega (mass fraction) = m_solute / m_solution
+  const omega = Math.round((mSolute / mSolution) * 10000) / 10000;
+
+  return {
+    m_solute: mSolute,
+    m_solution: mSolution,
+    omega,
+  };
+}
+
+function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const rawMode = typeof params.mode === 'string' ? params.mode : undefined;
+  const m = rawMode?.match(/^\{(.+)\}$/);
+  const mode = m ? pickRandom(['default', 'acid_pair', 'paired']) : (rawMode ?? 'default');
+
+  if (mode === 'acid_pair') {
+    if (!data.rules.ionNomenclature || data.rules.ionNomenclature.acid_to_anion_pairs.length === 0) {
+      throw new Error('ionNomenclature acid_to_anion_pairs not available');
+    }
+    const pair: AcidAnionPair = pickRandom(data.rules.ionNomenclature.acid_to_anion_pairs);
+    // Look up the anion from ions data
+    const anion: Ion | undefined = data.core.ions.find(i => i.id === pair.anion_id);
+    return {
+      mode: 'acid_pair',
+      acid_formula: pair.acid,
+      acid_name: pair.acid_name_ru,
+      anion_id: pair.anion_id,
+      anion_formula: anion?.formula ?? pair.anion_id,
+      anion_name: anion?.name_ru ?? '',
+    };
+  } else if (mode === 'paired') {
+    // Pick two ions with naming info for comparison
+    const withNaming = data.core.ions.filter(i => i.naming);
+    if (withNaming.length < 2) throw new Error('Not enough ions with naming data');
+    const [ionA, ionB] = pickK(withNaming, 2);
+    return {
+      mode: 'paired',
+      ionA_id: ionA.id,
+      ionA_formula: ionA.formula,
+      ionA_name: ionA.name_ru,
+      ionA_suffix: ionA.naming!.suffix_ru,
+      ionB_id: ionB.id,
+      ionB_formula: ionB.formula,
+      ionB_name: ionB.name_ru,
+      ionB_suffix: ionB.naming!.suffix_ru,
+    };
+  } else {
+    // default: pick a random suffix rule
+    if (!data.rules.ionNomenclature || data.rules.ionNomenclature.suffix_rules.length === 0) {
+      throw new Error('ionNomenclature suffix_rules not available');
+    }
+    const rule: SuffixRule = pickRandom(data.rules.ionNomenclature.suffix_rules);
+    return {
+      mode: 'default',
+      rule_id: rule.id,
+      condition: rule.condition,
+      suffix_ru: rule.suffix_ru,
+      suffix_en: rule.suffix_en,
+      description: rule.description_ru,
+      example: rule.examples.length > 0 ? rule.examples[0] : '',
+      examples: rule.examples,
+    };
+  }
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 const GENERATORS: Record<string, (params: Record<string, unknown>, data: OntologyData) => SlotValues> = {
@@ -394,6 +682,17 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_substance_by_class': genPickSubstanceByClass,
   'gen.pick_reaction': genPickReaction,
   'gen.pick_element_position': genPickElementPosition,
+  'gen.pick_element_for_config': genPickElementForConfig,
+  'gen.pick_classification_rule': genPickClassificationRule,
+  'gen.pick_naming_rule': genPickNamingRule,
+  'gen.pick_activity_pair': genPickActivityPair,
+  'gen.pick_qualitative_test': genPickQualitativeTest,
+  'gen.pick_chain_step': genPickChainStep,
+  'gen.pick_energy_catalyst': genPickEnergyCatalyst,
+  'gen.pick_calc_substance': genPickCalcSubstance,
+  'gen.pick_calc_reaction': genPickCalcReaction,
+  'gen.pick_solution_params': genPickSolutionParams,
+  'gen.pick_ion_nomenclature': genPickIonNomenclature,
 };
 
 export function runGenerator(
