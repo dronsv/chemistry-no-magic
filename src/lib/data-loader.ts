@@ -29,6 +29,7 @@ import type { ProcessVocabEntry } from '../types/process-vocab';
 import type { QuantitiesUnitsOntology } from '../types/quantities-units';
 import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
+import type { NameIndex } from '../types/name-index';
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
@@ -700,4 +701,20 @@ export async function loadContextsData(locale?: SupportedLocale): Promise<Contex
     terms: applyOverlay(terms, overlay, t => t.id),
     reverse_index: reverseIndex,
   };
+}
+
+/** Load per-locale name→entity reverse index. */
+export async function loadNameIndex(locale?: SupportedLocale): Promise<NameIndex> {
+  const manifest = await getManifest();
+  const basePath = manifest.entrypoints.name_index;
+
+  if (!basePath) {
+    throw new Error(
+      'Name index not found in manifest. Expected key "name_index" in entrypoints.',
+    );
+  }
+
+  const loc = locale ?? 'ru';
+  const localePath = basePath.replace('.json', `.${loc}.json`);
+  return loadDataFile<NameIndex>(localePath);
 }
