@@ -43,9 +43,19 @@ export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps)
 
   useEffect(() => {
     Promise.all([loadSolubilityRules(), loadIons(locale)]).then(([sol, ions]) => {
-      setEntries(sol);
       const iMap = new Map<string, Ion>();
-      for (const ion of ions) iMap.set(ion.formula, ion);
+      const idToFormula = new Map<string, string>();
+      for (const ion of ions) {
+        iMap.set(ion.formula, ion);
+        idToFormula.set(ion.id, ion.formula);
+      }
+      // Convert ion.id format (Na_plus) → formula format (Na⁺)
+      const mapped = sol.map(e => ({
+        ...e,
+        cation: idToFormula.get(e.cation) ?? e.cation,
+        anion: idToFormula.get(e.anion) ?? e.anion,
+      }));
+      setEntries(mapped);
       setIonMap(iMap);
       setLoading(false);
     });
