@@ -137,6 +137,38 @@ const searchUrl = localizeUrl('/search/', locale);
     <noscript><div><img src="https://mc.yandex.ru/watch/106842347" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <!-- Google Analytics (gtag.js) — deferred to not block rendering -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <script is:inline>
+      // Track ViewTransitions page navigations for GA
+      document.addEventListener('astro:page-load', function() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'page_view', { page_location: location.href });
+        }
+      });
+      // Defer GA loading until browser is idle
+      (function(){
+        function loadGA() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9C5E41FJ81';
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-9C5E41FJ81');
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGA, { timeout: 3000 });
+        } else {
+          setTimeout(loadGA, 2000);
+        }
+      })();
+    </script>
+    <!-- /Google Analytics -->
+
     <!-- Ctrl+K / Cmd+K → search -->
     <script is:inline define:vars={{ searchUrl }}>
       document.addEventListener('keydown', function(e) {
