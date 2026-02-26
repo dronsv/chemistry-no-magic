@@ -1,0 +1,914 @@
+# Ontology Map — Chemistry Without Magic
+
+> Comprehensive reference of all data layers, their relationships, and integration points.
+> Last updated: 2026-02-26
+
+---
+
+## 1. Overview & Entity Count Table
+
+| Layer | Source Location | Key Files | Entity Count | Status |
+|-------|----------------|-----------|-------------|--------|
+| **Elements** | `data-src/elements.json` | 1 | 118 | Active |
+| **Ions** | `data-src/ions.json` | 1 | 41 | Active |
+| **Substances** | `data-src/substances/*.json` | 80 | 80 | Active |
+| **Reactions** | `data-src/reactions/reactions.json` | 1 | 32 (26 exchange + 6 redox) | Active |
+| **Competencies** | `data-src/rules/competencies.json` | 1 | 21 (20 + schema) | Active |
+| **Classification Rules** | `data-src/rules/classification_rules.json` | 1 | 12 | Active |
+| **Naming Rules** | `data-src/rules/naming_rules.json` | 1 | 37 | Active |
+| **Solubility Rules** | `data-src/rules/solubility_rules_*.json` | 2 | 7 full / 4 light | Active |
+| **Activity Series** | `data-src/rules/activity_series.json` | 1 | 18 | Active |
+| **Applicability Rules** | `data-src/rules/applicability_rules.json` | 1 | 15 | Active |
+| **Bond Theory + Examples** | `data-src/rules/bond_theory.json`, `bond_examples.json` | 2 | 17 examples | Active |
+| **Oxidation Theory + Examples** | `data-src/rules/oxidation_theory.json`, `oxidation_examples.json` | 2 | 22 examples | Active |
+| **Properties** | `data-src/rules/properties.json` | 1 | 5 | Active |
+| **BKT Params** | `data-src/rules/bkt_params.json` | 1 | 21 | Active |
+| **Qualitative Tests** | `data-src/rules/qualitative_reactions.json` | 1 | 11 | Active |
+| **Genetic Chains** | `data-src/rules/genetic_chains.json` | 1 | 5 | Active |
+| **Energy & Catalysis** | `data-src/rules/energy_catalyst_theory.json` | 1 | 5 rate factors + catalysts + equilibrium | Active |
+| **Calculations Data** | `data-src/rules/calculations_data.json` | 1 | 24 substances + 10 reactions | Active |
+| **Ion Nomenclature** | `data-src/rules/ion_nomenclature.json` | 1 | 4 suffix rules | Active |
+| **Topic Mapping** | `data-src/rules/topic_mapping.json` | 1 | 8 mappings | Active |
+| **Diagnostic Questions** | `data-src/diagnostic/questions.json` | 1 | 12 | Active |
+| **Exam Systems** | `data-src/exam/systems.json` | 1 | 5 systems | Active |
+| **Exam Tasks** | `data-src/exam/oge_tasks.json` + per-system | 6+ | 163 total | Active |
+| **Solution Algorithms** | `data-src/exam/oge_solution_algorithms.json` + per-system | 6+ | 54 total | Active |
+| **Process Vocabulary** | `data-src/process_vocab.json` | 1 | 36 processes | Active |
+| **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 16 quantities + 27 units | Active |
+| **Contexts** | `data-src/contexts/contexts.json` | 1 | 5 | Active |
+| **Substance Variants** | `data-src/contexts/substance_variants.json` | 1 | 5 | Active |
+| **Terms** | `data-src/contexts/terms.json` | 1 | 54 | Active |
+| **Term Bindings** | `data-src/contexts/term_bindings.json` | 1 | 54 | Active |
+| **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 65 | Active |
+| **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 65 per locale | Active |
+| **Structures** | `data-src/structures/*.json` | 38 | 38 molecules | Active |
+| **Element Groups** | `data-src/element-groups.json` | 1 | 10 | Active |
+| **Sources** | `data-src/sources_list.json` | 1 | 4 references | Active |
+| **Translation Overlays** | `data-src/translations/{en,pl,es}/*.json` | 32 | 3 locales × 10–11 files | Active |
+| **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties | Active |
+| **Reaction Roles** | (proposed) `reaction_roles.v1.json` | — | 11 roles | Planned |
+| **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
+| **Relations Graph** | (proposed) `predicates.v1.json` | — | ~20 predicates | Deferred |
+
+**Totals**: ~217 source JSON files, ~280+ built files, 4 locales, 5 exam systems.
+
+---
+
+## 2. Core Entity Diagram
+
+```mermaid
+erDiagram
+    ELEMENT ||--o{ ION : "forms"
+    ELEMENT ||--o{ SUBSTANCE : "component of"
+    ION ||--o{ SUBSTANCE : "component of (salts, acids, bases)"
+    SUBSTANCE ||--o{ REACTION : "participates in"
+    SUBSTANCE ||--o{ STRUCTURE : "has molecular structure"
+    ELEMENT }|--|| ELEMENT_GROUP : "belongs to"
+    SUBSTANCE }|--|| SUBSTANCE_CLASS : "classified as"
+    SUBSTANCE ||--o{ TERM : "known as (synonym)"
+    SUBSTANCE ||--o{ SUBSTANCE_VARIANT : "has allotrope/form"
+    SUBSTANCE ||--o{ CONTEXT : "in phase/mixture/solution"
+
+    ELEMENT {
+        int Z PK "Atomic number"
+        string symbol "e.g. Fe"
+        string name_ru "Russian name"
+        string block "s/p/d/f"
+        int group "1-18"
+        int period "1-7"
+        float electronegativity
+        boolean amphoteric "7 elements"
+    }
+
+    ION {
+        string id PK "e.g. Fe3+"
+        string formula
+        int charge
+        string type "cation/anion"
+        string name_ru
+    }
+
+    SUBSTANCE {
+        string id PK "e.g. nacl"
+        string formula "NaCl"
+        string class "acid/base/salt/oxide/other"
+        string subclass "e.g. basic_oxide"
+        string name_ru
+    }
+
+    REACTION {
+        string id PK "e.g. rx:neut_naoh_hcl"
+        string equation
+        string type "exchange/redox"
+        string driving_force
+        object observations
+    }
+```
+
+### ID Namespace Conventions
+
+| Prefix | Domain | Example |
+|--------|--------|---------|
+| `el:` | Elements | `el:Fe`, `el:Na` |
+| `ion:` | Ions | `ion:Fe3+`, `ion:SO4_2-` |
+| `sub:` | Substances | `sub:NaCl`, `sub:H2SO4` |
+| `rx:` | Reactions | `rx:neut_naoh_hcl` |
+| `proc:` | Processes | `proc:decomposition` |
+| `ctx:` | Contexts | `ctx:phase_H2O_s` |
+| `ctxtmpl:` | Context Templates | `ctxtmpl:H2SO4_conc` |
+| `subvar:` | Substance Variants | `subvar:C_diamond` |
+| `term:` | Terms | `term:marble` |
+| `sk:` | Competencies | `sk:periodic_table` |
+| `comp:` | Competencies (alt) | `comp:oxidation_states` |
+| `q:` | Quantities | `q:mass`, `q:amount` |
+| `unit:` | Units | `unit:g`, `unit:mol` |
+| `meas:` | Measurements | `meas:1` |
+| `prob:` | Problems | `prob:stoich_zn_hcl_001` |
+| `cond:` | Conditions | `cond:heat` |
+| `driver:` | Drivers (proposed) | `driver:thermal` |
+| `rule:` | Process Rules (proposed) | `rule:passivation.metals` |
+
+---
+
+## 3. Rule System Diagram
+
+```mermaid
+graph LR
+    subgraph Core["Core Entities"]
+        EL[elements.json<br/>118 elements]
+        ION[ions.json<br/>41 ions]
+        SUB[substances/*.json<br/>80 substances]
+        RX[reactions.json<br/>32 reactions]
+    end
+
+    subgraph Rules["Rule Files (data-src/rules/)"]
+        CLS[classification_rules<br/>12 rules]
+        NAM[naming_rules<br/>37 rules]
+        SOL_F[solubility_rules_full<br/>7 rules]
+        SOL_L[solubility_rules_light<br/>4 rules]
+        ACT[activity_series<br/>18 metals]
+        APP[applicability_rules<br/>15 conditions]
+        BND_T[bond_theory<br/>theory text]
+        BND_E[bond_examples<br/>17 examples]
+        OX_T[oxidation_theory<br/>theory text]
+        OX_E[oxidation_examples<br/>22 examples]
+        PROP[properties<br/>5 properties]
+        QR[qualitative_reactions<br/>11 tests]
+        GC[genetic_chains<br/>5 chains]
+        ECT[energy_catalyst_theory<br/>rate/equilibrium/catalysis]
+        CALC[calculations_data<br/>24 subs + 10 rxns]
+        ION_N[ion_nomenclature<br/>4 suffix rules]
+        BKT[bkt_params<br/>21 entries]
+        COMP[competencies<br/>20 competencies]
+        TM[topic_mapping<br/>8 mappings]
+    end
+
+    CLS -->|classifies| SUB
+    NAM -->|names| SUB
+    SOL_F -->|solubility of| ION
+    ACT -->|ranks| EL
+    APP -->|governs| RX
+    BND_E -->|bonds in| SUB
+    OX_E -->|oxidation of| EL
+    PROP -->|defines trends for| EL
+    QR -->|characterizes| SUB
+    GC -->|transforms| SUB
+    ECT -->|energy of| RX
+    CALC -->|stoichiometry of| SUB
+    CALC -->|stoichiometry of| RX
+    ION_N -->|names| ION
+    BKT -->|tracks mastery of| COMP
+    TM -->|maps topics to| COMP
+```
+
+### Rule → Entity Governance Matrix
+
+| Rule File | Governs | Purpose |
+|-----------|---------|---------|
+| `classification_rules` | Substances | Oxide/acid/base/salt class assignment |
+| `naming_rules` | Substances | Systematic & trivial name generation |
+| `solubility_rules_*` | Ion pairs | Soluble/insoluble/slightly_soluble |
+| `activity_series` | Elements (metals) | Displacement feasibility ordering |
+| `applicability_rules` | Reactions | 15 conditions: passivation, noble metals, gas formation, amphoterism |
+| `bond_examples` | Substances | Bond type: ionic/covalent_polar/covalent_nonpolar/metallic |
+| `oxidation_examples` | Elements in compounds | Oxidation state assignment |
+| `properties` | Elements | EN, IE, atomic radius, EA, metallic radius |
+| `qualitative_reactions` | Substances | Observable indicators: color, gas, precipitate |
+| `genetic_chains` | Substances | Multi-step transformation sequences |
+| `energy_catalyst_theory` | Reactions | Rate factors, activation energy, equilibrium shifts |
+| `calculations_data` | Substances + Reactions | Molar mass, composition, stoichiometric coefficients |
+| `ion_nomenclature` | Ions | Suffix system: -id/-ite/-ate |
+| `bkt_params` | Competencies | P(L₀), P(T), P(G), P(S) per skill |
+| `competencies` | All entities | 20 learning objectives in A–G blocks |
+
+---
+
+## 4. Task Engine Pipeline Diagram
+
+```mermaid
+flowchart TB
+    subgraph Input["OntologyData (4 sub-objects)"]
+        direction LR
+        CORE["core<br/>elements, ions, properties"]
+        RULES["rules<br/>solubility, oxidation, bonds,<br/>activity, classification,<br/>naming, qualitative,<br/>energyCatalyst, ionNomenclature"]
+        DATA["data<br/>substances, reactions,<br/>geneticChains, calculations"]
+        I18N["i18n<br/>morphology, promptTemplates"]
+    end
+
+    TT["65 Task Templates<br/>(task_templates.json)"]
+    REG["Template Registry<br/>O(1) lookup by ID/exam/competency"]
+
+    subgraph Pipeline["Engine Pipeline"]
+        direction TB
+        GEN["Generator<br/>(21 generators)"]
+        SLOT["Slot Resolver<br/>lookup: + morph: directives"]
+        SOL["Solver<br/>(18 solvers)"]
+        REND["Prompt Renderer<br/>interpolate slots → question"]
+        DIST["Distractor Engine<br/>(13 strategies)"]
+        EVAL["Evaluator<br/>(4 modes)"]
+    end
+
+    subgraph Output["GeneratedTask"]
+        Q["question: rendered string"]
+        ANS["correct_answer"]
+        DISTR["distractors: 3-4 options"]
+        EXP["explanation: with evidence"]
+        META["competency_map, exam_tags, difficulty"]
+    end
+
+    TT --> REG
+    REG --> GEN
+
+    CORE --> GEN
+    RULES --> GEN
+    DATA --> GEN
+    I18N --> SLOT
+
+    GEN -->|"SlotValues"| SLOT
+    SLOT -->|"resolved slots"| SOL
+    SOL -->|"SolverResult"| REND
+    REND -->|"rendered text"| DIST
+    DIST -->|"distractors"| EVAL
+    EVAL --> Output
+
+    style Input fill:#e8f4fd,stroke:#2196F3
+    style Pipeline fill:#fff3e0,stroke:#FF9800
+    style Output fill:#e8f5e9,stroke:#4CAF50
+```
+
+### Generator → Competency Mapping
+
+| Generator | Competency Block | Description |
+|-----------|-----------------|-------------|
+| `pick_element_pair` | A (Periodic Table) | Compare element properties |
+| `pick_elements_same_period` | A | Trend ordering within period |
+| `pick_element_position` | A | Identify by group/period |
+| `pick_element_for_config` | A (Electron Config) | Write electron configuration |
+| `pick_element_for_valence` | A | Determine valence |
+| `pick_oxidation_example` | A (Oxidation States) | Assign oxidation states |
+| `pick_bond_example` | B (Bonding) | Identify bond type |
+| `pick_bond_pair` | B | Compare crystal/melting |
+| `pick_substance_by_class` | C (Classification) | Classify substance |
+| `pick_ion_pair` | C (Naming) | Compose salt formula |
+| `pick_salt_pair` | D (Reactions) | Solubility check |
+| `pick_reaction` | D | Exchange/redox reactions |
+| `pick_qualitative_test` | D | Identify by observation |
+| `pick_genetic_chain` | D | Fill chain gaps |
+| `pick_catalyst` | E (Energetics) | Identify catalyst role |
+| `pick_equilibrium_shift` | E | Le Chatelier application |
+| `pick_solution_params` | F (Calculations) | Solution calculations |
+| `pick_calc_substance` | F | Molar mass, mass fraction |
+| `pick_calc_reaction` | F | Stoichiometry |
+| `pick_ion_nomenclature` | G (Electrolytes) | Name ions by suffix |
+| `pick_ion_pair_nomenclature` | G | Ion naming pairs |
+
+### Interaction Types (7)
+
+| Type | UI Component | Used By |
+|------|-------------|---------|
+| `choice_single` | Radio buttons | Most generators |
+| `choice_multi` | Checkboxes | Classification, multi-select |
+| `order_dragdrop` | Drag-and-drop list | Trend ordering |
+| `numeric_input` | Number field ±tolerance | Calculations |
+| `match_pairs` | Two-column matching | Ion nomenclature |
+| `interactive_orbital` | Orbital diagram | Electron config |
+| `guided_selection` | Gap-fill dropdowns | Genetic chains |
+
+---
+
+## 5. Build Pipeline Diagram
+
+```mermaid
+flowchart TB
+    subgraph Source["data-src/ (~217 files)"]
+        direction LR
+        S_CORE["elements.json<br/>ions.json"]
+        S_SUBS["substances/*.json<br/>(80 files)"]
+        S_RULES["rules/*.json<br/>(20 files)"]
+        S_RX["reactions/reactions.json"]
+        S_EXAM["exam/systems.json<br/>exam/{id}/tasks.json"]
+        S_ENGINE["engine/task_templates.json<br/>engine/prompt_templates.*.json"]
+        S_CTX["contexts/*.json<br/>(4 files)"]
+        S_STRUCT["structures/*.json<br/>(38 files)"]
+        S_TRANS["translations/{locale}/*.json<br/>(32 files)"]
+        S_OTHER["diagnostic/, exercises/,<br/>element-groups, process_vocab,<br/>quantities_units, sources_list"]
+    end
+
+    VALIDATE["Validate<br/>(19 schema validators +<br/>cross-ref integrity)"]
+    HASH["Compute Hash<br/>SHA-256 → 12-char prefix"]
+
+    subgraph Bundle["public/data/{bundleHash}/"]
+        direction LR
+        B_DATA["Core + Rules +<br/>Templates + Substances +<br/>Reactions + Exam +<br/>Engine + Contexts +<br/>Structures + Exercises"]
+        B_TRANS["translations/{locale}/<br/>overlay files"]
+    end
+
+    subgraph Generators["Build-Time Generators"]
+        direction TB
+        G_IDX["generateIndices()<br/>→ substance_index.json<br/>→ by-class/ by-ion/ by-competency/"]
+        G_FORM["generateFormulaLookup()<br/>→ formula_lookup.json (239 entries)"]
+        G_SEARCH["generateSearchIndex()<br/>→ search_index.json (306/locale)"]
+        G_NAME["generateNameIndex()<br/>→ name_index.{locale}.json (~298/locale)"]
+        G_REV["generateReverseIndex()<br/>→ contexts/reverse_index.json"]
+    end
+
+    subgraph Output["public/data/latest/"]
+        MANIFEST["manifest.json<br/>(short cache, points to hash)"]
+    end
+
+    Source --> VALIDATE
+    VALIDATE -->|pass| HASH
+    HASH --> Bundle
+    Bundle --> Generators
+    S_TRANS --> B_TRANS
+    Generators --> MANIFEST
+
+    style Source fill:#fce4ec,stroke:#e91e63
+    style Bundle fill:#e3f2fd,stroke:#2196f3
+    style Generators fill:#fff8e1,stroke:#ffc107
+    style Output fill:#e8f5e9,stroke:#4caf50
+```
+
+### Caching Strategy
+
+| Path | Cache-Control | TTL |
+|------|--------------|-----|
+| `/data/latest/manifest.json` | `max-age=300` | 5 min |
+| `/data/{hash}/**` | `immutable, max-age=31536000` | 1 year |
+| Locale search/name indices | Same as hash bundle | 1 year |
+
+### Adding a New Data File — Checklist
+
+1. Add JSON to `data-src/` in appropriate directory
+2. Add schema validation in `scripts/build-data.mjs`
+3. Add copy step in build pipeline
+4. Add entrypoint key in `src/types/manifest.ts` (`ManifestEntrypoints`)
+5. Add loader function in `src/lib/data-loader.ts`
+6. If engine-relevant: add to `OntologyData` in `src/lib/task-engine/types.ts`
+7. If translatable: add overlays in `data-src/translations/{en,pl,es}/`
+
+---
+
+## 6. Translation Overlay Diagram
+
+```mermaid
+flowchart LR
+    subgraph Base["Base Data (Russian)"]
+        BD["elements.json<br/>substances/*.json<br/>competencies.json<br/>etc."]
+    end
+
+    subgraph Overlays["Translation Overlays"]
+        direction TB
+        EN["translations/en/<br/>11 files"]
+        PL["translations/pl/<br/>10 files"]
+        ES["translations/es/<br/>10 files"]
+        RU_M["translations/ru/<br/>morphology.json<br/>(43 entries)"]
+    end
+
+    subgraph Runtime["Client-Side Runtime"]
+        LOAD["loadTranslationOverlay(key, locale)"]
+        APPLY["applyOverlay(baseData, overlay)"]
+        RESULT["Localized Data<br/>fields merged by item ID"]
+    end
+
+    BD --> LOAD
+    EN --> LOAD
+    PL --> LOAD
+    ES --> LOAD
+    LOAD --> APPLY
+    APPLY --> RESULT
+
+    style Base fill:#fff3e0,stroke:#ff9800
+    style Overlays fill:#e8eaf6,stroke:#3f51b5
+    style Runtime fill:#e8f5e9,stroke:#4caf50
+```
+
+### Overlay Mechanics
+
+- **Key matching**: Overlay files are keyed by item `id` field (same as base data)
+- **Field merging**: Only translated fields are present in overlay; merged at runtime via `applyOverlay()`
+- **Convention**: Base data uses `_ru` suffix for Russian fields (`name_ru`, `description_ru`)
+- **Locale detection**: `PARAGLIDE_LOCALE` cookie → `Astro.currentLocale` → passed to loaders
+
+### Translation Coverage
+
+| Data Key | en | pl | es |
+|----------|:--:|:--:|:--:|
+| `elements` | ✓ | ✓ | ✓ |
+| `ions` | ✓ | ✓ | ✓ |
+| `substances` | ✓ | ✓ | ✓ |
+| `competencies` | ✓ | ✓ | ✓ |
+| `reactions` | ✓ | ✓ | ✓ |
+| `pages` | ✓ | ✓ | ✓ |
+| `element_groups` | ✓ | ✓ | ✓ |
+| `bond_theory` | ✓ | ✓ | ✓ |
+| `process_vocab` | ✓ | ✓ | ✓ |
+| `terms` | ✓ | ✓ | ✓ |
+| `diagnostic_questions` | ✓ | — | — |
+| **Prompt templates** | ✓ (65) | ✓ (65) | ✓ (65) |
+| **RU Morphology** | — | — | — |
+
+---
+
+## 7. Context Layer Diagram
+
+```mermaid
+graph TB
+    subgraph Contexts["Context Types"]
+        PH["Phase Form<br/>ctx:phase_H2O_s (ice)<br/>ctx:phase_CO2_s (dry ice)"]
+        MX["Mixture<br/>ctx:mix_aqua_regia<br/>(3 HCl + 1 HNO₃)"]
+        ST["Solution Template<br/>ctxtmpl:H2SO4_conc<br/>(90-98% mass fraction)"]
+        ML["Melt<br/>ctx:melt_NaCl<br/>(electrolysis context)"]
+    end
+
+    subgraph Variants["Substance Variants"]
+        CD["subvar:C_diamond"]
+        CG["subvar:C_graphite"]
+        CC["subvar:C_coal"]
+        PW["subvar:P_white"]
+        PR["subvar:P_red"]
+    end
+
+    subgraph Terms["Terms (54 synonyms)"]
+        T1["term:ice → ctx:phase_H2O_s"]
+        T2["term:marble → sub:caco3"]
+        T3["term:rust → sub:fe2o3"]
+        T4["term:salt → sub:nacl"]
+        T5["term:aqua_regia → ctx:mix_aqua_regia"]
+        T6["term:conc_sulfuric_acid → ctxtmpl:H2SO4_conc"]
+    end
+
+    subgraph Bindings["Term Bindings (54 entries)"]
+        TB1["term_id → target ref<br/>(substance / context / variant)"]
+    end
+
+    subgraph ReverseIdx["Reverse Index (built)"]
+        RI["ref.id → term_id[]<br/>e.g. sub:nacl → [term:salt]"]
+    end
+
+    Terms --> Bindings
+    Bindings --> Contexts
+    Bindings --> Variants
+    Bindings -->|"direct substance ref"| SUB["Substances"]
+    Bindings --> ReverseIdx
+
+    style Contexts fill:#e3f2fd,stroke:#2196f3
+    style Variants fill:#f3e5f5,stroke:#9c27b0
+    style Terms fill:#fff3e0,stroke:#ff9800
+```
+
+### Context Spec Patterns
+
+| Type | Spec Shape | Example |
+|------|-----------|---------|
+| `phase_form` | `{ ref: {kind, id}, phase: "s\|l\|g\|aq" }` | Ice = H₂O(s) |
+| `mixture` | `{ components: [{ref, phase, ratio}...] }` | Aqua regia = 3HCl(aq)+1HNO₃(aq) |
+| `solution_template` | `{ solute, solvent, concentration: {type, range} }` | Conc. H₂SO₄ = 90-98% |
+| `melt` | `{ ref: {kind, id} }` | Molten NaCl |
+
+---
+
+## 8. Exam System Diagram
+
+```mermaid
+graph TB
+    subgraph Systems["5 Exam Systems"]
+        OGE["OGE<br/>🇷🇺 Russia Grade 9<br/>24 tasks, 180 min<br/>78 task bank"]
+        EGE["EGE<br/>🇷🇺 Russia Grade 11<br/>34 tasks, 210 min<br/>27 task bank"]
+        GCSE["GCSE<br/>🇬🇧 UK Grades 10-11<br/>30 tasks, 105 min<br/>20 task bank"]
+        MATURA["Matura<br/>🇵🇱 Poland Grade 12<br/>45 tasks, 180 min<br/>20 task bank"]
+        EBAU["EBAU<br/>🇪🇸 Spain Grade 12<br/>6 tasks, 90 min<br/>18 task bank"]
+    end
+
+    subgraph Competencies["20 Competencies (A-G Blocks)"]
+        direction LR
+        A["Block A<br/>Atomic Structure<br/>periodic_table<br/>electron_config<br/>periodic_trends<br/>oxidation_states"]
+        B["Block B<br/>Chemical Bonding<br/>bond_type<br/>crystal_structure_type"]
+        C["Block C<br/>Classes & Naming<br/>classification<br/>naming<br/>amphoterism_logic"]
+        D["Block D<br/>Reactions<br/>reactions_exchange<br/>gas_precipitate_logic<br/>reactions_redox<br/>genetic_chain_logic<br/>qualitative_analysis_logic<br/>reaction_energy_profile"]
+        E["Block E<br/>Energetics<br/>catalyst_role_understanding"]
+        F["Block F<br/>Calculations<br/>calculations_basic<br/>calculations_solutions<br/>reaction_yield_logic"]
+        G["Block G<br/>Electrolytes<br/>electrolyte_logic<br/>ion_nomenclature"]
+    end
+
+    subgraph Mapping["Topic Mapping"]
+        TM["topic_mapping.json<br/>exam task → competency"]
+    end
+
+    subgraph BKT["Adaptive Learning"]
+        BKTE["BKT Engine<br/>P(L), P(T), P(G), P(S)"]
+        STOR["localStorage<br/>P(L) per competency"]
+        IDB["IndexedDB<br/>attempt history"]
+    end
+
+    Systems -->|"task_types[]"| Mapping
+    Mapping --> Competencies
+    Competencies --> BKT
+    BKTE --> STOR
+    BKTE --> IDB
+
+    style Systems fill:#e8eaf6,stroke:#3f51b5
+    style Competencies fill:#fff8e1,stroke:#ffc107
+    style BKT fill:#fce4ec,stroke:#e91e63
+```
+
+### Competency Prerequisite Graph
+
+```mermaid
+graph LR
+    PT[periodic_table] --> EC[electron_config]
+    PT --> PTR[periodic_trends]
+    EC --> OS[oxidation_states]
+    PTR --> OS
+    OS --> BT[bond_type]
+    BT --> CST[crystal_structure_type]
+    OS --> CLS[classification]
+    CLS --> NAM[naming]
+    CLS --> AMP[amphoterism_logic]
+    CLS --> RE[reactions_exchange]
+    NAM --> RE
+    RE --> GPL[gas_precipitate_logic]
+    GPL --> RR[reactions_redox]
+    RR --> GCL[genetic_chain_logic]
+    GCL --> QAL[qualitative_analysis_logic]
+    RE --> REP[reaction_energy_profile]
+    REP --> CRU[catalyst_role_understanding]
+    RE --> CB[calculations_basic]
+    CB --> CS[calculations_solutions]
+    CS --> RYL[reaction_yield_logic]
+    RE --> EL[electrolyte_logic]
+    EL --> IN[ion_nomenclature]
+
+    style PT fill:#bbdefb
+    style EC fill:#bbdefb
+    style PTR fill:#bbdefb
+    style OS fill:#bbdefb
+    style BT fill:#c8e6c9
+    style CST fill:#c8e6c9
+    style CLS fill:#fff9c4
+    style NAM fill:#fff9c4
+    style AMP fill:#fff9c4
+    style RE fill:#ffccbc
+    style GPL fill:#ffccbc
+    style RR fill:#ffccbc
+    style GCL fill:#ffccbc
+    style QAL fill:#ffccbc
+    style REP fill:#ffccbc
+    style CRU fill:#e1bee7
+    style CB fill:#b3e5fc
+    style CS fill:#b3e5fc
+    style RYL fill:#b3e5fc
+    style EL fill:#d1c4e9
+    style IN fill:#d1c4e9
+```
+
+---
+
+## 9. Process Rules
+
+```mermaid
+graph TB
+    subgraph ProcessVocab["Process Vocabulary (36 types)"]
+        direction LR
+        CHEM["Chemical Processes<br/>chemical_reaction<br/>neutralization<br/>displacement"]
+        OPS["Operations (11)<br/>heating, cooling, stirring,<br/>grinding, dilution, evaporation,<br/>filtration, washing, drying,<br/>decantation, distillation"]
+        PHYS["State Changes (6)<br/>dissolution, crystallization,<br/>sublimation, condensation,<br/>melting, boiling"]
+        PCHEM["Physicochemical (11)<br/>dissociation, precipitation,<br/>gas_evolution, complexation,<br/>catalysis, electrolysis,<br/>adsorption, photodecomposition"]
+        CONST["Constraints (4)<br/>remove_gas, remove_solid,<br/>closed_system, excess_condition"]
+    end
+
+    subgraph Applicability["Applicability Rules (15 conditions)"]
+        PASS["Passivation<br/>Fe, Al, Cr + cold conc.<br/>H₂SO₄ or HNO₃"]
+        NOBLE["Noble Metal<br/>Cu, Hg, Ag, Pt, Au<br/>no H₂ from acids"]
+        AMPH["Amphoterism<br/>Al₂O₃, ZnO, BeO<br/>react with acids AND bases"]
+        GAS["Gas Formation<br/>carbonate/sulfite/sulfide<br/>+ acid → gas"]
+        CONC["Concentrated Acids<br/>H₂SO₄(conc) as oxidizer<br/>HNO₃ always oxidizes"]
+    end
+
+    subgraph QUnits["Quantities & Units Ontology"]
+        Q["16 Quantities<br/>mass, amount, volume,<br/>concentration, temperature,<br/>pressure, energy, molar_mass,<br/>mass_fraction, yield, enthalpy..."]
+        U["27 Units<br/>g, kg, mol, L, K, Pa,<br/>atm, kJ, g/mol, %, ..."]
+        M["Measurement schema<br/>{quantity, value, unit, of, at}"]
+    end
+
+    ProcessVocab --- Applicability
+    ProcessVocab --- QUnits
+
+    style ProcessVocab fill:#e8f5e9,stroke:#4caf50
+    style Applicability fill:#fff3e0,stroke:#ff9800
+    style QUnits fill:#e3f2fd,stroke:#2196f3
+```
+
+### Decomposition Drivers Layer (Designed, Deferred)
+
+The decomposition drivers layer introduces a structured hierarchy for decomposition reactions:
+
+```
+proc:decomposition (process)
+├── driver:thermal → heating decomposes
+├── driver:electro → electric current decomposes
+├── driver:photo  → light decomposes
+└── driver:chemical → reagent decomposes
+
+Each (process + driver) → rule_base with:
+  - applicability (what substances)
+  - product pattern (what forms)
+  - examples (concrete reactions)
+```
+
+**Why deferred**: Requires formula/ion module for product derivation (e.g., `M(OH)n → MxOy + H₂O`). Current applicability rules handle the OGE-relevant subset (passivation, noble metals) without this layer.
+
+---
+
+## 10. Reaction Participant Roles (Planned)
+
+```mermaid
+graph TB
+    subgraph Roles["11 Reaction Roles"]
+        direction LR
+        R1["reactant<br/>consumed"]
+        R2["product<br/>formed"]
+        R3["catalyst<br/>not consumed"]
+        R4["inhibitor<br/>slows reaction"]
+        R5["solvent<br/>medium"]
+        R6["medium<br/>environment"]
+        R7["oxidizing_agent<br/>is reduced"]
+        R8["reducing_agent<br/>is oxidized"]
+        R9["precipitate<br/>solid formed"]
+        R10["gas_evolved<br/>gas released"]
+        R11["electrolyte<br/>in electrochemistry"]
+    end
+
+    subgraph Participation["N-ary Participation Records"]
+        P["reaction_participants.json<br/>{reaction, entity, role, stoichiometry?}"]
+    end
+
+    subgraph Source["Reaction Data"]
+        RX["reactions.json (32 reactions)"]
+    end
+
+    subgraph Derived["Build-Time Derived Indices"]
+        IDX_BY_ROLE["by_role/{role}.json<br/>e.g. by_role/catalyst.json"]
+        IDX_BY_SUB["by_substance/{id}.json<br/>all roles of a substance"]
+        IDX_BY_RX["by_reaction/{id}.json<br/>all participants"]
+    end
+
+    Roles --> Participation
+    RX --> Participation
+    Participation -->|"build-data.mjs"| Derived
+
+    style Roles fill:#e8eaf6,stroke:#3f51b5
+    style Participation fill:#fff3e0,stroke:#ff9800
+    style Derived fill:#e8f5e9,stroke:#4caf50
+```
+
+### Design Principles
+
+1. **Roles are contextual** — a substance is a catalyst only in a specific reaction, not globally
+2. **N-ary relations** — each participation record links (reaction, entity, role)
+3. **Build-time derivation** — inverse lookup indices generated during build, not stored in source
+4. **Educational tasks** enabled: "identify catalyst", "what is the oxidizing agent?", "which substances don't participate?"
+
+### Planned Data Shape
+
+```json
+// reaction_roles.json — 11 role definitions
+[
+  { "id": "reactant", "description": "Substance consumed in reaction" },
+  { "id": "product", "description": "Substance formed in reaction" },
+  { "id": "catalyst", "description": "Accelerates reaction, not consumed" },
+  ...
+]
+
+// reaction_participants.json — derived from existing reactions
+[
+  {
+    "reaction": "rx:ostwald_step1",
+    "entity": "sub:Pt",
+    "role": "catalyst"
+  },
+  {
+    "reaction": "rx:ostwald_step1",
+    "entity": "sub:NH3",
+    "role": "reactant",
+    "stoichiometry": 4
+  }
+]
+```
+
+---
+
+## 11. Proposed Layers (Not Yet Integrated)
+
+### Relations Graph (`predicates.v1.json`)
+
+**Purpose**: Typed semantic triples — `subject → predicate → object` with conditions. Enables universal queries like "what allotropes does carbon have?" or "why doesn't aluminum react with water?".
+
+**Core predicates** (~20):
+- Taxonomy: `is_instance_of`, `is_subclass_of`, `member_of_group`
+- Composition: `has_component`, `has_allotrope`
+- Properties: `has_property`, `has_numeric_property`
+- Processes: `participates_in_process`, `has_surface_layer`, `blocks_reaction_family`
+- Context: `phase_of`, `solution_of`, `mixture_of`, `melt_of`
+
+**Design principle**: Store forward edges only; derive inverse edges at build time (`member_of_group` → `has_member`).
+
+**Why deferred**: The current system handles all OGE/EGE tasks without a generic graph layer. Relations would add value for (a) advanced cross-domain queries, (b) more sophisticated distractor generation, and (c) explanatory reasoning chains. Worth revisiting when the task engine needs cross-entity reasoning beyond what applicability rules provide.
+
+### Decomposition Drivers (`drivers.v1.json`)
+
+**Purpose**: Hierarchical model for decomposition reactions: `process × driver → rule_base → products`.
+
+**Structure**:
+- 1 process (`proc:decomposition`)
+- 4 drivers (`thermal`, `electro`, `photo`, `chemical`)
+- 3 example rule bases (insoluble base decomposition, KClO₃ decomposition, water electrolysis)
+- Per-rule: applicability conditions, product patterns, concrete examples
+
+**Why deferred**: Product derivation requires formula manipulation (e.g., `Cu(OH)₂ → CuO + H₂O`), which the current codebase doesn't have as a general module. The existing `applicability_rules.json` covers the exam-relevant subset (passivation, heat decomposition). Worth integrating alongside formula parsing/balancing.
+
+### Generative Task Engine Starter Pack (`v1`)
+
+**Purpose**: Initial seed templates for the generative task engine.
+
+**Status**: Superseded by the current engine (65 templates, 21 generators, 18 solvers vs. the v1 pack's ~5 templates). Kept as historical reference only.
+
+---
+
+## 12. ID System Reference
+
+### Namespace Registry
+
+| Prefix | Scope | Uniqueness | Example | Assigned In |
+|--------|-------|------------|---------|------------|
+| (none) | Elements | By `Z` (atomic number) | Z=26 (Fe) | `elements.json` |
+| (none) | Ions | By formula string | `Fe3+`, `SO4_2-` | `ions.json` |
+| (none) | Substances | By slug | `nacl`, `h2so4` | `substances/*.json` |
+| `rx:` | Reactions | By equation hash | `rx:neut_naoh_hcl` | `reactions.json` |
+| `ctx:` | Contexts | By canonical key | `ctx:phase_H2O_s` | `contexts.json` |
+| `ctxtmpl:` | Context Templates | By spec | `ctxtmpl:H2SO4_conc` | `contexts.json` |
+| `subvar:` | Substance Variants | By form | `subvar:C_diamond` | `substance_variants.json` |
+| `term:` | Terms | By name | `term:marble` | `terms.json` |
+| `sk:` / `comp:` | Competencies | By slug | `periodic_table` | `competencies.json` |
+| `q:` | Quantities | By dimension | `q:mass` | `quantities_units_ontology.json` |
+| `unit:` | Units | By symbol | `unit:g` | `quantities_units_ontology.json` |
+| `meas:` | Measurements | Per-problem | `meas:1` | Problem instances |
+| `prob:` | Problems | By content | `prob:stoich_zn_hcl_001` | Problem instances |
+| `proc:` | Processes | By type | `proc:decomposition` | `process_vocab.json` |
+| `cond:` | Conditions (proposed) | By driver | `cond:heat` | Decomposition layer |
+| `driver:` | Drivers (proposed) | By mechanism | `driver:thermal` | Decomposition layer |
+
+### Cross-Reference Patterns
+
+- Competency `oge_task_types[]` → OGE task numbers
+- Competency `prerequisites[]` → other competency IDs (DAG)
+- Reaction `molecular.reactants/products[].formula` → substance formulas
+- Solubility rules `cation`/`anion` → ion formula strings
+- Term bindings `ref.id` → substance/context/variant IDs
+- Engine template `competency_map` → competency IDs
+- Engine template `exam_tags[]` → exam system IDs
+
+---
+
+## 13. Data File Inventory
+
+### Root Level (`data-src/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `elements.json` | 118 | All chemical elements |
+| `ions.json` | 41 | Chemical ions |
+| `element-groups.json` | 10 | Element group metadata |
+| `periodic-table-content.json` | 3 | Periodic table layout |
+| `process_vocab.json` | 36 | Chemistry process types |
+| `quantities_units_ontology.json` | 16q + 27u | Physical quantities and units |
+| `reactions_bundle.v1.json` | 6 | Reaction bundle (legacy v1 schema) |
+| `sources_list.json` | 4 | Reference source links |
+
+### Reactions (`data-src/reactions/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `reactions.json` | 32 | 26 exchange + 6 redox reactions |
+
+### Rules (`data-src/rules/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `activity_series.json` | 18 | Metal reactivity order |
+| `applicability_rules.json` | 15 | Reaction feasibility conditions |
+| `bkt_params.json` | 21 | BKT learning parameters |
+| `bond_examples.json` | 17 | Bond type examples |
+| `bond_theory.json` | — | Bond theory content |
+| `calculations_data.json` | 24+10 | Calc substances + reactions |
+| `classification_rules.json` | 12 | Substance classification |
+| `competencies.json` | 21 | 20 competencies + schema |
+| `energy_catalyst_theory.json` | — | Rate/equilibrium/catalysis |
+| `genetic_chains.json` | 5 | Transformation chains |
+| `ion_nomenclature.json` | 4 | Ion suffix rules |
+| `naming_rules.json` | 37 | Nomenclature rules |
+| `oxidation_examples.json` | 22 | Oxidation state examples |
+| `oxidation_theory.json` | — | Oxidation theory content |
+| `periodic-table-theory.json` | — | Periodic table theory |
+| `properties.json` | 5 | Element property definitions |
+| `qualitative_reactions.json` | 11 | Characteristic test reactions |
+| `solubility_rules_full.json` | 7 | Full solubility rules |
+| `solubility_rules_light.json` | 4 | Simplified solubility rules |
+| `topic_mapping.json` | 8 | Topic→competency mapping |
+
+### Templates (`data-src/templates/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `reaction_templates.json` | 10 | Reaction exercise templates |
+| `task_templates.json` | 20 | Generic task templates (legacy) |
+
+### Engine (`data-src/engine/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `task_templates.json` | 65 | Generative task definitions |
+| `prompt_templates.ru.json` | 65 | Russian prompt strings |
+| `prompt_templates.en.json` | 65 | English prompt strings |
+| `prompt_templates.pl.json` | 65 | Polish prompt strings |
+| `prompt_templates.es.json` | 65 | Spanish prompt strings |
+
+### Contexts (`data-src/contexts/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `contexts.json` | 5 | Phase forms, mixtures, solutions, melts |
+| `substance_variants.json` | 5 | Allotropes (C: diamond/graphite/coal, P: white/red) |
+| `terms.json` | 54 | Named synonyms (ice, marble, rust...) |
+| `term_bindings.json` | 54 | Term→entity mappings |
+
+### Exam (`data-src/exam/`)
+
+| File | Entries | Purpose |
+|------|---------|---------|
+| `systems.json` | 5 | Exam system definitions |
+| `oge_tasks.json` | 78 | OGE task bank (legacy) |
+| `oge_solution_algorithms.json` | 19 | OGE solution algorithms (legacy) |
+| `oge/meta.json` | 1 | OGE system metadata |
+| `oge/tasks.json` | 78 | OGE tasks (canonical) |
+| `oge/algorithms.json` | 19 | OGE algorithms (canonical) |
+| `ege/meta.json` | 1 | EGE system metadata |
+| `ege/tasks.json` | 27 | EGE tasks |
+| `ege/algorithms.json` | 10 | EGE algorithms |
+| `gcse/meta.json` | 1 | GCSE system metadata |
+| `gcse/tasks.json` | 20 | GCSE tasks |
+| `gcse/algorithms.json` | 10 | GCSE algorithms |
+| `egzamin/meta.json` | 1 | Matura system metadata |
+| `egzamin/tasks.json` | 20 | Matura tasks |
+| `egzamin/algorithms.json` | 8 | Matura algorithms |
+| `ebau/meta.json` | 1 | EBAU system metadata |
+| `ebau/tasks.json` | 18 | EBAU tasks |
+| `ebau/algorithms.json` | 7 | EBAU algorithms |
+
+### Other
+
+| Directory | Files | Purpose |
+|-----------|-------|---------|
+| `substances/` | 80 | Individual substance JSON files |
+| `structures/` | 38 | Molecular structure definitions |
+| `diagnostic/` | 1 | 12 initial diagnostic questions |
+| `exercises/` | 3 | Legacy exercise sets (bonds, oxidation, periodic table) |
+| `dictionaries/` | 7 | Search synonyms, taxonomy, exam profiles |
+| `translations/en/` | 11 | English overlays |
+| `translations/pl/` | 10 | Polish overlays |
+| `translations/es/` | 10 | Spanish overlays |
+| `translations/ru/` | 1 | Russian morphology seed |
+
+### Build-Time Generated Files
+
+| Output | Entries | Purpose |
+|--------|---------|---------|
+| `indices/substance_index.json` | 80 | Master substance search index |
+| `indices/by_class/*.json` | 5 files | Substances grouped by class |
+| `indices/by_ion/*.json` | 24 files | Substances containing each ion |
+| `indices/by_competency/*.json` | 12 files | Exercises by competency |
+| `formula_lookup.json` | 239 | Formula→entity mappings |
+| `search_index.json` | 306 | Russian search index |
+| `search_index.{locale}.json` | 306/locale | Per-locale search indices |
+| `name_index.{locale}.json` | ~298/locale | Per-locale name→entity lookup |
+| `contexts/reverse_index.json` | — | ref.id→[term_ids] reverse lookup |
