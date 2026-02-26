@@ -5,8 +5,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MoleculeView from '../../components/MoleculeView';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl } from '../../lib/i18n';
-import { CLASS_LABELS, SUBCLASS_LABELS, TAG_LABELS } from './substance-detail-paths';
 import type { Props } from './substance-detail-paths';
+import * as m from '../../paraglide/messages.js';
 
 const { substance, classificationRules, namingRules, allSubstances, ions, substanceReactions } = Astro.props as Props;
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
@@ -25,11 +25,63 @@ const namingRule = namingRules.find(
 // Find the exact example for this substance (if exists in the matched rule)
 const namingExample = namingRule?.examples.find(ex => ex.formula === substance.formula);
 
+const CLASS_LABELS: Record<string, string> = {
+  oxide: m.class_oxide(),
+  acid: m.class_acid(),
+  base: m.class_base(),
+  salt: m.class_salt(),
+  other: m.class_other(),
+};
+
+const SUBCLASS_LABELS: Record<string, string> = {
+  basic: m.subclass_basic_lower(),
+  acidic: m.subclass_acidic_lower(),
+  amphoteric: m.subclass_amphoteric_lower(),
+  indifferent: m.subclass_indifferent_lower(),
+  oxygen_containing: m.subclass_oxygen_containing_lower(),
+  oxygen_free: m.subclass_oxygen_free_lower(),
+  soluble: m.subclass_soluble_lower(),
+  insoluble: m.subclass_insoluble_lower(),
+  normal: m.subclass_normal_lower(),
+  acidic_salt: m.subclass_acidic_salt_lower(),
+  basic_salt: m.subclass_basic_salt_lower(),
+  hydride: m.subclass_hydride_lower(),
+};
+
+const TAG_LABELS: Record<string, string> = {
+  soluble: m.stag_soluble(),
+  insoluble: m.stag_insoluble(),
+  slightly_soluble: m.stag_slightly_soluble(),
+  strong_electrolyte: m.stag_strong_electrolyte(),
+  weak_electrolyte: m.stag_weak_electrolyte(),
+  amphoteric: m.stag_amphoteric(),
+  oxidizer: m.stag_oxidizer(),
+  reducer: m.stag_reducer(),
+  strong_acid: m.stag_strong_acid(),
+  medium_acid: m.stag_medium_acid(),
+  weak_acid: m.stag_weak_acid(),
+  alkali: m.stag_alkali(),
+  diprotic: m.stag_diprotic(),
+  triprotic: m.stag_triprotic(),
+  unstable: m.stag_unstable(),
+  decomposes: m.stag_decomposes(),
+  decomposes_on_heating: m.stag_decomposes_on_heating(),
+  reacts_with_water: m.stag_reacts_with_water(),
+  no_water_reaction: m.stag_no_water_reaction(),
+  gas: m.stag_gas(),
+  pungent_odor: m.stag_pungent_odor(),
+  white: m.stag_white(),
+  black: m.stag_black(),
+  blue: m.stag_blue(),
+  red_brown: m.stag_red_brown(),
+  gelatinous: m.stag_gelatinous(),
+};
+
 // Human-readable template: replace placeholders
 const TEMPLATE_PLACEHOLDERS: Record<string, string> = {
-  '{metal_genitive}': 'металла',
-  '{roman_numeral}': 'степень окисления',
-  '{nonmetal_genitive}': 'неметалла',
+  '{metal_genitive}': m.subst_detail_placeholder_metal(),
+  '{roman_numeral}': m.subst_detail_placeholder_ox_state(),
+  '{nonmetal_genitive}': m.subst_detail_placeholder_nonmetal(),
 };
 function humanizeTemplate(tpl: string): string {
   let result = tpl;
@@ -70,7 +122,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
 <BaseLayout
   title={displayName}
-  description={`${displayName} (${substance.formula}) — свойства, классификация, реакции.`}
+  description={m.subst_detail_description({ name: displayName, formula: substance.formula })}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -88,7 +140,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
     {substance.name_ru && <p class="substance-name">{substance.name_ru}</p>}
 
     <dl class="substance-props">
-      <dt>Класс</dt>
+      <dt>{m.subst_detail_class_label()}</dt>
       <dd>
         <span class={`subst-card__badge subst-card__badge--${substance.class}`}>
           {classLabel}
@@ -98,7 +150,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
       {substance.ions && substance.ions.length > 0 && (
         <>
-          <dt>Ионы</dt>
+          <dt>{m.subst_detail_ions_label()}</dt>
           <dd class="substance-ions">
             {substance.ions.map((ionId, i) => {
               const ion = ions[ionId];
@@ -119,7 +171,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
       {substance.tags && substance.tags.length > 0 && (
         <>
-          <dt>Свойства</dt>
+          <dt>{m.subst_detail_properties_label()}</dt>
           <dd class="substance-tags">
             {substance.tags.map(tag => (
               <span class="substance-tag">{TAG_LABELS[tag] ?? tag}</span>
@@ -133,16 +185,16 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {classRule && (
       <div class="subst-detail__section">
-        <h3>Классификация</h3>
+        <h3>{m.subst_detail_classification()}</h3>
         <div class="subst-detail__explanation">{classRule.description_ru}</div>
       </div>
     )}
 
     {namingRule && (
       <div class="subst-detail__section">
-        <h3>Номенклатура</h3>
+        <h3>{m.subst_detail_nomenclature()}</h3>
         <div class="subst-detail__explanation">
-          <div>Шаблон: <span class="subst-detail__template">{readableTemplate}</span></div>
+          <div>{m.subst_detail_template_prefix()}<span class="subst-detail__template">{readableTemplate}</span></div>
           {namingExample && (
             <div class="subst-detail__naming-result">
               {namingExample.formula} &rarr; <strong>{namingExample.name_ru}</strong>
@@ -154,7 +206,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {structure && (
       <div class="subst-detail__section">
-        <h3>Структурная формула</h3>
+        <h3>{m.subst_detail_structure()}</h3>
         <MoleculeView
           client:idle
           structure={structure}
@@ -167,27 +219,27 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {hasPhysical && (
       <div class="subst-detail__section">
-        <h3>Физические свойства</h3>
+        <h3>{m.subst_detail_physical()}</h3>
         {substance.appearance_ru && (
           <p class="subst-detail__appearance">{substance.appearance_ru}</p>
         )}
         <dl class="subst-detail__phys-props">
           {substance.melting_point_C != null && (
             <>
-              <dt>Т. плавления</dt>
+              <dt>{m.prop_melting()}</dt>
               <dd>{substance.melting_point_C} °C</dd>
             </>
           )}
           {substance.boiling_point_C != null && (
             <>
-              <dt>Т. кипения</dt>
+              <dt>{m.subst_detail_boiling()}</dt>
               <dd>{substance.boiling_point_C} °C</dd>
             </>
           )}
           {substance.density_g_cm3 != null && (
             <>
-              <dt>Плотность</dt>
-              <dd>{substance.density_g_cm3} г/см³</dd>
+              <dt>{m.subst_detail_density()}</dt>
+              <dd>{substance.density_g_cm3} {m.subst_detail_density_unit()}</dd>
             </>
           )}
         </dl>
@@ -196,7 +248,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {hasHazards && (
       <div class="subst-detail__section">
-        <h3>Опасность и хранение</h3>
+        <h3>{m.subst_detail_hazards()}</h3>
         {substance.hazards_ru && substance.hazards_ru.length > 0 && (
           <div class="subst-detail__hazards">
             {substance.hazards_ru.map(h => (
@@ -212,7 +264,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {hasProduction && (
       <div class="subst-detail__section">
-        <h3>Получение и применение</h3>
+        <h3>{m.subst_detail_production()}</h3>
         {substance.production_ru && (
           <div class="subst-detail__explanation">{substance.production_ru}</div>
         )}
@@ -224,7 +276,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {substanceReactions.length > 0 && (
       <div class="subst-detail__section">
-        <h3>Реакции</h3>
+        <h3>{m.subst_detail_reactions()}</h3>
         <ul class="subst-detail__reactions">
           {substanceReactions.map(r => (
             <li>
@@ -238,7 +290,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {hasFacts && (
       <div class="subst-detail__section">
-        <h3>Интересные факты</h3>
+        <h3>{m.subst_detail_facts()}</h3>
         <ul class="subst-detail__facts">
           {substance.fun_facts_ru!.map(f => (
             <li>{f}</li>
@@ -249,7 +301,7 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
 
     {related.length > 0 && (
       <div class="subst-detail__section">
-        <h3>Похожие вещества</h3>
+        <h3>{m.subst_detail_related()}</h3>
         <div class="subst-detail__related">
           {related.map(r => (
             <a href={`${localizeUrl('/substances/', locale)}${r.id}/`} class="subst-detail__related-link">
@@ -261,8 +313,8 @@ const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
     )}
 
     <div class="substance-page__actions">
-      <a href={localizeUrl('/substances/', locale)}>&larr; Каталог веществ</a>
-      <a href={localizeUrl('/substances/', locale)} class="btn btn-primary substance-page__practice-link">Потренироваться</a>
+      <a href={localizeUrl('/substances/', locale)}>{m.subst_detail_back()}</a>
+      <a href={localizeUrl('/substances/', locale)} class="btn btn-primary substance-page__practice-link">{m.subst_detail_practice()}</a>
     </div>
   </article>
 </BaseLayout>
