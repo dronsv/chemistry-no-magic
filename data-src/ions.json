@@ -126,6 +126,96 @@
     "tags": ["heavy_metal", "lead"]
   },
   {
+    "id": "Li_plus",
+    "formula": "Li\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Ион лития",
+    "name_ru_genitive": "лития",
+    "tags": ["alkali"]
+  },
+  {
+    "id": "Sr_2plus",
+    "formula": "Sr\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион стронция",
+    "name_ru_genitive": "стронция",
+    "tags": ["alkaline_earth"]
+  },
+  {
+    "id": "Mn_2plus",
+    "formula": "Mn\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион марганца(II)",
+    "name_ru_genitive": "марганца(II)",
+    "tags": ["transition"]
+  },
+  {
+    "id": "Ni_2plus",
+    "formula": "Ni\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион никеля(II)",
+    "name_ru_genitive": "никеля(II)",
+    "tags": ["transition"]
+  },
+  {
+    "id": "Co_2plus",
+    "formula": "Co\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион кобальта(II)",
+    "name_ru_genitive": "кобальта(II)",
+    "tags": ["transition"]
+  },
+  {
+    "id": "Cd_2plus",
+    "formula": "Cd\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион кадмия",
+    "name_ru_genitive": "кадмия",
+    "tags": ["transition", "heavy_metal"]
+  },
+  {
+    "id": "Hg_2plus",
+    "formula": "Hg\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион ртути(II)",
+    "name_ru_genitive": "ртути(II)",
+    "tags": ["transition", "heavy_metal"]
+  },
+  {
+    "id": "Hg2_2plus",
+    "formula": "Hg\u2082\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион ртути(I)",
+    "name_ru_genitive": "ртути(I)",
+    "tags": ["transition", "heavy_metal"]
+  },
+  {
+    "id": "Sn_2plus",
+    "formula": "Sn\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Ион олова(II)",
+    "name_ru_genitive": "олова(II)",
+    "tags": ["heavy_metal"]
+  },
+  {
+    "id": "Cr_3plus",
+    "formula": "Cr\u00b3\u207a",
+    "charge": 3,
+    "type": "cation",
+    "name_ru": "Ион хрома(III)",
+    "name_ru_genitive": "хрома(III)",
+    "tags": ["transition", "amphoteric"]
+  },
+  {
     "id": "OH_minus",
     "formula": "OH\u207b",
     "charge": -1,

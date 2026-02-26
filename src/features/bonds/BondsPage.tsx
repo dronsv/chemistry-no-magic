@@ -8,7 +8,7 @@ export default function BondsPage({ locale = 'ru' as SupportedLocale }: { locale
   return (
     <div className="bonds-page">
       <BondCalculator locale={locale} />
-      <BondTheoryPanel />
+      <BondTheoryPanel locale={locale} />
       <PracticeSection locale={locale} />
     </div>
   );

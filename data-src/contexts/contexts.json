@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ctx:phase_H2O_s",
+    "type": "phase_form",
+    "spec": {
+      "ref": { "kind": "substance", "id": "sub:H2O" },
+      "phase": "s"
+    },
+    "canonical_key": "phase_form|sub:H2O|s",
+    "tags": ["school_common"]
+  },
+  {
+    "id": "ctx:phase_CO2_s",
+    "type": "phase_form",
+    "spec": {
+      "ref": { "kind": "substance", "id": "sub:CO2" },
+      "phase": "s"
+    },
+    "canonical_key": "phase_form|sub:CO2|s",
+    "tags": ["school_common"]
+  },
+  {
+    "id": "ctx:mix_aqua_regia",
+    "type": "mixture",
+    "spec": {
+      "components": [
+        { "ref": { "kind": "substance", "id": "sub:HCl" }, "phase": "aq", "ratio": 3 },
+        { "ref": { "kind": "substance", "id": "sub:HNO3" }, "phase": "aq", "ratio": 1 }
+      ]
+    },
+    "canonical_key": "mixture|sub:HCl(aq)*3+sub:HNO3(aq)*1",
+    "tags": ["school_common"]
+  },
+  {
+    "id": "ctxtmpl:H2SO4_conc",
+    "type": "solution_template",
+    "spec": {
+      "solute": { "kind": "substance", "id": "sub:H2SO4" },
+      "solvent": { "kind": "substance", "id": "sub:H2O" },
+      "concentration": {
+        "type": "mass_fraction",
+        "range": { "min": 0.9, "max": 0.98 }
+      }
+    },
+    "canonical_key": "solution|sub:H2SO4|sub:H2O|mass_fraction|0.90..0.98",
+    "tags": ["school_common", "conc"]
+  },
+  {
+    "id": "ctx:melt_NaCl",
+    "type": "melt",
+    "spec": {
+      "ref": { "kind": "substance", "id": "sub:NaCl" }
+    },
+    "canonical_key": "melt|sub:NaCl",
+    "tags": ["school_common"]
+  }
+]

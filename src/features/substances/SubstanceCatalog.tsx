@@ -22,10 +22,13 @@ const FILTER_BUTTONS: Array<{ key: string; label: () => string }> = [
   { key: 'other', label: m.class_others },
 ];
 
-export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
+export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale, filter = 'all', onFilterChange }: {
+  locale?: SupportedLocale;
+  filter?: string;
+  onFilterChange?: (value: string) => void;
+}) {
   const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -68,7 +71,7 @@ export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale }: {
               key={btn.key}
               type="button"
               className={`subst-catalog__filter-btn ${filter === btn.key ? 'subst-catalog__filter-btn--active' : ''}`}
-              onClick={() => setFilter(btn.key)}
+              onClick={() => onFilterChange?.(btn.key)}
             >
               {btn.label()}
             </button>

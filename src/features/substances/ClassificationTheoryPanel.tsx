@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ClassificationRule, NamingRule } from '../../types/classification';
 import { loadClassificationRules, loadNamingRules } from '../../lib/data-loader';
+import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
 import * as m from '../../paraglide/messages.js';
 
 const CLASS_LABELS: Record<string, () => string> = {
@@ -26,31 +27,12 @@ const SUBCLASS_LABELS: Record<string, () => string> = {
 
 const CLASS_ORDER = ['oxide', 'acid', 'base', 'salt'];
 
-function CollapsibleSection({
-  title,
-  children,
-  defaultOpen = false,
-}: {
-  title: string;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className={`theory-section ${open ? 'theory-section--open' : ''}`}>
-      <button
-        type="button"
-        className="theory-section__toggle"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span className="theory-section__title">{title}</span>
-        <span className="theory-section__arrow">{open ? '▾' : '▸'}</span>
-      </button>
-      {open && <div className="theory-section__body">{children}</div>}
-    </div>
-  );
-}
+const FILTER_SECTIONS_MAP: Record<string, string[]> = {
+  oxide: ['class_oxide', 'naming_oxide'],
+  acid: ['class_acid', 'naming_acid'],
+  base: ['class_base', 'naming_base'],
+  salt: ['class_salt', 'naming_salt'],
+};
 
 function ClassificationRuleCard({ rule }: { rule: ClassificationRule }) {
   return (
@@ -84,12 +66,13 @@ function NamingRuleCard({ rule }: { rule: NamingRule }) {
   );
 }
 
-export default function ClassificationTheoryPanel() {
+export default function ClassificationTheoryPanel({ activeFilter = 'all' }: { activeFilter?: string }) {
   const [classRules, setClassRules] = useState<ClassificationRule[] | null>(null);
   const [namingRules, setNamingRules] = useState<NamingRule[] | null>(null);
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, toggleOpen] = useTheoryPanelState('substances');
   const [error, setError] = useState<string | null>(null);
+  const forcedSections = activeFilter !== 'all' ? FILTER_SECTIONS_MAP[activeFilter] ?? [] : [];
 
   useEffect(() => {
     if (!open || classRules) return;
@@ -128,7 +111,7 @@ export default function ClassificationTheoryPanel() {
       <button
         type="button"
         className={`theory-panel__trigger ${open ? 'theory-panel__trigger--active' : ''}`}
-        onClick={() => setOpen(!open)}
+        onClick={toggleOpen}
       >
         <span>📖</span>
         <span>{m.theory_classification_title()}</span>
@@ -144,7 +127,7 @@ export default function ClassificationTheoryPanel() {
             <>
               <h3 className="theory-panel__heading">{m.theory_classification_heading()}</h3>
               {classGroups.map(group => (
-                <CollapsibleSection key={group.cls} title={group.label}>
+                <CollapsibleSection key={group.cls} id={`class_${group.cls}`} pageKey="substances" title={group.label} forceOpen={forcedSections.includes(`class_${group.cls}`)}>
                   {group.rules.map(rule => (
                     <ClassificationRuleCard key={rule.id} rule={rule} />
                   ))}
@@ -152,7 +135,7 @@ export default function ClassificationTheoryPanel() {
               ))}
 
               <h3 className="theory-panel__heading">{m.theory_amphoterism_heading()}</h3>
-              <CollapsibleSection title={m.subst_amphoteric_title()}>
+              <CollapsibleSection id="amphoteric" pageKey="substances" title={m.subst_amphoteric_title()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     {m.class_theory_amphoteric_desc()}
@@ -162,7 +145,7 @@ export default function ClassificationTheoryPanel() {
                   </p>
                 </div>
               </CollapsibleSection>
-              <CollapsibleSection title={m.subst_amphoteric_oxides()}>
+              <CollapsibleSection id="amphoteric_oxides" pageKey="substances" title={m.subst_amphoteric_oxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     {m.class_theory_oxide_examples()}
@@ -175,7 +158,7 @@ export default function ClassificationTheoryPanel() {
                   </p>
                 </div>
               </CollapsibleSection>
-              <CollapsibleSection title={m.subst_amphoteric_hydroxides()}>
+              <CollapsibleSection id="amphoteric_hydroxides" pageKey="substances" title={m.subst_amphoteric_hydroxides()}>
                 <div className="subst-theory__rule">
                   <p className="subst-theory__rule-desc">
                     {m.class_theory_hydroxide_examples()}
@@ -191,7 +174,7 @@ export default function ClassificationTheoryPanel() {
 
               <h3 className="theory-panel__heading">{m.theory_nomenclature_heading()}</h3>
               {namingGroups.map(group => (
-                <CollapsibleSection key={group.cls} title={group.label}>
+                <CollapsibleSection key={group.cls} id={`naming_${group.cls}`} pageKey="substances" title={group.label} forceOpen={forcedSections.includes(`naming_${group.cls}`)}>
                   {group.rules.map(rule => (
                     <NamingRuleCard key={rule.id} rule={rule} />
                   ))}

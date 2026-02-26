@@ -149,6 +149,7 @@ async function main() {
   const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
   const ionNomenclature = await loadJson(join(DATA_SRC, 'rules', 'ion_nomenclature.json'));
   const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
+  const solubilityFull = await loadJson(join(DATA_SRC, 'rules', 'solubility_rules_full.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
   const properties = await loadJson(join(DATA_SRC, 'rules', 'properties.json'));
@@ -157,6 +158,12 @@ async function main() {
   const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
   const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
   const promptTemplatesEs = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.es.json'));
+
+  // Load contexts layer
+  const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
+  const substanceVariants = await loadJson(join(DATA_SRC, 'contexts', 'substance_variants.json'));
+  const chemTerms = await loadJson(join(DATA_SRC, 'contexts', 'terms.json'));
+  const termBindings = await loadJson(join(DATA_SRC, 'contexts', 'term_bindings.json'));
 
   // Load per-system exam metadata
   const examMetas = {};
@@ -191,7 +198,8 @@ async function main() {
   console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises, ${bondExamples.examples.length} bond examples`);
   console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples`);
   console.log(`  ${properties.length} property definitions, ${engineTaskTemplates.length} engine task templates`);
-  console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)\n`);
+  console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)`);
+  console.log(`  ${chemContexts.length} contexts, ${substanceVariants.length} substance variants, ${chemTerms.length} terms\n`);
 
   // 2. Validate
   console.log('Validating...');
@@ -265,6 +273,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'classification_rules.json'), JSON.stringify(classificationRules));
   await writeFile(join(bundleDir, 'rules', 'naming_rules.json'), JSON.stringify(namingRules));
   await writeFile(join(bundleDir, 'rules', 'solubility_rules_light.json'), JSON.stringify(solubility));
+  await writeFile(join(bundleDir, 'rules', 'solubility_rules_full.json'), JSON.stringify(solubilityFull));
   await writeFile(join(bundleDir, 'rules', 'activity_series.json'), JSON.stringify(activitySeries));
   await writeFile(join(bundleDir, 'rules', 'applicability_rules.json'), JSON.stringify(applicabilityRules));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
@@ -345,6 +354,18 @@ async function main() {
     }
   }
 
+  // Contexts layer: generate reverse index and copy to bundle
+  const reverseIndex = {};
+  for (const b of termBindings) {
+    (reverseIndex[b.ref.id] ??= []).push(b.term_id);
+  }
+  await mkdir(join(bundleDir, 'contexts'), { recursive: true });
+  await writeFile(join(bundleDir, 'contexts', 'contexts.json'), JSON.stringify(chemContexts));
+  await writeFile(join(bundleDir, 'contexts', 'substance_variants.json'), JSON.stringify(substanceVariants));
+  await writeFile(join(bundleDir, 'contexts', 'terms.json'), JSON.stringify(chemTerms));
+  await writeFile(join(bundleDir, 'contexts', 'term_bindings.json'), JSON.stringify(termBindings));
+  await writeFile(join(bundleDir, 'contexts', 'reverse_index.json'), JSON.stringify(reverseIndex));
+
   // 7. Generate indices
   console.log('Generating indices...');
   const indexKeys = await generateIndices(substances, taskTemplates, bundleDir);
@@ -410,6 +431,9 @@ async function main() {
     reaction_templates_count: reactionTemplates.length,
     task_templates_count: taskTemplates.length,
     reactions_count: reactions.length,
+    contexts_count: chemContexts.length,
+    variants_count: substanceVariants.length,
+    terms_count: chemTerms.length,
   };
   await generateManifest({
     bundleHash,

@@ -1,0 +1,11 @@
+[
+  { "id": "term:ice", "kind": "common_name", "name_ru": "лёд", "synonyms_ru": ["твёрдая вода"] },
+  { "id": "term:dry_ice", "kind": "common_name", "name_ru": "сухой лёд" },
+  { "id": "term:aqua_regia", "kind": "common_name", "name_ru": "царская водка" },
+  { "id": "term:conc_sulfuric_acid", "kind": "solution_name", "name_ru": "концентрированная серная кислота" },
+  { "id": "term:diamond", "kind": "common_name", "name_ru": "алмаз" },
+  { "id": "term:graphite", "kind": "common_name", "name_ru": "графит" },
+  { "id": "term:coal", "kind": "common_name", "name_ru": "уголь", "synonyms_ru": ["древесный уголь", "каменный уголь"] },
+  { "id": "term:white_phosphorus", "kind": "common_name", "name_ru": "белый фосфор" },
+  { "id": "term:red_phosphorus", "kind": "common_name", "name_ru": "красный фосфор" }
+]

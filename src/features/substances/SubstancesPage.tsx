@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { SupportedLocale } from '../../types/i18n';
 import SubstanceCatalog from './SubstanceCatalog';
 import ClassificationTheoryPanel from './ClassificationTheoryPanel';
@@ -5,10 +6,11 @@ import PracticeSection from './practice/PracticeSection';
 import './substances.css';
 
 export default function SubstancesPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
+  const [filter, setFilter] = useState('all');
   return (
     <div className="substances-page">
-      <SubstanceCatalog locale={locale} />
-      <ClassificationTheoryPanel />
+      <SubstanceCatalog locale={locale} filter={filter} onFilterChange={setFilter} />
+      <ClassificationTheoryPanel activeFilter={filter} />
       <PracticeSection locale={locale} />
     </div>
   );

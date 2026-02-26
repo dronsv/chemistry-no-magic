@@ -21,6 +21,28 @@ export interface SolubilityEntry {
   solubility: 'soluble' | 'insoluble' | 'slightly_soluble' | 'decomposes';
 }
 
+export type SolubilityState = 'soluble' | 'insoluble' | 'slightly_soluble' | 'decomposes';
+
+export interface SolubilityRuleException {
+  cations: string[];
+  solubility: SolubilityState;
+}
+
+export interface SolubilityRule {
+  id: string;
+  anions: string[] | null;
+  cations: string[] | null;
+  expected: SolubilityState;
+  exceptions: SolubilityRuleException[];
+}
+
+export interface SolubilityRulesFull {
+  cation_order: string[];
+  anion_order: string[];
+  pairs: SolubilityEntry[];
+  rules: SolubilityRule[];
+}
+
 export interface ActivitySeriesEntry {
   symbol: string;
   name_ru: string;

@@ -22,6 +22,7 @@ const SLUG_MAP = {
   '/competency/': { ru: '/competency/', en: '/en/competency/', pl: '/pl/kompetencja/', es: '/es/competencia/' },
   '/competencies/': { ru: '/competencies/', en: '/en/competencies/', pl: '/pl/kompetencje/', es: '/es/competencias/' },
   '/processes/': { ru: '/processes/', en: '/en/processes/', pl: '/pl/procesy/', es: '/es/procesos/' },
+  '/settings/': { ru: '/settings/', en: '/en/settings/', pl: '/pl/ustawienia/', es: '/es/ajustes/' },
   '/about/': { ru: '/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
 };
 

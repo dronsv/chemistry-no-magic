@@ -1,0 +1,66 @@
+{
+  "bond:ionic": {
+    "name_ru": "Ionic bond",
+    "description_ru": "A bond between a metal and a nonmetal through electron transfer. Ions are formed: a cation (+) and an anion (−).",
+    "rule_ru": "Δχ ≥ 1.7 or metal + nonmetal with a large electronegativity difference",
+    "properties_ru": "High melting points, brittle, conduct electricity in melt and solution"
+  },
+  "bond:covalent_polar": {
+    "name_ru": "Covalent polar bond",
+    "description_ru": "A bond between different nonmetals through shared electron pairs. Electron density is shifted toward the more electronegative atom (δ+, δ−).",
+    "rule_ru": "0.4 < Δχ < 1.7 (both are nonmetals)",
+    "properties_ru": "Various melting points, often liquids or gases, do not conduct electricity"
+  },
+  "bond:covalent_nonpolar": {
+    "name_ru": "Covalent nonpolar bond",
+    "description_ru": "A bond between identical nonmetals through shared electron pairs. Electron density is distributed symmetrically.",
+    "rule_ru": "Δχ ≤ 0.4 (identical or very similar nonmetals)",
+    "properties_ru": "Low melting points, gases or low-boiling liquids, do not conduct electricity"
+  },
+  "bond:metallic": {
+    "name_ru": "Metallic bond",
+    "description_ru": "A bond in metals: atoms release valence electrons into a shared 'electron cloud' that holds positive ions in the lattice.",
+    "rule_ru": "Pure metal or alloy (both are metals)",
+    "properties_ru": "Electrical and thermal conductivity, malleability, metallic luster"
+  },
+  "crystal:ionic": {
+    "name_ru": "Ionic lattice",
+    "description_ru": "At the nodes — alternating cations and anions held together by electrostatic attraction.",
+    "properties": {
+      "melting_point_ru": "High (800–3000 °C)",
+      "hardness_ru": "Hard, brittle",
+      "conductivity_ru": "In melt and solution",
+      "solubility_ru": "Often soluble in water"
+    }
+  },
+  "crystal:molecular": {
+    "name_ru": "Molecular lattice",
+    "description_ru": "At the nodes — molecules held together by weak intermolecular forces (van der Waals, hydrogen bonds).",
+    "properties": {
+      "melting_point_ru": "Low (< 300 °C)",
+      "hardness_ru": "Soft",
+      "conductivity_ru": "Do not conduct electricity",
+      "solubility_ru": "Varies"
+    }
+  },
+  "crystal:atomic": {
+    "name_ru": "Atomic lattice",
+    "description_ru": "At the nodes — atoms connected by strong covalent bonds throughout the crystal.",
+    "properties": {
+      "melting_point_ru": "Very high (> 1500 °C)",
+      "hardness_ru": "Very hard",
+      "conductivity_ru": "Do not conduct (except graphite)",
+      "solubility_ru": "Insoluble"
+    }
+  },
+  "crystal:metallic": {
+    "name_ru": "Metallic lattice",
+    "description_ru": "At the nodes — metal ions, between them — free electrons (electron gas).",
+    "properties": {
+      "melting_point_ru": "Varies (from −39 °C for Hg to 3422 °C for W)",
+      "hardness_ru": "Varies (Na is soft, W is hard)",
+      "conductivity_ru": "High",
+      "solubility_ru": "Insoluble"
+    }
+  }
+}

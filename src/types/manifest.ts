@@ -25,6 +25,13 @@ export interface ManifestEntrypoints {
     prompt_templates_pl: string;
     prompt_templates_es: string;
   };
+  contexts?: {
+    contexts: string;
+    substance_variants: string;
+    terms: string;
+    term_bindings: string;
+    reverse_index: string;
+  };
 }
 
 export interface ManifestStats {

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "subvar:C_diamond",
+    "type": "substance_variant",
+    "base": { "kind": "substance", "id": "sub:C" },
+    "variant_type": "allotrope",
+    "formula": "C",
+    "canonical_key": "allotrope|sub:C|diamond",
+    "tags": ["school_common", "allotrope", "crystal_atomic"]
+  },
+  {
+    "id": "subvar:C_graphite",
+    "type": "substance_variant",
+    "base": { "kind": "substance", "id": "sub:C" },
+    "variant_type": "allotrope",
+    "formula": "C",
+    "canonical_key": "allotrope|sub:C|graphite",
+    "tags": ["school_common", "allotrope", "crystal_atomic"]
+  },
+  {
+    "id": "subvar:C_coal",
+    "type": "substance_variant",
+    "base": { "kind": "substance", "id": "sub:C" },
+    "variant_type": "amorphous_carbon",
+    "formula": "C",
+    "canonical_key": "variant|sub:C|amorphous_carbon",
+    "tags": ["school_common", "reducing_agent", "adsorbent"]
+  },
+  {
+    "id": "subvar:P_white",
+    "type": "substance_variant",
+    "base": { "kind": "substance", "id": "sub:P" },
+    "variant_type": "allotrope",
+    "formula": "P4",
+    "canonical_key": "allotrope|sub:P|white|P4",
+    "tags": ["school_common", "allotrope"]
+  },
+  {
+    "id": "subvar:P_red",
+    "type": "substance_variant",
+    "base": { "kind": "substance", "id": "sub:P" },
+    "variant_type": "allotrope",
+    "formula": "P",
+    "canonical_key": "allotrope|sub:P|red",
+    "tags": ["school_common", "allotrope"]
+  }
+]

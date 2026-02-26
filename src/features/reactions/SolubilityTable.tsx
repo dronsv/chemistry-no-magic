@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import type { SolubilityEntry } from '../../types/rules';
+import type { SolubilityEntry, SolubilityRule, SolubilityRulesFull } from '../../types/rules';
 import type { Ion } from '../../types/ion';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadSolubilityRules, loadIons } from '../../lib/data-loader';
+import { loadSolubilityRules, loadSolubilityRulesFull, loadIons } from '../../lib/data-loader';
+import { cellMatchesRule } from './solubility-helpers';
 import FormulaChip from '../../components/FormulaChip';
+import SolubilityRulesPanel from './SolubilityRulesPanel';
 import * as m from '../../paraglide/messages.js';
 import './solubility-table.css';
 
@@ -21,45 +23,62 @@ const SOLUBILITY_CLASSES: Record<string, string> = {
   decomposes: 'sol-cell--decomposes',
 };
 
-const CATION_ORDER = [
-  'H⁺', 'Na⁺', 'K⁺', 'NH₄⁺', 'Ba²⁺', 'Ca²⁺', 'Mg²⁺',
-  'Al³⁺', 'Fe²⁺', 'Fe³⁺', 'Cu²⁺', 'Zn²⁺', 'Ag⁺', 'Pb²⁺',
+const COMPACT_CATION_ORDER = [
+  'H_plus', 'Na_plus', 'K_plus', 'NH4_plus', 'Ba_2plus', 'Ca_2plus', 'Mg_2plus',
+  'Al_3plus', 'Fe_2plus', 'Fe_3plus', 'Cu_2plus', 'Zn_2plus', 'Ag_plus', 'Pb_2plus',
 ];
 
-const ANION_ORDER = [
-  'Cl⁻', 'SO₄²⁻', 'NO₃⁻', 'CO₃²⁻', 'PO₄³⁻', 'S²⁻', 'OH⁻', 'SiO₃²⁻',
+const COMPACT_ANION_ORDER = [
+  'Cl_minus', 'SO4_2minus', 'NO3_minus', 'CO3_2minus', 'PO4_3minus', 'S_2minus', 'OH_minus', 'SiO3_2minus',
 ];
 
 interface SolubilityTableProps {
   locale?: SupportedLocale;
+  variant?: 'compact' | 'full';
 }
 
-export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps) {
+export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: SolubilityTableProps) {
   const [entries, setEntries] = useState<SolubilityEntry[]>([]);
   const [ionMap, setIonMap] = useState<Map<string, Ion>>(new Map());
   const [loading, setLoading] = useState(true);
   const [highlightRow, setHighlightRow] = useState<string | null>(null);
   const [highlightCol, setHighlightCol] = useState<string | null>(null);
+  const [activeRuleId, setActiveRuleId] = useState<string | null>(null);
+  const [rules, setRules] = useState<SolubilityRule[]>([]);
+  const [cationOrder, setCationOrder] = useState<string[]>(COMPACT_CATION_ORDER);
+  const [anionOrder, setAnionOrder] = useState<string[]>(COMPACT_ANION_ORDER);
 
   useEffect(() => {
-    Promise.all([loadSolubilityRules(), loadIons(locale)]).then(([sol, ions]) => {
+    const loadData = async () => {
+      const ions = await loadIons(locale);
       const iMap = new Map<string, Ion>();
-      const idToFormula = new Map<string, string>();
       for (const ion of ions) {
-        iMap.set(ion.formula, ion);
-        idToFormula.set(ion.id, ion.formula);
+        iMap.set(ion.id, ion);
       }
-      // Convert ion.id format (Na_plus) → formula format (Na⁺)
-      const mapped = sol.map(e => ({
-        ...e,
-        cation: idToFormula.get(e.cation) ?? e.cation,
-        anion: idToFormula.get(e.anion) ?? e.anion,
-      }));
-      setEntries(mapped);
+
+      if (variant === 'full') {
+        const fullData = await loadSolubilityRulesFull();
+        setEntries(fullData.pairs);
+        setCationOrder(fullData.cation_order);
+        setAnionOrder(fullData.anion_order);
+        setRules(fullData.rules);
+      } else {
+        const sol = await loadSolubilityRules();
+        setEntries(sol);
+        setCationOrder(COMPACT_CATION_ORDER);
+        setAnionOrder(COMPACT_ANION_ORDER);
+        setRules([]);
+      }
+
       setIonMap(iMap);
+      setActiveRuleId(null);
+      setHighlightRow(null);
+      setHighlightCol(null);
       setLoading(false);
-    });
-  }, [locale]);
+    };
+    setLoading(true);
+    loadData();
+  }, [locale, variant]);
 
   if (loading) return null;
 
@@ -68,11 +87,17 @@ export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps)
     lookup.set(`${e.cation}|${e.anion}`, e);
   }
 
-  const dataAnions = new Set(entries.map(e => e.anion));
-  const anions = ANION_ORDER.filter(a => dataAnions.has(a));
+  // For compact variant, entries use ion.id format already (Na_plus)
+  // For full variant, also ion.id format
+  const activeRule = activeRuleId ? rules.find(r => r.id === activeRuleId) ?? null : null;
 
-  const dataCations = new Set(entries.map(e => e.cation));
-  const cations = CATION_ORDER.filter(c => dataCations.has(c));
+  function getIonFormula(ionId: string): string {
+    return ionMap.get(ionId)?.formula ?? ionId;
+  }
+
+  function getIonName(ionId: string): string | undefined {
+    return ionMap.get(ionId)?.name_ru;
+  }
 
   function handleCellClick(cation: string, anion: string) {
     if (highlightRow === cation && highlightCol === anion) {
@@ -86,27 +111,35 @@ export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps)
 
   return (
     <div className="sol-table-wrapper">
-      <table className="sol-table">
+      {variant === 'full' && rules.length > 0 && (
+        <SolubilityRulesPanel
+          rules={rules}
+          activeRuleId={activeRuleId}
+          onRuleClick={setActiveRuleId}
+        />
+      )}
+      <table className={`sol-table ${variant === 'full' ? 'sol-table--full' : ''}`}>
         <thead>
           <tr>
             <th className="sol-table__corner">
               <span className="sol-table__corner-label sol-table__corner-anion">{m.sol_corner_anions()}</span>
               <span className="sol-table__corner-label sol-table__corner-cation">{m.sol_corner_cations()}</span>
             </th>
-            {anions.map(anion => {
-              const ion = ionMap.get(anion);
-              const isHl = highlightCol === anion;
+            {anionOrder.map(anionId => {
+              const ion = ionMap.get(anionId);
+              const formula = ion?.formula ?? anionId;
+              const isHl = highlightCol === anionId;
               return (
                 <th
-                  key={anion}
+                  key={anionId}
                   className={`sol-table__anion-header ${isHl ? 'sol-table__header--highlight' : ''}`}
                   onClick={() => {
-                    setHighlightCol(highlightCol === anion ? null : anion);
+                    setHighlightCol(highlightCol === anionId ? null : anionId);
                     setHighlightRow(null);
                   }}
                 >
                   <FormulaChip
-                    formula={anion}
+                    formula={formula}
                     ionType="anion"
                     ionId={ion?.id}
                     name={ion?.name_ru}
@@ -117,37 +150,47 @@ export default function SolubilityTable({ locale = 'ru' }: SolubilityTableProps)
           </tr>
         </thead>
         <tbody>
-          {cations.map(cation => {
-            const catIon = ionMap.get(cation);
-            const isRowHl = highlightRow === cation;
+          {cationOrder.map(cationId => {
+            const catIon = ionMap.get(cationId);
+            const catFormula = catIon?.formula ?? cationId;
+            const isRowHl = highlightRow === cationId;
             return (
-              <tr key={cation}>
+              <tr key={cationId}>
                 <th
                   className={`sol-table__cation-header ${isRowHl ? 'sol-table__header--highlight' : ''}`}
                   onClick={() => {
-                    setHighlightRow(highlightRow === cation ? null : cation);
+                    setHighlightRow(highlightRow === cationId ? null : cationId);
                     setHighlightCol(null);
                   }}
                 >
                   <FormulaChip
-                    formula={cation}
+                    formula={catFormula}
                     ionType="cation"
                     ionId={catIon?.id}
                     name={catIon?.name_ru}
                   />
                 </th>
-                {anions.map(anion => {
-                  const entry = lookup.get(`${cation}|${anion}`);
+                {anionOrder.map(anionId => {
+                  const entry = lookup.get(`${cationId}|${anionId}`);
                   const sol = entry?.solubility;
-                  const isHighlighted = highlightRow === cation || highlightCol === anion;
-                  const catName = ionMap.get(cation)?.name_ru ?? cation;
-                  const anName = ionMap.get(anion)?.name_ru ?? anion;
+                  const isHighlighted = highlightRow === cationId || highlightCol === anionId;
+                  const catName = getIonName(cationId) ?? catFormula;
+                  const anName = getIonName(anionId) ?? getIonFormula(anionId);
                   const solLabel = sol ? SOLUBILITY_LABELS[sol]?.() ?? '' : '';
+
+                  // Rule highlighting
+                  let ruleClass = '';
+                  if (activeRule) {
+                    const match = cellMatchesRule(cationId, anionId, activeRule);
+                    if (match === 'match') ruleClass = 'sol-cell--rule-match';
+                    else if (match === 'exception') ruleClass = 'sol-cell--rule-exception';
+                  }
+
                   return (
                     <td
-                      key={anion}
-                      className={`sol-cell ${sol ? SOLUBILITY_CLASSES[sol] : ''} ${isHighlighted ? 'sol-cell--highlight' : ''}`}
-                      onClick={() => handleCellClick(cation, anion)}
+                      key={anionId}
+                      className={`sol-cell ${sol ? SOLUBILITY_CLASSES[sol] : ''} ${isHighlighted ? 'sol-cell--highlight' : ''} ${ruleClass}`}
+                      onClick={() => handleCellClick(cationId, anionId)}
                       title={sol ? `${catName} + ${anName}: ${solLabel}` : ''}
                     >
                       {solLabel}

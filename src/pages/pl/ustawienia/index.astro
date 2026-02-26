@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SettingsPage from '../../../features/settings/SettingsPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+---
+
+<BaseLayout title="Ustawienia" description="Ustawienia platformy: egzamin, język, tabela rozpuszczalności.">
+  <SettingsPage locale={locale} client:idle />
+</BaseLayout>

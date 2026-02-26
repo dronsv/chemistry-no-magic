@@ -11,6 +11,7 @@ import type { SupportedLocale } from '../../types/i18n';
 import { bktUpdate } from '../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../lib/storage';
 import { localizeUrl } from '../../lib/i18n';
+import { loadSettings } from '../../lib/settings';
 import * as m from '../../paraglide/messages.js';
 import type { FormulaLookup } from '../../types/formula-lookup';
 import {
@@ -66,7 +67,13 @@ interface ExamPageProps {
 export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   const [phase, setPhase] = useState<Phase>('start');
   const [examSystems, setExamSystems] = useState<ExamSystem[] | null>(null);
-  const [selectedSystem, setSelectedSystem] = useState<string>(LOCALE_EXAM_MAP[locale] ?? 'oge');
+  const [selectedSystem, setSelectedSystem] = useState<string>(() => {
+    try {
+      const saved = loadSettings().examSystem;
+      if (saved) return saved;
+    } catch { /* fallback */ }
+    return LOCALE_EXAM_MAP[locale] ?? 'oge';
+  });
   const [systemMeta, setSystemMeta] = useState<Record<string, unknown> | null>(null);
   const [examData, setExamData] = useState<ExamData | null>(null);
   const [variant, setVariant] = useState<ExamVariant | null>(null);

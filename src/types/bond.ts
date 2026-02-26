@@ -7,6 +7,8 @@ export interface BondTypeInfo {
   properties_ru: string;
 }
 
+import type { MatterRef } from './matter';
+
 export interface CrystalStructureInfo {
   id: string;
   name_ru: string;
@@ -18,7 +20,7 @@ export interface CrystalStructureInfo {
     conductivity_ru: string;
     solubility_ru: string;
   };
-  examples: string[];
+  examples: MatterRef[];
 }
 
 export interface BondTheory {

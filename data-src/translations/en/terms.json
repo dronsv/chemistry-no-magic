@@ -1,0 +1,11 @@
+{
+  "term:ice": { "name_ru": "ice" },
+  "term:dry_ice": { "name_ru": "dry ice" },
+  "term:aqua_regia": { "name_ru": "aqua regia" },
+  "term:conc_sulfuric_acid": { "name_ru": "concentrated sulfuric acid" },
+  "term:diamond": { "name_ru": "diamond" },
+  "term:graphite": { "name_ru": "graphite" },
+  "term:coal": { "name_ru": "coal", "synonyms_ru": ["charcoal"] },
+  "term:white_phosphorus": { "name_ru": "white phosphorus" },
+  "term:red_phosphorus": { "name_ru": "red phosphorus" }
+}

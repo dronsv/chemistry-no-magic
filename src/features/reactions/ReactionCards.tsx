@@ -18,7 +18,7 @@ function normalizeFormula(f: string): string {
 
 const TAG_FILTER_VALUES = [
   'all', 'neutralization', 'precipitation', 'gas_evolution', 'substitution',
-  'qualitative_test', 'amphoteric', 'acidic_oxide', 'decomposition',
+  'qualitative_test', 'amphoteric', 'acidic_oxide', 'decomposition', 'redox',
 ] as const;
 
 const TAG_FILTER_LABELS: Record<string, () => string> = {
@@ -31,6 +31,7 @@ const TAG_FILTER_LABELS: Record<string, () => string> = {
   amphoteric: m.rxn_filter_amphoteric,
   acidic_oxide: m.rxn_filter_acidic_oxide,
   decomposition: m.rxn_filter_decomposition,
+  redox: m.rxn_filter_redox,
 };
 
 const TAG_LABELS: Record<string, () => string> = {
@@ -269,11 +270,14 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
   );
 }
 
-export default function ReactionCards({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
+export default function ReactionCards({ locale = 'ru' as SupportedLocale, filter = 'all', onFilterChange }: {
+  locale?: SupportedLocale;
+  filter?: string;
+  onFilterChange?: (value: string) => void;
+}) {
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
   const [elementMap, setElementMap] = useState<Map<string, ElementInfo>>(new Map());
-  const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -309,7 +313,7 @@ export default function ReactionCards({ locale = 'ru' as SupportedLocale }: { lo
             key={value}
             type="button"
             className={`rxn-catalog__filter-btn ${filter === value ? 'rxn-catalog__filter-btn--active' : ''}`}
-            onClick={() => setFilter(value)}
+            onClick={() => onFilterChange?.(value)}
           >
             {TAG_FILTER_LABELS[value]?.() ?? value}
           </button>

@@ -1,0 +1,11 @@
+{
+  "term:ice": { "name_ru": "lód" },
+  "term:dry_ice": { "name_ru": "suchy lód" },
+  "term:aqua_regia": { "name_ru": "woda królewska" },
+  "term:conc_sulfuric_acid": { "name_ru": "stężony kwas siarkowy" },
+  "term:diamond": { "name_ru": "diament" },
+  "term:graphite": { "name_ru": "grafit" },
+  "term:coal": { "name_ru": "węgiel", "synonyms_ru": ["węgiel drzewny", "węgiel kamienny"] },
+  "term:white_phosphorus": { "name_ru": "fosfor biały" },
+  "term:red_phosphorus": { "name_ru": "fosfor czerwony" }
+}

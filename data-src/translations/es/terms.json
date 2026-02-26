@@ -1,0 +1,11 @@
+{
+  "term:ice": { "name_ru": "hielo" },
+  "term:dry_ice": { "name_ru": "hielo seco" },
+  "term:aqua_regia": { "name_ru": "agua regia" },
+  "term:conc_sulfuric_acid": { "name_ru": "ácido sulfúrico concentrado" },
+  "term:diamond": { "name_ru": "diamante" },
+  "term:graphite": { "name_ru": "grafito" },
+  "term:coal": { "name_ru": "carbón", "synonyms_ru": ["carbón vegetal", "carbón mineral"] },
+  "term:white_phosphorus": { "name_ru": "fósforo blanco" },
+  "term:red_phosphorus": { "name_ru": "fósforo rojo" }
+}

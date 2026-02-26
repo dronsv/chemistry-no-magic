@@ -40,6 +40,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         ion_nomenclature: 'rules/ion_nomenclature.json',
         oxidation_examples: 'rules/oxidation_examples.json',
         properties: 'rules/properties.json',
+        solubility_rules_full: 'rules/solubility_rules_full.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
@@ -51,6 +52,13 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         prompt_templates_en: 'engine/prompt_templates.en.json',
         prompt_templates_pl: 'engine/prompt_templates.pl.json',
         prompt_templates_es: 'engine/prompt_templates.es.json',
+      },
+      contexts: {
+        contexts: 'contexts/contexts.json',
+        substance_variants: 'contexts/substance_variants.json',
+        terms: 'contexts/terms.json',
+        term_bindings: 'contexts/term_bindings.json',
+        reverse_index: 'contexts/reverse_index.json',
       },
       substances: 'substances',
       diagnostic: 'diagnostic/questions.json',

@@ -1,4 +1,5 @@
 import type { Manifest } from '../types/manifest';
+import type { ContextsData, ChemContext, SubstanceVariant, ChemTerm, TermBinding } from '../types/matter';
 import type { Element } from '../types/element';
 import type { Ion } from '../types/ion';
 import type { Substance } from '../types/substance';
@@ -9,7 +10,7 @@ import type { CompetencyNode } from '../types/competency';
 import type { ElementGroupDict, ElementGroupInfo } from '../types/element-group';
 import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
-import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule } from '../types/rules';
+import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule, SolubilityRulesFull } from '../types/rules';
 import type { Reaction } from '../types/reaction';
 import type { BondTheory, BondExamplesData } from '../types/bond';
 import type { OxidationTheory, OxidationExample } from '../types/oxidation';
@@ -419,6 +420,12 @@ export async function loadSolubilityRules(): Promise<SolubilityEntry[]> {
   return (raw as { pairs: SolubilityEntry[] }).pairs ?? [];
 }
 
+/** Load full solubility rules (23×11 table with rules). */
+export async function loadSolubilityRulesFull(): Promise<SolubilityRulesFull> {
+  const raw = await loadRule('solubility_rules_full');
+  return raw as SolubilityRulesFull;
+}
+
 /** Load activity series of metals. */
 export async function loadActivitySeries(): Promise<ActivitySeriesEntry[]> {
   return loadRule('activity_series') as Promise<ActivitySeriesEntry[]>;
@@ -430,8 +437,28 @@ export async function loadApplicabilityRules(): Promise<ApplicabilityRule[]> {
 }
 
 /** Load bond theory content (bond types + crystal structures). */
-export async function loadBondTheory(): Promise<BondTheory> {
-  return loadRule('bond_theory') as Promise<BondTheory>;
+export async function loadBondTheory(locale?: SupportedLocale): Promise<BondTheory> {
+  const data = (await loadRule('bond_theory')) as BondTheory;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'bond_theory');
+  if (!overlay) return data;
+  // overlay keys: "bond:{id}" for bond_types, "crystal:{id}" for crystal_structures
+  return {
+    bond_types: data.bond_types.map(bt => {
+      const o = overlay[`bond:${bt.id}`];
+      return o ? { ...bt, ...o } as typeof bt : bt;
+    }),
+    crystal_structures: data.crystal_structures.map(cs => {
+      const o = overlay[`crystal:${cs.id}`];
+      if (!o) return cs;
+      const { properties: pOverride, ...rest } = o as Record<string, unknown> & { properties?: Record<string, string> };
+      return {
+        ...cs,
+        ...rest,
+        ...(pOverride ? { properties: { ...cs.properties, ...pOverride } } : {}),
+      } as typeof cs;
+    }),
+  };
 }
 
 /** Load bond examples (substance-to-bond/crystal mapping for exercises). */
@@ -646,4 +673,31 @@ export async function loadStructure(id: string): Promise<MoleculeStructure> {
   }
 
   return loadDataFile<MoleculeStructure>(`${basePath}/${id}.json`);
+}
+
+/** Load contexts layer data (contexts, variants, terms, bindings, reverse index). */
+export async function loadContextsData(locale?: SupportedLocale): Promise<ContextsData> {
+  const manifest = await getManifest();
+  const ep = manifest.entrypoints.contexts;
+  if (!ep) throw new Error('Contexts not found in manifest');
+
+  const [contexts, variants, terms, bindings, reverseIndex] = await Promise.all([
+    loadDataFile<ChemContext[]>(ep.contexts),
+    loadDataFile<SubstanceVariant[]>(ep.substance_variants),
+    loadDataFile<ChemTerm[]>(ep.terms),
+    loadDataFile<TermBinding[]>(ep.term_bindings),
+    loadDataFile<Record<string, string[]>>(ep.reverse_index),
+  ]);
+
+  if (!locale || locale === 'ru') {
+    return { contexts, variants, terms, bindings, reverse_index: reverseIndex };
+  }
+  const overlay = await loadTranslationOverlay(locale, 'terms');
+  return {
+    contexts,
+    variants,
+    bindings,
+    terms: applyOverlay(terms, overlay, t => t.id),
+    reverse_index: reverseIndex,
+  };
 }

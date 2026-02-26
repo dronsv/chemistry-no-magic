@@ -1,0 +1,11 @@
+[
+  { "term_id": "term:ice", "ref": { "kind": "context", "id": "ctx:phase_H2O_s" } },
+  { "term_id": "term:dry_ice", "ref": { "kind": "context", "id": "ctx:phase_CO2_s" } },
+  { "term_id": "term:aqua_regia", "ref": { "kind": "context", "id": "ctx:mix_aqua_regia" } },
+  { "term_id": "term:conc_sulfuric_acid", "ref": { "kind": "context_template", "id": "ctxtmpl:H2SO4_conc" } },
+  { "term_id": "term:diamond", "ref": { "kind": "substance_variant", "id": "subvar:C_diamond" } },
+  { "term_id": "term:graphite", "ref": { "kind": "substance_variant", "id": "subvar:C_graphite" } },
+  { "term_id": "term:coal", "ref": { "kind": "substance_variant", "id": "subvar:C_coal" } },
+  { "term_id": "term:white_phosphorus", "ref": { "kind": "substance_variant", "id": "subvar:P_white" } },
+  { "term_id": "term:red_phosphorus", "ref": { "kind": "substance_variant", "id": "subvar:P_red" } }
+]

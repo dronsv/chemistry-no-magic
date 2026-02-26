@@ -1,0 +1,66 @@
+{
+  "bond:ionic": {
+    "name_ru": "Enlace iónico",
+    "description_ru": "Enlace entre un metal y un no metal mediante transferencia de electrones. Se forman iones: catión (+) y anión (−).",
+    "rule_ru": "Δχ ≥ 1,7 o metal + no metal con gran diferencia de electronegatividad",
+    "properties_ru": "Altos puntos de fusión, frágiles, conducen electricidad en estado fundido y en solución"
+  },
+  "bond:covalent_polar": {
+    "name_ru": "Enlace covalente polar",
+    "description_ru": "Enlace entre no metales diferentes mediante pares de electrones compartidos. La densidad electrónica se desplaza hacia el átomo más electronegativo (δ+, δ−).",
+    "rule_ru": "0,4 < Δχ < 1,7 (ambos son no metales)",
+    "properties_ru": "Puntos de fusión variados, a menudo líquidos o gases, no conducen electricidad"
+  },
+  "bond:covalent_nonpolar": {
+    "name_ru": "Enlace covalente apolar",
+    "description_ru": "Enlace entre no metales idénticos mediante pares de electrones compartidos. La densidad electrónica se distribuye simétricamente.",
+    "rule_ru": "Δχ ≤ 0,4 (no metales idénticos o muy similares)",
+    "properties_ru": "Bajos puntos de fusión, gases o líquidos de bajo punto de ebullición, no conducen electricidad"
+  },
+  "bond:metallic": {
+    "name_ru": "Enlace metálico",
+    "description_ru": "Enlace en los metales: los átomos ceden electrones de valencia a una «nube electrónica» compartida que mantiene los iones positivos en la red.",
+    "rule_ru": "Metal puro o aleación (ambos son metales)",
+    "properties_ru": "Conductividad eléctrica y térmica, maleabilidad, brillo metálico"
+  },
+  "crystal:ionic": {
+    "name_ru": "Red iónica",
+    "description_ru": "En los nodos — cationes y aniones alternados, unidos por atracción electrostática.",
+    "properties": {
+      "melting_point_ru": "Alta (800–3000 °C)",
+      "hardness_ru": "Duros, frágiles",
+      "conductivity_ru": "En estado fundido y en solución",
+      "solubility_ru": "A menudo solubles en agua"
+    }
+  },
+  "crystal:molecular": {
+    "name_ru": "Red molecular",
+    "description_ru": "En los nodos — moléculas unidas por fuerzas intermoleculares débiles (van der Waals, enlaces de hidrógeno).",
+    "properties": {
+      "melting_point_ru": "Baja (< 300 °C)",
+      "hardness_ru": "Blandos",
+      "conductivity_ru": "No conducen electricidad",
+      "solubility_ru": "Variable"
+    }
+  },
+  "crystal:atomic": {
+    "name_ru": "Red atómica",
+    "description_ru": "En los nodos — átomos unidos por fuertes enlaces covalentes a lo largo de todo el cristal.",
+    "properties": {
+      "melting_point_ru": "Muy alta (> 1500 °C)",
+      "hardness_ru": "Muy duros",
+      "conductivity_ru": "No conducen (excepto el grafito)",
+      "solubility_ru": "Insolubles"
+    }
+  },
+  "crystal:metallic": {
+    "name_ru": "Red metálica",
+    "description_ru": "En los nodos — iones metálicos, entre ellos — electrones libres (gas electrónico).",
+    "properties": {
+      "melting_point_ru": "Variable (de −39 °C del Hg a 3422 °C del W)",
+      "hardness_ru": "Variable (Na blando, W duro)",
+      "conductivity_ru": "Alta",
+      "solubility_ru": "Insolubles"
+    }
+  }
+}

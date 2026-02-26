@@ -45,7 +45,11 @@
         "conductivity_ru": "В расплаве и растворе",
         "solubility_ru": "Часто растворимы в воде"
       },
-      "examples": ["NaCl", "KBr", "CaO"]
+      "examples": [
+        { "kind": "substance", "id": "sub:NaCl" },
+        { "kind": "substance", "id": "sub:KBr" },
+        { "kind": "substance", "id": "sub:CaO" }
+      ]
     },
     {
       "id": "molecular",
@@ -58,7 +62,12 @@
         "conductivity_ru": "Не проводят ток",
         "solubility_ru": "По-разному"
       },
-      "examples": ["H2O (лёд)", "CO2 (сухой лёд)", "I2", "сахар"]
+      "examples": [
+        { "kind": "context", "id": "ctx:phase_H2O_s" },
+        { "kind": "context", "id": "ctx:phase_CO2_s" },
+        { "kind": "substance", "id": "sub:I2" },
+        { "kind": "substance", "id": "sub:C12H22O11" }
+      ]
     },
     {
       "id": "atomic",
@@ -71,7 +80,11 @@
         "conductivity_ru": "Не проводят (кроме графита)",
         "solubility_ru": "Нерастворимы"
       },
-      "examples": ["Алмаз (C)", "Кремний (Si)", "Кварц (SiO₂)"]
+      "examples": [
+        { "kind": "substance_variant", "id": "subvar:C_diamond" },
+        { "kind": "substance", "id": "sub:Si" },
+        { "kind": "substance", "id": "sub:SiO2" }
+      ]
     },
     {
       "id": "metallic",
@@ -84,7 +97,12 @@
         "conductivity_ru": "Высокая",
         "solubility_ru": "Нерастворимы"
       },
-      "examples": ["Fe", "Cu", "Al", "Au"]
+      "examples": [
+        { "kind": "substance", "id": "sub:Fe" },
+        { "kind": "substance", "id": "sub:Cu" },
+        { "kind": "substance", "id": "sub:Al" },
+        { "kind": "substance", "id": "sub:Au" }
+      ]
     }
   ]
 }

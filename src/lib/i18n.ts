@@ -90,6 +90,12 @@ const SLUG_MAP: Record<string, Record<SupportedLocale, string>> = {
     pl: '/pl/procesy/',
     es: '/es/procesos/',
   },
+  '/settings/': {
+    ru: '/settings/',
+    en: '/en/settings/',
+    pl: '/pl/ustawienia/',
+    es: '/es/ajustes/',
+  },
   '/about/': {
     ru: '/about/',
     en: '/en/about/',

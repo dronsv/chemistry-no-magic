@@ -13,6 +13,7 @@ import {
 } from '../../lib/data-loader';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
+import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
 import * as m from '../../paraglide/messages.js';
 
 const TYPE_LABELS: Record<string, () => string> = {
@@ -33,41 +34,28 @@ const RULE_TYPE_LABELS: Record<string, () => string> = {
   amphoteric_condition: m.rxn_rule_amphoteric,
 };
 
-function CollapsibleSection({
-  title,
-  children,
-  defaultOpen = false,
-}: {
-  title: string;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className={`theory-section ${open ? 'theory-section--open' : ''}`}>
-      <button
-        type="button"
-        className="theory-section__toggle"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-      >
-        <span className="theory-section__title">{title}</span>
-        <span className="theory-section__arrow">{open ? '▾' : '▸'}</span>
-      </button>
-      {open && <div className="theory-section__body">{children}</div>}
-    </div>
-  );
-}
+const FILTER_SECTION_MAP: Record<string, string> = {
+  neutralization: 'types',
+  precipitation: 'solubility',
+  substitution: 'activity',
+  qualitative_test: 'qualitative',
+  gas_evolution: 'forces',
+  redox: 'redox',
+  decomposition: 'types',
+  amphoteric: 'forces',
+  acidic_oxide: 'types',
+};
 
-export default function ReactionTheoryPanel() {
+export default function ReactionTheoryPanel({ activeFilter = 'all' }: { activeFilter?: string }) {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
   const [chains, setChains] = useState<GeneticChain[] | null>(null);
   const [energyTheory, setEnergyTheory] = useState<EnergyCatalystTheory | null>(null);
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, toggleOpen] = useTheoryPanelState('reactions');
   const [error, setError] = useState<string | null>(null);
+  const targetSection = activeFilter !== 'all' ? FILTER_SECTION_MAP[activeFilter] ?? null : null;
 
   useEffect(() => {
     if (!open || templates) return;
@@ -124,7 +112,7 @@ export default function ReactionTheoryPanel() {
       <button
         type="button"
         className={`theory-panel__trigger ${open ? 'theory-panel__trigger--active' : ''}`}
-        onClick={() => setOpen(!open)}
+        onClick={toggleOpen}
       >
         <span>📖</span>
         <span>{m.theory_rxn_trigger()}</span>
@@ -138,7 +126,7 @@ export default function ReactionTheoryPanel() {
 
           {templates && rules && (
             <>
-              <CollapsibleSection title={m.rxn_theory_types()} defaultOpen>
+              <CollapsibleSection id="types" pageKey="reactions" title={m.rxn_theory_types()} forceOpen={targetSection === 'types'}>
                 {templateGroups.map(group => (
                   <div key={group.type} className="rxn-theory__type-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
@@ -162,7 +150,7 @@ export default function ReactionTheoryPanel() {
                 ))}
               </CollapsibleSection>
 
-              <CollapsibleSection title={m.rxn_theory_forces()}>
+              <CollapsibleSection id="forces" pageKey="reactions" title={m.rxn_theory_forces()} forceOpen={targetSection === 'forces'}>
                 {ruleGroups.map(group => (
                   <div key={group.type} className="rxn-theory__rule-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
@@ -176,15 +164,15 @@ export default function ReactionTheoryPanel() {
                 ))}
               </CollapsibleSection>
 
-              <CollapsibleSection title={m.rxn_theory_solubility()}>
+              <CollapsibleSection id="solubility" pageKey="reactions" title={m.rxn_theory_solubility()} forceOpen={targetSection === 'solubility'}>
                 <SolubilityTable />
               </CollapsibleSection>
 
-              <CollapsibleSection title={m.rxn_theory_activity()}>
+              <CollapsibleSection id="activity" pageKey="reactions" title={m.rxn_theory_activity()} forceOpen={targetSection === 'activity'}>
                 <ActivitySeriesBar />
               </CollapsibleSection>
 
-              <CollapsibleSection title={m.rxn_theory_redox()}>
+              <CollapsibleSection id="redox" pageKey="reactions" title={m.rxn_theory_redox()} forceOpen={targetSection === 'redox'}>
                 <div className="rxn-theory__redox">
                   <p>{m.rxn_theory_redox_desc()}</p>
                   <div className="rxn-theory__definitions">
@@ -213,7 +201,7 @@ export default function ReactionTheoryPanel() {
               </CollapsibleSection>
 
               {qualTests && qualTests.length > 0 && (
-                <CollapsibleSection title={m.rxn_theory_qualitative()}>
+                <CollapsibleSection id="qualitative" pageKey="reactions" title={m.rxn_theory_qualitative()} forceOpen={targetSection === 'qualitative'}>
                   <div className="rxn-theory__qualitative">
                     <p>{m.rxn_theory_qual_desc()}</p>
                     <table className="rxn-theory__qual-table">
@@ -239,7 +227,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {chains && chains.length > 0 && (
-                <CollapsibleSection title={m.rxn_theory_chains()}>
+                <CollapsibleSection id="chains" pageKey="reactions" title={m.rxn_theory_chains()} forceOpen={targetSection === 'chains'}>
                   <div className="rxn-theory__chains">
                     <p>{m.rxn_theory_genetic_desc()}</p>
                     <div className="rxn-theory__chain-diagrams">
@@ -270,7 +258,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {energyTheory && (
-                <CollapsibleSection title={m.rxn_theory_speed()}>
+                <CollapsibleSection id="speed" pageKey="reactions" title={m.rxn_theory_speed()} forceOpen={targetSection === 'speed'}>
                   <div className="rxn-theory__energy">
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_rate_factors()}</h4>
                     <div className="rxn-theory__definitions">
@@ -319,7 +307,7 @@ export default function ReactionTheoryPanel() {
               )}
 
               {energyTheory && (
-                <CollapsibleSection title={m.rxn_theory_catalysis()}>
+                <CollapsibleSection id="catalysis" pageKey="reactions" title={m.rxn_theory_catalysis()} forceOpen={targetSection === 'catalysis'}>
                   <div className="rxn-theory__catalyst">
                     <p>{m.rxn_theory_catalyst_desc()}</p>
 

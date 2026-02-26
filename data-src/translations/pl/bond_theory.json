@@ -1,0 +1,66 @@
+{
+  "bond:ionic": {
+    "name_ru": "Wiązanie jonowe",
+    "description_ru": "Wiązanie między metalem a niemetalem poprzez przeniesienie elektronów. Powstają jony: kation (+) i anion (−).",
+    "rule_ru": "Δχ ≥ 1,7 lub metal + niemetal o dużej różnicy elektroujemności",
+    "properties_ru": "Wysokie temperatury topnienia, kruche, przewodzą prąd w stopie i roztworze"
+  },
+  "bond:covalent_polar": {
+    "name_ru": "Wiązanie kowalencyjne polarne",
+    "description_ru": "Wiązanie między różnymi niemetalami poprzez wspólne pary elektronowe. Gęstość elektronowa jest przesunięta w stronę bardziej elektroujemnego atomu (δ+, δ−).",
+    "rule_ru": "0,4 < Δχ < 1,7 (oba to niemetale)",
+    "properties_ru": "Różne temperatury topnienia, często ciecze lub gazy, nie przewodzą prądu"
+  },
+  "bond:covalent_nonpolar": {
+    "name_ru": "Wiązanie kowalencyjne niepolarne",
+    "description_ru": "Wiązanie między identycznymi niemetalami poprzez wspólne pary elektronowe. Gęstość elektronowa jest rozłożona symetrycznie.",
+    "rule_ru": "Δχ ≤ 0,4 (identyczne lub bardzo podobne niemetale)",
+    "properties_ru": "Niskie temperatury topnienia, gazy lub ciecze niskowrzące, nie przewodzą prądu"
+  },
+  "bond:metallic": {
+    "name_ru": "Wiązanie metaliczne",
+    "description_ru": "Wiązanie w metalach: atomy uwalniają elektrony walencyjne do wspólnej «chmury elektronowej», która utrzymuje dodatnie jony w sieci.",
+    "rule_ru": "Czysty metal lub stop (oba to metale)",
+    "properties_ru": "Przewodnictwo elektryczne i cieplne, plastyczność, połysk metaliczny"
+  },
+  "crystal:ionic": {
+    "name_ru": "Sieć jonowa",
+    "description_ru": "W węzłach — naprzemiennie kationy i aniony utrzymywane przez przyciąganie elektrostatyczne.",
+    "properties": {
+      "melting_point_ru": "Wysoka (800–3000 °C)",
+      "hardness_ru": "Twarde, kruche",
+      "conductivity_ru": "W stopie i roztworze",
+      "solubility_ru": "Często rozpuszczalne w wodzie"
+    }
+  },
+  "crystal:molecular": {
+    "name_ru": "Sieć molekularna",
+    "description_ru": "W węzłach — cząsteczki połączone słabymi siłami międzycząsteczkowymi (van der Waalsa, wiązania wodorowe).",
+    "properties": {
+      "melting_point_ru": "Niska (< 300 °C)",
+      "hardness_ru": "Miękkie",
+      "conductivity_ru": "Nie przewodzą prądu",
+      "solubility_ru": "Różnie"
+    }
+  },
+  "crystal:atomic": {
+    "name_ru": "Sieć atomowa",
+    "description_ru": "W węzłach — atomy połączone silnymi wiązaniami kowalencyjnymi w całym krysztale.",
+    "properties": {
+      "melting_point_ru": "Bardzo wysoka (> 1500 °C)",
+      "hardness_ru": "Bardzo twarde",
+      "conductivity_ru": "Nie przewodzą (oprócz grafitu)",
+      "solubility_ru": "Nierozpuszczalne"
+    }
+  },
+  "crystal:metallic": {
+    "name_ru": "Sieć metaliczna",
+    "description_ru": "W węzłach — jony metalu, między nimi — swobodne elektrony (gaz elektronowy).",
+    "properties": {
+      "melting_point_ru": "Różna (od −39 °C dla Hg do 3422 °C dla W)",
+      "hardness_ru": "Różna (Na miękki, W twardy)",
+      "conductivity_ru": "Wysoka",
+      "solubility_ru": "Nierozpuszczalne"
+    }
+  }
+}
