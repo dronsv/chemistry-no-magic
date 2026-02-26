@@ -4,6 +4,11 @@ export type MatterRef =
   | { kind: 'context_template'; id: string }
   | { kind: 'substance_variant'; id: string };
 
+export type EntityRef =
+  | MatterRef
+  | { kind: 'element'; id: string }
+  | { kind: 'ion'; id: string };
+
 export interface ChemContext {
   id: string;
   type: 'phase_form' | 'mixture' | 'melt' | 'solution_template';
