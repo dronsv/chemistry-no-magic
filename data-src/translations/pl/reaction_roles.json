@@ -1,0 +1,46 @@
+{
+  "reactant": {
+    "name": "Substrat",
+    "description": "Substancja zużywana w reakcji"
+  },
+  "product": {
+    "name": "Produkt",
+    "description": "Substancja powstająca w reakcji"
+  },
+  "catalyst": {
+    "name": "Katalizator",
+    "description": "Substancja przyspieszająca reakcję, ale niezużywana"
+  },
+  "inhibitor": {
+    "name": "Inhibitor",
+    "description": "Substancja spowalniająca reakcję"
+  },
+  "solvent": {
+    "name": "Rozpuszczalnik",
+    "description": "Środowisko, w którym przebiega reakcja"
+  },
+  "medium": {
+    "name": "Środowisko",
+    "description": "Środowisko reakcji / otoczenie"
+  },
+  "oxidizing_agent": {
+    "name": "Utleniacz",
+    "description": "Substancja, która ulega redukcji (przyjmuje elektrony)"
+  },
+  "reducing_agent": {
+    "name": "Reduktor",
+    "description": "Substancja, która ulega utlenieniu (oddaje elektrony)"
+  },
+  "precipitate": {
+    "name": "Osad",
+    "description": "Ciało stałe wytrącone w trakcie reakcji"
+  },
+  "gas_evolved": {
+    "name": "Wydzielony gaz",
+    "description": "Gaz wydzielany w trakcie reakcji"
+  },
+  "electrolyte": {
+    "name": "Elektrolit",
+    "description": "Elektrolit w procesie elektrochemicznym"
+  }
+}

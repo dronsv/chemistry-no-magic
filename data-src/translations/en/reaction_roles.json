@@ -1,0 +1,46 @@
+{
+  "reactant": {
+    "name": "Reactant",
+    "description": "Substance consumed in reaction"
+  },
+  "product": {
+    "name": "Product",
+    "description": "Substance formed in reaction"
+  },
+  "catalyst": {
+    "name": "Catalyst",
+    "description": "Substance that accelerates reaction but is not consumed"
+  },
+  "inhibitor": {
+    "name": "Inhibitor",
+    "description": "Substance that slows down reaction"
+  },
+  "solvent": {
+    "name": "Solvent",
+    "description": "Medium in which the reaction takes place"
+  },
+  "medium": {
+    "name": "Medium",
+    "description": "Reaction medium / environment"
+  },
+  "oxidizing_agent": {
+    "name": "Oxidizing agent",
+    "description": "Substance that is reduced (gains electrons)"
+  },
+  "reducing_agent": {
+    "name": "Reducing agent",
+    "description": "Substance that is oxidized (loses electrons)"
+  },
+  "precipitate": {
+    "name": "Precipitate",
+    "description": "Solid formed during the reaction"
+  },
+  "gas_evolved": {
+    "name": "Gas evolved",
+    "description": "Gas released during the reaction"
+  },
+  "electrolyte": {
+    "name": "Electrolyte",
+    "description": "Electrolyte in an electrochemical process"
+  }
+}

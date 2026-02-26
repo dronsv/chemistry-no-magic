@@ -65,6 +65,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       element_groups: 'element-groups.json',
       periodic_table_content: 'periodic-table-content.json',
       reactions: 'reactions/reactions.json',
+      reaction_roles: 'reactions/reaction_roles.json',
+      reaction_participants: 'reactions/reaction_participants.json',
       structures: 'structures',
       exercises: {
         periodic_table: 'exercises/periodic-table-exercises.json',

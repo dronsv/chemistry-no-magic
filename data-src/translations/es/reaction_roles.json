@@ -1,0 +1,46 @@
+{
+  "reactant": {
+    "name": "Reactivo",
+    "description": "Sustancia consumida en la reacción"
+  },
+  "product": {
+    "name": "Producto",
+    "description": "Sustancia formada en la reacción"
+  },
+  "catalyst": {
+    "name": "Catalizador",
+    "description": "Sustancia que acelera la reacción sin consumirse"
+  },
+  "inhibitor": {
+    "name": "Inhibidor",
+    "description": "Sustancia que ralentiza la reacción"
+  },
+  "solvent": {
+    "name": "Disolvente",
+    "description": "Medio en el que transcurre la reacción"
+  },
+  "medium": {
+    "name": "Medio",
+    "description": "Medio de reacción / entorno"
+  },
+  "oxidizing_agent": {
+    "name": "Agente oxidante",
+    "description": "Sustancia que se reduce (gana electrones)"
+  },
+  "reducing_agent": {
+    "name": "Agente reductor",
+    "description": "Sustancia que se oxida (pierde electrones)"
+  },
+  "precipitate": {
+    "name": "Precipitado",
+    "description": "Sólido formado durante la reacción"
+  },
+  "gas_evolved": {
+    "name": "Gas desprendido",
+    "description": "Gas liberado durante la reacción"
+  },
+  "electrolyte": {
+    "name": "Electrolito",
+    "description": "Electrolito en un proceso electroquímico"
+  }
+}

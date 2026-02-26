@@ -39,6 +39,7 @@ import { generateSearchIndex } from './lib/generate-search-index.mjs';
 import { generateFormulaLookup } from './lib/generate-formula-lookup.mjs';
 import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
+import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -134,6 +135,7 @@ async function main() {
   const competencies = await loadJson(join(DATA_SRC, 'rules', 'competencies.json'));
   const periodicTableTheory = await loadJson(join(DATA_SRC, 'rules', 'periodic-table-theory.json'));
   const reactions = await loadJson(join(DATA_SRC, 'reactions', 'reactions.json'));
+  const reactionRoles = await loadJson(join(DATA_SRC, 'reactions', 'reaction_roles.json'));
   const bondTheory = await loadJson(join(DATA_SRC, 'rules', 'bond_theory.json'));
   const bondExamples = await loadJson(join(DATA_SRC, 'rules', 'bond_examples.json'));
   const bondsExercises = await loadJson(join(DATA_SRC, 'exercises', 'bonds-exercises.json'));
@@ -192,7 +194,7 @@ async function main() {
   console.log(`  ${ionNomenclature.suffix_rules.length} ion nomenclature rules, ${ionNomenclature.acid_to_anion_pairs.length} acid-anion pairs`);
   console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
   console.log(`  ${processVocab.length} process vocab entries, ${quantitiesUnits.quantities.length} quantities, ${quantitiesUnits.units.length} units`);
-  console.log(`  ${reactions.length} reactions`);
+  console.log(`  ${reactions.length} reactions, ${reactionRoles.length} reaction roles`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
   console.log(`  ${reactionTemplates.length} reaction templates, ${taskTemplates.length} task templates`);
@@ -323,6 +325,7 @@ async function main() {
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });
   await writeFile(join(bundleDir, 'reactions', 'reactions.json'), JSON.stringify(reactions));
+  await writeFile(join(bundleDir, 'reactions', 'reaction_roles.json'), JSON.stringify(reactionRoles));
 
   await mkdir(join(bundleDir, 'exam'), { recursive: true });
   await writeFile(join(bundleDir, 'exam', 'oge_tasks.json'), JSON.stringify(ogeTasks));
@@ -366,6 +369,12 @@ async function main() {
   await writeFile(join(bundleDir, 'contexts', 'terms.json'), JSON.stringify(chemTerms));
   await writeFile(join(bundleDir, 'contexts', 'term_bindings.json'), JSON.stringify(termBindings));
   await writeFile(join(bundleDir, 'contexts', 'reverse_index.json'), JSON.stringify(reverseIndex));
+
+  // 6b. Generate reaction participants from reactions data
+  console.log('Generating reaction participants...');
+  const reactionParticipants = generateReactionParticipants(reactions);
+  await writeFile(join(bundleDir, 'reactions', 'reaction_participants.json'), JSON.stringify(reactionParticipants));
+  console.log(`  ${reactionParticipants.length} participation records`);
 
   // 7. Generate indices
   console.log('Generating indices...');

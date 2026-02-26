@@ -151,6 +151,7 @@ export interface OntologyDataSources {
   reactions?: import('../../types/reaction').Reaction[];
   geneticChains?: import('../../types/genetic-chain').GeneticChain[];
   calculations?: import('../../types/calculations').CalculationsData;
+  reactionParticipants?: import('../../types/reaction-participant').ReactionParticipant[];
 }
 
 export interface OntologyI18n {

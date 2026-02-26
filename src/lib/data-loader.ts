@@ -31,6 +31,7 @@ import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
 import type { NameIndex } from '../types/name-index';
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
+import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -492,6 +493,25 @@ export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[
   if (!locale || locale === 'ru') return reactions;
   const overlay = await loadTranslationOverlay(locale, 'reactions');
   return applyOverlay(reactions, overlay, r => r.reaction_id);
+}
+
+/** Load reaction role definitions. */
+export async function loadReactionRoles(locale?: SupportedLocale): Promise<ReactionRole[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.reaction_roles;
+  if (!path) throw new Error('reaction_roles not found in manifest');
+  const roles = await loadDataFile<ReactionRole[]>(path);
+  if (!locale || locale === 'ru') return roles;
+  const overlay = await loadTranslationOverlay(locale, 'reaction_roles');
+  return applyOverlay(roles, overlay, r => r.id);
+}
+
+/** Load build-time derived reaction participants. */
+export async function loadReactionParticipants(): Promise<ReactionParticipant[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.reaction_participants;
+  if (!path) throw new Error('reaction_participants not found in manifest');
+  return loadDataFile<ReactionParticipant[]>(path);
 }
 
 /** Load all reaction templates. */

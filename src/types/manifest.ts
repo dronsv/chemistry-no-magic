@@ -9,6 +9,8 @@ export interface ManifestEntrypoints {
   element_groups?: string;
   periodic_table_content?: string;
   reactions?: string;
+  reaction_roles?: string;
+  reaction_participants?: string;
   structures?: string;
   exercises?: Record<string, string>;
   oge_tasks?: string;
