@@ -909,7 +909,7 @@ describe('TaskEngine — Phase 2 integration', () => {
 
       expect(task.template_id).toBe('tmpl.bond.delta_chi.v1');
       expect(task.interaction).toBe('choice_single');
-      expect(['ionic', 'covalent_polar', 'covalent_nonpolar']).toContain(task.correct_answer);
+      expect(['ionic', 'covalent_polar', 'covalent_nonpolar', 'metallic']).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ bond_type: 'P', periodic_trends: 'S' });
     });
   });
