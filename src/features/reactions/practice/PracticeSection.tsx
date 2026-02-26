@@ -60,7 +60,7 @@ export default function PracticeSection({ locale }: Props) {
       loadApplicabilityRules(),
       loadBktParams(),
       loadCompetencies(locale),
-      loadReactions(),
+      loadReactions(locale),
       loadQualitativeTests(),
       loadGeneticChains(),
       loadEnergyCatalystTheory(),

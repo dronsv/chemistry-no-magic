@@ -46,7 +46,7 @@ export default function PracticeSection({ locale }: Props) {
 
   useEffect(() => {
     Promise.all([
-      loadSubstancesIndex(),
+      loadSubstancesIndex(locale),
       loadClassificationRules(),
       loadNamingRules(),
       loadElements(locale),
