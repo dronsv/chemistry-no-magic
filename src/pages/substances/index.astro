@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SubstancesPage from '../../features/substances/SubstancesPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Каталог веществ" description="Справочник химических веществ: оксиды, кислоты, основания, соли. Классификация, номенклатура, практика для подготовки к ОГЭ.">
@@ -18,5 +21,5 @@ import SubstancesPage from '../../features/substances/SubstancesPage';
       },
     })} />
   </Fragment>
-  <SubstancesPage client:idle />
+  <SubstancesPage locale={locale} client:idle />
 </BaseLayout>

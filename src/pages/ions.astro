@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IonsPage from '../features/ions/IonsPage';
+import type { SupportedLocale } from '../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Ионы" description="Справочник ионов: катионы и анионы, заряды, родительские кислоты.">
-  <IonsPage client:idle />
+  <IonsPage locale={locale} client:idle />
 </BaseLayout>

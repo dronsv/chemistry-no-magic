@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import type { Element } from '../../types/element';
 import type { BondType, CrystalStructure, FormulaAnalysis, BondAnalysis } from '../../lib/bond-calculator';
 import { analyzeFormula, determineBondType, determineCrystalStructure } from '../../lib/bond-calculator';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadElements } from '../../lib/data-loader';
 import BondDiagramIonic from './diagrams/BondDiagramIonic';
 import BondDiagramCovalent from './diagrams/BondDiagramCovalent';
@@ -38,7 +39,7 @@ interface AnalysisResult {
   crystalStructure: CrystalStructure;
 }
 
-export default function BondCalculator() {
+export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [elements, setElements] = useState<Element[]>([]);
   const [elementMap, setElementMap] = useState<Map<string, Element>>(new Map());
   const [mode, setMode] = useState<InputMode>('formula');
@@ -50,7 +51,7 @@ export default function BondCalculator() {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    loadElements().then(elems => {
+    loadElements(locale).then(elems => {
       setElements(elems);
       const map = new Map<string, Element>();
       for (const el of elems) {
@@ -58,7 +59,7 @@ export default function BondCalculator() {
       }
       setElementMap(map);
     });
-  }, []);
+  }, [locale]);
 
   const analyzeByFormula = useCallback(function analyzeByFormula(formula: string) {
     if (!formula.trim() || elementMap.size === 0) {

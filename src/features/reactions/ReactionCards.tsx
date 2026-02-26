@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Reaction } from '../../types/reaction';
 import type { SubstanceIndexEntry } from '../../types/classification';
 import type { MetalType } from '../../types/element';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadReactions, loadSubstancesIndex, loadElements } from '../../lib/data-loader';
 import { parseFormula } from '../../lib/formula-parser';
 import { calcOxidationStates } from '../../lib/oxidation-state';
@@ -268,7 +269,7 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
   );
 }
 
-export default function ReactionCards() {
+export default function ReactionCards({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
   const [elementMap, setElementMap] = useState<Map<string, ElementInfo>>(new Map());
@@ -276,7 +277,7 @@ export default function ReactionCards() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([loadReactions(), loadSubstancesIndex(), loadElements()]).then(
+    Promise.all([loadReactions(locale), loadSubstancesIndex(locale), loadElements(locale)]).then(
       ([rxns, subs, elems]) => {
         setReactions(rxns);
         const sMap = new Map<string, SubstanceIndexEntry>();
@@ -288,7 +289,7 @@ export default function ReactionCards() {
         setLoading(false);
       },
     );
-  }, []);
+  }, [locale]);
 
   if (loading) {
     return <div className="rxn-catalog__loading">{m.loading()}</div>;

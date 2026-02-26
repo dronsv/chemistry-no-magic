@@ -4,6 +4,7 @@ import type { MoleculeStructure } from '../../types/molecule';
 import type { ExplainedResult, SolveStep, StepRuleId } from '../../lib/oxidation-state';
 import { explainOxidationSteps } from '../../lib/oxidation-state';
 import { parseFormula } from '../../lib/formula-parser';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadElements, loadStructure } from '../../lib/data-loader';
 import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
 import MoleculeView from '../../components/MoleculeView';
@@ -62,7 +63,7 @@ function StepCard({ step }: StepCardProps) {
   );
 }
 
-export default function OxidationCalculator() {
+export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [elementInfoMap, setElementInfoMap] = useState<Map<string, ElementInfo>>(new Map());
   const [formulaInput, setFormulaInput] = useState('');
   const [result, setResult] = useState<ExplainedResult | null>(null);
@@ -72,14 +73,14 @@ export default function OxidationCalculator() {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    loadElements().then(elems => {
+    loadElements(locale).then(elems => {
       const map = new Map<string, ElementInfo>();
       for (const el of elems) {
         map.set(el.symbol, { group: el.group, metal_type: el.metal_type });
       }
       setElementInfoMap(map);
     });
-  }, []);
+  }, [locale]);
 
   const analyze = useCallback(function analyze(formula: string) {
     if (!formula.trim() || elementInfoMap.size === 0) {

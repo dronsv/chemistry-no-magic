@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SearchPage from '../../features/search/SearchPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Поиск" description="Поиск по элементам, веществам, реакциям и компетенциям">
-  <SearchPage client:idle />
+  <SearchPage locale={locale} client:idle />
 </BaseLayout>

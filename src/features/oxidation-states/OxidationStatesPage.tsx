@@ -7,7 +7,7 @@ import './oxidation-states.css';
 export default function OxidationStatesPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   return (
     <div className="oxidation-page">
-      <OxidationCalculator />
+      <OxidationCalculator locale={locale} />
       <OxidationTheoryPanel />
       <PracticeSection locale={locale} />
     </div>

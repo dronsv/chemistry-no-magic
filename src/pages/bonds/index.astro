@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BondsPage from '../../features/bonds/BondsPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Химическая связь" description="Определение типа химической связи и кристаллической решётки по формуле вещества. Калькулятор, теория и практика для ОГЭ.">
@@ -16,5 +19,5 @@ import BondsPage from '../../features/bonds/BondsPage';
       "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
     })} />
   </Fragment>
-  <BondsPage client:idle />
+  <BondsPage locale={locale} client:idle />
 </BaseLayout>

@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Периодическая таблица" description="Интерактивная периодическая таблица Менделеева: электронные конфигурации, орбитальные диаграммы, энергетические уровни и практика.">
@@ -20,5 +23,5 @@ import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
       },
     })} />
   </Fragment>
-  <PeriodicTablePage client:idle />
+  <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>

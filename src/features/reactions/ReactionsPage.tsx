@@ -7,7 +7,7 @@ import './reactions.css';
 export default function ReactionsPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   return (
     <div className="reactions-page">
-      <ReactionCards />
+      <ReactionCards locale={locale} />
       <ReactionTheoryPanel />
       <PracticeSection locale={locale} />
     </div>

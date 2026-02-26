@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReactionsPage from '../../features/reactions/ReactionsPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Реакции" description="Типы химических реакций, реакции ионного обмена, таблица растворимости, ряд активности металлов. Практика для подготовки к ОГЭ.">
@@ -20,5 +23,5 @@ import ReactionsPage from '../../features/reactions/ReactionsPage';
       },
     })} />
   </Fragment>
-  <ReactionsPage client:idle />
+  <ReactionsPage locale={locale} client:idle />
 </BaseLayout>

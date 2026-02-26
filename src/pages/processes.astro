@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProcessesPage from '../features/processes/ProcessesPage';
+import type { SupportedLocale } from '../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Справочник процессов" description="Физические, химические и лабораторные процессы">
-  <ProcessesPage client:idle />
+  <ProcessesPage locale={locale} client:idle />
 </BaseLayout>

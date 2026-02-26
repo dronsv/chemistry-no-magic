@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OxidationStatesPage from '../../features/oxidation-states/OxidationStatesPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Степени окисления" description="Определение степеней окисления элементов в химических соединениях. Калькулятор с пошаговым решением, теория и практика для ОГЭ.">
@@ -16,5 +19,5 @@ import OxidationStatesPage from '../../features/oxidation-states/OxidationStates
       "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
     })} />
   </Fragment>
-  <OxidationStatesPage client:idle />
+  <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

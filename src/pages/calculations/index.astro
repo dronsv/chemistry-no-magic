@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CalculationsPage from '../../features/calculations/CalculationsPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Расчёты" description="Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций, выход продукта. Практика для подготовки к ОГЭ по химии.">
@@ -16,5 +19,5 @@ import CalculationsPage from '../../features/calculations/CalculationsPage';
       "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
     })} />
   </Fragment>
-  <CalculationsPage client:idle />
+  <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

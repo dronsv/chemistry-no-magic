@@ -7,7 +7,7 @@ import './bonds.css';
 export default function BondsPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   return (
     <div className="bonds-page">
-      <BondCalculator />
+      <BondCalculator locale={locale} />
       <BondTheoryPanel />
       <PracticeSection locale={locale} />
     </div>

@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CompetencyGraphIsland from '../features/competency/CompetencyGraphIsland';
+import type { SupportedLocale } from '../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 ---
 
 <BaseLayout title="Карта компетенций" description="Граф зависимостей навыков: от простого к сложному">
-  <CompetencyGraphIsland client:idle />
+  <CompetencyGraphIsland locale={locale} client:idle />
 </BaseLayout>

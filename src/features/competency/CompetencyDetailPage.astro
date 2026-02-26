@@ -145,7 +145,7 @@ const cid = competency.id;
         <div>
           <p class="comp-content__intro">{m.rxn_theory_forces()}</p>
           <p class="comp-content__subtitle">{m.rxn_theory_solubility()}</p>
-          <SolubilityTable client:idle />
+          <SolubilityTable locale={locale} client:idle />
         </div>
       )}
 
