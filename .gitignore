@@ -47,3 +47,6 @@ docs/plans/
 
 # Claude Code settings
 .claude/
+
+# git worktrees
+.worktrees/
