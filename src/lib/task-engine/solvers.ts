@@ -1,5 +1,7 @@
 import type { Element } from '../../types/element';
 import type { OntologyData, PropertyDef, SlotValues, SolverResult } from './types';
+import { getElectronConfig, setConfigOverrides, toSuperscript } from '../electron-config';
+import { determineBondType } from '../bond-calculator';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -288,29 +290,10 @@ function solveCompareCrystalMelting(
 
 // ── Periodic Table solvers ────────────────────────────────────────
 
-/** Unicode superscript digit map for electron config notation. */
-const SUPERSCRIPT_DIGITS: Record<number, string> = {
-  0: '\u2070', 1: '\u00b9', 2: '\u00b2', 3: '\u00b3',
-  4: '\u2074', 5: '\u2075', 6: '\u2076', 7: '\u2077',
-  8: '\u2078', 9: '\u2079',
-};
-
-/** Convert an integer to Unicode superscript string. */
-function toSuperscript(n: number): string {
-  return String(n).split('').map(d => SUPERSCRIPT_DIGITS[Number(d)] ?? d).join('');
-}
-
-/** Klechkowski filling order: [n, l_letter, capacity]. */
-const KLECHKOWSKI_ORDER: [number, string, number][] = [
-  [1, 's', 2], [2, 's', 2], [2, 'p', 6], [3, 's', 2], [3, 'p', 6],
-  [4, 's', 2], [3, 'd', 10], [4, 'p', 6], [5, 's', 2], [4, 'd', 10],
-  [5, 'p', 6], [6, 's', 2], [4, 'f', 14], [5, 'd', 10], [6, 'p', 6],
-  [7, 's', 2], [5, 'f', 14], [6, 'd', 10], [7, 'p', 6],
-];
-
 function solveElectronConfig(
   params: Record<string, unknown>,
   slots: SlotValues,
+  data: OntologyData,
 ): SolverResult {
   void params;
   const Z = Number(slots.Z);
@@ -318,17 +301,15 @@ function solveElectronConfig(
     throw new Error(`Invalid Z: ${slots.Z}`);
   }
 
-  let remaining = Z;
-  const parts: string[] = [];
+  // Ensure exception overrides (Cr, Cu, etc.) are initialized from element data
+  setConfigOverrides(data.core.elements);
 
-  for (const [n, l, capacity] of KLECHKOWSKI_ORDER) {
-    if (remaining <= 0) break;
-    const electrons = Math.min(remaining, capacity);
-    parts.push(`${n}${l}${toSuperscript(electrons)}`);
-    remaining -= electrons;
-  }
+  const config = getElectronConfig(Z);
+  const answer = config
+    .map(e => `${e.n}${e.l}${toSuperscript(e.electrons)}`)
+    .join(' ');
 
-  return { answer: parts.join(' ') };
+  return { answer };
 }
 
 function solveCountValence(
@@ -363,31 +344,20 @@ function solveDeltaChi(
   const elA = findElement(symbolA, data);
   const elB = findElement(symbolB, data);
 
+  // Delegate bond classification to canonical implementation
+  const bondType = determineBondType(elA, elB);
+
   const chiA = elA.electronegativity;
   const chiB = elB.electronegativity;
-
-  if (chiA === null || chiA === undefined || chiB === null || chiB === undefined) {
-    throw new Error(`Missing electronegativity for ${symbolA} or ${symbolB}`);
-  }
-
-  const delta = Math.abs(chiA - chiB);
-  const rounded = Math.round(delta * 100) / 100;
-
-  let bondType: string;
-  if (delta >= 1.7) {
-    bondType = 'ionic';
-  } else if (delta >= 0.4) {
-    bondType = 'covalent_polar';
-  } else {
-    bondType = 'covalent_nonpolar';
-  }
+  const delta = (chiA != null && chiB != null) ? Math.abs(chiA - chiB) : null;
+  const rounded = delta != null ? Math.round(delta * 100) / 100 : 0;
 
   return {
     answer: bondType,
     explanation_slots: {
       delta: String(rounded),
-      chiA: String(chiA),
-      chiB: String(chiB),
+      chiA: String(chiA ?? 0),
+      chiB: String(chiB ?? 0),
     },
   };
 }
@@ -600,7 +570,7 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.slot_lookup': (params, slots) => solveSlotLookup(params, slots),
   'solver.compare_crystal_melting': solveCompareCrystalMelting,
   // Phase 3: Periodic Table
-  'solver.electron_config': (params, slots) => solveElectronConfig(params, slots),
+  'solver.electron_config': solveElectronConfig,
   'solver.count_valence': (params, slots) => solveCountValence(params, slots),
   'solver.delta_chi': solveDeltaChi,
   // Phase 3: Reactions

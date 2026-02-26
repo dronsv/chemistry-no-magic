@@ -44,7 +44,7 @@ const SUPERSCRIPT: Record<string, string> = {
   '5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
 };
 
-function toSuperscript(n: number): string {
+export function toSuperscript(n: number): string {
   return String(n).split('').map(ch => SUPERSCRIPT[ch] ?? ch).join('');
 }
 
