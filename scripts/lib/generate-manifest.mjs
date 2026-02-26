@@ -75,6 +75,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       oge_solution_algorithms: 'exam/oge_solution_algorithms.json',
       exam_systems: 'exam/systems.json',
       search_index: 'search_index.json',
+      name_index: 'name_index.json',
       formula_lookup: 'formula_lookup.json',
       process_vocab: 'process_vocab.json',
       quantities_units: 'quantities_units.json',

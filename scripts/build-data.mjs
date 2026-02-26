@@ -37,6 +37,7 @@ import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
 import { generateSearchIndex } from './lib/generate-search-index.mjs';
 import { generateFormulaLookup } from './lib/generate-formula-lookup.mjs';
+import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -381,6 +382,12 @@ async function main() {
   await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
   console.log(`  ${searchIndex.length} search entries (ru)`);
 
+  // 7d. Generate name index (Russian — default)
+  console.log('Generating name index...');
+  const nameIndexRu = generateNameIndex({ elements, ions, substances, terms: chemTerms, bindings: termBindings });
+  await writeFile(join(bundleDir, 'name_index.ru.json'), JSON.stringify(nameIndexRu));
+  console.log(`  ${Object.keys(nameIndexRu).length} name entries (ru)`);
+
   // 7d. Load translation overlays and generate per-locale data
   console.log('\nProcessing translations...');
   const translationsManifest = {};
@@ -420,6 +427,30 @@ async function main() {
     });
     await writeFile(join(bundleDir, `search_index.${locale}.json`), JSON.stringify(localeSearchIndex));
     console.log(`  ${locale}: ${localeSearchIndex.length} search entries`);
+
+    // Generate locale-specific name index
+    const localElements = overlays.elements
+      ? elements.map(el => ({ ...el, ...(overlays.elements[el.symbol] || {}) }))
+      : elements;
+    const localIons = overlays.ions
+      ? ions.map(ion => ({ ...ion, ...(overlays.ions[ion.id] || {}) }))
+      : ions;
+    const localSubstances = overlays.substances
+      ? substances.map(({ filename, data }) => ({ filename, data: { ...data, ...(overlays.substances[data.id] || {}) } }))
+      : substances;
+    const localTerms = overlays.terms
+      ? chemTerms.map(t => ({ ...t, ...(overlays.terms[t.id] || {}) }))
+      : chemTerms;
+
+    const localeNameIndex = generateNameIndex({
+      elements: localElements,
+      ions: localIons,
+      substances: localSubstances,
+      terms: localTerms,
+      bindings: termBindings,
+    });
+    await writeFile(join(bundleDir, `name_index.${locale}.json`), JSON.stringify(localeNameIndex));
+    console.log(`  ${locale}: ${Object.keys(localeNameIndex).length} name entries`);
   }
 
   // 8. Generate manifest
