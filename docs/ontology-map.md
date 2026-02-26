@@ -46,7 +46,7 @@
 | **Sources** | `data-src/sources_list.json` | 1 | 4 references | Active |
 | **Translation Overlays** | `data-src/translations/{en,pl,es}/*.json` | 32 | 3 locales × 10–11 files | Active |
 | **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties | Active |
-| **Reaction Roles** | (proposed) `reaction_roles.v1.json` | — | 11 roles | Planned |
+| **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
 | **Relations Graph** | (proposed) `predicates.v1.json` | — | ~20 predicates | Deferred |
 
@@ -640,7 +640,7 @@ Each (process + driver) → rule_base with:
 
 ---
 
-## 10. Reaction Participant Roles (Planned)
+## 10. Reaction Participant Roles
 
 ```mermaid
 graph TB
@@ -912,3 +912,145 @@ graph TB
 | `search_index.{locale}.json` | 306/locale | Per-locale search indices |
 | `name_index.{locale}.json` | ~298/locale | Per-locale name→entity lookup |
 | `contexts/reverse_index.json` | — | ref.id→[term_ids] reverse lookup |
+
+---
+
+## 14. Algorithm Location Map
+
+Where each chemistry algorithm is implemented. **Canonical** = single source of truth; others must delegate to it.
+
+### Core Algorithms (src/lib/)
+
+| Algorithm | Canonical Module | Exported Functions | Used By |
+|-----------|-----------------|-------------------|---------|
+| Electron configuration (Aufbau + exceptions) | `src/lib/electron-config.ts` | `getElectronConfig(Z)`, `getElectronFormula(Z)`, `getShorthandFormula(Z)`, `getValenceElectrons(Z)`, `isException(Z)`, `getOrbitalBoxes(Z)`, `toSuperscript(n)` | Engine solver `electron_config`, legacy `periodic-table/generate-exercises.ts` |
+| Bond type classification (Δχ) | `src/lib/bond-calculator.ts` | `determineBondType(elA, elB)`, `determineCrystalStructure(bondType, formula, symbols)`, `analyzeFormula(formula, elementMap)` | Engine solver `delta_chi`, legacy `bonds/generate-exercises.ts` |
+| Oxidation state assignment | `src/lib/oxidation-state.ts` | `calcOxidationStates(parsed, elementMap, formula)`, `explainOxidationSteps(parsed, elementMap, formula)` | Legacy `oxidation-states/generate-exercises.ts` |
+| Chemical formula parsing | `src/lib/formula-parser.ts` | `parseFormula(formula)` | `bond-calculator.ts`, `oxidation-state.ts` |
+| BKT adaptive learning | `src/lib/bkt-engine.ts` | `bktUpdate(pL, params, correct, hintUsed)`, `getLevel(pL)` | All practice islands |
+
+### Engine Solvers (src/lib/task-engine/solvers.ts)
+
+| Solver ID | Algorithm | Delegates To | Status |
+|-----------|-----------|-------------|--------|
+| `solver.electron_config` | Electron config string | `electron-config.ts` → `getElectronConfig()` | Deduplicated |
+| `solver.delta_chi` | Bond type from Δχ | `bond-calculator.ts` → `determineBondType()` | Deduplicated |
+| `solver.count_valence` | Valence electron count | Inline (group-based lookup) | No canonical lib needed |
+| `solver.compare_property` | Property comparison | Inline (field lookup) | Data-driven, no dup |
+| `solver.periodic_trend_order` | Sort by property | Inline (field sort) | Data-driven, no dup |
+| `solver.oxidation_states` | Oxidation state | Slot passthrough | No computation |
+| `solver.compose_salt_formula` | Salt formula from ions | Inline (LCM math) | Unique to engine |
+| `solver.solubility_check` | Solubility lookup | Inline (table lookup) | Data-driven, no dup |
+| `solver.compare_crystal_melting` | Crystal melting rank | Inline (rank map) | Unique to engine |
+| `solver.driving_force` | Reaction driving force | Inline (condition check) | Data-driven, no dup |
+| `solver.activity_compare` | Activity series position | Inline (index lookup) | Data-driven, no dup |
+| `solver.predict_observation` | Observation text | Slot passthrough | No computation |
+| `solver.molar_mass` | M = Σ(Ar × count) | Inline | **Duplicated in legacy calcs** |
+| `solver.mass_fraction` | w% = (Ar×n/M)×100 | Inline | **Duplicated in legacy calcs** |
+| `solver.amount_calc` | n = m/M or m = n×M | Inline | **Duplicated in legacy calcs** |
+| `solver.concentration` | ω, inverse, dilution | Inline | **Duplicated in legacy calcs** |
+| `solver.stoichiometry` | Coefficient-ratio calc | Inline | **Duplicated in legacy calcs** |
+| `solver.reaction_yield` | Stoich × yield% | Inline | **Duplicated in legacy calcs** |
+
+### Duplication Status Summary
+
+| Algorithm | src/lib/ | Engine Solver | Legacy Generator | Status |
+|-----------|:-------:|:------------:|:---------------:|--------|
+| Electron config | ✓ canonical | ✓ delegates | ✓ imports canonical | **Deduplicated** |
+| Bond Δχ / type | ✓ canonical | ✓ delegates | ✗ inline copy (bonds L248–270) | **Legacy duplicates** |
+| Crystal structure | ✓ canonical | ✓ rank-based (different approach) | ✗ inline copy (bonds) | **Legacy duplicates** |
+| Oxidation states | ✓ canonical | — passthrough | ✓ imports canonical | **Deduplicated** |
+| Molar mass | — | ✓ inline | ✗ inline copy (calcs L72) | **Both inline** |
+| Stoichiometry | — | ✓ inline | ✗ inline copy (calcs L247) | **Both inline** |
+| Valence electrons | ✓ canonical | ✓ inline (simpler) | ✓ imports canonical | **Acceptable** |
+
+---
+
+## 15. Legacy Generator → Engine Coverage
+
+Each legacy feature generator file and which engine templates cover its exercises. Used to track WS2 migration progress.
+
+### Coverage Matrix
+
+| Legacy File | LOC | Exercise Types | Engine Templates Covering | Gaps |
+|------------|-----|----------------|--------------------------|------|
+| `src/features/periodic-table/practice/generate-exercises.ts` | 206 | 6: find_period_group, select_electron_config, count_valence, identify_exception, compare_electronegativity, element_from_config | 5/6: element_position, electron_config, valence_count, electron_config_exception, compare_property | `element_from_config` reverse-lookup not in engine |
+| `src/features/bonds/practice/generate-exercises.ts` | 305 | 6: identify_bond_type, identify_crystal_structure, select_substance_by_bond, predict_property_by_structure, compare_melting_points, bond_from_delta_chi | 4/6: bond_type_identify, crystal_type_identify, bond_pair_compare, delta_chi_classify | `predict_property_by_structure`, `select_substance_by_bond` not in engine |
+| `src/features/oxidation-states/practice/generate-exercises.ts` | 189 | 3: determine_ox_state, select_compound_by_ox_state, max_min_ox_state | 3/3: oxidation_state_assign, oxidation_state_find, oxidation_state_extremes | **Fully covered** |
+| `src/features/substances/practice/generate-exercises.ts` | 347 | 9: classify_by_formula, classify_subclass, identify_class_by_description, formula_to_name, name_to_formula, identify_amphoteric, amphoteric_reaction_partner, amphoteric_elements, naming_rule_template | 6/9: classify_substance, classify_subclass, naming_formula_to_name, naming_name_to_formula, amphoteric_identify, amphoteric_reaction | `identify_class_by_description`, `amphoteric_elements`, `naming_rule_template` gaps |
+| `src/features/ions/practice/generate-exercises.ts` | 370 | 5: formulaToName, nameToFormula, suffixByAcid, cationCharge, anionName | 3/5: ion_formula_to_name, ion_name_to_formula, ion_charge_identify | `suffixByAcid`, `anionName` suffix-rule exercises not in engine |
+| `src/features/reactions/practice/generate-exercises.ts` | 957 | 19: classify_reaction_type, predict_exchange_products, will_reaction_occur, identify_driving_force, solubility_lookup, predict_observation, identify_oxidizer_reducer, predict_substitution_products, will_metal_react, activity_series_compare, complete_chain_step, choose_reagent_for_step, identify_reagent_for_ion, identify_ion_by_observation, factors_affecting_rate, exo_endo_classify, equilibrium_shift, catalyst_properties, identify_catalyst | 15/19: reaction_classify, exchange_products, driving_force_check, solubility_check, observation_predict, redox_agent_identify, activity_compare, chain_gap_fill, qualitative_reagent, qualitative_observation, rate_factor, exo_endo, equilibrium_shift, catalyst_role, catalyst_identify | 4 gaps: `predict_exchange_products`, `predict_substitution_products`, `will_metal_react`, `choose_reagent_for_step` |
+| `src/features/calculations/practice/generate-exercises.ts` | 316 | 9: calcMolarMass, calcMassFraction, calcAmountOfSubstance, calcMassFromMoles, calcSolutionConcentration, calcSoluteMass, calcDilution, calcReactionYield, calcByEquation | 6/9: molar_mass, mass_fraction, amount_calc(n), stoichiometry, reaction_yield, concentration(omega) | `calcMassFromMoles` (amount_calc m-mode covers?), `calcSoluteMass` (concentration inverse-mode covers?), `calcDilution` (concentration dilution-mode covers?) — verify parity |
+
+### Summary
+
+- **Total legacy LOC**: ~2690
+- **Fully covered**: oxidation-states (189 LOC)
+- **Mostly covered** (>75%): periodic-table, bonds, reactions, calculations
+- **Partially covered** (<75%): substances (6/9), ions (3/5)
+- **Migration priority**: reactions (957 LOC, highest LOC), then substances, then ions
+
+---
+
+## 16. Governance Matrix
+
+Source/derived/regenerable status for all data artifacts. Used to understand change impact.
+
+### Source Files (manually edited)
+
+| Artifact | Location | Entries | Validator | Change Impact |
+|----------|----------|---------|-----------|---------------|
+| Elements | `data-src/elements.json` | 118 | `validate.mjs` | → formula_lookup, search_index, name_index, substance_index, engine ontology |
+| Ions | `data-src/ions.json` | 41 | `validate.mjs` | → formula_lookup, search_index, name_index, solubility lookups |
+| Substances | `data-src/substances/*.json` | 80 | `validate.mjs` | → substance_index, by_class/, by_ion/, formula_lookup, search_index |
+| Reactions | `data-src/reactions/reactions.json` | 32 | `validate.mjs` | → reaction_participants, search_index, engine ontology |
+| Reaction roles | `data-src/reactions/reaction_roles.json` | 11 | `validate.mjs` | → reaction_participants derivation |
+| Competencies | `data-src/rules/competencies.json` | 21 | `validate.mjs` | → by_competency/, BKT params, topic_mapping |
+| Classification rules | `data-src/rules/classification_rules.json` | 12 | `validate.mjs` | → engine ontology (rules.classification) |
+| Naming rules | `data-src/rules/naming_rules.json` | 37 | `validate.mjs` | → engine ontology (rules.naming) |
+| Solubility rules | `data-src/rules/solubility_rules_full.json` | 7 | `validate.mjs` | → engine ontology (rules.solubility) |
+| Activity series | `data-src/rules/activity_series.json` | 18 | `validate.mjs` | → engine ontology (rules.activity) |
+| Bond examples | `data-src/rules/bond_examples.json` | 17 | `validate.mjs` | → engine ontology (rules.bonds) |
+| Oxidation examples | `data-src/rules/oxidation_examples.json` | 22 | `validate.mjs` | → engine ontology (rules.oxidation) |
+| Properties | `data-src/rules/properties.json` | 5 | `validate.mjs` | → engine ontology (core.properties) |
+| Qualitative tests | `data-src/rules/qualitative_reactions.json` | 11 | `validate.mjs` | → engine ontology (rules.qualitative) |
+| Genetic chains | `data-src/rules/genetic_chains.json` | 5 | `validate.mjs` | → engine ontology (data.geneticChains) |
+| Energy/catalyst theory | `data-src/rules/energy_catalyst_theory.json` | — | `validate.mjs` | → engine ontology (rules.energyCatalyst) |
+| Calculations data | `data-src/rules/calculations_data.json` | 24+10 | `validate.mjs` | → engine ontology (data.calculations) |
+| Ion nomenclature | `data-src/rules/ion_nomenclature.json` | 4 | `validate.mjs` | → engine ontology (rules.ionNomenclature) |
+| Topic mapping | `data-src/rules/topic_mapping.json` | 8 | `validate.mjs` | → exam task→competency routing |
+| BKT params | `data-src/rules/bkt_params.json` | 21 | `validate.mjs` | → adaptive learning P(L) updates |
+| Diagnostic questions | `data-src/diagnostic/questions.json` | 12 | `validate.mjs` | → diagnostics feature |
+| Exam tasks | `data-src/exam/{system}/tasks.json` | 163 total | `validate.mjs` | → exam practice + mock exam |
+| Solution algorithms | `data-src/exam/{system}/algorithms.json` | 54 total | `validate.mjs` | → exam solution hints |
+| Engine task templates | `data-src/engine/task_templates.json` | 65 | `validate.mjs` | → template registry, all practice exercises |
+| Engine prompt templates | `data-src/engine/prompt_templates.{locale}.json` | 65×4 | `validate.mjs` | → rendered question text |
+| Translation overlays | `data-src/translations/{locale}/*.json` | 32 files | `validate.mjs` | → per-locale data display |
+| RU morphology | `data-src/translations/ru/morphology.json` | 43+8 | `validate.mjs` | → engine slot resolver (morph: directives) |
+| Contexts | `data-src/contexts/contexts.json` | 5 | `validate.mjs` | → reverse_index |
+| Terms | `data-src/contexts/terms.json` | 54 | `validate.mjs` | → reverse_index, search_index |
+| Term bindings | `data-src/contexts/term_bindings.json` | 54 | `validate.mjs` | → reverse_index |
+
+### Build-Time Derived Files (regenerable)
+
+| Output | Derived From | Generator Script | Cache |
+|--------|-------------|-----------------|-------|
+| `substance_index.json` | substances/*.json | `generate-indices.mjs` | immutable (hash) |
+| `by_class/*.json` | substances/*.json | `generate-indices.mjs` | immutable |
+| `by_ion/*.json` | substances/*.json + ions.json | `generate-indices.mjs` | immutable |
+| `by_competency/*.json` | exercises + competencies | `generate-indices.mjs` | immutable |
+| `formula_lookup.json` | elements + substances + ions | `generate-formula-lookup.mjs` | immutable |
+| `search_index.json` | all entities + pages | `generate-search-index.mjs` | immutable |
+| `search_index.{locale}.json` | all entities + overlays | `generate-search-index.mjs` | immutable |
+| `name_index.{locale}.json` | elements + substances + ions + overlays | `generate-name-index.mjs` | immutable |
+| `contexts/reverse_index.json` | terms + term_bindings | `generate-reverse-index.mjs` | immutable |
+| `reactions/reaction_participants.json` | reactions + reaction_roles | `generate-reaction-participants.mjs` | immutable |
+| `manifest.json` | all above | `generate-manifest.mjs` | 5 min |
+
+### Runtime-Derived State (client-side)
+
+| State | Stored In | Derived From | Regenerable |
+|-------|-----------|-------------|-------------|
+| P(L) per competency | localStorage | BKT updates from practice | No (user progress) |
+| Attempt history | IndexedDB | User interactions | No (user data) |
+| Cached data bundles | Cache API (SW) | Fetched from CDN | Yes (re-fetch) |
