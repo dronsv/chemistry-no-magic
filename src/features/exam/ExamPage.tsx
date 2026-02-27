@@ -15,19 +15,6 @@ import { loadSettings } from '../../lib/settings';
 import * as m from '../../paraglide/messages.js';
 import type { FormulaLookup } from '../../types/formula-lookup';
 import {
-  loadElements,
-  loadSubstancesIndex,
-  loadClassificationRules,
-  loadNamingRules,
-  loadReactionTemplates,
-  loadSolubilityRules,
-  loadActivitySeries,
-  loadApplicabilityRules,
-  loadReactions,
-  loadQualitativeTests,
-  loadGeneticChains,
-  loadEnergyCatalystTheory,
-  loadCalculationsData,
   loadBktParams,
   loadCompetencies,
   loadOgeTasks,
@@ -38,12 +25,12 @@ import {
   loadExamAlgorithms,
   loadTopicMapping,
   loadFormulaLookup,
-  loadBondExamples,
 } from '../../lib/data-loader';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import { IonDetailsProvider } from '../../components/IonDetailsProvider';
 import { generateVariant } from './generate-variant';
-import type { ExamData } from './generate-variant';
+import type { VariantEngine } from './generate-variant';
+import { buildEngine } from '../competency/exercise-adapters';
 import ExamSession from './ExamSession';
 import ExamResultsView from './ExamResultsView';
 import OgePractice from './OgePractice';
@@ -75,7 +62,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
     return LOCALE_EXAM_MAP[locale] ?? 'oge';
   });
   const [systemMeta, setSystemMeta] = useState<Record<string, unknown> | null>(null);
-  const [examData, setExamData] = useState<ExamData | null>(null);
+  const [engine, setEngine] = useState<VariantEngine | null>(null);
   const [variant, setVariant] = useState<ExamVariant | null>(null);
   const [results, setResults] = useState<ExamResults | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
@@ -168,50 +155,16 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
     setPhase('loading');
     setError(null);
     try {
-      let data = examData;
+      let eng = engine;
 
-      if (!data) {
-        const [
-          elements, substances, classRules, nameRules,
-          reactionTemplates, solubility, activitySeries, appRules,
-          reactions, qualTests, chains, energyTheory,
-          calcData, bondExamples, params, comps,
-        ] = await Promise.all([
-          loadElements(),
-          loadSubstancesIndex(),
-          loadClassificationRules(),
-          loadNamingRules(),
-          loadReactionTemplates(),
-          loadSolubilityRules(),
-          loadActivitySeries(),
-          loadApplicabilityRules(),
-          loadReactions(),
-          loadQualitativeTests(),
-          loadGeneticChains(),
-          loadEnergyCatalystTheory(),
-          loadCalculationsData(),
-          loadBondExamples(),
+      if (!eng) {
+        const [builtEngine, params, comps] = await Promise.all([
+          buildEngine(locale),
           loadBktParams(),
           loadCompetencies(locale),
         ]);
-
-        data = {
-          elements,
-          substances,
-          classificationRules: classRules,
-          namingRules: nameRules,
-          reactionTemplates,
-          solubility,
-          activitySeries,
-          applicabilityRules: appRules,
-          reactions,
-          qualitativeTests: qualTests,
-          geneticChains: chains,
-          energyCatalystTheory: energyTheory,
-          calculationsData: calcData,
-          bondExamples,
-        };
-        setExamData(data);
+        eng = builtEngine;
+        setEngine(eng);
 
         const pm = new Map<string, BktParams>();
         for (const p of params) pm.set(p.competency_id, p);
@@ -222,14 +175,14 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
         setCompNames(nm);
       }
 
-      const v = generateVariant(data);
+      const v = generateVariant(eng);
       setVariant(v);
       setPhase('session');
     } catch (e) {
       setError(e instanceof Error ? e.message : m.error_loading());
       setPhase('start');
     }
-  }, [examData]);
+  }, [engine, locale]);
 
   function handleSubmit(answers: ExamAnswer[], timeSpentSec: number) {
     if (!variant) return;
