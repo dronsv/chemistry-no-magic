@@ -23,7 +23,7 @@
   "dilution": {
     "name_ru": "rozcieńczanie"
   },
-  "add_excess_reagent": {
+  "excess_reagent": {
     "name_ru": "nadmiar reagenta"
   },
   "filtration": {
@@ -103,8 +103,5 @@
   },
   "closed_system": {
     "name_ru": "układ zamknięty"
-  },
-  "excess_condition": {
-    "name_ru": "warunek nadmiaru"
   }
 }

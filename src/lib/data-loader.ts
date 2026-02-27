@@ -25,7 +25,7 @@ import type { ExamSystem, ExamSystemMeta } from '../types/exam-system';
 import type { SearchIndexEntry } from '../types/search';
 import type { UnifiedTopic } from '../types/topic-mapping';
 import type { FormulaLookup } from '../types/formula-lookup';
-import type { ProcessVocabEntry } from '../types/process-vocab';
+import type { ProcessVocabEntry, EffectsVocabEntry } from '../types/process-vocab';
 import type { QuantitiesUnitsOntology } from '../types/quantities-units';
 import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
@@ -670,6 +670,23 @@ export async function loadProcessVocab(locale?: SupportedLocale): Promise<Proces
   const data = await loadDataFile<ProcessVocabEntry[]>(path);
   if (!locale || locale === 'ru') return data;
   const overlay = await loadTranslationOverlay(locale, 'process_vocab');
+  return overlay ? applyOverlay(data, overlay, item => item.id) : data;
+}
+
+/** Load effects vocabulary (kinetic, thermodynamic, mass_transfer, phase effects). */
+export async function loadEffectsVocab(locale?: SupportedLocale): Promise<EffectsVocabEntry[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.effects_vocab;
+
+  if (!path) {
+    throw new Error(
+      'Effects vocab not found in manifest. Expected key "effects_vocab" in entrypoints.',
+    );
+  }
+
+  const data = await loadDataFile<EffectsVocabEntry[]>(path);
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'effects_vocab');
   return overlay ? applyOverlay(data, overlay, item => item.id) : data;
 }
 

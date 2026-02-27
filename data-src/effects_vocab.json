@@ -1,0 +1,80 @@
+[
+  {
+    "id": "speed_increase",
+    "category": "kinetic",
+    "name_ru": "увеличение скорости",
+    "description_ru": "Повышение скорости реакции"
+  },
+  {
+    "id": "speed_decrease",
+    "category": "kinetic",
+    "name_ru": "уменьшение скорости",
+    "description_ru": "Понижение скорости реакции"
+  },
+  {
+    "id": "activation_energy_decrease",
+    "category": "kinetic",
+    "name_ru": "снижение Ea",
+    "description_ru": "Снижение энергии активации"
+  },
+  {
+    "id": "equilibrium_shift_right",
+    "category": "thermodynamic",
+    "name_ru": "смещение равновесия →",
+    "description_ru": "Смещение равновесия в сторону продуктов"
+  },
+  {
+    "id": "equilibrium_shift_left",
+    "category": "thermodynamic",
+    "name_ru": "смещение равновесия ←",
+    "description_ru": "Смещение равновесия в сторону реагентов"
+  },
+  {
+    "id": "exothermic",
+    "category": "thermodynamic",
+    "name_ru": "экзотермический",
+    "description_ru": "Выделение теплоты"
+  },
+  {
+    "id": "endothermic",
+    "category": "thermodynamic",
+    "name_ru": "эндотермический",
+    "description_ru": "Поглощение теплоты"
+  },
+  {
+    "id": "surface_increase",
+    "category": "mass_transfer",
+    "name_ru": "увеличение площади контакта",
+    "description_ru": "Увеличение площади поверхности контакта реагентов"
+  },
+  {
+    "id": "concentration_increase",
+    "category": "mass_transfer",
+    "name_ru": "увеличение концентрации",
+    "description_ru": "Увеличение концентрации реагента"
+  },
+  {
+    "id": "concentration_decrease",
+    "category": "mass_transfer",
+    "name_ru": "уменьшение концентрации",
+    "description_ru": "Уменьшение концентрации реагента"
+  },
+  {
+    "id": "product_removal",
+    "category": "mass_transfer",
+    "name_ru": "удаление продукта",
+    "description_ru": "Удаление продукта из зоны реакции"
+  },
+  {
+    "id": "phase_transition",
+    "category": "phase",
+    "name_ru": "фазовый переход",
+    "description_ru": "Переход вещества из одного агрегатного состояния в другое"
+  },
+  {
+    "id": "ion_formation",
+    "category": "phase",
+    "name_ru": "образование ионов",
+    "description_ru": "Распад на ионы при растворении или плавлении"
+  }
+]

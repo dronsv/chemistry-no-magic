@@ -80,6 +80,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       name_index: 'name_index.json',
       formula_lookup: 'formula_lookup.json',
       process_vocab: 'process_vocab.json',
+      effects_vocab: 'effects_vocab.json',
       quantities_units: 'quantities_units.json',
       indices: {
         substances_index: 'indices/substances_index.json',

@@ -20,6 +20,7 @@ export interface ManifestEntrypoints {
   name_index?: string;
   formula_lookup?: string;
   process_vocab?: string;
+  effects_vocab?: string;
   quantities_units?: string;
   engine?: {
     task_templates: string;

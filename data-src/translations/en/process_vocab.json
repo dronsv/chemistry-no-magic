@@ -31,9 +31,9 @@
     "name_ru": "dilution",
     "description_ru": "Adding solvent to a solution. Decreases reagent concentration, reducing reaction rate and potentially shifting equilibrium."
   },
-  "add_excess_reagent": {
+  "excess_reagent": {
     "name_ru": "excess reagent",
-    "description_ru": "Adding one reagent in excess. Shifts equilibrium toward products (Le Chatelier's principle), ensures complete consumption of the limiting reagent."
+    "description_ru": "One reagent is present in excess. Shifts equilibrium toward products, ensures complete consumption of the limiting reagent. May affect the product (e.g., CO₂+NaOH with excess/deficit)."
   },
   "filtration": {
     "name_ru": "filtration",
@@ -138,9 +138,5 @@
   "closed_system": {
     "name_ru": "closed system",
     "description_ru": "Constraint: the system does not exchange matter with the surroundings. Gases are not removed, equilibrium is established. Important for equilibrium and Le Chatelier's principle problems."
-  },
-  "excess_condition": {
-    "name_ru": "excess condition",
-    "description_ru": "Formal constraint: one reagent is present in excess. Determines stoichiometry (limiting reagent is fully consumed) and may affect the product (e.g., CO₂+NaOH with excess/deficit)."
   }
 }

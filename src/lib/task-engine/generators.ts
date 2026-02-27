@@ -383,12 +383,12 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
   const arrowIdx = r.equation.indexOf('→');
   const reactants = arrowIdx >= 0 ? r.equation.slice(0, arrowIdx).trim() : r.equation;
 
-  // Driving force booleans
+  // Driving force booleans (IDs normalized to match process_vocab)
   const df = r.driving_forces ?? [];
-  const hasPrecipitate = df.some(f => f === 'precipitate' || f === 'precipitation');
-  const hasGas = df.some(f => f === 'gas_evolution' || f === 'gas');
-  const hasWater = df.some(f => f === 'water_formation' || f === 'water');
-  const hasWeakElectrolyte = df.includes('weak_electrolyte');
+  const hasPrecipitate = df.includes('precipitation');
+  const hasGas = df.includes('gas_evolution');
+  const hasWater = df.includes('water_formation');
+  const hasWeakElectrolyte = df.includes('weak_electrolyte_formation');
 
   const slots: SlotValues = {
     equation: r.equation,

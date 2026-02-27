@@ -16,7 +16,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -102,7 +102,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -181,7 +181,7 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release",
+      "gas_evolution",
       "water_formation"
     ],
     "molecular": {
@@ -276,7 +276,7 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release",
+      "gas_evolution",
       "water_formation"
     ],
     "molecular": {
@@ -367,7 +367,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -453,7 +453,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -780,7 +780,7 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release",
+      "gas_evolution",
       "water_formation"
     ],
     "molecular": {
@@ -870,8 +870,8 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release",
-      "weak_electrolyte"
+      "gas_evolution",
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -953,7 +953,7 @@
       "qualitative_test"
     ],
     "driving_forces": [
-      "gas_release",
+      "gas_evolution",
       "water_formation"
     ],
     "molecular": {
@@ -1045,7 +1045,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -1124,7 +1124,7 @@
       "complexation"
     ],
     "driving_forces": [
-      "complex_formation"
+      "complexation"
     ],
     "molecular": {
       "reactants": [
@@ -1197,7 +1197,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -1432,7 +1432,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -1719,7 +1719,7 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release",
+      "gas_evolution",
       "water_formation"
     ],
     "molecular": {
@@ -1797,7 +1797,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -1869,7 +1869,7 @@
     ],
     "driving_forces": [
       "water_formation",
-      "weak_electrolyte"
+      "weak_electrolyte_formation"
     ],
     "molecular": {
       "reactants": [
@@ -2010,7 +2010,7 @@
       "gas_evolution"
     ],
     "driving_forces": [
-      "gas_release"
+      "gas_evolution"
     ],
     "molecular": {
       "reactants": [
@@ -2074,7 +2074,7 @@
     "phase": { "medium": "mixed", "notes": "металл + раствор кислоты" },
     "conditions": { "temperature": "room" },
     "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_release"],
+    "driving_forces": ["gas_evolution"],
     "molecular": {
       "reactants": [
         { "formula": "Zn", "name": "цинк", "coeff": 1 },
@@ -2122,7 +2122,7 @@
     "phase": { "medium": "mixed" },
     "conditions": { "temperature": "room" },
     "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_release"],
+    "driving_forces": ["gas_evolution"],
     "molecular": {
       "reactants": [
         { "formula": "Fe", "name": "железо", "coeff": 1 },
@@ -2166,7 +2166,7 @@
     "phase": { "medium": "mixed" },
     "conditions": { "temperature": "room" },
     "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_release"],
+    "driving_forces": ["gas_evolution"],
     "molecular": {
       "reactants": [
         { "formula": "Mg", "name": "магний", "coeff": 1 },

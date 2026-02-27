@@ -13,7 +13,8 @@
     "params": [
       "acid_substance_id",
       "base_substance_id"
-    ]
+    ],
+    "parent": "chemical_reaction"
   },
   {
     "id": "displacement",
@@ -23,6 +24,82 @@
     "params": [
       "metal_substance_id",
       "salt_substance_id"
+    ],
+    "parent": "chemical_reaction"
+  },
+  {
+    "id": "photodecomposition",
+    "kind": "chemical",
+    "name_ru": "фоторазложение",
+    "description_ru": "Разложение вещества под действием света. Пример: AgCl темнеет на свету (2AgCl → 2Ag + Cl₂). Используется как качественная реакция на хлорид серебра.",
+    "params": [
+      "substance_id",
+      "light_wavelength"
+    ],
+    "parent": "chemical_reaction"
+  },
+  {
+    "id": "electrolysis",
+    "kind": "chemical",
+    "name_ru": "электролиз",
+    "description_ru": "Окислительно-восстановительный процесс на электродах при прохождении постоянного тока через раствор или расплав электролита. Катод — восстановление, анод — окисление.",
+    "params": [
+      "electrolyte_substance_id",
+      "medium",
+      "electrode_material"
+    ],
+    "parent": "chemical_reaction"
+  },
+  {
+    "id": "precipitation",
+    "kind": "driving_force",
+    "name_ru": "осаждение",
+    "description_ru": "Образование нерастворимого твёрдого вещества (осадка) из раствора. Движущая сила реакций ионного обмена — продукт покидает раствор. Характеризуется ПР (Ksp).",
+    "params": [
+      "solid_substance_id",
+      "color",
+      "Ksp",
+      "T_K"
+    ],
+    "effects": ["product_removal"]
+  },
+  {
+    "id": "gas_evolution",
+    "kind": "driving_force",
+    "name_ru": "выделение газа",
+    "description_ru": "Образование газообразного продукта, покидающего реакционную среду. Движущая сила реакций — продукт уходит из системы, смещая равновесие вправо.",
+    "params": [
+      "gas_substance_id",
+      "vented",
+      "p_bar"
+    ],
+    "effects": ["product_removal"]
+  },
+  {
+    "id": "complexation",
+    "kind": "driving_force",
+    "name_ru": "комплексообразование",
+    "description_ru": "Образование комплексного иона из центрального атома (иона металла) и лигандов. Пример: Al(OH)₃ + NaOH(изб.) → Na[Al(OH)₄]. Характеризуется константой устойчивости β.",
+    "params": [
+      "complex_substance_id",
+      "ligands",
+      "beta"
+    ]
+  },
+  {
+    "id": "water_formation",
+    "kind": "driving_force",
+    "name_ru": "образование воды",
+    "description_ru": "Образование слабого электролита H₂O из ионов H⁺ и OH⁻. Основная движущая сила реакций нейтрализации и многих реакций ионного обмена.",
+    "parent": "weak_electrolyte_formation"
+  },
+  {
+    "id": "weak_electrolyte_formation",
+    "kind": "driving_force",
+    "name_ru": "образование слабого электролита",
+    "description_ru": "Образование малодиссоциирующего вещества из ионов в растворе. Обобщение water_formation — включает образование слабых кислот (HF, H₂CO₃, H₂S), NH₃·H₂O и др.",
+    "params": [
+      "product_substance_id"
     ]
   },
   {
@@ -35,7 +112,8 @@
       "mode",
       "duration_s",
       "Q_input_kJ"
-    ]
+    ],
+    "effects": ["speed_increase", { "id": "equilibrium_shift_right", "when": "endothermic" }, { "id": "equilibrium_shift_left", "when": "exothermic" }]
   },
   {
     "id": "cooling",
@@ -45,7 +123,8 @@
     "params": [
       "T_target_K",
       "mode"
-    ]
+    ],
+    "effects": ["speed_decrease", { "id": "equilibrium_shift_right", "when": "exothermic" }]
   },
   {
     "id": "stirring",
@@ -55,7 +134,8 @@
     "params": [
       "intensity",
       "duration_s"
-    ]
+    ],
+    "effects": ["surface_increase", "speed_increase"]
   },
   {
     "id": "grinding",
@@ -64,7 +144,8 @@
     "description_ru": "Уменьшение размера частиц твёрдого вещества. Увеличивает площадь поверхности, ускоряя гетерогенные реакции и растворение.",
     "params": [
       "particle_size"
-    ]
+    ],
+    "effects": ["surface_increase", "speed_increase"]
   },
   {
     "id": "dilution",
@@ -74,17 +155,19 @@
     "params": [
       "factor",
       "volume_added_ml"
-    ]
+    ],
+    "effects": ["concentration_decrease", "speed_decrease"]
   },
   {
-    "id": "add_excess_reagent",
+    "id": "catalysis",
     "kind": "operation",
-    "name_ru": "избыток реагента",
-    "description_ru": "Добавление одного из реагентов в избытке. Смещает равновесие в сторону продуктов (принцип Ле Шателье), обеспечивает полное расходование лимитирующего реагента.",
+    "name_ru": "катализ",
+    "description_ru": "Изменение скорости реакции за счёт катализатора, который не расходуется. Снижает энергию активации, не изменяет ΔH и положение равновесия.",
     "params": [
-      "reagent_substance_id",
-      "excess_ratio"
-    ]
+      "catalyst_substance_id",
+      "type"
+    ],
+    "effects": ["activation_energy_decrease", "speed_increase"]
   },
   {
     "id": "filtration",
@@ -212,7 +295,7 @@
   },
   {
     "id": "dissociation",
-    "kind": "physchem",
+    "kind": "physical",
     "name_ru": "диссоциация",
     "description_ru": "Распад электролита на ионы в растворе или расплаве. Сильные электролиты диссоциируют полностью (α≈1), слабые — частично (α≪1, характеризуется K_diss).",
     "params": [
@@ -222,31 +305,8 @@
     ]
   },
   {
-    "id": "precipitation",
-    "kind": "physchem",
-    "name_ru": "осаждение",
-    "description_ru": "Образование нерастворимого твёрдого вещества (осадка) из раствора. Движущая сила реакций ионного обмена — продукт покидает раствор. Характеризуется ПР (Ksp).",
-    "params": [
-      "solid_substance_id",
-      "color",
-      "Ksp",
-      "T_K"
-    ]
-  },
-  {
-    "id": "gas_evolution",
-    "kind": "physchem",
-    "name_ru": "выделение газа",
-    "description_ru": "Образование газообразного продукта, покидающего реакционную среду. Движущая сила реакций — продукт уходит из системы, смещая равновесие вправо.",
-    "params": [
-      "gas_substance_id",
-      "vented",
-      "p_bar"
-    ]
-  },
-  {
     "id": "gas_absorption",
-    "kind": "physchem",
+    "kind": "physical",
     "name_ru": "поглощение газа",
     "description_ru": "Растворение газа в жидкости с возможным химическим взаимодействием. Пример: CO₂ + NaOH → Na₂CO₃. Зависит от давления и температуры.",
     "params": [
@@ -257,44 +317,8 @@
     ]
   },
   {
-    "id": "complexation",
-    "kind": "physchem",
-    "name_ru": "комплексообразование",
-    "description_ru": "Образование комплексного иона из центрального атома (иона металла) и лигандов. Пример: Al(OH)₃ + NaOH(изб.) → Na[Al(OH)₄]. Характеризуется константой устойчивости β.",
-    "params": [
-      "complex_substance_id",
-      "ligands",
-      "beta"
-    ]
-  },
-  {
-    "id": "water_formation",
-    "kind": "physchem",
-    "name_ru": "образование воды",
-    "description_ru": "Образование слабого электролита H₂O из ионов H⁺ и OH⁻. Основная движущая сила реакций нейтрализации и многих реакций ионного обмена."
-  },
-  {
-    "id": "weak_electrolyte_formation",
-    "kind": "physchem",
-    "name_ru": "образование слабого электролита",
-    "description_ru": "Образование малодиссоциирующего вещества из ионов в растворе. Обобщение water_formation — включает образование слабых кислот (HF, H₂CO₃, H₂S), NH₃·H₂O и др.",
-    "params": [
-      "product_substance_id"
-    ]
-  },
-  {
-    "id": "catalysis",
-    "kind": "physchem",
-    "name_ru": "катализ",
-    "description_ru": "Изменение скорости реакции за счёт катализатора, который не расходуется. Снижает энергию активации, не изменяет ΔH и положение равновесия.",
-    "params": [
-      "catalyst_substance_id",
-      "type"
-    ]
-  },
-  {
     "id": "adsorption",
-    "kind": "physchem",
+    "kind": "physical",
     "name_ru": "адсорбция",
     "description_ru": "Поглощение вещества из раствора или газа поверхностью твёрдого тела (адсорбента). Пример: активированный уголь поглощает примеси из воды.",
     "params": [
@@ -303,25 +327,16 @@
     ]
   },
   {
-    "id": "photodecomposition",
-    "kind": "physchem",
-    "name_ru": "фоторазложение",
-    "description_ru": "Разложение вещества под действием света. Пример: AgCl темнеет на свету (2AgCl → 2Ag + Cl₂). Используется как качественная реакция на хлорид серебра.",
+    "id": "excess_reagent",
+    "kind": "constraint",
+    "name_ru": "избыток реагента",
+    "description_ru": "Один из реагентов присутствует в избытке. Смещает равновесие в сторону продуктов, обеспечивает полное расходование лимитирующего реагента. Может влиять на продукт (напр., CO₂+NaOH при избытке/недостатке).",
     "params": [
-      "substance_id",
-      "light_wavelength"
-    ]
-  },
-  {
-    "id": "electrolysis",
-    "kind": "physchem",
-    "name_ru": "электролиз",
-    "description_ru": "Окислительно-восстановительный процесс на электродах при прохождении постоянного тока через раствор или расплав электролита. Катод — восстановление, анод — окисление.",
-    "params": [
-      "electrolyte_substance_id",
-      "medium",
-      "electrode_material"
-    ]
+      "reagent_substance_id",
+      "excess_ratio",
+      "excess_or_deficit"
+    ],
+    "effects": ["concentration_increase", "equilibrium_shift_right"]
   },
   {
     "id": "remove_gas",
@@ -346,15 +361,5 @@
     "kind": "constraint",
     "name_ru": "замкнутая система",
     "description_ru": "Ограничение: система не обменивается веществом с окружающей средой. Газы не удаляются, равновесие устанавливается. Важно для задач на равновесие и принцип Ле Шателье."
-  },
-  {
-    "id": "excess_condition",
-    "kind": "constraint",
-    "name_ru": "условие избытка",
-    "description_ru": "Формальное ограничение: один из реагентов присутствует в избытке. Определяет стехиометрию (лимитирующий реагент расходуется полностью) и может влиять на продукт (напр., CO₂+NaOH при избытке/недостатке).",
-    "params": [
-      "reagent_substance_id",
-      "excess_or_deficit"
-    ]
   }
 ]

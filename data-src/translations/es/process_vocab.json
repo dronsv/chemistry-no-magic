@@ -23,7 +23,7 @@
   "dilution": {
     "name_ru": "dilución"
   },
-  "add_excess_reagent": {
+  "excess_reagent": {
     "name_ru": "exceso de reactivo"
   },
   "filtration": {
@@ -103,8 +103,5 @@
   },
   "closed_system": {
     "name_ru": "sistema cerrado"
-  },
-  "excess_condition": {
-    "name_ru": "condición de exceso"
   }
 }

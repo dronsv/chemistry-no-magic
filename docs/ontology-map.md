@@ -33,7 +33,8 @@
 | **Exam Systems** | `data-src/exam/systems.json` | 1 | 5 systems | Active |
 | **Exam Tasks** | `data-src/exam/oge_tasks.json` + per-system | 6+ | 163 total | Active |
 | **Solution Algorithms** | `data-src/exam/oge_solution_algorithms.json` + per-system | 6+ | 54 total | Active |
-| **Process Vocabulary** | `data-src/process_vocab.json` | 1 | 36 processes | Active |
+| **Process Vocabulary** | `data-src/process_vocab.json` | 1 | 35 processes (5 kinds: chemical, driving_force, physical, operation, constraint) | Active |
+| **Effects Vocabulary** | `data-src/effects_vocab.json` | 1 | 13 effects (4 categories: kinetic, thermodynamic, mass_transfer, phase) | Active |
 | **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 16 quantities + 27 units | Active |
 | **Contexts** | `data-src/contexts/contexts.json` | 1 | 5 | Active |
 | **Substance Variants** | `data-src/contexts/substance_variants.json` | 1 | 5 | Active |
@@ -594,7 +595,7 @@ graph TB
         OPS["Operations (11)<br/>heating, cooling, stirring,<br/>grinding, dilution, evaporation,<br/>filtration, washing, drying,<br/>decantation, distillation"]
         PHYS["State Changes (6)<br/>dissolution, crystallization,<br/>sublimation, condensation,<br/>melting, boiling"]
         PCHEM["Physicochemical (11)<br/>dissociation, precipitation,<br/>gas_evolution, complexation,<br/>catalysis, electrolysis,<br/>adsorption, photodecomposition"]
-        CONST["Constraints (4)<br/>remove_gas, remove_solid,<br/>closed_system, excess_condition"]
+        CONST["Constraints (3)<br/>remove_gas, remove_solid,<br/>closed_system, excess_reagent"]
     end
 
     subgraph Applicability["Applicability Rules (15 conditions)"]
@@ -800,7 +801,8 @@ graph TB
 | `ions.json` | 41 | Chemical ions |
 | `element-groups.json` | 10 | Element group metadata |
 | `periodic-table-content.json` | 3 | Periodic table layout |
-| `process_vocab.json` | 36 | Chemistry process types |
+| `process_vocab.json` | 35 | Chemistry process types (5 kinds) |
+| `effects_vocab.json` | 13 | Effect types (4 categories) |
 | `quantities_units_ontology.json` | 16q + 27u | Physical quantities and units |
 | `reactions_bundle.v1.json` | 6 | Reaction bundle (legacy v1 schema) |
 | `sources_list.json` | 4 | Reference source links |
@@ -1047,7 +1049,8 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Structures | `data-src/structures/*.json` | source | 38 | — | `loadStructure(id)` → 3D viewer | copied to bundle |
 | Reaction templates | `data-src/templates/reaction_templates.json` | source | 10 | `validateReactionTemplates()` | `loadReactionTemplates()` → reactions page | copied to bundle |
 | Task templates | `data-src/templates/task_templates.json` | source | 20 | `validateTaskTemplates()` + `integrity.mjs` | `loadTaskTemplates()` → task engine | copied to bundle |
-| Process vocabulary | `data-src/process_vocab.json` | source | 36 | `validateProcessVocab()` | `loadProcessVocab()` → reference page | copied to bundle |
+| Process vocabulary | `data-src/process_vocab.json` | source | 35 | `validateProcessVocab()` | `loadProcessVocab()` → reference page | copied to bundle |
+| Effects vocabulary | `data-src/effects_vocab.json` | source | 13 | `validateEffectsVocab()` | `loadEffectsVocab()` → reference page | copied to bundle |
 | Quantities & units | `data-src/quantities_units_ontology.json` | source | 16+27 | `validateQuantitiesUnits()` | `loadQuantitiesUnits()` → reference page | copied to bundle |
 | Sources list | `data-src/sources_list.json` | source | 4 | — | — (reference only) | copied to bundle |
 

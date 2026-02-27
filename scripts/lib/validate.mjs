@@ -292,12 +292,13 @@ export function validateTranslationOverlay(overlay, baseIds, locale, dataKey) {
  * @param {any[]} vocab
  * @returns {string[]} errors
  */
-export function validateProcessVocab(vocab) {
+export function validateProcessVocab(vocab, effectsVocab) {
   const errors = [];
   if (!Array.isArray(vocab)) return ['process_vocab.json must be an array'];
 
-  const VALID_KINDS = ['chemical', 'operation', 'physical', 'physchem', 'constraint'];
+  const VALID_KINDS = ['chemical', 'physical', 'driving_force', 'operation', 'constraint'];
   const seen = new Set();
+  const effectIds = effectsVocab ? new Set(effectsVocab.map(e => e.id)) : null;
 
   for (let i = 0; i < vocab.length; i++) {
     const v = vocab[i];
@@ -308,6 +309,58 @@ export function validateProcessVocab(vocab) {
     if (typeof v.description_ru !== 'string' || !v.description_ru) errors.push(`${prefix}: missing description_ru`);
     if (v.params !== undefined && !Array.isArray(v.params)) errors.push(`${prefix}: params must be array`);
     if (v.params && !v.params.every(p => typeof p === 'string')) errors.push(`${prefix}: params entries must be strings`);
+    if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
+    seen.add(v.id);
+
+    // Validate effects references
+    if (v.effects !== undefined) {
+      if (!Array.isArray(v.effects)) {
+        errors.push(`${prefix}: effects must be array`);
+      } else if (effectIds) {
+        for (const eff of v.effects) {
+          const effId = typeof eff === 'string' ? eff : eff?.id;
+          if (effId && !effectIds.has(effId)) {
+            errors.push(`${prefix}: effects ref "${effId}" not found in effects_vocab`);
+          }
+        }
+      }
+    }
+
+    // Validate parent reference
+    if (v.parent !== undefined && typeof v.parent !== 'string') {
+      errors.push(`${prefix}: parent must be a string`);
+    }
+  }
+
+  // Cross-validate parent references exist in process_vocab
+  for (let i = 0; i < vocab.length; i++) {
+    const v = vocab[i];
+    if (v.parent && !seen.has(v.parent)) {
+      errors.push(`process_vocab[${i}]: parent "${v.parent}" not found in process_vocab`);
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * @param {any[]} vocab
+ * @returns {string[]} errors
+ */
+export function validateEffectsVocab(vocab) {
+  const errors = [];
+  if (!Array.isArray(vocab)) return ['effects_vocab.json must be an array'];
+
+  const VALID_CATEGORIES = ['kinetic', 'thermodynamic', 'mass_transfer', 'phase'];
+  const seen = new Set();
+
+  for (let i = 0; i < vocab.length; i++) {
+    const v = vocab[i];
+    const prefix = `effects_vocab[${i}]`;
+    if (typeof v.id !== 'string' || !v.id) errors.push(`${prefix}: missing id`);
+    if (!VALID_CATEGORIES.includes(v.category)) errors.push(`${prefix}: invalid category "${v.category}"`);
+    if (typeof v.name_ru !== 'string' || !v.name_ru) errors.push(`${prefix}: missing name_ru`);
+    if (typeof v.description_ru !== 'string' || !v.description_ru) errors.push(`${prefix}: missing description_ru`);
     if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
     seen.add(v.id);
   }

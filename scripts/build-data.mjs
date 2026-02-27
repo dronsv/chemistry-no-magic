@@ -26,6 +26,7 @@ import {
   validateSubstance,
   validateApplicabilityRules,
   validateProcessVocab,
+  validateEffectsVocab,
   validateQuantitiesUnits,
   validateProperties,
   validateBondExamples,
@@ -154,6 +155,7 @@ async function main() {
   const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
   const solubilityFull = await loadJson(join(DATA_SRC, 'rules', 'solubility_rules_full.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
+  const effectsVocab = await loadJson(join(DATA_SRC, 'effects_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
   const properties = await loadJson(join(DATA_SRC, 'rules', 'properties.json'));
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
@@ -193,7 +195,7 @@ async function main() {
   console.log(`  ${topicMapping.length} unified topics`);
   console.log(`  ${ionNomenclature.suffix_rules.length} ion nomenclature rules, ${ionNomenclature.acid_to_anion_pairs.length} acid-anion pairs`);
   console.log(`  ${examSystems.length} exam systems (${examSystems.map(s => s.id).join(', ')})`);
-  console.log(`  ${processVocab.length} process vocab entries, ${quantitiesUnits.quantities.length} quantities, ${quantitiesUnits.units.length} units`);
+  console.log(`  ${processVocab.length} process vocab entries, ${effectsVocab.length} effects vocab entries, ${quantitiesUnits.quantities.length} quantities, ${quantitiesUnits.units.length} units`);
   console.log(`  ${reactions.length} reactions, ${reactionRoles.length} reaction roles`);
   console.log(`  ${competencies.length} competencies, ${diagnosticQuestions.length} diagnostic questions`);
   console.log(`  ${periodicTableExercises.exercise_types.length} periodic table exercise templates`);
@@ -217,7 +219,8 @@ async function main() {
     ...validateBktParams(bktParams),
     ...validateReactionTemplates(reactionTemplates),
     ...validateTaskTemplates(taskTemplates),
-    ...validateProcessVocab(processVocab),
+    ...validateEffectsVocab(effectsVocab),
+    ...validateProcessVocab(processVocab, effectsVocab),
     ...validateQuantitiesUnits(quantitiesUnits),
     ...validateProperties(properties),
     ...validateBondExamples(bondExamples),
@@ -321,6 +324,7 @@ async function main() {
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.es.json'), JSON.stringify(promptTemplatesEs));
 
   await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));
+  await writeFile(join(bundleDir, 'effects_vocab.json'), JSON.stringify(effectsVocab));
   await writeFile(join(bundleDir, 'quantities_units.json'), JSON.stringify(quantitiesUnits));
 
   await mkdir(join(bundleDir, 'reactions'), { recursive: true });

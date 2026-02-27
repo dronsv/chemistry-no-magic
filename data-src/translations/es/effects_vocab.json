@@ -1,0 +1,54 @@
+{
+  "speed_increase": {
+    "name_ru": "aumento de velocidad",
+    "description_ru": "Aumento de la velocidad de reacción"
+  },
+  "speed_decrease": {
+    "name_ru": "disminución de velocidad",
+    "description_ru": "Disminución de la velocidad de reacción"
+  },
+  "activation_energy_decrease": {
+    "name_ru": "disminución de Ea",
+    "description_ru": "Disminución de la energía de activación"
+  },
+  "equilibrium_shift_right": {
+    "name_ru": "desplazamiento del equilibrio →",
+    "description_ru": "Desplazamiento del equilibrio hacia los productos"
+  },
+  "equilibrium_shift_left": {
+    "name_ru": "desplazamiento del equilibrio ←",
+    "description_ru": "Desplazamiento del equilibrio hacia los reactivos"
+  },
+  "exothermic": {
+    "name_ru": "exotérmico",
+    "description_ru": "Liberación de calor"
+  },
+  "endothermic": {
+    "name_ru": "endotérmico",
+    "description_ru": "Absorción de calor"
+  },
+  "surface_increase": {
+    "name_ru": "aumento del área de contacto",
+    "description_ru": "Aumento del área de superficie de contacto de los reactivos"
+  },
+  "concentration_increase": {
+    "name_ru": "aumento de concentración",
+    "description_ru": "Aumento de la concentración del reactivo"
+  },
+  "concentration_decrease": {
+    "name_ru": "disminución de concentración",
+    "description_ru": "Disminución de la concentración del reactivo"
+  },
+  "product_removal": {
+    "name_ru": "eliminación del producto",
+    "description_ru": "Eliminación del producto de la zona de reacción"
+  },
+  "phase_transition": {
+    "name_ru": "transición de fase",
+    "description_ru": "Transición de sustancia de un estado de la materia a otro"
+  },
+  "ion_formation": {
+    "name_ru": "formación de iones",
+    "description_ru": "Descomposición en iones durante la disolución o la fusión"
+  }
+}

@@ -58,10 +58,10 @@ function getBadgeTag(tags: string[]): string {
 
 const DRIVING_FORCE_LABELS: Record<string, { icon: string; label: () => string }> = {
   precipitation: { icon: '↓', label: m.rxn_force_precipitation },
-  gas_release: { icon: '↑', label: m.rxn_force_gas_release },
+  gas_evolution: { icon: '↑', label: m.rxn_force_gas_evolution },
   water_formation: { icon: '💧', label: m.rxn_force_water_formation },
-  weak_electrolyte: { icon: '~', label: m.rxn_force_weak_electrolyte },
-  complex_formation: { icon: '⟨⟩', label: m.rxn_force_complex_formation },
+  weak_electrolyte_formation: { icon: '~', label: m.rxn_force_weak_electrolyte_formation },
+  complexation: { icon: '⟨⟩', label: m.rxn_force_complexation },
 };
 
 const HEAT_LABELS: Record<string, { label: () => string; className: string }> = {
