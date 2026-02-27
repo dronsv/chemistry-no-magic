@@ -42,8 +42,9 @@ docs/plans/
 !public/og-default.png
 !public/favicon-32.png
 
-# playwright MCP artifacts
+# playwright
 .playwright-mcp/
+test-results/
 
 # Claude Code settings
 .claude/
