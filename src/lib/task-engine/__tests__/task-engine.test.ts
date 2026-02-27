@@ -1352,7 +1352,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.identify_oxidizer.v1');
       expect(tmpl).toBeDefined();
       expect(tmpl!.meta.interaction).toBe('choice_single');
-      expect(tmpl!.competency_hint).toEqual({ redox_basic: 'P' });
+      expect(tmpl!.competency_hint).toEqual({ reactions_redox: 'P' });
       expect(tmpl!.pipeline.generator.params.type_tag).toBe('redox');
     });
 
@@ -1363,7 +1363,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.interaction).toBe('choice_single');
       // rx4 is the only redox reaction, its oxidizer is O₂
       expect(task.correct_answer).toBe('O\u2082');
-      expect(task.competency_map).toEqual({ redox_basic: 'P' });
+      expect(task.competency_map).toEqual({ reactions_redox: 'P' });
     });
 
     it('predict_substitution returns an equation', () => {

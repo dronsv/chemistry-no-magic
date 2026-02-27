@@ -702,7 +702,7 @@
     "evidence_rules": ["redox_analysis"],
     "difficulty_model": { "features": { "multi_element": "auto" }, "target_band": [0.3, 0.65] },
     "exam_tags": ["oge"],
-    "competency_hint": { "redox_basic": "P" }
+    "competency_hint": { "reactions_redox": "P" }
   },
   {
     "template_id": "tmpl.rxn.predict_substitution.v1",

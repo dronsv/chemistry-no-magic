@@ -259,14 +259,17 @@ export async function loadBktParams(): Promise<BktParams[]> {
   return loadDataFile<BktParams[]>(path);
 }
 
-/** Load all task templates. */
+/** Load all task templates (engine templates with template_id, generators, solvers). */
 export async function loadTaskTemplates(): Promise<TaskTemplate[]> {
   const manifest = await getManifest();
-  const path = manifest.entrypoints.templates['task_templates'];
-
+  const engine = manifest.entrypoints.engine;
+  if (!engine) {
+    throw new Error('Engine section not found in manifest');
+  }
+  const path = engine['task_templates' as keyof typeof engine];
   if (!path) {
     throw new Error(
-      'Task templates not found in manifest. Expected key "task_templates" in entrypoints.templates.',
+      'Task templates not found in manifest. Expected key "task_templates" in entrypoints.engine.',
     );
   }
 
