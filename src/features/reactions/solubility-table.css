@@ -209,8 +209,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  max-height: 6rem;
-  overflow-y: auto;
+  max-width: 40rem;
 }
 
 .sol-rules-panel__item {
