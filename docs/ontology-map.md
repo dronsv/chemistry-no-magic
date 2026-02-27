@@ -1,7 +1,7 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-02-26
+> Last updated: 2026-02-27
 
 ---
 
@@ -996,63 +996,190 @@ Each legacy feature generator file and which engine templates cover its exercise
 
 ## 16. Governance Matrix
 
-Source/derived/regenerable status for all data artifacts. Used to understand change impact.
+Source/derived/regenerable status for all data artifacts, build pipeline stages, change impact cascades, and caching strategy.
 
-### Source Files (manually edited)
+### 16A. Source Files (manually edited)
 
-| Artifact | Location | Entries | Validator | Change Impact |
-|----------|----------|---------|-----------|---------------|
-| Elements | `data-src/elements.json` | 118 | `validate.mjs` | → formula_lookup, search_index, name_index, substance_index, engine ontology |
-| Ions | `data-src/ions.json` | 41 | `validate.mjs` | → formula_lookup, search_index, name_index, solubility lookups |
-| Substances | `data-src/substances/*.json` | 80 | `validate.mjs` | → substance_index, by_class/, by_ion/, formula_lookup, search_index |
-| Reactions | `data-src/reactions/reactions.json` | 32 | `validate.mjs` | → reaction_participants, search_index, engine ontology |
-| Reaction roles | `data-src/reactions/reaction_roles.json` | 11 | `validate.mjs` | → reaction_participants derivation |
-| Competencies | `data-src/rules/competencies.json` | 21 | `validate.mjs` | → by_competency/, BKT params, topic_mapping |
-| Classification rules | `data-src/rules/classification_rules.json` | 12 | `validate.mjs` | → engine ontology (rules.classification) |
-| Naming rules | `data-src/rules/naming_rules.json` | 37 | `validate.mjs` | → engine ontology (rules.naming) |
-| Solubility rules | `data-src/rules/solubility_rules_full.json` | 7 | `validate.mjs` | → engine ontology (rules.solubility) |
-| Activity series | `data-src/rules/activity_series.json` | 18 | `validate.mjs` | → engine ontology (rules.activity) |
-| Bond examples | `data-src/rules/bond_examples.json` | 17 | `validate.mjs` | → engine ontology (rules.bonds) |
-| Oxidation examples | `data-src/rules/oxidation_examples.json` | 22 | `validate.mjs` | → engine ontology (rules.oxidation) |
-| Properties | `data-src/rules/properties.json` | 5 | `validate.mjs` | → engine ontology (core.properties) |
-| Qualitative tests | `data-src/rules/qualitative_reactions.json` | 11 | `validate.mjs` | → engine ontology (rules.qualitative) |
-| Genetic chains | `data-src/rules/genetic_chains.json` | 5 | `validate.mjs` | → engine ontology (data.geneticChains) |
-| Energy/catalyst theory | `data-src/rules/energy_catalyst_theory.json` | — | `validate.mjs` | → engine ontology (rules.energyCatalyst) |
-| Calculations data | `data-src/rules/calculations_data.json` | 24+10 | `validate.mjs` | → engine ontology (data.calculations) |
-| Ion nomenclature | `data-src/rules/ion_nomenclature.json` | 4 | `validate.mjs` | → engine ontology (rules.ionNomenclature) |
-| Topic mapping | `data-src/rules/topic_mapping.json` | 8 | `validate.mjs` | → exam task→competency routing |
-| BKT params | `data-src/rules/bkt_params.json` | 21 | `validate.mjs` | → adaptive learning P(L) updates |
-| Diagnostic questions | `data-src/diagnostic/questions.json` | 12 | `validate.mjs` | → diagnostics feature |
-| Exam tasks | `data-src/exam/{system}/tasks.json` | 163 total | `validate.mjs` | → exam practice + mock exam |
-| Solution algorithms | `data-src/exam/{system}/algorithms.json` | 54 total | `validate.mjs` | → exam solution hints |
-| Engine task templates | `data-src/engine/task_templates.json` | 65 | `validate.mjs` | → template registry, all practice exercises |
-| Engine prompt templates | `data-src/engine/prompt_templates.{locale}.json` | 65×4 | `validate.mjs` | → rendered question text |
-| Translation overlays | `data-src/translations/{locale}/*.json` | 32 files | `validate.mjs` | → per-locale data display |
-| RU morphology | `data-src/translations/ru/morphology.json` | 43+8 | `validate.mjs` | → engine slot resolver (morph: directives) |
-| Contexts | `data-src/contexts/contexts.json` | 5 | `validate.mjs` | → reverse_index |
-| Terms | `data-src/contexts/terms.json` | 54 | `validate.mjs` | → reverse_index, search_index |
-| Term bindings | `data-src/contexts/term_bindings.json` | 54 | `validate.mjs` | → reverse_index |
+| Artifact | Location | Type | Entries | Validator | Used By (runtime) | Change Impact |
+|----------|----------|------|---------|-----------|-------------------|---------------|
+| Elements | `data-src/elements.json` | source | 118 | `validate.mjs` | `loadElements()` → engine ontology, periodic table, search, ChemText | → formula_lookup, search_index, name_index, substance_index |
+| Ions | `data-src/ions.json` | source | 41 | `validate.mjs` | `loadIons()` → engine ontology, ions page, ChemText | → formula_lookup, search_index, name_index, solubility lookups |
+| Substances | `data-src/substances/*.json` | source | 80 | `validate.mjs` | `loadSubstance()` → substance pages | → substance_index, by_class/, by_ion/, formula_lookup, search_index |
+| Reactions | `data-src/reactions/reactions.json` | source | 32 | `validate.mjs` | `loadReactions()` → engine ontology, reactions page | → reaction_participants, search_index |
+| Reaction roles | `data-src/reactions/reaction_roles.json` | source | 11 | `validate.mjs` | `loadReactionRoles()` → reactions page | → reaction_participants derivation |
+| Competencies | `data-src/rules/competencies.json` | source | 21 | `validate.mjs` | `loadCompetencies()` → profile, exam, diagnostics | → by_competency/, search_index |
+| Classification rules | `data-src/rules/classification_rules.json` | source | 12 | `validate.mjs` | `loadClassificationRules()` → engine ontology | engine only |
+| Naming rules | `data-src/rules/naming_rules.json` | source | 37 | `validate.mjs` | `loadNamingRules()` → engine ontology | engine only |
+| Solubility (light) | `data-src/rules/solubility_rules_light.json` | source | 7 | `validate.mjs` | — (build-time validation) | validation only |
+| Solubility (full) | `data-src/rules/solubility_rules_full.json` | source | 108 | `validate.mjs` | `loadSolubilityRules()` → engine ontology, solubility table | engine + UI |
+| Activity series | `data-src/rules/activity_series.json` | source | 18 | `validate.mjs` | `loadActivitySeries()` → engine ontology | engine only |
+| Bond examples | `data-src/rules/bond_examples.json` | source | 17 | `validate.mjs` | `loadBondExamples()` → engine ontology | engine only |
+| Oxidation examples | `data-src/rules/oxidation_examples.json` | source | 22 | `validate.mjs` | `loadOxidationExamples()` → engine ontology | engine only |
+| Properties | `data-src/rules/properties.json` | source | 5 | `validate.mjs` | `loadProperties()` → engine ontology | engine only |
+| Qualitative tests | `data-src/rules/qualitative_reactions.json` | source | 11 | `validate.mjs` | `loadQualitativeTests()` → engine ontology | engine only |
+| Genetic chains | `data-src/rules/genetic_chains.json` | source | 5 | `validate.mjs` | `loadGeneticChains()` → engine ontology | engine only |
+| Energy/catalyst theory | `data-src/rules/energy_catalyst_theory.json` | source | — | `validate.mjs` | `loadEnergyCatalystTheory()` → engine ontology | engine only |
+| Calculations data | `data-src/rules/calculations_data.json` | source | 24+10 | `validate.mjs` | `loadCalculationsData()` → engine ontology | engine only |
+| Ion nomenclature | `data-src/rules/ion_nomenclature.json` | source | 4 | `validate.mjs` | `loadIonNomenclature()` → engine ontology | engine only |
+| Topic mapping | `data-src/rules/topic_mapping.json` | source | 8 | `validate.mjs` | `loadTopicMapping()` → TopicPractice | exam topic routing |
+| BKT params | `data-src/rules/bkt_params.json` | source | 21 | `validate.mjs` + `integrity.mjs` | `loadBktParams()` → BKT engine | adaptive learning P(L) |
+| Diagnostic questions | `data-src/diagnostic/questions.json` | source | 12 | `validate.mjs` | `loadDiagnosticQuestions()` → diagnostics page | diagnostics only |
+| Exam tasks | `data-src/exam/{system}/*.json` | source | 163 total | `validate.mjs` | `loadOgeTasks()` / `loadExamTasks()` → exam practice | exam practice |
+| Solution algorithms | `data-src/exam/{system}/*.json` | source | 54 total | `validate.mjs` | `loadOgeSolutionAlgorithms()` / `loadExamAlgorithms()` | exam hints |
+| Exam systems | `data-src/exam/systems.json` | source | 5 | — | `loadExamSystems()` → ExamPage | exam system selector |
+| Engine task templates | `data-src/engine/task_templates.json` | source | 65 | `validateEngineTaskTemplates()` | `loadTaskTemplates()` → template registry | all practice exercises |
+| Engine prompt templates | `data-src/engine/prompt_templates.{locale}.json` | source | 65×4 | — | `loadPromptTemplates()` → prompt renderer | rendered question text |
+| Translation overlays | `data-src/translations/{locale}/*.json` | source | 32 files | — | `loadTranslationOverlay()` → per-locale loaders | → search_index.{locale}, name_index.{locale} |
+| RU morphology | `data-src/translations/ru/morphology.json` | source | 43+8 | — | `loadMorphology()` → engine slot resolver | morph: directives |
+| Contexts | `data-src/contexts/contexts.json` | source | 5 | — | `loadContextsData()` → contexts page | → reverse_index |
+| Substance variants | `data-src/contexts/substance_variants.json` | source | 5 | — | `loadContextsData()` → contexts page | copied to bundle |
+| Terms | `data-src/contexts/terms.json` | source | 54 | — | `loadContextsData()` → contexts page | → reverse_index, search_index, name_index |
+| Term bindings | `data-src/contexts/term_bindings.json` | source | 54 | — | `loadContextsData()` → contexts page | → reverse_index |
+| Applicability rules | `data-src/rules/applicability_rules.json` | source | 15 | `validateApplicabilityRules()` | `loadApplicabilityRules()` → substance pages | copied to bundle |
+| Bond theory | `data-src/rules/bond_theory.json` | source | — | — | `loadBondTheory()` → bonds theory panel | copied to bundle |
+| Oxidation theory | `data-src/rules/oxidation_theory.json` | source | — | — | `loadOxidationTheory()` → oxidation theory panel | copied to bundle |
+| Periodic table theory | `data-src/rules/periodic-table-theory.json` | source | — | — | `loadPeriodicTableTheory()` → PT theory panel | copied to bundle |
+| Periodic table content | `data-src/periodic-table-content.json` | source | — | — | `loadPeriodicTableContent()` → PT page | copied to bundle |
+| Element groups | `data-src/element-groups.json` | source | 10 | — | `loadElementGroups()` → PT legend | copied to bundle |
+| Exercises (PT) | `data-src/exercises/periodic-table-exercises.json` | source | 10 | — | `loadExercises('periodic-table')` → PT page | copied to bundle |
+| Exercises (bonds) | `data-src/exercises/bonds-exercises.json` | source | — | — | `loadExercises('bonds')` → bonds page | copied to bundle |
+| Exercises (oxidation) | `data-src/exercises/oxidation-exercises.json` | source | — | — | `loadExercises('oxidation')` → oxidation page | copied to bundle |
+| Structures | `data-src/structures/*.json` | source | 38 | — | `loadStructure(id)` → 3D viewer | copied to bundle |
+| Reaction templates | `data-src/templates/reaction_templates.json` | source | 10 | `validateReactionTemplates()` | `loadReactionTemplates()` → reactions page | copied to bundle |
+| Task templates | `data-src/templates/task_templates.json` | source | 20 | `validateTaskTemplates()` + `integrity.mjs` | `loadTaskTemplates()` → task engine | copied to bundle |
+| Process vocabulary | `data-src/process_vocab.json` | source | 36 | `validateProcessVocab()` | `loadProcessVocab()` → reference page | copied to bundle |
+| Quantities & units | `data-src/quantities_units_ontology.json` | source | 16+27 | `validateQuantitiesUnits()` | `loadQuantitiesUnits()` → reference page | copied to bundle |
+| Sources list | `data-src/sources_list.json` | source | 4 | — | — (reference only) | copied to bundle |
 
-### Build-Time Derived Files (regenerable)
+### 16B. Build-Time Derived Files (regenerable)
 
-| Output | Derived From | Generator Script | Cache |
-|--------|-------------|-----------------|-------|
-| `substance_index.json` | substances/*.json | `generate-indices.mjs` | immutable (hash) |
-| `by_class/*.json` | substances/*.json | `generate-indices.mjs` | immutable |
-| `by_ion/*.json` | substances/*.json + ions.json | `generate-indices.mjs` | immutable |
-| `by_competency/*.json` | exercises + competencies | `generate-indices.mjs` | immutable |
-| `formula_lookup.json` | elements + substances + ions | `generate-formula-lookup.mjs` | immutable |
-| `search_index.json` | all entities + pages | `generate-search-index.mjs` | immutable |
-| `search_index.{locale}.json` | all entities + overlays | `generate-search-index.mjs` | immutable |
-| `name_index.{locale}.json` | elements + substances + ions + overlays | `generate-name-index.mjs` | immutable |
-| `contexts/reverse_index.json` | terms + term_bindings | `generate-reverse-index.mjs` | immutable |
-| `reactions/reaction_participants.json` | reactions + reaction_roles | `generate-reaction-participants.mjs` | immutable |
-| `manifest.json` | all above | `generate-manifest.mjs` | 5 min |
+| Output | Derived From | Generator Script | Used By (runtime) | Cache |
+|--------|-------------|-----------------|-------------------|-------|
+| `indices/substances_index.json` | substances/*.json | `generate-indices.mjs` | `loadSubstancesIndex()` → engine ontology, substance list | immutable (hash) |
+| `indices/by_class/*.json` | substances/*.json | `generate-indices.mjs` | `loadIndex('by_class_*')` → substance pages | immutable |
+| `indices/by_ion/*.json` | substances + ions | `generate-indices.mjs` | `loadIndex('by_ion_*')` → ion substance lists | immutable |
+| `indices/by_competency/*.json` | exercises + competencies | `generate-indices.mjs` | `loadIndex('by_competency_*')` → competency pages | immutable |
+| `formula_lookup.json` | elements + substances + ions | `generate-formula-lookup.mjs` | `loadFormulaLookup()` → ChemText auto-parser | immutable |
+| `search_index.json` | all entities + pages | `generate-search-index.mjs` | `loadSearchIndex()` → search page (ru) | immutable |
+| `search_index.{locale}.json` | all entities + overlays | `generate-search-index.mjs` | `loadSearchIndex(locale)` → search page | immutable |
+| `name_index.{locale}.json` | elements + substances + ions + terms + overlays | `generate-name-index.mjs` | `loadNameIndex(locale)` → name→entity resolution | immutable |
+| `contexts/reverse_index.json` | terms + term_bindings | inline in `build-data.mjs` | `loadContextsData()` → contexts page | immutable |
+| `reactions/reaction_participants.json` | reactions + reaction_roles | `generate-reaction-participants.mjs` | `loadReactionParticipants()` → reactions page | immutable |
+| `manifest.json` | all above + stats | `generate-manifest.mjs` | `loadManifest()` → all data loaders | 5 min (latest/) |
 
-### Runtime-Derived State (client-side)
+### 16C. Build Pipeline Stages
+
+Sequential stages in `scripts/build-data.mjs`:
+
+| # | Stage | Inputs | Outputs | Script/Function |
+|---|-------|--------|---------|-----------------|
+| 1 | **Load source data** | `data-src/**/*.json` (~50 files) | In-memory JS objects | `loadJson()`, `loadSubstances()` |
+| 2 | **Validate schemas** | All loaded objects | Error list (or exit 1) | `validate.mjs` (16 validators) |
+| 3 | **Check referential integrity** | elements, ions, substances, bktParams, taskTemplates | Error list (or exit 1) | `integrity.mjs` |
+| 4 | **Compute bundle hash** | `data-src/` directory | 12-char SHA-256 prefix | `hash.mjs` → `computeBundleHash()` |
+| 5 | **Prepare output dirs** | hash | `public/data/{hash}/`, `public/data/latest/` | `mkdir`, `rm` (clean previous) |
+| 6 | **Copy source files to bundle** | All loaded objects | ~180 JSON files in `public/data/{hash}/` | Direct `writeFile()` calls |
+| 7 | **Generate reaction participants** | reactions + reaction_roles | `reactions/reaction_participants.json` | `generate-reaction-participants.mjs` |
+| 8 | **Generate indices** | substances, taskTemplates | `indices/` (substance_index, by_class, by_ion, by_competency) | `generate-indices.mjs` |
+| 9 | **Generate formula lookup** | elements + substances + ions | `formula_lookup.json` | `generate-formula-lookup.mjs` |
+| 10 | **Generate search index (ru)** | all entities | `search_index.json` | `generate-search-index.mjs` |
+| 11 | **Generate name index (ru)** | elements + ions + substances + terms | `name_index.ru.json` | `generate-name-index.mjs` |
+| 12 | **Process translations** | overlays per locale (ru, en, pl, es) | `translations/{locale}/*.json`, `search_index.{locale}.json`, `name_index.{locale}.json` | `generate-search-index.mjs`, `generate-name-index.mjs` |
+| 13 | **Generate manifest** | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` in both `{hash}/` and `latest/` | `generate-manifest.mjs` |
+
+Generator scripts in `scripts/lib/`:
+
+| Script | Inputs | Outputs | Invoked At |
+|--------|--------|---------|------------|
+| `generate-indices.mjs` | substances, taskTemplates, bundleDir | 4 index types (substances, by_class, by_ion, by_competency) | Stage 8 |
+| `generate-formula-lookup.mjs` | elements, substances, ions, bundleDir | `formula_lookup.json` (198 entries) | Stage 9 |
+| `generate-search-index.mjs` | entities, locale?, translations? | `search_index[.locale].json` (~216 entries) | Stages 10, 12 |
+| `generate-name-index.mjs` | elements, ions, substances, terms, bindings | `name_index.{locale}.json` | Stages 11, 12 |
+| `generate-reaction-participants.mjs` | reactions array | `reaction_participants.json` (162 records) | Stage 7 |
+| `generate-manifest.mjs` | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` | Stage 13 |
+
+### 16D. Change Impact Cascade
+
+When a source file changes, these derived files must be regenerated (all handled automatically by `build-data.mjs`):
+
+```
+elements.json
+  ├→ formula_lookup.json    (formula→id mapping)
+  ├→ search_index.json      (search entries)
+  ├→ search_index.{locale}  (per-locale search)
+  ├→ name_index.{locale}    (name→entity lookup)
+  ├→ substance_index.json   (via substance normalization)
+  └→ engine ontology        (core.elements — runtime, not build-time)
+
+ions.json
+  ├→ formula_lookup.json
+  ├→ search_index.json / .{locale}
+  ├→ name_index.{locale}
+  ├→ by_ion/*.json          (ion→substance indices)
+  └→ engine ontology        (core.ions — runtime)
+
+substances/*.json
+  ├→ substance_index.json
+  ├→ by_class/*.json
+  ├→ by_ion/*.json
+  ├→ formula_lookup.json
+  ├→ search_index.json / .{locale}
+  ├→ name_index.{locale}
+  └→ engine ontology        (data.substances — runtime)
+
+reactions.json
+  ├→ reaction_participants.json
+  ├→ search_index.json / .{locale}
+  └→ engine ontology        (data.reactions — runtime)
+
+reaction_roles.json
+  └→ reaction_participants.json
+
+competencies.json
+  ├→ by_competency/*.json
+  └→ search_index.json / .{locale}
+
+terms.json + term_bindings.json
+  ├→ reverse_index.json
+  ├→ search_index.json / .{locale}
+  └→ name_index.{locale}
+
+translation overlays ({locale}/*.json)
+  ├→ search_index.{locale}
+  └→ name_index.{locale}
+
+engine templates (task_templates.json, prompt_templates.*.json)
+  └→ engine template registry  (runtime — no build-time derivation)
+
+All source files
+  └→ manifest.json           (bundle hash changes on any source change)
+```
+
+### 16E. Cache & Immutability Strategy
+
+| Tier | Path Pattern | Cache-Control | TTL | Invalidation |
+|------|-------------|---------------|-----|-------------|
+| **Manifest (mutable)** | `/data/latest/manifest.json` | `max-age=300` | 5 min | Client polls; new `bundle_hash` triggers re-fetch |
+| **Bundle (immutable)** | `/data/{hash}/**/*.json` | `immutable, max-age=31536000` | 1 year | Never invalidated — new hash = new URL |
+| **Static assets** | `/assets/**` | `immutable, max-age=31536000` | 1 year | Astro content-hashed filenames |
+| **Pages** | `/**/*.html` | `no-cache` | 0 | Always fresh from CDN |
+
+**Client-side caching layers:**
+
+1. **Service Worker** (`public/sw.js`): network-first for pages, cache-first for `/data/{hash}/` and `/assets/`
+2. **Browser HTTP cache**: respects Cache-Control headers above
+3. **In-memory**: data-loader caches manifest in module scope; React components cache engine in `useState`
+
+**Bundle hash mechanics:**
+- Hash = first 12 chars of SHA-256 over all `data-src/` contents
+- Any source file change → new hash → all bundle URLs change → old bundle remains cached but unreferenced
+- `manifest.json` in `latest/` points to current hash; clients discover new bundles within 5 min
+
+### 16F. Runtime-Derived State (client-side)
 
 | State | Stored In | Derived From | Regenerable |
 |-------|-----------|-------------|-------------|
 | P(L) per competency | localStorage | BKT updates from practice | No (user progress) |
 | Attempt history | IndexedDB | User interactions | No (user data) |
 | Cached data bundles | Cache API (SW) | Fetched from CDN | Yes (re-fetch) |
+| User settings | localStorage | User preferences | No (user choices) |
