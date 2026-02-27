@@ -1,7 +1,7 @@
 import * as m from '../../../paraglide/messages.js';
 import type { Element } from '../../../types/element';
 import type { BondExamplesData } from '../../../types/bond';
-import type { BondType, CrystalStructure } from '../../../lib/bond-calculator';
+import { determineBondType, type BondType, type CrystalStructure } from '../../../lib/bond-calculator';
 
 export interface ExerciseOption {
   id: string;
@@ -256,18 +256,13 @@ function buildGenerators(): Record<string, GeneratorFn> {
       }
 
       const [symA, symB] = pickN(symbolsWithChi, 2);
+      const elA = elements.find(e => e.symbol === symA)!;
+      const elB = elements.find(e => e.symbol === symB)!;
       const chiA = chi.get(symA)!;
       const chiB = chi.get(symB)!;
       const delta = Math.abs(chiA - chiB);
 
-      let correctType: BondType;
-      if (delta >= 1.7) {
-        correctType = 'ionic';
-      } else if (delta > 0.4) {
-        correctType = 'covalent_polar';
-      } else {
-        correctType = 'covalent_nonpolar';
-      }
+      const correctType = determineBondType(elA, elB);
 
       const correctLabel = getBondTypeLabel(correctType);
       const distractors = ALL_BOND_TYPES
