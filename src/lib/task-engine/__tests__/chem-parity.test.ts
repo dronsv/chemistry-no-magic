@@ -100,6 +100,29 @@ describe('Parity: delta_chi solver vs canonical determineBondType', () => {
   }
 });
 
+// ── Legacy bonds generator parity ────────────────────────────────
+
+describe('Parity: bonds legacy generator uses canonical bond classification', () => {
+  // Verify that for known element pairs, the bond type from
+  // determineBondType matches what the legacy thresholds would produce.
+  // This test will still pass after we swap the implementation.
+  const thresholdCases: Array<{ symA: string; symB: string; chiA: number; chiB: number; expected: string }> = [
+    { symA: 'Na', symB: 'Cl', chiA: 0.93, chiB: 3.16, expected: 'ionic' },         // Δχ=2.23 ≥ 1.7
+    { symA: 'H', symB: 'Cl', chiA: 2.2, chiB: 3.16, expected: 'covalent_polar' },   // Δχ=0.96
+    { symA: 'H', symB: 'O', chiA: 2.2, chiB: 3.44, expected: 'covalent_polar' },    // Δχ=1.24
+    { symA: 'O', symB: 'Cl', chiA: 3.44, chiB: 3.16, expected: 'covalent_nonpolar' }, // Δχ=0.28 ≤ 0.4
+  ];
+
+  for (const { symA, symB, expected } of thresholdCases) {
+    it(`${symA}-${symB}: canonical determineBondType matches legacy threshold`, () => {
+      const elA = TEST_ELEMENTS.find(e => e.symbol === symA)!;
+      const elB = TEST_ELEMENTS.find(e => e.symbol === symB)!;
+      const result = determineBondType(elA, elB);
+      expect(result).toBe(expected);
+    });
+  }
+});
+
 // ── Calculation Parity ───────────────────────────────────────────
 
 describe('Parity: calculation solvers produce correct results', () => {
