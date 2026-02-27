@@ -968,7 +968,7 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 
 ## 15. Legacy Generator → Engine Coverage
 
-> **Migration status:** Competency practice pages (`CompetencyPracticeIsland`) now use the engine adapter as primary source. Legacy generators remain active for feature-specific practice sections and exam variant generator.
+> **Migration status:** Complete. All exercise generation (competency pages, feature practice sections, exam variants) uses the generative task engine. Legacy generator files deleted (~2,685 LOC removed).
 
 Each legacy feature generator file and which engine templates cover its exercises. Used to track WS2 migration progress.
 
