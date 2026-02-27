@@ -957,7 +957,7 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 | Algorithm | src/lib/ | Engine Solver | Legacy Generator | Status |
 |-----------|:-------:|:------------:|:---------------:|--------|
 | Electron config | ✓ canonical | ✓ delegates | ✓ imports canonical | **Deduplicated** |
-| Bond Δχ / type | ✓ canonical | ✓ delegates | ✗ inline copy (bonds L248–270) | **Legacy duplicates** |
+| Bond Δχ / type | ✓ canonical | ✓ delegates | ✓ calls canonical | **Deduplicated** |
 | Crystal structure | ✓ canonical | ✓ rank-based (different approach) | ✗ inline copy (bonds) | **Legacy duplicates** |
 | Oxidation states | ✓ canonical | — passthrough | ✓ imports canonical | **Deduplicated** |
 | Molar mass | — | ✓ inline | ✗ inline copy (calcs L72) | **Both inline** |
