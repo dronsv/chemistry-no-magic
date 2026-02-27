@@ -5,7 +5,7 @@ import type { SupportedLocale } from '../../types/i18n';
 import { bktUpdate, getLevel } from '../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../lib/storage';
 import { loadBktParams } from '../../lib/data-loader';
-import { loadAdapter } from './exercise-adapters';
+import { loadEngineAdapter, loadAdapter } from './exercise-adapters';
 import type { Adapter, Exercise } from './exercise-adapters';
 import CompMultipleChoice from './CompMultipleChoice';
 import CompetencyBar from '../profile/CompetencyBar';
@@ -42,7 +42,7 @@ export default function CompetencyPracticeIsland({ competencyId, competencyName,
 
   useEffect(() => {
     Promise.all([
-      loadAdapter(competencyId, locale),
+      loadEngineAdapter(competencyId, locale).then(a => a ?? loadAdapter(competencyId, locale)),
       loadBktParams(),
     ]).then(([adp, params]) => {
       setAdapter(adp);
