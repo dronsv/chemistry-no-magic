@@ -968,6 +968,8 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 
 ## 15. Legacy Generator → Engine Coverage
 
+> **Migration status:** Competency practice pages (`CompetencyPracticeIsland`) now use the engine adapter as primary source. Legacy generators remain active for feature-specific practice sections and exam variant generator.
+
 Each legacy feature generator file and which engine templates cover its exercises. Used to track WS2 migration progress.
 
 ### Coverage Matrix
