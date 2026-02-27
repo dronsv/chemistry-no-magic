@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as m from '../../../paraglide/messages.js';
-import type { Exercise } from './generate-exercises';
+import type { Exercise } from '../../competency/exercise-adapters';
 
 interface Props {
   exercise: Exercise;

@@ -4,20 +4,9 @@ import type { BktParams } from '../../../types/bkt';
 import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
-import {
-  loadBktParams,
-  loadCompetencies,
-  loadReactionTemplates,
-  loadSolubilityRules,
-  loadActivitySeries,
-  loadApplicabilityRules,
-  loadReactions,
-  loadQualitativeTests,
-  loadGeneticChains,
-  loadEnergyCatalystTheory,
-} from '../../../lib/data-loader';
-import { generateExercise } from './generate-exercises';
-import type { Exercise, GeneratorContext } from './generate-exercises';
+import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
+import { loadFeatureAdapter } from '../../competency/exercise-adapters';
+import type { Adapter, Exercise } from '../../competency/exercise-adapters';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import * as m from '../../../paraglide/messages.js';
 
@@ -44,7 +33,7 @@ interface Props {
 }
 
 export default function PracticeSection({ locale }: Props) {
-  const [ctx, setCtx] = useState<GeneratorContext | null>(null);
+  const [adapter, setAdapter] = useState<Adapter | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -54,27 +43,11 @@ export default function PracticeSection({ locale }: Props) {
 
   useEffect(() => {
     Promise.all([
-      loadReactionTemplates(),
-      loadSolubilityRules(),
-      loadActivitySeries(),
-      loadApplicabilityRules(),
+      loadFeatureAdapter([...COMPETENCY_IDS], locale),
       loadBktParams(),
       loadCompetencies(locale),
-      loadReactions(locale),
-      loadQualitativeTests(),
-      loadGeneticChains(),
-      loadEnergyCatalystTheory(),
-    ]).then(([tmpl, sol, act, appl, params, comps, rxns, qualTests, genChains, energyTheory]) => {
-      setCtx({
-        templates: tmpl,
-        solubility: sol,
-        activitySeries: act,
-        applicabilityRules: appl,
-        reactions: rxns,
-        qualitativeTests: qualTests,
-        geneticChains: genChains,
-        energyCatalystTheory: energyTheory,
-      });
+    ]).then(([adp, params, comps]) => {
+      setAdapter(adp);
 
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
@@ -87,17 +60,22 @@ export default function PracticeSection({ locale }: Props) {
       setPLevels(loadBktState());
       setLoading(false);
     });
-  }, []);
+  }, [locale]);
 
   const nextExercise = useCallback(() => {
-    if (!ctx || ctx.templates.length === 0 || ctx.solubility.length === 0) return;
-    setExercise(generateExercise(ctx));
+    if (!adapter) return;
+    let ex = adapter.generate();
+    // Engine may produce non-MC formats for some competencies; retry if so
+    for (let i = 0; i < 10 && ex.format !== 'multiple_choice'; i++) {
+      ex = adapter.generate();
+    }
+    setExercise(ex);
     setCount(c => c + 1);
-  }, [ctx]);
+  }, [adapter]);
 
   useEffect(() => {
-    if (!loading && !exercise && ctx) nextExercise();
-  }, [loading, exercise, ctx, nextExercise]);
+    if (!loading && !exercise && adapter) nextExercise();
+  }, [loading, exercise, adapter, nextExercise]);
 
   function handleAnswer(correct: boolean) {
     if (!exercise) return;

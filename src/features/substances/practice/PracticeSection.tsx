@@ -1,21 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
-import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../../types/classification';
-import type { Element } from '../../../types/element';
 import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
-import {
-  loadBktParams,
-  loadCompetencies,
-  loadElements,
-  loadSubstancesIndex,
-  loadClassificationRules,
-  loadNamingRules,
-} from '../../../lib/data-loader';
-import { generateExercise } from './generate-exercises';
-import type { Exercise } from './generate-exercises';
+import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
+import { loadFeatureAdapter } from '../../competency/exercise-adapters';
+import type { Adapter, Exercise } from '../../competency/exercise-adapters';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import * as m from '../../../paraglide/messages.js';
 
@@ -33,10 +24,7 @@ interface Props {
 }
 
 export default function PracticeSection({ locale }: Props) {
-  const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
-  const [classRules, setClassRules] = useState<ClassificationRule[]>([]);
-  const [namingRules, setNamingRules] = useState<NamingRule[]>([]);
-  const [elements, setElements] = useState<Element[]>([]);
+  const [adapter, setAdapter] = useState<Adapter | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
@@ -46,17 +34,11 @@ export default function PracticeSection({ locale }: Props) {
 
   useEffect(() => {
     Promise.all([
-      loadSubstancesIndex(locale),
-      loadClassificationRules(),
-      loadNamingRules(),
-      loadElements(locale),
+      loadFeatureAdapter([...COMPETENCY_IDS], locale),
       loadBktParams(),
       loadCompetencies(locale),
-    ]).then(([subs, cRules, nRules, elems, params, comps]) => {
-      setSubstances(subs);
-      setClassRules(cRules);
-      setNamingRules(nRules);
-      setElements(elems);
+    ]).then(([adp, params, comps]) => {
+      setAdapter(adp);
 
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
@@ -69,17 +51,17 @@ export default function PracticeSection({ locale }: Props) {
       setPLevels(loadBktState());
       setLoading(false);
     });
-  }, []);
+  }, [locale]);
 
   const nextExercise = useCallback(() => {
-    if (substances.length === 0 || classRules.length === 0 || namingRules.length === 0) return;
-    setExercise(generateExercise(substances, classRules, namingRules, elements));
+    if (!adapter) return;
+    setExercise(adapter.generate());
     setCount(c => c + 1);
-  }, [substances, classRules, namingRules, elements]);
+  }, [adapter]);
 
   useEffect(() => {
-    if (!loading && !exercise && substances.length > 0) nextExercise();
-  }, [loading, exercise, substances, nextExercise]);
+    if (!loading && !exercise && adapter) nextExercise();
+  }, [loading, exercise, adapter, nextExercise]);
 
   function handleAnswer(correct: boolean) {
     if (!exercise) return;

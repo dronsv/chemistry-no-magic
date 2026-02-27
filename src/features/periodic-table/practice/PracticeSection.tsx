@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { Element } from '../../../types/element';
-import type { CompetencyId, CompetencyNode } from '../../../types/competency';
+import type { CompetencyId } from '../../../types/competency';
 import type { BktParams } from '../../../types/bkt';
 import type { SupportedLocale } from '../../../types/i18n';
 import { bktUpdate, getLevel } from '../../../lib/bkt-engine';
 import { loadBktState, saveBktPL } from '../../../lib/storage';
 import { loadBktParams, loadCompetencies } from '../../../lib/data-loader';
+import { loadFeatureAdapter } from '../../competency/exercise-adapters';
+import type { Adapter, Exercise } from '../../competency/exercise-adapters';
 import * as m from '../../../paraglide/messages.js';
-import { generateExercise } from './generate-exercises';
-import type { Exercise } from './generate-exercises';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import OrbitalFillingExercise from './OrbitalFillingExercise';
 
@@ -19,40 +18,51 @@ const LEVEL_LABELS: Record<string, () => string> = {
   automatic: m.level_automatic,
 };
 
+const COMPETENCY_IDS = ['periodic_table', 'electron_config'] as const;
+
 interface Props {
-  elements: Element[];
   locale?: SupportedLocale;
 }
 
-export default function PracticeSection({ elements, locale }: Props) {
+export default function PracticeSection({ locale }: Props) {
+  const [adapter, setAdapter] = useState<Adapter | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [compNames, setCompNames] = useState<Map<string, string>>(new Map());
   const [pLevels, setPLevels] = useState<Map<string, number>>(new Map());
   const [exercise, setExercise] = useState<Exercise | null>(null);
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadBktParams().then(params => {
+    Promise.all([
+      loadFeatureAdapter([...COMPETENCY_IDS], locale),
+      loadBktParams(),
+      loadCompetencies(locale),
+    ]).then(([adp, params, comps]) => {
+      setAdapter(adp);
+
       const map = new Map<string, BktParams>();
       for (const p of params) map.set(p.competency_id, p);
       setBktParamsMap(map);
-    });
-    loadCompetencies(locale).then(comps => {
+
       const names = new Map<string, string>();
       for (const c of comps) names.set(c.id, c.name_ru);
       setCompNames(names);
+
+      setPLevels(loadBktState());
+      setLoading(false);
     });
-    setPLevels(loadBktState());
-  }, []);
+  }, [locale]);
 
   const nextExercise = useCallback(() => {
-    setExercise(generateExercise(elements));
+    if (!adapter) return;
+    setExercise(adapter.generate());
     setCount(c => c + 1);
-  }, [elements]);
+  }, [adapter]);
 
   useEffect(() => {
-    if (elements.length > 0 && !exercise) nextExercise();
-  }, [elements, exercise, nextExercise]);
+    if (!loading && !exercise && adapter) nextExercise();
+  }, [loading, exercise, adapter, nextExercise]);
 
   function handleAnswer(correct: boolean) {
     if (!exercise) return;
@@ -74,6 +84,8 @@ export default function PracticeSection({ elements, locale }: Props) {
     nextExercise();
   }
 
+  if (loading) return null;
+
   // Check mastery
   const ptPL = pLevels.get('periodic_table') ?? 0;
   const ecPL = pLevels.get('electron_config') ?? 0;
@@ -85,7 +97,7 @@ export default function PracticeSection({ elements, locale }: Props) {
 
       {/* Competency levels */}
       <div className="practice-section__levels">
-        {['periodic_table', 'electron_config'].map(compId => {
+        {COMPETENCY_IDS.map(compId => {
           const pL = pLevels.get(compId) ?? 0;
           const level = getLevel(pL);
           return (

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as m from '../../../paraglide/messages.js';
 import { getOrbitalBoxes, getElectronConfig } from '../../../lib/electron-config';
 import type { OrbitalBox, Spin, SubshellType } from '../../../types/electron-config';
-import type { Exercise } from './generate-exercises';
+import type { Exercise } from '../../competency/exercise-adapters';
 
 const SUBSHELL_ORBITALS: Record<SubshellType, number> = { s: 1, p: 3, d: 5, f: 7 };
 
