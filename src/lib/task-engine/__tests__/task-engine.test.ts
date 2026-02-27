@@ -1001,8 +1001,8 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.template_id).toBe('tmpl.ox.min_state.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('number');
-      // For our mock elements: Na=1, Mg=2, Cl=-1, Al=3, Zn=2
-      expect([1, 2, -1, 3]).toContain(task.correct_answer);
+      // For our mock elements: Na=1, Mg=2, Cl=-1, Al=3, Zn=2, O=-2
+      expect([1, 2, -1, -2, 3]).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ oxidation_states: 'P' });
     });
   });
