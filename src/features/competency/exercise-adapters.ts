@@ -241,14 +241,8 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   reaction_yield_logic: ['tmpl.calc.by_equation.v1', 'tmpl.calc.yield.v1'],
 };
 
-/**
- * Load an engine-based exercise adapter for a competency.
- * Returns null if no engine templates are available for this competency.
- * This is a parallel alternative to `loadAdapter` — not a replacement.
- */
-export async function loadEngineAdapter(competencyId: string, locale?: SupportedLocale): Promise<Adapter | null> {
-  if (!ENGINE_COMPETENCY_MAP[competencyId]) return null;
-
+/** Load all data and create a task engine instance. */
+export async function buildEngine(locale?: SupportedLocale) {
   const [{ createTaskEngine }, dl] = await Promise.all([
     import('../../lib/task-engine'),
     import('../../lib/data-loader'),
@@ -296,12 +290,42 @@ export async function loadEngineAdapter(competencyId: string, locale?: Supported
     i18n: { morphology, promptTemplates },
   };
 
-  const engine = createTaskEngine(templates, ontology);
+  return createTaskEngine(templates, ontology);
+}
+
+/**
+ * Load an engine-based exercise adapter for a competency.
+ * Returns null if no engine templates are available for this competency.
+ */
+export async function loadEngineAdapter(competencyId: string, locale?: SupportedLocale): Promise<Adapter | null> {
+  if (!ENGINE_COMPETENCY_MAP[competencyId]) return null;
+
+  const engine = await buildEngine(locale);
 
   return {
     generate: () => {
       const task = engine.generateForCompetency(competencyId);
       if (!task) throw new Error(`No engine template for competency: ${competencyId}`);
+      return engine.toExercise(task);
+    },
+  };
+}
+
+/**
+ * Load an engine-based adapter that generates exercises for any competency
+ * in the given set. Picks a random competency on each generate() call.
+ */
+export async function loadFeatureAdapter(
+  competencyIds: string[],
+  locale?: SupportedLocale,
+): Promise<Adapter> {
+  const engine = await buildEngine(locale);
+
+  return {
+    generate: () => {
+      const compId = competencyIds[Math.floor(Math.random() * competencyIds.length)];
+      const task = engine.generateForCompetency(compId);
+      if (!task) throw new Error(`No engine template for competency: ${compId}`);
       return engine.toExercise(task);
     },
   };
