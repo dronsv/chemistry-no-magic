@@ -4,6 +4,7 @@ import type { ApplicabilityRule } from '../../types/rules';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { GeneticChain } from '../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../types/energy-catalyst';
+import type { SupportedLocale } from '../../types/i18n';
 import {
   loadReactionTemplates,
   loadApplicabilityRules,
@@ -46,7 +47,7 @@ const FILTER_SECTION_MAP: Record<string, string> = {
   acidic_oxide: 'types',
 };
 
-export default function ReactionTheoryPanel({ activeFilter = 'all' }: { activeFilter?: string }) {
+export default function ReactionTheoryPanel({ activeFilter = 'all', locale = 'ru' as SupportedLocale }: { activeFilter?: string; locale?: SupportedLocale }) {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
@@ -61,11 +62,11 @@ export default function ReactionTheoryPanel({ activeFilter = 'all' }: { activeFi
     if (!open || templates) return;
     setLoading(true);
     Promise.all([
-      loadReactionTemplates(),
-      loadApplicabilityRules(),
-      loadQualitativeTests(),
-      loadGeneticChains(),
-      loadEnergyCatalystTheory(),
+      loadReactionTemplates(locale),
+      loadApplicabilityRules(locale),
+      loadQualitativeTests(locale),
+      loadGeneticChains(locale),
+      loadEnergyCatalystTheory(locale),
     ])
       .then(([t, r, qt, gc, et]) => {
         setTemplates(t);
@@ -169,7 +170,7 @@ export default function ReactionTheoryPanel({ activeFilter = 'all' }: { activeFi
               </CollapsibleSection>
 
               <CollapsibleSection id="activity" pageKey="reactions" title={m.rxn_theory_activity()} forceOpen={targetSection === 'activity'}>
-                <ActivitySeriesBar />
+                <ActivitySeriesBar locale={locale} />
               </CollapsibleSection>
 
               <CollapsibleSection id="redox" pageKey="reactions" title={m.rxn_theory_redox()} forceOpen={targetSection === 'redox'}>

@@ -1,0 +1,121 @@
+{
+  "rate_factors": [
+    {
+      "factor_id": "temperature",
+      "name_ru": "Temperatura",
+      "effect_ru": "El aumento de temperatura aumenta la velocidad de reacción",
+      "detail_ru": "Regla de Van't Hoff: por cada aumento de 10 °C, la velocidad se incrementa de 2 a 4 veces. Las partículas se mueven más rápido y colisionan con mayor frecuencia con energía suficiente."
+    },
+    {
+      "factor_id": "concentration",
+      "name_ru": "Concentración de los reactivos",
+      "effect_ru": "El aumento de concentración aumenta la velocidad de reacción",
+      "detail_ru": "Más partículas por unidad de volumen significan más colisiones. Para gases: el aumento de presión incrementa la concentración."
+    },
+    {
+      "factor_id": "surface_area",
+      "name_ru": "Área de superficie",
+      "effect_ru": "La trituración del sólido aumenta la velocidad",
+      "detail_ru": "Más puntos de contacto entre los reactivos. Ejemplo: el polvo de hierro reacciona más rápido que un trozo sólido."
+    },
+    {
+      "factor_id": "catalyst",
+      "name_ru": "Catalizador",
+      "effect_ru": "Reduce la energía de activación, acelera la reacción",
+      "detail_ru": "El catalizador ofrece una vía de reacción alternativa con menor energía de activación. No se consume en el proceso."
+    },
+    {
+      "factor_id": "nature_of_reagents",
+      "name_ru": "Naturaleza de los reactivos",
+      "effect_ru": "Diferentes sustancias reaccionan a diferentes velocidades",
+      "detail_ru": "Las reacciones iónicas en solución son prácticamente instantáneas. Las reacciones que involucran ruptura de enlaces covalentes son más lentas."
+    }
+  ],
+  "catalyst_properties": {
+    "changes_ru": [
+      "Velocidad de reacción (la aumenta)",
+      "Energía de activación (la disminuye)",
+      "Vía de reacción (mecanismo alternativo)"
+    ],
+    "does_not_change_ru": [
+      "Efecto térmico de la reacción (ΔH)",
+      "Composición de los productos",
+      "Posición del equilibrio químico",
+      "Cantidad de productos en reacción completa"
+    ]
+  },
+  "common_catalysts": [
+    {
+      "catalyst": "MnO₂",
+      "name_ru": "óxido de manganeso(IV)",
+      "reaction_ru": "Descomposición del peróxido de hidrógeno: 2H₂O₂ → 2H₂O + O₂↑"
+    },
+    {
+      "catalyst": "V₂O₅",
+      "name_ru": "óxido de vanadio(V)",
+      "reaction_ru": "Oxidación de SO₂: 2SO₂ + O₂ → 2SO₃ (método de contacto)"
+    },
+    {
+      "catalyst": "Fe",
+      "name_ru": "hierro (esponjoso)",
+      "reaction_ru": "Síntesis de amoníaco: N₂ + 3H₂ → 2NH₃ (proceso de Haber)"
+    },
+    {
+      "catalyst": "Pt",
+      "name_ru": "platino",
+      "reaction_ru": "Oxidación del amoníaco: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+    }
+  ],
+  "equilibrium_shifts": [
+    {
+      "factor": "temperature_increase",
+      "shift_ru": "Hacia la reacción endotérmica",
+      "explanation_ru": "El sistema absorbe el calor excesivo (principio de Le Chatelier)"
+    },
+    {
+      "factor": "temperature_decrease",
+      "shift_ru": "Hacia la reacción exotérmica",
+      "explanation_ru": "El sistema tiende a liberar calor para compensar"
+    },
+    {
+      "factor": "pressure_increase",
+      "shift_ru": "Hacia el menor número de moles de gas",
+      "explanation_ru": "El sistema tiende a disminuir la presión"
+    },
+    {
+      "factor": "pressure_decrease",
+      "shift_ru": "Hacia el mayor número de moles de gas",
+      "explanation_ru": "El sistema tiende a aumentar la presión"
+    },
+    {
+      "factor": "concentration_reactant_increase",
+      "shift_ru": "Hacia los productos (a la derecha)",
+      "explanation_ru": "El sistema consume el exceso de reactivo"
+    },
+    {
+      "factor": "concentration_product_increase",
+      "shift_ru": "Hacia los reactivos (a la izquierda)",
+      "explanation_ru": "El sistema consume el exceso de producto"
+    },
+    {
+      "factor": "catalyst_added",
+      "shift_ru": "No desplaza el equilibrio",
+      "explanation_ru": "El catalizador acelera igualmente la reacción directa e inversa"
+    }
+  ],
+  "heat_classification": {
+    "exothermic_ru": "Reacción exotérmica: transcurre con liberación de calor (ΔH < 0)",
+    "endothermic_ru": "Reacción endotérmica: transcurre con absorción de calor (ΔH > 0)",
+    "examples_exo_ru": [
+      "Combustión de sustancias",
+      "Neutralización de ácidos y bases",
+      "Reacción de metales activos con agua y ácidos",
+      "La mayoría de las reacciones de síntesis"
+    ],
+    "examples_endo_ru": [
+      "Descomposición de sustancias por calentamiento",
+      "Electrólisis",
+      "Fotosíntesis"
+    ]
+  }
+}

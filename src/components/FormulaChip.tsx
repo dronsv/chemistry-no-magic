@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import type { OxidationAssignment } from '../lib/oxidation-state';
-import { parseFormulaParts } from '../lib/formula-render';
+import { parseChemicalFormula } from '../lib/formula-render';
 import { useIonDetails } from './IonDetailsProvider';
 import * as m from '../paraglide/messages.js';
 import './formula-chip.css';
@@ -38,7 +38,7 @@ function formatOxLine(assignments: OxidationAssignment[]): string {
 
 /** Render formula with HTML <sup>/<sub> for proper notation. */
 function renderFormulaHtml(formula: string): ReactNode[] {
-  const parts = parseFormulaParts(formula);
+  const parts = parseChemicalFormula(formula);
   return parts.map((part, i) => {
     if (part.type === 'sup') return <sup key={i}>{part.content}</sup>;
     if (part.type === 'sub') return <sub key={i}>{part.content}</sub>;
@@ -123,7 +123,7 @@ export default function FormulaChip({
       title={titleText}
       aria-label={isIon ? `${formula} ${titleText ?? ''}`.trim() : undefined}
     >
-      {isIon ? renderFormulaHtml(formula) : formula}
+      {renderFormulaHtml(formula)}
       {tooltip}
     </span>
   );

@@ -21,7 +21,7 @@ export default function IonsPage({ locale = 'ru' as SupportedLocale }: { locale?
   useEffect(() => {
     Promise.all([
       loadIons(locale),
-      loadIonNomenclature(),
+      loadIonNomenclature(locale),
     ]).then(([ionsData, rulesData]) => {
       setIons(ionsData);
       setNomenclatureRules(rulesData);
@@ -129,9 +129,6 @@ function IonCard({ ion }: { ion: Ion }) {
         />
       </div>
       <div className="ion-card__name">{ion.name_ru}</div>
-      <span className={`ion-card__charge ion-card__charge--${ion.type}`}>
-        {ion.charge > 0 ? `+${ion.charge}` : ion.charge}
-      </span>
     </div>
   );
 }

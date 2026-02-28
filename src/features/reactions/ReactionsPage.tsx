@@ -10,7 +10,7 @@ export default function ReactionsPage({ locale = 'ru' as SupportedLocale }: { lo
   return (
     <div className="reactions-page">
       <ReactionCards locale={locale} filter={filter} onFilterChange={setFilter} />
-      <ReactionTheoryPanel activeFilter={filter} />
+      <ReactionTheoryPanel activeFilter={filter} locale={locale} />
       <PracticeSection locale={locale} />
     </div>
   );

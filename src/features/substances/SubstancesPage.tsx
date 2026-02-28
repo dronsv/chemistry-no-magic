@@ -10,7 +10,7 @@ export default function SubstancesPage({ locale = 'ru' as SupportedLocale }: { l
   return (
     <div className="substances-page">
       <SubstanceCatalog locale={locale} filter={filter} onFilterChange={setFilter} />
-      <ClassificationTheoryPanel activeFilter={filter} />
+      <ClassificationTheoryPanel activeFilter={filter} locale={locale} />
       <PracticeSection locale={locale} />
     </div>
   );

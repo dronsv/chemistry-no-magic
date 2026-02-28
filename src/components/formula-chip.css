@@ -1,12 +1,12 @@
 .formula-chip {
   position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: inline;
   padding: 0.125rem 0.4rem;
   border-radius: 0.25rem;
   font-weight: 500;
   cursor: default;
   transition: filter 0.15s;
+  white-space: nowrap;
 }
 
 .formula-chip--link {

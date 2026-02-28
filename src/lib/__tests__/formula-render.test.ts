@@ -4,6 +4,7 @@ import {
   isSuperscript,
   isSubscript,
   parseFormulaParts,
+  parseChemicalFormula,
 } from '../formula-render.ts';
 
 describe('isSuperscript', () => {
@@ -173,5 +174,69 @@ describe('parseFormulaParts', () => {
       { type: 'text', content: ']' },
       { type: 'sup', content: '2\u2212' },
     ]);
+  });
+});
+
+describe('parseChemicalFormula', () => {
+  it('handles plain ASCII formula H2O', () => {
+    expect(parseChemicalFormula('H2O')).toEqual([
+      { type: 'text', content: 'H' },
+      { type: 'sub', content: '2' },
+      { type: 'text', content: 'O' },
+    ]);
+  });
+
+  it('handles H2SO4', () => {
+    expect(parseChemicalFormula('H2SO4')).toEqual([
+      { type: 'text', content: 'H' },
+      { type: 'sub', content: '2' },
+      { type: 'text', content: 'SO' },
+      { type: 'sub', content: '4' },
+    ]);
+  });
+
+  it('handles Ca(OH)2', () => {
+    expect(parseChemicalFormula('Ca(OH)2')).toEqual([
+      { type: 'text', content: 'Ca(OH)' },
+      { type: 'sub', content: '2' },
+    ]);
+  });
+
+  it('handles Fe2(SO4)3', () => {
+    expect(parseChemicalFormula('Fe2(SO4)3')).toEqual([
+      { type: 'text', content: 'Fe' },
+      { type: 'sub', content: '2' },
+      { type: 'text', content: '(SO' },
+      { type: 'sub', content: '4' },
+      { type: 'text', content: ')' },
+      { type: 'sub', content: '3' },
+    ]);
+  });
+
+  it('handles NaCl (no subscripts needed)', () => {
+    expect(parseChemicalFormula('NaCl')).toEqual([
+      { type: 'text', content: 'NaCl' },
+    ]);
+  });
+
+  it('handles Unicode formula SO₄²⁻ unchanged', () => {
+    expect(parseChemicalFormula('SO\u2084\u00B2\u207B')).toEqual([
+      { type: 'text', content: 'SO' },
+      { type: 'sub', content: '4' },
+      { type: 'sup', content: '2\u2212' },
+    ]);
+  });
+
+  it('handles H2O2', () => {
+    expect(parseChemicalFormula('H2O2')).toEqual([
+      { type: 'text', content: 'H' },
+      { type: 'sub', content: '2' },
+      { type: 'text', content: 'O' },
+      { type: 'sub', content: '2' },
+    ]);
+  });
+
+  it('handles empty string', () => {
+    expect(parseChemicalFormula('')).toEqual([]);
   });
 });

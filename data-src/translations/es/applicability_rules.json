@@ -1,0 +1,62 @@
+{
+  "no_precipitate_no_gas_no_water": {
+    "condition_ru": "La reacción de intercambio no ocurre si no se forma precipitado, gas ni agua (electrolito débil)",
+    "description_ru": "Las reacciones de intercambio iónico se completan solo si se cumple al menos una condición: formación de precipitado, liberación de gas o formación de agua (electrolito débil)."
+  },
+  "insoluble_base_no_acid_reaction": {
+    "condition_ru": "Una base insoluble no reacciona con la sal de otra base insoluble",
+    "description_ru": "Para que ocurra una reacción de intercambio entre una base y una sal, al menos uno de los reactivos debe estar en solución."
+  },
+  "noble_metal_no_acid": {
+    "condition_ru": "Los metales situados después del hidrógeno en la serie de actividad no desplazan hidrógeno de ácidos diluidos",
+    "description_ru": "Cu, Hg, Ag, Pt, Au no reaccionan con ácidos diluidos (HCl, H₂SO₄ dil.) con liberación de hidrógeno."
+  },
+  "less_active_no_displacement": {
+    "condition_ru": "Un metal menos activo no desplaza a uno más activo de una solución salina",
+    "description_ru": "Un metal solo puede desplazar a otro de una solución salina si está situado a la izquierda del metal desplazado en la serie de actividad."
+  },
+  "alkali_metal_water_not_salt": {
+    "condition_ru": "Los metales alcalinos y alcalinotérreos reaccionan con el agua, no con las sales en solución",
+    "description_ru": "Li, Na, K, Ca, Ba, al ser añadidos a una solución salina, reaccionan primero con el agua en lugar de desplazar el metal de la sal."
+  },
+  "sio2_no_water": {
+    "condition_ru": "El SiO₂ no reacciona con el agua",
+    "description_ru": "A diferencia de la mayoría de los óxidos ácidos, el óxido de silicio(IV) no se disuelve en agua y no forma ácido silícico al interactuar con H₂O."
+  },
+  "insoluble_base_heat_decomposition": {
+    "condition_ru": "Las bases insolubles se descomponen por calentamiento en óxido metálico y agua",
+    "description_ru": "Cu(OH)₂, Fe(OH)₃, Al(OH)₃ y otras bases insolubles se descomponen al calentarse. Los álcalis son térmicamente estables."
+  },
+  "carbonate_acid_gas": {
+    "condition_ru": "Los carbonatos y bicarbonatos liberan CO₂ al reaccionar con ácidos",
+    "description_ru": "Al reaccionar carbonatos (CO₃²⁻) con ácidos, se forma transitoriamente H₂CO₃, que se descompone inmediatamente en CO₂ y H₂O."
+  },
+  "sulfite_acid_gas": {
+    "condition_ru": "Los sulfitos liberan SO₂ al reaccionar con ácidos",
+    "description_ru": "Al reaccionar sulfitos (SO₃²⁻) con ácidos, se forma transitoriamente H₂SO₃, que se descompone en SO₂ y H₂O."
+  },
+  "sulfide_acid_gas": {
+    "condition_ru": "Los sulfuros solubles liberan H₂S al reaccionar con ácidos",
+    "description_ru": "Los sulfuros solubles al interactuar con ácidos liberan sulfuro de hidrógeno H₂S (gas con olor a huevos podridos)."
+  },
+  "ammonium_alkali_gas": {
+    "condition_ru": "Las sales de amonio liberan NH₃ al reaccionar con álcalis",
+    "description_ru": "Al reaccionar sales de amonio con álcalis, se forma transitoriamente NH₃·H₂O, que se descompone con liberación de amoníaco NH₃."
+  },
+  "h2so4_conc_oxidizer": {
+    "condition_ru": "El H₂SO₄ concentrado es un oxidante fuerte que reacciona de manera diferente al diluido",
+    "description_ru": "El ácido sulfúrico concentrado oxida los metales (incluido Cu) a expensas de S(+6), no de H(+1). Productos de reducción: SO₂, S, H₂S."
+  },
+  "hno3_oxidizer": {
+    "condition_ru": "El HNO₃ de cualquier concentración es un oxidante; no se libera hidrógeno",
+    "description_ru": "El ácido nítrico oxida los metales a expensas de N(+5), no de H(+1). Nunca se libera hidrógeno. Los productos de reducción dependen de la concentración y la actividad del metal."
+  },
+  "passivation_cold_conc": {
+    "condition_ru": "Fe, Al, Cr se pasivan con H₂SO₄ y HNO₃ concentrados y fríos",
+    "description_ru": "El hierro, el aluminio y el cromo se cubren con una película densa de óxido al contacto con ácido sulfúrico o nítrico concentrado y frío (pasivación). La reacción no ocurre."
+  },
+  "amphoteric_both_directions": {
+    "condition_ru": "Los óxidos e hidróxidos anfóteros reaccionan tanto con ácidos como con álcalis",
+    "description_ru": "Al₂O₃, ZnO, BeO, Al(OH)₃, Zn(OH)₂, Be(OH)₂ muestran propiedades duales: con ácidos se comportan como bases, con álcalis como ácidos."
+  }
+}

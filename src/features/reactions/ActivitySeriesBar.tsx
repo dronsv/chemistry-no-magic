@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import type { ActivitySeriesEntry } from '../../types/rules';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadActivitySeries } from '../../lib/data-loader';
 import * as m from '../../paraglide/messages.js';
 
-export default function ActivitySeriesBar() {
+export default function ActivitySeriesBar({ locale }: { locale?: SupportedLocale } = {}) {
   const [metals, setMetals] = useState<ActivitySeriesEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   useEffect(() => {
-    loadActivitySeries().then(data => {
+    loadActivitySeries(locale).then(data => {
       setMetals(data.sort((a, b) => a.position - b.position));
       setLoading(false);
     });

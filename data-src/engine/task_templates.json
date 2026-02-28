@@ -672,7 +672,7 @@
     "evidence_rules": ["genetic_chains"],
     "difficulty_model": { "features": { "chain_length": "auto" }, "target_band": [0.3, 0.65] },
     "exam_tags": ["oge"],
-    "competency_hint": { "genetic_chains_logic": "P" }
+    "competency_hint": { "genetic_chain_logic": "P" }
   },
   {
     "template_id": "tmpl.chain.choose_reagent.v1",
@@ -687,7 +687,7 @@
     "evidence_rules": ["genetic_chains"],
     "difficulty_model": { "features": { "reaction_type": "auto" }, "target_band": [0.3, 0.6] },
     "exam_tags": ["oge"],
-    "competency_hint": { "genetic_chains_logic": "P" }
+    "competency_hint": { "genetic_chain_logic": "P" }
   },
   {
     "template_id": "tmpl.rxn.identify_oxidizer.v1",

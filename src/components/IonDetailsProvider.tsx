@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useCallback, useEffect, useRef, ty
 import type { Ion } from '../types/ion';
 import type { SupportedLocale } from '../types/i18n';
 import { loadIons } from '../lib/data-loader';
-import { parseFormulaParts } from '../lib/formula-render';
+import { parseChemicalFormula } from '../lib/formula-render';
 import * as m from '../paraglide/messages.js';
 import FormulaChip from './FormulaChip';
 
@@ -98,7 +98,7 @@ function IonDetailsPopup({
       };
 
   const renderFormulaHtml = (formula: string) => {
-    const parts = parseFormulaParts(formula);
+    const parts = parseChemicalFormula(formula);
     return parts.map((part, i) => {
       if (part.type === 'sup') return <sup key={i}>{part.content}</sup>;
       if (part.type === 'sub') return <sub key={i}>{part.content}</sub>;

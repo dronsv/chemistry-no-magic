@@ -92,7 +92,8 @@
 }
 
 .ion-card__formula {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
 }
 
 .ion-card__name {
@@ -101,22 +102,6 @@
   text-align: center;
 }
 
-.ion-card__charge {
-  font-size: 0.75rem;
-  padding: 0.125rem 0.5rem;
-  border-radius: 1rem;
-  font-weight: 500;
-}
-
-.ion-card__charge--cation {
-  background: #eff6ff;
-  color: #1e40af;
-}
-
-.ion-card__charge--anion {
-  background: #fef2f2;
-  color: #991b1b;
-}
 
 .ions-page__group-title {
   font-size: 1.125rem;

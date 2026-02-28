@@ -1329,7 +1329,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       // The answer should be one of the substances in any chain
       const allNext = MOCK_GENETIC_CHAINS.flatMap(c => c.steps.map(s => s.next));
       expect(allNext).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ genetic_chains_logic: 'P' });
+      expect(task.competency_map).toEqual({ genetic_chain_logic: 'P' });
       expect(task.slots.chain_substances).toBeDefined();
       expect(Array.isArray(task.slots.chain_substances)).toBe(true);
     });
@@ -1342,7 +1342,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allReagents = MOCK_GENETIC_CHAINS.flatMap(c => c.steps.map(s => s.reagent));
       expect(allReagents).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ genetic_chains_logic: 'P' });
+      expect(task.competency_map).toEqual({ genetic_chain_logic: 'P' });
       expect(task.slots.substance).toBeDefined();
     });
   });
@@ -1473,11 +1473,11 @@ describe('TaskEngine — Reactions batch integration', () => {
       }
     });
 
-    it('generateForCompetency returns genetic_chains_logic templates', () => {
+    it('generateForCompetency returns genetic_chain_logic templates', () => {
       for (let i = 0; i < 10; i++) {
-        const task = engine.generateForCompetency('genetic_chains_logic');
+        const task = engine.generateForCompetency('genetic_chain_logic');
         expect(task).not.toBeNull();
-        expect(task!.competency_map).toHaveProperty('genetic_chains_logic');
+        expect(task!.competency_map).toHaveProperty('genetic_chain_logic');
       }
     });
 

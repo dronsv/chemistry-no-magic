@@ -152,6 +152,22 @@ function applyOverlaySingle<T extends Record<string, unknown>>(
   return { ...item, ...overrides } as T;
 }
 
+/**
+ * Merge an overlay array into a base array by matching items on a key field.
+ * Used for nested object overlays where sub-arrays need ID-based merging.
+ */
+function mergeArrayOverlay<T extends Record<string, unknown>>(
+  base: T[], over: unknown, keyFn: (item: T) => string,
+): T[] {
+  if (!Array.isArray(over)) return base;
+  const map = new Map<string, Record<string, unknown>>();
+  for (const item of over) map.set(keyFn(item as T), item as Record<string, unknown>);
+  return base.map(item => {
+    const overrides = map.get(keyFn(item));
+    return overrides ? { ...item, ...overrides } as T : item;
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Data loaders
 // ---------------------------------------------------------------------------
@@ -400,13 +416,19 @@ export async function loadPeriodicTableTheory(): Promise<PeriodicTableTheory> {
 }
 
 /** Load classification rules. */
-export async function loadClassificationRules(): Promise<ClassificationRule[]> {
-  return loadRule('classification_rules') as Promise<ClassificationRule[]>;
+export async function loadClassificationRules(locale?: SupportedLocale): Promise<ClassificationRule[]> {
+  const data = await loadRule('classification_rules') as ClassificationRule[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'classification_rules');
+  return applyOverlay(data, overlay, r => r.id);
 }
 
 /** Load naming rules. */
-export async function loadNamingRules(): Promise<NamingRule[]> {
-  return loadRule('naming_rules') as Promise<NamingRule[]>;
+export async function loadNamingRules(locale?: SupportedLocale): Promise<NamingRule[]> {
+  const data = await loadRule('naming_rules') as NamingRule[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'naming_rules');
+  return applyOverlay(data, overlay, r => r.id);
 }
 
 /** Load substances index. */
@@ -432,13 +454,19 @@ export async function loadSolubilityRulesFull(): Promise<SolubilityRulesFull> {
 }
 
 /** Load activity series of metals. */
-export async function loadActivitySeries(): Promise<ActivitySeriesEntry[]> {
-  return loadRule('activity_series') as Promise<ActivitySeriesEntry[]>;
+export async function loadActivitySeries(locale?: SupportedLocale): Promise<ActivitySeriesEntry[]> {
+  const data = await loadRule('activity_series') as ActivitySeriesEntry[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'activity_series');
+  return applyOverlay(data, overlay, e => e.symbol);
 }
 
 /** Load applicability rules. */
-export async function loadApplicabilityRules(): Promise<ApplicabilityRule[]> {
-  return loadRule('applicability_rules') as Promise<ApplicabilityRule[]>;
+export async function loadApplicabilityRules(locale?: SupportedLocale): Promise<ApplicabilityRule[]> {
+  const data = await loadRule('applicability_rules') as ApplicabilityRule[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'applicability_rules');
+  return applyOverlay(data, overlay, r => r.id);
 }
 
 /** Load bond theory content (bond types + crystal structures). */
@@ -518,7 +546,7 @@ export async function loadReactionParticipants(): Promise<ReactionParticipant[]>
 }
 
 /** Load all reaction templates. */
-export async function loadReactionTemplates(): Promise<ReactionTemplate[]> {
+export async function loadReactionTemplates(locale?: SupportedLocale): Promise<ReactionTemplate[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.templates['reaction_templates'];
 
@@ -528,32 +556,76 @@ export async function loadReactionTemplates(): Promise<ReactionTemplate[]> {
     );
   }
 
-  return loadDataFile<ReactionTemplate[]>(path);
+  const templates = await loadDataFile<ReactionTemplate[]>(path);
+  if (!locale || locale === 'ru') return templates;
+  const overlay = await loadTranslationOverlay(locale, 'reaction_templates');
+  return applyOverlay(templates, overlay, t => t.id);
 }
 
 /** Load qualitative reaction tests. */
-export async function loadQualitativeTests(): Promise<QualitativeTest[]> {
-  return loadRule('qualitative_reactions') as Promise<QualitativeTest[]>;
+export async function loadQualitativeTests(locale?: SupportedLocale): Promise<QualitativeTest[]> {
+  const data = await loadRule('qualitative_reactions') as QualitativeTest[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'qualitative_reactions');
+  return applyOverlay(data, overlay, t => t.target_id);
 }
 
 /** Load genetic chains. */
-export async function loadGeneticChains(): Promise<GeneticChain[]> {
-  return loadRule('genetic_chains') as Promise<GeneticChain[]>;
+export async function loadGeneticChains(locale?: SupportedLocale): Promise<GeneticChain[]> {
+  const data = await loadRule('genetic_chains') as GeneticChain[];
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'genetic_chains');
+  return applyOverlay(data, overlay, c => c.chain_id);
 }
 
 /** Load energy & catalyst theory content. */
-export async function loadEnergyCatalystTheory(): Promise<EnergyCatalystTheory> {
-  return loadRule('energy_catalyst_theory') as Promise<EnergyCatalystTheory>;
+export async function loadEnergyCatalystTheory(locale?: SupportedLocale): Promise<EnergyCatalystTheory> {
+  const data = await loadRule('energy_catalyst_theory') as EnergyCatalystTheory;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'energy_catalyst_theory');
+  if (!overlay) return data;
+  const o = overlay as unknown as Partial<Record<string, unknown>>;
+  return {
+    rate_factors: mergeArrayOverlay(data.rate_factors, o['rate_factors'], f => f.factor_id),
+    catalyst_properties: o['catalyst_properties']
+      ? { ...data.catalyst_properties, ...(o['catalyst_properties'] as object) } as typeof data.catalyst_properties
+      : data.catalyst_properties,
+    common_catalysts: mergeArrayOverlay(data.common_catalysts, o['common_catalysts'], c => c.catalyst),
+    equilibrium_shifts: mergeArrayOverlay(data.equilibrium_shifts, o['equilibrium_shifts'], s => s.factor),
+    heat_classification: o['heat_classification']
+      ? { ...data.heat_classification, ...(o['heat_classification'] as object) } as typeof data.heat_classification
+      : data.heat_classification,
+  };
 }
 
 /** Load calculations data (substances + reactions for calc exercises). */
-export async function loadCalculationsData(): Promise<CalculationsData> {
-  return loadRule('calculations_data') as Promise<CalculationsData>;
+export async function loadCalculationsData(locale?: SupportedLocale): Promise<CalculationsData> {
+  const data = await loadRule('calculations_data') as CalculationsData;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'calculations_data');
+  if (!overlay) return data;
+  const o = overlay as unknown as Partial<Record<string, unknown>>;
+  return {
+    calc_substances: mergeArrayOverlay(data.calc_substances, o['calc_substances'], s => s.formula),
+    calc_reactions: mergeArrayOverlay(data.calc_reactions, o['calc_reactions'], r => r.equation_ru),
+  };
 }
 
 /** Load ion nomenclature rules (suffix derivation system). */
-export async function loadIonNomenclature(): Promise<IonNomenclatureRules> {
-  return loadRule('ion_nomenclature') as Promise<IonNomenclatureRules>;
+export async function loadIonNomenclature(locale?: SupportedLocale): Promise<IonNomenclatureRules> {
+  const data = await loadRule('ion_nomenclature') as IonNomenclatureRules;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'ion_nomenclature');
+  if (!overlay) return data;
+  const o = overlay as unknown as Partial<Record<string, unknown>>;
+  return {
+    suffix_rules: mergeArrayOverlay(data.suffix_rules, o['suffix_rules'], r => r.id),
+    acid_to_anion_pairs: mergeArrayOverlay(data.acid_to_anion_pairs, o['acid_to_anion_pairs'], p => p.acid),
+    multilingual_comparison: o['multilingual_comparison']
+      ? { ...data.multilingual_comparison, ...(o['multilingual_comparison'] as object) } as typeof data.multilingual_comparison
+      : data.multilingual_comparison,
+    mnemonic_ru: typeof o['mnemonic_ru'] === 'string' ? o['mnemonic_ru'] : data.mnemonic_ru,
+  };
 }
 
 /** Load OGE tasks from all variants. */

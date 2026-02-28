@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { ClassificationRule, NamingRule } from '../../types/classification';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadClassificationRules, loadNamingRules } from '../../lib/data-loader';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
 import * as m from '../../paraglide/messages.js';
@@ -66,7 +67,7 @@ function NamingRuleCard({ rule }: { rule: NamingRule }) {
   );
 }
 
-export default function ClassificationTheoryPanel({ activeFilter = 'all' }: { activeFilter?: string }) {
+export default function ClassificationTheoryPanel({ activeFilter = 'all', locale = 'ru' as SupportedLocale }: { activeFilter?: string; locale?: SupportedLocale }) {
   const [classRules, setClassRules] = useState<ClassificationRule[] | null>(null);
   const [namingRules, setNamingRules] = useState<NamingRule[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -77,7 +78,7 @@ export default function ClassificationTheoryPanel({ activeFilter = 'all' }: { ac
   useEffect(() => {
     if (!open || classRules) return;
     setLoading(true);
-    Promise.all([loadClassificationRules(), loadNamingRules()])
+    Promise.all([loadClassificationRules(locale), loadNamingRules(locale)])
       .then(([cRules, nRules]) => {
         setClassRules(cRules);
         setNamingRules(nRules);

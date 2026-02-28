@@ -75,3 +75,54 @@ export function parseFormulaParts(formula: string): FormulaPart[] {
 
   return parts;
 }
+
+/**
+ * Split a plain text segment into text and subscript parts based on ASCII digits.
+ * Digits following a letter or ')' are treated as subscripts.
+ * E.g. "H2SO4" → [{text,"H"}, {sub,"2"}, {text,"SO"}, {sub,"4"}]
+ */
+function splitAsciiSubscripts(text: string): FormulaPart[] {
+  const regex = /([A-Za-z)])(\d+)/g;
+  const result: FormulaPart[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const digitsStart = match.index + match[1].length;
+    if (digitsStart > lastIndex) {
+      result.push({ type: 'text', content: text.slice(lastIndex, digitsStart) });
+    }
+    result.push({ type: 'sub', content: match[2] });
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    result.push({ type: 'text', content: text.slice(lastIndex) });
+  } else if (lastIndex === 0) {
+    result.push({ type: 'text', content: text });
+  }
+
+  return result;
+}
+
+/**
+ * Parse a chemical formula handling both Unicode super/subscripts and ASCII digits.
+ * Combines parseFormulaParts (Unicode) with ASCII digit subscript detection.
+ * E.g. "H2O" → [{text,"H"}, {sub,"2"}, {text,"O"}]
+ * E.g. "SO₄²⁻" → [{text,"SO"}, {sub,"4"}, {sup,"2−"}]
+ * E.g. "Ca(OH)2" → [{text,"Ca(OH)"}, {sub,"2"}]
+ */
+export function parseChemicalFormula(formula: string): FormulaPart[] {
+  const unicodeParts = parseFormulaParts(formula);
+  const result: FormulaPart[] = [];
+
+  for (const part of unicodeParts) {
+    if (part.type === 'text') {
+      result.push(...splitAsciiSubscripts(part.content));
+    } else {
+      result.push(part);
+    }
+  }
+
+  return result;
+}
