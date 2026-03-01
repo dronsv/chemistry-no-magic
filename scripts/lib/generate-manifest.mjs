@@ -11,8 +11,10 @@ import { join } from 'node:path';
  * @param {object} opts.indexKeys - {classes, ions, competencies}
  * @param {Record<string, string[]>} [opts.translations] - { en: ['elements', 'competencies', ...], pl: [...], es: [...] }
  * @param {string[]} [opts.examSystemIds] - IDs of available exam systems
+ * @param {Record<string, string>} [opts.theoryModules] - { key: "theory_modules/key.json" }
+ * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -61,6 +63,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         term_bindings: 'contexts/term_bindings.json',
         reverse_index: 'contexts/reverse_index.json',
       },
+      theory_modules: theoryModules && Object.keys(theoryModules).length > 0 ? theoryModules : undefined,
+      courses: courses && Object.keys(courses).length > 0 ? courses : undefined,
       substances: 'substances',
       diagnostic: 'diagnostic/questions.json',
       element_groups: 'element-groups.json',

@@ -206,6 +206,7 @@ export const CONCEPT_KIND_ROUTES: Record<string, string> = {
   substance_class: '/substances/',
   element_group: '/periodic-table/',
   reaction_type: '/reactions/',
+  reaction_facet: '/reactions/',
   process: '/processes/',
   property: '/properties/',
 };

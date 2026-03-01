@@ -3,7 +3,7 @@ import ConceptDetailPage from '../../../features/concepts/ConceptDetailPage.astr
 import { getConceptDetailPathsByKind } from '../../../features/concepts/concept-detail-paths';
 
 export function getStaticPaths() {
-  return getConceptDetailPathsByKind('pl', ['reaction_type']);
+  return getConceptDetailPathsByKind('pl', ['reaction_type', 'reaction_facet']);
 }
 ---
 <ConceptDetailPage {...Astro.props} />

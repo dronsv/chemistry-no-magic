@@ -8,6 +8,7 @@ const PREFIX_TO_KIND: Record<string, OntRefKind> = {
   cls: 'substance_class',
   grp: 'element_group',
   rxtype: 'reaction_type',
+  rxfacet: 'reaction_facet',
   proc: 'process',
   prop: 'property',
   ctx: 'context',

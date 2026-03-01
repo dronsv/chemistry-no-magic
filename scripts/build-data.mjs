@@ -94,20 +94,34 @@ async function loadTranslationOverlays(locale) {
 
   const overlays = {};
   const availableKeys = [];
-  let files;
+  let entries;
   try {
-    files = await readdir(dir);
+    entries = await readdir(dir, { withFileTypes: true });
   } catch {
     return { _keys: [] };
   }
 
-  for (const f of files) {
-    if (!f.endsWith('.json')) continue;
-    const key = f.replace('.json', '');
-    const data = await loadJsonOptional(join(dir, f));
-    if (data) {
-      overlays[key] = data;
-      availableKeys.push(key);
+  for (const entry of entries) {
+    if (entry.isFile() && entry.name.endsWith('.json')) {
+      const key = entry.name.replace('.json', '');
+      const data = await loadJsonOptional(join(dir, entry.name));
+      if (data) {
+        overlays[key] = data;
+        availableKeys.push(key);
+      }
+    } else if (entry.isDirectory()) {
+      // Handle subdirectories (e.g. theory_modules/) — register each file as "subdir/key"
+      const subdir = entry.name;
+      const subFiles = await readdir(join(dir, subdir));
+      for (const sf of subFiles) {
+        if (!sf.endsWith('.json')) continue;
+        const subKey = `${subdir}/${sf.replace('.json', '')}`;
+        const data = await loadJsonOptional(join(dir, subdir, sf));
+        if (data) {
+          overlays[subKey] = data;
+          availableKeys.push(subKey);
+        }
+      }
     }
   }
 
@@ -380,6 +394,42 @@ async function main() {
 
   await writeFile(join(bundleDir, 'concepts.json'), JSON.stringify(concepts));
 
+  // 6a2. Copy theory modules (optional directory)
+  const theoryModulesDir = join(DATA_SRC, 'theory_modules');
+  const theoryModuleFiles = {};
+  try {
+    const tmFiles = await readdir(theoryModulesDir);
+    const jsonFiles = tmFiles.filter(f => f.endsWith('.json'));
+    if (jsonFiles.length > 0) {
+      await mkdir(join(bundleDir, 'theory_modules'), { recursive: true });
+      for (const f of jsonFiles) {
+        const data = await loadJson(join(theoryModulesDir, f));
+        const key = f.replace('.json', '');
+        await writeFile(join(bundleDir, 'theory_modules', f), JSON.stringify(data));
+        theoryModuleFiles[key] = `theory_modules/${f}`;
+      }
+      console.log(`  ${jsonFiles.length} theory modules`);
+    }
+  } catch { /* theory_modules dir optional */ }
+
+  // 6a3. Copy courses (optional directory)
+  const coursesDir = join(DATA_SRC, 'courses');
+  const courseFiles = {};
+  try {
+    const cFiles = await readdir(coursesDir);
+    const jsonFiles = cFiles.filter(f => f.endsWith('.json'));
+    if (jsonFiles.length > 0) {
+      await mkdir(join(bundleDir, 'courses'), { recursive: true });
+      for (const f of jsonFiles) {
+        const data = await loadJson(join(coursesDir, f));
+        const key = f.replace('.json', '');
+        await writeFile(join(bundleDir, 'courses', f), JSON.stringify(data));
+        courseFiles[key] = `courses/${f}`;
+      }
+      console.log(`  ${jsonFiles.length} courses`);
+    }
+  } catch { /* courses dir optional */ }
+
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
   const reactionParticipants = generateReactionParticipants(reactions);
@@ -437,7 +487,12 @@ async function main() {
     await mkdir(localeDir, { recursive: true });
 
     for (const key of keys) {
-      await writeFile(join(localeDir, `${key}.json`), JSON.stringify(overlays[key]));
+      const filePath = join(localeDir, `${key}.json`);
+      // Ensure subdirectories exist for nested keys like "theory_modules/classification_inorganic"
+      if (key.includes('/')) {
+        await mkdir(join(localeDir, key.slice(0, key.lastIndexOf('/'))), { recursive: true });
+      }
+      await writeFile(filePath, JSON.stringify(overlays[key]));
     }
 
     translationsManifest[locale] = keys;
@@ -502,6 +557,8 @@ async function main() {
     indexKeys,
     translations: translationsManifest,
     examSystemIds: examSystems.map(s => s.id),
+    theoryModules: theoryModuleFiles,
+    courses: courseFiles,
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

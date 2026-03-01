@@ -916,3 +916,37 @@ export async function loadConceptOverlay(locale: SupportedLocale): Promise<Conce
 export async function loadConceptLookup(locale: SupportedLocale): Promise<ConceptLookup> {
   return loadDataFile<ConceptLookup>(`concept_lookup.${locale}.json`);
 }
+
+// ---------------------------------------------------------------------------
+// Theory modules & courses
+// ---------------------------------------------------------------------------
+
+import type { TheoryModule, Course } from '../types/theory-module';
+
+/** Load a theory module by its filename key (e.g. 'classification_inorganic'). */
+export async function loadTheoryModule(moduleKey: string): Promise<TheoryModule> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.theory_modules?.[moduleKey];
+  if (!path) {
+    throw new Error(`Theory module "${moduleKey}" not found in manifest`);
+  }
+  return loadDataFile<TheoryModule>(path);
+}
+
+/** Load a theory module overlay for a given locale. */
+export async function loadTheoryModuleOverlay(
+  moduleKey: string,
+  locale: SupportedLocale,
+): Promise<Record<string, unknown> | null> {
+  return loadTranslationOverlay(locale, `theory_modules/${moduleKey}`, false);
+}
+
+/** Load a course by its filename key. */
+export async function loadCourse(courseKey: string): Promise<Course> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.courses?.[courseKey];
+  if (!path) {
+    throw new Error(`Course "${courseKey}" not found in manifest`);
+  }
+  return loadDataFile<Course>(path);
+}

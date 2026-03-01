@@ -2,6 +2,7 @@
   "cls:oxide": {
     "name": "Tlenki",
     "slug": "tlenki",
+    "description": "Związki binarne pierwiastka z tlenem",
     "surface_forms": ["tlenki", "tlenek"],
     "forms": {
       "nom_sg": "tlenek",
@@ -16,6 +17,7 @@
   "cls:oxide_basic": {
     "name": "Tlenki zasadowe",
     "slug": "tlenki-zasadowe",
+    "description": "Tlenki metali reagujące z kwasami z utworzeniem soli i wody",
     "surface_forms": ["tlenki zasadowe", "tlenek zasadowy"],
     "forms": {
       "nom_pl": "tlenki zasadowe",
@@ -28,6 +30,7 @@
   "cls:oxide_acidic": {
     "name": "Tlenki kwasowe",
     "slug": "tlenki-kwasowe",
+    "description": "Tlenki niemetali reagujące z zasadami z utworzeniem soli i wody",
     "surface_forms": ["tlenki kwasowe", "tlenek kwasowy"],
     "forms": {
       "nom_pl": "tlenki kwasowe",
@@ -40,6 +43,7 @@
   "cls:oxide_amphoteric": {
     "name": "Tlenki amfoteryczne",
     "slug": "tlenki-amfoteryczne",
+    "description": "Tlenki wykazujące właściwości zarówno zasadowe, jak i kwasowe",
     "surface_forms": ["tlenki amfoteryczne", "tlenek amfoteryczny"],
     "forms": {
       "nom_pl": "tlenki amfoteryczne",
@@ -49,9 +53,23 @@
       "prep_pl": "o tlenkach amfoterycznych"
     }
   },
+  "cls:oxide_indifferent": {
+    "name": "Tlenki obojętne",
+    "slug": "tlenki-obojetne",
+    "description": "Tlenki nie tworzące soli z kwasami ani zasadami",
+    "surface_forms": ["tlenki obojętne", "tlenek obojętny"],
+    "forms": {
+      "nom_pl": "tlenki obojętne",
+      "gen_pl": "tlenków obojętnych",
+      "dat_pl": "tlenkom obojętnym",
+      "ins_pl": "tlenkami obojętnymi",
+      "prep_pl": "o tlenkach obojętnych"
+    }
+  },
   "cls:acid": {
     "name": "Kwasy",
     "slug": "kwasy",
+    "description": "Związki złożone z atomów wodoru i reszty kwasowej",
     "surface_forms": ["kwasy", "kwas"],
     "forms": {
       "nom_sg": "kwas",
@@ -66,6 +84,7 @@
   "cls:acid_oxygen": {
     "name": "Kwasy tlenowe",
     "slug": "kwasy-tlenowe",
+    "description": "Kwasy, których reszta kwasowa zawiera tlen",
     "surface_forms": ["kwasy tlenowe", "kwas tlenowy"],
     "forms": {
       "nom_pl": "kwasy tlenowe",
@@ -78,6 +97,7 @@
   "cls:acid_oxygenfree": {
     "name": "Kwasy beztlenowe",
     "slug": "kwasy-beztlenowe",
+    "description": "Kwasy, których reszta kwasowa nie zawiera tlenu",
     "surface_forms": ["kwasy beztlenowe", "kwas beztlenowy"],
     "forms": {
       "nom_pl": "kwasy beztlenowe",
@@ -90,6 +110,7 @@
   "cls:base": {
     "name": "Zasady",
     "slug": "zasady",
+    "description": "Związki złożone z kationu metalu i anionu wodorotlenkowego OH⁻",
     "surface_forms": ["zasady", "zasada"],
     "forms": {
       "nom_sg": "zasada",
@@ -104,6 +125,7 @@
   "cls:base_alkali": {
     "name": "Wodorotlenki rozpuszczalne",
     "slug": "wodorotlenki-rozpuszczalne",
+    "description": "Zasady rozpuszczalne w wodzie, utworzone przez metale alkaliczne i ziem alkalicznych",
     "surface_forms": ["wodorotlenki rozpuszczalne", "ługi", "ług"],
     "forms": {
       "nom_pl": "wodorotlenki rozpuszczalne",
@@ -116,6 +138,7 @@
   "cls:base_insoluble": {
     "name": "Zasady nierozpuszczalne",
     "slug": "zasady-nierozpuszczalne",
+    "description": "Zasady nierozpuszczalne w wodzie, rozkładające się pod wpływem ciepła",
     "surface_forms": ["zasady nierozpuszczalne", "zasada nierozpuszczalna"],
     "forms": {
       "nom_pl": "zasady nierozpuszczalne",
@@ -128,6 +151,7 @@
   "cls:base_amphoteric": {
     "name": "Zasady amfoteryczne",
     "slug": "zasady-amfoteryczne",
+    "description": "Zasady wykazujące zarówno właściwości zasadowe, jak i kwasowe",
     "surface_forms": ["zasady amfoteryczne", "zasada amfoteryczna", "wodorotlenki amfoteryczne"],
     "forms": {
       "nom_pl": "zasady amfoteryczne",
@@ -140,6 +164,7 @@
   "cls:salt": {
     "name": "Sole",
     "slug": "sole",
+    "description": "Związki złożone z kationu metalu i anionu reszty kwasowej",
     "surface_forms": ["sole", "sól"],
     "forms": {
       "nom_sg": "sól",
@@ -150,6 +175,24 @@
       "ins_pl": "solami",
       "prep_pl": "o solach"
     }
+  },
+  "cls:salt_normal": {
+    "name": "Sole obojętne",
+    "slug": "sole-obojetne",
+    "description": "Sole, w których wszystkie atomy wodoru kwasu zostały zastąpione metalem",
+    "surface_forms": ["sole obojętne", "sól obojętna", "sole normalne"]
+  },
+  "cls:salt_acidic": {
+    "name": "Sole kwaśne",
+    "slug": "sole-kwasne",
+    "description": "Sole, w których nie wszystkie atomy wodoru kwasu zostały zastąpione metalem",
+    "surface_forms": ["sole kwaśne", "sól kwaśna", "wodorosole"]
+  },
+  "cls:salt_basic": {
+    "name": "Sole zasadowe",
+    "slug": "sole-zasadowe",
+    "description": "Sole, w których nie wszystkie grupy hydroksylowe zasady zostały zastąpione resztą kwasową",
+    "surface_forms": ["sole zasadowe", "sól zasadowa", "hydroksosole"]
   },
   "grp:alkali_metals": {
     "name": "Metale alkaliczne",
@@ -201,24 +244,94 @@
       "prep_pl": "o berylowcach"
     }
   },
-  "rxtype:neutralization": {
-    "name": "Reakcje zobojętniania",
-    "slug": "zobojetnianie",
-    "surface_forms": ["zobojętnianie", "reakcja zobojętniania", "reakcje zobojętniania"]
+  "prop:oxidation_state": {
+    "name": "Stopień utlenienia",
+    "slug": "stopien-utlenienia",
+    "surface_forms": ["stopień utlenienia", "stopnie utlenienia"]
+  },
+  "prop:valence": {
+    "name": "Wartościowość",
+    "slug": "wartosciowosc",
+    "surface_forms": ["wartościowość"]
+  },
+  "prop:solubility": {
+    "name": "Rozpuszczalność",
+    "slug": "rozpuszczalnosc",
+    "surface_forms": ["rozpuszczalność"]
+  },
+  "prop:amphoteric": {
+    "name": "Amfoteryczność",
+    "slug": "amfoterycznosc",
+    "surface_forms": ["amfoteryczność", "właściwości amfoteryczne"]
+  },
+  "prop:dissociation": {
+    "name": "Dysocjacja",
+    "slug": "dysocjacja",
+    "surface_forms": ["dysocjacja", "dysocjacja elektrolityczna"]
+  },
+  "prop:electronegativity": {
+    "name": "Elektroujemność",
+    "slug": "elektroujemnosc",
+    "surface_forms": ["elektroujemność"]
+  },
+  "rxfacet:by_count": {
+    "name": "Według liczby substratów i produktów",
+    "slug": "wg-liczby-substancji",
+    "surface_forms": ["według liczby substancji"]
+  },
+  "rxfacet:by_redox": {
+    "name": "Według zmiany stopnia utlenienia",
+    "slug": "wg-utlenienia",
+    "surface_forms": ["według zmiany stopnia utlenienia"]
+  },
+  "rxfacet:by_thermal": {
+    "name": "Według efektu cieplnego",
+    "slug": "wg-efektu-cieplnego",
+    "surface_forms": ["według efektu cieplnego"]
+  },
+  "rxtype:combination": {
+    "name": "Reakcje syntezy",
+    "slug": "synteza",
+    "surface_forms": ["reakcja syntezy", "reakcje syntezy", "reakcje łączenia"]
   },
   "rxtype:decomposition": {
     "name": "Reakcje rozkładu",
     "slug": "rozklad",
     "surface_forms": ["rozkład", "reakcja rozkładu", "reakcje rozkładu"]
   },
+  "rxtype:substitution": {
+    "name": "Reakcje wymiany pojedynczej",
+    "slug": "wymiana-pojedyncza",
+    "surface_forms": ["wymiana pojedyncza", "reakcja podstawienia"]
+  },
   "rxtype:exchange": {
     "name": "Reakcje wymiany",
     "slug": "wymiana",
     "surface_forms": ["reakcja wymiany", "reakcje wymiany", "wymiana podwójna"]
   },
+  "rxtype:neutralization": {
+    "name": "Reakcje zobojętniania",
+    "slug": "zobojetnianie",
+    "surface_forms": ["zobojętnianie", "reakcja zobojętniania", "reakcje zobojętniania"]
+  },
   "rxtype:redox": {
     "name": "Reakcje redoks",
     "slug": "redoks",
     "surface_forms": ["redoks", "reakcja redoks", "reakcje redoks", "utlenianie-redukcja"]
+  },
+  "rxtype:non_redox": {
+    "name": "Reakcje nie-redoks",
+    "slug": "nie-redoks",
+    "surface_forms": ["nie-redoks", "reakcje bez zmiany stopnia utlenienia"]
+  },
+  "rxtype:exothermic": {
+    "name": "Reakcje egzotermiczne",
+    "slug": "egzotermiczne",
+    "surface_forms": ["reakcje egzotermiczne", "reakcja egzotermiczna"]
+  },
+  "rxtype:endothermic": {
+    "name": "Reakcje endotermiczne",
+    "slug": "endotermiczne",
+    "surface_forms": ["reakcje endotermiczne", "reakcja endotermiczna"]
   }
 }

@@ -2,62 +2,98 @@
   "cls:oxide": {
     "name": "Oxides",
     "slug": "oxides",
+    "description": "Binary compounds of an element with oxygen",
     "surface_forms": ["oxides", "oxide"]
   },
   "cls:oxide_basic": {
     "name": "Basic oxides",
     "slug": "basic-oxides",
+    "description": "Metal oxides that react with acids to form a salt and water",
     "surface_forms": ["basic oxides", "basic oxide"]
   },
   "cls:oxide_acidic": {
     "name": "Acidic oxides",
     "slug": "acidic-oxides",
+    "description": "Nonmetal oxides that react with bases to form a salt and water",
     "surface_forms": ["acidic oxides", "acidic oxide"]
   },
   "cls:oxide_amphoteric": {
     "name": "Amphoteric oxides",
     "slug": "amphoteric-oxides",
+    "description": "Oxides that exhibit both basic and acidic properties",
     "surface_forms": ["amphoteric oxides", "amphoteric oxide"]
+  },
+  "cls:oxide_indifferent": {
+    "name": "Indifferent oxides",
+    "slug": "indifferent-oxides",
+    "description": "Oxides that do not form salts with acids or bases",
+    "surface_forms": ["indifferent oxides", "neutral oxides", "non-salt-forming oxides"]
   },
   "cls:acid": {
     "name": "Acids",
     "slug": "acids",
+    "description": "Compounds composed of hydrogen atoms and an acid residue",
     "surface_forms": ["acids", "acid"]
   },
   "cls:acid_oxygen": {
     "name": "Oxyacids",
     "slug": "oxyacids",
+    "description": "Acids whose acid residue contains oxygen",
     "surface_forms": ["oxyacids", "oxyacid", "oxygen-containing acids"]
   },
   "cls:acid_oxygenfree": {
     "name": "Binary acids",
     "slug": "binary-acids",
+    "description": "Acids whose acid residue does not contain oxygen",
     "surface_forms": ["binary acids", "binary acid", "hydroacids"]
   },
   "cls:base": {
     "name": "Bases",
     "slug": "bases",
+    "description": "Compounds composed of a metal cation and hydroxide anion OH⁻",
     "surface_forms": ["bases", "base"]
   },
   "cls:base_alkali": {
     "name": "Alkalis",
     "slug": "alkalis",
+    "description": "Water-soluble bases formed by alkali and alkaline earth metals",
     "surface_forms": ["alkalis", "alkali"]
   },
   "cls:base_insoluble": {
     "name": "Insoluble bases",
     "slug": "insoluble-bases",
+    "description": "Bases insoluble in water, decompose on heating",
     "surface_forms": ["insoluble bases", "insoluble base"]
   },
   "cls:base_amphoteric": {
     "name": "Amphoteric bases",
     "slug": "amphoteric-bases",
+    "description": "Bases that exhibit both basic and acidic properties",
     "surface_forms": ["amphoteric bases", "amphoteric base", "amphoteric hydroxides"]
   },
   "cls:salt": {
     "name": "Salts",
     "slug": "salts",
+    "description": "Compounds composed of a metal cation and an acid residue anion",
     "surface_forms": ["salts", "salt"]
+  },
+  "cls:salt_normal": {
+    "name": "Normal salts",
+    "slug": "normal-salts",
+    "description": "Salts in which all hydrogen atoms of the acid are replaced by a metal",
+    "surface_forms": ["normal salts", "normal salt", "neutral salts"]
+  },
+  "cls:salt_acidic": {
+    "name": "Acidic salts",
+    "slug": "acidic-salts",
+    "description": "Salts in which not all hydrogen atoms of the acid are replaced by a metal",
+    "surface_forms": ["acidic salts", "acidic salt", "acid salts"]
+  },
+  "cls:salt_basic": {
+    "name": "Basic salts",
+    "slug": "basic-salts",
+    "description": "Salts in which not all hydroxyl groups of the base are replaced by an acid residue",
+    "surface_forms": ["basic salts", "basic salt"]
   },
   "grp:alkali_metals": {
     "name": "Alkali metals",
@@ -79,24 +115,94 @@
     "slug": "alkaline-earth-metals",
     "surface_forms": ["alkaline earth metals", "alkaline earth metal"]
   },
-  "rxtype:neutralization": {
-    "name": "Neutralization reactions",
-    "slug": "neutralization",
-    "surface_forms": ["neutralization", "neutralization reaction", "neutralization reactions"]
+  "prop:oxidation_state": {
+    "name": "Oxidation state",
+    "slug": "oxidation-state",
+    "surface_forms": ["oxidation state", "oxidation number"]
+  },
+  "prop:valence": {
+    "name": "Valence",
+    "slug": "valence",
+    "surface_forms": ["valence"]
+  },
+  "prop:solubility": {
+    "name": "Solubility",
+    "slug": "solubility",
+    "surface_forms": ["solubility"]
+  },
+  "prop:amphoteric": {
+    "name": "Amphoterism",
+    "slug": "amphoterism",
+    "surface_forms": ["amphoterism", "amphoteric properties"]
+  },
+  "prop:dissociation": {
+    "name": "Dissociation",
+    "slug": "dissociation",
+    "surface_forms": ["dissociation", "electrolytic dissociation"]
+  },
+  "prop:electronegativity": {
+    "name": "Electronegativity",
+    "slug": "electronegativity",
+    "surface_forms": ["electronegativity"]
+  },
+  "rxfacet:by_count": {
+    "name": "By number of substances",
+    "slug": "by-count",
+    "surface_forms": ["by number of substances", "by composition"]
+  },
+  "rxfacet:by_redox": {
+    "name": "By oxidation state change",
+    "slug": "by-redox",
+    "surface_forms": ["by oxidation state change", "redox vs non-redox"]
+  },
+  "rxfacet:by_thermal": {
+    "name": "By thermal effect",
+    "slug": "by-thermal-effect",
+    "surface_forms": ["by thermal effect", "exo and endo"]
+  },
+  "rxtype:combination": {
+    "name": "Combination reactions",
+    "slug": "combination",
+    "surface_forms": ["combination reaction", "combination reactions", "synthesis"]
   },
   "rxtype:decomposition": {
     "name": "Decomposition reactions",
     "slug": "decomposition",
     "surface_forms": ["decomposition", "decomposition reaction", "decomposition reactions"]
   },
+  "rxtype:substitution": {
+    "name": "Single displacement reactions",
+    "slug": "single-displacement",
+    "surface_forms": ["single displacement", "single displacement reaction", "substitution"]
+  },
   "rxtype:exchange": {
     "name": "Double displacement reactions",
     "slug": "double-displacement",
     "surface_forms": ["double displacement", "double displacement reaction", "exchange reaction", "metathesis"]
   },
+  "rxtype:neutralization": {
+    "name": "Neutralization reactions",
+    "slug": "neutralization",
+    "surface_forms": ["neutralization", "neutralization reaction", "neutralization reactions"]
+  },
   "rxtype:redox": {
     "name": "Redox reactions",
     "slug": "redox",
     "surface_forms": ["redox", "redox reaction", "redox reactions", "oxidation-reduction"]
+  },
+  "rxtype:non_redox": {
+    "name": "Non-redox reactions",
+    "slug": "non-redox",
+    "surface_forms": ["non-redox", "non-redox reactions"]
+  },
+  "rxtype:exothermic": {
+    "name": "Exothermic reactions",
+    "slug": "exothermic",
+    "surface_forms": ["exothermic reactions", "exothermic reaction"]
+  },
+  "rxtype:endothermic": {
+    "name": "Endothermic reactions",
+    "slug": "endothermic",
+    "surface_forms": ["endothermic reactions", "endothermic reaction"]
   }
 }

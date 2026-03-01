@@ -5,10 +5,33 @@ import type { SupportedLocale } from '../types/i18n';
 import type { ConceptKind } from '../types/ontology-ref';
 import './ontology-ref.css';
 
+import { isDslFilter } from '../lib/filter-to-richtext';
+import type { ConceptFilter, FilterExpr } from '../types/filter-dsl';
+
+/** Extract the substance class name from a filter (works with both legacy and DSL formats) */
+function extractClassFromFilter(filters: ConceptFilter | Record<string, string | string[]>): string | undefined {
+  if (!isDslFilter(filters)) {
+    // Legacy flat filter
+    return typeof filters.class === 'string' ? filters.class : undefined;
+  }
+  // DSL filter — look for pred with field=class
+  const search = (expr: FilterExpr): string | undefined => {
+    if ('pred' in expr && expr.pred.field === 'class' && typeof expr.pred.eq === 'string') {
+      return expr.pred.eq;
+    }
+    if ('all' in expr) {
+      for (const sub of expr.all) { const r = search(sub); if (r) return r; }
+    }
+    return undefined;
+  };
+  return search(filters);
+}
+
 /** For substance_class, derive color from filters.class */
-function getCssClass(kind: ConceptKind, filters: Record<string, string | string[]>): string {
-  if (kind === 'substance_class' && typeof filters.class === 'string') {
-    return `ont-ref--${filters.class}`;
+function getCssClass(kind: ConceptKind, filters: ConceptFilter | Record<string, string | string[]>): string {
+  if (kind === 'substance_class') {
+    const cls = extractClassFromFilter(filters);
+    if (cls) return `ont-ref--${cls}`;
   }
   return `ont-ref--${kind}`;
 }

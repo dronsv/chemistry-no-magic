@@ -2,62 +2,98 @@
   "cls:oxide": {
     "name": "Óxidos",
     "slug": "oxidos",
+    "description": "Compuestos binarios de un elemento con oxígeno",
     "surface_forms": ["óxidos", "óxido"]
   },
   "cls:oxide_basic": {
     "name": "Óxidos básicos",
     "slug": "oxidos-basicos",
+    "description": "Óxidos metálicos que reaccionan con ácidos formando sal y agua",
     "surface_forms": ["óxidos básicos", "óxido básico"]
   },
   "cls:oxide_acidic": {
     "name": "Óxidos ácidos",
     "slug": "oxidos-acidos",
+    "description": "Óxidos de no metales que reaccionan con bases formando sal y agua",
     "surface_forms": ["óxidos ácidos", "óxido ácido"]
   },
   "cls:oxide_amphoteric": {
     "name": "Óxidos anfóteros",
     "slug": "oxidos-anfoteros",
+    "description": "Óxidos que presentan propiedades tanto básicas como ácidas",
     "surface_forms": ["óxidos anfóteros", "óxido anfótero"]
+  },
+  "cls:oxide_indifferent": {
+    "name": "Óxidos indiferentes",
+    "slug": "oxidos-indiferentes",
+    "description": "Óxidos que no forman sales con ácidos ni bases",
+    "surface_forms": ["óxidos indiferentes", "óxido indiferente", "óxidos neutros"]
   },
   "cls:acid": {
     "name": "Ácidos",
     "slug": "acidos",
+    "description": "Compuestos formados por átomos de hidrógeno y un residuo ácido",
     "surface_forms": ["ácidos", "ácido"]
   },
   "cls:acid_oxygen": {
     "name": "Oxoácidos",
     "slug": "oxoacidos",
+    "description": "Ácidos cuyo residuo ácido contiene oxígeno",
     "surface_forms": ["oxoácidos", "oxoácido", "ácidos oxigenados"]
   },
   "cls:acid_oxygenfree": {
     "name": "Hidrácidos",
     "slug": "hidracidos",
+    "description": "Ácidos cuyo residuo ácido no contiene oxígeno",
     "surface_forms": ["hidrácidos", "hidrácido", "ácidos binarios"]
   },
   "cls:base": {
     "name": "Bases",
     "slug": "bases",
+    "description": "Compuestos formados por un catión metálico y el anión hidróxido OH⁻",
     "surface_forms": ["bases", "base"]
   },
   "cls:base_alkali": {
     "name": "Álcalis",
     "slug": "alcalis",
+    "description": "Bases solubles en agua formadas por metales alcalinos y alcalinotérreos",
     "surface_forms": ["álcalis", "álcali"]
   },
   "cls:base_insoluble": {
     "name": "Bases insolubles",
     "slug": "bases-insolubles",
+    "description": "Bases insolubles en agua que se descomponen al calentarlas",
     "surface_forms": ["bases insolubles", "base insoluble"]
   },
   "cls:base_amphoteric": {
     "name": "Bases anfóteras",
     "slug": "bases-anfoteras",
+    "description": "Bases que presentan propiedades tanto básicas como ácidas",
     "surface_forms": ["bases anfóteras", "base anfótera", "hidróxidos anfóteros"]
   },
   "cls:salt": {
     "name": "Sales",
     "slug": "sales",
+    "description": "Compuestos formados por un catión metálico y un anión de residuo ácido",
     "surface_forms": ["sales", "sal"]
+  },
+  "cls:salt_normal": {
+    "name": "Sales neutras",
+    "slug": "sales-neutras",
+    "description": "Sales en las que todos los átomos de hidrógeno del ácido han sido reemplazados por un metal",
+    "surface_forms": ["sales neutras", "sal neutra", "sales normales"]
+  },
+  "cls:salt_acidic": {
+    "name": "Sales ácidas",
+    "slug": "sales-acidas",
+    "description": "Sales en las que no todos los átomos de hidrógeno del ácido han sido reemplazados por un metal",
+    "surface_forms": ["sales ácidas", "sal ácida"]
+  },
+  "cls:salt_basic": {
+    "name": "Sales básicas",
+    "slug": "sales-basicas",
+    "description": "Sales en las que no todos los grupos hidroxilo de la base han sido reemplazados por el residuo ácido",
+    "surface_forms": ["sales básicas", "sal básica"]
   },
   "grp:alkali_metals": {
     "name": "Metales alcalinos",
@@ -79,24 +115,94 @@
     "slug": "metales-alcalinoterreos",
     "surface_forms": ["metales alcalinotérreos", "metal alcalinotérreo"]
   },
-  "rxtype:neutralization": {
-    "name": "Reacciones de neutralización",
-    "slug": "neutralizacion",
-    "surface_forms": ["neutralización", "reacción de neutralización", "reacciones de neutralización"]
+  "prop:oxidation_state": {
+    "name": "Estado de oxidación",
+    "slug": "estado-oxidacion",
+    "surface_forms": ["estado de oxidación", "número de oxidación"]
+  },
+  "prop:valence": {
+    "name": "Valencia",
+    "slug": "valencia",
+    "surface_forms": ["valencia"]
+  },
+  "prop:solubility": {
+    "name": "Solubilidad",
+    "slug": "solubilidad",
+    "surface_forms": ["solubilidad"]
+  },
+  "prop:amphoteric": {
+    "name": "Anfotería",
+    "slug": "anfoteria",
+    "surface_forms": ["anfotería", "propiedades anfóteras"]
+  },
+  "prop:dissociation": {
+    "name": "Disociación",
+    "slug": "disociacion",
+    "surface_forms": ["disociación", "disociación electrolítica"]
+  },
+  "prop:electronegativity": {
+    "name": "Electronegatividad",
+    "slug": "electronegatividad",
+    "surface_forms": ["electronegatividad"]
+  },
+  "rxfacet:by_count": {
+    "name": "Por número de sustancias",
+    "slug": "por-numero",
+    "surface_forms": ["por número de sustancias"]
+  },
+  "rxfacet:by_redox": {
+    "name": "Por cambio del estado de oxidación",
+    "slug": "por-oxidacion",
+    "surface_forms": ["por cambio del estado de oxidación"]
+  },
+  "rxfacet:by_thermal": {
+    "name": "Por efecto térmico",
+    "slug": "por-efecto-termico",
+    "surface_forms": ["por efecto térmico"]
+  },
+  "rxtype:combination": {
+    "name": "Reacciones de síntesis",
+    "slug": "sintesis",
+    "surface_forms": ["reacción de síntesis", "reacciones de síntesis", "combinación"]
   },
   "rxtype:decomposition": {
     "name": "Reacciones de descomposición",
     "slug": "descomposicion",
     "surface_forms": ["descomposición", "reacción de descomposición", "reacciones de descomposición"]
   },
+  "rxtype:substitution": {
+    "name": "Reacciones de sustitución simple",
+    "slug": "sustitucion-simple",
+    "surface_forms": ["sustitución simple", "desplazamiento simple"]
+  },
   "rxtype:exchange": {
     "name": "Reacciones de doble desplazamiento",
     "slug": "doble-desplazamiento",
     "surface_forms": ["doble desplazamiento", "reacción de intercambio", "metátesis"]
   },
+  "rxtype:neutralization": {
+    "name": "Reacciones de neutralización",
+    "slug": "neutralizacion",
+    "surface_forms": ["neutralización", "reacción de neutralización", "reacciones de neutralización"]
+  },
   "rxtype:redox": {
     "name": "Reacciones redox",
     "slug": "redox",
     "surface_forms": ["redox", "reacción redox", "reacciones redox", "oxidación-reducción"]
+  },
+  "rxtype:non_redox": {
+    "name": "Reacciones no redox",
+    "slug": "no-redox",
+    "surface_forms": ["no redox", "reacciones sin cambio de estado de oxidación"]
+  },
+  "rxtype:exothermic": {
+    "name": "Reacciones exotérmicas",
+    "slug": "exotermicas",
+    "surface_forms": ["reacciones exotérmicas", "reacción exotérmica"]
+  },
+  "rxtype:endothermic": {
+    "name": "Reacciones endotérmicas",
+    "slug": "endotermicas",
+    "surface_forms": ["reacciones endotérmicas", "reacción endotérmica"]
   }
 }

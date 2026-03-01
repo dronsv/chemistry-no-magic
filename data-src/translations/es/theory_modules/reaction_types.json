@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "by_count": {
+      "rxtype:combination": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Two or more substances combine to form one compound: A + B → AB" }
+        ]
+      },
+      "rxtype:decomposition": {
+        "reactivity_rules": [
+          { "t": "text", "v": "One compound breaks down into two or more substances: AB → A + B" }
+        ]
+      },
+      "rxtype:substitution": {
+        "reactivity_rules": [
+          { "t": "text", "v": "An element displaces another from a compound: A + BC → AC + B" }
+        ]
+      },
+      "rxtype:exchange": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Two compounds exchange their components: AB + CD → AD + CB" }
+        ]
+      },
+      "rxtype:neutralization": {
+        "reactivity_rules": [
+          { "t": "text", "v": "A special case of " },
+          { "t": "ref", "id": "rxtype:exchange" },
+          { "t": "text", "v": ": " },
+          { "t": "ref", "id": "cls:acid" },
+          { "t": "text", "v": " + " },
+          { "t": "ref", "id": "cls:base" },
+          { "t": "text", "v": " → salt + water" }
+        ]
+      }
+    },
+    "by_redox": {
+      "rxtype:redox": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Reactions involving change in oxidation states. Include an oxidizing agent (accepts e⁻) and a reducing agent (donates e⁻)" }
+        ]
+      },
+      "rxtype:non_redox": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Reactions without change in oxidation states. Examples: " },
+          { "t": "ref", "id": "rxtype:neutralization" },
+          { "t": "text", "v": ", precipitation" }
+        ]
+      }
+    },
+    "by_thermal": {
+      "rxtype:exothermic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Reactions that release heat (Q > 0). Combustion, neutralization, most combination reactions" }
+        ]
+      },
+      "rxtype:endothermic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Reactions that absorb heat (Q < 0). Thermal decomposition, electrolysis" }
+        ]
+      }
+    }
+  }
+}

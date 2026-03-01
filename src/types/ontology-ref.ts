@@ -7,6 +7,7 @@ export type OntRefKind =
   | 'substance_class'
   | 'element_group'
   | 'reaction_type'
+  | 'reaction_facet'
   | 'process'
   | 'property'
   | 'context';
@@ -22,15 +23,18 @@ export type ConceptKind =
   | 'substance_class'
   | 'element_group'
   | 'reaction_type'
+  | 'reaction_facet'
   | 'process'
   | 'property';
+
+import type { ConceptFilter } from './filter-dsl';
 
 /** A concept entry from data-src/concepts.json */
 export interface ConceptEntry {
   kind: ConceptKind;
   parent_id: string | null;
   order: number;
-  filters: Record<string, string | string[]>;
+  filters: ConceptFilter | Record<string, string | string[]>;
   examples: OntRef[];
   children_order?: string[];
 }
@@ -45,6 +49,7 @@ export type GramForms = Record<string, string>;
 export interface ConceptOverlayEntry {
   name: string;
   slug: string;
+  description?: string;
   surface_forms?: string[];
   forms?: GramForms;
 }

@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "oxides": {
+      "cls:oxide_basic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with " },
+          { "t": "ref", "id": "cls:acid", "form": "nom_pl" },
+          { "t": "text", "v": ", water (alkali & alkaline earth), " },
+          { "t": "ref", "id": "cls:oxide_acidic", "form": "nom_pl" }
+        ]
+      },
+      "cls:oxide_acidic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with " },
+          { "t": "ref", "id": "cls:base", "form": "nom_pl" },
+          { "t": "text", "v": ", water (most), " },
+          { "t": "ref", "id": "cls:oxide_basic", "form": "nom_pl" }
+        ]
+      },
+      "cls:oxide_amphoteric": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with both " },
+          { "t": "ref", "id": "cls:acid", "form": "nom_pl" },
+          { "t": "text", "v": " and " },
+          { "t": "ref", "id": "cls:base", "form": "nom_pl" }
+        ]
+      },
+      "cls:oxide_indifferent": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Do not form salts. Examples: CO, NO, N₂O" }
+        ]
+      }
+    },
+    "acids": {
+      "cls:acid_oxygen": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Formed by reaction of " },
+          { "t": "ref", "id": "cls:oxide_acidic", "form": "nom_pl" },
+          { "t": "text", "v": " with water" }
+        ]
+      },
+      "cls:acid_oxygenfree": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Formed by dissolving nonmetal gases (HCl, H₂S, HF) in water" }
+        ]
+      }
+    },
+    "bases": {
+      "cls:base_alkali": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with " },
+          { "t": "ref", "id": "cls:acid", "form": "nom_pl" },
+          { "t": "text", "v": ", " },
+          { "t": "ref", "id": "cls:oxide_acidic", "form": "nom_pl" },
+          { "t": "text", "v": ", " },
+          { "t": "ref", "id": "cls:salt", "form": "nom_pl" },
+          { "t": "text", "v": " (if a precipitate forms)" }
+        ]
+      },
+      "cls:base_insoluble": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with " },
+          { "t": "ref", "id": "cls:acid", "form": "nom_pl" },
+          { "t": "text", "v": ". Decompose on heating into oxide and water" }
+        ]
+      },
+      "cls:base_amphoteric": {
+        "reactivity_rules": [
+          { "t": "text", "v": "React with both " },
+          { "t": "ref", "id": "cls:acid", "form": "nom_pl" },
+          { "t": "text", "v": " and " },
+          { "t": "ref", "id": "cls:base_alkali", "form": "nom_pl" }
+        ]
+      }
+    },
+    "salts": {
+      "cls:salt_normal": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Product of complete neutralization of an acid by a base" }
+        ]
+      },
+      "cls:salt_acidic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Product of incomplete neutralization of a polyprotic acid. Contains H in the acid residue" }
+        ]
+      },
+      "cls:salt_basic": {
+        "reactivity_rules": [
+          { "t": "text", "v": "Product of incomplete neutralization of a polyvalent base. Contains OH⁻ groups" }
+        ]
+      }
+    }
+  }
+}

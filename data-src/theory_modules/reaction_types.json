@@ -1,0 +1,105 @@
+{
+  "id": "module:reactions.types.v1",
+  "kind": "theory_module",
+  "applies_to": ["rxfacet:by_count", "rxfacet:by_redox", "rxfacet:by_thermal"],
+  "sections": [
+    {
+      "id": "by_count",
+      "title_ref": "rxfacet:by_count",
+      "blocks": [
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:combination",
+          "reactivity_rules": [
+            { "t": "text", "v": "Из нескольких простых или сложных веществ образуется одно сложное: A + B → AB" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:decomposition",
+          "reactivity_rules": [
+            { "t": "text", "v": "Одно сложное вещество распадается на несколько: AB → A + B" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:substitution",
+          "reactivity_rules": [
+            { "t": "text", "v": "Простое вещество вытесняет элемент из сложного: A + BC → AC + B" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:exchange",
+          "reactivity_rules": [
+            { "t": "text", "v": "Два сложных вещества обмениваются составными частями: AB + CD → AD + CB" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:neutralization",
+          "reactivity_rules": [
+            { "t": "text", "v": "Частный случай " },
+            { "t": "ref", "id": "rxtype:exchange", "form": "gen_pl" },
+            { "t": "text", "v": ": " },
+            { "t": "ref", "id": "cls:acid" },
+            { "t": "text", "v": " + " },
+            { "t": "ref", "id": "cls:base" },
+            { "t": "text", "v": " → соль + вода" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        }
+      ]
+    },
+    {
+      "id": "by_redox",
+      "title_ref": "rxfacet:by_redox",
+      "blocks": [
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:redox",
+          "reactivity_rules": [
+            { "t": "text", "v": "Реакции с изменением степеней окисления атомов. Включают окислитель (принимает e⁻) и восстановитель (отдаёт e⁻)" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:non_redox",
+          "reactivity_rules": [
+            { "t": "text", "v": "Реакции без изменения степеней окисления. Типичные примеры: " },
+            { "t": "ref", "id": "rxtype:neutralization" },
+            { "t": "text", "v": ", осаждение" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        }
+      ]
+    },
+    {
+      "id": "by_thermal",
+      "title_ref": "rxfacet:by_thermal",
+      "blocks": [
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:exothermic",
+          "reactivity_rules": [
+            { "t": "text", "v": "Реакции с выделением теплоты (Q > 0). Горение, нейтрализация, большинство реакций соединения" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "rxtype:endothermic",
+          "reactivity_rules": [
+            { "t": "text", "v": "Реакции с поглощением теплоты (Q < 0). Термическое разложение, электролиз" }
+          ],
+          "examples": { "mode": "filter", "limit": 4 }
+        }
+      ]
+    }
+  ]
+}
