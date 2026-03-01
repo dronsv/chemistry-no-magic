@@ -164,6 +164,15 @@ export async function buildEngine(locale?: SupportedLocale) {
 }
 
 /**
+ * Pick a random template ID for the given competency from ENGINE_COMPETENCY_MAP.
+ */
+function pickTemplateId(competencyId: string): string | null {
+  const ids = ENGINE_COMPETENCY_MAP[competencyId];
+  if (!ids || ids.length === 0) return null;
+  return ids[Math.floor(Math.random() * ids.length)];
+}
+
+/**
  * Load an engine-based exercise adapter for a competency.
  * Returns null if no engine templates are available for this competency.
  */
@@ -174,8 +183,9 @@ export async function loadEngineAdapter(competencyId: string, locale?: Supported
 
   return {
     generate: () => {
-      const task = engine.generateForCompetency(competencyId);
-      if (!task) throw new Error(`No engine template for competency: ${competencyId}`);
+      const templateId = pickTemplateId(competencyId);
+      if (!templateId) throw new Error(`No engine template for competency: ${competencyId}`);
+      const task = engine.generate(templateId);
       return engine.toExercise(task);
     },
   };
@@ -194,8 +204,9 @@ export async function loadFeatureAdapter(
   return {
     generate: () => {
       const compId = competencyIds[Math.floor(Math.random() * competencyIds.length)];
-      const task = engine.generateForCompetency(compId);
-      if (!task) throw new Error(`No engine template for competency: ${compId}`);
+      const templateId = pickTemplateId(compId);
+      if (!templateId) throw new Error(`No engine template for competency: ${compId}`);
+      const task = engine.generate(templateId);
       return engine.toExercise(task);
     },
   };
