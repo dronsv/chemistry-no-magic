@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormulaChip from '../../components/FormulaChip.tsx';
+import ContextBackLink from '../../components/ContextBackLink.tsx';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay, applyBuildOverlay } from '../../lib/build-overlay';
@@ -93,6 +94,13 @@ for (const otherLocale of ['en', 'pl', 'es'] as const) {
 }
 
 const LANG_FLAGS: Record<string, string> = { ru: 'RU', en: 'EN', la: 'LA', pl: 'PL', es: 'ES' };
+
+const contextBackLabels = {
+  exam: m.back_to_exam(),
+  practice: m.back_to_practice(),
+  diagnostics: m.back_to_diagnostics(),
+  previous: m.back_to_previous(),
+};
 ---
 
 <BaseLayout
@@ -110,6 +118,7 @@ const LANG_FLAGS: Record<string, string> = { ru: 'RU', en: 'EN', la: 'LA', pl: '
     })} />
   </Fragment>
 
+  <ContextBackLink client:idle labels={contextBackLabels} />
   <article class="element-page container">
     <div class="element-page__header">
       <div class="element-page__z">{el.Z}</div>

@@ -1053,5 +1053,9 @@
   "concept_back_substances": "Katalog substancji",
   "concept_back_elements": "Układ okresowy",
   "concept_back_reactions": "Reakcje",
-  "concept_description": "{name} — Chemia bez magii"
+  "concept_description": "{name} — Chemia bez magii",
+  "back_to_exam": "Wróć do egzaminu",
+  "back_to_practice": "Wróć do ćwiczeń",
+  "back_to_diagnostics": "Wróć do diagnostyki",
+  "back_to_previous": "Wróć"
 }

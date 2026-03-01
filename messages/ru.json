@@ -1053,5 +1053,9 @@
   "concept_back_substances": "Каталог веществ",
   "concept_back_elements": "Периодическая таблица",
   "concept_back_reactions": "Реакции",
-  "concept_description": "{name} — Химия без магии"
+  "concept_description": "{name} — Химия без магии",
+  "back_to_exam": "Вернуться к экзамену",
+  "back_to_practice": "Вернуться к практике",
+  "back_to_diagnostics": "Вернуться к диагностике",
+  "back_to_previous": "Вернуться назад"
 }

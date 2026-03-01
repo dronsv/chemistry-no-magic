@@ -1053,5 +1053,9 @@
   "concept_back_substances": "Catálogo de sustancias",
   "concept_back_elements": "Tabla periódica",
   "concept_back_reactions": "Reacciones",
-  "concept_description": "{name} — Química sin magia"
+  "concept_description": "{name} — Química sin magia",
+  "back_to_exam": "Volver al examen",
+  "back_to_practice": "Volver a la práctica",
+  "back_to_diagnostics": "Volver al diagnóstico",
+  "back_to_previous": "Volver"
 }

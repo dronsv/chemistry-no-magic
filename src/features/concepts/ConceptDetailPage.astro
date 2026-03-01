@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ConceptModuleIsland from './ConceptModuleIsland.tsx';
+import ContextBackLink from '../../components/ContextBackLink.tsx';
 import { CONCEPT_KIND_ROUTES, localizeUrl } from '../../lib/i18n';
 import type { SupportedLocale } from '../../types/i18n';
 import type { ConceptPageProps } from './concept-detail-paths';
@@ -21,6 +22,14 @@ const backLabels: Record<string, string> = {
 };
 const backLabel = backLabels[entry.kind] ?? m.back();
 
+// Context back link labels (for returning to exam/practice/diagnostics)
+const contextBackLabels = {
+  exam: m.back_to_exam(),
+  practice: m.back_to_practice(),
+  diagnostics: m.back_to_diagnostics(),
+  previous: m.back_to_previous(),
+};
+
 // SEO description from overlay or fallback
 const seoDescription = overlay.description
   ? overlay.description
@@ -32,6 +41,7 @@ const seoDescription = overlay.description
   description={seoDescription}
 >
   <article class="concept-page">
+    <ContextBackLink client:idle labels={contextBackLabels} />
     <nav class="concept-breadcrumbs" aria-label="breadcrumbs">
       <a href={localizedBase}>{backLabel}</a>
       {breadcrumbs.map((crumb) => (

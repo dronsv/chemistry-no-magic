@@ -1053,5 +1053,9 @@
   "concept_back_substances": "Substance Catalog",
   "concept_back_elements": "Periodic Table",
   "concept_back_reactions": "Reactions",
-  "concept_description": "{name} — Chemistry Without Magic"
+  "concept_description": "{name} — Chemistry Without Magic",
+  "back_to_exam": "Back to exam",
+  "back_to_practice": "Back to practice",
+  "back_to_diagnostics": "Back to diagnostics",
+  "back_to_previous": "Go back"
 }
