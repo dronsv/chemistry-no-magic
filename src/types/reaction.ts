@@ -56,3 +56,14 @@ export interface Reaction {
   redox?: RedoxInfo;
   oge?: { topics?: string[]; typical_tasks?: string[] };
 }
+
+export type MechanismFilter = 'all' | 'exchange' | 'substitution' | 'decomposition';
+export type RedoxFilter = 'all' | 'redox' | 'non_redox';
+
+export interface FacetState {
+  mechanism: MechanismFilter;
+  redox: RedoxFilter;
+  drivingForces: Set<string>;
+  substanceClasses: Set<string>;
+  educationalGoals: Set<string>;
+}

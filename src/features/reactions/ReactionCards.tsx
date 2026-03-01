@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import type { Reaction } from '../../types/reaction';
+import type { Reaction, FacetState } from '../../types/reaction';
 import type { SubstanceIndexEntry } from '../../types/classification';
 import type { MetalType } from '../../types/element';
 import type { SupportedLocale } from '../../types/i18n';
 import { loadReactions, loadSubstancesIndex, loadElements } from '../../lib/data-loader';
 import { parseFormula } from '../../lib/formula-parser';
 import { calcOxidationStates } from '../../lib/oxidation-state';
+import { matchesFacets, isFacetEmpty } from './facet-filter';
+import ReactionFacets from './ReactionFacets';
 import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
 
@@ -15,24 +17,6 @@ type ElementInfo = { group: number; metal_type: MetalType };
 function normalizeFormula(f: string): string {
   return f.replace(/[₀₁₂₃₄₅₆₇₈₉]/g, ch => String(ch.charCodeAt(0) - 0x2080));
 }
-
-const TAG_FILTER_VALUES = [
-  'all', 'neutralization', 'precipitation', 'gas_evolution', 'substitution',
-  'qualitative_test', 'amphoteric', 'acidic_oxide', 'decomposition', 'redox',
-] as const;
-
-const TAG_FILTER_LABELS: Record<string, () => string> = {
-  all: m.rxn_filter_all,
-  neutralization: m.rxn_filter_neutralization,
-  precipitation: m.rxn_filter_precipitation,
-  gas_evolution: m.rxn_filter_gas_evolution,
-  substitution: m.rxn_filter_substitution,
-  qualitative_test: m.rxn_filter_qualitative,
-  amphoteric: m.rxn_filter_amphoteric,
-  acidic_oxide: m.rxn_filter_acidic_oxide,
-  decomposition: m.rxn_filter_decomposition,
-  redox: m.rxn_filter_redox,
-};
 
 const TAG_LABELS: Record<string, () => string> = {
   exchange: m.rxn_tag_exchange,
@@ -270,10 +254,10 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
   );
 }
 
-export default function ReactionCards({ locale = 'ru' as SupportedLocale, filter = 'all', onFilterChange }: {
+export default function ReactionCards({ locale = 'ru' as SupportedLocale, facets, onFacetsChange }: {
   locale?: SupportedLocale;
-  filter?: string;
-  onFilterChange?: (value: string) => void;
+  facets?: FacetState;
+  onFacetsChange?: (state: FacetState) => void;
 }) {
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
@@ -299,26 +283,23 @@ export default function ReactionCards({ locale = 'ru' as SupportedLocale, filter
     return <div className="rxn-catalog__loading">{m.loading()}</div>;
   }
 
-  const filtered = filter === 'all'
-    ? reactions
-    : reactions.filter(r => r.type_tags.includes(filter));
+  const filtered = facets && !isFacetEmpty(facets)
+    ? reactions.filter(r => matchesFacets(r, facets, substanceMap))
+    : reactions;
 
   return (
     <section>
       <h2 className="rxn-catalog__title">{m.rxn_catalog_title()}</h2>
 
-      <div className="rxn-catalog__filters">
-        {TAG_FILTER_VALUES.map(value => (
-          <button
-            key={value}
-            type="button"
-            className={`rxn-catalog__filter-btn ${filter === value ? 'rxn-catalog__filter-btn--active' : ''}`}
-            onClick={() => onFilterChange?.(value)}
-          >
-            {TAG_FILTER_LABELS[value]?.() ?? value}
-          </button>
-        ))}
-      </div>
+      {facets && onFacetsChange && (
+        <ReactionFacets
+          facets={facets}
+          onFacetsChange={onFacetsChange}
+          reactions={reactions}
+          substanceMap={substanceMap}
+          locale={locale}
+        />
+      )}
 
       <div className="rxn-catalog__count">
         {m.rxn_shown_count({ filtered: String(filtered.length), total: String(reactions.length) })}

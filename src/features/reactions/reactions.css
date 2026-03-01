@@ -9,6 +9,191 @@
 }
 
 /* ========================================
+   Faceted Filter
+   ======================================== */
+
+.rxn-facets {
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+}
+
+.rxn-facets__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.rxn-facets__toggle-arrow {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.rxn-facets__active-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.rxn-facets__body {
+  padding: 0 var(--space-md) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.rxn-facets__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rxn-facets__preset-btn {
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.rxn-facets__preset-btn:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.rxn-facets__reset-btn {
+  padding: 0.25rem 0.625rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 1rem;
+  background: none;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.rxn-facets__reset-btn:hover {
+  color: var(--color-text);
+}
+
+.rxn-facets__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.rxn-facets__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.rxn-facets__radio-group {
+  display: flex;
+  gap: 2px;
+  background: var(--color-bg-alt);
+  border-radius: 0.375rem;
+  padding: 2px;
+}
+
+.rxn-facets__radio {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.rxn-facets__radio:hover { color: var(--color-text); }
+
+.rxn-facets__radio--active {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rxn-facets__checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.rxn-facets__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.rxn-facets__chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.rxn-facets__chip--active {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.rxn-facets__badge {
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 0.0625rem 0.3rem;
+  border-radius: 0.5rem;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+.rxn-facets__chip--active .rxn-facets__badge {
+  background: #bfdbfe;
+  color: #1e40af;
+}
+
+@media (max-width: 640px) {
+  .rxn-facets__radio-group {
+    flex-wrap: wrap;
+  }
+
+  .rxn-facets__radio {
+    flex: none;
+  }
+}
+
+/* ========================================
    Reaction Catalog
    ======================================== */
 

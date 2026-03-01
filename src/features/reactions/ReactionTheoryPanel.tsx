@@ -4,6 +4,7 @@ import type { ApplicabilityRule } from '../../types/rules';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { GeneticChain } from '../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../types/energy-catalyst';
+import type { FacetState } from '../../types/reaction';
 import type { SupportedLocale } from '../../types/i18n';
 import {
   loadReactionTemplates,
@@ -35,19 +36,22 @@ const RULE_TYPE_LABELS: Record<string, () => string> = {
   amphoteric_condition: m.rxn_rule_amphoteric,
 };
 
-const FILTER_SECTION_MAP: Record<string, string> = {
-  neutralization: 'types',
-  precipitation: 'solubility',
-  substitution: 'activity',
-  qualitative_test: 'qualitative',
-  gas_evolution: 'forces',
-  redox: 'redox',
-  decomposition: 'types',
-  amphoteric: 'forces',
-  acidic_oxide: 'types',
-};
+/** Derive which theory section to force-open from facet state */
+function getTargetSection(facets?: FacetState): string | null {
+  if (!facets) return null;
+  if (facets.redox === 'redox') return 'redox';
+  if (facets.mechanism === 'exchange') return 'types';
+  if (facets.mechanism === 'substitution') return 'activity';
+  if (facets.mechanism === 'decomposition') return 'types';
+  if (facets.drivingForces.has('precipitation')) return 'solubility';
+  if (facets.drivingForces.has('gas_evolution')) return 'forces';
+  if (facets.drivingForces.has('water_formation')) return 'forces';
+  if (facets.educationalGoals.has('qualitative_analysis_logic')) return 'qualitative';
+  if (facets.educationalGoals.has('reaction_energy_profile')) return 'speed';
+  return null;
+}
 
-export default function ReactionTheoryPanel({ activeFilter = 'all', locale = 'ru' as SupportedLocale }: { activeFilter?: string; locale?: SupportedLocale }) {
+export default function ReactionTheoryPanel({ facets, locale = 'ru' as SupportedLocale }: { facets?: FacetState; locale?: SupportedLocale }) {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
@@ -56,7 +60,7 @@ export default function ReactionTheoryPanel({ activeFilter = 'all', locale = 'ru
   const [loading, setLoading] = useState(false);
   const [open, toggleOpen] = useTheoryPanelState('reactions');
   const [error, setError] = useState<string | null>(null);
-  const targetSection = activeFilter !== 'all' ? FILTER_SECTION_MAP[activeFilter] ?? null : null;
+  const targetSection = getTargetSection(facets);
 
   useEffect(() => {
     if (!open || templates) return;
