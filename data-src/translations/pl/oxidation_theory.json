@@ -1,0 +1,39 @@
+{
+  "simple_substance": {
+    "name_ru": "Substancja prosta",
+    "rule_ru": "Stopień utlenienia pierwiastka w substancji prostej = 0"
+  },
+  "fluorine": {
+    "name_ru": "Fluor",
+    "rule_ru": "F zawsze ma stopień utlenienia −1 (najbardziej elektroujemny pierwiastek)"
+  },
+  "group1": {
+    "name_ru": "Metale alkaliczne (grupa I)",
+    "rule_ru": "Li, Na, K, Rb, Cs, Fr — zawsze +1"
+  },
+  "group2": {
+    "name_ru": "Berylowce (grupa II)",
+    "rule_ru": "Be, Mg, Ca, Sr, Ba, Ra — zawsze +2"
+  },
+  "aluminum": {
+    "name_ru": "Glin",
+    "rule_ru": "Al — zawsze +3"
+  },
+  "oxygen": {
+    "name_ru": "Tlen",
+    "rule_ru": "O zwykle −2. Wyjątek: w nadtlenkach (H₂O₂, Na₂O₂) → −1"
+  },
+  "hydrogen": {
+    "name_ru": "Wodór",
+    "rule_ru": "H zwykle +1. Wyjątek: w wodorkach metali (NaH, CaH₂) → −1"
+  },
+  "algebraic": {
+    "name_ru": "Obliczenie algebraiczne",
+    "rule_ru": "Suma stopni utlenienia wszystkich atomów w cząsteczce obojętnej = 0. Znając wszystkie SU oprócz jednego, rozwiązujemy równanie."
+  },
+  "_redox": {
+    "oxidizer_ru": "Utleniacz — atom (pierwiastek), który przyjmuje elektrony. Jego stopień utlenienia maleje.",
+    "reducer_ru": "Reduktor — atom (pierwiastek), który oddaje elektrony. Jego stopień utlenienia rośnie.",
+    "mnemonic_ru": "UR: Utleniacz się Redukuje (przyjmuje e⁻, SU↓), Reduktor się Utlenia (oddaje e⁻, SU↑)."
+  }
+}

@@ -40,7 +40,7 @@ function RuleCard({ rule }: { rule: OxidationRule }) {
   );
 }
 
-export default function OxidationTheoryPanel() {
+export default function OxidationTheoryPanel({ locale }: { locale?: import('../../types/i18n').SupportedLocale }) {
   const [theory, setTheory] = useState<OxidationTheory | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function OxidationTheoryPanel() {
   useEffect(() => {
     if (!open || theory) return;
     setLoading(true);
-    loadOxidationTheory()
+    loadOxidationTheory(locale)
       .then(data => {
         setTheory(data);
         setLoading(false);
@@ -58,7 +58,7 @@ export default function OxidationTheoryPanel() {
         setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
-  }, [open, theory]);
+  }, [open, theory, locale]);
 
   return (
     <div className="theory-panel">

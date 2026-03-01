@@ -541,8 +541,17 @@ export async function loadBondExamples(): Promise<BondExamplesData> {
 }
 
 /** Load oxidation state theory content. */
-export async function loadOxidationTheory(): Promise<OxidationTheory> {
-  return loadRule('oxidation_theory') as Promise<OxidationTheory>;
+export async function loadOxidationTheory(locale?: SupportedLocale): Promise<OxidationTheory> {
+  const data = await loadRule('oxidation_theory') as OxidationTheory;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'oxidation_theory');
+  if (!overlay) return data;
+  return {
+    rules: applyOverlay(data.rules, overlay, r => r.id),
+    redox_concepts: overlay['_redox']
+      ? { ...data.redox_concepts, ...(overlay['_redox'] as object) } as typeof data.redox_concepts
+      : data.redox_concepts,
+  };
 }
 
 /** Load oxidation state examples (formula + target element + expected state). */

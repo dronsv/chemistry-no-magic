@@ -1,12 +1,69 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormulaChip from '../../components/FormulaChip.tsx';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl } from '../../lib/i18n';
+import { loadBuildOverlay, applyBuildOverlay } from '../../lib/build-overlay';
 import type { Props } from './element-detail-paths';
+import * as m from '../../paraglide/messages.js';
 
-const { element, elementReactions, relatedSubstances, groupLabel, elementIons } = Astro.props as Props;
+const { element, elementReactions, relatedSubstances, groupLabel: baseGroupLabel, elementIons, qualitativeTests } = Astro.props as Props;
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
-const el = element;
+
+// Apply locale overlays
+const el = { ...element };
+const elementsOverlay = await loadBuildOverlay(locale, 'elements');
+if (elementsOverlay && elementsOverlay[el.symbol]) {
+  const ov = { ...elementsOverlay[el.symbol] };
+  if (ov.discovery && el.discovery) {
+    el.discovery = { ...el.discovery, ...(ov.discovery as typeof el.discovery) };
+    delete ov.discovery;
+  }
+  Object.assign(el, ov);
+}
+
+// Apply element-groups overlay for groupLabel
+let groupLabel = baseGroupLabel;
+const groupsOverlay = await loadBuildOverlay(locale, 'element_groups');
+if (groupsOverlay && groupsOverlay[el.element_group]?.name_singular_ru) {
+  groupLabel = groupsOverlay[el.element_group].name_singular_ru as string;
+}
+
+// Apply reactions overlay for titles
+const reactionsOverlay = await loadBuildOverlay(locale, 'reactions');
+const localizedReactions = elementReactions.map(r => {
+  if (reactionsOverlay && reactionsOverlay[r.reaction_id]?.title) {
+    return { ...r, title: reactionsOverlay[r.reaction_id].title as string };
+  }
+  return r;
+});
+
+// Apply ions overlay for names
+const ionsOverlay = await loadBuildOverlay(locale, 'ions');
+const localizedIons = elementIons.map(ion => {
+  if (ionsOverlay && ionsOverlay[ion.id]?.name_ru) {
+    return { ...ion, name_ru: ionsOverlay[ion.id].name_ru as string };
+  }
+  return ion;
+});
+
+// Apply substances overlay for names
+const substancesOverlay = await loadBuildOverlay(locale, 'substances');
+const localizedSubstances = relatedSubstances.map(s => {
+  if (substancesOverlay && substancesOverlay[s.id]?.name_ru) {
+    return { ...s, name_ru: substancesOverlay[s.id].name_ru as string };
+  }
+  return s;
+});
+
+// Apply qualitative tests overlay
+const qualOverlay = await loadBuildOverlay(locale, 'qualitative_reactions');
+const localizedTests = qualitativeTests.map(qt => {
+  if (qualOverlay && qualOverlay[qt.target_id]) {
+    return { ...qt, ...qualOverlay[qt.target_id] };
+  }
+  return qt;
+});
 
 const oxStates = el.typical_oxidation_states
   .map(s => (s > 0 ? `+${s}` : String(s)))
@@ -16,11 +73,31 @@ const hasPhysical = el.melting_point_C != null || el.boiling_point_C != null || 
 const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist_ru);
 const hasHazards = el.hazards_ru && el.hazards_ru.length > 0;
 const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
+
+// Build names worldwide list (show names in other languages as interesting fact)
+const namesList: { lang: string; name: string }[] = [];
+// Always show the base Russian name
+if (locale !== 'ru') namesList.push({ lang: 'ru', name: element.name_ru });
+// Show name_en from base data
+if (locale !== 'en' && element.name_en) namesList.push({ lang: 'en', name: element.name_en });
+// Show name_latin
+if (element.name_latin) namesList.push({ lang: 'la', name: element.name_latin });
+// Add overlayed names from other locales (if different from current)
+for (const otherLocale of ['en', 'pl', 'es'] as const) {
+  if (otherLocale === locale) continue;
+  if (otherLocale === 'en') continue; // already handled above from name_en
+  const otherOverlay = await loadBuildOverlay(otherLocale, 'elements');
+  if (otherOverlay?.[el.symbol]?.name_ru) {
+    namesList.push({ lang: otherLocale, name: otherOverlay[el.symbol].name_ru as string });
+  }
+}
+
+const LANG_FLAGS: Record<string, string> = { ru: 'RU', en: 'EN', la: 'LA', pl: 'PL', es: 'ES' };
 ---
 
 <BaseLayout
-  title={`${el.name_ru} (${el.symbol}) — элемент №${el.Z}`}
-  description={`${el.name_ru} (${el.symbol}, Z=${el.Z}) — свойства, электронная конфигурация, применение.`}
+  title={m.el_title({ name: el.name_ru, symbol: el.symbol, z: String(el.Z) })}
+  description={m.el_description({ name: el.name_ru, symbol: el.symbol, z: String(el.Z) })}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -28,7 +105,7 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
       "@type": "ChemicalSubstance",
       "name": el.name_ru,
       "alternateName": el.name_en,
-      "description": `${el.name_ru} — химический элемент №${el.Z}, ${groupLabel.toLowerCase()}`,
+      "description": m.el_jsonld_desc({ name: el.name_ru, z: String(el.Z), group: groupLabel.toLowerCase() }),
       "inLanguage": locale,
     })} />
   </Fragment>
@@ -42,36 +119,36 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
     </div>
 
     <dl class="element-page__props">
-      <dt>Атомная масса</dt>
+      <dt>{m.el_atomic_mass()}</dt>
       <dd>{el.atomic_mass}</dd>
 
-      <dt>Группа / Период</dt>
+      <dt>{m.el_group_period()}</dt>
       <dd>{el.group} / {el.period}</dd>
 
-      <dt>Тип</dt>
+      <dt>{m.el_type()}</dt>
       <dd>{groupLabel}</dd>
 
       {oxStates && (
         <>
-          <dt>Степени окисления</dt>
+          <dt>{m.el_oxidation_states()}</dt>
           <dd>{oxStates}</dd>
         </>
       )}
 
       {el.electronegativity != null && (
         <>
-          <dt>Электроотрицательность</dt>
-          <dd>{el.electronegativity} (Полинг)</dd>
+          <dt>{m.el_electronegativity()}</dt>
+          <dd>{el.electronegativity} {m.el_pauling()}</dd>
         </>
       )}
     </dl>
 
     {el.electron_exception && (
       <section class="element-page__section element-page__exception">
-        <h2>Провал электрона</h2>
+        <h2>{m.el_electron_exception()}</h2>
         <div class="element-page__exception-compare">
-          <span>Ожидаемая: <s>{el.electron_exception.expected_formula}</s></span>
-          <span>Реальная: <b>{el.electron_exception.actual_formula}</b></span>
+          <span>{m.el_expected_config()} <s>{el.electron_exception.expected_formula}</s></span>
+          <span>{m.el_actual_config()} <b>{el.electron_exception.actual_formula}</b></span>
         </div>
         <p class="element-page__text">{el.electron_exception.reason_ru}</p>
       </section>
@@ -79,24 +156,24 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
 
     {hasPhysical && (
       <section class="element-page__section">
-        <h2>Физические свойства</h2>
+        <h2>{m.el_physical_properties()}</h2>
         <dl class="element-page__props">
           {el.melting_point_C != null && (
             <>
-              <dt>Температура плавления</dt>
+              <dt>{m.prop_melting()}</dt>
               <dd>{el.melting_point_C} °C</dd>
             </>
           )}
           {el.boiling_point_C != null && (
             <>
-              <dt>Температура кипения</dt>
+              <dt>{m.subst_detail_boiling()}</dt>
               <dd>{el.boiling_point_C} °C</dd>
             </>
           )}
           {el.density_g_cm3 != null && (
             <>
-              <dt>Плотность</dt>
-              <dd>{el.density_g_cm3} г/см³</dd>
+              <dt>{m.el_density()}</dt>
+              <dd>{el.density_g_cm3} {m.el_density_unit()}</dd>
             </>
           )}
         </dl>
@@ -105,9 +182,9 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
 
     {hasDiscovery && (
       <section class="element-page__section">
-        <h2>Открытие</h2>
+        <h2>{m.el_discovery()}</h2>
         <div class="element-page__discovery">
-          {el.discovery!.year && <span class="element-page__discovery-year">{el.discovery!.year} г.</span>}
+          {el.discovery!.year && <span class="element-page__discovery-year">{el.discovery!.year}{m.el_year_suffix() ? ` ${m.el_year_suffix()}` : ''}</span>}
           {el.discovery!.scientist_ru && <span>{el.discovery!.scientist_ru}</span>}
           {el.discovery!.country_ru && <span class="element-page__discovery-country">({el.discovery!.country_ru})</span>}
         </div>
@@ -116,28 +193,28 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
 
     {el.abundance_ru && (
       <section class="element-page__section">
-        <h2>Распространённость</h2>
+        <h2>{m.el_abundance()}</h2>
         <p class="element-page__text">{el.abundance_ru}</p>
       </section>
     )}
 
     {el.industrial_ru && (
       <section class="element-page__section">
-        <h2>Применение</h2>
+        <h2>{m.el_industrial()}</h2>
         <p class="element-page__text">{el.industrial_ru}</p>
       </section>
     )}
 
     {el.production_ru && (
       <section class="element-page__section">
-        <h2>Получение</h2>
+        <h2>{m.el_production()}</h2>
         <p class="element-page__text">{el.production_ru}</p>
       </section>
     )}
 
     {hasHazards && (
       <section class="element-page__section">
-        <h2>Опасность и хранение</h2>
+        <h2>{m.el_hazards()}</h2>
         <div class="element-page__hazards">
           {el.hazards_ru!.map(h => (
             <span class="element-page__hazard-tag">{h}</span>
@@ -147,11 +224,11 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
       </section>
     )}
 
-    {elementReactions.length > 0 && (
+    {localizedReactions.length > 0 && (
       <section class="element-page__section">
-        <h2>Реакции</h2>
+        <h2>{m.el_reactions()}</h2>
         <ul class="element-page__reactions">
-          {elementReactions.map(r => (
+          {localizedReactions.map(r => (
             <li>
               <a href={`${localizeUrl('/reactions/', locale)}#${r.reaction_id}`}>{r.equation}</a>
               <span class="element-page__reaction-title">{r.title}</span>
@@ -161,28 +238,54 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
       </section>
     )}
 
-    {elementIons.length > 0 && (
+    {localizedIons.length > 0 && (
       <section class="element-page__section">
-        <h2>Ионы</h2>
+        <h2>{m.el_ions()}</h2>
         <div class="element-page__ions">
-          {elementIons.map(ion => (
-            <span class={`element-page__ion element-page__ion--${ion.type}`} title={ion.name_ru}>
-              {ion.formula}
-              <span class="element-page__ion-name">{ion.name_ru}</span>
-            </span>
+          {localizedIons.map(ion => (
+            <FormulaChip
+              formula={ion.formula}
+              name={ion.name_ru}
+              ionType={ion.type === 'cation' ? 'cation' : 'anion'}
+            />
           ))}
         </div>
       </section>
     )}
 
-    {relatedSubstances.length > 0 && (
+    {localizedSubstances.length > 0 && (
       <section class="element-page__section">
-        <h2>Вещества</h2>
+        <h2>{m.el_substances()}</h2>
         <div class="element-page__substances">
-          {relatedSubstances.map(s => (
-            <a href={`${localizeUrl('/substances/', locale)}${s.id}/`} class="element-page__substance-link">
-              {s.formula}{s.name_ru ? ` (${s.name_ru})` : ''}
-            </a>
+          {localizedSubstances.map(s => (
+            <FormulaChip
+              formula={s.formula}
+              name={s.name_ru}
+              substanceId={s.id}
+              substanceClass={s.class}
+              locale={locale}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {localizedTests.length > 0 && (
+      <section class="element-page__section">
+        <h2>{m.el_qualitative_tests()}</h2>
+        <div class="element-page__qual-tests">
+          {localizedTests.map(qt => (
+            <div class="element-page__qual-test">
+              <div class="element-page__qual-target">{qt.target_name_ru}</div>
+              <dl class="element-page__qual-props">
+                <dt>{m.el_reagent()}</dt>
+                <dd>
+                  <FormulaChip formula={qt.reagent_formula} name={qt.reagent_name_ru} />
+                </dd>
+                <dt>{m.el_observation()}</dt>
+                <dd>{qt.observation_ru}</dd>
+              </dl>
+            </div>
           ))}
         </div>
       </section>
@@ -190,7 +293,7 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
 
     {hasFacts && (
       <section class="element-page__section">
-        <h2>Интересные факты</h2>
+        <h2>{m.el_fun_facts()}</h2>
         <ul class="element-page__facts">
           {el.fun_facts_ru!.map(f => (
             <li>{f}</li>
@@ -199,8 +302,22 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
       </section>
     )}
 
+    {namesList.length > 0 && (
+      <section class="element-page__section">
+        <h2>{m.el_names_worldwide()}</h2>
+        <div class="element-page__names">
+          {namesList.map(n => (
+            <span class="element-page__name-entry">
+              <span class="element-page__name-lang">{LANG_FLAGS[n.lang] ?? n.lang}</span>
+              {n.name}
+            </span>
+          ))}
+        </div>
+      </section>
+    )}
+
     <div class="element-page__actions">
-      <a href={localizeUrl('/periodic-table/', locale)}>&larr; Периодическая таблица</a>
+      <a href={localizeUrl('/periodic-table/', locale)}>&larr; {m.el_back_table()}</a>
     </div>
   </article>
 </BaseLayout>
@@ -359,48 +476,64 @@ const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
     flex-wrap: wrap;
     gap: var(--space-sm);
   }
-  .element-page__ion {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.15rem;
-    padding: 0.375rem 0.625rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
-  .element-page__ion--cation {
-    background: #eff6ff;
-    color: #1e40af;
-  }
-  .element-page__ion--anion {
-    background: #fef2f2;
-    color: #991b1b;
-  }
-  .element-page__ion-name {
-    font-size: 0.6875rem;
-    font-weight: 400;
-    opacity: 0.7;
-  }
 
   .element-page__substances {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
   }
-  .element-page__substance-link {
-    display: inline-block;
+
+  .element-page__qual-tests {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .element-page__qual-test {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+  .element-page__qual-target {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-xs);
+  }
+  .element-page__qual-props {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xs) var(--space-md);
+    font-size: 0.875rem;
+    align-items: baseline;
+  }
+  .element-page__qual-props dt {
+    font-weight: 600;
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+  }
+  .element-page__qual-props dd {
+    margin: 0;
+  }
+
+  .element-page__names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .element-page__name-entry {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     padding: 0.25rem 0.625rem;
     border: 1px solid var(--color-border);
     border-radius: 0.375rem;
-    font-size: 0.8125rem;
-    color: var(--color-text);
-    transition: border-color 0.15s;
+    font-size: 0.875rem;
   }
-  .element-page__substance-link:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    text-decoration: none;
+  .element-page__name-lang {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
   }
 
   .element-page__facts {

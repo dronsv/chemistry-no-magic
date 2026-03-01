@@ -1,120 +1,1631 @@
 {
-  "H": { "name_ru": "Hidrógeno" },
-  "He": { "name_ru": "Helio" },
-  "Li": { "name_ru": "Litio" },
-  "Be": { "name_ru": "Berilio" },
-  "B": { "name_ru": "Boro" },
-  "C": { "name_ru": "Carbono" },
-  "N": { "name_ru": "Nitrógeno" },
-  "O": { "name_ru": "Oxígeno" },
-  "F": { "name_ru": "Flúor" },
-  "Ne": { "name_ru": "Neón" },
-  "Na": { "name_ru": "Sodio" },
-  "Mg": { "name_ru": "Magnesio" },
-  "Al": { "name_ru": "Aluminio" },
-  "Si": { "name_ru": "Silicio" },
-  "P": { "name_ru": "Fósforo" },
-  "S": { "name_ru": "Azufre" },
-  "Cl": { "name_ru": "Cloro" },
-  "Ar": { "name_ru": "Argón" },
-  "K": { "name_ru": "Potasio" },
-  "Ca": { "name_ru": "Calcio" },
-  "Sc": { "name_ru": "Escandio" },
-  "Ti": { "name_ru": "Titanio" },
-  "V": { "name_ru": "Vanadio" },
-  "Cr": { "name_ru": "Cromo" },
-  "Mn": { "name_ru": "Manganeso" },
-  "Fe": { "name_ru": "Hierro" },
-  "Co": { "name_ru": "Cobalto" },
-  "Ni": { "name_ru": "Níquel" },
-  "Cu": { "name_ru": "Cobre" },
-  "Zn": { "name_ru": "Cinc" },
-  "Ga": { "name_ru": "Galio" },
-  "Ge": { "name_ru": "Germanio" },
-  "As": { "name_ru": "Arsénico" },
-  "Se": { "name_ru": "Selenio" },
-  "Br": { "name_ru": "Bromo" },
-  "Kr": { "name_ru": "Kriptón" },
-  "Rb": { "name_ru": "Rubidio" },
-  "Sr": { "name_ru": "Estroncio" },
-  "Y": { "name_ru": "Itrio" },
-  "Zr": { "name_ru": "Circonio" },
-  "Nb": { "name_ru": "Niobio" },
-  "Mo": { "name_ru": "Molibdeno" },
-  "Tc": { "name_ru": "Tecnecio" },
-  "Ru": { "name_ru": "Rutenio" },
-  "Rh": { "name_ru": "Rodio" },
-  "Pd": { "name_ru": "Paladio" },
-  "Ag": { "name_ru": "Plata" },
-  "Cd": { "name_ru": "Cadmio" },
-  "In": { "name_ru": "Indio" },
-  "Sn": { "name_ru": "Estaño" },
-  "Sb": { "name_ru": "Antimonio" },
-  "Te": { "name_ru": "Telurio" },
-  "I": { "name_ru": "Yodo" },
-  "Xe": { "name_ru": "Xenón" },
-  "Cs": { "name_ru": "Cesio" },
-  "Ba": { "name_ru": "Bario" },
-  "La": { "name_ru": "Lantano" },
-  "Ce": { "name_ru": "Cerio" },
-  "Pr": { "name_ru": "Praseodimio" },
-  "Nd": { "name_ru": "Neodimio" },
-  "Pm": { "name_ru": "Prometio" },
-  "Sm": { "name_ru": "Samario" },
-  "Eu": { "name_ru": "Europio" },
-  "Gd": { "name_ru": "Gadolinio" },
-  "Tb": { "name_ru": "Terbio" },
-  "Dy": { "name_ru": "Disprosio" },
-  "Ho": { "name_ru": "Holmio" },
-  "Er": { "name_ru": "Erbio" },
-  "Tm": { "name_ru": "Tulio" },
-  "Yb": { "name_ru": "Iterbio" },
-  "Lu": { "name_ru": "Lutecio" },
-  "Hf": { "name_ru": "Hafnio" },
-  "Ta": { "name_ru": "Tantalio" },
-  "W": { "name_ru": "Wolframio" },
-  "Re": { "name_ru": "Renio" },
-  "Os": { "name_ru": "Osmio" },
-  "Ir": { "name_ru": "Iridio" },
-  "Pt": { "name_ru": "Platino" },
-  "Au": { "name_ru": "Oro" },
-  "Hg": { "name_ru": "Mercurio" },
-  "Tl": { "name_ru": "Talio" },
-  "Pb": { "name_ru": "Plomo" },
-  "Bi": { "name_ru": "Bismuto" },
-  "Po": { "name_ru": "Polonio" },
-  "At": { "name_ru": "Astato" },
-  "Rn": { "name_ru": "Radón" },
-  "Fr": { "name_ru": "Francio" },
-  "Ra": { "name_ru": "Radio" },
-  "Ac": { "name_ru": "Actinio" },
-  "Th": { "name_ru": "Torio" },
-  "Pa": { "name_ru": "Protactinio" },
-  "U": { "name_ru": "Uranio" },
-  "Np": { "name_ru": "Neptunio" },
-  "Pu": { "name_ru": "Plutonio" },
-  "Am": { "name_ru": "Americio" },
-  "Cm": { "name_ru": "Curio" },
-  "Bk": { "name_ru": "Berkelio" },
-  "Cf": { "name_ru": "Californio" },
-  "Es": { "name_ru": "Einstenio" },
-  "Fm": { "name_ru": "Fermio" },
-  "Md": { "name_ru": "Mendelevio" },
-  "No": { "name_ru": "Nobelio" },
-  "Lr": { "name_ru": "Laurencio" },
-  "Rf": { "name_ru": "Rutherfordio" },
-  "Db": { "name_ru": "Dubnio" },
-  "Sg": { "name_ru": "Seaborgio" },
-  "Bh": { "name_ru": "Bohrio" },
-  "Hs": { "name_ru": "Hasio" },
-  "Mt": { "name_ru": "Meitnerio" },
-  "Ds": { "name_ru": "Darmstatio" },
-  "Rg": { "name_ru": "Roentgenio" },
-  "Cn": { "name_ru": "Copernicio" },
-  "Nh": { "name_ru": "Nihonio" },
-  "Fl": { "name_ru": "Flerovio" },
-  "Mc": { "name_ru": "Moscovio" },
-  "Lv": { "name_ru": "Livermorio" },
-  "Ts": { "name_ru": "Teneso" },
-  "Og": { "name_ru": "Oganesón" }
+  "H": {
+    "name_ru": "Hidrógeno",
+    "industrial_ru": "Producción de amoníaco, refinación de petróleo, energía del hidrógeno.",
+    "production_ru": "Reformado de metano con vapor o electrólisis del agua.",
+    "abundance_ru": "El elemento más abundante del Universo (75% en masa).",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo en mezcla con aire"
+    ],
+    "fun_facts_ru": [
+      "El elemento más ligero de la tabla periódica.",
+      "El hidrógeno es el combustible principal de las estrellas, incluido el Sol.",
+      "La molécula H₂ es la más pequeña de todas las moléculas diatómicas."
+    ],
+    "discovery": {
+      "scientist_ru": "Henry Cavendish",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "He": {
+    "name_ru": "Helio",
+    "industrial_ru": "Técnica criogénica, llenado de aeróstatos, atmósfera protectora en soldadura.",
+    "production_ru": "Extracción del gas natural.",
+    "abundance_ru": "Segundo elemento más abundante del Universo.",
+    "fun_facts_ru": [
+      "El único elemento descubierto en el Sol antes que en la Tierra.",
+      "El helio no se congela a presión normal ni siquiera en el cero absoluto.",
+      "Por debajo de 2,17 K el helio se vuelve superfluido."
+    ],
+    "discovery": {
+      "scientist_ru": "Pierre Janssen / Joseph Norman Lockyer",
+      "country_ru": "Francia / Gran Bretaña"
+    }
+  },
+  "Li": {
+    "name_ru": "Litio",
+    "industrial_ru": "Baterías de iones de litio, cerámica, lubricantes.",
+    "production_ru": "Electrólisis de cloruro de litio fundido.",
+    "abundance_ru": "Contenido en la corteza terrestre de aproximadamente 20 ppm.",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo al contacto con agua",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El metal más ligero: su densidad es la mitad de la del agua.",
+      "El litio se utiliza en psiquiatría para el tratamiento del trastorno bipolar."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan August Arfwedson",
+      "country_ru": "Suecia"
+    }
+  },
+  "Be": {
+    "name_ru": "Berilio",
+    "industrial_ru": "Industria aeroespacial, ventanas de rayos X, resortes.",
+    "production_ru": "Reducción de fluoruro de berilio con magnesio.",
+    "hazards_ru": [
+      "Tóxico",
+      "Cancerígeno (polvo)"
+    ],
+    "fun_facts_ru": [
+      "El berilio es transparente a los rayos X, por eso se fabrican con él ventanas de tubos de rayos X.",
+      "Lleva el nombre del mineral berilo (la esmeralda es una de sus variedades)."
+    ],
+    "discovery": {
+      "scientist_ru": "Louis Nicolas Vauquelin",
+      "country_ru": "Francia"
+    }
+  },
+  "B": {
+    "name_ru": "Boro",
+    "industrial_ru": "Vidrio borosilicatado, detergentes (boratos), ácido bórico.",
+    "production_ru": "Reducción de óxido de boro con magnesio.",
+    "hazards_ru": [
+      "Inflamable (polvo)"
+    ],
+    "fun_facts_ru": [
+      "El boro es uno de los pocos elementos capaces de formar clústeres covalentes estables.",
+      "El ácido bórico se ha usado desde la antigüedad como antiséptico."
+    ],
+    "discovery": {
+      "scientist_ru": "Joseph Louis Gay-Lussac / Louis Jacques Thénard",
+      "country_ru": "Francia"
+    }
+  },
+  "C": {
+    "name_ru": "Carbono",
+    "industrial_ru": "Metalurgia (coque), fibra de carbono, diamantes, grafito para electrodos.",
+    "abundance_ru": "Base de todos los compuestos orgánicos; cuarto elemento más abundante del Universo.",
+    "hazards_ru": [
+      "Inflamable (polvo, en forma de partículas)"
+    ],
+    "fun_facts_ru": [
+      "El carbono forma más compuestos que todos los demás elementos juntos.",
+      "El diamante y el grafito son formas alotrópicas del carbono con propiedades radicalmente diferentes.",
+      "El fullereno C₆₀ es una molécula con forma de balón de fútbol, descubierta en 1985."
+    ]
+  },
+  "N": {
+    "name_ru": "Nitrógeno",
+    "industrial_ru": "Producción de amoníaco y fertilizantes, técnica criogénica, atmósfera protectora.",
+    "production_ru": "Destilación fraccionada del aire líquido.",
+    "abundance_ru": "Constituye el 78% de la atmósfera terrestre en volumen.",
+    "fun_facts_ru": [
+      "El nitrógeno líquido hierve a −196 °C y se utiliza para la congelación instantánea.",
+      "El triple enlace N≡N es uno de los enlaces químicos más fuertes."
+    ],
+    "discovery": {
+      "scientist_ru": "Daniel Rutherford",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "O": {
+    "name_ru": "Oxígeno",
+    "industrial_ru": "Metalurgia (producción de acero al convertidor), medicina, combustible de cohetes.",
+    "production_ru": "Destilación fraccionada del aire líquido.",
+    "abundance_ru": "El elemento más abundante en la corteza terrestre (46% en masa).",
+    "fun_facts_ru": [
+      "El oxígeno constituye el 21% de la atmósfera terrestre.",
+      "El ozono O₃ es una forma alotrópica del oxígeno que protege la Tierra de la radiación ultravioleta.",
+      "El oxígeno líquido tiene color azul y es atraído por un imán."
+    ],
+    "discovery": {
+      "scientist_ru": "Joseph Priestley / Carl Wilhelm Scheele",
+      "country_ru": "Gran Bretaña / Suecia"
+    }
+  },
+  "F": {
+    "name_ru": "Flúor",
+    "industrial_ru": "Producción de fluoropolímeros (teflón), enriquecimiento de uranio (UF₆), fluoración del agua.",
+    "production_ru": "Electrólisis de KF·2HF fundido (método de Moissan).",
+    "hazards_ru": [
+      "Tóxico",
+      "Corrosivo",
+      "Oxidante fuerte"
+    ],
+    "fun_facts_ru": [
+      "El elemento más electronegativo y el oxidante más fuerte.",
+      "El flúor reacciona con casi todas las sustancias, incluidos el vidrio y el platino.",
+      "El teflón (PTFE) es un polímero de flúor, uno de los materiales más resbaladizos."
+    ],
+    "discovery": {
+      "scientist_ru": "Henri Moissan",
+      "country_ru": "Francia"
+    }
+  },
+  "Ne": {
+    "name_ru": "Neón",
+    "industrial_ru": "Publicidad luminosa de neón, láseres, técnica criogénica.",
+    "production_ru": "Destilación fraccionada del aire líquido.",
+    "fun_facts_ru": [
+      "Los carteles de neón emiten un brillo rojo anaranjado característico.",
+      "El neón es dos tercios más ligero que el aire, pero más pesado que el helio y el hidrógeno."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Na": {
+    "name_ru": "Sodio",
+    "industrial_ru": "Producción de NaOH, sodio metálico como refrigerante en reactores nucleares.",
+    "production_ru": "Electrólisis de NaCl fundido (proceso Downs).",
+    "abundance_ru": "Sexto elemento más abundante en la corteza terrestre (2,3%).",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo al contacto con agua",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El sodio es tan blando que se puede cortar con un cuchillo.",
+      "El sodio arde con una llama amarilla brillante, de ahí el color amarillo de las lámparas de sodio.",
+      "La sal de mesa (NaCl) es el compuesto de sodio más conocido."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Mg": {
+    "name_ru": "Magnesio",
+    "industrial_ru": "Aleaciones ligeras para aviación y automoción, pirotecnia.",
+    "production_ru": "Electrólisis de MgCl₂ fundido obtenido del agua de mar.",
+    "abundance_ru": "Octavo elemento más abundante en la corteza terrestre.",
+    "hazards_ru": [
+      "Inflamable (polvo, virutas)",
+      "Arde con una llama blanca brillante"
+    ],
+    "fun_facts_ru": [
+      "El magnesio arde con una luz blanca brillante que no se puede apagar con agua.",
+      "La clorofila, molécula de la fotosíntesis, contiene un átomo de magnesio en su centro."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Al": {
+    "name_ru": "Aluminio",
+    "industrial_ru": "Construcción aeronáutica, embalaje, construcción (aleaciones, láminas, perfiles).",
+    "production_ru": "Electrólisis de Al₂O₃ fundido en criolita (proceso Hall-Héroult).",
+    "abundance_ru": "Tercer elemento más abundante en la corteza terrestre (8,1%).",
+    "fun_facts_ru": [
+      "En el siglo XIX el aluminio era más caro que el oro.",
+      "El aluminio se cubre de una capa de óxido resistente que lo protege de la corrosión.",
+      "La cúspide del Monumento a Washington (1884) se fundió en aluminio como símbolo de lujo."
+    ],
+    "discovery": {
+      "scientist_ru": "Hans Christian Ørsted",
+      "country_ru": "Dinamarca"
+    }
+  },
+  "Si": {
+    "name_ru": "Silicio",
+    "industrial_ru": "Electrónica de semiconductores, paneles solares, siliconas, vidrio.",
+    "production_ru": "Reducción de SiO₂ con carbono en horno de arco eléctrico.",
+    "abundance_ru": "Segundo elemento más abundante en la corteza terrestre (27,7%) después del oxígeno.",
+    "fun_facts_ru": [
+      "El silicio es la base de toda la electrónica moderna; Silicon Valley lleva su nombre.",
+      "La arena (SiO₂) es la materia prima principal para la fabricación de vidrio y silicio."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Suecia"
+    }
+  },
+  "P": {
+    "name_ru": "Fósforo",
+    "industrial_ru": "Fertilizantes (fosfatos), detergentes, cerillas (fósforo rojo).",
+    "production_ru": "Reducción de fosforita con carbono en horno eléctrico.",
+    "hazards_ru": [
+      "Tóxico (fósforo blanco)",
+      "Se inflama espontáneamente en el aire (fósforo blanco)"
+    ],
+    "fun_facts_ru": [
+      "El fósforo blanco brilla en la oscuridad (quimioluminiscencia), de ahí su nombre «portador de luz».",
+      "El fósforo fue el primer elemento descubierto mediante búsqueda científica (1669).",
+      "El ADN y el ATP contienen fósforo como elemento clave."
+    ],
+    "discovery": {
+      "scientist_ru": "Hennig Brand",
+      "country_ru": "Alemania"
+    }
+  },
+  "S": {
+    "name_ru": "Azufre",
+    "industrial_ru": "Producción de ácido sulfúrico, vulcanización del caucho, fungicidas.",
+    "production_ru": "Proceso Claus (extracción del gas natural y del petróleo).",
+    "abundance_ru": "Se encuentra ampliamente en estado nativo y en minerales de sulfuro.",
+    "hazards_ru": [
+      "Inflamable"
+    ],
+    "fun_facts_ru": [
+      "El ácido sulfúrico es la sustancia química más producida en el mundo.",
+      "El olor característico de los huevos podridos se debe al sulfuro de hidrógeno H₂S.",
+      "El azufre es conocido por la humanidad desde la antigüedad; se menciona en la Biblia."
+    ]
+  },
+  "Cl": {
+    "name_ru": "Cloro",
+    "industrial_ru": "Desinfección del agua, producción de PVC, lejías, ácido clorhídrico.",
+    "production_ru": "Electrólisis de solución de NaCl (proceso cloro-álcali).",
+    "hazards_ru": [
+      "Tóxico",
+      "Corrosivo",
+      "Oxidante fuerte"
+    ],
+    "fun_facts_ru": [
+      "El cloro fue el primer gas utilizado como arma química (1915).",
+      "La cloración del agua ha salvado millones de vidas de epidemias."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Wilhelm Scheele",
+      "country_ru": "Suecia"
+    }
+  },
+  "Ar": {
+    "name_ru": "Argón",
+    "industrial_ru": "Atmósfera protectora en soldadura y metalurgia, llenado de lámparas incandescentes.",
+    "production_ru": "Destilación fraccionada del aire líquido.",
+    "abundance_ru": "Tercer gas más abundante en la atmósfera (0,93%).",
+    "fun_facts_ru": [
+      "El argón es el gas noble más abundante en la atmósfera terrestre.",
+      "Su nombre proviene del griego «argos», que significa perezoso, inactivo."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / John William Strutt (Lord Rayleigh)",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "K": {
+    "name_ru": "Potasio",
+    "industrial_ru": "Fertilizantes potásicos, producción de KOH, aleaciones NaK (refrigerantes).",
+    "production_ru": "Electrólisis de KCl fundido o reducción con sodio.",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo al contacto con agua",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El potasio es tan blando y ligero que flota en el agua mientras reacciona con ella.",
+      "El potasio es vital para el funcionamiento del sistema nervioso y los músculos."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Ca": {
+    "name_ru": "Calcio",
+    "industrial_ru": "Materiales de construcción (cemento, cal, yeso), metalurgia (desoxidante).",
+    "production_ru": "Electrólisis de CaCl₂ fundido.",
+    "abundance_ru": "Quinto elemento más abundante en la corteza terrestre (3,6%).",
+    "hazards_ru": [
+      "Inflamable",
+      "Reacciona con el agua"
+    ],
+    "fun_facts_ru": [
+      "El calcio es el principal elemento estructural de los huesos y los dientes.",
+      "El mármol, la caliza y la tiza son carbonato de calcio CaCO₃."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Sc": {
+    "name_ru": "Escandio",
+    "industrial_ru": "Aleaciones de aluminio-escandio (cuadros de bicicleta, industria aeroespacial).",
+    "fun_facts_ru": [
+      "El escandio fue predicho por Mendeléyev con el nombre de «ekaboro» en 1871."
+    ],
+    "discovery": {
+      "scientist_ru": "Lars Fredrik Nilson",
+      "country_ru": "Suecia"
+    }
+  },
+  "Ti": {
+    "name_ru": "Titanio",
+    "industrial_ru": "Aviación y cosmonáutica, implantes, pigmento TiO₂ (blanco de titanio).",
+    "production_ru": "Proceso Kroll: reducción de TiCl₄ con magnesio.",
+    "fun_facts_ru": [
+      "El titanio es tan resistente como el acero, pero casi dos veces más ligero.",
+      "El dióxido de titanio TiO₂ es el pigmento blanco más utilizado en el mundo."
+    ],
+    "discovery": {
+      "scientist_ru": "William Gregor",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "V": {
+    "name_ru": "Vanadio",
+    "industrial_ru": "Aditivo de aleación para acero (aceros de herramientas), baterías de vanadio.",
+    "fun_facts_ru": [
+      "Nombrado en honor a la diosa nórdica de la belleza Vanadis (Freyja), por los bellos colores de sus sales."
+    ],
+    "discovery": {
+      "scientist_ru": "Andrés Manuel del Río",
+      "country_ru": "México"
+    }
+  },
+  "Cr": {
+    "name_ru": "Cromo",
+    "industrial_ru": "Cromado, acero inoxidable, pigmentos.",
+    "production_ru": "Reducción de Cr₂O₃ con aluminio (aluminotermia).",
+    "hazards_ru": [
+      "Tóxico (compuestos de Cr⁶⁺)",
+      "Cancerígeno (Cr⁶⁺)"
+    ],
+    "fun_facts_ru": [
+      "Su nombre proviene del griego «chroma» (color), por los vivos colores de sus sales.",
+      "El rubí y la esmeralda deben su color a las impurezas de cromo."
+    ],
+    "discovery": {
+      "scientist_ru": "Louis Nicolas Vauquelin",
+      "country_ru": "Francia"
+    }
+  },
+  "Mn": {
+    "name_ru": "Manganeso",
+    "industrial_ru": "Aleación de acero, pilas secas (MnO₂), catalizadores.",
+    "production_ru": "Electrólisis de solución de MnSO₄ o reducción de mineral con carbono.",
+    "fun_facts_ru": [
+      "El manganeso es esencial para la fotosíntesis: sin él las plantas no pueden descomponer el agua."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gottlieb Gahn",
+      "country_ru": "Suecia"
+    }
+  },
+  "Fe": {
+    "name_ru": "Hierro",
+    "industrial_ru": "Base de la metalurgia ferrosa: acero, hierro fundido, aleaciones.",
+    "production_ru": "Reducción de mineral (Fe₂O₃) con coque en alto horno.",
+    "abundance_ru": "Cuarto elemento más abundante en la corteza terrestre (5%); base del núcleo de la Tierra.",
+    "fun_facts_ru": [
+      "El núcleo de la Tierra está compuesto principalmente de hierro y níquel.",
+      "La hemoglobina de la sangre contiene iones de hierro, que le dan a la sangre su color rojo.",
+      "El hierro es el elemento más estable desde el punto de vista de la física nuclear (la energía de enlace por nucleón es máxima en ⁵⁶Fe)."
+    ]
+  },
+  "Co": {
+    "name_ru": "Cobalto",
+    "industrial_ru": "Superaleaciones para turbinas, baterías de litio-cobalto, pigmentos (azul cobalto).",
+    "hazards_ru": [
+      "Tóxico (compuestos)",
+      "Cancerígeno (inhalación de polvo)"
+    ],
+    "fun_facts_ru": [
+      "El azul cobalto es uno de los pigmentos más antiguos, utilizado en la porcelana china.",
+      "El isótopo ⁶⁰Co se emplea en la radioterapia del cáncer."
+    ],
+    "discovery": {
+      "scientist_ru": "Georg Brandt",
+      "country_ru": "Suecia"
+    }
+  },
+  "Ni": {
+    "name_ru": "Níquel",
+    "industrial_ru": "Acero inoxidable, niquelado, monedas, baterías.",
+    "production_ru": "Tostación y reducción de minerales sulfurados; proceso Mond para níquel de alta pureza.",
+    "hazards_ru": [
+      "Cancerígeno (polvo, algunos compuestos)",
+      "Alergénico"
+    ],
+    "fun_facts_ru": [
+      "El níquel es uno de los cinco elementos ferromagnéticos (Fe, Co, Ni, Gd, Dy).",
+      "La moneda estadounidense «nickel» (5 centavos) contiene un 25% de níquel y un 75% de cobre."
+    ],
+    "discovery": {
+      "scientist_ru": "Axel Fredrik Cronstedt",
+      "country_ru": "Suecia"
+    }
+  },
+  "Cu": {
+    "name_ru": "Cobre",
+    "industrial_ru": "Electrotecnia (cables, conductores), fontanería, aleaciones (bronce, latón).",
+    "production_ru": "Procesamiento pirometalúrgico de minerales sulfurados con refinación electrolítica.",
+    "fun_facts_ru": [
+      "El cobre fue el primer metal dominado por el ser humano (la Edad del Cobre comenzó hacia el 5000 a. C.).",
+      "La Estatua de la Libertad está recubierta con 80 toneladas de cobre; el color verde es la pátina Cu₂(OH)₂CO₃.",
+      "El cobre posee propiedades antibacterianas."
+    ]
+  },
+  "Zn": {
+    "name_ru": "Cinc",
+    "industrial_ru": "Galvanizado de acero, aleaciones (latón), pilas, óxido de cinc.",
+    "production_ru": "Electrólisis de solución de ZnSO₄ o reducción por tostación de mineral.",
+    "fun_facts_ru": [
+      "El cinc es necesario para el funcionamiento de más de 300 enzimas en el organismo humano.",
+      "El galvanizado es el principal método de protección del acero contra la corrosión."
+    ]
+  },
+  "Ga": {
+    "name_ru": "Galio",
+    "industrial_ru": "Semiconductores (GaAs) para LED, láseres y paneles solares.",
+    "fun_facts_ru": [
+      "El galio se funde en la mano (p. f. 29,76 °C): el metal con menor punto de fusión después del mercurio y el cesio.",
+      "Fue predicho por Mendeléyev con el nombre de «ekaaluminio» en 1871.",
+      "Tiene uno de los rangos líquidos más amplios (30–2229 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francia"
+    }
+  },
+  "Ge": {
+    "name_ru": "Germanio",
+    "industrial_ru": "Fibra óptica, óptica infrarroja, semiconductores.",
+    "fun_facts_ru": [
+      "Fue predicho por Mendeléyev con el nombre de «ekasilicio» en 1871; las propiedades coincidieron.",
+      "El primer transistor (1947) se fabricó con germanio."
+    ],
+    "discovery": {
+      "scientist_ru": "Clemens Winkler",
+      "country_ru": "Alemania"
+    }
+  },
+  "As": {
+    "name_ru": "Arsénico",
+    "industrial_ru": "Semiconductores (GaAs), conservante de madera (anteriormente), aleaciones de plomo para perdigones.",
+    "hazards_ru": [
+      "Tóxico",
+      "Cancerígeno"
+    ],
+    "fun_facts_ru": [
+      "El arsénico era llamado «el rey de los venenos» y «el veneno de los reyes»: se usó durante siglos para envenenar.",
+      "El pigmento verde «verde de París» (acetoarsenito de cobre) se utilizó en las pinturas del siglo XIX."
+    ],
+    "discovery": {
+      "scientist_ru": "Alberto Magno",
+      "country_ru": "Alemania"
+    }
+  },
+  "Se": {
+    "name_ru": "Selenio",
+    "industrial_ru": "Fabricación de vidrio, fotocélulas, electrónica, aditivo para acero inoxidable.",
+    "hazards_ru": [
+      "Tóxico (en grandes dosis)"
+    ],
+    "fun_facts_ru": [
+      "El selenio es un oligoelemento esencial, pero tóxico en exceso.",
+      "Nombrado en honor a la Luna (griego «selene»), por analogía con el telurio (latín «tierra»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Suecia"
+    }
+  },
+  "Br": {
+    "name_ru": "Bromo",
+    "industrial_ru": "Retardantes de llama, farmacéutica, película fotográfica (bromuro de plata), pesticidas.",
+    "production_ru": "Extracción de salmueras y agua de mar mediante oxidación con cloro.",
+    "hazards_ru": [
+      "Tóxico",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El bromo es uno de los dos elementos líquidos a temperatura ambiente (junto con el mercurio).",
+      "Su nombre proviene del griego «bromos» (hedor), por su fuerte olor desagradable."
+    ],
+    "discovery": {
+      "scientist_ru": "Antoine Jérôme Balard",
+      "country_ru": "Francia"
+    }
+  },
+  "Kr": {
+    "name_ru": "Kriptón",
+    "industrial_ru": "Flashes fotográficos, ventanas de doble cristal de ahorro energético, láseres.",
+    "fun_facts_ru": [
+      "Su nombre proviene del griego «kryptos» (oculto).",
+      "Hasta 1960 el metro se definía a partir de la longitud de onda de una línea de emisión del ⁸⁶Kr."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Rb": {
+    "name_ru": "Rubidio",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo al contacto con agua",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El rubidio se descubrió por dos líneas rojas en el espectro, de ahí su nombre (latín «rubidus», rojo oscuro).",
+      "Los relojes atómicos de rubidio son unos de los más precisos del mundo."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Alemania"
+    }
+  },
+  "Sr": {
+    "name_ru": "Estroncio",
+    "industrial_ru": "Producción de imanes de ferrita, fuegos artificiales (llama roja), pantallas fluorescentes.",
+    "hazards_ru": [
+      "Inflamable",
+      "Reacciona con el agua"
+    ],
+    "fun_facts_ru": [
+      "El estroncio colorea la llama de rojo brillante y se usa en fuegos artificiales.",
+      "El isótopo radiactivo ⁹⁰Sr es un producto peligroso de las explosiones nucleares."
+    ],
+    "discovery": {
+      "scientist_ru": "Adair Crawford",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Y": {
+    "name_ru": "Itrio",
+    "industrial_ru": "Láseres (YAG), superconductores cerámicos, luminóforos rojos para pantallas.",
+    "fun_facts_ru": [
+      "Cuatro elementos (Y, Tb, Er, Yb) llevan el nombre de la aldea sueca de Ytterby."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gadolin",
+      "country_ru": "Finlandia"
+    }
+  },
+  "Zr": {
+    "name_ru": "Circonio",
+    "industrial_ru": "Revestimiento de barras de combustible nuclear, cerámica, implantes dentales (ZrO₂).",
+    "fun_facts_ru": [
+      "El circonio no absorbe neutrones, por lo que es ideal para reactores nucleares.",
+      "La circonita cúbica (ZrO₂) es un popular sustituto artificial del diamante."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Alemania"
+    }
+  },
+  "Nb": {
+    "name_ru": "Niobio",
+    "industrial_ru": "Superaleaciones, imanes superconductores (IRM, aceleradores), joyería.",
+    "fun_facts_ru": [
+      "El niobio es el material principal de los imanes superconductores en escáneres de IRM.",
+      "Nombrado en honor a Níobe de la mitología griega, hija de Tántalo."
+    ],
+    "discovery": {
+      "scientist_ru": "Charles Hatchett",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Mo": {
+    "name_ru": "Molibdeno",
+    "industrial_ru": "Aleación de acero (aceros de herramientas, resistentes al calor), catalizadores.",
+    "fun_facts_ru": [
+      "El molibdeno es un oligoelemento esencial para las plantas (participa en la fijación del nitrógeno).",
+      "El disulfuro de molibdeno (MoS₂) es un excelente lubricante sólido."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Wilhelm Scheele",
+      "country_ru": "Suecia"
+    }
+  },
+  "Tc": {
+    "name_ru": "Tecnecio",
+    "industrial_ru": "Diagnóstico médico (el isótopo ⁹⁹ᵐTc es el radioisótopo más utilizado en medicina).",
+    "hazards_ru": [
+      "Radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Primer elemento obtenido artificialmente: su nombre significa «artificial» (griego «technetos»).",
+      "Todos los isótopos del tecnecio son radiactivos; prácticamente no se encuentra en la Tierra."
+    ],
+    "discovery": {
+      "scientist_ru": "Carlo Perrier / Emilio Segrè",
+      "country_ru": "Italia"
+    }
+  },
+  "Ru": {
+    "name_ru": "Rutenio",
+    "industrial_ru": "Catalizadores, contactos eléctricos, discos duros (capas magnéticas).",
+    "fun_facts_ru": [
+      "El rutenio lleva el nombre de Rusia (latín «Ruthenia»).",
+      "Es el único elemento nombrado en honor a Rusia."
+    ],
+    "discovery": {
+      "scientist_ru": "Karl Karlovich Klaus",
+      "country_ru": "Rusia"
+    }
+  },
+  "Rh": {
+    "name_ru": "Rodio",
+    "industrial_ru": "Catalizadores de automóviles, recubrimiento de espejos, recubrimientos de joyería.",
+    "fun_facts_ru": [
+      "El rodio es el más caro de los metales nobles.",
+      "Nombrado por el color rosa-rojizo de sus sales (griego «rhodon», rosa)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Pd": {
+    "name_ru": "Paladio",
+    "industrial_ru": "Catalizadores de automóviles, electrónica, odontología, joyería.",
+    "fun_facts_ru": [
+      "El paladio puede absorber hidrógeno en un volumen 900 veces superior al suyo propio.",
+      "Nombrado en honor al asteroide Palas, descubierto un año antes que el elemento."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Ag": {
+    "name_ru": "Plata",
+    "industrial_ru": "Joyería, electrónica, fotografía, espejos, medicina (propiedades bactericidas).",
+    "fun_facts_ru": [
+      "La plata tiene la mayor conductividad eléctrica y térmica entre todos los metales.",
+      "La plata posee propiedades antibacterianas y se utiliza en medicina y filtros de agua.",
+      "El símbolo Ag proviene del latín «argentum» (brillante, blanco)."
+    ]
+  },
+  "Cd": {
+    "name_ru": "Cadmio",
+    "industrial_ru": "Baterías de níquel-cadmio, pigmentos, recubrimientos, barras de control de reactores nucleares.",
+    "hazards_ru": [
+      "Tóxico",
+      "Cancerígeno"
+    ],
+    "fun_facts_ru": [
+      "El cadmio absorbe bien los neutrones y se usa en barras de control de reactores.",
+      "La enfermedad «itai-itai» en Japón fue causada por la contaminación con cadmio."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Stromeyer",
+      "country_ru": "Alemania"
+    }
+  },
+  "In": {
+    "name_ru": "Indio",
+    "industrial_ru": "Pantallas táctiles (ITO — óxido de indio y estaño), soldaduras, semiconductores.",
+    "fun_facts_ru": [
+      "El indio emite un «grito» característico (crujido) al doblarse.",
+      "Nombrado por la brillante línea índigo en su espectro."
+    ],
+    "discovery": {
+      "scientist_ru": "Ferdinand Reich / Hieronymus Theodor Richter",
+      "country_ru": "Alemania"
+    }
+  },
+  "Sn": {
+    "name_ru": "Estaño",
+    "industrial_ru": "Estañado de hojalata (latas de conserva), soldaduras, bronce (aleación con cobre).",
+    "hazards_ru": [
+      "Los compuestos orgánicos de estaño son tóxicos"
+    ],
+    "fun_facts_ru": [
+      "Al enfriarse por debajo de 13,2 °C, el estaño blanco se convierte en polvo gris: la «peste del estaño».",
+      "La Edad del Bronce recibe su nombre de la aleación de estaño y cobre.",
+      "El símbolo Sn proviene del latín «stannum»."
+    ]
+  },
+  "Sb": {
+    "name_ru": "Antimonio",
+    "industrial_ru": "Retardantes de llama, aleaciones para baterías y cojinetes, semiconductores.",
+    "hazards_ru": [
+      "Tóxico"
+    ],
+    "fun_facts_ru": [
+      "El antimonio se usaba en el Antiguo Egipto como cosmético (estibina, kohl).",
+      "El símbolo Sb proviene del latín «stibium»."
+    ]
+  },
+  "Te": {
+    "name_ru": "Telurio",
+    "industrial_ru": "Paneles solares (CdTe), aleación de acero y cobre, dispositivos termoeléctricos.",
+    "hazards_ru": [
+      "Tóxico"
+    ],
+    "fun_facts_ru": [
+      "Su nombre proviene del latín «tellus» (tierra).",
+      "Incluso cantidades ínfimas de telurio confieren al aliento un olor a ajo."
+    ],
+    "discovery": {
+      "scientist_ru": "Franz-Joseph Müller von Reichenstein",
+      "country_ru": "Austria"
+    }
+  },
+  "I": {
+    "name_ru": "Yodo",
+    "industrial_ru": "Medicina (antisépticos, medios de contraste), fotografía, catalizadores.",
+    "hazards_ru": [
+      "Tóxico (vapores)",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "Al calentarse, el yodo sublima formando vapores violetas, de ahí su nombre (griego «iodes», violeta).",
+      "El yodo es necesario para la producción de hormonas tiroideas.",
+      "La solución de yodo con almidón produce una coloración azul característica."
+    ],
+    "discovery": {
+      "scientist_ru": "Bernard Courtois",
+      "country_ru": "Francia"
+    }
+  },
+  "Xe": {
+    "name_ru": "Xenón",
+    "industrial_ru": "Lámparas de xenón (proyectores, faros de automóviles), anestesia, motores iónicos.",
+    "fun_facts_ru": [
+      "Primer gas noble para el que se obtuvieron compuestos químicos (XeF₂, 1962).",
+      "Su nombre proviene del griego «xenos» (extraño, forastero).",
+      "El xenón se utiliza como combustible de cohetes en motores iónicos de naves espaciales."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Cs": {
+    "name_ru": "Cesio",
+    "industrial_ru": "Relojes atómicos (patrón de frecuencia), sensores fotoeléctricos.",
+    "hazards_ru": [
+      "Inflamable",
+      "Explosivo al contacto con agua",
+      "Corrosivo"
+    ],
+    "fun_facts_ru": [
+      "El cesio es el elemento estable más electropositivo.",
+      "El segundo se define a partir de la frecuencia de radiación del átomo de ¹³³Cs.",
+      "Uno de los metales con menor punto de fusión (28,44 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Alemania"
+    }
+  },
+  "Ba": {
+    "name_ru": "Bario",
+    "industrial_ru": "Lodos de perforación (BaSO₄), fabricación de vidrio, pirotecnia (llama verde).",
+    "hazards_ru": [
+      "Tóxico (compuestos solubles)",
+      "Reacciona con el agua"
+    ],
+    "fun_facts_ru": [
+      "El sulfato de bario (BaSO₄) es insoluble y no tóxico; se usa como medio de contraste en radiografías gastrointestinales.",
+      "El bario colorea la llama de verde."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "La": {
+    "name_ru": "Lantano",
+    "industrial_ru": "Vidrio óptico, catalizadores de craqueo, baterías de níquel-hidruro metálico.",
+    "fun_facts_ru": [
+      "Su nombre proviene del griego «lanthanein» (ocultarse), ya que permaneció largo tiempo oculto en el óxido de cerio."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Suecia"
+    }
+  },
+  "Ce": {
+    "name_ru": "Cerio",
+    "industrial_ru": "Polvos de pulido, catalizadores (convertidores catalíticos de automóviles), piedras de encendedor.",
+    "fun_facts_ru": [
+      "Nombrado en honor al planeta enano Ceres.",
+      "El cerio es el lantánido más abundante en la corteza terrestre."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius / Wilhelm Hisinger",
+      "country_ru": "Suecia"
+    }
+  },
+  "Pr": {
+    "name_ru": "Praseodimio",
+    "industrial_ru": "Imanes permanentes (Nd-Fe-B con adición de Pr), vidrios para gafas protectoras.",
+    "fun_facts_ru": [
+      "Su nombre significa «gemelo verde» (griego «praseos didymos»), por el color de sus sales."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
+  },
+  "Nd": {
+    "name_ru": "Neodimio",
+    "industrial_ru": "Imanes permanentes de gran potencia Nd₂Fe₁₄B (motores eléctricos, auriculares, discos duros).",
+    "fun_facts_ru": [
+      "Los imanes de neodimio son los imanes permanentes más potentes del mundo.",
+      "Su nombre significa «nuevo gemelo» (griego «neos didymos»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
+  },
+  "Pm": {
+    "name_ru": "Prometio",
+    "industrial_ru": "Baterías atómicas (¹⁴⁷Pm), pintura luminiscente.",
+    "hazards_ru": [
+      "Radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El único lantánido que no posee isótopos estables.",
+      "Nombrado en honor a Prometeo, quien robó el fuego a los dioses."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacob Marinsky / Lawrence Glendenin / Charles Coryell",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Sm": {
+    "name_ru": "Samario",
+    "industrial_ru": "Imanes permanentes (SmCo₅), barras de control de reactores, láseres.",
+    "fun_facts_ru": [
+      "Los imanes de samario-cobalto conservan su magnetización a altas temperaturas."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francia"
+    }
+  },
+  "Eu": {
+    "name_ru": "Europio",
+    "industrial_ru": "Luminóforos rojos para pantallas, protección de billetes (fluorescencia), láseres.",
+    "fun_facts_ru": [
+      "El europio es responsable del brillo rojo en las pantallas de televisión.",
+      "Se utiliza en los billetes de euro para protegerlos contra la falsificación."
+    ],
+    "discovery": {
+      "scientist_ru": "Eugène-Anatole Demarçay",
+      "country_ru": "Francia"
+    }
+  },
+  "Gd": {
+    "name_ru": "Gadolinio",
+    "industrial_ru": "Medio de contraste para IRM, reactores nucleares, refrigeración magnética.",
+    "hazards_ru": [
+      "Tóxico (compuestos, al administrarse por vía intravenosa)"
+    ],
+    "fun_facts_ru": [
+      "El gadolinio es ferromagnético a temperatura ambiente (punto de Curie 20 °C).",
+      "Nombrado en honor al químico finlandés Johan Gadolin."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Suiza"
+    }
+  },
+  "Tb": {
+    "name_ru": "Terbio",
+    "industrial_ru": "Luminóforos verdes, aleaciones magnetoestrictivas (Terfenol-D).",
+    "fun_facts_ru": [
+      "Nombrado en honor a la aldea de Ytterby en Suecia."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Suecia"
+    }
+  },
+  "Dy": {
+    "name_ru": "Disprosio",
+    "industrial_ru": "Aditivo para imanes de neodimio (mejora la resistencia térmica), láseres.",
+    "fun_facts_ru": [
+      "Su nombre proviene del griego «dysprositos» (difícil de obtener), ya que resulta difícil de aislar."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francia"
+    }
+  },
+  "Ho": {
+    "name_ru": "Holmio",
+    "industrial_ru": "Láseres médicos, piezas polares de imanes.",
+    "fun_facts_ru": [
+      "El holmio posee el momento magnético más alto de todos los elementos.",
+      "Nombrado en honor a Estocolmo (latín «Holmia»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacques-Louis Soret / Marc Delafontaine",
+      "country_ru": "Suiza"
+    }
+  },
+  "Er": {
+    "name_ru": "Erbio",
+    "industrial_ru": "Amplificadores de fibra óptica (fibra dopada con Er), láseres, coloración rosa del vidrio.",
+    "fun_facts_ru": [
+      "Nombrado en honor a la aldea de Ytterby.",
+      "Los amplificadores de fibra de erbio son la base de las comunicaciones por fibra óptica de larga distancia."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Suecia"
+    }
+  },
+  "Tm": {
+    "name_ru": "Tulio",
+    "industrial_ru": "Fuentes de rayos X (portátiles), láseres.",
+    "fun_facts_ru": [
+      "El tulio es el lantánido menos abundante (excepto el prometio).",
+      "Nombrado en honor a Thule, nombre antiguo de Escandinavia."
+    ],
+    "discovery": {
+      "scientist_ru": "Per Teodor Cleve",
+      "country_ru": "Suecia"
+    }
+  },
+  "Yb": {
+    "name_ru": "Iterbio",
+    "industrial_ru": "Láseres de fibra de alta potencia, aleación de acero inoxidable.",
+    "fun_facts_ru": [
+      "Nombrado en honor a la aldea de Ytterby, el cuarto elemento con este nombre."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Suiza"
+    }
+  },
+  "Lu": {
+    "name_ru": "Lutecio",
+    "industrial_ru": "Escáneres PET (detectores de Lu₂SiO₅), catalizadores de refinación de petróleo.",
+    "fun_facts_ru": [
+      "El lutecio es el más pesado y el más caro de los lantánidos estables.",
+      "Nombrado en honor al antiguo nombre de París: Lutetia."
+    ],
+    "discovery": {
+      "scientist_ru": "Georges Urbain / Carl Auer von Welsbach",
+      "country_ru": "Francia / Austria"
+    }
+  },
+  "Hf": {
+    "name_ru": "Hafnio",
+    "industrial_ru": "Barras de control de reactores nucleares, superaleaciones, semiconductores.",
+    "fun_facts_ru": [
+      "El hafnio y el circonio son casi indistinguibles en sus propiedades químicas; separarlos es extremadamente difícil.",
+      "Nombrado en honor a Copenhague (latín «Hafnia»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Dirk Coster / George de Hevesy",
+      "country_ru": "Dinamarca"
+    }
+  },
+  "Ta": {
+    "name_ru": "Tantalio",
+    "industrial_ru": "Condensadores electrolíticos, implantes quirúrgicos, superaleaciones.",
+    "fun_facts_ru": [
+      "El tantalio es absolutamente resistente a los ácidos (excepto HF y óleum); nombrado en honor al mítico Tántalo.",
+      "Se utiliza en casi todos los teléfonos inteligentes (condensadores)."
+    ],
+    "discovery": {
+      "scientist_ru": "Anders Gustaf Ekeberg",
+      "country_ru": "Suecia"
+    }
+  },
+  "W": {
+    "name_ru": "Wolframio",
+    "industrial_ru": "Filamentos de lámparas incandescentes, aleaciones duras (carburo de wolframio), proyectiles perforantes.",
+    "production_ru": "Reducción de WO₃ con hidrógeno o carbono.",
+    "fun_facts_ru": [
+      "El wolframio tiene el punto de fusión más alto de todos los metales.",
+      "El símbolo W proviene del alemán «Wolfram» (espuma de lobo), nombre del mineral wolframita.",
+      "El carburo de wolframio se acerca al diamante en dureza."
+    ],
+    "discovery": {
+      "scientist_ru": "Juan José Elhuyar / Fausto Elhuyar",
+      "country_ru": "España"
+    }
+  },
+  "Re": {
+    "name_ru": "Renio",
+    "industrial_ru": "Superaleaciones para álabes de turbinas de motores a reacción, catalizadores.",
+    "fun_facts_ru": [
+      "El renio fue el último elemento estable descubierto en la naturaleza (1925).",
+      "Uno de los elementos más raros de la corteza terrestre (~0,001 ppm).",
+      "Nombrado en honor al río Rin."
+    ],
+    "discovery": {
+      "scientist_ru": "Walter Noddack / Ida Noddack / Otto Berg",
+      "country_ru": "Alemania"
+    }
+  },
+  "Os": {
+    "name_ru": "Osmio",
+    "industrial_ru": "Puntas de plumas estilográficas, contactos eléctricos, catalizadores.",
+    "hazards_ru": [
+      "Tóxico (OsO₄ es volátil y extremadamente venenoso)"
+    ],
+    "fun_facts_ru": [
+      "El osmio es el elemento más denso (22,587 g/cm³).",
+      "Su nombre proviene del griego «osme» (olor), por el olor penetrante del OsO₄."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Ir": {
+    "name_ru": "Iridio",
+    "industrial_ru": "Bujías, crisoles, electrodos, patrón del kilogramo (aleación Pt-Ir).",
+    "fun_facts_ru": [
+      "El iridio es el segundo elemento más denso después del osmio y el metal más resistente a la corrosión.",
+      "El contenido anormalmente alto de iridio en las arcillas del límite Cretácico-Paleógeno evidencia el impacto del asteroide que extinguió a los dinosaurios.",
+      "Nombrado por los variados colores de sus sales (griego «iris», arcoíris)."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Pt": {
+    "name_ru": "Platino",
+    "industrial_ru": "Catalizadores de automóviles, joyería, material de laboratorio, fármacos anticancerígenos (cisplatino).",
+    "fun_facts_ru": [
+      "Su nombre proviene del español «platina» (platita), ya que los españoles consideraban al platino inútil.",
+      "El prototipo internacional del kilogramo (hasta 2019) era de una aleación de platino e iridio."
+    ],
+    "discovery": {
+      "scientist_ru": "Antonio de Ulloa",
+      "country_ru": "España"
+    }
+  },
+  "Au": {
+    "name_ru": "Oro",
+    "industrial_ru": "Joyería, electrónica (contactos, conductores), reservas de oro, medicina.",
+    "fun_facts_ru": [
+      "Todo el oro extraído a lo largo de la historia cabría en un cubo de 21 m de arista.",
+      "El oro es tan maleable que con 1 g se puede estirar un hilo de 3 km de longitud.",
+      "El oro no se oxida al aire y no se disuelve en ácidos, excepto en agua regia."
+    ]
+  },
+  "Hg": {
+    "name_ru": "Mercurio",
+    "industrial_ru": "Termómetros (en proceso de eliminación), lámparas fluorescentes, producción de cloro-álcali.",
+    "hazards_ru": [
+      "Tóxico",
+      "Vapores venenosos",
+      "Contamina el medio ambiente"
+    ],
+    "fun_facts_ru": [
+      "El único metal líquido a temperatura ambiente.",
+      "Nombrado en honor al planeta Mercurio; su símbolo alquímico es el mismo que el del planeta.",
+      "Los termómetros de mercurio fueron inventados por Fahrenheit en 1714."
+    ]
+  },
+  "Tl": {
+    "name_ru": "Talio",
+    "industrial_ru": "Detectores de centelleo (TlBr/TlI), optoelectrónica, superconductores.",
+    "hazards_ru": [
+      "Extremadamente tóxico"
+    ],
+    "fun_facts_ru": [
+      "El talio es uno de los elementos más venenosos; sus compuestos no tienen sabor ni olor.",
+      "Nombrado por la brillante línea verde en su espectro (griego «thallos», rama verde)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Crookes",
+      "country_ru": "Gran Bretaña"
+    }
+  },
+  "Pb": {
+    "name_ru": "Plomo",
+    "industrial_ru": "Baterías (de plomo-ácido), protección radiológica, soldaduras (uso limitado).",
+    "hazards_ru": [
+      "Tóxico",
+      "Veneno acumulativo"
+    ],
+    "fun_facts_ru": [
+      "Los romanos utilizaban tuberías de plomo para el agua corriente; el envenenamiento por plomo se considera una de las causas de la caída del imperio.",
+      "El símbolo Pb proviene del latín «plumbum», del que derivan las palabras «plomero» y «plomada»."
+    ]
+  },
+  "Bi": {
+    "name_ru": "Bismuto",
+    "industrial_ru": "Farmacéutica (subsalicilato de bismuto), aleaciones de bajo punto de fusión, cosmética.",
+    "fun_facts_ru": [
+      "Los cristales de bismuto forman hermosas estructuras escalonadas iridiscentes.",
+      "El bismuto es ligeramente radiactivo (vida media de ²⁰⁹Bi ≈ 1,9×10¹⁹ años), pero prácticamente estable."
+    ],
+    "discovery": {
+      "scientist_ru": "Claude Geoffroy",
+      "country_ru": "Francia"
+    }
+  },
+  "Po": {
+    "name_ru": "Polonio",
+    "hazards_ru": [
+      "Extremadamente radiactivo",
+      "Extremadamente tóxico"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Polonia, patria de Marie Curie.",
+      "El polonio-210 se utilizaba en dispositivos antiestáticos.",
+      "Alexander Litvinenko fue envenenado con polonio-210 en 2006."
+    ],
+    "discovery": {
+      "scientist_ru": "Marie Curie / Pierre Curie",
+      "country_ru": "Francia"
+    }
+  },
+  "At": {
+    "name_ru": "Astato",
+    "hazards_ru": [
+      "Radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El astato es el elemento natural más raro: en la corteza terrestre existen simultáneamente menos de 30 g.",
+      "Su nombre proviene del griego «astatos» (inestable)."
+    ],
+    "discovery": {
+      "scientist_ru": "Dale Corson / Kenneth MacKenzie / Emilio Segrè",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Rn": {
+    "name_ru": "Radón",
+    "hazards_ru": [
+      "Radiactivo",
+      "Cancerígeno (segunda causa de cáncer de pulmón después del tabaco)"
+    ],
+    "fun_facts_ru": [
+      "El radón es el gas noble más pesado.",
+      "El radón se acumula en los sótanos de los edificios y es la segunda causa más importante de cáncer de pulmón."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Ernst Dorn",
+      "country_ru": "Alemania"
+    }
+  },
+  "Fr": {
+    "name_ru": "Francio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El francio es el más inestable de los primeros 101 elementos; la vida media de ²²³Fr es de 22 minutos.",
+      "Nombrado en honor a Francia; último elemento descubierto en la naturaleza."
+    ],
+    "discovery": {
+      "scientist_ru": "Marguerite Perey",
+      "country_ru": "Francia"
+    }
+  },
+  "Ra": {
+    "name_ru": "Radio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El radio brilla con una luz azul debido a la radioluminiscencia.",
+      "Marie Curie recibió el Premio Nobel de Química (1911) por el descubrimiento del radio.",
+      "Su nombre proviene del latín «radius» (rayo)."
+    ],
+    "discovery": {
+      "scientist_ru": "Marie Curie / Pierre Curie",
+      "country_ru": "Francia"
+    }
+  },
+  "Ac": {
+    "name_ru": "Actinio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El actinio es 150 veces más radiactivo que el radio.",
+      "Su nombre proviene del griego «aktinos» (rayo)."
+    ],
+    "discovery": {
+      "scientist_ru": "André-Louis Debierne",
+      "country_ru": "Francia"
+    }
+  },
+  "Th": {
+    "name_ru": "Torio",
+    "industrial_ru": "Potencial combustible nuclear (ciclo del torio), camisas de gas incandescentes.",
+    "hazards_ru": [
+      "Radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Hay 3 a 4 veces más torio que uranio en la corteza terrestre.",
+      "Nombrado en honor al dios nórdico del trueno, Thor."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Suecia"
+    }
+  },
+  "Pa": {
+    "name_ru": "Protactinio",
+    "hazards_ru": [
+      "Radiactivo",
+      "Extremadamente tóxico"
+    ],
+    "fun_facts_ru": [
+      "El protactinio es uno de los elementos naturales más raros y costosos."
+    ],
+    "discovery": {
+      "scientist_ru": "Kasimir Fajans / Oswald Helmuth Göhring",
+      "country_ru": "Alemania"
+    }
+  },
+  "U": {
+    "name_ru": "Uranio",
+    "industrial_ru": "Combustible nuclear (²³⁵U), armas nucleares, proyectiles perforantes (uranio empobrecido).",
+    "production_ru": "Extracción de mineral de uranio, enriquecimiento del isótopo ²³⁵U (centrifugación de gas).",
+    "hazards_ru": [
+      "Radiactivo",
+      "Tóxico"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor al planeta Urano, descubierto 8 años antes que el elemento.",
+      "El uranio es 1,7 veces más pesado que el plomo.",
+      "1 kg de ²³⁵U al fisionarse libera energía equivalente a 2500 toneladas de carbón."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Alemania"
+    }
+  },
+  "Np": {
+    "name_ru": "Neptunio",
+    "hazards_ru": [
+      "Radiactivo",
+      "Tóxico"
+    ],
+    "fun_facts_ru": [
+      "Primer elemento transuránico; nombrado en honor a Neptuno, el planeta siguiente después de Urano."
+    ],
+    "discovery": {
+      "scientist_ru": "Edwin McMillan / Philip Abelson",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Pu": {
+    "name_ru": "Plutonio",
+    "industrial_ru": "Armas nucleares, combustible nuclear (MOX), fuentes de energía de radioisótopos (²³⁸Pu).",
+    "hazards_ru": [
+      "Extremadamente radiactivo",
+      "Extremadamente tóxico"
+    ],
+    "fun_facts_ru": [
+      "El plutonio-238 es la fuente de energía de los rovers marcianos Curiosity y Perseverance.",
+      "Nombrado en honor a Plutón, el siguiente «planeta» después de Neptuno.",
+      "Tiene 6 formas alotrópicas, más que cualquier otro elemento."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Edwin McMillan / Joseph Kennedy / Arthur Wahl",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Am": {
+    "name_ru": "Americio",
+    "industrial_ru": "Detectores de humo (²⁴¹Am), fuentes de neutrones.",
+    "hazards_ru": [
+      "Radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El americio-241 se utiliza en los detectores de humo domésticos.",
+      "Nombrado en honor a América, por analogía con el europio."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Leon Morgan / Albert Ghiorso",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Cm": {
+    "name_ru": "Curio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Marie y Pierre Curie.",
+      "El curio-244 se utilizó en los espectrómetros alfa de los rovers marcianos."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Albert Ghiorso",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Bk": {
+    "name_ru": "Berkelio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a la ciudad de Berkeley (California), donde se encuentra el Laboratorio Nacional."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Cf": {
+    "name_ru": "Californio",
+    "industrial_ru": "Fuente de neutrones (²⁵²Cf) para análisis de minerales, detección de explosivos e inicio de reactores.",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "El californio-252 es uno de los materiales más caros de la Tierra (~27 millones de dólares/g).",
+      "Nombrado en honor al estado de California."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Kenneth Street / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Es": {
+    "name_ru": "Einstenio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Albert Einstein.",
+      "Se descubrió en los restos de la primera explosión termonuclear (prueba «Ivy Mike»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso y otros",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Fm": {
+    "name_ru": "Fermio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Enrico Fermi.",
+      "Al igual que el einstenio, se descubrió en los restos de una explosión termonuclear."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso y otros",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Md": {
+    "name_ru": "Mendelevio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Dmitri Ivánovich Mendeléyev."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso / Bernard Harvey / Gregory Choppin / Stanley Thompson / Glenn Seaborg",
+      "country_ru": "EE. UU."
+    }
+  },
+  "No": {
+    "name_ru": "Nobelio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Alfred Nobel."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov y otros",
+      "country_ru": "URSS"
+    }
+  },
+  "Lr": {
+    "name_ru": "Laurencio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Ernest Lawrence, inventor del ciclotrón."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso y otros",
+      "country_ru": "EE. UU."
+    }
+  },
+  "Rf": {
+    "name_ru": "Rutherfordio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Ernest Rutherford."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov y otros / independientemente Albert Ghiorso y otros",
+      "country_ru": "URSS / EE. UU."
+    }
+  },
+  "Db": {
+    "name_ru": "Dubnio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a la ciudad de Dubná, sede del JINR."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov y otros / independientemente Albert Ghiorso y otros",
+      "country_ru": "URSS / EE. UU."
+    }
+  },
+  "Sg": {
+    "name_ru": "Seaborgio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Glenn Seaborg: el único elemento nombrado en vida del científico."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso y otros / independientemente Georgy Flyorov y otros",
+      "country_ru": "EE. UU. / URSS"
+    }
+  },
+  "Bh": {
+    "name_ru": "Bohrio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Niels Bohr."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Hs": {
+    "name_ru": "Hasio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor al estado federado alemán de Hesse (alemán «Hessen»), donde se encuentra el instituto GSI."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Mt": {
+    "name_ru": "Meitnerio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Lise Meitner, física que participó en el descubrimiento de la fisión nuclear."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Ds": {
+    "name_ru": "Darmstatio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Darmstadt, la ciudad donde se encuentra el instituto GSI."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Rg": {
+    "name_ru": "Roentgenio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Wilhelm Conrad Röntgen, descubridor de los rayos X."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Cn": {
+    "name_ru": "Copernicio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Nicolás Copérnico.",
+      "Según cálculos teóricos, podría ser líquido a temperatura ambiente (como el mercurio)."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Sigurd Hofmann y otros",
+      "country_ru": "Alemania"
+    }
+  },
+  "Nh": {
+    "name_ru": "Nihonio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Primer elemento descubierto en Asia; nombrado en honor a Japón (japonés «nihon»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Kosuke Morita y otros",
+      "country_ru": "Japón"
+    }
+  },
+  "Fl": {
+    "name_ru": "Flerovio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor al Laboratorio de Reacciones Nucleares Flyorov en Dubná.",
+      "Según los cálculos, podría presentar propiedades de gas noble."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian y otros",
+      "country_ru": "Rusia"
+    }
+  },
+  "Mc": {
+    "name_ru": "Moscovio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a la región de Moscú, donde se encuentra el JINR en Dubná."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian y otros",
+      "country_ru": "Rusia / EE. UU."
+    }
+  },
+  "Lv": {
+    "name_ru": "Livermorio",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor al Laboratorio Nacional Lawrence Livermore (California)."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian y otros",
+      "country_ru": "Rusia / EE. UU."
+    }
+  },
+  "Ts": {
+    "name_ru": "Teneso",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor al estado de Tennessee (EE. UU.), donde se encuentra el Laboratorio Nacional de Oak Ridge."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian y otros",
+      "country_ru": "Rusia / EE. UU."
+    }
+  },
+  "Og": {
+    "name_ru": "Oganesón",
+    "hazards_ru": [
+      "Extremadamente radiactivo"
+    ],
+    "fun_facts_ru": [
+      "Nombrado en honor a Yuri Tsólakovich Oganessián: el segundo elemento (después del seaborgio) nombrado en vida del científico.",
+      "Según las predicciones, podría ser sólido a temperatura ambiente, a diferencia de los demás gases nobles."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian y otros",
+      "country_ru": "Rusia / EE. UU."
+    }
+  }
 }

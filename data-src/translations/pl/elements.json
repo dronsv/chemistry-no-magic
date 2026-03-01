@@ -1,120 +1,1631 @@
 {
-  "H": { "name_ru": "Wodór" },
-  "He": { "name_ru": "Hel" },
-  "Li": { "name_ru": "Lit" },
-  "Be": { "name_ru": "Beryl" },
-  "B": { "name_ru": "Bor" },
-  "C": { "name_ru": "Węgiel" },
-  "N": { "name_ru": "Azot" },
-  "O": { "name_ru": "Tlen" },
-  "F": { "name_ru": "Fluor" },
-  "Ne": { "name_ru": "Neon" },
-  "Na": { "name_ru": "Sód" },
-  "Mg": { "name_ru": "Magnez" },
-  "Al": { "name_ru": "Glin" },
-  "Si": { "name_ru": "Krzem" },
-  "P": { "name_ru": "Fosfor" },
-  "S": { "name_ru": "Siarka" },
-  "Cl": { "name_ru": "Chlor" },
-  "Ar": { "name_ru": "Argon" },
-  "K": { "name_ru": "Potas" },
-  "Ca": { "name_ru": "Wapń" },
-  "Sc": { "name_ru": "Skand" },
-  "Ti": { "name_ru": "Tytan" },
-  "V": { "name_ru": "Wanad" },
-  "Cr": { "name_ru": "Chrom" },
-  "Mn": { "name_ru": "Mangan" },
-  "Fe": { "name_ru": "Żelazo" },
-  "Co": { "name_ru": "Kobalt" },
-  "Ni": { "name_ru": "Nikiel" },
-  "Cu": { "name_ru": "Miedź" },
-  "Zn": { "name_ru": "Cynk" },
-  "Ga": { "name_ru": "Gal" },
-  "Ge": { "name_ru": "German" },
-  "As": { "name_ru": "Arsen" },
-  "Se": { "name_ru": "Selen" },
-  "Br": { "name_ru": "Brom" },
-  "Kr": { "name_ru": "Krypton" },
-  "Rb": { "name_ru": "Rubid" },
-  "Sr": { "name_ru": "Stront" },
-  "Y": { "name_ru": "Itr" },
-  "Zr": { "name_ru": "Cyrkon" },
-  "Nb": { "name_ru": "Niob" },
-  "Mo": { "name_ru": "Molibden" },
-  "Tc": { "name_ru": "Technet" },
-  "Ru": { "name_ru": "Ruten" },
-  "Rh": { "name_ru": "Rod" },
-  "Pd": { "name_ru": "Pallad" },
-  "Ag": { "name_ru": "Srebro" },
-  "Cd": { "name_ru": "Kadm" },
-  "In": { "name_ru": "Ind" },
-  "Sn": { "name_ru": "Cyna" },
-  "Sb": { "name_ru": "Antymon" },
-  "Te": { "name_ru": "Tellur" },
-  "I": { "name_ru": "Jod" },
-  "Xe": { "name_ru": "Ksenon" },
-  "Cs": { "name_ru": "Cez" },
-  "Ba": { "name_ru": "Bar" },
-  "La": { "name_ru": "Lantan" },
-  "Ce": { "name_ru": "Cer" },
-  "Pr": { "name_ru": "Prazeodym" },
-  "Nd": { "name_ru": "Neodym" },
-  "Pm": { "name_ru": "Promet" },
-  "Sm": { "name_ru": "Samar" },
-  "Eu": { "name_ru": "Europ" },
-  "Gd": { "name_ru": "Gadolin" },
-  "Tb": { "name_ru": "Terb" },
-  "Dy": { "name_ru": "Dysproz" },
-  "Ho": { "name_ru": "Holm" },
-  "Er": { "name_ru": "Erb" },
-  "Tm": { "name_ru": "Tul" },
-  "Yb": { "name_ru": "Iterb" },
-  "Lu": { "name_ru": "Lutet" },
-  "Hf": { "name_ru": "Hafn" },
-  "Ta": { "name_ru": "Tantal" },
-  "W": { "name_ru": "Wolfram" },
-  "Re": { "name_ru": "Ren" },
-  "Os": { "name_ru": "Osm" },
-  "Ir": { "name_ru": "Iryd" },
-  "Pt": { "name_ru": "Platyna" },
-  "Au": { "name_ru": "Złoto" },
-  "Hg": { "name_ru": "Rtęć" },
-  "Tl": { "name_ru": "Tal" },
-  "Pb": { "name_ru": "Ołów" },
-  "Bi": { "name_ru": "Bizmut" },
-  "Po": { "name_ru": "Polon" },
-  "At": { "name_ru": "Astat" },
-  "Rn": { "name_ru": "Radon" },
-  "Fr": { "name_ru": "Frans" },
-  "Ra": { "name_ru": "Rad" },
-  "Ac": { "name_ru": "Aktyn" },
-  "Th": { "name_ru": "Tor" },
-  "Pa": { "name_ru": "Protaktyn" },
-  "U": { "name_ru": "Uran" },
-  "Np": { "name_ru": "Neptun" },
-  "Pu": { "name_ru": "Pluton" },
-  "Am": { "name_ru": "Ameryk" },
-  "Cm": { "name_ru": "Kiur" },
-  "Bk": { "name_ru": "Berkel" },
-  "Cf": { "name_ru": "Kaliforn" },
-  "Es": { "name_ru": "Einstein" },
-  "Fm": { "name_ru": "Ferm" },
-  "Md": { "name_ru": "Mendelew" },
-  "No": { "name_ru": "Nobel" },
-  "Lr": { "name_ru": "Lorens" },
-  "Rf": { "name_ru": "Rutherford" },
-  "Db": { "name_ru": "Dubn" },
-  "Sg": { "name_ru": "Seaborg" },
-  "Bh": { "name_ru": "Bohr" },
-  "Hs": { "name_ru": "Has" },
-  "Mt": { "name_ru": "Meitner" },
-  "Ds": { "name_ru": "Darmsztadt" },
-  "Rg": { "name_ru": "Roentgen" },
-  "Cn": { "name_ru": "Kopernik" },
-  "Nh": { "name_ru": "Nihon" },
-  "Fl": { "name_ru": "Flerow" },
-  "Mc": { "name_ru": "Moskow" },
-  "Lv": { "name_ru": "Liwermor" },
-  "Ts": { "name_ru": "Tenes" },
-  "Og": { "name_ru": "Oganeson" }
+  "H": {
+    "name_ru": "Wodór",
+    "industrial_ru": "Produkcja amoniaku, rafinacja ropy naftowej, energetyka wodorowa.",
+    "production_ru": "Reforming parowy metanu lub elektroliza wody.",
+    "abundance_ru": "Najliczniejszy pierwiastek we Wszechświecie (75% masy).",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w mieszaninie z powietrzem"
+    ],
+    "fun_facts_ru": [
+      "Najlżejszy pierwiastek w układzie okresowym.",
+      "Wodór jest głównym paliwem gwiazd, w tym Słońca.",
+      "Cząsteczka H₂ jest najmniejsza ze wszystkich cząsteczek dwuatomowych."
+    ],
+    "discovery": {
+      "scientist_ru": "Henry Cavendish",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "He": {
+    "name_ru": "Hel",
+    "industrial_ru": "Technika kriogeniczna, napełnianie aerostatów, atmosfera ochronna przy spawaniu.",
+    "production_ru": "Pozyskiwanie z gazu ziemnego.",
+    "abundance_ru": "Drugi najliczniejszy pierwiastek we Wszechświecie.",
+    "fun_facts_ru": [
+      "Jedyny pierwiastek odkryty na Słońcu wcześniej niż na Ziemi.",
+      "Hel nie zamarza pod normalnym ciśnieniem nawet w temperaturze zera bezwzględnego.",
+      "W temperaturze poniżej 2,17 K hel staje się nadciekły."
+    ],
+    "discovery": {
+      "scientist_ru": "Pierre Janssen / Joseph Norman Lockyer",
+      "country_ru": "Francja / Wielka Brytania"
+    }
+  },
+  "Li": {
+    "name_ru": "Lit",
+    "industrial_ru": "Akumulatory litowo-jonowe, ceramika, środki smarne.",
+    "production_ru": "Elektroliza stopionego chlorku litu.",
+    "abundance_ru": "Zawartość w skorupie ziemskiej wynosi około 20 ppm.",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w kontakcie z wodą",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Najlżejszy metal — gęstość dwa razy mniejsza niż wody.",
+      "Lit stosowany jest w psychiatrii do leczenia zaburzenia afektywnego dwubiegunowego."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan August Arfwedson",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Be": {
+    "name_ru": "Beryl",
+    "industrial_ru": "Przemysł lotniczy i kosmiczny, okienka rentgenowskie, sprężyny.",
+    "production_ru": "Redukcja fluorku berylu magnezem.",
+    "hazards_ru": [
+      "Toksyczny",
+      "Rakotwórczy (pył)"
+    ],
+    "fun_facts_ru": [
+      "Beryl jest przezroczysty dla promieni rentgenowskich, dlatego wykonuje się z niego okienka lamp rentgenowskich.",
+      "Nazwa pochodzi od minerału berylu (szmaragd jest jego odmianą)."
+    ],
+    "discovery": {
+      "scientist_ru": "Louis Nicolas Vauquelin",
+      "country_ru": "Francja"
+    }
+  },
+  "B": {
+    "name_ru": "Bor",
+    "industrial_ru": "Szkło borokrzemianowe, środki czyszczące (borany), kwas borowy.",
+    "production_ru": "Redukcja tlenku boru magnezem.",
+    "hazards_ru": [
+      "Palny (proszek)"
+    ],
+    "fun_facts_ru": [
+      "Bor jest jednym z nielicznych pierwiastków zdolnych do tworzenia stabilnych klastrów kowalencyjnych.",
+      "Kwas borowy od dawna stosowany jest jako środek antyseptyczny."
+    ],
+    "discovery": {
+      "scientist_ru": "Joseph Louis Gay-Lussac / Louis Jacques Thénard",
+      "country_ru": "Francja"
+    }
+  },
+  "C": {
+    "name_ru": "Węgiel",
+    "industrial_ru": "Metalurgia (koks), włókno węglowe, diamenty, grafit do elektrod.",
+    "abundance_ru": "Podstawa wszystkich związków organicznych; 4. najliczniejszy pierwiastek we Wszechświecie.",
+    "hazards_ru": [
+      "Palny (pył, proszek)"
+    ],
+    "fun_facts_ru": [
+      "Węgiel tworzy więcej związków niż wszystkie pozostałe pierwiastki razem wzięte.",
+      "Diament i grafit to odmiany alotropowe węgla o diametralnie różnych właściwościach.",
+      "Fulleren C₆₀ to cząsteczka w kształcie piłki nożnej, odkryta w 1985 roku."
+    ]
+  },
+  "N": {
+    "name_ru": "Azot",
+    "industrial_ru": "Produkcja amoniaku i nawozów, technika kriogeniczna, atmosfera ochronna.",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza.",
+    "abundance_ru": "Stanowi 78% atmosfery Ziemi objętościowo.",
+    "fun_facts_ru": [
+      "Ciekły azot wrze w temperaturze −196 °C i jest stosowany do błyskawicznego mrożenia.",
+      "Wiązanie potrójne N≡N jest jednym z najtrwalszych wiązań chemicznych."
+    ],
+    "discovery": {
+      "scientist_ru": "Daniel Rutherford",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "O": {
+    "name_ru": "Tlen",
+    "industrial_ru": "Metalurgia (konwertorowa produkcja stali), medycyna, paliwo rakietowe.",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza.",
+    "abundance_ru": "Najliczniejszy pierwiastek w skorupie ziemskiej (46% masy).",
+    "fun_facts_ru": [
+      "Tlen stanowi 21% atmosfery Ziemi.",
+      "Ozon O₃ to odmiana alotropowa tlenu, chroniąca Ziemię przed promieniowaniem ultrafioletowym.",
+      "Ciekły tlen ma niebieski kolor i jest przyciągany przez magnes."
+    ],
+    "discovery": {
+      "scientist_ru": "Joseph Priestley / Carl Wilhelm Scheele",
+      "country_ru": "Wielka Brytania / Szwecja"
+    }
+  },
+  "F": {
+    "name_ru": "Fluor",
+    "industrial_ru": "Produkcja fluoropolimerów (teflon), wzbogacanie uranu (UF₆), fluorowanie wody.",
+    "production_ru": "Elektroliza stopu KF·2HF (metoda Moissana).",
+    "hazards_ru": [
+      "Toksyczny",
+      "Korozyjny",
+      "Silny utleniacz"
+    ],
+    "fun_facts_ru": [
+      "Najbardziej elektroujemny pierwiastek i najsilniejszy utleniacz.",
+      "Fluor reaguje z niemal wszystkimi substancjami, w tym ze szkłem i platyną.",
+      "Teflon (PTFE) to polimer fluoru, jeden z najbardziej śliskich materiałów."
+    ],
+    "discovery": {
+      "scientist_ru": "Henri Moissan",
+      "country_ru": "Francja"
+    }
+  },
+  "Ne": {
+    "name_ru": "Neon",
+    "industrial_ru": "Reklamy neonowe, lasery, technika kriogeniczna.",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza.",
+    "fun_facts_ru": [
+      "Neony reklamowe dają charakterystyczną czerwono-pomarańczową poświatę.",
+      "Neon jest o 2/3 lżejszy od powietrza, ale cięższy od helu i wodoru."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Na": {
+    "name_ru": "Sód",
+    "industrial_ru": "Produkcja NaOH, metaliczny sód jako czynnik chłodzący w reaktorach jądrowych.",
+    "production_ru": "Elektroliza stopionego NaCl (proces Downsa).",
+    "abundance_ru": "Szósty najliczniejszy pierwiastek w skorupie ziemskiej (2,3%).",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w kontakcie z wodą",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Sód jest tak miękki, że można go kroić nożem.",
+      "Sód płonie jasnym żółtym płomieniem — stąd żółty kolor lamp sodowych.",
+      "Sól kuchenna (NaCl) to najbardziej znany związek sodu."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Mg": {
+    "name_ru": "Magnez",
+    "industrial_ru": "Lekkie stopy dla lotnictwa i motoryzacji, pirotechnika.",
+    "production_ru": "Elektroliza stopionego MgCl₂ z wody morskiej.",
+    "abundance_ru": "Ósmy najliczniejszy pierwiastek w skorupie ziemskiej.",
+    "hazards_ru": [
+      "Palny (proszek, wiórki)",
+      "Płonie jasnym białym płomieniem"
+    ],
+    "fun_facts_ru": [
+      "Magnez płonie jasnym białym światłem, którego nie można ugasić wodą.",
+      "Chlorofil — cząsteczka fotosyntezy — zawiera atom magnezu w centrum."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Al": {
+    "name_ru": "Glin",
+    "industrial_ru": "Lotnictwo, opakowania, budownictwo (stopy, folia, profile).",
+    "production_ru": "Elektroliza stopionego Al₂O₃ w kriolicie (proces Halla-Héroulta).",
+    "abundance_ru": "Trzeci najliczniejszy pierwiastek w skorupie ziemskiej (8,1%).",
+    "fun_facts_ru": [
+      "W XIX wieku aluminium ceniono drożej niż złoto.",
+      "Aluminium pokrywa się trwałą warstwą tlenkową, chroniącą przed korozją.",
+      "Szczyt pomnika Waszyngtona (1884) odlano z aluminium jako symbol luksusu."
+    ],
+    "discovery": {
+      "scientist_ru": "Hans Christian Ørsted",
+      "country_ru": "Dania"
+    }
+  },
+  "Si": {
+    "name_ru": "Krzem",
+    "industrial_ru": "Elektronika półprzewodnikowa, baterie słoneczne, silikony, szkło.",
+    "production_ru": "Redukcja SiO₂ węglem w piecu łukowym.",
+    "abundance_ru": "Drugi najliczniejszy pierwiastek w skorupie ziemskiej (27,7%) po tlenie.",
+    "fun_facts_ru": [
+      "Krzem jest podstawą całej współczesnej elektroniki; Dolina Krzemowa została nazwana na jego cześć.",
+      "Piasek (SiO₂) to główny surowiec do produkcji szkła i krzemu."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Szwecja"
+    }
+  },
+  "P": {
+    "name_ru": "Fosfor",
+    "industrial_ru": "Nawozy (fosforany), środki czyszczące, zapałki (fosfor czerwony).",
+    "production_ru": "Redukcja fosforytu węglem w piecu elektrycznym.",
+    "hazards_ru": [
+      "Toksyczny (fosfor biały)",
+      "Samozapalny na powietrzu (fosfor biały)"
+    ],
+    "fun_facts_ru": [
+      "Biały fosfor świeci w ciemności (chemiluminescencja) — stąd nazwa «niosący światło».",
+      "Fosfor jest pierwszym pierwiastkiem odkrytym drogą badań naukowych (1669 rok).",
+      "DNA i ATP zawierają fosfor jako kluczowy pierwiastek."
+    ],
+    "discovery": {
+      "scientist_ru": "Hennig Brand",
+      "country_ru": "Niemcy"
+    }
+  },
+  "S": {
+    "name_ru": "Siarka",
+    "industrial_ru": "Produkcja kwasu siarkowego, wulkanizacja kauczuku, fungicydy.",
+    "production_ru": "Proces Clausa (pozyskiwanie z gazu ziemnego i ropy naftowej).",
+    "abundance_ru": "Szeroko występuje w postaci rodzimej i w rudach siarczkowych.",
+    "hazards_ru": [
+      "Palny"
+    ],
+    "fun_facts_ru": [
+      "Kwas siarkowy jest najczęściej produkowaną substancją chemiczną na świecie.",
+      "Charakterystyczny zapach zgniłych jaj to siarkowodór H₂S.",
+      "Siarka jest znana ludzkości od starożytności; jest wspomniana w Biblii."
+    ]
+  },
+  "Cl": {
+    "name_ru": "Chlor",
+    "industrial_ru": "Dezynfekcja wody, produkcja PVC, środki wybielające, kwas solny.",
+    "production_ru": "Elektroliza roztworu NaCl (proces chlorowo-alkaliczny).",
+    "hazards_ru": [
+      "Toksyczny",
+      "Korozyjny",
+      "Silny utleniacz"
+    ],
+    "fun_facts_ru": [
+      "Chlor był pierwszym gazem użytym jako broń chemiczna (1915 rok).",
+      "Chlorowanie wody uratowało miliony istnień ludzkich przed epidemiami."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Wilhelm Scheele",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Ar": {
+    "name_ru": "Argon",
+    "industrial_ru": "Atmosfera ochronna przy spawaniu i w metalurgii, napełnianie żarówek.",
+    "production_ru": "Destylacja frakcyjna ciekłego powietrza.",
+    "abundance_ru": "Trzeci najliczniejszy gaz w atmosferze (0,93%).",
+    "fun_facts_ru": [
+      "Argon jest najliczniejszym gazem szlachetnym w atmosferze Ziemi.",
+      "Nazwa pochodzi od greckiego «argos» — leniwy, nieaktywny."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / John William Strutt (lord Rayleigh)",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "K": {
+    "name_ru": "Potas",
+    "industrial_ru": "Nawozy potasowe, produkcja KOH, stopy NaK (czynniki chłodzące).",
+    "production_ru": "Elektroliza stopionego KCl lub redukcja sodem.",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w kontakcie z wodą",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Potas jest tak miękki i lekki, że pływa na wodzie, reagując z nią.",
+      "Potas jest niezbędny do funkcjonowania układu nerwowego i mięśni."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Ca": {
+    "name_ru": "Wapń",
+    "industrial_ru": "Materiały budowlane (cement, wapno, gips), metalurgia (odtleniacz).",
+    "production_ru": "Elektroliza stopionego CaCl₂.",
+    "abundance_ru": "Piąty najliczniejszy pierwiastek w skorupie ziemskiej (3,6%).",
+    "hazards_ru": [
+      "Palny",
+      "Reaguje z wodą"
+    ],
+    "fun_facts_ru": [
+      "Wapń jest głównym pierwiastkiem budulcowym kości i zębów.",
+      "Marmur, wapień, kreda — to wszystko węglan wapnia CaCO₃."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Sc": {
+    "name_ru": "Skand",
+    "industrial_ru": "Stopy aluminiowo-skandowe (ramy rowerowe, przemysł lotniczo-kosmiczny).",
+    "fun_facts_ru": [
+      "Skand został przewidziany przez Mendelejewa pod nazwą «ekabor» w 1871 roku."
+    ],
+    "discovery": {
+      "scientist_ru": "Lars Fredrik Nilson",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Ti": {
+    "name_ru": "Tytan",
+    "industrial_ru": "Lotnictwo i kosmonautyka, implanty, pigment TiO₂ (biel tytanowa).",
+    "production_ru": "Proces Krolla: redukcja TiCl₄ magnezem.",
+    "fun_facts_ru": [
+      "Tytan jest wytrzymały jak stal, ale prawie dwa razy lżejszy.",
+      "Dwutlenek tytanu TiO₂ jest najpowszechniejszym białym pigmentem na świecie."
+    ],
+    "discovery": {
+      "scientist_ru": "William Gregor",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "V": {
+    "name_ru": "Wanad",
+    "industrial_ru": "Dodatek stopowy do stali (stale narzędziowe), akumulatory wanadowe.",
+    "fun_facts_ru": [
+      "Nazwany na cześć skandynawskiej bogini piękności Vanadís (Frei) z powodu pięknych kolorów soli."
+    ],
+    "discovery": {
+      "scientist_ru": "Andrés Manuel del Río",
+      "country_ru": "Meksyk"
+    }
+  },
+  "Cr": {
+    "name_ru": "Chrom",
+    "industrial_ru": "Chromowanie, stal nierdzewna, pigmenty.",
+    "production_ru": "Redukcja Cr₂O₃ glinem (aluminotermia).",
+    "hazards_ru": [
+      "Toksyczny (związki Cr⁶⁺)",
+      "Rakotwórczy (Cr⁶⁺)"
+    ],
+    "fun_facts_ru": [
+      "Nazwa pochodzi od greckiego «chróma» — kolor, z powodu intensywnych barw soli.",
+      "Rubin i szmaragd zawdzięczają swój kolor domieszkam chromu."
+    ],
+    "discovery": {
+      "scientist_ru": "Louis Nicolas Vauquelin",
+      "country_ru": "Francja"
+    }
+  },
+  "Mn": {
+    "name_ru": "Mangan",
+    "industrial_ru": "Stopowanie stali, baterie suche (MnO₂), katalizatory.",
+    "production_ru": "Elektroliza roztworu MnSO₄ lub redukcja rudy węglem.",
+    "fun_facts_ru": [
+      "Mangan jest niezbędny do fotosyntezy — bez niego rośliny nie mogą rozkładać wody."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gottlieb Gahn",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Fe": {
+    "name_ru": "Żelazo",
+    "industrial_ru": "Podstawa metalurgii żelaza: stal, żeliwo, stopy.",
+    "production_ru": "Redukcja rudy (Fe₂O₃) koksem w wielkim piecu.",
+    "abundance_ru": "Czwarty najliczniejszy pierwiastek w skorupie ziemskiej (5%); główny składnik jądra Ziemi.",
+    "fun_facts_ru": [
+      "Jądro Ziemi składa się głównie z żelaza i niklu.",
+      "Hemoglobina krwi zawiera jony żelaza, nadające krwi czerwony kolor.",
+      "Żelazo jest najbardziej stabilnym pierwiastkiem z punktu widzenia fizyki jądrowej (energia wiązania na nukleon jest maksymalna dla ⁵⁶Fe)."
+    ]
+  },
+  "Co": {
+    "name_ru": "Kobalt",
+    "industrial_ru": "Superstopy do turbin, akumulatory litowo-kobaltowe, pigmenty (błękit kobaltowy).",
+    "hazards_ru": [
+      "Toksyczny (związki)",
+      "Rakotwórczy (przy wdychaniu pyłu)"
+    ],
+    "fun_facts_ru": [
+      "Błękit kobaltowy jest jednym z najstarszych pigmentów, używanych w chińskiej porcelanie.",
+      "Izotop ⁶⁰Co jest stosowany w radioterapii nowotworów."
+    ],
+    "discovery": {
+      "scientist_ru": "Georg Brandt",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Ni": {
+    "name_ru": "Nikiel",
+    "industrial_ru": "Stal nierdzewna, niklowanie, monety, akumulatory.",
+    "production_ru": "Prażenie i redukcja rud siarczkowych; proces Monda dla niklu wysokiej czystości.",
+    "hazards_ru": [
+      "Rakotwórczy (pył, niektóre związki)",
+      "Alergen"
+    ],
+    "fun_facts_ru": [
+      "Nikiel jest jednym z pięciu pierwiastków ferromagnetycznych (Fe, Co, Ni, Gd, Dy).",
+      "Amerykańska moneta «nickel» (5 centów) zawiera 25% niklu i 75% miedzi."
+    ],
+    "discovery": {
+      "scientist_ru": "Axel Fredrik Cronstedt",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Cu": {
+    "name_ru": "Miedź",
+    "industrial_ru": "Elektrotechnika (przewody, kable), instalacje sanitarne, stopy (brąz, mosiądz).",
+    "production_ru": "Pirometalurgiczna przeróbka rud siarczkowych z rafinacją elektrolityczną.",
+    "fun_facts_ru": [
+      "Miedź jest pierwszym metalem opanowanym przez człowieka (epoka miedzi rozpoczęła się ok. 5000 p.n.e.).",
+      "Statua Wolności pokryta jest 80 tonami miedzi; zielony kolor to patyna Cu₂(OH)₂CO₃.",
+      "Miedź wykazuje właściwości antybakteryjne."
+    ]
+  },
+  "Zn": {
+    "name_ru": "Cynk",
+    "industrial_ru": "Cynkowanie stali, stopy (mosiądz), baterie, tlenek cynku.",
+    "production_ru": "Elektroliza roztworu ZnSO₄ lub redukcja przez prażenie rudy.",
+    "fun_facts_ru": [
+      "Cynk jest niezbędny do działania ponad 300 enzymów w organizmie człowieka.",
+      "Cynkowanie jest głównym sposobem ochrony stali przed korozją."
+    ]
+  },
+  "Ga": {
+    "name_ru": "Gal",
+    "industrial_ru": "Półprzewodniki (GaAs) do diod LED, laserów i baterii słonecznych.",
+    "fun_facts_ru": [
+      "Gal topi się w dłoni (t.t. 29,76 °C) — najłatwiej topliwy metal po rtęci i cezie.",
+      "Przewidziany przez Mendelejewa pod nazwą «ekaaluminium» w 1871 roku.",
+      "Ma jeden z najszerszych zakresów ciekłych (30–2229 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francja"
+    }
+  },
+  "Ge": {
+    "name_ru": "German",
+    "industrial_ru": "Światłowody, optyka podczerwona, półprzewodniki.",
+    "fun_facts_ru": [
+      "Przewidziany przez Mendelejewa pod nazwą «ekakrzem» w 1871 roku; właściwości się zgadzały.",
+      "Pierwszy tranzystor (1947) został wykonany z germanu."
+    ],
+    "discovery": {
+      "scientist_ru": "Clemens Winkler",
+      "country_ru": "Niemcy"
+    }
+  },
+  "As": {
+    "name_ru": "Arsen",
+    "industrial_ru": "Półprzewodniki (GaAs), konserwacja drewna (dawniej), stopy ołowiu do śrutu.",
+    "hazards_ru": [
+      "Toksyczny",
+      "Rakotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Arsen nazywano «królem trucizn» i «trucizną królów» — przez wieki używano go do zatruć.",
+      "Zielony pigment «zieleń paryska» (acetoarsenian miedzi) stosowano w farbach XIX wieku."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Wielki",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Se": {
+    "name_ru": "Selen",
+    "industrial_ru": "Produkcja szkła, fotokomórki, elektronika, dodatek do stali nierdzewnej.",
+    "hazards_ru": [
+      "Toksyczny (w dużych dawkach)"
+    ],
+    "fun_facts_ru": [
+      "Selen jest niezbędnym mikroelementem, ale toksycznym w nadmiarze.",
+      "Nazwa pochodzi od Księżyca (gr. «seléne»), analogicznie do telluru (łac. «ziemia»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Br": {
+    "name_ru": "Brom",
+    "industrial_ru": "Środki opóźniające zapłon, farmaceutyki, błona fotograficzna (bromek srebra), pestycydy.",
+    "production_ru": "Pozyskiwanie z solanek i wody morskiej przez utlenienie chlorem.",
+    "hazards_ru": [
+      "Toksyczny",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Brom jest jednym z dwóch pierwiastków ciekłych w temperaturze pokojowej (obok rtęci).",
+      "Nazwa pochodzi od greckiego «brómos» — smród, z powodu ostrego, nieprzyjemnego zapachu."
+    ],
+    "discovery": {
+      "scientist_ru": "Antoine Jérôme Balard",
+      "country_ru": "Francja"
+    }
+  },
+  "Kr": {
+    "name_ru": "Krypton",
+    "industrial_ru": "Lampy błyskowe, energooszczędne szyby zespolone, lasery.",
+    "fun_facts_ru": [
+      "Nazwa pochodzi od greckiego «kryptón» — ukryty.",
+      "Do 1960 roku metr definiowano za pomocą długości fali linii emisyjnej ⁸⁶Kr."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Rb": {
+    "name_ru": "Rubid",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w kontakcie z wodą",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Rubid odkryto dzięki dwóm czerwonym liniom widmowym — stąd nazwa (łac. «rubidus» — ciemnoczerwony).",
+      "Rubidowe zegary atomowe są jednymi z najdokładniejszych na świecie."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Sr": {
+    "name_ru": "Stront",
+    "industrial_ru": "Produkcja magnesów ferrytowych, fajerwerki (czerwony płomień), ekrany fluorescencyjne.",
+    "hazards_ru": [
+      "Palny",
+      "Reaguje z wodą"
+    ],
+    "fun_facts_ru": [
+      "Stront barwi płomień na jaskrawoczerwony kolor i jest stosowany w fajerwerkach.",
+      "Radioaktywny izotop ⁹⁰Sr jest niebezpiecznym produktem wybuchów jądrowych."
+    ],
+    "discovery": {
+      "scientist_ru": "Adair Crawford",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Y": {
+    "name_ru": "Itr",
+    "industrial_ru": "Lasery (YAG), ceramiczne nadprzewodniki, czerwone luminofory do ekranów.",
+    "fun_facts_ru": [
+      "Cztery pierwiastki (Y, Tb, Er, Yb) zostały nazwane na cześć szwedzkiej wioski Ytterby."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gadolin",
+      "country_ru": "Finlandia"
+    }
+  },
+  "Zr": {
+    "name_ru": "Cyrkon",
+    "industrial_ru": "Osłony paliwa jądrowego, ceramika, implanty zębowe (ZrO₂).",
+    "fun_facts_ru": [
+      "Cyrkon nie absorbuje neutronów, dlatego jest idealny do reaktorów jądrowych.",
+      "Cyrkonia (sześcienny ZrO₂) jest popularnym syntetycznym zamiennikiem diamentu."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Nb": {
+    "name_ru": "Niob",
+    "industrial_ru": "Superstopy, magnesy nadprzewodzące (MRI, akceleratory), biżuteria.",
+    "fun_facts_ru": [
+      "Niob jest głównym materiałem magnesów nadprzewodzących w skanerach MRI.",
+      "Nazwa pochodzi od Niobe z mitologii greckiej, córki Tantala."
+    ],
+    "discovery": {
+      "scientist_ru": "Charles Hatchett",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Mo": {
+    "name_ru": "Molibden",
+    "industrial_ru": "Stopowanie stali (stale narzędziowe, żaroodporne), katalizatory.",
+    "fun_facts_ru": [
+      "Molibden jest niezbędnym mikroelementem dla roślin (uczestniczy w wiązaniu azotu).",
+      "Dwusiarczek molibdenu (MoS₂) to doskonały smar stały."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Wilhelm Scheele",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Tc": {
+    "name_ru": "Technet",
+    "industrial_ru": "Diagnostyka medyczna (izotop ⁹⁹ᵐTc — najczęściej stosowany radioizotop w medycynie).",
+    "hazards_ru": [
+      "Promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Pierwszy pierwiastek otrzymany sztucznie — nazwa oznacza «sztuczny» (gr. «technetós»).",
+      "Wszystkie izotopy technetu są promieniotwórcze; na Ziemi praktycznie nie występuje."
+    ],
+    "discovery": {
+      "scientist_ru": "Carlo Perrier / Emilio Segrè",
+      "country_ru": "Włochy"
+    }
+  },
+  "Ru": {
+    "name_ru": "Ruten",
+    "industrial_ru": "Katalizatory, kontakty elektryczne, dyski twarde (warstwy magnetyczne).",
+    "fun_facts_ru": [
+      "Ruten został nazwany na cześć Rosji (łac. «Ruthenia»).",
+      "Jedyny pierwiastek nazwany na cześć Rosji."
+    ],
+    "discovery": {
+      "scientist_ru": "Karl Karłowicz Klaus",
+      "country_ru": "Rosja"
+    }
+  },
+  "Rh": {
+    "name_ru": "Rod",
+    "industrial_ru": "Katalizatory samochodowe, powłoki luster, powłoki jubilerskie.",
+    "fun_facts_ru": [
+      "Rod jest najdroższym z metali szlachetnych.",
+      "Nazwa pochodzi od różowo-czerwonego koloru soli (gr. «rhódon» — róża)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Pd": {
+    "name_ru": "Pallad",
+    "industrial_ru": "Katalizatory samochodowe, elektronika, stomatologia, jubilerstwo.",
+    "fun_facts_ru": [
+      "Pallad może pochłonąć wodór w ilości 900 razy większej niż jego własna objętość.",
+      "Nazwany na cześć asteroidy Pallas, odkrytej rok przed pierwiastkiem."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Ag": {
+    "name_ru": "Srebro",
+    "industrial_ru": "Jubilerstwo, elektronika, fotografia, lustra, medycyna (właściwości bakteriobójcze).",
+    "fun_facts_ru": [
+      "Srebro ma najwyższą przewodność elektryczną i cieplną wśród wszystkich metali.",
+      "Srebro wykazuje właściwości antybakteryjne — stosowane w medycynie i filtrach wody.",
+      "Symbol Ag pochodzi od łacińskiego «argentum» (jasny, biały)."
+    ]
+  },
+  "Cd": {
+    "name_ru": "Kadm",
+    "industrial_ru": "Akumulatory niklowo-kadmowe, pigmenty, powłoki, pręty sterujące reaktorów jądrowych.",
+    "hazards_ru": [
+      "Toksyczny",
+      "Rakotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Kadm dobrze absorbuje neutrony i jest stosowany w prętach sterujących reaktorów.",
+      "Choroba «itai-itai» w Japonii została spowodowana skażeniem kadmem."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Stromeyer",
+      "country_ru": "Niemcy"
+    }
+  },
+  "In": {
+    "name_ru": "Ind",
+    "industrial_ru": "Ekrany dotykowe (ITO — tlenek indowo-cynowy), luty, półprzewodniki.",
+    "fun_facts_ru": [
+      "Ind wydaje charakterystyczny «krzyk» (trzask) przy zginaniu.",
+      "Nazwa pochodzi od jasnej linii indygowej w widmie."
+    ],
+    "discovery": {
+      "scientist_ru": "Ferdinand Reich / Hieronymus Theodor Richter",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Sn": {
+    "name_ru": "Cyna",
+    "industrial_ru": "Cynowanie blachy (puszki konserwowe), luty, brąz (stop z miedzią).",
+    "hazards_ru": [
+      "Toksyczne związki organiczne cyny"
+    ],
+    "fun_facts_ru": [
+      "Przy ochłodzeniu poniżej 13,2 °C cyna biała przechodzi w szary proszek — «dżuma cynowa».",
+      "Epoka brązu została nazwana od stopu cyny i miedzi.",
+      "Symbol Sn pochodzi od łacińskiego «stannum»."
+    ]
+  },
+  "Sb": {
+    "name_ru": "Antymon",
+    "industrial_ru": "Środki opóźniające zapłon, stopy do akumulatorów i łożysk, półprzewodniki.",
+    "hazards_ru": [
+      "Toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Antymon był używany w starożytnym Egipcie jako kosmetyk (antymonit, kohl).",
+      "Symbol Sb pochodzi od łacińskiego «stibium»."
+    ]
+  },
+  "Te": {
+    "name_ru": "Tellur",
+    "industrial_ru": "Baterie słoneczne (CdTe), stopowanie stali i miedzi, urządzenia termoelektryczne.",
+    "hazards_ru": [
+      "Toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Nazwa pochodzi od łacińskiego «tellus» — ziemia.",
+      "Nawet znikome ilości telluru nadają oddechowi zapach czosnku."
+    ],
+    "discovery": {
+      "scientist_ru": "Franz Joseph Müller von Reichenstein",
+      "country_ru": "Austria"
+    }
+  },
+  "I": {
+    "name_ru": "Jod",
+    "industrial_ru": "Medycyna (środki antyseptyczne, środki kontrastowe), fotografia, katalizatory.",
+    "hazards_ru": [
+      "Toksyczny (opary)",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Jod pod wpływem ogrzewania sublimuje, tworząc fioletowe opary — stąd nazwa (gr. «iodés» — fioletowy).",
+      "Jod jest niezbędny do produkcji hormonów tarczycy.",
+      "Roztwór jodu w skrobi daje charakterystyczne niebieskie zabarwienie."
+    ],
+    "discovery": {
+      "scientist_ru": "Bernard Courtois",
+      "country_ru": "Francja"
+    }
+  },
+  "Xe": {
+    "name_ru": "Ksenon",
+    "industrial_ru": "Lampy ksenonowe (projektory, reflektory samochodowe), znieczulenie, silniki jonowe.",
+    "fun_facts_ru": [
+      "Pierwszy gaz szlachetny, dla którego uzyskano związki chemiczne (XeF₂, 1962).",
+      "Nazwa pochodzi od greckiego «xénos» — obcy, dziwny.",
+      "Ksenon jest stosowany jako paliwo rakietowe w silnikach jonowych statków kosmicznych."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Cs": {
+    "name_ru": "Cez",
+    "industrial_ru": "Zegary atomowe (wzorzec częstotliwości), czujniki fotoelektryczne.",
+    "hazards_ru": [
+      "Palny",
+      "Wybuchowy w kontakcie z wodą",
+      "Korozyjny"
+    ],
+    "fun_facts_ru": [
+      "Cez jest najbardziej elektrododatnim stabilnym pierwiastkiem.",
+      "Sekunda jest definiowana przez częstotliwość promieniowania atomu ¹³³Cs.",
+      "Jeden z najłatwiej topliwych metali (28,44 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Ba": {
+    "name_ru": "Bar",
+    "industrial_ru": "Płyny wiertnicze (BaSO₄), produkcja szkła, pirotechnika (zielony płomień).",
+    "hazards_ru": [
+      "Toksyczny (rozpuszczalne związki)",
+      "Reaguje z wodą"
+    ],
+    "fun_facts_ru": [
+      "Siarczan baru (BaSO₄) jest nierozpuszczalny i nietoksyczny — stosowany jako środek kontrastowy w rentgenografii przewodu pokarmowego.",
+      "Bar barwi płomień na zielono."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "La": {
+    "name_ru": "Lantan",
+    "industrial_ru": "Szkło optyczne, katalizatory krakingu, akumulatory niklowo-metalowo-wodorkowe.",
+    "fun_facts_ru": [
+      "Nazwa pochodzi od greckiego «lanthánein» — ukrywać się, ponieważ lantan długo ukrywał się w tlenku ceru."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Ce": {
+    "name_ru": "Cer",
+    "industrial_ru": "Proszki polerskie, katalizatory (katalizatory samochodowe), kamienie do zapalniczek.",
+    "fun_facts_ru": [
+      "Nazwany na cześć planety karłowatej Ceres.",
+      "Cer jest najliczniejszym lantanowcem w skorupie ziemskiej."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius / Wilhelm Hisinger",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Pr": {
+    "name_ru": "Prazeodym",
+    "industrial_ru": "Magnesy trwałe (Nd-Fe-B z dodatkiem Pr), szkła do okularów ochronnych.",
+    "fun_facts_ru": [
+      "Nazwa oznacza «zielony bliźniak» (gr. «práseos dídymos») — od koloru soli."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
+  },
+  "Nd": {
+    "name_ru": "Neodym",
+    "industrial_ru": "Supermocne magnesy trwałe Nd₂Fe₁₄B (silniki elektryczne, słuchawki, dyski twarde).",
+    "fun_facts_ru": [
+      "Magnesy neodymowe są najsilniejszymi magnesami trwałymi na świecie.",
+      "Nazwa oznacza «nowy bliźniak» (gr. «néos dídymos»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
+  },
+  "Pm": {
+    "name_ru": "Promet",
+    "industrial_ru": "Baterie atomowe (¹⁴⁷Pm), farba luminescencyjna.",
+    "hazards_ru": [
+      "Promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Jedyny lantanowiec nieposiadający stabilnych izotopów.",
+      "Nazwany na cześć Prometeusza, który wykradł ogień bogom."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacob Marinsky / Lawrence Glendenin / Charles Coryell",
+      "country_ru": "USA"
+    }
+  },
+  "Sm": {
+    "name_ru": "Samar",
+    "industrial_ru": "Magnesy trwałe (SmCo₅), pręty sterujące reaktorów, lasery.",
+    "fun_facts_ru": [
+      "Magnesy samarowo-kobaltowe zachowują namagnesowanie w wysokich temperaturach."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francja"
+    }
+  },
+  "Eu": {
+    "name_ru": "Europ",
+    "industrial_ru": "Czerwone luminofory do ekranów, zabezpieczenia banknotów (fluorescencja), lasery.",
+    "fun_facts_ru": [
+      "Europ odpowiada za czerwoną poświatę w ekranach telewizyjnych.",
+      "Stosowany w banknotach euro w celu ochrony przed fałszowaniem."
+    ],
+    "discovery": {
+      "scientist_ru": "Eugène Demarçay",
+      "country_ru": "Francja"
+    }
+  },
+  "Gd": {
+    "name_ru": "Gadolin",
+    "industrial_ru": "Środek kontrastowy w MRI, reaktory jądrowe, chłodzenie magnetyczne.",
+    "hazards_ru": [
+      "Toksyczny (związki, przy podaniu dożylnym)"
+    ],
+    "fun_facts_ru": [
+      "Gadolin jest ferromagnetykiem w temperaturze pokojowej (punkt Curie 20 °C).",
+      "Nazwany na cześć fińskiego chemika Johana Gadolina."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Szwajcaria"
+    }
+  },
+  "Tb": {
+    "name_ru": "Terb",
+    "industrial_ru": "Zielone luminofory, stopy magnetostrykcyjne (Terfenol-D).",
+    "fun_facts_ru": [
+      "Nazwany na cześć wioski Ytterby w Szwecji."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Dy": {
+    "name_ru": "Dysproz",
+    "industrial_ru": "Dodatek do magnesów neodymowych (zwiększa odporność termiczną), lasery.",
+    "fun_facts_ru": [
+      "Nazwa pochodzi od greckiego «dysprósitos» — trudno dostępny, ponieważ jest trudny do wydzielenia."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Émile Lecoq de Boisbaudran",
+      "country_ru": "Francja"
+    }
+  },
+  "Ho": {
+    "name_ru": "Holm",
+    "industrial_ru": "Lasery medyczne, biegunowe nasadki magnesów.",
+    "fun_facts_ru": [
+      "Holm ma najwyższy moment magnetyczny wśród wszystkich pierwiastków.",
+      "Nazwany na cześć Sztokholmu (łac. «Holmia»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacques-Louis Soret / Marc Delafontaine",
+      "country_ru": "Szwajcaria"
+    }
+  },
+  "Er": {
+    "name_ru": "Erb",
+    "industrial_ru": "Wzmacniacze światłowodowe (Er-doped fiber), lasery, różowe zabarwienie szkła.",
+    "fun_facts_ru": [
+      "Nazwany na cześć wioski Ytterby.",
+      "Erbowe wzmacniacze włóknowe są podstawą dalekosięznej łączności światłowodowej."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Tm": {
+    "name_ru": "Tul",
+    "industrial_ru": "Źródła promieniowania rentgenowskiego (przenośne), lasery.",
+    "fun_facts_ru": [
+      "Tul jest najrzadszym lantanowcem (oprócz prometu).",
+      "Nazwany na cześć Thule — starożytnej nazwy Skandynawii."
+    ],
+    "discovery": {
+      "scientist_ru": "Per Teodor Cleve",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Yb": {
+    "name_ru": "Iterb",
+    "industrial_ru": "Lasery włóknowe dużej mocy, stopowanie stali nierdzewnej.",
+    "fun_facts_ru": [
+      "Nazwany na cześć wioski Ytterby — czwarty pierwiastek z tą nazwą."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Szwajcaria"
+    }
+  },
+  "Lu": {
+    "name_ru": "Lutet",
+    "industrial_ru": "Skanery PET (detektory Lu₂SiO₅), katalizatory rafinacji ropy naftowej.",
+    "fun_facts_ru": [
+      "Lutet jest najcięższym i najdroższym ze stabilnych lantanowców.",
+      "Nazwany na cześć starożytnej nazwy Paryża — Lutetia."
+    ],
+    "discovery": {
+      "scientist_ru": "Georges Urbain / Carl Auer von Welsbach",
+      "country_ru": "Francja / Austria"
+    }
+  },
+  "Hf": {
+    "name_ru": "Hafn",
+    "industrial_ru": "Pręty sterujące reaktorów jądrowych, superstopy, półprzewodniki.",
+    "fun_facts_ru": [
+      "Hafn i cyrkon są niemal nie do odróżnienia pod względem właściwości chemicznych — są niezwykle trudne do rozdzielenia.",
+      "Nazwany na cześć Kopenhagi (łac. «Hafnia»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Dirk Coster / Georg de Hevesy",
+      "country_ru": "Dania"
+    }
+  },
+  "Ta": {
+    "name_ru": "Tantal",
+    "industrial_ru": "Kondensatory elektrolityczne, implanty chirurgiczne, superstopy.",
+    "fun_facts_ru": [
+      "Tantal jest całkowicie odporny na kwasy (z wyjątkiem HF i oleum) — nazwany na cześć mitycznego Tantala.",
+      "Stosowany jest w niemal każdym smartfonie (kondensatory)."
+    ],
+    "discovery": {
+      "scientist_ru": "Anders Gustaf Ekeberg",
+      "country_ru": "Szwecja"
+    }
+  },
+  "W": {
+    "name_ru": "Wolfram",
+    "industrial_ru": "Żarówki (włókna), stopy twarde (węglik wolframu), pociski przeciwpancerne.",
+    "production_ru": "Redukcja WO₃ wodorem lub węglem.",
+    "fun_facts_ru": [
+      "Wolfram ma najwyższą temperaturę topnienia wśród wszystkich metali.",
+      "Symbol W pochodzi od niemieckiego «Wolfram» (wilcza piana), nazwy minerału wolframitu.",
+      "Węglik wolframu pod względem twardości jest zbliżony do diamentu."
+    ],
+    "discovery": {
+      "scientist_ru": "Juan José Elhuyar / Fausto Elhuyar",
+      "country_ru": "Hiszpania"
+    }
+  },
+  "Re": {
+    "name_ru": "Ren",
+    "industrial_ru": "Superstopy do łopatek turbin silników odrzutowych, katalizatory.",
+    "fun_facts_ru": [
+      "Ren jest ostatnim stabilnym pierwiastkiem odkrytym w przyrodzie (1925).",
+      "Jeden z najrzadszych pierwiastków w skorupie ziemskiej (~0,001 ppm).",
+      "Nazwany na cześć Renu."
+    ],
+    "discovery": {
+      "scientist_ru": "Walter Noddack / Ida Noddack / Otto Berg",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Os": {
+    "name_ru": "Osm",
+    "industrial_ru": "Końcówki piór wiecznych, styki elektryczne, katalizatory.",
+    "hazards_ru": [
+      "Toksyczny (OsO₄ — lotny i skrajnie trujący)"
+    ],
+    "fun_facts_ru": [
+      "Osm jest najgęstszym pierwiastkiem (22,587 g/cm³).",
+      "Nazwa pochodzi od greckiego «osmé» — zapach, z powodu ostrego zapachu OsO₄."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Ir": {
+    "name_ru": "Iryd",
+    "industrial_ru": "Świece zapłonowe, tygle, elektrody, etalon kilograma (stop Pt-Ir).",
+    "fun_facts_ru": [
+      "Iryd jest drugim najgęstszym pierwiastkiem po osmie i najbardziej odpornym na korozję metalem.",
+      "Niezwykle wysoka zawartość irydu w glinie na granicy kredy i paleogenu jest dowodem na upadek asteroidy, która doprowadziła do wymarcia dinozaurów.",
+      "Nazwa pochodzi od wielobarwności soli (gr. «íris» — tęcza)."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Pt": {
+    "name_ru": "Platyna",
+    "industrial_ru": "Katalizatory samochodowe, jubilerstwo, naczynia laboratoryjne, leki przeciwnowotworowe (cisplatyna).",
+    "fun_facts_ru": [
+      "Nazwa pochodzi od hiszpańskiego «platina» — sreberko, ponieważ Hiszpanie uważali platynę za bezużyteczną.",
+      "Międzynarodowy prototyp kilograma (do 2019 roku) był wykonany ze stopu platyny i irydu."
+    ],
+    "discovery": {
+      "scientist_ru": "Antonio de Ulloa",
+      "country_ru": "Hiszpania"
+    }
+  },
+  "Au": {
+    "name_ru": "Złoto",
+    "industrial_ru": "Jubilerstwo, elektronika (styki, przewodniki), rezerwy złota, medycyna.",
+    "fun_facts_ru": [
+      "Całe złoto wydobyte w historii zmieściłoby się w sześcianie o boku 21 m.",
+      "Złoto jest tak plastyczne, że z 1 g można wyciągnąć drut o długości 3 km.",
+      "Złoto nie utlenia się na powietrzu i nie rozpuszcza się w kwasach, z wyjątkiem wódki królewskiej."
+    ]
+  },
+  "Hg": {
+    "name_ru": "Rtęć",
+    "industrial_ru": "Termometry (stopniowo wycofywane), lampy fluorescencyjne, produkcja chlorowo-alkaliczna.",
+    "hazards_ru": [
+      "Toksyczna",
+      "Opary trujące",
+      "Zanieczyszcza środowisko"
+    ],
+    "fun_facts_ru": [
+      "Jedyny metal ciekły w temperaturze pokojowej.",
+      "Nazwana na cześć planety Merkury; symbol alchemiczny jest taki sam jak planety.",
+      "Termometry rtęciowe wynalazł Fahrenheit w 1714 roku."
+    ]
+  },
+  "Tl": {
+    "name_ru": "Tal",
+    "industrial_ru": "Detektory scyntylacyjne (TlBr/TlI), optoelektronika, nadprzewodniki.",
+    "hazards_ru": [
+      "Skrajnie toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Tal jest jednym z najbardziej trujących pierwiastków; jego związki nie mają smaku ani zapachu.",
+      "Nazwa pochodzi od jasnej zielonej linii widmowej (gr. «thallós» — zielona gałąź)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Crookes",
+      "country_ru": "Wielka Brytania"
+    }
+  },
+  "Pb": {
+    "name_ru": "Ołów",
+    "industrial_ru": "Akumulatory (kwasowo-ołowiowe), ochrona przed promieniowaniem, luty (ograniczone stosowanie).",
+    "hazards_ru": [
+      "Toksyczny",
+      "Trucizna kumulacyjna"
+    ],
+    "fun_facts_ru": [
+      "Rzymianie używali ołowianych rur do wodociągów — zatrucie ołowiem uważa się za jedną z przyczyn upadku imperium.",
+      "Symbol Pb pochodzi od łacińskiego «plumbum», od którego pochodzi słowo «plomba» i angielskie «plumber» (hydraulik)."
+    ]
+  },
+  "Bi": {
+    "name_ru": "Bizmut",
+    "industrial_ru": "Farmaceutyki (subsalicylan bizmutu), stopy niskotemperaturowe, kosmetyki.",
+    "fun_facts_ru": [
+      "Kryształy bizmutu tworzą piękne tęczowe, schodkowe struktury.",
+      "Bizmut jest słabo promieniotwórczy (okres półrozpadu ²⁰⁹Bi ≈ 1,9×10¹⁹ lat), ale praktycznie stabilny."
+    ],
+    "discovery": {
+      "scientist_ru": "Claude Geoffroy",
+      "country_ru": "Francja"
+    }
+  },
+  "Po": {
+    "name_ru": "Polon",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy",
+      "Skrajnie toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Polski — ojczyzny Marii Curie.",
+      "Polon-210 był stosowany w urządzeniach antystatycznych.",
+      "Aleksandr Litwinienko został otruty polonem-210 w 2006 roku."
+    ],
+    "discovery": {
+      "scientist_ru": "Maria Curie / Pierre Curie",
+      "country_ru": "Francja"
+    }
+  },
+  "At": {
+    "name_ru": "Astat",
+    "hazards_ru": [
+      "Promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Astat jest najrzadszym naturalnym pierwiastkiem: w skorupie ziemskiej istnieje jednocześnie mniej niż 30 g.",
+      "Nazwa pochodzi od greckiego «ástatos» — niestabilny."
+    ],
+    "discovery": {
+      "scientist_ru": "Dale Corson / Kenneth MacKenzie / Emilio Segrè",
+      "country_ru": "USA"
+    }
+  },
+  "Rn": {
+    "name_ru": "Radon",
+    "hazards_ru": [
+      "Promieniotwórczy",
+      "Rakotwórczy (druga przyczyna raka płuc po paleniu)"
+    ],
+    "fun_facts_ru": [
+      "Radon jest najcięższym gazem szlachetnym.",
+      "Radon gromadzi się w piwnicach budynków i jest drugą co do ważności przyczyną raka płuc."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Ernst Dorn",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Fr": {
+    "name_ru": "Frans",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Frans jest najmniej stabilnym z pierwszych 101 pierwiastków; okres półrozpadu ²²³Fr wynosi 22 minuty.",
+      "Nazwany na cześć Francji; ostatni pierwiastek odkryty w przyrodzie."
+    ],
+    "discovery": {
+      "scientist_ru": "Marguerite Perey",
+      "country_ru": "Francja"
+    }
+  },
+  "Ra": {
+    "name_ru": "Rad",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Rad świeci niebieskim światłem wskutek radioluminescencji.",
+      "Maria Curie otrzymała za odkrycie radu Nagrodę Nobla z chemii (1911).",
+      "Nazwa pochodzi od łacińskiego «radius» — promień."
+    ],
+    "discovery": {
+      "scientist_ru": "Maria Curie / Pierre Curie",
+      "country_ru": "Francja"
+    }
+  },
+  "Ac": {
+    "name_ru": "Aktyn",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Aktyn jest 150 razy bardziej promieniotwórczy niż rad.",
+      "Nazwa pochodzi od greckiego «aktínos» — promień."
+    ],
+    "discovery": {
+      "scientist_ru": "André-Louis Debierne",
+      "country_ru": "Francja"
+    }
+  },
+  "Th": {
+    "name_ru": "Tor",
+    "industrial_ru": "Potencjalne paliwo jądrowe (cykl torowy), siatki żarowe.",
+    "hazards_ru": [
+      "Promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Toru w skorupie ziemskiej jest 3–4 razy więcej niż uranu.",
+      "Nazwany na cześć skandynawskiego boga piorunów Thora."
+    ],
+    "discovery": {
+      "scientist_ru": "Jöns Jacob Berzelius",
+      "country_ru": "Szwecja"
+    }
+  },
+  "Pa": {
+    "name_ru": "Protaktyn",
+    "hazards_ru": [
+      "Promieniotwórczy",
+      "Skrajnie toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Protaktyn jest jednym z najrzadszych i najdroższych naturalnych pierwiastków."
+    ],
+    "discovery": {
+      "scientist_ru": "Kasimir Fajans / Oswald Helmuth Göhring",
+      "country_ru": "Niemcy"
+    }
+  },
+  "U": {
+    "name_ru": "Uran",
+    "industrial_ru": "Paliwo jądrowe (²³⁵U), broń jądrowa, pociski przeciwpancerne (uran zubożony).",
+    "production_ru": "Wydobycie rudy uranowej, wzbogacanie izotopu ²³⁵U (wirówka gazowa).",
+    "hazards_ru": [
+      "Promieniotwórczy",
+      "Toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć planety Uran, odkrytej 8 lat przed pierwiastkiem.",
+      "Uran jest cięższy od ołowiu 1,7 raza.",
+      "1 kg ²³⁵U przy rozszczepieniu wydziela energię równoważną 2500 tonom węgla."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Np": {
+    "name_ru": "Neptun",
+    "hazards_ru": [
+      "Promieniotwórczy",
+      "Toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Pierwszy pierwiastek transuranowy; nazwany na cześć Neptuna — następnej planety po Uranie."
+    ],
+    "discovery": {
+      "scientist_ru": "Edwin McMillan / Philip Abelson",
+      "country_ru": "USA"
+    }
+  },
+  "Pu": {
+    "name_ru": "Pluton",
+    "industrial_ru": "Broń jądrowa, paliwo jądrowe (MOX), radioizotopowe źródła energii (²³⁸Pu).",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy",
+      "Skrajnie toksyczny"
+    ],
+    "fun_facts_ru": [
+      "Pluton-238 jest źródłem energii łazików marsjańskich Curiosity i Perseverance.",
+      "Nazwany na cześć Plutona — następnej «planety» po Neptunie.",
+      "Ma 6 odmian alotropowych — więcej niż jakikolwiek inny pierwiastek."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Edwin McMillan / Joseph Kennedy / Arthur Wahl",
+      "country_ru": "USA"
+    }
+  },
+  "Am": {
+    "name_ru": "Ameryk",
+    "industrial_ru": "Detektory dymu (²⁴¹Am), źródła neutronów.",
+    "hazards_ru": [
+      "Promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Ameryk-241 jest stosowany w domowych detektorach dymu.",
+      "Nazwany na cześć Ameryki, analogicznie do europu."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Leon Morgan / Albert Ghiorso",
+      "country_ru": "USA"
+    }
+  },
+  "Cm": {
+    "name_ru": "Kiur",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Marii i Pierre'a Curie.",
+      "Kiur-244 był używany w alfa-spektrometrach łazików marsjańskich."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Albert Ghiorso",
+      "country_ru": "USA"
+    }
+  },
+  "Bk": {
+    "name_ru": "Berkel",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć miasta Berkeley (Kalifornia), gdzie znajduje się Laboratorium Narodowe."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "USA"
+    }
+  },
+  "Cf": {
+    "name_ru": "Kaliforn",
+    "industrial_ru": "Źródło neutronów (²⁵²Cf) do analizy rud, wykrywania materiałów wybuchowych, uruchamiania reaktorów.",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Kaliforn-252 jest jednym z najdroższych materiałów na Ziemi (~27 mln dol./g).",
+      "Nazwany na cześć stanu Kalifornia."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Kenneth Street / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "USA"
+    }
+  },
+  "Es": {
+    "name_ru": "Einstein",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Alberta Einsteina.",
+      "Odkryty w szczątkach po pierwszej eksplozji termojądrowej (test «Ivy Mike»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso i in.",
+      "country_ru": "USA"
+    }
+  },
+  "Fm": {
+    "name_ru": "Ferm",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Enrica Fermiego.",
+      "Podobnie jak einstein, odkryty w szczątkach po wybuchu termojądrowym."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso i in.",
+      "country_ru": "USA"
+    }
+  },
+  "Md": {
+    "name_ru": "Mendelew",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Dmitrija Iwanowicza Mendelejewa."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso / Bernard Harvey / Gregory Choppin / Stanley Thompson / Glenn Seaborg",
+      "country_ru": "USA"
+    }
+  },
+  "No": {
+    "name_ru": "Nobel",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Alfreda Nobla."
+    ],
+    "discovery": {
+      "scientist_ru": "Gieorgij Flioriow i in.",
+      "country_ru": "ZSRR"
+    }
+  },
+  "Lr": {
+    "name_ru": "Lorens",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Ernesta Lawrence'a, wynalazcy cyklotronu."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso i in.",
+      "country_ru": "USA"
+    }
+  },
+  "Rf": {
+    "name_ru": "Rutherford",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Ernesta Rutherforda."
+    ],
+    "discovery": {
+      "scientist_ru": "Gieorgij Flioriow i in. / niezależnie Albert Ghiorso i in.",
+      "country_ru": "ZSRR / USA"
+    }
+  },
+  "Db": {
+    "name_ru": "Dubn",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć miasta Dubna, gdzie znajduje się ZIBJ."
+    ],
+    "discovery": {
+      "scientist_ru": "Gieorgij Flioriow i in. / niezależnie Albert Ghiorso i in.",
+      "country_ru": "ZSRR / USA"
+    }
+  },
+  "Sg": {
+    "name_ru": "Seaborg",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Glenna Seaborga — jedyny pierwiastek nazwany za życia uczonego."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso i in. / niezależnie Gieorgij Flioriow i in.",
+      "country_ru": "USA / ZSRR"
+    }
+  },
+  "Bh": {
+    "name_ru": "Bohr",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Nielsa Bohra."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Hs": {
+    "name_ru": "Has",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć niemieckiego landu Hesja (niem. «Hessen»), gdzie znajduje się instytut GSI."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Mt": {
+    "name_ru": "Meitner",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Lise Meitner — fizyczki, która brała udział w odkryciu rozszczepienia jądrowego."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Ds": {
+    "name_ru": "Darmsztadt",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Darmstadtu — miasta, w którym znajduje się instytut GSI."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Münzenberg i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Rg": {
+    "name_ru": "Roentgen",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Wilhelma Conrada Röntgena, odkrywcy promieni rentgenowskich."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Cn": {
+    "name_ru": "Kopernik",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Mikołaja Kopernika.",
+      "Zgodnie z obliczeniami teoretycznymi może być ciekły w temperaturze pokojowej (jak rtęć)."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Sigurd Hofmann i in.",
+      "country_ru": "Niemcy"
+    }
+  },
+  "Nh": {
+    "name_ru": "Nihon",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Pierwszy pierwiastek odkryty w Azji; nazwany na cześć Japonii (jap. «nihon»)."
+    ],
+    "discovery": {
+      "scientist_ru": "Kosuke Morita i in.",
+      "country_ru": "Japonia"
+    }
+  },
+  "Fl": {
+    "name_ru": "Flerow",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Laboratorium Reakcji Jądrowych im. G.N. Flioriowa w Dubnie.",
+      "Według obliczeń może wykazywać właściwości gazu szlachetnego."
+    ],
+    "discovery": {
+      "scientist_ru": "Jurij Oganesian i in.",
+      "country_ru": "Rosja"
+    }
+  },
+  "Mc": {
+    "name_ru": "Moskow",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć obwodu moskiewskiego, w którym znajduje się ZIBJ w Dubnie."
+    ],
+    "discovery": {
+      "scientist_ru": "Jurij Oganesian i in.",
+      "country_ru": "Rosja / USA"
+    }
+  },
+  "Lv": {
+    "name_ru": "Liwermor",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Livermore National Laboratory (Kalifornia)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jurij Oganesian i in.",
+      "country_ru": "Rosja / USA"
+    }
+  },
+  "Ts": {
+    "name_ru": "Tenes",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć stanu Tennessee (USA), gdzie znajduje się Oak Ridge National Laboratory."
+    ],
+    "discovery": {
+      "scientist_ru": "Jurij Oganesian i in.",
+      "country_ru": "Rosja / USA"
+    }
+  },
+  "Og": {
+    "name_ru": "Oganeson",
+    "hazards_ru": [
+      "Skrajnie promieniotwórczy"
+    ],
+    "fun_facts_ru": [
+      "Nazwany na cześć Jurija Colakowicza Oganesiana — drugi pierwiastek (po seaborgu) nazwany za życia uczonego.",
+      "Przypuszczalnie może być ciałem stałym w temperaturze pokojowej, w odróżnieniu od innych gazów szlachetnych."
+    ],
+    "discovery": {
+      "scientist_ru": "Jurij Oganesian i in.",
+      "country_ru": "Rosja / USA"
+    }
+  }
 }

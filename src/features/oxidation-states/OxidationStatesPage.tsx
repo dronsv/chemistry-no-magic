@@ -8,7 +8,7 @@ export default function OxidationStatesPage({ locale = 'ru' as SupportedLocale }
   return (
     <div className="oxidation-page">
       <OxidationCalculator locale={locale} />
-      <OxidationTheoryPanel />
+      <OxidationTheoryPanel locale={locale} />
       <PracticeSection locale={locale} />
     </div>
   );

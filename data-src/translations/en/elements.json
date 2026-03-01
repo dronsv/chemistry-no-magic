@@ -9,7 +9,8 @@
       "The lightest element in the periodic table.",
       "Hydrogen is the primary fuel of stars, including the Sun, through nuclear fusion.",
       "The H₂ molecule is the smallest of all diatomic molecules."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Henry Cavendish", "country_ru": "Great Britain" }
   },
   "He": {
     "name_ru": "Helium",
@@ -21,7 +22,8 @@
       "Named after Helios, the Greek sun god, because it was first detected in the solar spectrum.",
       "Helium is the only element that cannot be solidified at normal pressure, even at absolute zero.",
       "Below 2.17 K, helium becomes a superfluid that can climb up and over container walls."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Pierre Janssen / Joseph Norman Lockyer", "country_ru": "France / Great Britain" }
   },
   "Li": {
     "name_ru": "Lithium",
@@ -33,7 +35,8 @@
       "The lightest metal and the least dense solid element.",
       "Lithium was one of the three elements produced in the Big Bang nucleosynthesis.",
       "A lithium fire cannot be extinguished with water — it reacts with it."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Johan August Arfwedson", "country_ru": "Sweden" }
   },
   "Be": {
     "name_ru": "Beryllium",
@@ -45,7 +48,8 @@
       "Beryllium is transparent to X-rays, making it ideal for X-ray tube windows.",
       "The gemstones emerald and aquamarine are forms of the beryllium mineral beryl.",
       "Despite being a light metal, beryllium is extremely stiff — six times stiffer than steel per unit weight."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Louis Nicolas Vauquelin", "country_ru": "France" }
   },
   "B": {
     "name_ru": "Boron",
@@ -57,7 +61,8 @@
       "Boron is essential for plant growth but is needed only in trace amounts.",
       "Boron nitride in its cubic form is nearly as hard as diamond.",
       "The element's name comes from the Arabic word 'buraq' for borax."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Joseph Louis Gay-Lussac / Louis Jacques Thénard", "country_ru": "France" }
   },
   "C": {
     "name_ru": "Carbon",
@@ -81,7 +86,8 @@
       "Nitrogen is essential for all life — it is a key component of amino acids and DNA.",
       "The triple bond in N₂ is one of the strongest chemical bonds, making nitrogen gas very inert.",
       "Lightning converts atmospheric nitrogen into nitrates, naturally fertilizing the soil."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Daniel Rutherford", "country_ru": "Great Britain" }
   },
   "O": {
     "name_ru": "Oxygen",
@@ -93,7 +99,8 @@
       "Oxygen makes up about 21% of Earth's atmosphere and is essential for aerobic life.",
       "Liquid oxygen is pale blue and is strongly attracted to magnets (paramagnetic).",
       "The ozone layer (O₃) in the stratosphere protects life from harmful ultraviolet radiation."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Joseph Priestley / Carl Wilhelm Scheele", "country_ru": "Great Britain / Sweden" }
   },
   "F": {
     "name_ru": "Fluorine",
@@ -105,7 +112,8 @@
       "Fluorine is the most electronegative and most reactive of all elements.",
       "Many early chemists were injured or killed attempting to isolate fluorine.",
       "Fluoride in small amounts strengthens tooth enamel and prevents cavities."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Henri Moissan", "country_ru": "France" }
   },
   "Ne": {
     "name_ru": "Neon",
@@ -117,7 +125,8 @@
       "True neon signs glow reddish-orange; other colors use different gases or phosphor coatings.",
       "Neon has the narrowest liquid range of any element — only 2.6 degrees.",
       "Neon's name comes from the Greek word 'neos' meaning 'new'."
-    ]
+    ],
+    "discovery": { "scientist_ru": "William Ramsay / Morris Travers", "country_ru": "Great Britain" }
   },
   "Na": {
     "name_ru": "Sodium",
@@ -129,7 +138,8 @@
       "Sodium is soft enough to cut with a knife and light enough to float on water — but it reacts explosively with it.",
       "Sodium-vapor lamps produce the characteristic yellow glow of many street lights.",
       "The human body contains about 100 grams of sodium, essential for nerve function."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Humphry Davy", "country_ru": "Great Britain" }
   },
   "Mg": {
     "name_ru": "Magnesium",
@@ -141,7 +151,8 @@
       "Magnesium burns with such an intense white light that it was once used in camera flash powder.",
       "Magnesium is essential for chlorophyll, the molecule that makes plants green.",
       "About 0.13% of seawater is magnesium, making the oceans an enormous reserve."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Humphry Davy", "country_ru": "Great Britain" }
   },
   "Al": {
     "name_ru": "Aluminium",
@@ -153,7 +164,8 @@
       "Before the Hall-Heroult process (1886), aluminium was more expensive than gold.",
       "Aluminium is 100% recyclable with no loss of quality, and recycling uses only 5% of the energy of primary production.",
       "The Washington Monument is capped with a 2.8 kg aluminium pyramid, placed in 1884 when aluminium was still precious."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Hans Christian Ørsted", "country_ru": "Denmark" }
   },
   "Si": {
     "name_ru": "Silicon",
@@ -165,7 +177,8 @@
       "Silicon Valley is named after the element, which is the basis of all modern computer chips.",
       "Silicon is the eighth most abundant element in the Universe by mass.",
       "Silicon and carbon are in the same group, yet carbon-based life dominates over hypothetical silicon-based life."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Jöns Jacob Berzelius", "country_ru": "Sweden" }
   },
   "P": {
     "name_ru": "Phosphorus",
@@ -177,7 +190,8 @@
       "White phosphorus glows in the dark due to chemiluminescence — the origin of the word 'phosphorescence'.",
       "Phosphorus is essential for life: it is a key component of DNA, RNA, and ATP.",
       "The element was discovered in 1669 by Hennig Brand, who isolated it from urine."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Hennig Brand", "country_ru": "Germany" }
   },
   "S": {
     "name_ru": "Sulfur",
@@ -201,7 +215,8 @@
       "Chlorine was the first chemical weapon used in warfare (World War I, 1915).",
       "About 85% of pharmaceutical drugs contain or are manufactured using chlorine chemistry.",
       "Table salt (NaCl) is the most familiar chlorine compound, essential for human life."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Carl Wilhelm Scheele", "country_ru": "Sweden" }
   },
   "Ar": {
     "name_ru": "Argon",
@@ -213,7 +228,8 @@
       "Argon's name comes from the Greek 'argos' meaning 'lazy' or 'idle', reflecting its chemical inertness.",
       "Argon is used to fill the space between double-pane windows for better insulation.",
       "Argon-argon dating is used by geologists to determine the age of rocks and minerals."
-    ]
+    ],
+    "discovery": { "scientist_ru": "William Ramsay / Lord Rayleigh", "country_ru": "Great Britain" }
   },
   "K": {
     "name_ru": "Potassium",
@@ -225,7 +241,8 @@
       "Potassium was the first metal isolated by electrolysis, by Humphry Davy in 1807.",
       "Bananas are famously rich in potassium, but potatoes actually contain more per serving.",
       "The potassium-40 isotope in your body makes you slightly radioactive — about 4,400 disintegrations per second."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Humphry Davy", "country_ru": "Great Britain" }
   },
   "Ca": {
     "name_ru": "Calcium",
@@ -237,22 +254,72 @@
       "The human body contains about 1 kg of calcium, 99% of which is in bones and teeth.",
       "Calcium is essential for muscle contraction, nerve signaling, and blood clotting.",
       "The White Cliffs of Dover are made of calcium carbonate (chalk) from ancient marine organisms."
-    ]
+    ],
+    "discovery": { "scientist_ru": "Humphry Davy", "country_ru": "Great Britain" }
   },
   "Sc": {
-    "name_ru": "Scandium"
+    "name_ru": "Scandium",
+    "industrial_ru": "Aluminium-scandium alloys (bicycle frames, aerospace industry).",
+    "fun_facts_ru": [
+      "Scandium was predicted by Mendeleev under the name 'ekaboron' in 1871."
+    ],
+    "discovery": {
+      "scientist_ru": "Lars Fredrik Nilson",
+      "country_ru": "Sweden"
+    }
   },
   "Ti": {
-    "name_ru": "Titanium"
+    "name_ru": "Titanium",
+    "industrial_ru": "Aviation and aerospace, medical implants, TiO₂ pigment (white paint).",
+    "production_ru": "Kroll process: reduction of TiCl₄ with magnesium.",
+    "fun_facts_ru": [
+      "Titanium is as strong as steel but nearly twice as light.",
+      "Titanium dioxide TiO₂ is the most widely used white pigment in the world."
+    ],
+    "discovery": {
+      "scientist_ru": "William Gregor",
+      "country_ru": "Great Britain"
+    }
   },
   "V": {
-    "name_ru": "Vanadium"
+    "name_ru": "Vanadium",
+    "industrial_ru": "Alloying additive for steel (tool steels), vanadium redox batteries.",
+    "fun_facts_ru": [
+      "Named after the Scandinavian goddess of beauty Vanadis (Freyja) because of the beautiful colors of its salts."
+    ],
+    "discovery": {
+      "scientist_ru": "Andres Manuel del Rio",
+      "country_ru": "Mexico"
+    }
   },
   "Cr": {
-    "name_ru": "Chromium"
+    "name_ru": "Chromium",
+    "industrial_ru": "Chrome plating, stainless steel, pigments.",
+    "production_ru": "Reduction of Cr₂O₃ with aluminium (aluminothermic process).",
+    "hazards_ru": [
+      "Toxic (Cr⁶⁺ compounds)",
+      "Carcinogenic (Cr⁶⁺)"
+    ],
+    "fun_facts_ru": [
+      "Named from the Greek 'chroma' — color, due to the vivid colors of its salts.",
+      "Rubies and emeralds owe their colors to trace amounts of chromium."
+    ],
+    "discovery": {
+      "scientist_ru": "Louis Nicolas Vauquelin",
+      "country_ru": "France"
+    }
   },
   "Mn": {
-    "name_ru": "Manganese"
+    "name_ru": "Manganese",
+    "industrial_ru": "Steel alloying, dry cell batteries (MnO₂), catalysts.",
+    "production_ru": "Electrolysis of MnSO₄ solution or reduction of ore with carbon.",
+    "fun_facts_ru": [
+      "Manganese is essential for photosynthesis — without it, plants cannot split water."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gottlieb Gahn",
+      "country_ru": "Sweden"
+    }
   },
   "Fe": {
     "name_ru": "Iron",
@@ -267,10 +334,37 @@
     ]
   },
   "Co": {
-    "name_ru": "Cobalt"
+    "name_ru": "Cobalt",
+    "industrial_ru": "Superalloys for turbines, lithium-cobalt batteries, pigments (cobalt blue).",
+    "hazards_ru": [
+      "Toxic (compounds)",
+      "Carcinogenic (when dust is inhaled)"
+    ],
+    "fun_facts_ru": [
+      "Cobalt blue is one of the oldest pigments, used in Chinese porcelain for centuries.",
+      "The isotope ⁶⁰Co is used in radiation therapy for cancer treatment."
+    ],
+    "discovery": {
+      "scientist_ru": "Georg Brandt",
+      "country_ru": "Sweden"
+    }
   },
   "Ni": {
-    "name_ru": "Nickel"
+    "name_ru": "Nickel",
+    "industrial_ru": "Stainless steel, nickel plating, coins, rechargeable batteries.",
+    "production_ru": "Roasting and reduction of sulfide ores; the Mond process for high-purity nickel.",
+    "hazards_ru": [
+      "Carcinogenic (dust, certain compounds)",
+      "Allergen"
+    ],
+    "fun_facts_ru": [
+      "Nickel is one of five ferromagnetic elements (Fe, Co, Ni, Gd, Dy).",
+      "The American 'nickel' coin (5 cents) contains 25% nickel and 75% copper."
+    ],
+    "discovery": {
+      "scientist_ru": "Axel Fredrik Cronstedt",
+      "country_ru": "Sweden"
+    }
   },
   "Cu": {
     "name_ru": "Copper",
@@ -297,52 +391,219 @@
     ]
   },
   "Ga": {
-    "name_ru": "Gallium"
+    "name_ru": "Gallium",
+    "industrial_ru": "Semiconductors (GaAs) for LEDs, lasers, and solar cells.",
+    "fun_facts_ru": [
+      "Gallium melts in the hand (m.p. 29.76 °C) — the lowest-melting metal after mercury and caesium.",
+      "Predicted by Mendeleev under the name 'eka-aluminium' in 1871.",
+      "Has one of the widest liquid ranges of any metal (30–2229 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Emile Lecoq de Boisbaudran",
+      "country_ru": "France"
+    }
   },
   "Ge": {
-    "name_ru": "Germanium"
+    "name_ru": "Germanium",
+    "industrial_ru": "Fiber optics, infrared optics, semiconductors.",
+    "fun_facts_ru": [
+      "Predicted by Mendeleev under the name 'eka-silicon' in 1871; the properties matched closely.",
+      "The first transistor (1947) was made of germanium."
+    ],
+    "discovery": {
+      "scientist_ru": "Clemens Winkler",
+      "country_ru": "Germany"
+    }
   },
   "As": {
-    "name_ru": "Arsenic"
+    "name_ru": "Arsenic",
+    "industrial_ru": "Semiconductors (GaAs), wood preservative (formerly), lead alloys for shot.",
+    "hazards_ru": [
+      "Toxic",
+      "Carcinogenic"
+    ],
+    "fun_facts_ru": [
+      "Arsenic was called the 'king of poisons' and the 'poison of kings' — it was used for poisoning for centuries.",
+      "The green pigment 'Paris green' (copper acetoarsenite) was used in 19th-century paints."
+    ],
+    "discovery": {
+      "scientist_ru": "Albertus Magnus",
+      "country_ru": "Germany"
+    }
   },
   "Se": {
-    "name_ru": "Selenium"
+    "name_ru": "Selenium",
+    "industrial_ru": "Glass manufacturing, photoelectric cells, electronics, additive to stainless steel.",
+    "hazards_ru": [
+      "Toxic (in large doses)"
+    ],
+    "fun_facts_ru": [
+      "Selenium is an essential trace element but toxic in excess.",
+      "Named after the Moon (Greek 'selene'), by analogy with tellurium (Latin 'tellus' — earth)."
+    ],
+    "discovery": {
+      "scientist_ru": "Jons Jacob Berzelius",
+      "country_ru": "Sweden"
+    }
   },
   "Br": {
-    "name_ru": "Bromine"
+    "name_ru": "Bromine",
+    "industrial_ru": "Flame retardants, pharmaceuticals, photographic film (silver bromide), pesticides.",
+    "production_ru": "Extracted from brines and seawater by oxidation with chlorine.",
+    "hazards_ru": [
+      "Toxic",
+      "Corrosive"
+    ],
+    "fun_facts_ru": [
+      "Bromine is one of only two elements that are liquid at room temperature (along with mercury).",
+      "Named from the Greek 'bromos' — stench, due to its sharp unpleasant odor."
+    ],
+    "discovery": {
+      "scientist_ru": "Antoine Jerome Balard",
+      "country_ru": "France"
+    }
   },
   "Kr": {
-    "name_ru": "Krypton"
+    "name_ru": "Krypton",
+    "industrial_ru": "Photographic flashes, energy-efficient double-glazed windows, lasers.",
+    "fun_facts_ru": [
+      "Named from the Greek 'kryptos' — hidden.",
+      "Until 1960, the meter was defined by the wavelength of a ⁸⁶Kr emission line."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Great Britain"
+    }
   },
   "Rb": {
-    "name_ru": "Rubidium"
+    "name_ru": "Rubidium",
+    "hazards_ru": [
+      "Flammable",
+      "Explosive on contact with water",
+      "Corrosive"
+    ],
+    "fun_facts_ru": [
+      "Rubidium was discovered by two red lines in its spectrum — hence the name (Latin 'rubidus' — dark red).",
+      "Rubidium atomic clocks are among the most accurate in the world."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Germany"
+    }
   },
   "Sr": {
-    "name_ru": "Strontium"
+    "name_ru": "Strontium",
+    "industrial_ru": "Production of ferrite magnets, fireworks (red flame), fluorescent screens.",
+    "hazards_ru": [
+      "Flammable",
+      "Reacts with water"
+    ],
+    "fun_facts_ru": [
+      "Strontium colors flame bright red and is used in fireworks.",
+      "The radioactive isotope ⁹⁰Sr is a dangerous product of nuclear explosions."
+    ],
+    "discovery": {
+      "scientist_ru": "Adair Crawford",
+      "country_ru": "Great Britain"
+    }
   },
   "Y": {
-    "name_ru": "Yttrium"
+    "name_ru": "Yttrium",
+    "industrial_ru": "Lasers (YAG), ceramic superconductors, red phosphors for screens.",
+    "fun_facts_ru": [
+      "Four elements (Y, Tb, Er, Yb) are named after the Swedish village of Ytterby."
+    ],
+    "discovery": {
+      "scientist_ru": "Johan Gadolin",
+      "country_ru": "Finland"
+    }
   },
   "Zr": {
-    "name_ru": "Zirconium"
+    "name_ru": "Zirconium",
+    "industrial_ru": "Nuclear fuel cladding, ceramics, dental implants (ZrO₂).",
+    "fun_facts_ru": [
+      "Zirconium does not absorb neutrons, making it ideal for nuclear reactors.",
+      "Cubic zirconia (cubic ZrO₂) is a popular synthetic diamond substitute."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Germany"
+    }
   },
   "Nb": {
-    "name_ru": "Niobium"
+    "name_ru": "Niobium",
+    "industrial_ru": "Superalloys, superconducting magnets (MRI, particle accelerators), jewelry.",
+    "fun_facts_ru": [
+      "Niobium is the primary material in superconducting magnets used in MRI scanners.",
+      "Named after Niobe from Greek mythology, the daughter of Tantalus."
+    ],
+    "discovery": {
+      "scientist_ru": "Charles Hatchett",
+      "country_ru": "Great Britain"
+    }
   },
   "Mo": {
-    "name_ru": "Molybdenum"
+    "name_ru": "Molybdenum",
+    "industrial_ru": "Steel alloying (tool steels, heat-resistant steels), catalysts.",
+    "fun_facts_ru": [
+      "Molybdenum is an essential trace element for plants (involved in nitrogen fixation).",
+      "Molybdenum disulfide (MoS₂) is an excellent solid lubricant."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Wilhelm Scheele",
+      "country_ru": "Sweden"
+    }
   },
   "Tc": {
-    "name_ru": "Technetium"
+    "name_ru": "Technetium",
+    "industrial_ru": "Medical diagnostics (isotope ⁹⁹ᵐTc — the most widely used radioisotope in medicine).",
+    "hazards_ru": [
+      "Radioactive"
+    ],
+    "fun_facts_ru": [
+      "The first artificially produced element — the name means 'artificial' (Greek 'technetos').",
+      "All isotopes of technetium are radioactive; it is virtually absent on Earth."
+    ],
+    "discovery": {
+      "scientist_ru": "Carlo Perrier / Emilio Segre",
+      "country_ru": "Italy"
+    }
   },
   "Ru": {
-    "name_ru": "Ruthenium"
+    "name_ru": "Ruthenium",
+    "industrial_ru": "Catalysts, electrical contacts, hard drives (magnetic layers).",
+    "fun_facts_ru": [
+      "Ruthenium is named after Russia (Latin 'Ruthenia').",
+      "The only element named after Russia."
+    ],
+    "discovery": {
+      "scientist_ru": "Karl Karlovich Klaus",
+      "country_ru": "Russia"
+    }
   },
   "Rh": {
-    "name_ru": "Rhodium"
+    "name_ru": "Rhodium",
+    "industrial_ru": "Automotive catalytic converters, mirror coatings, jewelry plating.",
+    "fun_facts_ru": [
+      "Rhodium is the most expensive of the noble metals.",
+      "Named for the rose-red color of its salts (Greek 'rhodon' — rose)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Great Britain"
+    }
   },
   "Pd": {
-    "name_ru": "Palladium"
+    "name_ru": "Palladium",
+    "industrial_ru": "Automotive catalytic converters, electronics, dentistry, jewelry.",
+    "fun_facts_ru": [
+      "Palladium can absorb up to 900 times its own volume of hydrogen.",
+      "Named after the asteroid Pallas, which was discovered a year before the element."
+    ],
+    "discovery": {
+      "scientist_ru": "William Hyde Wollaston",
+      "country_ru": "Great Britain"
+    }
   },
   "Ag": {
     "name_ru": "Silver",
@@ -357,97 +618,405 @@
     ]
   },
   "Cd": {
-    "name_ru": "Cadmium"
+    "name_ru": "Cadmium",
+    "industrial_ru": "Nickel-cadmium batteries, pigments, coatings, nuclear reactor control rods.",
+    "hazards_ru": [
+      "Toxic",
+      "Carcinogenic"
+    ],
+    "fun_facts_ru": [
+      "Cadmium absorbs neutrons well and is used in reactor control rods.",
+      "Itai-itai disease in Japan was caused by cadmium contamination."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Stromeyer",
+      "country_ru": "Germany"
+    }
   },
   "In": {
-    "name_ru": "Indium"
+    "name_ru": "Indium",
+    "industrial_ru": "Touchscreens (ITO — indium tin oxide), solders, semiconductors.",
+    "fun_facts_ru": [
+      "Indium emits a characteristic 'cry' (crackling sound) when bent.",
+      "Named after the bright indigo line in its spectrum."
+    ],
+    "discovery": {
+      "scientist_ru": "Ferdinand Reich / Hieronymus Theodor Richter",
+      "country_ru": "Germany"
+    }
   },
   "Sn": {
-    "name_ru": "Tin"
+    "name_ru": "Tin",
+    "industrial_ru": "Tinplating of steel (tin cans), solders, bronze (alloy with copper).",
+    "hazards_ru": [
+      "Organotin compounds are toxic"
+    ],
+    "fun_facts_ru": [
+      "When cooled below 13.2 °C, white tin transforms into a gray powder — known as 'tin pest'.",
+      "The Bronze Age was named after the alloy of tin and copper.",
+      "The symbol Sn comes from the Latin 'stannum'."
+    ]
   },
   "Sb": {
-    "name_ru": "Antimony"
+    "name_ru": "Antimony",
+    "industrial_ru": "Flame retardants, alloys for batteries and bearings, semiconductors.",
+    "hazards_ru": [
+      "Toxic"
+    ],
+    "fun_facts_ru": [
+      "Antimony was used in Ancient Egypt as a cosmetic (stibnite, kohl).",
+      "The symbol Sb comes from the Latin 'stibium'."
+    ]
   },
   "Te": {
-    "name_ru": "Tellurium"
+    "name_ru": "Tellurium",
+    "industrial_ru": "Solar cells (CdTe), alloying of steel and copper, thermoelectric devices.",
+    "hazards_ru": [
+      "Toxic"
+    ],
+    "fun_facts_ru": [
+      "Named from the Latin 'tellus' — earth.",
+      "Even trace amounts of tellurium give breath a garlic-like odor."
+    ],
+    "discovery": {
+      "scientist_ru": "Franz-Joseph Muller von Reichenstein",
+      "country_ru": "Austria"
+    }
   },
   "I": {
-    "name_ru": "Iodine"
+    "name_ru": "Iodine",
+    "industrial_ru": "Medicine (antiseptics, contrast agents), photography, catalysts.",
+    "hazards_ru": [
+      "Toxic (vapors)",
+      "Corrosive"
+    ],
+    "fun_facts_ru": [
+      "Iodine sublimes when heated, forming violet vapors — hence its name (Greek 'iodes' — violet).",
+      "Iodine is essential for the production of thyroid hormones.",
+      "A solution of iodine in starch produces a characteristic blue color."
+    ],
+    "discovery": {
+      "scientist_ru": "Bernard Courtois",
+      "country_ru": "France"
+    }
   },
   "Xe": {
-    "name_ru": "Xenon"
+    "name_ru": "Xenon",
+    "industrial_ru": "Xenon lamps (projectors, car headlights), anesthesia, ion propulsion engines.",
+    "fun_facts_ru": [
+      "The first noble gas for which chemical compounds were obtained (XeF₂, 1962).",
+      "Named from the Greek 'xenos' — stranger, foreign.",
+      "Xenon is used as rocket fuel in ion engines of spacecraft."
+    ],
+    "discovery": {
+      "scientist_ru": "William Ramsay / Morris Travers",
+      "country_ru": "Great Britain"
+    }
   },
   "Cs": {
-    "name_ru": "Caesium"
+    "name_ru": "Caesium",
+    "industrial_ru": "Atomic clocks (frequency standard), photoelectric sensors.",
+    "hazards_ru": [
+      "Flammable",
+      "Explosive on contact with water",
+      "Corrosive"
+    ],
+    "fun_facts_ru": [
+      "Caesium is the most electropositive stable element.",
+      "The second is defined by the frequency of radiation of a ¹³³Cs atom.",
+      "One of the lowest-melting metals (28.44 °C)."
+    ],
+    "discovery": {
+      "scientist_ru": "Robert Bunsen / Gustav Kirchhoff",
+      "country_ru": "Germany"
+    }
   },
   "Ba": {
-    "name_ru": "Barium"
+    "name_ru": "Barium",
+    "industrial_ru": "Drilling fluids (BaSO₄), glass production, pyrotechnics (green flame).",
+    "hazards_ru": [
+      "Toxic (soluble compounds)",
+      "Reacts with water"
+    ],
+    "fun_facts_ru": [
+      "Barium sulfate (BaSO₄) is insoluble and non-toxic — used as a contrast agent for gastrointestinal X-rays.",
+      "Barium colors flame green."
+    ],
+    "discovery": {
+      "scientist_ru": "Humphry Davy",
+      "country_ru": "Great Britain"
+    }
   },
   "La": {
-    "name_ru": "Lanthanum"
+    "name_ru": "Lanthanum",
+    "industrial_ru": "Optical glass, catalytic cracking catalysts, nickel-metal hydride batteries.",
+    "fun_facts_ru": [
+      "Named from the Greek 'lanthanein' — to hide, because lanthanum long remained hidden in cerium oxide."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Sweden"
+    }
   },
   "Ce": {
-    "name_ru": "Cerium"
+    "name_ru": "Cerium",
+    "industrial_ru": "Polishing powders, catalysts (automotive catalytic converters), lighter flints.",
+    "fun_facts_ru": [
+      "Named after the dwarf planet Ceres.",
+      "Cerium is the most abundant lanthanide in Earth's crust."
+    ],
+    "discovery": {
+      "scientist_ru": "Jons Jacob Berzelius / Wilhelm Hisinger",
+      "country_ru": "Sweden"
+    }
   },
   "Pr": {
-    "name_ru": "Praseodymium"
+    "name_ru": "Praseodymium",
+    "industrial_ru": "Permanent magnets (Nd-Fe-B with Pr additive), protective eyeglass lenses.",
+    "fun_facts_ru": [
+      "The name means 'green twin' (Greek 'praseos didymos') — from the color of its salts."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
   },
   "Nd": {
-    "name_ru": "Neodymium"
+    "name_ru": "Neodymium",
+    "industrial_ru": "Ultra-powerful permanent magnets Nd₂Fe₁₄B (electric motors, headphones, hard drives).",
+    "fun_facts_ru": [
+      "Neodymium magnets are the strongest permanent magnets in the world.",
+      "The name means 'new twin' (Greek 'neos didymos')."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Auer von Welsbach",
+      "country_ru": "Austria"
+    }
   },
   "Pm": {
-    "name_ru": "Promethium"
+    "name_ru": "Promethium",
+    "industrial_ru": "Atomic batteries (¹⁴⁷Pm), luminescent paint.",
+    "hazards_ru": [
+      "Radioactive"
+    ],
+    "fun_facts_ru": [
+      "The only lanthanide with no stable isotopes.",
+      "Named after Prometheus, who stole fire from the gods."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacob Marinsky / Lawrence Glendenin / Charles Coryell",
+      "country_ru": "USA"
+    }
   },
   "Sm": {
-    "name_ru": "Samarium"
+    "name_ru": "Samarium",
+    "industrial_ru": "Permanent magnets (SmCo₅), reactor control rods, lasers.",
+    "fun_facts_ru": [
+      "Samarium-cobalt magnets retain their magnetization at high temperatures."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Emile Lecoq de Boisbaudran",
+      "country_ru": "France"
+    }
   },
   "Eu": {
-    "name_ru": "Europium"
+    "name_ru": "Europium",
+    "industrial_ru": "Red phosphors for screens, banknote security features (fluorescence), lasers.",
+    "fun_facts_ru": [
+      "Europium is responsible for the red glow in television screens.",
+      "Used in euro banknotes as an anti-counterfeiting measure."
+    ],
+    "discovery": {
+      "scientist_ru": "Eugene-Anatole Demarcay",
+      "country_ru": "France"
+    }
   },
   "Gd": {
-    "name_ru": "Gadolinium"
+    "name_ru": "Gadolinium",
+    "industrial_ru": "MRI contrast agent, nuclear reactors, magnetic refrigeration.",
+    "hazards_ru": [
+      "Toxic (compounds, when administered intravenously)"
+    ],
+    "fun_facts_ru": [
+      "Gadolinium is ferromagnetic at room temperature (Curie point 20 °C).",
+      "Named after the Finnish chemist Johan Gadolin."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Switzerland"
+    }
   },
   "Tb": {
-    "name_ru": "Terbium"
+    "name_ru": "Terbium",
+    "industrial_ru": "Green phosphors, magnetostrictive alloys (Terfenol-D).",
+    "fun_facts_ru": [
+      "Named after the village of Ytterby in Sweden."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Sweden"
+    }
   },
   "Dy": {
-    "name_ru": "Dysprosium"
+    "name_ru": "Dysprosium",
+    "industrial_ru": "Additive to neodymium magnets (increases thermal resistance), lasers.",
+    "fun_facts_ru": [
+      "Named from the Greek 'dysprositos' — hard to get, because it was difficult to isolate."
+    ],
+    "discovery": {
+      "scientist_ru": "Paul Emile Lecoq de Boisbaudran",
+      "country_ru": "France"
+    }
   },
   "Ho": {
-    "name_ru": "Holmium"
+    "name_ru": "Holmium",
+    "industrial_ru": "Medical lasers, pole pieces for magnets.",
+    "fun_facts_ru": [
+      "Holmium has the highest magnetic moment of any element.",
+      "Named after Stockholm (Latin 'Holmia')."
+    ],
+    "discovery": {
+      "scientist_ru": "Jacques-Louis Soret / Marc Delafontaine",
+      "country_ru": "Switzerland"
+    }
   },
   "Er": {
-    "name_ru": "Erbium"
+    "name_ru": "Erbium",
+    "industrial_ru": "Fiber-optic amplifiers (erbium-doped fiber), lasers, pink coloring of glass.",
+    "fun_facts_ru": [
+      "Named after the village of Ytterby.",
+      "Erbium-doped fiber amplifiers are the backbone of long-distance fiber-optic communications."
+    ],
+    "discovery": {
+      "scientist_ru": "Carl Gustaf Mosander",
+      "country_ru": "Sweden"
+    }
   },
   "Tm": {
-    "name_ru": "Thulium"
+    "name_ru": "Thulium",
+    "industrial_ru": "Portable X-ray sources, lasers.",
+    "fun_facts_ru": [
+      "Thulium is the least abundant lanthanide (excluding promethium).",
+      "Named after Thule — the ancient name for Scandinavia."
+    ],
+    "discovery": {
+      "scientist_ru": "Per Teodor Cleve",
+      "country_ru": "Sweden"
+    }
   },
   "Yb": {
-    "name_ru": "Ytterbium"
+    "name_ru": "Ytterbium",
+    "industrial_ru": "High-power fiber lasers, alloying of stainless steel.",
+    "fun_facts_ru": [
+      "Named after the village of Ytterby — the fourth element bearing this name."
+    ],
+    "discovery": {
+      "scientist_ru": "Jean Charles Galissard de Marignac",
+      "country_ru": "Switzerland"
+    }
   },
   "Lu": {
-    "name_ru": "Lutetium"
+    "name_ru": "Lutetium",
+    "industrial_ru": "PET scanners (Lu₂SiO₅ detectors), petroleum refining catalysts.",
+    "fun_facts_ru": [
+      "Lutetium is the heaviest and most expensive of the stable lanthanides.",
+      "Named after the ancient name for Paris — Lutetia."
+    ],
+    "discovery": {
+      "scientist_ru": "Georges Urbain / Carl Auer von Welsbach",
+      "country_ru": "France / Austria"
+    }
   },
   "Hf": {
-    "name_ru": "Hafnium"
+    "name_ru": "Hafnium",
+    "industrial_ru": "Nuclear reactor control rods, superalloys, semiconductors.",
+    "fun_facts_ru": [
+      "Hafnium and zirconium are nearly indistinguishable in chemical properties — they are extremely difficult to separate.",
+      "Named after Copenhagen (Latin 'Hafnia')."
+    ],
+    "discovery": {
+      "scientist_ru": "Dirk Coster / George de Hevesy",
+      "country_ru": "Denmark"
+    }
   },
   "Ta": {
-    "name_ru": "Tantalum"
+    "name_ru": "Tantalum",
+    "industrial_ru": "Electrolytic capacitors, surgical implants, superalloys.",
+    "fun_facts_ru": [
+      "Tantalum is completely resistant to acids (except HF and oleum) — named after the mythological Tantalus.",
+      "Used in almost every smartphone (capacitors)."
+    ],
+    "discovery": {
+      "scientist_ru": "Anders Gustaf Ekeberg",
+      "country_ru": "Sweden"
+    }
   },
   "W": {
-    "name_ru": "Tungsten"
+    "name_ru": "Tungsten",
+    "industrial_ru": "Incandescent lamp filaments, hard alloys (tungsten carbide), armor-piercing shells.",
+    "production_ru": "Reduction of WO₃ with hydrogen or carbon.",
+    "fun_facts_ru": [
+      "Tungsten has the highest melting point of all metals.",
+      "The symbol W comes from the German 'Wolfram' (wolf's foam), the name of the mineral wolframite.",
+      "Tungsten carbide approaches diamond in hardness."
+    ],
+    "discovery": {
+      "scientist_ru": "Juan Jose Elhuyar / Fausto Elhuyar",
+      "country_ru": "Spain"
+    }
   },
   "Re": {
-    "name_ru": "Rhenium"
+    "name_ru": "Rhenium",
+    "industrial_ru": "Superalloys for jet engine turbine blades, catalysts.",
+    "fun_facts_ru": [
+      "Rhenium was the last stable element to be discovered in nature (1925).",
+      "One of the rarest elements in Earth's crust (~0.001 ppm).",
+      "Named after the Rhine River."
+    ],
+    "discovery": {
+      "scientist_ru": "Walter Noddack / Ida Noddack / Otto Berg",
+      "country_ru": "Germany"
+    }
   },
   "Os": {
-    "name_ru": "Osmium"
+    "name_ru": "Osmium",
+    "industrial_ru": "Fountain pen nibs, electrical contacts, catalysts.",
+    "hazards_ru": [
+      "Toxic (OsO₄ — volatile and extremely poisonous)"
+    ],
+    "fun_facts_ru": [
+      "Osmium is the densest element (22.587 g/cm³).",
+      "Named from the Greek 'osme' — smell, due to the pungent odor of OsO₄."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Great Britain"
+    }
   },
   "Ir": {
-    "name_ru": "Iridium"
+    "name_ru": "Iridium",
+    "industrial_ru": "Spark plugs, crucibles, electrodes, kilogram standard (Pt-Ir alloy).",
+    "fun_facts_ru": [
+      "Iridium is the second densest element after osmium and the most corrosion-resistant metal.",
+      "An anomalously high iridium concentration in clays at the Cretaceous-Paleogene boundary is evidence of the asteroid impact that wiped out the dinosaurs.",
+      "Named for the variety of colors of its salts (Greek 'iris' — rainbow)."
+    ],
+    "discovery": {
+      "scientist_ru": "Smithson Tennant",
+      "country_ru": "Great Britain"
+    }
   },
   "Pt": {
-    "name_ru": "Platinum"
+    "name_ru": "Platinum",
+    "industrial_ru": "Automotive catalytic converters, jewelry, laboratory equipment, anti-cancer drugs (cisplatin).",
+    "fun_facts_ru": [
+      "Named from the Spanish 'platina' — little silver, because the Spanish considered platinum worthless.",
+      "The International Prototype of the Kilogram (until 2019) was made of a platinum-iridium alloy."
+    ],
+    "discovery": {
+      "scientist_ru": "Antonio de Ulloa",
+      "country_ru": "Spain"
+    }
   },
   "Au": {
     "name_ru": "Gold",
@@ -462,120 +1031,544 @@
     ]
   },
   "Hg": {
-    "name_ru": "Mercury"
+    "name_ru": "Mercury",
+    "industrial_ru": "Thermometers (being phased out), fluorescent lamps, chloralkali production.",
+    "hazards_ru": [
+      "Toxic",
+      "Vapors are poisonous",
+      "Environmental pollutant"
+    ],
+    "fun_facts_ru": [
+      "The only metal that is liquid at room temperature.",
+      "Named after the planet Mercury; its alchemical symbol is the same as the planet's.",
+      "Mercury thermometers were invented by Fahrenheit in 1714."
+    ]
   },
   "Tl": {
-    "name_ru": "Thallium"
+    "name_ru": "Thallium",
+    "industrial_ru": "Scintillation detectors (TlBr/TlI), optical electronics, superconductors.",
+    "hazards_ru": [
+      "Extremely toxic"
+    ],
+    "fun_facts_ru": [
+      "Thallium is one of the most toxic elements; its compounds are tasteless and odorless.",
+      "Named for the bright green line in its spectrum (Greek 'thallos' — green shoot)."
+    ],
+    "discovery": {
+      "scientist_ru": "William Crookes",
+      "country_ru": "Great Britain"
+    }
   },
   "Pb": {
-    "name_ru": "Lead"
+    "name_ru": "Lead",
+    "industrial_ru": "Batteries (lead-acid), radiation shielding, solders (limited use).",
+    "hazards_ru": [
+      "Toxic",
+      "Cumulative poison"
+    ],
+    "fun_facts_ru": [
+      "The Romans used lead pipes for water supply — lead poisoning is considered one of the causes of the empire's decline.",
+      "The symbol Pb comes from the Latin 'plumbum', from which the words 'plumbing' and 'plumber' are derived."
+    ]
   },
   "Bi": {
-    "name_ru": "Bismuth"
+    "name_ru": "Bismuth",
+    "industrial_ru": "Pharmaceuticals (bismuth subsalicylate), low-melting alloys, cosmetics.",
+    "fun_facts_ru": [
+      "Bismuth crystals form beautiful rainbow-colored stepped structures.",
+      "Bismuth is slightly radioactive (half-life of ²⁰⁹Bi is about 1.9 x 10¹⁹ years), but practically stable."
+    ],
+    "discovery": {
+      "scientist_ru": "Claude Geoffroy the Younger",
+      "country_ru": "France"
+    }
   },
   "Po": {
-    "name_ru": "Polonium"
+    "name_ru": "Polonium",
+    "hazards_ru": [
+      "Extremely radioactive",
+      "Extremely toxic"
+    ],
+    "fun_facts_ru": [
+      "Named after Poland — the homeland of Marie Curie.",
+      "Polonium-210 was used in antistatic devices.",
+      "Alexander Litvinenko was poisoned with polonium-210 in 2006."
+    ],
+    "discovery": {
+      "scientist_ru": "Marie Curie / Pierre Curie",
+      "country_ru": "France"
+    }
   },
   "At": {
-    "name_ru": "Astatine"
+    "name_ru": "Astatine",
+    "hazards_ru": [
+      "Radioactive"
+    ],
+    "fun_facts_ru": [
+      "Astatine is the rarest naturally occurring element: less than 30 grams exist in Earth's crust at any given time.",
+      "Named from the Greek 'astatos' — unstable."
+    ],
+    "discovery": {
+      "scientist_ru": "Dale Corson / Kenneth MacKenzie / Emilio Segre",
+      "country_ru": "USA"
+    }
   },
   "Rn": {
-    "name_ru": "Radon"
+    "name_ru": "Radon",
+    "hazards_ru": [
+      "Radioactive",
+      "Carcinogenic (second leading cause of lung cancer after smoking)"
+    ],
+    "fun_facts_ru": [
+      "Radon is the heaviest noble gas.",
+      "Radon accumulates in building basements and is the second most significant cause of lung cancer."
+    ],
+    "discovery": {
+      "scientist_ru": "Friedrich Ernst Dorn",
+      "country_ru": "Germany"
+    }
   },
   "Fr": {
-    "name_ru": "Francium"
+    "name_ru": "Francium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Francium is the most unstable of the first 101 elements; the half-life of ²²³Fr is 22 minutes.",
+      "Named after France; the last element discovered in nature."
+    ],
+    "discovery": {
+      "scientist_ru": "Marguerite Perey",
+      "country_ru": "France"
+    }
   },
   "Ra": {
-    "name_ru": "Radium"
+    "name_ru": "Radium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Radium glows blue due to radioluminescence.",
+      "Marie Curie received the Nobel Prize in Chemistry (1911) for the discovery of radium.",
+      "Named from the Latin 'radius' — ray."
+    ],
+    "discovery": {
+      "scientist_ru": "Marie Curie / Pierre Curie",
+      "country_ru": "France"
+    }
   },
   "Ac": {
-    "name_ru": "Actinium"
+    "name_ru": "Actinium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Actinium is 150 times more radioactive than radium.",
+      "Named from the Greek 'aktinos' — ray."
+    ],
+    "discovery": {
+      "scientist_ru": "Andre-Louis Debierne",
+      "country_ru": "France"
+    }
   },
   "Th": {
-    "name_ru": "Thorium"
+    "name_ru": "Thorium",
+    "industrial_ru": "Potential nuclear fuel (thorium cycle), gas mantles.",
+    "hazards_ru": [
+      "Radioactive"
+    ],
+    "fun_facts_ru": [
+      "Thorium is 3–4 times more abundant in Earth's crust than uranium.",
+      "Named after Thor, the Norse god of thunder."
+    ],
+    "discovery": {
+      "scientist_ru": "Jons Jacob Berzelius",
+      "country_ru": "Sweden"
+    }
   },
   "Pa": {
-    "name_ru": "Protactinium"
+    "name_ru": "Protactinium",
+    "hazards_ru": [
+      "Radioactive",
+      "Extremely toxic"
+    ],
+    "fun_facts_ru": [
+      "Protactinium is one of the rarest and most expensive naturally occurring elements."
+    ],
+    "discovery": {
+      "scientist_ru": "Kasimir Fajans / Oswald Helmuth Goring",
+      "country_ru": "Germany"
+    }
   },
   "U": {
-    "name_ru": "Uranium"
+    "name_ru": "Uranium",
+    "industrial_ru": "Nuclear fuel (²³⁵U), nuclear weapons, armor-piercing shells (depleted uranium).",
+    "production_ru": "Mining of uranium ore, enrichment of isotope ²³⁵U (gas centrifugation).",
+    "hazards_ru": [
+      "Radioactive",
+      "Toxic"
+    ],
+    "fun_facts_ru": [
+      "Named after the planet Uranus, which was discovered 8 years before the element.",
+      "Uranium is 1.7 times heavier than lead.",
+      "1 kg of ²³⁵U releases energy equivalent to 2,500 tonnes of coal when undergoing fission."
+    ],
+    "discovery": {
+      "scientist_ru": "Martin Heinrich Klaproth",
+      "country_ru": "Germany"
+    }
   },
   "Np": {
-    "name_ru": "Neptunium"
+    "name_ru": "Neptunium",
+    "hazards_ru": [
+      "Radioactive",
+      "Toxic"
+    ],
+    "fun_facts_ru": [
+      "The first transuranium element; named after Neptune — the next planet after Uranus."
+    ],
+    "discovery": {
+      "scientist_ru": "Edwin McMillan / Philip Abelson",
+      "country_ru": "USA"
+    }
   },
   "Pu": {
-    "name_ru": "Plutonium"
+    "name_ru": "Plutonium",
+    "industrial_ru": "Nuclear weapons, nuclear fuel (MOX), radioisotope power sources (²³⁸Pu).",
+    "hazards_ru": [
+      "Extremely radioactive",
+      "Extremely toxic"
+    ],
+    "fun_facts_ru": [
+      "Plutonium-238 powers the Curiosity and Perseverance Mars rovers.",
+      "Named after Pluto — the next 'planet' after Neptune.",
+      "Has 6 allotropic forms — more than any other element."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Edwin McMillan / Joseph Kennedy / Arthur Wahl",
+      "country_ru": "USA"
+    }
   },
   "Am": {
-    "name_ru": "Americium"
+    "name_ru": "Americium",
+    "industrial_ru": "Smoke detectors (²⁴¹Am), neutron sources.",
+    "hazards_ru": [
+      "Radioactive"
+    ],
+    "fun_facts_ru": [
+      "Americium-241 is used in household smoke detectors.",
+      "Named after America, by analogy with europium."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Leon Morgan / Albert Ghiorso",
+      "country_ru": "USA"
+    }
   },
   "Cm": {
-    "name_ru": "Curium"
+    "name_ru": "Curium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Marie and Pierre Curie.",
+      "Curium-244 was used in alpha spectrometers on Mars rovers."
+    ],
+    "discovery": {
+      "scientist_ru": "Glenn Seaborg / Ralph James / Albert Ghiorso",
+      "country_ru": "USA"
+    }
   },
   "Bk": {
-    "name_ru": "Berkelium"
+    "name_ru": "Berkelium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the city of Berkeley, California, where the National Laboratory is located."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "USA"
+    }
   },
   "Cf": {
-    "name_ru": "Californium"
+    "name_ru": "Californium",
+    "industrial_ru": "Neutron source (²⁵²Cf) for ore analysis, explosives detection, and reactor startup.",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Californium-252 is one of the most expensive materials on Earth (~$27 million per gram).",
+      "Named after the state of California."
+    ],
+    "discovery": {
+      "scientist_ru": "Stanley Thompson / Kenneth Street / Albert Ghiorso / Glenn Seaborg",
+      "country_ru": "USA"
+    }
   },
   "Es": {
-    "name_ru": "Einsteinium"
+    "name_ru": "Einsteinium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Albert Einstein.",
+      "Discovered in the debris of the first thermonuclear explosion (Ivy Mike test)."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso et al.",
+      "country_ru": "USA"
+    }
   },
   "Fm": {
-    "name_ru": "Fermium"
+    "name_ru": "Fermium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Enrico Fermi.",
+      "Like einsteinium, discovered in the debris of a thermonuclear explosion."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso et al.",
+      "country_ru": "USA"
+    }
   },
   "Md": {
-    "name_ru": "Mendelevium"
+    "name_ru": "Mendelevium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Dmitri Ivanovich Mendeleev."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso / Bernard Harvey / Gregory Choppin / Stanley Thompson / Glenn Seaborg",
+      "country_ru": "USA"
+    }
   },
   "No": {
-    "name_ru": "Nobelium"
+    "name_ru": "Nobelium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Alfred Nobel."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov et al.",
+      "country_ru": "USSR"
+    }
   },
   "Lr": {
-    "name_ru": "Lawrencium"
+    "name_ru": "Lawrencium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Ernest Lawrence, the inventor of the cyclotron."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso et al.",
+      "country_ru": "USA"
+    }
   },
   "Rf": {
-    "name_ru": "Rutherfordium"
+    "name_ru": "Rutherfordium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Ernest Rutherford."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov et al. / independently Albert Ghiorso et al.",
+      "country_ru": "USSR / USA"
+    }
   },
   "Db": {
-    "name_ru": "Dubnium"
+    "name_ru": "Dubnium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the city of Dubna, where the Joint Institute for Nuclear Research (JINR) is located."
+    ],
+    "discovery": {
+      "scientist_ru": "Georgy Flyorov et al. / independently Albert Ghiorso et al.",
+      "country_ru": "USSR / USA"
+    }
   },
   "Sg": {
-    "name_ru": "Seaborgium"
+    "name_ru": "Seaborgium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Glenn Seaborg — the only element named during the scientist's lifetime."
+    ],
+    "discovery": {
+      "scientist_ru": "Albert Ghiorso et al. / independently Georgy Flyorov et al.",
+      "country_ru": "USA / USSR"
+    }
   },
   "Bh": {
-    "name_ru": "Bohrium"
+    "name_ru": "Bohrium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Niels Bohr."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Munzenberg et al.",
+      "country_ru": "Germany"
+    }
   },
   "Hs": {
-    "name_ru": "Hassium"
+    "name_ru": "Hassium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the German state of Hesse (German 'Hessen'), where the GSI institute is located."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Munzenberg et al.",
+      "country_ru": "Germany"
+    }
   },
   "Mt": {
-    "name_ru": "Meitnerium"
+    "name_ru": "Meitnerium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Lise Meitner — the physicist who contributed to the discovery of nuclear fission."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Munzenberg et al.",
+      "country_ru": "Germany"
+    }
   },
   "Ds": {
-    "name_ru": "Darmstadtium"
+    "name_ru": "Darmstadtium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the city of Darmstadt, where the GSI institute is located."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Gottfried Munzenberg et al.",
+      "country_ru": "Germany"
+    }
   },
   "Rg": {
-    "name_ru": "Roentgenium"
+    "name_ru": "Roentgenium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Wilhelm Conrad Roentgen, who discovered X-rays."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster et al.",
+      "country_ru": "Germany"
+    }
   },
   "Cn": {
-    "name_ru": "Copernicium"
+    "name_ru": "Copernicium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Nicolaus Copernicus.",
+      "Theoretical calculations suggest it may be liquid at room temperature (like mercury)."
+    ],
+    "discovery": {
+      "scientist_ru": "Peter Armbruster / Sigurd Hofmann et al.",
+      "country_ru": "Germany"
+    }
   },
   "Nh": {
-    "name_ru": "Nihonium"
+    "name_ru": "Nihonium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "The first element discovered in Asia; named after Japan (Japanese 'Nihon')."
+    ],
+    "discovery": {
+      "scientist_ru": "Kosuke Morita et al.",
+      "country_ru": "Japan"
+    }
   },
   "Fl": {
-    "name_ru": "Flerovium"
+    "name_ru": "Flerovium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the Flerov Laboratory of Nuclear Reactions in Dubna.",
+      "Calculations suggest it may exhibit noble gas-like properties."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian et al.",
+      "country_ru": "Russia"
+    }
   },
   "Mc": {
-    "name_ru": "Moscovium"
+    "name_ru": "Moscovium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Moscow Oblast, where JINR in Dubna is located."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian et al.",
+      "country_ru": "Russia / USA"
+    }
   },
   "Lv": {
-    "name_ru": "Livermorium"
+    "name_ru": "Livermorium",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Lawrence Livermore National Laboratory in California."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian et al.",
+      "country_ru": "Russia / USA"
+    }
   },
   "Ts": {
-    "name_ru": "Tennessine"
+    "name_ru": "Tennessine",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after the state of Tennessee (USA), home of Oak Ridge National Laboratory."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian et al.",
+      "country_ru": "Russia / USA"
+    }
   },
   "Og": {
-    "name_ru": "Oganesson"
+    "name_ru": "Oganesson",
+    "hazards_ru": [
+      "Extremely radioactive"
+    ],
+    "fun_facts_ru": [
+      "Named after Yuri Tsovakovich Oganessian — the second element (after seaborgium) named during the scientist's lifetime.",
+      "Predicted to be a solid at room temperature, unlike other noble gases."
+    ],
+    "discovery": {
+      "scientist_ru": "Yuri Oganessian et al.",
+      "country_ru": "Russia / USA"
+    }
   }
 }
