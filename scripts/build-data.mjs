@@ -165,7 +165,7 @@ async function main() {
   const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
   const promptTemplatesEs = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.es.json'));
 
-  const concepts = JSON.parse(await readFile(join(DATA_SRC, 'concepts.json'), 'utf-8'));
+  const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
 
   // Load contexts layer
   const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
