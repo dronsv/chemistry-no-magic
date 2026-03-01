@@ -171,7 +171,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
       )}
 
       {/* Theory panel — lazy-loaded on expand */}
-      <TheoryPanel />
+      <TheoryPanel locale={locale} />
 
       {/* Practice section */}
       {elements.length > 0 && <PracticeSection locale={locale} />}

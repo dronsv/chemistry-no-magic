@@ -1703,6 +1703,72 @@
   margin-bottom: var(--space-xs);
 }
 
+/* Structured trend examples */
+.theory-trend__examples-list {
+  margin-top: var(--space-xs);
+}
+
+.theory-trend__example-series {
+  margin-bottom: var(--space-sm);
+}
+
+.theory-trend__example-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.theory-trend__example-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.theory-trend__arrow-sep {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  margin: 0 0.125rem;
+}
+
+.theory-trend__example-comment {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.theory-trend__example-text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space-xs);
+}
+
+/* Element chips in examples */
+.theory-element-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.125rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  background: var(--color-bg-alt);
+  font-size: 0.8125rem;
+  cursor: default;
+}
+
+.theory-element-chip__symbol {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.theory-element-chip__value {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
 /* ========================================
    Element list (all 118 elements)
    ======================================== */

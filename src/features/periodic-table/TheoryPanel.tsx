@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import * as m from '../../paraglide/messages.js';
-import type { PeriodicTableTheory, PropertyTrend, ExceptionConsequence } from '../../types/periodic-table-theory';
+import type {
+  PeriodicTableTheory,
+  PropertyTrend,
+  ExceptionConsequence,
+  TrendExample,
+  TrendExampleElement,
+} from '../../types/periodic-table-theory';
+import type { SupportedLocale } from '../../types/i18n';
 import { loadPeriodicTableTheory } from '../../lib/data-loader';
 
 function CollapsibleSection({
@@ -32,6 +39,63 @@ function CollapsibleSection({
   );
 }
 
+function ElementChip({ el }: { el: TrendExampleElement }) {
+  const display = el.value || el.value_ru || '';
+  return (
+    <span className="theory-element-chip" title={el.symbol}>
+      <span className="theory-element-chip__symbol">{el.symbol}</span>
+      {display && <span className="theory-element-chip__value">{display}</span>}
+    </span>
+  );
+}
+
+function TrendExamples({
+  examples,
+  fallback,
+}: {
+  examples?: TrendExample[];
+  fallback: string[];
+}) {
+  if (!examples || examples.length === 0) {
+    return (
+      <ul>
+        {fallback.map((ex, i) => (
+          <li key={i}>{ex}</li>
+        ))}
+      </ul>
+    );
+  }
+  return (
+    <div className="theory-trend__examples-list">
+      {examples.map((ex, i) => {
+        if (ex.type === 'text') {
+          return (
+            <p key={i} className="theory-trend__example-text">
+              {ex.text_ru}
+            </p>
+          );
+        }
+        return (
+          <div key={i} className="theory-trend__example-series">
+            <span className="theory-trend__example-label">{ex.label_ru}:</span>
+            <div className="theory-trend__example-chain">
+              {ex.elements.map((el, j) => (
+                <span key={`${el.symbol}-${j}`}>
+                  {j > 0 && <span className="theory-trend__arrow-sep">{'\u2192'}</span>}
+                  <ElementChip el={el} />
+                </span>
+              ))}
+            </div>
+            {ex.comment_ru && (
+              <span className="theory-trend__example-comment">— {ex.comment_ru}</span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function TrendCard({ trend }: { trend: PropertyTrend }) {
   return (
     <CollapsibleSection title={trend.title_ru} icon={trend.icon}>
@@ -56,14 +120,10 @@ function TrendCard({ trend }: { trend: PropertyTrend }) {
           <p>{trend.why_group_ru}</p>
         </div>
 
-        {trend.examples_ru.length > 0 && (
+        {(trend.examples || trend.examples_ru.length > 0) && (
           <div className="theory-trend__examples">
             <strong>{m.theory_examples_label()}</strong>
-            <ul>
-              {trend.examples_ru.map((ex, i) => (
-                <li key={i}>{ex}</li>
-              ))}
-            </ul>
+            <TrendExamples examples={trend.examples} fallback={trend.examples_ru} />
           </div>
         )}
       </div>
@@ -90,7 +150,7 @@ function ExceptionCard({ exc }: { exc: ExceptionConsequence }) {
   );
 }
 
-export default function TheoryPanel() {
+export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
   const [theory, setTheory] = useState<PeriodicTableTheory | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -99,7 +159,7 @@ export default function TheoryPanel() {
   useEffect(() => {
     if (!open || theory) return;
     setLoading(true);
-    loadPeriodicTableTheory()
+    loadPeriodicTableTheory(locale)
       .then(data => {
         setTheory(data);
         setLoading(false);
@@ -108,7 +168,7 @@ export default function TheoryPanel() {
         setError(err instanceof Error ? err.message : m.error_loading_short());
         setLoading(false);
       });
-  }, [open, theory]);
+  }, [open, theory, locale]);
 
   return (
     <div className="theory-panel">
