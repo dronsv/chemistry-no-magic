@@ -196,7 +196,16 @@
   color: var(--color-text-muted);
 }
 
+.subst-theory__formula-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
 .subst-theory__naming-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
   font-size: 0.8125rem;
   color: var(--color-text);
   line-height: 1.6;

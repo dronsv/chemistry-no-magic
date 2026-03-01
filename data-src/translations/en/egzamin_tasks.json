@@ -1,0 +1,183 @@
+{
+  "matura_2024_01a": {
+    "question_ru": "An atom of a certain element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p⁴. Determine the period number (X) and group number (Y) in which this element is located in the periodic table.",
+    "explanation_ru": "The configuration 1s² 2s² 2p⁶ 3s² 3p⁴ means 16 electrons (Z = 16, sulfur). Three shells — period 3. Group = 10 + number of s and p electrons in the outermost shell: 2 + 4 = 6, i.e. group 16 (IUPAC). Answer: X = 3, Y = 16.",
+    "input_labels": ["X", "Y"]
+  },
+  "matura_2024_01b": {
+    "question_ru": "Select two correct statements about the structure of the ⁵⁶Fe isotope atom.",
+    "explanation_ru": "⁵⁶Fe: Z = 26 (26 protons, 26 electrons), A = 56 (30 neutrons = 56 − 26). Statement 1 is correct (26p, 30n). Statement 4 is correct — the ground-state electron configuration of iron is [Ar] 3d⁶ 4s². Statements 2, 3 and 5 are incorrect.",
+    "options": [
+      { "id": "1", "text": "The nucleus contains 26 protons and 30 neutrons." },
+      { "id": "2", "text": "The atom has 56 electrons." },
+      { "id": "3", "text": "The mass number of this isotope is 26." },
+      { "id": "4", "text": "In the ground state, the atom has the configuration [Ar] 3d⁶ 4s²." },
+      { "id": "5", "text": "The atom has 56 protons in the nucleus." }
+    ]
+  },
+  "matura_2024_01c": {
+    "question_ru": "Arrange the following elements in order of increasing first ionization energy.\n  1) Na  2) Mg  3) Al",
+    "explanation_ru": "In the third period, ionization energy generally increases from left to right, but Al (3p¹) has a lower ionization energy than Mg (3s² — a full s-subshell is more stable). Correct order: Na (495.8 kJ/mol) < Al (577.5 kJ/mol) < Mg (737.7 kJ/mol), i.e. 1 → 3 → 2.",
+    "items": [
+      { "id": "1", "text": "Na" },
+      { "id": "2", "text": "Mg" },
+      { "id": "3", "text": "Al" }
+    ]
+  },
+  "matura_2024_02a": {
+    "question_ru": "Match each substance with the type of chemical bond that is dominant in its structure.",
+    "explanation_ru": "NaCl — a salt, ionic bond (1). H₂O — a molecule with a polar covalent O–H bond (2). Fe — a metal, metallic bond (4). Answer: A→1, B→2, C→4.",
+    "left_items": [
+      { "label": "A", "text": "NaCl" },
+      { "label": "B", "text": "H₂O" },
+      { "label": "C", "text": "Fe" }
+    ],
+    "options": [
+      { "id": "1", "text": "ionic bond" },
+      { "id": "2", "text": "polar covalent bond" },
+      { "id": "3", "text": "nonpolar covalent bond" },
+      { "id": "4", "text": "metallic bond" }
+    ]
+  },
+  "matura_2024_02c": {
+    "question_ru": "Explain why the boiling point of water (100 °C) is much higher than that of hydrogen sulfide H₂S (−60 °C), even though H₂S has a greater molecular mass. In your answer, refer to the type of intermolecular interactions.",
+    "explanation_ru": "Key points: (1) water forms hydrogen bonds O–H···O, (2) sulfur is less electronegative and has a larger radius than oxygen, so H₂S does not form effective hydrogen bonds, (3) stronger intermolecular interactions = higher boiling point."
+  },
+  "matura_2024_03a": {
+    "question_ru": "Calculate the molar mass of ammonium sulfate (NH₄)₂SO₄ and give the result in g/mol rounded to the nearest integer.",
+    "explanation_ru": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 g/mol."
+  },
+  "matura_2024_03b": {
+    "question_ru": "In the complete combustion of methane: CH₄ + 2O₂ → CO₂ + 2H₂O, 8.0 g of methane was burned. Calculate the volume (in dm³) of CO₂ produced at standard conditions (STP: 1 mol of gas = 22.4 dm³). Give the result to the nearest tenth.",
+    "explanation_ru": "M(CH₄) = 16 g/mol. n(CH₄) = 8.0 / 16 = 0.5 mol. From the equation: n(CO₂) = n(CH₄) = 0.5 mol. V(CO₂) = 0.5 × 22.4 = 11.2 dm³."
+  },
+  "matura_2024_03c": {
+    "question_ru": "Match each description with the appropriate stoichiometric law or concept.",
+    "explanation_ru": "A — Avogadro's law (1): equal volumes of gases → same number of molecules. B — law of conservation of mass (2): mass of reactants = mass of products. C — law of definite proportions (Proust) (3): constant ratio of element masses.",
+    "left_items": [
+      { "label": "A", "text": "At the same conditions of T and p, equal volumes of gases contain the same number of molecules." },
+      { "label": "B", "text": "The mass of reactants in a chemical reaction equals the mass of products." },
+      { "label": "C", "text": "The ratio of element masses in a given chemical compound is constant." }
+    ],
+    "options": [
+      { "id": "1", "text": "Avogadro's law" },
+      { "id": "2", "text": "law of conservation of mass (Lomonosov–Lavoisier)" },
+      { "id": "3", "text": "law of definite proportions (Proust)" },
+      { "id": "4", "text": "Gay-Lussac's law" }
+    ]
+  },
+  "matura_2024_04a": {
+    "question_ru": "Arrange the following acids in order of increasing acid strength.\n  1) HClO₄  2) HClO  3) HClO₃",
+    "explanation_ru": "The strength of oxyacids increases with the oxidation state of the central atom (more oxygen atoms enhance charge delocalization in the anion). HClO (Cl⁺¹, weakest) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, strongest). Order: 2 → 3 → 1.",
+    "items": [
+      { "id": "1", "text": "HClO₄" },
+      { "id": "2", "text": "HClO" },
+      { "id": "3", "text": "HClO₃" }
+    ]
+  },
+  "matura_2024_04b": {
+    "question_ru": "Match each solution with the appropriate chemical character (pH reaction).",
+    "explanation_ru": "CH₃COONa — salt of a weak acid and a strong base → anionic hydrolysis → pH > 7 (2). NH₄Cl — salt of a weak base and a strong acid → cationic hydrolysis → pH < 7 (1). KNO₃ — salt of a strong acid and a strong base → no hydrolysis → pH = 7 (3).",
+    "left_items": [
+      { "label": "A", "text": "0.1 mol/dm³ CH₃COONa" },
+      { "label": "B", "text": "0.1 mol/dm³ NH₄Cl" },
+      { "label": "C", "text": "0.1 mol/dm³ KNO₃" }
+    ],
+    "options": [
+      { "id": "1", "text": "acidic (pH < 7)" },
+      { "id": "2", "text": "basic (pH > 7)" },
+      { "id": "3", "text": "neutral (pH = 7)" },
+      { "id": "4", "text": "strongly acidic (pH < 2)" }
+    ]
+  },
+  "matura_2024_05a": {
+    "question_ru": "For the reaction: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O, determine the oxidation states of manganese in the reactant (X) and the product (Y).",
+    "explanation_ru": "In KMnO₄: K⁺¹, O²⁻, so Mn: +1 + x + 4×(−2) = 0 → x = +7. In MnCl₂: Cl⁻¹, so Mn: x + 2×(−1) = 0 → x = +2. Manganese is reduced from +7 to +2.",
+    "input_labels": ["X", "Y"]
+  },
+  "matura_2024_05b": {
+    "question_ru": "Select two processes that are examples of oxidation.",
+    "explanation_ru": "Oxidation is the loss of electrons (increase in oxidation state). Fe²⁺ → Fe³⁺ + e⁻ (1) — oxidation of iron. S²⁻ → S⁰ + 2e⁻ (3) — oxidation of sulfur. The remaining (2, 4, 5) are reduction (gain of electrons).",
+    "options": [
+      { "id": "1", "text": "Fe²⁺ → Fe³⁺ + e⁻" },
+      { "id": "2", "text": "Cu²⁺ + 2e⁻ → Cu" },
+      { "id": "3", "text": "S²⁻ → S⁰ + 2e⁻" },
+      { "id": "4", "text": "Cl₂ + 2e⁻ → 2Cl⁻" },
+      { "id": "5", "text": "Ag⁺ + e⁻ → Ag" }
+    ]
+  },
+  "matura_2024_06a": {
+    "question_ru": "Match each organic compound with the appropriate functional group.",
+    "explanation_ru": "CH₃COOH — acetic acid, contains a carboxyl group −COOH (2). CH₃CHO — acetaldehyde (ethanal), contains an aldehyde group −CHO (3). C₂H₅OH — ethanol, contains a hydroxyl group −OH (1).",
+    "left_items": [
+      { "label": "A", "text": "CH₃COOH" },
+      { "label": "B", "text": "CH₃CHO" },
+      { "label": "C", "text": "C₂H₅OH" }
+    ],
+    "options": [
+      { "id": "1", "text": "hydroxyl group −OH" },
+      { "id": "2", "text": "carboxyl group −COOH" },
+      { "id": "3", "text": "aldehyde group −CHO" },
+      { "id": "4", "text": "amino group −NH₂" }
+    ]
+  },
+  "matura_2024_06b": {
+    "question_ru": "Select two compounds that will give a positive Tollens' test (silver mirror reaction).",
+    "explanation_ru": "The Tollens' test detects the aldehyde group (−CHO). Methanal (HCHO) is an aldehyde (1) — it produces a silver mirror. Glucose (3) has a hidden aldehyde group in its open-chain form. Acetone is a ketone (does not react), ethanol is an alcohol, benzoic acid is a carboxylic acid — none of them give a positive Tollens' test.",
+    "options": [
+      { "id": "1", "text": "methanal (HCHO)" },
+      { "id": "2", "text": "propanone (acetone, CH₃COCH₃)" },
+      { "id": "3", "text": "glucose (C₆H₁₂O₆)" },
+      { "id": "4", "text": "ethanol (C₂H₅OH)" },
+      { "id": "5", "text": "benzoic acid (C₆H₅COOH)" }
+    ]
+  },
+  "matura_2024_06c": {
+    "question_ru": "Write the equation of the esterification reaction of acetic acid with ethanol. Give the systematic (IUPAC) name of the resulting ester and the reaction conditions.",
+    "explanation_ru": "Esterification: carboxylic acid + alcohol ⇌ ester + water. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. IUPAC name: ethyl ethanoate (commonly ethyl acetate). Catalyst: concentrated H₂SO₄. The reaction is reversible — the equilibrium can be shifted toward products, e.g., by removing water."
+  },
+  "matura_2024_07a": {
+    "question_ru": "For the equilibrium reaction: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ\nSelect two factors that shift the equilibrium toward the products (to the right).",
+    "explanation_ru": "Le Chatelier's principle: (1) Increasing pressure shifts the equilibrium toward fewer moles of gas: 4 moles of reactants → 2 moles of products, so to the right. (3) Lowering temperature favors the exothermic reaction (ΔH < 0), i.e. to the right. A catalyst (4) does not shift the equilibrium. Raising temperature (2) and decreasing pressure (5) shift it to the left.",
+    "options": [
+      { "id": "1", "text": "increasing pressure" },
+      { "id": "2", "text": "raising temperature" },
+      { "id": "3", "text": "lowering temperature" },
+      { "id": "4", "text": "adding a catalyst" },
+      { "id": "5", "text": "decreasing pressure" }
+    ]
+  },
+  "matura_2024_07b": {
+    "context_ru": "In an experiment, the rate of decomposition of hydrogen peroxide was studied: 2H₂O₂ → 2H₂O + O₂. The volume of O₂ evolved was measured as a function of time. In experiment A, 50 cm³ of H₂O₂ solution at a concentration of 0.5 mol/dm³ was used at 20 °C. In experiment B, one condition was changed.",
+    "question_ru": "Which of the following factors could cause the gas to evolve faster in experiment B while keeping the final O₂ volume the same as in A? Give the number and justify your choice.",
+    "explanation_ru": "A catalyst (MnO₂) speeds up the reaction but does not change the amount of reactants — the final O₂ volume is the same (same number of moles of H₂O₂). Increasing the concentration (1) would increase both the rate and the final volume (more moles of H₂O₂). Reducing the solution volume (3) would give a smaller final volume.",
+    "options": [
+      { "id": "1", "text": "Increasing the concentration of H₂O₂ to 1.0 mol/dm³ while keeping the volume at 50 cm³." },
+      { "id": "2", "text": "Adding MnO₂ as a catalyst." },
+      { "id": "3", "text": "Reducing the solution volume to 25 cm³ while keeping the concentration at 0.5 mol/dm³." }
+    ]
+  },
+  "matura_2024_08a": {
+    "question_ru": "Match each electrochemical process with the appropriate description.",
+    "explanation_ru": "Electrolysis of NaCl(aq): a non-spontaneous process; at the cathode: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Daniell cell: conversion of chemical energy to electrical energy; Zn is the anode (more active metal) (2). Iron corrosion: a spontaneous electrochemical process that destroys the metal (3).",
+    "left_items": [
+      { "label": "A", "text": "Electrolysis of aqueous NaCl solution" },
+      { "label": "B", "text": "Daniell cell (Zn|Cu)" },
+      { "label": "C", "text": "Corrosion of iron in humid air" }
+    ],
+    "options": [
+      { "id": "1", "text": "Electrical energy is converted to chemical energy; H₂ is evolved at the cathode." },
+      { "id": "2", "text": "Chemical energy is converted to electrical energy; zinc is the anode." },
+      { "id": "3", "text": "A spontaneous electrochemical process leading to metal destruction." },
+      { "id": "4", "text": "Electrical energy is converted to thermal energy." }
+    ]
+  },
+  "matura_2024_08b": {
+    "question_ru": "During the electrolysis of aqueous CuSO₄ with platinum (inert) electrodes, 3.2 g of copper was deposited at the cathode. Calculate the volume of gas (in dm³, at STP) evolved at the anode. M(Cu) = 64 g/mol; V_m = 22.4 dm³/mol. Give the result to the nearest tenth.",
+    "explanation_ru": "At the cathode: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3.2/64 = 0.05 mol. Electrons transferred: 0.05 × 2 = 0.1 mol.\nAt the anode (inert electrodes): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0.1/4 = 0.025 mol.\nV(O₂) = 0.025 × 22.4 = 0.56 dm³ ≈ 0.6 dm³."
+  },
+  "matura_2024_08c": {
+    "question_ru": "Explain why galvanizing (zinc coating) is an effective method of protecting iron from corrosion, even when the zinc coating is damaged (scratched). Refer to standard electrode potentials: E°(Zn²⁺/Zn) = −0.76 V; E°(Fe²⁺/Fe) = −0.44 V.",
+    "explanation_ru": "Key points: (1) E°(Zn) < E°(Fe), so zinc acts as the anode, (2) zinc is oxidized instead of iron — this is cathodic (sacrificial) protection, (3) iron becomes the cathode and does not corrode as long as it is in contact with zinc."
+  }
+}

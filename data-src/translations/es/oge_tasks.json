@@ -1,0 +1,575 @@
+{
+  "demo_2025_01": {
+    "question_ru": "Seleccione dos afirmaciones que se refieren al aluminio como elemento químico.",
+    "explanation_ru": "Las afirmaciones 1 y 3 describen al aluminio como elemento químico (la abundancia en la corteza terrestre es una propiedad del elemento; la formación de un enlace químico es una propiedad del elemento). Las afirmaciones 2, 4 y 5 describen al aluminio como sustancia simple (producción, corrosión, aleaciones).",
+    "options": [
+      { "id": "1", "text": "El aluminio ocupa el tercer lugar en abundancia en la corteza terrestre, solo por detrás del oxígeno y el silicio." },
+      { "id": "2", "text": "Hasta finales del siglo XIX, el aluminio no se producía a escala industrial." },
+      { "id": "3", "text": "El aluminio forma un enlace químico fuerte con el oxígeno." },
+      { "id": "4", "text": "El aluminio prácticamente no está sujeto a la corrosión." },
+      { "id": "5", "text": "El aluminio se utiliza en la producción de aleaciones para la industria aeronáutica." }
+    ]
+  },
+  "sdamgia_5830_01": {
+    "question_ru": "Seleccione dos afirmaciones que se refieren al fósforo como elemento químico.",
+    "explanation_ru": "En las afirmaciones 1 y 4 se habla del fósforo como elemento químico (átomo en la molécula de fosfina; elemento en la composición de las proteínas). Las demás se refieren a la sustancia simple (aplicación, alotropía, propiedades físicas).",
+    "options": [
+      { "id": "1", "text": "La molécula de fosfina está compuesta por tres átomos de hidrógeno y un átomo de fósforo." },
+      { "id": "2", "text": "El fósforo forma parte de la mezcla aplicada en la pared de la caja de cerillas." },
+      { "id": "3", "text": "El fósforo tiene varias modificaciones alotrópicas." },
+      { "id": "4", "text": "El fósforo forma parte de las proteínas vegetales y animales." },
+      { "id": "5", "text": "El fósforo negro posee propiedades semiconductoras." }
+    ]
+  },
+  "sdamgia_5831_01": {
+    "question_ru": "Seleccione dos afirmaciones que se refieren al azufre como elemento químico.",
+    "explanation_ru": "En las afirmaciones 1 y 3 se habla del azufre como elemento químico (elemento en la composición de los aminoácidos; átomo en la molécula de sulfuro de hidrógeno). Las demás se refieren a la sustancia simple.",
+    "options": [
+      { "id": "1", "text": "El azufre forma parte de algunos aminoácidos." },
+      { "id": "2", "text": "El azufre es un polvo de color amarillo que no se moja con agua." },
+      { "id": "3", "text": "La molécula de sulfuro de hidrógeno está compuesta por dos átomos de hidrógeno y un átomo de azufre." },
+      { "id": "4", "text": "El azufre no es atraído por un imán." },
+      { "id": "5", "text": "El azufre se utiliza para la vulcanización del caucho." }
+    ]
+  },
+  "demo_2025_02": {
+    "question_ru": "En la figura se muestra un modelo de átomo de un elemento químico con la distribución de electrones por capas: 2, 8, 5.\n\nEscriba en el campo de respuesta el número del período (X) y el número del grupo (Y) en los que este elemento químico se encuentra en el Sistema Periódico.",
+    "explanation_ru": "La distribución de electrones 2, 8, 5 corresponde a 3 capas electrónicas (período 3) y 5 electrones en la capa externa (grupo V). Es el fósforo (P), ubicado en el 3.er período, grupo V.",
+    "input_labels": ["X", "Y"]
+  },
+  "sdamgia_10710_02": {
+    "question_ru": "En la figura se muestra un modelo de átomo de un elemento químico.\nEscriba en el campo de respuesta el número del período (X) y el número del grupo (Y) en los que este elemento químico se encuentra en el Sistema Periódico.\nElemento: calcio (Ca), Z=20, configuración electrónica 2, 8, 8, 2.",
+    "explanation_ru": "El calcio (Ca, Z=20) se encuentra en el 4.º período, grupo IIA. 4 capas electrónicas (período 4), 2 electrones de valencia (grupo II). Respuesta: X=4, Y=2.",
+    "input_labels": ["X", "Y"]
+  },
+  "sdamgia_type_02_cl": {
+    "question_ru": "En la figura se muestra un modelo de átomo de un elemento químico.\nEscriba en el campo de respuesta el número del período (X) y el número del grupo (Y) en los que este elemento químico se encuentra en el Sistema Periódico.\nElemento: cloro (Cl), Z=17, configuración electrónica 2, 8, 7.",
+    "explanation_ru": "El cloro (Cl, Z=17) se encuentra en el 3.er período, grupo VIIA. 3 capas electrónicas, 7 electrones de valencia. Respuesta: X=3, Y=7.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2025_03": {
+    "question_ru": "Ordene los elementos químicos\n  1) azufre  2) silicio  3) cloro\nen orden creciente de las propiedades no metálicas de las sustancias simples que forman.\nEscriba los números indicados de los elementos en el orden correspondiente.",
+    "explanation_ru": "Las propiedades no metálicas aumentan de izquierda a derecha en el período y de abajo hacia arriba en el grupo. Si (período 3, grupo IV) < S (período 3, grupo VI) < Cl (período 3, grupo VII). Orden: silicio → azufre → cloro, es decir, 2 → 1 → 3.",
+    "items": [
+      { "id": "1", "text": "azufre" },
+      { "id": "2", "text": "silicio" },
+      { "id": "3", "text": "cloro" }
+    ]
+  },
+  "sdamgia_10733_03": {
+    "question_ru": "Ordene los elementos químicos\n  1) calcio  2) aluminio  3) azufre\nen orden de cambio de las propiedades ácidas a básicas de sus óxidos superiores.\nEscriba los números de los elementos en el orden correspondiente.",
+    "explanation_ru": "SO₃ — óxido ácido, Al₂O₃ — anfótero, CaO — básico. De ácidos a básicos: azufre → aluminio → calcio.",
+    "items": [
+      { "id": "1", "text": "calcio" },
+      { "id": "2", "text": "aluminio" },
+      { "id": "3", "text": "azufre" }
+    ]
+  },
+  "sdamgia_10736_03": {
+    "question_ru": "Ordene los elementos químicos\n  1) galio  2) oxígeno  3) fósforo\nen orden decreciente del radio atómico.\nEscriba los números de los elementos en el orden correspondiente.",
+    "explanation_ru": "El radio atómico disminuye de izquierda a derecha en el período y de abajo hacia arriba en el grupo. Ga (4.º período) > P (3.er período) > O (2.º período). Orden decreciente: galio → fósforo → oxígeno.",
+    "items": [
+      { "id": "1", "text": "galio" },
+      { "id": "2", "text": "oxígeno" },
+      { "id": "3", "text": "fósforo" }
+    ]
+  },
+  "demo_2025_04": {
+    "question_ru": "Establezca la correspondencia entre la sustancia y el estado de oxidación del bromo en dicha sustancia: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) NH₄Br: N tiene EO −3, H +1, por lo tanto Br = −1.\nB) KBrO₄: K +1, O −2, 4 átomos de O = −8, por lo tanto Br = +7.\nC) HBrO: H +1, O −2, por lo tanto Br = +1."
+  },
+  "bank_fipi_04_n": {
+    "question_ru": "Establezca la correspondencia entre la fórmula del compuesto y el estado de oxidación del nitrógeno en dicho compuesto.",
+    "explanation_ru": "A) N₂O₅: O=−2, 2x + 5(−2) = 0, x = +5 → 4.\nB) NH₃: H=+1, x + 3(+1) = 0, x = −3 → 1.\nC) NO: O=−2, x + (−2) = 0, x = +2 → 2."
+  },
+  "bank_fipi_04_s": {
+    "question_ru": "Establezca la correspondencia entre la fórmula del compuesto y el estado de oxidación del azufre en dicho compuesto.",
+    "explanation_ru": "A) H₂S: H=+1, 2(+1) + x = 0, x = −2 → 1.\nB) SO₃: O=−2, x + 3(−2) = 0, x = +6 → 3.\nC) Na₂SO₄: Na=+1, O=−2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
+  },
+  "demo_2025_05": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias con enlace covalente polar.",
+    "explanation_ru": "NH₃ — enlace covalente polar (entre no metales con diferente electronegatividad). Na — enlace metálico. MgF₂ — enlace iónico (metal + no metal). F₂ — covalente apolar (átomos iguales). PBr₃ — covalente polar (no metales con diferente electronegatividad)."
+  },
+  "bank_fipi_05_ion": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias con enlace iónico.",
+    "explanation_ru": "El enlace iónico se forma entre un metal y un no metal. MgO (Mg — metal, O — no metal) y KBr (K — metal, Br — no metal) — enlace iónico. CO₂, H₂O — covalente polar. N₂ — covalente apolar."
+  },
+  "bank_fipi_05_nonpol": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias con enlace covalente apolar.",
+    "explanation_ru": "El enlace covalente apolar se forma entre átomos iguales de no metales. Cl₂ (Cl−Cl) y F₂ (F−F) — covalente apolar. CaCl₂, KF — iónico. SO₂ — covalente polar."
+  },
+  "demo_2025_06": {
+    "question_ru": "Seleccione dos continuaciones correctas para la siguiente afirmación.\nLa similitud entre el boro, el carbono y el nitrógeno se manifiesta en que...",
+    "explanation_ru": "B, C, N se encuentran en el 2.º período → igual número de capas electrónicas (2). Los tres son no metales (el boro es un semimetal, pero en el contexto del OGE se considera no metal). El número de protones es diferente (5, 6, 7). El nitrógeno presenta EO negativos. Los óxidos superiores B₂O₃ y CO₂ son ácidos.",
+    "options": [
+      { "id": "1", "text": "los núcleos de sus átomos contienen el mismo número de protones." },
+      { "id": "2", "text": "sus átomos tienen el mismo número de capas electrónicas ocupadas por electrones." },
+      { "id": "3", "text": "las sustancias simples que forman son no metales." },
+      { "id": "4", "text": "en los compuestos solo presentan estados de oxidación positivos." },
+      { "id": "5", "text": "sus óxidos superiores pertenecen a los óxidos básicos." }
+    ]
+  },
+  "sdamgia_258_06": {
+    "question_ru": "¿Cuáles dos afirmaciones son verdaderas tanto para el sodio como para el aluminio?",
+    "explanation_ru": "Na y Al son elementos del 3.er período, los electrones de valencia están en la 3.ª capa (2 — verdadero). Ambos son metales (3 — verdadero). 12 protones solo tiene el Mg (1 — no). No forman moléculas diatómicas (4 — no). Na₂O — sí, pero Al₂O₃, no Al₂O (5 — no).",
+    "options": [
+      { "id": "1", "text": "Presencia de 12 protones en los núcleos de sus átomos." },
+      { "id": "2", "text": "Ubicación de los electrones de valencia en la tercera capa electrónica." },
+      { "id": "3", "text": "Formación de sustancias simples metálicas." },
+      { "id": "4", "text": "Existencia en la naturaleza en forma de moléculas diatómicas." },
+      { "id": "5", "text": "Formación de óxidos superiores con la fórmula general E₂O." }
+    ]
+  },
+  "sdamgia_5851_06": {
+    "question_ru": "¿Cuáles dos afirmaciones son verdaderas tanto para el cloro como para el bromo?",
+    "explanation_ru": "17 protones solo tiene el Cl (1 — no). Cl tiene 3 capas, Br tiene 4 capas (2 — no). Ambos son no metales (3 — sí). Cl₂ y Br₂ son moléculas diatómicas (4 — sí). Cl₂ es gas en condiciones normales (5 — no).",
+    "options": [
+      { "id": "1", "text": "El núcleo del átomo del elemento químico contiene 17 protones." },
+      { "id": "2", "text": "Los electrones del átomo están distribuidos en tres capas electrónicas." },
+      { "id": "3", "text": "El elemento químico es un no metal." },
+      { "id": "4", "text": "La sustancia simple correspondiente existe en forma de moléculas diatómicas." },
+      { "id": "5", "text": "La sustancia simple correspondiente es líquida en condiciones normales." }
+    ]
+  },
+  "demo_2025_07": {
+    "question_ru": "De la lista propuesta de sustancias, seleccione un óxido básico y un hidróxido anfótero.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nEscriba en el campo de respuesta primero el número del óxido básico y luego el número del hidróxido anfótero.",
+    "explanation_ru": "FeO — óxido básico (óxido de metal con EO bajo). Al(OH)₃ — hidróxido anfótero (el aluminio es un elemento anfótero). Mg(OH)₂ — base (no anfótero). OF₂ — no es un óxido (el oxígeno tiene EO +2). N₂O — óxido no formador de sales."
+  },
+  "sdamgia_1008_07": {
+    "question_ru": "El anhídrido del ácido perclórico HClO₄ es",
+    "explanation_ru": "El Cl en HClO₄ tiene estado de oxidación +7. El óxido correspondiente a este estado de oxidación es Cl₂O₇. Verificación: Cl₂O₇ + H₂O = 2HClO₄."
+  },
+  "bank_fipi_07": {
+    "question_ru": "De la lista propuesta de sustancias, seleccione un óxido ácido y una base.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nEscriba en el campo de respuesta primero el número del óxido ácido y luego el número de la base.",
+    "explanation_ru": "SO₂ — óxido ácido (3). Mg(OH)₂ — base (2). CO — óxido no formador de sales. NaClO₄ — sal. Al(OH)₃ — hidróxido anfótero (no es una base). Respuesta: primero el óxido ácido (3), luego la base (2)."
+  },
+  "demo_2025_08": {
+    "question_ru": "¿Cuáles dos de las sustancias enumeradas no reaccionan con el fósforo?",
+    "explanation_ru": "El fósforo reacciona con O₂ (combustión: 4P + 5O₂ → 2P₂O₅), con HNO₃ (oxidante fuerte), con Mg (formando fosfuro: 3Mg + 2P → Mg₃P₂). No reacciona con Na₂SO₄ (sal, sin fuerza motriz) ni con CO (óxido inerte, reductor débil)."
+  },
+  "sdamgia_10869_08": {
+    "question_ru": "De la lista propuesta, seleccione dos pares de sustancias con cada una de las cuales reacciona el óxido de cobre(II).",
+    "explanation_ru": "CuO — óxido básico. Reacciona con ácidos (HNO₃, HCl) y reductores (H₂, CO). Par 3: H₂ + HNO₃ — ambos reaccionan con CuO. Par 5: CO + HCl — ambos reaccionan con CuO. Par 4: HCl — sí, pero NaOH no reacciona con un óxido básico (CuO no es anfótero).",
+    "options": [
+      { "id": "1", "text": "H₂O y CO₂" },
+      { "id": "2", "text": "O₂ y C" },
+      { "id": "3", "text": "H₂ y HNO₃" },
+      { "id": "4", "text": "HCl y NaOH" },
+      { "id": "5", "text": "CO y HCl" }
+    ]
+  },
+  "bank_fipi_08_subst": {
+    "question_ru": "De la lista propuesta, seleccione dos reacciones de sustitución.",
+    "explanation_ru": "Sustitución — simple + compuesto → simple + compuesto. Fe + CuSO₄ (2) — sustitución. Zn + HCl (4) — sustitución. CaCO₃ → CaO + CO₂ (1) — descomposición. NaOH + H₂SO₄ (3) — intercambio. 2H₂O → 2H₂ + O₂ (5) — descomposición (electrólisis).",
+    "options": [
+      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
+      { "id": "2", "text": "Fe + CuSO₄ → FeSO₄ + Cu" },
+      { "id": "3", "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O" },
+      { "id": "4", "text": "Zn + 2HCl → ZnCl₂ + H₂" },
+      { "id": "5", "text": "2H₂O → 2H₂ + O₂" }
+    ]
+  },
+  "demo_2025_09": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y los productos de su interacción: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → respuesta 2.\nB) Fe + H₂SO₄(dil.) → FeSO₄ + H₂↑ (Fe es divalente con ácido diluido) → respuesta 1.\nC) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → respuesta 4.",
+    "left_items": [
+      { "label": "A", "text": "Fe₂(SO₄)₃ y BaCl₂" },
+      { "label": "B", "text": "Fe y H₂SO₄ (dil.)" },
+      { "label": "C", "text": "Fe₂O₃ y H₂SO₄ (dil.)" }
+    ],
+    "options": [
+      { "id": "1", "text": "FeSO₄ y H₂" },
+      { "id": "2", "text": "FeCl₃ y BaSO₄" },
+      { "id": "3", "text": "FeSO₄ y H₂O" },
+      { "id": "4", "text": "Fe₂(SO₄)₃ y H₂O" },
+      { "id": "5", "text": "FeCl₂ y BaSO₄" }
+    ]
+  },
+  "sdamgia_327_09": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y los productos de su interacción.",
+    "explanation_ru": "A) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nB) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (sal media + óxido ácido + agua → sal ácida) → 4.\nC) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (intercambio) → 5.",
+    "left_items": [
+      { "label": "A", "text": "Na₂CO₃ y HCl" },
+      { "label": "B", "text": "Na₂CO₃ y CO₂ y H₂O" },
+      { "label": "C", "text": "Na₂CO₃ y CaCl₂" }
+    ],
+    "options": [
+      { "id": "1", "text": "NaCl y CO₂ y H₂O" },
+      { "id": "2", "text": "NaHCO₃ y HCl" },
+      { "id": "3", "text": "NaOH y NaHCO₃" },
+      { "id": "4", "text": "NaHCO₃" },
+      { "id": "5", "text": "NaCl y CaCO₃" }
+    ]
+  },
+  "sdamgia_6445_09": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y los productos de su interacción.",
+    "explanation_ru": "A) Fe + Cl₂ → FeCl₃ (Cl₂ es un oxidante fuerte, produce Fe³⁺) → 4.\nB) Fe + 2HCl → FeCl₂ + H₂ (ácido diluido → Fe²⁺) → 2.\nC) Fe + H₂SO₄(dil.) → FeSO₄ + H₂ (ácido sulfúrico diluido → Fe²⁺) → 5.",
+    "left_items": [
+      { "label": "A", "text": "Fe y Cl₂" },
+      { "label": "B", "text": "Fe y HCl" },
+      { "label": "C", "text": "Fe y H₂SO₄ (dil.)" }
+    ],
+    "options": [
+      { "id": "1", "text": "FeCl₃ y H₂" },
+      { "id": "2", "text": "FeCl₂ y H₂" },
+      { "id": "3", "text": "Fe₂(SO₄)₃ y H₂" },
+      { "id": "4", "text": "FeCl₃" },
+      { "id": "5", "text": "FeSO₄ y H₂" }
+    ]
+  },
+  "demo_2025_10": {
+    "question_ru": "Establezca la correspondencia entre la sustancia y los reactivos con cada uno de los cuales puede reaccionar: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) Al reacciona con Fe₂O₃ (aluminotermia) y O₂ (combustión) → 4.\nB) Ca(OH)₂ reacciona con CO₂ (enturbiamiento del agua de cal) y Al₂O₃ (óxido anfótero) → 1.\nC) SO₃ (óxido ácido) reacciona con H₂S (redox) y Na₂O (óxido básico) → 3."
+  },
+  "sdamgia_2145_10": {
+    "question_ru": "Establezca la correspondencia entre la fórmula de la sustancia y los reactivos con cada uno de los cuales esta sustancia puede interactuar.",
+    "explanation_ru": "A) CaCl₂ reacciona con Na₂CO₃ (→ CaCO₃↓) y AgNO₃ (→ AgCl↓) → 4.\nB) SO₂ (óxido ácido) reacciona con CaO (óxido básico) y Ba(OH)₂ (álcali) → 2.\nC) H₂ reacciona con N₂ (→ NH₃) y Fe₂O₃ (reducción → Fe + H₂O) → 1."
+  },
+  "bank_fipi_10": {
+    "question_ru": "Establezca la correspondencia entre la fórmula de la sustancia y los reactivos con cada uno de los cuales esta sustancia puede interactuar.",
+    "explanation_ru": "A) Fe: con HCl → FeCl₂ + H₂, con CuSO₄ → FeSO₄ + Cu (Fe está a la izquierda del Cu en la serie de actividad) → 1.\nB) CO₂ (óxido ácido): con Na₂O → Na₂CO₃, con KOH → K₂CO₃ + H₂O → 2.\nC) NaOH: con CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, con CO₂ → Na₂CO₃ + H₂O → 4."
+  },
+  "demo_2025_11": {
+    "question_ru": "De la lista propuesta, seleccione dos pares de sustancias entre las cuales ocurre una reacción de intercambio.",
+    "explanation_ru": "Reacción de intercambio — dos sustancias compuestas intercambian sus partes constituyentes. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (intercambio). NaOH + HCl → NaCl + H₂O (neutralización = variante de intercambio). Br₂ + 2KI → 2KBr + I₂ — sustitución. H₂SO₄ + Zn → ZnSO₄ + H₂ — sustitución. NaOH + Al — reacción no estándar.",
+    "options": [
+      { "id": "1", "text": "bromo y yoduro de potasio" },
+      { "id": "2", "text": "ácido sulfúrico y zinc" },
+      { "id": "3", "text": "hidróxido de sodio y aluminio" },
+      { "id": "4", "text": "sulfato de sodio y cloruro de bario" },
+      { "id": "5", "text": "hidróxido de sodio y ácido clorhídrico" }
+    ]
+  },
+  "bank_fipi_11_decomp": {
+    "question_ru": "De la lista propuesta, seleccione dos ecuaciones de reacciones exotérmicas.",
+    "explanation_ru": "La combustión del magnesio (2) y la combustión del carbono (4) son reacciones exotérmicas. La descomposición del CaCO₃ (1) y la electrólisis del agua (3) son endotérmicas. La reacción N₂ + O₂ → 2NO (5) también es endotérmica (solo ocurre a temperaturas muy altas).",
+    "options": [
+      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
+      { "id": "2", "text": "2Mg + O₂ → 2MgO" },
+      { "id": "3", "text": "2H₂O → 2H₂ + O₂" },
+      { "id": "4", "text": "C + O₂ → CO₂" },
+      { "id": "5", "text": "N₂ + O₂ → 2NO" }
+    ]
+  },
+  "bank_fipi_11_signs": {
+    "question_ru": "De la lista propuesta, seleccione dos afirmaciones verdaderas sobre los signos de las reacciones químicas.",
+    "explanation_ru": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl precipitado blanco cuajado (verdadero). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ es incoloro, no pardo (falso). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ precipitado azul (verdadero). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — precipitado, no gas (falso). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — precipitado amarillo (verdadero, pero solo se necesitan 2 respuestas).",
+    "options": [
+      { "id": "1", "text": "Al mezclar soluciones de nitrato de plata y cloruro de sodio se forma un precipitado blanco cuajado." },
+      { "id": "2", "text": "Al mezclar soluciones de carbonato de sodio y ácido clorhídrico se desprende un gas pardo." },
+      { "id": "3", "text": "Al mezclar soluciones de sulfato de cobre(II) e hidróxido de sodio se forma un precipitado azul." },
+      { "id": "4", "text": "Al mezclar soluciones de cloruro de bario y ácido sulfúrico se desprende un gas." },
+      { "id": "5", "text": "Al mezclar soluciones de nitrato de plomo(II) y yoduro de potasio se forma un precipitado amarillo brillante." }
+    ]
+  },
+  "demo_2025_12": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y el signo de la reacción que ocurre entre ellas: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — el ácido silícico forma un precipitado incoloro gelatinoso → 3.\nB) H₂S + CuCl₂ → CuS↓ + 2HCl — sulfuro de cobre(II) es un precipitado negro → 1.\nC) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — desprendimiento de gas → 2.",
+    "options": [
+      { "id": "1", "text": "formación de precipitado negro" },
+      { "id": "2", "text": "desprendimiento de gas" },
+      { "id": "3", "text": "formación de precipitado incoloro gelatinoso" },
+      { "id": "4", "text": "formación de precipitado azul" }
+    ]
+  },
+  "bank_fipi_12a": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y el signo de la reacción que ocurre entre ellas.",
+    "explanation_ru": "A) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ precipitado azul → 2.\nB) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S gas con olor a huevos podridos → 1.\nC) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ precipitado pardo → 3.",
+    "options": [
+      { "id": "1", "text": "desprendimiento de gas con olor a huevos podridos" },
+      { "id": "2", "text": "formación de precipitado azul" },
+      { "id": "3", "text": "formación de precipitado pardo" },
+      { "id": "4", "text": "no se observan signos visibles de reacción" }
+    ]
+  },
+  "bank_fipi_12b": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y el signo de la reacción que ocurre entre ellas.",
+    "explanation_ru": "A) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ precipitado blanco → 1.\nB) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ gas con olor penetrante → 2.\nC) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl precipitado blanco cuajado → 1.",
+    "options": [
+      { "id": "1", "text": "formación de precipitado blanco" },
+      { "id": "2", "text": "desprendimiento de gas con olor penetrante" },
+      { "id": "3", "text": "desprendimiento de gas incoloro e inodoro" },
+      { "id": "4", "text": "disolución del precipitado" }
+    ]
+  },
+  "demo_2025_13": {
+    "question_ru": "De la lista propuesta, seleccione dos no electrolitos.",
+    "explanation_ru": "Los electrolitos son sustancias cuyas soluciones o fundidos conducen la corriente eléctrica: ácidos, bases, sales. CH₄ (metano) — compuesto covalente apolar, no electrolito. CO (monóxido de carbono) — compuesto covalente, no se disocia, no electrolito. HNO₃ — ácido fuerte (electrolito). KClO — sal (electrolito). CuSO₄ — sal (electrolito)."
+  },
+  "bank_fipi_13_ions": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias cuya disociación completa de 1 mol produce 3 moles de iones.",
+    "explanation_ru": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 iones (verdadero). NaCl → Na⁺ + Cl⁻ — 2 iones. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 iones (verdadero). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 iones. KNO₃ → K⁺ + NO₃⁻ — 2 iones."
+  },
+  "bank_fipi_13_weak": {
+    "question_ru": "De la lista propuesta, seleccione dos electrolitos débiles.",
+    "explanation_ru": "H₂SO₄ — ácido fuerte (electrolito fuerte). CH₃COOH — ácido acético (electrolito débil). NaOH — álcali (electrolito fuerte). H₂CO₃ — ácido carbónico (electrolito débil, inestable). KCl — sal soluble (electrolito fuerte)."
+  },
+  "demo_2025_14": {
+    "question_ru": "Seleccione dos sustancias iniciales cuya interacción en solución acuosa corresponde a la ecuación iónica reducida\n  H⁺ + OH⁻ = H₂O",
+    "explanation_ru": "La ecuación iónica reducida H⁺ + OH⁻ = H₂O corresponde a la reacción de un ácido fuerte con una base soluble, en la que se forma una sal soluble. HI — ácido fuerte (se disocia completamente). Ba(OH)₂ — base soluble. HI + Ba(OH)₂ → BaI₂ (soluble) + H₂O. H₂S — ácido débil. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — la ecuación iónica sería diferente."
+  },
+  "bank_4ege_14_co3": {
+    "question_ru": "Seleccione dos sustancias iniciales cuya interacción corresponde a la ecuación iónica reducida\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
+    "explanation_ru": "Se necesitan: 1) un carbonato soluble (CO₃²⁻ en forma de ion) — Na₂CO₃ (1); CaCO₃ y BaCO₃ son insolubles; NaHCO₃ es bicarbonato (HCO₃⁻). 2) Un ácido fuerte (H⁺) — HBr (5); HNO₂ es un ácido débil. Respuesta: 15."
+  },
+  "bank_4ege_14_s2": {
+    "question_ru": "Seleccione dos sustancias iniciales cuya interacción corresponde a la ecuación iónica reducida\n  2H⁺ + S²⁻ = H₂S",
+    "explanation_ru": "Se necesitan: 1) un ácido fuerte (H⁺) — HCl (1); HF es débil (4). 2) Un sulfuro soluble (S²⁻ en forma de ion) — K₂S (5); CuS es insoluble (2); S es sustancia simple (3); Al₂S₃ se hidroliza (6). Respuesta: 15."
+  },
+  "demo_2025_15": {
+    "question_ru": "Establezca la correspondencia entre el esquema del proceso que ocurre en una reacción redox y el nombre de dicho proceso: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) I⁺⁵ → I⁺⁷: el EO aumenta (+5 → +7), el elemento cede electrones → oxidación → 1.\nB) Si⁺⁴ → Si⁰: el EO disminuye (+4 → 0), el elemento acepta electrones → reducción → 2.\nC) N⁰ → N⁻³: el EO disminuye (0 → −3), el elemento acepta electrones → reducción → 2.",
+    "options": [
+      { "id": "1", "text": "oxidación" },
+      { "id": "2", "text": "reducción" }
+    ]
+  },
+  "bank_fipi_15_fe2o3": {
+    "question_ru": "Se da el esquema de la reacción redox:\n  Fe₂O₃ + CO → Fe + CO₂\nEstablezca la correspondencia entre la fórmula de la sustancia y su papel en esta reacción.",
+    "explanation_ru": "Fe en Fe₂O₃: +3 → 0 (disminución, acepta e⁻) — oxidante → 1.\nC en CO: +2 → +4 (aumento, cede e⁻) — reductor → 2.",
+    "options": [
+      { "id": "1", "text": "oxidante" },
+      { "id": "2", "text": "reductor" },
+      { "id": "3", "text": "tanto oxidante como reductor" }
+    ]
+  },
+  "bank_fipi_15_cu": {
+    "question_ru": "Se da el esquema de la reacción redox:\n  Cu + HNO₃(dil.) → Cu(NO₃)₂ + NO + H₂O\nEstablezca la correspondencia entre la fórmula de la sustancia y su papel en esta reacción.",
+    "explanation_ru": "Cu: 0 → +2 (aumento, cede e⁻) — reductor → 2.\nN en HNO₃: +5 → +2 en NO (disminución, acepta e⁻) — oxidante → 1.",
+    "options": [
+      { "id": "1", "text": "oxidante" },
+      { "id": "2", "text": "reductor" },
+      { "id": "3", "text": "tanto oxidante como reductor" }
+    ]
+  },
+  "demo_2025_16": {
+    "question_ru": "De las siguientes afirmaciones sobre sustancias puras y mezclas, seleccione la(s) afirmación(es) verdadera(s).\n\n1) El hierro fundido es una sustancia pura.\n2) Para separar una mezcla de aceite de motor y agua se puede usar un embudo de decantación.\n3) El agua de lago se puede purificar de la impureza de arena mediante sedimentación y filtración.\n4) El imán se utiliza para separar mezclas heterogéneas de dos componentes que contienen limaduras de hierro.\n\nEscriba en el campo de respuesta el (los) número(s) de la(s) afirmación(es) verdadera(s).",
+    "explanation_ru": "1) El hierro fundido es una aleación de hierro y carbono, es una mezcla, no una sustancia pura → falso.\n2) El aceite y el agua son líquidos inmiscibles, se separan con embudo de decantación → verdadero.\n3) La arena es una impureza insoluble, se elimina por sedimentación y filtración → verdadero.\n4) El imán atrae las limaduras de hierro, permitiendo separarlas del componente no magnético → verdadero.",
+    "options": [
+      { "id": "1", "text": "El hierro fundido es una sustancia pura." },
+      { "id": "2", "text": "Para separar una mezcla de aceite de motor y agua se puede usar un embudo de decantación." },
+      { "id": "3", "text": "El agua de lago se puede purificar de la impureza de arena mediante sedimentación y filtración." },
+      { "id": "4", "text": "El imán se utiliza para separar mezclas heterogéneas de dos componentes que contienen limaduras de hierro." }
+    ]
+  },
+  "sdamgia_10893_16": {
+    "question_ru": "De las siguientes afirmaciones sobre las reglas de seguridad en el laboratorio químico y con productos químicos domésticos, seleccione la(s) afirmación(es) verdadera(s).",
+    "explanation_ru": "1) En el laboratorio está prohibido probar sustancias al gusto (falso). 2) Con álcalis — usar guantes (verdadero). 3) El ácido en la piel se lava con agua y se trata con bicarbonato de sodio (verdadero). 4) Los líquidos inflamables se guardan lejos de aparatos calefactores, pero no necesariamente en el refrigerador (falso).",
+    "options": [
+      { "id": "1", "text": "En el laboratorio, la presencia de ácido en una solución se determina al gusto." },
+      { "id": "2", "text": "Al trabajar con productos químicos domésticos que contienen álcali, es necesario usar guantes de goma." },
+      { "id": "3", "text": "Si una solución ácida entra en contacto con la piel, se debe lavar con agua y tratar con solución de bicarbonato de sodio." },
+      { "id": "4", "text": "Los líquidos inflamables, como la acetona, solo se pueden guardar en el refrigerador." }
+    ]
+  },
+  "sdamgia_10898_16": {
+    "question_ru": "De las siguientes afirmaciones sobre métodos de separación de mezclas, seleccione la(s) afirmación(es) verdadera(s).",
+    "explanation_ru": "1) El hierro es atraído por el imán, la arena no (verdadero). 2) El agua de mar es una solución homogénea, la filtración no elimina las sales disueltas (falso). 3) El papel de filtro separa el precipitado de la solución (verdadero). 4) La destilación es un método físico, no químico (falso).",
+    "options": [
+      { "id": "1", "text": "Para separar una mezcla de arena de río y limaduras de hierro se puede usar un imán." },
+      { "id": "2", "text": "El agua de mar se puede purificar de las sales disueltas en ella mediante filtración." },
+      { "id": "3", "text": "Para separar el precipitado de la solución se puede usar papel de filtro." },
+      { "id": "4", "text": "La destilación es un método químico de separación de mezclas." }
+    ]
+  },
+  "demo_2025_17": {
+    "question_ru": "Establezca la correspondencia entre dos sustancias, tomadas en forma de soluciones acuosas, y el reactivo con el que se pueden distinguir estas sustancias: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) KF y KCl: AgNO₃ produce precipitado de AgCl con KCl, pero AgF es soluble → los distingue → 1.\nB) NaCl y HCl: BaCO₃ reacciona con HCl (desprendimiento de CO₂), pero no con NaCl → los distingue → 3.\nC) KCl y MgCl₂: KOH produce precipitado de Mg(OH)₂ con MgCl₂, pero no con KCl → los distingue → 4."
+  },
+  "sdamgia_1123_17": {
+    "question_ru": "Establezca la correspondencia entre dos sustancias y el reactivo con el que se pueden distinguir estas sustancias.",
+    "explanation_ru": "A) AgNO₃: NaCl → AgCl↓ (blanco), KNO₃ no reacciona → los distingue → 4.\nB) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (blanco), NaNO₃ no reacciona → los distingue → 2.\nC) KOH: NH₄Cl → NH₃↑ (olor), ZnCl₂ → Zn(OH)₂↓ (blanco) → los distingue → 1."
+  },
+  "sdamgia_855_17": {
+    "question_ru": "Establezca la correspondencia entre dos sales y el reactivo con el que se pueden distinguir estas sales.",
+    "explanation_ru": "A) KOH: NH₄Cl + KOH → NH₃↑ (olor), NaCl no reacciona → los distingue → 1.\nB) AgNO₃: AgF es soluble, AgBr↓ (amarillento) → los distingue → 3.\nC) HCl: Na₂CO₃ + HCl → CO₂↑ (gas), K₂SO₄ no reacciona → los distingue → 4."
+  },
+  "demo_2025_18": {
+    "context_ru": "El citrato de magnesio es un compuesto químico, sal de magnesio y ácido cítrico, con la fórmula Mg₃(C₆H₅O₇)₂, utilizado en medicina para la deficiencia de magnesio, que afecta el funcionamiento del sistema cardiovascular del organismo humano.",
+    "question_ru": "Calcule en porcentaje la fracción en masa del magnesio en el citrato de magnesio. Escriba el número con precisión de enteros.",
+    "explanation_ru": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 g/mol.\nω(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+  },
+  "sdamgia_10943_18": {
+    "context_ru": "El óxido de hierro(III) es un compuesto químico Fe₂O₃, que se utiliza en la fundición de hierro colado.",
+    "question_ru": "Calcule en porcentaje la fracción en masa del hierro en el óxido de hierro(III). Escriba el número con precisión de enteros.",
+    "explanation_ru": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 g/mol.\nω(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+  },
+  "sdamgia_10938_18": {
+    "context_ru": "El nitrato de calcio es un compuesto químico Ca(NO₃)₂, que se utiliza en pirotecnia como fuente económica de llama rojo ladrillo.",
+    "question_ru": "Calcule en porcentaje la fracción en masa del calcio en el nitrato de calcio. Escriba el número con precisión de enteros.",
+    "explanation_ru": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 g/mol.\nω(Ca) = 40/164 × 100% = 24,4% ≈ 24%."
+  },
+  "demo_2025_19": {
+    "context_ru": "El citrato de magnesio es un compuesto químico, sal de magnesio y ácido cítrico, con la fórmula Mg₃(C₆H₅O₇)₂, utilizado en medicina para la deficiencia de magnesio, que afecta el funcionamiento del sistema cardiovascular del organismo humano.",
+    "question_ru": "Para cubrir la necesidad diaria de magnesio de un animal, a un perro de unos 20 kg se le añade diariamente a la comida una cucharita dosificadora (10 g) de citrato de magnesio. Calcule cuántos gramos (g) de magnesio recibe el perro diariamente con este preparado. Escriba el número con precisión de décimas.",
+    "explanation_ru": "De la tarea 18: ω(Mg) = 16% = 0,16.\nm(Mg) = m(citrato) × ω(Mg) = 10 g × 0,16 = 1,6 g."
+  },
+  "sdamgia_10980_19": {
+    "context_ru": "El óxido de hierro(III) es un compuesto químico Fe₂O₃, que se utiliza en la fundición de hierro colado.",
+    "question_ru": "Para preparar la aleación para fundir un cañón se necesitan 600 kg de hierro puro. ¿Qué cantidad (en kg) de mineral de hierro (parte principal — hematita Fe₂O₃) se necesita procesar para fundir tres cañones? Considere que del mineral se extrae el 100% del hierro. Escriba la respuesta con precisión de enteros.",
+    "explanation_ru": "Hierro necesario: 600 × 3 = 1800 kg.\nω(Fe) en Fe₂O₃ = 70% = 0,70.\nm(Fe₂O₃) = 1800 / 0,70 = 2571,4 ≈ 2571 kg."
+  },
+  "sdamgia_10979_19": {
+    "context_ru": "El nitrato de calcio es un compuesto químico Ca(NO₃)₂, que se utiliza en pirotecnia como fuente económica de llama rojo ladrillo.",
+    "question_ru": "Para preparar una carga de fuegos artificiales se necesitan 50 g de calcio. ¿Cuántos gramos de nitrato de calcio se deben pesar? Escriba la respuesta con precisión de enteros.",
+    "explanation_ru": "ω(Ca) en Ca(NO₃)₂ = 24% = 0,24.\nm(Ca(NO₃)₂) = 50 / 0,24 = 208,3 ≈ 208 g."
+  },
+  "demo_2021_01": {
+    "question_ru": "Seleccione dos afirmaciones que se refieren al hierro como elemento químico.",
+    "explanation_ru": "El hierro como elemento químico se menciona en el contexto de la composición de sustancias (la hemoglobina contiene hierro, el óxido contiene hierro). En las demás afirmaciones se habla del hierro como sustancia simple (reacciona, se oxida, es materia prima).",
+    "options": [
+      { "id": "1", "text": "El hierro reacciona con el cloro." },
+      { "id": "2", "text": "El hierro se oxida rápidamente en aire húmedo." },
+      { "id": "3", "text": "La pirita es materia prima para obtener hierro." },
+      { "id": "4", "text": "La hemoglobina, que contiene hierro, transporta oxígeno." },
+      { "id": "5", "text": "El óxido contiene hierro en su composición." }
+    ]
+  },
+  "demo_2021_02": {
+    "question_ru": "En la figura se muestra un modelo de átomo de un elemento químico. Escriba en la tabla la magnitud de la carga del núcleo (X) del átomo del elemento químico cuyo modelo se muestra en la figura, y el número del grupo (Y) en el que este elemento se encuentra en el Sistema Periódico de D. I. Mendeléyev. (Para escribir la respuesta use cifras árabes.)",
+    "explanation_ru": "En la figura se muestra un modelo de átomo con carga nuclear +15 y 5 electrones en la capa externa. Es el fósforo (P), ubicado en el 3.er período, grupo V (grupo 5). X = 15, Y = 5.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2021_03": {
+    "question_ru": "Ordene los elementos químicos\n1) azufre\n2) cloro\n3) fósforo\nen orden creciente de su electronegatividad. Escriba los números de los elementos seleccionados en el orden correspondiente.",
+    "explanation_ru": "La electronegatividad aumenta de izquierda a derecha en el período y de abajo hacia arriba en el grupo. Fósforo (P) < azufre (S) < cloro (Cl). Orden de los números: 3, 1, 2.",
+    "items": [
+      { "id": "1", "text": "azufre" },
+      { "id": "2", "text": "cloro" },
+      { "id": "3", "text": "fósforo" }
+    ]
+  },
+  "demo_2021_04": {
+    "question_ru": "Establezca la correspondencia entre la fórmula del compuesto y el estado de oxidación del nitrógeno en dicho compuesto: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "HNO₃: nitrógeno en estado de oxidación +5 (4). N₂O: nitrógeno en estado de oxidación +1 (1). NH₃: nitrógeno en estado de oxidación –3 (2). Respuesta: 412."
+  },
+  "demo_2021_05": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias que se caracterizan por el enlace iónico.",
+    "explanation_ru": "El enlace iónico se forma entre un metal y un no metal con gran diferencia de electronegatividad. CaO (calcio + oxígeno) y Li₃N (litio + nitrógeno) — compuestos iónicos. PCl₃ — covalente polar, Br₂ — covalente apolar, H₂S — covalente polar."
+  },
+  "demo_2021_06": {
+    "question_ru": "¿Cuáles dos afirmaciones son verdaderas tanto para el magnesio como para el silicio?",
+    "explanation_ru": "El magnesio (Mg, Z=12) y el silicio (Si, Z=14) están ambos en el 3.er período — 3 capas electrónicas (1). Ambos tienen electronegatividad menor que la del fósforo (4). Mg es metal, Si es no metal, por lo tanto (3) es falso. El óxido superior del Mg es MgO (no EO₂), por lo tanto (5) es falso.",
+    "options": [
+      { "id": "1", "text": "Los electrones en el átomo están distribuidos en tres capas electrónicas." },
+      { "id": "2", "text": "La sustancia simple correspondiente existe en forma de moléculas diatómicas." },
+      { "id": "3", "text": "El elemento químico pertenece a los metales." },
+      { "id": "4", "text": "El valor de electronegatividad es menor que el del fósforo." },
+      { "id": "5", "text": "El elemento químico forma óxidos superiores con la fórmula general EO₂." }
+    ]
+  },
+  "demo_2021_08": {
+    "question_ru": "De la lista propuesta, seleccione dos sustancias que reaccionan con el óxido de aluminio.",
+    "explanation_ru": "Al₂O₃ — óxido anfótero, reacciona con ácidos y óxidos básicos/álcalis. Reacciona con HNO₃ (ácido, 2) y Na₂O (óxido básico, 5). Cu(OH)₂ — base insoluble débil, no reacciona. O₂ — no reacciona (Al ya está en el EO máximo). Be(OH)₂ — hidróxido anfótero, no reacciona con un óxido anfótero."
+  },
+  "demo_2021_09": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y los productos de su interacción: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) MgO + SO₃ = MgSO₄ (óxido básico + óxido ácido = sal, sin agua) — respuesta 5. B) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (base + ácido = sal + agua) — respuesta 2. C) Mg + H₂SO₄(dil.) = MgSO₄ + H₂ (metal + ácido = sal + hidrógeno) — respuesta 4.",
+    "left_items": [
+      { "label": "A", "text": "MgO + SO₃ →" },
+      { "label": "B", "text": "Mg(OH)₂ + H₂SO₄ →" },
+      { "label": "C", "text": "Mg + H₂SO₄(dil.) →" }
+    ],
+    "options": [
+      { "id": "1", "text": "→ MgSO₃ + H₂" },
+      { "id": "2", "text": "→ MgSO₄ + H₂O" },
+      { "id": "3", "text": "→ MgSO₃ + H₂O" },
+      { "id": "4", "text": "→ MgSO₄ + H₂" },
+      { "id": "5", "text": "→ MgSO₄" }
+    ]
+  },
+  "demo_2021_10": {
+    "question_ru": "Establezca la correspondencia entre la fórmula de la sustancia y los reactivos con los que esta sustancia puede reaccionar: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) Carbono C reacciona con O₂ (combustión) y H₂SO₄(conc.) (reacción redox) — respuesta 1. B) Al₂O₃ — óxido anfótero, reacciona con KOH y HCl — respuesta 3. C) CuCl₂ reacciona con Mg (sustitución) y AgNO₃ (intercambio, se forma AgCl) — respuesta 2.",
+    "options": [
+      { "id": "1", "text": "O₂, H₂SO₄(conc.)" },
+      { "id": "2", "text": "Mg, AgNO₃(sol.)" },
+      { "id": "3", "text": "KOH, HCl(sol.)" },
+      { "id": "4", "text": "N₂, K₂SO₄(sol.)" }
+    ]
+  },
+  "demo_2021_11": {
+    "question_ru": "De la lista propuesta, seleccione dos pares de sustancias entre las cuales ocurre una reacción de sustitución.",
+    "explanation_ru": "Reacción de sustitución — un elemento sustituye a otro. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (sustitución, 1). Na + H₂O → NaOH + H₂ (sustitución, 5). Las demás: (2) — combinación, (3) — intercambio, (4) — combinación.",
+    "options": [
+      { "id": "1", "text": "hierro y nitrato de plata" },
+      { "id": "2", "text": "óxido de azufre(VI) y óxido de hierro(III)" },
+      { "id": "3", "text": "óxido de cobre(II) y ácido clorhídrico" },
+      { "id": "4", "text": "aluminio y cloro" },
+      { "id": "5", "text": "sodio y agua" }
+    ]
+  },
+  "demo_2021_12": {
+    "question_ru": "Establezca la correspondencia entre las sustancias reaccionantes y el signo de la reacción que ocurre entre ellas: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ — precipitado pardo (2). B) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ — precipitado blanco (1). C) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Desprendimiento de gas (4).",
+    "left_items": [
+      { "label": "A", "text": "FeCl₃(sol.) y NaOH(sol.)" },
+      { "label": "B", "text": "FeSO₄(sol.) y Ba(NO₃)₂(sol.)" },
+      { "label": "C", "text": "FeS y H₂SO₄(sol.)" }
+    ],
+    "options": [
+      { "id": "1", "text": "formación de precipitado blanco" },
+      { "id": "2", "text": "formación de precipitado pardo" },
+      { "id": "3", "text": "formación de precipitado gris verdoso" },
+      { "id": "4", "text": "desprendimiento de gas" }
+    ]
+  },
+  "demo_2021_13": {
+    "question_ru": "¿La disociación completa de 1 mol de cuáles dos de las sustancias presentadas produce 2 moles de aniones?",
+    "explanation_ru": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 moles de aniones, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 moles de aniones, 2). NaCl → Na⁺ + Cl⁻ (1 mol). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 mol de aniones). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 mol de aniones).",
+    "options": [
+      { "id": "1", "text": "nitrato de magnesio" },
+      { "id": "2", "text": "hidróxido de bario" },
+      { "id": "3", "text": "cloruro de sodio" },
+      { "id": "4", "text": "fosfato de potasio" },
+      { "id": "5", "text": "sulfato de sodio" }
+    ]
+  },
+  "demo_2021_14": {
+    "question_ru": "Seleccione dos sustancias iniciales cuya interacción corresponde a la ecuación iónica reducida\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
+    "explanation_ru": "La ecuación iónica reducida Ca²⁺ + SO₃²⁻ = CaSO₃↓ significa que Ca²⁺ y SO₃²⁻ existen en la solución en forma de iones. CaCl₂ (3) — sal soluble, proporciona Ca²⁺. K₂SO₃ (4) — sal soluble, proporciona SO₃²⁻. CaO y Ca no se disocian, H₂SO₃ es un ácido débil."
+  },
+  "demo_2021_15": {
+    "question_ru": "Establezca la correspondencia entre el esquema del proceso que ocurre en una reacción redox y el nombre de dicho proceso: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) S⁻² → S⁰: el estado de oxidación aumenta (–2 → 0), es oxidación (1). B) H₂⁰ → 2H⁺: el estado de oxidación aumenta (0 → +1), es oxidación (1). C) Cr⁺⁶ → Cr⁺³: el estado de oxidación disminuye (+6 → +3), es reducción (2).",
+    "options": [
+      { "id": "1", "text": "oxidación" },
+      { "id": "2", "text": "reducción" }
+    ]
+  },
+  "demo_2021_16": {
+    "question_ru": "De las siguientes afirmaciones sobre las reglas de trabajo con sustancias en el laboratorio y en el hogar, seleccione la(s) afirmación(es) verdadera(s).\n1. El cloro solo se puede obtener en una vitrina de gases.\n2. Al preparar una solución ácida, se vierte el ácido sulfúrico concentrado en el agua.\n3. Al calentar una solución, el tubo de ensayo con el líquido se sostiene estrictamente en posición vertical.\n4. El trabajo con sustancias corrosivas se debe realizar con guantes de goma.\nEscriba en el campo de respuesta el (los) número(s) de la(s) afirmación(es) verdadera(s).",
+    "explanation_ru": "Son verdaderas las afirmaciones 1 (el cloro es un gas tóxico, se obtiene en la vitrina de gases), 2 (el ácido se vierte en el agua, no al revés) y 4 (las sustancias corrosivas — con guantes). La afirmación 3 es falsa: el tubo de ensayo al calentar se sostiene inclinado, no verticalmente.",
+    "options": [
+      { "id": "1", "text": "El cloro solo se puede obtener en una vitrina de gases." },
+      { "id": "2", "text": "Al preparar una solución ácida, se vierte el ácido sulfúrico concentrado en el agua." },
+      { "id": "3", "text": "Al calentar una solución, el tubo de ensayo con el líquido se sostiene estrictamente en posición vertical." },
+      { "id": "4", "text": "El trabajo con sustancias corrosivas se debe realizar con guantes de goma." }
+    ]
+  },
+  "demo_2021_17": {
+    "question_ru": "Establezca la correspondencia entre dos sustancias y el reactivo con el que se pueden distinguir estas sustancias: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.",
+    "explanation_ru": "A) KCl y K₂SiO₃: añadimos HCl (2) — con K₂SiO₃ se forma ácido silícico insoluble (precipitado), con KCl no hay reacción. B) K₂CO₃ y Li₂CO₃: añadimos K₃PO₄ (4) — Li₃PO₄ es insoluble (precipitado), K₃PO₄ es soluble. C) Na₂SO₄ y NaOH: añadimos CuCl₂ (1) — con NaOH se forma precipitado azul Cu(OH)₂, con Na₂SO₄ no hay reacción."
+  },
+  "demo_2021_18": {
+    "question_ru": "El nitrato de amonio (salitre de amonio) es un compuesto químico NH₄NO₃, sal del ácido nítrico, que se utiliza como fertilizante nitrogenado.\nCalcule en porcentaje la fracción en masa del nitrógeno en el nitrato de amonio. Escriba el número con precisión de enteros.",
+    "explanation_ru": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 g/mol. En la fórmula hay 2 átomos de nitrógeno: 2 × 14 = 28. ω(N) = 28/80 × 100% = 35%."
+  },
+  "demo_2021_19": {
+    "question_ru": "Para la fertilización de cultivos hortícolas y florales se incorporan al suelo 200 g de nitrógeno por cada 100 m². Calcule cuántos gramos de salitre de amonio se deben incorporar en una parcela de 70 m². Escriba el número con precisión de enteros.",
+    "explanation_ru": "Nitrógeno necesario para 70 m²: 200 × 70/100 = 140 g de nitrógeno. Fracción en masa del nitrógeno en NH₄NO₃ = 35% (de la tarea 18). Masa de NH₄NO₃ = 140/0,35 = 400 g."
+  },
+  "demo_2022_02": {
+    "question_ru": "En la figura se muestra un modelo de átomo de un elemento químico.\nEscriba en el campo de respuesta el número del período (X) y el número del grupo (Y) en los que se encuentra el elemento químico cuyo modelo de átomo se muestra en la figura. (Para escribir la respuesta use cifras árabes.)\n\nEn la figura: modelo de átomo con 2 capas electrónicas (2 y 5 electrones). Es el nitrógeno (N, Z=7).",
+    "explanation_ru": "En la figura se muestra un modelo de átomo con 2 capas electrónicas: en la primera 2 electrones, en la segunda 5 electrones. En total 7 electrones = carga nuclear 7 = nitrógeno (N). El nitrógeno se encuentra en el 2.º período (2 capas electrónicas), grupo V (5 electrones en la capa externa). X = 2, Y = 5.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2022_17": {
+    "question_ru": "Establezca la correspondencia entre dos sustancias y el reactivo con el que se pueden distinguir estas sustancias: para cada posición indicada con una letra, seleccione la posición correspondiente indicada con un número.\n\nSUSTANCIAS                     REACTIVO\nA) K₂CO₃ y K₂SiO₃            1) CuCl₂\nB) K₂CO₃ y Li₂CO₃            2) HCl\nC) Na₂SO₄ y NaOH             3) MgO\n                              4) K₃PO₄\n\nEscriba en la tabla los números elegidos debajo de las letras correspondientes.",
+    "explanation_ru": "A) K₂CO₃ y K₂SiO₃: añadimos HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (gas). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (precipitado). Signos diferentes — se distinguen.\nB) K₂CO₃ y Li₂CO₃: añadimos K₃PO₄ (4). Li₃PO₄ es insoluble (precipita), K₃PO₄ + K₂CO₃ — no hay reacción.\nC) Na₂SO₄ y NaOH: añadimos CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (precipitado azul) + 2NaCl. Na₂SO₄ + CuCl₂ — no hay precipitado (CuSO₄ es soluble)."
+  },
+  "demo_2022_19": {
+    "question_ru": "Para la fertilización de cultivos hortícolas y florales se incorporan al suelo 200 g de nitrógeno por cada 100 m². Calcule cuántos gramos de salitre de amonio se deben incorporar en una parcela de 100 m². Escriba el número con precisión de enteros.\n\nUtilice la magnitud determinada en la tarea 18, con la precisión indicada en ella.",
+    "explanation_ru": "De la tarea 18: ω(N) en NH₄NO₃ = 35% = 0,35.\nPara 100 m² se necesitan 200 g de nitrógeno.\nMasa de NH₄NO₃ = m(N) / ω(N) = 200 / 0,35 = 571,4 ≈ 571 g."
+  }
+}

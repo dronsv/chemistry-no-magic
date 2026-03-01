@@ -1,0 +1,291 @@
+{
+  "naming_oxide_single_valence": {
+    "template_ru": "tlenek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082O", "name_ru": "tlenek sodu" },
+      { "formula": "CaO", "name_ru": "tlenek wapnia" },
+      { "formula": "BaO", "name_ru": "tlenek baru" },
+      { "formula": "MgO", "name_ru": "tlenek magnezu" },
+      { "formula": "K\u2082O", "name_ru": "tlenek potasu" },
+      { "formula": "Li\u2082O", "name_ru": "tlenek litu" }
+    ]
+  },
+  "naming_oxide_variable_valence": {
+    "template_ru": "tlenek {metal_dope\u0142niacz}({roman_numeral})",
+    "examples": [
+      { "formula": "FeO", "name_ru": "tlenek \u017celaza(II)" },
+      { "formula": "Fe\u2082O\u2083", "name_ru": "tlenek \u017celaza(III)" },
+      { "formula": "CuO", "name_ru": "tlenek miedzi(II)" },
+      { "formula": "Cu\u2082O", "name_ru": "tlenek miedzi(I)" },
+      { "formula": "Cr\u2082O\u2083", "name_ru": "tlenek chromu(III)" },
+      { "formula": "CrO\u2083", "name_ru": "tlenek chromu(VI)" },
+      { "formula": "MnO\u2082", "name_ru": "tlenek manganu(IV)" },
+      { "formula": "Mn\u2082O\u2087", "name_ru": "tlenek manganu(VII)" }
+    ]
+  },
+  "naming_oxide_nonmetal": {
+    "template_ru": "tlenek {niemetal_dope\u0142niacz}({roman_numeral})",
+    "examples": [
+      { "formula": "CO\u2082", "name_ru": "tlenek w\u0119gla(IV)" },
+      { "formula": "CO", "name_ru": "tlenek w\u0119gla(II)" },
+      { "formula": "SO\u2082", "name_ru": "tlenek siarki(IV)" },
+      { "formula": "SO\u2083", "name_ru": "tlenek siarki(VI)" },
+      { "formula": "P\u2082O\u2085", "name_ru": "tlenek fosforu(V)" },
+      { "formula": "N\u2082O\u2085", "name_ru": "tlenek azotu(V)" },
+      { "formula": "NO\u2082", "name_ru": "tlenek azotu(IV)" },
+      { "formula": "NO", "name_ru": "tlenek azotu(II)" },
+      { "formula": "SiO\u2082", "name_ru": "tlenek krzemu(IV)" }
+    ]
+  },
+  "naming_acid_hcl": {
+    "template_ru": "kwas solny (kwas chlorowodorowy)",
+    "examples": [
+      { "formula": "HCl", "name_ru": "kwas solny" }
+    ]
+  },
+  "naming_acid_hbr": {
+    "template_ru": "kwas bromowodorowy",
+    "examples": [
+      { "formula": "HBr", "name_ru": "kwas bromowodorowy" }
+    ]
+  },
+  "naming_acid_hi": {
+    "template_ru": "kwas jodowodorowy",
+    "examples": [
+      { "formula": "HI", "name_ru": "kwas jodowodorowy" }
+    ]
+  },
+  "naming_acid_hf": {
+    "template_ru": "kwas fluorowodorowy",
+    "examples": [
+      { "formula": "HF", "name_ru": "kwas fluorowodorowy" }
+    ]
+  },
+  "naming_acid_h2s": {
+    "template_ru": "kwas siarkowodorowy",
+    "examples": [
+      { "formula": "H\u2082S", "name_ru": "kwas siarkowodorowy" }
+    ]
+  },
+  "naming_acid_h2so4": {
+    "template_ru": "kwas siarkowy(VI)",
+    "examples": [
+      { "formula": "H\u2082SO\u2084", "name_ru": "kwas siarkowy(VI)" }
+    ]
+  },
+  "naming_acid_h2so3": {
+    "template_ru": "kwas siarkowy(IV)",
+    "examples": [
+      { "formula": "H\u2082SO\u2083", "name_ru": "kwas siarkowy(IV)" }
+    ]
+  },
+  "naming_acid_hno3": {
+    "template_ru": "kwas azotowy(V)",
+    "examples": [
+      { "formula": "HNO\u2083", "name_ru": "kwas azotowy(V)" }
+    ]
+  },
+  "naming_acid_hno2": {
+    "template_ru": "kwas azotowy(III)",
+    "examples": [
+      { "formula": "HNO\u2082", "name_ru": "kwas azotowy(III)" }
+    ]
+  },
+  "naming_acid_h2co3": {
+    "template_ru": "kwas w\u0119glowy",
+    "examples": [
+      { "formula": "H\u2082CO\u2083", "name_ru": "kwas w\u0119glowy" }
+    ]
+  },
+  "naming_acid_h3po4": {
+    "template_ru": "kwas fosforowy(V) (kwas ortofosforowy)",
+    "examples": [
+      { "formula": "H\u2083PO\u2084", "name_ru": "kwas fosforowy(V)" }
+    ]
+  },
+  "naming_acid_h2sio3": {
+    "template_ru": "kwas krzemowy",
+    "examples": [
+      { "formula": "H\u2082SiO\u2083", "name_ru": "kwas krzemowy" }
+    ]
+  },
+  "naming_base": {
+    "template_ru": "wodorotlenek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaOH", "name_ru": "wodorotlenek sodu" },
+      { "formula": "KOH", "name_ru": "wodorotlenek potasu" },
+      { "formula": "Ca(OH)\u2082", "name_ru": "wodorotlenek wapnia" },
+      { "formula": "Ba(OH)\u2082", "name_ru": "wodorotlenek baru" },
+      { "formula": "Mg(OH)\u2082", "name_ru": "wodorotlenek magnezu" },
+      { "formula": "LiOH", "name_ru": "wodorotlenek litu" }
+    ]
+  },
+  "naming_base_variable_valence": {
+    "template_ru": "wodorotlenek {metal_dope\u0142niacz}({roman_numeral})",
+    "examples": [
+      { "formula": "Fe(OH)\u2082", "name_ru": "wodorotlenek \u017celaza(II)" },
+      { "formula": "Fe(OH)\u2083", "name_ru": "wodorotlenek \u017celaza(III)" },
+      { "formula": "Cu(OH)\u2082", "name_ru": "wodorotlenek miedzi(II)" },
+      { "formula": "Cr(OH)\u2083", "name_ru": "wodorotlenek chromu(III)" }
+    ]
+  },
+  "naming_salt_chloride": {
+    "template_ru": "chlorek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaCl", "name_ru": "chlorek sodu" },
+      { "formula": "KCl", "name_ru": "chlorek potasu" },
+      { "formula": "CaCl\u2082", "name_ru": "chlorek wapnia" },
+      { "formula": "BaCl\u2082", "name_ru": "chlorek baru" },
+      { "formula": "FeCl\u2083", "name_ru": "chlorek \u017celaza(III)" },
+      { "formula": "FeCl\u2082", "name_ru": "chlorek \u017celaza(II)" },
+      { "formula": "AlCl\u2083", "name_ru": "chlorek glinu" }
+    ]
+  },
+  "naming_salt_sulfate": {
+    "template_ru": "siarczan(VI) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082SO\u2084", "name_ru": "siarczan(VI) sodu" },
+      { "formula": "K\u2082SO\u2084", "name_ru": "siarczan(VI) potasu" },
+      { "formula": "CaSO\u2084", "name_ru": "siarczan(VI) wapnia" },
+      { "formula": "BaSO\u2084", "name_ru": "siarczan(VI) baru" },
+      { "formula": "CuSO\u2084", "name_ru": "siarczan(VI) miedzi(II)" },
+      { "formula": "FeSO\u2084", "name_ru": "siarczan(VI) \u017celaza(II)" },
+      { "formula": "Al\u2082(SO\u2084)\u2083", "name_ru": "siarczan(VI) glinu" }
+    ]
+  },
+  "naming_salt_nitrate": {
+    "template_ru": "azotan(V) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaNO\u2083", "name_ru": "azotan(V) sodu" },
+      { "formula": "KNO\u2083", "name_ru": "azotan(V) potasu" },
+      { "formula": "Ca(NO\u2083)\u2082", "name_ru": "azotan(V) wapnia" },
+      { "formula": "AgNO\u2083", "name_ru": "azotan(V) srebra" },
+      { "formula": "Pb(NO\u2083)\u2082", "name_ru": "azotan(V) o\u0142owiu(II)" },
+      { "formula": "Cu(NO\u2083)\u2082", "name_ru": "azotan(V) miedzi(II)" }
+    ]
+  },
+  "naming_salt_carbonate": {
+    "template_ru": "w\u0119glan {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082CO\u2083", "name_ru": "w\u0119glan sodu" },
+      { "formula": "K\u2082CO\u2083", "name_ru": "w\u0119glan potasu" },
+      { "formula": "CaCO\u2083", "name_ru": "w\u0119glan wapnia" },
+      { "formula": "BaCO\u2083", "name_ru": "w\u0119glan baru" },
+      { "formula": "MgCO\u2083", "name_ru": "w\u0119glan magnezu" }
+    ]
+  },
+  "naming_salt_phosphate": {
+    "template_ru": "fosforan(V) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2083PO\u2084", "name_ru": "fosforan(V) sodu" },
+      { "formula": "Ca\u2083(PO\u2084)\u2082", "name_ru": "fosforan(V) wapnia" },
+      { "formula": "AlPO\u2084", "name_ru": "fosforan(V) glinu" }
+    ]
+  },
+  "naming_salt_sulfide": {
+    "template_ru": "siarczek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082S", "name_ru": "siarczek sodu" },
+      { "formula": "FeS", "name_ru": "siarczek \u017celaza(II)" },
+      { "formula": "ZnS", "name_ru": "siarczek cynku" },
+      { "formula": "CuS", "name_ru": "siarczek miedzi(II)" },
+      { "formula": "PbS", "name_ru": "siarczek o\u0142owiu(II)" }
+    ]
+  },
+  "naming_salt_silicate": {
+    "template_ru": "krzemian {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082SiO\u2083", "name_ru": "krzemian sodu" },
+      { "formula": "CaSiO\u2083", "name_ru": "krzemian wapnia" }
+    ]
+  },
+  "naming_salt_sulfite": {
+    "template_ru": "siarczan(IV) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082SO\u2083", "name_ru": "siarczan(IV) sodu" },
+      { "formula": "K\u2082SO\u2083", "name_ru": "siarczan(IV) potasu" }
+    ]
+  },
+  "naming_salt_fluoride": {
+    "template_ru": "fluorek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaF", "name_ru": "fluorek sodu" },
+      { "formula": "CaF\u2082", "name_ru": "fluorek wapnia" }
+    ]
+  },
+  "naming_salt_bromide": {
+    "template_ru": "bromek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaBr", "name_ru": "bromek sodu" },
+      { "formula": "KBr", "name_ru": "bromek potasu" }
+    ]
+  },
+  "naming_salt_iodide": {
+    "template_ru": "jodek {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaI", "name_ru": "jodek sodu" },
+      { "formula": "KI", "name_ru": "jodek potasu" }
+    ]
+  },
+  "naming_salt_nitrite": {
+    "template_ru": "azotan(III) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaNO\u2082", "name_ru": "azotan(III) sodu" },
+      { "formula": "KNO\u2082", "name_ru": "azotan(III) potasu" }
+    ]
+  },
+  "naming_salt_acetate": {
+    "template_ru": "octan {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "CH\u2083COONa", "name_ru": "octan sodu" },
+      { "formula": "(CH\u2083COO)\u2082Cu", "name_ru": "octan miedzi(II)" }
+    ]
+  },
+  "naming_salt_permanganate": {
+    "template_ru": "manganian(VII) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "KMnO\u2084", "name_ru": "manganian(VII) potasu" }
+    ]
+  },
+  "naming_salt_chromate": {
+    "template_ru": "chromian(VI) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "K\u2082CrO\u2084", "name_ru": "chromian(VI) potasu" },
+      { "formula": "Na\u2082CrO\u2084", "name_ru": "chromian(VI) sodu" }
+    ]
+  },
+  "naming_salt_dichromate": {
+    "template_ru": "dichromian(VI) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "K\u2082Cr\u2082O\u2087", "name_ru": "dichromian(VI) potasu" }
+    ]
+  },
+  "naming_salt_acidic_hydrocarbonate": {
+    "template_ru": "wodorow\u0119glan {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaHCO\u2083", "name_ru": "wodorow\u0119glan sodu" },
+      { "formula": "Ca(HCO\u2083)\u2082", "name_ru": "wodorow\u0119glan wapnia" }
+    ]
+  },
+  "naming_salt_acidic_hydrosulfate": {
+    "template_ru": "wodorosiarczan(VI) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "KHSO\u2084", "name_ru": "wodorosiarczan(VI) potasu" },
+      { "formula": "NaHSO\u2084", "name_ru": "wodorosiarczan(VI) sodu" }
+    ]
+  },
+  "naming_salt_acidic_dihydrophosphate": {
+    "template_ru": "diwodorofosforan(V) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "NaH\u2082PO\u2084", "name_ru": "diwodorofosforan(V) sodu" },
+      { "formula": "Ca(H\u2082PO\u2084)\u2082", "name_ru": "diwodorofosforan(V) wapnia" }
+    ]
+  },
+  "naming_salt_acidic_hydrophosphate": {
+    "template_ru": "wodorofosforan(V) {metal_dope\u0142niacz}",
+    "examples": [
+      { "formula": "Na\u2082HPO\u2084", "name_ru": "wodorofosforan(V) sodu" },
+      { "formula": "CaHPO\u2084", "name_ru": "wodorofosforan(V) wapnia" }
+    ]
+  }
+}

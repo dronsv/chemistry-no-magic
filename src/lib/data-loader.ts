@@ -91,13 +91,18 @@ const overlayCache = new Map<string, Promise<Record<string, Record<string, unkno
 
 /**
  * Load a translation overlay file for a given locale and data key.
- * Returns null if locale is 'ru', overlay is not available, or fetch fails.
+ * Returns null if overlay is not available or fetch fails.
+ *
+ * By default, skips 'ru' locale (base language for most data).
+ * Pass `allowRu: true` for data where the base language varies
+ * (e.g. exam tasks whose primary locale is en/pl/es).
  */
 async function loadTranslationOverlay(
   locale: SupportedLocale,
   dataKey: string,
+  allowRu = false,
 ): Promise<Record<string, Record<string, unknown>> | null> {
-  if (locale === 'ru') return null;
+  if (locale === 'ru' && !allowRu) return null;
 
   const cacheKey = `${locale}:${dataKey}`;
   const cached = overlayCache.get(cacheKey);
@@ -402,7 +407,7 @@ export async function loadExercises(module: string): Promise<unknown> {
 }
 
 /** Load periodic table theory (property trends, exception consequences). */
-export async function loadPeriodicTableTheory(): Promise<PeriodicTableTheory> {
+export async function loadPeriodicTableTheory(locale?: SupportedLocale): Promise<PeriodicTableTheory> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.rules['periodic_table_theory'];
 
@@ -412,7 +417,43 @@ export async function loadPeriodicTableTheory(): Promise<PeriodicTableTheory> {
     );
   }
 
-  return loadDataFile<PeriodicTableTheory>(path);
+  const data = await loadDataFile<PeriodicTableTheory>(path);
+  if (!locale || locale === 'ru') return data;
+
+  const overlay = await loadTranslationOverlay(locale, 'periodic_table_theory');
+  if (!overlay) return data;
+
+  return {
+    property_trends: data.property_trends.map(trend => {
+      const o = overlay[`trend:${trend.id}`] as Record<string, unknown> | undefined;
+      if (!o) return trend;
+      const oExamples = o.examples as Record<string, unknown>[] | undefined;
+      const mergedExamples = trend.examples && oExamples
+        ? trend.examples.map((ex, i) => {
+            const exO = oExamples[i];
+            if (!exO) return ex;
+            if (ex.type === 'series' && exO.elements) {
+              // Merge element-level overrides (e.g. value_ru for metallic_character)
+              const mergedElements = ex.elements.map((el, j) => {
+                const elO = (exO.elements as Record<string, unknown>[])?.[j];
+                return elO ? { ...el, ...elO } : el;
+              });
+              return { ...ex, ...exO, elements: mergedElements };
+            }
+            return { ...ex, ...exO, ...(ex.type === 'series' ? { elements: ex.elements } : {}) };
+          })
+        : trend.examples;
+      const { examples: _ignored, ...rest } = o;
+      return { ...trend, ...rest, ...(mergedExamples ? { examples: mergedExamples } : {}) } as typeof trend;
+    }),
+    exception_consequences: data.exception_consequences.map(exc => {
+      const o = overlay[`exception:${exc.id}`];
+      return o ? { ...exc, ...o } as typeof exc : exc;
+    }),
+    general_principle_ru: overlay['principle']
+      ? { ...data.general_principle_ru, ...overlay['principle'] } as typeof data.general_principle_ru
+      : data.general_principle_ru,
+  };
 }
 
 /** Load classification rules. */
@@ -628,8 +669,13 @@ export async function loadIonNomenclature(locale?: SupportedLocale): Promise<Ion
   };
 }
 
+/** Primary locale for each exam system (avoids loading systems.json just for this). */
+const EXAM_PRIMARY_LOCALE: Record<string, SupportedLocale> = {
+  oge: 'ru', ege: 'ru', gcse: 'en', egzamin: 'pl', ebau: 'es',
+};
+
 /** Load OGE tasks from all variants. */
-export async function loadOgeTasks(): Promise<OgeTask[]> {
+export async function loadOgeTasks(locale?: SupportedLocale): Promise<OgeTask[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.oge_tasks;
 
@@ -639,11 +685,14 @@ export async function loadOgeTasks(): Promise<OgeTask[]> {
     );
   }
 
-  return loadDataFile<OgeTask[]>(path);
+  const tasks = await loadDataFile<OgeTask[]>(path);
+  if (!locale || locale === 'ru') return tasks;
+  const overlay = await loadTranslationOverlay(locale, 'oge_tasks');
+  return applyOverlay(tasks, overlay, t => t.task_id);
 }
 
 /** Load OGE solution algorithms (step-by-step methods for each task number). */
-export async function loadOgeSolutionAlgorithms(): Promise<OgeSolutionAlgorithm[]> {
+export async function loadOgeSolutionAlgorithms(locale?: SupportedLocale): Promise<OgeSolutionAlgorithm[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.oge_solution_algorithms;
 
@@ -653,7 +702,10 @@ export async function loadOgeSolutionAlgorithms(): Promise<OgeSolutionAlgorithm[
     );
   }
 
-  return loadDataFile<OgeSolutionAlgorithm[]>(path);
+  const algos = await loadDataFile<OgeSolutionAlgorithm[]>(path);
+  if (!locale || locale === 'ru') return algos;
+  const overlay = await loadTranslationOverlay(locale, 'oge_algorithms');
+  return applyOverlay(algos, overlay, a => String(a.task_number));
 }
 
 /** Load search index for global search. Supports per-locale indices. */
@@ -700,13 +752,21 @@ export async function loadExamSystemMeta(systemId: string): Promise<ExamSystemMe
 }
 
 /** Load tasks for a specific exam system. */
-export async function loadExamTasks(systemId: string): Promise<OgeTask[]> {
-  return loadDataFile<OgeTask[]>(`exam/${systemId}/tasks.json`);
+export async function loadExamTasks(systemId: string, locale?: SupportedLocale): Promise<OgeTask[]> {
+  const tasks = await loadDataFile<OgeTask[]>(`exam/${systemId}/tasks.json`);
+  const primaryLocale = EXAM_PRIMARY_LOCALE[systemId] ?? 'ru';
+  if (!locale || locale === primaryLocale) return tasks;
+  const overlay = await loadTranslationOverlay(locale, `${systemId}_tasks`, true);
+  return applyOverlay(tasks, overlay, t => t.task_id);
 }
 
 /** Load solution algorithms for a specific exam system. */
-export async function loadExamAlgorithms(systemId: string): Promise<OgeSolutionAlgorithm[]> {
-  return loadDataFile<OgeSolutionAlgorithm[]>(`exam/${systemId}/algorithms.json`);
+export async function loadExamAlgorithms(systemId: string, locale?: SupportedLocale): Promise<OgeSolutionAlgorithm[]> {
+  const algos = await loadDataFile<OgeSolutionAlgorithm[]>(`exam/${systemId}/algorithms.json`);
+  const primaryLocale = EXAM_PRIMARY_LOCALE[systemId] ?? 'ru';
+  if (!locale || locale === primaryLocale) return algos;
+  const overlay = await loadTranslationOverlay(locale, `${systemId}_algorithms`, true);
+  return applyOverlay(algos, overlay, a => String(a.task_number));
 }
 
 /** Load unified topic mapping (cross-exam competency map). */

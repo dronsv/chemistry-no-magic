@@ -1,0 +1,194 @@
+{
+  "1": {
+    "title_ru": "Estructura atómica y tabla periódica",
+    "topic_ru": "Configuración electrónica, isótopos, energías de ionización, tendencias en la tabla periódica",
+    "algorithm_ru": [
+      "Lee atentamente el enunciado — determina de qué trata la pregunta: configuración electrónica, isótopos o tendencias periódicas.",
+      "Para la configuración electrónica: escribe los subniveles en orden según el principio aufbau (1s → 2s → 2p → 3s → ...). El número de capas = número del período. La suma de electrones de valencia (s + p en la última capa) = número del grupo (bloques s y p).",
+      "Para isótopos: recuerda que Z = número de protones = número de electrones (átomo neutro), A = Z + N (neutrones).",
+      "Para tendencias: a lo largo del período (→) aumentan la energía de ionización y la electronegatividad, disminuye el radio atómico. Bajando en el grupo (↓) ocurre lo contrario.",
+      "Atención a las anomalías: p. ej. EI(Al) < EI(Mg) debido al subnivel 3s² completo del magnesio."
+    ],
+    "key_facts_ru": [
+      "La configuración electrónica se construye según el principio aufbau: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p...",
+      "Regla de Hund: los electrones ocupan orbitales separados del mismo subnivel antes de emparejarse.",
+      "Principio de exclusión de Pauli: dos electrones en el mismo orbital deben tener espines opuestos.",
+      "Los isótopos son átomos del mismo elemento que difieren en el número de neutrones.",
+      "La energía de ionización generalmente aumenta a lo largo del período y disminuye en el grupo, pero hay excepciones (los subniveles llenos y semillenos son más estables)."
+    ],
+    "common_traps_ru": [
+      "No confundas el número másico (A = p + n) con el número atómico (Z = p).",
+      "Recuerda las anomalías en la energía de ionización (p. ej. B < Be, O < N).",
+      "Para elementos del bloque d, la configuración del ion difiere de la del átomo — primero se eliminan los electrones del subnivel s (p. ej. Fe²⁺: [Ar]3d⁶, no [Ar]3d⁴4s²)."
+    ],
+    "variability_ru": "Cambia el elemento y el tipo de pregunta (configuración, isótopos, comparación de tendencias). Los principios son universales."
+  },
+  "2": {
+    "title_ru": "Enlaces químicos e interacciones intermoleculares",
+    "topic_ru": "Tipos de enlaces (iónico, covalente, metálico, coordinado), hibridación, enlaces de hidrógeno, fuerzas de Van der Waals",
+    "algorithm_ru": [
+      "Determina el tipo de enlace según la diferencia de electronegatividad: ΔEN > 1,7 → iónico; 0,4 < ΔEN < 1,7 → covalente polar; ΔEN < 0,4 → covalente apolar; metal–metal → metálico.",
+      "Enlace coordinado (dativo): un átomo aporta ambos electrones del par enlazante (p. ej. NH₄⁺, H₃O⁺, complejos de metales de transición).",
+      "Interacciones intermoleculares: enlaces de hidrógeno (N–H···X, O–H···X, F–H···X) > dipolo–dipolo > fuerzas de dispersión (London).",
+      "Al comparar puntos de ebullición: interacciones más fuertes → mayor T_eb. Los enlaces de hidrógeno elevan significativamente el punto de ebullición.",
+      "En preguntas descriptivas: siempre haz referencia a interacciones concretas y proporciona justificación (electronegatividad, pares solitarios, tamaño atómico)."
+    ],
+    "key_facts_ru": [
+      "Enlace iónico: entre un metal y un no metal (gran ΔEN), forma un cristal iónico.",
+      "Enlace covalente: compartición de pares de electrones entre no metales.",
+      "Enlace metálico: un «mar» de electrones de valencia deslocalizados entre cationes metálicos.",
+      "El enlace de hidrógeno O–H···O es el tipo más fuerte de enlace de hidrógeno en química inorgánica.",
+      "Un enlace coordinado, una vez formado, es indistinguible de un enlace covalente normal."
+    ],
+    "common_traps_ru": [
+      "No confundas las interacciones intermoleculares (débiles) con los enlaces químicos (fuertes).",
+      "El HF tiene un T_eb mayor que el HCl, pero menor que el H₂O — aunque el F es más electronegativo, el H₂O forma más enlaces de hidrógeno (2 pares solitarios, 2 átomos de H).",
+      "En preguntas sobre el enlace coordinado, recuerda los iones NH₄⁺ y H₃O⁺ — son ejemplos clásicos."
+    ],
+    "variability_ru": "Cambia el conjunto de sustancias y el tipo de enlace a asignar. Pueden aparecer preguntas sobre hibridación (sp, sp², sp³), forma molecular y polaridad."
+  },
+  "3": {
+    "title_ru": "Cálculos estequiométricos",
+    "topic_ru": "Masa molar, mol, volumen molar, composición porcentual, cálculos a partir de ecuaciones de reacción",
+    "algorithm_ru": [
+      "Anota los datos y las magnitudes buscadas. Determina qué conversión es necesaria.",
+      "Masa molar: suma las masas atómicas de todos los átomos en la fórmula. Recuerda los subíndices y los paréntesis.",
+      "Cálculos a partir de ecuaciones: (1) escribe la ecuación balanceada, (2) calcula n = m/M o n = V/V_m, (3) convierte los moles según los coeficientes estequiométricos, (4) calcula la magnitud buscada.",
+      "Volumen molar de un gas en condiciones normales: V_m = 22,4 dm³/mol.",
+      "Fracción másica de un elemento: ω = (n × M_elemento) / M_compuesto × 100%."
+    ],
+    "key_facts_ru": [
+      "1 mol = 6,022 × 10²³ partículas (número de Avogadro).",
+      "n = m/M (mol = masa/masa molar); n = V/V_m (para gases en CN).",
+      "Ley de conservación de la masa: masa de reactivos = masa de productos.",
+      "Ley de Avogadro: en las mismas condiciones de T y p, volúmenes iguales de gases contienen el mismo número de moléculas.",
+      "Ley de las proporciones definidas (Proust): un compuesto químico tiene una composición cuantitativa constante."
+    ],
+    "common_traps_ru": [
+      "No olvides los paréntesis en las fórmulas — p. ej. (NH₄)₂SO₄ tiene 2 átomos de N y 8 átomos de H.",
+      "V_m = 22,4 dm³/mol solo es válido en condiciones normales (0 °C, 1013 hPa).",
+      "Verifica que la ecuación esté balanceada antes de comenzar los cálculos."
+    ],
+    "variability_ru": "Cambia la sustancia y el tipo de cálculo (masa molar, volumen de gas, composición porcentual, cálculos a partir de ecuaciones). Los principios de conversión son los mismos."
+  },
+  "4": {
+    "title_ru": "Ácidos, bases y pH",
+    "topic_ru": "Teorías de ácidos y bases, pH, hidrólisis de sales, disoluciones amortiguadoras",
+    "algorithm_ru": [
+      "Determina la fuerza del ácido/base: ácidos fuertes (HCl, H₂SO₄, HNO₃, HClO₄) se disocian completamente; ácidos débiles (CH₃COOH, H₂CO₃, HF) — parcialmente.",
+      "pH = −log[H⁺]. Para ácidos fuertes: [H⁺] = concentración del ácido. Para bases fuertes: [OH⁻] = concentración de la base, pOH = −log[OH⁻], pH = 14 − pOH.",
+      "Fuerza de los oxoácidos: aumenta con el número de átomos de oxígeno no enlazados al hidrógeno (más O → ácido más fuerte).",
+      "Hidrólisis de sales: sal de ácido débil + base fuerte → pH > 7 (básico); sal de ácido fuerte + base débil → pH < 7 (ácido); ambos fuertes → pH ≈ 7.",
+      "Al comparar la fuerza de ácidos, ten en cuenta el estado de oxidación del átomo central y la estabilidad del anión."
+    ],
+    "key_facts_ru": [
+      "Escala de pH: 0–14; pH < 7 → ácido, pH = 7 → neutro, pH > 7 → básico.",
+      "Hidrácidos (HF, HCl, HBr, HI): la fuerza aumenta bajando en el grupo (HF < HCl < HBr < HI).",
+      "Oxoácidos del mismo elemento: la fuerza aumenta con el estado de oxidación (HClO < HClO₂ < HClO₃ < HClO₄).",
+      "Disolución amortiguadora: mantiene un pH aproximadamente constante al añadir pequeñas cantidades de ácido o base.",
+      "K_w = [H⁺][OH⁻] = 10⁻¹⁴ (a 25 °C)."
+    ],
+    "common_traps_ru": [
+      "El HF es un ácido débil, aunque el flúor sea el oxidante más fuerte — no confundas electronegatividad con fuerza ácida.",
+      "No confundas ácido «concentrado» con «fuerte» — son conceptos diferentes (concentración vs. grado de disociación).",
+      "Al calcular el pH de una disolución de sal, debes tener en cuenta la hidrólisis — no basta con conocer la concentración de la sal."
+    ],
+    "variability_ru": "Cambia el ácido/base/sal y el tipo de pregunta (comparación de fuerza, cálculo de pH, predicción de la reacción del medio). Los principios de clasificación y cálculo son universales."
+  },
+  "5": {
+    "title_ru": "Reacciones de oxidación-reducción (redox)",
+    "topic_ru": "Estados de oxidación, balance electrónico, oxidantes y reductores, ajuste de ecuaciones redox",
+    "algorithm_ru": [
+      "Determina los estados de oxidación de todos los átomos en los reactivos y productos.",
+      "Identifica qué átomo cambia su estado de oxidación — determina quién es el oxidante (disminuye e.o., gana e⁻) y quién es el reductor (aumenta e.o., pierde e⁻).",
+      "Escribe las semirreacciones de oxidación y reducción con el número de electrones transferidos.",
+      "Ajusta los electrones: encuentra el MCM de electrones perdidos y ganados.",
+      "Ajusta la ecuación: coeficientes del balance electrónico → completa los demás átomos (H, O) usando H₂O y H⁺ (o OH⁻ en medio básico)."
+    ],
+    "key_facts_ru": [
+      "Oxidación = pérdida de electrones = aumento del estado de oxidación.",
+      "Reducción = ganancia de electrones = disminución del estado de oxidación.",
+      "Oxidantes típicos: KMnO₄, K₂Cr₂O₇, HNO₃(conc.), H₂SO₄(conc.), Cl₂, O₂.",
+      "Reductores típicos: metales activos (Zn, Fe, Al), H₂S, SO₂, C, CO.",
+      "En las reacciones de desproporción, el mismo elemento se oxida y se reduce simultáneamente."
+    ],
+    "common_traps_ru": [
+      "No confundas el oxidante (la sustancia que se reduce) con la oxidación (el proceso de perder electrones).",
+      "Al ajustar reacciones con HNO₃: parte del nitrógeno actúa como oxidante (→ NO, NO₂) y parte forma la sal — ten en cuenta ambos roles.",
+      "El estado de oxidación del H es casi siempre +1, del O casi siempre −2 (excepciones: NaH → H⁻¹, H₂O₂ → O⁻¹, OF₂ → O⁺²)."
+    ],
+    "variability_ru": "Cambia la reacción redox, el átomo en cuestión y el formato (estados de oxidación, ajuste, identificación del oxidante/reductor). El método del balance electrónico es universal."
+  },
+  "6": {
+    "title_ru": "Química orgánica",
+    "topic_ru": "Grupos funcionales, nomenclatura, reacciones orgánicas (sustitución, adición, eliminación, esterificación), identificación",
+    "algorithm_ru": [
+      "Identifica el grupo funcional: −OH (alcohol/fenol), −CHO (aldehído), −CO− (cetona), −COOH (ácido carboxílico), −NH₂ (amina), −COO− (éster).",
+      "Reacciones características: aldehídos → prueba de Tollens (espejo de plata) y prueba de Fehling; alquenos → decoloración del agua de bromo; alcoholes → prueba con Na (desprendimiento de H₂).",
+      "Esterificación: ácido + alcohol ⇌ éster + H₂O (catalizador: H₂SO₄ conc., reacción reversible).",
+      "Polímeros: reacción de adición (poliadición) — p. ej. polietileno a partir de etileno; reacción de condensación (policondensación) — p. ej. PET, nailon.",
+      "Nomenclatura IUPAC: busca la cadena más larga, numera desde el extremo más cercano al sustituyente, nombra los sustituyentes con prefijos (metil-, etil-...)."
+    ],
+    "key_facts_ru": [
+      "Series homólogas: alcanos (CₙH₂ₙ₊₂), alquenos (CₙH₂ₙ), alquinos (CₙH₂ₙ₋₂).",
+      "La prueba de Tollens detecta aldehídos (y glucosa — aldosas) — se deposita plata metálica.",
+      "Prueba de Lucas: distingue alcoholes primarios, secundarios y terciarios por la velocidad de reacción con HCl/ZnCl₂.",
+      "Alcoholes primarios → oxidación → aldehído → oxidación adicional → ácido carboxílico.",
+      "Isomería: estructural (de cadena, de posición, de grupo funcional) y geométrica (cis/trans)."
+    ],
+    "common_traps_ru": [
+      "La acetona (propanona) es una cetona — NO da positivo en la prueba de Tollens (a diferencia de los aldehídos).",
+      "El fenol (C₆H₅OH) tiene propiedades ácidas, aunque contiene un grupo −OH como los alcoholes.",
+      "La glucosa tiene una forma de cadena abierta con un grupo −CHO, por lo que da positivo en la prueba de Tollens, aunque en disolución predomine la forma cíclica."
+    ],
+    "variability_ru": "Cambia el tipo de compuesto orgánico, la reacción y el método de identificación. Lo esencial es reconocer los grupos funcionales y conocer las reacciones características de cada clase."
+  },
+  "7": {
+    "title_ru": "Cinética química y equilibrio",
+    "topic_ru": "Velocidad de reacción, factores que afectan la velocidad, equilibrio químico, principio de Le Chatelier, constante de equilibrio",
+    "algorithm_ru": [
+      "Factores que afectan la velocidad de reacción: temperatura, concentración (presión para gases), superficie de contacto, catalizador, naturaleza de los reactivos.",
+      "Regla de Van't Hoff: un aumento de 10 °C en la temperatura aumenta la velocidad 2–4 veces.",
+      "Principio de Le Chatelier: un sistema en equilibrio responde a un cambio de condiciones de modo que contrarreste parcialmente dicho cambio.",
+      "Desplazamiento del equilibrio: ↑presión → hacia menor número de moles gaseosos; ↑temperatura → hacia la reacción endotérmica; ↑concentración de reactivo → hacia los productos.",
+      "Un catalizador NO desplaza el equilibrio — acelera tanto la reacción directa como la inversa y acorta el tiempo para alcanzar el estado de equilibrio."
+    ],
+    "key_facts_ru": [
+      "K_c = [productos]ⁿ / [reactivos]ᵐ — constante de equilibrio (depende solo de la temperatura).",
+      "K_c > 1 → equilibrio desplazado hacia los productos; K_c < 1 → hacia los reactivos.",
+      "Un catalizador disminuye la energía de activación pero no cambia ΔH ni K_c.",
+      "Reacción exotérmica (ΔH < 0): el aumento de temperatura desplaza el equilibrio hacia la izquierda (hacia los reactivos).",
+      "El cambio de presión afecta al equilibrio solo cuando el número de moles gaseosos de reactivos ≠ número de moles gaseosos de productos."
+    ],
+    "common_traps_ru": [
+      "Un catalizador NO desplaza el equilibrio — este es el error más común en el examen.",
+      "Añadir un sólido (p. ej. carbono en C + CO₂ ⇌ 2CO) no desplaza el equilibrio, porque la concentración de un sólido es constante.",
+      "Al analizar el efecto de la presión: cuenta los moles gaseosos en ambos lados de la ecuación (ignora sólidos y líquidos)."
+    ],
+    "variability_ru": "Cambia la reacción en equilibrio y el tipo de factor (T, p, concentración, catalizador). El principio de Le Chatelier es siempre el mismo."
+  },
+  "8": {
+    "title_ru": "Electroquímica",
+    "topic_ru": "Pilas galvánicas, electrólisis, potenciales estándar de electrodo, corrosión, protección de metales",
+    "algorithm_ru": [
+      "Pila galvánica: el metal con menor E° es el ánodo (oxidación), el metal con mayor E° es el cátodo (reducción). FEM = E°(cátodo) − E°(ánodo).",
+      "Electrólisis: proceso inverso a la pila — requiere aporte de energía eléctrica. En el cátodo: reducción (depósito de metal o desprendimiento de H₂). En el ánodo: oxidación.",
+      "Electrólisis de disoluciones acuosas: en el cátodo puede depositarse el metal o desprenderse H₂ (depende del E° del metal); en el ánodo: O₂, Cl₂ u oxidación del propio ánodo.",
+      "Corrosión: proceso electroquímico espontáneo. Protección: recubrimientos, ánodo de sacrificio (galvanizado), protección catódica.",
+      "Ley de Faraday: m = (M × I × t) / (n × F), donde F = 96 500 C/mol."
+    ],
+    "key_facts_ru": [
+      "Serie electroquímica (selección): Li < K < Ca < Na < Mg < Al < Zn < Fe < Ni < Sn < Pb < H₂ < Cu < Ag < Au.",
+      "FEM (fuerza electromotriz) = E°(cátodo) − E°(ánodo); FEM > 0 → la pila funciona espontáneamente.",
+      "Electrólisis de NaCl(ac): cátodo → H₂, ánodo → Cl₂ (no O₂, debido al sobrepotencial anódico).",
+      "Galvanizado = protección de sacrificio: Zn (E° = −0,76 V) se corroe en lugar del Fe (E° = −0,44 V).",
+      "1 faradio (F) = 96 500 C/mol = la carga de 1 mol de electrones."
+    ],
+    "common_traps_ru": [
+      "No confundas ánodo y cátodo: en la pila galvánica el ánodo es negativo (−), en la cuba electrolítica es positivo (+), pero siempre: en el ánodo ocurre la oxidación.",
+      "En la electrólisis de disoluciones acuosas: los metales con E° > E°(H₂O/H₂) ≈ −0,83 V se depositan en el cátodo; los más activos → se desprende H₂.",
+      "La FEM debe ser positiva para que la pila funcione espontáneamente. Si calculas una FEM negativa, has intercambiado ánodo y cátodo."
+    ],
+    "variability_ru": "Cambia el par de metales en la pila, el electrolito en la electrólisis y el método de protección contra la corrosión. Los principios de funcionamiento de pilas y electrólisis son constantes."
+  }
+}

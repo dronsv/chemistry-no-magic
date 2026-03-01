@@ -1,0 +1,38 @@
+{
+  "oxide_basic": {
+    "description_ru": "\u00d3xidos b\u00e1sicos: \u00f3xidos de metales con estado de oxidaci\u00f3n +1, +2 (excepto los anf\u00f3teros). Reaccionan con \u00e1cidos y \u00f3xidos \u00e1cidos."
+  },
+  "oxide_acidic": {
+    "description_ru": "\u00d3xidos \u00e1cidos: \u00f3xidos de no metales (excepto CO, NO, N\u2082O) y \u00f3xidos de metales con alto estado de oxidaci\u00f3n (+5, +6, +7). Reaccionan con bases y \u00f3xidos b\u00e1sicos."
+  },
+  "oxide_amphoteric": {
+    "description_ru": "\u00d3xidos anf\u00f3teros: \u00f3xidos de metales anf\u00f3teros. Reaccionan tanto con \u00e1cidos como con \u00e1lcalis."
+  },
+  "oxide_indifferent": {
+    "description_ru": "\u00d3xidos no formadores de sales: no forman sales al interactuar con \u00e1cidos ni con bases."
+  },
+  "acid_oxygen_containing": {
+    "description_ru": "\u00c1cidos oxigenados: contienen ox\u00edgeno en el residuo \u00e1cido."
+  },
+  "acid_oxygen_free": {
+    "description_ru": "\u00c1cidos sin ox\u00edgeno: no contienen ox\u00edgeno. Formados por hidr\u00f3geno y un no metal."
+  },
+  "base_soluble": {
+    "description_ru": "Bases solubles (\u00e1lcalis): hidr\u00f3xidos de metales alcalinos y alcalinot\u00e9rreos. Solubles en agua, se disocian produciendo iones OH\u207b."
+  },
+  "base_insoluble": {
+    "description_ru": "Bases insolubles: hidr\u00f3xidos de metales pesados. No se disuelven en agua, se descomponen al calentarse."
+  },
+  "base_amphoteric": {
+    "description_ru": "Hidr\u00f3xidos anf\u00f3teros: presentan propiedades tanto \u00e1cidas como b\u00e1sicas. Reaccionan tanto con \u00e1cidos como con \u00e1lcalis."
+  },
+  "salt_normal": {
+    "description_ru": "Sales neutras (normales): producto de la sustituci\u00f3n completa de los \u00e1tomos de hidr\u00f3geno del \u00e1cido por cationes met\u00e1licos (o NH\u2084\u207a)."
+  },
+  "salt_acidic": {
+    "description_ru": "Sales \u00e1cidas: producto de la sustituci\u00f3n incompleta de los \u00e1tomos de hidr\u00f3geno en un \u00e1cido polib\u00e1sico. Contienen ion hidr\u00f3geno en el residuo \u00e1cido."
+  },
+  "salt_basic": {
+    "description_ru": "Sales b\u00e1sicas: producto de la sustituci\u00f3n incompleta de los iones hidr\u00f3xido en una base poli\u00e1cida. Contienen un grupo hidroxo."
+  }
+}

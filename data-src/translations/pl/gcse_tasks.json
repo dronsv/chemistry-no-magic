@@ -1,0 +1,189 @@
+{
+  "gcse_2024_01a": {
+    "question_ru": "Kt\u00f3re dwa stwierdzenia opisuj\u0105 w\u0142a\u015bciwo\u015bci atom\u00f3w tego samego pierwiastka?",
+    "explanation_ru": "Atomy tego samego pierwiastka zawsze maj\u0105 t\u0119 sam\u0105 liczb\u0119 proton\u00f3w (stwierdzenie 1) i w zwi\u0105zku z tym ten sam numer atomowy (stwierdzenie 4). Izotopy tego samego pierwiastka maj\u0105 r\u00f3\u017cn\u0105 liczb\u0119 neutron\u00f3w i r\u00f3\u017cne liczby masowe, wi\u0119c stwierdzenia 2 i 5 s\u0105 nieprawid\u0142owe. Liczba pow\u0142ok elektronowych zale\u017cy od okresu, a nie bezpo\u015brednio od to\u017csamo\u015bci pierwiastka, a jony mog\u0105 traci\u0107 lub zyskiwa\u0107 pow\u0142oki, wi\u0119c stwierdzenie 3 nie zawsze jest prawdziwe.",
+    "options": [
+      { "id": "1", "text": "Maj\u0105 t\u0119 sam\u0105 liczb\u0119 proton\u00f3w." },
+      { "id": "2", "text": "Zawsze maj\u0105 t\u0119 sam\u0105 liczb\u0119 neutron\u00f3w." },
+      { "id": "3", "text": "Maj\u0105 t\u0119 sam\u0105 liczb\u0119 pow\u0142ok elektronowych." },
+      { "id": "4", "text": "Maj\u0105 ten sam numer atomowy." },
+      { "id": "5", "text": "Zawsze maj\u0105 t\u0119 sam\u0105 liczb\u0119 masow\u0105." }
+    ]
+  },
+  "gcse_2024_01b": {
+    "question_ru": "Atom pierwiastka X ma konfiguracj\u0119 elektronow\u0105 2, 8, 7.\n\nOkre\u015bl numer grupy i numer okresu dla pierwiastka X w uk\u0142adzie okresowym.",
+    "explanation_ru": "Konfiguracja elektronowa 2, 8, 7 ma 3 obsadzone pow\u0142oki, wi\u0119c pierwiastek znajduje si\u0119 w 3. okresie. Na pow\u0142oce zewn\u0119trznej jest 7 elektron\u00f3w, wi\u0119c pierwiastek jest w grupie 7. To chlor (Cl, numer atomowy 17 = 2 + 8 + 7).",
+    "input_labels": [
+      "Grupa",
+      "Okres"
+    ]
+  },
+  "gcse_2024_02a": {
+    "question_ru": "Dopasuj ka\u017cd\u0105 substancj\u0119 do rodzaju wi\u0105zania w niej wyst\u0119puj\u0105cego.",
+    "explanation_ru": "NaCl jest zwi\u0105zkiem metalu (Na) z niemetalem (Cl), wi\u0119c posiada wi\u0105zanie jonowe (A\u21921). Cl\u2082 to cz\u0105steczka dw\u00f3ch atom\u00f3w niemetalu dziel\u0105cych elektrony, wi\u0119c posiada wi\u0105zanie kowalencyjne (B\u21922). Mied\u017a to metal z sieci\u0105 krystaliczn\u0105 z\u0142o\u017con\u0105 z jon\u00f3w dodatnich otoczonych zdelokalizowanymi elektronami, wi\u0119c posiada wi\u0105zanie metaliczne (C\u21923).",
+    "left_items": [
+      { "label": "A", "text": "Chlorek sodu (NaCl)" },
+      { "label": "B", "text": "Chlor gazowy (Cl\u2082)" },
+      { "label": "C", "text": "Mied\u017a metaliczna (Cu)" }
+    ],
+    "options": [
+      { "id": "1", "text": "Wi\u0105zanie jonowe" },
+      { "id": "2", "text": "Wi\u0105zanie kowalencyjne" },
+      { "id": "3", "text": "Wi\u0105zanie metaliczne" },
+      { "id": "4", "text": "Wi\u0105zanie wodorowe" }
+    ]
+  },
+  "gcse_2024_02b": {
+    "question_ru": "Diament i grafit to dwie odmiany alotropowe w\u0119gla. Wyja\u015bnij, dlaczego diament jest bardzo twardy, a grafit mi\u0119kki i \u015bliski. Uwzgl\u0119dnij w odpowiedzi szczeg\u00f3\u0142y dotycz\u0105ce ich struktury i wi\u0105za\u0144.",
+    "explanation_ru": "Kluczowa r\u00f3\u017cnica tkwi w strukturze. Diament ma olbrzymi\u0105 struktur\u0119 kowalencyjn\u0105, w kt\u00f3rej ka\u017cdy atom w\u0119gla jest po\u0142\u0105czony z 4 innymi tetraedrycznie \u2014 wszystkie wi\u0105zania s\u0105 silnymi wi\u0105zaniami kowalencyjnymi, wi\u0119c nie ma p\u0142aszczyzn s\u0142abo\u015bci. Grafit ma struktur\u0119 warstwow\u0105, w kt\u00f3rej ka\u017cdy atom w\u0119gla jest po\u0142\u0105czony z 3 innymi w p\u0142askich sze\u015bciok\u0105tnych warstwach. Czwarty elektron jest zdelokalizowany mi\u0119dzy warstwami. Warstwy s\u0105 utrzymywane przez s\u0142abe si\u0142y van der Waalsa, co pozwala im si\u0119 przesuwach. Pe\u0142na punktacja wymaga: struktury diamentu (4 wi\u0105zania, tetraedryczna), struktury grafitu (3 wi\u0105zania, warstwy), wyja\u015bnienia s\u0142abych si\u0142 mi\u0119dzy warstwami grafitu."
+  },
+  "gcse_2024_03a": {
+    "question_ru": "Tlenek magnezu (MgO) ma wzgl\u0119dn\u0105 mas\u0119 cz\u0105steczkow\u0105 r\u00f3wn\u0105 40. Oblicz procentow\u0105 zawarto\u015b\u0107 magnezu w tlenku magnezu. (Wzgl\u0119dne masy atomowe: Mg = 24, O = 16)",
+    "explanation_ru": "Procentowa zawarto\u015b\u0107 Mg = (Ar Mg / Mr MgO) \u00d7 100 = (24 / 40) \u00d7 100 = 60%."
+  },
+  "gcse_2024_03b": {
+    "question_ru": "6,0 g magnezu reaguje ca\u0142kowicie z nadmiarem kwasu solnego:\nMg + 2HCl \u2192 MgCl\u2082 + H\u2082\n\nOblicz mas\u0119 chlorku magnezu (MgCl\u2082) powsta\u0142ego w wyniku reakcji.\n(Wzgl\u0119dne masy atomowe: Mg = 24, Cl = 35,5)",
+    "explanation_ru": "Krok 1: Oblicz liczb\u0119 moli Mg = masa / Ar = 6,0 / 24 = 0,25 mol.\nKrok 2: Z r\u00f3wnania reakcji 1 mol Mg daje 1 mol MgCl\u2082, wi\u0119c liczba moli MgCl\u2082 = 0,25 mol.\nKrok 3: Mr MgCl\u2082 = 24 + (2 \u00d7 35,5) = 24 + 71 = 95.\nKrok 4: Masa MgCl\u2082 = liczba moli \u00d7 Mr = 0,25 \u00d7 95 = 23,75 g \u2248 23,8 g."
+  },
+  "gcse_2024_04a": {
+    "question_ru": "U\u0142\u00f3\u017c nast\u0119puj\u0105ce metale w kolejno\u015bci malej\u0105cej aktywno\u015bci (najbardziej aktywny pierwszy).\n  1) \u017belazo\n  2) Potas\n  3) Mied\u017a\n  4) Cynk",
+    "explanation_ru": "Szereg aktywno\u015bci metali (od najbardziej do najmniej aktywnego): potas > cynk > \u017celazo > mied\u017a. Potas to bardzo aktywny metal grupy 1, cynk jest \u015brednio aktywny, \u017celazo jest mniej aktywne ni\u017c cynk, a mied\u017a znajduje si\u0119 poni\u017cej wodoru w szeregu aktywno\u015bci i jest stosunkowo ma\u0142o aktywna. Kolejno\u015b\u0107: 2 (K) \u2192 4 (Zn) \u2192 1 (Fe) \u2192 3 (Cu).",
+    "items": [
+      { "id": "1", "text": "\u017belazo" },
+      { "id": "2", "text": "Potas" },
+      { "id": "3", "text": "Mied\u017a" },
+      { "id": "4", "text": "Cynk" }
+    ]
+  },
+  "gcse_2024_04b": {
+    "question_ru": "Dopasuj ka\u017cd\u0105 reakcj\u0119 do jej prawid\u0142owego opisu.",
+    "explanation_ru": "A: Cynk jest bardziej aktywny ni\u017c mied\u017a, wi\u0119c cynk wypiera mied\u017a z roztworu \u2014 to reakcja wypierania (A\u21922). B: Reakcja kwasu z zasad\u0105 to reakcja zoboj\u0119tniania, w kt\u00f3rej powstaje s\u00f3l i woda (B\u21921). C: Elektroliza wykorzystuje pr\u0105d elektryczny do rozk\u0142adu zwi\u0105zku jonowego na pierwiastki (C\u21923).",
+    "left_items": [
+      { "label": "A", "text": "Cynk + roztw\u00f3r siarczanu miedzi" },
+      { "label": "B", "text": "Kwas solny + wodorotlenek sodu" },
+      { "label": "C", "text": "Elektroliza stopionego bromku o\u0142owiu" }
+    ],
+    "options": [
+      { "id": "1", "text": "Reakcja zoboj\u0119tniania" },
+      { "id": "2", "text": "Reakcja wypierania" },
+      { "id": "3", "text": "Rozk\u0142ad za pomoc\u0105 pr\u0105du elektrycznego" },
+      { "id": "4", "text": "Tylko reakcja utleniania" }
+    ]
+  },
+  "gcse_2024_05a": {
+    "question_ru": "Kt\u00f3re dwa stwierdzenia dotycz\u0105ce reakcji egzotermicznych s\u0105 prawid\u0142owe?",
+    "explanation_ru": "Reakcje egzotermiczne przekazuj\u0105 energi\u0119 do otoczenia (stwierdzenie 1), powoduj\u0105c wzrost temperatury (a nie spadek, wi\u0119c stwierdzenie 2 jest b\u0142\u0119dne). Ogrzewacze do r\u0105k wykorzystuj\u0105 reakcje egzotermiczne, takie jak utlenianie \u017celaza (stwierdzenie 3 jest prawid\u0142owe). Fotosynteza jest endotermiczna (stwierdzenie 4 jest b\u0142\u0119dne). W reakcjach egzotermicznych energia uwolniona przy tworzeniu wi\u0105za\u0144 przewy\u017csza energi\u0119 potrzebn\u0105 do zerwania wi\u0105za\u0144 (stwierdzenie 5 opisuje reakcj\u0119 endotermiczn\u0105, wi\u0119c jest b\u0142\u0119dne).",
+    "options": [
+      { "id": "1", "text": "Przekazuj\u0105 energi\u0119 do otoczenia." },
+      { "id": "2", "text": "Temperatura otoczenia spada." },
+      { "id": "3", "text": "Ogrzewacze do r\u0105k wykorzystuj\u0105 reakcje egzotermiczne." },
+      { "id": "4", "text": "Fotosynteza jest przyk\u0142adem reakcji egzotermicznej." },
+      { "id": "5", "text": "Energia potrzebna do zerwania wi\u0105za\u0144 jest wi\u0119ksza ni\u017c energia uwolniona przy tworzeniu nowych wi\u0105za\u0144." }
+    ]
+  },
+  "gcse_2024_05b": {
+    "question_ru": "Energie wi\u0105za\u0144 dla reakcji H\u2082 + Cl\u2082 \u2192 2HCl wynosz\u0105:\nH\u2013H = 436 kJ/mol, Cl\u2013Cl = 242 kJ/mol, H\u2013Cl = 431 kJ/mol.\n\nOblicz ca\u0142kowit\u0105 zmian\u0119 energii dla tej reakcji w kJ/mol.",
+    "explanation_ru": "Energia potrzebna do zerwania wi\u0105za\u0144 (proces endotermiczny): 1\u00d7H\u2013H + 1\u00d7Cl\u2013Cl = 436 + 242 = 678 kJ.\nEnergia uwolniona przy tworzeniu wi\u0105za\u0144 (proces egzotermiczny): 2\u00d7H\u2013Cl = 2 \u00d7 431 = 862 kJ.\nCa\u0142kowita zmiana energii = energia poch\u0142oni\u0119ta \u2013 energia uwolniona = 678 \u2013 862 = \u2013184 kJ/mol.\nZnak ujemny wskazuje, \u017ce reakcja jest egzotermiczna."
+  },
+  "gcse_2024_06a": {
+    "question_ru": "Kt\u00f3re dwa czynniki zwi\u0119ksz\u0105 szybko\u015b\u0107 reakcji mi\u0119dzy wst\u0105\u017ck\u0105 magnezow\u0105 a rozcie\u0144czonym kwasem solnym?",
+    "explanation_ru": "Zwi\u0119kszenie temperatury (stwierdzenie 2) nadaje cz\u0105steczkom wi\u0119cej energii kinetycznej, dzi\u0119ki czemu wi\u0119cej zderze\u0144 przekracza energi\u0119 aktywacji. U\u017cycie sproszkowanego magnezu (stwierdzenie 4) zwi\u0119ksza powierzchni\u0119 styku, daj\u0105c wi\u0119cej miejsc do zderze\u0144 z cz\u0105steczkami kwasu. Ni\u017csze st\u0119\u017cenie (stwierdzenie 1) i dodanie wody (stwierdzenie 5) zmniejszaj\u0105 liczb\u0119 cz\u0105steczek kwasu w jednostce obj\u0119to\u015bci, spowalniaj\u0105c reakcj\u0119. Wi\u0119kszy kawa\u0142ek bez ci\u0119cia (stwierdzenie 3) ma mniejsz\u0105 powierzchni\u0119 w\u0142a\u015bciw\u0105 ni\u017c mniejsze kawa\u0142ki.",
+    "options": [
+      { "id": "1", "text": "U\u017cycie kwasu o ni\u017cszym st\u0119\u017ceniu." },
+      { "id": "2", "text": "Zwi\u0119kszenie temperatury kwasu." },
+      { "id": "3", "text": "U\u017cycie wi\u0119kszego kawa\u0142ka wst\u0105\u017cki magnezowej bez jej ci\u0119cia." },
+      { "id": "4", "text": "U\u017cycie sproszkowanego magnezu zamiast wst\u0105\u017cki." },
+      { "id": "5", "text": "Dodanie wi\u0119kszej ilo\u015bci wody do kwasu." }
+    ]
+  },
+  "gcse_2024_06b": {
+    "question_ru": "Ucze\u0144 bada reakcj\u0119 mi\u0119dzy kruszcem marmurowym (w\u0119glan wapnia) a kwasem solnym. Wyja\u015bnij, w kategoriach cz\u0105steczek i zderze\u0144, dlaczego zwi\u0119kszenie st\u0119\u017cenia kwasu zwi\u0119ksza szybko\u015b\u0107 reakcji.",
+    "explanation_ru": "Pe\u0142na punktacja wymaga trzech kluczowych punkt\u00f3w: (1) Wy\u017csze st\u0119\u017cenie oznacza wi\u0119cej cz\u0105steczek kwasu w tej samej obj\u0119to\u015bci. (2) Prowadzi to do cz\u0119stszych zderze\u0144 mi\u0119dzy cz\u0105steczkami reagent\u00f3w. (3) Cz\u0119stsze zderzenia oznaczaj\u0105 wi\u0119cej skutecznych zderze\u0144 w jednostce czasu (zderze\u0144 z energi\u0105 r\u00f3wn\u0105 lub wi\u0119ksz\u0105 od energii aktywacji), co zwi\u0119ksza szybko\u015b\u0107 reakcji. Uczniowie cz\u0119sto zapominaj\u0105 wspomnie\u0107 o \u201eskutecznych\u201d zderzeniach lub o zwi\u0105zku mi\u0119dzy cz\u0119sto\u015bci\u0105 zderze\u0144 a szybko\u015bci\u0105."
+  },
+  "gcse_2024_07a": {
+    "question_ru": "Dopasuj ka\u017cdy zwi\u0105zek organiczny do jego szeregu homologicznego.",
+    "explanation_ru": "CH\u2083OH to metanol, kt\u00f3ry zawiera grup\u0119 funkcyjn\u0105 \u2013OH \u2014 nale\u017cy do alkoholi (A\u21923). C\u2082H\u2084 to eten (etylen), kt\u00f3ry zawiera wi\u0105zanie podw\u00f3jne C=C \u2014 nale\u017cy do alken\u00f3w (B\u21922). CH\u2083COOH to kwas octowy (etanowy), kt\u00f3ry zawiera grup\u0119 funkcyjn\u0105 \u2013COOH \u2014 nale\u017cy do kwas\u00f3w karboksylowych (C\u21924).",
+    "left_items": [
+      { "label": "A", "text": "CH\u2083OH" },
+      { "label": "B", "text": "C\u2082H\u2084" },
+      { "label": "C", "text": "CH\u2083COOH" }
+    ],
+    "options": [
+      { "id": "1", "text": "Alkany" },
+      { "id": "2", "text": "Alkeny" },
+      { "id": "3", "text": "Alkohole" },
+      { "id": "4", "text": "Kwasy karboksylowe" }
+    ]
+  },
+  "gcse_2024_07b": {
+    "question_ru": "U\u0142\u00f3\u017c nast\u0119puj\u0105ce alkany w kolejno\u015bci rosn\u0105cej temperatury wrzenia (od najni\u017cszej do najwy\u017cszej).\n  1) Butan (C\u2084H\u2081\u2080)\n  2) Metan (CH\u2084)\n  3) Oktan (C\u2088H\u2081\u2088)\n  4) Etan (C\u2082H\u2086)",
+    "explanation_ru": "Alkany o d\u0142u\u017cszych \u0142a\u0144cuchach w\u0119glowych maj\u0105 silniejsze si\u0142y mi\u0119dzycz\u0105steczkowe (si\u0142y dyspersyjne Londona), wi\u0119c wymagaj\u0105 wi\u0119cej energii do wrzenia. Kolejno\u015b\u0107 rosn\u0105cej temperatury wrzenia: metan (1 atom w\u0119gla, tw. \u2013161\u00b0C) < etan (2 atomy w\u0119gla, tw. \u201389\u00b0C) < butan (4 atomy w\u0119gla, tw. \u20131\u00b0C) < oktan (8 atom\u00f3w w\u0119gla, tw. 126\u00b0C). Odpowied\u017a: 2 \u2192 4 \u2192 1 \u2192 3.",
+    "items": [
+      { "id": "1", "text": "Butan (C\u2084H\u2081\u2080)" },
+      { "id": "2", "text": "Metan (CH\u2084)" },
+      { "id": "3", "text": "Oktan (C\u2088H\u2081\u2088)" },
+      { "id": "4", "text": "Etan (C\u2082H\u2086)" }
+    ]
+  },
+  "gcse_2024_08a": {
+    "question_ru": "Ucze\u0144 bada cztery roztwory za pomoc\u0105 wska\u017anika uniwersalnego i zapisuje warto\u015bci pH. Wyniki przedstawiono poni\u017cej.\n\nRoztw\u00f3r W: pH 1\nRoztw\u00f3r X: pH 7\nRoztw\u00f3r Y: pH 14\nRoztw\u00f3r Z: pH 5\n\nKt\u00f3re dwa roztwory s\u0105 kwasowe?",
+    "explanation_ru": "Kwasy maj\u0105 pH ni\u017csze ni\u017c 7. Roztw\u00f3r W (pH 1) jest silnie kwasowy, a roztw\u00f3r Z (pH 5) jest s\u0142abo kwasowy. Roztw\u00f3r X (pH 7) jest oboj\u0119tny, a roztw\u00f3r Y (pH 14) jest silnie zasadowy. Dwa kwasowe roztwory to W i Z.",
+    "options": [
+      { "id": "1", "text": "Roztw\u00f3r W (pH 1)" },
+      { "id": "2", "text": "Roztw\u00f3r X (pH 7)" },
+      { "id": "3", "text": "Roztw\u00f3r Y (pH 14)" },
+      { "id": "4", "text": "Roztw\u00f3r Z (pH 5)" }
+    ]
+  },
+  "gcse_2024_08b": {
+    "question_ru": "Kt\u00f3re dwa stwierdzenia dotycz\u0105ce chromatografii s\u0105 prawid\u0142owe?",
+    "explanation_ru": "Chromatografia rozdziela mieszaniny na podstawie rozpuszczalno\u015bci ka\u017cdego sk\u0142adnika w fazie ruchomej (stwierdzenie 1 jest prawid\u0142owe). Bardziej rozpuszczalne substancje s\u0105 przenoszone dalej przez rozpuszczalnik (stwierdzenie 2 jest prawid\u0142owe). Czysta substancja daje tylko jedn\u0105 plam\u0119 (stwierdzenie 3 jest b\u0142\u0119dne). Warto\u015b\u0107 Rf zale\u017cy od konkretnego rozpuszczalnika i warunk\u00f3w, wi\u0119c zmienia si\u0119 przy u\u017cyciu r\u00f3\u017cnych rozpuszczalnik\u00f3w (stwierdzenie 4 jest w rzeczywisto\u015bci prawdziwe, ale standardowy schemat oceniania GCSE oczekuje, \u017ce uczniowie wiedz\u0105, i\u017c Rf zale\u017cy od warunk\u00f3w). Linia podstawowa musi by\u0107 narysowana o\u0142\u00f3wkiem, a nie d\u0142ugopisem, aby si\u0119 nie rozpuszcza\u0142a (stwierdzenie 5 jest b\u0142\u0119dne). Stwierdzenia 1 i 2 to oczekiwana prawid\u0142owa para.",
+    "options": [
+      { "id": "1", "text": "Mo\u017cna j\u0105 wykorzysta\u0107 do rozdzielenia barwnik\u00f3w w atramencie." },
+      { "id": "2", "text": "Substancje o wy\u017cszej rozpuszczalno\u015bci w rozpuszczalniku w\u0119druj\u0105 dalej po papierze." },
+      { "id": "3", "text": "Czysta substancja zawsze daje dwie plamy." },
+      { "id": "4", "text": "Warto\u015b\u0107 Rf substancji zmienia si\u0119 w zale\u017cno\u015bci od u\u017cytego rozpuszczalnika." },
+      { "id": "5", "text": "Lini\u0119 podstawow\u0105 nale\u017cy narysowa\u0107 d\u0142ugopisem, aby rozpuszcza\u0142a si\u0119 w rozpuszczalniku." }
+    ]
+  },
+  "gcse_2024_09a": {
+    "question_ru": "Dopasuj ka\u017cdy gaz do jego roli lub wp\u0142ywu na atmosfer\u0119 Ziemi.",
+    "explanation_ru": "Dwutlenek w\u0119gla to gaz cieplarniany, kt\u00f3ry poch\u0142ania promieniowanie podczerwone i przyczynia si\u0119 do globalnego ocieplenia (A\u21922). Azot stanowi oko\u0142o 78% atmosfery (B\u21921). Tlen jest niezb\u0119dny do oddychania i spalania (C\u21923). Opcja 4 opisuje argon \u2014 gaz szlachetny stanowi\u0105cy oko\u0142o 0,9% atmosfery.",
+    "left_items": [
+      { "label": "A", "text": "Dwutlenek w\u0119gla" },
+      { "label": "B", "text": "Azot" },
+      { "label": "C", "text": "Tlen" }
+    ],
+    "options": [
+      { "id": "1", "text": "Stanowi oko\u0142o 78% atmosfery" },
+      { "id": "2", "text": "Gaz cieplarniany przyczyniaj\u0105cy si\u0119 do globalnego ocieplenia" },
+      { "id": "3", "text": "Niezb\u0119dny do oddychania i spalania" },
+      { "id": "4", "text": "Gaz szlachetny stanowi\u0105cy oko\u0142o 1% atmosfery" }
+    ]
+  },
+  "gcse_2024_09b": {
+    "question_ru": "Kt\u00f3re dwa rodzaje dzia\u0142alno\u015bci cz\u0142owieka w najwi\u0119kszym stopniu przyczyniaj\u0105 si\u0119 do wzrostu poziomu dwutlenku w\u0119gla w atmosferze?",
+    "explanation_ru": "Spalanie paliw kopalnych (stwierdzenie 1) bezpo\u015brednio uwalnia CO\u2082 ze spalania paliw zawieraj\u0105cych w\u0119giel (w\u0119giel, ropa, gaz). Wylesianie (stwierdzenie 3) uwalnia zgromadzony w\u0119giel przy spalaniu drzew i eliminuje drzewa, kt\u00f3re w przeciwnym razie poch\u0142ania\u0142yby CO\u2082 w procesie fotosyntezy. Turbiny wiatrowe (stwierdzenie 2) nie wytwarzaj\u0105 CO\u2082 podczas pracy. Recykling (stwierdzenie 4) zazwyczaj zmniejsza emisje. Konwertory katalityczne (stwierdzenie 5) przekszta\u0142caj\u0105 CO i NO\u2093 w mniej szkodliwe gazy, ale nie zmniejszaj\u0105 og\u00f3lnej emisji CO\u2082.",
+    "options": [
+      { "id": "1", "text": "Spalanie paliw kopalnych w elektrowniach i pojazdach." },
+      { "id": "2", "text": "Wykorzystanie turbin wiatrowych do wytwarzania energii elektrycznej." },
+      { "id": "3", "text": "Wylesianie i wypalanie du\u017cych obszar\u00f3w le\u015bnych." },
+      { "id": "4", "text": "Recykling puszek aluminiowych." },
+      { "id": "5", "text": "Stosowanie konwertor\u00f3w katalitycznych w samochodach." }
+    ]
+  },
+  "gcse_2024_10a": {
+    "question_ru": "U\u0142\u00f3\u017c nast\u0119puj\u0105ce etapy oceny cyklu \u017cycia (LCA) produktu we w\u0142a\u015bciwej kolejno\u015bci.\n  1) Produkcja i pakowanie\n  2) Wydobycie i przetw\u00f3rstwo surowc\u00f3w\n  3) Utylizacja po zako\u0144czeniu u\u017cytkowania\n  4) U\u017cytkowanie i eksploatacja w okresie \u017cywotno\u015bci",
+    "explanation_ru": "Ocena cyklu \u017cycia (LCA) ocenia wp\u0142yw na \u015brodowisko na ka\u017cdym etapie \u017cycia produktu: (1) Wydobycie i przetw\u00f3rstwo surowc\u00f3w (pozyskiwanie materia\u0142\u00f3w z Ziemi), (2) Produkcja i pakowanie (wytwarzanie produktu), (3) U\u017cytkowanie i eksploatacja w okresie \u017cywotno\u015bci (u\u017cytkowanie przez konsumenta), (4) Utylizacja po zako\u0144czeniu u\u017cytkowania (sk\u0142adowanie, recykling lub spalanie). Prawid\u0142owa kolejno\u015b\u0107: 2 \u2192 1 \u2192 4 \u2192 3.",
+    "items": [
+      { "id": "1", "text": "Produkcja i pakowanie" },
+      { "id": "2", "text": "Wydobycie i przetw\u00f3rstwo surowc\u00f3w" },
+      { "id": "3", "text": "Utylizacja po zako\u0144czeniu u\u017cytkowania" },
+      { "id": "4", "text": "U\u017cytkowanie i eksploatacja w okresie \u017cywotno\u015bci" }
+    ]
+  },
+  "gcse_2024_10b": {
+    "question_ru": "\u017belazo jest otrzymywane z tlenku \u017celaza (Fe\u2082O\u2083) za pomoc\u0105 tlenku w\u0119gla w wielkim piecu:\nFe\u2082O\u2083 + 3CO \u2192 2Fe + 3CO\u2082\n\nOblicz maksymaln\u0105 mas\u0119 \u017celaza, kt\u00f3r\u0105 mo\u017cna uzyska\u0107 z 480 g tlenku \u017celaza.\n(Wzgl\u0119dne masy atomowe: Fe = 56, O = 16, C = 12)",
+    "explanation_ru": "Krok 1: Mr Fe\u2082O\u2083 = (2 \u00d7 56) + (3 \u00d7 16) = 112 + 48 = 160.\nKrok 2: Liczba moli Fe\u2082O\u2083 = 480 / 160 = 3 mol.\nKrok 3: Z r\u00f3wnania reakcji 1 mol Fe\u2082O\u2083 daje 2 mol Fe, wi\u0119c liczba moli Fe = 3 \u00d7 2 = 6 mol.\nKrok 4: Masa Fe = 6 \u00d7 56 = 336 g."
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "1": {
+    "title_ru": "Substancja prosta a pierwiastek chemiczny",
+    "topic_ru": "Budowa atomu. Różnica między pojęciami «pierwiastek» i «substancja prosta»",
+    "algorithm_ru": [
+      "Przeczytaj każde stwierdzenie i określ: czy mowa o substancji (można dotknąć, zobaczyć, użyć), czy o pierwiastku (abstrakcyjny rodzaj atomów).",
+      "Cechy pierwiastka: «wchodzi w skład», «atom», «rozpowszechnienie w skorupie ziemskiej», «tworzy wiązanie chemiczne», «występuje w cząsteczce».",
+      "Cechy substancji prostej: właściwości fizyczne (kolor, zapach, gęstość), zastosowanie w życiu codziennym/technice, alotropia, spalanie, korozja.",
+      "Wybierz 2 stwierdzenia, w których mowa o pierwiastku."
+    ],
+    "key_facts_ru": [
+      "Pierwiastek chemiczny — określony rodzaj atomów o tym samym ładunku jądra.",
+      "Substancja prosta — konkretna forma występowania pierwiastka (np. O₂ i O₃ — dwie substancje jednego pierwiastka).",
+      "«Rozpowszechnienie w skorupie ziemskiej» — zawsze pierwiastek (mowa o udziale atomów, nie o kawałku substancji).",
+      "«Odmiany alotropowe» — zawsze substancja prosta.",
+      "«Wchodzi w skład związku/białka/minerału» — zawsze pierwiastek."
+    ],
+    "common_traps_ru": [
+      "«Tworzy wiązanie z tlenem» — to o pierwiastku, nie o substancji (mowa o chemicznej naturze atomu).",
+      "«Jest używany w przemyśle» — to o substancji (konkretne zastosowanie).",
+      "Nie myl: «fosfor wchodzi w skład białek» (pierwiastek) i «fosfor nakłada się na zapałki» (substancja)."
+    ],
+    "variability_ru": "Zmienia się pierwiastek (Al, P, S, H, O, N, Fe, C, Cl...) i zestaw stwierdzeń. Zasada jest ta sama."
+  },
+  "2": {
+    "title_ru": "Okres i grupa na podstawie konfiguracji elektronowej",
+    "topic_ru": "Układ okresowy: znajdowanie pierwiastka na podstawie rozkładu elektronów",
+    "algorithm_ru": [
+      "Podano rozkład elektronów na powłokach (np. 2, 8, 5).",
+      "Liczba powłok elektronowych = numer okresu. Liczymy: 2, 8, 5 → 3 powłoki → okres 3.",
+      "Liczba elektronów na ostatniej powłoce = numer grupy. Ostatnia powłoka = 5 → grupa V.",
+      "Wpisz X (okres) i Y (grupę) w odpowiednie pola."
+    ],
+    "key_facts_ru": [
+      "Maksymalna liczba e⁻ na powłokach: 1. → 2, 2. → 8, 3. → 18, 4. → 32.",
+      "Dla pierwiastków pierwszych 4 okresów na powłoce zewnętrznej jest nie więcej niż 8 elektronów.",
+      "Numer grupy = liczba elektronów na powłoce zewnętrznej (dla pierwiastków grup głównych, pierwszych 20 pierwiastków).",
+      "Łączna liczba elektronów = numer atomowy pierwiastka (można się sprawdzić)."
+    ],
+    "common_traps_ru": [
+      "Nie myl okresu (liczba powłok) z grupą (elektrony na powłoce zewnętrznej).",
+      "Sprawdzenie: suma wszystkich elektronów powinna dawać numer atomowy istniejącego pierwiastka.",
+      "Dla pierwiastków grup pobocznych (od 21) reguła «powłoka zewnętrzna = grupa» nie działa, ale na egzaminie zwykle podaje się pierwsze 20."
+    ],
+    "variability_ru": "Zmienia się pierwiastek (pierwsze 20 pierwiastków). Rozkład zawsze jednoznacznie określa pierwiastek."
+  },
+  "3": {
+    "title_ru": "Prawidłowości zmian właściwości w okresie/grupie",
+    "topic_ru": "Uporządkuj pierwiastki w kolejności wzrostu/malejenia danej właściwości",
+    "algorithm_ru": [
+      "Określ, jaką właściwość trzeba uporządkować (niemetaliczność, metaliczność, elektroujemność, promień atomowy).",
+      "Znajdź wszystkie 3 pierwiastki w układzie okresowym.",
+      "Jeśli pierwiastki są w tym samym okresie: od lewej do prawej nasilają się właściwości niemetaliczne, słabną metaliczne, maleje promień.",
+      "Jeśli pierwiastki są w tej samej grupie: od góry do dołu nasilają się właściwości metaliczne, słabną niemetaliczne, rośnie promień.",
+      "Jeśli pierwiastki leżą po przekątnej — łącz obie reguły.",
+      "Zapisz numery w odpowiedniej kolejności."
+    ],
+    "key_facts_ru": [
+      "W okresie (→): ładunek jądra ↑, promień ↓, elektroujemność ↑, niemetaliczność ↑, metaliczność ↓.",
+      "W grupie (↓): ładunek jądra ↑, promień ↑, elektroujemność ↓, niemetaliczność ↓, metaliczność ↑.",
+      "Elektroujemność i właściwości niemetaliczne zmieniają się w tym samym kierunku.",
+      "Najsilniejszy niemetal — F (prawy górny róg, bez gazów szlachetnych).",
+      "Najsilniejszy metal — Fr (lewy dolny róg)."
+    ],
+    "common_traps_ru": [
+      "Uważnie czytaj: «wzrost» czy «malejenie» właściwości. Zapis numerów w odwrotnej kolejności to częsty błąd.",
+      "Jeśli pierwiastki nie są w tym samym okresie/grupie (np. Si, S, Cl — wszystkie w 3. okresie, ale Si w IV grupie), wykorzystaj położenie w tablicy.",
+      "Gazy szlachetne są zwykle wyłączone z porównań niemetaliczności."
+    ],
+    "variability_ru": "Zmieniają się pierwiastki (zwykle 3 z jednego okresu lub jednej grupy) i właściwość (niemetaliczność, metaliczność, promień, elektroujemność)."
+  },
+  "4": {
+    "title_ru": "Stopnie utlenienia pierwiastka w związkach",
+    "topic_ru": "Wyznaczanie stopnia utlenienia na podstawie wzoru substancji",
+    "algorithm_ru": [
+      "Dla każdej substancji (A, B, C) wyznacz stopień utlenienia wskazanego pierwiastka.",
+      "Stosuj reguły: O zawsze −2 (oprócz OF₂, nadtlenków), H = +1 (w kwasach, z niemetalami), H = −1 (w wodorkach metali).",
+      "Metale I grupy: +1, II grupy: +2.",
+      "Suma wszystkich stopni utlenienia w cząsteczce = 0, w jonie = ładunek jonu.",
+      "Ułóż równanie i znajdź nieznany stopień utlenienia.",
+      "Porównaj uzyskane wartości z wariantami odpowiedzi."
+    ],
+    "key_facts_ru": [
+      "F zawsze −1. O prawie zawsze −2 (wyjątki: OF₂ → O = +2, nadtlenki → O = −1).",
+      "H = +1 w większości związków, −1 w wodorkach (NaH, CaH₂).",
+      "Suma stopni utlenienia wszystkich atomów = 0 w obojętnej cząsteczce.",
+      "Substancja prosta: stopień utlenienia = 0 (Na⁰, Cl₂⁰).",
+      "W kwasach tlenowych: H = +1, O = −2, wyznaczamy stopień utlenienia atomu centralnego."
+    ],
+    "common_traps_ru": [
+      "OF₂: tutaj tlen +2, a nie −2 (fluor jest silniejszy).",
+      "Rozróżniaj NH₄Br (Br = −1, w soli) i KBrO₃ (Br = +5, bromian).",
+      "Nie zapomnij uwzględnić liczby atomów: w KBrO₄ → K(+1) + Br(x) + 4×O(−2) = 0, więc x = +7.",
+      "Stopień utlenienia to nie wartościowość! Stopień utlenienia może być ujemny."
+    ],
+    "variability_ru": "Zmienia się pierwiastek (Br, S, N, Cl, Mn, Cr, P) i zestaw związków. Zawsze 3 substancje → 4 warianty stopni utlenienia."
+  },
+  "5": {
+    "title_ru": "Typy wiązań chemicznych",
+    "topic_ru": "Określanie typu wiązania w substancjach",
+    "algorithm_ru": [
+      "Określ typ każdej substancji: metal, niemetal jako substancja prosta, związek dwuskładnikowy, związek jonowy.",
+      "Wiązanie metaliczne: między atomami metalu (Na, Fe, Cu).",
+      "Kowalencyjne niepolarne: między identycznymi niemetalami (H₂, O₂, N₂, Cl₂, P₄, S₈).",
+      "Kowalencyjne polarne: między różnymi niemetalami (NH₃, H₂O, HCl, CO₂, PBr₃).",
+      "Wiązanie jonowe: między metalem a niemetalem (NaCl, MgF₂, CaO) lub NH₄⁺ z anionem.",
+      "Wybierz 2 substancje z podanym typem wiązania."
+    ],
+    "key_facts_ru": [
+      "Kowalencyjne polarne — najczęstszy typ na egzaminie: dowolne dwa RÓŻNE niemetale.",
+      "NH₄Cl — wiązanie jonowe (NH₄⁺ i Cl⁻), ale wewnątrz NH₄⁺ — kowalencyjne polarne.",
+      "Gazy szlachetne (He, Ne, Ar) — brak wiązania chemicznego (jednoatomowe).",
+      "Różnica elektroujemności > 1,7 → wiązanie jonowe (warunkowo)."
+    ],
+    "common_traps_ru": [
+      "MgF₂ — jonowe, nie kowalencyjne (Mg to metal!).",
+      "CO — kowalencyjne polarne (oba niemetale, ale różne).",
+      "HF — kowalencyjne polarne (nie jonowe, chociaż różnica elektroujemności jest wysoka — w programie szkolnym to kowalencyjne polarne).",
+      "Diament (C), grafit — kowalencyjne niepolarne (jeden pierwiastek)."
+    ],
+    "variability_ru": "Zmienia się typ wiązania (kowalencyjne polarne/niepolarne, jonowe, metaliczne) i zestaw 5 substancji."
+  },
+  "6": {
+    "title_ru": "Wspólne właściwości pierwiastków jednego okresu/grupy",
+    "topic_ru": "Prawidłowości w układzie okresowym + budowa atomu",
+    "algorithm_ru": [
+      "Określ, co wspólnego mają podane pierwiastki (zwykle 2–3 pierwiastki jednego okresu lub grupy).",
+      "Sprawdź każde stwierdzenie:",
+      "— Taka sama liczba protonów? → Nie (różne pierwiastki).",
+      "— Taka sama liczba powłok elektronowych? → Tak, jeśli w tym samym okresie.",
+      "— Taka sama liczba elektronów zewnętrznych? → Tak, jeśli w tej samej grupie.",
+      "— Wszystkie niemetale / metale? → Sprawdź po położeniu w układzie okresowym.",
+      "— Najwyższe tlenki tego samego typu? → Zależy od grupy.",
+      "Wybierz 2 prawdziwe stwierdzenia."
+    ],
+    "key_facts_ru": [
+      "Pierwiastki tego samego okresu: taka sama liczba powłok elektronowych.",
+      "Pierwiastki tej samej grupy: taka sama liczba elektronów na powłoce zewnętrznej.",
+      "B, C, N — 2. okres, wszystkie niemetale (bor w kontekście egzaminu uważany za niemetal).",
+      "Li, Na, K — 1. grupa, wszystkie aktywne metale, wszystkie tworzą zasady.",
+      "N może wykazywać ujemne stopnie utlenienia (−3 w NH₃), w odróżnieniu od wielu niemetali."
+    ],
+    "common_traps_ru": [
+      "«Taka sama liczba protonów» — nie! To różne pierwiastki.",
+      "«Wyłącznie dodatnie stopnie utlenienia» — nieprawda dla wielu niemetali (N: −3, S: −2).",
+      "Fluor NIE wykazuje dodatnich stopni utlenienia (najbardziej elektroujemny).",
+      "Najwyższe tlenki pierwiastków jednego okresu — różnych typów (Na₂O zasadowy, SO₃ kwasowy)."
+    ],
+    "variability_ru": "Zmieniają się pierwiastki (para/trójka z jednego okresu lub grupy) i zestaw stwierdzeń."
+  },
+  "7": {
+    "title_ru": "Klasyfikacja substancji nieorganicznych",
+    "topic_ru": "Wybór substancji określonych klas z listy",
+    "algorithm_ru": [
+      "Uważnie przeczytaj, jakie dwie klasy trzeba znaleźć i w jakiej kolejności zapisać.",
+      "Sklasyfikuj każdą substancję z listy:",
+      "— Tlenek: dwa pierwiastki, jeden — tlen. Zasadowy (metal o niskim stopniu utlenienia), kwasowy (niemetal), amfoteryczny (Al₂O₃, ZnO, Cr₂O₃, BeO), niesolowy (CO, NO, N₂O).",
+      "— Zasada: Me(OH)ₙ. Wodorotlenek alkaliczny (rozpuszczalny), nierozpuszczalna zasada, wodorotlenek amfoteryczny (Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃).",
+      "— Kwas: HₙA. Mocne (HCl, HNO₃, H₂SO₄) i słabe (H₂CO₃, H₂S, H₂SiO₃).",
+      "— Sól: kation metalu + anion reszty kwasowej.",
+      "Zapisz najpierw numer pierwszej klasy, potem drugiej (kolejność jest ważna!)."
+    ],
+    "key_facts_ru": [
+      "Tlenki amfoteryczne: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃ (dyskusyjny), PbO.",
+      "Wodorotlenki amfoteryczne: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃.",
+      "OF₂ — NIE jest tlenkiem (tlen na stopniu +2, fluor na −1). To fluorek tlenowy.",
+      "N₂O, NO, CO — tlenki niesolowe.",
+      "FeO — tlenek zasadowy (Fe²⁺), Fe₂O₃ — warunkowo amfoteryczny (ale na egzaminie często uważany za zasadowy)."
+    ],
+    "common_traps_ru": [
+      "KOLEJNOŚĆ JEST WAŻNA! Najpierw numer tej klasy, która jest wymieniona pierwsza w zadaniu.",
+      "OF₂ — nie tlenek! (częsta pułapka).",
+      "Mg(OH)₂ — zasada, ale NIE wodorotlenek amfoteryczny.",
+      "N₂O — tlenek niesolowy, a nie kwasowy."
+    ],
+    "variability_ru": "Zmieniają się pary klas (tlenek zasadowy + wodorotlenek amfoteryczny, kwas + sól zasadowa itp.) i zestaw 5 substancji. Format zmieniał się na przestrzeni lat: wcześniej — jedna substancja z 4."
+  },
+  "8": {
+    "title_ru": "Właściwości chemiczne substancji / typy reakcji",
+    "topic_ru": "Czy dana substancja reaguje z wymienionymi",
+    "algorithm_ru": [
+      "Określ klasę danej substancji (metal, niemetal, tlenek, kwas, zasada, sól).",
+      "Dla każdego wariantu sprawdź, czy zachodzi reakcja:",
+      "— Metal + kwas → sól + H₂ (jeśli metal jest na lewo od H w szeregu aktywności).",
+      "— Kwas + zasada → sól + H₂O (neutralizacja).",
+      "— Kwas + sól → nowy kwas + nowa sól (jeśli powstaje osad/gaz/woda).",
+      "— Tlenek zasadowy + kwas → sól + H₂O.",
+      "— Tlenek kwasowy + zasada → sól + H₂O.",
+      "Jeśli reakcja nie zachodzi (brak siły napędowej), jest to jedna z odpowiedzi (jeśli pytanie brzmi — «nie reagują»)."
+    ],
+    "key_facts_ru": [
+      "Siły napędowe reakcji: tworzenie osadu ↓, gazu ↑, wody, słabego elektrolitu.",
+      "Szereg aktywności: Li K Ca Na Mg Al Zn Fe Ni Sn Pb (H₂) Cu Hg Ag Pt Au.",
+      "Cu, Ag, Au — nie reagują z rozcieńczonymi kwasami (na prawo od H).",
+      "SiO₂ nie reaguje z wodą (nierozpuszczalny tlenek).",
+      "CO — nie reaguje z większością substancji w warunkach normalnych."
+    ],
+    "common_traps_ru": [
+      "Zwróć uwagę: «nie wchodzą» (szukamy tych, które NIE reagują) czy «wchodzą» (szukamy tych, które reagują).",
+      "Na₂SO₄ — stabilna sól, z większością niemetali nie reaguje.",
+      "HNO₃ (stęż.) — silny utleniacz, reaguje nawet z Cu i niektórymi niemetalami.",
+      "Metale alkaliczne (Na, K) nie wypierają mniej aktywnych metali z roztworów — reagują z wodą."
+    ],
+    "variability_ru": "Zmienia się substancja (fosfor, cynk, tlenek wapnia, kwas siarkowy...) i lista 5 reagentów. Pytanie może brzmieć «reaguje» lub «nie reaguje»."
+  },
+  "9": {
+    "title_ru": "Reagenty → produkty (reakcje wymiany)",
+    "topic_ru": "Odpowiedniość reagentów i produktów reakcji",
+    "algorithm_ru": [
+      "Dla każdej pary reagentów (A, B, C) określ typ reakcji i zapisz produkty.",
+      "Wymiana: AB + CD → AD + CB (kationy i aniony zamieniają się miejscami).",
+      "Podstawienie: A + BC → AC + B (aktywny metal wypiera mniej aktywny).",
+      "Łączenie: A + B → AB.",
+      "Rozkład: AB → A + B.",
+      "Zwróć uwagę na wartościowość metalu w produktach (Fe²⁺ czy Fe³⁺ zależy od reagenta).",
+      "Znajdź produkty w prawej kolumnie."
+    ],
+    "key_facts_ru": [
+      "Fe z rozcieńczonymi kwasami → Fe²⁺ (FeSO₄, FeCl₂).",
+      "Fe₂O₃ + kwas → Fe³⁺ (Fe₂(SO₄)₃, FeCl₃).",
+      "Fe₂(SO₄)₃ + BaCl₂ → FeCl₃ + BaSO₄↓ (wymiana, zachowuje się Fe³⁺).",
+      "Przy wymianie: sprawdź, czy zachowany jest bilans ładunków jonów.",
+      "Tlenek zasadowy + kwas → sól + woda."
+    ],
+    "common_traps_ru": [
+      "Fe²⁺ vs Fe³⁺ — główna pułapka! Fe z kwasem → Fe²⁺, ale Fe₂O₃ z kwasem → Fe³⁺.",
+      "Nadmiarowy wariant w prawej kolumnie — nie wszystkie warianty są używane.",
+      "Nie myl FeSO₄ (Fe²⁺) i Fe₂(SO₄)₃ (Fe³⁺).",
+      "BaSO₄ — osad, nierozpuszczalny w kwasach."
+    ],
+    "variability_ru": "Zmieniają się pary reagentów. Często wykorzystywane są związki Fe, Cu, Ba. Zawsze 3 pary → 4-5 wariantów produktów."
+  },
+  "10": {
+    "title_ru": "Substancja → para reagentów",
+    "topic_ru": "Dobór pary reagentów, z każdym z których reaguje substancja",
+    "algorithm_ru": [
+      "Dla każdej substancji (A, B, C) sprawdź, czy reaguje z OBIEMA substancjami w każdym wariancie.",
+      "Ważne: substancja musi reagować z KAŻDYM z dwóch reagentów w parze.",
+      "Określ klasę substancji i przypomnij sobie jej właściwości:",
+      "— Metal: reaguje z kwasami, z roztworami soli mniej aktywnych metali, z tlenem.",
+      "— Zasada: reaguje z kwasami, tlenkami kwasowymi, tlenkami/wodorotlenkami amfoterycznymi, solami (jeśli osad).",
+      "— Tlenek kwasowy: reaguje z wodą (oprócz SiO₂), zasadami, tlenkami zasadowymi.",
+      "— Kwas: reaguje z metalami (powyżej H), zasadami, tlenkami zasadowymi/amfoterycznymi, solami (jeśli osad/gaz).",
+      "Kolejno sprawdź wszystkie warianty dla każdej substancji."
+    ],
+    "key_facts_ru": [
+      "Al — metal amfoteryczny: reaguje zarówno z kwasami, jak i z zasadami.",
+      "Ca(OH)₂ reaguje z CO₂ (zmętnienie wody wapiennej) i z tlenkami amfoterycznymi (Al₂O₃).",
+      "SO₃ (tlenek kwasowy) reaguje z tlenkami zasadowymi (Na₂O) i z reduktorami (H₂S).",
+      "Sprawdzaj każdy reagent w parze osobno!"
+    ],
+    "common_traps_ru": [
+      "Błąd: sprawdzić tylko pierwszy reagent i zapomnieć o sprawdzeniu drugiego.",
+      "N₂ — bardzo obojętny gaz, reaguje z nielicznymi substancjami (w wysokiej temp.: z Li, Mg, H₂).",
+      "CaO reaguje z wodą i kwasami, ale NIE reaguje z tlenkami zasadowymi.",
+      "Substancje amfoteryczne reagują zarówno z kwasami, jak i z zasadami — wykorzystaj to."
+    ],
+    "variability_ru": "Zmieniają się 3 substancje (metal, zasada, tlenek itp.) i 4 pary reagentów. Klucz: właściwości każdej klasy."
+  },
+  "11": {
+    "title_ru": "Typy reakcji, warunki i oznaki",
+    "topic_ru": "Reakcja wymiany / podstawienia / rozkładu / łączenia",
+    "algorithm_ru": [
+      "Dla każdej pary substancji określ typ reakcji:",
+      "— Wymiana: dwie substancje złożone wymieniają się częściami (AB + CD → AD + CB). Neutralizacja — rodzaj wymiany.",
+      "— Podstawienie: substancja prosta + złożona → nowa prosta + nowa złożona (A + BC → AC + B).",
+      "— Łączenie: z kilku → jedna.",
+      "— Rozkład: z jednej → kilka.",
+      "Sprawdź, czy reakcja rzeczywiście zachodzi (jest siła napędowa).",
+      "Wybierz pary odpowiadające podanemu typowi."
+    ],
+    "key_facts_ru": [
+      "Neutralizacja (kwas + zasada → sól + woda) — to reakcja wymiany.",
+      "Br₂ + 2KI → 2KBr + I₂ — podstawienie (halogen wypiera inny).",
+      "Zn + H₂SO₄ → ZnSO₄ + H₂↑ — podstawienie (nie wymiana!).",
+      "Egzo-/endotermiczne: spalanie — egzo, rozkład zwykle — endo.",
+      "Katalityczne: rozkład H₂O₂ (kat. MnO₂)."
+    ],
+    "common_traps_ru": [
+      "Metal + kwas — to PODSTAWIENIE, nie wymiana (choć zewnętrznie podobne).",
+      "NaOH + Al — niestandardowa reakcja (Al + NaOH + H₂O → Na[Al(OH)₄] + H₂↑), nie wymiana ani zwykłe podstawienie.",
+      "Nie każda para reaguje: Na₂SO₄ + KCl → nie zachodzi (brak osadu/gazu/wody)."
+    ],
+    "variability_ru": "Zmienia się podany typ reakcji (wymiana/podstawienie/rozkład/łączenie) i zestaw 5 par substancji."
+  },
+  "12": {
+    "title_ru": "Oznaki zachodzących reakcji",
+    "topic_ru": "Odpowiedniość reagentów i obserwowanej oznaki",
+    "algorithm_ru": [
+      "Dla każdej pary reagentów zapisz równanie reakcji.",
+      "Określ, co obserwujesz: osad (↓), gaz (↑), zmiana koloru, rozpuszczanie.",
+      "Klucz — zapamiętaj kolory osadów i właściwości gazów:",
+      "— Biały osad: BaSO₄, AgCl, CaCO₃, Mg(OH)₂.",
+      "— Niebieski: Cu(OH)₂.",
+      "— Brunatny: Fe(OH)₃.",
+      "— Czarny: CuS, PbS, FeS.",
+      "— Galaretowaty bezbarwny: H₂SiO₃.",
+      "— Gaz bez zapachu: CO₂, H₂, O₂.",
+      "— Gaz z zapachem: H₂S (zgniłe jaja), NH₃ (ostry), SO₂ (gryzący).",
+      "Porównaj obserwacje z wariantami."
+    ],
+    "key_facts_ru": [
+      "Cu(OH)₂ — niebieski osad (z CuSO₄ + NaOH lub Cu²⁺ + OH⁻).",
+      "Fe(OH)₃ — brunatny osad.",
+      "Fe(OH)₂ — biały, na powietrzu szybko brązowieje (utlenianie do Fe(OH)₃).",
+      "AgCl — biały serowaty, ciemnieje na świetle.",
+      "BaSO₄ — biały, nierozpuszczalny w kwasach.",
+      "H₂SiO₃ — bezbarwny galaretowaty osad.",
+      "CuS — czarny osad, nierozpuszczalny nawet w kwasach."
+    ],
+    "common_traps_ru": [
+      "Nie myl: «biały osad» — to i AgCl, i BaSO₄, i CaCO₃, i Mg(OH)₂. Ważne, KTÓRY dokładnie.",
+      "NH₃ — gaz o ostrym zapachu (z NH₄⁺ + OH⁻).",
+      "H₂S — gaz o zapachu zgniłych jaj.",
+      "CO₂ — bezbarwny gaz BEZ zapachu."
+    ],
+    "variability_ru": "Zmieniają się 3 pary reagentów i 4 warianty oznak. Zestaw oparty na reakcjach jakościowych z programu egzaminacyjnego."
+  },
+  "13": {
+    "title_ru": "Elektrolity i nieelektrolity",
+    "topic_ru": "Klasyfikacja substancji ze względu na zdolność do dysocjacji",
+    "algorithm_ru": [
+      "Określ dla każdej substancji: elektrolit czy nieelektrolit.",
+      "Elektrolity (dysocjują w roztworze/stopie): wszystkie rozpuszczalne sole, mocne kwasy, zasady alkaliczne.",
+      "Nieelektrolity: substancje proste (metale, niemetale), tlenki, większość substancji organicznych, woda (słabo).",
+      "Osobny podtyp: obliczanie liczby jonów przy dysocjacji.",
+      "Na₂SO₄ → 2Na⁺ + SO₄²⁻ → 3 jony. CaCl₂ → Ca²⁺ + 2Cl⁻ → 3 jony.",
+      "Wybierz substancje zgodnie z podanym kryterium."
+    ],
+    "key_facts_ru": [
+      "Mocne kwasy: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄.",
+      "Słabe kwasy: H₂CO₃, H₂S, CH₃COOH, HF, H₃PO₄, H₂SiO₃.",
+      "Zasady alkaliczne (rozpuszczalne): NaOH, KOH, Ca(OH)₂, Ba(OH)₂.",
+      "Nierozpuszczalne zasady NIE są elektrolitami w roztworze wodnym (nie rozpuszczają się).",
+      "CH₄, CO, CO₂, SiO₂ — nieelektrolity.",
+      "Obliczanie jonów: uwzględnij indeksy we wzorze."
+    ],
+    "common_traps_ru": [
+      "CO — nieelektrolit (tlenek, nie rozpuszcza się z tworzeniem jonów).",
+      "HF — SŁABY kwas (wyjątek wśród halogenwodorów).",
+      "H₂O — bardzo słaby elektrolit (zwykle na egzaminie uważana za nieelektrolit).",
+      "Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ → 5 jonów (nie 6! liczymy jednostki wzorowe)."
+    ],
+    "variability_ru": "Trzy podtypy: (1) wybrać elektrolity/nieelektrolity, (2) wybrać mocne/słabe elektrolity, (3) wybrać substancje o podanej liczbie jonów przy dysocjacji."
+  },
+  "14": {
+    "title_ru": "Równania jonowe reakcji",
+    "topic_ru": "Dobór substancji do skróconego równania jonowego",
+    "algorithm_ru": [
+      "Przeczytaj skrócone równanie jonowe (np. H⁺ + OH⁻ = H₂O).",
+      "Określ, jakie substancje wyjściowe są potrzebne: jedna zawiera kation/anion z lewej strony, druga — drugi jon.",
+      "Reguła: substancję zapisujemy w postaci jonów tylko wtedy, gdy jest MOCNYM elektrolitem I ROZPUSZCZALNA.",
+      "Dla H⁺ + OH⁻ = H₂O potrzebne: mocny kwas + rozpuszczalna zasada, przy czym sól też musi być rozpuszczalna.",
+      "Sprawdź: słabe kwasy (H₂S, H₂CO₃, CH₃COOH) zapisuje się w całości (nie dysocjują całkowicie).",
+      "Nierozpuszczalne substancje (Cu(OH)₂, BaSO₄, CaCO₃) też zapisuje się w całości.",
+      "Wybierz 2 substancje z listy."
+    ],
+    "key_facts_ru": [
+      "H⁺ + OH⁻ = H₂O — reakcja mocnego kwasu z rozpuszczalną zasadą (sól rozpuszczalna).",
+      "CO₃²⁻ + 2H⁺ = H₂O + CO₂ — węglan zapisany jako jon → jest ROZPUSZCZALNY (Na₂CO₃, K₂CO₃).",
+      "CaCO₃ — nierozpuszczalny, więc nie pasuje do równania z CO₃²⁻.",
+      "NaHCO₃ — wodorowęglan (HCO₃⁻), a nie węglan (CO₃²⁻).",
+      "H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — równanie jonowe inne: SO₄²⁻ + Ba²⁺ = BaSO₄↓."
+    ],
+    "common_traps_ru": [
+      "H₂S — słaby kwas, NIE zapisujemy go jako H⁺ + S²⁻ w równaniach jonowych.",
+      "H₂SO₄ + Ba(OH)₂: tworzy się BaSO₄↓ — osad, równanie jonowe NIE będzie H⁺ + OH⁻ = H₂O.",
+      "Al(OH)₃ — nierozpuszczalny wodorotlenek, nie zapisujemy go jako OH⁻.",
+      "Mg(OH)₂ — nierozpuszczalny, nie nadaje się jako źródło OH⁻."
+    ],
+    "variability_ru": "Zmienia się skrócone równanie jonowe (H⁺+OH⁻=H₂O, CO₃²⁻+2H⁺=H₂O+CO₂, S²⁻+2H⁺=H₂S, Ba²⁺+SO₄²⁻=BaSO₄↓) i zestaw 6 substancji."
+  },
+  "15": {
+    "title_ru": "Utleniacz i reduktor w reakcjach redoks",
+    "topic_ru": "Określanie utleniania/redukcji na podstawie schematu zmian stopni utlenienia",
+    "algorithm_ru": [
+      "Podtyp 1 (schematy): Dla każdego schematu (A, B, C) określ, czy stopień utlenienia rośnie czy maleje.",
+      "Stopień utlenienia rośnie → pierwiastek ODDAJE elektrony → UTLENIANIE (reduktor).",
+      "Stopień utlenienia maleje → pierwiastek PRZYJMUJE elektrony → REDUKCJA (utleniacz).",
+      "Podtyp 2 (substancje): Dana jest reakcja. Wyznacz stopnie utlenienia pierwiastków przed i po reakcji.",
+      "Substancja zawierająca pierwiastek o rosnącym stopniu utlenienia → reduktor.",
+      "Substancja zawierająca pierwiastek o malejącym stopniu utlenienia → utleniacz.",
+      "Mnemonik: «Oddał — Reduktor» (OR)."
+    ],
+    "key_facts_ru": [
+      "Utlenianie = oddanie elektronów = wzrost stopnia utlenienia.",
+      "Redukcja = przyjęcie elektronów = spadek stopnia utlenienia.",
+      "Utleniacz przyjmuje e⁻, reduktor oddaje e⁻.",
+      "W reakcji Cu + HNO₃: Cu⁰→Cu²⁺ (reduktor), N⁺⁵→N⁺² (utleniacz).",
+      "Substancje proste-metale — zawsze reduktory."
+    ],
+    "common_traps_ru": [
+      "Nie myl: utleniacz ulega REDUKCJI (jego stopień utlenienia maleje), reduktor ulega UTLENIENIU.",
+      "HNO₃ w reakcji z Cu — utleniacz (N⁺⁵→N⁺²), chociaż H w HNO₃ nie zmienia stopnia utlenienia.",
+      "N₂⁰ → 2N⁻³: stopień utlenienia maleje → redukcja.",
+      "Jeśli pierwiastek ulega zarówno utlenieniu, jak i redukcji — to dysproporcjonowanie (rzadko na egzaminie)."
+    ],
+    "variability_ru": "Dwa podtypy: (1) 3 schematy zmian stopni utlenienia → utlenianie/redukcja; (2) reakcja → rola każdej substancji (utleniacz/reduktor/jedno i drugie)."
+  },
+  "16": {
+    "title_ru": "Praktyka laboratoryjna / rozdzielanie mieszanin / zanieczyszczenia",
+    "topic_ru": "Prawdziwe stwierdzenia o zagadnieniach praktycznych chemii",
+    "algorithm_ru": [
+      "Przeczytaj wszystkie 4 stwierdzenia. Określ temat: bezpieczeństwo w laboratorium, rozdzielanie mieszanin lub ekologia/zanieczyszczenia.",
+      "Dla każdego stwierdzenia określ, czy jest prawdziwe:",
+      "— Zasady BHP: nie wolno próbować na smak, wąchać ostrożnie (wachlując), kwas na skórę — przemyć + soda.",
+      "— Rozdzielanie: filtracja (nierozpuszczalne cząstki), odparowanie (rozpuszczone), destylacja (różne temp. wrzenia), magnes (Fe), rozdzielacz (niemieszające się ciecze).",
+      "— Ekologia: efekt cieplarniany (CO₂), kwaśne deszcze (SO₂, NO₂), warstwa ozonowa (freony).",
+      "Liczba prawdziwych stwierdzeń może wynosić 1, 2 lub 3."
+    ],
+    "key_facts_ru": [
+      "Żeliwo, brąz, stal — stopy = mieszaniny.",
+      "Woda destylowana, lód — substancje czyste.",
+      "Filtracja NIE oddziela rozpuszczonych soli (potrzebne odparowanie lub destylacja).",
+      "Destylacja — metoda fizyczna (nie chemiczna).",
+      "Kwas wlewa się do wody (nie wodę do kwasu!)."
+    ],
+    "common_traps_ru": [
+      "Zadanie 16 — ZMIENNA liczba poprawnych odpowiedzi (od 1 do 3)! Zapisz WSZYSTKIE poprawne.",
+      "«Filtracją można oczyścić wodę morską z soli» — NIEPRAWDA (sole są rozpuszczone).",
+      "«Destylacja — metoda chemiczna» — NIEPRAWDA (fizyczna).",
+      "«Ciecze łatwopalne przechowuje się tylko w lodówce» — niedokładne (z dala od ognia, ale niekoniecznie w lodówce)."
+    ],
+    "variability_ru": "Trzy główne tematy: (1) bezpieczeństwo w laboratorium, (2) rozdzielanie mieszanin, (3) zanieczyszczenie środowiska. Każdy wariant — jeden temat. Liczba poprawnych od 1 do 3."
+  },
+  "17": {
+    "title_ru": "Rozróżnianie substancji za pomocą odczynników",
+    "topic_ru": "Dobór odczynnika do rozpoznawania pary substancji",
+    "algorithm_ru": [
+      "Dla każdej pary substancji (A, B, C) znajdź odczynnik, który daje RÓŻNE wyniki z tymi dwiema substancjami.",
+      "Algorytm sprawdzania: odczynnik + substancja 1 → efekt 1 (osad/gaz/nic). Odczynnik + substancja 2 → efekt 2.",
+      "Jeśli efekty są różne — odczynnik rozróżnia.",
+      "Główne odczynniki jakościowe: AgNO₃ (na Cl⁻, Br⁻, I⁻), BaCl₂ (na SO₄²⁻), zasada KOH/NaOH (na kationy: Cu²⁺, Fe³⁺, Mg²⁺, NH₄⁺), kwasy (na CO₃²⁻), wskaźnik (kwas vs obojętny).",
+      "Dobierz odczynnik z podanych wariantów."
+    ],
+    "key_facts_ru": [
+      "AgNO₃: z Cl⁻ → AgCl↓ (biały), z F⁻ → rozpuszczalny (brak osadu), z Br⁻ → AgBr↓ (żółtawy), z I⁻ → AgI↓ (żółty).",
+      "BaCl₂/Ba(NO₃)₂: z SO₄²⁻ → BaSO₄↓ (biały).",
+      "KOH/NaOH: z Cu²⁺ → Cu(OH)₂↓ (niebieski), z Fe³⁺ → Fe(OH)₃↓ (brunatny), z Mg²⁺ → Mg(OH)₂↓ (biały), z NH₄⁺ → NH₃↑ (zapach).",
+      "Kwas: z CO₃²⁻ → CO₂↑ (bąbelki).",
+      "BaCO₃ reaguje z kwasami (rozpuszcza się + CO₂), ale nie z obojętnymi solami."
+    ],
+    "common_traps_ru": [
+      "AgF — rozpuszczalny! AgNO₃ NIE rozróżnia F⁻ przez osad (ale rozróżnia F⁻ od Cl⁻: z KF brak osadu, z KCl — jest).",
+      "Nadmiarowy odczynnik w prawej kolumnie — nie wszystkie są używane.",
+      "FeO — nierozpuszczalny, nie reaguje z roztworami soli.",
+      "KOH rozróżnia NH₄Cl od innych soli (wydzielanie NH₃ z zapachem)."
+    ],
+    "variability_ru": "Zmieniają się 3 pary substancji i 4 odczynniki. Pary często obejmują sole tego samego anionu z różnymi kationami lub odwrotnie."
+  },
+  "18": {
+    "title_ru": "Obliczanie udziału masowego pierwiastka",
+    "topic_ru": "Obliczanie ω(pierwiastka) w związku",
+    "algorithm_ru": [
+      "Zapisz wzór substancji z treści zadania.",
+      "Oblicz masę molową M: suma mas atomowych wszystkich atomów.",
+      "M = Σ(Aᵢ × nᵢ), gdzie Aᵢ — masa atomowa, nᵢ — liczba atomów danego pierwiastka.",
+      "Oblicz udział masowy: ω(X) = (A(X) × n(X)) / M × 100%.",
+      "Zaokrąglij do liczb całkowitych.",
+      "Ważne: uważnie licz liczbę atomów, szczególnie we wzorach z wieloma nawiasami."
+    ],
+    "key_facts_ru": [
+      "Masy atomowe (zaokrąglone): H=1, C=12, N=14, O=16, Na=23, Mg=24, Al=27, P=31, S=32, Cl=35,5, K=39, Ca=40, Fe=56, Cu=64, Zn=65, Ag=108, Ba=137.",
+      "We wzorze Mg₃(C₆H₅O₇)₂: 3 atomy Mg, 2×6=12 atomów C, 2×5=10 atomów H, 2×7=14 atomów O.",
+      "Sprawdzenie: ω wszystkich pierwiastków w sumie ≈ 100%."
+    ],
+    "common_traps_ru": [
+      "Nie zapominaj o indeksie za nawiasem: (OH)₂ → 2 atomy O i 2 atomy H.",
+      "Ca(NO₃)₂: N = 2×1 = 2 atomy, O = 2×3 = 6 atomów.",
+      "Mg₃(C₆H₅O₇)₂: indeks 2 mnoży WSZYSTKO wewnątrz nawiasów.",
+      "Zaokrąglanie: 24,39% → 24%, ale 24,5% → też 24 lub 25 (uważaj na «z dokładnością do liczb całkowitych» — zaokrąglanie matematyczne)."
+    ],
+    "variability_ru": "Zmienia się substancja (od prostych NaCl, CaCO₃ do złożonych jak Mg₃(C₆H₅O₇)₂). Kontekst — praktyczne zastosowanie substancji. Zadania 18 i 19 są powiązane wspólnym kontekstem."
+  },
+  "19": {
+    "title_ru": "Obliczenie praktyczne na podstawie udziału masowego",
+    "topic_ru": "Zastosowanie ω(pierwiastka) do konkretnego zadania",
+    "algorithm_ru": [
+      "Użyj udziału masowego obliczonego w zadaniu 18.",
+      "Typowe zadanie: «W N gramach substancji znajduje się X gramów pierwiastka. Znajdź X.»",
+      "Wzór: m(pierwiastka) = m(substancji) × ω(pierwiastka).",
+      "Lub odwrotnie: m(substancji) = m(pierwiastka) / ω(pierwiastka).",
+      "Zapisz odpowiedź z dokładnością do dziesiątych.",
+      "Tolerancja przy sprawdzaniu: ±0,05 (np. 1,6 jest akceptowane jako poprawna odpowiedź przy wzorcu 1,6)."
+    ],
+    "key_facts_ru": [
+      "ω w formułach używa się jako ułamek dziesiętny: 16% = 0,16.",
+      "m(X) = m(substancji) × ω(X) — masa pierwiastka w danej porcji.",
+      "m(substancji) = m(X) / ω(X) — masa substancji zawierającej podaną masę pierwiastka.",
+      "Zadania 18 i 19 są zawsze powiązane: wynik 18 jest używany w 19."
+    ],
+    "common_traps_ru": [
+      "Nie zapomnij przeliczyć procentów na ułamek dziesiętny: 16% → 0,16.",
+      "Jeśli zadanie pyta «ile kg rudy», a ω podane jest dla pierwiastka w czystym związku — ruda może nie być w 100% czysta (ale na egzaminie zwykle przyjmuje się 100%).",
+      "Sprawdzaj jednostki: jeśli masa w gramach, odpowiedź też w gramach.",
+      "Dokładność «do dziesiątych»: 1,6 g, nie 1,60 g ani 2 g."
+    ],
+    "variability_ru": "Powiązane z zadaniem 18. Kontekst: medycyna, rolnictwo, przemysł. Wzór ten sam, zmieniają się liczby."
+  }
+}

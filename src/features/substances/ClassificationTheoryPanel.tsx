@@ -3,6 +3,7 @@ import type { ClassificationRule, NamingRule } from '../../types/classification'
 import type { SupportedLocale } from '../../types/i18n';
 import { loadClassificationRules, loadNamingRules } from '../../lib/data-loader';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
+import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
 
 const CLASS_LABELS: Record<string, () => string> = {
@@ -42,8 +43,10 @@ function ClassificationRuleCard({ rule }: { rule: ClassificationRule }) {
         {SUBCLASS_LABELS[rule.subclass]?.() ?? rule.subclass}
       </div>
       <p className="subst-theory__rule-desc">{rule.description_ru}</p>
-      <div className="subst-theory__rule-examples">
-        {rule.examples.join(', ')}
+      <div className="subst-theory__rule-examples subst-theory__formula-chips">
+        {rule.examples.map((formula, i) => (
+          <FormulaChip key={i} formula={formula} substanceClass={rule.class} />
+        ))}
       </div>
     </div>
   );
@@ -58,8 +61,8 @@ function NamingRuleCard({ rule }: { rule: NamingRule }) {
       <div className="subst-theory__naming-examples">
         {rule.examples.map((ex, i) => (
           <span key={i} className="subst-theory__naming-pair">
-            {ex.formula} — {ex.name_ru}
-            {i < rule.examples.length - 1 ? '; ' : ''}
+            <FormulaChip formula={ex.formula} name={ex.name_ru} substanceClass={rule.class} />
+            {i < rule.examples.length - 1 ? ' ' : ''}
           </span>
         ))}
       </div>

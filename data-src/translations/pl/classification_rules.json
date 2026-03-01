@@ -1,0 +1,38 @@
+{
+  "oxide_basic": {
+    "description_ru": "Tlenki zasadowe: tlenki metali o stopniu utlenienia +1, +2 (z wyj\u0105tkiem amfoterycznych). Reaguj\u0105 z kwasami i tlenkami kwasowymi."
+  },
+  "oxide_acidic": {
+    "description_ru": "Tlenki kwasowe: tlenki niemetali (z wyj\u0105tkiem CO, NO, N\u2082O) i tlenki metali o wysokim stopniu utlenienia (+5, +6, +7). Reaguj\u0105 z zasadami i tlenkami zasadowymi."
+  },
+  "oxide_amphoteric": {
+    "description_ru": "Tlenki amfoteryczne: tlenki metali amfoterycznych. Reaguj\u0105 zar\u00f3wno z kwasami, jak i z zasadami."
+  },
+  "oxide_indifferent": {
+    "description_ru": "Tlenki oboj\u0119tne: nie tworz\u0105 soli w reakcjach z kwasami ani zasadami."
+  },
+  "acid_oxygen_containing": {
+    "description_ru": "Kwasy tlenowe: zawieraj\u0105 tlen w sk\u0142adzie reszty kwasowej."
+  },
+  "acid_oxygen_free": {
+    "description_ru": "Kwasy beztlenowe: nie zawieraj\u0105 tlenu. Utworzone przez wod\u00f3r i niemetal."
+  },
+  "base_soluble": {
+    "description_ru": "Zasady rozpuszczalne (\u0142ugi): wodorotlenki metali alkalicznych i ziem alkalicznych. Rozpuszczalne w wodzie, dysocjuj\u0105 z wydzieleniem jon\u00f3w OH\u207b."
+  },
+  "base_insoluble": {
+    "description_ru": "Zasady nierozpuszczalne: wodorotlenki metali ci\u0119\u017ckich. Nie rozpuszczaj\u0105 si\u0119 w wodzie, rozk\u0142adaj\u0105 si\u0119 podczas ogrzewania."
+  },
+  "base_amphoteric": {
+    "description_ru": "Wodorotlenki amfoteryczne: wykazuj\u0105 w\u0142a\u015bciwo\u015bci zar\u00f3wno kwas\u00f3w, jak i zasad. Reaguj\u0105 zar\u00f3wno z kwasami, jak i z \u0142ugami."
+  },
+  "salt_normal": {
+    "description_ru": "Sole oboj\u0119tne (normalne): produkt ca\u0142kowitego zast\u0105pienia atom\u00f3w wodoru w kwasie kationami metalu (lub NH\u2084\u207a)."
+  },
+  "salt_acidic": {
+    "description_ru": "Sole kwa\u015bne: produkt niepe\u0142nego zast\u0105pienia atom\u00f3w wodoru w kwasie wielozasadowym. Zawieraj\u0105 jon wodorowy w reszcie kwasowej."
+  },
+  "salt_basic": {
+    "description_ru": "Sole zasadowe: produkt niepe\u0142nego zast\u0105pienia jon\u00f3w wodorotlenkowych w zasadzie wielokwasowej. Zawieraj\u0105 grup\u0119 hydroksylow\u0105."
+  }
+}

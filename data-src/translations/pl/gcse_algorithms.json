@@ -1,0 +1,256 @@
+{
+  "1": {
+    "title_ru": "Budowa atomu i uk\u0142ad okresowy",
+    "topic_ru": "Atomy, pierwiastki, izotopy, konfiguracja elektronowa, trendy w uk\u0142adzie okresowym",
+    "algorithm_ru": [
+      "Uwa\u017cnie przeczytaj pytanie: okre\u015bl, czy dotyczy budowy atomu (protony, neutrony, elektrony), konfiguracji elektronowej czy po\u0142o\u017cenia w uk\u0142adzie okresowym.",
+      "Pytania o budow\u0119 atomu: pami\u0119taj, \u017ce numer atomowy = liczba proton\u00f3w = liczba elektron\u00f3w (w atomie oboj\u0119tnym). Liczba masowa = protony + neutrony.",
+      "Konfiguracja elektronowa: wype\u0142niaj pow\u0142oki po kolei (2, 8, 8, ...). Liczba obsadzonych pow\u0142ok = numer okresu. Liczba elektron\u00f3w na pow\u0142oce zewn\u0119trznej = numer grupy.",
+      "Pytania o izotopy: izotopy maj\u0105 t\u0119 sam\u0105 liczb\u0119 proton\u00f3w, ale r\u00f3\u017cn\u0105 liczb\u0119 neutron\u00f3w.",
+      "Wyklucz opcje, kt\u00f3re myl\u0105 w\u0142a\u015bciwo\u015bci pierwiastk\u00f3w z w\u0142a\u015bciwo\u015bciami zwi\u0105zk\u00f3w lub nieprawid\u0142owo formu\u0142uj\u0105 regu\u0142y uniwersalne (np. \u201ezawsze ta sama liczba masowa\u201d)."
+    ],
+    "key_facts_ru": [
+      "Numer atomowy = liczba proton\u00f3w (okre\u015bla pierwiastek).",
+      "Izotopy: ta sama liczba proton\u00f3w, r\u00f3\u017cna liczba neutron\u00f3w (np. w\u0119giel-12 i w\u0119giel-14).",
+      "Wype\u0142nianie pow\u0142ok elektronowych: 1. pow\u0142oka mie\u015bci 2, 2. mie\u015bci 8, 3. mie\u015bci 8 (dla pierwszych 20 pierwiastk\u00f3w).",
+      "Numer grupy = liczba elektron\u00f3w na pow\u0142oce zewn\u0119trznej; numer okresu = liczba obsadzonych pow\u0142ok.",
+      "Pierwiastki w tej samej grupie maj\u0105 podobne w\u0142a\u015bciwo\u015bci chemiczne, poniewa\u017c maj\u0105 t\u0119 sam\u0105 liczb\u0119 elektron\u00f3w zewn\u0119trznych."
+    ],
+    "common_traps_ru": [
+      "Mylenie numeru atomowego z liczb\u0105 masow\u0105.",
+      "Za\u0142o\u017cenie, \u017ce wszystkie atomy pierwiastka maj\u0105 t\u0119 sam\u0105 liczb\u0119 masow\u0105 (zapominanie o izotopach).",
+      "B\u0142\u0119dne liczenie pow\u0142ok elektronowych \u2014 trzecia pow\u0142oka mo\u017ce pomie\u015bci\u0107 \u0142\u0105cznie 18 elektron\u00f3w, ale dla pierwiastk\u00f3w 1\u201320 wype\u0142nia si\u0119 maksymalnie do 8, zanim zacznie si\u0119 wype\u0142nia\u0107 4. pow\u0142oka."
+    ],
+    "variability_ru": "W pytaniach zmienia si\u0119 u\u017cyty pierwiastek oraz to, czy pytaj\u0105 o okre\u015blenie grupy/okresu, w\u0142a\u015bciwo\u015bci izotop\u00f3w czy interpretacj\u0119 konfiguracji elektronowej."
+  },
+  "2": {
+    "title_ru": "Wi\u0105zania, struktura i w\u0142a\u015bciwo\u015bci materii",
+    "topic_ru": "Wi\u0105zanie jonowe, kowalencyjne i metaliczne; struktury olbrzymie i cz\u0105steczkowe proste; w\u0142a\u015bciwo\u015bci",
+    "algorithm_ru": [
+      "Okre\u015bl typ substancji: metal, niemetal lub zwi\u0105zek metalu z niemetalem.",
+      "Metal + niemetal \u2192 wi\u0105zanie jonowe (transfer elektron\u00f3w). Niemetal + niemetal \u2192 wi\u0105zanie kowalencyjne (wsp\u00f3\u0142dzielenie elektron\u00f3w). Sam metal \u2192 wi\u0105zanie metaliczne (zdelokalizowane elektrony).",
+      "Pytania o struktur\u0119: okre\u015bl, czy jest to struktura olbrzymia (sie\u0107 jonowa, olbrzymia kowalencyjna, metaliczna) czy prosta cz\u0105steczkowa.",
+      "Zwi\u0105zek struktury z w\u0142a\u015bciwo\u015bciami: struktury olbrzymie maj\u0105 wysokie temperatury topnienia; proste cz\u0105steczkowe \u2014 niskie. Zwi\u0105zki jonowe przewodz\u0105 pr\u0105d w stanie stopionym/rozpuszczonym. Metale przewodz\u0105 dzi\u0119ki zdelokalizowanym elektronom.",
+      "W odpowiedziach rozszerzonych: zawsze podaj typ wi\u0105zania ORAZ wyja\u015bnij struktur\u0119 ORAZ po\u0142\u0105cz z pytanym w\u0142a\u015bciwo\u015bci\u0105."
+    ],
+    "key_facts_ru": [
+      "Wi\u0105zanie jonowe: transfer elektron\u00f3w z metalu do niemetalu, tworz\u0105c jony dodatnie i ujemne przyci\u0105gane si\u0142ami elektrostatycznymi.",
+      "Wi\u0105zanie kowalencyjne: wsp\u00f3\u0142dzielenie par elektronowych mi\u0119dzy atomami niemetal\u00f3w.",
+      "Wi\u0105zanie metaliczne: dodatnie jony metalu w \u201emorzu\u201d zdelokalizowanych elektron\u00f3w.",
+      "Diament: ka\u017cdy atom w\u0119gla po\u0142\u0105czony z 4 innymi (olbrzymia struktura kowalencyjna, bardzo twardy, wysoka tt.).",
+      "Grafit: ka\u017cdy atom w\u0119gla po\u0142\u0105czony z 3 innymi w warstwach, zdelokalizowane elektrony mi\u0119dzy warstwami (przewodzi pr\u0105d, warstwy si\u0119 przesuwaj\u0105 \u2014 mi\u0119kki).",
+      "Proste substancje cz\u0105steczkowe (np. H\u2082O, CO\u2082): silne wi\u0105zania kowalencyjne wewn\u0105trz cz\u0105steczek, s\u0142abe si\u0142y mi\u0119dzycz\u0105steczkowe \u2192 niskie temperatury topnienia."
+    ],
+    "common_traps_ru": [
+      "M\u00f3wienie \u201ewi\u0105zania kowalencyjne s\u0105 s\u0142abe\u201d \u2014 wi\u0105zania wewn\u0105trz cz\u0105steczek s\u0105 silne; s\u0142abe s\u0105 si\u0142y mi\u0119dzycz\u0105steczkowe.",
+      "Zapominanie o wyja\u015bnieniu, DLACZEGO dana w\u0142a\u015bciwo\u015b\u0107 istnieje (np. m\u00f3wienie, \u017ce grafit przewodzi, ale bez wspominania o zdelokalizowanych elektronach).",
+      "Mylenie wi\u0105zania jonowego z kowalencyjnym: NaCl jest jonowy (metal + niemetal), HCl jest kowalencyjny (niemetal + niemetal)."
+    ],
+    "variability_ru": "W pytaniach zmieniaj\u0105 si\u0119 substancje do dopasowania i konkretna w\u0142a\u015bciwo\u015b\u0107 do wyja\u015bnienia (twardo\u015b\u0107, przewodno\u015b\u0107, temperatura topnienia, rozpuszczalno\u015b\u0107). Odpowiedzi rozszerzone mog\u0105 wymaga\u0107 por\u00f3wnania dw\u00f3ch odmian alotropowych lub dw\u00f3ch typ\u00f3w struktur."
+  },
+  "3": {
+    "title_ru": "Chemia ilo\u015bciowa",
+    "topic_ru": "Wzgl\u0119dna masa cz\u0105steczkowa, sk\u0142ad procentowy, mole, obliczenia mas reaguj\u0105cych",
+    "algorithm_ru": [
+      "Przeczytaj pytanie i okre\u015bl, co trzeba obliczy\u0107: Mr, procentow\u0105 zawarto\u015b\u0107, mole czy mas\u0119 z r\u00f3wnania reakcji.",
+      "Wzgl\u0119dna masa cz\u0105steczkowa (Mr): dodaj warto\u015bci Ar wszystkich atom\u00f3w we wzorze. Uwa\u017caj na nawiasy \u2014 pomn\u00f3\u017c indeks za nawiasem przez wszystko wewn\u0105trz.",
+      "Procentowa zawarto\u015b\u0107: % = (\u0142\u0105czna Ar pierwiastka we wzorze / Mr zwi\u0105zku) \u00d7 100.",
+      "Obliczanie moli: n = masa / Mr.",
+      "Obliczanie mas reaguj\u0105cych: (1) Oblicz mole podanej substancji. (2) U\u017cyj stosunku molowego z r\u00f3wnania reakcji, aby znale\u017a\u0107 mole szukanej substancji. (3) Przelicz z powrotem na mas\u0119: m = n \u00d7 Mr.",
+      "Zawsze pokazuj tok rozwi\u0105zania i sprawdzaj jednostki."
+    ],
+    "key_facts_ru": [
+      "Mole = masa (g) / Mr (wzgl\u0119dna masa cz\u0105steczkowa).",
+      "Masa = mole \u00d7 Mr.",
+      "R\u00f3wnanie reakcji podaje stosunek molowy mi\u0119dzy substratami a produktami.",
+      "Jeden mol dowolnego gazu w warunkach pokojowych (RTP) zajmuje 24 dm\u00b3.",
+      "St\u0119\u017cenie molowe (mol/dm\u00b3) = mole / obj\u0119to\u015b\u0107 (w dm\u00b3)."
+    ],
+    "common_traps_ru": [
+      "Zapominanie o pomno\u017ceniu Ar przez liczb\u0119 atom\u00f3w (np. w MgCl\u2082 s\u0105 2 atomy chloru: Mr = 24 + 2\u00d735,5 = 95, nie 59,5).",
+      "U\u017cywanie Mr niew\u0142a\u015bciwej substancji przy przeliczaniu mi\u0119dzy molami a mas\u0105.",
+      "Nieuwzgl\u0119dnienie wymaganej dok\u0142adno\u015bci \u2014 niekt\u00f3re odpowiedzi wymagaj\u0105 zaokr\u0105glenia do jednego miejsca po przecinku."
+    ],
+    "variability_ru": "W pytaniach zmienia si\u0119 zwi\u0105zek, pierwiastek do obliczenia sk\u0142adu procentowego i reakcja do oblicze\u0144 stechiometrycznych. Poziom trudno\u015bci waha si\u0119 od prostych oblicze\u0144 Mr do wieloetapowych zada\u0144 z masami reaguj\u0105cych."
+  },
+  "4": {
+    "title_ru": "Przemiany chemiczne",
+    "topic_ru": "Szereg aktywno\u015bci, kwasy i zasady, zoboj\u0119tnianie, elektroliza, utlenianie i redukcja",
+    "algorithm_ru": [
+      "Szereg aktywno\u015bci: przypomnij sobie kolejno\u015b\u0107 \u2014 K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (od najbardziej do najmniej aktywnego).",
+      "Bardziej aktywny metal wypiera mniej aktywny z jego zwi\u0105zku.",
+      "Typy reakcji: zoboj\u0119tnianie = kwas + zasada \u2192 s\u00f3l + woda; wypieranie = bardziej aktywny pierwiastek zast\u0119puje mniej aktywny; rozk\u0142ad = jedna substancja rozpada si\u0119 na prostsze.",
+      "Elektroliza: na katodzie (elektroda ujemna) jony dodatnie przyjmuj\u0105 elektrony (redukcja). Na anodzie (elektroda dodatnia) jony ujemne oddaj\u0105 elektrony (utlenianie).",
+      "Zapami\u0119taj: utlenianie to utrata elektron\u00f3w, redukcja to przyjmowanie elektron\u00f3w."
+    ],
+    "key_facts_ru": [
+      "Szereg aktywno\u015bci (od wysokiej do niskiej): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au, Pt.",
+      "Metale powy\u017cej w\u0119gla s\u0105 otrzymywane przez elektroliz\u0119; metale poni\u017cej w\u0119gla \u2014 przez redukcj\u0119 w\u0119glem.",
+      "Kwas + metal \u2192 s\u00f3l + wod\u00f3r (tylko je\u015bli metal jest powy\u017cej H w szeregu aktywno\u015bci).",
+      "Kwas + zasada \u2192 s\u00f3l + woda (zoboj\u0119tnianie).",
+      "Kwas + w\u0119glan \u2192 s\u00f3l + woda + dwutlenek w\u0119gla.",
+      "Przy elektrolizie roztwor\u00f3w wodnych: na katodzie wydziela si\u0119 wod\u00f3r, je\u015bli metal jest bardziej aktywny ni\u017c wod\u00f3r; na anodzie wydziela si\u0119 tlen, chyba \u017ce obecny jest jon halogenku."
+    ],
+    "common_traps_ru": [
+      "Mylenie utleniania i redukcji \u2014 pami\u0119taj: utlenianie to utrata, redukcja to przyj\u0119cie elektron\u00f3w.",
+      "Przekonanie, \u017ce mied\u017a reaguje z rozcie\u0144czonym kwasem (nie reaguje \u2014 mied\u017a jest poni\u017cej wodoru).",
+      "Przy elektrolizie roztwor\u00f3w wodnych zapominanie, \u017ce woda dostarcza jony H\u207a i OH\u207b jako alternatywne produkty wy\u0142adowania."
+    ],
+    "variability_ru": "W pytaniach zmieniaj\u0105 si\u0119 metale do por\u00f3wnania aktywno\u015bci, konkretne reakcje z kwasami oraz to, czy elektroliza dotyczy stopu czy roztworu wodnego."
+  },
+  "5": {
+    "title_ru": "Zmiany energetyczne",
+    "topic_ru": "Reakcje egzotermiczne i endotermiczne, obliczenia energii wi\u0105za\u0144, profile energetyczne reakcji",
+    "algorithm_ru": [
+      "Okre\u015bl, czy pytanie dotyczy klasyfikacji reakcji (egzo-/endotermiczna) czy obliczania zmian energii z energii wi\u0105za\u0144.",
+      "Egzotermiczna: uwalnia energi\u0119 do otoczenia, temperatura ro\u015bnie, energia produkt\u00f3w < energia substrat\u00f3w.",
+      "Endotermiczna: poch\u0142ania energi\u0119 z otoczenia, temperatura spada, energia produkt\u00f3w > energia substrat\u00f3w.",
+      "Obliczenia energii wi\u0105za\u0144: (1) Oblicz \u0142\u0105czn\u0105 energi\u0119 potrzebn\u0105 do zerwania wszystkich wi\u0105za\u0144 w substratach. (2) Oblicz \u0142\u0105czn\u0105 energi\u0119 uwolnion\u0105 przy tworzeniu wszystkich wi\u0105za\u0144 w produktach. (3) Zmiana ca\u0142kowita = energia zerwania wi\u0105za\u0144 \u2212 energia tworzenia wi\u0105za\u0144.",
+      "Je\u015bli wynik jest ujemny, reakcja jest egzotermiczna. Je\u015bli dodatni \u2014 endotermiczna."
+    ],
+    "key_facts_ru": [
+      "Spalanie i zoboj\u0119tnianie to reakcje egzotermiczne.",
+      "Fotosynteza i rozk\u0142ad termiczny to reakcje endotermiczne.",
+      "Zrywanie wi\u0105za\u0144 wymaga energii (proces endotermiczny).",
+      "Tworzenie wi\u0105za\u0144 uwalnia energi\u0119 (proces egzotermiczny).",
+      "Zmiana energii = \u03a3(zerwane wi\u0105zania) \u2212 \u03a3(utworzone wi\u0105zania).",
+      "Energia aktywacji to minimalna energia potrzebna do zaj\u015bcia reakcji."
+    ],
+    "common_traps_ru": [
+      "Twierdzenie, \u017ce zrywanie wi\u0105za\u0144 uwalnia energi\u0119 \u2014 zawsze wymaga energii.",
+      "Zapominanie o policzeniu wszystkich wi\u0105za\u0144 (np. w 2HCl s\u0105 DWA wi\u0105zania H\u2013Cl).",
+      "B\u0142\u0105d w znaku: je\u015bli tworzenie wi\u0105za\u0144 uwalnia wi\u0119cej energii ni\u017c zrywanie poch\u0142ania, zmiana ca\u0142kowita jest ujemna (egzotermiczna)."
+    ],
+    "variability_ru": "W pytaniach zmienia si\u0119 konkretna reakcja do oblicze\u0144 energii wi\u0105za\u0144 i przyk\u0142ady do klasyfikacji reakcji egzo- i endotermicznych. Reakcja i warto\u015bci energii wi\u0105za\u0144 r\u00f3\u017cni\u0105 si\u0119 mi\u0119dzy arkuszami."
+  },
+  "6": {
+    "title_ru": "Szybko\u015b\u0107 i zakres przemian chemicznych",
+    "topic_ru": "Czynniki wp\u0142ywaj\u0105ce na szybko\u015b\u0107, teoria zderze\u0144, katalizatory, reakcje odwracalne, r\u00f3wnowaga",
+    "algorithm_ru": [
+      "Okre\u015bl czynnik, o kt\u00f3ry pytaj\u0105: temperatura, st\u0119\u017cenie, powierzchnia, ci\u015bnienie (gazy) lub katalizator.",
+      "Zastosuj teori\u0119 zderze\u0144: reakcje zachodz\u0105, gdy cz\u0105steczki zderzaj\u0105 si\u0119 z wystarczaj\u0105c\u0105 energi\u0105 (\u2265 energia aktywacji) i w\u0142a\u015bciw\u0105 orientacj\u0105.",
+      "Temperatura \u2191 \u2192 cz\u0105steczki poruszaj\u0105 si\u0119 szybciej \u2192 cz\u0119stsze zderzenia ORAZ wi\u0119cej cz\u0105steczek przekracza energi\u0119 aktywacji \u2192 szybko\u015b\u0107 wzrasta.",
+      "St\u0119\u017cenie/ci\u015bnienie \u2191 \u2192 wi\u0119cej cz\u0105steczek w tej samej obj\u0119to\u015bci \u2192 cz\u0119stsze zderzenia \u2192 szybko\u015b\u0107 wzrasta.",
+      "Powierzchnia \u2191 (mniejsze kawa\u0142ki/proszek) \u2192 wi\u0119cej cz\u0105steczek dost\u0119pnych \u2192 cz\u0119stsze zderzenia \u2192 szybko\u015b\u0107 wzrasta.",
+      "Katalizator zapewnia alternatywn\u0105 drog\u0119 reakcji z ni\u017csz\u0105 energi\u0105 aktywacji \u2192 wi\u0119cej cz\u0105steczek ma wystarczaj\u0105c\u0105 energi\u0119 \u2192 szybko\u015b\u0107 wzrasta.",
+      "W odpowiedziach rozszerzonych: zawsze \u0142\u0105cz czynnik z zachowaniem cz\u0105steczek, cz\u0119sto\u015bci\u0105 zderze\u0144 lub energi\u0105 i szybko\u015bci\u0105."
+    ],
+    "key_facts_ru": [
+      "Szybko\u015b\u0107 reakcji = ilo\u015b\u0107 powsta\u0142ego produktu (lub zu\u017cytego substratu) / czas.",
+      "Teoria zderze\u0144: cz\u0105steczki musz\u0105 zderzy\u0107 si\u0119 z wystarczaj\u0105c\u0105 energi\u0105 i w\u0142a\u015bciw\u0105 orientacj\u0105.",
+      "Katalizator przyspiesza reakcj\u0119 bez zu\u017cywania si\u0119, zapewniaj\u0105c alternatywn\u0105 drog\u0119 z ni\u017csz\u0105 energi\u0105 aktywacji.",
+      "Dla reakcji odwracalnych w r\u00f3wnowadze: szybko\u015b\u0107 reakcji w prz\u00f3d = szybko\u015b\u0107 reakcji wstecz.",
+      "Zasada Le Chateliera: je\u015bli warunki si\u0119 zmieni\u0105, r\u00f3wnowaga przesuwa si\u0119, aby przeciwdzia\u0142a\u0107 zmianie."
+    ],
+    "common_traps_ru": [
+      "Twierdzenie, \u017ce wy\u017csza temperatura oznacza jedynie \u201ewi\u0119cej zderze\u0144\u201d bez wspomnienia, \u017ce cz\u0105steczki maj\u0105 te\u017c wi\u0119ksz\u0105 energi\u0119 (oba czynniki s\u0105 wa\u017cne, ale czynnik energetyczny jest wa\u017cniejszy).",
+      "Mylenie szybko\u015bci z wydajno\u015bci\u0105 \u2014 katalizator zwi\u0119ksza szybko\u015b\u0107, ale nie zmienia po\u0142o\u017cenia r\u00f3wnowagi ani wydajno\u015bci.",
+      "Zapominanie o powiedzeniu \u201eskuteczne zderzenia\u201d lub \u201ezderzenia z energi\u0105 r\u00f3wn\u0105 lub wi\u0119ksz\u0105 od energii aktywacji\u201d."
+    ],
+    "variability_ru": "W pytaniach zmienia si\u0119 konkretna reakcja (kruszec marmurowy + kwas, magnez + kwas, rozk\u0142ad nadtlenku wodoru) i badany czynnik. Pytania rozszerzone zawsze wymagaj\u0105 wyja\u015bnie\u0144 w oparciu o teori\u0119 zderze\u0144."
+  },
+  "7": {
+    "title_ru": "Chemia organiczna",
+    "topic_ru": "W\u0119glowodory, grupy funkcyjne, szeregi homologiczne, reakcje alkan\u00f3w i alken\u00f3w",
+    "algorithm_ru": [
+      "Zidentyfikuj szereg homologiczny po grupie funkcyjnej: alkany (tylko C\u2013C, C\u2099H\u2082\u2099\u208a\u2082), alkeny (C=C, C\u2099H\u2082\u2099), alkohole (\u2013OH), kwasy karboksylowe (\u2013COOH).",
+      "Porz\u0105dkowanie wed\u0142ug temperatury wrzenia: w obr\u0119bie szeregu homologicznego d\u0142u\u017csze \u0142a\u0144cuchy maj\u0105 wy\u017csze temperatury wrzenia z powodu silniejszych si\u0142 mi\u0119dzycz\u0105steczkowych.",
+      "Reakcje: alkany ulegaj\u0105 spalaniu i substytucji (z halogenami w \u015bwietle UV). Alkeny ulegaj\u0105 reakcjom addycji (z H\u2082, H\u2082O, halogenami) i mog\u0105 ulegaj\u0105 polimeryzacji.",
+      "Test na alkeny: woda bromowa zmienia kolor z pomara\u0144czowego na bezbarwny (odbarwienie).",
+      "Pytania o polimery: zidentyfikuj monomer (jednostk\u0119 powtarzaln\u0105) na podstawie struktury polimeru lub odwrotnie."
+    ],
+    "key_facts_ru": [
+      "Alkany: nasycone w\u0119glowodory, wz\u00f3r og\u00f3lny C\u2099H\u2082\u2099\u208a\u2082, tylko pojedyncze wi\u0105zania C\u2013C.",
+      "Alkeny: nienasycone w\u0119glowodory, wz\u00f3r og\u00f3lny C\u2099H\u2082\u2099, zawieraj\u0105 wi\u0105zanie podw\u00f3jne C=C.",
+      "Alkohole: zawieraj\u0105 grup\u0119 \u2013OH, wz\u00f3r og\u00f3lny C\u2099H\u2082\u2099\u208a\u2081OH.",
+      "Kwasy karboksylowe: zawieraj\u0105 grup\u0119 \u2013COOH, wz\u00f3r og\u00f3lny C\u2099H\u2082\u2099\u208a\u2081COOH.",
+      "Ropa naftowa to mieszanina w\u0119glowodor\u00f3w rozdzielana przez destylacj\u0119 frakcyjn\u0105.",
+      "Kraking rozszczepia d\u0142ugo\u0142a\u0144cuchowe alkany na kr\u00f3tsze alkany i alkeny (termiczny lub katalityczny).",
+      "Temperatura wrzenia wzrasta z d\u0142ugo\u015bci\u0105 \u0142a\u0144cucha w obr\u0119bie szeregu homologicznego."
+    ],
+    "common_traps_ru": [
+      "Mylenie alkan\u00f3w z alkenami \u2014 alkENy maj\u0105 wi\u0105zanie podw\u00f3jne.",
+      "Zapisywanie b\u0142\u0119dnych wzor\u00f3w og\u00f3lnych (np. alkan C\u2099H\u2082\u2099 zamiast C\u2099H\u2082\u2099\u208a\u2082).",
+      "Zapominanie, \u017ce alkeny odbarwiaj\u0105 wod\u0119 bromow\u0105, a alkany nie (chyba \u017ce w obecno\u015bci \u015bwiat\u0142a UV)."
+    ],
+    "variability_ru": "W pytaniach zmieniaj\u0105 si\u0119 konkretne zwi\u0105zki do zidentyfikowania lub uporz\u0105dkowania, opisywane reakcje. Mog\u0105 pyta\u0107 o wzory strukturalne, wzory rozszerzone lub r\u00f3wnania s\u0142owne."
+  },
+  "8": {
+    "title_ru": "Analiza chemiczna",
+    "topic_ru": "Czysto\u015b\u0107, preparaty, chromatografia, pr\u00f3by p\u0142omieniowe, pr\u00f3by gaz\u00f3w, identyfikacja jon\u00f3w",
+    "algorithm_ru": [
+      "Pytania o pH/wska\u017aniki: pH < 7 to kwasowe, pH = 7 to oboj\u0119tne, pH > 7 to zasadowe. Silne kwasy maj\u0105 bardzo niskie pH (1\u20132), s\u0142abe kwasy pH 3\u20136.",
+      "Chromatografia: Rf = odleg\u0142o\u015b\u0107 substancji / odleg\u0142o\u015b\u0107 rozpuszczalnika. Czysta substancja daje jedn\u0105 plam\u0119; mieszanina \u2014 kilka plam.",
+      "Pr\u00f3by p\u0142omieniowe: Li = karmazynowy, Na = \u017c\u00f3\u0142ty, K = liliowy, Ca = pomara\u0144czowo-czerwony, Cu = zielony/niebieskozielony.",
+      "Pr\u00f3by gaz\u00f3w: wod\u00f3r \u2014 trzask przy podpaleniu; tlen \u2014 \u017carz\u0105cy si\u0119 \u0142uczywko zapala si\u0119; dwutlenek w\u0119gla \u2014 m\u0119tnienie wody wapiennej; chlor \u2014 odbarwienie wilgotnego papierka lakmusowego.",
+      "Pr\u00f3by jon\u00f3w: w\u0119glan + kwas \u2192 pieni si\u0119 (CO\u2082); siarczan + chlorek baru \u2192 bia\u0142y osad; halogenki + azotan srebra \u2192 bia\u0142y (Cl\u207b), kremowy (Br\u207b), \u017c\u00f3\u0142ty (I\u207b) osad."
+    ],
+    "key_facts_ru": [
+      "Czysta substancja ma ostro okre\u015blon\u0105 temperatur\u0119 topnienia. Substancja nieczysta topi si\u0119 w zakresie i w ni\u017cszej temperaturze.",
+      "Preparat (formulacja) to mieszanina zaprojektowana do okre\u015blonego celu (np. farba, lek).",
+      "Warto\u015b\u0107 Rf = odleg\u0142o\u015b\u0107 substancji \u00f7 odleg\u0142o\u015b\u0107 czo\u0142a rozpuszczalnika.",
+      "Kolory pr\u00f3b p\u0142omieniowych: Li (karmazynowy), Na (\u017c\u00f3\u0142ty), K (liliowy), Ca (pomara\u0144czowo-czerwony), Cu (zielony).",
+      "Pr\u00f3ba na wod\u00f3r: trzask z p\u0142on\u0105cym \u0142uczywkiem.",
+      "Pr\u00f3ba na tlen: \u017carz\u0105cy si\u0119 \u0142uczywko zapala si\u0119.",
+      "Pr\u00f3ba na dwutlenek w\u0119gla: woda wapienna m\u0119tnieje."
+    ],
+    "common_traps_ru": [
+      "Mylenie kolor\u00f3w pr\u00f3b p\u0142omieniowych \u2014 zw\u0142aszcza karmazynowy (Li) i pomara\u0144czowo-czerwony (Ca).",
+      "Zapominanie o powiedzeniu \u201ewilgotny\u201d papierek lakmusowy w pr\u00f3bie na chlor.",
+      "W chromatografii mylenie odleg\u0142o\u015bci czo\u0142a rozpuszczalnika z odleg\u0142o\u015bci\u0105 plamy przy obliczaniu Rf."
+    ],
+    "variability_ru": "W pytaniach zmieniaj\u0105 si\u0119 substancje do zidentyfikowania, konkretna pr\u00f3ba do zastosowania. Mog\u0105 by\u0107 podane chromatogramy do obliczenia Rf. Pierwiastki do pr\u00f3b p\u0142omieniowych i gazy pochodz\u0105 ze standardowej listy GCSE."
+  },
+  "9": {
+    "title_ru": "Chemia atmosfery",
+    "topic_ru": "Sk\u0142ad atmosfery, gazy cieplarniane, zmiany klimatu, zanieczyszczenia atmosferyczne",
+    "algorithm_ru": [
+      "Znaj obecny sk\u0142ad atmosfery: ~78% azot, ~21% tlen, ~0,04% dwutlenek w\u0119gla, ~1% argon, plus zmienna zawarto\u015b\u0107 pary wodnej.",
+      "Gazy cieplarniane (CO\u2082, metan, para wodna) poch\u0142aniaj\u0105 i ponownie emituj\u0105 promieniowanie podczerwone, utrzymuj\u0105c ciep\u0142o Ziemi. Zwi\u0119kszenie ich poziomu prowadzi do wzmocnionego efektu cieplarnianego i globalnego ocieplenia.",
+      "Dzia\u0142alno\u015b\u0107 cz\u0142owieka zwi\u0119kszaj\u0105ca CO\u2082: spalanie paliw kopalnych, wylesianie. Zwi\u0119kszanie metanu: rolnictwo (byd\u0142o, ry\u017c), sk\u0142adowiska odpad\u00f3w.",
+      "Skutki zmian klimatu: podnoszenie poziomu morza, cz\u0119stsze ekstremalne zjawiska pogodowe, utrata siedlisk, zmiany w produkcji \u017cywno\u015bci.",
+      "Zanieczyszczenia ze spalania: tlenek w\u0119gla (niepe\u0142ne spalanie, toksyczny), dwutlenek siarki (z zanieczyszcze\u0144 siark\u0105, powoduje kwa\u015bne deszcze), tlenki azotu (z wysokich temperatur w silnikach, powoduj\u0105 kwa\u015bne deszcze i smog), py\u0142y (powoduj\u0105 choroby uk\u0142adu oddechowego i globalne \u015bciemnianie)."
+    ],
+    "key_facts_ru": [
+      "Atmosfera Ziemi: 78% N\u2082, 21% O\u2082, 0,9% Ar, 0,04% CO\u2082.",
+      "Wczesna atmosfera sk\u0142ada\u0142a si\u0119 g\u0142\u00f3wnie z CO\u2082 i pary wodnej (z aktywno\u015bci wulkanicznej).",
+      "Zawarto\u015b\u0107 tlenu wzros\u0142a dzi\u0119ki fotosyntezie wczesnych ro\u015blin i glon\u00f3w.",
+      "Zawarto\u015b\u0107 CO\u2082 zmala\u0142a, poniewa\u017c rozpuszcza\u0142 si\u0119 w oceanach, by\u0142 wykorzystywany w fotosyntezie i tworzy\u0142 ska\u0142y w\u0119glanowe oraz paliwa kopalne.",
+      "Efekt cieplarniany: CO\u2082 i metan poch\u0142aniaj\u0105 promieniowanie podczerwone ponownie emitowane przez powierzchni\u0119 Ziemi.",
+      "\u015alad w\u0119glowy: ca\u0142kowita emisja gaz\u00f3w cieplarnianych spowodowana przez osob\u0119, wydarzenie lub produkt."
+    ],
+    "common_traps_ru": [
+      "Mylenie efektu cieplarnianego (naturalnego i niezb\u0119dnego) ze wzmocnionym efektem cieplarnianym (spowodowanym dzia\u0142alno\u015bci\u0105 cz\u0142owieka).",
+      "M\u00f3wienie, \u017ce CO\u2082 \u201ezatrzymuje ciep\u0142o\u201d \u2014 dok\u0142adniej: poch\u0142ania i ponownie emituje promieniowanie podczerwone.",
+      "Mylenie zanieczyszcze\u0144: SO\u2082 pochodzi z siarki w paliwach, NO\u2093 powstaje z reakcji azotu i tlenu z powietrza w wysokich temperaturach w silnikach."
+    ],
+    "variability_ru": "W pytaniach zmieniaj\u0105 si\u0119 gazy lub zanieczyszczenia, konkretne dzia\u0142ania cz\u0142owieka do zidentyfikowania. Mog\u0105 obejmowa\u0107 interpretacj\u0119 danych (wykresy poziomu CO\u2082 w atmosferze, dane o anomaliach temperatury)."
+  },
+  "10": {
+    "title_ru": "Wykorzystanie zasob\u00f3w",
+    "topic_ru": "Zasoby sko\u0144czone i odnawialne, ocena cyklu \u017cycia, recykling, otrzymywanie metali, uzdatnianie wody, proces Habera",
+    "algorithm_ru": [
+      "Ocena cyklu \u017cycia (LCA): cztery etapy to (1) wydobycie surowc\u00f3w, (2) produkcja, (3) u\u017cytkowanie/eksploatacja, (4) utylizacja. Uwzgl\u0119dnij zu\u017cycie energii, odpady i wp\u0142yw na \u015brodowisko na ka\u017cdym etapie.",
+      "Otrzymywanie metali: metale powy\u017cej w\u0119gla w szeregu aktywno\u015bci otrzymuje si\u0119 przez elektroliz\u0119; metale poni\u017cej w\u0119gla \u2014 przez redukcj\u0119 w\u0119glem w wielkim piecu.",
+      "Pytania o recykling: uwzgl\u0119dnij oszcz\u0119dno\u015b\u0107 energii, zmniejszenie wydobycia, zmniejszenie obj\u0119to\u015bci sk\u0142adowisk, zmniejszenie emisji CO\u2082.",
+      "Uzdatnianie wody: sedymentacja, filtracja, chlorowanie (lub ozonowanie/obr\u00f3bka UV). Odsalanie (destylacja lub odwr\u00f3cona osmoza) dla wody morskiej.",
+      "Pytania obliczeniowe: u\u017cyj r\u00f3wnania reakcji do obliczenia moli i mas, jak w temacie 3.",
+      "Proces Habera: N\u2082 + 3H\u2082 \u21cc 2NH\u2083, warunki: 450\u00b0C, 200 atm, katalizator \u017celazny \u2014 kompromis mi\u0119dzy szybko\u015bci\u0105 a wydajno\u015bci\u0105."
+    ],
+    "key_facts_ru": [
+      "Zasoby sko\u0144czone (paliwa kopalne, rudy metali) wyczerpi\u0105 si\u0119. Zasoby odnawialne (drewno, uprawy) mog\u0105 by\u0107 uzupe\u0142nione.",
+      "Etapy LCA: surowce \u2192 produkcja \u2192 u\u017cytkowanie \u2192 utylizacja.",
+      "Recykling metali oszcz\u0119dza energi\u0119, zmniejsza wydobycie i redukuje emisj\u0119 gaz\u00f3w cieplarnianych.",
+      "Woda pitna: woda bezpieczna do picia (niekoniecznie czysta). Wymaga filtracji i sterylizacji.",
+      "Fitoekstrakcja: ro\u015bliny absorbuj\u0105 zwi\u0105zki metali z gleby; ro\u015bliny spala si\u0119 i metal wydobywa z popio\u0142u.",
+      "Bio\u0142ugowanie: bakterie wytwarzaj\u0105 kwasowe roztwory (\u0142ug), kt\u00f3re rozpuszczaj\u0105 metale z rud.",
+      "Warunki procesu Habera to kompromis: wysokie ci\u015bnienie sprzyja wydajno\u015bci, ale jest kosztowne; umiarkowana temperatura zapewnia rozs\u0105dn\u0105 szybko\u015b\u0107 przy akceptowalnej wydajno\u015bci."
+    ],
+    "common_traps_ru": [
+      "Przekonanie, \u017ce \u201ewoda pitna\u201d oznacza \u201ewoda czysta\u201d \u2014 oznacza jedynie wod\u0119 bezpieczn\u0105 do picia, kt\u00f3ra mo\u017ce zawiera\u0107 rozpuszczone minera\u0142y.",
+      "Zapominanie, \u017ce LCA mo\u017ce by\u0107 subiektywna, poniewa\u017c przypisywanie warto\u015bci wp\u0142ywu na \u015brodowisko obejmuje subiektywne os\u0105dy.",
+      "W obliczeniach zwi\u0105zanych z otrzymywaniem metali u\u017cycie niew\u0142a\u015bciwego stosunku molowego z r\u00f3wnania reakcji."
+    ],
+    "variability_ru": "W pytaniach zmienia si\u0119 otrzymywany metal, konkretny produkt do LCA i warto\u015bci obliczeniowe. Uzdatnianie wody i proces Habera to cz\u0119ste tematy odpowiedzi rozszerzonych."
+  }
+}

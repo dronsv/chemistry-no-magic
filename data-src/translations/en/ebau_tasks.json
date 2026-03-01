@@ -1,0 +1,139 @@
+{
+  "ebau_2024_01a": {
+    "question_ru": "Write the electron configuration of the chromium atom (Z = 24) in its ground state. Indicate the quantum numbers of the last electron added following the Aufbau principle.",
+    "explanation_ru": "Chromium is an exception to the Aufbau rule. The expected configuration would be [Ar] 3d4 4s2, but the actual configuration is [Ar] 3d5 4s1 because a half-filled d sublevel (5 electrons) is more stable. The last electron occupies a 3d orbital: n=3, l=2, ml=+2, ms=+1/2."
+  },
+  "ebau_2024_01b": {
+    "question_ru": "Select the two correct statements about the element sulfur (S, Z = 16) and its position in the periodic table.",
+    "options": [
+      { "id": "1", "text": "Sulfur belongs to the third period and group 16 (VIA)." },
+      { "id": "2", "text": "The first ionization energy of sulfur is greater than that of oxygen." },
+      { "id": "3", "text": "The atomic radius of sulfur is smaller than that of chlorine." },
+      { "id": "4", "text": "Sulfur can exhibit oxidation states of -2, +2, +4, and +6." },
+      { "id": "5", "text": "The electronegativity of sulfur is greater than that of selenium." }
+    ],
+    "explanation_ru": "1) Correct: S has 3 electron shells (period 3) and 6 valence electrons (group 16). 2) Incorrect: the IE1 of O (1314 kJ/mol) is greater than that of S (1000 kJ/mol). 3) Incorrect: the atomic radius of S is larger than that of Cl (same period, radius decreases from left to right). 4) Correct: S exhibits all these oxidation states due to electron promotion to vacant 3d orbitals. 5) Correct on its own, but only 2 answers are required, and options 1 and 4 are the most clearly correct."
+  },
+  "ebau_2024_02a": {
+    "question_ru": "Match each substance with its predominant type of bond.",
+    "left_items": [
+      { "label": "A", "text": "NaCl" },
+      { "label": "B", "text": "CO₂" },
+      { "label": "C", "text": "Fe" }
+    ],
+    "options": [
+      { "id": "1", "text": "Ionic bond" },
+      { "id": "2", "text": "Polar covalent bond" },
+      { "id": "3", "text": "Nonpolar covalent bond" },
+      { "id": "4", "text": "Metallic bond" }
+    ],
+    "explanation_ru": "A) NaCl: compound formed by a metal (Na) and a nonmetal (Cl) with a large electronegativity difference — ionic bond (1). B) CO₂: compound between nonmetals with an electronegativity difference — polar covalent bond (2). C) Fe: pure metallic element — metallic bond (4)."
+  },
+  "ebau_2024_02b": {
+    "question_ru": "Using VSEPR theory, explain the molecular geometry of ammonia (NH₃) and water (H₂O). Indicate the approximate bond angles and justify why they differ from the ideal tetrahedral angle of 109.5°.",
+    "explanation_ru": "According to VSEPR theory, the central atom arranges electron pairs to minimize repulsion. In NH₃, nitrogen has 4 pairs (3 bonding + 1 lone pair); the electron geometry is tetrahedral, but the molecular geometry is trigonal pyramidal. The lone pair repels more strongly than bonding pairs, compressing the angle from 109.5° to ~107°. In H₂O, oxygen has 4 pairs (2 bonding + 2 lone pairs); the molecular geometry is bent. With two lone pairs, compression is greater: angle ~104.5°."
+  },
+  "ebau_2024_02c": {
+    "question_ru": "Arrange the following substances in order of increasing boiling point and justify your answer:\n  1) CH₄  2) NH₃  3) H₂O",
+    "items": [
+      { "id": "1", "text": "CH₄" },
+      { "id": "2", "text": "NH₃" },
+      { "id": "3", "text": "H₂O" }
+    ],
+    "explanation_ru": "CH₄ (b.p. -161 °C) only has London dispersion forces (nonpolar molecule). NH₃ (b.p. -33 °C) forms hydrogen bonds with N, weaker than those of water. H₂O (b.p. 100 °C) forms very strong hydrogen bonds (O is highly electronegative and has 2 lone pairs, forming an extensive network). Order: CH₄ < NH₃ < H₂O."
+  },
+  "ebau_2024_03a": {
+    "context_ru": "The combustion of methane is: CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)\nData: ΔH°f [CO₂(g)] = -393.5 kJ/mol; ΔH°f [H₂O(l)] = -285.8 kJ/mol; ΔH°f [CH₄(g)] = -74.8 kJ/mol.",
+    "question_ru": "Calculate the standard enthalpy of combustion of methane, ΔH°c, in kJ/mol.",
+    "explanation_ru": "Applying Hess's law: ΔH°c = ΣΔH°f(products) - ΣΔH°f(reactants) = [1×(-393.5) + 2×(-285.8)] - [1×(-74.8) + 2×0] = (-393.5 - 571.6) - (-74.8) = -965.1 + 74.8 = -890.3 kJ/mol. The reaction is exothermic."
+  },
+  "ebau_2024_03c": {
+    "context_ru": "The reaction is: CaCO₃(s) → CaO(s) + CO₂(g)\nΔH° = +178.3 kJ; ΔS° = +160.5 J/(mol·K).",
+    "question_ru": "Determine the minimum temperature (in °C) above which the decomposition of calcium carbonate is spontaneous. Round to the nearest integer.",
+    "explanation_ru": "The reaction is spontaneous when ΔG° < 0, i.e., when ΔH° - TΔS° < 0. At the boundary: T = ΔH°/ΔS° = 178300 J / 160.5 J/(mol·K) = 1110.9 K. Converting to °C: 1110.9 - 273.15 = 837.8 ≈ 838 °C. Above this temperature the reaction is spontaneous (ΔH° > 0, ΔS° > 0 — favored at high T)."
+  },
+  "ebau_2024_04a": {
+    "context_ru": "For the gas-phase reaction: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g), at 600 K, the equilibrium constant is Kc = 4.32.",
+    "question_ru": "Select the two correct statements about this system at equilibrium.",
+    "options": [
+      { "id": "1", "text": "An increase in total pressure shifts the equilibrium toward the formation of SO₃." },
+      { "id": "2", "text": "Adding a catalyst changes the value of Kc." },
+      { "id": "3", "text": "If the forward reaction is exothermic, increasing the temperature decreases Kc." },
+      { "id": "4", "text": "Removing SO₃ from the system shifts the equilibrium toward the reactants." },
+      { "id": "5", "text": "The expression for Kc is [SO₂]²[O₂] / [SO₃]²." }
+    ],
+    "explanation_ru": "1) Correct: there are 3 moles of gas on the left and 2 on the right; an increase in pressure shifts the equilibrium toward fewer moles of gas (right, products). 2) Incorrect: a catalyst speeds up both reactions equally and does not change Kc. 3) Correct: according to Le Chatelier's principle, if the reaction is exothermic, a temperature increase shifts the equilibrium toward reactants, decreasing Kc. 4) Incorrect: removing a product shifts the equilibrium toward products (right). 5) Incorrect: the correct expression is Kc = [SO₃]² / ([SO₂]²[O₂])."
+  },
+  "ebau_2024_04c": {
+    "question_ru": "Match each factor with its effect on the rate of a chemical reaction.",
+    "left_items": [
+      { "label": "A", "text": "Increasing the concentration of reactants" },
+      { "label": "B", "text": "Adding a positive catalyst" },
+      { "label": "C", "text": "Decreasing the temperature" }
+    ],
+    "options": [
+      { "id": "1", "text": "Increases the rate due to a higher frequency of effective collisions" },
+      { "id": "2", "text": "Increases the rate by lowering the activation energy" },
+      { "id": "3", "text": "Decreases the rate by reducing the kinetic energy of molecules" },
+      { "id": "4", "text": "Does not affect the reaction rate" }
+    ],
+    "explanation_ru": "A) Increasing the concentration — higher collision frequency — higher rate (1). B) A positive catalyst provides an alternative reaction pathway with lower activation energy (2). C) Decreasing the temperature reduces the average kinetic energy of molecules; fewer collisions overcome Ea — lower rate (3)."
+  },
+  "ebau_2024_05a": {
+    "context_ru": "A 0.10 M solution of acetic acid (CH₃COOH) is prepared. The acidity constant is Ka = 1.8 × 10⁻⁵.",
+    "question_ru": "Calculate the pH of the 0.10 M acetic acid solution. Express the result to two decimal places.",
+    "explanation_ru": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. With c = 0.10 M and Ka = 1.8 × 10⁻⁵ (Ka << c, approximation is valid):\n[H⁺] = √(Ka × c) = √(1.8 × 10⁻⁵ × 0.10) = √(1.8 × 10⁻⁶) = 1.34 × 10⁻³ M.\npH = -log(1.34 × 10⁻³) = 2.87."
+  },
+  "ebau_2024_05b": {
+    "question_ru": "25.0 mL of 0.20 M NaOH is mixed with 25.0 mL of 0.10 M HCl. Calculate the pH of the resulting solution at 25 °C.",
+    "explanation_ru": "Moles of NaOH = 0.025 L × 0.20 mol/L = 5.0 × 10⁻³ mol.\nMoles of HCl = 0.025 L × 0.10 mol/L = 2.5 × 10⁻³ mol.\nAfter neutralization: excess NaOH = 5.0 × 10⁻³ - 2.5 × 10⁻³ = 2.5 × 10⁻³ mol.\nTotal volume = 50.0 mL = 0.050 L.\n[OH⁻] = 2.5 × 10⁻³ / 0.050 = 0.050 M.\npOH = -log(0.050) = 1.30.\npH = 14.00 - 1.30 = 12.70."
+  },
+  "ebau_2024_05c": {
+    "question_ru": "Fill in the blanks for the acid-base titration:\n\n20.0 mL of an HCl solution of unknown concentration is titrated with 0.15 M NaOH. The equivalence point is reached after adding 18.0 mL of NaOH.\n\nX = concentration of HCl (in mol/L)\nY = moles of HCl in the sample (× 10⁻³)",
+    "input_labels": ["X", "Y"],
+    "explanation_ru": "At the equivalence point: moles of HCl = moles of NaOH.\nMoles of NaOH = 0.018 L × 0.15 mol/L = 2.70 × 10⁻³ mol → Y = 2.70.\nConcentration of HCl = moles / volume = 2.70 × 10⁻³ / 0.020 = 0.135 M → X = 0.135."
+  },
+  "ebau_2024_06a": {
+    "question_ru": "Balance the following redox reaction using the ion-electron (half-reaction) method in acidic medium:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nIndicate the oxidation and reduction half-reactions and the balanced overall reaction.",
+    "explanation_ru": "Reduction half-reaction: MnO₄⁻ → Mn²⁺. Mn goes from +7 to +2 (gains 5 e⁻). To balance oxygens in acidic medium, add H₂O and H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nOxidation half-reaction: Fe²⁺ → Fe³⁺ + e⁻. Fe goes from +2 to +3 (loses 1 e⁻).\nTo balance electrons, the oxidation is multiplied by 5.\nOverall: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
+  },
+  "ebau_2024_06b": {
+    "context_ru": "A galvanic cell is constructed with the following electrodes:\n- Zinc electrode: Zn²⁺/Zn, E° = -0.76 V\n- Copper electrode: Cu²⁺/Cu, E° = +0.34 V",
+    "question_ru": "Calculate the standard electromotive force (emf) of the cell in volts. Indicate which electrode is the anode and which is the cathode.",
+    "explanation_ru": "The cell emf is calculated as: emf = E°(cathode) - E°(anode).\nThe electrode with the lower reduction potential acts as the anode (is oxidized): Zn → Zn²⁺ + 2e⁻ (E° = -0.76 V).\nThe electrode with the higher potential acts as the cathode (is reduced): Cu²⁺ + 2e⁻ → Cu (E° = +0.34 V).\nemf = +0.34 - (-0.76) = +1.10 V."
+  },
+  "ebau_2024_06c": {
+    "context_ru": "Electrolysis of an aqueous CuSO₄ solution is performed with inert electrodes for 30 minutes at a current of 2.5 A. Data: M(Cu) = 63.5 g/mol; F = 96,485 C/mol.",
+    "question_ru": "Calculate the mass of copper deposited at the cathode, in grams. Round to two decimal places.",
+    "explanation_ru": "At the cathode: Cu²⁺ + 2e⁻ → Cu.\nTotal charge: Q = I × t = 2.5 A × (30 × 60 s) = 2.5 × 1800 = 4500 C.\nMoles of electrons: n(e⁻) = Q / F = 4500 / 96485 = 0.04665 mol.\nMoles of Cu = n(e⁻) / 2 = 0.02332 mol (2 e⁻ are needed per Cu atom).\nMass of Cu = 0.02332 × 63.5 = 1.48 g."
+  },
+  "ebau_2024_07a": {
+    "question_ru": "Match each organic compound with its characteristic functional group.",
+    "left_items": [
+      { "label": "A", "text": "CH₃CH₂OH" },
+      { "label": "B", "text": "CH₃COOH" },
+      { "label": "C", "text": "CH₃COCH₃" }
+    ],
+    "options": [
+      { "id": "1", "text": "Hydroxyl group (-OH) — Alcohol" },
+      { "id": "2", "text": "Carboxyl group (-COOH) — Carboxylic acid" },
+      { "id": "3", "text": "Carbonyl group (>C=O) — Ketone" },
+      { "id": "4", "text": "Amino group (-NH₂) — Amine" }
+    ],
+    "explanation_ru": "A) CH₃CH₂OH (ethanol) contains an -OH group bonded to a saturated carbon — alcohol (1). B) CH₃COOH (acetic acid) has a -COOH group — carboxylic acid (2). C) CH₃COCH₃ (acetone) has a >C=O group between two carbon atoms — ketone (3)."
+  },
+  "ebau_2024_07b": {
+    "question_ru": "Select the option that contains the correct series of IUPAC names for the compounds:\na) CH₃-CH=CH-CH₃\nb) CH₃-CH(CH₃)-CH₂-OH\nc) CH₃-CO-CH₂-CH₃",
+    "options": [
+      { "id": "1", "text": "a) but-2-ene, b) 2-methylpropan-1-ol, c) butanone" },
+      { "id": "2", "text": "a) but-1-ene, b) 2-methylpropan-2-ol, c) butanal" },
+      { "id": "3", "text": "a) but-2-ene, b) butan-2-ol, c) butanone" },
+      { "id": "4", "text": "a) but-2-ene, b) 2-methylpropan-1-ol, c) pentan-2-one" }
+    ],
+    "explanation_ru": "a) CH₃-CH=CH-CH₃: a 4-carbon chain with a double bond at position 2 — but-2-ene. b) CH₃-CH(CH₃)-CH₂-OH: a 3-carbon main chain with OH at C1 and a methyl group at C2 — 2-methylpropan-1-ol. c) CH₃-CO-CH₂-CH₃: a 4-carbon chain with a ketone group at C2 — butanone (or butan-2-one). Option 1 is correct."
+  },
+  "ebau_2024_07c": {
+    "question_ru": "Write the saponification reaction of ethyl acetate (CH₃COOCH₂CH₃) with sodium hydroxide. Name the products obtained and indicate the type of reaction.",
+    "explanation_ru": "Saponification is the hydrolysis of an ester in a basic medium. Ethyl acetate reacts with NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nThe products are sodium acetate (a salt of acetic acid) and ethanol (a primary alcohol). This is a nucleophilic acyl substitution reaction (irreversible basic hydrolysis)."
+  }
+}

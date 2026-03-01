@@ -1,0 +1,500 @@
+{
+  "1": {
+    "title_ru": "Sustancia simple vs elemento químico",
+    "topic_ru": "Estructura atómica. Diferencia entre los conceptos de «elemento» y «sustancia simple»",
+    "algorithm_ru": [
+      "Lea cada afirmación y determine si se habla de una sustancia (se puede tocar, ver, utilizar) o de un elemento (tipo abstracto de átomos).",
+      "Indicadores de elemento: «forma parte de la composición», «átomo», «abundancia en la corteza terrestre», «forma un enlace químico», «se encuentra en la molécula».",
+      "Indicadores de sustancia simple: propiedades físicas (color, olor, densidad), aplicación en la vida cotidiana/industria, alotropía, combustión, corrosión.",
+      "Seleccione 2 afirmaciones que se refieren al elemento."
+    ],
+    "key_facts_ru": [
+      "Elemento químico: tipo determinado de átomos con la misma carga nuclear.",
+      "Sustancia simple: forma concreta de existencia de un elemento (por ejemplo, O₂ y O₃ son dos sustancias del mismo elemento).",
+      "«Abundancia en la corteza terrestre» — siempre elemento (se habla de la proporción de átomos, no de un trozo de sustancia).",
+      "«Modificaciones alotrópicas» — siempre sustancia simple.",
+      "«Forma parte de un compuesto/proteína/mineral» — siempre elemento."
+    ],
+    "common_traps_ru": [
+      "«Forma un enlace con el oxígeno» — se refiere al elemento, no a la sustancia (se habla de la naturaleza química del átomo).",
+      "«Se utiliza en la industria» — se refiere a la sustancia (aplicación concreta).",
+      "No confundir: «el fósforo forma parte de las proteínas» (elemento) y «el fósforo se aplica en las cerillas» (sustancia)."
+    ],
+    "variability_ru": "Cambia el elemento (Al, P, S, H, O, N, Fe, C, Cl...) y el conjunto de afirmaciones. El principio es siempre el mismo."
+  },
+  "2": {
+    "title_ru": "Período y grupo según la configuración electrónica",
+    "topic_ru": "Sistema Periódico: localización del elemento según la distribución de electrones",
+    "algorithm_ru": [
+      "Se da la distribución de electrones por capas (por ejemplo, 2, 8, 5).",
+      "El número de capas electrónicas = número del período. Contamos: 2, 8, 5 → 3 capas → período 3.",
+      "El número de electrones en la última capa = número del grupo. Última capa = 5 → grupo V.",
+      "Escriba X (período) e Y (grupo) en las casillas."
+    ],
+    "key_facts_ru": [
+      "Número máximo de e⁻ por capas: 1.ª → 2, 2.ª → 8, 3.ª → 18, 4.ª → 32.",
+      "Para los elementos de los primeros 4 períodos, la capa externa tiene un máximo de 8 electrones.",
+      "El número del grupo = número de electrones en la capa externa (para elementos de los subgrupos principales, primeros 20 elementos).",
+      "El número total de electrones = número atómico del elemento (se puede verificar)."
+    ],
+    "common_traps_ru": [
+      "No confundir período (número de capas) y grupo (electrones en la capa externa).",
+      "Verificación: la suma de todos los electrones debe dar el número atómico de un elemento existente.",
+      "Para elementos de los subgrupos secundarios (a partir del 21) la regla «capa externa = grupo» no funciona, pero en el OGE generalmente se dan los primeros 20."
+    ],
+    "variability_ru": "Cambia el elemento (primeros 20 elementos). La distribución siempre determina el elemento de forma inequívoca."
+  },
+  "3": {
+    "title_ru": "Tendencias de cambio de propiedades en el período/grupo",
+    "topic_ru": "Ordenar elementos en orden creciente/decreciente de una propiedad",
+    "algorithm_ru": [
+      "Determine qué propiedad se debe ordenar (propiedades no metálicas, propiedades metálicas, electronegatividad, radio atómico).",
+      "Localice los 3 elementos en la tabla periódica.",
+      "Si los elementos están en el mismo período: de izquierda a derecha se refuerzan las propiedades no metálicas, se debilitan las metálicas, disminuye el radio.",
+      "Si los elementos están en el mismo grupo: de arriba hacia abajo se refuerzan las propiedades metálicas, se debilitan las no metálicas, aumenta el radio.",
+      "Si los elementos están en diagonal, combine ambas reglas.",
+      "Escriba los números en el orden requerido."
+    ],
+    "key_facts_ru": [
+      "En el período (→): carga nuclear ↑, radio ↓, EN ↑, no metalicidad ↑, metalicidad ↓.",
+      "En el grupo (↓): carga nuclear ↑, radio ↑, EN ↓, no metalicidad ↓, metalicidad ↑.",
+      "La electronegatividad y las propiedades no metálicas cambian en la misma dirección.",
+      "El no metal más fuerte es F (esquina superior derecha, sin gases nobles).",
+      "El metal más fuerte es Fr (esquina inferior izquierda)."
+    ],
+    "common_traps_ru": [
+      "Lea atentamente: «aumento» o «disminución» de la propiedad. Escribir los números en orden inverso es un error frecuente.",
+      "Si los elementos no están en el mismo período/grupo (por ejemplo Si, S, Cl — todos en el período 3, pero Si en el grupo IV), use la posición en la tabla.",
+      "Los gases nobles generalmente se excluyen de las comparaciones de no metalicidad."
+    ],
+    "variability_ru": "Cambian los elementos (generalmente 3 del mismo período o grupo) y la propiedad (no metalicidad, metalicidad, radio, EN)."
+  },
+  "4": {
+    "title_ru": "Estados de oxidación del elemento en compuestos",
+    "topic_ru": "Determinación del estado de oxidación según la fórmula de la sustancia",
+    "algorithm_ru": [
+      "Para cada sustancia (A, B, C) determine el estado de oxidación del elemento indicado.",
+      "Utilice las reglas: O siempre −2 (excepto OF₂, peróxidos), H = +1 (en ácidos, con no metales), H = −1 (en hidruros metálicos).",
+      "Metales del grupo I: +1, del grupo II: +2.",
+      "La suma de todos los estados de oxidación en la molécula = 0, en el ion = carga del ion.",
+      "Plantee la ecuación y encuentre el EO desconocido.",
+      "Compare los valores obtenidos con las opciones de respuesta."
+    ],
+    "key_facts_ru": [
+      "F siempre −1. O casi siempre −2 (excepciones: OF₂ → O = +2, peróxidos → O = −1).",
+      "H = +1 en la mayoría de los compuestos, −1 en hidruros (NaH, CaH₂).",
+      "La suma de EO de todos los átomos = 0 en una molécula neutra.",
+      "Sustancia simple: EO = 0 (Na⁰, Cl₂⁰).",
+      "En oxoácidos: H = +1, O = −2, se calcula el EO del átomo central."
+    ],
+    "common_traps_ru": [
+      "OF₂: aquí el oxígeno tiene +2, no −2 (el flúor es más electronegativo).",
+      "Distinga NH₄Br (Br = −1, en la sal) y KBrO₃ (Br = +5, bromato).",
+      "No olvide tener en cuenta la cantidad de átomos: en KBrO₄ → K(+1) + Br(x) + 4×O(−2) = 0, por lo tanto x = +7.",
+      "El estado de oxidación no es la valencia. El EO puede ser negativo."
+    ],
+    "variability_ru": "Cambia el elemento (Br, S, N, Cl, Mn, Cr, P) y el conjunto de compuestos. Siempre 3 sustancias → 4 opciones de EO."
+  },
+  "5": {
+    "title_ru": "Tipos de enlace químico",
+    "topic_ru": "Determinación del tipo de enlace en las sustancias",
+    "algorithm_ru": [
+      "Determine el tipo de cada sustancia: metal, no metal como sustancia simple, compuesto binario, compuesto iónico.",
+      "Enlace metálico: entre átomos de metal (Na, Fe, Cu).",
+      "Covalente apolar: entre no metales iguales (H₂, O₂, N₂, Cl₂, P₄, S₈).",
+      "Covalente polar: entre no metales diferentes (NH₃, H₂O, HCl, CO₂, PBr₃).",
+      "Enlace iónico: entre metal y no metal (NaCl, MgF₂, CaO), o NH₄⁺ con un anión.",
+      "Seleccione 2 sustancias con el tipo de enlace indicado."
+    ],
+    "key_facts_ru": [
+      "Covalente polar es el tipo más frecuente en el OGE: cualquier par de no metales DIFERENTES.",
+      "NH₄Cl — enlace iónico (NH₄⁺ y Cl⁻), pero dentro de NH₄⁺ — covalente polar.",
+      "Los gases nobles (He, Ne, Ar) no tienen enlace químico (monoatómicos).",
+      "Diferencia de EN > 1,7 → enlace iónico (condicionalmente)."
+    ],
+    "common_traps_ru": [
+      "MgF₂ — iónico, no covalente (Mg es metal).",
+      "CO — covalente polar (ambos no metales, pero diferentes).",
+      "HF — covalente polar (no iónico, aunque ΔEN es alta — según el programa escolar es covalente polar).",
+      "Diamante (C), grafito — covalente apolar (un solo elemento)."
+    ],
+    "variability_ru": "Cambia el tipo de enlace (covalente polar/apolar, iónico, metálico) y el conjunto de 5 sustancias."
+  },
+  "6": {
+    "title_ru": "Propiedades comunes de elementos del mismo período/grupo",
+    "topic_ru": "Regularidades en el SP + estructura atómica",
+    "algorithm_ru": [
+      "Determine qué tienen en común los elementos dados (generalmente 2-3 elementos del mismo período o grupo).",
+      "Verifique cada afirmación:",
+      "— ¿Igual número de protones? → No (son elementos diferentes).",
+      "— ¿Igual número de capas electrónicas? → Sí, si están en el mismo período.",
+      "— ¿Igual número de electrones externos? → Sí, si están en el mismo grupo.",
+      "— ¿Todos no metales / metales? → Verifique por la posición en el SP.",
+      "— ¿Óxidos superiores del mismo tipo? → Depende del grupo.",
+      "Seleccione 2 afirmaciones verdaderas."
+    ],
+    "key_facts_ru": [
+      "Elementos del mismo período: igual número de capas electrónicas.",
+      "Elementos del mismo grupo: igual número de electrones en la capa externa.",
+      "B, C, N — 2.º período, todos no metales (el boro en el contexto del OGE se considera no metal).",
+      "Li, Na, K — grupo 1, todos metales activos, todos forman álcalis.",
+      "N puede presentar EO negativos (−3 en NH₃), a diferencia de muchos no metales."
+    ],
+    "common_traps_ru": [
+      "«Igual número de protones» — ¡no! Son elementos diferentes.",
+      "«Solo estados de oxidación positivos» — falso para muchos no metales (N: −3, S: −2).",
+      "El flúor NO presenta EO positivos (es el más electronegativo).",
+      "Los óxidos superiores de elementos del mismo período son de tipos diferentes (Na₂O básico, SO₃ ácido)."
+    ],
+    "variability_ru": "Cambian los elementos (par/trío del mismo período o grupo) y el conjunto de afirmaciones."
+  },
+  "7": {
+    "title_ru": "Clasificación de sustancias inorgánicas",
+    "topic_ru": "Selección de sustancias de determinadas clases de una lista",
+    "algorithm_ru": [
+      "Lea atentamente qué dos clases se deben encontrar y en qué orden escribirlas.",
+      "Clasifique cada sustancia de la lista:",
+      "— Óxido: dos elementos, uno es oxígeno. Básico (metal con EO bajo), ácido (no metal), anfótero (Al₂O₃, ZnO, Cr₂O₃, BeO), no formador de sales (CO, NO, N₂O).",
+      "— Base: Me(OH)ₙ. Álcali (soluble), base insoluble, hidróxido anfótero (Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃).",
+      "— Ácido: HₙA. Fuertes (HCl, HNO₃, H₂SO₄) y débiles (H₂CO₃, H₂S, H₂SiO₃).",
+      "— Sal: catión metálico + anión del residuo ácido.",
+      "Escriba primero el número de la primera clase y luego el de la segunda (¡el orden importa!)."
+    ],
+    "key_facts_ru": [
+      "Óxidos anfóteros: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃ (discutible), PbO.",
+      "Hidróxidos anfóteros: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃.",
+      "OF₂ — NO es un óxido (el oxígeno tiene +2, el flúor −1). Es fluoruro de oxígeno.",
+      "N₂O, NO, CO — óxidos no formadores de sales.",
+      "FeO — óxido básico (Fe²⁺), Fe₂O₃ — condicionalmente anfótero (pero en el OGE a menudo se considera básico)."
+    ],
+    "common_traps_ru": [
+      "¡EL ORDEN IMPORTA! Primero el número de la clase indicada primero en el enunciado.",
+      "OF₂ no es un óxido (trampa frecuente).",
+      "Mg(OH)₂ — base, pero NO es un hidróxido anfótero.",
+      "N₂O — óxido no formador de sales, no ácido."
+    ],
+    "variability_ru": "Cambian los pares de clases (óxido básico + hidróxido anfótero, ácido + sal básica, etc.) y el conjunto de 5 sustancias. El formato ha cambiado con los años: antes era una sustancia de 4."
+  },
+  "8": {
+    "title_ru": "Propiedades químicas de las sustancias / tipos de reacciones",
+    "topic_ru": "¿Reacciona una sustancia dada con las enumeradas?",
+    "algorithm_ru": [
+      "Determine la clase de la sustancia dada (metal, no metal, óxido, ácido, base, sal).",
+      "Para cada opción verifique si ocurre la reacción:",
+      "— Metal + ácido → sal + H₂ (si el metal está a la izquierda del H en la serie de actividad).",
+      "— Ácido + base → sal + H₂O (neutralización).",
+      "— Ácido + sal → nuevo ácido + nueva sal (si hay precipitado/gas/agua).",
+      "— Óxido básico + ácido → sal + H₂O.",
+      "— Óxido ácido + base → sal + H₂O.",
+      "Si la reacción no ocurre (no hay fuerza motriz), esta es una de las respuestas (si la pregunta es «no reaccionan»)."
+    ],
+    "key_facts_ru": [
+      "Fuerzas motrices de las reacciones: formación de precipitado ↓, gas ↑, agua, electrolito débil.",
+      "Serie de actividad: Li K Ca Na Mg Al Zn Fe Ni Sn Pb (H₂) Cu Hg Ag Pt Au.",
+      "Cu, Ag, Au — no reaccionan con ácidos diluidos (están a la derecha del H).",
+      "SiO₂ no reacciona con agua (óxido insoluble).",
+      "CO — no reacciona con la mayoría de las sustancias en condiciones normales."
+    ],
+    "common_traps_ru": [
+      "Preste atención: «no reaccionan» (buscamos los que NO reaccionan) o «reaccionan» (buscamos los que reaccionan).",
+      "Na₂SO₄ — sal estable, no reacciona con la mayoría de los no metales.",
+      "HNO₃ (conc.) — oxidante fuerte, reacciona incluso con Cu y algunos no metales.",
+      "Los metales alcalinos (Na, K) no desplazan metales menos activos de las soluciones — reaccionan con el agua."
+    ],
+    "variability_ru": "Cambia la sustancia (fósforo, zinc, óxido de calcio, ácido sulfúrico...) y la lista de 5 reactivos. La pregunta puede ser «reacciona» o «no reacciona»."
+  },
+  "9": {
+    "title_ru": "Reactivos → productos (reacciones de intercambio)",
+    "topic_ru": "Correspondencia entre reactivos y productos de reacción",
+    "algorithm_ru": [
+      "Para cada par de reactivos (A, B, C) determine el tipo de reacción y escriba los productos.",
+      "Intercambio: AB + CD → AD + CB (cationes y aniones intercambian posiciones).",
+      "Sustitución: A + BC → AC + B (el metal activo desplaza al menos activo).",
+      "Combinación: A + B → AB.",
+      "Descomposición: AB → A + B.",
+      "Preste atención a la valencia del metal en los productos (Fe²⁺ o Fe³⁺ depende del reactivo).",
+      "Encuentre los productos en la columna derecha."
+    ],
+    "key_facts_ru": [
+      "Fe con ácidos diluidos → Fe²⁺ (FeSO₄, FeCl₂).",
+      "Fe₂O₃ + ácido → Fe³⁺ (Fe₂(SO₄)₃, FeCl₃).",
+      "Fe₂(SO₄)₃ + BaCl₂ → FeCl₃ + BaSO₄↓ (intercambio, se conserva Fe³⁺).",
+      "En el intercambio: verifique que se cumpla el balance de cargas de los iones.",
+      "Óxido básico + ácido → sal + agua."
+    ],
+    "common_traps_ru": [
+      "Fe²⁺ vs Fe³⁺ — ¡la trampa principal! Fe con ácido → Fe²⁺, pero Fe₂O₃ con ácido → Fe³⁺.",
+      "Opción sobrante en la columna derecha — no todas las opciones se utilizan.",
+      "No confunda FeSO₄ (Fe²⁺) y Fe₂(SO₄)₃ (Fe³⁺).",
+      "BaSO₄ — precipitado, insoluble en ácidos."
+    ],
+    "variability_ru": "Cambian los pares de reactivos. Con frecuencia intervienen compuestos de Fe, Cu, Ba. Siempre 3 pares → 4-5 opciones de productos."
+  },
+  "10": {
+    "title_ru": "Sustancia → par de reactivos",
+    "topic_ru": "Selección de un par de reactivos con cada uno de los cuales reacciona la sustancia",
+    "algorithm_ru": [
+      "Para cada sustancia (A, B, C) verifique si reacciona con AMBAS sustancias de cada opción.",
+      "Importante: la sustancia debe reaccionar con CADA UNO de los dos reactivos del par.",
+      "Determine la clase de la sustancia y recuerde sus propiedades:",
+      "— Metal: reacciona con ácidos, con soluciones de sales de metales menos activos, con oxígeno.",
+      "— Base: reacciona con ácidos, óxidos ácidos, óxidos/hidróxidos anfóteros, sales (si hay precipitado).",
+      "— Óxido ácido: reacciona con agua (excepto SiO₂), álcalis, óxidos básicos.",
+      "— Ácido: reacciona con metales (por encima de H), bases, óxidos básicos/anfóteros, sales (si hay precipitado/gas).",
+      "Verifique consecutivamente todas las opciones para cada sustancia."
+    ],
+    "key_facts_ru": [
+      "Al — metal anfótero: reacciona tanto con ácidos como con álcalis.",
+      "Ca(OH)₂ reacciona con CO₂ (enturbiamiento del agua de cal) y con óxidos anfóteros (Al₂O₃).",
+      "SO₃ (óxido ácido) reacciona con óxidos básicos (Na₂O) y con reductores (H₂S).",
+      "¡Verifique cada reactivo del par por separado!"
+    ],
+    "common_traps_ru": [
+      "Error: verificar solo el primer reactivo y olvidar verificar el segundo.",
+      "N₂ — gas muy inerte, reacciona con pocas sustancias (a alta T: con Li, Mg, H₂).",
+      "CaO reacciona con agua y ácidos, pero NO reacciona con óxidos básicos.",
+      "Las sustancias anfóteras reaccionan tanto con ácidos como con álcalis — aproveche esto."
+    ],
+    "variability_ru": "Cambian las 3 sustancias (metal, base, óxido, etc.) y los 4 pares de reactivos. Clave: propiedades de cada clase."
+  },
+  "11": {
+    "title_ru": "Tipos de reacciones, condiciones y signos",
+    "topic_ru": "Reacción de intercambio / sustitución / descomposición / combinación",
+    "algorithm_ru": [
+      "Para cada par de sustancias determine el tipo de reacción:",
+      "— Intercambio: dos sustancias compuestas intercambian partes (AB + CD → AD + CB). La neutralización es una variante.",
+      "— Sustitución: simple + compuesto → nuevo simple + nuevo compuesto (A + BC → AC + B).",
+      "— Combinación: de varios → uno.",
+      "— Descomposición: de uno → varios.",
+      "Verifique que la reacción realmente ocurre (hay fuerza motriz).",
+      "Seleccione los pares correspondientes al tipo indicado."
+    ],
+    "key_facts_ru": [
+      "La neutralización (ácido + base → sal + agua) es una reacción de intercambio.",
+      "Br₂ + 2KI → 2KBr + I₂ — sustitución (un halógeno desplaza a otro).",
+      "Zn + H₂SO₄ → ZnSO₄ + H₂↑ — sustitución (¡no intercambio!).",
+      "Exo/endotérmicas: combustión — exo, descomposición generalmente — endo.",
+      "Catalíticas: descomposición de H₂O₂ (cat. MnO₂)."
+    ],
+    "common_traps_ru": [
+      "Metal + ácido es SUSTITUCIÓN, no intercambio (aunque externamente se parezca).",
+      "NaOH + Al — reacción no estándar (Al + NaOH + H₂O → Na[Al(OH)₄] + H₂↑), no es intercambio ni sustitución simple.",
+      "No todo par reacciona: Na₂SO₄ + KCl → no ocurre (no hay precipitado/gas/agua)."
+    ],
+    "variability_ru": "Cambia el tipo de reacción indicado (intercambio/sustitución/descomposición/combinación) y el conjunto de 5 pares de sustancias."
+  },
+  "12": {
+    "title_ru": "Signos de las reacciones que ocurren",
+    "topic_ru": "Correspondencia entre reactivos y signo observable",
+    "algorithm_ru": [
+      "Para cada par de reactivos escriba la ecuación de reacción.",
+      "Determine qué se observa: precipitado (↓), gas (↑), cambio de color, disolución.",
+      "La clave es recordar los colores de los precipitados y las propiedades de los gases:",
+      "— Precipitado blanco: BaSO₄, AgCl, CaCO₃, Mg(OH)₂.",
+      "— Azul: Cu(OH)₂.",
+      "— Pardo: Fe(OH)₃.",
+      "— Negro: CuS, PbS, FeS.",
+      "— Gelatinoso incoloro: H₂SiO₃.",
+      "— Gas inodoro: CO₂, H₂, O₂.",
+      "— Gas con olor: H₂S (huevos podridos), NH₃ (penetrante), SO₂ (irritante).",
+      "Compare las observaciones con las opciones."
+    ],
+    "key_facts_ru": [
+      "Cu(OH)₂ — precipitado azul (de CuSO₄ + NaOH o Cu²⁺ + OH⁻).",
+      "Fe(OH)₃ — precipitado pardo.",
+      "Fe(OH)₂ — blanco, se oscurece rápidamente al aire (oxidación a Fe(OH)₃).",
+      "AgCl — blanco cuajado, se oscurece con la luz.",
+      "BaSO₄ — blanco, insoluble en ácidos.",
+      "H₂SiO₃ — precipitado gelatinoso incoloro.",
+      "CuS — precipitado negro, insoluble incluso en ácidos."
+    ],
+    "common_traps_ru": [
+      "No confunda: «precipitado blanco» puede ser AgCl, BaSO₄, CaCO₃ y Mg(OH)₂. Importa CUÁL exactamente.",
+      "NH₃ — gas con olor penetrante (de NH₄⁺ + OH⁻).",
+      "H₂S — gas con olor a huevos podridos.",
+      "CO₂ — gas incoloro SIN olor."
+    ],
+    "variability_ru": "Cambian los 3 pares de reactivos y las 4 opciones de signos. El conjunto se basa en las reacciones cualitativas del programa del OGE."
+  },
+  "13": {
+    "title_ru": "Electrolitos y no electrolitos",
+    "topic_ru": "Clasificación de sustancias según su capacidad de disociación",
+    "algorithm_ru": [
+      "Determine para cada sustancia: electrolito o no electrolito.",
+      "Electrolitos (se disocian en solución/fundido): todas las sales solubles, ácidos fuertes, álcalis.",
+      "No electrolitos: sustancias simples (metales, no metales), óxidos, la mayoría de las sustancias orgánicas, agua (débilmente).",
+      "Subtipo aparte: cálculo del número de iones en la disociación.",
+      "Na₂SO₄ → 2Na⁺ + SO₄²⁻ → 3 iones. CaCl₂ → Ca²⁺ + 2Cl⁻ → 3 iones.",
+      "Seleccione las sustancias según el criterio indicado."
+    ],
+    "key_facts_ru": [
+      "Ácidos fuertes: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄.",
+      "Ácidos débiles: H₂CO₃, H₂S, CH₃COOH, HF, H₃PO₄, H₂SiO₃.",
+      "Álcalis (bases solubles): NaOH, KOH, Ca(OH)₂, Ba(OH)₂.",
+      "Las bases insolubles NO son electrolitos en solución acuosa (no se disuelven).",
+      "CH₄, CO, CO₂, SiO₂ — no electrolitos.",
+      "Cálculo de iones: tenga en cuenta los índices en la fórmula."
+    ],
+    "common_traps_ru": [
+      "CO — no electrolito (óxido, no se disuelve formando iones).",
+      "HF — ácido DÉBIL (excepción entre los halogenuros de hidrógeno).",
+      "H₂O — electrolito muy débil (generalmente se considera no electrolito en el OGE).",
+      "Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ → 5 iones (¡no 6! se cuentan unidades fórmula)."
+    ],
+    "variability_ru": "Tres subtipos: (1) elegir electrolitos/no electrolitos, (2) elegir electrolitos fuertes/débiles, (3) elegir sustancias con un número dado de iones en la disociación."
+  },
+  "14": {
+    "title_ru": "Ecuaciones iónicas de reacciones",
+    "topic_ru": "Selección de sustancias para una ecuación iónica reducida",
+    "algorithm_ru": [
+      "Lea la ecuación iónica reducida (por ejemplo, H⁺ + OH⁻ = H₂O).",
+      "Determine qué sustancias iniciales se necesitan: una contiene el catión/anión del lado izquierdo, la otra el segundo ion.",
+      "Regla: una sustancia se escribe en forma de iones solo si es un electrolito FUERTE Y SOLUBLE.",
+      "Para H⁺ + OH⁻ = H₂O se necesitan: ácido fuerte + álcali soluble, y la sal también debe ser soluble.",
+      "Verifique: los ácidos débiles (H₂S, H₂CO₃, CH₃COOH) se escriben completos (no se disocian completamente).",
+      "Las sustancias insolubles (Cu(OH)₂, BaSO₄, CaCO₃) también se escriben completas.",
+      "Seleccione 2 sustancias de la lista."
+    ],
+    "key_facts_ru": [
+      "H⁺ + OH⁻ = H₂O — reacción de ácido fuerte con álcali soluble (sal soluble).",
+      "CO₃²⁻ + 2H⁺ = H₂O + CO₂ — el carbonato se escribe como ion → es SOLUBLE (Na₂CO₃, K₂CO₃).",
+      "CaCO₃ es insoluble, por lo tanto no corresponde a la ecuación con CO₃²⁻.",
+      "NaHCO₃ es bicarbonato (HCO₃⁻), no carbonato (CO₃²⁻).",
+      "H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — la ecuación iónica es diferente: SO₄²⁻ + Ba²⁺ = BaSO₄↓."
+    ],
+    "common_traps_ru": [
+      "H₂S — ácido débil, NO se escribe como H⁺ + S²⁻ en ecuaciones iónicas.",
+      "H₂SO₄ + Ba(OH)₂: se forma BaSO₄↓ — precipitado, la ecuación iónica NO será H⁺ + OH⁻ = H₂O.",
+      "Al(OH)₃ — hidróxido insoluble, no se escribe como OH⁻.",
+      "Mg(OH)₂ — insoluble, no sirve como fuente de OH⁻."
+    ],
+    "variability_ru": "Cambia la ecuación iónica reducida (H⁺+OH⁻=H₂O, CO₃²⁻+2H⁺=H₂O+CO₂, S²⁻+2H⁺=H₂S, Ba²⁺+SO₄²⁻=BaSO₄↓) y el conjunto de 6 sustancias."
+  },
+  "15": {
+    "title_ru": "Oxidante y reductor en reacciones redox",
+    "topic_ru": "Determinación de oxidación/reducción según el esquema de cambio de EO",
+    "algorithm_ru": [
+      "Subtipo 1 (esquemas): Para cada esquema (A, B, C) determine si el EO del elemento aumenta o disminuye.",
+      "EO aumenta → el elemento CEDE electrones → OXIDACIÓN (reductor).",
+      "EO disminuye → el elemento ACEPTA electrones → REDUCCIÓN (oxidante).",
+      "Subtipo 2 (sustancias): Se da una reacción. Determine el EO de los elementos antes y después de la reacción.",
+      "La sustancia que contiene el elemento con EO que aumenta → reductor.",
+      "La sustancia que contiene el elemento con EO que disminuye → oxidante.",
+      "Mnemotecnia: «Cede — Reductor» (CR)."
+    ],
+    "key_facts_ru": [
+      "Oxidación = cesión de electrones = aumento de EO.",
+      "Reducción = aceptación de electrones = disminución de EO.",
+      "El oxidante acepta e⁻, el reductor cede e⁻.",
+      "En la reacción Cu + HNO₃: Cu⁰→Cu²⁺ (reductor), N⁺⁵→N⁺² (oxidante).",
+      "Las sustancias simples metálicas son siempre reductores."
+    ],
+    "common_traps_ru": [
+      "No confunda: el oxidante SE REDUCE (su EO disminuye), el reductor SE OXIDA.",
+      "HNO₃ en la reacción con Cu — oxidante (N⁺⁵→N⁺²), aunque H en HNO₃ no cambia de EO.",
+      "N₂⁰ → 2N⁻³: EO disminuye → reducción.",
+      "Si el elemento se oxida y se reduce a la vez — es desproporción (raro en el OGE)."
+    ],
+    "variability_ru": "Dos subtipos: (1) 3 esquemas de cambio de EO → oxidación/reducción; (2) reacción → papel de cada sustancia (oxidante/reductor/ambos)."
+  },
+  "16": {
+    "title_ru": "Práctica de laboratorio / separación de mezclas / contaminación",
+    "topic_ru": "Afirmaciones verdaderas sobre cuestiones prácticas de química",
+    "algorithm_ru": [
+      "Lea las 4 afirmaciones. Determine el tema: seguridad en el laboratorio, separación de mezclas o ecología/contaminación.",
+      "Para cada afirmación determine si es verdadera:",
+      "— Reglas de seguridad: no probar al gusto, oler con precaución (abanicando), ácido en la piel — lavar + bicarbonato de sodio.",
+      "— Separación: filtración (partículas insolubles), evaporación (sustancias disueltas), destilación (diferentes T de ebullición), imán (Fe), embudo de decantación (líquidos inmiscibles).",
+      "— Ecología: efecto invernadero (CO₂), lluvia ácida (SO₂, NO₂), capa de ozono (freones).",
+      "El número de afirmaciones verdaderas puede ser 1, 2 o 3."
+    ],
+    "key_facts_ru": [
+      "Hierro fundido, bronce, acero — aleaciones = mezclas.",
+      "Agua destilada, hielo — sustancias puras.",
+      "La filtración NO separa sales disueltas (se necesita evaporación o destilación).",
+      "La destilación es un método físico (no químico).",
+      "El ácido se vierte en el agua (¡no el agua en el ácido!)."
+    ],
+    "common_traps_ru": [
+      "La tarea 16 tiene un número VARIABLE de respuestas correctas (de 1 a 3). Escriba TODAS las verdaderas.",
+      "«Por filtración se puede purificar el agua de mar de sales» — FALSO (las sales están disueltas).",
+      "«La destilación es un método químico» — FALSO (es físico).",
+      "«Los líquidos inflamables se guardan solo en el refrigerador» — impreciso (lejos del fuego, pero no necesariamente en el refrigerador)."
+    ],
+    "variability_ru": "Tres temas principales: (1) seguridad en el laboratorio, (2) separación de mezclas, (3) contaminación ambiental. Cada variante es un tema. Número de verdaderas de 1 a 3."
+  },
+  "17": {
+    "title_ru": "Distinción de sustancias mediante reactivos",
+    "topic_ru": "Selección de un reactivo para distinguir un par de sustancias",
+    "algorithm_ru": [
+      "Para cada par de sustancias (A, B, C) se debe encontrar un reactivo que dé resultados DIFERENTES con estas dos sustancias.",
+      "Algoritmo de verificación: reactivo + sustancia 1 → efecto 1 (precipitado/gas/nada). Reactivo + sustancia 2 → efecto 2.",
+      "Si los efectos son diferentes — el reactivo distingue.",
+      "Reactivos cualitativos principales: AgNO₃ (para Cl⁻, Br⁻, I⁻), BaCl₂ (para SO₄²⁻), álcali KOH/NaOH (para cationes: Cu²⁺, Fe³⁺, Mg²⁺, NH₄⁺), ácidos (para CO₃²⁻), tornasol/indicador (ácido vs neutro).",
+      "Seleccione el reactivo de las opciones propuestas."
+    ],
+    "key_facts_ru": [
+      "AgNO₃: con Cl⁻ → AgCl↓ (blanco), con F⁻ → soluble (sin precipitado), con Br⁻ → AgBr↓ (amarillento), con I⁻ → AgI↓ (amarillo).",
+      "BaCl₂/Ba(NO₃)₂: con SO₄²⁻ → BaSO₄↓ (blanco).",
+      "KOH/NaOH: con Cu²⁺ → Cu(OH)₂↓ (azul), con Fe³⁺ → Fe(OH)₃↓ (pardo), con Mg²⁺ → Mg(OH)₂↓ (blanco), con NH₄⁺ → NH₃↑ (olor).",
+      "Ácido: con CO₃²⁻ → CO₂↑ (burbujas).",
+      "BaCO₃ reacciona con ácidos (se disuelve + CO₂), pero no con sales neutras."
+    ],
+    "common_traps_ru": [
+      "AgF es soluble. AgNO₃ NO distingue F⁻ por precipitado (pero distingue F⁻ de Cl⁻: con KF no hay precipitado, con KCl sí).",
+      "Opción sobrante en la columna derecha — no todas se utilizan.",
+      "FeO es insoluble, no reacciona con soluciones de sales.",
+      "KOH distingue NH₄Cl de otras sales (desprendimiento de NH₃ con olor)."
+    ],
+    "variability_ru": "Cambian los 3 pares de sustancias y los 4 reactivos. Los pares a menudo incluyen sales del mismo anión con diferentes cationes o viceversa."
+  },
+  "18": {
+    "title_ru": "Cálculo de la fracción en masa de un elemento",
+    "topic_ru": "Cálculo de ω(elemento) en un compuesto",
+    "algorithm_ru": [
+      "Escriba la fórmula de la sustancia del enunciado del problema.",
+      "Calcule la masa molar M: suma de las masas atómicas de todos los átomos.",
+      "M = Σ(Aᵢ × nᵢ), donde Aᵢ es la masa atómica, nᵢ es el número de átomos del elemento.",
+      "Calcule la fracción en masa: ω(X) = (A(X) × n(X)) / M × 100%.",
+      "Redondee a enteros.",
+      "Importante: cuente cuidadosamente el número de átomos, especialmente en fórmulas con varios paréntesis."
+    ],
+    "key_facts_ru": [
+      "Masas atómicas (redondeadas): H=1, C=12, N=14, O=16, Na=23, Mg=24, Al=27, P=31, S=32, Cl=35,5, K=39, Ca=40, Fe=56, Cu=64, Zn=65, Ag=108, Ba=137.",
+      "En la fórmula Mg₃(C₆H₅O₇)₂: 3 átomos de Mg, 2×6=12 átomos de C, 2×5=10 átomos de H, 2×7=14 átomos de O.",
+      "Verificación: ω de todos los elementos sumados ≈ 100%."
+    ],
+    "common_traps_ru": [
+      "No olvide el índice después del paréntesis: (OH)₂ → 2 átomos de O y 2 átomos de H.",
+      "Ca(NO₃)₂: N = 2×1 = 2 átomos, O = 2×3 = 6 átomos.",
+      "Mg₃(C₆H₅O₇)₂: el índice 2 multiplica TODO lo que está dentro de los paréntesis.",
+      "Redondeo: 24,39% → 24%, pero 24,5% → también 24 o 25 (siga la indicación «con precisión de enteros» — redondeo matemático)."
+    ],
+    "variability_ru": "Cambia la sustancia (desde simples como NaCl, CaCO₃ hasta complejas como Mg₃(C₆H₅O₇)₂). El contexto es la aplicación práctica de la sustancia. Las tareas 18 y 19 están vinculadas por un contexto común."
+  },
+  "19": {
+    "title_ru": "Cálculo práctico con la fracción en masa",
+    "topic_ru": "Aplicación de ω(elemento) a un problema concreto",
+    "algorithm_ru": [
+      "Utilice la fracción en masa calculada en la tarea 18.",
+      "Problema típico: «En N gramos de sustancia hay X gramos de elemento. Encontrar X.»",
+      "Fórmula: m(elemento) = m(sustancia) × ω(elemento).",
+      "O la inversa: m(sustancia) = m(elemento) / ω(elemento).",
+      "Escriba la respuesta con precisión de décimas.",
+      "Tolerancia en la corrección: ±0,05 (por ejemplo, 1,6 se acepta como respuesta correcta si el estándar es 1,6)."
+    ],
+    "key_facts_ru": [
+      "ω se usa como fracción decimal en las fórmulas: 16% = 0,16.",
+      "m(X) = m(sustancia) × ω(X) — masa del elemento en la porción dada.",
+      "m(sustancia) = m(X) / ω(X) — masa de sustancia que contiene la masa dada del elemento.",
+      "Las tareas 18 y 19 siempre están vinculadas: el resultado de la 18 se usa en la 19."
+    ],
+    "common_traps_ru": [
+      "No olvide convertir porcentajes a fracción decimal: 16% → 0,16.",
+      "Si la tarea pregunta «cuántos kg de mineral» y ω está dado para el elemento en el compuesto puro — el mineral puede no ser 100% puro (pero en el OGE generalmente se considera 100%).",
+      "Verifique las unidades: si la masa está en gramos, la respuesta también en gramos.",
+      "Precisión «de décimas»: 1,6 g, no 1,60 g ni 2 g."
+    ],
+    "variability_ru": "Vinculado con la tarea 18. Contexto: medicina, agricultura, industria. La fórmula es la misma, cambian los números."
+  }
+}

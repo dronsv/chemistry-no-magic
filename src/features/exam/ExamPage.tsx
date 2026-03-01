@@ -102,11 +102,11 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
       if (ogeTasks.length === 0 || practiceSystemId !== systemId) {
         const [tasks, algos] = await Promise.all([
           systemId === 'oge'
-            ? loadOgeTasks()
-            : loadExamTasks(systemId),
+            ? loadOgeTasks(locale)
+            : loadExamTasks(systemId, locale),
           systemId === 'oge'
-            ? loadOgeSolutionAlgorithms()
-            : loadExamAlgorithms(systemId).catch(() => [] as OgeSolutionAlgorithm[]),
+            ? loadOgeSolutionAlgorithms(locale)
+            : loadExamAlgorithms(systemId, locale).catch(() => [] as OgeSolutionAlgorithm[]),
         ]);
         setOgeTasks(tasks);
         setAlgorithms(algos);
@@ -117,7 +117,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
       setError(e instanceof Error ? e.message : m.error_loading());
       setPhase('start');
     }
-  }, [ogeTasks, practiceSystemId]);
+  }, [ogeTasks, practiceSystemId, locale]);
 
   const startTopicPractice = useCallback(async () => {
     setPhase('loading');
@@ -142,14 +142,14 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
   const loadSystemTasksForTopic = useCallback(async (systemId: string) => {
     const [tasks, algos] = await Promise.all([
       systemId === 'oge'
-        ? loadOgeTasks()
-        : loadExamTasks(systemId),
+        ? loadOgeTasks(locale)
+        : loadExamTasks(systemId, locale),
       systemId === 'oge'
-        ? loadOgeSolutionAlgorithms()
-        : loadExamAlgorithms(systemId).catch(() => [] as OgeSolutionAlgorithm[]),
+        ? loadOgeSolutionAlgorithms(locale)
+        : loadExamAlgorithms(systemId, locale).catch(() => [] as OgeSolutionAlgorithm[]),
     ]);
     return { tasks, algorithms: algos };
-  }, []);
+  }, [locale]);
 
   const startExam = useCallback(async () => {
     setPhase('loading');

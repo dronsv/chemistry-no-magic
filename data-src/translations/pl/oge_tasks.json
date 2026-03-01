@@ -1,0 +1,599 @@
+{
+  "demo_2025_01": {
+    "question_ru": "Wybierz dwa stwierdzenia, w których mowa o glinie jako o pierwiastku chemicznym.",
+    "explanation_ru": "Stwierdzenia 1 i 3 opisują glin jako pierwiastek chemiczny (rozpowszechnienie w skorupie ziemskiej — właściwość pierwiastka; tworzenie wiązania chemicznego — właściwość pierwiastka). Stwierdzenia 2, 4 i 5 opisują glin jako substancję prostą (produkcja, korozja, stopy).",
+    "options": [
+      { "id": "1", "text": "Glin pod względem rozpowszechnienia w skorupie ziemskiej zajmuje trzecie miejsce, ustępując jedynie tlenowi i krzemowi." },
+      { "id": "2", "text": "Do końca XIX w. glin nie był produkowany na skalę przemysłową." },
+      { "id": "3", "text": "Glin tworzy trwałe wiązanie chemiczne z tlenem." },
+      { "id": "4", "text": "Glin praktycznie nie ulega korozji." },
+      { "id": "5", "text": "Przy produkcji stopów dla przemysłu lotniczego wykorzystuje się glin." }
+    ]
+  },
+  "sdamgia_5830_01": {
+    "question_ru": "Wybierz dwa stwierdzenia, w których mowa o fosforze jako o pierwiastku chemicznym.",
+    "explanation_ru": "W zdaniach 1 i 4 o fosforze mowa jest jako o pierwiastku chemicznym (atom w cząsteczce fosfiny; pierwiastek w składzie białek). Pozostałe — o substancji prostej (zastosowanie, alotropia, właściwości fizyczne).",
+    "options": [
+      { "id": "1", "text": "Cząsteczka fosfiny składa się z trzech atomów wodoru i jednego atomu fosforu." },
+      { "id": "2", "text": "Fosfor wchodzi w skład mieszaniny nałożonej na ściankę pudełka zapałek." },
+      { "id": "3", "text": "Fosfor ma kilka odmian alotropowych." },
+      { "id": "4", "text": "Fosfor wchodzi w skład białek roślinnych i zwierzęcych." },
+      { "id": "5", "text": "Czarny fosfor ma właściwości półprzewodnikowe." }
+    ]
+  },
+  "sdamgia_5831_01": {
+    "question_ru": "Wybierz dwa stwierdzenia, w których mowa o siarce jako o pierwiastku chemicznym.",
+    "explanation_ru": "W zdaniach 1 i 3 o siarce mowa jest jako o pierwiastku chemicznym (pierwiastek w składzie aminokwasów; atom w cząsteczce siarkowodoru). Pozostałe — o substancji prostej.",
+    "options": [
+      { "id": "1", "text": "Siarka wchodzi w skład niektórych aminokwasów." },
+      { "id": "2", "text": "Siarka to proszek o żółtym kolorze, który nie jest zwilżany przez wodę." },
+      { "id": "3", "text": "Cząsteczka siarkowodoru składa się z dwóch atomów wodoru i jednego atomu siarki." },
+      { "id": "4", "text": "Siarka nie jest przyciągana przez magnes." },
+      { "id": "5", "text": "Siarkę stosuje się do wulkanizacji kauczuku." }
+    ]
+  },
+  "demo_2025_02": {
+    "question_ru": "Na rysunku przedstawiono model atomu pierwiastka chemicznego z rozkładem elektronów na powłokach: 2, 8, 5.\n\nWpisz w pole odpowiedzi numer okresu (X) i numer grupy (Y), w których dany pierwiastek chemiczny jest umieszczony w układzie okresowym.",
+    "explanation_ru": "Rozkład elektronów 2, 8, 5 — to 3 powłoki elektronowe (okres 3) i 5 elektronów na powłoce zewnętrznej (grupa V). To fosfor (P), umieszczony w 3. okresie, V grupie.",
+    "input_labels": ["X", "Y"]
+  },
+  "sdamgia_10710_02": {
+    "question_ru": "Na przedstawionym rysunku pokazano model atomu pierwiastka chemicznego.\nWpisz w pole odpowiedzi numer okresu (X) i numer grupy (Y), w których dany pierwiastek chemiczny jest umieszczony w układzie okresowym.\nPierwiastek: wapń (Ca), Z=20, konfiguracja elektronowa 2, 8, 8, 2.",
+    "explanation_ru": "Wapń (Ca, Z=20) jest umieszczony w 4. okresie, grupie IIA. 4 powłoki elektronowe (okres 4), 2 elektrony walencyjne (grupa II). Odpowiedź: X=4, Y=2.",
+    "input_labels": ["X", "Y"]
+  },
+  "sdamgia_type_02_cl": {
+    "question_ru": "Na przedstawionym rysunku pokazano model atomu pierwiastka chemicznego.\nWpisz w pole odpowiedzi numer okresu (X) i numer grupy (Y), w których dany pierwiastek chemiczny jest umieszczony w układzie okresowym.\nPierwiastek: chlor (Cl), Z=17, konfiguracja elektronowa 2, 8, 7.",
+    "explanation_ru": "Chlor (Cl, Z=17) jest umieszczony w 3. okresie, grupie VIIA. 3 powłoki elektronowe, 7 elektronów walencyjnych. Odpowiedź: X=3, Y=7.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2025_03": {
+    "question_ru": "Uporządkuj pierwiastki chemiczne\n  1) siarka  2) krzem  3) chlor\nw kolejności wzrostu właściwości niemetalicznych tworzonych przez nie substancji prostych.\nZapisz podane numery pierwiastków w odpowiedniej kolejności.",
+    "explanation_ru": "Właściwości niemetaliczne rosną w okresie od lewej do prawej i w grupie od dołu do góry. Si (okres 3, grupa IV) < S (okres 3, grupa VI) < Cl (okres 3, grupa VII). Kolejność: krzem → siarka → chlor, czyli 2 → 1 → 3.",
+    "items": [
+      { "id": "1", "text": "siarka" },
+      { "id": "2", "text": "krzem" },
+      { "id": "3", "text": "chlor" }
+    ]
+  },
+  "sdamgia_10733_03": {
+    "question_ru": "Uporządkuj pierwiastki chemiczne\n  1) wapń  2) glin  3) siarka\nw kolejności zmiany od kwasowych do zasadowych właściwości ich najwyższych tlenków.\nZapisz numery pierwiastków w odpowiedniej kolejności.",
+    "explanation_ru": "SO₃ — tlenek kwasowy, Al₂O₃ — amfoteryczny, CaO — zasadowy. Od kwasowych do zasadowych: siarka → glin → wapń.",
+    "items": [
+      { "id": "1", "text": "wapń" },
+      { "id": "2", "text": "glin" },
+      { "id": "3", "text": "siarka" }
+    ]
+  },
+  "sdamgia_10736_03": {
+    "question_ru": "Uporządkuj pierwiastki chemiczne\n  1) gal  2) tlen  3) fosfor\nw kolejności malejącego promienia atomu.\nZapisz numery pierwiastków w odpowiedniej kolejności.",
+    "explanation_ru": "Promień atomu maleje od lewej do prawej w okresie i od dołu do góry w grupie. Ga (4. okres) > P (3. okres) > O (2. okres). Kolejność malejąca: gal → fosfor → tlen.",
+    "items": [
+      { "id": "1", "text": "gal" },
+      { "id": "2", "text": "tlen" },
+      { "id": "3", "text": "fosfor" }
+    ]
+  },
+  "demo_2025_04": {
+    "question_ru": "Ustal odpowiedniość między substancją a stopniem utlenienia bromu w danej substancji: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) NH₄Br: N ma stopień utlenienia −3, H +1, więc Br = −1.\nB) KBrO₄: K +1, O −2, 4 atomy O = −8, więc Br = +7.\nC) HBrO: H +1, O −2, więc Br = +1.",
+    "options": [
+      { "id": "1", "text": "−1" },
+      { "id": "2", "text": "+1" },
+      { "id": "3", "text": "+3" },
+      { "id": "4", "text": "+7" }
+    ]
+  },
+  "bank_fipi_04_n": {
+    "question_ru": "Ustal odpowiedniość między wzorem związku a stopniem utlenienia azotu w tym związku.",
+    "explanation_ru": "A) N₂O₅: O=−2, 2x + 5(−2) = 0, x = +5 → 4.\nB) NH₃: H=+1, x + 3(+1) = 0, x = −3 → 1.\nC) NO: O=−2, x + (−2) = 0, x = +2 → 2.",
+    "options": [
+      { "id": "1", "text": "−3" },
+      { "id": "2", "text": "+2" },
+      { "id": "3", "text": "+4" },
+      { "id": "4", "text": "+5" }
+    ]
+  },
+  "bank_fipi_04_s": {
+    "question_ru": "Ustal odpowiedniość między wzorem związku a stopniem utlenienia siarki w tym związku.",
+    "explanation_ru": "A) H₂S: H=+1, 2(+1) + x = 0, x = −2 → 1.\nB) SO₃: O=−2, x + 3(−2) = 0, x = +6 → 3.\nC) Na₂SO₄: Na=+1, O=−2, 2(+1) + x + 4(−2) = 0, x = +6 → 3.",
+    "options": [
+      { "id": "1", "text": "−2" },
+      { "id": "2", "text": "+4" },
+      { "id": "3", "text": "+6" },
+      { "id": "4", "text": "0" }
+    ]
+  },
+  "demo_2025_05": {
+    "question_ru": "Z podanej listy wybierz dwie substancje z kowalencyjnym wiązaniem polarnym.",
+    "explanation_ru": "NH₃ — kowalencyjne wiązanie polarne (między niemetalami o różnej elektroujemności). Na — wiązanie metaliczne. MgF₂ — wiązanie jonowe (metal + niemetal). F₂ — kowalencyjne niepolarne (identyczne atomy). PBr₃ — kowalencyjne polarne (niemetale o różnej elektroujemności)."
+  },
+  "bank_fipi_05_ion": {
+    "question_ru": "Z podanej listy wybierz dwie substancje z wiązaniem jonowym.",
+    "explanation_ru": "Wiązanie jonowe tworzy się między metalem a niemetalem. MgO (Mg — metal, O — niemetal) i KBr (K — metal, Br — niemetal) — wiązanie jonowe. CO₂, H₂O — kowalencyjne polarne. N₂ — kowalencyjne niepolarne."
+  },
+  "bank_fipi_05_nonpol": {
+    "question_ru": "Z podanej listy wybierz dwie substancje z kowalencyjnym wiązaniem niepolarnym.",
+    "explanation_ru": "Kowalencyjne wiązanie niepolarne — między identycznymi atomami niemetali. Cl₂ (Cl−Cl) i F₂ (F−F) — kowalencyjne niepolarne. CaCl₂, KF — jonowe. SO₂ — kowalencyjne polarne."
+  },
+  "demo_2025_06": {
+    "question_ru": "Wybierz dwa prawidłowe dokończenia następującego stwierdzenia.\nPodobieństwo boru, węgla i azotu przejawia się w tym, że…",
+    "explanation_ru": "B, C, N znajdują się w 2. okresie → taka sama liczba powłok elektronowych (2). Wszystkie trzy to niemetale (bor — półmetal, ale w kontekście egzaminu uważany za niemetal). Liczba protonów jest u nich różna (5, 6, 7). Azot wykazuje ujemne stopnie utlenienia. Najwyższe tlenki B₂O₃ i CO₂ — kwasowe.",
+    "options": [
+      { "id": "1", "text": "w jądrach ich atomów jest taka sama liczba protonów." },
+      { "id": "2", "text": "w ich atomach jest taka sama liczba powłok elektronowych obsadzonych elektronami." },
+      { "id": "3", "text": "tworzone przez nie substancje proste są niemetalami." },
+      { "id": "4", "text": "w związkach wykazują one wyłącznie dodatnie stopnie utlenienia." },
+      { "id": "5", "text": "tworzone przez nie najwyższe tlenki należą do tlenków zasadowych." }
+    ]
+  },
+  "sdamgia_258_06": {
+    "question_ru": "Które dwa stwierdzenia są prawdziwe zarówno dla sodu, jak i glinu?",
+    "explanation_ru": "Na i Al — pierwiastki 3. okresu, elektrony walencyjne na 3. powłoce (2 — prawda). Oba to metale (3 — prawda). 12 protonów ma tylko Mg (1 — nie). Nie tworzą cząsteczek dwuatomowych (4 — nie). Na₂O — tak, ale Al₂O₃, nie Al₂O (5 — nie).",
+    "options": [
+      { "id": "1", "text": "Obecność 12 protonów w jądrach ich atomów." },
+      { "id": "2", "text": "Obecność elektronów walencyjnych na trzeciej powłoce elektronowej." },
+      { "id": "3", "text": "Tworzenie substancji prostych — metali." },
+      { "id": "4", "text": "Występowanie w przyrodzie w postaci cząsteczek dwuatomowych." },
+      { "id": "5", "text": "Tworzenie najwyższych tlenków o ogólnym wzorze E₂O." }
+    ]
+  },
+  "sdamgia_5851_06": {
+    "question_ru": "Które dwa stwierdzenia są prawdziwe zarówno dla chloru, jak i bromu?",
+    "explanation_ru": "17 protonów ma tylko Cl (1 — nie). Cl — 3 powłoki, Br — 4 powłoki (2 — nie). Oba to niemetale (3 — tak). Cl₂ i Br₂ — cząsteczki dwuatomowe (4 — tak). Cl₂ — gaz w warunkach normalnych (5 — nie).",
+    "options": [
+      { "id": "1", "text": "W jądrze atomu pierwiastka chemicznego jest 17 protonów." },
+      { "id": "2", "text": "Elektrony w atomie rozmieszczone są na trzech powłokach elektronowych." },
+      { "id": "3", "text": "Pierwiastek chemiczny jest niemetalem." },
+      { "id": "4", "text": "Odpowiadająca mu substancja prosta występuje w postaci cząsteczek dwuatomowych." },
+      { "id": "5", "text": "Odpowiadająca mu substancja prosta w warunkach normalnych jest cieczą." }
+    ]
+  },
+  "demo_2025_07": {
+    "question_ru": "Z podanej listy substancji wybierz tlenek zasadowy i wodorotlenek amfoteryczny.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nWpisz w pole odpowiedzi najpierw numer tlenku zasadowego, a następnie numer wodorotlenku amfoterycznego.",
+    "explanation_ru": "FeO — tlenek zasadowy (tlenek metalu o niskim stopniu utlenienia). Al(OH)₃ — wodorotlenek amfoteryczny (glin jest pierwiastkiem amfoterycznym). Mg(OH)₂ — zasada (nie amfoteryczny). OF₂ — nie jest tlenkiem (tlen ma stopień utlenienia +2). N₂O — tlenek niesolowy."
+  },
+  "sdamgia_1008_07": {
+    "question_ru": "Bezwodnikiem kwasu chlorowego(VII) HClO₄ jest",
+    "explanation_ru": "Cl w HClO₄ ma stopień utlenienia +7. Tlenek odpowiadający temu stopniowi utlenienia: Cl₂O₇. Sprawdzenie: Cl₂O₇ + H₂O = 2HClO₄."
+  },
+  "bank_fipi_07": {
+    "question_ru": "Z podanej listy substancji wybierz tlenek kwasowy i zasadę.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nWpisz w pole odpowiedzi najpierw numer tlenku kwasowego, a następnie numer zasady.",
+    "explanation_ru": "SO₂ — tlenek kwasowy (3). Mg(OH)₂ — zasada (2). CO — tlenek niesolowy. NaClO₄ — sól. Al(OH)₃ — wodorotlenek amfoteryczny (nie zasada). Odpowiedź: najpierw tlenek kwasowy (3), potem zasada (2)."
+  },
+  "demo_2025_08": {
+    "question_ru": "Które dwie z wymienionych substancji nie reagują z fosforem?",
+    "explanation_ru": "Fosfor reaguje z O₂ (spalanie: 4P + 5O₂ → 2P₂O₅), z HNO₃ (silny utleniacz), z Mg (tworząc fosforek: 3Mg + 2P → Mg₃P₂). Nie reaguje z Na₂SO₄ (sól, brak siły napędowej) i CO (obojętny tlenek, słaby reduktor)."
+  },
+  "sdamgia_10869_08": {
+    "question_ru": "Z podanej listy wybierz dwie pary substancji, z każdą z których reaguje tlenek miedzi(II).",
+    "explanation_ru": "CuO — tlenek zasadowy. Reaguje z kwasami (HNO₃, HCl) i reduktorami (H₂, CO). Para 3: H₂ + HNO₃ — oba reagują z CuO. Para 5: CO + HCl — oba reagują z CuO. Para 4: HCl — tak, ale NaOH z tlenkiem zasadowym nie reaguje (CuO nie jest amfoteryczny).",
+    "options": [
+      { "id": "1", "text": "H₂O i CO₂" },
+      { "id": "2", "text": "O₂ i C" },
+      { "id": "3", "text": "H₂ i HNO₃" },
+      { "id": "4", "text": "HCl i NaOH" },
+      { "id": "5", "text": "CO i HCl" }
+    ]
+  },
+  "bank_fipi_08_subst": {
+    "question_ru": "Z podanej listy wybierz dwie reakcje podstawienia.",
+    "explanation_ru": "Podstawienie — substancja prosta + substancja złożona → substancja prosta + substancja złożona. Fe + CuSO₄ (2) — podstawienie. Zn + HCl (4) — podstawienie. CaCO₃ → CaO + CO₂ (1) — rozkład. NaOH + H₂SO₄ (3) — wymiana. 2H₂O → 2H₂ + O₂ (5) — rozkład (elektroliza).",
+    "options": [
+      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
+      { "id": "2", "text": "Fe + CuSO₄ → FeSO₄ + Cu" },
+      { "id": "3", "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O" },
+      { "id": "4", "text": "Zn + 2HCl → ZnCl₂ + H₂" },
+      { "id": "5", "text": "2H₂O → 2H₂ + O₂" }
+    ]
+  },
+  "demo_2025_09": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a produktami ich reakcji: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → odpowiedź 2.\nB) Fe + H₂SO₄(rozc.) → FeSO₄ + H₂↑ (Fe dwuwartościowe z kwasem rozcieńczonym) → odpowiedź 1.\nC) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → odpowiedź 4.",
+    "left_items": [
+      { "label": "A", "text": "Fe₂(SO₄)₃ i BaCl₂" },
+      { "label": "B", "text": "Fe i H₂SO₄ (rozc.)" },
+      { "label": "C", "text": "Fe₂O₃ i H₂SO₄ (rozc.)" }
+    ],
+    "options": [
+      { "id": "1", "text": "FeSO₄ i H₂" },
+      { "id": "2", "text": "FeCl₃ i BaSO₄" },
+      { "id": "3", "text": "FeSO₄ i H₂O" },
+      { "id": "4", "text": "Fe₂(SO₄)₃ i H₂O" },
+      { "id": "5", "text": "FeCl₂ i BaSO₄" }
+    ]
+  },
+  "sdamgia_327_09": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a produktem(-ami) ich reakcji.",
+    "explanation_ru": "A) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nB) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (sól obojętna + tlenek kwasowy + woda → sól kwaśna) → 4.\nC) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (wymiana) → 5.",
+    "left_items": [
+      { "label": "A", "text": "Na₂CO₃ i HCl" },
+      { "label": "B", "text": "Na₂CO₃ i CO₂ i H₂O" },
+      { "label": "C", "text": "Na₂CO₃ i CaCl₂" }
+    ],
+    "options": [
+      { "id": "1", "text": "NaCl i CO₂ i H₂O" },
+      { "id": "2", "text": "NaHCO₃ i HCl" },
+      { "id": "3", "text": "NaOH i NaHCO₃" },
+      { "id": "4", "text": "NaHCO₃" },
+      { "id": "5", "text": "NaCl i CaCO₃" }
+    ]
+  },
+  "sdamgia_6445_09": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a produktem(-ami) ich reakcji.",
+    "explanation_ru": "A) Fe + Cl₂ → FeCl₃ (Cl₂ — silny utleniacz, daje Fe³⁺) → 4.\nB) Fe + 2HCl → FeCl₂ + H₂ (kwas rozcieńczony → Fe²⁺) → 2.\nC) Fe + H₂SO₄(rozc.) → FeSO₄ + H₂ (rozcieńczony kwas siarkowy → Fe²⁺) → 5.",
+    "left_items": [
+      { "label": "A", "text": "Fe i Cl₂" },
+      { "label": "B", "text": "Fe i HCl" },
+      { "label": "C", "text": "Fe i H₂SO₄ (rozc.)" }
+    ],
+    "options": [
+      { "id": "1", "text": "FeCl₃ i H₂" },
+      { "id": "2", "text": "FeCl₂ i H₂" },
+      { "id": "3", "text": "Fe₂(SO₄)₃ i H₂" },
+      { "id": "4", "text": "FeCl₃" },
+      { "id": "5", "text": "FeSO₄ i H₂" }
+    ]
+  },
+  "demo_2025_10": {
+    "question_ru": "Ustal odpowiedniość między substancją a reagentami, z każdym z których może ona wchodzić w reakcję: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) Al reaguje z Fe₂O₃ (alumotermia) i O₂ (spalanie) → 4.\nB) Ca(OH)₂ reaguje z CO₂ (zmętnienie wody wapiennej) i Al₂O₃ (tlenek amfoteryczny) → 1.\nC) SO₃ (tlenek kwasowy) reaguje z H₂S (reakcja redoks) i Na₂O (tlenek zasadowy) → 3."
+  },
+  "sdamgia_2145_10": {
+    "question_ru": "Ustal odpowiedniość między wzorem substancji a reagentami, z każdym z których ta substancja może reagować.",
+    "explanation_ru": "A) CaCl₂ reaguje z Na₂CO₃ (→ CaCO₃↓) i AgNO₃ (→ AgCl↓) → 4.\nB) SO₂ (tlenek kwasowy) reaguje z CaO (tlenek zasadowy) i Ba(OH)₂ (zasada) → 2.\nC) H₂ reaguje z N₂ (→ NH₃) i Fe₂O₃ (redukcja → Fe + H₂O) → 1."
+  },
+  "bank_fipi_10": {
+    "question_ru": "Ustal odpowiedniość między wzorem substancji a reagentami, z każdym z których ta substancja może reagować.",
+    "explanation_ru": "A) Fe: z HCl → FeCl₂ + H₂, z CuSO₄ → FeSO₄ + Cu (Fe bardziej aktywne niż Cu w szeregu aktywności) → 1.\nB) CO₂ (tlenek kwasowy): z Na₂O → Na₂CO₃, z KOH → K₂CO₃ + H₂O → 2.\nC) NaOH: z CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, z CO₂ → Na₂CO₃ + H₂O → 4."
+  },
+  "demo_2025_11": {
+    "question_ru": "Z podanej listy wybierz dwie pary substancji, między którymi zachodzi reakcja wymiany.",
+    "explanation_ru": "Reakcja wymiany — dwie substancje złożone wymieniają się składnikami. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (wymiana). NaOH + HCl → NaCl + H₂O (neutralizacja = rodzaj wymiany). Br₂ + 2KI → 2KBr + I₂ — podstawienie. H₂SO₄ + Zn → ZnSO₄ + H₂ — podstawienie. NaOH + Al — reakcja niestandardowa.",
+    "options": [
+      { "id": "1", "text": "brom i jodek potasu" },
+      { "id": "2", "text": "kwas siarkowy i cynk" },
+      { "id": "3", "text": "wodorotlenek sodu i glin" },
+      { "id": "4", "text": "siarczan sodu i chlorek baru" },
+      { "id": "5", "text": "wodorotlenek sodu i kwas solny" }
+    ]
+  },
+  "bank_fipi_11_decomp": {
+    "question_ru": "Z podanej listy wybierz dwa równania reakcji egzotermicznych.",
+    "explanation_ru": "Spalanie magnezu (2) i spalanie węgla (4) — reakcje egzotermiczne. Rozkład CaCO₃ (1) i elektroliza wody (3) — endotermiczne. Reakcja N₂ + O₂ → 2NO (5) — także endotermiczna (zachodzi tylko w bardzo wysokich temperaturach).",
+    "options": [
+      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
+      { "id": "2", "text": "2Mg + O₂ → 2MgO" },
+      { "id": "3", "text": "2H₂O → 2H₂ + O₂" },
+      { "id": "4", "text": "C + O₂ → CO₂" },
+      { "id": "5", "text": "N₂ + O₂ → 2NO" }
+    ]
+  },
+  "bank_fipi_11_signs": {
+    "question_ru": "Z podanej listy wybierz dwa prawdziwe stwierdzenia o oznakach reakcji chemicznych.",
+    "explanation_ru": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl biały serowaty osad (prawda). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ bezbarwny, nie brunatny (nieprawda). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ niebieski osad (prawda). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — osad, nie gaz (nieprawda). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — żółty osad (prawda, ale potrzebne są tylko 2 odpowiedzi).",
+    "options": [
+      { "id": "1", "text": "Przy zlewaniu roztworów azotanu srebra i chlorku sodu tworzy się biały serowaty osad." },
+      { "id": "2", "text": "Przy zlewaniu roztworów węglanu sodu i kwasu solnego wydziela się brunatny gaz." },
+      { "id": "3", "text": "Przy zlewaniu roztworów siarczanu miedzi(II) i wodorotlenku sodu tworzy się niebieski osad." },
+      { "id": "4", "text": "Przy zlewaniu roztworów chlorku baru i kwasu siarkowego wydziela się gaz." },
+      { "id": "5", "text": "Przy zlewaniu roztworów azotanu ołowiu(II) i jodku potasu tworzy się jaskrawożółty osad." }
+    ]
+  },
+  "demo_2025_12": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a oznaką zachodzącej między nimi reakcji: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — kwas krzemowy tworzy bezbarwny galaretowaty osad → 3.\nB) H₂S + CuCl₂ → CuS↓ + 2HCl — siarczek miedzi(II) — czarny osad → 1.\nC) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — wydzielanie gazu → 2.",
+    "options": [
+      { "id": "1", "text": "wytrącenie czarnego osadu" },
+      { "id": "2", "text": "wydzielenie gazu" },
+      { "id": "3", "text": "wytrącenie bezbarwnego galaretowatego osadu" },
+      { "id": "4", "text": "wytrącenie niebieskiego osadu" }
+    ]
+  },
+  "bank_fipi_12a": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a oznaką zachodzącej między nimi reakcji.",
+    "explanation_ru": "A) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ niebieski osad → 2.\nB) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S gaz o zapachu zgniłych jaj → 1.\nC) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ brunatny osad → 3.",
+    "options": [
+      { "id": "1", "text": "wydzielenie gazu o zapachu zgniłych jaj" },
+      { "id": "2", "text": "wytrącenie niebieskiego osadu" },
+      { "id": "3", "text": "wytrącenie brunatnego osadu" },
+      { "id": "4", "text": "brak widocznych oznak reakcji" }
+    ]
+  },
+  "bank_fipi_12b": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a oznaką zachodzącej między nimi reakcji.",
+    "explanation_ru": "A) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ biały osad → 1.\nB) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ gaz o ostrym zapachu → 2.\nC) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl biały serowaty osad → 1.",
+    "options": [
+      { "id": "1", "text": "wytrącenie białego osadu" },
+      { "id": "2", "text": "wydzielenie gazu o ostrym zapachu" },
+      { "id": "3", "text": "wydzielenie bezbarwnego gazu bez zapachu" },
+      { "id": "4", "text": "rozpuszczenie osadu" }
+    ]
+  },
+  "demo_2025_13": {
+    "question_ru": "Z podanej listy wybierz dwa nieelektrolity.",
+    "explanation_ru": "Elektrolity — substancje, których roztwory lub stopiany przewodzą prąd elektryczny: kwasy, zasady, sole. CH₄ (metan) — kowalencyjny niepolarny związek, nieelektrolit. CO (tlenek węgla(II)) — związek kowalencyjny, nie dysocjuje, nieelektrolit. HNO₃ — mocny kwas (elektrolit). KClO — sól (elektrolit). CuSO₄ — sól (elektrolit)."
+  },
+  "bank_fipi_13_ions": {
+    "question_ru": "Z podanej listy wybierz dwie substancje, przy pełnej dysocjacji 1 mola których powstaje 3 mole jonów.",
+    "explanation_ru": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 jony (prawda). NaCl → Na⁺ + Cl⁻ — 2 jony. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 jony (prawda). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 jonów. KNO₃ → K⁺ + NO₃⁻ — 2 jony."
+  },
+  "bank_fipi_13_weak": {
+    "question_ru": "Z podanej listy wybierz dwa słabe elektrolity.",
+    "explanation_ru": "H₂SO₄ — mocny kwas (mocny elektrolit). CH₃COOH — kwas octowy (słaby elektrolit). NaOH — zasada (mocny elektrolit). H₂CO₃ — kwas węglowy (słaby elektrolit, nietrwały). KCl — rozpuszczalna sól (mocny elektrolit)."
+  },
+  "demo_2025_14": {
+    "question_ru": "Wybierz dwie substancje wyjściowe, których reakcji w roztworach wodnych odpowiada skrócone równanie jonowe reakcji\n  H⁺ + OH⁻ = H₂O",
+    "explanation_ru": "Skrócone równanie jonowe H⁺ + OH⁻ = H₂O odpowiada reakcji mocnego kwasu z rozpuszczalną zasadą, przy której powstaje rozpuszczalna sól. HI — mocny kwas (dysocjuje całkowicie). Ba(OH)₂ — rozpuszczalna zasada. HI + Ba(OH)₂ → BaI₂ (rozpuszczalny) + H₂O. H₂S — słaby kwas. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — równanie jonowe byłoby inne."
+  },
+  "bank_4ege_14_co3": {
+    "question_ru": "Wybierz dwie substancje wyjściowe, których reakcji odpowiada skrócone równanie jonowe reakcji\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
+    "explanation_ru": "Potrzebne: 1) rozpuszczalny węglan (CO₃²⁻ jako jon) — Na₂CO₃ (1); CaCO₃ i BaCO₃ nierozpuszczalne; NaHCO₃ — wodorowęglan (HCO₃⁻). 2) Mocny kwas (H⁺) — HBr (5); HNO₂ — słaby kwas. Odpowiedź: 15."
+  },
+  "bank_4ege_14_s2": {
+    "question_ru": "Wybierz dwie substancje wyjściowe, których reakcji odpowiada skrócone równanie jonowe reakcji\n  2H⁺ + S²⁻ = H₂S",
+    "explanation_ru": "Potrzebne: 1) mocny kwas (H⁺) — HCl (1); HF — słaby kwas (4). 2) Rozpuszczalny siarczek (S²⁻ jako jon) — K₂S (5); CuS nierozpuszczalny (2); S — substancja prosta (3); Al₂S₃ hydrolizuje (6). Odpowiedź: 15."
+  },
+  "demo_2025_15": {
+    "question_ru": "Ustal odpowiedniość między schematem procesu zachodzącego w reakcji utleniania-redukcji a nazwą tego procesu: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) I⁺⁵ → I⁺⁷: stopień utlenienia rośnie (+5 → +7), pierwiastek oddaje elektrony → utlenianie → 1.\nB) Si⁺⁴ → Si⁰: stopień utlenienia maleje (+4 → 0), pierwiastek przyjmuje elektrony → redukcja → 2.\nC) N⁰ → N⁻³: stopień utlenienia maleje (0 → −3), pierwiastek przyjmuje elektrony → redukcja → 2.",
+    "options": [
+      { "id": "1", "text": "utlenianie" },
+      { "id": "2", "text": "redukcja" }
+    ]
+  },
+  "bank_fipi_15_fe2o3": {
+    "question_ru": "Dany jest schemat reakcji utleniania-redukcji:\n  Fe₂O₃ + CO → Fe + CO₂\nUstal odpowiedniość między wzorem substancji a jej rolą w tej reakcji.",
+    "explanation_ru": "Fe w Fe₂O₃: +3 → 0 (spadek, przyjmuje e⁻) — utleniacz → 1.\nC w CO: +2 → +4 (wzrost, oddaje e⁻) — reduktor → 2.",
+    "options": [
+      { "id": "1", "text": "utleniacz" },
+      { "id": "2", "text": "reduktor" },
+      { "id": "3", "text": "utleniacz i reduktor jednocześnie" }
+    ]
+  },
+  "bank_fipi_15_cu": {
+    "question_ru": "Dany jest schemat reakcji utleniania-redukcji:\n  Cu + HNO₃(rozc.) → Cu(NO₃)₂ + NO + H₂O\nUstal odpowiedniość między wzorem substancji a jej rolą w tej reakcji.",
+    "explanation_ru": "Cu: 0 → +2 (wzrost, oddaje e⁻) — reduktor → 2.\nN w HNO₃: +5 → +2 w NO (spadek, przyjmuje e⁻) — utleniacz → 1.",
+    "options": [
+      { "id": "1", "text": "utleniacz" },
+      { "id": "2", "text": "reduktor" },
+      { "id": "3", "text": "utleniacz i reduktor jednocześnie" }
+    ]
+  },
+  "demo_2025_16": {
+    "question_ru": "Z podanych stwierdzeń dotyczących substancji czystych i mieszanin wybierz prawidłowe stwierdzenie(-a).\n\n1) Żeliwo jest substancją czystą.\n2) Do rozdzielenia mieszaniny oleju maszynowego i wody można użyć rozdzielacza.\n3) Wodę z jeziora można oczyścić z domieszki piasku za pomocą sedymentacji i filtracji.\n4) Magnes stosuje się do rozdzielania dwuskładnikowych mieszanin niejednorodnych zawierających opiłki żelaza.\n\nWpisz w pole odpowiedzi numer(-y) prawidłowego(-ych) stwierdzenia(-ń).",
+    "explanation_ru": "1) Żeliwo — stop żelaza z węglem, to mieszanina, a nie substancja czysta → nieprawda.\n2) Olej i woda — ciecze niemieszające się, rozdziela się je rozdzielaczem → prawda.\n3) Piasek — domieszka nierozpuszczalna, usuwa się ją przez sedymentację i filtrację → prawda.\n4) Magnes przyciąga opiłki żelaza, umożliwiając oddzielenie ich od niemagnetycznego składnika → prawda.",
+    "options": [
+      { "id": "1", "text": "Żeliwo jest substancją czystą." },
+      { "id": "2", "text": "Do rozdzielenia mieszaniny oleju maszynowego i wody można użyć rozdzielacza." },
+      { "id": "3", "text": "Wodę z jeziora można oczyścić z domieszki piasku za pomocą sedymentacji i filtracji." },
+      { "id": "4", "text": "Magnes stosuje się do rozdzielania dwuskładnikowych mieszanin niejednorodnych zawierających opiłki żelaza." }
+    ]
+  },
+  "sdamgia_10893_16": {
+    "question_ru": "Z podanych stwierdzeń dotyczących zasad bezpiecznej pracy w laboratorium chemicznym i z preparatami chemii gospodarczej wybierz prawidłowe stwierdzenie(-a).",
+    "explanation_ru": "1) W laboratorium nie wolno próbować substancji na smak (nieprawda). 2) Z zasadami — w rękawicach (prawda). 3) Kwas ze skóry zmywa się wodą i neutralizuje sodą oczyszczoną (prawda). 4) Ciecze łatwopalne przechowuje się z dala od urządzeń grzewczych, ale niekoniecznie w lodówce (nieprawda).",
+    "options": [
+      { "id": "1", "text": "W laboratorium obecność kwasu w roztworze sprawdza się na smak." },
+      { "id": "2", "text": "Przy pracy z preparatami chemii gospodarczej zawierającymi zasadę konieczne jest używanie gumowych rękawic." },
+      { "id": "3", "text": "W przypadku kontaktu roztworu kwasu ze skórą należy ją przemyć wodą i potraktować roztworem sody oczyszczonej." },
+      { "id": "4", "text": "Ciecze łatwopalne, np. aceton, wolno przechowywać tylko w lodówce." }
+    ]
+  },
+  "sdamgia_10898_16": {
+    "question_ru": "Z podanych stwierdzeń dotyczących sposobów rozdzielania mieszanin wybierz prawidłowe stwierdzenie(-a).",
+    "explanation_ru": "1) Żelazo jest przyciągane przez magnes, piasek — nie (prawda). 2) Woda morska — roztwór jednorodny, filtracja nie usunie rozpuszczonych soli (nieprawda). 3) Papier filtracyjny oddziela osad od roztworu (prawda). 4) Destylacja — metoda fizyczna, nie chemiczna (nieprawda).",
+    "options": [
+      { "id": "1", "text": "Do rozdzielenia mieszaniny piasku rzecznego i opiłków żelaza można użyć magnesu." },
+      { "id": "2", "text": "Oczyścić wodę morską z rozpuszczonych w niej soli można za pomocą filtracji." },
+      { "id": "3", "text": "Do oddzielenia osadu od roztworu można użyć papieru filtracyjnego." },
+      { "id": "4", "text": "Destylacja jest chemicznym sposobem rozdzielania mieszanin." }
+    ]
+  },
+  "demo_2025_17": {
+    "question_ru": "Ustal odpowiedniość między dwiema substancjami w postaci roztworów wodnych a odczynnikiem, za pomocą którego można rozróżnić te substancje: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) KF i KCl: AgNO₃ daje osad AgCl z KCl, ale AgF jest rozpuszczalny → rozróżnia → 1.\nB) NaCl i HCl: BaCO₃ reaguje z HCl (wydzielenie CO₂), ale nie z NaCl → rozróżnia → 3.\nC) KCl i MgCl₂: KOH daje osad Mg(OH)₂ z MgCl₂, ale nie z KCl → rozróżnia → 4."
+  },
+  "sdamgia_1123_17": {
+    "question_ru": "Ustal odpowiedniość między dwiema substancjami a odczynnikiem, za pomocą którego można rozróżnić te substancje.",
+    "explanation_ru": "A) AgNO₃: NaCl → AgCl↓ (biały), KNO₃ nie reaguje → rozróżnia → 4.\nB) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (biały), NaNO₃ nie reaguje → rozróżnia → 2.\nC) KOH: NH₄Cl → NH₃↑ (zapach), ZnCl₂ → Zn(OH)₂↓ (biały) → rozróżnia → 1."
+  },
+  "sdamgia_855_17": {
+    "question_ru": "Ustal odpowiedniość między dwiema solami a odczynnikiem, za pomocą którego można rozróżnić te sole.",
+    "explanation_ru": "A) KOH: NH₄Cl + KOH → NH₃↑ (zapach), NaCl nie reaguje → rozróżnia → 1.\nB) AgNO₃: AgF rozpuszczalny, AgBr↓ (żółtawy) → rozróżnia → 3.\nC) HCl: Na₂CO₃ + HCl → CO₂↑ (gaz), K₂SO₄ nie reaguje → rozróżnia → 4."
+  },
+  "demo_2025_18": {
+    "context_ru": "Cytrynian magnezu — związek chemiczny, sól magnezu i kwasu cytrynowego, o wzorze Mg₃(C₆H₅O₇)₂, stosowany w medycynie przy niedoborze magnezu, który wpływa na pracę układu sercowo-naczyniowego w organizmie człowieka.",
+    "question_ru": "Oblicz procentowy udział masowy magnezu w cytrynianie magnezu. Zapisz liczbę z dokładnością do liczb całkowitych.",
+    "explanation_ru": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 g/mol.\nω(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+  },
+  "sdamgia_10943_18": {
+    "context_ru": "Tlenek żelaza(III) — związek chemiczny Fe₂O₃, stosowany przy wytopie surówki.",
+    "question_ru": "Oblicz procentowy udział masowy żelaza w tlenku żelaza(III). Zapisz liczbę z dokładnością do liczb całkowitych.",
+    "explanation_ru": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 g/mol.\nω(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+  },
+  "sdamgia_10938_18": {
+    "context_ru": "Azotan wapnia — związek chemiczny Ca(NO₃)₂, w pirotechnice stosowany jako niedrogi źródło ceglastoczerwonego płomienia.",
+    "question_ru": "Oblicz procentowy udział masowy wapnia w azotanie wapnia. Zapisz liczbę z dokładnością do liczb całkowitych.",
+    "explanation_ru": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 g/mol.\nω(Ca) = 40/164 × 100% = 24,4% ≈ 24%."
+  },
+  "demo_2025_19": {
+    "context_ru": "Cytrynian magnezu — związek chemiczny, sól magnezu i kwasu cytrynowego, o wzorze Mg₃(C₆H₅O₇)₂, stosowany w medycynie przy niedoborze magnezu, który wpływa na pracę układu sercowo-naczyniowego w organizmie człowieka.",
+    "question_ru": "Aby pokryć dzienne zapotrzebowanie zwierzęcia na magnez, psu o masie około 20 kg codziennie do pokarmu dodaje się jedną miarkę (10 g) cytrynianu magnezu. Oblicz, ile gramów (g) magnezu codziennie otrzymuje pies z tym preparatem. Zapisz liczbę z dokładnością do dziesiątych.",
+    "explanation_ru": "Z zadania 18: ω(Mg) = 16% = 0,16.\nm(Mg) = m(cytrynianu) × ω(Mg) = 10 g × 0,16 = 1,6 g."
+  },
+  "sdamgia_10980_19": {
+    "context_ru": "Tlenek żelaza(III) — związek chemiczny Fe₂O₃, stosowany przy wytopie surówki.",
+    "question_ru": "Do przygotowania stopu do wytopu jednego działa potrzeba 600 kg czystego żelaza. Jaką ilość (w kg) rudy żelaza (główny składnik — hematyt Fe₂O₃) trzeba przetworzyć do wytopu trzech dział? Przyjmij, że z rudy wydobywa się 100% żelaza. Zapisz odpowiedź z dokładnością do liczb całkowitych.",
+    "explanation_ru": "Potrzeba żelaza: 600 × 3 = 1800 kg.\nω(Fe) w Fe₂O₃ = 70% = 0,70.\nm(Fe₂O₃) = 1800 / 0,70 = 2571,4 ≈ 2571 kg."
+  },
+  "sdamgia_10979_19": {
+    "context_ru": "Azotan wapnia — związek chemiczny Ca(NO₃)₂, w pirotechnice stosowany jako niedrogi źródło ceglastoczerwonego płomienia.",
+    "question_ru": "Do przygotowania jednego ładunku fajerwerku potrzeba 50 g wapnia. Ile gramów azotanu wapnia trzeba odważyć? Zapisz odpowiedź z dokładnością do liczb całkowitych.",
+    "explanation_ru": "ω(Ca) w Ca(NO₃)₂ = 24% = 0,24.\nm(Ca(NO₃)₂) = 50 / 0,24 = 208,3 ≈ 208 g."
+  },
+  "demo_2021_01": {
+    "question_ru": "Wybierz dwa stwierdzenia, w których mowa o żelazie jako o pierwiastku chemicznym.",
+    "explanation_ru": "O żelazie jako pierwiastku chemicznym mowa jest w kontekście składu substancji (hemoglobina zawiera żelazo, rdza zawiera żelazo). W pozostałych stwierdzeniach mowa o żelazie jako o substancji prostej (reaguje, rdzewieje, jest surowcem).",
+    "options": [
+      { "id": "1", "text": "Żelazo reaguje z chlorem." },
+      { "id": "2", "text": "Żelazo szybko rdzewieje w wilgotnym powietrzu." },
+      { "id": "3", "text": "Piryt jest surowcem do otrzymywania żelaza." },
+      { "id": "4", "text": "Hemoglobina zawierająca żelazo transportuje tlen." },
+      { "id": "5", "text": "W skład rdzy wchodzi żelazo." }
+    ]
+  },
+  "demo_2021_02": {
+    "question_ru": "Na przedstawionym rysunku pokazano model atomu pierwiastka chemicznego. Wpisz w tabelę wartość ładunku jądra (X) atomu pierwiastka chemicznego, którego model jest przedstawiony na rysunku, oraz numer grupy (Y), w której ten pierwiastek jest umieszczony w układzie okresowym pierwiastków chemicznych D.I. Mendelejewa. (Do zapisania odpowiedzi użyj cyfr arabskich.)",
+    "explanation_ru": "Na rysunku przedstawiono model atomu o ładunku jądra +15 i 5 elektronach na powłoce zewnętrznej. To fosfor (P), umieszczony w 3. okresie, V grupie (grupa 5). X = 15, Y = 5.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2021_03": {
+    "question_ru": "Uporządkuj pierwiastki chemiczne\n1) siarka\n2) chlor\n3) fosfor\nw kolejności rosnącej elektroujemności. Zapisz numery wybranych pierwiastków w odpowiedniej kolejności.",
+    "explanation_ru": "Elektroujemność rośnie w okresie od lewej do prawej i w grupie od dołu do góry. Fosfor (P) < siarka (S) < chlor (Cl). Kolejność numerów: 3, 1, 2.",
+    "items": [
+      { "id": "1", "text": "siarka" },
+      { "id": "2", "text": "chlor" },
+      { "id": "3", "text": "fosfor" }
+    ]
+  },
+  "demo_2021_04": {
+    "question_ru": "Ustal odpowiedniość między wzorem związku a stopniem utlenienia azotu w tym związku: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "HNO₃: azot na stopniu utlenienia +5 (4). N₂O: azot na stopniu utlenienia +1 (1). NH₃: azot na stopniu utlenienia –3 (2). Odpowiedź: 412.",
+    "options": [
+      { "id": "1", "text": "+1" },
+      { "id": "2", "text": "–3" },
+      { "id": "3", "text": "+3" },
+      { "id": "4", "text": "+5" }
+    ]
+  },
+  "demo_2021_05": {
+    "question_ru": "Z podanej listy wybierz dwie substancje, dla których charakterystyczne jest wiązanie jonowe.",
+    "explanation_ru": "Wiązanie jonowe tworzy się między metalem a niemetalem o dużej różnicy elektroujemności. CaO (wapń + tlen) i Li₃N (lit + azot) — związki jonowe. PCl₃ — kowalencyjne polarne, Br₂ — kowalencyjne niepolarne, H₂S — kowalencyjne polarne."
+  },
+  "demo_2021_06": {
+    "question_ru": "Które dwa stwierdzenia są prawdziwe zarówno dla magnezu, jak i krzemu?",
+    "explanation_ru": "Magnez (Mg, Z=12) i krzem (Si, Z=14) — oba w 3. okresie — 3 powłoki elektronowe (1). Oba mają elektroujemność mniejszą niż fosfor (4). Mg — metal, Si — niemetal, więc (3) — nieprawda. Najwyższy tlenek Mg — MgO (nie EO₂), więc (5) — nieprawda.",
+    "options": [
+      { "id": "1", "text": "Elektrony w atomie rozmieszczone są na trzech powłokach elektronowych." },
+      { "id": "2", "text": "Odpowiadająca mu substancja prosta występuje w postaci cząsteczek dwuatomowych." },
+      { "id": "3", "text": "Pierwiastek chemiczny należy do metali." },
+      { "id": "4", "text": "Wartość elektroujemności jest mniejsza niż fosforu." },
+      { "id": "5", "text": "Pierwiastek chemiczny tworzy najwyższe tlenki o ogólnym wzorze EO₂." }
+    ]
+  },
+  "demo_2021_08": {
+    "question_ru": "Z podanej listy wybierz dwie substancje, które reagują z tlenkiem glinu.",
+    "explanation_ru": "Al₂O₃ — tlenek amfoteryczny, reaguje z kwasami i tlenkami zasadowymi/zasadami. Reaguje z HNO₃ (kwas, 2) i Na₂O (tlenek zasadowy, 5). Cu(OH)₂ — słaba nierozpuszczalna zasada, nie reaguje. O₂ — nie reaguje (Al już na najwyższym stopniu utlenienia). Be(OH)₂ — wodorotlenek amfoteryczny, nie reaguje z tlenkiem amfoterycznym."
+  },
+  "demo_2021_09": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a produktem(-ami) ich reakcji: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) MgO + SO₃ = MgSO₄ (tlenek zasadowy + tlenek kwasowy = sól, bez wody) — odpowiedź 5. B) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (zasada + kwas = sól + woda) — odpowiedź 2. C) Mg + H₂SO₄(rozc.) = MgSO₄ + H₂ (metal + kwas = sól + wodór) — odpowiedź 4.",
+    "left_items": [
+      { "text": "MgO + SO₃ →", "label": "A" },
+      { "text": "Mg(OH)₂ + H₂SO₄ →", "label": "B" },
+      { "text": "Mg + H₂SO₄(rozc.) →", "label": "C" }
+    ],
+    "options": [
+      { "id": "1", "text": "→ MgSO₃ + H₂" },
+      { "id": "2", "text": "→ MgSO₄ + H₂O" },
+      { "id": "3", "text": "→ MgSO₃ + H₂O" },
+      { "id": "4", "text": "→ MgSO₄ + H₂" },
+      { "id": "5", "text": "→ MgSO₄" }
+    ]
+  },
+  "demo_2021_10": {
+    "question_ru": "Ustal odpowiedniość między wzorem substancji a reagentami, z którymi ta substancja może wchodzić w reakcję: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) Węgiel C reaguje z O₂ (spalanie) i H₂SO₄(stęż.) (reakcja redoks) — odpowiedź 1. B) Al₂O₃ — tlenek amfoteryczny, reaguje z KOH i HCl — odpowiedź 3. C) CuCl₂ reaguje z Mg (podstawienie) i AgNO₃ (wymiana, tworzy się AgCl) — odpowiedź 2.",
+    "options": [
+      { "id": "1", "text": "O₂, H₂SO₄(stęż.)" },
+      { "id": "2", "text": "Mg, AgNO₃(r-r)" },
+      { "id": "3", "text": "KOH, HCl(r-r)" },
+      { "id": "4", "text": "N₂, K₂SO₄(r-r)" }
+    ]
+  },
+  "demo_2021_11": {
+    "question_ru": "Z podanej listy wybierz dwie pary substancji, między którymi zachodzi reakcja podstawienia.",
+    "explanation_ru": "Reakcja podstawienia — jeden pierwiastek zastępuje drugi. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (podstawienie, 1). Na + H₂O → NaOH + H₂ (podstawienie, 5). Pozostałe: (2) — łączenie, (3) — wymiana, (4) — łączenie.",
+    "options": [
+      { "id": "1", "text": "żelazo i azotan srebra" },
+      { "id": "2", "text": "tlenek siarki(VI) i tlenek żelaza(III)" },
+      { "id": "3", "text": "tlenek miedzi(II) i kwas solny" },
+      { "id": "4", "text": "glin i chlor" },
+      { "id": "5", "text": "sód i woda" }
+    ]
+  },
+  "demo_2021_12": {
+    "question_ru": "Ustal odpowiedniość między reagującymi substancjami a oznaką zachodzącej między nimi reakcji: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ — brunatny osad (2). B) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ — biały osad (1). C) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Wydzielenie gazu (4).",
+    "left_items": [
+      { "text": "FeCl₃(r-r) i NaOH(r-r)", "label": "A" },
+      { "text": "FeSO₄(r-r) i Ba(NO₃)₂(r-r)", "label": "B" },
+      { "text": "FeS i H₂SO₄(r-r)", "label": "C" }
+    ],
+    "options": [
+      { "id": "1", "text": "wytrącenie białego osadu" },
+      { "id": "2", "text": "wytrącenie brunatnego osadu" },
+      { "id": "3", "text": "wytrącenie szarozielonego osadu" },
+      { "id": "4", "text": "wydzielenie gazu" }
+    ]
+  },
+  "demo_2021_13": {
+    "question_ru": "Przy pełnej dysocjacji 1 mola których dwóch z przedstawionych substancji powstaje 2 mole anionów?",
+    "explanation_ru": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 mole anionów, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 mole anionów, 2). NaCl → Na⁺ + Cl⁻ (1 mol). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 mol anionów). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 mol anionów).",
+    "options": [
+      { "id": "1", "text": "azotan magnezu" },
+      { "id": "2", "text": "wodorotlenek baru" },
+      { "id": "3", "text": "chlorek sodu" },
+      { "id": "4", "text": "fosforan potasu" },
+      { "id": "5", "text": "siarczan sodu" }
+    ]
+  },
+  "demo_2021_14": {
+    "question_ru": "Wybierz dwie substancje wyjściowe, których reakcji odpowiada skrócone równanie jonowe reakcji\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
+    "explanation_ru": "Skrócone równanie jonowe Ca²⁺ + SO₃²⁻ = CaSO₃↓ oznacza, że Ca²⁺ i SO₃²⁻ istnieją w roztworze w postaci jonów. CaCl₂ (3) — rozpuszczalna sól, daje Ca²⁺. K₂SO₃ (4) — rozpuszczalna sól, daje SO₃²⁻. CaO i Ca nie dysocjują, H₂SO₃ — słaby kwas."
+  },
+  "demo_2021_15": {
+    "question_ru": "Ustal odpowiedniość między schematem procesu zachodzącego w reakcji utleniania-redukcji a nazwą tego procesu: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) S⁻² → S⁰: stopień utlenienia rośnie (–2 → 0), to utlenianie (1). B) H₂⁰ → 2H⁺: stopień utlenienia rośnie (0 → +1), to utlenianie (1). C) Cr⁺⁶ → Cr⁺³: stopień utlenienia maleje (+6 → +3), to redukcja (2).",
+    "options": [
+      { "id": "1", "text": "utlenianie" },
+      { "id": "2", "text": "redukcja" }
+    ]
+  },
+  "demo_2021_16": {
+    "question_ru": "Z podanych stwierdzeń dotyczących zasad pracy z substancjami w laboratorium i w domu wybierz prawidłowe stwierdzenie(-a).\n1. Chlor można otrzymywać tylko w dygestorium.\n2. Przy przygotowywaniu roztworu kwasu stężony kwas siarkowy wlewa się do wody.\n3. Przy ogrzewaniu roztworu probówkę z cieczą trzyma się ściśle pionowo.\n4. Pracę z substancjami żrącymi należy prowadzić w gumowych rękawicach.\nWpisz w pole odpowiedzi numer(-y) prawidłowego(-ych) stwierdzenia(-ń).",
+    "explanation_ru": "Prawdziwe są stwierdzenia 1 (chlor — trujący gaz, otrzymuje się go w dygestorium), 2 (kwas wlewa się do wody, nie odwrotnie) i 4 (substancje żrące — w rękawicach). Stwierdzenie 3 jest nieprawdziwe: probówkę przy ogrzewaniu trzyma się pod kątem, nie pionowo.",
+    "options": [
+      { "id": "1", "text": "Chlor można otrzymywać tylko w dygestorium." },
+      { "id": "2", "text": "Przy przygotowywaniu roztworu kwasu stężony kwas siarkowy wlewa się do wody." },
+      { "id": "3", "text": "Przy ogrzewaniu roztworu probówkę z cieczą trzyma się ściśle pionowo." },
+      { "id": "4", "text": "Pracę z substancjami żrącymi należy prowadzić w gumowych rękawicach." }
+    ]
+  },
+  "demo_2021_17": {
+    "question_ru": "Ustal odpowiedniość między dwiema substancjami a odczynnikiem, za pomocą którego można rozróżnić te substancje: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.",
+    "explanation_ru": "A) KCl i K₂SiO₃: dodajemy HCl (2) — z K₂SiO₃ tworzy się nierozpuszczalny kwas krzemowy (osad), z KCl brak reakcji. B) K₂CO₃ i Li₂CO₃: dodajemy K₃PO₄ (4) — Li₃PO₄ jest nierozpuszczalny (wytrąca się osad), K₃PO₄ + K₂CO₃ — brak reakcji. C) Na₂SO₄ i NaOH: dodajemy CuCl₂ (1) — z NaOH tworzy się niebieski osad Cu(OH)₂, z Na₂SO₄ brak reakcji."
+  },
+  "demo_2021_18": {
+    "question_ru": "Azotan amonu (saletra amonowa) — związek chemiczny NH₄NO₃, sól kwasu azotowego, stosowany jako nawóz azotowy.\nOblicz procentowy udział masowy azotu w azotanie amonu. Zapisz liczbę z dokładnością do liczb całkowitych.",
+    "explanation_ru": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 g/mol. We wzorze 2 atomy azotu: 2 × 14 = 28. ω(N) = 28/80 × 100% = 35%."
+  },
+  "demo_2021_19": {
+    "question_ru": "Przy nawożeniu upraw warzywnych i kwiatowych do gleby wprowadza się 200 g azotu na 100 m². Oblicz, ile gramów saletry amonowej trzeba wnieść na działkę o powierzchni 70 m². Zapisz liczbę z dokładnością do liczb całkowitych.",
+    "explanation_ru": "Potrzeba azotu na 70 m²: 200 × 70/100 = 140 g azotu. Udział masowy azotu w NH₄NO₃ = 35% (z zadania 18). Masa NH₄NO₃ = 140/0,35 = 400 g."
+  },
+  "demo_2022_02": {
+    "question_ru": "Na przedstawionym rysunku pokazano model atomu pierwiastka chemicznego.\nWpisz w pole odpowiedzi numer okresu (X) i numer grupy (Y), w których umieszczony jest pierwiastek chemiczny, którego model jest przedstawiony na rysunku. (Do zapisania odpowiedzi użyj cyfr arabskich.)\n\nNa rysunku: model atomu z 2 powłokami elektronowymi (2 i 5 elektronów). To azot (N, Z=7).",
+    "explanation_ru": "Na rysunku przedstawiono model atomu z 2 powłokami elektronowymi: na pierwszej 2 elektrony, na drugiej 5 elektronów. Łącznie 7 elektronów = ładunek jądra 7 = azot (N). Azot jest umieszczony w 2. okresie (2 powłoki elektronowe), V grupie (5 elektronów na powłoce zewnętrznej). X = 2, Y = 5.",
+    "input_labels": ["X", "Y"]
+  },
+  "demo_2022_17": {
+    "question_ru": "Ustal odpowiedniość między dwiema substancjami a odczynnikiem, za pomocą którego można rozróżnić te substancje: do każdej pozycji oznaczonej literą dobierz odpowiednią pozycję oznaczoną cyfrą.\n\nSUBSTANCJE                     ODCZYNNIK\nA) K₂CO₃ i K₂SiO₃             1) CuCl₂\nB) K₂CO₃ i Li₂CO₃             2) HCl\nC) Na₂SO₄ i NaOH              3) MgO\n                               4) K₃PO₄\n\nWpisz do tabeli wybrane cyfry pod odpowiednimi literami.",
+    "explanation_ru": "A) K₂CO₃ i K₂SiO₃: dodajemy HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (gaz). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (osad). Różne oznaki — rozróżniamy.\nB) K₂CO₃ i Li₂CO₃: dodajemy K₃PO₄ (4). Li₃PO₄ jest nierozpuszczalny (wytrąca się osad), K₃PO₄ + K₂CO₃ — brak reakcji.\nC) Na₂SO₄ i NaOH: dodajemy CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (niebieski osad) + 2NaCl. Na₂SO₄ + CuCl₂ — brak osadu (CuSO₄ jest rozpuszczalny)."
+  },
+  "demo_2022_19": {
+    "question_ru": "Przy nawożeniu upraw warzywnych i kwiatowych do gleby wprowadza się 200 g azotu na 100 m². Oblicz, ile gramów saletry amonowej trzeba wnieść na działkę o powierzchni 100 m². Zapisz liczbę z dokładnością do liczb całkowitych.\n\nWykorzystaj wielkość obliczoną w zadaniu 18, z podaną tam dokładnością.",
+    "explanation_ru": "Z zadania 18: ω(N) w NH₄NO₃ = 35% = 0,35.\nNa 100 m² potrzeba 200 g azotu.\nMasa NH₄NO₃ = m(N) / ω(N) = 200 / 0,35 = 571,4 ≈ 571 g."
+  }
+}

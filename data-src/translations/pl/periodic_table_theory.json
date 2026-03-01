@@ -1,0 +1,145 @@
+{
+  "trend:atomic_radius": {
+    "title_ru": "Promie\u0144 atomowy",
+    "trend_period_ru": "Maleje od lewej do prawej w okresie",
+    "trend_group_ru": "Ro\u015bnie od g\u00f3ry do do\u0142u w grupie",
+    "why_period_ru": "Przesuwaj\u0105c si\u0119 w prawo w okresie, \u0142adunek j\u0105dra zwi\u0119ksza si\u0119 o +1, a elektrony dodawane s\u0105 na ten sam poziom energetyczny. Elektrony wewn\u0119trzne ekranuj\u0105 j\u0105dro jednakowo, ale zwi\u0119kszony \u0142adunek silniej przyci\u0105ga elektrony zewn\u0119trzne, \u015bci\u015bkaj\u0105c pow\u0142ok\u0119 elektronow\u0105. Ka\u017cdy nowy proton \u015bci\u0105ga orbitale bli\u017cej j\u0105dra.",
+    "why_group_ru": "Przesuwaj\u0105c si\u0119 w d\u00f3\u0142 grupy, dodawany jest nowy poziom energetyczny. Cho\u0107 \u0142adunek j\u0105dra r\u00f3wnie\u017c ro\u015bnie, elektrony wewn\u0119trzne skutecznie go ekranuj\u0105: ka\u017cdy zape\u0142niony poziom tworzy \u201etarcz\u0119\u201d mi\u0119dzy j\u0105drem a elektronami zewn\u0119trznymi. W efekcie elektrony zewn\u0119trzne znajduj\u0105 si\u0119 dalej od j\u0105dra, a atom staje si\u0119 wi\u0119kszy.",
+    "examples": [
+      {
+        "label_ru": "Okres 2",
+        "comment_ru": "promie\u0144 maleje dwukrotnie w ci\u0105gu okresu"
+      },
+      {
+        "label_ru": "Grupa IA",
+        "comment_ru": "promie\u0144 ro\u015bnie z ka\u017cdym nowym poziomem"
+      }
+    ]
+  },
+  "trend:ionization_energy": {
+    "title_ru": "Energia jonizacji",
+    "trend_period_ru": "Ro\u015bnie od lewej do prawej w okresie",
+    "trend_group_ru": "Maleje od g\u00f3ry do do\u0142u w grupie",
+    "why_period_ru": "Im mniejszy promie\u0144 atomowy i wi\u0119kszy \u0142adunek j\u0105dra przy tej samej liczbie poziom\u00f3w, tym silniej j\u0105dro zatrzymuje elektron zewn\u0119trzny. Dlatego do jego oderwania potrzeba wi\u0119cej energii. Wyj\u0105tki: beryl (2s\u00b2) ma wy\u017csz\u0105 energi\u0119 jonizacji ni\u017c bor (2s\u00b22p\u00b9), poniewa\u017c ca\u0142kowicie zape\u0142niony podpoziom 2s jest szczeg\u00f3lnie stabilny, a azot (2p\u00b3) ma wy\u017csz\u0105 energi\u0119 jonizacji ni\u017c tlen (2p\u2074) dzi\u0119ki stabilno\u015bci na po\u0142ow\u0119 zape\u0142nionego podpoziomu 2p.",
+    "why_group_ru": "Wraz ze wzrostem liczby poziom\u00f3w energetycznych elektron zewn\u0119trzny oddala si\u0119 od j\u0105dra i jest ekranowany przez pow\u0142oki wewn\u0119trzne. J\u0105dro s\u0142abiej go utrzymuje \u2014 do oderwania potrzeba mniej energii. Dlatego metale alkaliczne na dole grupy (Cs, Fr) najl\u0105twiej trac\u0105 elektron.",
+    "examples": [
+      {
+        "label_ru": "Okres 3",
+        "comment_ru": "og\u00f3lny wzrost z wyj\u0105tkami"
+      },
+      {
+        "label_ru": "Grupa IA",
+        "comment_ru": "konsekwentny spadek"
+      }
+    ]
+  },
+  "trend:electronegativity": {
+    "title_ru": "Elektroujemno\u015b\u0107",
+    "trend_period_ru": "Ro\u015bnie od lewej do prawej w okresie",
+    "trend_group_ru": "Maleje od g\u00f3ry do do\u0142u w grupie",
+    "why_period_ru": "Elektroujemno\u015b\u0107 to zdolno\u015b\u0107 atomu do przyci\u0105gania wsp\u00f3lnych elektron\u00f3w w wi\u0105zaniu chemicznym. Przesuwaj\u0105c si\u0119 w prawo w okresie, promie\u0144 atomowy maleje, a \u0142adunek j\u0105dra ro\u015bnie \u2014 j\u0105dro silniej przyci\u0105ga elektrony wi\u0105\u017c\u0105ce. Fluor (E = 4,0) jest najbardziej elektroujemnym pierwiastkiem: ma\u0142y promie\u0144 i 7 elektron\u00f3w walencyjnych, brakuje mu tylko jednego do uzupe\u0142nienia pow\u0142oki.",
+    "why_group_ru": "Przesuwaj\u0105c si\u0119 w d\u00f3\u0142 grupy, promie\u0144 atomowy ro\u015bnie, a ekranowanie j\u0105dra si\u0119 wzmacnia. J\u0105dro s\u0142abiej przyci\u0105ga elektrony wi\u0105\u017c\u0105ce. Dlatego fluor (4,0) jest bardziej elektroujemny ni\u017c chlor (3,16), a chlor bardziej ni\u017c brom (2,96). Metale na dole grupy (Cs, Fr) maj\u0105 minimaln\u0105 elektroujemno\u015b\u0107 i \u0142atwo oddaj\u0105 elektrony.",
+    "examples": [
+      {
+        "label_ru": "Skala Paulinga",
+        "comment_ru": ""
+      },
+      {
+        "text_ru": "Charakter metaliczny i elektroujemno\u015b\u0107 s\u0105 odwrotnie skorelowane: wysoka E \u2192 niemetal, niska E \u2192 aktywny metal"
+      }
+    ]
+  },
+  "trend:metallic_character": {
+    "title_ru": "W\u0142a\u015bciwo\u015bci metaliczne",
+    "trend_period_ru": "S\u0142abn\u0105 od lewej do prawej w okresie",
+    "trend_group_ru": "Wzmacniaj\u0105 si\u0119 od g\u00f3ry do do\u0142u w grupie",
+    "why_period_ru": "W\u0142a\u015bciwo\u015bci metaliczne okre\u015bla zdolno\u015b\u0107 atomu do oddawania elektron\u00f3w. Na pocz\u0105tku okresu s\u0105 aktywne metale (Na, Mg) z 1\u20132 elektronami walencyjnymi, kt\u00f3re \u0142atwo trac\u0105. W \u015brodku \u2014 metale przej\u015bciowe. Na ko\u0144cu \u2014 niemetale z 5\u20137 elektronami walencyjnymi, kt\u00f3rym energetycznie bardziej op\u0142aca si\u0119 przyjmowa\u0107 elektrony ni\u017c oddawa\u0107.",
+    "why_group_ru": "Im wi\u0119kszy promie\u0144 atomowy i im s\u0142abiej j\u0105dro utrzymuje elektrony zewn\u0119trzne, tym \u0142atwiej je odda\u0107. Dlatego lit jest mniej aktywnym metalem ni\u017c cez. Franc jest najbardziej aktywnym ze wszystkich metali (teoretycznie). Podobnie w podgrupie w\u0119gla: C \u2014 niemetal, Si i Ge \u2014 p\u00f3\u0142metale, Sn i Pb \u2014 metale.",
+    "examples": [
+      {
+        "label_ru": "Okres 3",
+        "elements": [
+          { "value_ru": "metal" },
+          {},
+          {},
+          { "value_ru": "p\u00f3\u0142metal" },
+          {},
+          {},
+          { "value_ru": "niemetal" }
+        ],
+        "comment_ru": ""
+      },
+      {
+        "label_ru": "Grupa IA",
+        "comment_ru": "aktywno\u015b\u0107 metali ro\u015bnie (reakcja z wod\u0105 coraz bardziej gwa\u0142towna)"
+      }
+    ]
+  },
+  "trend:electron_affinity": {
+    "title_ru": "Powinowactwo elektronowe",
+    "trend_period_ru": "Ro\u015bnie od lewej do prawej w okresie (z wyj\u0105tkami)",
+    "trend_group_ru": "Maleje od g\u00f3ry do do\u0142u w grupie",
+    "why_period_ru": "Atomy z prawie zape\u0142nion\u0105 pow\u0142ok\u0105 zewn\u0119trzn\u0105 (fluorowce) wydzielaj\u0105 maksimum energii przy przy\u0142\u0105czaniu elektronu \u2014 brakuje im tylko jednego elektronu do stabilnej konfiguracji gazu szlachetnego. Pierwiastki z na po\u0142ow\u0119 i ca\u0142kowicie zape\u0142nionymi podpoziomami (N, Be) maj\u0105 anomalnie niskie powinowactwo: dodanie elektronu zaburza stabiln\u0105 symetri\u0119.",
+    "why_group_ru": "Chlor (349 kJ/mol) ma wi\u0119ksze powinowactwo do elektronu ni\u017c fluor (328 kJ/mol), pomimo ni\u017cszej elektroujemno\u015bci \u2014 ten wyj\u0105tek wyja\u015bnia bardzo ma\u0142y promie\u0144 fluoru, gdzie dodawany elektron do\u015bwiadcza silnego odpychania od innych elektron\u00f3w na podpoziomie 2p. Dalej w d\u00f3\u0142 grupy powinowactwo maleje (Br: 325, I: 295).",
+    "examples": [
+      {
+        "label_ru": "Fluorowce",
+        "comment_ru": "chlor, nie fluor, jest liderem"
+      },
+      {
+        "label_ru": "Anomalie",
+        "comment_ru": "zape\u0142nione podpoziomy opieraj\u0105 si\u0119 dodatkowemu elektronowi"
+      }
+    ]
+  },
+  "exception:cr_consequences": {
+    "title_ru": "Chrom: konsekwencje promocji elektronu",
+    "consequences_ru": [
+      "Chrom wykazuje stopnie utlenienia +2, +3 i +6 (a nie tylko +4, jak mo\u017cna by oczekiwa\u0107).",
+      "Najbardziej stabilny stopie\u0144 utlenienia to +3: utrata 3 elektron\u00f3w (1 z 4s i 2 z 3d) daje stabiln\u0105 konfiguracj\u0119 3d\u00b3 z trzema niesparowanymi elektronami.",
+      "Cr\u2082O\u2083 (tlenek chromu(III)) \u2014 bardzo stabilny zwi\u0105zek, u\u017cywany jako pigment i \u015bcierniwo.",
+      "W stopniu utlenienia +6 (CrO\u2083, K\u2082Cr\u2082O\u2087) chrom jest silnym utleniaczem, poniewa\u017c d\u0105\u017cy do odzyskania elektron\u00f3w i przywr\u00f3cenia stabilnej konfiguracji d."
+    ]
+  },
+  "exception:cu_consequences": {
+    "title_ru": "Mied\u017a: konsekwencje promocji elektronu",
+    "consequences_ru": [
+      "Mied\u017a wykazuje stopnie utlenienia +1 i +2 (zamiast tylko +2).",
+      "Cu\u207a (utrata jedynego elektronu 4s) daje ca\u0142kowicie zape\u0142niony 3d\u00b9\u2070 \u2014 bardzo stabilna konfiguracja. Zwi\u0105zki Cu(I): Cu\u2082O, CuCl.",
+      "Cu\u00b2\u207a (utrata 4s\u00b9 i jednego 3d) te\u017c jest stabilny, poniewa\u017c 3d\u2079 jest bliski zape\u0142nienia. CuSO\u2084 \u2014 siarczan miedzi(II), najpowszechniejszy zwi\u0105zek miedzi.",
+      "W\u0142a\u015bnie z powodu zape\u0142nionego podpoziomu d mied\u017a jest metalem szlachetnym: nie reaguje z rozcie\u0144czonymi kwasami (nie wypiera wodoru)."
+    ]
+  },
+  "exception:pd_consequences": {
+    "title_ru": "Pallad: unikalny przypadek \u2014 pusty podpoziom s",
+    "consequences_ru": [
+      "Pallad jest jedynym pierwiastkiem, w kt\u00f3rym oba elektrony s \u201espadaj\u0105\u201d na podpoziom d.",
+      "G\u0142\u00f3wny stopie\u0144 utlenienia to +2: utrata dw\u00f3ch elektron\u00f3w d daje stabiln\u0105 konfiguracj\u0119 4d\u2078.",
+      "Pallad jest aktywnie stosowany jako katalizator (uwodornienie, reakcje sprz\u0119gania krzy\u017cowego), poniewa\u017c zape\u0142niony podpoziom d mo\u017ce odwracalnie oddawa\u0107 i przyjmowa\u0107 elektrony.",
+      "Mo\u017ce poch\u0142ania\u0107 wod\u00f3r w ilo\u015bci 900 razy wi\u0119kszej ni\u017c w\u0142asna obj\u0119to\u015b\u0107 \u2014 struktura elektronowa pozwala atomom wodoru wnika\u0107 do sieci krystalicznej."
+    ]
+  },
+  "exception:ag_consequences": {
+    "title_ru": "Srebro: analog miedzi w pi\u0105tym okresie",
+    "consequences_ru": [
+      "Srebro wykazuje przede wszystkim stopie\u0144 utlenienia +1: utrata elektronu 5s\u00b9 daje ca\u0142kowicie zape\u0142niony 4d\u00b9\u2070.",
+      "Ag\u207a z konfiguracj\u0105 4d\u00b9\u2070 jest jedn\u0105 z najbardziej stabilnych form w\u015br\u00f3d pierwiastk\u00f3w d.",
+      "Podobnie jak mied\u017a, srebro jest metalem szlachetnym: nie rozpuszcza si\u0119 w rozcie\u0144czonych kwasach.",
+      "Zape\u0142niony podpoziom d zapewnia wysok\u0105 przewodno\u015b\u0107 elektryczn\u0105 i ciepln\u0105: elektrony d nie uczestnicz\u0105 w przewodzeniu i nie rozpraszaj\u0105 elektron\u00f3w s."
+    ]
+  },
+  "exception:au_consequences": {
+    "title_ru": "Z\u0142oto: efekt relatywistyczny + promocja elektronu",
+    "consequences_ru": [
+      "Z\u0142oto wykazuje stopnie utlenienia +1 i +3. Au\u207a ma zape\u0142niony 5d\u00b9\u2070, Au\u00b3\u207a ma konfiguracj\u0119 5d\u2078.",
+      "Relatywistyczne kurczenie si\u0119 orbitalu 6s zmniejsza r\u00f3\u017cnic\u0119 mi\u0119dzy poziomami 5d i 6s. To przyczyna \u017c\u00f3\u0142tego koloru z\u0142ota: energia przej\u015bcia 5d\u21926s wpada w zakres widzialny.",
+      "Z\u0142oto jest najszlachetniejszym z metali: rozpuszcza si\u0119 tylko w wodzie kr\u00f3lewskiej (HNO\u2083 + 3HCl) lub roztworach cyjanid\u00f3w.",
+      "Zape\u0142niony 5d\u00b9\u2070 + efekty relatywistyczne czyni\u0105 z\u0142oto wyj\u0105tkowo chemicznie oboj\u0119tnym i odpornym na korozj\u0119."
+    ]
+  },
+  "principle": {
+    "title_ru": "Zasada og\u00f3lna: dlaczego w\u0142a\u015bciwo\u015bci zmieniaj\u0105 si\u0119 okresowo",
+    "text_ru": "Wszystkie trendy w uk\u0142adzie okresowym wyja\u015bniaj\u0105 dwa konkuruj\u0105ce czynniki: \u0142adunek j\u0105dra (Z) i ekranowanie (\u03c3). Efektywny \u0142adunek j\u0105dra Z_eff = Z \u2212 \u03c3 okre\u015bla, jak silnie j\u0105dro utrzymuje elektrony zewn\u0119trzne. W okresie Z ro\u015bnie, a \u03c3 prawie si\u0119 nie zmienia \u2192 Z_eff ro\u015bnie \u2192 elektrony s\u0105 przyci\u0105gane silniej. W grupie Z ro\u015bnie, ale \u03c3 ro\u015bnie jeszcze szybciej (ka\u017cdy nowy poziom to silna os\u0142ona) \u2192 Z_eff dla elektron\u00f3w zewn\u0119trznych maleje \u2192 elektrony s\u0105 utrzymywane s\u0142abiej.",
+    "formula_ru": "Z_eff = Z \u2212 \u03c3, gdzie Z \u2014 \u0142adunek j\u0105dra, \u03c3 \u2014 sta\u0142a ekranowania"
+  }
+}
