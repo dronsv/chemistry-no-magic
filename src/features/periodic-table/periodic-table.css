@@ -370,13 +370,24 @@
   justify-content: center;
 }
 
-.pt-grid-label,
-.pt-grid-marker {
+.pt-grid-label {
   font-size: 0.625rem;
   color: var(--color-text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Lanthanide / Actinide range button (57-71, 89-103) */
+.pt-fblock-range {
+  justify-content: center;
+}
+
+.pt-fblock-range__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.55);
+  letter-spacing: 0.02em;
 }
 
 .pt-grid-label--group {

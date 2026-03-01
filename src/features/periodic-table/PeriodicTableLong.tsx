@@ -59,8 +59,44 @@ export default function PeriodicTableLong({
         </div>
       ))}
 
-      <div className="pt-grid-marker" style={{ gridRow: 7, gridColumn: 4 }}>57-71</div>
-      <div className="pt-grid-marker" style={{ gridRow: 8, gridColumn: 4 }}>89-103</div>
+      {(() => {
+        const la = sorted.find(el => el.Z === 57);
+        const ac = sorted.find(el => el.Z === 89);
+        return (
+          <>
+            {la && (
+              <div style={{ gridRow: 7, gridColumn: 4 }}>
+                <button
+                  className="pt-cell pt-fblock-range"
+                  style={{ backgroundColor: 'var(--color-lanthanide)' }}
+                  onClick={() => onSelect(la)}
+                  onMouseEnter={() => onHoverElement('lanthanide')}
+                  onMouseLeave={onHoverElementEnd}
+                  title={`57-71`}
+                  type="button"
+                >
+                  <span className="pt-fblock-range__label">57-71</span>
+                </button>
+              </div>
+            )}
+            {ac && (
+              <div style={{ gridRow: 8, gridColumn: 4 }}>
+                <button
+                  className="pt-cell pt-fblock-range"
+                  style={{ backgroundColor: 'var(--color-actinide)' }}
+                  onClick={() => onSelect(ac)}
+                  onMouseEnter={() => onHoverElement('actinide')}
+                  onMouseLeave={onHoverElementEnd}
+                  title={`89-103`}
+                  type="button"
+                >
+                  <span className="pt-fblock-range__label">89-103</span>
+                </button>
+              </div>
+            )}
+          </>
+        );
+      })()}
 
       <div className="pt-grid-label pt-grid-label--period" style={{ gridRow: 10, gridColumn: 1 }}>6*</div>
       <div className="pt-grid-label pt-grid-label--period" style={{ gridRow: 11, gridColumn: 1 }}>7*</div>
