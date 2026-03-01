@@ -1,0 +1,55 @@
+.ont-ref {
+  display: inline;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: filter 0.15s;
+  white-space: nowrap;
+}
+
+.ont-ref:hover {
+  filter: brightness(0.92);
+  text-decoration: underline;
+}
+
+/* Substance class colors — match FormulaChip palette */
+.ont-ref--oxide { background: #fef3c7; color: #92400e; }
+.ont-ref--acid { background: #fee2e2; color: #991b1b; }
+.ont-ref--base { background: #dbeafe; color: #1e40af; }
+.ont-ref--salt { background: #d1fae5; color: #065f46; }
+
+/* Element group */
+.ont-ref--element_group { background: var(--color-bg-alt, #f1f5f9); color: var(--color-text-muted, #475569); }
+
+/* Reaction type */
+.ont-ref--reaction_type { background: #ede9fe; color: #7c3aed; }
+
+/* Process */
+.ont-ref--process { background: #ccfbf1; color: #0d9488; }
+
+/* Property */
+.ont-ref--property { background: #f1f5f9; color: #475569; }
+
+/* Tooltip (same pattern as FormulaChip) */
+.ont-ref__tooltip {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  background: var(--color-text, #1e293b);
+  color: var(--color-bg, #fff);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.ont-ref:hover .ont-ref__tooltip {
+  opacity: 1;
+}
