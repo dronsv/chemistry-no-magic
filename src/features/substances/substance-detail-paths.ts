@@ -60,58 +60,6 @@ export interface NamingRule {
   examples: Array<{ formula: string; name_ru: string }>;
 }
 
-export const CLASS_LABELS: Record<string, string> = {
-  oxide: 'Оксид',
-  acid: 'Кислота',
-  base: 'Основание',
-  salt: 'Соль',
-  other: 'Другое',
-};
-
-export const SUBCLASS_LABELS: Record<string, string> = {
-  basic: 'основный',
-  acidic: 'кислотный',
-  amphoteric: 'амфотерный',
-  indifferent: 'несолеобразующий',
-  oxygen_containing: 'кислородсодержащая',
-  oxygen_free: 'бескислородная',
-  soluble: 'растворимое (щёлочь)',
-  insoluble: 'нерастворимое',
-  normal: 'средняя (нормальная)',
-  acidic_salt: 'кислая',
-  basic_salt: 'основная',
-  hydride: 'гидрид',
-};
-
-export const TAG_LABELS: Record<string, string> = {
-  soluble: 'растворимое',
-  insoluble: 'нерастворимое',
-  slightly_soluble: 'малорастворимое',
-  strong_electrolyte: 'сильный электролит',
-  weak_electrolyte: 'слабый электролит',
-  amphoteric: 'амфотерное',
-  oxidizer: 'окислитель',
-  reducer: 'восстановитель',
-  strong_acid: 'сильная кислота',
-  medium_acid: 'кислота средней силы',
-  weak_acid: 'слабая кислота',
-  alkali: 'щёлочь',
-  diprotic: 'двухосновная',
-  triprotic: 'трёхосновная',
-  unstable: 'неустойчивое',
-  decomposes: 'разлагается',
-  decomposes_on_heating: 'разлагается при нагревании',
-  reacts_with_water: 'реагирует с водой',
-  no_water_reaction: 'не реагирует с водой',
-  gas: 'газ',
-  pungent_odor: 'резкий запах',
-  white: 'белое',
-  black: 'чёрное',
-  blue: 'голубое',
-  red_brown: 'красно-бурое',
-  gelatinous: 'студенистое',
-};
-
 export interface Props {
   substance: SubstanceData;
   classificationRules: ClassificationRule[];

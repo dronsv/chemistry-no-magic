@@ -75,12 +75,22 @@ export interface IonData {
   type: 'cation' | 'anion';
 }
 
+export interface QualitativeTestData {
+  target_id: string;
+  target_name_ru: string;
+  reagent_formula: string;
+  reagent_name_ru: string;
+  observation_ru: string;
+  reaction_id?: string;
+}
+
 export interface Props {
   element: ElementData;
   elementReactions: ReactionData[];
   relatedSubstances: SubstanceEntry[];
   groupLabel: string;
   elementIons: IonData[];
+  qualitativeTests: QualitativeTestData[];
 }
 
 export async function getStaticPaths() {
@@ -95,6 +105,14 @@ export async function getStaticPaths() {
   let allIons: IonData[] = [];
   try {
     allIons = JSON.parse(await readFile(join(process.cwd(), 'data-src', 'ions.json'), 'utf-8'));
+  } catch { /* optional */ }
+
+  // Load qualitative tests for cross-referencing
+  let qualitativeTests: QualitativeTestData[] = [];
+  try {
+    qualitativeTests = JSON.parse(
+      await readFile(join(process.cwd(), 'data-src', 'rules', 'qualitative_reactions.json'), 'utf-8'),
+    );
   } catch { /* optional */ }
 
   // Load reactions for cross-referencing
@@ -143,9 +161,17 @@ export async function getStaticPaths() {
       return re.test(ion.formula);
     });
 
+    // Find qualitative tests whose target ion formula contains this element's symbol
+    const elQualTests = qualitativeTests.filter(qt => {
+      // Extract formula from target_name_ru (last word) or target_id
+      const targetFormula = qt.target_id;
+      const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
+      return re.test(targetFormula);
+    });
+
     return {
       params: { symbol: el.symbol },
-      props: { element: el, elementReactions, relatedSubstances, groupLabel, elementIons },
+      props: { element: el, elementReactions, relatedSubstances, groupLabel, elementIons, qualitativeTests: elQualTests },
     };
   });
 }
