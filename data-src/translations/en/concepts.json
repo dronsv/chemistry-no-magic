@@ -1,0 +1,102 @@
+{
+  "cls:oxide": {
+    "name": "Oxides",
+    "slug": "oxides",
+    "surface_forms": ["oxides", "oxide"]
+  },
+  "cls:oxide_basic": {
+    "name": "Basic oxides",
+    "slug": "basic-oxides",
+    "surface_forms": ["basic oxides", "basic oxide"]
+  },
+  "cls:oxide_acidic": {
+    "name": "Acidic oxides",
+    "slug": "acidic-oxides",
+    "surface_forms": ["acidic oxides", "acidic oxide"]
+  },
+  "cls:oxide_amphoteric": {
+    "name": "Amphoteric oxides",
+    "slug": "amphoteric-oxides",
+    "surface_forms": ["amphoteric oxides", "amphoteric oxide"]
+  },
+  "cls:acid": {
+    "name": "Acids",
+    "slug": "acids",
+    "surface_forms": ["acids", "acid"]
+  },
+  "cls:acid_oxygen": {
+    "name": "Oxyacids",
+    "slug": "oxyacids",
+    "surface_forms": ["oxyacids", "oxyacid", "oxygen-containing acids"]
+  },
+  "cls:acid_oxygenfree": {
+    "name": "Binary acids",
+    "slug": "binary-acids",
+    "surface_forms": ["binary acids", "binary acid", "hydroacids"]
+  },
+  "cls:base": {
+    "name": "Bases",
+    "slug": "bases",
+    "surface_forms": ["bases", "base"]
+  },
+  "cls:base_alkali": {
+    "name": "Alkalis",
+    "slug": "alkalis",
+    "surface_forms": ["alkalis", "alkali"]
+  },
+  "cls:base_insoluble": {
+    "name": "Insoluble bases",
+    "slug": "insoluble-bases",
+    "surface_forms": ["insoluble bases", "insoluble base"]
+  },
+  "cls:base_amphoteric": {
+    "name": "Amphoteric bases",
+    "slug": "amphoteric-bases",
+    "surface_forms": ["amphoteric bases", "amphoteric base", "amphoteric hydroxides"]
+  },
+  "cls:salt": {
+    "name": "Salts",
+    "slug": "salts",
+    "surface_forms": ["salts", "salt"]
+  },
+  "grp:alkali_metals": {
+    "name": "Alkali metals",
+    "slug": "alkali-metals",
+    "surface_forms": ["alkali metals", "alkali metal"]
+  },
+  "grp:halogens": {
+    "name": "Halogens",
+    "slug": "halogens",
+    "surface_forms": ["halogens", "halogen"]
+  },
+  "grp:noble_gases": {
+    "name": "Noble gases",
+    "slug": "noble-gases",
+    "surface_forms": ["noble gases", "noble gas", "inert gases"]
+  },
+  "grp:alkaline_earth": {
+    "name": "Alkaline earth metals",
+    "slug": "alkaline-earth-metals",
+    "surface_forms": ["alkaline earth metals", "alkaline earth metal"]
+  },
+  "rxtype:neutralization": {
+    "name": "Neutralization reactions",
+    "slug": "neutralization",
+    "surface_forms": ["neutralization", "neutralization reaction", "neutralization reactions"]
+  },
+  "rxtype:decomposition": {
+    "name": "Decomposition reactions",
+    "slug": "decomposition",
+    "surface_forms": ["decomposition", "decomposition reaction", "decomposition reactions"]
+  },
+  "rxtype:exchange": {
+    "name": "Double displacement reactions",
+    "slug": "double-displacement",
+    "surface_forms": ["double displacement", "double displacement reaction", "exchange reaction", "metathesis"]
+  },
+  "rxtype:redox": {
+    "name": "Redox reactions",
+    "slug": "redox",
+    "surface_forms": ["redox", "redox reaction", "redox reactions", "oxidation-reduction"]
+  }
+}

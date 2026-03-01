@@ -1,0 +1,206 @@
+{
+  "cls:oxide": {
+    "kind": "substance_class",
+    "parent_id": null,
+    "order": 1,
+    "filters": { "class": "oxide" },
+    "examples": [
+      { "kind": "substance", "id": "na2o" },
+      { "kind": "substance", "id": "co2" },
+      { "kind": "substance", "id": "al2o3" }
+    ],
+    "children_order": ["cls:oxide_basic", "cls:oxide_acidic", "cls:oxide_amphoteric"]
+  },
+  "cls:oxide_basic": {
+    "kind": "substance_class",
+    "parent_id": "cls:oxide",
+    "order": 1,
+    "filters": { "class": "oxide", "has_property": ["basic"] },
+    "examples": [
+      { "kind": "substance", "id": "na2o" },
+      { "kind": "substance", "id": "cao" }
+    ]
+  },
+  "cls:oxide_acidic": {
+    "kind": "substance_class",
+    "parent_id": "cls:oxide",
+    "order": 2,
+    "filters": { "class": "oxide", "has_property": ["acidic"] },
+    "examples": [
+      { "kind": "substance", "id": "co2" },
+      { "kind": "substance", "id": "so3" }
+    ]
+  },
+  "cls:oxide_amphoteric": {
+    "kind": "substance_class",
+    "parent_id": "cls:oxide",
+    "order": 3,
+    "filters": { "class": "oxide", "has_property": ["amphoteric"] },
+    "examples": [
+      { "kind": "substance", "id": "al2o3" },
+      { "kind": "substance", "id": "zno" }
+    ]
+  },
+  "cls:acid": {
+    "kind": "substance_class",
+    "parent_id": null,
+    "order": 2,
+    "filters": { "class": "acid" },
+    "examples": [
+      { "kind": "substance", "id": "hcl" },
+      { "kind": "substance", "id": "h2so4" }
+    ],
+    "children_order": ["cls:acid_oxygen", "cls:acid_oxygenfree"]
+  },
+  "cls:acid_oxygen": {
+    "kind": "substance_class",
+    "parent_id": "cls:acid",
+    "order": 1,
+    "filters": { "class": "acid", "has_property": ["oxygen_containing"] },
+    "examples": [
+      { "kind": "substance", "id": "h2so4" },
+      { "kind": "substance", "id": "hno3" }
+    ]
+  },
+  "cls:acid_oxygenfree": {
+    "kind": "substance_class",
+    "parent_id": "cls:acid",
+    "order": 2,
+    "filters": { "class": "acid", "has_property": ["oxygen_free"] },
+    "examples": [
+      { "kind": "substance", "id": "hcl" },
+      { "kind": "substance", "id": "hf" }
+    ]
+  },
+  "cls:base": {
+    "kind": "substance_class",
+    "parent_id": null,
+    "order": 3,
+    "filters": { "class": "base" },
+    "examples": [
+      { "kind": "substance", "id": "naoh" },
+      { "kind": "substance", "id": "fe_oh_3" }
+    ],
+    "children_order": ["cls:base_alkali", "cls:base_insoluble", "cls:base_amphoteric"]
+  },
+  "cls:base_alkali": {
+    "kind": "substance_class",
+    "parent_id": "cls:base",
+    "order": 1,
+    "filters": { "class": "base", "has_property": ["soluble_in_water"] },
+    "examples": [
+      { "kind": "substance", "id": "naoh" },
+      { "kind": "substance", "id": "koh" }
+    ]
+  },
+  "cls:base_insoluble": {
+    "kind": "substance_class",
+    "parent_id": "cls:base",
+    "order": 2,
+    "filters": { "class": "base", "has_property": ["insoluble_in_water"] },
+    "examples": [
+      { "kind": "substance", "id": "fe_oh_3" },
+      { "kind": "substance", "id": "cu_oh_2" }
+    ]
+  },
+  "cls:base_amphoteric": {
+    "kind": "substance_class",
+    "parent_id": "cls:base",
+    "order": 3,
+    "filters": { "class": "base", "has_property": ["amphoteric"] },
+    "examples": [
+      { "kind": "substance", "id": "al_oh_3" },
+      { "kind": "substance", "id": "zn_oh_2" }
+    ]
+  },
+  "cls:salt": {
+    "kind": "substance_class",
+    "parent_id": null,
+    "order": 4,
+    "filters": { "class": "salt" },
+    "examples": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "caco3" }
+    ]
+  },
+  "grp:alkali_metals": {
+    "kind": "element_group",
+    "parent_id": null,
+    "order": 1,
+    "filters": { "group_name": "alkali_metals" },
+    "examples": [
+      { "kind": "element", "id": "Li" },
+      { "kind": "element", "id": "Na" },
+      { "kind": "element", "id": "K" }
+    ]
+  },
+  "grp:halogens": {
+    "kind": "element_group",
+    "parent_id": null,
+    "order": 2,
+    "filters": { "group_name": "halogens" },
+    "examples": [
+      { "kind": "element", "id": "F" },
+      { "kind": "element", "id": "Cl" },
+      { "kind": "element", "id": "Br" }
+    ]
+  },
+  "grp:noble_gases": {
+    "kind": "element_group",
+    "parent_id": null,
+    "order": 3,
+    "filters": { "group_name": "noble_gases" },
+    "examples": [
+      { "kind": "element", "id": "He" },
+      { "kind": "element", "id": "Ne" },
+      { "kind": "element", "id": "Ar" }
+    ]
+  },
+  "grp:alkaline_earth": {
+    "kind": "element_group",
+    "parent_id": null,
+    "order": 4,
+    "filters": { "group_name": "alkaline_earth_metals" },
+    "examples": [
+      { "kind": "element", "id": "Mg" },
+      { "kind": "element", "id": "Ca" },
+      { "kind": "element", "id": "Ba" }
+    ]
+  },
+  "rxtype:neutralization": {
+    "kind": "reaction_type",
+    "parent_id": null,
+    "order": 1,
+    "filters": { "reaction_type": "neutralization" },
+    "examples": [
+      { "kind": "reaction", "id": "rx_neutr_01" }
+    ]
+  },
+  "rxtype:decomposition": {
+    "kind": "reaction_type",
+    "parent_id": null,
+    "order": 2,
+    "filters": { "reaction_type": "decomposition" },
+    "examples": [
+      { "kind": "reaction", "id": "rx_decomp_01" }
+    ]
+  },
+  "rxtype:exchange": {
+    "kind": "reaction_type",
+    "parent_id": null,
+    "order": 3,
+    "filters": { "reaction_type": "exchange" },
+    "examples": [
+      { "kind": "reaction", "id": "rx_precip_01_baso4" }
+    ]
+  },
+  "rxtype:redox": {
+    "kind": "reaction_type",
+    "parent_id": null,
+    "order": 4,
+    "filters": { "reaction_type": "redox" },
+    "examples": [
+      { "kind": "reaction", "id": "rx_redox_01_zn_hcl" }
+    ]
+  }
+}

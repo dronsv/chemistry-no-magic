@@ -1,0 +1,102 @@
+{
+  "cls:oxide": {
+    "name": "Óxidos",
+    "slug": "oxidos",
+    "surface_forms": ["óxidos", "óxido"]
+  },
+  "cls:oxide_basic": {
+    "name": "Óxidos básicos",
+    "slug": "oxidos-basicos",
+    "surface_forms": ["óxidos básicos", "óxido básico"]
+  },
+  "cls:oxide_acidic": {
+    "name": "Óxidos ácidos",
+    "slug": "oxidos-acidos",
+    "surface_forms": ["óxidos ácidos", "óxido ácido"]
+  },
+  "cls:oxide_amphoteric": {
+    "name": "Óxidos anfóteros",
+    "slug": "oxidos-anfoteros",
+    "surface_forms": ["óxidos anfóteros", "óxido anfótero"]
+  },
+  "cls:acid": {
+    "name": "Ácidos",
+    "slug": "acidos",
+    "surface_forms": ["ácidos", "ácido"]
+  },
+  "cls:acid_oxygen": {
+    "name": "Oxoácidos",
+    "slug": "oxoacidos",
+    "surface_forms": ["oxoácidos", "oxoácido", "ácidos oxigenados"]
+  },
+  "cls:acid_oxygenfree": {
+    "name": "Hidrácidos",
+    "slug": "hidracidos",
+    "surface_forms": ["hidrácidos", "hidrácido", "ácidos binarios"]
+  },
+  "cls:base": {
+    "name": "Bases",
+    "slug": "bases",
+    "surface_forms": ["bases", "base"]
+  },
+  "cls:base_alkali": {
+    "name": "Álcalis",
+    "slug": "alcalis",
+    "surface_forms": ["álcalis", "álcali"]
+  },
+  "cls:base_insoluble": {
+    "name": "Bases insolubles",
+    "slug": "bases-insolubles",
+    "surface_forms": ["bases insolubles", "base insoluble"]
+  },
+  "cls:base_amphoteric": {
+    "name": "Bases anfóteras",
+    "slug": "bases-anfoteras",
+    "surface_forms": ["bases anfóteras", "base anfótera", "hidróxidos anfóteros"]
+  },
+  "cls:salt": {
+    "name": "Sales",
+    "slug": "sales",
+    "surface_forms": ["sales", "sal"]
+  },
+  "grp:alkali_metals": {
+    "name": "Metales alcalinos",
+    "slug": "metales-alcalinos",
+    "surface_forms": ["metales alcalinos", "metal alcalino"]
+  },
+  "grp:halogens": {
+    "name": "Halógenos",
+    "slug": "halogenos",
+    "surface_forms": ["halógenos", "halógeno"]
+  },
+  "grp:noble_gases": {
+    "name": "Gases nobles",
+    "slug": "gases-nobles",
+    "surface_forms": ["gases nobles", "gas noble", "gases inertes"]
+  },
+  "grp:alkaline_earth": {
+    "name": "Metales alcalinotérreos",
+    "slug": "metales-alcalinoterreos",
+    "surface_forms": ["metales alcalinotérreos", "metal alcalinotérreo"]
+  },
+  "rxtype:neutralization": {
+    "name": "Reacciones de neutralización",
+    "slug": "neutralizacion",
+    "surface_forms": ["neutralización", "reacción de neutralización", "reacciones de neutralización"]
+  },
+  "rxtype:decomposition": {
+    "name": "Reacciones de descomposición",
+    "slug": "descomposicion",
+    "surface_forms": ["descomposición", "reacción de descomposición", "reacciones de descomposición"]
+  },
+  "rxtype:exchange": {
+    "name": "Reacciones de doble desplazamiento",
+    "slug": "doble-desplazamiento",
+    "surface_forms": ["doble desplazamiento", "reacción de intercambio", "metátesis"]
+  },
+  "rxtype:redox": {
+    "name": "Reacciones redox",
+    "slug": "redox",
+    "surface_forms": ["redox", "reacción redox", "reacciones redox", "oxidación-reducción"]
+  }
+}

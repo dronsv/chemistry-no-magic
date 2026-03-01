@@ -20,6 +20,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
     entrypoints: {
       elements: 'elements.json',
       ions: 'ions.json',
+      concepts: 'concepts.json',
       rules: {
         classification_rules: 'rules/classification_rules.json',
         naming_rules: 'rules/naming_rules.json',

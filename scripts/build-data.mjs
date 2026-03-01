@@ -41,6 +41,7 @@ import { generateFormulaLookup } from './lib/generate-formula-lookup.mjs';
 import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
+import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -164,6 +165,8 @@ async function main() {
   const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
   const promptTemplatesEs = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.es.json'));
 
+  const concepts = JSON.parse(await readFile(join(DATA_SRC, 'concepts.json'), 'utf-8'));
+
   // Load contexts layer
   const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
   const substanceVariants = await loadJson(join(DATA_SRC, 'contexts', 'substance_variants.json'));
@@ -204,7 +207,8 @@ async function main() {
   console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples`);
   console.log(`  ${properties.length} property definitions, ${engineTaskTemplates.length} engine task templates`);
   console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)`);
-  console.log(`  ${chemContexts.length} contexts, ${substanceVariants.length} substance variants, ${chemTerms.length} terms\n`);
+  console.log(`  ${chemContexts.length} contexts, ${substanceVariants.length} substance variants, ${chemTerms.length} terms`);
+  console.log(`  ${Object.keys(concepts).length} concepts\n`);
 
   // 2. Validate
   console.log('Validating...');
@@ -374,6 +378,8 @@ async function main() {
   await writeFile(join(bundleDir, 'contexts', 'term_bindings.json'), JSON.stringify(termBindings));
   await writeFile(join(bundleDir, 'contexts', 'reverse_index.json'), JSON.stringify(reverseIndex));
 
+  await writeFile(join(bundleDir, 'concepts.json'), JSON.stringify(concepts));
+
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
   const reactionParticipants = generateReactionParticipants(reactions);
@@ -388,6 +394,15 @@ async function main() {
   console.log('Generating formula lookup...');
   const formulaCount = await generateFormulaLookup(elements, substances, ions, bundleDir);
   console.log(`  ${formulaCount} formula entries`);
+
+  // 7b2. Generate concept lookups (surface forms → concept IDs per locale)
+  console.log('Generating concept lookups...');
+  const conceptCounts = await generateConceptLookups(
+    concepts, join(DATA_SRC, 'translations'), bundleDir, ['ru', 'en', 'pl', 'es']
+  );
+  for (const [locale, count] of Object.entries(conceptCounts)) {
+    console.log(`  ${locale}: ${count} concept entries`);
+  }
 
   // 7c. Generate search index (Russian — default)
   console.log('Generating search index...');
