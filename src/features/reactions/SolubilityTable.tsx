@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
-import type { SolubilityEntry, SolubilityRule, SolubilityRulesFull } from '../../types/rules';
+import { useState, useEffect, useMemo } from 'react';
+import type { SolubilityEntry, SolubilityRule } from '../../types/rules';
 import type { Ion } from '../../types/ion';
 import type { SupportedLocale } from '../../types/i18n';
 import { loadSolubilityRules, loadSolubilityRulesFull, loadIons } from '../../lib/data-loader';
 import { cellMatchesRule } from './solubility-helpers';
+import { composeFormula } from '../../lib/formula-compose';
+import { onHighlight } from '../../lib/formula-highlight-events';
 import FormulaChip from '../../components/FormulaChip';
 import SolubilityRulesPanel from './SolubilityRulesPanel';
 import * as m from '../../paraglide/messages.js';
@@ -80,6 +82,43 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
     loadData();
   }, [locale, variant]);
 
+  const formulaIndex = useMemo(() => {
+    const index = new Map<string, string>();
+    for (const catId of cationOrder) {
+      for (const anId of anionOrder) {
+        const cat = ionMap.get(catId);
+        const an = ionMap.get(anId);
+        if (cat && an) {
+          index.set(`${catId}|${anId}`, composeFormula(cat, an));
+        }
+      }
+    }
+    return index;
+  }, [cationOrder, anionOrder, ionMap]);
+
+  // Reverse index: formula → ion pair (for external highlight events)
+  const reverseFormulaIndex = useMemo(() => {
+    const index = new Map<string, { cation: string; anion: string }>();
+    for (const [key, formula] of formulaIndex) {
+      const [cation, anion] = key.split('|');
+      index.set(formula, { cation, anion });
+    }
+    return index;
+  }, [formulaIndex]);
+
+  // External highlight from FormulaChip hover (separate from manual cell selection)
+  const [externalHighlight, setExternalHighlight] = useState<{ cation: string; anion: string } | null>(null);
+
+  useEffect(() => {
+    return onHighlight((detail) => {
+      if (!detail?.formula) {
+        setExternalHighlight(null);
+        return;
+      }
+      setExternalHighlight(reverseFormulaIndex.get(detail.formula) ?? null);
+    });
+  }, [reverseFormulaIndex]);
+
   if (loading) return null;
 
   const lookup = new Map<string, SolubilityEntry>();
@@ -87,25 +126,20 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
     lookup.set(`${e.cation}|${e.anion}`, e);
   }
 
-  // For compact variant, entries use ion.id format already (Na_plus)
-  // For full variant, also ion.id format
   const activeRule = activeRuleId ? rules.find(r => r.id === activeRuleId) ?? null : null;
-
-  function getIonFormula(ionId: string): string {
-    return ionMap.get(ionId)?.formula ?? ionId;
-  }
-
-  function getIonName(ionId: string): string | undefined {
-    return ionMap.get(ionId)?.name_ru;
-  }
 
   function handleCellClick(cation: string, anion: string) {
     if (highlightRow === cation && highlightCol === anion) {
       setHighlightRow(null);
       setHighlightCol(null);
+      setActiveRuleId(null);
     } else {
       setHighlightRow(cation);
       setHighlightCol(anion);
+      if (rules.length > 0) {
+        const match = rules.find(r => cellMatchesRule(cation, anion, r) !== 'none');
+        setActiveRuleId(match?.id ?? null);
+      }
     }
   }
 
@@ -115,7 +149,11 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
         <SolubilityRulesPanel
           rules={rules}
           activeRuleId={activeRuleId}
-          onRuleClick={setActiveRuleId}
+          onRuleClick={(ruleId) => {
+            setActiveRuleId(ruleId);
+            setHighlightRow(null);
+            setHighlightCol(null);
+          }}
         />
       )}
       <table className={`sol-table ${variant === 'full' ? 'sol-table--full' : ''}`}>
@@ -128,7 +166,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
             {anionOrder.map(anionId => {
               const ion = ionMap.get(anionId);
               const formula = ion?.formula ?? anionId;
-              const isHl = highlightCol === anionId;
+              const isHl = highlightCol === anionId || externalHighlight?.anion === anionId;
               return (
                 <th
                   key={anionId}
@@ -153,7 +191,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
           {cationOrder.map(cationId => {
             const catIon = ionMap.get(cationId);
             const catFormula = catIon?.formula ?? cationId;
-            const isRowHl = highlightRow === cationId;
+            const isRowHl = highlightRow === cationId || externalHighlight?.cation === cationId;
             return (
               <tr key={cationId}>
                 <th
@@ -173,10 +211,10 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
                 {anionOrder.map(anionId => {
                   const entry = lookup.get(`${cationId}|${anionId}`);
                   const sol = entry?.solubility;
-                  const isHighlighted = highlightRow === cationId || highlightCol === anionId;
-                  const catName = getIonName(cationId) ?? catFormula;
-                  const anName = getIonName(anionId) ?? getIonFormula(anionId);
+                  const isHighlighted = highlightRow === cationId || highlightCol === anionId
+                    || externalHighlight?.cation === cationId || externalHighlight?.anion === anionId;
                   const solLabel = sol ? SOLUBILITY_LABELS[sol]?.() ?? '' : '';
+                  const cellFormula = formulaIndex.get(`${cationId}|${anionId}`);
 
                   // Rule highlighting
                   let ruleClass = '';
@@ -191,9 +229,9 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
                       key={anionId}
                       className={`sol-cell ${sol ? SOLUBILITY_CLASSES[sol] : ''} ${isHighlighted ? 'sol-cell--highlight' : ''} ${ruleClass}`}
                       onClick={() => handleCellClick(cationId, anionId)}
-                      title={sol ? `${catName} + ${anName}: ${solLabel}` : ''}
+                      title={sol ? `${cellFormula ?? ''} — ${solLabel}` : ''}
                     >
-                      {solLabel}
+                      {sol ? (cellFormula ?? solLabel) : ''}
                     </td>
                   );
                 })}

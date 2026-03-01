@@ -117,6 +117,7 @@
 .sol-cell {
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.6875rem;
   transition: background 0.1s;
   min-width: 2rem;
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import type { ClassificationRule, NamingRule } from '../../types/classification';
+import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../../types/classification';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadClassificationRules, loadNamingRules } from '../../lib/data-loader';
+import { loadClassificationRules, loadNamingRules, loadSubstancesIndex } from '../../lib/data-loader';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
 import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
@@ -36,7 +36,11 @@ const FILTER_SECTIONS_MAP: Record<string, string[]> = {
   salt: ['class_salt', 'naming_salt'],
 };
 
-function ClassificationRuleCard({ rule }: { rule: ClassificationRule }) {
+function ClassificationRuleCard({ rule, substanceMap, locale }: {
+  rule: ClassificationRule;
+  substanceMap: Map<string, SubstanceIndexEntry>;
+  locale?: SupportedLocale;
+}) {
   return (
     <div className="subst-theory__rule">
       <div className="subst-theory__rule-header">
@@ -44,27 +48,52 @@ function ClassificationRuleCard({ rule }: { rule: ClassificationRule }) {
       </div>
       <p className="subst-theory__rule-desc">{rule.description_ru}</p>
       <div className="subst-theory__rule-examples subst-theory__formula-chips">
-        {rule.examples.map((formula, i) => (
-          <FormulaChip key={i} formula={formula} substanceClass={rule.class} />
-        ))}
+        {rule.examples.map((formula, i) => {
+          const sub = substanceMap.get(formula);
+          return (
+            <FormulaChip
+              key={i}
+              formula={formula}
+              name={sub?.name_ru}
+              substanceClass={rule.class}
+              subclass={rule.subclass}
+              substanceId={sub?.id}
+              locale={locale}
+            />
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function NamingRuleCard({ rule }: { rule: NamingRule }) {
+function NamingRuleCard({ rule, substanceMap, locale }: {
+  rule: NamingRule;
+  substanceMap: Map<string, SubstanceIndexEntry>;
+  locale?: SupportedLocale;
+}) {
   return (
     <div className="subst-theory__rule">
       <div className="subst-theory__rule-header">
         {rule.template_ru}
       </div>
       <div className="subst-theory__naming-examples">
-        {rule.examples.map((ex, i) => (
-          <span key={i} className="subst-theory__naming-pair">
-            <FormulaChip formula={ex.formula} name={ex.name_ru} substanceClass={rule.class} />
-            {i < rule.examples.length - 1 ? ' ' : ''}
-          </span>
-        ))}
+        {rule.examples.map((ex, i) => {
+          const sub = substanceMap.get(ex.formula);
+          return (
+            <span key={i} className="subst-theory__naming-pair">
+              <FormulaChip
+                formula={ex.formula}
+                name={ex.name_ru}
+                substanceClass={rule.class}
+                subclass={sub?.subclass}
+                substanceId={sub?.id}
+                locale={locale}
+              />
+              {i < rule.examples.length - 1 ? ' ' : ''}
+            </span>
+          );
+        })}
       </div>
     </div>
   );
@@ -73,6 +102,7 @@ function NamingRuleCard({ rule }: { rule: NamingRule }) {
 export default function ClassificationTheoryPanel({ activeFilter = 'all', locale = 'ru' as SupportedLocale }: { activeFilter?: string; locale?: SupportedLocale }) {
   const [classRules, setClassRules] = useState<ClassificationRule[] | null>(null);
   const [namingRules, setNamingRules] = useState<NamingRule[] | null>(null);
+  const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
   const [loading, setLoading] = useState(false);
   const [open, toggleOpen] = useTheoryPanelState('substances');
   const [error, setError] = useState<string | null>(null);
@@ -81,10 +111,13 @@ export default function ClassificationTheoryPanel({ activeFilter = 'all', locale
   useEffect(() => {
     if (!open || classRules) return;
     setLoading(true);
-    Promise.all([loadClassificationRules(locale), loadNamingRules(locale)])
-      .then(([cRules, nRules]) => {
+    Promise.all([loadClassificationRules(locale), loadNamingRules(locale), loadSubstancesIndex(locale)])
+      .then(([cRules, nRules, substances]) => {
         setClassRules(cRules);
         setNamingRules(nRules);
+        const map = new Map<string, SubstanceIndexEntry>();
+        for (const s of substances) map.set(s.formula, s);
+        setSubstanceMap(map);
         setLoading(false);
       })
       .catch(err => {
@@ -133,7 +166,7 @@ export default function ClassificationTheoryPanel({ activeFilter = 'all', locale
               {classGroups.map(group => (
                 <CollapsibleSection key={group.cls} id={`class_${group.cls}`} pageKey="substances" title={group.label} forceOpen={forcedSections.includes(`class_${group.cls}`)}>
                   {group.rules.map(rule => (
-                    <ClassificationRuleCard key={rule.id} rule={rule} />
+                    <ClassificationRuleCard key={rule.id} rule={rule} substanceMap={substanceMap} locale={locale} />
                   ))}
                 </CollapsibleSection>
               ))}
@@ -180,7 +213,7 @@ export default function ClassificationTheoryPanel({ activeFilter = 'all', locale
               {namingGroups.map(group => (
                 <CollapsibleSection key={group.cls} id={`naming_${group.cls}`} pageKey="substances" title={group.label} forceOpen={forcedSections.includes(`naming_${group.cls}`)}>
                   {group.rules.map(rule => (
-                    <NamingRuleCard key={rule.id} rule={rule} />
+                    <NamingRuleCard key={rule.id} rule={rule} substanceMap={substanceMap} locale={locale} />
                   ))}
                 </CollapsibleSection>
               ))}

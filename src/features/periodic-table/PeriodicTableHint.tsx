@@ -4,6 +4,7 @@ import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
 import { loadElements, loadElementGroups } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
+import { onHighlight } from '../../lib/formula-highlight-events';
 import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
@@ -45,6 +46,39 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
     }
     return matched.size > 0 ? matched : null;
   }, [searchQuery, elements]);
+
+  // External highlight from FormulaChip hover
+  const [externalHighlightZ, setExternalHighlightZ] = useState<Set<number> | null>(null);
+
+  const symbolToZ = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const el of elements) map.set(el.symbol, el.Z);
+    return map;
+  }, [elements]);
+
+  useEffect(() => {
+    return onHighlight((detail) => {
+      if (!detail || !detail.elements || detail.elements.length === 0) {
+        setExternalHighlightZ(null);
+        return;
+      }
+      const zSet = new Set<number>();
+      for (const sym of detail.elements) {
+        const z = symbolToZ.get(sym);
+        if (z) zSet.add(z);
+      }
+      setExternalHighlightZ(zSet.size > 0 ? zSet : null);
+    });
+  }, [symbolToZ]);
+
+  const effectiveHighlightZ = useMemo(() => {
+    if (!searchMatchedZ && !externalHighlightZ) return null;
+    if (searchMatchedZ && !externalHighlightZ) return searchMatchedZ;
+    if (!searchMatchedZ && externalHighlightZ) return externalHighlightZ;
+    const merged = new Set(searchMatchedZ);
+    for (const z of externalHighlightZ!) merged.add(z);
+    return merged;
+  }, [searchMatchedZ, externalHighlightZ]);
 
   // Drag state
   const panelRef = useRef<HTMLDivElement>(null);
@@ -292,7 +326,7 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
               <TableComponent
                 elements={elements}
                 highlightedGroup={highlightedGroup}
-                searchMatchedZ={searchMatchedZ}
+                searchMatchedZ={effectiveHighlightZ}
                 exceptionZSet={exceptionZSet}
                 onSelect={handleSelect}
                 onHoverElement={handleElementHover}
