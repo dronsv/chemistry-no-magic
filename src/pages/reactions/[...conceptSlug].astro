@@ -1,0 +1,9 @@
+---
+import ConceptDetailPage from '../../features/concepts/ConceptDetailPage.astro';
+import { getConceptDetailPathsByKind } from '../../features/concepts/concept-detail-paths';
+
+export function getStaticPaths() {
+  return getConceptDetailPathsByKind('ru', ['reaction_type']);
+}
+---
+<ConceptDetailPage {...Astro.props} />

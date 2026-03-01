@@ -1047,5 +1047,11 @@
   "el_names_worldwide": "Nazwy w różnych językach",
   "el_qualitative_tests": "Reakcje jakościowe",
   "el_reagent": "Odczynnik",
-  "el_observation": "Obserwacja"
+  "el_observation": "Obserwacja",
+  "concept_subcategories": "Podkategorie",
+  "concept_examples": "Przykłady",
+  "concept_back_substances": "Katalog substancji",
+  "concept_back_elements": "Układ okresowy",
+  "concept_back_reactions": "Reakcje",
+  "concept_description": "{name} — Chemia bez magii"
 }

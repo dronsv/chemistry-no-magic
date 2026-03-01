@@ -1047,5 +1047,11 @@
   "el_names_worldwide": "Названия на разных языках",
   "el_qualitative_tests": "Качественные реакции",
   "el_reagent": "Реагент",
-  "el_observation": "Наблюдение"
+  "el_observation": "Наблюдение",
+  "concept_subcategories": "Подкатегории",
+  "concept_examples": "Примеры",
+  "concept_back_substances": "Каталог веществ",
+  "concept_back_elements": "Периодическая таблица",
+  "concept_back_reactions": "Реакции",
+  "concept_description": "{name} — Химия без магии"
 }

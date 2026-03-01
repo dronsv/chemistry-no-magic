@@ -1047,5 +1047,11 @@
   "el_names_worldwide": "Nombres en distintos idiomas",
   "el_qualitative_tests": "Reacciones cualitativas",
   "el_reagent": "Reactivo",
-  "el_observation": "Observación"
+  "el_observation": "Observación",
+  "concept_subcategories": "Subcategorías",
+  "concept_examples": "Ejemplos",
+  "concept_back_substances": "Catálogo de sustancias",
+  "concept_back_elements": "Tabla periódica",
+  "concept_back_reactions": "Reacciones",
+  "concept_description": "{name} — Química sin magia"
 }

@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormulaChip from '../../components/FormulaChip.tsx';
+import { CONCEPT_KIND_ROUTES, localizeUrl } from '../../lib/i18n';
+import type { SupportedLocale } from '../../types/i18n';
+import type { ConceptPageProps } from './concept-detail-paths';
+import * as m from '../../paraglide/messages.js';
+
+const { conceptId, entry, overlay, locale, breadcrumbs, children, substanceIndex } = Astro.props as ConceptPageProps;
+const loc = locale as SupportedLocale;
+
+const baseRoute = CONCEPT_KIND_ROUTES[entry.kind] ?? '/';
+const localizedBase = localizeUrl(baseRoute, loc);
+
+// Back link label per kind
+const backLabels: Record<string, string> = {
+  substance_class: m.concept_back_substances(),
+  element_group: m.concept_back_elements(),
+  reaction_type: m.concept_back_reactions(),
+};
+const backLabel = backLabels[entry.kind] ?? m.back();
+---
+
+<BaseLayout
+  title={overlay.name}
+  description={m.concept_description({ name: overlay.name })}
+>
+  <article class="concept-page">
+    <nav class="concept-breadcrumbs" aria-label="breadcrumbs">
+      <a href={localizedBase}>{backLabel}</a>
+      {breadcrumbs.map((crumb) => (
+        <span>
+          <span class="sep"> / </span>
+          <a href={localizedBase + crumb.href}>{crumb.name}</a>
+        </span>
+      ))}
+      <span class="sep"> / </span>
+      <span class="current">{overlay.name}</span>
+    </nav>
+
+    <h1>{overlay.name}</h1>
+
+    {children.length > 0 && (
+      <section class="concept-children">
+        <h2>{m.concept_subcategories()}</h2>
+        <ul>
+          {children.map((child) => (
+            <li>
+              <a href={localizedBase + child.slug + '/'}>{child.name}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {entry.examples.length > 0 && (
+      <section class="concept-examples">
+        <h2>{m.concept_examples()}</h2>
+        <div class="examples-grid">
+          {entry.examples.map((ex) => {
+            if (ex.kind === 'substance') {
+              const s = substanceIndex[ex.id];
+              if (!s) return <span>{ex.id}</span>;
+              return (
+                <FormulaChip
+                  formula={s.formula}
+                  name={s.name_ru}
+                  substanceId={s.id}
+                  substanceClass={s.class}
+                  locale={locale}
+                />
+              );
+            }
+            if (ex.kind === 'element') {
+              return (
+                <a
+                  class="example-element-link"
+                  href={localizeUrl(`/periodic-table/${ex.id}/`, loc)}
+                >
+                  {ex.id}
+                </a>
+              );
+            }
+            return <span>{ex.id}</span>;
+          })}
+        </div>
+      </section>
+    )}
+
+    <div class="concept-page__actions">
+      <a href={localizedBase}>&larr; {backLabel}</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .concept-page {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: var(--space-xl, 2rem) var(--space-md, 1rem);
+  }
+  .concept-breadcrumbs {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-md, 1rem);
+    color: var(--color-text-muted, #64748b);
+  }
+  .concept-breadcrumbs a {
+    color: var(--color-link, #2563eb);
+    text-decoration: none;
+  }
+  .concept-breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  .concept-breadcrumbs .current {
+    font-weight: 600;
+    color: var(--color-text, #1e293b);
+  }
+  .sep {
+    margin: 0 0.25rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+    margin: 0 0 var(--space-lg, 1.5rem);
+  }
+  .concept-children ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .concept-children li a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.25rem;
+    background: var(--color-bg-alt, #f1f5f9);
+    text-decoration: none;
+    color: var(--color-link, #2563eb);
+    font-weight: 500;
+  }
+  .concept-children li a:hover {
+    background: var(--color-bg-hover, #e2e8f0);
+  }
+  .examples-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .example-element-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    background: var(--color-bg-alt, #f1f5f9);
+    color: var(--color-link, #2563eb);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .example-element-link:hover {
+    background: var(--color-bg-hover, #e2e8f0);
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin: var(--space-lg, 1.5rem) 0 var(--space-sm, 0.75rem);
+  }
+  .concept-page__actions {
+    margin-top: var(--space-xl, 2rem);
+    padding-top: var(--space-md, 1rem);
+    border-top: 1px solid var(--color-border, #e2e8f0);
+  }
+  .concept-page__actions a {
+    color: var(--color-link, #2563eb);
+    text-decoration: none;
+  }
+  .concept-page__actions a:hover {
+    text-decoration: underline;
+  }
+</style>
