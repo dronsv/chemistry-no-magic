@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderPrompt } from '../prompt-renderer';
+import { renderPrompt, renderToRichText } from '../prompt-renderer';
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from '../types';
 
 const MOCK_PROMPTS_RU: PromptTemplateMap = {
@@ -74,5 +74,74 @@ describe('renderPrompt', () => {
     expect(() =>
       renderPrompt('nonexistent', {}, { promptTemplates: MOCK_PROMPTS_RU, properties: MOCK_PROPERTIES, morphology: null })
     ).toThrow();
+  });
+});
+
+describe('renderToRichText', () => {
+  it('returns text-only segments for templates without refs', () => {
+    const ctx = {
+      promptTemplates: {
+        'test.v1': { question: 'Какой тип связи в {formula}?', slots: { formula: 'direct' } },
+      },
+      properties: [] as PropertyDef[],
+      morphology: null,
+    };
+    const result = renderToRichText('test.v1', { formula: 'NaCl' }, ctx);
+    expect(result).toEqual([{ t: 'text', v: 'Какой тип связи в NaCl?' }]);
+  });
+
+  it('parses {ref:id|form} tokens into ref segments', () => {
+    const ctx = {
+      promptTemplates: {
+        'test.v2': {
+          question: 'Реакция {ref:grp:alkali_metals|gen_pl} с водой',
+          slots: {},
+        },
+      },
+      properties: [] as PropertyDef[],
+      morphology: null,
+    };
+    const result = renderToRichText('test.v2', {}, ctx);
+    expect(result).toEqual([
+      { t: 'text', v: 'Реакция ' },
+      { t: 'ref', id: 'grp:alkali_metals', form: 'gen_pl' },
+      { t: 'text', v: ' с водой' },
+    ]);
+  });
+
+  it('handles mixed slots and refs', () => {
+    const ctx = {
+      promptTemplates: {
+        'test.v3': {
+          question: '{substance_name} относится к {ref:cls:base|dat_pl}',
+          slots: { substance_name: 'direct' },
+        },
+      },
+      properties: [] as PropertyDef[],
+      morphology: null,
+    };
+    const result = renderToRichText('test.v3', { substance_name: 'NaOH' }, ctx);
+    expect(result).toEqual([
+      { t: 'text', v: 'NaOH относится к ' },
+      { t: 'ref', id: 'cls:base', form: 'dat_pl' },
+    ]);
+  });
+
+  it('handles ref without form', () => {
+    const ctx = {
+      promptTemplates: {
+        'test.v4': {
+          question: 'Элемент из {ref:grp:halogens}',
+          slots: {},
+        },
+      },
+      properties: [] as PropertyDef[],
+      morphology: null,
+    };
+    const result = renderToRichText('test.v4', {}, ctx);
+    expect(result).toEqual([
+      { t: 'text', v: 'Элемент из ' },
+      { t: 'ref', id: 'grp:halogens' },
+    ]);
   });
 });

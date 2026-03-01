@@ -21,3 +21,4 @@ export type {
 
 export { evaluate } from './evaluator';
 export { createRegistry } from './template-registry';
+export { renderToRichText } from './prompt-renderer';
