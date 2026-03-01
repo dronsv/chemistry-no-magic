@@ -98,5 +98,10 @@
     "name_ru": "Electrolitos y disociación",
     "description_ru": "Electrolitos y no electrolitos. Electrolitos fuertes y débiles. Disociación electrolítica de ácidos, bases y sales.",
     "block_name_ru": "Soluciones y electrolitos"
+  },
+  "ion_nomenclature": {
+    "name_ru": "Nomenclatura de iones",
+    "description_ru": "Nombres de iones por sistema de sufijos: -uro (sin oxígeno), -ito/-ato (con oxígeno). Relación entre el nombre del anión y el ácido de origen y el estado de oxidación del átomo central.",
+    "block_name_ru": "Soluciones y electrolitos"
   }
 }

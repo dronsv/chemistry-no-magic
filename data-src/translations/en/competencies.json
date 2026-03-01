@@ -98,5 +98,10 @@
     "name_ru": "Electrolytes and Dissociation",
     "description_ru": "Electrolytes and non-electrolytes. Strong and weak electrolytes. Electrolytic dissociation of acids, bases, and salts.",
     "block_name_ru": "Solutions and Electrolytes"
+  },
+  "ion_nomenclature": {
+    "name_ru": "Ion Nomenclature",
+    "description_ru": "Ion names by suffix system: -ide (non-oxygen), -ite/-ate (oxygen-containing). Relationship between anion name and parent acid and oxidation state of the central atom.",
+    "block_name_ru": "Solutions and Electrolytes"
   }
 }

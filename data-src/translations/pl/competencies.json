@@ -98,5 +98,10 @@
     "name_ru": "Elektrolity i dysocjacja",
     "description_ru": "Elektrolity i nieelektrolity. Elektrolity mocne i słabe. Dysocjacja elektrolityczna kwasów, zasad i soli.",
     "block_name_ru": "Roztwory i elektrolity"
+  },
+  "ion_nomenclature": {
+    "name_ru": "Nomenklatura jonów",
+    "description_ru": "Nazwy jonów według systemu sufiksów: -ek (beztlenowe), -yn/-an (tlenowe). Związek między nazwą anionu a kwasem macierzystym i stopniem utlenienia atomu centralnego.",
+    "block_name_ru": "Roztwory i elektrolity"
   }
 }

@@ -12,12 +12,23 @@ import NamingContent from '../../components/competency-content/NamingContent.ast
 import SolubilityTable from '../../features/reactions/SolubilityTable';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl, SITE_NAME } from '../../lib/i18n';
+import { loadBuildOverlay } from '../../lib/build-overlay';
 import * as m from '../../paraglide/messages.js';
 import type { Props } from './competency-detail-paths';
 
-const { competency, prereqs, unlocks, contentProps } = Astro.props as Props;
+const { competency: baseCompetency, prereqs: basePrereqs, unlocks: baseUnlocks, contentProps } = Astro.props as Props;
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 const siteName = SITE_NAME[locale];
+
+// Apply locale overlays for competency data
+const compOverlay = await loadBuildOverlay(locale, 'competencies');
+const applyCompOverlay = <T extends Record<string, unknown>>(item: T, id: string): T => {
+  if (compOverlay && compOverlay[id]) return { ...item, ...compOverlay[id] } as T;
+  return item;
+};
+const competency = applyCompOverlay(baseCompetency, baseCompetency.id);
+const prereqs = basePrereqs.map(p => applyCompOverlay(p, p.id));
+const unlocks = baseUnlocks.map(u => applyCompOverlay(u, u.id));
 const cid = competency.id;
 ---
 
