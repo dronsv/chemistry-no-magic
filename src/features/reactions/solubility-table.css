@@ -210,32 +210,32 @@
 
 .sol-rules-panel__list {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+  flex-direction: column;
+  gap: 2px;
 }
 
 .sol-rules-panel__item {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.6rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  background: var(--color-bg);
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: transparent;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--color-text-muted);
-  transition: border-color 0.15s, background 0.15s;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
 }
 
 .sol-rules-panel__item:hover {
-  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
   color: var(--color-text);
 }
 
 .sol-rules-panel__item--active {
-  border-color: #3b82f6;
   background: #eff6ff;
   color: var(--color-text);
   font-weight: 500;
