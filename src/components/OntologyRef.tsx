@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import { useConcepts } from './ConceptProvider';
-import { localizeUrl } from '../lib/i18n';
+import { localizeUrl, CONCEPT_KIND_ROUTES } from '../lib/i18n';
 import type { SupportedLocale } from '../types/i18n';
 import type { ConceptKind } from '../types/ontology-ref';
 import './ontology-ref.css';
-
-/** Route templates per concept kind */
-const KIND_ROUTES: Record<ConceptKind, string> = {
-  substance_class: '/substances/',
-  element_group: '/periodic-table/',
-  reaction_type: '/reactions/',
-  process: '/processes/',
-  property: '/properties/',
-};
 
 /** For substance_class, derive color from filters.class */
 function getCssClass(kind: ConceptKind, filters: Record<string, string | string[]>): string {
@@ -42,7 +33,7 @@ function buildConceptUrl(
     current = ctx.registry[current]?.parent_id ?? null;
   }
 
-  const base = KIND_ROUTES[entry.kind] ?? '/';
+  const base = CONCEPT_KIND_ROUTES[entry.kind] ?? '/';
   const path = base + slugs.join('/') + '/';
   return locale ? localizeUrl(path, locale) : path;
 }

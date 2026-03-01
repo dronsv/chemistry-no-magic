@@ -201,6 +201,15 @@ export function getAlternateUrls(canonicalPath: string): Record<SupportedLocale,
   return result;
 }
 
+/** Base route path per concept kind — used by OntologyRef to build concept page URLs */
+export const CONCEPT_KIND_ROUTES: Record<string, string> = {
+  substance_class: '/substances/',
+  element_group: '/periodic-table/',
+  reaction_type: '/reactions/',
+  process: '/processes/',
+  property: '/properties/',
+};
+
 /** Open Graph locale codes */
 export const OG_LOCALE_MAP: Record<SupportedLocale, string> = {
   ru: 'ru_RU',
