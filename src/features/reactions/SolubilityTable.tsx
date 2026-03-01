@@ -144,7 +144,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
   }
 
   return (
-    <div className="sol-table-wrapper">
+    <div>
       {variant === 'full' && rules.length > 0 && (
         <SolubilityRulesPanel
           rules={rules}
@@ -156,6 +156,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
           }}
         />
       )}
+      <div className="sol-table-wrapper">
       <table className={`sol-table ${variant === 'full' ? 'sol-table--full' : ''}`}>
         <thead>
           <tr>
@@ -245,6 +246,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
         <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--insoluble"></span>{m.sol_legend_insoluble()}</span>
         <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--slightly"></span>{m.sol_legend_slightly()}</span>
         <span className="sol-legend__item"><span className="sol-legend__swatch sol-legend__swatch--decomposes"></span>{m.sol_legend_decomposes()}</span>
+      </div>
       </div>
     </div>
   );
