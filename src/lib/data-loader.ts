@@ -30,6 +30,7 @@ import type { QuantitiesUnitsOntology } from '../types/quantities-units';
 import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
 import type { NameIndex } from '../types/name-index';
+import type { ConceptRegistry, ConceptOverlay, ConceptLookup } from '../types/ontology-ref';
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
 import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
 
@@ -898,4 +899,20 @@ export async function loadNameIndex(locale?: SupportedLocale): Promise<NameIndex
   const loc = locale ?? 'ru';
   const localePath = basePath.replace('.json', `.${loc}.json`);
   return loadDataFile<NameIndex>(localePath);
+}
+
+/** Load concept registry (structural data, no locale text). */
+export async function loadConcepts(): Promise<ConceptRegistry> {
+  return loadDataFile<ConceptRegistry>('concepts.json');
+}
+
+/** Load concept locale overlay (names, slugs, surface_forms, grammatical forms). */
+export async function loadConceptOverlay(locale: SupportedLocale): Promise<ConceptOverlay | null> {
+  const overlay = await loadTranslationOverlay(locale, 'concepts', true);
+  return overlay as ConceptOverlay | null;
+}
+
+/** Load concept lookup for text auto-detection (surface form → concept ID). */
+export async function loadConceptLookup(locale: SupportedLocale): Promise<ConceptLookup> {
+  return loadDataFile<ConceptLookup>(`concept_lookup.${locale}.json`);
 }

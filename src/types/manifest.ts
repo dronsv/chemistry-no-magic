@@ -1,6 +1,7 @@
 export interface ManifestEntrypoints {
   elements: string;
   ions: string;
+  concepts?: string;
   rules: Record<string, string>;
   templates: Record<string, string>;
   substances: string;
