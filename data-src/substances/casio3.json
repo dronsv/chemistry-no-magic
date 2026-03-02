@@ -1,0 +1,24 @@
+{
+  "id": "casio3",
+  "formula": "CaSiO₃",
+  "name_ru": "Силикат кальция",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "Ca_2plus",
+    "SiO3_2minus"
+  ],
+  "tags": [
+    "insoluble"
+  ],
+  "melting_point_C": 1540,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.9,
+  "appearance_ru": "Белый порошок",
+  "industrial_ru": "Производство цемента (основной компонент), керамика, стекло",
+  "production_ru": "Сплавление CaO + SiO₂ → CaSiO₃ (происходит при обжиге цемента)",
+  "fun_facts_ru": [
+    "Основной компонент портландцемента — самого распространённого строительного материала",
+    "В природе встречается как минерал волластонит"
+  ]
+}

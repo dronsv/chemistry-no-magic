@@ -1,0 +1,27 @@
+{
+  "id": "baco3",
+  "formula": "BaCO₃",
+  "name_ru": "Карбонат бария",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "Ba_2plus",
+    "CO3_2minus"
+  ],
+  "tags": [
+    "insoluble"
+  ],
+  "melting_point_C": 811,
+  "boiling_point_C": null,
+  "density_g_cm3": 4.43,
+  "appearance_ru": "Белый порошок",
+  "hazards_ru": [
+    "Токсичное"
+  ],
+  "industrial_ru": "Производство специального стекла, керамики, крысиный яд",
+  "production_ru": "Реакция BaCl₂ + Na₂CO₃ → BaCO₃↓ + 2NaCl",
+  "fun_facts_ru": [
+    "В природе встречается как минерал витерит",
+    "Использовался как крысиный яд — растворяется в соляной кислоте желудка, высвобождая токсичный Ba²⁺"
+  ]
+}

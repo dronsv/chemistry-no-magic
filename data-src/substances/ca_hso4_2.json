@@ -1,0 +1,24 @@
+{
+  "id": "ca_hso4_2",
+  "formula": "Ca(HSO₄)₂",
+  "name_ru": "Гидросульфат кальция",
+  "class": "salt",
+  "subclass": "acidic",
+  "ions": [
+    "Ca_2plus",
+    "HSO4_minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": null,
+  "appearance_ru": "Бесцветные кристаллы (обычно в растворе)",
+  "industrial_ru": "Производство суперфосфата, промежуточный продукт",
+  "production_ru": "Действие избытка серной кислоты на известняк: CaCO₃ + 2H₂SO₄ → Ca(HSO₄)₂ + H₂O + CO₂",
+  "fun_facts_ru": [
+    "Образуется как промежуточный продукт при производстве фосфорных удобрений",
+    "Нестабильна — при нагревании переходит в CaSO₄"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nahco3",
+  "formula": "NaHCO₃",
+  "name_ru": "Гидрокарбонат натрия",
+  "class": "salt",
+  "subclass": "acidic",
+  "ions": [
+    "Na_plus",
+    "HCO3_minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.2,
+  "appearance_ru": "Белый кристаллический порошок",
+  "industrial_ru": "Пищевая промышленность (пищевая сода), медицина (антацид), огнетушители",
+  "production_ru": "Метод Сольве: NaCl + NH₃ + CO₂ + H₂O → NaHCO₃↓ + NH₄Cl",
+  "fun_facts_ru": [
+    "Пищевая сода — один из самых известных бытовых химических реагентов",
+    "При нагревании разлагается: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂ — поэтому тесто «поднимается»"
+  ]
+}

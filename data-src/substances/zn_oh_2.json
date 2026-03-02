@@ -1,0 +1,25 @@
+{
+  "id": "zn_oh_2",
+  "formula": "Zn(OH)₂",
+  "name_ru": "Гидроксид цинка",
+  "class": "base",
+  "subclass": "amphoteric",
+  "ions": [
+    "Zn_2plus",
+    "OH_minus"
+  ],
+  "tags": [
+    "insoluble",
+    "amphoteric"
+  ],
+  "melting_point_C": 125,
+  "boiling_point_C": null,
+  "density_g_cm3": 3.05,
+  "appearance_ru": "Белый студенистый осадок",
+  "industrial_ru": "Медицина (компонент мазей), промежуточный продукт",
+  "production_ru": "Реакция соли цинка со щёлочью: ZnCl₂ + 2NaOH → Zn(OH)₂↓ + 2NaCl",
+  "fun_facts_ru": [
+    "Классический пример амфотерного гидроксида — растворяется и в кислоте, и в щёлочи",
+    "В щёлочи образует цинкат: Zn(OH)₂ + 2NaOH → Na₂[Zn(OH)₄]"
+  ]
+}

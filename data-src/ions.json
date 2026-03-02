@@ -503,5 +503,113 @@
       "derivation_ru": "кислородная → -ат"
     },
     "tags": ["dichromate", "oxidizer"]
+  },
+  {
+    "id": "Be_2plus",
+    "formula": "Be\u00b2\u207a",
+    "charge": 2,
+    "type": "cation",
+    "name_ru": "Катион бериллия",
+    "name_ru_genitive": "бериллия",
+    "tags": ["alkaline_earth", "amphoteric"]
+  },
+  {
+    "id": "Cu_plus",
+    "formula": "Cu\u207a",
+    "charge": 1,
+    "type": "cation",
+    "name_ru": "Катион меди(I)",
+    "name_ru_genitive": "меди(I)",
+    "tags": ["transition", "copper"]
+  },
+  {
+    "id": "HCO3_minus",
+    "formula": "HCO\u2083\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Гидрокарбонат-ион",
+    "name_ru_genitive": "гидрокарбоната",
+    "parent_acid": "H\u2082CO\u2083",
+    "naming": {
+      "root_ru": "карбон",
+      "prefix_ru": "гидро-",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 4,
+      "derivation_ru": "кислая соль → гидро-...-ат"
+    },
+    "tags": ["bicarbonate", "gas_forming"]
+  },
+  {
+    "id": "HSO4_minus",
+    "formula": "HSO\u2084\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Гидросульфат-ион",
+    "name_ru_genitive": "гидросульфата",
+    "parent_acid": "H\u2082SO\u2084",
+    "naming": {
+      "root_ru": "сульф",
+      "prefix_ru": "гидро-",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 6,
+      "derivation_ru": "кислая соль → гидро-...-ат"
+    },
+    "tags": ["hydrosulfate"]
+  },
+  {
+    "id": "HSO3_minus",
+    "formula": "HSO\u2083\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Гидросульфит-ион",
+    "name_ru_genitive": "гидросульфита",
+    "parent_acid": "H\u2082SO\u2083",
+    "naming": {
+      "root_ru": "сульф",
+      "prefix_ru": "гидро-",
+      "suffix_ru": "-ит",
+      "suffix_en": "-ite",
+      "oxidation_state": 4,
+      "derivation_ru": "кислая соль → гидро-...-ит"
+    },
+    "tags": ["bisulfite"]
+  },
+  {
+    "id": "HPO4_2minus",
+    "formula": "HPO\u2084\u00b2\u207b",
+    "charge": -2,
+    "type": "anion",
+    "name_ru": "Гидрофосфат-ион",
+    "name_ru_genitive": "гидрофосфата",
+    "parent_acid": "H\u2083PO\u2084",
+    "naming": {
+      "root_ru": "фосф",
+      "prefix_ru": "гидро-",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 5,
+      "derivation_ru": "кислая соль → гидро-...-ат"
+    },
+    "tags": ["hydrogen_phosphate"]
+  },
+  {
+    "id": "H2PO4_minus",
+    "formula": "H\u2082PO\u2084\u207b",
+    "charge": -1,
+    "type": "anion",
+    "name_ru": "Дигидрофосфат-ион",
+    "name_ru_genitive": "дигидрофосфата",
+    "parent_acid": "H\u2083PO\u2084",
+    "naming": {
+      "root_ru": "фосф",
+      "prefix_ru": "дигидро-",
+      "suffix_ru": "-ат",
+      "suffix_en": "-ate",
+      "oxidation_state": 5,
+      "derivation_ru": "кислая соль → дигидро-...-ат"
+    },
+    "tags": ["dihydrogen_phosphate"]
   }
 ]

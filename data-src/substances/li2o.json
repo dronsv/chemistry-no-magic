@@ -1,0 +1,21 @@
+{
+  "id": "li2o",
+  "formula": "Li₂O",
+  "name_ru": "Оксид лития",
+  "class": "oxide",
+  "subclass": "basic",
+  "ions": [],
+  "tags": [
+    "reacts_with_water"
+  ],
+  "melting_point_C": 1570,
+  "boiling_point_C": 2600,
+  "density_g_cm3": 2.01,
+  "appearance_ru": "Белый кристаллический порошок",
+  "industrial_ru": "Производство специальных стёкол и керамики, компонент ядерных реакторов",
+  "production_ru": "Термическое разложение карбоната лития: Li₂CO₃ → Li₂O + CO₂",
+  "fun_facts_ru": [
+    "Самый лёгкий оксид щелочного металла",
+    "Применяется на космических станциях для поглощения CO₂"
+  ]
+}

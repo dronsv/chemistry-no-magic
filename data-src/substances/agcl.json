@@ -1,0 +1,24 @@
+{
+  "id": "agcl",
+  "formula": "AgCl",
+  "name_ru": "Хлорид серебра",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "Ag_plus",
+    "Cl_minus"
+  ],
+  "tags": [
+    "insoluble"
+  ],
+  "melting_point_C": 455,
+  "boiling_point_C": 1547,
+  "density_g_cm3": 5.56,
+  "appearance_ru": "Белый творожистый осадок, темнеет на свету",
+  "industrial_ru": "Фотография (исторически), электрохимия, оптика (инфракрасные окна)",
+  "production_ru": "Реакция AgNO₃ + NaCl → AgCl↓ + NaNO₃",
+  "fun_facts_ru": [
+    "Белый осадок AgCl — классическая качественная реакция на хлорид-ион",
+    "На свету разлагается с выделением серебра — основа аналоговой фотографии"
+  ]
+}

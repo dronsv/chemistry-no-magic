@@ -1,0 +1,25 @@
+{
+  "id": "ca_hco3_2",
+  "formula": "Ca(HCO₃)₂",
+  "name_ru": "Гидрокарбонат кальция",
+  "class": "salt",
+  "subclass": "acidic",
+  "ions": [
+    "Ca_2plus",
+    "HCO3_minus"
+  ],
+  "tags": [
+    "soluble",
+    "unstable"
+  ],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": null,
+  "appearance_ru": "Существует только в растворе",
+  "industrial_ru": "Определяет временную жёсткость воды",
+  "production_ru": "Растворение CaCO₃ в воде с CO₂: CaCO₃ + H₂O + CO₂ → Ca(HCO₃)₂",
+  "fun_facts_ru": [
+    "Причина временной жёсткости воды — при кипячении разлагается обратно на CaCO₃ (накипь) + CO₂ + H₂O",
+    "Образование и разложение Ca(HCO₃)₂ — причина роста и растворения сталактитов и сталагмитов в пещерах"
+  ]
+}

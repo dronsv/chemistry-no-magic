@@ -1,0 +1,24 @@
+{
+  "id": "na2so3",
+  "formula": "Na₂SO₃",
+  "name_ru": "Сульфит натрия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "Na_plus",
+    "SO3_2minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
+  "melting_point_C": 33,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.633,
+  "appearance_ru": "Белые кристаллы",
+  "industrial_ru": "Пищевая промышленность (E221 — антиоксидант, консервант), проявитель в фотографии",
+  "production_ru": "Пропускание SO₂ через раствор NaOH: SO₂ + 2NaOH → Na₂SO₃ + H₂O",
+  "fun_facts_ru": [
+    "Пищевая добавка E221 — используется для сохранения цвета сухофруктов",
+    "На воздухе постепенно окисляется до сульфата Na₂SO₄"
+  ]
+}

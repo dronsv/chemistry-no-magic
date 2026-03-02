@@ -1,0 +1,26 @@
+{
+  "id": "hno2",
+  "formula": "HNO₂",
+  "name_ru": "Азотистая кислота",
+  "class": "acid",
+  "subclass": "oxygen_containing",
+  "ions": [
+    "H_plus",
+    "NO2_minus"
+  ],
+  "tags": [
+    "soluble",
+    "weak_acid",
+    "unstable"
+  ],
+  "melting_point_C": null,
+  "boiling_point_C": null,
+  "density_g_cm3": 1,
+  "appearance_ru": "Бледно-голубой раствор (существует только в разбавленном растворе)",
+  "industrial_ru": "Органический синтез (реакция диазотирования), производство красителей",
+  "production_ru": "Действие сильной кислоты на нитриты: NaNO₂ + HCl → HNO₂ + NaCl",
+  "fun_facts_ru": [
+    "Нестабильна: разлагается на NO, NO₂ и H₂O",
+    "Ключевой реагент в синтезе азокрасителей — реакция диазотирования"
+  ]
+}

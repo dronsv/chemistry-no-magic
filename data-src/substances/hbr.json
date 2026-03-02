@@ -1,0 +1,31 @@
+{
+  "id": "hbr",
+  "formula": "HBr",
+  "name_ru": "Бромоводородная кислота",
+  "class": "acid",
+  "subclass": "oxygen_free",
+  "ions": [
+    "H_plus",
+    "Br_minus"
+  ],
+  "tags": [
+    "soluble",
+    "strong_electrolyte",
+    "strong_acid"
+  ],
+  "melting_point_C": -87,
+  "boiling_point_C": -66.8,
+  "density_g_cm3": 1.49,
+  "appearance_ru": "Бесцветная жидкость с резким запахом (дымит на воздухе)",
+  "hazards_ru": [
+    "Коррозионное",
+    "Вызывает ожоги",
+    "Раздражает дыхательные пути"
+  ],
+  "industrial_ru": "Производство бромидов, органический синтез, фармацевтика",
+  "production_ru": "Реакция бромида натрия с серной кислотой: NaBr + H₂SO₄ → NaHSO₄ + HBr↑",
+  "fun_facts_ru": [
+    "Сильная кислота, полностью диссоциирует в водном растворе",
+    "Безводный HBr — газ тяжелее воздуха"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "zncl2",
+  "formula": "ZnCl₂",
+  "name_ru": "Хлорид цинка",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "Zn_2plus",
+    "Cl_minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
+  "melting_point_C": 290,
+  "boiling_point_C": 732,
+  "density_g_cm3": 2.91,
+  "appearance_ru": "Белые гигроскопичные кристаллы",
+  "hazards_ru": [
+    "Коррозионное"
+  ],
+  "industrial_ru": "Флюс для пайки, пропитка древесины, гальванотехника",
+  "production_ru": "Растворение цинка в соляной кислоте: Zn + 2HCl → ZnCl₂ + H₂↑",
+  "fun_facts_ru": [
+    "Раствор ZnCl₂ — паяльная кислота, один из лучших флюсов для пайки",
+    "Сильно гигроскопичен — используется как осушитель"
+  ]
+}

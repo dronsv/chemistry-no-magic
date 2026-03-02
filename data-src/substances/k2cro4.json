@@ -1,0 +1,28 @@
+{
+  "id": "k2cro4",
+  "formula": "K₂CrO₄",
+  "name_ru": "Хромат калия",
+  "class": "salt",
+  "subclass": "normal",
+  "ions": [
+    "K_plus",
+    "CrO4_2minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
+  "melting_point_C": 968,
+  "boiling_point_C": null,
+  "density_g_cm3": 2.732,
+  "appearance_ru": "Ярко-жёлтые кристаллы",
+  "hazards_ru": [
+    "Канцерогенное",
+    "Токсичное"
+  ],
+  "industrial_ru": "Аналитическая химия, производство пигментов, ингибитор коррозии",
+  "production_ru": "Сплавление хромита с содой: 4FeCr₂O₄ + 8Na₂CO₃ + 7O₂ → 8Na₂CrO₄ + 2Fe₂O₃ + 8CO₂",
+  "fun_facts_ru": [
+    "Ярко-жёлтый цвет K₂CrO₄ — одна из характерных реакций на ион CrO₄²⁻",
+    "В кислой среде жёлтый раствор становится оранжевым — хромат превращается в дихромат"
+  ]
+}
