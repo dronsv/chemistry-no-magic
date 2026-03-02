@@ -42,12 +42,17 @@ function IonDetailsPopup({
 }) {
   const [ion, setIon] = useState<Ion | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
+  const ionsRef = useRef<Ion[] | null>(null);
 
   useEffect(() => {
-    loadIons(locale).then(ions => {
-      const found = ions.find(i => i.id === ionId);
-      setIon(found ?? null);
-    });
+    if (!ionId) return;
+    const load = async () => {
+      if (!ionsRef.current) {
+        ionsRef.current = await loadIons(locale);
+      }
+      setIon(ionsRef.current.find(i => i.id === ionId) ?? null);
+    };
+    load();
   }, [ionId, locale]);
 
   // Close on Escape

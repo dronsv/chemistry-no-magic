@@ -1,5 +1,6 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import { cachedReadJson, cachedReadDataSrc } from '../../lib/build-data-cache';
 
 export interface ElementDiscovery {
   year?: number;
@@ -94,32 +95,27 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const elementsPath = join(process.cwd(), 'data-src', 'elements.json');
-  const elements: ElementData[] = JSON.parse(await readFile(elementsPath, 'utf-8'));
+  const elements: ElementData[] = await cachedReadDataSrc('elements.json');
 
   // Load element groups for display names
-  const groupsPath = join(process.cwd(), 'data-src', 'element-groups.json');
-  const groupsDict: Record<string, ElementGroupInfo> = JSON.parse(await readFile(groupsPath, 'utf-8'));
+  const groupsDict: Record<string, ElementGroupInfo> = await cachedReadDataSrc('element-groups.json');
 
   // Load ions for cross-referencing
   let allIons: IonData[] = [];
   try {
-    allIons = JSON.parse(await readFile(join(process.cwd(), 'data-src', 'ions.json'), 'utf-8'));
+    allIons = await cachedReadDataSrc('ions.json');
   } catch { /* optional */ }
 
   // Load qualitative tests for cross-referencing
   let qualitativeTests: QualitativeTestData[] = [];
   try {
-    qualitativeTests = JSON.parse(
-      await readFile(join(process.cwd(), 'data-src', 'rules', 'qualitative_reactions.json'), 'utf-8'),
-    );
+    qualitativeTests = await cachedReadDataSrc('rules/qualitative_reactions.json');
   } catch { /* optional */ }
 
   // Load reactions for cross-referencing
-  const reactionsPath = join(process.cwd(), 'data-src', 'reactions', 'reactions.json');
   let reactions: ReactionData[] = [];
   try {
-    reactions = JSON.parse(await readFile(reactionsPath, 'utf-8'));
+    reactions = await cachedReadDataSrc('reactions/reactions.json');
   } catch { /* optional */ }
 
   // Load substances index for linking
@@ -129,7 +125,7 @@ export async function getStaticPaths() {
     const files = await readdir(substancesDir);
     for (const f of files) {
       if (!f.endsWith('.json')) continue;
-      const data = JSON.parse(await readFile(join(substancesDir, f), 'utf-8'));
+      const data = await cachedReadJson<{ id: string; formula: string; name_ru?: string; class: string }>(join(substancesDir, f));
       substances.push({ id: data.id, formula: data.formula, name_ru: data.name_ru, class: data.class });
     }
   } catch { /* optional */ }

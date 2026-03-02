@@ -1,6 +1,6 @@
 ---
-import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { cachedReadJson, cachedReadDataSrc, cachedReadDerived } from '../../lib/build-data-cache';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MoleculeView from '../../components/MoleculeView';
 import FormulaChip from '../../components/FormulaChip.tsx';
@@ -173,18 +173,16 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
 // Try to load molecule structure
 let structure = null;
 try {
-  const structRaw = await readFile(
-    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`), 'utf-8'
+  structure = await cachedReadJson(
+    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`)
   );
-  structure = JSON.parse(structRaw);
 } catch { /* no structure for this substance */ }
 
 // Compute bond info for structure visualization
 let bondInfo: import('../../lib/bond-info').BondInfoEntry[] = [];
 if (structure) {
   try {
-    const elementsRaw = await readFile(join(process.cwd(), 'data-src', 'elements.json'), 'utf-8');
-    const elements: Array<{ symbol: string; electronegativity: number | null; metal_type: string }> = JSON.parse(elementsRaw);
+    const elements = await cachedReadDataSrc<Array<{ symbol: string; electronegativity: number | null; metal_type: string }>>('elements.json');
     const elementsMap = new Map(elements.map(el => [el.symbol, el as import('../../lib/bond-calculator').ElementLike]));
     bondInfo = computeBondInfo(structure, elementsMap);
   } catch { /* elements not available */ }
@@ -193,13 +191,8 @@ if (structure) {
 // Load bond energy trace at build-time (derived data from bundle)
 let bondEnergyResult: BondEnergyResult | null = null;
 try {
-  const manifestRaw = await readFile(join(process.cwd(), 'public', 'data', 'latest', 'manifest.json'), 'utf-8');
-  const manifest = JSON.parse(manifestRaw);
-  const hash = manifest.bundle_hash;
-  const bePath = manifest.entrypoints?.derived?.bond_energy;
-  if (hash && bePath) {
-    const beRaw = await readFile(join(process.cwd(), 'public', 'data', hash, bePath), 'utf-8');
-    const beIndex: Record<string, BondEnergyResult> = JSON.parse(beRaw);
+  const beIndex = await cachedReadDerived<Record<string, BondEnergyResult>>(['derived', 'bond_energy']);
+  if (beIndex) {
     bondEnergyResult = beIndex[substance.id] ?? null;
   }
 } catch { /* bond energy data not available */ }

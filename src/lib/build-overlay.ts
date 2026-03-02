@@ -5,8 +5,7 @@
  * Reads overlay files from data-src/translations/{locale}/{dataKey}.json.
  * Returns null for 'ru' locale (base data is already Russian) or if file doesn't exist.
  */
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { cachedLoadOverlay } from './build-data-cache';
 
 /**
  * Load a translation overlay file at build time.
@@ -18,14 +17,7 @@ export async function loadBuildOverlay(
   locale: string,
   dataKey: string,
 ): Promise<Record<string, Record<string, unknown>> | null> {
-  if (locale === 'ru') return null;
-  try {
-    const filePath = join(process.cwd(), 'data-src', 'translations', locale, `${dataKey}.json`);
-    const raw = await readFile(filePath, 'utf-8');
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+  return cachedLoadOverlay(locale, dataKey);
 }
 
 /**

@@ -1,5 +1,6 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import { cachedReadJson, cachedReadDataSrc } from '../../lib/build-data-cache';
 
 export interface SubstanceData {
   id: string;
@@ -87,35 +88,26 @@ export async function getStaticPaths() {
   let ionMap = new Map<string, IonData>();
 
   try {
-    classificationRules = JSON.parse(
-      await readFile(join(rulesDir, 'classification_rules.json'), 'utf-8')
-    );
-    namingRules = JSON.parse(
-      await readFile(join(rulesDir, 'naming_rules.json'), 'utf-8')
-    );
+    classificationRules = await cachedReadDataSrc('rules/classification_rules.json');
+    namingRules = await cachedReadDataSrc('rules/naming_rules.json');
   } catch { /* rules optional */ }
 
   try {
-    const ions: IonData[] = JSON.parse(
-      await readFile(join(process.cwd(), 'data-src', 'ions.json'), 'utf-8')
-    );
+    const ions: IonData[] = await cachedReadDataSrc('ions.json');
     for (const ion of ions) ionMap.set(ion.id, ion);
   } catch { /* ions optional */ }
 
   // Load reactions for cross-referencing
   let reactions: ReactionData[] = [];
   try {
-    reactions = JSON.parse(
-      await readFile(join(process.cwd(), 'data-src', 'reactions', 'reactions.json'), 'utf-8')
-    );
+    reactions = await cachedReadDataSrc('reactions/reactions.json');
   } catch { /* reactions optional */ }
 
   const paths = [];
   for (const file of files) {
     if (!file.endsWith('.json')) continue;
     const id = file.replace('.json', '');
-    const raw = await readFile(join(substancesDir, file), 'utf-8');
-    const substance: SubstanceData = JSON.parse(raw);
+    const substance: SubstanceData = await cachedReadJson(join(substancesDir, file));
     allSubstances.push(substance);
     paths.push({ params: { id }, props: { substance, classificationRules, namingRules } });
   }

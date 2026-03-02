@@ -1,5 +1,4 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { cachedReadDataSrcSync } from '../../lib/build-data-cache';
 import type { CompetencyNode } from '../../types/competency';
 
 export interface Props {
@@ -10,19 +9,16 @@ export interface Props {
 }
 
 export function getStaticPaths() {
-  const loadJson = (relPath: string) =>
-    JSON.parse(readFileSync(join(process.cwd(), relPath), 'utf-8'));
+  const competencies: CompetencyNode[] = cachedReadDataSrcSync('rules/competencies.json');
 
-  const competencies: CompetencyNode[] = loadJson('data-src/rules/competencies.json');
-
-  const geneticChains = loadJson('data-src/rules/genetic_chains.json');
-  const qualitativeTests = loadJson('data-src/rules/qualitative_reactions.json');
-  const energyCatalystTheory = loadJson('data-src/rules/energy_catalyst_theory.json');
-  const reactionTemplates = loadJson('data-src/templates/reaction_templates.json');
-  const applicabilityRules = loadJson('data-src/rules/applicability_rules.json');
-  const classificationRules = loadJson('data-src/rules/classification_rules.json');
-  const namingRules = loadJson('data-src/rules/naming_rules.json');
-  const ionNomenclature = loadJson('data-src/rules/ion_nomenclature.json');
+  const geneticChains = cachedReadDataSrcSync('rules/genetic_chains.json');
+  const qualitativeTests = cachedReadDataSrcSync('rules/qualitative_reactions.json');
+  const energyCatalystTheory = cachedReadDataSrcSync('rules/energy_catalyst_theory.json');
+  const reactionTemplates = cachedReadDataSrcSync('templates/reaction_templates.json');
+  const applicabilityRules = cachedReadDataSrcSync('rules/applicability_rules.json');
+  const classificationRules = cachedReadDataSrcSync('rules/classification_rules.json');
+  const namingRules = cachedReadDataSrcSync('rules/naming_rules.json');
+  const ionNomenclature = cachedReadDataSrcSync('rules/ion_nomenclature.json');
 
   return competencies.map(c => {
     const unlocks = competencies.filter(u => u.prerequisites.includes(c.id));

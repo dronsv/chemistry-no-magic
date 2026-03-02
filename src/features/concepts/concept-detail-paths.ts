@@ -1,5 +1,6 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { cachedReadJsonSync, cachedReadDataSrcSync } from '../../lib/build-data-cache';
 import type { ConceptEntry, ConceptRegistry, ConceptOverlayEntry } from '../../types/ontology-ref';
 
 const DATA_SRC = join(process.cwd(), 'data-src');
@@ -28,10 +29,6 @@ interface ConceptPagePath {
   props: ConceptPageProps;
 }
 
-function loadJson<T>(path: string): T {
-  return JSON.parse(readFileSync(path, 'utf-8'));
-}
-
 /** Load minimal substance data from individual files in data-src/substances/ */
 function loadSubstanceIndex(): Record<string, SubstanceInfo> {
   const dir = join(DATA_SRC, 'substances');
@@ -40,7 +37,7 @@ function loadSubstanceIndex(): Record<string, SubstanceInfo> {
     const files = readdirSync(dir);
     for (const f of files) {
       if (!f.endsWith('.json')) continue;
-      const data = loadJson<SubstanceInfo>(join(dir, f));
+      const data = cachedReadJsonSync<SubstanceInfo>(join(dir, f));
       index[data.id] = {
         id: data.id,
         formula: data.formula,
@@ -69,11 +66,11 @@ function buildSlugPath(
 }
 
 export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
-  const registry = loadJson<ConceptRegistry>(join(DATA_SRC, 'concepts.json'));
+  const registry = cachedReadDataSrcSync<ConceptRegistry>('concepts.json');
 
   let overlay: Record<string, ConceptOverlayEntry>;
   try {
-    overlay = loadJson(join(DATA_SRC, 'translations', locale, 'concepts.json'));
+    overlay = cachedReadJsonSync(join(DATA_SRC, 'translations', locale, 'concepts.json'));
   } catch {
     return [];
   }
@@ -84,7 +81,7 @@ export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
   // Apply locale overlay to substance names if available
   if (locale !== 'ru') {
     try {
-      const substOverlay = loadJson<Record<string, { name_ru?: string }>>(
+      const substOverlay = cachedReadJsonSync<Record<string, { name_ru?: string }>>(
         join(DATA_SRC, 'translations', locale, 'substances.json'),
       );
       for (const [id, ov] of Object.entries(substOverlay)) {
