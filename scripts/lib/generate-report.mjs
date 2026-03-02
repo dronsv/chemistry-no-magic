@@ -40,10 +40,10 @@ export function generateReport(data) {
   }
 
   // Extract concept IDs from warning strings
-  // Format: "concepts[cls:x]: zero matches in substances (80 entities checked)"
+  // Format: concepts["cls:x"]: zero matches in substances (kind: substance_class)
   const zeroMatchConceptIds = zeroMatchConcepts
     .map((warning) => {
-      const match = warning.match(/\[([^\]]+)\]/);
+      const match = warning.match(/\["?([^"\]]+)"?\]/);
       return match ? match[1] : null;
     })
     .filter(Boolean);
