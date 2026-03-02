@@ -18,6 +18,10 @@ const VALID_KINDS = [
  * @returns {string[]} errors — array of human-readable error strings
  */
 export function validateConceptsGraph(concepts) {
+  if (typeof concepts !== 'object' || concepts === null || Array.isArray(concepts)) {
+    return ['concepts.json must be an object keyed by concept ID'];
+  }
+
   const errors = [];
   const ids = new Set(Object.keys(concepts));
 
@@ -46,7 +50,12 @@ export function validateConceptsGraph(concepts) {
       if (!Array.isArray(entry.children_order)) {
         errors.push(`${prefix}: children_order must be an array`);
       } else {
+        const seen = new Set();
         for (const childId of entry.children_order) {
+          if (seen.has(childId)) {
+            errors.push(`${prefix}: duplicate in children_order "${childId}"`);
+          }
+          seen.add(childId);
           if (!ids.has(childId)) {
             errors.push(`${prefix}: children_order item "${childId}" not found in concepts`);
           } else {
@@ -63,12 +72,15 @@ export function validateConceptsGraph(concepts) {
   }
 
   // Detect cycles in parent chains
+  const inCycle = new Set();
   for (const id of ids) {
+    if (inCycle.has(id)) continue;
     const visited = new Set();
     let current = id;
     while (current !== null && current !== undefined) {
       if (visited.has(current)) {
         errors.push(`concepts["${id}"]: cycle detected in parent chain`);
+        for (const v of visited) inCycle.add(v);
         break;
       }
       visited.add(current);

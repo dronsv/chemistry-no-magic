@@ -97,14 +97,14 @@ describe('validateConceptsGraph', () => {
     expect(errors.some(e => e.includes('children_order') && e.includes('parent'))).toBe(true);
   });
 
-  it('reports parent cycle (A -> B -> A)', () => {
+  it('reports parent cycle (A -> B -> A) exactly once', () => {
     const concepts = {
       'cls:a': concept({ parent_id: 'cls:b' }),
       'cls:b': concept({ parent_id: 'cls:a' }),
     };
     const errors = validateConceptsGraph(concepts);
-    expect(errors.length).toBeGreaterThanOrEqual(1);
-    expect(errors.some(e => e.includes('cycle'))).toBe(true);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('cycle');
   });
 
   it('reports self-referencing parent_id as a cycle', () => {
@@ -149,13 +149,42 @@ describe('validateConceptsGraph', () => {
     expect(errors.length).toBe(2);
   });
 
-  it('detects longer cycle (A -> B -> C -> A)', () => {
+  it('detects longer cycle (A -> B -> C -> A) exactly once', () => {
     const concepts = {
       'cls:a': concept({ parent_id: 'cls:c' }),
       'cls:b': concept({ parent_id: 'cls:a' }),
       'cls:c': concept({ parent_id: 'cls:b' }),
     };
     const errors = validateConceptsGraph(concepts);
-    expect(errors.some(e => e.includes('cycle'))).toBe(true);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('cycle');
+  });
+
+  it('returns error for null or undefined input', () => {
+    expect(validateConceptsGraph(null)).toEqual([
+      'concepts.json must be an object keyed by concept ID',
+    ]);
+    expect(validateConceptsGraph(undefined)).toEqual([
+      'concepts.json must be an object keyed by concept ID',
+    ]);
+    expect(validateConceptsGraph([1, 2])).toEqual([
+      'concepts.json must be an object keyed by concept ID',
+    ]);
+  });
+
+  it('reports duplicate in children_order', () => {
+    const concepts = {
+      'cls:parent': concept({
+        children_order: ['cls:child', 'cls:child'],
+      }),
+      'cls:child': concept({
+        parent_id: 'cls:parent',
+        order: 2,
+      }),
+    };
+    const errors = validateConceptsGraph(concepts);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('duplicate in children_order');
+    expect(errors[0]).toContain('cls:child');
   });
 });
