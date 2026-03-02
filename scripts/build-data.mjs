@@ -34,6 +34,14 @@ import {
   validateEngineTaskTemplates,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
+import {
+  validateConceptsGraph,
+  validateTheoryModuleRefs,
+  validateCourseRefs,
+  validateFilterStructure,
+  checkZeroMatchConcepts,
+} from './lib/validate-ontology.mjs';
+import { generateReport } from './lib/generate-report.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
 import { generateSearchIndex } from './lib/generate-search-index.mjs';
@@ -181,6 +189,26 @@ async function main() {
 
   const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
 
+  // Load theory modules early for validation (optional directory)
+  const theoryModulesDir = join(DATA_SRC, 'theory_modules');
+  let theoryModuleEntries = [];  // Array of { data, filename }
+  try {
+    const tmFiles = (await readdir(theoryModulesDir)).filter(f => f.endsWith('.json'));
+    for (const f of tmFiles) {
+      theoryModuleEntries.push({ data: await loadJson(join(theoryModulesDir, f)), filename: f });
+    }
+  } catch { /* theory_modules dir optional */ }
+
+  // Load courses early for validation (optional directory)
+  const coursesDir = join(DATA_SRC, 'courses');
+  let courseEntries = [];  // Array of { data, filename }
+  try {
+    const cFiles = (await readdir(coursesDir)).filter(f => f.endsWith('.json'));
+    for (const f of cFiles) {
+      courseEntries.push({ data: await loadJson(join(coursesDir, f)), filename: f });
+    }
+  } catch { /* courses dir optional */ }
+
   // Load contexts layer
   const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
   const substanceVariants = await loadJson(join(DATA_SRC, 'contexts', 'substance_variants.json'));
@@ -222,7 +250,10 @@ async function main() {
   console.log(`  ${properties.length} property definitions, ${engineTaskTemplates.length} engine task templates`);
   console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)`);
   console.log(`  ${chemContexts.length} contexts, ${substanceVariants.length} substance variants, ${chemTerms.length} terms`);
-  console.log(`  ${Object.keys(concepts).length} concepts\n`);
+  console.log(`  ${Object.keys(concepts).length} concepts`);
+  if (theoryModuleEntries.length > 0) console.log(`  ${theoryModuleEntries.length} theory modules`);
+  if (courseEntries.length > 0) console.log(`  ${courseEntries.length} courses`);
+  console.log('');
 
   // 2. Validate
   console.log('Validating...');
@@ -248,6 +279,31 @@ async function main() {
 
   for (const { filename, data } of substances) {
     allErrors.push(...validateSubstance(data, filename));
+  }
+
+  // 2b. Ontology cross-reference validation
+  console.log('Validating ontology...');
+  const ontologyErrors = [
+    ...validateConceptsGraph(concepts),
+    ...validateFilterStructure(concepts),
+    ...validateTheoryModuleRefs(theoryModuleEntries.map(m => m.data), concepts),
+    ...validateCourseRefs(courseEntries.map(c => c.data), theoryModuleEntries.map(m => m.data)),
+  ];
+  allErrors.push(...ontologyErrors);
+
+  // 2c. Zero-match detection (warnings, not blocking errors)
+  const substanceData = substances.map(s => s.data);
+  const zeroMatchWarnings = checkZeroMatchConcepts(concepts, {
+    substances: substanceData,
+    elements,
+    reactions,
+  });
+  if (zeroMatchWarnings.length > 0) {
+    console.warn('\n  Zero-match warnings:');
+    for (const w of zeroMatchWarnings) {
+      console.warn(`    ⚠ ${w}`);
+    }
+    console.log('');
   }
 
   // 3. Cross-file integrity
@@ -394,41 +450,29 @@ async function main() {
 
   await writeFile(join(bundleDir, 'concepts.json'), JSON.stringify(concepts));
 
-  // 6a2. Copy theory modules (optional directory)
-  const theoryModulesDir = join(DATA_SRC, 'theory_modules');
+  // 6a2. Copy theory modules (pre-loaded in phase 1)
   const theoryModuleFiles = {};
-  try {
-    const tmFiles = await readdir(theoryModulesDir);
-    const jsonFiles = tmFiles.filter(f => f.endsWith('.json'));
-    if (jsonFiles.length > 0) {
-      await mkdir(join(bundleDir, 'theory_modules'), { recursive: true });
-      for (const f of jsonFiles) {
-        const data = await loadJson(join(theoryModulesDir, f));
-        const key = f.replace('.json', '');
-        await writeFile(join(bundleDir, 'theory_modules', f), JSON.stringify(data));
-        theoryModuleFiles[key] = `theory_modules/${f}`;
-      }
-      console.log(`  ${jsonFiles.length} theory modules`);
+  if (theoryModuleEntries.length > 0) {
+    await mkdir(join(bundleDir, 'theory_modules'), { recursive: true });
+    for (const { data, filename } of theoryModuleEntries) {
+      const key = filename.replace('.json', '');
+      await writeFile(join(bundleDir, 'theory_modules', filename), JSON.stringify(data));
+      theoryModuleFiles[key] = `theory_modules/${filename}`;
     }
-  } catch { /* theory_modules dir optional */ }
+    console.log(`  ${theoryModuleEntries.length} theory modules`);
+  }
 
-  // 6a3. Copy courses (optional directory)
-  const coursesDir = join(DATA_SRC, 'courses');
+  // 6a3. Copy courses (pre-loaded in phase 1)
   const courseFiles = {};
-  try {
-    const cFiles = await readdir(coursesDir);
-    const jsonFiles = cFiles.filter(f => f.endsWith('.json'));
-    if (jsonFiles.length > 0) {
-      await mkdir(join(bundleDir, 'courses'), { recursive: true });
-      for (const f of jsonFiles) {
-        const data = await loadJson(join(coursesDir, f));
-        const key = f.replace('.json', '');
-        await writeFile(join(bundleDir, 'courses', f), JSON.stringify(data));
-        courseFiles[key] = `courses/${f}`;
-      }
-      console.log(`  ${jsonFiles.length} courses`);
+  if (courseEntries.length > 0) {
+    await mkdir(join(bundleDir, 'courses'), { recursive: true });
+    for (const { data, filename } of courseEntries) {
+      const key = filename.replace('.json', '');
+      await writeFile(join(bundleDir, 'courses', filename), JSON.stringify(data));
+      courseFiles[key] = `courses/${filename}`;
     }
-  } catch { /* courses dir optional */ }
+    console.log(`  ${courseEntries.length} courses`);
+  }
 
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
@@ -535,6 +579,22 @@ async function main() {
     await writeFile(join(bundleDir, `name_index.${locale}.json`), JSON.stringify(localeNameIndex));
     console.log(`  ${locale}: ${Object.keys(localeNameIndex).length} name entries`);
   }
+
+  // 7e. Generate data quality report
+  console.log('Generating data quality report...');
+  const report = generateReport({
+    concepts,
+    theoryModules: theoryModuleEntries.map(m => m.data),
+    courses: courseEntries.map(c => c.data),
+    substances: substanceData,
+    elements,
+    reactions,
+    structures: structureFiles,
+    validationErrors: ontologyErrors,
+    zeroMatchConcepts: zeroMatchWarnings,
+  });
+  await writeFile(join(bundleDir, 'report.json'), JSON.stringify(report, null, 2));
+  console.log(`  Report: ${report.concepts_total} concepts, ${report.zero_match_concepts.length} zero-match, ${report.structures_total} structures`);
 
   // 8. Generate manifest
   console.log('\nGenerating manifest...');
