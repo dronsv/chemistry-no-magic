@@ -1,7 +1,9 @@
 /**
- * Ontology validation: concept graph, theory module refs, course refs.
+ * Ontology validation: concept graph, theory module refs, course refs,
+ * filter structure, and zero-match detection.
  * Checks kinds, parent_id references, children_order integrity, cycles,
- * theory module cross-references, and course module references.
+ * theory module cross-references, course module references,
+ * filter DSL structure, and concept-to-entity match coverage.
  */
 
 const VALID_KINDS = [
@@ -172,6 +174,166 @@ export function validateTheoryModuleRefs(modules, concepts) {
   }
 
   return errors;
+}
+
+// ── Private filter evaluator (JS port of src/lib/filter-evaluator.ts) ──────
+
+const VALID_FILTER_KEYS = new Set(['all', 'any', 'not', 'pred', 'concept']);
+const VALID_PRED_KEYS = new Set(['field', 'eq', 'in', 'has', 'gt', 'lt']);
+
+function evalPred(pred, entity) {
+  const val = entity[pred.field];
+  if (pred.eq !== undefined) return val === pred.eq;
+  if (pred.in !== undefined) {
+    if (Array.isArray(val)) return val.some(v => pred.in.includes(v));
+    return pred.in.includes(val);
+  }
+  if (pred.has !== undefined) return Array.isArray(val) && val.includes(pred.has);
+  if (pred.gt !== undefined) return typeof val === 'number' && val > pred.gt;
+  if (pred.lt !== undefined) return typeof val === 'number' && val < pred.lt;
+  return false;
+}
+
+function evalFilter(filter, entity, resolve, depth) {
+  if (depth > 10) return false;
+  if ('all' in filter) return filter.all.every(f => evalFilter(f, entity, resolve, depth + 1));
+  if ('any' in filter) return filter.any.some(f => evalFilter(f, entity, resolve, depth + 1));
+  if ('not' in filter) return !evalFilter(filter.not, entity, resolve, depth + 1);
+  if ('pred' in filter) return evalPred(filter.pred, entity);
+  if ('concept' in filter) {
+    const cf = resolve(filter.concept);
+    return cf ? evalFilter(cf, entity, resolve, depth + 1) : false;
+  }
+  return false;
+}
+
+// ── Filter structure validation ────────────────────────────────────────────
+
+/**
+ * Recursively validate a single filter node.
+ * @param {object} node - A filter expression node
+ * @param {string} path - Human-readable path for error messages
+ * @param {Set<string>} conceptIds - Set of known concept IDs
+ * @param {string[]} errors - Accumulator for error messages
+ */
+function validateFilterNode(node, path, conceptIds, errors) {
+  if (typeof node !== 'object' || node === null) {
+    errors.push(`${path}: filter node must be an object`);
+    return;
+  }
+
+  const keys = Object.keys(node);
+
+  // Empty object {} is valid — means no constraints
+  if (keys.length === 0) return;
+
+  // Must have exactly one recognized key
+  const filterKeys = keys.filter(k => VALID_FILTER_KEYS.has(k));
+  if (filterKeys.length === 0) {
+    errors.push(`${path}: invalid filter — unrecognized keys: ${keys.join(', ')}`);
+    return;
+  }
+  if (filterKeys.length > 1) {
+    errors.push(`${path}: invalid filter — multiple filter keys: ${filterKeys.join(', ')}`);
+    return;
+  }
+
+  const key = filterKeys[0];
+
+  if (key === 'all' || key === 'any') {
+    if (!Array.isArray(node[key])) {
+      errors.push(`${path}: "${key}" must be an array`);
+      return;
+    }
+    node[key].forEach((child, i) => {
+      validateFilterNode(child, `${path}.${key}[${i}]`, conceptIds, errors);
+    });
+  } else if (key === 'not') {
+    validateFilterNode(node.not, `${path}.not`, conceptIds, errors);
+  } else if (key === 'pred') {
+    const pred = node.pred;
+    if (typeof pred !== 'object' || pred === null) {
+      errors.push(`${path}: pred must be an object`);
+      return;
+    }
+    if (!pred.field) {
+      errors.push(`${path}: pred missing required "field" property`);
+    }
+    for (const predKey of Object.keys(pred)) {
+      if (!VALID_PRED_KEYS.has(predKey)) {
+        errors.push(`${path}: pred has unknown key "${predKey}"`);
+      }
+    }
+  } else if (key === 'concept') {
+    if (!conceptIds.has(node.concept)) {
+      errors.push(`${path}: concept ref "${node.concept}" not found in concepts`);
+    }
+  }
+}
+
+/**
+ * Validate filter DSL nodes structurally and check concept references.
+ * @param {Record<string, object>} concepts — keys are concept IDs
+ * @returns {string[]} errors
+ */
+export function validateFilterStructure(concepts) {
+  const errors = [];
+  const conceptIds = new Set(Object.keys(concepts));
+
+  for (const [id, entry] of Object.entries(concepts)) {
+    if (!entry.filters || typeof entry.filters !== 'object') continue;
+    const keys = Object.keys(entry.filters);
+    if (keys.length === 0) continue; // empty {} is valid
+
+    validateFilterNode(entry.filters, `concepts["${id}"].filters`, conceptIds, errors);
+  }
+
+  return errors;
+}
+
+// ── Zero-match concept detection ───────────────────────────────────────────
+
+/** Kind → entity array key mapping */
+const KIND_ENTITY_MAP = {
+  substance_class: 'substances',
+  element_group: 'elements',
+  reaction_type: 'reactions',
+};
+
+/**
+ * Check concepts with filters against actual entity data.
+ * Returns warnings for concepts whose filters match zero entities.
+ * @param {Record<string, object>} concepts
+ * @param {{ substances?: object[], elements?: object[], reactions?: object[] }} entities
+ * @returns {string[]} warnings
+ */
+export function checkZeroMatchConcepts(concepts, entities) {
+  const warnings = [];
+
+  const resolve = (conceptId) => {
+    const c = concepts[conceptId];
+    return c && c.filters && Object.keys(c.filters).length > 0 ? c.filters : undefined;
+  };
+
+  for (const [id, entry] of Object.entries(concepts)) {
+    // Skip kinds without entity mapping
+    const entityKey = KIND_ENTITY_MAP[entry.kind];
+    if (!entityKey) continue;
+
+    // Skip empty filters
+    if (!entry.filters || typeof entry.filters !== 'object') continue;
+    if (Object.keys(entry.filters).length === 0) continue;
+
+    const pool = entities[entityKey];
+    if (!pool || pool.length === 0) continue;
+
+    const matches = pool.filter(e => evalFilter(entry.filters, e, resolve, 0));
+    if (matches.length === 0) {
+      warnings.push(`concepts["${id}"]: zero matches in ${entityKey} (kind: ${entry.kind})`);
+    }
+  }
+
+  return warnings;
 }
 
 /**

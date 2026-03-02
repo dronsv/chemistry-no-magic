@@ -3,6 +3,8 @@ import {
   validateConceptsGraph,
   validateTheoryModuleRefs,
   validateCourseRefs,
+  validateFilterStructure,
+  checkZeroMatchConcepts,
 } from '../../../scripts/lib/validate-ontology.mjs';
 
 /** Helper: builds a minimal valid concept entry */
@@ -425,5 +427,265 @@ describe('validateCourseRefs', () => {
 
   it('returns empty errors for empty courses array', () => {
     expect(validateCourseRefs([], modules)).toEqual([]);
+  });
+});
+
+describe('validateFilterStructure', () => {
+  it('accepts valid pred filter', () => {
+    const concepts = {
+      'cls:oxide': concept({
+        filters: { pred: { field: 'class', eq: 'oxide' } },
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('accepts valid all filter', () => {
+    const concepts = {
+      'cls:oxide_basic': concept({
+        filters: {
+          all: [
+            { pred: { field: 'class', eq: 'oxide' } },
+            { pred: { field: 'subclass', eq: 'basic' } },
+          ],
+        },
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('accepts valid any filter', () => {
+    const concepts = {
+      'cls:any_test': concept({
+        filters: {
+          any: [
+            { pred: { field: 'class', eq: 'oxide' } },
+            { pred: { field: 'class', eq: 'acid' } },
+          ],
+        },
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('accepts valid not filter', () => {
+    const concepts = {
+      'rxtype:non_redox': concept({
+        kind: 'reaction_type',
+        filters: { not: { pred: { field: 'type_tags', has: 'redox' } } },
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('accepts valid concept ref in filter', () => {
+    const concepts = {
+      'cls:oxide': concept({
+        filters: { pred: { field: 'class', eq: 'oxide' } },
+      }),
+      'cls:oxide_ref': concept({
+        filters: { concept: 'cls:oxide' },
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('accepts empty filter {} as valid (no constraints)', () => {
+    const concepts = {
+      'cls:empty': concept({
+        filters: {},
+      }),
+    };
+    expect(validateFilterStructure(concepts)).toEqual([]);
+  });
+
+  it('reports invalid filter node keys', () => {
+    const concepts = {
+      'cls:bad': concept({
+        filters: { badKey: 'something' },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    expect(errors[0]).toContain('invalid filter');
+    expect(errors[0]).toContain('cls:bad');
+  });
+
+  it('reports dangling concept ref in filter', () => {
+    const concepts = {
+      'cls:dangling': concept({
+        filters: { concept: 'cls:nonexistent' },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    expect(errors.some(e => e.includes('cls:nonexistent'))).toBe(true);
+  });
+
+  it('reports pred missing field', () => {
+    const concepts = {
+      'cls:no_field': concept({
+        filters: { pred: { eq: 'oxide' } },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    expect(errors.some(e => e.includes('field'))).toBe(true);
+  });
+
+  it('reports pred with unknown key', () => {
+    const concepts = {
+      'cls:bad_pred': concept({
+        filters: { pred: { field: 'class', eq: 'oxide', fuzzy: true } },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    expect(errors.some(e => e.includes('cls:bad_pred'))).toBe(true);
+  });
+
+  it('reports all/any not being array', () => {
+    const concepts = {
+      'cls:bad_all': concept({
+        filters: { all: 'not_an_array' },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    expect(errors.some(e => e.includes('cls:bad_all'))).toBe(true);
+  });
+
+  it('reports errors in nested filter nodes', () => {
+    const concepts = {
+      'cls:nested_bad': concept({
+        filters: {
+          all: [
+            { pred: { field: 'class', eq: 'oxide' } },
+            { pred: { badKey: 'value' } },
+          ],
+        },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('checkZeroMatchConcepts', () => {
+  const substances = [
+    { id: 's1', class: 'oxide', subclass: 'basic' },
+    { id: 's2', class: 'acid', subclass: 'oxygen_containing' },
+  ];
+  const elements = [
+    { Z: 11, symbol: 'Na', element_group: 'alkali_metal' },
+  ];
+  const reactions = [
+    { reaction_id: 'rx1', type_tags: ['exchange'], heat_effect: 'exo' },
+  ];
+
+  it('returns empty warnings for concept with matches', () => {
+    const concepts = {
+      'cls:oxide': concept({
+        filters: { pred: { field: 'class', eq: 'oxide' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
+  });
+
+  it('returns warning for concept with zero matches', () => {
+    const concepts = {
+      'cls:base': concept({
+        filters: { pred: { field: 'class', eq: 'base' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings.length).toBe(1);
+    expect(warnings[0]).toContain('zero matches');
+    expect(warnings[0]).toContain('cls:base');
+  });
+
+  it('skips concepts without filters (empty {})', () => {
+    const concepts = {
+      'cls:empty': concept({
+        filters: {},
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
+  });
+
+  it('skips property and reaction_facet kinds (no entity mapping)', () => {
+    const concepts = {
+      'prop:solubility': concept({
+        kind: 'property',
+        filters: { pred: { field: 'name', eq: 'solubility' } },
+      }),
+      'rxfacet:by_count': concept({
+        kind: 'reaction_facet',
+        filters: { pred: { field: 'facet', eq: 'count' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
+  });
+
+  it('matches element_group concepts against elements', () => {
+    const concepts = {
+      'grp:alkali': concept({
+        kind: 'element_group',
+        filters: { pred: { field: 'element_group', eq: 'alkali_metal' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
+  });
+
+  it('reports zero-match element_group concept', () => {
+    const concepts = {
+      'grp:lanthanides': concept({
+        kind: 'element_group',
+        filters: { pred: { field: 'element_group', eq: 'lanthanide' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings.length).toBe(1);
+    expect(warnings[0]).toContain('zero matches');
+    expect(warnings[0]).toContain('grp:lanthanides');
+  });
+
+  it('matches reaction_type concepts against reactions', () => {
+    const concepts = {
+      'rxtype:exchange': concept({
+        kind: 'reaction_type',
+        filters: { pred: { field: 'type_tags', has: 'exchange' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
+  });
+
+  it('reports zero-match reaction_type concept', () => {
+    const concepts = {
+      'rxtype:combination': concept({
+        kind: 'reaction_type',
+        filters: { pred: { field: 'type_tags', has: 'combination' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings.length).toBe(1);
+    expect(warnings[0]).toContain('zero matches');
+    expect(warnings[0]).toContain('rxtype:combination');
+  });
+
+  it('skips process kind (no entity mapping)', () => {
+    const concepts = {
+      'proc:dissolution': concept({
+        kind: 'process',
+        filters: { pred: { field: 'type', eq: 'dissolution' } },
+      }),
+    };
+    const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
+    expect(warnings).toEqual([]);
   });
 });
