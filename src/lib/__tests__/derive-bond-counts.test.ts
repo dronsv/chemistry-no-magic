@@ -1,6 +1,13 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 import { deriveBondCounts } from '../../../scripts/lib/derive-bond-counts.mjs';
+
+function loadStructure(filename: string) {
+  const filepath = join(process.cwd(), 'data-src', 'structures', filename);
+  return JSON.parse(readFileSync(filepath, 'utf-8'));
+}
 
 // --- Helper: build a minimal MoleculeStructure-like object ---
 
@@ -250,5 +257,92 @@ describe('deriveBondCounts', () => {
     expect(result.bonds).toEqual([
       { a: 'Cl', b: 'H', order: 1, count: 1 },
     ]);
+  });
+});
+
+describe('integration: real structure files', () => {
+  it('h2o.json — Water: 2 single H-O bonds', () => {
+    const structure = loadStructure('h2o.json');
+    const result = deriveBondCounts(structure);
+
+    expect(result.substance_id).toBe('h2o');
+    expect(result.quality).toBe('exact');
+    expect(result.bonds).toEqual([
+      { a: 'H', b: 'O', order: 1, count: 2 },
+    ]);
+  });
+
+  it('co2.json — Carbon dioxide: 2 double C=O bonds', () => {
+    const structure = loadStructure('co2.json');
+    const result = deriveBondCounts(structure);
+
+    expect(result.substance_id).toBe('co2');
+    expect(result.quality).toBe('exact');
+    expect(result.bonds).toEqual([
+      { a: 'C', b: 'O', order: 2, count: 2 },
+    ]);
+  });
+
+  it('h2so4.json — Sulfuric acid: 2 H-O single + 2 O-S single + 2 O-S double bonds', () => {
+    const structure = loadStructure('h2so4.json');
+    const result = deriveBondCounts(structure);
+
+    expect(result.substance_id).toBe('h2so4');
+    expect(result.quality).toBe('exact');
+    expect(result.bonds).toEqual([
+      { a: 'H', b: 'O', order: 1, count: 2 },
+      { a: 'O', b: 'S', order: 1, count: 2 },
+      { a: 'O', b: 'S', order: 2, count: 2 },
+    ]);
+  });
+
+  it('nh3.json — Ammonia: 3 single H-N bonds', () => {
+    const structure = loadStructure('nh3.json');
+    const result = deriveBondCounts(structure);
+
+    expect(result.substance_id).toBe('nh3');
+    expect(result.quality).toBe('exact');
+    expect(result.bonds).toEqual([
+      { a: 'H', b: 'N', order: 1, count: 3 },
+    ]);
+  });
+
+  it('ALL structure files produce valid bond counts', () => {
+    const structuresDir = join(process.cwd(), 'data-src', 'structures');
+    const files = readdirSync(structuresDir).filter((f) => f.endsWith('.json'));
+
+    expect(files.length).toBeGreaterThan(0);
+
+    for (const file of files) {
+      const structure = loadStructure(file);
+      const result = deriveBondCounts(structure);
+      const expectedId = file.replace(/\.json$/, '');
+
+      // substance_id matches filename
+      expect(result.substance_id).toBe(expectedId);
+
+      // quality is always 'exact'
+      expect(result.quality).toBe('exact');
+
+      // bonds is an array
+      expect(Array.isArray(result.bonds)).toBe(true);
+
+      for (const bond of result.bonds) {
+        // a and b are strings
+        expect(typeof bond.a).toBe('string');
+        expect(typeof bond.b).toBe('string');
+
+        // order is a number >= 1
+        expect(typeof bond.order).toBe('number');
+        expect(bond.order).toBeGreaterThanOrEqual(1);
+
+        // count is a number >= 1
+        expect(typeof bond.count).toBe('number');
+        expect(bond.count).toBeGreaterThanOrEqual(1);
+
+        // a <= b (alphabetical normalization)
+        expect(bond.a <= bond.b).toBe(true);
+      }
+    }
   });
 });
