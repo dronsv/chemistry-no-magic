@@ -6,6 +6,7 @@ import {
   validateFilterStructure,
   checkZeroMatchConcepts,
 } from '../../../scripts/lib/validate-ontology.mjs';
+import { generateReport } from '../../../scripts/lib/generate-report.mjs';
 
 /** Helper: builds a minimal valid concept entry */
 function concept(overrides: Record<string, unknown> = {}) {
@@ -715,5 +716,73 @@ describe('checkZeroMatchConcepts', () => {
     const warnings = checkZeroMatchConcepts(concepts, { substances: subs, elements: [], reactions: [] });
     // cls:a should match through cls:b's filter, so no zero-match warning for cls:a
     expect(warnings.filter(w => w.includes('cls:a'))).toHaveLength(0);
+  });
+});
+
+describe('generateReport', () => {
+  it('generates report with correct counts', () => {
+    const report = generateReport({
+      concepts: {
+        'cls:oxide': { kind: 'substance_class', parent_id: null, order: 1,
+          filters: { pred: { field: 'class', eq: 'oxide' } }, examples: [] },
+        'prop:x': { kind: 'property', parent_id: null, order: 1, filters: {}, examples: [] },
+      },
+      theoryModules: [{ id: 'module:test.v1' }],
+      courses: [{ id: 'course:test.v1' }],
+      substances: [{ id: 's1', class: 'oxide' }],
+      elements: new Array(118).fill(null).map((_, i) => ({ Z: i + 1 })),
+      reactions: [{ reaction_id: 'rx1' }],
+      structures: ['h2o.json', 'co2.json'],
+      validationErrors: [],
+      zeroMatchConcepts: [],
+    });
+
+    expect(report.concepts_total).toBe(2);
+    expect(report.concepts_with_filters).toBe(1);
+    expect(report.concepts_by_kind).toEqual({ substance_class: 1, property: 1 });
+    expect(report.theory_modules_total).toBe(1);
+    expect(report.courses_total).toBe(1);
+    expect(report.substances_total).toBe(1);
+    expect(report.elements_total).toBe(118);
+    expect(report.reactions_total).toBe(1);
+    expect(report.structures_total).toBe(2);
+    expect(report.zero_match_concepts).toEqual([]);
+    expect(report.validation_errors).toEqual([]);
+    expect(typeof report.generated_at).toBe('string');
+  });
+
+  it('extracts zero-match concept IDs from warning strings', () => {
+    const report = generateReport({
+      concepts: { 'cls:x': { kind: 'substance_class', parent_id: null, order: 1,
+        filters: { pred: { field: 'class', eq: 'x' } }, examples: [] } },
+      theoryModules: [],
+      courses: [],
+      substances: [],
+      elements: [],
+      reactions: [],
+      structures: [],
+      validationErrors: ['some error'],
+      zeroMatchConcepts: ['concepts[cls:x]: zero matches in substances (0 entities checked)'],
+    });
+
+    expect(report.zero_match_concepts).toEqual(['cls:x']);
+    expect(report.validation_errors).toEqual(['some error']);
+  });
+
+  it('counts substances_with_structure correctly', () => {
+    const report = generateReport({
+      concepts: {},
+      theoryModules: [],
+      courses: [],
+      substances: [{ id: 'h2o' }, { id: 'nacl' }, { id: 'xyz' }],
+      elements: [],
+      reactions: [],
+      structures: ['h2o.json', 'nacl.json'],
+      validationErrors: [],
+      zeroMatchConcepts: [],
+    });
+
+    expect(report.substances_with_structure).toBe(2); // h2o and nacl match
+    expect(report.substances_total).toBe(3);
   });
 });
