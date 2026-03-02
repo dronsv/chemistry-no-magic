@@ -34,4 +34,5 @@ export interface MoleculeLayerVisibility {
   oxStates?: boolean;
   charges?: boolean;
   lonePairs?: boolean;
+  bondInfo?: boolean;
 }

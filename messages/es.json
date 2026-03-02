@@ -466,6 +466,7 @@
   "mol_layer_ox_states": "E.O.",
   "mol_layer_charges": "Cargas",
   "mol_layer_lone_pairs": "Pares",
+  "mol_layer_bond_info": "Tipo de enlace",
   "mol_structure_aria": "Estructura molecular de {id}",
   "exam_systems_title": "Exámenes por país",
   "exam_systems_desc": "Elige un examen para practicar o compara los formatos.",

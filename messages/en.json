@@ -466,6 +466,7 @@
   "mol_layer_ox_states": "Ox.St.",
   "mol_layer_charges": "Charges",
   "mol_layer_lone_pairs": "Pairs",
+  "mol_layer_bond_info": "Bond type",
   "mol_structure_aria": "Molecular structure of {id}",
   "exam_systems_title": "Exams by Country",
   "exam_systems_desc": "Choose an exam to practice or compare exam formats.",

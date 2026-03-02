@@ -466,6 +466,7 @@
   "mol_layer_ox_states": "S.U.",
   "mol_layer_charges": "Ładunki",
   "mol_layer_lone_pairs": "Pary",
+  "mol_layer_bond_info": "Typ wiązania",
   "mol_structure_aria": "Struktura cząsteczki {id}",
   "exam_systems_title": "Egzaminy różnych krajów",
   "exam_systems_desc": "Wybierz egzamin do ćwiczeń lub porównaj formaty egzaminów.",

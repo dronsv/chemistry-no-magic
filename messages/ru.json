@@ -466,6 +466,7 @@
   "mol_layer_ox_states": "С.О.",
   "mol_layer_charges": "Заряды",
   "mol_layer_lone_pairs": "Пары",
+  "mol_layer_bond_info": "Тип связи",
   "mol_structure_aria": "Структура молекулы {id}",
   "exam_systems_title": "Экзамены разных стран",
   "exam_systems_desc": "Выберите экзамен для тренировки или сравните форматы экзаменов.",

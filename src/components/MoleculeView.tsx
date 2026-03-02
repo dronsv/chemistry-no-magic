@@ -6,6 +6,7 @@ import type {
   MoleculeAtom,
   MoleculeBond,
 } from '../types/molecule.ts';
+import type { BondInfoEntry } from '../lib/bond-info';
 import './molecule-view.css';
 
 // ── Constants ──
@@ -28,6 +29,7 @@ interface MoleculeViewProps {
   size?: Size;
   interactive?: boolean;
   onAtomClick?: (symbol: string) => void;
+  bondInfo?: BondInfoEntry[];
 }
 
 interface LayerKey {
@@ -40,6 +42,7 @@ const LAYER_KEYS: LayerKey[] = [
   { id: 'oxStates', label: m.mol_layer_ox_states },
   { id: 'charges', label: m.mol_layer_charges },
   { id: 'lonePairs', label: m.mol_layer_lone_pairs },
+  { id: 'bondInfo', label: m.mol_layer_bond_info },
 ];
 
 const DEFAULT_VISIBILITY: MoleculeLayerVisibility = {
@@ -479,6 +482,82 @@ function ChargeLabels({
   );
 }
 
+/** Friendly labels for bond types */
+const BOND_TYPE_LABELS: Record<string, string> = {
+  ionic: 'ion.',
+  covalent_polar: 'cov. p.',
+  covalent_nonpolar: 'cov. np.',
+  metallic: 'met.',
+};
+
+const BOND_TYPE_CSS: Record<string, string> = {
+  ionic: 'mol-bond-info--ionic',
+  covalent_polar: 'mol-bond-info--polar',
+  covalent_nonpolar: 'mol-bond-info--nonpolar',
+  metallic: 'mol-bond-info--metallic',
+};
+
+function BondInfoLabels({
+  bonds,
+  atoms,
+  bondInfo,
+}: {
+  bonds: MoleculeBond[];
+  atoms: MoleculeAtom[];
+  bondInfo: BondInfoEntry[];
+}) {
+  const posMap = new Map(atoms.map(a => [a.id, atomPos(a)]));
+
+  // Index bondInfo by from-to key for O(1) lookup
+  const infoMap = new Map<string, BondInfoEntry>();
+  for (const entry of bondInfo) {
+    infoMap.set(`${entry.from}-${entry.to}`, entry);
+    infoMap.set(`${entry.to}-${entry.from}`, entry);
+  }
+
+  return (
+    <>
+      {bonds.map((bond, i) => {
+        const pFrom = posMap.get(bond.from);
+        const pTo = posMap.get(bond.to);
+        if (!pFrom || !pTo) return null;
+
+        const info = infoMap.get(`${bond.from}-${bond.to}`);
+        if (!info) return null;
+
+        const mx = (pFrom.x + pTo.x) / 2;
+        const my = (pFrom.y + pTo.y) / 2;
+        const typeLabel = BOND_TYPE_LABELS[info.bondType] ?? info.bondType;
+        const deltaLabel = info.deltaChi !== null ? `\u0394${info.deltaChi.toFixed(2)}` : '';
+        const cssClass = BOND_TYPE_CSS[info.bondType] ?? '';
+
+        return (
+          <g key={`bi-${i}`}>
+            <text
+              className={`mol-bond-info ${cssClass}`}
+              x={mx}
+              y={my - 6}
+              fontSize={8}
+            >
+              {typeLabel}
+            </text>
+            {deltaLabel && (
+              <text
+                className={`mol-bond-info ${cssClass}`}
+                x={mx}
+                y={my + 5}
+                fontSize={7}
+              >
+                {deltaLabel}
+              </text>
+            )}
+          </g>
+        );
+      })}
+    </>
+  );
+}
+
 function ToggleBar({
   visibility,
   locked,
@@ -547,6 +626,7 @@ export default function MoleculeView({
   size = 'md',
   interactive = true,
   onAtomClick,
+  bondInfo,
 }: MoleculeViewProps) {
   const initialVisibility: MoleculeLayerVisibility = {
     ...DEFAULT_VISIBILITY,
@@ -624,6 +704,7 @@ export default function MoleculeView({
   const oxVisible = visibility.oxStates ?? false;
   const chargesVisible = visibility.charges ?? false;
   const lonePairsVisible = visibility.lonePairs ?? false;
+  const bondInfoVisible = visibility.bondInfo ?? false;
 
   const annotations = useMemo(
     () => computeAllAnnotations(
@@ -677,6 +758,13 @@ export default function MoleculeView({
         <g className={`mol-layer${chargesVisible ? '' : ' mol-layer--hidden'}`}>
           <ChargeLabels structure={structure} annotations={annotations} />
         </g>
+
+        {/* Layer: bond info */}
+        {bondInfo && bondInfo.length > 0 && (
+          <g className={`mol-layer${bondInfoVisible ? '' : ' mol-layer--hidden'}`}>
+            <BondInfoLabels bonds={structure.bonds} atoms={structure.atoms} bondInfo={bondInfo} />
+          </g>
+        )}
       </svg>
 
       {showToggles && (
