@@ -187,6 +187,9 @@ async function main() {
   const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
   const promptTemplatesEs = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.es.json'));
 
+  const calculators = await loadJson(join(DATA_SRC, 'calculators.json'));
+  const bondEnergyTable = await loadJson(join(DATA_SRC, 'tables', 'bond_energy_avg_v1.json'));
+
   const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
 
   // Load theory modules early for validation (optional directory)
@@ -248,6 +251,7 @@ async function main() {
   console.log(`  ${bondTheory.bond_types.length} bond types, ${bondTheory.crystal_structures.length} crystal structures, ${bondsExercises.length} bond exercises, ${bondExamples.examples.length} bond examples`);
   console.log(`  ${oxidationTheory.rules.length} oxidation rules, ${oxidationExercises.length} oxidation exercises, ${oxidationExamples.length} oxidation examples`);
   console.log(`  ${properties.length} property definitions, ${engineTaskTemplates.length} engine task templates`);
+  console.log(`  ${calculators.calculators.length} calculators, ${Object.keys(bondEnergyTable.bonds).length} bond energy entries`);
   console.log(`  ${Object.keys(promptTemplatesRu).length} prompt templates (ru), ${Object.keys(promptTemplatesEn).length} (en), ${Object.keys(promptTemplatesPl).length} (pl), ${Object.keys(promptTemplatesEs).length} (es)`);
   console.log(`  ${chemContexts.length} contexts, ${substanceVariants.length} substance variants, ${chemTerms.length} terms`);
   console.log(`  ${Object.keys(concepts).length} concepts`);
@@ -397,6 +401,13 @@ async function main() {
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.pl.json'), JSON.stringify(promptTemplatesPl));
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.es.json'), JSON.stringify(promptTemplatesEs));
 
+  // Copy tables
+  await mkdir(join(bundleDir, 'tables'), { recursive: true });
+  await writeFile(join(bundleDir, 'tables', 'bond_energy_avg_v1.json'), JSON.stringify(bondEnergyTable));
+
+  // Copy calculator registry
+  await writeFile(join(bundleDir, 'calculators.json'), JSON.stringify(calculators));
+
   await writeFile(join(bundleDir, 'process_vocab.json'), JSON.stringify(processVocab));
   await writeFile(join(bundleDir, 'effects_vocab.json'), JSON.stringify(effectsVocab));
   await writeFile(join(bundleDir, 'quantities_units.json'), JSON.stringify(quantitiesUnits));
@@ -454,6 +465,24 @@ async function main() {
   await mkdir(join(bundleDir, 'derived'), { recursive: true });
   await writeFile(join(bundleDir, 'derived', 'structure_bond_counts.json'), JSON.stringify(bondCountsIndex));
   console.log(`  ${structureFiles.length} structures → bond counts (${Object.keys(bondCountsIndex).length} total, ${substances.length - structureFiles.length} missing)`);
+
+  // 6a1b. Run bond energy calculator
+  console.log('Running bond energy calculator...');
+  const { calcBondEnergyV1 } = await import('./lib/calc-bond-energy.mjs');
+  const bondEnergyResults = {};
+  let beComputed = 0, bePartial = 0, beMissing = 0;
+  for (const [id, bc] of Object.entries(bondCountsIndex)) {
+    if (bc.quality === 'exact' && bc.bonds.length > 0) {
+      const result = calcBondEnergyV1(id, bc.bonds, bondEnergyTable);
+      bondEnergyResults[id] = result;
+      if (result.bond_energy_quality === 'estimated') beComputed++;
+      else if (result.bond_energy_quality === 'partial') bePartial++;
+    } else {
+      beMissing++;
+    }
+  }
+  await writeFile(join(bundleDir, 'derived', 'bond_energy.json'), JSON.stringify(bondEnergyResults));
+  console.log(`  Bond energy: ${beComputed} estimated, ${bePartial} partial, ${beMissing} no input`);
 
   // Contexts layer: generate reverse index and copy to bundle
   const reverseIndex = {};
@@ -612,6 +641,7 @@ async function main() {
     validationErrors: ontologyErrors,
     zeroMatchConcepts: zeroMatchWarnings,
     bondCountsIndex,
+    bondEnergyResults,
   });
   await writeFile(join(bundleDir, 'report.json'), JSON.stringify(report, null, 2));
   console.log(`  Report: ${report.concepts_total} concepts, ${report.zero_match_concepts.length} zero-match, ${report.structures_total} structures`);

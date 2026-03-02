@@ -39,7 +39,12 @@ export interface ManifestEntrypoints {
   };
   derived?: {
     structure_bond_counts: string;
+    bond_energy?: string;
   };
+  tables?: {
+    bond_energy_avg_v1?: string;
+  };
+  calculators?: string;
   theory_modules?: Record<string, string>;
   courses?: Record<string, string>;
 }

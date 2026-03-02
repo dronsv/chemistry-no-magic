@@ -75,7 +75,12 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       structures: 'structures',
       derived: {
         structure_bond_counts: 'derived/structure_bond_counts.json',
+        bond_energy: 'derived/bond_energy.json',
       },
+      tables: {
+        bond_energy_avg_v1: 'tables/bond_energy_avg_v1.json',
+      },
+      calculators: 'calculators.json',
       exercises: {
         periodic_table: 'exercises/periodic-table-exercises.json',
         bonds: 'exercises/bonds-exercises.json',

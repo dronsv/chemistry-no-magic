@@ -10,6 +10,7 @@
  * @param {string[]} data.structures — structure filenames (e.g. ["h2o.json", "co2.json"])
  * @param {string[]} data.validationErrors — errors from ontology validators
  * @param {string[]} data.zeroMatchConcepts — warnings from zero-match check
+ * @param {Record<string, object>} [data.bondEnergyResults] — bond energy calculator results
  * @returns {object} report
  */
 export function generateReport(data) {
@@ -24,6 +25,7 @@ export function generateReport(data) {
     validationErrors = [],
     zeroMatchConcepts = [],
     bondCountsIndex = {},
+    bondEnergyResults = {},
   } = data ?? {};
 
   const conceptEntries = Object.values(concepts);
@@ -68,6 +70,9 @@ export function generateReport(data) {
     substances_with_structure: substancesWithStructure,
     bond_counts_generated: Object.values(bondCountsIndex).filter(v => v.quality === 'exact').length,
     bond_counts_missing: Object.values(bondCountsIndex).filter(v => v.quality === 'missing').length,
+    bond_energy_computed: Object.values(bondEnergyResults).filter(r => r.bond_energy_quality === 'estimated').length,
+    bond_energy_partial: Object.values(bondEnergyResults).filter(r => r.bond_energy_quality === 'partial').length,
+    bond_energy_no_input: substances.length - Object.keys(bondEnergyResults).length,
     validation_errors: validationErrors,
   };
 }
