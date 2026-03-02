@@ -466,6 +466,17 @@ async function main() {
   await writeFile(join(bundleDir, 'derived', 'structure_bond_counts.json'), JSON.stringify(bondCountsIndex));
   console.log(`  ${structureFiles.length} structures → bond counts (${Object.keys(bondCountsIndex).length} total, ${substances.length - structureFiles.length} missing)`);
 
+  // Validate bond energy table coverage
+  const { validateBondEnergyTableCoverage } = await import('./lib/validate-calculators.mjs');
+  const calcValidationErrors = validateBondEnergyTableCoverage(bondEnergyTable, bondCountsIndex);
+  if (calcValidationErrors.length > 0) {
+    console.error('\nCalculator validation errors:');
+    for (const err of calcValidationErrors) {
+      console.error(`  - ${err}`);
+    }
+    process.exit(1);
+  }
+
   // 6a1b. Run bond energy calculator
   console.log('Running bond energy calculator...');
   const { calcBondEnergyV1 } = await import('./lib/calc-bond-energy.mjs');
