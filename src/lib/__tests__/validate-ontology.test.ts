@@ -1,5 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { validateConceptsGraph } from '../../../scripts/lib/validate-ontology.mjs';
+import {
+  validateConceptsGraph,
+  validateTheoryModuleRefs,
+  validateCourseRefs,
+} from '../../../scripts/lib/validate-ontology.mjs';
 
 /** Helper: builds a minimal valid concept entry */
 function concept(overrides: Record<string, unknown> = {}) {
@@ -186,5 +190,208 @@ describe('validateConceptsGraph', () => {
     expect(errors).toHaveLength(1);
     expect(errors[0]).toContain('duplicate in children_order');
     expect(errors[0]).toContain('cls:child');
+  });
+});
+
+describe('validateTheoryModuleRefs', () => {
+  const CONCEPTS: Record<string, object> = {
+    'cls:oxide': concept(),
+    'cls:acid': concept({ order: 2 }),
+  };
+
+  const validModule = {
+    id: 'module:test.v1',
+    kind: 'theory_module',
+    applies_to: ['cls:oxide'],
+    sections: [
+      {
+        id: 'sec1',
+        title_ref: 'cls:oxide',
+        blocks: [
+          {
+            t: 'concept_card',
+            conceptId: 'cls:oxide',
+            examples: { mode: 'filter' },
+          },
+        ],
+      },
+    ],
+  };
+
+  it('returns empty errors for a valid module', () => {
+    expect(validateTheoryModuleRefs([validModule], CONCEPTS)).toEqual([]);
+  });
+
+  it('reports dangling applies_to reference', () => {
+    const mod = {
+      ...validModule,
+      applies_to: ['cls:nonexistent'],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('applies_to');
+    expect(errors[0]).toContain('cls:nonexistent');
+  });
+
+  it('reports dangling conceptId in concept_card block', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [
+            {
+              t: 'concept_card',
+              conceptId: 'cls:missing_concept',
+              examples: { mode: 'filter' },
+            },
+          ],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('conceptId');
+    expect(errors[0]).toContain('cls:missing_concept');
+  });
+
+  it('reports dangling ref in reactivity_rules RichText', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [
+            {
+              t: 'concept_card',
+              conceptId: 'cls:oxide',
+              reactivity_rules: [
+                { t: 'text', v: 'Reacts with ' },
+                { t: 'ref', id: 'cls:phantom', form: 'ins_pl' },
+              ],
+              examples: { mode: 'filter' },
+            },
+          ],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('ref');
+    expect(errors[0]).toContain('cls:phantom');
+  });
+
+  it('reports dangling ref in text_block content', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [
+            {
+              t: 'text_block',
+              content: [
+                { t: 'text', v: 'See ' },
+                { t: 'ref', id: 'cls:ghost' },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('ref');
+    expect(errors[0]).toContain('cls:ghost');
+  });
+
+  it('finds and validates nested ref in em/strong wrappers', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [
+            {
+              t: 'text_block',
+              content: [
+                {
+                  t: 'em',
+                  children: [
+                    {
+                      t: 'strong',
+                      children: [
+                        { t: 'ref', id: 'cls:not_here' },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('ref');
+    expect(errors[0]).toContain('cls:not_here');
+  });
+
+  it('finds valid nested ref in em/strong without errors', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [
+            {
+              t: 'text_block',
+              content: [
+                {
+                  t: 'em',
+                  children: [
+                    { t: 'ref', id: 'cls:acid' },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toEqual([]);
+  });
+
+  it('returns empty errors for empty modules array', () => {
+    expect(validateTheoryModuleRefs([], CONCEPTS)).toEqual([]);
+  });
+});
+
+describe('validateCourseRefs', () => {
+  const modules = [
+    { id: 'module:test.v1', kind: 'theory_module', applies_to: [], sections: [] },
+  ];
+
+  it('returns empty errors for a valid course', () => {
+    const courses = [{ id: 'course:c1', title_ru: 'Test', modules: ['module:test.v1'] }];
+    expect(validateCourseRefs(courses, modules)).toEqual([]);
+  });
+
+  it('reports dangling module ref', () => {
+    const courses = [{ id: 'course:c1', title_ru: 'Test', modules: ['module:nonexistent'] }];
+    const errors = validateCourseRefs(courses, modules);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('module:nonexistent');
+  });
+
+  it('returns empty errors for empty courses array', () => {
+    expect(validateCourseRefs([], modules)).toEqual([]);
   });
 });
