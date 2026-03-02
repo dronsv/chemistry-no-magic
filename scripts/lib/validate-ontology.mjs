@@ -256,8 +256,8 @@ function validateFilterNode(node, path, conceptIds, errors) {
       errors.push(`${path}: pred must be an object`);
       return;
     }
-    if (!pred.field) {
-      errors.push(`${path}: pred missing required "field" property`);
+    if (typeof pred.field !== 'string' || pred.field === '') {
+      errors.push(`${path}: pred "field" must be a non-empty string`);
     }
     for (const predKey of Object.keys(pred)) {
       if (!VALID_PRED_KEYS.has(predKey)) {

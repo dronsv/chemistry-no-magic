@@ -555,6 +555,19 @@ describe('validateFilterStructure', () => {
     expect(errors.some(e => e.includes('cls:bad_all'))).toBe(true);
   });
 
+  it('reports error for node with multiple filter keys', () => {
+    const concepts = {
+      'cls:multi': concept({
+        filters: {
+          all: [{ pred: { field: 'class', eq: 'oxide' } }],
+          pred: { field: 'class', eq: 'acid' },
+        },
+      }),
+    };
+    const errors = validateFilterStructure(concepts);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+  });
+
   it('reports errors in nested filter nodes', () => {
     const concepts = {
       'cls:nested_bad': concept({
@@ -687,5 +700,20 @@ describe('checkZeroMatchConcepts', () => {
     };
     const warnings = checkZeroMatchConcepts(concepts, { substances, elements, reactions });
     expect(warnings).toEqual([]);
+  });
+
+  it('resolves concept cross-references in filters', () => {
+    const concepts = {
+      'cls:a': concept({
+        filters: { concept: 'cls:b' },
+      }),
+      'cls:b': concept({
+        filters: { pred: { field: 'class', eq: 'oxide' } },
+      }),
+    };
+    const subs = [{ id: 's1', class: 'oxide' }];
+    const warnings = checkZeroMatchConcepts(concepts, { substances: subs, elements: [], reactions: [] });
+    // cls:a should match through cls:b's filter, so no zero-match warning for cls:a
+    expect(warnings.filter(w => w.includes('cls:a'))).toHaveLength(0);
   });
 });
