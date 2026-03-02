@@ -436,6 +436,25 @@ async function main() {
     }
   }
 
+  // 6a1. Derive bond counts from structures
+  console.log('Deriving bond counts...');
+  const { deriveBondCounts } = await import('./lib/derive-bond-counts.mjs');
+  const bondCountsIndex = {};
+  for (const f of structureFiles) {
+    const structure = await loadJson(join(structuresDir, f));
+    bondCountsIndex[structure.id] = deriveBondCounts(structure);
+  }
+  // Add "missing" entries for substances without structures
+  const structureIds = new Set(structureFiles.map(f => f.replace(/\.json$/, '')));
+  for (const { data } of substances) {
+    if (!structureIds.has(data.id)) {
+      bondCountsIndex[data.id] = { substance_id: data.id, bonds: [], quality: 'missing' };
+    }
+  }
+  await mkdir(join(bundleDir, 'derived'), { recursive: true });
+  await writeFile(join(bundleDir, 'derived', 'structure_bond_counts.json'), JSON.stringify(bondCountsIndex));
+  console.log(`  ${structureFiles.length} structures → bond counts (${Object.keys(bondCountsIndex).length} total, ${substances.length - structureFiles.length} missing)`);
+
   // Contexts layer: generate reverse index and copy to bundle
   const reverseIndex = {};
   for (const b of termBindings) {
@@ -592,6 +611,7 @@ async function main() {
     structures: structureFiles,
     validationErrors: ontologyErrors,
     zeroMatchConcepts: zeroMatchWarnings,
+    bondCountsIndex,
   });
   await writeFile(join(bundleDir, 'report.json'), JSON.stringify(report, null, 2));
   console.log(`  Report: ${report.concepts_total} concepts, ${report.zero_match_concepts.length} zero-match, ${report.structures_total} structures`);

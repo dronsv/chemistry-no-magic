@@ -23,6 +23,7 @@ export function generateReport(data) {
     structures = [],
     validationErrors = [],
     zeroMatchConcepts = [],
+    bondCountsIndex = {},
   } = data ?? {};
 
   const conceptEntries = Object.values(concepts);
@@ -65,6 +66,8 @@ export function generateReport(data) {
     reactions_total: reactions.length,
     structures_total: structures.length,
     substances_with_structure: substancesWithStructure,
+    bond_counts_generated: Object.values(bondCountsIndex).filter(v => v.quality === 'exact').length,
+    bond_counts_missing: Object.values(bondCountsIndex).filter(v => v.quality === 'missing').length,
     validation_errors: validationErrors,
   };
 }

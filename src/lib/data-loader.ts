@@ -15,6 +15,7 @@ import type { Reaction } from '../types/reaction';
 import type { BondTheory, BondExamplesData } from '../types/bond';
 import type { OxidationTheory, OxidationExample } from '../types/oxidation';
 import type { MoleculeStructure } from '../types/molecule';
+import type { BondCountsIndex } from '../types/bond-counts';
 import type { QualitativeTest } from '../types/qualitative';
 import type { GeneticChain } from '../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../types/energy-catalyst';
@@ -859,6 +860,18 @@ export async function loadStructure(id: string): Promise<MoleculeStructure> {
   }
 
   return loadDataFile<MoleculeStructure>(`${basePath}/${id}.json`);
+}
+
+/** Load derived bond counts index (substance_id → bond counts). */
+export async function loadBondCounts(): Promise<BondCountsIndex> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.derived?.structure_bond_counts;
+  if (!path) return {};
+  try {
+    return await loadDataFile<BondCountsIndex>(path);
+  } catch {
+    return {};
+  }
 }
 
 /** Load contexts layer data (contexts, variants, terms, bindings, reverse index). */

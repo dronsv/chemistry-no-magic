@@ -37,6 +37,9 @@ export interface ManifestEntrypoints {
     term_bindings: string;
     reverse_index: string;
   };
+  derived?: {
+    structure_bond_counts: string;
+  };
   theory_modules?: Record<string, string>;
   courses?: Record<string, string>;
 }
