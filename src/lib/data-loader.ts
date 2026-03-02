@@ -874,6 +874,26 @@ export async function loadBondCounts(): Promise<BondCountsIndex> {
   }
 }
 
+/** Load derived bond energy results (substance_id → BondEnergyResult). */
+export async function loadBondEnergy(): Promise<Record<string, import('../types/calculator').BondEnergyResult>> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.derived?.bond_energy;
+  if (!path) return {};
+  try {
+    return await loadDataFile(path);
+  } catch {
+    return {};
+  }
+}
+
+/** Load bond energy averages table (v1). */
+export async function loadBondEnergyTable(): Promise<import('../types/calculator').BondEnergyTableV1> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.tables?.bond_energy_avg_v1;
+  if (!path) throw new Error('Bond energy table not found in manifest');
+  return loadDataFile(path);
+}
+
 /** Load contexts layer data (contexts, variants, terms, bindings, reverse index). */
 export async function loadContextsData(locale?: SupportedLocale): Promise<ContextsData> {
   const manifest = await getManifest();
