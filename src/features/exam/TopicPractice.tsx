@@ -25,9 +25,8 @@ interface Props {
 
 type Phase = 'grid' | 'detail' | 'solve' | 'review';
 
-function getTopicName(topic: UnifiedTopic, locale: SupportedLocale): string {
-  const key = `name_${locale}` as keyof UnifiedTopic;
-  return (topic[key] as string) ?? topic.name_en;
+function getTopicName(topic: UnifiedTopic): string {
+  return topic.name;
 }
 
 function pick<T>(arr: T[]): T {
@@ -178,8 +177,8 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
                 style={{ borderLeftColor: topic.color }}
                 onClick={() => handleTopicClick(topic.topic_id)}
               >
-                <span className="topic-card__name">{getTopicName(topic, locale)}</span>
-                <span className="topic-card__desc">{topic.description_ru}</span>
+                <span className="topic-card__name">{getTopicName(topic)}</span>
+                <span className="topic-card__desc">{topic.description}</span>
                 <span className="topic-card__systems">
                   {examSystems.map(sys => (
                     <span
@@ -212,10 +211,10 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
             {m.exam_topic_back_to_topics()}
           </button>
           <h2 className="topic-detail__title" style={{ color: selectedTopic.color }}>
-            {getTopicName(selectedTopic, locale)}
+            {getTopicName(selectedTopic)}
           </h2>
         </div>
-        <p className="topic-detail__desc">{selectedTopic.description_ru}</p>
+        <p className="topic-detail__desc">{selectedTopic.description}</p>
 
         {/* System tabs */}
         <div className="topic-detail__tabs">

@@ -10,11 +10,10 @@ export type NormalizedDifficulty = 'basic' | 'advanced' | 'expert';
 /** A unified topic that maps competencies across multiple exam systems. */
 export interface UnifiedTopic {
   topic_id: string;
-  name_ru: string;
-  name_en: string;
-  name_pl: string;
-  name_es: string;
-  description_ru: string;
+  /** Topic name — provided by locale overlay. */
+  name: string;
+  /** Topic description — provided by locale overlay. */
+  description: string;
   icon: string;
   color: string;
   competency_map: Record<string, TopicCompetencyLink[]>;

@@ -1,0 +1,34 @@
+{
+  "atomic_structure_periodicity": {
+    "name": "Budowa atomu i okresowość",
+    "description": "Budowa atomu, konfiguracja elektronowa, prawo okresowości i trendy właściwości pierwiastków."
+  },
+  "chemical_bonding": {
+    "name": "Wiązania chemiczne",
+    "description": "Typy wiązań chemicznych (kowalencyjne, jonowe, metaliczne), sieci krystaliczne i ich związek z właściwościami substancji."
+  },
+  "inorganic_reactions": {
+    "name": "Reakcje nieorganiczne",
+    "description": "Klasyfikacja substancji, nomenklatura, reakcje wymiany jonowej, reakcje redoks, łańcuchy genetyczne i analiza jakościowa."
+  },
+  "kinetics_equilibrium": {
+    "name": "Kinetyka i równowaga",
+    "description": "Szybkość reakcji, czynniki wpływające, kataliza, równowaga chemiczna i zasada Le Chateliera."
+  },
+  "solutions_electrolytes": {
+    "name": "Roztwory i elektrolity",
+    "description": "Elektrolity, dysocjacja i reakcje kwasowo-zasadowe w roztworach."
+  },
+  "calculations": {
+    "name": "Obliczenia chemiczne",
+    "description": "Masa molowa, ilość substancji, roztwory, stechiometria i wydajność reakcji."
+  },
+  "organic_chemistry": {
+    "name": "Chemia organiczna",
+    "description": "Klasy związków organicznych, nomenklatura, typy reakcji i izomeria."
+  },
+  "electrochemistry": {
+    "name": "Elektrochemia",
+    "description": "Elektroliza, ogniwa galwaniczne, potencjały elektrodowe i szereg aktywności."
+  }
+}

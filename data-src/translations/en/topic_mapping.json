@@ -1,0 +1,34 @@
+{
+  "atomic_structure_periodicity": {
+    "name": "Atomic Structure & Periodicity",
+    "description": "Atomic structure, electron configuration, the periodic law, and trends in element properties."
+  },
+  "chemical_bonding": {
+    "name": "Chemical Bonding",
+    "description": "Types of chemical bonds (covalent, ionic, metallic), crystal lattices, and their relationship to substance properties."
+  },
+  "inorganic_reactions": {
+    "name": "Inorganic Reactions",
+    "description": "Substance classification, nomenclature, ion exchange reactions, redox reactions, genetic chains, and qualitative analysis."
+  },
+  "kinetics_equilibrium": {
+    "name": "Kinetics & Equilibrium",
+    "description": "Reaction rate, influencing factors, catalysis, chemical equilibrium, and Le Chatelier's principle."
+  },
+  "solutions_electrolytes": {
+    "name": "Solutions & Electrolytes",
+    "description": "Electrolytes, dissociation, and acid-base reactions in solutions."
+  },
+  "calculations": {
+    "name": "Calculations",
+    "description": "Molar mass, amount of substance, solutions, stoichiometry, and reaction yield."
+  },
+  "organic_chemistry": {
+    "name": "Organic Chemistry",
+    "description": "Classes of organic compounds, nomenclature, reaction types, and isomerism."
+  },
+  "electrochemistry": {
+    "name": "Electrochemistry",
+    "description": "Electrolysis, galvanic cells, electrode potentials, and the activity series."
+  }
+}

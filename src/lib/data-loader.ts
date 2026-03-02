@@ -780,8 +780,11 @@ export async function loadExamAlgorithms(systemId: string, locale?: SupportedLoc
 }
 
 /** Load unified topic mapping (cross-exam competency map). */
-export async function loadTopicMapping(): Promise<UnifiedTopic[]> {
-  return loadRule('topic_mapping') as Promise<UnifiedTopic[]>;
+export async function loadTopicMapping(locale?: SupportedLocale): Promise<UnifiedTopic[]> {
+  const topics = await loadRule('topic_mapping') as UnifiedTopic[];
+  if (!locale) return topics;
+  const overlay = await loadTranslationOverlay(locale, 'topic_mapping', true);
+  return applyOverlay(topics, overlay, t => t.topic_id);
 }
 
 /** Load formula lookup (display formula → substance/element info). */

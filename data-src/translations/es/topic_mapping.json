@@ -1,0 +1,34 @@
+{
+  "atomic_structure_periodicity": {
+    "name": "Estructura atómica y periodicidad",
+    "description": "Estructura del átomo, configuración electrónica, ley periódica y tendencias en las propiedades de los elementos."
+  },
+  "chemical_bonding": {
+    "name": "Enlace químico",
+    "description": "Tipos de enlaces químicos (covalente, iónico, metálico), redes cristalinas y su relación con las propiedades de las sustancias."
+  },
+  "inorganic_reactions": {
+    "name": "Reacciones inorgánicas",
+    "description": "Clasificación de sustancias, nomenclatura, reacciones de intercambio iónico, reacciones redox, cadenas genéticas y análisis cualitativo."
+  },
+  "kinetics_equilibrium": {
+    "name": "Cinética y equilibrio",
+    "description": "Velocidad de reacción, factores de influencia, catálisis, equilibrio químico y principio de Le Chatelier."
+  },
+  "solutions_electrolytes": {
+    "name": "Disoluciones y electrolitos",
+    "description": "Electrolitos, disociación y reacciones ácido-base en disoluciones."
+  },
+  "calculations": {
+    "name": "Cálculos químicos",
+    "description": "Masa molar, cantidad de sustancia, disoluciones, estequiometría y rendimiento de reacción."
+  },
+  "organic_chemistry": {
+    "name": "Química orgánica",
+    "description": "Clases de compuestos orgánicos, nomenclatura, tipos de reacciones e isomería."
+  },
+  "electrochemistry": {
+    "name": "Electroquímica",
+    "description": "Electrólisis, pilas galvánicas, potenciales de electrodo y serie de actividad."
+  }
+}

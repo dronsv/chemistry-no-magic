@@ -125,7 +125,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
     try {
       if (!topicMapping) {
         const [topics, systems] = await Promise.all([
-          loadTopicMapping(),
+          loadTopicMapping(locale),
           examSystems ? Promise.resolve(examSystems) : loadExamSystems(),
         ]);
         setTopicMapping(topics);
