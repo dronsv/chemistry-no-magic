@@ -218,4 +218,37 @@ describe('deriveBondCounts', () => {
       { a: 'H', b: 'O', order: 1, count: 1 },
     ]);
   });
+
+  it('handles missing atoms array gracefully', () => {
+    const result = deriveBondCounts({ id: 'no_atoms', bonds: [] } as any);
+    expect(result.substance_id).toBe('no_atoms');
+    expect(result.bonds).toEqual([]);
+    expect(result.quality).toBe('exact');
+  });
+
+  it('handles missing bonds array gracefully', () => {
+    const result = deriveBondCounts({
+      id: 'no_bonds',
+      atoms: [{ id: 'H1', symbol: 'H', x: 0, y: 0 }],
+    } as any);
+    expect(result.substance_id).toBe('no_bonds');
+    expect(result.bonds).toEqual([]);
+  });
+
+  it('defaults undefined bond.order to 1', () => {
+    const structure = {
+      id: 'undef_order',
+      atoms: [
+        { id: 'H1', symbol: 'H', x: 0, y: 0 },
+        { id: 'Cl1', symbol: 'Cl', x: 0, y: 0 },
+      ],
+      bonds: [{ from: 'H1', to: 'Cl1' }],
+    };
+
+    const result = deriveBondCounts(structure as any);
+
+    expect(result.bonds).toEqual([
+      { a: 'Cl', b: 'H', order: 1, count: 1 },
+    ]);
+  });
 });
