@@ -14,16 +14,16 @@
  */
 export function generateReport(data) {
   const {
-    concepts,
-    theoryModules,
-    courses,
-    substances,
-    elements,
-    reactions,
-    structures,
-    validationErrors,
-    zeroMatchConcepts,
-  } = data;
+    concepts = {},
+    theoryModules = [],
+    courses = [],
+    substances = [],
+    elements = [],
+    reactions = [],
+    structures = [],
+    validationErrors = [],
+    zeroMatchConcepts = [],
+  } = data ?? {};
 
   const conceptEntries = Object.values(concepts);
 
