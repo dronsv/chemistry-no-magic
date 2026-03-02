@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "calculators": [
+    {
+      "id": "calc:bond_energy_v1",
+      "entity_type": "substance",
+      "inputs": ["derived:bond_counts", "table:bond_energy_avg_v1"],
+      "outputs": ["bond_energy_total_est_kj_mol", "bond_types", "bond_energy_quality"],
+      "trace": true,
+      "notes": ["Uses average bond energies table; educational estimate."]
+    }
+  ]
+}
