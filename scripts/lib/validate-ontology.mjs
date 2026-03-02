@@ -134,8 +134,12 @@ export function validateTheoryModuleRefs(modules, concepts) {
 
     // Walk sections → blocks
     if (!Array.isArray(mod.sections)) continue;
+    const conceptIds = new Set(Object.keys(concepts));
     for (const section of mod.sections) {
       if (!Array.isArray(section.blocks)) continue;
+      if (section.title_ref && !conceptIds.has(section.title_ref)) {
+        errors.push(`${prefix}.section["${section.id}"]: title_ref "${section.title_ref}" not found in concepts`);
+      }
       for (const block of section.blocks) {
         const blockPrefix = `${prefix}.section["${section.id}"]`;
 
@@ -147,7 +151,7 @@ export function validateTheoryModuleRefs(modules, concepts) {
         }
 
         // concept_card: validate reactivity_rules RichText refs
-        if (block.reactivity_rules) {
+        if (block.t === 'concept_card' && block.reactivity_rules) {
           for (const refId of extractRichTextRefs(block.reactivity_rules)) {
             if (!concepts[refId]) {
               errors.push(`${blockPrefix}: ref "${refId}" not found in concepts`);

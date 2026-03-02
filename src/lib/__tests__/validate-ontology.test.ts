@@ -369,6 +369,38 @@ describe('validateTheoryModuleRefs', () => {
     expect(errors).toEqual([]);
   });
 
+  it('reports dangling title_ref in section', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:nonexistent_title',
+          blocks: [],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('title_ref');
+    expect(errors[0]).toContain('cls:nonexistent_title');
+  });
+
+  it('accepts valid title_ref in section', () => {
+    const mod = {
+      ...validModule,
+      sections: [
+        {
+          id: 'sec1',
+          title_ref: 'cls:oxide',
+          blocks: [],
+        },
+      ],
+    };
+    const errors = validateTheoryModuleRefs([mod], CONCEPTS);
+    expect(errors).toEqual([]);
+  });
+
   it('returns empty errors for empty modules array', () => {
     expect(validateTheoryModuleRefs([], CONCEPTS)).toEqual([]);
   });
