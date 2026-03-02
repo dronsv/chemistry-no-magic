@@ -219,7 +219,7 @@
     "kind": "element_group",
     "parent_id": null,
     "order": 1,
-    "filters": { "pred": { "field": "group_name", "eq": "alkali_metals" } },
+    "filters": { "pred": { "field": "element_group", "eq": "alkali_metal" } },
     "examples": [
       { "kind": "element", "id": "Li" },
       { "kind": "element", "id": "Na" },
@@ -230,7 +230,7 @@
     "kind": "element_group",
     "parent_id": null,
     "order": 2,
-    "filters": { "pred": { "field": "group_name", "eq": "halogens" } },
+    "filters": { "pred": { "field": "element_group", "eq": "halogen" } },
     "examples": [
       { "kind": "element", "id": "F" },
       { "kind": "element", "id": "Cl" },
@@ -241,7 +241,7 @@
     "kind": "element_group",
     "parent_id": null,
     "order": 3,
-    "filters": { "pred": { "field": "group_name", "eq": "noble_gases" } },
+    "filters": { "pred": { "field": "element_group", "eq": "noble_gas" } },
     "examples": [
       { "kind": "element", "id": "He" },
       { "kind": "element", "id": "Ne" },
@@ -252,7 +252,7 @@
     "kind": "element_group",
     "parent_id": null,
     "order": 4,
-    "filters": { "pred": { "field": "group_name", "eq": "alkaline_earth_metals" } },
+    "filters": { "pred": { "field": "element_group", "eq": "alkaline_earth" } },
     "examples": [
       { "kind": "element", "id": "Mg" },
       { "kind": "element", "id": "Ca" },
