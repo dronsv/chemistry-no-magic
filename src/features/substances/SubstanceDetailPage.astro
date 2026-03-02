@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MoleculeView from '../../components/MoleculeView';
 import FormulaChip from '../../components/FormulaChip.tsx';
 import ContextBackLink from '../../components/ContextBackLink.tsx';
+import { computeBondInfo } from '../../lib/bond-info';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay } from '../../lib/build-overlay';
@@ -176,6 +177,17 @@ try {
   structure = JSON.parse(structRaw);
 } catch { /* no structure for this substance */ }
 
+// Compute bond info for structure visualization
+let bondInfo: import('../../lib/bond-info').BondInfoEntry[] = [];
+if (structure) {
+  try {
+    const elementsRaw = await readFile(join(process.cwd(), 'data-src', 'elements.json'), 'utf-8');
+    const elements: Array<{ symbol: string; electronegativity: number | null; metal_type: string }> = JSON.parse(elementsRaw);
+    const elementsMap = new Map(elements.map(el => [el.symbol, el as import('../../lib/bond-calculator').ElementLike]));
+    bondInfo = computeBondInfo(structure, elementsMap);
+  } catch { /* elements not available */ }
+}
+
 const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance_ru;
 const hasHazards = (substance.hazards_ru && substance.hazards_ru.length > 0) || substance.storage_ru;
 const hasProduction = substance.production_ru || substance.industrial_ru;
@@ -282,9 +294,10 @@ const contextBackLabels = {
         <MoleculeView
           client:idle
           structure={structure}
-          layers={{ bonds: true, oxStates: false, charges: false, lonePairs: false }}
+          layers={{ bonds: true, oxStates: false, charges: false, lonePairs: false, bondInfo: false }}
           size="md"
           interactive={true}
+          bondInfo={bondInfo}
         />
       </div>
     )}
