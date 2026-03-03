@@ -62,7 +62,8 @@ function resolveMorph(
   const entry = (domainData as Record<string, Record<string, string>>)[key];
   if (!entry) return undefined;
 
-  return entry[field];
+  // If the requested case/field is absent, fall back to the raw key value
+  return entry[field] ?? key;
 }
 
 export function resolveSlots(
