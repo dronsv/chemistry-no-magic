@@ -90,9 +90,14 @@ Plural: `nom_pl gen_pl dat_pl acc_pl ins_pl prep_pl`
 ```
 
 ### Current state
-- `data-src/translations/ru/morphology.json` — seed: 43 elements + 8 properties
-- Build pipeline registers morphology; `loadMorphology()` exists in data-loader.ts
-- Missing: `renderRef()` client utility, template token integration, form coverage expansion
+- `data-src/translations/ru/morphology.json` — 43 elements + 8 properties + directions
+- `data-src/translations/pl/morphology.json` — 4 elements + 3 properties + directions + substance_classes + process_vocab + element_groups (all with 7 cases)
+- `data-src/translations/es/morphology.json` — 4 elements + 3 properties + directions + substance_classes + process_vocab + element_groups (gender/article)
+- `loadMorphology(locale)` — locale-aware, all locales supported
+- `MorphEntry` — extended for PL (dat/acc/inst/loc/voc/animate) and ES (article_sg)
+- `MorphologyData` — extended with optional substance_classes, process_vocab, element_groups sections
+- PL `determine_oxidation_state` template uses genitive via `morph:elements.{element}.gen`
+- Missing: element coverage for PL (114 remaining elements × 7 cases), ES (114 remaining elements)
 
 ### Phase plan
 1. Manual forms for high-frequency concepts + missing-form logging
