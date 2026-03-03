@@ -1,0 +1,34 @@
+{
+  "elements": {
+    "H": { "nom": "wodór", "gen": "wodoru", "dat": "wodorowi", "acc": "wodór", "inst": "wodorem", "loc": "wodorze", "voc": "wodorze", "gender": "m" },
+    "O": { "nom": "tlen", "gen": "tlenu", "dat": "tlenowi", "acc": "tlen", "inst": "tlenem", "loc": "tlenie", "voc": "tlenie", "gender": "m" },
+    "Na": { "nom": "sód", "gen": "sodu", "dat": "sodowi", "acc": "sód", "inst": "sodem", "loc": "sodzie", "voc": "sodzie", "gender": "m" },
+    "S": { "nom": "siarka", "gen": "siarki", "dat": "siarce", "acc": "siarkę", "inst": "siarką", "loc": "siarce", "voc": "siarko", "gender": "f" }
+  },
+  "properties": {
+    "electronegativity": { "nom": "elektroujemność", "gen": "elektroujemności", "dat": "elektroujemności", "acc": "elektroujemność", "inst": "elektroujemnością", "loc": "elektroujemności", "gender": "f" },
+    "atomic_radius": { "nom": "promień atomowy", "gen": "promienia atomowego", "dat": "promieniowi atomowemu", "acc": "promień atomowy", "inst": "promieniem atomowym", "loc": "promieniu atomowym", "gender": "m" },
+    "ionization_energy": { "nom": "energia jonizacji", "gen": "energii jonizacji", "dat": "energii jonizacji", "acc": "energię jonizacji", "inst": "energią jonizacji", "loc": "energii jonizacji", "gender": "f" }
+  },
+  "directions": {
+    "ascending": { "nom": "rosnący", "gen": "rosnącego", "dat": "rosnącemu", "acc": "rosnący", "inst": "rosnącym", "loc": "rosnącym" },
+    "descending": { "nom": "malejący", "gen": "malejącego", "dat": "malejącemu", "acc": "malejący", "inst": "malejącym", "loc": "malejącym" }
+  },
+  "substance_classes": {
+    "acid": { "nom": "kwas", "gen": "kwasu", "dat": "kwasowi", "acc": "kwas", "inst": "kwasem", "loc": "kwasie", "gender": "m" },
+    "base": { "nom": "zasada", "gen": "zasady", "dat": "zasadzie", "acc": "zasadę", "inst": "zasadą", "loc": "zasadzie", "gender": "f" },
+    "salt": { "nom": "sól", "gen": "soli", "dat": "soli", "acc": "sól", "inst": "solą", "loc": "soli", "gender": "f" },
+    "oxide": { "nom": "tlenek", "gen": "tlenku", "dat": "tlenkowi", "acc": "tlenek", "inst": "tlenkiem", "loc": "tlenku", "gender": "m" }
+  },
+  "process_vocab": {
+    "chemical_reaction": { "nom": "reakcja chemiczna", "gen": "reakcji chemicznej", "dat": "reakcji chemicznej", "acc": "reakcję chemiczną", "inst": "reakcją chemiczną", "loc": "reakcji chemicznej", "gender": "f" },
+    "neutralization": { "nom": "zobojętnianie", "gen": "zobojętniania", "dat": "zobojętnianiu", "acc": "zobojętnianie", "inst": "zobojętnianiem", "loc": "zobojętnianiu", "gender": "n" },
+    "precipitation": { "nom": "strącanie", "gen": "strącania", "dat": "strącaniu", "acc": "strącanie", "inst": "strącaniem", "loc": "strącaniu", "gender": "n" },
+    "gas_evolution": { "nom": "wydzielanie gazu", "gen": "wydzielania gazu", "dat": "wydzielaniu gazu", "acc": "wydzielanie gazu", "inst": "wydzielaniem gazu", "loc": "wydzielaniu gazu", "gender": "n" }
+  },
+  "element_groups": {
+    "alkali_metal": { "nom": "metal alkaliczny", "gen": "metalu alkalicznego", "dat": "metalowi alkalicznemu", "acc": "metal alkaliczny", "inst": "metalem alkalicznym", "loc": "metalu alkalicznym", "gender": "m" },
+    "halogen": { "nom": "halogen", "gen": "halogenu", "dat": "halogenowi", "acc": "halogen", "inst": "halogenem", "loc": "halogenie", "gender": "m" },
+    "noble_gas": { "nom": "gaz szlachetny", "gen": "gazu szlachetnego", "dat": "gazowi szlachetnemu", "acc": "gaz szlachetny", "inst": "gazem szlachetnym", "loc": "gazie szlachetnym", "gender": "m" }
+  }
+}
