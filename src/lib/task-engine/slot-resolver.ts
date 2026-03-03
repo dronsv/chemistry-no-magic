@@ -60,10 +60,10 @@ function resolveMorph(
   if (!domainData || typeof domainData !== 'object') return undefined;
 
   const entry = (domainData as Record<string, Record<string, string>>)[key];
-  if (!entry) return undefined;
+  if (!entry) return key;
 
-  // If the requested case/field is absent, fall back to the raw key value
-  return entry[field] ?? key;
+  // If the requested case/field is absent, fall back to nom first, then symbol
+  return entry[field] ?? entry['nom'] ?? key;
 }
 
 export function resolveSlots(

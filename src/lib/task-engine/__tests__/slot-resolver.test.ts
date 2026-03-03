@@ -111,8 +111,15 @@ describe('resolveSlots — PL morphology (7 cases)', () => {
   it('falls back gracefully when case field is absent', () => {
     const slots: PromptTemplate['slots'] = { element_voc: 'morph:elements.{element}.voc' };
     const result = resolveSlots(slots, { element: 'Na' }, { properties: [], morphology: PL_MORPHOLOGY });
-    // voc not present → resolved value stays as the raw slot key value (Na)
-    expect(result['element_voc']).toBe('Na');
+    // voc not present → falls back to nom form
+    expect(result['element_voc']).toBe('sód');
+  });
+
+  it('falls back to element symbol when entry is absent from morphology', () => {
+    const slots: PromptTemplate['slots'] = { element_gen: 'morph:elements.{element}.gen' };
+    const result = resolveSlots(slots, { element: 'Fe' }, { properties: [], morphology: PL_MORPHOLOGY });
+    // Fe is not in PL_MORPHOLOGY.elements → resolveMorph should return the key 'Fe'
+    expect(result['element_gen']).toBe('Fe');
   });
 });
 

@@ -107,7 +107,7 @@ export interface MorphEntry {
 export interface MorphologyData {
   elements: Record<string, MorphEntry>;
   properties: Record<string, MorphEntry>;
-  directions: Record<string, { nom: string; gen: string }>;
+  directions: Record<string, MorphEntry>;
   substance_classes?: Record<string, MorphEntry>;
   process_vocab?: Record<string, MorphEntry>;
   element_groups?: Record<string, MorphEntry>;
