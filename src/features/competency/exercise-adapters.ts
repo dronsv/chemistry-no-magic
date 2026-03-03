@@ -130,7 +130,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadSolubilityRules(),
     dl.loadOxidationExamples(),
     dl.loadPromptTemplates(locale ?? 'ru'),
-    locale === 'ru' || !locale ? dl.loadMorphology() : Promise.resolve(null),
+    dl.loadMorphology(locale ?? 'ru'),
     dl.loadTaskTemplates(),
     dl.loadBondExamples(),
     dl.loadSubstancesIndex(locale),

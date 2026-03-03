@@ -322,13 +322,13 @@ export async function loadProperties(): Promise<PropertyDef[]> {
   return loadRule('properties') as Promise<PropertyDef[]>;
 }
 
-/** Load Russian morphology data. */
-export async function loadMorphology(): Promise<MorphologyData | null> {
+/** Load morphology data for the given locale. Falls back silently if unavailable. */
+export async function loadMorphology(locale: SupportedLocale = 'ru'): Promise<MorphologyData | null> {
   try {
     const manifest = await getManifest();
-    const available = manifest.translations?.['ru'];
+    const available = manifest.translations?.[locale];
     if (!available?.includes('morphology')) return null;
-    return await loadDataFile<MorphologyData>(`translations/ru/morphology.json`);
+    return await loadDataFile<MorphologyData>(`translations/${locale}/morphology.json`);
   } catch {
     return null;
   }
