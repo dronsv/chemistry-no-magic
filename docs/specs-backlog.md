@@ -258,8 +258,10 @@ Without aggregate states, ΔS and ΔG calculations are impossible.
 
 **Data: `phase` field on substances**
 ```json
-{ "id": "sub:H2", "formula": "H₂", "phase": "g" }
-{ "id": "sub:NaCl", "formula": "NaCl", "phase": "s" }
+[
+  { "id": "sub:H2", "formula": "H₂", "phase": "g" },
+  { "id": "sub:NaCl", "formula": "NaCl", "phase": "s" }
+]
 ```
 Standard states: `s` (solid), `l` (liquid), `g` (gas), `aq` (aqueous solution)
 
