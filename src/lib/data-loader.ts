@@ -12,8 +12,8 @@ import type { PeriodicTableTheory } from '../types/periodic-table-theory';
 import type { ClassificationRule, NamingRule, SubstanceIndexEntry } from '../types/classification';
 import type { SolubilityEntry, ActivitySeriesEntry, ApplicabilityRule, SolubilityRulesFull } from '../types/rules';
 import type { Reaction } from '../types/reaction';
-import type { BondTheory, BondExamplesData } from '../types/bond';
-import type { OxidationTheory, OxidationExample } from '../types/oxidation';
+import type { BondExamplesData } from '../types/bond';
+import type { OxidationExample } from '../types/oxidation';
 import type { MoleculeStructure } from '../types/molecule';
 import type { BondCountsIndex } from '../types/bond-counts';
 import type { QualitativeTest } from '../types/qualitative';
@@ -512,48 +512,9 @@ export async function loadApplicabilityRules(locale?: SupportedLocale): Promise<
   return applyOverlay(data, overlay, r => r.id);
 }
 
-/** Load bond theory content (bond types + crystal structures). */
-export async function loadBondTheory(locale?: SupportedLocale): Promise<BondTheory> {
-  const data = (await loadRule('bond_theory')) as BondTheory;
-  if (!locale || locale === 'ru') return data;
-  const overlay = await loadTranslationOverlay(locale, 'bond_theory');
-  if (!overlay) return data;
-  // overlay keys: "bond:{id}" for bond_types, "crystal:{id}" for crystal_structures
-  return {
-    bond_types: data.bond_types.map(bt => {
-      const o = overlay[`bond:${bt.id}`];
-      return o ? { ...bt, ...o } as typeof bt : bt;
-    }),
-    crystal_structures: data.crystal_structures.map(cs => {
-      const o = overlay[`crystal:${cs.id}`];
-      if (!o) return cs;
-      const { properties: pOverride, ...rest } = o as Record<string, unknown> & { properties?: Record<string, string> };
-      return {
-        ...cs,
-        ...rest,
-        ...(pOverride ? { properties: { ...cs.properties, ...pOverride } } : {}),
-      } as typeof cs;
-    }),
-  };
-}
-
 /** Load bond examples (substance-to-bond/crystal mapping for exercises). */
 export async function loadBondExamples(): Promise<BondExamplesData> {
   return loadRule('bond_examples') as Promise<BondExamplesData>;
-}
-
-/** Load oxidation state theory content. */
-export async function loadOxidationTheory(locale?: SupportedLocale): Promise<OxidationTheory> {
-  const data = await loadRule('oxidation_theory') as OxidationTheory;
-  if (!locale || locale === 'ru') return data;
-  const overlay = await loadTranslationOverlay(locale, 'oxidation_theory');
-  if (!overlay) return data;
-  return {
-    rules: applyOverlay(data.rules, overlay, r => r.id),
-    redox_concepts: overlay['_redox']
-      ? { ...data.redox_concepts, ...(overlay['_redox'] as object) } as typeof data.redox_concepts
-      : data.redox_concepts,
-  };
 }
 
 /** Load oxidation state examples (formula + target element + expected state). */
