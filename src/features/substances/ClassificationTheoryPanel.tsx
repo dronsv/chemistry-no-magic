@@ -5,6 +5,7 @@ import { loadClassificationRules, loadNamingRules, loadSubstancesIndex } from '.
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
 import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
+import '../../components/theory-module.css';
 
 const CLASS_LABELS: Record<string, () => string> = {
   oxide: m.class_oxides,

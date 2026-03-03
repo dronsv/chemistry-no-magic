@@ -7,15 +7,15 @@ Adaptive chemistry learning platform with exam preparation for OGE (Russia), EGE
 ## Features
 
 - **Interactive periodic table** with electron configurations, orbital diagrams, and property trends
-- **80 substances** with detailed properties, reactions, and fun facts (RU/EN/PL/ES)
+- **164 substances** with detailed properties, reactions, and fun facts (RU/EN/PL/ES)
 - **Chemical bonding** analyzer — determine bond type by formula or element pair
 - **Oxidation state** calculator with step-by-step rules
 - **32 reactions** with molecular/ionic equations and driving forces
 - **Exam practice** — 78 OGE tasks from FIPI demos, mock exams with instant grading
 - **Cross-exam topics** — 8 unified topics across 5 exam systems
-- **Adaptive diagnostics** — BKT-based competency profiling (20 competencies)
+- **Adaptive diagnostics** — BKT-based competency profiling (21 competencies)
 - **Multi-language** — Russian (default), English, Polish, Spanish
-- **Fully static** — no backend, all personalization client-side (localStorage + IndexedDB)
+- **Fully static** — no backend, all personalization client-side (localStorage)
 
 ## Tech Stack
 
@@ -32,6 +32,9 @@ npm install
 npm run dev          # Dev server at localhost:4321
 npm run build        # Production build to ./dist/
 npm run build:data   # Rebuild data pipeline only
+npm run validate:data # Validate data without rebuilding bundle
+npm test             # Run unit tests (Vitest)
+npm run test:e2e     # Run Playwright e2e tests
 ```
 
 ## Project Structure
@@ -47,15 +50,15 @@ src/
 └── styles/          # Global CSS variables and styles
 
 data-src/            # Source data (JSON) — processed by build pipeline
-├── elements/        # 118 elements
-├── substances/      # 80 substances
+├── elements.json    # 118 elements
+├── substances/      # 164 substances
 ├── reactions/       # 32 reactions
 ├── exam/            # Exam tasks and algorithms (OGE, EGE, GCSE, Matura, EBAU)
 ├── rules/           # Competencies, BKT params, topic mappings
 └── translations/    # Translation overlays (en, pl, es)
 
 scripts/             # Build pipeline and deploy
-Docs/                # Design documents (Russian)
+Docs/ + docs/        # Design/reference documents
 ```
 
 ## Data Architecture

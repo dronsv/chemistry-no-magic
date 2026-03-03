@@ -1,6 +1,6 @@
 /**
  * Ontology validation: concept graph, theory module refs, course refs,
- * filter structure, and zero-match detection.
+ * filter structure, zero-match detection, and zero-match override policy.
  * Checks kinds, parent_id references, children_order integrity, cycles,
  * theory module cross-references, course module references,
  * filter DSL structure, and concept-to-entity match coverage.
@@ -319,6 +319,8 @@ export function checkZeroMatchConcepts(concepts, entities) {
     // Skip kinds without entity mapping
     const entityKey = KIND_ENTITY_MAP[entry.kind];
     if (!entityKey) continue;
+    // Explicit opt-out for planned concepts without data coverage yet.
+    if (entry.allow_zero_match === true) continue;
 
     // Skip empty filters
     if (!entry.filters || typeof entry.filters !== 'object') continue;
@@ -334,6 +336,37 @@ export function checkZeroMatchConcepts(concepts, entities) {
   }
 
   return warnings;
+}
+
+/**
+ * Validate per-concept zero-match overrides.
+ * `allow_zero_match: true` is allowed only for mapped kinds with non-empty filters.
+ * @param {Record<string, object>} concepts
+ * @returns {string[]} errors
+ */
+export function validateZeroMatchOverrides(concepts) {
+  const errors = [];
+
+  for (const [id, entry] of Object.entries(concepts)) {
+    const prefix = `concepts["${id}"]`;
+    if (!('allow_zero_match' in entry)) continue;
+
+    if (typeof entry.allow_zero_match !== 'boolean') {
+      errors.push(`${prefix}: allow_zero_match must be boolean`);
+      continue;
+    }
+    if (entry.allow_zero_match !== true) continue;
+
+    if (!KIND_ENTITY_MAP[entry.kind]) {
+      errors.push(`${prefix}: allow_zero_match is only valid for kinds mapped to entity pools`);
+    }
+
+    if (!entry.filters || typeof entry.filters !== 'object' || Object.keys(entry.filters).length === 0) {
+      errors.push(`${prefix}: allow_zero_match requires non-empty filters`);
+    }
+  }
+
+  return errors;
 }
 
 /**

@@ -9,7 +9,7 @@
  * @param {object[]} data.reactions — reaction objects
  * @param {string[]} data.structures — structure filenames (e.g. ["h2o.json", "co2.json"])
  * @param {string[]} data.validationErrors — errors from ontology validators
- * @param {string[]} data.zeroMatchConcepts — warnings from zero-match check
+ * @param {string[]} data.zeroMatchConcepts — zero-match findings from ontology checks
  * @param {Record<string, object>} [data.bondEnergyResults] — bond energy calculator results
  * @returns {object} report
  */

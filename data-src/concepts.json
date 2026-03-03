@@ -329,6 +329,7 @@
     "kind": "reaction_type",
     "parent_id": "rxfacet:by_count",
     "order": 1,
+    "allow_zero_match": true,
     "filters": { "pred": { "field": "type_tags", "has": "combination" } },
     "examples": []
   },

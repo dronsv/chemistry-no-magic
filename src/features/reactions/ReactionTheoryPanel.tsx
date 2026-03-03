@@ -6,6 +6,7 @@ import type { GeneticChain } from '../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../types/energy-catalyst';
 import type { FacetState } from '../../types/reaction';
 import type { SupportedLocale } from '../../types/i18n';
+import '../../components/theory-module.css';
 import {
   loadReactionTemplates,
   loadApplicabilityRules,

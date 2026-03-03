@@ -15,11 +15,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm run dev        # Dev server at localhost:4321
 npm run build      # Production build to ./dist/
+npm run build:data # Rebuild data pipeline only
+npm run validate:data # Validate data pipeline only
 npm run preview    # Preview production build locally
 npm run astro      # Run Astro CLI (e.g., astro add, astro check)
+npm test           # Unit tests (Vitest)
+npm run test:e2e   # E2E tests (Playwright)
 ```
 
-No test runner is configured yet. When added, it will likely be Vitest (per tech stack docs).
+Testing is configured with Vitest + Playwright.
 
 ## Architecture
 
@@ -35,24 +39,24 @@ No test runner is configured yet. When added, it will likely be Vitest (per tech
 - `public/` — Static assets served as-is
 - `data-src/` — Source chemistry data (JSON), processed by build pipeline
 - `data-src/translations/` — Translation overlays per locale (en, pl, es)
-- `Docs/` — 13 project specification documents (Russian). Start with `02_technical_spec.md` for features, `09_mvp_roadmap.md` for phases
+- `Docs/` — legacy numbered specs (Russian)
+- `docs/` — current architecture/reference documents and packages
 
 ### Data Architecture (CDN-first)
 All chemistry data lives in static JSON bundles under `/data/{bundle_hash}/`:
 - **Immutable versioning**: bundles addressed by content hash, cached for a year
 - **Entry point**: `/data/latest/manifest.json` (short cache) points to current `bundle_hash`
 - **Key bundles**: `elements.json`, `ions.json`, `rules/`, `templates/`, `substances/`, `indices/`
-- JSON Schema validation in CI for all data files
+- Script-based validation in `scripts/build-data.mjs` (`npm run validate:data`) before bundle generation
 
 ### Adaptive Learning Engine
 - **BKT (Bayesian Knowledge Tracing)** for probabilistic skill assessment — see `Docs/07_adaptive_bkt_math_model.md`
 - Competency levels on [0,1] scale; <0.6 triggers remediation
 - BKT params stored per-competency in `rules/bkt_params.json`
-- User state: `P(L)` values in localStorage, attempt history in IndexedDB
+- User state: `P(L)` values in localStorage
 
 ### Client-Side Storage
 - **localStorage**: BKT P(L) values, user settings
-- **IndexedDB**: attempt history, cached data
 - **PWA**: Service Worker (`public/sw.js`) with network-first pages, cache-first assets/data bundles, offline fallback page (`public/offline.html`). Web App Manifest at `public/manifest.webmanifest`.
 
 ## Development Stages

@@ -2,8 +2,10 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadElements, loadElementGroups } from '../../lib/data-loader';
+import type { FormulaLookup } from '../../types/formula-lookup';
+import { loadElements, loadElementGroups, loadFormulaLookup } from '../../lib/data-loader';
 import { setConfigOverrides } from '../../lib/electron-config';
+import { FormulaLookupProvider } from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
 import PeriodicTableLong from './PeriodicTableLong';
 import PeriodicTableShort from './PeriodicTableShort';
@@ -20,6 +22,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
   const [groups, setGroups] = useState<ElementGroupDict>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
 
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -64,6 +67,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
         setError(err instanceof Error ? err.message : m.error_loading());
         setLoading(false);
       });
+    loadFormulaLookup().then(setFormulaLookup).catch(() => {});
   }, []);
 
   const exceptionZSet = useMemo(
@@ -100,6 +104,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
   const TableComponent = formType === 'long' ? PeriodicTableLong : PeriodicTableShort;
 
   return (
+    <FormulaLookupProvider value={formulaLookup}>
     <div className="pt-page">
       {/* Controls */}
       <div className="pt-page__controls">
@@ -177,5 +182,6 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
       {elements.length > 0 && <PracticeSection locale={locale} />}
 
     </div>
+    </FormulaLookupProvider>
   );
 }

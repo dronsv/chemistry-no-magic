@@ -1,7 +1,9 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-02-27
+> Last updated: 2026-03-02
+>
+> See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, MoleculeView, BondEnergyTrace, etc.)
 
 ---
 
@@ -43,15 +45,18 @@
 | **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 65 | Active |
 | **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 65 per locale | Active |
 | **Structures** | `data-src/structures/*.json` | 38 | 38 molecules | Active |
+| **Bond Energy Table** | `data-src/tables/bond_energy_avg_v1.json` | 1 | 27 bond types | Active |
+| **Calculators** | `data-src/calculators.json` | 1 | 1 (bond_energy_v1) | Active |
 | **Element Groups** | `data-src/element-groups.json` | 1 | 10 | Active |
 | **Sources** | `data-src/sources_list.json` | 1 | 4 references | Active |
 | **Translation Overlays** | `data-src/translations/{en,pl,es}/*.json` | 32 | 3 locales × 10–11 files | Active |
 | **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties | Active |
 | **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
+| **Theory Modules** | `data-src/theory_modules/*.json` | 3 | bonds_and_crystals, oxidation_states, calculations | Active |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
 | **Relations Graph** | (proposed) `predicates.v1.json` | — | ~20 predicates | Deferred |
 
-**Totals**: ~217 source JSON files, ~280+ built files, 4 locales, 5 exam systems.
+**Totals**: ~220 source JSON files, ~280+ built files, 4 locales, 5 exam systems.
 
 ---
 
@@ -821,7 +826,7 @@ graph TB
 | `applicability_rules.json` | 15 | Reaction feasibility conditions |
 | `bkt_params.json` | 21 | BKT learning parameters |
 | `bond_examples.json` | 17 | Bond type examples |
-| `bond_theory.json` | — | Bond theory content |
+| `bond_theory.json` | — | Bond type theory (superseded by theory_modules/bonds_and_crystals.json) |
 | `calculations_data.json` | 24+10 | Calc substances + reactions |
 | `classification_rules.json` | 12 | Substance classification |
 | `competencies.json` | 21 | 20 competencies + schema |
@@ -830,13 +835,25 @@ graph TB
 | `ion_nomenclature.json` | 4 | Ion suffix rules |
 | `naming_rules.json` | 37 | Nomenclature rules |
 | `oxidation_examples.json` | 22 | Oxidation state examples |
-| `oxidation_theory.json` | — | Oxidation theory content |
+| `oxidation_theory.json` | — | Oxidation state rules (superseded by theory_modules/oxidation_states.json) |
 | `periodic-table-theory.json` | — | Periodic table theory |
 | `properties.json` | 5 | Element property definitions |
 | `qualitative_reactions.json` | 11 | Characteristic test reactions |
 | `solubility_rules_full.json` | 7 | Full solubility rules |
 | `solubility_rules_light.json` | 4 | Simplified solubility rules |
 | `topic_mapping.json` | 8 | Topic→competency mapping |
+
+### Theory Modules (`data-src/theory_modules/`)
+
+Auto-discovered by build pipeline. Rendered by `TheoryModulePanel` (generic React component). Block types: heading, paragraph, ordered_list, equation, formula_list, rule_card, example_block, table, component_slot, frame.
+
+| File | Sections | Replaces |
+|------|----------|---------|
+| `bonds_and_crystals.json` | bond_types (4 rule_cards), crystal_structures (table) | `BondTheoryPanel.tsx` (deleted) |
+| `oxidation_states.json` | oxidation_rules (8 rule_cards), redox_concepts (paragraphs) | `OxidationTheoryPanel.tsx` (deleted) |
+| `calculations.json` | molar_mass, amount, mass_fraction, solution_fraction, stoichiometry, yield | `CalculationsTheoryPanel.tsx` (deleted) |
+
+**Not migrated** (too complex for generic block types): `ClassificationTheoryPanel`, `ReactionTheoryPanel`, `TheoryPanel` (periodic table) — these dynamically render from existing data files.
 
 ### Templates (`data-src/templates/`)
 
@@ -893,6 +910,7 @@ graph TB
 |-----------|-------|---------|
 | `substances/` | 80 | Individual substance JSON files |
 | `structures/` | 38 | Molecular structure definitions |
+| `tables/` | 1 | Bond energy averages table (v1, 27 bond types) |
 | `diagnostic/` | 1 | 12 initial diagnostic questions |
 | `exercises/` | 3 | Legacy exercise sets (bonds, oxidation, periodic table) |
 | `dictionaries/` | 7 | Search synonyms, taxonomy, exam profiles |
@@ -914,6 +932,8 @@ graph TB
 | `search_index.{locale}.json` | 306/locale | Per-locale search indices |
 | `name_index.{locale}.json` | ~298/locale | Per-locale name→entity lookup |
 | `contexts/reverse_index.json` | — | ref.id→[term_ids] reverse lookup |
+| `derived/structure_bond_counts.json` | 26 | Bond counts per molecule (from structures) |
+| `derived/bond_energy.json` | 26 | Bond energy traces per substance (from bond counts + table) |
 
 ---
 
@@ -930,6 +950,8 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 | Oxidation state assignment | `src/lib/oxidation-state.ts` | `calcOxidationStates(parsed, elementMap, formula)`, `explainOxidationSteps(parsed, elementMap, formula)` | Legacy `oxidation-states/generate-exercises.ts` |
 | Chemical formula parsing | `src/lib/formula-parser.ts` | `parseFormula(formula)` | `bond-calculator.ts`, `oxidation-state.ts` |
 | BKT adaptive learning | `src/lib/bkt-engine.ts` | `bktUpdate(pL, params, correct, hintUsed)`, `getLevel(pL)` | All practice islands |
+| Bond energy calculation | `src/lib/calc-bond-energy.ts` | `calcBondEnergyV1(entityId, bondCounts, table)` | Build pipeline (`scripts/lib/calc-bond-energy.mjs`), golden tests |
+| Bond info (for visualization) | `src/lib/bond-info.ts` | `computeBondInfo(structure, elementsMap)` | `SubstanceDetailPage.astro` → MoleculeView bondInfo layer |
 
 ### Engine Solvers (src/lib/task-engine/solvers.ts)
 
@@ -1038,15 +1060,18 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Terms | `data-src/contexts/terms.json` | source | 54 | — | `loadContextsData()` → contexts page | → reverse_index, search_index, name_index |
 | Term bindings | `data-src/contexts/term_bindings.json` | source | 54 | — | `loadContextsData()` → contexts page | → reverse_index |
 | Applicability rules | `data-src/rules/applicability_rules.json` | source | 15 | `validateApplicabilityRules()` | `loadApplicabilityRules()` → substance pages | copied to bundle |
-| Bond theory | `data-src/rules/bond_theory.json` | source | — | — | `loadBondTheory()` → bonds theory panel | copied to bundle |
-| Oxidation theory | `data-src/rules/oxidation_theory.json` | source | — | — | `loadOxidationTheory()` → oxidation theory panel | copied to bundle |
+| Bond theory | `data-src/rules/bond_theory.json` | source | — | — | ~~`loadBondTheory()`~~ superseded by theory_modules/bonds_and_crystals.json | copied to bundle |
+| Theory modules | `data-src/theory_modules/*.json` | source | 3 modules | `validateTheoryModuleRefs()` | `loadTheoryModule(key)` → TheoryModulePanel | copied to bundle |
+| Oxidation theory | `data-src/rules/oxidation_theory.json` | source | — | — | ~~`loadOxidationTheory()`~~ superseded by theory_modules/oxidation_states.json | copied to bundle |
 | Periodic table theory | `data-src/rules/periodic-table-theory.json` | source | — | — | `loadPeriodicTableTheory()` → PT theory panel | copied to bundle |
 | Periodic table content | `data-src/periodic-table-content.json` | source | — | — | `loadPeriodicTableContent()` → PT page | copied to bundle |
 | Element groups | `data-src/element-groups.json` | source | 10 | — | `loadElementGroups()` → PT legend | copied to bundle |
 | Exercises (PT) | `data-src/exercises/periodic-table-exercises.json` | source | 10 | — | `loadExercises('periodic-table')` → PT page | copied to bundle |
 | Exercises (bonds) | `data-src/exercises/bonds-exercises.json` | source | — | — | `loadExercises('bonds')` → bonds page | copied to bundle |
 | Exercises (oxidation) | `data-src/exercises/oxidation-exercises.json` | source | — | — | `loadExercises('oxidation')` → oxidation page | copied to bundle |
-| Structures | `data-src/structures/*.json` | source | 38 | — | `loadStructure(id)` → 3D viewer | copied to bundle |
+| Structures | `data-src/structures/*.json` | source | 38 | — | `loadStructure(id)` → MoleculeView; build-time → bond counts | → structure_bond_counts → bond_energy |
+| Bond energy table | `data-src/tables/bond_energy_avg_v1.json` | source | 27 | `validate.mjs` | build-time → bond energy calc | → bond_energy.json |
+| Calculators registry | `data-src/calculators.json` | source | 1 | — | `loadCalculators()` → reference | copied to bundle |
 | Reaction templates | `data-src/templates/reaction_templates.json` | source | 10 | `validateReactionTemplates()` | `loadReactionTemplates()` → reactions page | copied to bundle |
 | Task templates | `data-src/templates/task_templates.json` | source | 20 | `validateTaskTemplates()` + `integrity.mjs` | `loadTaskTemplates()` → task engine | copied to bundle |
 | Process vocabulary | `data-src/process_vocab.json` | source | 35 | `validateProcessVocab()` | `loadProcessVocab()` → reference page | copied to bundle |
@@ -1068,6 +1093,8 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | `name_index.{locale}.json` | elements + substances + ions + terms + overlays | `generate-name-index.mjs` | `loadNameIndex(locale)` → name→entity resolution | immutable |
 | `contexts/reverse_index.json` | terms + term_bindings | inline in `build-data.mjs` | `loadContextsData()` → contexts page | immutable |
 | `reactions/reaction_participants.json` | reactions + reaction_roles | `generate-reaction-participants.mjs` | `loadReactionParticipants()` → reactions page | immutable |
+| `derived/structure_bond_counts.json` | structures/*.json | `derive-bond-counts.mjs` | build-time intermediate → bond energy calc | immutable |
+| `derived/bond_energy.json` | bond counts + bond_energy_avg_v1.json | `calc-bond-energy.mjs` | `loadBondEnergy()` → substance pages ([BondEnergyTrace](./visualization-components.md#bondenergytrace--таблица-энергий-связей)) | immutable |
 | `manifest.json` | all above + stats | `generate-manifest.mjs` | `loadManifest()` → all data loaders | 5 min (latest/) |
 
 ### 16C. Build Pipeline Stages
@@ -1088,7 +1115,10 @@ Sequential stages in `scripts/build-data.mjs`:
 | 10 | **Generate search index (ru)** | all entities | `search_index.json` | `generate-search-index.mjs` |
 | 11 | **Generate name index (ru)** | elements + ions + substances + terms | `name_index.ru.json` | `generate-name-index.mjs` |
 | 12 | **Process translations** | overlays per locale (ru, en, pl, es) | `translations/{locale}/*.json`, `search_index.{locale}.json`, `name_index.{locale}.json` | `generate-search-index.mjs`, `generate-name-index.mjs` |
-| 13 | **Generate manifest** | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` in both `{hash}/` and `latest/` | `generate-manifest.mjs` |
+| 13 | **Derive bond counts** | `structures/*.json` | `derived/structure_bond_counts.json` (26 substances) | `derive-bond-counts.mjs` |
+| 14 | **Calculate bond energy** | bond counts + `tables/bond_energy_avg_v1.json` | `derived/bond_energy.json` (26 substances with traces) | `calc-bond-energy.mjs` |
+| 15 | **Validate bond energy coverage** | bond counts + bond energy table | Error if unknown bond types | inline in `build-data.mjs` |
+| 16 | **Generate manifest** | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` in both `{hash}/` and `latest/` | `generate-manifest.mjs` |
 
 Generator scripts in `scripts/lib/`:
 
@@ -1099,7 +1129,9 @@ Generator scripts in `scripts/lib/`:
 | `generate-search-index.mjs` | entities, locale?, translations? | `search_index[.locale].json` (~216 entries) | Stages 10, 12 |
 | `generate-name-index.mjs` | elements, ions, substances, terms, bindings | `name_index.{locale}.json` | Stages 11, 12 |
 | `generate-reaction-participants.mjs` | reactions array | `reaction_participants.json` (162 records) | Stage 7 |
-| `generate-manifest.mjs` | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` | Stage 13 |
+| `derive-bond-counts.mjs` | structures/*.json | `derived/structure_bond_counts.json` (26 substances) | Stage 13 |
+| `calc-bond-energy.mjs` | bond counts + bond_energy_avg_v1.json | `derived/bond_energy.json` (26 traces) | Stage 14 |
+| `generate-manifest.mjs` | hash, stats, indexKeys, translations, examSystemIds | `manifest.json` | Stage 16 |
 
 ### 16D. Change Impact Cascade
 
@@ -1151,6 +1183,13 @@ translation overlays ({locale}/*.json)
   ├→ search_index.{locale}
   └→ name_index.{locale}
 
+structures/*.json
+  ├→ structure_bond_counts.json  (derived bond counts per molecule)
+  └→ bond_energy.json            (bond energy traces, via bond counts + table)
+
+tables/bond_energy_avg_v1.json
+  └→ bond_energy.json            (recalculated if table values change)
+
 engine templates (task_templates.json, prompt_templates.*.json)
   └→ engine template registry  (runtime — no build-time derivation)
 
@@ -1186,3 +1225,24 @@ All source files
 | Attempt history | IndexedDB | User interactions | No (user data) |
 | Cached data bundles | Cache API (SW) | Fetched from CDN | Yes (re-fetch) |
 | User settings | localStorage | User preferences | No (user choices) |
+
+---
+
+## 17. Visualization Layer
+
+> Full catalog of UI components that render ontology data: [visualization-components.md](./visualization-components.md)
+
+Summary of data ↔ component connections:
+
+| Data Layer | UI Component | Rendering |
+|-----------|-------------|-----------|
+| Elements (118) | `FormulaChip`, `EnergyLevelDiagram`, `OrbitalBoxDiagram` | Formula badge, energy levels SVG, orbital boxes SVG |
+| Ions (41) | `FormulaChip`, `IonDetailsProvider` | Colored badge (cation=blue, anion=red), popup details |
+| Substances (80) | `FormulaChip`, `ChemText` | Clickable formula badge, auto-detection in text |
+| Structures (38) | `MoleculeView` | 2D SVG: bonds, lone pairs, ox states, polarity, bond info |
+| Bond Energy (26) | `BondEnergyTrace` | Per-bond energy table with quality badge |
+| FormulaLookup (239) | `ChemText`, `SmartText` | Auto-detect formulas in plain text |
+| Concepts (registry) | `OntologyRef`, `SmartText` | Typed ontology links, auto-detect in text |
+| RichText AST | `RichTextRenderer` | Composite: text + ref + formula + em/strong segments |
+| Bond Theory (Δχ) | `BondDiagramIonic`, `BondDiagramCovalent`, `BondDiagramMetallic` | SVG bond type diagrams |
+| Genetic Chains (5) | `GuidedSelectionExercise` | Gap-fill chain visualization |

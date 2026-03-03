@@ -39,6 +39,7 @@ import {
   validateTheoryModuleRefs,
   validateCourseRefs,
   validateFilterStructure,
+  validateZeroMatchOverrides,
   checkZeroMatchConcepts,
 } from './lib/validate-ontology.mjs';
 import { generateReport } from './lib/generate-report.mjs';
@@ -290,24 +291,26 @@ async function main() {
   const ontologyErrors = [
     ...validateConceptsGraph(concepts),
     ...validateFilterStructure(concepts),
+    ...validateZeroMatchOverrides(concepts),
     ...validateTheoryModuleRefs(theoryModuleEntries.map(m => m.data), concepts),
     ...validateCourseRefs(courseEntries.map(c => c.data), theoryModuleEntries.map(m => m.data)),
   ];
   allErrors.push(...ontologyErrors);
 
-  // 2c. Zero-match detection (warnings, not blocking errors)
+  // 2c. Zero-match detection (blocking unless explicitly allowlisted in concepts.json)
   const substanceData = substances.map(s => s.data);
-  const zeroMatchWarnings = checkZeroMatchConcepts(concepts, {
+  const zeroMatchErrors = checkZeroMatchConcepts(concepts, {
     substances: substanceData,
     elements,
     reactions,
   });
-  if (zeroMatchWarnings.length > 0) {
-    console.warn('\n  Zero-match warnings:');
-    for (const w of zeroMatchWarnings) {
-      console.warn(`    ⚠ ${w}`);
+  if (zeroMatchErrors.length > 0) {
+    console.error('\n  Zero-match errors:');
+    for (const err of zeroMatchErrors) {
+      console.error(`    ✖ ${err}`);
     }
     console.log('');
+    allErrors.push(...zeroMatchErrors);
   }
 
   // 3. Cross-file integrity
@@ -650,7 +653,7 @@ async function main() {
     reactions,
     structures: structureFiles,
     validationErrors: ontologyErrors,
-    zeroMatchConcepts: zeroMatchWarnings,
+    zeroMatchConcepts: zeroMatchErrors,
     bondCountsIndex,
     bondEnergyResults,
   });
