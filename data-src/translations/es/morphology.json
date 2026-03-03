@@ -1,0 +1,34 @@
+{
+  "elements": {
+    "H": { "nom": "hidrógeno", "gen": "hidrógeno", "gender": "m", "article_sg": "el" },
+    "O": { "nom": "oxígeno", "gen": "oxígeno", "gender": "m", "article_sg": "el" },
+    "Na": { "nom": "sodio", "gen": "sodio", "gender": "m", "article_sg": "el" },
+    "S": { "nom": "azufre", "gen": "azufre", "gender": "m", "article_sg": "el" }
+  },
+  "properties": {
+    "electronegativity": { "nom": "electronegatividad", "gen": "electronegatividad", "gender": "f", "article_sg": "la" },
+    "atomic_radius": { "nom": "radio atómico", "gen": "radio atómico", "gender": "m", "article_sg": "el" },
+    "ionization_energy": { "nom": "energía de ionización", "gen": "energía de ionización", "gender": "f", "article_sg": "la" }
+  },
+  "directions": {
+    "ascending": { "nom": "creciente", "gen": "creciente" },
+    "descending": { "nom": "decreciente", "gen": "decreciente" }
+  },
+  "substance_classes": {
+    "acid": { "nom": "ácido", "gen": "ácido", "gender": "m", "article_sg": "el" },
+    "base": { "nom": "base", "gen": "base", "gender": "f", "article_sg": "la" },
+    "salt": { "nom": "sal", "gen": "sal", "gender": "f", "article_sg": "la" },
+    "oxide": { "nom": "óxido", "gen": "óxido", "gender": "m", "article_sg": "el" }
+  },
+  "process_vocab": {
+    "chemical_reaction": { "nom": "reacción química", "gen": "reacción química", "gender": "f", "article_sg": "la" },
+    "neutralization": { "nom": "neutralización", "gen": "neutralización", "gender": "f", "article_sg": "la" },
+    "precipitation": { "nom": "precipitación", "gen": "precipitación", "gender": "f", "article_sg": "la" },
+    "gas_evolution": { "nom": "evolución de gas", "gen": "evolución de gas", "gender": "f", "article_sg": "la" }
+  },
+  "element_groups": {
+    "alkali_metal": { "nom": "metal alcalino", "gen": "metal alcalino", "gender": "m", "article_sg": "el" },
+    "halogen": { "nom": "halógeno", "gen": "halógeno", "gender": "m", "article_sg": "el" },
+    "noble_gas": { "nom": "gas noble", "gen": "gas noble", "gender": "m", "article_sg": "el" }
+  }
+}
