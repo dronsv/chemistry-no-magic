@@ -11,8 +11,8 @@
     }
   },
   "prompt.determine_oxidation_state": {
-    "question": "Określ stopień utlenienia {element} w {formula}.",
-    "slots": {}
+    "question": "Określ stopień utlenienia {element_gen} w {formula}.",
+    "slots": { "element_gen": "morph:elements.{element}.gen" }
   },
   "prompt.compose_salt": {
     "question": "Jaki jest wzór soli utworzonej z jonów {cation} i {anion}?",
