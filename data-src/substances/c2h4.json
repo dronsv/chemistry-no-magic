@@ -6,6 +6,7 @@
   "subclass": "alkene",
   "ions": [],
   "tags": ["gas", "flammable", "plant_hormone"],
+  "phase_standard": "g",
   "melting_point_C": -169.2,
   "boiling_point_C": -103.7,
   "density_g_cm3": 0.001178,

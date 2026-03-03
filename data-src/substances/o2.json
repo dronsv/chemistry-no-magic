@@ -6,6 +6,7 @@
   "subclass": "simple_substance",
   "ions": [],
   "tags": ["gas", "supports_combustion"],
+  "phase_standard": "g",
   "melting_point_C": -218.79,
   "boiling_point_C": -182.96,
   "density_g_cm3": 0.001429,

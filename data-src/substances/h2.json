@@ -6,6 +6,7 @@
   "subclass": "simple_substance",
   "ions": [],
   "tags": ["gas", "flammable", "lightest"],
+  "phase_standard": "g",
   "melting_point_C": -259.16,
   "boiling_point_C": -252.87,
   "density_g_cm3": 0.0000899,

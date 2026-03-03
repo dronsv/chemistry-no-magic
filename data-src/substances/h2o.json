@@ -6,6 +6,7 @@
   "subclass": "amphoteric",
   "ions": ["H_plus", "OH_minus"],
   "tags": ["soluble", "weak_electrolyte", "amphoteric"],
+  "phase_standard": "l",
   "melting_point_C": 0,
   "boiling_point_C": 100,
   "density_g_cm3": 1.0,

@@ -6,6 +6,7 @@
   "subclass": "acidic",
   "ions": [],
   "tags": ["gas", "toxic", "pungent_odor"],
+  "phase_standard": "g",
   "melting_point_C": -75.5,
   "boiling_point_C": -10.0,
   "density_g_cm3": 0.002926,

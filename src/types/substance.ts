@@ -7,6 +7,7 @@ export interface Substance {
   ions?: string[];
   notes?: string;
   tags?: string[];
+  phase_standard?: 'g' | 'l' | 's' | 'aq';
   melting_point_C?: number | null;
   boiling_point_C?: number | null;
   density_g_cm3?: number | null;

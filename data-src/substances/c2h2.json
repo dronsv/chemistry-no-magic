@@ -6,6 +6,7 @@
   "subclass": "alkyne",
   "ions": [],
   "tags": ["gas", "flammable", "triple_bond"],
+  "phase_standard": "g",
   "melting_point_C": -80.8,
   "boiling_point_C": -84.0,
   "density_g_cm3": 0.001097,

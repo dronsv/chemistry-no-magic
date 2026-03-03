@@ -6,6 +6,7 @@
   "subclass": "simple_substance",
   "ions": [],
   "tags": ["gas", "toxic", "yellow_green", "pungent_odor"],
+  "phase_standard": "g",
   "melting_point_C": -101.5,
   "boiling_point_C": -34.04,
   "density_g_cm3": 0.003214,

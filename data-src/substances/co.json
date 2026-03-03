@@ -8,6 +8,7 @@
   "tags": [
     "gas"
   ],
+  "phase_standard": "g",
   "melting_point_C": -205,
   "boiling_point_C": -191.5,
   "density_g_cm3": 1.25,
