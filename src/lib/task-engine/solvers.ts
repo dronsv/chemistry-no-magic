@@ -553,6 +553,17 @@ function solveReactionYield(
   return { answer: Math.round(mPractical * 100) / 100 };
 }
 
+function solveHeatOfReaction(
+  _params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  const reaction = slots['calcReaction'] as unknown as import('../../types/calculations').CalcReaction | undefined;
+  if (reaction == null || reaction.delta_H_kJmol == null) {
+    return { error: 'Reaction has no thermodynamic data' };
+  }
+  return { answer: reaction.delta_H_kJmol };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -584,6 +595,7 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.concentration': (params, slots) => solveConcentration(params, slots),
   'solver.stoichiometry': (params, slots) => solveStoichiometry(params, slots),
   'solver.reaction_yield': (params, slots) => solveReactionYield(params, slots),
+  'solver.heat_of_reaction': (params, slots) => solveHeatOfReaction(params, slots),
 };
 
 export function runSolver(

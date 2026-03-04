@@ -673,6 +673,21 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
   };
 }
 
+function genPickThermoReaction(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.data.calculations || data.data.calculations.calc_reactions.length === 0) {
+    throw new Error('calculations data not available');
+  }
+  const all = data.data.calculations.calc_reactions;
+  const reactions = all.filter((r: CalcReaction) => r.delta_H_kJmol != null);
+  if (reactions.length === 0) throw new Error('No thermo reactions available');
+  const reaction = pickRandom(reactions) as CalcReaction;
+  return {
+    calcReaction: reaction as unknown as string,
+    equation: reaction.equation_ru,
+    delta_H: String(reaction.delta_H_kJmol),
+  };
+}
+
 function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyData): SlotValues {
   if (!data.data.calculations || data.data.calculations.calc_reactions.length === 0) {
     throw new Error('calculations data not available');
@@ -804,6 +819,7 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_energy_catalyst': genPickEnergyCatalyst,
   'gen.pick_calc_substance': genPickCalcSubstance,
   'gen.pick_calc_reaction': genPickCalcReaction,
+  'gen.pick_thermo_reaction': genPickThermoReaction,
   'gen.pick_solution_params': genPickSolutionParams,
   'gen.pick_ion_nomenclature': genPickIonNomenclature,
 };

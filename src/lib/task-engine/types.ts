@@ -118,8 +118,9 @@ export type SlotValues = Record<string, string | number | string[]>;
 
 // ── Solver result ──────────────────────────────────────────────
 export interface SolverResult {
-  answer: string | number | string[];
+  answer?: string | number | string[];
   explanation_slots?: Record<string, string>;
+  error?: string;
 }
 
 // ── Generated task (output of the engine) ──────────────────────

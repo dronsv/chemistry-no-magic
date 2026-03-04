@@ -209,7 +209,7 @@ function executeTemplate(
       const explSlots: SlotValues = {
         ...slots,
         ...(solverResult.explanation_slots ?? {}),
-        correct_answer: String(solverResult.answer),
+        correct_answer: String(solverResult.answer ?? ''),
       };
       explanation = renderPrompt(template.explanation_template_id, explSlots, renderCtx);
     } catch {
@@ -218,9 +218,11 @@ function executeTemplate(
     }
   }
 
+  const resolvedAnswer: string | number | string[] = solverResult.answer ?? '';
+
   // 5. Distractors
   const distractors = generateDistractors(
-    solverResult.answer,
+    resolvedAnswer,
     slots,
     template.meta.interaction,
     ontology,
@@ -238,7 +240,7 @@ function executeTemplate(
     template_id: template.template_id,
     interaction: template.meta.interaction,
     question,
-    correct_answer: solverResult.answer,
+    correct_answer: resolvedAnswer,
     distractors,
     explanation,
     competency_map,

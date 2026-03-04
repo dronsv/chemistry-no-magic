@@ -640,6 +640,52 @@ describe('solver.reaction_yield', () => {
   });
 });
 
+// ── solver.heat_of_reaction ─────────────────────────────────────
+
+import type { CalcReaction } from '../../../types/calculations';
+
+const MOCK_THERMO_REACTION: CalcReaction = {
+  equation_ru: '2H₂ + O₂ → 2H₂O',
+  given: { formula: 'H₂', coeff: 2, M: 2 },
+  find: { formula: 'H₂O', coeff: 2, M: 18 },
+  delta_H_kJmol: -571.6,
+};
+
+const MOCK_THERMO_REACTION_NO_H: CalcReaction = {
+  equation_ru: 'A + B → C',
+  given: { formula: 'A', coeff: 1, M: 10 },
+  find: { formula: 'C', coeff: 1, M: 20 },
+};
+
+describe('solver.heat_of_reaction', () => {
+  it('returns delta_H_kJmol as the answer for a reaction with thermo data', () => {
+    const result = runSolver(
+      'solver.heat_of_reaction', {},
+      { calcReaction: MOCK_THERMO_REACTION as unknown as string },
+      MOCK_DATA,
+    );
+    expect(result.answer).toBeCloseTo(-571.6, 5);
+  });
+
+  it('returns an error when the reaction has no delta_H_kJmol', () => {
+    const result = runSolver(
+      'solver.heat_of_reaction', {},
+      { calcReaction: MOCK_THERMO_REACTION_NO_H as unknown as string },
+      MOCK_DATA,
+    );
+    expect((result as { error: string }).error).toBeTruthy();
+  });
+
+  it('returns an error when calcReaction slot is missing', () => {
+    const result = runSolver(
+      'solver.heat_of_reaction', {},
+      {},
+      MOCK_DATA,
+    );
+    expect((result as { error: string }).error).toBeTruthy();
+  });
+});
+
 // ── Registry tests ───────────────────────────────────────────────
 
 describe('runSolver', () => {
