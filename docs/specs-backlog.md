@@ -296,4 +296,41 @@ Some participants appear in different phases depending on context (e.g., water c
 
 ---
 
-*Last updated: 2026-03-04*
+## 7. Task Content Model v2 (RichTextDoc + Layout + AnswerSchema)
+
+**Source:** user design proposal (2026-03-05)
+**Status:** Not implemented
+**Depends on:** Spec #1 (OntologyRef) — `ont_ref` segments in blocks require unified renderer
+
+### Model
+
+**`blocks: RichTextDoc[]`** — editable content fragments with stable `blockId`:
+`statement`, `hint_1..n`, `solution`, `choice_1..m`, `explain_*`
+
+**`layout: TaskNode[]`** — declarative screen assembly:
+`render(blockId)`, `mcq(choices: blockIds, answerKey)`, `input(kind, answerKey)`, `reveal(blockId)`
+
+**`answer: AnswerSchema`** — formal validation:
+- MCQ: `correctChoiceIds: string[]`
+- Numeric: `value, tolerance, units?`
+- Formula: canonicalization (order, coefficients, charge)
+- Matching: pairs
+- Ordering: sequence
+
+### Why
+
+- Single renderer: theory + tasks share same content stack (RichTextRenderer + OntologyRef)
+- i18n: translate `blocks` only; `layout` + `answer` are locale-neutral
+- Generation: generator returns AST + answer + trace, no string template
+- Editor: RichTextEdit edits only blocks; task type + validation in separate form
+
+### Risks
+
+- `schema_version: 1` + migrations required
+- Blocks need stable `blockId` (not positional array)
+- All entity mentions via `ont_ref` segments → unified OntologyRef handles nav/cards
+- Multi-step tasks: multiple `answerKey` + multiple `input`/`mcq` TaskNodes
+
+---
+
+*Last updated: 2026-03-05*
