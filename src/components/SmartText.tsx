@@ -93,6 +93,7 @@ export default function SmartText({ text, locale }: SmartTextProps) {
           substanceClass={e.type === 'substance' ? e.cls : e.type === 'element' ? 'simple' : undefined}
           ionId={e.type === 'ion' ? e.id : undefined}
           ionType={e.type === 'ion' ? e.ionType : undefined}
+          elementId={e.type === 'element' ? e.id : undefined}
           locale={locale}
         />
       );

@@ -141,6 +141,7 @@ export default function ChemText({ text }: Props) {
             key={keyIdx++}
             formula={formula}
             substanceClass="simple"
+            elementId={entry.id}
           />,
         );
       }
