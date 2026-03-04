@@ -247,7 +247,19 @@ Per-locale catalog resolves `frame_id` to a localized sentence pattern with slot
 ## 6. Aggregate States + Phase Markers in Reactions
 
 **Source:** phase_gas_precipitate_thermo_analysis.zip
-**Status:** Not implemented
+**Status:** Partially implemented (2026-03-04)
+
+**Implemented:**
+- `phase_standard?: 'g'|'l'|'s'|'aq'` on `Substance` type; 21 substance files annotated
+- `delta_Hf_kJmol?`, `S_JmolK?` on `CalcSubstance`; `delta_H_kJmol?` on `CalcReaction`
+- Thermodynamic data for 14 substances and 5 reactions
+- Phase markers ↑/↓ in ReactionCards.tsx Molecular tab
+- `solver.heat_of_reaction` + `gen.pick_thermo_reaction` in task engine
+- Task template `tmpl.calc.heat_of_reaction.v1` (EGE, numeric input, 4 locales)
+
+**Deferred:**
+- ΔG/ΔS calculation tasks (EGE-level, needs more data)
+- Per-participant phase overrides in reaction display
 
 ### Problem
 Reaction equations currently lack aggregate state markers (s/l/g/aq).
@@ -284,4 +296,4 @@ Some participants appear in different phases depending on context (e.g., water c
 
 ---
 
-*Last updated: 2026-03-03*
+*Last updated: 2026-03-04*

@@ -1664,6 +1664,36 @@ describe('TaskEngine — Reactions batch integration', () => {
       }
     });
   });
+
+  describe('thermodynamics templates', () => {
+    it('generates tmpl.calc.heat_of_reaction.v1 task with numeric delta_H answer', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.calc.heat_of_reaction.v1');
+
+      expect(task.template_id).toBe('tmpl.calc.heat_of_reaction.v1');
+      expect(task.interaction).toBe('numeric_input');
+      expect(typeof task.correct_answer).toBe('number');
+      // MOCK_CALCULATIONS has one reaction with delta_H_kJmol: -571.6
+      expect(task.correct_answer).toBe(-571.6);
+      expect(task.competency_map).toEqual({ calculations_basic: 'P' });
+      // Should have equation slot from pick_thermo_reaction generator
+      expect(task.slots.equation).toBeDefined();
+    });
+
+    it('generateForCompetency returns heat_of_reaction template for calculations_basic', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      let foundHeatOfReaction = false;
+      for (let i = 0; i < 30; i++) {
+        const task = engine.generateForCompetency('calculations_basic');
+        expect(task).not.toBeNull();
+        if (task!.template_id === 'tmpl.calc.heat_of_reaction.v1') {
+          foundHeatOfReaction = true;
+          break;
+        }
+      }
+      expect(foundHeatOfReaction).toBe(true);
+    });
+  });
 });
 
 // ── Ions batch integration tests ───────────────────────────────────
