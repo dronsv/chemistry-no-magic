@@ -1,7 +1,7 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-03-02
+> Last updated: 2026-03-04
 >
 > See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, MoleculeView, BondEnergyTrace, etc.)
 
@@ -28,7 +28,7 @@
 | **Qualitative Tests** | `data-src/rules/qualitative_reactions.json` | 1 | 11 | Active |
 | **Genetic Chains** | `data-src/rules/genetic_chains.json` | 1 | 5 | Active |
 | **Energy & Catalysis** | `data-src/rules/energy_catalyst_theory.json` | 1 | 5 rate factors + catalysts + equilibrium | Active |
-| **Calculations Data** | `data-src/rules/calculations_data.json` | 1 | 24 substances + 10 reactions | Active |
+| **Calculations Data** | `data-src/rules/calculations_data.json` | 1 | 24 substances (14 with ΔHf°/S°) + 10 reactions (5 with ΔH) | Active |
 | **Ion Nomenclature** | `data-src/rules/ion_nomenclature.json` | 1 | 4 suffix rules | Active |
 | **Topic Mapping** | `data-src/rules/topic_mapping.json` | 1 | 8 mappings | Active |
 | **Diagnostic Questions** | `data-src/diagnostic/questions.json` | 1 | 12 | Active |
@@ -42,8 +42,8 @@
 | **Substance Variants** | `data-src/contexts/substance_variants.json` | 1 | 5 | Active |
 | **Terms** | `data-src/contexts/terms.json` | 1 | 54 | Active |
 | **Term Bindings** | `data-src/contexts/term_bindings.json` | 1 | 54 | Active |
-| **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 65 | Active |
-| **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 65 per locale | Active |
+| **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 66 | Active |
+| **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 66 per locale | Active |
 | **Structures** | `data-src/structures/*.json` | 38 | 38 molecules | Active |
 | **Bond Energy Table** | `data-src/tables/bond_energy_avg_v1.json` | 1 | 27 bond types | Active |
 | **Calculators** | `data-src/calculators.json` | 1 | 1 (bond_energy_v1) | Active |
@@ -162,7 +162,7 @@ graph LR
         QR[qualitative_reactions<br/>11 tests]
         GC[genetic_chains<br/>5 chains]
         ECT[energy_catalyst_theory<br/>rate/equilibrium/catalysis]
-        CALC[calculations_data<br/>24 subs + 10 rxns]
+        CALC[calculations_data<br/>24 subs (14 w/ΔHf°) + 10 rxns (5 w/ΔH)]
         ION_N[ion_nomenclature<br/>4 suffix rules]
         BKT[bkt_params<br/>21 entries]
         COMP[competencies<br/>20 competencies]
@@ -202,7 +202,7 @@ graph LR
 | `qualitative_reactions` | Substances | Observable indicators: color, gas, precipitate |
 | `genetic_chains` | Substances | Multi-step transformation sequences |
 | `energy_catalyst_theory` | Reactions | Rate factors, activation energy, equilibrium shifts |
-| `calculations_data` | Substances + Reactions | Molar mass, composition, stoichiometric coefficients |
+| `calculations_data` | Substances + Reactions | Molar mass, composition, stoichiometric coefficients; ΔHf°/S° (14 subs), ΔH (5 rxns) |
 | `ion_nomenclature` | Ions | Suffix system: -id/-ite/-ate |
 | `bkt_params` | Competencies | P(L₀), P(T), P(G), P(S) per skill |
 | `competencies` | All entities | 20 learning objectives in A–G blocks |
@@ -226,9 +226,9 @@ flowchart TB
 
     subgraph Pipeline["Engine Pipeline"]
         direction TB
-        GEN["Generator<br/>(21 generators)"]
+        GEN["Generator<br/>(22 generators)"]
         SLOT["Slot Resolver<br/>lookup: + morph: directives"]
-        SOL["Solver<br/>(18 solvers)"]
+        SOL["Solver<br/>(19 solvers)"]
         REND["Prompt Renderer<br/>interpolate slots → question"]
         DIST["Distractor Engine<br/>(13 strategies)"]
         EVAL["Evaluator<br/>(4 modes)"]
@@ -285,6 +285,7 @@ flowchart TB
 | `pick_solution_params` | F (Calculations) | Solution calculations |
 | `pick_calc_substance` | F | Molar mass, mass fraction |
 | `pick_calc_reaction` | F | Stoichiometry |
+| `pick_thermo_reaction` | F | Heat of reaction (ΔH) |
 | `pick_ion_nomenclature` | G (Electrolytes) | Name ions by suffix |
 | `pick_ion_pair_nomenclature` | G | Ion naming pairs |
 
@@ -757,7 +758,7 @@ graph TB
 
 **Purpose**: Initial seed templates for the generative task engine.
 
-**Status**: Superseded by the current engine (65 templates, 21 generators, 18 solvers vs. the v1 pack's ~5 templates). Kept as historical reference only.
+**Status**: Superseded by the current engine (66 templates, 22 generators, 19 solvers vs. the v1 pack's ~5 templates). Kept as historical reference only.
 
 ---
 
@@ -827,7 +828,7 @@ graph TB
 | `bkt_params.json` | 21 | BKT learning parameters |
 | `bond_examples.json` | 17 | Bond type examples |
 | `bond_theory.json` | — | Bond type theory (superseded by theory_modules/bonds_and_crystals.json) |
-| `calculations_data.json` | 24+10 | Calc substances + reactions |
+| `calculations_data.json` | 24+10 | Calc substances (14 with ΔHf°/S°) + reactions (5 with ΔH) |
 | `classification_rules.json` | 12 | Substance classification |
 | `competencies.json` | 21 | 20 competencies + schema |
 | `energy_catalyst_theory.json` | — | Rate/equilibrium/catalysis |
@@ -975,6 +976,7 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 | `solver.concentration` | ω, inverse, dilution | Inline | **Duplicated in legacy calcs** |
 | `solver.stoichiometry` | Coefficient-ratio calc | Inline | **Duplicated in legacy calcs** |
 | `solver.reaction_yield` | Stoich × yield% | Inline | **Duplicated in legacy calcs** |
+| `solver.heat_of_reaction` | Return `delta_H_kJmol` from CalcReaction slot | Inline (slot read) | New (thermo) |
 
 ### Duplication Status Summary
 

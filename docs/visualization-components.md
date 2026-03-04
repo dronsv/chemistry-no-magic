@@ -2,7 +2,7 @@
 
 > Каталог UI-компонентов, отображающих химические данные из онтологии.
 > Дополнение к [Ontology Map](./ontology-map.md).
-> Обновлено: 2026-03-03
+> Обновлено: 2026-03-04
 
 ---
 
@@ -288,6 +288,18 @@ Astro build-time (readFile) → props → React islands
 **Quality badge**: `estimated` (зелёный) — все связи найдены в таблице; `partial` (жёлтый) — часть связей отсутствует.
 
 **Pipeline**: `structures/*.json` → `derive-bond-counts.mjs` → `structure_bond_counts.json` → `calc-bond-energy.mjs` + `bond_energy_avg_v1.json` → `bond_energy.json` → `BondEnergyTrace`
+
+### ReactionCards — карточки реакций с фазовыми маркерами
+
+| | |
+|---|---|
+| **Файл** | `src/features/reactions/ReactionCards.tsx` |
+| **Фазовые маркеры** | ↑ для газообразных продуктов, ↓ для осадков (вкладка Molecular) |
+| **Источник данных** | `reaction.observations.gas[]` и `reaction.observations.precipitate[]` |
+| **CSS** | `.rxn-phase-marker` — жирный, уменьшенный шрифт, `var(--color-text-secondary)` |
+| **Где** | Страница реакций (`/reactions/`), вкладка Molecular |
+
+---
 
 ### EnergyLevelDiagram — диаграмма энергетических уровней
 
