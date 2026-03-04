@@ -450,6 +450,13 @@
   padding-left: 0.75rem;
 }
 
+.rxn-phase-marker {
+  font-size: 0.85em;
+  font-weight: bold;
+  color: var(--color-text-secondary, #666);
+  margin-left: 1px;
+}
+
 .rxn-molecular-name {
   color: var(--color-text-muted);
 }

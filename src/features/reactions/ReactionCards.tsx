@@ -69,10 +69,16 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
   substanceMap: Map<string, SubstanceIndexEntry>;
   elementMap: Map<string, ElementInfo>;
 }) {
-  const renderItem = (item: { formula: string; name?: string; coeff: number }, i: number) => {
+  const gasSet = new Set(reaction.observations.gas ?? []);
+  const precipSet = new Set(reaction.observations.precipitate ?? []);
+
+  const renderItem = (item: { formula: string; name?: string; coeff: number }, i: number, isProduct: boolean) => {
     const sub = substanceMap.get(item.formula);
     const parsed = parseFormula(item.formula);
     const ox = calcOxidationStates(parsed, elementMap, item.formula);
+    const marker = isProduct
+      ? gasSet.has(item.formula) ? '↑' : precipSet.has(item.formula) ? '↓' : null
+      : null;
 
     return (
       <span key={i} className="rxn-molecular-item">
@@ -84,6 +90,7 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
           substanceId={sub?.id}
           oxidationStates={!ox.error ? ox.assignments : undefined}
         />
+        {marker && <span className="rxn-phase-marker">{marker}</span>}
       </span>
     );
   };
@@ -94,11 +101,11 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
       <div className="rxn-molecular-lists">
         <div className="rxn-molecular-group">
           <span className="rxn-molecular-label">{m.rxn_reactants()}</span>
-          {reaction.molecular.reactants.map(renderItem)}
+          {reaction.molecular.reactants.map((item, i) => renderItem(item, i, false))}
         </div>
         <div className="rxn-molecular-group">
           <span className="rxn-molecular-label">{m.rxn_products()}</span>
-          {reaction.molecular.products.map(renderItem)}
+          {reaction.molecular.products.map((item, i) => renderItem(item, i, true))}
         </div>
       </div>
       <div className="rxn-meta">
