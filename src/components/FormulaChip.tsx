@@ -74,6 +74,7 @@ interface FormulaChipProps {
   oxidationStates?: OxidationAssignment[];
   ionType?: 'cation' | 'anion';
   ionId?: string;
+  elementId?: string;
 }
 
 export default function FormulaChip({
@@ -86,13 +87,14 @@ export default function FormulaChip({
   oxidationStates,
   ionType,
   ionId,
+  elementId,
 }: FormulaChipProps) {
   const [hovered, setHovered] = useState(false);
   const ionDetails = useIonDetails();
 
   const isIon = !!ionType;
   const cls = isIon ? ionType : (substanceClass ?? 'unknown');
-  const isClickable = !!substanceId || !!ionId;
+  const isClickable = !!substanceId || !!ionId || !!elementId;
   const classNames = [
     'formula-chip',
     isIon ? `formula-chip--${ionType}` : `formula-chip--${cls}`,
@@ -140,6 +142,10 @@ export default function FormulaChip({
     ? localizeUrl(`/substances/${substanceId}/`, locale ?? 'ru')
     : undefined;
 
+  const elementUrl = elementId
+    ? localizeUrl(`/periodic-table/${elementId}/`, locale ?? 'ru')
+    : undefined;
+
   const handleClick = ionId
     ? (e: React.MouseEvent) => {
         if (ionDetails) {
@@ -149,7 +155,9 @@ export default function FormulaChip({
       }
     : substanceUrl
       ? () => { window.location.href = substanceUrl; }
-      : undefined;
+      : elementUrl
+        ? () => { window.location.href = elementUrl; }
+        : undefined;
 
   return (
     <span

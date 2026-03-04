@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { parseOntRef, toOntRefStr, richTextToPlainString } from '../ontology-ref';
 import type { RichText } from '../../types/ontology-ref';
+import { localizeUrl } from '../i18n';
 
 describe('parseOntRef', () => {
   it('parses substance ref', () => {
@@ -62,5 +63,20 @@ describe('richTextToPlainString', () => {
   it('handles nested em/strong', () => {
     const rich: RichText = [{ t: 'em', children: [{ t: 'text', v: 'важно' }] }];
     expect(richTextToPlainString(rich)).toBe('важно');
+  });
+});
+
+describe('element URL building (via localizeUrl)', () => {
+  it('builds Russian element URL (no prefix)', () => {
+    expect(localizeUrl('/periodic-table/Na/', 'ru')).toBe('/periodic-table/Na/');
+  });
+  it('builds English element URL', () => {
+    expect(localizeUrl('/periodic-table/Na/', 'en')).toBe('/en/periodic-table/Na/');
+  });
+  it('builds Polish element URL', () => {
+    expect(localizeUrl('/periodic-table/Fe/', 'pl')).toBe('/pl/tablica-okresowa/Fe/');
+  });
+  it('builds Spanish element URL', () => {
+    expect(localizeUrl('/periodic-table/Fe/', 'es')).toBe('/es/tabla-periodica/Fe/');
   });
 });
