@@ -103,6 +103,7 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   calculations_basic: [
     'tmpl.calc.molar_mass.v1', 'tmpl.calc.mass_fraction.v1',
     'tmpl.calc.amount.v1', 'tmpl.calc.mass_from_moles.v1',
+    'tmpl.calc.heat_of_reaction.v1',
   ],
   calculations_solutions: [
     'tmpl.calc.concentration.v1', 'tmpl.calc.solute_mass.v1',

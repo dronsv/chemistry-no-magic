@@ -1,5 +1,6 @@
 import type { Element } from '../../types/element';
 import type { OntologyData, PropertyDef, SlotValues, SolverResult } from './types';
+import type { CalcReaction } from '../../types/calculations';
 import { getElectronConfig, setConfigOverrides, toSuperscript } from '../electron-config';
 import { determineBondType } from '../bond-calculator';
 
@@ -557,7 +558,7 @@ function solveHeatOfReaction(
   _params: Record<string, unknown>,
   slots: SlotValues,
 ): SolverResult {
-  const reaction = slots['calcReaction'] as unknown as import('../../types/calculations').CalcReaction | undefined;
+  const reaction = slots['calcReaction'] as unknown as CalcReaction | undefined;
   if (reaction == null || reaction.delta_H_kJmol == null) {
     return { error: 'Reaction has no thermodynamic data' };
   }
