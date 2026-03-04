@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import type { ReactNode } from 'react';
 import FormulaChip from './FormulaChip';
-import OntologyRef from './OntologyRef';
+import ConceptRef from './ConceptRef';
 import { useFormulaLookup } from './ChemText';
 import { useConcepts } from './ConceptProvider';
 import type { FormulaLookupEntry } from '../types/formula-lookup';
@@ -98,7 +98,7 @@ export default function SmartText({ text, locale }: SmartTextProps) {
       );
     } else if (info?.type === 'concept') {
       result.push(
-        <OntologyRef
+        <ConceptRef
           key={`c-${start}`}
           id={info.conceptId}
           surface={matchedText}

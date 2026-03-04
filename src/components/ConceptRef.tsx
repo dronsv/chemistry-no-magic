@@ -61,14 +61,14 @@ function buildConceptUrl(
   return locale ? localizeUrl(path, locale) : path;
 }
 
-interface OntologyRefProps {
+interface ConceptRefProps {
   id: string;
   form?: string;
   surface?: string;
   locale?: SupportedLocale;
 }
 
-export default function OntologyRef({ id, form, surface, locale }: OntologyRefProps) {
+export default function ConceptRef({ id, form, surface, locale }: ConceptRefProps) {
   const ctx = useConcepts();
   const [hovered, setHovered] = useState(false);
 

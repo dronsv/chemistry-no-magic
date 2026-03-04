@@ -3,7 +3,7 @@ import type { RichText, TextSeg } from '../types/ontology-ref';
 import type { SupportedLocale } from '../types/i18n';
 import type { FormulaLookup } from '../types/formula-lookup';
 import FormulaChip from './FormulaChip';
-import OntologyRef from './OntologyRef';
+import ConceptRef from './ConceptRef';
 import SmartText from './SmartText';
 import { useFormulaLookup } from './ChemText';
 
@@ -19,7 +19,7 @@ function renderSeg(seg: TextSeg, idx: number, locale?: SupportedLocale, lookup?:
       return <SmartText key={idx} text={seg.v} locale={locale} />;
     case 'ref':
       return (
-        <OntologyRef
+        <ConceptRef
           key={idx}
           id={seg.id}
           form={seg.form}
