@@ -758,6 +758,54 @@ describe('gen.pick_calc_reaction', () => {
   });
 });
 
+describe('gen.pick_thermo_reaction', () => {
+  const MOCK_THERMO_CALC_DATA = {
+    calc_substances: MOCK_CALCULATIONS_DATA.calc_substances,
+    calc_reactions: [
+      // Reaction WITH delta_H_kJmol (thermo reaction)
+      { equation_ru: 'H2 + 1/2 O2 → H2O', given: { formula: 'H2', coeff: 1, M: 2 }, find: { formula: 'H2O', coeff: 1, M: 18 }, delta_H_kJmol: -285.8 },
+      // Reaction WITHOUT delta_H_kJmol (should be excluded)
+      { equation_ru: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
+    ],
+  };
+
+  const dataWithThermoCalc: OntologyData = {
+    ...MOCK_DATA,
+    data: { ...MOCK_DATA.data, calculations: MOCK_THERMO_CALC_DATA },
+  };
+
+  const dataWithNoThermoReactions: OntologyData = {
+    ...MOCK_DATA,
+    data: { ...MOCK_DATA.data, calculations: MOCK_CALCULATIONS_DATA },
+  };
+
+  it('returns calcReaction, equation, and delta_H slots', () => {
+    const result = runGenerator('gen.pick_thermo_reaction', {}, dataWithThermoCalc);
+    expect(result).toHaveProperty('calcReaction');
+    expect(result).toHaveProperty('equation');
+    expect(result).toHaveProperty('delta_H');
+    expect(typeof result.equation).toBe('string');
+    expect(typeof result.delta_H).toBe('string');
+  });
+
+  it('only picks reactions that have delta_H_kJmol defined', () => {
+    // Run multiple times to confirm only the thermo reaction is ever picked
+    for (let i = 0; i < 20; i++) {
+      const result = runGenerator('gen.pick_thermo_reaction', {}, dataWithThermoCalc);
+      expect(result.equation).toBe('H2 + 1/2 O2 → H2O');
+      expect(result.delta_H).toBe('-285.8');
+    }
+  });
+
+  it('throws when no thermo reactions (delta_H_kJmol) are available', () => {
+    expect(() => runGenerator('gen.pick_thermo_reaction', {}, dataWithNoThermoReactions)).toThrow('No thermo reactions available');
+  });
+
+  it('throws when calculations data is missing entirely', () => {
+    expect(() => runGenerator('gen.pick_thermo_reaction', {}, MOCK_DATA)).toThrow('calculations data not available');
+  });
+});
+
 describe('gen.pick_solution_params', () => {
   it('returns solution parameters with correct relationships', () => {
     const result = runGenerator('gen.pick_solution_params', {}, MOCK_DATA);
