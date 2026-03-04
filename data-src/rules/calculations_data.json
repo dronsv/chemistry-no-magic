@@ -7,7 +7,9 @@
       "composition": [
         { "element": "H", "Ar": 1, "count": 2 },
         { "element": "O", "Ar": 16, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -285.8,
+      "S_JmolK": 69.9
     },
     {
       "formula": "NaCl",
@@ -25,7 +27,9 @@
       "composition": [
         { "element": "C", "Ar": 12, "count": 1 },
         { "element": "O", "Ar": 16, "count": 2 }
-      ]
+      ],
+      "delta_Hf_kJmol": -393.5,
+      "S_JmolK": 213.8
     },
     {
       "formula": "SO₂",
@@ -34,7 +38,9 @@
       "composition": [
         { "element": "S", "Ar": 32, "count": 1 },
         { "element": "O", "Ar": 16, "count": 2 }
-      ]
+      ],
+      "delta_Hf_kJmol": -296.8,
+      "S_JmolK": 248.2
     },
     {
       "formula": "HCl",
@@ -43,7 +49,9 @@
       "composition": [
         { "element": "H", "Ar": 1, "count": 1 },
         { "element": "Cl", "Ar": 35.5, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -92.3,
+      "S_JmolK": 186.9
     },
     {
       "formula": "NaOH",
@@ -53,7 +61,9 @@
         { "element": "Na", "Ar": 23, "count": 1 },
         { "element": "O", "Ar": 16, "count": 1 },
         { "element": "H", "Ar": 1, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -427.8,
+      "S_JmolK": 64.5
     },
     {
       "formula": "CaO",
@@ -62,7 +72,9 @@
       "composition": [
         { "element": "Ca", "Ar": 40, "count": 1 },
         { "element": "O", "Ar": 16, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -635.1,
+      "S_JmolK": 38.1
     },
     {
       "formula": "Fe₂O₃",
@@ -71,7 +83,9 @@
       "composition": [
         { "element": "Fe", "Ar": 56, "count": 2 },
         { "element": "O", "Ar": 16, "count": 3 }
-      ]
+      ],
+      "delta_Hf_kJmol": -824.2,
+      "S_JmolK": 87.4
     },
     {
       "formula": "H₂SO₄",
@@ -91,7 +105,9 @@
         { "element": "H", "Ar": 1, "count": 1 },
         { "element": "N", "Ar": 14, "count": 1 },
         { "element": "O", "Ar": 16, "count": 3 }
-      ]
+      ],
+      "delta_Hf_kJmol": -174.1,
+      "S_JmolK": 155.6
     },
     {
       "formula": "Ca(OH)₂",
@@ -101,7 +117,9 @@
         { "element": "Ca", "Ar": 40, "count": 1 },
         { "element": "O", "Ar": 16, "count": 2 },
         { "element": "H", "Ar": 1, "count": 2 }
-      ]
+      ],
+      "delta_Hf_kJmol": -986.1,
+      "S_JmolK": 83.4
     },
     {
       "formula": "Na₂CO₃",
@@ -121,7 +139,9 @@
         { "element": "Ca", "Ar": 40, "count": 1 },
         { "element": "C", "Ar": 12, "count": 1 },
         { "element": "O", "Ar": 16, "count": 3 }
-      ]
+      ],
+      "delta_Hf_kJmol": -1206.9,
+      "S_JmolK": 91.7
     },
     {
       "formula": "Al₂O₃",
@@ -130,7 +150,9 @@
       "composition": [
         { "element": "Al", "Ar": 27, "count": 2 },
         { "element": "O", "Ar": 16, "count": 3 }
-      ]
+      ],
+      "delta_Hf_kJmol": -1675.7,
+      "S_JmolK": 50.9
     },
     {
       "formula": "K₂SO₄",
@@ -159,7 +181,9 @@
       "composition": [
         { "element": "Mg", "Ar": 24, "count": 1 },
         { "element": "O", "Ar": 16, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -601.6,
+      "S_JmolK": 26.9
     },
     {
       "formula": "KOH",
@@ -178,7 +202,9 @@
       "composition": [
         { "element": "N", "Ar": 14, "count": 1 },
         { "element": "H", "Ar": 1, "count": 3 }
-      ]
+      ],
+      "delta_Hf_kJmol": -46.1,
+      "S_JmolK": 192.8
     },
     {
       "formula": "Na₂SO₄",
@@ -197,7 +223,9 @@
       "composition": [
         { "element": "Zn", "Ar": 65, "count": 1 },
         { "element": "O", "Ar": 16, "count": 1 }
-      ]
+      ],
+      "delta_Hf_kJmol": -350.5,
+      "S_JmolK": 43.7
     },
     {
       "formula": "BaCl₂",
@@ -232,12 +260,14 @@
     {
       "equation_ru": "CaCO₃ → CaO + CO₂",
       "given": { "formula": "CaCO₃", "coeff": 1, "M": 100 },
-      "find": { "formula": "CaO", "coeff": 1, "M": 56 }
+      "find": { "formula": "CaO", "coeff": 1, "M": 56 },
+      "delta_H_kJmol": 178.3
     },
     {
       "equation_ru": "2H₂ + O₂ → 2H₂O",
       "given": { "formula": "H₂", "coeff": 2, "M": 2 },
-      "find": { "formula": "H₂O", "coeff": 2, "M": 18 }
+      "find": { "formula": "H₂O", "coeff": 2, "M": 18 },
+      "delta_H_kJmol": -571.6
     },
     {
       "equation_ru": "Zn + 2HCl → ZnCl₂ + H₂↑",
@@ -257,17 +287,20 @@
     {
       "equation_ru": "NaOH + HCl → NaCl + H₂O",
       "given": { "formula": "NaOH", "coeff": 1, "M": 40 },
-      "find": { "formula": "NaCl", "coeff": 1, "M": 58.5 }
+      "find": { "formula": "NaCl", "coeff": 1, "M": 58.5 },
+      "delta_H_kJmol": -57.3
     },
     {
       "equation_ru": "CaO + H₂O → Ca(OH)₂",
       "given": { "formula": "CaO", "coeff": 1, "M": 56 },
-      "find": { "formula": "Ca(OH)₂", "coeff": 1, "M": 74 }
+      "find": { "formula": "Ca(OH)₂", "coeff": 1, "M": 74 },
+      "delta_H_kJmol": -65.2
     },
     {
       "equation_ru": "2Na + 2H₂O → 2NaOH + H₂↑",
       "given": { "formula": "Na", "coeff": 2, "M": 23 },
-      "find": { "formula": "NaOH", "coeff": 2, "M": 40 }
+      "find": { "formula": "NaOH", "coeff": 2, "M": 40 },
+      "delta_H_kJmol": -284.0
     },
     {
       "equation_ru": "Mg + 2HCl → MgCl₂ + H₂↑",
