@@ -282,5 +282,13 @@
   "prompt.classify_suffix_type": {
     "question": "\u00bfQu\u00e9 condici\u00f3n de nomenclatura corresponde al sufijo \u00ab{suffix_ru}\u00bb?",
     "slots": {}
+  },
+  "prompt.calc_heat_of_reaction": {
+    "question": "Calcula el efecto térmico de la reacción: {equation}",
+    "slots": {}
+  },
+  "explain.calc_heat_of_reaction": {
+    "template": "Efecto térmico de la reacción: ΔH = {delta_H} kJ.",
+    "slots": {}
   }
 }

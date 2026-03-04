@@ -282,5 +282,13 @@
   "prompt.classify_suffix_type": {
     "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix_ru}\u201d?",
     "slots": {}
+  },
+  "prompt.calc_heat_of_reaction": {
+    "question": "Oblicz efekt cieplny reakcji: {equation}",
+    "slots": {}
+  },
+  "explain.calc_heat_of_reaction": {
+    "template": "Efekt cieplny reakcji: ΔH = {delta_H} kJ.",
+    "slots": {}
   }
 }

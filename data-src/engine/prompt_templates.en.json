@@ -282,5 +282,13 @@
   "prompt.classify_suffix_type": {
     "question": "What is the naming condition for the suffix \"{suffix_ru}\"?",
     "slots": {}
+  },
+  "prompt.calc_heat_of_reaction": {
+    "question": "Calculate the heat of reaction: {equation}",
+    "slots": {}
+  },
+  "explain.calc_heat_of_reaction": {
+    "template": "Heat of reaction: ΔH = {delta_H} kJ.",
+    "slots": {}
   }
 }

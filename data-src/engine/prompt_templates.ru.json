@@ -282,5 +282,13 @@
   "prompt.classify_suffix_type": {
     "question": "Какое условие номенклатуры соответствует суффиксу «{suffix_ru}»?",
     "slots": {}
+  },
+  "prompt.calc_heat_of_reaction": {
+    "question": "Рассчитайте тепловой эффект реакции: {equation}",
+    "slots": {}
+  },
+  "explain.calc_heat_of_reaction": {
+    "template": "Тепловой эффект реакции: ΔH = {delta_H} кДж.",
+    "slots": {}
   }
 }

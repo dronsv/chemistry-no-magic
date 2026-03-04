@@ -1088,5 +1088,25 @@
     "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
     "exam_tags": ["oge"],
     "competency_hint": { "naming": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.heat_of_reaction.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["reaction"],
+      "reasoning": ["conservation_laws"],
+      "evaluation": { "mode": "tolerance", "tolerance": 5.0 }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_thermo_reaction", "params": {} },
+      "solvers": [{ "id": "solver.heat_of_reaction", "params": {} }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_heat_of_reaction",
+    "explanation_template_id": "explain.calc_heat_of_reaction",
+    "evidence_rules": ["hess_law"],
+    "difficulty_model": { "features": { "reaction_type": "auto" }, "target_band": [0.3, 0.7] },
+    "exam_tags": ["ege"],
+    "competency_hint": { "calculations_basic": "P" }
   }
 ]

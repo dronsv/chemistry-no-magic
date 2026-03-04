@@ -597,6 +597,14 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'What is the naming condition for the suffix "{suffix_ru}"?',
     slots: {},
   },
+  'prompt.calc_heat_of_reaction': {
+    question: 'Calculate the heat of reaction: {equation}',
+    slots: {},
+  },
+  'explain.calc_heat_of_reaction': {
+    template: 'Heat of reaction: ΔH = {delta_H} kJ.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -806,6 +814,7 @@ const MOCK_CALCULATIONS: CalculationsData = {
       equation_ru: '2H₂ + O₂ → 2H₂O',
       given: { formula: 'H₂', coeff: 2, M: 2.016 },
       find: { formula: 'H₂O', coeff: 2, M: 18.015 },
+      delta_H_kJmol: -571.6,
     },
   ],
 };
@@ -849,8 +858,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 65 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(65);
+  it('loads all 66 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(66);
   });
 
   describe('bond templates', () => {
