@@ -31,7 +31,7 @@ export type StepRuleId =
 export interface SolveStep {
   symbol: string;
   state: number;
-  rule_id: StepRuleId;
+  rule_id: string;  // one of StepRuleId values; string for forward compatibility
   equation?: string;
 }
 
