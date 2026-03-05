@@ -11,23 +11,11 @@ import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
 import MoleculeView from '../../components/MoleculeView';
 import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
+import { formatState, stateColor } from './ox-format';
 
 interface ElementInfo {
   group: number;
   metal_type: MetalType;
-}
-
-
-function formatState(state: number): string {
-  if (state === 0) return '0';
-  if (state > 0) return `+${state}`;
-  return `\u2212${Math.abs(state)}`;
-}
-
-function stateColor(state: number): string {
-  if (state > 0) return '#dc2626';
-  if (state < 0) return '#2563eb';
-  return '#6b7280';
 }
 
 interface StepCardProps {
