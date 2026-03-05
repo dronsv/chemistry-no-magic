@@ -34,6 +34,7 @@ import type { NameIndex } from '../types/name-index';
 import type { ConceptRegistry, ConceptOverlay, ConceptLookup } from '../types/ontology-ref';
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
 import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
+import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -523,17 +524,15 @@ export async function loadOxidationExamples(): Promise<OxidationExample[]> {
 }
 
 /** Load oxidation state rules catalog (descriptions + examples per rule ID). */
-export async function loadOxidationRules(locale?: SupportedLocale): Promise<import('../types/oxidation-rules').OxRulesData> {
-  const data = await loadRule('oxidation_rules') as import('../types/oxidation-rules').OxRulesData;
+export async function loadOxidationRules(locale?: SupportedLocale): Promise<OxRulesData> {
+  const data = await loadRule('oxidation_rules') as OxRulesData;
   if (!locale || locale === 'ru') return data;
   const overlay = await loadTranslationOverlay(locale, 'oxidation_rules');
   if (!overlay) return data;
-  const o = overlay as Record<string, unknown>;
-  const rulesOverlay = o['rules'] as Array<Partial<import('../types/oxidation-rules').OxRule>> | undefined;
-  if (!rulesOverlay) return data;
+  const o = overlay as unknown as Partial<Record<string, unknown>>;
   return {
     ...data,
-    rules: mergeArrayOverlay(data.rules, rulesOverlay, r => r.id),
+    rules: mergeArrayOverlay(data.rules, o['rules'], r => r.id),
   };
 }
 
