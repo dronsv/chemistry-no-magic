@@ -1,14 +1,14 @@
 {
   "rules": [
-    { "id": "simple_substance", "title_ru": "Simple substance", "description_ru": "In a simple substance, the oxidation state of the atom is 0.", "examples": ["O2", "Fe", "Cl2"] },
-    { "id": "fluorine", "title_ru": "Fluorine: always −1", "description_ru": "Fluorine has the highest electronegativity, so it is always −1 in all compounds.", "examples": ["HF", "CaF2"] },
-    { "id": "group1", "title_ru": "Alkali metals: +1", "description_ru": "Li, Na, K, Rb, Cs, Fr are always +1 in compounds.", "examples": ["NaCl", "KOH", "Li2O"] },
-    { "id": "group2", "title_ru": "Alkaline earth metals: +2", "description_ru": "Be, Mg, Ca, Sr, Ba, Ra are always +2 in compounds.", "examples": ["CaO", "MgCl2", "BaSO4"] },
-    { "id": "aluminum", "title_ru": "Aluminum: +3", "description_ru": "Aluminum is always +3 in compounds.", "examples": ["Al2O3", "AlCl3", "Al(OH)3"] },
-    { "id": "oxygen", "title_ru": "Oxygen: usually −2", "description_ru": "In most compounds, oxygen is −2. Exceptions: peroxides (−1) and compounds with F.", "examples": ["H2O", "SO3", "Fe2O3"] },
-    { "id": "oxygen_peroxide", "title_ru": "Oxygen in peroxides: −1", "description_ru": "In peroxides, oxygen is −1 (exception to the −2 rule).", "examples": ["H2O2", "Na2O2", "BaO2"] },
-    { "id": "hydrogen", "title_ru": "Hydrogen: usually +1", "description_ru": "In most compounds, hydrogen is +1. Exception: metal hydrides (−1).", "examples": ["H2O", "HCl", "NH3"] },
-    { "id": "hydrogen_hydride", "title_ru": "Hydrogen in metal hydrides: −1", "description_ru": "In alkali and alkaline earth metal hydrides, hydrogen is −1.", "examples": ["NaH", "CaH2"] },
+    { "id": "simple_substance", "title_ru": "Simple substance", "description_ru": "In a simple substance, the oxidation state of the atom is 0." },
+    { "id": "fluorine", "title_ru": "Fluorine: always −1", "description_ru": "Fluorine has the highest electronegativity, so it is always −1 in all compounds." },
+    { "id": "group1", "title_ru": "Alkali metals: +1", "description_ru": "Li, Na, K, Rb, Cs, Fr are always +1 in compounds." },
+    { "id": "group2", "title_ru": "Alkaline earth metals: +2", "description_ru": "Be, Mg, Ca, Sr, Ba, Ra are always +2 in compounds." },
+    { "id": "aluminum", "title_ru": "Aluminum: +3", "description_ru": "Aluminum is always +3 in compounds." },
+    { "id": "oxygen", "title_ru": "Oxygen: usually −2", "description_ru": "In most compounds, oxygen is −2. Exceptions: peroxides (−1) and compounds with F." },
+    { "id": "oxygen_peroxide", "title_ru": "Oxygen in peroxides: −1", "description_ru": "In peroxides, oxygen is −1 (exception to the −2 rule)." },
+    { "id": "hydrogen", "title_ru": "Hydrogen: usually +1", "description_ru": "In most compounds, hydrogen is +1. Exception: metal hydrides (−1)." },
+    { "id": "hydrogen_hydride", "title_ru": "Hydrogen in metal hydrides: −1", "description_ru": "In alkali and alkaline earth metal hydrides, hydrogen is −1." },
     { "id": "algebraic", "title_ru": "Algebraic calculation", "description_ru": "The unknown oxidation state is found from the condition that the sum of all oxidation states equals 0. For example: KMnO4 → Mn = +7, H2SO4 → S = +6." },
     { "id": "sum_equals_zero", "title_ru": "Sum of oxidation states = 0", "description_ru": "In a neutral molecule, the sum of oxidation states of all atoms equals 0." }
   ]
