@@ -3,7 +3,8 @@ import type { RichText, TextSeg } from '../types/ontology-ref';
 import type { SupportedLocale } from '../types/i18n';
 import type { FormulaLookup } from '../types/formula-lookup';
 import FormulaChip from './FormulaChip';
-import ConceptRef from './ConceptRef';
+import OntologyRef from './OntologyRef';
+import { parseOntRef } from '../lib/ontology-ref';
 import SmartText from './SmartText';
 import { useFormulaLookup } from './ChemText';
 
@@ -17,16 +18,23 @@ function renderSeg(seg: TextSeg, idx: number, locale?: SupportedLocale, lookup?:
     case 'text':
       // Run SmartText on plain text segments to detect remaining formulas/concepts
       return <SmartText key={idx} text={seg.v} locale={locale} />;
-    case 'ref':
+    case 'ref': {
+      let ontRef;
+      try {
+        ontRef = parseOntRef(seg.id);
+      } catch {
+        return <span key={idx}>{seg.surface ?? seg.id}</span>;
+      }
       return (
-        <ConceptRef
+        <OntologyRef
           key={idx}
-          id={seg.id}
+          ontRef={ontRef}
           form={seg.form}
           surface={seg.surface}
           locale={locale}
         />
       );
+    }
     case 'formula': {
       const entry = lookup?.[seg.formula];
       return (
