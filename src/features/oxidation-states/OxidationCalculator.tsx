@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { Element, MetalType } from '../../types/element';
 import type { MoleculeStructure } from '../../types/molecule';
-import type { ExplainedResult, SolveStep, StepRuleId } from '../../lib/oxidation-state';
+import type { ExplainedResult, SolveStep } from '../../lib/oxidation-state';
 import { explainOxidationSteps } from '../../lib/oxidation-state';
 import { parseFormula } from '../../lib/formula-parser';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadElements, loadStructure } from '../../lib/data-loader';
+import { loadElements, loadStructure, loadOxidationRules } from '../../lib/data-loader';
+import type { OxRule } from '../../types/oxidation-rules';
 import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
 import MoleculeView from '../../components/MoleculeView';
 import * as m from '../../paraglide/messages.js';
@@ -15,18 +16,6 @@ interface ElementInfo {
   metal_type: MetalType;
 }
 
-const RULE_LABELS: Record<StepRuleId, () => string> = {
-  simple_substance: m.ox_rule_simple_substance,
-  fluorine: m.ox_rule_fluorine,
-  group1: m.ox_rule_group1,
-  group2: m.ox_rule_group2,
-  aluminum: m.ox_rule_aluminum,
-  oxygen: m.ox_rule_oxygen,
-  oxygen_peroxide: m.ox_rule_oxygen_peroxide,
-  hydrogen: m.ox_rule_hydrogen,
-  hydrogen_hydride: m.ox_rule_hydrogen_hydride,
-  algebraic: m.ox_rule_algebraic,
-};
 
 function formatState(state: number): string {
   if (state === 0) return '0';
@@ -42,16 +31,18 @@ function stateColor(state: number): string {
 
 interface StepCardProps {
   step: SolveStep;
+  rule: OxRule | undefined;
 }
 
-function StepCard({ step }: StepCardProps) {
+function StepCard({ step, rule }: StepCardProps) {
   const borderColor = step.state >= 0 ? '#dc2626' : '#2563eb';
+  const title = rule?.title_ru ?? step.rule_id;
 
   return (
-    <div className="ox-step" style={{ borderLeftColor: borderColor }}>
+    <div className={`ox-step ox-step--${rule?.kind ?? 'assignment'}`} style={{ borderLeftColor: borderColor }}>
       <span className="ox-step__badge">{step.symbol}</span>
       <div className="ox-step__content">
-        <div className="ox-step__rule">{RULE_LABELS[step.rule_id]()}</div>
+        <div className="ox-step__rule">{title}</div>
         <span className="ox-step__state" style={{ color: stateColor(step.state) }}>
           {formatState(step.state)}
         </span>
@@ -65,6 +56,7 @@ function StepCard({ step }: StepCardProps) {
 
 export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [elementInfoMap, setElementInfoMap] = useState<Map<string, ElementInfo>>(new Map());
+  const [rulesById, setRulesById] = useState<Record<string, OxRule>>({});
   const [formulaInput, setFormulaInput] = useState('');
   const [result, setResult] = useState<ExplainedResult | null>(null);
   const [structure, setStructure] = useState<MoleculeStructure | null>(null);
@@ -73,12 +65,18 @@ export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    loadElements(locale).then(elems => {
+    Promise.all([
+      loadElements(locale),
+      loadOxidationRules(locale),
+    ]).then(([elems, rulesData]) => {
       const map = new Map<string, ElementInfo>();
       for (const el of elems) {
         map.set(el.symbol, { group: el.group, metal_type: el.metal_type });
       }
       setElementInfoMap(map);
+      const byId: Record<string, OxRule> = {};
+      for (const r of rulesData.rules) byId[r.id] = r;
+      setRulesById(byId);
     });
   }, [locale]);
 
@@ -190,7 +188,7 @@ export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }
           {showSteps && (
             <div className="ox-steps">
               {result.steps.map((step, i) => (
-                <StepCard key={`${step.symbol}-${i}`} step={step} />
+                <StepCard key={`${step.symbol}-${i}`} step={step} rule={rulesById[step.rule_id]} />
               ))}
             </div>
           )}
