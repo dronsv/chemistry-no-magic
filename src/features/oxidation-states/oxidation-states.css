@@ -209,3 +209,25 @@
     padding: var(--space-xs) var(--space-sm);
   }
 }
+
+/* HTML formula row (replaces SVG renderer) */
+.ox-formula-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: flex-end;
+  padding: 0.5rem 0;
+}
+
+.ox-formula-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.ox-formula-cell__state {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}

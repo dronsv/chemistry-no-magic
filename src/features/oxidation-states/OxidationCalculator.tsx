@@ -143,10 +143,6 @@ export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }
     }
   }
 
-  const counts = result
-    ? parseFormula(formulaInput.trim())
-    : {};
-
   return (
     <section className="ox-calc">
       <h2 className="ox-calc__title">{m.ox_title()}</h2>
@@ -169,7 +165,7 @@ export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }
           <div className="ox-result__formula-svg">
             <FormulaWithOxStates
               assignments={result.assignments}
-              counts={counts}
+              locale={locale}
             />
           </div>
 
