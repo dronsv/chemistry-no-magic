@@ -1,9 +1,9 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-03-04
+> Last updated: 2026-03-05
 >
-> See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, MoleculeView, BondEnergyTrace, etc.)
+> See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, ConceptRef, MoleculeView, BondEnergyTrace, etc.)
 
 ---
 
@@ -1244,7 +1244,7 @@ Summary of data ↔ component connections:
 | Structures (38) | `MoleculeView` | 2D SVG: bonds, lone pairs, ox states, polarity, bond info |
 | Bond Energy (26) | `BondEnergyTrace` | Per-bond energy table with quality badge |
 | FormulaLookup (239) | `ChemText`, `SmartText` | Auto-detect formulas in plain text |
-| Concepts (registry) | `OntologyRef`, `SmartText` | Typed ontology links, auto-detect in text |
-| RichText AST | `RichTextRenderer` | Composite: text + ref + formula + em/strong segments |
+| Concepts (registry) | `ConceptRef`, `OntologyRef`, `SmartText` | Typed ontology links, auto-detect in text; `OntologyRef` is the unified dispatcher that routes `OntRef { kind, id }` to `FormulaChip` (element/substance/ion), `ConceptRef` (concept kinds), or reaction chip |
+| RichText AST | `RichTextRenderer` | Composite: text + ref + formula + em/strong segments; `ref` segments routed through unified `OntologyRef` via `parseOntRef` |
 | Bond Theory (Δχ) | `BondDiagramIonic`, `BondDiagramCovalent`, `BondDiagramMetallic` | SVG bond type diagrams |
 | Genetic Chains (5) | `GuidedSelectionExercise` | Gap-fill chain visualization |

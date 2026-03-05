@@ -18,7 +18,8 @@ graph TD
 
     subgraph "Core Renderers"
         FC[FormulaChip]
-        OR[OntologyRef]
+        OR[OntologyRef - dispatcher]
+        CR[ConceptRef]
         CT[ChemText]
         ST[SmartText]
     end
@@ -49,13 +50,16 @@ graph TD
 
     FLP --> CT
     FLP --> ST
-    CP --> OR
+    FLP --> OR
+    CP --> CR
     CP --> ST
     IDP --> FC
 
     CT --> FC
     ST --> FC
     ST --> OR
+    OR --> FC
+    OR --> CR
     RTR --> ST
     RTR --> OR
     RTR --> FC
@@ -126,9 +130,9 @@ Astro build-time (readFile) → props → React islands
 |---|---|
 | **Файл** | `src/components/FormulaChip.tsx` (177 строк) |
 | **Экспорт** | `FormulaChip` (default) |
-| **Props** | `formula`, `name?`, `substanceClass?`, `subclass?`, `substanceId?`, `locale?`, `oxidationStates?`, `ionType?`, `ionId?` |
+| **Props** | `formula`, `name?`, `substanceClass?`, `subclass?`, `substanceId?`, `locale?`, `oxidationStates?`, `ionType?`, `ionId?`, `elementId?` |
 | **Рендер** | Inline-бейдж `<span class="formula-chip">` с HTML `<sup>/<sub>` для формул |
-| **Функции** | Цветной фон по классу/типу иона; тултип (name · class · subclass · ox states); клик: ionId → popup, substanceId → навигация; hover → highlight-event для периодической таблицы |
+| **Функции** | Цветной фон по классу/типу иона; тултип (name · class · subclass · ox states); клик: ionId → popup, substanceId → навигация, elementId → страница элемента; hover → highlight-event для периодической таблицы |
 | **Зависимости** | `parseChemicalFormula()` из `formula-render.ts`, `parseFormula()` из `formula-parser.ts`, `useIonDetails()`, `localizeUrl()` |
 | **Цвета** | Cation: #eff6ff/#1e40af (blue), Anion: #fef2f2/#991b1b (red), Oxide/Acid/Base/Salt/Simple: CSS variables |
 | **Paraglide** | `class_*_lower`, `subclass_*`, `ion_cation`, `ion_anion` |
@@ -136,15 +140,31 @@ Astro build-time (readFile) → props → React islands
 
 ### OntologyRef
 
+Unified dispatcher: routes an `OntRef { kind, id }` to the appropriate renderer depending on kind.
+
 | | |
 |---|---|
-| **Файл** | `src/components/OntologyRef.tsx` (113 строк) |
+| **Файл** | `src/components/OntologyRef.tsx` (105 строк) |
 | **Экспорт** | `OntologyRef` (default) |
-| **Props** | `id` (concept ID, e.g. `"cls:oxide"`), `form?` (грамматическая форма), `surface?` (override), `locale?` |
-| **Рендер** | `<a>` ссылка с тултипом → URL строится по цепочке parent_id для иерархических slug'ов |
-| **CSS** | `ont-ref--{kind}` или `ont-ref--{substance_class}` |
-| **Зависимости** | `useConcepts()`, `CONCEPT_KIND_ROUTES` из `i18n.ts`, `localizeUrl()` |
-| **Онтология** | Универсальная ссылка на любую сущность онтологии — [→ ontology-map.md §12 ID System](./ontology-map.md#12-id-system-reference) |
+| **Props** | `ontRef: OntRef`, `variant?` (`'chip'` \| `'card'`), `form?`, `surface?`, `locale?` |
+| **Рендер** | Диспетчер по `ontRef.kind`: `element`/`substance`/`ion` → `FormulaChip`; concept kinds → `ConceptRef`; `reaction` → `<a>` ссылка |
+| **CSS** | делегирует в `FormulaChip` или `ConceptRef`; `ontology-ref.css` содержит `.ont-ref--reaction`, `.ont-ref--substance`, `.ont-ref--ion`, `.ont-ref--tooltip-desc` |
+| **Зависимости** | `FormulaChip`, `ConceptRef`, `useFormulaLookup()`, `parseOntRef()` из `ontology-ref.ts` |
+| **Онтология** | Универсальная ссылка на все 11 видов OntRef — [→ ontology-map.md §12 ID System](./ontology-map.md#12-id-system-reference) |
+
+### ConceptRef
+
+Concept-kind colored link with description tooltip (renamed from the original `OntologyRef`).
+
+| | |
+|---|---|
+| **Файл** | `src/components/ConceptRef.tsx` (117 строк) |
+| **Экспорт** | `ConceptRef` (default) |
+| **Props** | `id` (concept ID, e.g. `"cls:oxide"`), `variant?` (`'chip'` \| `'card'`), `form?`, `surface?`, `locale?` |
+| **Рендер** | chip: `<a>` ссылка с тултипом; card: расширенный попап с description через `ConceptProvider` |
+| **CSS** | `ont-ref--{kind}` или `ont-ref--{substance_class}` (из `ontology-ref.css`) |
+| **Зависимости** | `useConcepts()` / `ConceptProvider`, `CONCEPT_KIND_ROUTES` из `i18n.ts`, `localizeUrl()` |
+| **Онтология** | Концептные виды: `substance_class`, `element_group`, `reaction_type`, `reaction_facet`, `process`, `property`, `context` — [→ ontology-map.md §12 ID System](./ontology-map.md#12-id-system-reference) |
 
 **Система префиксов OntRef** (из `src/lib/ontology-ref.ts`):
 
@@ -178,13 +198,13 @@ Astro build-time (readFile) → props → React islands
 
 | | |
 |---|---|
-| **Файл** | `src/components/SmartText.tsx` (119 строк) |
+| **Файл** | `src/components/SmartText.tsx` (120 строк) |
 | **Экспорт** | `SmartText` (default) |
 | **Props** | `text: string`, `locale?: SupportedLocale` |
 | **Рендер** | Комбинированная автодетекция: формулы (высокий приоритет) + концепты (низкий приоритет) |
 | **Алгоритм** | Объединённый lookup: concepts ∪ formulas (formulas override), case-insensitive, longest first |
-| **Рендерит** | `FormulaChip` (формулы) или `OntologyRef` (концепты) |
-| **Зависимости** | `useFormulaLookup()`, `useConcepts()` |
+| **Рендерит** | `FormulaChip` (формулы, с `elementId`) или unified `OntologyRef` (концепты) |
+| **Зависимости** | `useFormulaLookup()`, `useConcepts()`, `OntologyRef` |
 
 ---
 
@@ -220,7 +240,7 @@ Astro build-time (readFile) → props → React islands
 
 | | |
 |---|---|
-| **Файл** | `src/components/RichTextRenderer.tsx` (56 строк) |
+| **Файл** | `src/components/RichTextRenderer.tsx` (74 строк) |
 | **Экспорт** | `RichTextRenderer` (default) |
 | **Props** | `segments: RichText`, `locale?: SupportedLocale` |
 | **AST** | `RichText = TextSeg[]` — типизированный массив сегментов |
@@ -230,7 +250,7 @@ Astro build-time (readFile) → props → React islands
 | Тип | Описание | Рендерится как |
 |-----|----------|---------------|
 | `{ t: 'text', v: string }` | Простой текст | `SmartText` (повторная автодетекция) |
-| `{ t: 'ref', id, form?, surface? }` | Ссылка на концепт | `OntologyRef` |
+| `{ t: 'ref', id, form?, surface? }` | Ссылка на онтологию | unified `OntologyRef` via `parseOntRef(id)` |
 | `{ t: 'formula', kind, id?, formula }` | Химическая формула | `FormulaChip` |
 | `{ t: 'br' }` | Перенос строки | `<br/>` |
 | `{ t: 'em', children: RichText }` | Курсив | `<em>` + рекурсия |
@@ -367,13 +387,14 @@ Astro build-time (readFile) → props → React islands
 | **Provider** | ConceptProvider | Context | 25 | Concepts (registry + overlay + lookup) |
 | **Provider** | IonDetailsProvider | Modal | 191 | Ions (41) |
 | **Provider** | FormulaLookupProvider | Context | 18 | FormulaLookup (239 entries) |
-| **Renderer** | FormulaChip | Badge | 177 | Elements, Ions, Substances, OxStates |
-| **Renderer** | OntologyRef | Link | 113 | Все сущности (11 видов, prefix-based) |
-| **Renderer** | ChemText | Auto-parser | 166 | FormulaLookup → FormulaChip |
-| **Renderer** | SmartText | Auto-parser | 119 | FormulaLookup + Concepts → FormulaChip/OntologyRef |
+| **Renderer** | FormulaChip | Badge | 185 | Elements (+ `elementId` nav), Ions, Substances, OxStates |
+| **Renderer** | OntologyRef | Dispatcher | 105 | Все сущности (11 видов): → FormulaChip / ConceptRef / reaction link |
+| **Renderer** | ConceptRef | Link | 117 | Concept kinds (7 видов); chip + card variants; renamed from OntologyRef |
+| **Renderer** | ChemText | Auto-parser | 167 | FormulaLookup → FormulaChip (с `elementId`) |
+| **Renderer** | SmartText | Auto-parser | 120 | FormulaLookup + Concepts → FormulaChip/OntologyRef |
 | **Compound** | TheoryModulePanel | Panel | ~260 | theory_modules/*.json → rule_card/table/equation blocks |
 | **Compound** | CollapsibleSection | Accordion | ~90 | Persistent open/close state (localStorage) |
-| **Compound** | RichTextRenderer | Composite | 56 | RichText AST → SmartText/OntologyRef/FormulaChip |
+| **Compound** | RichTextRenderer | Composite | 74 | RichText AST → SmartText/OntologyRef/FormulaChip; `ref` сегменты → unified OntologyRef |
 | **SVG** | MoleculeView | 2D Viz | 784 | Structures (38), Bonds, OxStates, Polarity |
 | **SVG** | BondEnergyTrace | Table | 53 | BondEnergyTable (27 типов), CalcTrace (26 веществ) |
 | **SVG** | EnergyLevelDiagram | Diagram | 110 | Elements (Z → electron config) |
@@ -402,7 +423,8 @@ BaseLayout.astro
 │  │  │     ├─ ChemText          → useFormulaLookup()
 │  │  │     ├─ SmartText         → useFormulaLookup() + useConcepts()
 │  │  │     ├─ FormulaChip       → useIonDetails()
-│  │  │     ├─ OntologyRef       → useConcepts()
+│  │  │     ├─ OntologyRef       → dispatcher → FormulaChip / ConceptRef
+│  │  │     ├─ ConceptRef        → useConcepts()
 │  │  │     ├─ RichTextRenderer  → SmartText + OntologyRef + FormulaChip
 │  │  │     ├─ MoleculeView      (props only, no context)
 │  │  │     └─ BondEnergyTrace   (props only, no context)
