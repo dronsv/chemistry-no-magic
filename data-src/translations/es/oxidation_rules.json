@@ -1,0 +1,15 @@
+{
+  "rules": [
+    { "id": "simple_substance", "title_ru": "Sustancia simple", "description_ru": "En una sustancia simple, el estado de oxidación del átomo es 0." },
+    { "id": "fluorine", "title_ru": "Flúor: siempre −1", "description_ru": "El flúor tiene la mayor electronegatividad, por lo que siempre es −1 en todos los compuestos." },
+    { "id": "group1", "title_ru": "Metales alcalinos: +1", "description_ru": "Li, Na, K, Rb, Cs, Fr siempre tienen +1 en compuestos." },
+    { "id": "group2", "title_ru": "Metales alcalinotérreos: +2", "description_ru": "Be, Mg, Ca, Sr, Ba, Ra siempre tienen +2 en compuestos." },
+    { "id": "aluminum", "title_ru": "Aluminio: +3", "description_ru": "El aluminio siempre tiene +3 en compuestos." },
+    { "id": "oxygen", "title_ru": "Oxígeno: normalmente −2", "description_ru": "En la mayoría de los compuestos el oxígeno tiene −2. Excepciones: peróxidos (−1) y compuestos con F." },
+    { "id": "oxygen_peroxide", "title_ru": "Oxígeno en peróxidos: −1", "description_ru": "En los peróxidos, el oxígeno tiene −1 (excepción a la regla −2)." },
+    { "id": "hydrogen", "title_ru": "Hidrógeno: normalmente +1", "description_ru": "En la mayoría de los compuestos el hidrógeno tiene +1. Excepción: hidruros metálicos (−1)." },
+    { "id": "hydrogen_hydride", "title_ru": "Hidrógeno en hidruros metálicos: −1", "description_ru": "En los hidruros de metales alcalinos y alcalinotérreos, el hidrógeno tiene −1." },
+    { "id": "algebraic", "title_ru": "Cálculo algebraico", "description_ru": "El estado de oxidación desconocido se calcula a partir de la condición de que la suma de todos es 0. Por ejemplo: KMnO4 → Mn = +7, H2SO4 → S = +6." },
+    { "id": "sum_equals_zero", "title_ru": "Suma de estados de oxidación = 0", "description_ru": "En una molécula neutra, la suma de los estados de oxidación de todos los átomos es 0." }
+  ]
+}
