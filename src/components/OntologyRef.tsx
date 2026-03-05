@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import type { SupportedLocale } from '../types/i18n';
 import type { OntRef } from '../types/ontology-ref';
 import { toOntRefStr } from '../lib/ontology-ref';
@@ -9,12 +9,12 @@ import ConceptRef from './ConceptRef';
 import type { FormulaLookup } from '../types/formula-lookup';
 import './ontology-ref.css';
 
-/** Build reverse map: entity id → display formula string */
+/** Build reverse map: `type:id` → display formula string */
 function buildReverseMap(lookup: FormulaLookup | null): Map<string, string> {
   const map = new Map<string, string>();
   if (!lookup) return map;
   for (const [formula, entry] of Object.entries(lookup)) {
-    map.set(entry.id, formula);
+    map.set(`${entry.type}:${entry.id}`, formula);
   }
   return map;
 }
@@ -29,7 +29,6 @@ interface OntologyRefProps {
 
 export default function OntologyRef({ ontRef, variant = 'chip', form, surface, locale }: OntologyRefProps) {
   const formulaLookup = useFormulaLookup();
-  const [hovered, setHovered] = useState(false);
 
   const reverseMap = useMemo(() => buildReverseMap(formulaLookup), [formulaLookup]);
 
@@ -49,7 +48,7 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
 
   // Substance: reverse-lookup formula from id
   if (kind === 'substance') {
-    const formula = reverseMap.get(id);
+    const formula = reverseMap.get(`substance:${id}`);
     if (!formula) return <span className="ont-ref ont-ref--substance">{surface ?? id}</span>;
     const entry = formulaLookup?.[formula];
     return (
@@ -64,7 +63,7 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
 
   // Ion: reverse-lookup formula from id
   if (kind === 'ion') {
-    const formula = reverseMap.get(id);
+    const formula = reverseMap.get(`ion:${id}`);
     if (!formula) return <span className="ont-ref ont-ref--ion">{surface ?? id}</span>;
     const entry = formulaLookup?.[formula];
     return (
@@ -95,17 +94,8 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
     const href = localizeUrl('/reactions/', locale ?? 'ru');
     const label = surface ?? id;
     return (
-      <a
-        className="ont-ref ont-ref--reaction"
-        href={href}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{ position: 'relative' }}
-      >
+      <a className="ont-ref ont-ref--reaction" href={href}>
         {label}
-        {variant === 'card' && hovered && (
-          <span className="ont-ref__tooltip">{label}</span>
-        )}
       </a>
     );
   }
