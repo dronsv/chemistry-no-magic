@@ -522,6 +522,21 @@ export async function loadOxidationExamples(): Promise<OxidationExample[]> {
   return loadRule('oxidation_examples') as Promise<OxidationExample[]>;
 }
 
+/** Load oxidation state rules catalog (descriptions + examples per rule ID). */
+export async function loadOxidationRules(locale?: SupportedLocale): Promise<import('../types/oxidation-rules').OxRulesData> {
+  const data = await loadRule('oxidation_rules') as import('../types/oxidation-rules').OxRulesData;
+  if (!locale || locale === 'ru') return data;
+  const overlay = await loadTranslationOverlay(locale, 'oxidation_rules');
+  if (!overlay) return data;
+  const o = overlay as Record<string, unknown>;
+  const rulesOverlay = o['rules'] as Array<Partial<import('../types/oxidation-rules').OxRule>> | undefined;
+  if (!rulesOverlay) return data;
+  return {
+    ...data,
+    rules: mergeArrayOverlay(data.rules, rulesOverlay, r => r.id),
+  };
+}
+
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
 export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[]> {
   const manifest = await getManifest();

@@ -176,6 +176,7 @@ async function main() {
   const examSystems = await loadJson(join(DATA_SRC, 'exam', 'systems.json'));
   const topicMapping = await loadJson(join(DATA_SRC, 'rules', 'topic_mapping.json'));
   const ionNomenclature = await loadJson(join(DATA_SRC, 'rules', 'ion_nomenclature.json'));
+  const oxidationRules = await loadJson(join(DATA_SRC, 'rules', 'oxidation_rules.json'));
   const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
   const solubilityFull = await loadJson(join(DATA_SRC, 'rules', 'solubility_rules_full.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
@@ -393,6 +394,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'calculations_data.json'), JSON.stringify(calculationsData));
   await writeFile(join(bundleDir, 'rules', 'topic_mapping.json'), JSON.stringify(topicMapping));
   await writeFile(join(bundleDir, 'rules', 'ion_nomenclature.json'), JSON.stringify(ionNomenclature));
+  await writeFile(join(bundleDir, 'rules', 'oxidation_rules.json'), JSON.stringify(oxidationRules));
   await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
   await writeFile(join(bundleDir, 'rules', 'properties.json'), JSON.stringify(properties));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));

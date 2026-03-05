@@ -41,6 +41,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         calculations_data: 'rules/calculations_data.json',
         topic_mapping: 'rules/topic_mapping.json',
         ion_nomenclature: 'rules/ion_nomenclature.json',
+        oxidation_rules: 'rules/oxidation_rules.json',
         oxidation_examples: 'rules/oxidation_examples.json',
         properties: 'rules/properties.json',
         solubility_rules_full: 'rules/solubility_rules_full.json',
