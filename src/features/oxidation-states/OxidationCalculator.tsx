@@ -9,6 +9,7 @@ import { loadElements, loadStructure, loadOxidationRules } from '../../lib/data-
 import type { OxRule } from '../../types/oxidation-rules';
 import FormulaWithOxStates from './diagrams/FormulaWithOxStates';
 import MoleculeView from '../../components/MoleculeView';
+import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
 
 interface ElementInfo {
@@ -32,15 +33,21 @@ function stateColor(state: number): string {
 interface StepCardProps {
   step: SolveStep;
   rule: OxRule | undefined;
+  locale?: SupportedLocale;
 }
 
-function StepCard({ step, rule }: StepCardProps) {
+function StepCard({ step, rule, locale }: StepCardProps) {
   const borderColor = step.state >= 0 ? '#dc2626' : '#2563eb';
   const title = rule?.title_ru ?? step.rule_id;
 
   return (
     <div className={`ox-step ox-step--${rule?.kind ?? 'assignment'}`} style={{ borderLeftColor: borderColor }}>
-      <span className="ox-step__badge">{step.symbol}</span>
+      <FormulaChip
+        formula={step.symbol}
+        elementId={step.symbol}
+        substanceClass="simple"
+        locale={locale}
+      />
       <div className="ox-step__content">
         <div className="ox-step__rule">{title}</div>
         <span className="ox-step__state" style={{ color: stateColor(step.state) }}>
@@ -188,7 +195,7 @@ export default function OxidationCalculator({ locale = 'ru' as SupportedLocale }
           {showSteps && (
             <div className="ox-steps">
               {result.steps.map((step, i) => (
-                <StepCard key={`${step.symbol}-${i}`} step={step} rule={rulesById[step.rule_id]} />
+                <StepCard key={`${step.symbol}-${i}`} step={step} rule={rulesById[step.rule_id]} locale={locale} />
               ))}
             </div>
           )}
