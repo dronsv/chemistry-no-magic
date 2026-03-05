@@ -1,0 +1,81 @@
+{
+  "ruleset_id": "oxidation_rules.school_v1",
+  "rules": [
+    {
+      "id": "simple_substance",
+      "kind": "assignment",
+      "title_ru": "Простое вещество",
+      "description_ru": "В простом веществе степень окисления атома равна 0.",
+      "examples": ["O₂", "Fe", "Cl₂"]
+    },
+    {
+      "id": "fluorine",
+      "kind": "assignment",
+      "title_ru": "Фтор всегда −1",
+      "description_ru": "Фтор имеет наибольшую электроотрицательность, поэтому всегда −1 во всех соединениях.",
+      "examples": ["HF", "CaF₂"]
+    },
+    {
+      "id": "group1",
+      "kind": "assignment",
+      "title_ru": "Щелочные металлы: +1",
+      "description_ru": "Li, Na, K, Rb, Cs, Fr всегда имеют +1 в соединениях.",
+      "examples": ["NaCl", "KOH", "Li₂O"]
+    },
+    {
+      "id": "group2",
+      "kind": "assignment",
+      "title_ru": "Щелочноземельные металлы: +2",
+      "description_ru": "Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.",
+      "examples": ["CaO", "MgCl₂", "BaSO₄"]
+    },
+    {
+      "id": "aluminum",
+      "kind": "assignment",
+      "title_ru": "Алюминий: +3",
+      "description_ru": "Алюминий всегда имеет +3 в соединениях.",
+      "examples": ["Al₂O₃", "AlCl₃", "Al(OH)₃"]
+    },
+    {
+      "id": "oxygen",
+      "kind": "default",
+      "title_ru": "Кислород: обычно −2",
+      "description_ru": "В большинстве соединений кислород имеет −2. Исключения: пероксиды (−1) и соединения с F (положительная).",
+      "examples": ["H₂O", "SO₃", "Fe₂O₃"]
+    },
+    {
+      "id": "oxygen_peroxide",
+      "kind": "exception",
+      "title_ru": "Кислород в пероксидах: −1",
+      "description_ru": "В пероксидах кислород имеет −1 (исключение из правила −2).",
+      "examples": ["H₂O₂", "Na₂O₂", "BaO₂"]
+    },
+    {
+      "id": "hydrogen",
+      "kind": "default",
+      "title_ru": "Водород: обычно +1",
+      "description_ru": "В большинстве соединений водород имеет +1. Исключение: гидриды металлов (−1).",
+      "examples": ["H₂O", "HCl", "NH₃"]
+    },
+    {
+      "id": "hydrogen_hydride",
+      "kind": "exception",
+      "title_ru": "Водород в гидридах металлов: −1",
+      "description_ru": "В гидридах щелочных и щелочноземельных металлов водород имеет −1.",
+      "examples": ["NaH", "CaH₂"]
+    },
+    {
+      "id": "algebraic",
+      "kind": "assignment",
+      "title_ru": "Алгебраический расчёт",
+      "description_ru": "Неизвестная степень окисления находится из условия, что сумма всех степеней окисления равна 0.",
+      "examples": ["KMnO₄ → Mn = +7", "H₂SO₄ → S = +6"]
+    },
+    {
+      "id": "sum_equals_zero",
+      "kind": "constraint",
+      "title_ru": "Сумма степеней окисления = 0",
+      "description_ru": "В нейтральной молекуле сумма степеней окисления всех атомов равна 0."
+    }
+  ]
+}
