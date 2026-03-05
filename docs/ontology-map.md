@@ -22,7 +22,7 @@
 | **Activity Series** | `data-src/rules/activity_series.json` | 1 | 18 | Active |
 | **Applicability Rules** | `data-src/rules/applicability_rules.json` | 1 | 15 | Active |
 | **Bond Theory + Examples** | `data-src/rules/bond_theory.json`, `bond_examples.json` | 2 | 17 examples | Active |
-| **Oxidation Theory + Examples** | `data-src/rules/oxidation_theory.json`, `oxidation_examples.json` | 2 | 22 examples | Active |
+| **Oxidation Theory + Examples + Rules** | `data-src/rules/oxidation_theory.json`, `oxidation_examples.json`, `oxidation_rules.json` | 3 | 22 examples, 11 rules | Active |
 | **Properties** | `data-src/rules/properties.json` | 1 | 5 | Active |
 | **BKT Params** | `data-src/rules/bkt_params.json` | 1 | 21 | Active |
 | **Qualitative Tests** | `data-src/rules/qualitative_reactions.json` | 1 | 11 | Active |
@@ -836,6 +836,7 @@ graph TB
 | `ion_nomenclature.json` | 4 | Ion suffix rules |
 | `naming_rules.json` | 37 | Nomenclature rules |
 | `oxidation_examples.json` | 22 | Oxidation state examples |
+| `oxidation_rules.json` | 11 | Solver rules (10) + `sum_equals_zero` constraint; loaded via `loadOxidationRules(locale?)`; replaces hardcoded `RULE_LABELS` in OxidationCalculator |
 | `oxidation_theory.json` | — | Oxidation state rules (superseded by theory_modules/oxidation_states.json) |
 | `periodic-table-theory.json` | — | Periodic table theory |
 | `properties.json` | 5 | Element property definitions |
@@ -948,7 +949,7 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 |-----------|-----------------|-------------------|---------|
 | Electron configuration (Aufbau + exceptions) | `src/lib/electron-config.ts` | `getElectronConfig(Z)`, `getElectronFormula(Z)`, `getShorthandFormula(Z)`, `getValenceElectrons(Z)`, `isException(Z)`, `getOrbitalBoxes(Z)`, `toSuperscript(n)` | Engine solver `electron_config`, legacy `periodic-table/generate-exercises.ts` |
 | Bond type classification (Δχ) | `src/lib/bond-calculator.ts` | `determineBondType(elA, elB)`, `determineCrystalStructure(bondType, formula, symbols)`, `analyzeFormula(formula, elementMap)` | Engine solver `delta_chi`, legacy `bonds/generate-exercises.ts` |
-| Oxidation state assignment | `src/lib/oxidation-state.ts` | `calcOxidationStates(parsed, elementMap, formula)`, `explainOxidationSteps(parsed, elementMap, formula)` | Legacy `oxidation-states/generate-exercises.ts` |
+| Oxidation state assignment | `src/lib/oxidation-state.ts` | `calcOxidationStates(parsed, elementMap, formula)`, `explainOxidationSteps(parsed, elementMap, formula)` | Legacy `oxidation-states/generate-exercises.ts`; `SolveStep.rule_id` is `string` (was `StepRuleId` union) |
 | Chemical formula parsing | `src/lib/formula-parser.ts` | `parseFormula(formula)` | `bond-calculator.ts`, `oxidation-state.ts` |
 | BKT adaptive learning | `src/lib/bkt-engine.ts` | `bktUpdate(pL, params, correct, hintUsed)`, `getLevel(pL)` | All practice islands |
 | Bond energy calculation | `src/lib/calc-bond-energy.ts` | `calcBondEnergyV1(entityId, bondCounts, table)` | Build pipeline (`scripts/lib/calc-bond-energy.mjs`), golden tests |
@@ -1065,6 +1066,7 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Bond theory | `data-src/rules/bond_theory.json` | source | — | — | ~~`loadBondTheory()`~~ superseded by theory_modules/bonds_and_crystals.json | copied to bundle |
 | Theory modules | `data-src/theory_modules/*.json` | source | 3 modules | `validateTheoryModuleRefs()` | `loadTheoryModule(key)` → TheoryModulePanel | copied to bundle |
 | Oxidation theory | `data-src/rules/oxidation_theory.json` | source | — | — | ~~`loadOxidationTheory()`~~ superseded by theory_modules/oxidation_states.json | copied to bundle |
+| Oxidation rules | `data-src/rules/oxidation_rules.json` | source | 11 | — | `loadOxidationRules(locale?)` → OxidationCalculator step labels; replaces hardcoded `RULE_LABELS` | copied to bundle + translation overlays |
 | Periodic table theory | `data-src/rules/periodic-table-theory.json` | source | — | — | `loadPeriodicTableTheory()` → PT theory panel | copied to bundle |
 | Periodic table content | `data-src/periodic-table-content.json` | source | — | — | `loadPeriodicTableContent()` → PT page | copied to bundle |
 | Element groups | `data-src/element-groups.json` | source | 10 | — | `loadElementGroups()` → PT legend | copied to bundle |
@@ -1248,3 +1250,4 @@ Summary of data ↔ component connections:
 | RichText AST | `RichTextRenderer` | Composite: text + ref + formula + em/strong segments; `ref` segments routed through unified `OntologyRef` via `parseOntRef` |
 | Bond Theory (Δχ) | `BondDiagramIonic`, `BondDiagramCovalent`, `BondDiagramMetallic` | SVG bond type diagrams |
 | Genetic Chains (5) | `GuidedSelectionExercise` | Gap-fill chain visualization |
+| Oxidation States | `OxidationCalculator`, `FormulaWithOxStates`, `StepCard` | `FormulaWithOxStates`: HTML/CSS + `FormulaChip` (navigable element links, was SVG). `StepCard` element badge: `FormulaChip` with `elementId`. Rule labels loaded from `oxidation_rules.json` via `loadOxidationRules(locale?)`. |
