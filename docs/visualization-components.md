@@ -488,4 +488,3 @@ graph LR
 
 - [Ontology Map](./ontology-map.md) — полная карта данных, алгоритмов, pipeline
 - [CLAUDE.md](../CLAUDE.md) — coding conventions, data vs code boundary
-- [Technical Spec](./02_technical_spec.md) — архитектурные решения
