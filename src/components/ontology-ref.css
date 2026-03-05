@@ -32,6 +32,13 @@
 /* Property */
 .ont-ref--property { background: #f1f5f9; color: #475569; }
 
+/* Reaction */
+.ont-ref--reaction { background: #fce7f3; color: #9d174d; }
+
+/* Substance / Ion fallbacks (when formula not found in lookup) */
+.ont-ref--substance { background: #f1f5f9; color: #475569; }
+.ont-ref--ion { background: #f1f5f9; color: #475569; }
+
 /* Tooltip (same pattern as FormulaChip) */
 .ont-ref__tooltip {
   position: absolute;
