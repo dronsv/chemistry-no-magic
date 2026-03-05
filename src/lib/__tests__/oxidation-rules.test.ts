@@ -33,8 +33,8 @@ describe('OxRule types', () => {
   });
 
   it('all OxRuleKind literals are assignable', () => {
-    const _kinds: OxRuleKind[] = ['assignment', 'default', 'exception', 'constraint', 'check'];
-    expect(_kinds).toHaveLength(5);
+    const _kinds: OxRuleKind[] = ['assignment', 'default', 'exception', 'constraint'];
+    expect(_kinds).toHaveLength(4);
   });
 
   it('buildRulesById lookup returns undefined for missing keys', () => {

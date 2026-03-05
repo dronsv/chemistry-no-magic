@@ -1,4 +1,4 @@
-export type OxRuleKind = 'assignment' | 'default' | 'exception' | 'constraint' | 'check';
+export type OxRuleKind = 'assignment' | 'default' | 'exception' | 'constraint';
 
 export interface OxRule {
   id: string;

@@ -25,7 +25,7 @@ interface StepCardProps {
 }
 
 function StepCard({ step, rule, locale }: StepCardProps) {
-  const borderColor = step.state >= 0 ? '#dc2626' : '#2563eb';
+  const borderColor = stateColor(step.state);
   const title = rule?.title_ru ?? step.rule_id;
 
   return (
