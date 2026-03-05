@@ -60,3 +60,14 @@
 .ont-ref:hover .ont-ref__tooltip {
   opacity: 1;
 }
+
+.ont-ref__tooltip-desc {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 400;
+  opacity: 0.85;
+  max-width: 200px;
+  white-space: normal;
+  line-height: 1.4;
+}

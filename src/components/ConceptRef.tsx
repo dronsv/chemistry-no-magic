@@ -66,9 +66,10 @@ interface ConceptRefProps {
   form?: string;
   surface?: string;
   locale?: SupportedLocale;
+  variant?: 'chip' | 'card';
 }
 
-export default function ConceptRef({ id, form, surface, locale }: ConceptRefProps) {
+export default function ConceptRef({ id, form, surface, locale, variant = 'chip' }: ConceptRefProps) {
   const ctx = useConcepts();
   const [hovered, setHovered] = useState(false);
 
@@ -106,6 +107,9 @@ export default function ConceptRef({ id, form, surface, locale }: ConceptRefProp
       {hovered && (
         <span className="ont-ref__tooltip">
           {ov.name}
+          {variant === 'card' && ov.description && (
+            <span className="ont-ref__tooltip-desc">{ov.description}</span>
+          )}
         </span>
       )}
     </a>
