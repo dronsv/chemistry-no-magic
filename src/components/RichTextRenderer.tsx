@@ -40,6 +40,7 @@ function renderSeg(seg: TextSeg, idx: number, locale?: SupportedLocale, lookup?:
             : undefined
           }
           ionId={seg.kind === 'ion' ? seg.id : (entry?.type === 'ion' ? entry.id : undefined)}
+          elementId={seg.kind === 'element' ? seg.id : (entry?.type === 'element' ? entry.id : undefined)}
           locale={locale}
         />
       );
