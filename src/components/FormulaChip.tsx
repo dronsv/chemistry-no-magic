@@ -164,14 +164,12 @@ export default function FormulaChip({
       className={classNames}
       onMouseEnter={() => {
         setHovered(true);
-        if (!isIon) {
-          const elements = Object.keys(parseFormula(formula));
-          dispatchHighlight({ elements, formula });
-        }
+        const elements = Object.keys(parseFormula(formula));
+        dispatchHighlight(isIon ? { elements, ionId } : { elements, formula });
       }}
       onMouseLeave={() => {
         setHovered(false);
-        if (!isIon) dispatchHighlight(null);
+        dispatchHighlight(null);
       }}
       onClick={handleClick}
       role={isClickable ? 'link' : undefined}

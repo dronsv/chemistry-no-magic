@@ -8,8 +8,10 @@ const EVENT_NAME = 'formula:highlight';
 export interface FormulaHighlightDetail {
   /** Element symbols present in the formula (e.g. ['Na', 'Cl']) */
   elements: string[];
-  /** Raw formula string (e.g. 'NaCl') for solubility table lookup */
+  /** Raw formula string (e.g. 'NaCl') for solubility table reverse-index lookup */
   formula?: string;
+  /** Ion ID (e.g. 'Na_plus') for direct row/column selection in solubility table */
+  ionId?: string;
 }
 
 export function dispatchHighlight(detail: FormulaHighlightDetail | null): void {

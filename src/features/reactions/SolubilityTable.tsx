@@ -107,17 +107,26 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
   }, [formulaIndex]);
 
   // External highlight from FormulaChip hover (separate from manual cell selection)
-  const [externalHighlight, setExternalHighlight] = useState<{ cation: string; anion: string } | null>(null);
+  const [externalHighlight, setExternalHighlight] = useState<{ cation?: string; anion?: string } | null>(null);
 
   useEffect(() => {
     return onHighlight((detail) => {
-      if (!detail?.formula) {
-        setExternalHighlight(null);
+      if (!detail) { setExternalHighlight(null); return; }
+      // Ion chip: highlight only row (cation) or column (anion)
+      if (detail.ionId) {
+        if (cationOrder.includes(detail.ionId)) {
+          setExternalHighlight({ cation: detail.ionId });
+        } else if (anionOrder.includes(detail.ionId)) {
+          setExternalHighlight({ anion: detail.ionId });
+        } else {
+          setExternalHighlight(null);
+        }
         return;
       }
-      setExternalHighlight(reverseFormulaIndex.get(detail.formula) ?? null);
+      // Substance formula: look up cation+anion pair in reverse index
+      setExternalHighlight(detail.formula ? (reverseFormulaIndex.get(detail.formula) ?? null) : null);
     });
-  }, [reverseFormulaIndex]);
+  }, [reverseFormulaIndex, cationOrder, anionOrder]);
 
   if (loading) return null;
 
