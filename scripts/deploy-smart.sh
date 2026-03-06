@@ -8,6 +8,18 @@ set -euo pipefail
 FULL="${1:-}"
 DATA_CHANGED=false
 
+# ── Load .env ────────────────────────────────────────────────────────────────
+if [ -f .env ]; then
+  # shellcheck disable=SC2046
+  export $(grep -v '^#' .env | grep -v '^$' | xargs)
+fi
+
+# ── IndexNow key verification file ───────────────────────────────────────────
+if [ -n "${INDEXNOW_KEY:-}" ]; then
+  echo "$INDEXNOW_KEY" > "public/${INDEXNOW_KEY}.txt"
+  echo "IndexNow: key file → public/${INDEXNOW_KEY}.txt"
+fi
+
 # ── Data build ──────────────────────────────────────────────────────────────
 if [ "$FULL" = "--all" ]; then
   echo "=== Full rebuild ==="
