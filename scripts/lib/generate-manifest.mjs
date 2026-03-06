@@ -100,6 +100,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       process_vocab: 'process_vocab.json',
       effects_vocab: 'effects_vocab.json',
       quantities_units: 'quantities_units.json',
+      topics: 'topics.json',
+      topic_pages: 'topic_pages.json',
       indices: {
         substances_index: 'indices/substances_index.json',
       },

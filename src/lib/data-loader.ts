@@ -36,6 +36,7 @@ import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engi
 import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
+import type { Topic, TopicPagesMap } from '../types/topic';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -981,4 +982,32 @@ export async function loadCourse(courseKey: string): Promise<Course> {
     throw new Error(`Course "${courseKey}" not found in manifest`);
   }
   return loadDataFile<Course>(path);
+}
+
+/** Load all topics (pedagogical layer). Applies locale overlay when provided. */
+export async function loadTopics(locale?: SupportedLocale): Promise<Topic[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.topics;
+  if (!path) throw new Error('topics not found in manifest');
+  const topics = await loadDataFile<Topic[]>(path);
+  if (!locale || locale === 'ru') return topics;
+  const overlay = await loadTranslationOverlay(locale, 'topics');
+  return applyOverlay(topics, overlay, t => t.id);
+}
+
+/** Load SEO topic page overlays (seo_title, search_aliases, faq). Applies locale overlay when provided. */
+export async function loadTopicPages(locale?: SupportedLocale): Promise<TopicPagesMap> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.topic_pages;
+  if (!path) throw new Error('topic_pages not found in manifest');
+  const pages = await loadDataFile<TopicPagesMap>(path);
+  if (!locale || locale === 'ru') return pages;
+  const overlay = await loadTranslationOverlay(locale, 'topic_pages');
+  if (!overlay) return pages;
+  // topic_pages is a Record<id, obj> — merge each entry
+  const result = { ...pages };
+  for (const [id, fields] of Object.entries(overlay)) {
+    if (result[id]) result[id] = { ...result[id], ...fields };
+  }
+  return result;
 }

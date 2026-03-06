@@ -1,0 +1,22 @@
+{
+  "topic:ionic_bond": {
+    "slug": "jonowe",
+    "title": "Wiązanie jonowe",
+    "summary": "Wiązanie jonowe tworzy się między metalem a niemetalem przez całkowite przekazanie elektronu. Różnica elektroujemności Δχ ≥ 1,7. Charakterystyczne dla soli, tlenków metali i wodorotlenków."
+  },
+  "topic:covalent_polar": {
+    "slug": "kowalencyjne-polarne",
+    "title": "Kowalencyjne polarne wiązanie chemiczne",
+    "summary": "Wiązanie kowalencyjne polarne tworzy się między różnymi niemetalami poprzez wspólne pary elektronowe. Różnica elektroujemności 0,4 < Δχ < 1,7. Para elektronowa przesuwa się ku bardziej elektroujemnemu atomowi."
+  },
+  "topic:oxidation_rules": {
+    "slug": "zasady",
+    "title": "Zasady wyznaczania stopnia utlenienia",
+    "summary": "Stopień utlenienia (SU) to formalny ładunek atomu w związku. Wyznaczany według zasad: fluor zawsze −1, tlen zwykle −2, wodór zwykle +1. Suma SU w obojętnej cząsteczce równa się 0."
+  },
+  "topic:molar_mass": {
+    "slug": "masa-molowa",
+    "title": "Masa molowa substancji",
+    "summary": "Masa molowa (M) to masa jednego mola substancji, g/mol. Liczbowo równa sumie mas atomowych wszystkich atomów we wzorze. Związana z ilością substancji wzorem n = m / M."
+  }
+}

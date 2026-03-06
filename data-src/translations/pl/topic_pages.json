@@ -1,0 +1,90 @@
+{
+  "topic:ionic_bond": {
+    "seo_title": "Wiązanie jonowe: definicja, przykłady, właściwości | Chemia",
+    "search_aliases": ["wiązanie jonowe", "wiązanie jonowe przykłady", "jak rozpoznać wiązanie jonowe"],
+    "faq": [
+      {
+        "question": "Jak rozpoznać wiązanie jonowe?",
+        "answer": "Wiązanie jonowe tworzy się gdy różnica elektroujemności Δχ ≥ 1,7 — zwykle między metalem a niemetalem. Metal oddaje elektrony, niemetal przyjmuje, tworząc kationy (+) i aniony (−). Przykłady: NaCl, KBr, CaO, MgF₂."
+      },
+      {
+        "question": "Czym wiązanie jonowe różni się od kowalencyjnego?",
+        "answer": "Jonowe: pełne przekazanie elektronu od metalu do niemetalu (NaCl). Kowalencyjne: wspólna para elektronowa między niemetalami (HCl, H₂O). Kryterium: różnica elektroujemności ≥ 1,7 → jonowe, < 1,7 → kowalencyjne."
+      },
+      {
+        "question": "Jakie substancje mają wiązanie jonowe?",
+        "answer": "Wiązania jonowe mają sole (NaCl, KNO₃), tlenki metali (Na₂O, CaO) i zasady (NaOH, Ca(OH)₂). Związki jonowe przewodzą prąd w roztworze i stopie."
+      },
+      {
+        "question": "Jak wiązanie jonowe wpływa na właściwości substancji?",
+        "answer": "Związki jonowe mają wysokie temperatury topnienia (>500 °C), są kruche, twarde, przewodzą prąd w rozworze i stopie, często dobrze rozpuszczają się w wodzie."
+      }
+    ]
+  },
+  "topic:covalent_polar": {
+    "seo_title": "Wiązanie kowalencyjne polarne: zasada, przykłady | Chemia",
+    "search_aliases": ["wiązanie kowalencyjne polarne", "polarne wiązanie kowalencyjne", "wiązanie kowalencyjne polarne przykłady"],
+    "faq": [
+      {
+        "question": "Jak rozpoznać wiązanie kowalencyjne polarne?",
+        "answer": "Wiązanie kowalencyjne polarne tworzy się między różnymi niemetalami gdy 0,4 < Δχ < 1,7. Para elektronowa przesuwa się do bardziej elektroujemnego atomu. Przykłady: HCl, H₂O, NH₃, CO₂."
+      },
+      {
+        "question": "Czym polarne wiązanie kowalencyjne różni się od niepolarnego?",
+        "answer": "Polarne: para elektronowa jest przesunięta (HCl, H₂O — różne atomy). Niepolarne: para symetryczna, ΔEU ≤ 0,4 (H₂, Cl₂, N₂ — identyczne atomy)."
+      },
+      {
+        "question": "Które cząsteczki mają wiązanie kowalencyjne polarne?",
+        "answer": "Wiązanie kowalencyjne polarne: woda H₂O, HCl, NH₃, CO₂, H₂S, SO₂. To najczęstszy typ wiązania wśród nieorganicznych związków niemetali."
+      },
+      {
+        "question": "Jak korzystać z kalkulatora wiązań chemicznych?",
+        "answer": "Wpisz wzór substancji na stronie Wiązania chemiczne. Kalkulator automatycznie wyznaczy elektroujemności, obliczy Δχ i określi typ wiązania."
+      }
+    ]
+  },
+  "topic:oxidation_rules": {
+    "seo_title": "Zasady wyznaczania stopnia utlenienia: algorytm z przykładami | Chemia",
+    "search_aliases": ["jak wyznaczyć stopień utlenienia", "zasady stopnia utlenienia", "stopień utlenienia zasady"],
+    "faq": [
+      {
+        "question": "Jak wyznaczyć stopień utlenienia pierwiastka?",
+        "answer": "Stosuj zasady po kolei: 1) W prostym związku SU = 0. 2) Fluor zawsze −1. 3) Tlen zwykle −2. 4) Wodór zwykle +1. 5) Metale alkaliczne +1, ziem alkalicznych +2, Al +3. 6) Nieznany SU z warunku: suma SU = 0."
+      },
+      {
+        "question": "Czym stopień utlenienia różni się od wartościowości?",
+        "answer": "Wartościowość to liczba wiązań (zawsze dodatnia). Stopień utlenienia to formalny ładunek (może być ujemny). Np. azot w NH₃: wartościowość III, SU = −3."
+      },
+      {
+        "question": "Które pierwiastki mają zawsze stały stopień utlenienia?",
+        "answer": "Stały SU: F (−1), O (−2), H (+1 lub −1), Na (+1), K (+1), Ca (+2), Mg (+2), Al (+3)."
+      },
+      {
+        "question": "Jak korzystać z kalkulatora stopni utlenienia?",
+        "answer": "Wpisz wzór chemiczny na stronie Stopnie utlenienia — kalkulator zastosuje wszystkie 11 zasad i pokaże SU każdego pierwiastka krok po kroku."
+      }
+    ]
+  },
+  "topic:molar_mass": {
+    "seo_title": "Masa molowa: wzór, obliczenia, kalkulator online | Chemia",
+    "search_aliases": ["masa molowa", "jak obliczyć masę molową", "masa molowa wzór", "kalkulator masy molowej"],
+    "faq": [
+      {
+        "question": "Jak obliczyć masę molową substancji?",
+        "answer": "M (g/mol) = suma mas atomowych wszystkich atomów we wzorze. Np: M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol. M(Ca(OH)₂) = 40 + 2×17 = 74 g/mol."
+      },
+      {
+        "question": "Czym masa molowa różni się od masy cząsteczkowej?",
+        "answer": "Masa cząsteczkowa Mr jest bezwymiarowa (j.m.a.). Masa molowa M ma jednostkę g/mol. Liczbowo są równe: Mr(H₂O) = 18 j.m.a., M(H₂O) = 18 g/mol."
+      },
+      {
+        "question": "Jak wyznaczyć ilość substancji znając masę molową?",
+        "answer": "n = m / M, gdzie n — ilość substancji (mol), m — masa (g), M — masa molowa (g/mol). Np: n dla 49 g H₂SO₄: M = 98 g/mol → n = 49/98 = 0,5 mol."
+      },
+      {
+        "question": "Jak korzystać z kalkulatora masy molowej?",
+        "answer": "Wpisz wzór chemiczny na stronie Obliczenia — kalkulator automatycznie obliczy masę molową i pokaże wzory n = m/M, m = n×M."
+      }
+    ]
+  }
+}

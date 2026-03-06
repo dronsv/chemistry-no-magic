@@ -47,6 +47,8 @@ export interface ManifestEntrypoints {
   calculators?: string;
   theory_modules?: Record<string, string>;
   courses?: Record<string, string>;
+  topics?: string;
+  topic_pages?: string;
 }
 
 export interface ManifestStats {

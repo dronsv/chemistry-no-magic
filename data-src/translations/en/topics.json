@@ -1,0 +1,18 @@
+{
+  "topic:ionic_bond": {
+    "title": "Ionic Chemical Bond",
+    "summary": "An ionic bond forms between a metal and a nonmetal through complete electron transfer. Electronegativity difference Δχ ≥ 1.7. Characteristic of salts, metal oxides, and hydroxides."
+  },
+  "topic:covalent_polar": {
+    "title": "Polar Covalent Chemical Bond",
+    "summary": "A polar covalent bond forms between different nonmetals via shared electron pairs. Electronegativity difference 0.4 < Δχ < 1.7. The electron pair is shifted toward the more electronegative atom."
+  },
+  "topic:oxidation_rules": {
+    "title": "Rules for Determining Oxidation States",
+    "summary": "Oxidation state (OS) is the formal charge of an atom in a compound. Determined by rules: fluorine is always −1, oxygen is usually −2, hydrogen is usually +1. The sum of oxidation states in a neutral molecule equals 0."
+  },
+  "topic:molar_mass": {
+    "title": "Molar Mass of a Substance",
+    "summary": "Molar mass (M) is the mass of one mole of a substance, g/mol. Numerically equal to the sum of atomic masses of all atoms in the formula. Related to amount of substance by n = m / M."
+  }
+}

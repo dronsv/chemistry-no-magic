@@ -1,0 +1,102 @@
+[
+  {
+    "id": "topic:ionic_bond",
+    "section": "bonds",
+    "slug": "ionic",
+    "course_unit_kind": "concept",
+    "title_ru": "Ионная химическая связь",
+    "summary_ru": "Ионная связь образуется между металлом и неметаллом за счёт полного переноса электронов. Разность электроотрицательностей Δχ ≥ 1,7. Характерна для солей, оксидов и гидроксидов металлов.",
+    "competency_ids": ["bond_type"],
+    "theory_refs": [
+      { "module": "module:bonds_and_crystals.v1", "section_id": "bond_types", "block_id": "ionic" }
+    ],
+    "example_refs": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "kbr" },
+      { "kind": "substance", "id": "cao" },
+      { "kind": "substance", "id": "mgf2" },
+      { "kind": "substance", "id": "al2o3" }
+    ],
+    "related_topic_ids": ["topic:covalent_polar", "topic:crystal_ionic"],
+    "practice": {
+      "preferred_templates": ["tmpl.bonds.determine_type.v1"],
+      "difficulty_range": [0.2, 0.5],
+      "allowed_examples": ["nacl", "kbr", "cao", "mgf2", "k2o", "li2o", "nabr"]
+    }
+  },
+  {
+    "id": "topic:covalent_polar",
+    "section": "bonds",
+    "slug": "covalentnaya-polyarnaya",
+    "course_unit_kind": "concept",
+    "title_ru": "Ковалентная полярная химическая связь",
+    "summary_ru": "Ковалентная полярная связь образуется между разными неметаллами за счёт общих электронных пар. Разность электроотрицательностей 0,4 < Δχ < 1,7. Электронная плотность смещена к более электроотрицательному атому.",
+    "competency_ids": ["bond_type"],
+    "theory_refs": [
+      { "module": "module:bonds_and_crystals.v1", "section_id": "bond_types", "block_id": "covalent_polar" }
+    ],
+    "example_refs": [
+      { "kind": "substance", "id": "hcl" },
+      { "kind": "substance", "id": "h2o" },
+      { "kind": "substance", "id": "nh3" },
+      { "kind": "substance", "id": "co2" },
+      { "kind": "substance", "id": "hf" }
+    ],
+    "related_topic_ids": ["topic:ionic_bond", "topic:covalent_nonpolar"],
+    "practice": {
+      "preferred_templates": ["tmpl.bonds.determine_type.v1"],
+      "difficulty_range": [0.2, 0.5],
+      "allowed_examples": ["hcl", "h2o", "nh3", "co2", "hf", "h2s", "so2", "no2"]
+    }
+  },
+  {
+    "id": "topic:oxidation_rules",
+    "section": "oxidation-states",
+    "slug": "pravila",
+    "course_unit_kind": "procedure",
+    "title_ru": "Правила определения степени окисления",
+    "summary_ru": "Степень окисления (СО) — условный заряд атома в соединении. Определяется по набору правил: фтор всегда −1, кислород обычно −2, водород обычно +1. Сумма СО в нейтральной молекуле равна 0.",
+    "competency_ids": ["oxidation_states"],
+    "theory_refs": [
+      { "module": "module:oxidation_states.v1", "section_id": "oxidation_rules", "block_id": null }
+    ],
+    "example_refs": [
+      { "kind": "substance", "id": "h2so4" },
+      { "kind": "substance", "id": "kmno4" },
+      { "kind": "substance", "id": "k2cr2o7" },
+      { "kind": "substance", "id": "hno3" },
+      { "kind": "substance", "id": "na2o2" }
+    ],
+    "related_topic_ids": ["topic:ionic_bond"],
+    "practice": {
+      "preferred_templates": ["tmpl.ox.find_oxidation_state.v1"],
+      "difficulty_range": [0.2, 0.6],
+      "allowed_examples": ["h2so4", "kmno4", "k2cr2o7", "hno3", "h3po4", "k2so4", "fecl3"]
+    }
+  },
+  {
+    "id": "topic:molar_mass",
+    "section": "calculations",
+    "slug": "molyarnaya-massa",
+    "course_unit_kind": "calculator",
+    "title_ru": "Молярная масса вещества",
+    "summary_ru": "Молярная масса (M) — масса одного моля вещества, г/моль. Численно равна сумме атомных масс всех атомов в формуле. Связана с количеством вещества формулой n = m / M.",
+    "competency_ids": ["molar_mass_calc"],
+    "theory_refs": [
+      { "module": "module:calculations.v1", "section_id": "molar_mass", "block_id": null }
+    ],
+    "example_refs": [
+      { "kind": "substance", "id": "h2so4" },
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "ca_oh_2" },
+      { "kind": "substance", "id": "caco3" },
+      { "kind": "substance", "id": "kmno4" }
+    ],
+    "related_topic_ids": ["topic:oxidation_rules"],
+    "practice": {
+      "preferred_templates": ["tmpl.calc.molar_mass.v1"],
+      "difficulty_range": [0.1, 0.4],
+      "allowed_examples": ["h2so4", "nacl", "ca_oh_2", "caco3", "kmno4", "fecl3", "k2so4"]
+    }
+  }
+]

@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TheoryModulePanel from '../../components/TheoryModulePanel';
+import { cachedReadDataSrcSync } from '../../lib/build-data-cache';
+import { loadBuildOverlay } from '../../lib/build-overlay';
+import type { Topic, TopicPage, TopicPagesMap, TopicPageLocaleOverlay, FAQItem } from '../../types/topic';
+import type { SupportedLocale } from '../../types/i18n';
+import type { TopicDetailProps } from './topic-detail-paths';
+import { localizeUrl, SITE_NAME } from '../../lib/i18n';
+
+const { topicId, locale } = Astro.props as TopicDetailProps;
+
+// Load base data (sync — already in build cache after first topic in section)
+const allTopics: Topic[] = cachedReadDataSrcSync('topics.json');
+const topicPages: TopicPagesMap = cachedReadDataSrcSync('topic_pages.json');
+const baseTopic = allTopics.find(t => t.id === topicId)!;
+const baseTopicPage: TopicPage | null = topicPages[topicId] ?? null;
+
+// Apply locale overlays (async, cached per build)
+const topicOverlay = await loadBuildOverlay(locale, 'topics');
+const topicPagesOverlay = await loadBuildOverlay(locale, 'topic_pages') as TopicPageLocaleOverlay | null;
+
+const topic: Topic = (topicOverlay?.[topicId])
+  ? { ...baseTopic, ...topicOverlay[topicId] } as Topic
+  : baseTopic;
+
+const localeTopicPage = topicPagesOverlay?.[topicId];
+const seoTitle = localeTopicPage?.seo_title ?? baseTopicPage?.seo_title_ru ?? topic.title_ru;
+const description = topic.summary_ru;
+const faq: FAQItem[] = localeTopicPage?.faq ?? baseTopicPage?.faq_ru ?? [];
+
+// Section nav
+const sectionPath = `/${baseTopic.section}/`;
+const sectionUrl = localizeUrl(sectionPath, locale);
+
+const SECTION_LABELS: Record<string, Record<SupportedLocale, string>> = {
+  'bonds':            { ru: 'Химическая связь',  en: 'Chemical Bonds',   pl: 'Wiązania chemiczne', es: 'Enlaces químicos'       },
+  'oxidation-states': { ru: 'Степени окисления', en: 'Oxidation States', pl: 'Stopnie utlenienia', es: 'Estados de oxidación'   },
+  'calculations':     { ru: 'Расчёты',           en: 'Calculations',     pl: 'Obliczenia',         es: 'Cálculos'               },
+};
+
+const FAQ_HEADING: Record<SupportedLocale, string> = {
+  ru: 'Частые вопросы', en: 'Frequently Asked Questions',
+  pl: 'Często zadawane pytania', es: 'Preguntas frecuentes',
+};
+const THEORY_HEADING: Record<SupportedLocale, string> = {
+  ru: 'Теория', en: 'Theory', pl: 'Teoria', es: 'Teoría',
+};
+const CALC_CTA: Record<SupportedLocale, string> = {
+  ru: 'Открыть калькулятор', en: 'Open calculator',
+  pl: 'Otwórz kalkulator', es: 'Abrir calculadora',
+};
+
+const sectionLabel = SECTION_LABELS[baseTopic.section]?.[locale] ?? baseTopic.section;
+const homeLabel: Record<SupportedLocale, string> = { ru: 'Главная', en: 'Home', pl: 'Strona główna', es: 'Inicio' };
+
+// Extract moduleKey: "module:bonds_and_crystals.v1" → "bonds_and_crystals"
+const firstRef = topic.theory_refs[0] ?? null;
+const moduleKey = firstRef
+  ? firstRef.module.replace(/^module:/, '').replace(/\.\w+$/, '')
+  : null;
+const forceSectionId = firstRef?.section_id;
+
+// JSON-LD schemas
+const faqSchema = faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(q => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: { '@type': 'Answer', text: q.answer },
+  })),
+} : null;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: seoTitle.replace(/\s*\|.*$/, ''),
+  description,
+  provider: { '@type': 'Organization', name: SITE_NAME[locale], url: 'https://chemistry.svistunov.online' },
+  inLanguage: locale,
+  isAccessibleForFree: true,
+  url: Astro.url.href,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: Astro.url.origin + '/' },
+    { '@type': 'ListItem', position: 2, name: sectionLabel, item: Astro.url.origin + sectionUrl },
+    { '@type': 'ListItem', position: 3, name: topic.title_ru },
+  ],
+};
+---
+
+<BaseLayout title={seoTitle} description={description}>
+  <Fragment slot="head">
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+    <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="topic-page">
+    <nav class="topic-breadcrumb" aria-label="breadcrumb">
+      <ol>
+        <li><a href="/">{homeLabel[locale]}</a></li>
+        <li><a href={sectionUrl}>{sectionLabel}</a></li>
+        <li aria-current="page">{topic.title_ru}</li>
+      </ol>
+    </nav>
+
+    <h1 class="topic-title">{topic.title_ru}</h1>
+    <p class="topic-summary">{description}</p>
+
+    {moduleKey && (
+      <section class="topic-theory">
+        <h2 class="topic-section-heading">{THEORY_HEADING[locale]}</h2>
+        <TheoryModulePanel
+          moduleKey={moduleKey}
+          pageKey={topicId}
+          locale={locale}
+          forceSectionId={forceSectionId}
+          client:idle
+        />
+      </section>
+    )}
+
+    {faq.length > 0 && (
+      <section class="topic-faq">
+        <h2 class="topic-section-heading">{FAQ_HEADING[locale]}</h2>
+        {faq.map(item => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.question}</summary>
+            <p class="faq-answer">{item.answer}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    <aside class="topic-cta">
+      <a href={sectionUrl} class="topic-cta-link">{CALC_CTA[locale]} →</a>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .topic-breadcrumb ol {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted, #6b7280);
+    flex-wrap: wrap;
+  }
+
+  .topic-breadcrumb li:not(:last-child)::after {
+    content: '›';
+    margin-left: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .topic-breadcrumb a {
+    color: var(--color-primary, #2563eb);
+    text-decoration: none;
+  }
+
+  .topic-breadcrumb a:hover { text-decoration: underline; }
+
+  .topic-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .topic-summary {
+    font-size: 1.05rem;
+    color: var(--text-secondary, #374151);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+  }
+
+  .topic-section-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  .topic-theory,
+  .topic-faq {
+    margin-bottom: 2rem;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    list-style: none;
+    background: var(--surface-alt, #f9fafb);
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker { display: none; }
+
+  .faq-question::before {
+    content: '›';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  details[open] .faq-question::before { transform: rotate(90deg); }
+
+  .faq-answer {
+    padding: 0.85rem 1rem;
+    margin: 0;
+    line-height: 1.65;
+    color: var(--text-secondary, #374151);
+    border-top: 1px solid var(--border-color, #e5e7eb);
+  }
+
+  .topic-cta {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: var(--surface-alt, #f9fafb);
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+
+  .topic-cta-link {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    background: var(--color-primary, #2563eb);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .topic-cta-link:hover { opacity: 0.9; }
+</style>

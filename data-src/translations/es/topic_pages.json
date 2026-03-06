@@ -1,0 +1,90 @@
+{
+  "topic:ionic_bond": {
+    "seo_title": "Enlace iónico: definición, ejemplos, propiedades | Química",
+    "search_aliases": ["enlace iónico", "enlace iónico ejemplos", "cómo identificar enlace iónico"],
+    "faq": [
+      {
+        "question": "¿Cómo se identifica un enlace iónico?",
+        "answer": "El enlace iónico se forma cuando la diferencia de electronegatividad Δχ ≥ 1,7 — generalmente entre un metal y un no metal. El metal cede electrones, el no metal los recibe, formando catión (+) y anión (−). Ejemplos: NaCl, KBr, CaO, MgF₂."
+      },
+      {
+        "question": "¿Cuál es la diferencia entre enlace iónico y covalente?",
+        "answer": "Iónico: transferencia completa de electrones del metal al no metal (NaCl). Covalente: par compartido entre no metales (HCl, H₂O). Criterio: diferencia de electronegatividad ≥ 1,7 → iónico, < 1,7 → covalente."
+      },
+      {
+        "question": "¿Qué sustancias tienen enlace iónico?",
+        "answer": "Sales (NaCl, KNO₃), óxidos metálicos (Na₂O, CaO) e hidróxidos (NaOH, Ca(OH)₂). Los compuestos iónicos conducen la electricidad en solución y en estado fundido."
+      },
+      {
+        "question": "¿Cómo afecta el enlace iónico a las propiedades?",
+        "answer": "Los compuestos iónicos tienen altos puntos de fusión (>500 °C), son frágiles, duros, conducen electricidad en solución y fundido, y suelen ser solubles en agua."
+      }
+    ]
+  },
+  "topic:covalent_polar": {
+    "seo_title": "Enlace covalente polar: regla, ejemplos, propiedades | Química",
+    "search_aliases": ["enlace covalente polar", "enlace covalente polar ejemplos", "enlace polar covalente"],
+    "faq": [
+      {
+        "question": "¿Cómo se identifica un enlace covalente polar?",
+        "answer": "El enlace covalente polar se forma entre no metales diferentes cuando 0,4 < Δχ < 1,7. El par de electrones se desplaza hacia el átomo más electronegativo. Ejemplos: HCl, H₂O, NH₃, CO₂."
+      },
+      {
+        "question": "¿Cuál es la diferencia entre enlace covalente polar y no polar?",
+        "answer": "Polar: el par de electrones está desplazado (HCl, H₂O — átomos diferentes). No polar: par simétrico, ΔEN ≤ 0,4 (H₂, Cl₂, N₂ — átomos idénticos)."
+      },
+      {
+        "question": "¿Qué moléculas tienen enlace covalente polar?",
+        "answer": "Agua H₂O, ácido clorhídrico HCl, amoníaco NH₃, dióxido de carbono CO₂, sulfuro de hidrógeno H₂S, dióxido de azufre SO₂."
+      },
+      {
+        "question": "¿Cómo usar la calculadora de tipo de enlace?",
+        "answer": "Introduce la fórmula de la sustancia en la página de Enlaces químicos. La calculadora determinará las electronegatividades, calculará Δχ e identificará el tipo de enlace."
+      }
+    ]
+  },
+  "topic:oxidation_rules": {
+    "seo_title": "Reglas del estado de oxidación: algoritmo paso a paso | Química",
+    "search_aliases": ["cómo determinar estado de oxidación", "reglas estado de oxidación", "número de oxidación reglas"],
+    "faq": [
+      {
+        "question": "¿Cómo se determina el estado de oxidación?",
+        "answer": "Aplica las reglas: 1) Sustancia simple EO = 0. 2) Flúor siempre −1. 3) Oxígeno usualmente −2. 4) Hidrógeno usualmente +1. 5) Metales alcalinos +1, alcalinotérreos +2, Al +3. 6) EO desconocido: suma de EO = 0."
+      },
+      {
+        "question": "¿Cuál es la diferencia entre estado de oxidación y valencia?",
+        "answer": "Valencia: número de enlaces (siempre positivo). Estado de oxidación: carga formal (puede ser negativa). Por ejemplo, nitrógeno en NH₃: valencia III, EO = −3."
+      },
+      {
+        "question": "¿Qué elementos tienen estado de oxidación fijo?",
+        "answer": "EO fijo: F (−1), O (−2), H (+1 o −1), Na (+1), K (+1), Ca (+2), Mg (+2), Al (+3)."
+      },
+      {
+        "question": "¿Cómo usar la calculadora de estados de oxidación?",
+        "answer": "Introduce la fórmula química en la página de Estados de oxidación — la calculadora aplicará las 11 reglas y mostrará el EO de cada elemento paso a paso."
+      }
+    ]
+  },
+  "topic:molar_mass": {
+    "seo_title": "Masa molar: fórmula, cálculo, calculadora online | Química",
+    "search_aliases": ["masa molar", "calcular masa molar", "masa molar fórmula", "calculadora masa molar"],
+    "faq": [
+      {
+        "question": "¿Cómo se calcula la masa molar de una sustancia?",
+        "answer": "M (g/mol) = suma de masas atómicas de todos los átomos en la fórmula. Ejemplo: M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol. M(Ca(OH)₂) = 40 + 2×17 = 74 g/mol."
+      },
+      {
+        "question": "¿Cuál es la diferencia entre masa molar y masa molecular?",
+        "answer": "Masa molecular Mr es adimensional (uma). Masa molar M tiene unidades g/mol. Son numéricamente iguales: Mr(H₂O) = 18 uma, M(H₂O) = 18 g/mol."
+      },
+      {
+        "question": "¿Cómo calcular la cantidad de sustancia con la masa molar?",
+        "answer": "n = m / M, donde n — cantidad de sustancia (mol), m — masa (g), M — masa molar (g/mol). Ejemplo: n para 49 g de H₂SO₄: M = 98 g/mol → n = 49/98 = 0,5 mol."
+      },
+      {
+        "question": "¿Cómo usar la calculadora de masa molar?",
+        "answer": "Introduce la fórmula química en la página de Cálculos — la calculadora calcula automáticamente la masa molar y muestra las fórmulas n = m/M, m = n×M."
+      }
+    ]
+  }
+}

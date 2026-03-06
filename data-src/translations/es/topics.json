@@ -1,0 +1,22 @@
+{
+  "topic:ionic_bond": {
+    "slug": "enlace-ionico",
+    "title": "Enlace químico iónico",
+    "summary": "El enlace iónico se forma entre un metal y un no metal mediante transferencia completa de electrones. Diferencia de electronegatividad Δχ ≥ 1,7. Característico de sales, óxidos de metales e hidróxidos."
+  },
+  "topic:covalent_polar": {
+    "slug": "covalente-polar",
+    "title": "Enlace covalente polar",
+    "summary": "El enlace covalente polar se forma entre no metales diferentes mediante pares de electrones compartidos. Diferencia de electronegatividad 0,4 < Δχ < 1,7. El par de electrones se desplaza hacia el átomo más electronegativo."
+  },
+  "topic:oxidation_rules": {
+    "slug": "reglas",
+    "title": "Reglas para determinar estados de oxidación",
+    "summary": "El estado de oxidación (EO) es la carga formal de un átomo en un compuesto. Se determina por reglas: flúor siempre −1, oxígeno usualmente −2, hidrógeno usualmente +1. La suma de EO en una molécula neutra es 0."
+  },
+  "topic:molar_mass": {
+    "slug": "masa-molar",
+    "title": "Masa molar de una sustancia",
+    "summary": "La masa molar (M) es la masa de un mol de sustancia, g/mol. Numéricamente igual a la suma de masas atómicas de todos los átomos en la fórmula. Relacionada con la cantidad de sustancia por n = m / M."
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "topic:ionic_bond": {
+    "seo_title": "Ionic Bond: Definition, Examples, Properties | Chemistry",
+    "search_aliases": ["ionic bond", "ionic chemical bond", "ionic bond examples", "how to identify ionic bond"],
+    "faq": [
+      {
+        "question": "How do you identify an ionic bond?",
+        "answer": "An ionic bond forms when the electronegativity difference Δχ ≥ 1.7 — typically between a metal and a nonmetal. The metal donates electrons, the nonmetal accepts them, forming cation (+) and anion (−). Common examples: NaCl, KBr, CaO, MgF₂."
+      },
+      {
+        "question": "What is the difference between ionic and covalent bonds?",
+        "answer": "Ionic bond: complete electron transfer from metal to nonmetal (NaCl). Covalent bond: shared electron pair between two nonmetals (HCl, H₂O). Key criterion — electronegativity difference: ≥ 1.7 → ionic, < 1.7 → covalent."
+      },
+      {
+        "question": "Which substances have ionic bonds?",
+        "answer": "Ionic bonds are found in salts (NaCl, KNO₃, CaCO₃), metal oxides (Na₂O, CaO, Al₂O₃), and bases (NaOH, Ca(OH)₂). Ionic compounds conduct electricity when dissolved in water or melted."
+      },
+      {
+        "question": "How does ionic bonding affect properties?",
+        "answer": "Ionic compounds have high melting points (usually >500 °C), are brittle, hard at room temperature, conduct electricity in melt and solution, and often dissolve well in water."
+      }
+    ]
+  },
+  "topic:covalent_polar": {
+    "seo_title": "Polar Covalent Bond: Rule, Examples, Properties | Chemistry",
+    "search_aliases": ["polar covalent bond", "polar covalent bond examples", "covalent polar bond"],
+    "faq": [
+      {
+        "question": "How do you identify a polar covalent bond?",
+        "answer": "A polar covalent bond forms between different nonmetals when 0.4 < Δχ < 1.7. Both atoms are nonmetals, but have different electronegativities. The shared electron pair shifts toward the more electronegative atom. Examples: HCl, H₂O, NH₃, CO₂."
+      },
+      {
+        "question": "What is the difference between polar and nonpolar covalent bonds?",
+        "answer": "Polar: the electron pair shifts toward the more electronegative atom (HCl, H₂O — different atoms). Nonpolar: the electron pair is symmetric, ΔEN ≤ 0.4 (H₂, Cl₂, N₂ — identical atoms or very similar EN)."
+      },
+      {
+        "question": "Which molecules have polar covalent bonds?",
+        "answer": "Polar covalent bonds are found in: water H₂O, hydrochloric acid HCl, ammonia NH₃, carbon dioxide CO₂, hydrogen sulfide H₂S, sulfur dioxide SO₂. This is the most common bond type among inorganic nonmetal compounds."
+      },
+      {
+        "question": "How do I use the bond type calculator?",
+        "answer": "Enter the substance formula in the input field on the Chemical Bonds page. The calculator automatically determines the electronegativity of each element, calculates Δχ, and identifies the bond type."
+      }
+    ]
+  },
+  "topic:oxidation_rules": {
+    "seo_title": "Oxidation State Rules: Step-by-Step Algorithm | Chemistry",
+    "search_aliases": ["how to find oxidation state", "oxidation state rules", "oxidation number rules", "determine oxidation state"],
+    "faq": [
+      {
+        "question": "How do you find the oxidation state of an element?",
+        "answer": "Apply the rules in order: 1) In a simple substance OS = 0. 2) Fluorine is always −1. 3) Oxygen is usually −2 (except peroxides and OF₂). 4) Hydrogen is usually +1 (except metal hydrides). 5) Alkali metals +1, alkaline earth +2, aluminum +3. 6) Find the unknown OS from: sum of all OS = 0."
+      },
+      {
+        "question": "What is the difference between oxidation state and valence?",
+        "answer": "Valence is the number of chemical bonds (always positive). Oxidation state is the formal charge (can be negative, zero, or positive). For example, nitrogen in NH₃: valence III, OS = −3."
+      },
+      {
+        "question": "Which elements always have a fixed oxidation state?",
+        "answer": "Fixed OS: F (−1), O (−2, exceptions rare), H (+1 in acids/bases, −1 in hydrides), Na (+1), K (+1), Ca (+2), Mg (+2), Ba (+2), Al (+3). All other elements can have variable oxidation states."
+      },
+      {
+        "question": "How do I use the oxidation state calculator?",
+        "answer": "Enter a chemical formula on the Oxidation States page — the calculator applies all 11 rules in sequence and shows the OS of each element with a step-by-step explanation."
+      }
+    ]
+  },
+  "topic:molar_mass": {
+    "seo_title": "Molar Mass: Formula, Calculation, Online Calculator | Chemistry",
+    "search_aliases": ["molar mass", "calculate molar mass", "molar mass formula", "molar mass calculator"],
+    "faq": [
+      {
+        "question": "How do you calculate the molar mass of a substance?",
+        "answer": "M (g/mol) = sum of atomic masses of all atoms in the formula. Example: M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol. M(Ca(OH)₂) = 40 + 2×(16+1) = 74 g/mol. Atomic masses are taken from the periodic table."
+      },
+      {
+        "question": "What is the difference between molar mass and molecular mass?",
+        "answer": "Molecular mass Mr is dimensionless (amu). Molar mass M is g/mol. They are numerically equal: Mr(H₂O) = 18 amu, M(H₂O) = 18 g/mol. Molar mass is always used in calculations."
+      },
+      {
+        "question": "How do you find amount of substance using molar mass?",
+        "answer": "n = m / M, where n is amount of substance (mol), m is mass (g), M is molar mass (g/mol). Example: find n for 49 g of H₂SO₄: M = 98 g/mol → n = 49/98 = 0.5 mol."
+      },
+      {
+        "question": "How do I use the molar mass calculator?",
+        "answer": "Enter a chemical formula on the Calculations page — the calculator automatically computes the molar mass using atomic mass data, shows the calculation for each element, and displays the key formulas (n = m/M, m = n×M)."
+      }
+    ]
+  }
+}

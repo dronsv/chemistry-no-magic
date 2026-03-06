@@ -197,6 +197,8 @@ async function main() {
   const bondEnergyTable = await loadJson(join(DATA_SRC, 'tables', 'bond_energy_avg_v1.json'));
 
   const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
+  const topics = await loadJson(join(DATA_SRC, 'topics.json'));
+  const topicPages = await loadJson(join(DATA_SRC, 'topic_pages.json'));
 
   // Load theory modules early for validation (optional directory)
   const theoryModulesDir = join(DATA_SRC, 'theory_modules');
@@ -521,6 +523,9 @@ async function main() {
   await writeFile(join(bundleDir, 'contexts', 'reverse_index.json'), JSON.stringify(reverseIndex));
 
   await writeFile(join(bundleDir, 'concepts.json'), JSON.stringify(concepts));
+  await writeFile(join(bundleDir, 'topics.json'), JSON.stringify(topics));
+  await writeFile(join(bundleDir, 'topic_pages.json'), JSON.stringify(topicPages));
+  console.log(`  ${topics.length} topics, ${Object.keys(topicPages).length} topic pages`);
 
   // 6a2. Copy theory modules (pre-loaded in phase 1)
   const theoryModuleFiles = {};

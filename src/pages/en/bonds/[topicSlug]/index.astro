@@ -1,0 +1,7 @@
+---
+import TopicDetailPage from '../../../../features/topics/TopicDetailPage.astro';
+import { makeTopicPaths } from '../../../../features/topics/topic-detail-paths';
+export type { TopicDetailProps as Props } from '../../../../features/topics/topic-detail-paths';
+export function getStaticPaths() { return makeTopicPaths('bonds', 'en'); }
+---
+<TopicDetailPage {...Astro.props} />
