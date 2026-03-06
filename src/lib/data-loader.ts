@@ -51,7 +51,9 @@ export async function getManifest(): Promise<Manifest> {
   }
 
   manifestPromise = (async () => {
-    const url = '/data/latest/manifest.json';
+    // Cache-bust daily so CDN overrides (e.g. Yandex 4-day TTL) expire within 24h
+    const day = new Date().toISOString().slice(0, 10);
+    const url = `/data/latest/manifest.json?v=${day}`;
     const response = await fetch(url);
 
     if (!response.ok) {
