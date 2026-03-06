@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "oxidation_rules": {
+      "title": "Reglas para determinar estados de oxidación"
+    },
+    "redox_concepts": {
+      "title": "Agente oxidante y reductor",
+      "blocks": [
+        { "text": "El agente oxidante es el átomo que acepta electrones. Su estado de oxidación disminuye." },
+        { "text": "El agente reductor es el átomo que dona electrones. Su estado de oxidación aumenta." },
+        { "text": "El agente oxidante se reduce (acepta e⁻, EO↓). El agente reductor se oxida (dona e⁻, EO↑)." }
+      ]
+    }
+  }
+}

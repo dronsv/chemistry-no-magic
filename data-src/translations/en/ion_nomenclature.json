@@ -1,0 +1,32 @@
+{
+  "mnemonic_ru": "No oxygen → -IDE. Has oxygen: max OS → -ATE, lower → -ITE. Even higher → PER-...-ATE, even lower → HYPO-...-ITE.",
+  "suffix_rules": [
+    {
+      "id": "binary_ide",
+      "suffix_ru": "-ide",
+      "description_ru": "Binary anions (no oxygen) use the -ide suffix"
+    },
+    {
+      "id": "oxy_max_ate",
+      "suffix_ru": "-ate",
+      "description_ru": "Oxoanion with the maximum oxidation state of the central atom → -ate"
+    },
+    {
+      "id": "oxy_lower_ite",
+      "suffix_ru": "-ite",
+      "description_ru": "Oxoanion with a lower oxidation state → -ite"
+    },
+    {
+      "id": "per_prefix",
+      "prefix_ru": "per-",
+      "suffix_ru": "-ate",
+      "description_ru": "Oxidation state above the typical maximum → per-...-ate"
+    },
+    {
+      "id": "hypo_prefix",
+      "prefix_ru": "hypo-",
+      "suffix_ru": "-ite",
+      "description_ru": "Oxidation state below the typical minimum for oxy-anions → hypo-...-ite"
+    }
+  ]
+}

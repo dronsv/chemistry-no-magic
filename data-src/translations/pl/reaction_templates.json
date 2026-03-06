@@ -1,0 +1,38 @@
+{
+  "neutralization": {
+    "description_ru": "Zobojętnianie: kwas + zasada = sól + woda"
+  },
+  "metal_acid": {
+    "description_ru": "Aktywny metal + rozcieńczony kwas: metal + kwas = sól + wodór",
+    "conditions": "Metal musi stać powyżej wodoru w szeregu aktywności; kwas musi być rozcieńczony (nie HNO₃)"
+  },
+  "carbonate_acid": {
+    "description_ru": "Węglan + kwas = sól + woda + dwutlenek węgla"
+  },
+  "metal_displacement": {
+    "description_ru": "Wypieranie mniej aktywnego metalu z roztworu soli przez bardziej aktywny metal",
+    "conditions": "Bardziej aktywny metal (nie alkaliczny ani ziem alkalicznych) + roztwór soli mniej aktywnego metalu"
+  },
+  "basic_oxide_water": {
+    "description_ru": "Tlenek zasadowy metalu alkalicznego lub ziem alkalicznych + woda = zasada",
+    "conditions": "Tlenek musi być rozpuszczalny (Na₂O, K₂O, CaO, BaO)"
+  },
+  "acidic_oxide_water": {
+    "description_ru": "Tlenek kwasowy + woda = kwas (z wyjątkiem SiO₂)",
+    "conditions": "Tlenek nie może być SiO₂ (nie reaguje z wodą)"
+  },
+  "base_acidic_oxide": {
+    "description_ru": "Zasada + tlenek kwasowy = sól + woda"
+  },
+  "basic_oxide_acidic_oxide": {
+    "description_ru": "Tlenek zasadowy + tlenek kwasowy = sól"
+  },
+  "salt_precipitate_exchange": {
+    "description_ru": "Wymiana między dwiema rozpuszczalnymi solami z wytworzeniem nierozpuszczalnej soli (osadu)",
+    "conditions": "Oba substraty muszą być rozpuszczalne; jeden z produktów musi być nierozpuszczalnym osadem"
+  },
+  "insoluble_base_decomposition": {
+    "description_ru": "Rozkład nierozpuszczalnej zasady podczas ogrzewania: nierozpuszczalna zasada = tlenek metalu + woda",
+    "conditions": "Ogrzewanie"
+  }
+}

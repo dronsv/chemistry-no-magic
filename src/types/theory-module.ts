@@ -43,7 +43,9 @@ export type TheoryBlock =
   // Embedded React component (SolubilityTable, ActivitySeriesBar, etc.)
   | { t: 'component_slot'; component: string; props?: Record<string, unknown> }
   // Language frame (semantic event → localized sentence)
-  | { t: 'frame'; frame_id: string; args: Record<string, FrameArg> };
+  | { t: 'frame'; frame_id: string; args: Record<string, FrameArg> }
+  // Oxidation rule reference (renders from oxidation_rules.json, localized via its own overlays)
+  | { t: 'ox_rule'; rule_id: string };
 
 // ---------------------------------------------------------------------------
 // Section and Module

@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "bond_types": {
+      "title": "Rodzaje wiązań chemicznych",
+      "blocks": [
+        {
+          "title": "Wiązanie jonowe",
+          "rule": "Reguła: Δχ ≥ 1,7 lub metal + niemetal z dużą różnicą elektroujemności",
+          "description": "Wiązanie między metalem a niemetalem przez przeniesienie elektronów. Powstają jony: kation (+) i anion (−).\nWłaściwości: Wysokie temperatury topnienia, kruche, przewodzi prąd w stopie i roztworze"
+        },
+        {
+          "title": "Wiązanie kowalencyjne spolaryzowane",
+          "rule": "Reguła: 0,4 < Δχ < 1,7 (oba niemetale)",
+          "description": "Wiązanie między różnymi niemetalami przez wspólne pary elektronowe. Gęstość elektronowa przesuwa się ku bardziej elektroujemnemu atomowi (δ+, δ−).\nWłaściwości: Różne t.t., często ciecze lub gazy, nie przewodzi prądu"
+        },
+        {
+          "title": "Wiązanie kowalencyjne niespolaryzowane",
+          "rule": "Reguła: Δχ ≤ 0,4 (identyczne lub bardzo podobne niemetale)",
+          "description": "Wiązanie między identycznymi niemetalami przez wspólne pary elektronowe. Gęstość elektronowa rozkłada się symetrycznie.\nWłaściwości: Niskie t.t., gazy lub łatwowrzące ciecze, nie przewodzi prądu"
+        },
+        {
+          "title": "Wiązanie metaliczne",
+          "rule": "Reguła: Czyste metale lub stopy (oba metale)",
+          "description": "Wiązanie w metalach: atomy oddają elektrony walencyjne do wspólnej \"chmury elektronowej\", która utrzymuje jony dodatnie w sieci.\nWłaściwości: Przewodnictwo elektryczne i cieplne, plastyczność, metaliczny połysk"
+        }
+      ]
+    },
+    "crystal_structures": {
+      "title": "Porównanie sieci krystalicznych",
+      "blocks": [
+        {
+          "columns": ["Typ", "Węzły sieci", "T.t.", "Twardość", "Przewodnictwo", "Rozpuszczalność", "Przykłady"],
+          "rows": [
+            ["Jonowa", "Kationy i aniony", "Wysoka (800–3000 °C)", "Twarde, kruche", "W stopie i roztworze", "Często rozpuszczalne w wodzie", "NaCl, KBr, CaO"],
+            ["Molekularna", "Cząsteczki", "Niska (< 300 °C)", "Miękkie", "Nie przewodzi", "Różna", "H₂O (lód), CO₂, I₂"],
+            ["Atomowa", "Atomy (wiąz. kow.)", "Bardzo wysoka (> 1500 °C)", "Bardzo twarde", "Nie przewodzi (oprócz grafitu)", "Nierozpuszczalne", "C (diament), Si, SiO₂"],
+            ["Metaliczna", "Jony metalu + gaz elektronowy", "Różna (−39 °C dla Hg do 3422 °C dla W)", "Różna (Na miękki, W twardy)", "Wysoka", "Nierozpuszczalne", "Fe, Cu, Al, Au"]
+          ]
+        }
+      ]
+    }
+  }
+}

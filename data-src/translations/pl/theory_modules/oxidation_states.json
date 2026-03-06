@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "oxidation_rules": {
+      "title": "Zasady wyznaczania stopnia utlenienia"
+    },
+    "redox_concepts": {
+      "title": "Utleniacz i reduktor",
+      "blocks": [
+        { "text": "Utleniacz to atom, który przyjmuje elektrony. Jego stopień utlenienia maleje." },
+        { "text": "Reduktor to atom, który oddaje elektrony. Jego stopień utlenienia rośnie." },
+        { "text": "Utleniacz ulega redukcji (przyjmuje e⁻, SU↓). Reduktor ulega utlenieniu (oddaje e⁻, SU↑)." }
+      ]
+    }
+  }
+}

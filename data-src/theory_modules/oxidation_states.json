@@ -7,54 +7,16 @@
       "id": "oxidation_rules",
       "title_ru": "Правила определения СО",
       "blocks": [
-        {
-          "t": "rule_card",
-          "title_ru": "Простое вещество",
-          "rule_ru": "СО элемента в простом веществе = 0",
-          "description_ru": "Примеры: Fe⁰, O₂⁰, N₂⁰"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Фтор",
-          "rule_ru": "F всегда имеет СО = −1 (самый электроотрицательный элемент)",
-          "description_ru": "Примеры: NaF: F⁻¹, CF₄: F⁻¹"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Щелочные металлы (I группа)",
-          "rule_ru": "Li, Na, K, Rb, Cs, Fr — всегда +1",
-          "description_ru": "Примеры: NaCl: Na⁺¹, K₂O: K⁺¹"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Щёлочноземельные металлы (II группа)",
-          "rule_ru": "Be, Mg, Ca, Sr, Ba, Ra — всегда +2",
-          "description_ru": "Примеры: CaO: Ca⁺², MgCl₂: Mg⁺²"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Алюминий",
-          "rule_ru": "Al — всегда +3",
-          "description_ru": "Примеры: Al₂O₃: Al⁺³, AlCl₃: Al⁺³"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Кислород",
-          "rule_ru": "O обычно −2. Исключение: в пероксидах (H₂O₂, Na₂O₂) → −1",
-          "description_ru": "Примеры: H₂O: O⁻², CO₂: O⁻², H₂O₂: O⁻¹"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Водород",
-          "rule_ru": "H обычно +1. Исключение: в гидридах металлов (NaH, CaH₂) → −1",
-          "description_ru": "Примеры: H₂O: H⁺¹, HCl: H⁺¹, NaH: H⁻¹"
-        },
-        {
-          "t": "rule_card",
-          "title_ru": "Алгебраический расчёт",
-          "rule_ru": "Сумма СО всех атомов в нейтральной молекуле = 0. Зная все СО кроме одного, решаем уравнение.",
-          "description_ru": "Примеры: KMnO₄: 1×(+1) + 1×x + 4×(−2) = 0 → Mn = +7"
-        }
+        { "t": "ox_rule", "rule_id": "simple_substance" },
+        { "t": "ox_rule", "rule_id": "fluorine" },
+        { "t": "ox_rule", "rule_id": "group1" },
+        { "t": "ox_rule", "rule_id": "group2" },
+        { "t": "ox_rule", "rule_id": "aluminum" },
+        { "t": "ox_rule", "rule_id": "oxygen" },
+        { "t": "ox_rule", "rule_id": "oxygen_peroxide" },
+        { "t": "ox_rule", "rule_id": "hydrogen" },
+        { "t": "ox_rule", "rule_id": "hydrogen_hydride" },
+        { "t": "ox_rule", "rule_id": "algebraic" }
       ]
     },
     {

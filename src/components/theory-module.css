@@ -187,6 +187,23 @@
   line-height: 1.4;
 }
 
+/* ------ Oxidation rule kind badge ------ */
+
+.theory-module__rule-kind {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.theory-module__rule-kind--exception { background: #fef3c7; color: #92400e; }
+.theory-module__rule-kind--default   { background: #f3f4f6; color: #6b7280; }
+.theory-module__rule-kind--assignment { display: none; }
+.theory-module__rule-kind--constraint { background: #eff6ff; color: #1e40af; }
+
 /* ------ Unknown / placeholder ------ */
 
 .theory-unknown-slot,

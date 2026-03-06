@@ -1,0 +1,32 @@
+{
+  "mnemonic_ru": "Bez tlenu → -EK. Z tlenem: maks. s.u. → -AN, niższy → -IAN. Jeszcze wyżej → NAD-...-AN, jeszcze niżej → POD-...-IAN.",
+  "suffix_rules": [
+    {
+      "id": "binary_ide",
+      "suffix_ru": "-ek",
+      "description_ru": "Aniony beztlenowe (proste binarne) → sufiks -ek"
+    },
+    {
+      "id": "oxy_max_ate",
+      "suffix_ru": "-an",
+      "description_ru": "Anion tlenowy z maksymalnym s.u. atomu centralnego → -an"
+    },
+    {
+      "id": "oxy_lower_ite",
+      "suffix_ru": "-ian",
+      "description_ru": "Anion tlenowy z niższym s.u. → -ian"
+    },
+    {
+      "id": "per_prefix",
+      "prefix_ru": "nad-",
+      "suffix_ru": "-an",
+      "description_ru": "S.u. powyżej typowego maksimum → nad-...-an"
+    },
+    {
+      "id": "hypo_prefix",
+      "prefix_ru": "pod-",
+      "suffix_ru": "-ian",
+      "description_ru": "S.u. poniżej typowego minimum dla anionów tlenowych → pod-...-ian"
+    }
+  ]
+}

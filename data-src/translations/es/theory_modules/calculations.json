@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "molar_mass": {
+      "title": "Masa molar",
+      "blocks": [
+        { "text": "La masa molar (M) es la masa de un mol de sustancia, expresada en g/mol." },
+        {},
+        { "text": "Donde Ar es la masa atómica relativa del elemento (de la tabla periódica)." },
+        { "label": "Ejemplo:", "content": "M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol" },
+        { "label": "Ejemplo:", "content": "M(Ca(OH)₂) = 40 + 2×(16+1) = 74 g/mol" }
+      ]
+    },
+    "amount": {
+      "title": "Cantidad de sustancia",
+      "blocks": [
+        { "text": "La cantidad de sustancia (n) es el número de moles; relaciona la masa con la masa molar." },
+        {},
+        {},
+        {},
+        {},
+        { "label": "Ejemplo:", "content": "¿Cuántos moles hay en 49 g de H₂SO₄? → n = 49/98 = 0,5 mol" },
+        { "label": "Ejemplo:", "content": "¿Masa de 3 mol de NaCl? → m = 3 × 58,5 = 175,5 g" }
+      ]
+    },
+    "mass_fraction_element": {
+      "title": "Fracción másica de un elemento",
+      "blocks": [
+        { "text": "La fracción másica de un elemento (ω) es la relación entre la masa del elemento y la masa total de la sustancia." },
+        {},
+        { "text": "Donde n es el número de átomos del elemento en la fórmula." },
+        { "label": "Ejemplo:", "content": "ω(O) en H₂O = 16/18 × 100% = 88,9%" },
+        { "label": "Ejemplo:", "content": "ω(N) en NH₃ = 14/17 × 100% = 82,4%" }
+      ]
+    },
+    "solution_fraction": {
+      "title": "Fracción másica del soluto",
+      "blocks": [
+        { "text": "La fracción másica del soluto (ω) es la relación entre la masa del soluto y la masa de la solución." },
+        {},
+        {},
+        {},
+        { "text": "Al diluir: la masa del soluto no cambia, pero la masa de la solución aumenta." },
+        { "label": "Ejemplo:", "content": "20 g de sal en 200 g de solución → ω = 20/200 × 100% = 10%" },
+        { "label": "Ejemplo:", "content": "Se añaden 300 g de agua a 200 g de solución al 10% → m(soluto) = 20 g, m(solución) = 500 g → ω = 20/500 × 100% = 4%" }
+      ]
+    },
+    "stoichiometry": {
+      "title": "Cálculos a partir de la ecuación de reacción",
+      "blocks": [
+        { "text": "Algoritmo de cálculo a partir de la ecuación de reacción:" },
+        { "items": [
+          "Escribir la ecuación de reacción y ajustar los coeficientes.",
+          "Encontrar la cantidad de sustancia (n) de la sustancia dada: n = m / M.",
+          "Usar los coeficientes para encontrar n de la sustancia buscada.",
+          "Encontrar la masa (o volumen) de la sustancia buscada: m = n × M."
+        ]},
+        { "label": "Ejemplo:", "content": "CaCO₃ → CaO + CO₂. ¿Cuánto CaO de 200 g CaCO₃? n(CaCO₃) = 200/100 = 2 mol → n(CaO) = 2 mol → m(CaO) = 2 × 56 = 112 g" }
+      ]
+    },
+    "yield": {
+      "title": "Rendimiento de la reacción",
+      "blocks": [
+        { "text": "El rendimiento de la reacción (η) es la relación entre la masa real obtenida del producto y la masa teóricamente posible." },
+        {},
+        {},
+        { "text": "La masa teórica se calcula a partir de la ecuación de reacción (η = 100%). En la práctica el rendimiento es siempre menor del 100% por pérdidas y reacciones secundarias." },
+        { "label": "Ejemplo:", "content": "Calculado: 112 g de CaO; obtenido: 89,6 g → η = 89,6/112 × 100% = 80%" }
+      ]
+    }
+  }
+}

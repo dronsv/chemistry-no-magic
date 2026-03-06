@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "oxidation_rules": {
+      "title": "Rules for determining oxidation states"
+    },
+    "redox_concepts": {
+      "title": "Oxidizing and reducing agents",
+      "blocks": [
+        { "text": "An oxidizing agent is the atom that accepts electrons. Its oxidation state decreases." },
+        { "text": "A reducing agent is the atom that donates electrons. Its oxidation state increases." },
+        { "text": "OIL RIG: Oxidizing agent Is reduced (accepts e⁻, OS↓). Reducing agent Is oxidized (donates e⁻, OS↑)." }
+      ]
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "molar_mass": {
+      "title": "Molar mass",
+      "blocks": [
+        { "text": "Molar mass (M) is the mass of one mole of a substance, measured in g/mol." },
+        {},
+        { "text": "Where Ar is the relative atomic mass of the element (from the periodic table)." },
+        { "label": "Example:", "content": "M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol" },
+        { "label": "Example:", "content": "M(Ca(OH)₂) = 40 + 2×(16+1) = 74 g/mol" }
+      ]
+    },
+    "amount": {
+      "title": "Amount of substance",
+      "blocks": [
+        { "text": "Amount of substance (n) is the number of moles; it relates mass to molar mass." },
+        {},
+        {},
+        {},
+        {},
+        { "label": "Example:", "content": "How many moles in 49 g of H₂SO₄? → n = 49/98 = 0.5 mol" },
+        { "label": "Example:", "content": "Mass of 3 mol of NaCl? → m = 3 × 58.5 = 175.5 g" }
+      ]
+    },
+    "mass_fraction_element": {
+      "title": "Mass fraction of an element",
+      "blocks": [
+        { "text": "Mass fraction of an element (ω) is the ratio of the element's mass to the total mass of the substance." },
+        {},
+        { "text": "Where n is the number of atoms of the element in the formula." },
+        { "label": "Example:", "content": "ω(O) in H₂O = 16/18 × 100% = 88.9%" },
+        { "label": "Example:", "content": "ω(N) in NH₃ = 14/17 × 100% = 82.4%" }
+      ]
+    },
+    "solution_fraction": {
+      "title": "Mass fraction of dissolved substance",
+      "blocks": [
+        { "text": "Mass fraction of dissolved substance (ω) is the ratio of the solute mass to the solution mass." },
+        {},
+        {},
+        {},
+        { "text": "On dilution: the mass of dissolved substance does not change, but the solution mass increases." },
+        { "label": "Example:", "content": "20 g of salt in 200 g of solution → ω = 20/200 × 100% = 10%" },
+        { "label": "Example:", "content": "300 g of water added to 200 g of 10% solution → m(solute) = 20 g, m(solution) = 500 g → ω = 20/500 × 100% = 4%" }
+      ]
+    },
+    "stoichiometry": {
+      "title": "Calculations from a reaction equation",
+      "blocks": [
+        { "text": "Algorithm for calculations from a reaction equation:" },
+        { "items": [
+          "Write the reaction equation and balance the coefficients.",
+          "Find the amount of substance (n) of the given substance: n = m / M.",
+          "Use the coefficients to find n of the desired substance.",
+          "Find the mass (or volume) of the desired substance: m = n × M."
+        ]},
+        { "label": "Example:", "content": "CaCO₃ → CaO + CO₂. How much CaO from 200 g CaCO₃? n(CaCO₃) = 200/100 = 2 mol → n(CaO) = 2 mol → m(CaO) = 2 × 56 = 112 g" }
+      ]
+    },
+    "yield": {
+      "title": "Reaction yield",
+      "blocks": [
+        { "text": "Reaction yield (η) is the ratio of the actual mass of product obtained to the theoretically possible mass." },
+        {},
+        {},
+        { "text": "Theoretical mass is calculated from the reaction equation (η = 100%). In practice the yield is always less than 100% due to losses and side reactions." },
+        { "label": "Example:", "content": "Calculated: 112 g CaO; obtained: 89.6 g → η = 89.6/112 × 100% = 80%" }
+      ]
+    }
+  }
+}

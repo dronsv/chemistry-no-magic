@@ -1,0 +1,32 @@
+{
+  "mnemonic_ru": "Sin oxígeno → -URO. Con oxígeno: máx. e.o. → -ATO, menor → -ITO. Aún más alto → PER-...-ATO, aún más bajo → HIPO-...-ITO.",
+  "suffix_rules": [
+    {
+      "id": "binary_ide",
+      "suffix_ru": "-uro",
+      "description_ru": "Aniones binarios (sin oxígeno) → sufijo -uro"
+    },
+    {
+      "id": "oxy_max_ate",
+      "suffix_ru": "-ato",
+      "description_ru": "Oxoanión con el estado de oxidación máximo del átomo central → -ato"
+    },
+    {
+      "id": "oxy_lower_ite",
+      "suffix_ru": "-ito",
+      "description_ru": "Oxoanión con estado de oxidación menor → -ito"
+    },
+    {
+      "id": "per_prefix",
+      "prefix_ru": "per-",
+      "suffix_ru": "-ato",
+      "description_ru": "Estado de oxidación superior al máximo típico → per-...-ato"
+    },
+    {
+      "id": "hypo_prefix",
+      "prefix_ru": "hipo-",
+      "suffix_ru": "-ito",
+      "description_ru": "Estado de oxidación inferior al mínimo típico para oxoaniones → hipo-...-ito"
+    }
+  ]
+}
