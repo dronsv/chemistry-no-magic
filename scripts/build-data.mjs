@@ -183,6 +183,10 @@ async function main() {
   const effectsVocab = await loadJson(join(DATA_SRC, 'effects_vocab.json'));
   const quantitiesUnits = await loadJson(join(DATA_SRC, 'quantities_units_ontology.json'));
   const properties = await loadJson(join(DATA_SRC, 'rules', 'properties.json'));
+  const storageRequirements = await loadJson(join(DATA_SRC, 'storage_requirements.json'));
+  const storageProfiles = await loadJson(join(DATA_SRC, 'storage_profiles.json'));
+  const periodicTrendAnomalies = await loadJson(join(DATA_SRC, 'rules', 'periodic_trend_anomalies.json'));
+  const reasonVocab = await loadJson(join(DATA_SRC, 'rules', 'reason_vocab.json'));
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
   const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
   const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
@@ -397,6 +401,10 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'oxidation_rules.json'), JSON.stringify(oxidationRules));
   await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
   await writeFile(join(bundleDir, 'rules', 'properties.json'), JSON.stringify(properties));
+  await writeFile(join(bundleDir, 'rules', 'storage_requirements.json'), JSON.stringify(storageRequirements));
+  await writeFile(join(bundleDir, 'rules', 'storage_profiles.json'), JSON.stringify(storageProfiles));
+  await writeFile(join(bundleDir, 'rules', 'periodic_trend_anomalies.json'), JSON.stringify(periodicTrendAnomalies));
+  await writeFile(join(bundleDir, 'rules', 'reason_vocab.json'), JSON.stringify(reasonVocab));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await mkdir(join(bundleDir, 'engine'), { recursive: true });

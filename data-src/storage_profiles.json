@@ -1,0 +1,163 @@
+[
+  {
+    "id": "storage:alkali_metal_basic",
+    "labels": {
+      "ru": "Хранение щелочных металлов (Li, Na, K)",
+      "en": "Alkali metal storage (Li, Na, K)",
+      "pl": "Przechowywanie metali alkalicznych (Li, Na, K)",
+      "es": "Almacenamiento de metales alcalinos (Li, Na, K)"
+    },
+    "requires": [
+      "env:under_oil",
+      "container:sealed",
+      "avoid:water",
+      "avoid:air"
+    ],
+    "reason_tags": [
+      "alkali_metal_reactivity",
+      "reacts_with_air",
+      "reacts_with_water"
+    ],
+    "applies_to": {
+      "element_symbols": [
+        "Li",
+        "Na",
+        "K"
+      ]
+    }
+  },
+  {
+    "id": "storage:alkali_metal_heavy",
+    "labels": {
+      "ru": "Хранение тяжёлых щелочных металлов (Rb, Cs)",
+      "en": "Heavy alkali metal storage (Rb, Cs)",
+      "pl": "Przechowywanie ciężkich metali alkalicznych (Rb, Cs)",
+      "es": "Almacenamiento de metales alcalinos pesados (Rb, Cs)"
+    },
+    "requires": [
+      "env:inert_atmosphere",
+      "container:sealed",
+      "avoid:water",
+      "avoid:air"
+    ],
+    "reason_tags": [
+      "very_high_reactivity",
+      "reacts_with_air",
+      "reacts_with_water"
+    ],
+    "applies_to": {
+      "element_symbols": [
+        "Rb",
+        "Cs"
+      ]
+    }
+  },
+  {
+    "id": "storage:fluorine",
+    "labels": {
+      "ru": "Хранение фтора",
+      "en": "Fluorine storage",
+      "pl": "Przechowywanie fluoru",
+      "es": "Almacenamiento del flúor"
+    },
+    "requires": [
+      "container:fluorine_compatible_metal",
+      "container:sealed",
+      "avoid:organics",
+      "temp:cool"
+    ],
+    "reason_tags": [
+      "strong_oxidizer",
+      "corrosive",
+      "reacts_with_organics"
+    ],
+    "applies_to": {
+      "element_symbols": [
+        "F"
+      ]
+    }
+  },
+  {
+    "id": "storage:phosphorus",
+    "labels": {
+      "ru": "Хранение белого фосфора",
+      "en": "White phosphorus storage",
+      "pl": "Przechowywanie fosforu białego",
+      "es": "Almacenamiento del fósforo blanco"
+    },
+    "requires": [
+      "env:under_water",
+      "container:sealed",
+      "avoid:air",
+      "env:dark"
+    ],
+    "reason_tags": [
+      "pyrophoric_in_air",
+      "photosensitive"
+    ],
+    "applies_to": {
+      "element_symbols": [
+        "P"
+      ]
+    }
+  },
+  {
+    "id": "storage:mercury",
+    "labels": {
+      "ru": "Хранение ртути",
+      "en": "Mercury storage",
+      "pl": "Przechowywanie rtęci",
+      "es": "Almacenamiento del mercurio"
+    },
+    "requires": [
+      "container:sealed",
+      "env:ventilated_area",
+      "temp:cool",
+      "mech:no_vibration"
+    ],
+    "reason_tags": [
+      "toxic_vapors",
+      "volatile",
+      "toxicity"
+    ],
+    "applies_to": {
+      "element_symbols": [
+        "Hg"
+      ]
+    }
+  },
+  {
+    "id": "storage:photosensitive_reagent",
+    "labels": {
+      "ru": "Хранение светочувствительных реагентов",
+      "en": "Photosensitive reagent storage",
+      "pl": "Przechowywanie reagentów światłoczułych",
+      "es": "Almacenamiento de reactivos fotosensibles"
+    },
+    "requires": [
+      "env:dark",
+      "container:amber_glass",
+      "temp:room"
+    ],
+    "reason_tags": [
+      "photosensitive"
+    ]
+  },
+  {
+    "id": "storage:hygroscopic_solid",
+    "labels": {
+      "ru": "Хранение гигроскопичных веществ",
+      "en": "Hygroscopic solid storage",
+      "pl": "Przechowywanie substancji higroskopijnych",
+      "es": "Almacenamiento de sustancias higroscópicas"
+    },
+    "requires": [
+      "env:dry",
+      "container:sealed"
+    ],
+    "reason_tags": [
+      "hygroscopic",
+      "moisture_sensitive"
+    ]
+  }
+]

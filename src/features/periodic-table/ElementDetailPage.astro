@@ -5,6 +5,8 @@ import ContextBackLink from '../../components/ContextBackLink.tsx';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay, applyBuildOverlay } from '../../lib/build-overlay';
+import { cachedReadDataSrc } from '../../lib/build-data-cache';
+import type { StorageRequirement, StorageProfile } from '../../types/storage';
 import type { Props } from './element-detail-paths';
 import * as m from '../../paraglide/messages.js';
 
@@ -74,6 +76,25 @@ const hasPhysical = el.melting_point_C != null || el.boiling_point_C != null || 
 const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist_ru);
 const hasHazards = el.hazards_ru && el.hazards_ru.length > 0;
 const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
+
+// Resolve storage profile labels for this element
+const storageLabels: string[] = [];
+if (el.storage_profiles && el.storage_profiles.length > 0) {
+  const [storageReqs, storageProfs] = await Promise.all([
+    cachedReadDataSrc<StorageRequirement[]>('storage_requirements.json'),
+    cachedReadDataSrc<StorageProfile[]>('storage_profiles.json'),
+  ]);
+  const reqsById = Object.fromEntries(storageReqs.map(r => [r.id, r]));
+  const profsById = Object.fromEntries(storageProfs.map(p => [p.id, p]));
+  const reqIds = el.storage_profiles
+    .flatMap(pid => profsById[pid]?.requires ?? [])
+    .filter((id, i, arr) => arr.indexOf(id) === i);
+  for (const rid of reqIds) {
+    const label = reqsById[rid]?.labels[locale] ?? reqsById[rid]?.labels.ru;
+    if (label) storageLabels.push(label);
+  }
+}
+const hasStorage = storageLabels.length > 0;
 
 // Build names worldwide list (show names in other languages as interesting fact)
 const namesList: { lang: string; name: string }[] = [];
@@ -221,15 +242,23 @@ const contextBackLabels = {
       </section>
     )}
 
-    {hasHazards && (
+    {(hasHazards || hasStorage) && (
       <section class="element-page__section">
         <h2>{m.el_hazards()}</h2>
-        <div class="element-page__hazards">
-          {el.hazards_ru!.map(h => (
-            <span class="element-page__hazard-tag">{h}</span>
-          ))}
-        </div>
-        {el.storage_ru && <p class="element-page__text element-page__storage">{el.storage_ru}</p>}
+        {hasHazards && (
+          <div class="element-page__hazards">
+            {el.hazards_ru!.map(h => (
+              <span class="element-page__hazard-tag">{h}</span>
+            ))}
+          </div>
+        )}
+        {hasStorage && (
+          <ul class="element-page__storage-list">
+            {storageLabels.map(label => (
+              <li class="element-page__storage-item">{label}</li>
+            ))}
+          </ul>
+        )}
       </section>
     )}
 
@@ -448,13 +477,22 @@ const contextBackLabels = {
     border-radius: 0.25rem;
     font-weight: 500;
   }
-  .element-page__storage {
+  .element-page__storage-list {
     margin-top: var(--space-sm);
     padding: var(--space-sm) var(--space-md);
     background: var(--color-bg-alt);
     border-left: 3px solid #f59e0b;
     border-radius: 0.25rem;
     font-size: 0.875rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .element-page__storage-item::before {
+    content: '→ ';
+    color: #f59e0b;
+    font-weight: 600;
   }
 
   .element-page__reactions {

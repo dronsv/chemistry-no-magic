@@ -35,6 +35,7 @@ import type { ConceptRegistry, ConceptOverlay, ConceptLookup } from '../types/on
 import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
 import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
+import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -511,6 +512,26 @@ export async function loadApplicabilityRules(locale?: SupportedLocale): Promise<
   if (!locale || locale === 'ru') return data;
   const overlay = await loadTranslationOverlay(locale, 'applicability_rules');
   return applyOverlay(data, overlay, r => r.id);
+}
+
+/** Load periodic trend anomalies (element pairs with machine-readable reasons). */
+export async function loadPeriodicTrendAnomalies(): Promise<TrendAnomaly[]> {
+  return loadRule('periodic_trend_anomalies') as Promise<TrendAnomaly[]>;
+}
+
+/** Load reason vocabulary (localized explanations for anomaly reasons). */
+export async function loadReasonVocab(): Promise<AnomalyReason[]> {
+  return loadRule('reason_vocab') as Promise<AnomalyReason[]>;
+}
+
+/** Load atomic storage requirements catalog (env/container/avoid conditions). */
+export async function loadStorageRequirements(): Promise<StorageRequirement[]> {
+  return loadRule('storage_requirements') as Promise<StorageRequirement[]>;
+}
+
+/** Load storage profiles catalog (named combinations of storage requirements). */
+export async function loadStorageProfiles(): Promise<StorageProfile[]> {
+  return loadRule('storage_profiles') as Promise<StorageProfile[]>;
 }
 
 /** Load bond examples (substance-to-bond/crystal mapping for exercises). */

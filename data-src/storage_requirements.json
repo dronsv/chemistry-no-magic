@@ -1,0 +1,206 @@
+[
+  {
+    "id": "env:dry",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить в сухом месте",
+      "en": "store in a dry place",
+      "pl": "przechowywać w suchym miejscu",
+      "es": "guardar en un lugar seco"
+    },
+    "reason_tags": [
+      "hygroscopic",
+      "moisture_sensitive"
+    ]
+  },
+  {
+    "id": "env:dark",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить в тёмном месте",
+      "en": "store in a dark place",
+      "pl": "przechowywać w ciemnym miejscu",
+      "es": "guardar en un lugar oscuro"
+    },
+    "reason_tags": [
+      "photosensitive"
+    ]
+  },
+  {
+    "id": "env:under_oil",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить под слоем керосина или минерального масла",
+      "en": "store under kerosene or mineral oil",
+      "pl": "przechowywać pod warstwą nafty lub oleju mineralnego",
+      "es": "guardar bajo una capa de queroseno o aceite mineral"
+    },
+    "reason_tags": [
+      "reacts_with_air",
+      "reacts_with_water",
+      "alkali_metal_reactivity"
+    ]
+  },
+  {
+    "id": "env:under_water",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить под слоем воды",
+      "en": "store under water",
+      "pl": "przechowywać pod warstwą wody",
+      "es": "guardar bajo una capa de agua"
+    },
+    "reason_tags": [
+      "pyrophoric_in_air",
+      "air_sensitive"
+    ]
+  },
+  {
+    "id": "env:inert_atmosphere",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить в инертной атмосфере",
+      "en": "store in an inert atmosphere",
+      "pl": "przechowywać w atmosferze obojętnej",
+      "es": "guardar en una atmósfera inerte"
+    },
+    "reason_tags": [
+      "reacts_with_air",
+      "high_reactivity"
+    ]
+  },
+  {
+    "id": "env:ventilated_area",
+    "kind": "environment",
+    "labels": {
+      "ru": "хранить в хорошо проветриваемом месте",
+      "en": "store in a well-ventilated area",
+      "pl": "przechowywać w dobrze wentylowanym miejscu",
+      "es": "guardar en un lugar bien ventilado"
+    },
+    "reason_tags": [
+      "toxic_vapors",
+      "volatile"
+    ]
+  },
+  {
+    "id": "temp:room",
+    "kind": "temperature",
+    "labels": {
+      "ru": "хранить при комнатной температуре",
+      "en": "store at room temperature",
+      "pl": "przechowywać w temperaturze pokojowej",
+      "es": "guardar a temperatura ambiente"
+    }
+  },
+  {
+    "id": "temp:cool",
+    "kind": "temperature",
+    "labels": {
+      "ru": "хранить в прохладном месте",
+      "en": "store in a cool place",
+      "pl": "przechowywać w chłodnym miejscu",
+      "es": "guardar en un lugar fresco"
+    }
+  },
+  {
+    "id": "container:sealed",
+    "kind": "container",
+    "labels": {
+      "ru": "хранить в плотно закрытой таре",
+      "en": "store in a tightly closed container",
+      "pl": "przechowywać w szczelnie zamkniętym pojemniku",
+      "es": "guardar en un recipiente bien cerrado"
+    }
+  },
+  {
+    "id": "container:amber_glass",
+    "kind": "container",
+    "labels": {
+      "ru": "использовать тёмную склянку",
+      "en": "use an amber glass container",
+      "pl": "używać ciemnej szklanej butelki",
+      "es": "usar un frasco de vidrio ámbar"
+    },
+    "reason_tags": [
+      "photosensitive"
+    ]
+  },
+  {
+    "id": "container:fluorine_compatible_metal",
+    "kind": "container",
+    "labels": {
+      "ru": "использовать специальную металлическую тару, устойчивую к фтору",
+      "en": "use a special fluorine-compatible metal container",
+      "pl": "używać specjalnego metalowego pojemnika odpornego na fluor",
+      "es": "usar un recipiente metálico especial compatible con el flúor"
+    },
+    "reason_tags": [
+      "corrosive",
+      "reacts_with_many_materials"
+    ]
+  },
+  {
+    "id": "avoid:water",
+    "kind": "avoid_contact",
+    "labels": {
+      "ru": "избегать контакта с водой",
+      "en": "avoid contact with water",
+      "pl": "unikać kontaktu z wodą",
+      "es": "evitar el contacto con el agua"
+    },
+    "reason_tags": [
+      "reacts_with_water"
+    ]
+  },
+  {
+    "id": "avoid:air",
+    "kind": "avoid_contact",
+    "labels": {
+      "ru": "избегать контакта с воздухом",
+      "en": "avoid contact with air",
+      "pl": "unikać kontaktu z powietrzem",
+      "es": "evitar el contacto con el aire"
+    },
+    "reason_tags": [
+      "air_sensitive"
+    ]
+  },
+  {
+    "id": "avoid:light",
+    "kind": "avoid_contact",
+    "labels": {
+      "ru": "избегать действия света",
+      "en": "avoid light exposure",
+      "pl": "unikać działania światła",
+      "es": "evitar la exposición a la luz"
+    },
+    "reason_tags": [
+      "photosensitive"
+    ]
+  },
+  {
+    "id": "avoid:organics",
+    "kind": "avoid_contact",
+    "labels": {
+      "ru": "избегать контакта с органическими веществами",
+      "en": "avoid contact with organic substances",
+      "pl": "unikać kontaktu z substancjami organicznymi",
+      "es": "evitar el contacto con sustancias orgánicas"
+    },
+    "reason_tags": [
+      "strong_oxidizer",
+      "reacts_with_organics"
+    ]
+  },
+  {
+    "id": "mech:no_vibration",
+    "kind": "mechanical",
+    "labels": {
+      "ru": "избегать вибрации",
+      "en": "avoid vibration",
+      "pl": "unikać drgań",
+      "es": "evitar vibraciones"
+    }
+  }
+]

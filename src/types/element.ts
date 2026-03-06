@@ -45,7 +45,7 @@ export interface Element {
   density_g_cm3?: number | null;
   discovery?: ElementDiscovery;
   hazards_ru?: string[];
-  storage_ru?: string;
+  storage_profiles?: string[];
   industrial_ru?: string;
   production_ru?: string;
   abundance_ru?: string;
