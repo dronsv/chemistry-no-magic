@@ -355,6 +355,17 @@ const contextBackLabels = {
       </section>
     )}
 
+    <section class="element-page__section element-page__seealso">
+      <h2>{m.el_see_also()}</h2>
+      <div class="element-page__seealso-links">
+        <a href={localizeUrl('/bonds/', locale)}>{m.nav_bonds()}</a>
+        <a href={localizeUrl('/oxidation-states/', locale)}>{m.nav_oxidation_states()}</a>
+        <a href={localizeUrl('/reactions/', locale)}>{m.nav_reactions()}</a>
+        <a href={localizeUrl('/calculations/', locale)}>{m.nav_calculations()}</a>
+        <a href={localizeUrl('/periodic-table/', locale)}>{m.nav_elements()}</a>
+      </div>
+    </section>
+
     <div class="element-page__actions">
       <a href={localizeUrl('/periodic-table/', locale)}>&larr; {m.el_back_table()}</a>
     </div>
@@ -598,5 +609,25 @@ const contextBackLabels = {
     margin-top: var(--space-xl);
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
+  }
+
+  .element-page__seealso-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  .element-page__seealso-links a {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    transition: border-color 0.12s, color 0.12s;
+  }
+  .element-page__seealso-links a:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
   }
 </style>

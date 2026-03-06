@@ -36,6 +36,25 @@ const cid = competency.id;
   title={`${competency.name_ru} — ${siteName}`}
   description={competency.description_ru}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": competency.name_ru,
+      "description": competency.description_ru,
+      "educationalLevel": "ОГЭ, 9 класс",
+      "learningResourceType": "Practice problem",
+      "inLanguage": locale,
+      "isPartOf": {
+        "@type": "Course",
+        "name": siteName,
+        "url": "https://chemistry.svistunov.online",
+        "provider": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+      },
+      ...(competency.link ? { "url": `https://chemistry.svistunov.online${localizeUrl(competency.link, locale)}` } : {}),
+      ...(competency.oge_task_types?.length ? { "teaches": competency.oge_task_types.map((t: string) => `Задание ОГЭ ${t}`) } : {}),
+    })} />
+  </Fragment>
   <article class="comp-page container">
     <div class="comp-page__header">
       <span class="comp-page__badge">{m.comp_block()} {competency.block} — {competency.block_name_ru}</span>
