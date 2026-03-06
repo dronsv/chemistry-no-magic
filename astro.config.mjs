@@ -1,11 +1,107 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
+import { execSync } from 'node:child_process';
 
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-const BUILD_DATE = new Date();
+/**
+ * Last git commit date for given paths (any locale).
+ * Returns Date object or null if git unavailable.
+ */
+function gitDate(...paths) {
+  try {
+    const args = paths.map(p => `"${p}"`).join(' ');
+    const out = execSync(`git log -1 --format=%cI -- ${args}`, { encoding: 'utf-8' }).trim();
+    return out ? new Date(out) : null;
+  } catch {
+    return null;
+  }
+}
+
+// Last-modified dates per data source — computed once at build time
+const D = {
+  elements:    gitDate('data-src/elements.json', 'data-src/translations/en/elements.json',
+                       'data-src/translations/pl/elements.json', 'data-src/translations/es/elements.json'),
+  substances:  gitDate('data-src/substances'),
+  reactions:   gitDate('data-src/reactions'),
+  bonds:       gitDate('data-src/theory_modules/bonds_and_crystals.json', 'data-src/rules/bond_theory.json'),
+  calculations: gitDate('data-src/theory_modules/calculations.json', 'data-src/rules/calculations_data.json'),
+  oxidation:   gitDate('data-src/theory_modules/oxidation_states.json', 'data-src/rules/oxidation_rules.json'),
+  competencies: gitDate('data-src/rules/competencies.json', 'data-src/rules/bkt_params.json'),
+  ions:        gitDate('data-src/ions.json', 'data-src/translations/en/ions.json'),
+  ui:          gitDate('messages', 'src/layouts', 'src/components/Nav.astro'),
+};
+const FALLBACK = new Date('2026-01-01');
+
+/** Map a sitemap URL to its real last-modified date. */
+function lastmod(url) {
+  const p = url.replace('https://chemistry.svistunov.online', '');
+  // Element detail pages (any locale)
+  if (
+    (p.includes('/periodic-table/') || p.includes('/tablica-okresowa/') || p.includes('/tabla-periodica/')) &&
+    !p.endsWith('/periodic-table/') && !p.endsWith('/tablica-okresowa/') && !p.endsWith('/tabla-periodica/')
+  ) return D.elements ?? FALLBACK;
+  // Substance detail pages
+  if (
+    (p.includes('/substances/') || p.includes('/substancje/') || p.includes('/sustancias/')) &&
+    !p.endsWith('/substances/') && !p.endsWith('/substancje/') && !p.endsWith('/sustancias/')
+  ) return D.substances ?? FALLBACK;
+  // Reaction detail pages
+  if (
+    (p.includes('/reactions/') || p.includes('/reakcje/') || p.includes('/reacciones/')) &&
+    !p.endsWith('/reactions/') && !p.endsWith('/reakcje/') && !p.endsWith('/reacciones/')
+  ) return D.reactions ?? FALLBACK;
+  // Bonds pages (section + detail)
+  if (p.includes('/bonds') || p.includes('/wiazania') || p.includes('/enlaces')) return D.bonds ?? FALLBACK;
+  // Calculations pages
+  if (p.includes('/calculations') || p.includes('/obliczenia') || p.includes('/calculos')) return D.calculations ?? FALLBACK;
+  // Oxidation states pages
+  if (p.includes('/oxidation-states') || p.includes('/stopnie-utlenienia') || p.includes('/estados-oxidacion')) return D.oxidation ?? FALLBACK;
+  // Competency pages
+  if (p.includes('/competency/') || p.includes('/kompetencja/') || p.includes('/competencia/')) return D.competencies ?? FALLBACK;
+  // Ions
+  if (p.includes('/ions') || p.includes('/jony') || p.includes('/iones')) return D.ions ?? FALLBACK;
+  // Section indexes and everything else: use most recently changed of ui/elements/substances
+  const latest = [D.ui, D.elements, D.substances, D.bonds].filter(Boolean);
+  return latest.length ? new Date(Math.max(...latest.map(d => d.getTime()))) : FALLBACK;
+}
+
+/** Assign crawl priority based on page type. */
+function priority(url) {
+  const p = url.replace('https://chemistry.svistunov.online', '');
+  if (p === '/') return 1.0;
+
+  // Main section pages (any locale)
+  const sectionSuffixes = [
+    '/periodic-table/', '/tablica-okresowa/', '/tabla-periodica/',
+    '/substances/', '/substancje/', '/sustancias/',
+    '/reactions/', '/reakcje/', '/reacciones/',
+    '/bonds/', '/wiazania/', '/enlaces/',
+    '/calculations/', '/obliczenia/', '/calculos/',
+    '/oxidation-states/', '/stopnie-utlenienia/', '/estados-oxidacion/',
+    '/ions/', '/jony/', '/iones/',
+    '/diagnostics/', '/diagnostyka/', '/diagnostico/',
+    '/competencies/', '/kompetencje/', '/competencias/',
+  ];
+  if (sectionSuffixes.some(s => p.endsWith(s) || p === s.slice(0, -1))) return 0.9;
+
+  // Element detail pages — encyclopaedic core content
+  if (p.includes('/periodic-table/') || p.includes('/tablica-okresowa/') || p.includes('/tabla-periodica/')) return 0.8;
+
+  // Exam comparison — unique cross-system content
+  if (p.includes('/compare') || p.includes('/porownanie') || p.includes('/comparar')) return 0.8;
+
+  // Competency detail pages
+  if (p.includes('/competency/') || p.includes('/kompetencja/') || p.includes('/competencia/')) return 0.7;
+
+  // Substance & reaction detail pages
+  if (p.includes('/substances/') || p.includes('/substancje/') || p.includes('/sustancias/')) return 0.6;
+  if (p.includes('/reactions/') || p.includes('/reakcje/') || p.includes('/reacciones/')) return 0.6;
+
+  return 0.5;
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,45 +127,14 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes('/profile/') && !page.includes('/profil/') && !page.includes('/perfil/'),
-      changefreq: 'weekly',
-      priority: 0.7,
       serialize: (item) => {
-        // Homepage — highest priority
-        if (item.url === 'https://chemistry.svistunov.online/') {
-          return { ...item, priority: 1.0, changefreq: 'weekly', lastmod: BUILD_DATE };
-        }
-        // Main section pages (any locale)
-        if (
-          item.url.endsWith('/periodic-table/') ||
-          item.url.endsWith('/tablica-okresowa/') ||
-          item.url.endsWith('/tabla-periodica/') ||
-          item.url.endsWith('/substances/') ||
-          item.url.endsWith('/substancje/') ||
-          item.url.endsWith('/sustancias/') ||
-          item.url.endsWith('/reactions/') ||
-          item.url.endsWith('/reakcje/') ||
-          item.url.endsWith('/reacciones/') ||
-          item.url.endsWith('/diagnostics/') ||
-          item.url.endsWith('/diagnostyka/') ||
-          item.url.endsWith('/diagnostico/')
-        ) {
-          return { ...item, priority: 0.9, changefreq: 'weekly', lastmod: BUILD_DATE };
-        }
-        // Individual substance pages
-        if (item.url.includes('/substances/') && !item.url.endsWith('/substances/')) {
-          return { ...item, priority: 0.6, changefreq: 'monthly', lastmod: BUILD_DATE };
-        }
-        if (item.url.includes('/substancje/') && !item.url.endsWith('/substancje/')) {
-          return { ...item, priority: 0.6, changefreq: 'monthly', lastmod: BUILD_DATE };
-        }
-        if (item.url.includes('/sustancias/') && !item.url.endsWith('/sustancias/')) {
-          return { ...item, priority: 0.6, changefreq: 'monthly', lastmod: BUILD_DATE };
-        }
-        // Exam comparison — high priority unique content
-        if (item.url.includes('/compare') || item.url.includes('/porownanie') || item.url.includes('/comparar')) {
-          return { ...item, priority: 0.8, changefreq: 'monthly', lastmod: BUILD_DATE };
-        }
-        return { ...item, lastmod: BUILD_DATE };
+        const p = priority(item.url);
+        return {
+          ...item,
+          priority: p,
+          changefreq: p >= 0.8 ? 'monthly' : 'weekly',
+          lastmod: lastmod(item.url),
+        };
       },
     }),
   ],
