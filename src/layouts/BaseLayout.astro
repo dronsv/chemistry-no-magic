@@ -97,6 +97,17 @@ const searchUrl = localizeUrl('/search/', locale);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage ?? `${siteUrl}/og-default.png`} />
 
+    <!-- Organization structured data (global) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Химия без магии",
+      "alternateName": "Chemistry Without Magic",
+      "url": siteUrl,
+      "logo": `${siteUrl}/icons/icon-512.png`,
+      "sameAs": ["https://github.com/dronsv/chemistry-no-magic"],
+    })} />
+
     <!-- Breadcrumb structured data -->
     {breadcrumbLd && (
       <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
@@ -104,7 +115,12 @@ const searchUrl = localizeUrl('/search/', locale);
 
     <ViewTransitions />
 
-    <!-- DNS prefetch for analytics -->
+    <!-- RSS/Atom feed -->
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Химия без магии" />
+
+    <!-- DNS prefetch for analytics and CDN -->
+    <link rel="dns-prefetch" href="https://storage.yandexcloud.net" />
+    <link rel="preconnect" href="https://storage.yandexcloud.net" crossorigin />
     <link rel="dns-prefetch" href="https://mc.yandex.ru" />
     <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
 
@@ -192,6 +208,8 @@ const searchUrl = localizeUrl('/search/', locale);
         navigator.serviceWorker.register('/sw.js');
       }
     </script>
+
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
 
     <slot name="head" />
   </head>

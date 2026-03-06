@@ -18,6 +18,19 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       "teaches": ["ионная связь", "ковалентная полярная связь", "ковалентная неполярная связь", "металлическая связь", "кристаллические решётки"],
       "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Химические связи и кристаллические решётки",
+      "description": "Определение типа химической связи и кристаллической решётки по формуле вещества. Калькулятор с пошаговым объяснением, теория и практика для ОГЭ.",
+      "provider": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "9–11 класс",
+      "inLanguage": "ru",
+      "teaches": ["ковалентная связь", "ионная связь", "металлическая связь", "водородная связь", "кристаллические решётки"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/bonds/",
+      "isAccessibleForFree": true,
+    })} />
   </Fragment>
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

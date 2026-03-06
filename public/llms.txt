@@ -1,0 +1,56 @@
+# Химия без магии — Chemistry Without Magic
+
+> Adaptive chemistry learning platform for OGE/EGE/GCSE/Matura/EBAU exam preparation.
+> All 118 elements, interactive periodic table, bond types, oxidation states, stoichiometry calculations, reaction classification. Free, no login required. Available in Russian, English, Polish, Spanish.
+
+## Periodic Table & Elements
+
+- [Periodic Table (interactive)](https://chemistry.svistunov.online/periodic-table/)
+- [Hydrogen H](https://chemistry.svistunov.online/periodic-table/H/)
+- [Oxygen O](https://chemistry.svistunov.online/periodic-table/O/)
+- [Carbon C](https://chemistry.svistunov.online/periodic-table/C/)
+- [Nitrogen N](https://chemistry.svistunov.online/periodic-table/N/)
+- [Sodium Na](https://chemistry.svistunov.online/periodic-table/Na/)
+- [Chlorine Cl](https://chemistry.svistunov.online/periodic-table/Cl/)
+- [Iron Fe](https://chemistry.svistunov.online/periodic-table/Fe/)
+- [Copper Cu](https://chemistry.svistunov.online/periodic-table/Cu/)
+- [Gold Au](https://chemistry.svistunov.online/periodic-table/Au/)
+- [Calcium Ca](https://chemistry.svistunov.online/periodic-table/Ca/)
+- [Aluminium Al](https://chemistry.svistunov.online/periodic-table/Al/)
+- [Silicon Si](https://chemistry.svistunov.online/periodic-table/Si/)
+- [Phosphorus P](https://chemistry.svistunov.online/periodic-table/P/)
+- [Sulfur S](https://chemistry.svistunov.online/periodic-table/S/)
+
+## Theory Modules
+
+- [Chemical Bonds & Crystal Lattices](https://chemistry.svistunov.online/bonds/)
+- [Oxidation States (step-by-step)](https://chemistry.svistunov.online/oxidation-states/)
+- [Stoichiometry Calculations](https://chemistry.svistunov.online/calculations/)
+- [Chemical Reactions](https://chemistry.svistunov.online/reactions/)
+- [Substance Classification](https://chemistry.svistunov.online/substances/)
+
+## Substances & Ions Reference
+
+- [Solubility Table & Ion Reference](https://chemistry.svistunov.online/ions/)
+- [Substance Catalog](https://chemistry.svistunov.online/substances/)
+
+## Exam Preparation (OGE, EGE, GCSE, Matura)
+
+- [Adaptive Diagnostics](https://chemistry.svistunov.online/diagnostics/)
+- [Exam Practice (OGE)](https://chemistry.svistunov.online/exam/)
+- [Competency Profile](https://chemistry.svistunov.online/profile/)
+- [All Competencies](https://chemistry.svistunov.online/competencies/)
+
+## English Version
+
+- [Periodic Table (EN)](https://chemistry.svistunov.online/en/periodic-table/)
+- [Chemical Bonds (EN)](https://chemistry.svistunov.online/en/bonds/)
+- [Oxidation States (EN)](https://chemistry.svistunov.online/en/oxidation-states/)
+- [Calculations (EN)](https://chemistry.svistunov.online/en/calculations/)
+- [Diagnostics (EN)](https://chemistry.svistunov.online/en/diagnostics/)
+- [Exam Practice (EN)](https://chemistry.svistunov.online/en/exam/)
+
+## Data & Machine-Readable
+
+- [Full content index for LLMs](https://chemistry.svistunov.online/llms-full.txt)
+- [XML Sitemap](https://chemistry.svistunov.online/sitemap.xml)

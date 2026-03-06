@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
 ---
 
 <BaseLayout title="Obliczenia" description="Obliczenia chemiczne: masa molowa, ułamek masowy, roztwory i wydajność reakcji.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Obliczenia chemiczne",
+      "description": "Masa molowa, ilość substancji, ułamek masowy, stechiometria, wydajność reakcji. Ćwiczenia do egzaminów chemicznych.",
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Klasa 9–11",
+      "inLanguage": "pl",
+      "teaches": ["masa molowa", "stechiometria", "ułamek masowy", "wydajność reakcji", "stężenie roztworów"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/pl/obliczenia/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

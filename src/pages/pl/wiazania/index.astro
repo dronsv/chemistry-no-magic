@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
 ---
 
 <BaseLayout title="Wiązania chemiczne" description="Określanie typów wiązań chemicznych i sieci krystalicznych. Kalkulator, teoria i ćwiczenia.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Wiązania chemiczne i sieci krystaliczne",
+      "description": "Określanie typów wiązań chemicznych i sieci krystalicznych na podstawie wzoru substancji. Kalkulator, teoria i ćwiczenia.",
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Klasa 9–11",
+      "inLanguage": "pl",
+      "teaches": ["wiązanie kowalencyjne", "wiązanie jonowe", "wiązanie metaliczne", "wiązanie wodorowe", "sieci krystaliczne"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/pl/wiazania/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

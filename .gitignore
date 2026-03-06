@@ -23,6 +23,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# IndexNow key file (contains secret key as filename)
+public/indexnow-*.txt
+
 # deploy scripts (infrastructure)
 scripts/deploy.sh
 

@@ -6,5 +6,18 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Periodic Table" description="Interactive periodic table: electron configurations, orbital diagrams, energy levels, and practice.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Periodic Table — data on 118 chemical elements",
+      "description": "Machine-readable data on 118 chemical elements: properties, electron configurations, oxidation states, electronegativity",
+      "url": "https://chemistry.svistunov.online/en/periodic-table/",
+      "creator": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "inLanguage": ["ru", "en", "pl", "es"],
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+    })} />
+  </Fragment>
   <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>

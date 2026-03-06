@@ -22,6 +22,17 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
         "url": Astro.site?.toString(),
       },
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Таблица Менделеева — данные о 118 химических элементах",
+      "description": "Машиночитаемые данные о 118 химических элементах: свойства, электронные конфигурации, степени окисления, электроотрицательность",
+      "url": "https://chemistry.svistunov.online/periodic-table/",
+      "creator": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+      "inLanguage": ["ru", "en", "pl", "es"],
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+    })} />
   </Fragment>
   <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>

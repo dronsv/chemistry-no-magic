@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Oxidation States" description="Determine oxidation states in chemical compounds. Rules, calculator, and practice.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Oxidation States",
+      "description": "Determine oxidation states in chemical compounds step by step. Rules, calculator, and practice for chemistry exams.",
+      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Grade 9–11",
+      "inLanguage": "en",
+      "teaches": ["oxidation state", "oxidation rules", "electronegativity", "oxidizing agent", "reducing agent"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/en/oxidation-states/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

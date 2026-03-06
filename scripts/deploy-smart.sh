@@ -6,11 +6,13 @@
 set -euo pipefail
 
 FULL="${1:-}"
+DATA_CHANGED=false
 
 # ── Data build ──────────────────────────────────────────────────────────────
 if [ "$FULL" = "--all" ]; then
   echo "=== Full rebuild ==="
   node scripts/build-data.mjs
+  DATA_CHANGED=true
 else
   STATE_FILE=".deploy-data-hash"
   current_hash() {
@@ -23,10 +25,14 @@ else
     echo "data-src changed — rebuilding data bundle..."
     node scripts/build-data.mjs
     echo "$CURRENT" > "$STATE_FILE"
+    DATA_CHANGED=true
   else
     echo "data-src unchanged — skipping build:data"
   fi
 fi
+
+# ── llms-full.txt ────────────────────────────────────────────────────────────
+node scripts/generate-llms-full.mjs
 
 # ── Astro build ─────────────────────────────────────────────────────────────
 echo "Building Astro..."
@@ -36,3 +42,8 @@ cp dist/sitemap-index.xml dist/sitemap.xml
 # ── Upload to S3 ─────────────────────────────────────────────────────────────
 echo "Deploying to S3..."
 bash scripts/deploy.sh
+
+# ── IndexNow (submit section pages on data changes) ──────────────────────────
+if [ "$DATA_CHANGED" = "true" ]; then
+  node scripts/indexnow-submit.mjs || echo "IndexNow: skipped (no key or network error)"
+fi

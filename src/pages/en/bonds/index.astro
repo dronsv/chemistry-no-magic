@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Chemical Bonds" description="Determine bond types and crystal lattices by substance formula. Calculator, theory, and practice.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Chemical Bonds and Crystal Lattices",
+      "description": "Determine chemical bond types and crystal lattice structures from a substance formula. Calculator, theory, and practice.",
+      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Grade 9–11",
+      "inLanguage": "en",
+      "teaches": ["covalent bond", "ionic bond", "metallic bond", "hydrogen bond", "crystal lattices"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/en/bonds/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

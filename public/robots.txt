@@ -3,6 +3,29 @@ Allow: /
 Disallow: /profile/
 Disallow: /data/
 
+# AI search bots — allow (citations in AI answers → traffic)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Training crawlers — block
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
 Sitemap: https://chemistry.svistunov.online/sitemap.xml
 
 Host: chemistry.svistunov.online

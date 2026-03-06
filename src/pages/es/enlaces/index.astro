@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
 ---
 
 <BaseLayout title="Enlaces químicos" description="Determinación de tipos de enlaces químicos y redes cristalinas. Calculadora, teoría y práctica.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Enlaces químicos y redes cristalinas",
+      "description": "Determinación de tipos de enlaces químicos y redes cristalinas a partir de la fórmula de la sustancia. Calculadora, teoría y práctica.",
+      "provider": { "@type": "Organization", "name": "Química sin magia", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Curso 9–11",
+      "inLanguage": "es",
+      "teaches": ["enlace covalente", "enlace iónico", "enlace metálico", "enlace de hidrógeno", "redes cristalinas"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/es/enlaces/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

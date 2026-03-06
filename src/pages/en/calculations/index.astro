@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Calculations" description="Chemical calculations: molar mass, mass fraction, solutions, and reaction yield.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Chemical Calculations",
+      "description": "Molar mass, amount of substance, mass fraction, stoichiometry, reaction yield. Practice for chemistry exams.",
+      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Grade 9–11",
+      "inLanguage": "en",
+      "teaches": ["molar mass", "stoichiometry", "mass fraction", "reaction yield", "solution concentration"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/en/calculations/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

@@ -18,6 +18,19 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       "teaches": ["степень окисления", "электроотрицательность", "окислительно-восстановительные реакции", "электронный баланс"],
       "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Степени окисления элементов",
+      "description": "Определение степеней окисления элементов в химических соединениях. Калькулятор с пошаговым решением, теория и практика для ОГЭ.",
+      "provider": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "9–11 класс",
+      "inLanguage": "ru",
+      "teaches": ["степень окисления", "правила определения СО", "электроотрицательность", "окислитель и восстановитель"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/oxidation-states/",
+      "isAccessibleForFree": true,
+    })} />
   </Fragment>
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

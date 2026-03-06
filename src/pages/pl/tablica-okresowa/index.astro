@@ -6,5 +6,18 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
 ---
 
 <BaseLayout title="Układ okresowy" description="Interaktywny układ okresowy: konfiguracje elektronowe, diagramy orbitalne, poziomy energetyczne.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Układ okresowy — dane o 118 pierwiastkach chemicznych",
+      "description": "Dane o 118 pierwiastkach chemicznych: właściwości, konfiguracje elektronowe, stopnie utlenienia, elektroujemność",
+      "url": "https://chemistry.svistunov.online/pl/tablica-okresowa/",
+      "creator": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "inLanguage": ["ru", "en", "pl", "es"],
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+    })} />
+  </Fragment>
   <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>

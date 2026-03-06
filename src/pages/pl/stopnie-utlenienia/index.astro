@@ -6,5 +6,20 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
 ---
 
 <BaseLayout title="Stopnie utlenienia" description="Określanie stopni utlenienia w związkach chemicznych. Reguły, kalkulator i ćwiczenia.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Stopnie utlenienia pierwiastków",
+      "description": "Określanie stopni utlenienia w związkach chemicznych krok po kroku. Reguły, kalkulator i ćwiczenia egzaminacyjne.",
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "educationalLevel": "Klasa 9–11",
+      "inLanguage": "pl",
+      "teaches": ["stopień utlenienia", "reguły ustalania SO", "elektroujemność", "utleniacz", "reduktor"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": "https://chemistry.svistunov.online/pl/stopnie-utlenienia/",
+      "isAccessibleForFree": true,
+    })} />
+  </Fragment>
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>
