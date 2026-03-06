@@ -31,8 +31,9 @@ else
   fi
 fi
 
-# ── llms-full.txt ────────────────────────────────────────────────────────────
+# ── llms-full.txt + change-aware RSS ────────────────────────────────────────
 node scripts/generate-llms-full.mjs
+node scripts/generate-feed.mjs
 
 # ── Astro build ─────────────────────────────────────────────────────────────
 echo "Building Astro..."
