@@ -435,6 +435,7 @@
   "theory_rule_label": "Regla:",
   "theory_properties_label": "Propiedades:",
   "theory_examples_label": "Ejemplos:",
+  "theory_anomalies_label": "Excepciones al patrón:",
   "practice_next_task": "Siguiente tarea",
   "practice_orbital_hint": "Haga clic en las celdas para llenar electrones (↑ → ↓ → vacío)",
   "diag_progress": "Pregunta {current} de {total}",

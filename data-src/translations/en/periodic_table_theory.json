@@ -8,11 +8,31 @@
     "examples": [
       {
         "label_ru": "Period 2",
-        "comment_ru": "radius decreases by half across the period"
+        "comment_ru": "radius decreases by half across the period",
+        "elements": [
+          {
+            "value": "152 pm"
+          },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
       },
       {
         "label_ru": "Group IA",
-        "comment_ru": "radius grows with each new shell"
+        "comment_ru": "radius grows with each new shell",
+        "elements": [
+          {
+            "value": "152 pm"
+          },
+          {},
+          {},
+          {},
+          {}
+        ]
       }
     ]
   },
@@ -20,16 +40,36 @@
     "title_ru": "Ionization energy",
     "trend_period_ru": "Increases left to right across a period",
     "trend_group_ru": "Decreases top to bottom within a group",
-    "why_period_ru": "The smaller the atomic radius and the greater the nuclear charge at the same number of levels, the more strongly the nucleus holds the outer electron. Therefore more energy is needed to remove it. Exceptions: beryllium (2s\u00b2) has higher ionization energy than boron (2s\u00b22p\u00b9) because the fully filled 2s subshell is particularly stable, and nitrogen (2p\u00b3) has higher ionization energy than oxygen (2p\u2074) due to the stability of the half-filled 2p subshell.",
+    "why_period_ru": "The smaller the atomic radius and the greater the nuclear charge at the same number of levels, the more strongly the nucleus holds the outer electron. Therefore more energy is needed to remove it. Exceptions: beryllium (2s²) has higher ionization energy than boron (2s²2p¹) because the fully filled 2s subshell is particularly stable, and nitrogen (2p³) has higher ionization energy than oxygen (2p⁴) due to the stability of the half-filled 2p subshell.",
     "why_group_ru": "As the number of energy levels increases, the outer electron moves farther from the nucleus and is shielded by inner shells. The nucleus holds it more weakly, so less energy is needed for removal. This is why alkali metals at the bottom of the group (Cs, Fr) lose their electron most easily.",
     "examples": [
       {
         "label_ru": "Period 3",
-        "comment_ru": "general increase with exceptions"
+        "comment_ru": "general increase with exceptions",
+        "elements": [
+          {
+            "value": "496 kJ/mol"
+          },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
       },
       {
         "label_ru": "Group IA",
-        "comment_ru": "consistent decrease"
+        "comment_ru": "consistent decrease",
+        "elements": [
+          {
+            "value": "520 kJ/mol"
+          },
+          {},
+          {},
+          {},
+          {}
+        ]
       }
     ]
   },
@@ -45,7 +85,7 @@
         "comment_ru": ""
       },
       {
-        "text_ru": "Metallic character and EN are inversely correlated: high EN \u2192 nonmetal, low EN \u2192 active metal"
+        "text_ru": "Metallic character and EN are inversely correlated: high EN → nonmetal, low EN → active metal"
       }
     ]
   },
@@ -53,19 +93,25 @@
     "title_ru": "Metallic character",
     "trend_period_ru": "Weakens left to right across a period",
     "trend_group_ru": "Strengthens top to bottom within a group",
-    "why_period_ru": "Metallic character is determined by an atom's ability to lose electrons. At the start of a period there are active metals (Na, Mg) with 1\u20132 valence electrons that are easily lost. In the middle \u2014 transition metals. At the end \u2014 nonmetals with 5\u20137 valence electrons that energetically prefer to gain rather than lose electrons.",
+    "why_period_ru": "Metallic character is determined by an atom's ability to lose electrons. At the start of a period there are active metals (Na, Mg) with 1–2 valence electrons that are easily lost. In the middle — transition metals. At the end — nonmetals with 5–7 valence electrons that energetically prefer to gain rather than lose electrons.",
     "why_group_ru": "The larger the atomic radius and the weaker the nucleus holds the outer electrons, the easier it is to lose them. Therefore lithium is a less active metal than caesium. Francium is the most active of all metals (theoretically). Similarly, in the carbon subgroup: C is a nonmetal, Si and Ge are metalloids, Sn and Pb are metals.",
     "examples": [
       {
         "label_ru": "Period 3",
         "elements": [
-          { "value_ru": "metal" },
+          {
+            "value_ru": "metal"
+          },
           {},
           {},
-          { "value_ru": "metalloid" },
+          {
+            "value_ru": "metalloid"
+          },
           {},
           {},
-          { "value_ru": "nonmetal" }
+          {
+            "value_ru": "nonmetal"
+          }
         ],
         "comment_ru": ""
       },
@@ -79,16 +125,20 @@
     "title_ru": "Electron affinity",
     "trend_period_ru": "Increases left to right across a period (with exceptions)",
     "trend_group_ru": "Decreases top to bottom within a group",
-    "why_period_ru": "Atoms with a nearly filled outer shell (halogens) release the maximum energy when gaining an electron \u2014 they need just one more electron for a stable noble gas configuration. Elements with half-filled and fully filled subshells (N, Be) have anomalously low affinity: adding an electron disrupts the stable symmetry.",
-    "why_group_ru": "Chlorine (349 kJ/mol) has a greater electron affinity than fluorine (328 kJ/mol), despite lower electronegativity \u2014 this exception is explained by fluorine's very small radius, where the added electron experiences strong repulsion from other electrons on the 2p subshell. Further down the group, affinity decreases (Br: 325, I: 295).",
+    "why_period_ru": "Atoms with a nearly filled outer shell (halogens) release the maximum energy when gaining an electron — they need just one more electron for a stable noble gas configuration. Elements with half-filled and fully filled subshells (N, Be) have anomalously low affinity: adding an electron disrupts the stable symmetry.",
+    "why_group_ru": "Chlorine (349 kJ/mol) has a greater electron affinity than fluorine (328 kJ/mol), despite lower electronegativity — this exception is explained by fluorine's very small radius, where the added electron experiences strong repulsion from other electrons on the 2p subshell. Further down the group, affinity decreases (Br: 325, I: 295).",
     "examples": [
       {
         "label_ru": "Halogens",
-        "comment_ru": "chlorine, not fluorine, is the leader"
-      },
-      {
-        "label_ru": "Anomalies",
-        "comment_ru": "filled subshells resist an extra electron"
+        "comment_ru": "chlorine, not fluorine, is the leader",
+        "elements": [
+          {
+            "value": "349 kJ/mol"
+          },
+          {},
+          {},
+          {}
+        ]
       }
     ]
   },
@@ -96,34 +146,34 @@
     "title_ru": "Chromium: consequences of electron promotion",
     "consequences_ru": [
       "Chromium exhibits oxidation states +2, +3, and +6 (not just +4 as might be expected).",
-      "The most stable oxidation state is +3: losing 3 electrons (1 from 4s and 2 from 3d) leaves a stable 3d\u00b3 configuration with three unpaired electrons.",
-      "Cr\u2082O\u2083 (chromium(III) oxide) is a very stable compound, used as a pigment and abrasive.",
-      "In oxidation state +6 (CrO\u2083, K\u2082Cr\u2082O\u2087), chromium is a strong oxidizer because it tends to regain electrons and restore a stable d-configuration."
+      "The most stable oxidation state is +3: losing 3 electrons (1 from 4s and 2 from 3d) leaves a stable 3d³ configuration with three unpaired electrons.",
+      "Cr₂O₃ (chromium(III) oxide) is a very stable compound, used as a pigment and abrasive.",
+      "In oxidation state +6 (CrO₃, K₂Cr₂O₇), chromium is a strong oxidizer because it tends to regain electrons and restore a stable d-configuration."
     ]
   },
   "exception:cu_consequences": {
     "title_ru": "Copper: consequences of electron promotion",
     "consequences_ru": [
       "Copper exhibits oxidation states +1 and +2 (instead of just +2).",
-      "Cu\u207a (loss of the single 4s electron) gives a fully filled 3d\u00b9\u2070 \u2014 a very stable configuration. Cu(I) compounds: Cu\u2082O, CuCl.",
-      "Cu\u00b2\u207a (loss of 4s\u00b9 and one 3d) is also stable because 3d\u2079 is close to fully filled. CuSO\u2084 \u2014 blue vitriol, the most common copper compound.",
+      "Cu⁺ (loss of the single 4s electron) gives a fully filled 3d¹⁰ — a very stable configuration. Cu(I) compounds: Cu₂O, CuCl.",
+      "Cu²⁺ (loss of 4s¹ and one 3d) is also stable because 3d⁹ is close to fully filled. CuSO₄ — blue vitriol, the most common copper compound.",
       "Because of the filled d-subshell, copper is a noble metal: it does not react with dilute acids (does not displace hydrogen)."
     ]
   },
   "exception:pd_consequences": {
-    "title_ru": "Palladium: a unique case \u2014 empty s-subshell",
+    "title_ru": "Palladium: a unique case — empty s-subshell",
     "consequences_ru": [
       "Palladium is the only element where both s-electrons drop down to the d-subshell.",
-      "The main oxidation state is +2: loss of two d-electrons gives a stable 4d\u2078 configuration.",
+      "The main oxidation state is +2: loss of two d-electrons gives a stable 4d⁸ configuration.",
       "Palladium is actively used as a catalyst (hydrogenation, cross-coupling reactions) because its filled d-subshell can reversibly donate and accept electrons.",
-      "It can absorb 900 times its own volume of hydrogen \u2014 its electronic structure allows hydrogen atoms to penetrate the crystal lattice."
+      "It can absorb 900 times its own volume of hydrogen — its electronic structure allows hydrogen atoms to penetrate the crystal lattice."
     ]
   },
   "exception:ag_consequences": {
     "title_ru": "Silver: copper's analogue in the fifth period",
     "consequences_ru": [
-      "Silver predominantly exhibits oxidation state +1: loss of the 5s\u00b9 electron gives a fully filled 4d\u00b9\u2070.",
-      "Ag\u207a with 4d\u00b9\u2070 configuration is one of the most stable forms among d-elements.",
+      "Silver predominantly exhibits oxidation state +1: loss of the 5s¹ electron gives a fully filled 4d¹⁰.",
+      "Ag⁺ with 4d¹⁰ configuration is one of the most stable forms among d-elements.",
       "Like copper, silver is a noble metal: it does not dissolve in dilute acids.",
       "The filled d-subshell provides high electrical and thermal conductivity: d-electrons do not participate in conduction and do not scatter s-electrons."
     ]
@@ -131,15 +181,15 @@
   "exception:au_consequences": {
     "title_ru": "Gold: relativistic effect + electron promotion",
     "consequences_ru": [
-      "Gold exhibits oxidation states +1 and +3. Au\u207a has a filled 5d\u00b9\u2070, Au\u00b3\u207a has a 5d\u2078 configuration.",
-      "Relativistic contraction of the 6s orbital reduces the gap between the 5d and 6s levels. This is the reason for gold's yellow color: the 5d\u21926s transition energy falls in the visible range.",
-      "Gold is the most noble of all metals: it dissolves only in aqua regia (HNO\u2083 + 3HCl) or cyanide solutions.",
-      "The filled 5d\u00b9\u2070 + relativistic effects make gold exceptionally chemically inert and resistant to corrosion."
+      "Gold exhibits oxidation states +1 and +3. Au⁺ has a filled 5d¹⁰, Au³⁺ has a 5d⁸ configuration.",
+      "Relativistic contraction of the 6s orbital reduces the gap between the 5d and 6s levels. This is the reason for gold's yellow color: the 5d→6s transition energy falls in the visible range.",
+      "Gold is the most noble of all metals: it dissolves only in aqua regia (HNO₃ + 3HCl) or cyanide solutions.",
+      "The filled 5d¹⁰ + relativistic effects make gold exceptionally chemically inert and resistant to corrosion."
     ]
   },
   "principle": {
     "title_ru": "General principle: why properties change periodically",
-    "text_ru": "All trends in the periodic table are explained by two competing factors: nuclear charge (Z) and shielding (\u03c3). The effective nuclear charge Z_eff = Z \u2212 \u03c3 determines how strongly the nucleus holds the outer electrons. Across a period, Z increases while \u03c3 barely changes \u2192 Z_eff increases \u2192 electrons are attracted more strongly. Down a group, Z increases but \u03c3 increases even faster (each new level provides strong shielding) \u2192 Z_eff for the outer electrons decreases \u2192 electrons are held more weakly.",
-    "formula_ru": "Z_eff = Z \u2212 \u03c3, where Z \u2014 nuclear charge, \u03c3 \u2014 shielding constant"
+    "text_ru": "All trends in the periodic table are explained by two competing factors: nuclear charge (Z) and shielding (σ). The effective nuclear charge Z_eff = Z − σ determines how strongly the nucleus holds the outer electrons. Across a period, Z increases while σ barely changes → Z_eff increases → electrons are attracted more strongly. Down a group, Z increases but σ increases even faster (each new level provides strong shielding) → Z_eff for the outer electrons decreases → electrons are held more weakly.",
+    "formula_ru": "Z_eff = Z − σ, where Z — nuclear charge, σ — shielding constant"
   }
 }

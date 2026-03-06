@@ -1,0 +1,37 @@
+[
+  {
+    "property": "ionization_energy",
+    "from": "Be",
+    "to": "B",
+    "reason": "filled_s_subshell",
+    "direction": "period"
+  },
+  {
+    "property": "ionization_energy",
+    "from": "N",
+    "to": "O",
+    "reason": "half_filled_p_subshell",
+    "direction": "period"
+  },
+  {
+    "property": "electron_affinity",
+    "from": "N",
+    "to": "O",
+    "reason": "half_filled_p_subshell",
+    "direction": "period"
+  },
+  {
+    "property": "electron_affinity",
+    "from": "Be",
+    "to": "B",
+    "reason": "filled_s_subshell",
+    "direction": "period"
+  },
+  {
+    "property": "electron_affinity",
+    "from": "F",
+    "to": "Cl",
+    "reason": "small_atomic_radius_repulsion",
+    "direction": "group"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "filled_s_subshell",
+    "labels": {
+      "ru": "заполненный s-подуровень особенно стабилен",
+      "en": "filled s subshell is particularly stable",
+      "pl": "zapełniony podpoziom s jest szczególnie stabilny",
+      "es": "el subnivel s lleno es especialmente estable"
+    }
+  },
+  {
+    "id": "half_filled_p_subshell",
+    "labels": {
+      "ru": "полузаполненный p-подуровень особенно стабилен",
+      "en": "half-filled p subshell is particularly stable",
+      "pl": "półzapełniony podpoziom p jest szczególnie stabilny",
+      "es": "el subnivel p semilleno es especialmente estable"
+    }
+  },
+  {
+    "id": "small_atomic_radius_repulsion",
+    "labels": {
+      "ru": "малый радиус атома → сильное отталкивание электронов",
+      "en": "small atomic radius causes strong electron-electron repulsion",
+      "pl": "mały promień atomowy powoduje silne odpychanie elektronów",
+      "es": "el radio atómico pequeño causa una fuerte repulsión entre electrones"
+    }
+  }
+]

@@ -14,13 +14,34 @@
           "label_ru": "Период 2",
           "direction": "period",
           "elements": [
-            { "symbol": "Li", "value": "152 пм" },
-            { "symbol": "Be", "value": "112" },
-            { "symbol": "B", "value": "87" },
-            { "symbol": "C", "value": "77" },
-            { "symbol": "N", "value": "75" },
-            { "symbol": "O", "value": "73" },
-            { "symbol": "F", "value": "71" }
+            {
+              "symbol": "Li",
+              "value": "152 пм"
+            },
+            {
+              "symbol": "Be",
+              "value": "112"
+            },
+            {
+              "symbol": "B",
+              "value": "87"
+            },
+            {
+              "symbol": "C",
+              "value": "77"
+            },
+            {
+              "symbol": "N",
+              "value": "75"
+            },
+            {
+              "symbol": "O",
+              "value": "73"
+            },
+            {
+              "symbol": "F",
+              "value": "71"
+            }
           ],
           "comment_ru": "радиус уменьшается в 2 раза за период"
         },
@@ -29,11 +50,26 @@
           "label_ru": "Группа IA",
           "direction": "group",
           "elements": [
-            { "symbol": "Li", "value": "152 пм" },
-            { "symbol": "Na", "value": "186" },
-            { "symbol": "K", "value": "227" },
-            { "symbol": "Rb", "value": "248" },
-            { "symbol": "Cs", "value": "265" }
+            {
+              "symbol": "Li",
+              "value": "152 пм"
+            },
+            {
+              "symbol": "Na",
+              "value": "186"
+            },
+            {
+              "symbol": "K",
+              "value": "227"
+            },
+            {
+              "symbol": "Rb",
+              "value": "248"
+            },
+            {
+              "symbol": "Cs",
+              "value": "265"
+            }
           ],
           "comment_ru": "радиус растёт с каждым новым уровнем"
         }
@@ -57,13 +93,34 @@
           "label_ru": "Период 3",
           "direction": "period",
           "elements": [
-            { "symbol": "Na", "value": "496 кДж/моль" },
-            { "symbol": "Mg", "value": "738" },
-            { "symbol": "Al", "value": "578" },
-            { "symbol": "Si", "value": "786" },
-            { "symbol": "P", "value": "1012" },
-            { "symbol": "S", "value": "1000" },
-            { "symbol": "Cl", "value": "1251" }
+            {
+              "symbol": "Na",
+              "value": "496 кДж/моль"
+            },
+            {
+              "symbol": "Mg",
+              "value": "738"
+            },
+            {
+              "symbol": "Al",
+              "value": "578"
+            },
+            {
+              "symbol": "Si",
+              "value": "786"
+            },
+            {
+              "symbol": "P",
+              "value": "1012"
+            },
+            {
+              "symbol": "S",
+              "value": "1000"
+            },
+            {
+              "symbol": "Cl",
+              "value": "1251"
+            }
           ],
           "comment_ru": "общий рост с исключениями"
         },
@@ -72,11 +129,26 @@
           "label_ru": "Группа IA",
           "direction": "group",
           "elements": [
-            { "symbol": "Li", "value": "520 кДж/моль" },
-            { "symbol": "Na", "value": "496" },
-            { "symbol": "K", "value": "419" },
-            { "symbol": "Rb", "value": "403" },
-            { "symbol": "Cs", "value": "376" }
+            {
+              "symbol": "Li",
+              "value": "520 кДж/моль"
+            },
+            {
+              "symbol": "Na",
+              "value": "496"
+            },
+            {
+              "symbol": "K",
+              "value": "419"
+            },
+            {
+              "symbol": "Rb",
+              "value": "403"
+            },
+            {
+              "symbol": "Cs",
+              "value": "376"
+            }
           ],
           "comment_ru": "последовательное снижение"
         }
@@ -100,12 +172,30 @@
           "label_ru": "Шкала Полинга",
           "direction": "period",
           "elements": [
-            { "symbol": "F", "value": "4.0" },
-            { "symbol": "O", "value": "3.44" },
-            { "symbol": "N", "value": "3.04" },
-            { "symbol": "Cl", "value": "3.16" },
-            { "symbol": "Br", "value": "2.96" },
-            { "symbol": "I", "value": "2.66" }
+            {
+              "symbol": "F",
+              "value": "4.0"
+            },
+            {
+              "symbol": "O",
+              "value": "3.44"
+            },
+            {
+              "symbol": "N",
+              "value": "3.04"
+            },
+            {
+              "symbol": "Cl",
+              "value": "3.16"
+            },
+            {
+              "symbol": "Br",
+              "value": "2.96"
+            },
+            {
+              "symbol": "I",
+              "value": "2.66"
+            }
           ],
           "comment_ru": ""
         },
@@ -133,13 +223,34 @@
           "label_ru": "3 период",
           "direction": "period",
           "elements": [
-            { "symbol": "Na", "value_ru": "металл" },
-            { "symbol": "Mg", "value_ru": "" },
-            { "symbol": "Al", "value_ru": "" },
-            { "symbol": "Si", "value_ru": "полуметалл" },
-            { "symbol": "P", "value_ru": "" },
-            { "symbol": "S", "value_ru": "" },
-            { "symbol": "Cl", "value_ru": "неметалл" }
+            {
+              "symbol": "Na",
+              "value_ru": "металл"
+            },
+            {
+              "symbol": "Mg",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Al",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Si",
+              "value_ru": "полуметалл"
+            },
+            {
+              "symbol": "P",
+              "value_ru": ""
+            },
+            {
+              "symbol": "S",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Cl",
+              "value_ru": "неметалл"
+            }
           ],
           "comment_ru": ""
         },
@@ -148,11 +259,26 @@
           "label_ru": "Группа IA",
           "direction": "group",
           "elements": [
-            { "symbol": "Li", "value_ru": "" },
-            { "symbol": "Na", "value_ru": "" },
-            { "symbol": "K", "value_ru": "" },
-            { "symbol": "Rb", "value_ru": "" },
-            { "symbol": "Cs", "value_ru": "" }
+            {
+              "symbol": "Li",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Na",
+              "value_ru": ""
+            },
+            {
+              "symbol": "K",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Rb",
+              "value_ru": ""
+            },
+            {
+              "symbol": "Cs",
+              "value_ru": ""
+            }
           ],
           "comment_ru": "активность металлов растёт (реакция с водой всё более бурная)"
         }
@@ -176,29 +302,28 @@
           "label_ru": "Галогены",
           "direction": "group",
           "elements": [
-            { "symbol": "Cl", "value": "349 кДж/моль" },
-            { "symbol": "F", "value": "328" },
-            { "symbol": "Br", "value": "325" },
-            { "symbol": "I", "value": "295" }
+            {
+              "symbol": "Cl",
+              "value": "349 кДж/моль"
+            },
+            {
+              "symbol": "F",
+              "value": "328"
+            },
+            {
+              "symbol": "Br",
+              "value": "325"
+            },
+            {
+              "symbol": "I",
+              "value": "295"
+            }
           ],
           "comment_ru": "хлор, а не фтор, лидер"
-        },
-        {
-          "type": "series",
-          "label_ru": "Аномалии",
-          "direction": "period",
-          "elements": [
-            { "symbol": "N", "value": "0" },
-            { "symbol": "O", "value": "141" },
-            { "symbol": "Be", "value": "0" },
-            { "symbol": "B", "value": "27" }
-          ],
-          "comment_ru": "заполненные подуровни сопротивляются лишнему электрону"
         }
       ],
       "examples_ru": [
-        "Галогены: Cl (349 кДж/моль) > F (328) > Br (325) > I (295) — хлор, а не фтор, лидер",
-        "Аномалии: N (0) < O (141) и Be (0) < B (27) — заполненные подуровни сопротивляются лишнему электрону"
+        "Галогены: Cl (349 кДж/моль) > F (328) > Br (325) > I (295) — хлор, а не фтор, лидер"
       ]
     }
   ],

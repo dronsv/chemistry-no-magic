@@ -435,6 +435,7 @@
   "theory_rule_label": "Правило:",
   "theory_properties_label": "Свойства:",
   "theory_examples_label": "Примеры:",
+  "theory_anomalies_label": "Исключения из тренда:",
   "practice_next_task": "Следующее задание",
   "practice_orbital_hint": "Нажимайте на ячейки, чтобы заполнить электроны (↑ → ↓ → пусто)",
   "diag_progress": "Вопрос {current} из {total}",

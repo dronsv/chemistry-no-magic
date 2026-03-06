@@ -435,6 +435,7 @@
   "theory_rule_label": "Reguła:",
   "theory_properties_label": "Właściwości:",
   "theory_examples_label": "Przykłady:",
+  "theory_anomalies_label": "Wyjątki od trendu:",
   "practice_next_task": "Następne zadanie",
   "practice_orbital_hint": "Kliknij komórki, aby wypełnić elektrony (↑ → ↓ → puste)",
   "diag_progress": "Pytanie {current} z {total}",

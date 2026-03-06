@@ -7,8 +7,10 @@ import type {
   TrendExample,
   TrendExampleElement,
 } from '../../types/periodic-table-theory';
+import type { TrendAnomaly, AnomalyReason } from '../../types/storage';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadPeriodicTableTheory } from '../../lib/data-loader';
+import { loadPeriodicTableTheory, loadPeriodicTrendAnomalies, loadReasonVocab } from '../../lib/data-loader';
+import FormulaChip from '../../components/FormulaChip';
 
 function CollapsibleSection({
   title,
@@ -42,9 +44,9 @@ function CollapsibleSection({
 function ElementChip({ el }: { el: TrendExampleElement }) {
   const display = el.value || el.value_ru || '';
   return (
-    <span className="theory-element-chip" title={el.symbol}>
-      <span className="theory-element-chip__symbol">{el.symbol}</span>
-      {display && <span className="theory-element-chip__value">{display}</span>}
+    <span className="theory-trend-element">
+      <FormulaChip formula={el.symbol} elementId={el.symbol} />
+      {display && <span className="theory-trend-element__value">{display}</span>}
     </span>
   );
 }
@@ -96,7 +98,50 @@ function TrendExamples({
   );
 }
 
-function TrendCard({ trend }: { trend: PropertyTrend }) {
+function TrendAnomalies({
+  trendId,
+  anomalies,
+  reasonsById,
+  locale,
+}: {
+  trendId: string;
+  anomalies: TrendAnomaly[];
+  reasonsById: Record<string, AnomalyReason>;
+  locale: string;
+}) {
+  const pairs = anomalies.filter(a => a.property === trendId);
+  if (pairs.length === 0) return null;
+  return (
+    <div className="theory-trend__examples">
+      <strong>{m.theory_anomalies_label()}</strong>
+      <div className="theory-trend__anomaly-list">
+        {pairs.map((a, i) => {
+          const reason = reasonsById[a.reason]?.labels[locale] ?? reasonsById[a.reason]?.labels['ru'] ?? '';
+          return (
+            <div key={i} className="theory-trend__anomaly-pair">
+              <FormulaChip formula={a.from} elementId={a.from} />
+              <span className="theory-trend__arrow-sep">{'→'}</span>
+              <FormulaChip formula={a.to} elementId={a.to} />
+              {reason && <span className="theory-trend__anomaly-reason">({reason})</span>}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function TrendCard({
+  trend,
+  anomalies,
+  reasonsById,
+  locale,
+}: {
+  trend: PropertyTrend;
+  anomalies: TrendAnomaly[];
+  reasonsById: Record<string, AnomalyReason>;
+  locale: string;
+}) {
   return (
     <CollapsibleSection title={trend.title_ru} icon={trend.icon}>
       <div className="theory-trend">
@@ -126,6 +171,13 @@ function TrendCard({ trend }: { trend: PropertyTrend }) {
             <TrendExamples examples={trend.examples} fallback={trend.examples_ru} />
           </div>
         )}
+
+        <TrendAnomalies
+          trendId={trend.id}
+          anomalies={anomalies}
+          reasonsById={reasonsById}
+          locale={locale}
+        />
       </div>
     </CollapsibleSection>
   );
@@ -152,6 +204,8 @@ function ExceptionCard({ exc }: { exc: ExceptionConsequence }) {
 
 export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
   const [theory, setTheory] = useState<PeriodicTableTheory | null>(null);
+  const [anomalies, setAnomalies] = useState<TrendAnomaly[]>([]);
+  const [reasonsById, setReasonsById] = useState<Record<string, AnomalyReason>>({});
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -159,9 +213,15 @@ export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
   useEffect(() => {
     if (!open || theory) return;
     setLoading(true);
-    loadPeriodicTableTheory(locale)
-      .then(data => {
+    Promise.all([
+      loadPeriodicTableTheory(locale),
+      loadPeriodicTrendAnomalies(),
+      loadReasonVocab(),
+    ])
+      .then(([data, anomalyData, reasonData]) => {
         setTheory(data);
+        setAnomalies(anomalyData);
+        setReasonsById(Object.fromEntries(reasonData.map(r => [r.id, r])));
         setLoading(false);
       })
       .catch(err => {
@@ -169,6 +229,8 @@ export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
         setLoading(false);
       });
   }, [open, theory, locale]);
+
+  const resolvedLocale = locale ?? 'ru';
 
   return (
     <div className="theory-panel">
@@ -202,7 +264,13 @@ export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
                 {m.theory_pt_trends_hint()}
               </p>
               {theory.property_trends.map(trend => (
-                <TrendCard key={trend.id} trend={trend} />
+                <TrendCard
+                  key={trend.id}
+                  trend={trend}
+                  anomalies={anomalies}
+                  reasonsById={reasonsById}
+                  locale={resolvedLocale}
+                />
               ))}
 
               {/* Exception consequences */}
