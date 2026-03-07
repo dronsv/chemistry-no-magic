@@ -3,6 +3,16 @@
  * Checks required fields, types, and value ranges.
  */
 
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
+
+const _schemaDir = dirname(fileURLToPath(import.meta.url));
+const _relationSchema = JSON.parse(
+  readFileSync(join(_schemaDir, '../../data-src/relations/relation_schema.json'), 'utf8')
+);
+const RELATION_ALLOWED_FIELDS = new Set(Object.keys(_relationSchema.items.properties));
+
 const VALID_METAL_TYPES = ['metal', 'nonmetal', 'metalloid'];
 const VALID_ELEMENT_GROUPS = [
   'alkali_metal', 'alkaline_earth', 'transition_metal', 'post_transition_metal',
@@ -547,7 +557,7 @@ export function validateRelations(relations, filename) {
     if (!r.predicate) errors.push(`${p}: missing predicate`);
     if (!r.object)    errors.push(`${p}: missing object`);
     if (r.step !== undefined && typeof r.step !== 'number') errors.push(`${p}: step must be a number`);
-    const extra = Object.keys(r).filter(k => !['subject','predicate','object','step','solubility'].includes(k));
+    const extra = Object.keys(r).filter(k => !RELATION_ALLOWED_FIELDS.has(k));
     if (extra.length) errors.push(`${p}: unexpected fields: ${extra.join(', ')}`);
   }
   return errors;

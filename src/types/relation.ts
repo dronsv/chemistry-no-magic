@@ -8,6 +8,14 @@ export interface Relation {
   object: string;
   /** Step index for multi-step chains (e.g. proton dissociation steps). */
   step?: number;
+  /** Solubility value for forms_salt_with triples. */
+  solubility?: 'soluble' | 'slightly_soluble' | 'decomposes';
+  /** Epistemic status of this relation. */
+  knowledge_level?: 'strict_chemistry' | 'school_convention' | 'pedagogical';
+  /** Source provenance (e.g. "IUPAC", "school_textbook_ru", "derived"). */
+  source_kind?: string;
 }
 
 export type RelationGraph = Relation[];
+
+export type KnowledgeLevel = NonNullable<Relation['knowledge_level']>;
