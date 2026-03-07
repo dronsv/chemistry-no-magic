@@ -1,27 +1,67 @@
 {
   "Ca_chain": {
-    "title_ru": "Cadena del calcio",
-    "class_sequence": ["metal", "óxido básico", "base", "sal"]
+    "title": "Cadena del calcio",
+    "class_sequence": [
+      "metal",
+      "óxido básico",
+      "base",
+      "sal"
+    ]
   },
   "Na_chain": {
-    "title_ru": "Cadena del sodio",
-    "class_sequence": ["metal", "óxido básico", "base", "sal"]
+    "title": "Cadena del sodio",
+    "class_sequence": [
+      "metal",
+      "óxido básico",
+      "base",
+      "sal"
+    ]
   },
   "Cu_chain": {
-    "title_ru": "Cadena del cobre",
-    "class_sequence": ["metal", "óxido básico", "sal", "base"]
+    "title": "Cadena del cobre",
+    "class_sequence": [
+      "metal",
+      "óxido básico",
+      "sal",
+      "base"
+    ]
   },
   "Fe_chain": {
-    "title_ru": "Cadena del hierro",
-    "class_sequence": ["metal", "sal", "base", "óxido básico"],
+    "title": "Cadena del hierro",
+    "class_sequence": [
+      "metal",
+      "sal",
+      "base",
+      "óxido básico"
+    ],
     "steps": [
-      { "substance": "Fe", "reagent": "HCl", "next": "FeCl₂", "type": "substitution" },
-      { "substance": "FeCl₂", "reagent": "NaOH", "next": "Fe(OH)₂", "type": "exchange" },
-      { "substance": "Fe(OH)₂", "reagent": "calentamiento", "next": "FeO", "type": "decomposition" }
+      {
+        "substance": "Fe",
+        "reagent": "HCl",
+        "next": "FeCl₂",
+        "type": "substitution"
+      },
+      {
+        "substance": "FeCl₂",
+        "reagent": "NaOH",
+        "next": "Fe(OH)₂",
+        "type": "exchange"
+      },
+      {
+        "substance": "Fe(OH)₂",
+        "reagent": "calentamiento",
+        "next": "FeO",
+        "type": "decomposition"
+      }
     ]
   },
   "S_chain": {
-    "title_ru": "Cadena del azufre (no metal)",
-    "class_sequence": ["no metal", "óxido ácido", "ácido", "sal"]
+    "title": "Cadena del azufre (no metal)",
+    "class_sequence": [
+      "no metal",
+      "óxido ácido",
+      "ácido",
+      "sal"
+    ]
   }
 }

@@ -28,7 +28,7 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
   const [showTrends, setShowTrends] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Search — match elements by symbol, name_ru, name_en, name_latin
+  // Search — match elements by symbol, name, name_en, name_latin
   const searchMatchedZ = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q || elements.length === 0) return null;
@@ -36,8 +36,7 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
     for (const el of elements) {
       if (
         el.symbol.toLowerCase().includes(q) ||
-        el.name_ru.toLowerCase().includes(q) ||
-        el.name_en.toLowerCase().includes(q) ||
+        (el.name?.toLowerCase() ?? '').includes(q) ||
         el.name_latin.toLowerCase().includes(q) ||
         String(el.Z) === q
       ) {
@@ -344,8 +343,8 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
             <div className="pt-info-bar">
               {groupInfo ? (
                 <>
-                  <strong>{groupInfo.name_ru}</strong>
-                  <span>{groupInfo.description_ru}</span>
+                  <strong>{groupInfo.name}</strong>
+                  <span>{groupInfo.description}</span>
                 </>
               ) : (
                 <span>{m.pt_info_default()}</span>

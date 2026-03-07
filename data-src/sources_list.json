@@ -4,7 +4,6 @@
   "sources": [
     {
       "source_id": "fipi_oge_chemistry",
-      "title": "ФИПИ — ОГЭ по химии: демоверсии, спецификации, кодификаторы",
       "org": "ФИПИ",
       "type": "official",
       "level": [
@@ -18,7 +17,6 @@
         "демоверсия"
       ],
       "link": "https://fipi.ru/oge/demoversii-specifikacii-kodifikatory#!/tab/173801626-3",
-      "description": "Официальные материалы ОГЭ по химии: демоверсия, спецификация, кодификатор.",
       "ui": {
         "cta": "Перейти на сайт ФИПИ →",
         "target": "_blank",
@@ -27,7 +25,6 @@
     },
     {
       "source_id": "sdamgia_chem_oge",
-      "title": "Решу ОГЭ — химия",
       "org": "sdamgia.ru",
       "type": "tasks",
       "level": [
@@ -41,7 +38,6 @@
         "разборы"
       ],
       "link": "https://chem-oge.sdamgia.ru",
-      "description": "Банк заданий ОГЭ по химии с решениями и статистикой.",
       "ui": {
         "cta": "Открыть задания →",
         "target": "_blank",
@@ -50,7 +46,6 @@
     },
     {
       "source_id": "foxford_chem_9",
-      "title": "Фоксфорд — химия 9 класс",
       "org": "Фоксфорд",
       "type": "course",
       "level": [
@@ -63,7 +58,6 @@
         "практика"
       ],
       "link": "https://foxford.ru/catalog/chemistry/9-klass",
-      "description": "Онлайн-курсы химии для 9 класса.",
       "ui": {
         "cta": "Посмотреть курсы →",
         "target": "_blank",
@@ -72,7 +66,6 @@
     },
     {
       "source_id": "interneturok_chem_9",
-      "title": "ИнтернетУрок — химия 9 класс",
       "org": "ИнтернетУрок",
       "type": "course",
       "level": [
@@ -84,7 +77,6 @@
         "теория"
       ],
       "link": "https://interneturok.ru/subject/chemistry/class/9",
-      "description": "Видеоуроки и материалы по программе 9 класса.",
       "ui": {
         "cta": "Смотреть курс →",
         "target": "_blank",

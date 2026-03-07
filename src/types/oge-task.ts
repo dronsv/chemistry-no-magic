@@ -49,9 +49,9 @@ export interface OgeTask {
   source: 'demo' | 'real' | 'reserve';
   task_number: number;   // 1–23
   part: 1 | 2;
-  question_ru: string;
+  question: string;
   /** Shared context shown before the question (e.g. tasks 18–19 share a paragraph). */
-  context_ru?: string;
+  context?: string;
 
   answer_type: OgeAnswerType;
   select_config?: OgeSelectConfig;
@@ -72,7 +72,7 @@ export interface OgeTask {
   time_minutes: number;
   /** Our competency IDs this task primarily tests. */
   competencies: string[];
-  explanation_ru: string;
+  explanation: string;
   /** Tasks with the same group test the same concept in the same way (for deduplication). */
   similarity_group?: string;
 }

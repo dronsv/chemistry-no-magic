@@ -1,0 +1,14 @@
+{
+  "determine_ox_state": {
+    "description": "Определите СО элемента в соединении"
+  },
+  "select_compound_by_ox_state": {
+    "description": "В каком соединении элемент имеет заданную СО"
+  },
+  "identify_oxidizer_reducer": {
+    "description": "Определите окислитель/восстановитель"
+  },
+  "max_min_ox_state": {
+    "description": "Максимальная/минимальная СО элемента по положению в таблице"
+  }
+}

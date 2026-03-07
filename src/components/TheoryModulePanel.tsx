@@ -73,24 +73,24 @@ function renderBlock(
 ): ReactNode {
   switch (block.t) {
     case 'heading':
-      if (block.level === 2) return <h2 className="theory-module__h2">{block.text_ru}</h2>;
-      if (block.level === 3) return <h3 className="theory-module__h3">{block.text_ru}</h3>;
-      return <h4 className="theory-module__h4">{block.text_ru}</h4>;
+      if (block.level === 2) return <h2 className="theory-module__h2">{block.text}</h2>;
+      if (block.level === 3) return <h3 className="theory-module__h3">{block.text}</h3>;
+      return <h4 className="theory-module__h4">{block.text}</h4>;
 
     case 'paragraph':
-      return <p className="theory-module__p"><ChemText text={block.text_ru} /></p>;
+      return <p className="theory-module__p"><ChemText text={block.text} /></p>;
 
     case 'ordered_list':
       return (
         <ol className="theory-module__ol">
-          {block.items_ru.map((item, i) => (
+          {block.items.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ol>
       );
 
     case 'equation':
-      return <div className="theory-module__equation">{block.text_ru}</div>;
+      return <div className="theory-module__equation">{block.text}</div>;
 
     case 'formula_list':
       return (
@@ -107,10 +107,10 @@ function renderBlock(
     case 'rule_card':
       return (
         <div className="theory-module__rule-card">
-          <div className="theory-module__rule-title">{block.title_ru}</div>
-          <p className="theory-module__rule-text">{block.rule_ru}</p>
-          {block.description_ru && (
-            <p className="theory-module__rule-desc"><ChemText text={block.description_ru} /></p>
+          <div className="theory-module__rule-title">{block.title}</div>
+          <p className="theory-module__rule-text">{block.rule}</p>
+          {block.description && (
+            <p className="theory-module__rule-desc"><ChemText text={block.description} /></p>
           )}
           {block.examples && block.examples.length > 0 && (
             <div className="theory-module__rule-examples">
@@ -129,8 +129,8 @@ function renderBlock(
     case 'example_block':
       return (
         <div className="theory-module__example">
-          <span className="theory-module__example-label">{block.label_ru}</span>{' '}
-          {block.content_ru}
+          <span className="theory-module__example-label">{block.label}</span>{' '}
+          {block.content}
         </div>
       );
 
@@ -140,7 +140,7 @@ function renderBlock(
           <table className="theory-module__table">
             <thead>
               <tr>
-                {block.columns_ru.map((col, i) => (
+                {block.columns.map((col, i) => (
                   <th key={i}>{col}</th>
                 ))}
               </tr>
@@ -167,10 +167,10 @@ function renderBlock(
             <span className={`theory-module__rule-kind theory-module__rule-kind--${rule.kind}`}>
               {kindLabel(rule.kind)}
             </span>
-            {rule.title_ru}
+            {rule.title}
           </div>
           <p className="theory-module__rule-text">
-            <ChemText text={rule.description_ru} />
+            <ChemText text={rule.description} />
           </p>
           {rule.examples && rule.examples.length > 0 && (
             <div className="theory-module__rule-examples">
@@ -224,7 +224,7 @@ function renderSection(
   locale: SupportedLocale,
   rulesById: Record<string, OxRule> | null,
 ): ReactNode {
-  const title = section.title_ru ?? section.id;
+  const title = section.title ?? section.id;
   const forceOpen = forceSectionId === section.id;
 
   return (
@@ -269,9 +269,9 @@ export function applyTheoryModuleOverlay(
       const secOverlay = sections[section.id];
       if (!secOverlay) return section;
 
-      const title_ru = secOverlay.title ?? section.title_ru;
+      const title = secOverlay.title ?? section.title;
       const blockOverlays = secOverlay.blocks;
-      if (!blockOverlays) return { ...section, title_ru };
+      if (!blockOverlays) return { ...section, title };
 
       // Apply block overlays in position order, skipping ox_rule blocks
       let overlayIdx = 0;
@@ -281,37 +281,37 @@ export function applyTheoryModuleOverlay(
         if (!bo) return block;
 
         if (block.t === 'paragraph' && bo.text) {
-          return { ...block, text_ru: bo.text as string };
+          return { ...block, text: bo.text as string };
         }
         if (block.t === 'rule_card') {
           return {
             ...block,
-            ...(bo.title ? { title_ru: bo.title as string } : {}),
-            ...(bo.rule ? { rule_ru: bo.rule as string } : {}),
-            ...(bo.description ? { description_ru: bo.description as string } : {}),
+            ...(bo.title ? { title: bo.title as string } : {}),
+            ...(bo.rule ? { rule: bo.rule as string } : {}),
+            ...(bo.description ? { description: bo.description as string } : {}),
           };
         }
         if (block.t === 'table') {
           return {
             ...block,
-            ...(bo.columns ? { columns_ru: bo.columns as string[] } : {}),
+            ...(bo.columns ? { columns: bo.columns as string[] } : {}),
             ...(bo.rows ? { rows: (bo.rows as string[][]).map(cells => ({ cells })) } : {}),
           };
         }
         if (block.t === 'ordered_list' && bo.items) {
-          return { ...block, items_ru: bo.items as string[] };
+          return { ...block, items: bo.items as string[] };
         }
         if (block.t === 'example_block') {
           return {
             ...block,
-            ...(bo.label ? { label_ru: bo.label as string } : {}),
-            ...(bo.content ? { content_ru: bo.content as string } : {}),
+            ...(bo.label ? { label: bo.label as string } : {}),
+            ...(bo.content ? { content: bo.content as string } : {}),
           };
         }
         return block;
       });
 
-      return { ...section, title_ru, blocks };
+      return { ...section, title, blocks };
     }),
   };
 }

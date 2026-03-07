@@ -55,7 +55,7 @@ export default function ProfileApp({ locale = 'ru' }: ProfileAppProps) {
   for (const c of competencies) {
     const key = c.block;
     if (!blocks.has(key)) {
-      blocks.set(key, { title: `${key} — ${c.block_name_ru}`, items: [] });
+      blocks.set(key, { title: `${key} — ${c.block_name}`, items: [] });
     }
     blocks.get(key)!.items.push(c);
   }
@@ -71,7 +71,7 @@ export default function ProfileApp({ locale = 'ru' }: ProfileAppProps) {
             {group.items.map((c) => (
               <CompetencyBar
                 key={c.id}
-                name={c.name_ru}
+                name={c.name}
                 pL={state.get(c.id) ?? 0.25}
                 href={localizeUrl(`/competency/${c.id}/`, locale)}
               />

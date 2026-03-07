@@ -32,7 +32,7 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
         <span className="pt-details__symbol">{element.symbol}</span>
       </div>
 
-      <h3 className="pt-details__name">{element.name_ru}</h3>
+      <h3 className="pt-details__name">{element.name}</h3>
 
       <dl className="pt-details__props">
         <dt>{m.elem_atomic_mass()}</dt>
@@ -45,7 +45,7 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
         <dd>{element.period}</dd>
 
         <dt>{m.elem_type()}</dt>
-        <dd>{groupInfo?.name_singular_ru ?? element.element_group}</dd>
+        <dd>{groupInfo?.name_singular ?? element.element_group}</dd>
 
         <dt>{m.elem_oxidation_states()}</dt>
         <dd>{oxStates || '—'}</dd>
@@ -56,7 +56,7 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
 
       {exc && (
         <p className="pt-details__exception-note">
-          {m.elem_exception_note({ reason: exc.reason_ru })}
+          {m.elem_exception_note({ reason: exc.reason })}
         </p>
       )}
     </div>

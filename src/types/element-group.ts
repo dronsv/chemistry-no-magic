@@ -1,9 +1,9 @@
 export interface ElementGroupInfo {
-  name_ru: string;
-  name_singular_ru: string;
-  origin_ru: string;
-  description_ru: string;
-  common_properties_ru: string[];
+  name: string;
+  name_singular: string;
+  origin: string;
+  description: string;
+  common_properties: string[];
 }
 
 /** Dictionary keyed by ElementGroup id (e.g. "alkali_metal"). */

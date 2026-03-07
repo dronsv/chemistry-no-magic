@@ -30,8 +30,8 @@ export interface SubstanceVariant {
 export interface ChemTerm {
   id: string;
   kind: string;
-  name_ru: string;
-  synonyms_ru?: string[];
+  name: string;
+  synonyms?: string[];
 }
 
 export interface TermBinding {

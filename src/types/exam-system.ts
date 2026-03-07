@@ -4,10 +4,7 @@ import type { SupportedLocale } from './i18n';
 export interface ExamSystem {
   id: string;
   country: string;
-  name_ru: string;
-  name_en: string;
-  name_pl: string;
-  name_es: string;
+  name?: string;
   grade: string;
   duration_min: number;
   max_score: number;
@@ -20,10 +17,8 @@ export interface ExamSystem {
 /** Detailed metadata for a specific exam system. */
 export interface ExamSystemMeta {
   id: string;
-  full_name_ru: string;
-  full_name_en: string;
-  description_ru: string;
-  description_en: string;
+  full_name?: string;
+  description?: string;
   country: string;
   grade: string;
   duration_min: number;
@@ -38,7 +33,6 @@ export interface ExamSystemMeta {
 }
 
 /** Get the localized name for an exam system. */
-export function getExamSystemName(system: ExamSystem, locale: SupportedLocale): string {
-  const key = `name_${locale}` as keyof ExamSystem;
-  return (system[key] as string) ?? system.name_en;
+export function getExamSystemName(system: ExamSystem, _locale: SupportedLocale): string {
+  return system.name ?? system.id;
 }

@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "ru_oge": {
+      "name": "ОГЭ по химии"
+    },
+    "ru_ege": {
+      "name": "ЕГЭ по химии"
+    },
+    "gb_gcse": {
+      "name": "GCSE Chemistry"
+    },
+    "pl_matura": {
+      "name": "Matura z chemii"
+    },
+    "es_ebau": {
+      "name": "EBAU Química"
+    }
+  }
+}

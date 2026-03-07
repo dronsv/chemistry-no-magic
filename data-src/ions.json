@@ -1,615 +1,546 @@
 [
   {
     "id": "H_plus",
-    "formula": "H\u207a",
+    "formula": "H⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион водорода",
-    "name_ru_genitive": "водорода",
-    "tags": ["hydrogen"]
+    "tags": [
+      "hydrogen"
+    ]
   },
   {
     "id": "Na_plus",
-    "formula": "Na\u207a",
+    "formula": "Na⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион натрия",
-    "name_ru_genitive": "натрия",
-    "tags": ["alkali"]
+    "tags": [
+      "alkali"
+    ]
   },
   {
     "id": "K_plus",
-    "formula": "K\u207a",
+    "formula": "K⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион калия",
-    "name_ru_genitive": "калия",
-    "tags": ["alkali"]
+    "tags": [
+      "alkali"
+    ]
   },
   {
     "id": "NH4_plus",
-    "formula": "NH\u2084\u207a",
+    "formula": "NH₄⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион аммония",
-    "name_ru_genitive": "аммония",
-    "tags": ["ammonium"]
+    "tags": [
+      "ammonium"
+    ]
   },
   {
     "id": "Ca_2plus",
-    "formula": "Ca\u00b2\u207a",
+    "formula": "Ca²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион кальция",
-    "name_ru_genitive": "кальция",
-    "tags": ["alkaline_earth"]
+    "tags": [
+      "alkaline_earth"
+    ]
   },
   {
     "id": "Mg_2plus",
-    "formula": "Mg\u00b2\u207a",
+    "formula": "Mg²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион магния",
-    "name_ru_genitive": "магния",
-    "tags": ["alkaline_earth"]
+    "tags": [
+      "alkaline_earth"
+    ]
   },
   {
     "id": "Ba_2plus",
-    "formula": "Ba\u00b2\u207a",
+    "formula": "Ba²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион бария",
-    "name_ru_genitive": "бария",
-    "tags": ["alkaline_earth"]
+    "tags": [
+      "alkaline_earth"
+    ]
   },
   {
     "id": "Al_3plus",
-    "formula": "Al\u00b3\u207a",
+    "formula": "Al³⁺",
     "charge": 3,
     "type": "cation",
-    "name_ru": "Ион алюминия",
-    "name_ru_genitive": "алюминия",
-    "tags": ["amphoteric"]
+    "tags": [
+      "amphoteric"
+    ]
   },
   {
     "id": "Fe_2plus",
-    "formula": "Fe\u00b2\u207a",
+    "formula": "Fe²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион железа(II)",
-    "name_ru_genitive": "железа(II)",
-    "tags": ["transition", "iron"]
+    "tags": [
+      "transition",
+      "iron"
+    ]
   },
   {
     "id": "Fe_3plus",
-    "formula": "Fe\u00b3\u207a",
+    "formula": "Fe³⁺",
     "charge": 3,
     "type": "cation",
-    "name_ru": "Ион железа(III)",
-    "name_ru_genitive": "железа(III)",
-    "tags": ["transition", "iron"]
+    "tags": [
+      "transition",
+      "iron"
+    ]
   },
   {
     "id": "Cu_2plus",
-    "formula": "Cu\u00b2\u207a",
+    "formula": "Cu²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион меди(II)",
-    "name_ru_genitive": "меди(II)",
-    "tags": ["transition", "copper"]
+    "tags": [
+      "transition",
+      "copper"
+    ]
   },
   {
     "id": "Zn_2plus",
-    "formula": "Zn\u00b2\u207a",
+    "formula": "Zn²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион цинка",
-    "name_ru_genitive": "цинка",
-    "tags": ["transition", "amphoteric"]
+    "tags": [
+      "transition",
+      "amphoteric"
+    ]
   },
   {
     "id": "Ag_plus",
-    "formula": "Ag\u207a",
+    "formula": "Ag⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион серебра",
-    "name_ru_genitive": "серебра",
-    "tags": ["transition", "silver"]
+    "tags": [
+      "transition",
+      "silver"
+    ]
   },
   {
     "id": "Pb_2plus",
-    "formula": "Pb\u00b2\u207a",
+    "formula": "Pb²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион свинца(II)",
-    "name_ru_genitive": "свинца(II)",
-    "tags": ["heavy_metal", "lead"]
+    "tags": [
+      "heavy_metal",
+      "lead"
+    ]
   },
   {
     "id": "Li_plus",
-    "formula": "Li\u207a",
+    "formula": "Li⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Ион лития",
-    "name_ru_genitive": "лития",
-    "tags": ["alkali"]
+    "tags": [
+      "alkali"
+    ]
   },
   {
     "id": "Sr_2plus",
-    "formula": "Sr\u00b2\u207a",
+    "formula": "Sr²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион стронция",
-    "name_ru_genitive": "стронция",
-    "tags": ["alkaline_earth"]
+    "tags": [
+      "alkaline_earth"
+    ]
   },
   {
     "id": "Mn_2plus",
-    "formula": "Mn\u00b2\u207a",
+    "formula": "Mn²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион марганца(II)",
-    "name_ru_genitive": "марганца(II)",
-    "tags": ["transition"]
+    "tags": [
+      "transition"
+    ]
   },
   {
     "id": "Ni_2plus",
-    "formula": "Ni\u00b2\u207a",
+    "formula": "Ni²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион никеля(II)",
-    "name_ru_genitive": "никеля(II)",
-    "tags": ["transition"]
+    "tags": [
+      "transition"
+    ]
   },
   {
     "id": "Co_2plus",
-    "formula": "Co\u00b2\u207a",
+    "formula": "Co²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион кобальта(II)",
-    "name_ru_genitive": "кобальта(II)",
-    "tags": ["transition"]
+    "tags": [
+      "transition"
+    ]
   },
   {
     "id": "Cd_2plus",
-    "formula": "Cd\u00b2\u207a",
+    "formula": "Cd²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион кадмия",
-    "name_ru_genitive": "кадмия",
-    "tags": ["transition", "heavy_metal"]
+    "tags": [
+      "transition",
+      "heavy_metal"
+    ]
   },
   {
     "id": "Hg_2plus",
-    "formula": "Hg\u00b2\u207a",
+    "formula": "Hg²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион ртути(II)",
-    "name_ru_genitive": "ртути(II)",
-    "tags": ["transition", "heavy_metal"]
+    "tags": [
+      "transition",
+      "heavy_metal"
+    ]
   },
   {
     "id": "Hg2_2plus",
-    "formula": "Hg\u2082\u00b2\u207a",
+    "formula": "Hg₂²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион ртути(I)",
-    "name_ru_genitive": "ртути(I)",
-    "tags": ["transition", "heavy_metal"]
+    "tags": [
+      "transition",
+      "heavy_metal"
+    ]
   },
   {
     "id": "Sn_2plus",
-    "formula": "Sn\u00b2\u207a",
+    "formula": "Sn²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Ион олова(II)",
-    "name_ru_genitive": "олова(II)",
-    "tags": ["heavy_metal"]
+    "tags": [
+      "heavy_metal"
+    ]
   },
   {
     "id": "Cr_3plus",
-    "formula": "Cr\u00b3\u207a",
+    "formula": "Cr³⁺",
     "charge": 3,
     "type": "cation",
-    "name_ru": "Ион хрома(III)",
-    "name_ru_genitive": "хрома(III)",
-    "tags": ["transition", "amphoteric"]
+    "tags": [
+      "transition",
+      "amphoteric"
+    ]
   },
   {
     "id": "OH_minus",
-    "formula": "OH\u207b",
+    "formula": "OH⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Гидроксид-ион",
-    "name_ru_genitive": "гидроксида",
-    "tags": ["hydroxide"]
+    "tags": [
+      "hydroxide"
+    ]
   },
   {
     "id": "F_minus",
-    "formula": "F\u207b",
+    "formula": "F⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Фторид-ион",
-    "name_ru_genitive": "фторида",
     "parent_acid": "HF",
     "naming": {
-      "root_ru": "фтор",
-      "suffix_ru": "-ид",
-      "suffix_en": "-ide",
-      "oxidation_state": -1,
-      "derivation_ru": "бескислородная → -ид"
+      "oxidation_state": -1
     },
-    "tags": ["fluoride", "halide"]
+    "tags": [
+      "fluoride",
+      "halide"
+    ]
   },
   {
     "id": "Cl_minus",
-    "formula": "Cl\u207b",
+    "formula": "Cl⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Хлорид-ион",
-    "name_ru_genitive": "хлорида",
     "parent_acid": "HCl",
     "naming": {
-      "root_ru": "хлор",
-      "suffix_ru": "-ид",
-      "suffix_en": "-ide",
-      "oxidation_state": -1,
-      "derivation_ru": "бескислородная → -ид"
+      "oxidation_state": -1
     },
-    "tags": ["chloride", "halide"]
+    "tags": [
+      "chloride",
+      "halide"
+    ]
   },
   {
     "id": "Br_minus",
-    "formula": "Br\u207b",
+    "formula": "Br⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Бромид-ион",
-    "name_ru_genitive": "бромида",
     "parent_acid": "HBr",
     "naming": {
-      "root_ru": "бром",
-      "suffix_ru": "-ид",
-      "suffix_en": "-ide",
-      "oxidation_state": -1,
-      "derivation_ru": "бескислородная → -ид"
+      "oxidation_state": -1
     },
-    "tags": ["bromide", "halide"]
+    "tags": [
+      "bromide",
+      "halide"
+    ]
   },
   {
     "id": "I_minus",
-    "formula": "I\u207b",
+    "formula": "I⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Иодид-ион",
-    "name_ru_genitive": "иодида",
     "parent_acid": "HI",
     "naming": {
-      "root_ru": "иод",
-      "suffix_ru": "-ид",
-      "suffix_en": "-ide",
-      "oxidation_state": -1,
-      "derivation_ru": "бескислородная → -ид"
+      "oxidation_state": -1
     },
-    "tags": ["iodide", "halide"]
+    "tags": [
+      "iodide",
+      "halide"
+    ]
   },
   {
     "id": "S_2minus",
-    "formula": "S\u00b2\u207b",
+    "formula": "S²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Сульфид-ион",
-    "name_ru_genitive": "сульфида",
-    "parent_acid": "H\u2082S",
+    "parent_acid": "H₂S",
     "naming": {
-      "root_ru": "сульф",
-      "suffix_ru": "-ид",
-      "suffix_en": "-ide",
-      "oxidation_state": -2,
-      "derivation_ru": "бескислородная → -ид"
+      "oxidation_state": -2
     },
-    "tags": ["sulfide"]
+    "tags": [
+      "sulfide"
+    ]
   },
   {
     "id": "SO4_2minus",
-    "formula": "SO\u2084\u00b2\u207b",
+    "formula": "SO₄²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Сульфат-ион",
-    "name_ru_genitive": "сульфата",
-    "parent_acid": "H\u2082SO\u2084",
+    "parent_acid": "H₂SO₄",
     "naming": {
-      "root_ru": "сульф",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
       "oxidation_state": 6,
-      "pair_id": "SO3_2minus",
-      "derivation_ru": "макс. СО серы (+6) → -ат"
+      "pair_id": "SO3_2minus"
     },
-    "tags": ["sulfate"]
+    "tags": [
+      "sulfate"
+    ]
   },
   {
     "id": "SO3_2minus",
-    "formula": "SO\u2083\u00b2\u207b",
+    "formula": "SO₃²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Сульфит-ион",
-    "name_ru_genitive": "сульфита",
-    "parent_acid": "H\u2082SO\u2083",
+    "parent_acid": "H₂SO₃",
     "naming": {
-      "root_ru": "сульф",
-      "suffix_ru": "-ит",
-      "suffix_en": "-ite",
       "oxidation_state": 4,
-      "pair_id": "SO4_2minus",
-      "derivation_ru": "меньшая СО серы (+4) → -ит"
+      "pair_id": "SO4_2minus"
     },
-    "tags": ["sulfite", "gas_forming"]
+    "tags": [
+      "sulfite",
+      "gas_forming"
+    ]
   },
   {
     "id": "NO3_minus",
-    "formula": "NO\u2083\u207b",
+    "formula": "NO₃⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Нитрат-ион",
-    "name_ru_genitive": "нитрата",
-    "parent_acid": "HNO\u2083",
+    "parent_acid": "HNO₃",
     "naming": {
-      "root_ru": "нитр",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
       "oxidation_state": 5,
-      "pair_id": "NO2_minus",
-      "derivation_ru": "макс. СО азота (+5) → -ат"
+      "pair_id": "NO2_minus"
     },
-    "tags": ["nitrate"]
+    "tags": [
+      "nitrate"
+    ]
   },
   {
     "id": "NO2_minus",
-    "formula": "NO\u2082\u207b",
+    "formula": "NO₂⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Нитрит-ион",
-    "name_ru_genitive": "нитрита",
-    "parent_acid": "HNO\u2082",
+    "parent_acid": "HNO₂",
     "naming": {
-      "root_ru": "нитр",
-      "suffix_ru": "-ит",
-      "suffix_en": "-ite",
       "oxidation_state": 3,
-      "pair_id": "NO3_minus",
-      "derivation_ru": "меньшая СО азота (+3) → -ит"
+      "pair_id": "NO3_minus"
     },
-    "tags": ["nitrite"]
+    "tags": [
+      "nitrite"
+    ]
   },
   {
     "id": "CO3_2minus",
-    "formula": "CO\u2083\u00b2\u207b",
+    "formula": "CO₃²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Карбонат-ион",
-    "name_ru_genitive": "карбоната",
-    "parent_acid": "H\u2082CO\u2083",
+    "parent_acid": "H₂CO₃",
     "naming": {
-      "root_ru": "карбон",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 4,
-      "derivation_ru": "кислородная → -ат"
+      "oxidation_state": 4
     },
-    "tags": ["carbonate", "gas_forming"]
+    "tags": [
+      "carbonate",
+      "gas_forming"
+    ]
   },
   {
     "id": "SiO3_2minus",
-    "formula": "SiO\u2083\u00b2\u207b",
+    "formula": "SiO₃²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Силикат-ион",
-    "name_ru_genitive": "силиката",
-    "parent_acid": "H\u2082SiO\u2083",
+    "parent_acid": "H₂SiO₃",
     "naming": {
-      "root_ru": "силик",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 4,
-      "derivation_ru": "кислородная → -ат"
+      "oxidation_state": 4
     },
-    "tags": ["silicate"]
+    "tags": [
+      "silicate"
+    ]
   },
   {
     "id": "PO4_3minus",
-    "formula": "PO\u2084\u00b3\u207b",
+    "formula": "PO₄³⁻",
     "charge": -3,
     "type": "anion",
-    "name_ru": "Фосфат-ион",
-    "name_ru_genitive": "фосфата",
-    "parent_acid": "H\u2083PO\u2084",
+    "parent_acid": "H₃PO₄",
     "naming": {
-      "root_ru": "фосф",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 5,
-      "derivation_ru": "кислородная → -ат"
+      "oxidation_state": 5
     },
-    "tags": ["phosphate"]
+    "tags": [
+      "phosphate"
+    ]
   },
   {
     "id": "CH3COO_minus",
-    "formula": "CH\u2083COO\u207b",
+    "formula": "CH₃COO⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Ацетат-ион",
-    "name_ru_genitive": "ацетата",
-    "parent_acid": "CH\u2083COOH",
+    "parent_acid": "CH₃COOH",
     "naming": {
-      "root_ru": "ацет",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 3,
-      "derivation_ru": "кислородная (орг.) → -ат"
+      "oxidation_state": 3
     },
-    "tags": ["acetate", "organic"]
+    "tags": [
+      "acetate",
+      "organic"
+    ]
   },
   {
     "id": "MnO4_minus",
-    "formula": "MnO\u2084\u207b",
+    "formula": "MnO₄⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Перманганат-ион",
-    "name_ru_genitive": "перманганата",
-    "parent_acid": "HMnO\u2084",
+    "parent_acid": "HMnO₄",
     "naming": {
-      "root_ru": "манган",
-      "prefix_ru": "пер-",
-      "suffix_ru": "-ат",
-      "prefix_en": "per-",
-      "suffix_en": "-ate",
-      "oxidation_state": 7,
-      "derivation_ru": "СО Mn (+7), выше макс. → пер-...-ат"
+      "oxidation_state": 7
     },
-    "tags": ["permanganate", "oxidizer"]
+    "tags": [
+      "permanganate",
+      "oxidizer"
+    ]
   },
   {
     "id": "CrO4_2minus",
-    "formula": "CrO\u2084\u00b2\u207b",
+    "formula": "CrO₄²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Хромат-ион",
-    "name_ru_genitive": "хромата",
-    "parent_acid": "H\u2082CrO\u2084",
+    "parent_acid": "H₂CrO₄",
     "naming": {
-      "root_ru": "хром",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
       "oxidation_state": 6,
-      "pair_id": "Cr2O7_2minus",
-      "derivation_ru": "кислородная → -ат"
+      "pair_id": "Cr2O7_2minus"
     },
-    "tags": ["chromate"]
+    "tags": [
+      "chromate"
+    ]
   },
   {
     "id": "Cr2O7_2minus",
-    "formula": "Cr\u2082O\u2087\u00b2\u207b",
+    "formula": "Cr₂O₇²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Дихромат-ион",
-    "name_ru_genitive": "дихромата",
-    "parent_acid": "H\u2082Cr\u2082O\u2087",
+    "parent_acid": "H₂Cr₂O₇",
     "naming": {
-      "root_ru": "дихром",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
       "oxidation_state": 6,
-      "pair_id": "CrO4_2minus",
-      "derivation_ru": "кислородная → -ат"
+      "pair_id": "CrO4_2minus"
     },
-    "tags": ["dichromate", "oxidizer"]
+    "tags": [
+      "dichromate",
+      "oxidizer"
+    ]
   },
   {
     "id": "Be_2plus",
-    "formula": "Be\u00b2\u207a",
+    "formula": "Be²⁺",
     "charge": 2,
     "type": "cation",
-    "name_ru": "Катион бериллия",
-    "name_ru_genitive": "бериллия",
-    "tags": ["alkaline_earth", "amphoteric"]
+    "tags": [
+      "alkaline_earth",
+      "amphoteric"
+    ]
   },
   {
     "id": "Cu_plus",
-    "formula": "Cu\u207a",
+    "formula": "Cu⁺",
     "charge": 1,
     "type": "cation",
-    "name_ru": "Катион меди(I)",
-    "name_ru_genitive": "меди(I)",
-    "tags": ["transition", "copper"]
+    "tags": [
+      "transition",
+      "copper"
+    ]
   },
   {
     "id": "HCO3_minus",
-    "formula": "HCO\u2083\u207b",
+    "formula": "HCO₃⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Гидрокарбонат-ион",
-    "name_ru_genitive": "гидрокарбоната",
-    "parent_acid": "H\u2082CO\u2083",
+    "parent_acid": "H₂CO₃",
     "naming": {
-      "root_ru": "карбон",
-      "prefix_ru": "гидро-",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 4,
-      "derivation_ru": "кислая соль → гидро-...-ат"
+      "oxidation_state": 4
     },
-    "tags": ["bicarbonate", "gas_forming"]
+    "tags": [
+      "bicarbonate",
+      "gas_forming"
+    ]
   },
   {
     "id": "HSO4_minus",
-    "formula": "HSO\u2084\u207b",
+    "formula": "HSO₄⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Гидросульфат-ион",
-    "name_ru_genitive": "гидросульфата",
-    "parent_acid": "H\u2082SO\u2084",
+    "parent_acid": "H₂SO₄",
     "naming": {
-      "root_ru": "сульф",
-      "prefix_ru": "гидро-",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 6,
-      "derivation_ru": "кислая соль → гидро-...-ат"
+      "oxidation_state": 6
     },
-    "tags": ["hydrosulfate"]
+    "tags": [
+      "hydrosulfate"
+    ]
   },
   {
     "id": "HSO3_minus",
-    "formula": "HSO\u2083\u207b",
+    "formula": "HSO₃⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Гидросульфит-ион",
-    "name_ru_genitive": "гидросульфита",
-    "parent_acid": "H\u2082SO\u2083",
+    "parent_acid": "H₂SO₃",
     "naming": {
-      "root_ru": "сульф",
-      "prefix_ru": "гидро-",
-      "suffix_ru": "-ит",
-      "suffix_en": "-ite",
-      "oxidation_state": 4,
-      "derivation_ru": "кислая соль → гидро-...-ит"
+      "oxidation_state": 4
     },
-    "tags": ["bisulfite"]
+    "tags": [
+      "bisulfite"
+    ]
   },
   {
     "id": "HPO4_2minus",
-    "formula": "HPO\u2084\u00b2\u207b",
+    "formula": "HPO₄²⁻",
     "charge": -2,
     "type": "anion",
-    "name_ru": "Гидрофосфат-ион",
-    "name_ru_genitive": "гидрофосфата",
-    "parent_acid": "H\u2083PO\u2084",
+    "parent_acid": "H₃PO₄",
     "naming": {
-      "root_ru": "фосф",
-      "prefix_ru": "гидро-",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 5,
-      "derivation_ru": "кислая соль → гидро-...-ат"
+      "oxidation_state": 5
     },
-    "tags": ["hydrogen_phosphate"]
+    "tags": [
+      "hydrogen_phosphate"
+    ]
   },
   {
     "id": "H2PO4_minus",
-    "formula": "H\u2082PO\u2084\u207b",
+    "formula": "H₂PO₄⁻",
     "charge": -1,
     "type": "anion",
-    "name_ru": "Дигидрофосфат-ион",
-    "name_ru_genitive": "дигидрофосфата",
-    "parent_acid": "H\u2083PO\u2084",
+    "parent_acid": "H₃PO₄",
     "naming": {
-      "root_ru": "фосф",
-      "prefix_ru": "дигидро-",
-      "suffix_ru": "-ат",
-      "suffix_en": "-ate",
-      "oxidation_state": 5,
-      "derivation_ru": "кислая соль → дигидро-...-ат"
+      "oxidation_state": 5
     },
-    "tags": ["dihydrogen_phosphate"]
+    "tags": [
+      "dihydrogen_phosphate"
+    ]
   }
 ]

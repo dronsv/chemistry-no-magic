@@ -1,570 +1,1080 @@
 {
   "demo_2025_01": {
-    "question_ru": "Select two statements that describe aluminium as a chemical element.",
-    "explanation_ru": "Statements 1 and 3 describe aluminium as a chemical element (abundance in the Earth's crust is a property of the element; forming a chemical bond is a property of the element). Statements 2, 4, and 5 describe aluminium as a simple substance (industrial production, corrosion, alloys).",
+    "question": "Select two statements that describe aluminium as a chemical element.",
+    "explanation": "Statements 1 and 3 describe aluminium as a chemical element (abundance in the Earth's crust is a property of the element; forming a chemical bond is a property of the element). Statements 2, 4, and 5 describe aluminium as a simple substance (industrial production, corrosion, alloys).",
     "options": [
-      { "id": "1", "text": "Aluminium is the third most abundant element in the Earth's crust, after oxygen and silicon." },
-      { "id": "2", "text": "Until the end of the 19th century, aluminium was not produced on an industrial scale." },
-      { "id": "3", "text": "Aluminium forms a strong chemical bond with oxygen." },
-      { "id": "4", "text": "Aluminium is practically resistant to corrosion." },
-      { "id": "5", "text": "Aluminium is used in the production of alloys for the aerospace industry." }
+      {
+        "id": "1",
+        "text": "Aluminium is the third most abundant element in the Earth's crust, after oxygen and silicon."
+      },
+      {
+        "id": "2",
+        "text": "Until the end of the 19th century, aluminium was not produced on an industrial scale."
+      },
+      {
+        "id": "3",
+        "text": "Aluminium forms a strong chemical bond with oxygen."
+      },
+      {
+        "id": "4",
+        "text": "Aluminium is practically resistant to corrosion."
+      },
+      {
+        "id": "5",
+        "text": "Aluminium is used in the production of alloys for the aerospace industry."
+      }
     ]
   },
   "sdamgia_5830_01": {
-    "question_ru": "Select two statements that describe phosphorus as a chemical element.",
-    "explanation_ru": "Statements 1 and 4 describe phosphorus as a chemical element (an atom in a phosphine molecule; an element in proteins). The remaining statements describe phosphorus as a simple substance (applications, allotropy, physical properties).",
+    "question": "Select two statements that describe phosphorus as a chemical element.",
+    "explanation": "Statements 1 and 4 describe phosphorus as a chemical element (an atom in a phosphine molecule; an element in proteins). The remaining statements describe phosphorus as a simple substance (applications, allotropy, physical properties).",
     "options": [
-      { "id": "1", "text": "A phosphine molecule consists of three hydrogen atoms and one phosphorus atom." },
-      { "id": "2", "text": "Phosphorus is a component of the mixture applied to the side of a matchbox." },
-      { "id": "3", "text": "Phosphorus has several allotropic modifications." },
-      { "id": "4", "text": "Phosphorus is a component of plant and animal proteins." },
-      { "id": "5", "text": "Black phosphorus has semiconductor properties." }
+      {
+        "id": "1",
+        "text": "A phosphine molecule consists of three hydrogen atoms and one phosphorus atom."
+      },
+      {
+        "id": "2",
+        "text": "Phosphorus is a component of the mixture applied to the side of a matchbox."
+      },
+      {
+        "id": "3",
+        "text": "Phosphorus has several allotropic modifications."
+      },
+      {
+        "id": "4",
+        "text": "Phosphorus is a component of plant and animal proteins."
+      },
+      {
+        "id": "5",
+        "text": "Black phosphorus has semiconductor properties."
+      }
     ]
   },
   "sdamgia_5831_01": {
-    "question_ru": "Select two statements that describe sulfur as a chemical element.",
-    "explanation_ru": "Statements 1 and 3 describe sulfur as a chemical element (an element in amino acids; an atom in a hydrogen sulfide molecule). The remaining statements describe sulfur as a simple substance.",
+    "question": "Select two statements that describe sulfur as a chemical element.",
+    "explanation": "Statements 1 and 3 describe sulfur as a chemical element (an element in amino acids; an atom in a hydrogen sulfide molecule). The remaining statements describe sulfur as a simple substance.",
     "options": [
-      { "id": "1", "text": "Sulfur is a component of certain amino acids." },
-      { "id": "2", "text": "Sulfur is a yellow powder that is not wetted by water." },
-      { "id": "3", "text": "A hydrogen sulfide molecule consists of two hydrogen atoms and one sulfur atom." },
-      { "id": "4", "text": "Sulfur is not attracted by a magnet." },
-      { "id": "5", "text": "Sulfur is used for the vulcanization of rubber." }
+      {
+        "id": "1",
+        "text": "Sulfur is a component of certain amino acids."
+      },
+      {
+        "id": "2",
+        "text": "Sulfur is a yellow powder that is not wetted by water."
+      },
+      {
+        "id": "3",
+        "text": "A hydrogen sulfide molecule consists of two hydrogen atoms and one sulfur atom."
+      },
+      {
+        "id": "4",
+        "text": "Sulfur is not attracted by a magnet."
+      },
+      {
+        "id": "5",
+        "text": "Sulfur is used for the vulcanization of rubber."
+      }
     ]
   },
   "demo_2025_02": {
-    "question_ru": "The figure shows a model of an atom of a chemical element with the electron distribution across shells: 2, 8, 5.\n\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.",
-    "explanation_ru": "The electron distribution 2, 8, 5 means 3 electron shells (period 3) and 5 electrons in the outer shell (group V). This is phosphorus (P), located in period 3, group V.",
-    "input_labels": ["X", "Y"]
+    "question": "The figure shows a model of an atom of a chemical element with the electron distribution across shells: 2, 8, 5.\n\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.",
+    "explanation": "The electron distribution 2, 8, 5 means 3 electron shells (period 3) and 5 electrons in the outer shell (group V). This is phosphorus (P), located in period 3, group V.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "sdamgia_10710_02": {
-    "question_ru": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.\nElement: calcium (Ca), Z=20, electron configuration 2, 8, 8, 2.",
-    "explanation_ru": "Calcium (Ca, Z=20) is located in period 4, group IIA. It has 4 electron shells (period 4) and 2 valence electrons (group II). Answer: X=4, Y=2.",
-    "input_labels": ["X", "Y"]
+    "question": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.\nElement: calcium (Ca), Z=20, electron configuration 2, 8, 8, 2.",
+    "explanation": "Calcium (Ca, Z=20) is located in period 4, group IIA. It has 4 electron shells (period 4) and 2 valence electrons (group II). Answer: X=4, Y=2.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "sdamgia_type_02_cl": {
-    "question_ru": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.\nElement: chlorine (Cl), Z=17, electron configuration 2, 8, 7.",
-    "explanation_ru": "Chlorine (Cl, Z=17) is located in period 3, group VIIA. It has 3 electron shells and 7 valence electrons. Answer: X=3, Y=7.",
-    "input_labels": ["X", "Y"]
+    "question": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which this chemical element is located in the Periodic Table.\nElement: chlorine (Cl), Z=17, electron configuration 2, 8, 7.",
+    "explanation": "Chlorine (Cl, Z=17) is located in period 3, group VIIA. It has 3 electron shells and 7 valence electrons. Answer: X=3, Y=7.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "demo_2025_03": {
-    "question_ru": "Arrange the chemical elements\n  1) sulfur  2) silicon  3) chlorine\nin order of increasing nonmetallic properties of their simple substances.\nWrite the element numbers in the corresponding order.",
-    "explanation_ru": "Nonmetallic properties increase across a period from left to right and up a group. Si (period 3, group IV) < S (period 3, group VI) < Cl (period 3, group VII). Order: silicon, sulfur, chlorine, i.e. 2, 1, 3.",
+    "question": "Arrange the chemical elements\n  1) sulfur  2) silicon  3) chlorine\nin order of increasing nonmetallic properties of their simple substances.\nWrite the element numbers in the corresponding order.",
+    "explanation": "Nonmetallic properties increase across a period from left to right and up a group. Si (period 3, group IV) < S (period 3, group VI) < Cl (period 3, group VII). Order: silicon, sulfur, chlorine, i.e. 2, 1, 3.",
     "items": [
-      { "id": "1", "text": "sulfur" },
-      { "id": "2", "text": "silicon" },
-      { "id": "3", "text": "chlorine" }
+      {
+        "id": "1",
+        "text": "sulfur"
+      },
+      {
+        "id": "2",
+        "text": "silicon"
+      },
+      {
+        "id": "3",
+        "text": "chlorine"
+      }
     ]
   },
   "sdamgia_10733_03": {
-    "question_ru": "Arrange the chemical elements\n  1) calcium  2) aluminium  3) sulfur\nin order of change from acidic to basic properties of their highest oxides.\nWrite the element numbers in the corresponding order.",
-    "explanation_ru": "SO₃ is an acidic oxide, Al₂O₃ is amphoteric, CaO is a basic oxide. From acidic to basic: sulfur, aluminium, calcium.",
+    "question": "Arrange the chemical elements\n  1) calcium  2) aluminium  3) sulfur\nin order of change from acidic to basic properties of their highest oxides.\nWrite the element numbers in the corresponding order.",
+    "explanation": "SO₃ is an acidic oxide, Al₂O₃ is amphoteric, CaO is a basic oxide. From acidic to basic: sulfur, aluminium, calcium.",
     "items": [
-      { "id": "1", "text": "calcium" },
-      { "id": "2", "text": "aluminium" },
-      { "id": "3", "text": "sulfur" }
+      {
+        "id": "1",
+        "text": "calcium"
+      },
+      {
+        "id": "2",
+        "text": "aluminium"
+      },
+      {
+        "id": "3",
+        "text": "sulfur"
+      }
     ]
   },
   "sdamgia_10736_03": {
-    "question_ru": "Arrange the chemical elements\n  1) gallium  2) oxygen  3) phosphorus\nin order of decreasing atomic radius.\nWrite the element numbers in the corresponding order.",
-    "explanation_ru": "Atomic radius decreases from left to right across a period and from bottom to top within a group. Ga (period 4) > P (period 3) > O (period 2). Order of decrease: gallium, phosphorus, oxygen.",
+    "question": "Arrange the chemical elements\n  1) gallium  2) oxygen  3) phosphorus\nin order of decreasing atomic radius.\nWrite the element numbers in the corresponding order.",
+    "explanation": "Atomic radius decreases from left to right across a period and from bottom to top within a group. Ga (period 4) > P (period 3) > O (period 2). Order of decrease: gallium, phosphorus, oxygen.",
     "items": [
-      { "id": "1", "text": "gallium" },
-      { "id": "2", "text": "oxygen" },
-      { "id": "3", "text": "phosphorus" }
+      {
+        "id": "1",
+        "text": "gallium"
+      },
+      {
+        "id": "2",
+        "text": "oxygen"
+      },
+      {
+        "id": "3",
+        "text": "phosphorus"
+      }
     ]
   },
   "demo_2025_04": {
-    "question_ru": "Match the substance with the oxidation state of bromine in that substance: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) NH₄Br: N has oxidation state −3, H is +1, so Br = −1.\nB) KBrO₄: K is +1, O is −2, 4 oxygen atoms = −8, so Br = +7.\nC) HBrO: H is +1, O is −2, so Br = +1."
+    "question": "Match the substance with the oxidation state of bromine in that substance: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) NH₄Br: N has oxidation state −3, H is +1, so Br = −1.\nB) KBrO₄: K is +1, O is −2, 4 oxygen atoms = −8, so Br = +7.\nC) HBrO: H is +1, O is −2, so Br = +1."
   },
   "bank_fipi_04_n": {
-    "question_ru": "Match the formula of the compound with the oxidation state of nitrogen in that compound.",
-    "explanation_ru": "A) N₂O₅: O = −2, 2x + 5(−2) = 0, x = +5 → 4.\nB) NH₃: H = +1, x + 3(+1) = 0, x = −3 → 1.\nC) NO: O = −2, x + (−2) = 0, x = +2 → 2."
+    "question": "Match the formula of the compound with the oxidation state of nitrogen in that compound.",
+    "explanation": "A) N₂O₅: O = −2, 2x + 5(−2) = 0, x = +5 → 4.\nB) NH₃: H = +1, x + 3(+1) = 0, x = −3 → 1.\nC) NO: O = −2, x + (−2) = 0, x = +2 → 2."
   },
   "bank_fipi_04_s": {
-    "question_ru": "Match the formula of the compound with the oxidation state of sulfur in that compound.",
-    "explanation_ru": "A) H₂S: H = +1, 2(+1) + x = 0, x = −2 → 1.\nB) SO₃: O = −2, x + 3(−2) = 0, x = +6 → 3.\nC) Na₂SO₄: Na = +1, O = −2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
+    "question": "Match the formula of the compound with the oxidation state of sulfur in that compound.",
+    "explanation": "A) H₂S: H = +1, 2(+1) + x = 0, x = −2 → 1.\nB) SO₃: O = −2, x + 3(−2) = 0, x = +6 → 3.\nC) Na₂SO₄: Na = +1, O = −2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
   },
   "demo_2025_05": {
-    "question_ru": "From the given list, select two substances with covalent polar bonds.",
-    "explanation_ru": "NH₃ has a covalent polar bond (between nonmetals with different electronegativity). Na has a metallic bond. MgF₂ has an ionic bond (metal + nonmetal). F₂ has a covalent nonpolar bond (identical atoms). PBr₃ has a covalent polar bond (nonmetals with different electronegativity)."
+    "question": "From the given list, select two substances with covalent polar bonds.",
+    "explanation": "NH₃ has a covalent polar bond (between nonmetals with different electronegativity). Na has a metallic bond. MgF₂ has an ionic bond (metal + nonmetal). F₂ has a covalent nonpolar bond (identical atoms). PBr₃ has a covalent polar bond (nonmetals with different electronegativity)."
   },
   "bank_fipi_05_ion": {
-    "question_ru": "From the given list, select two substances with ionic bonds.",
-    "explanation_ru": "An ionic bond forms between a metal and a nonmetal. MgO (Mg is a metal, O is a nonmetal) and KBr (K is a metal, Br is a nonmetal) have ionic bonds. CO₂ and H₂O have covalent polar bonds. N₂ has a covalent nonpolar bond."
+    "question": "From the given list, select two substances with ionic bonds.",
+    "explanation": "An ionic bond forms between a metal and a nonmetal. MgO (Mg is a metal, O is a nonmetal) and KBr (K is a metal, Br is a nonmetal) have ionic bonds. CO₂ and H₂O have covalent polar bonds. N₂ has a covalent nonpolar bond."
   },
   "bank_fipi_05_nonpol": {
-    "question_ru": "From the given list, select two substances with covalent nonpolar bonds.",
-    "explanation_ru": "A covalent nonpolar bond exists between identical nonmetal atoms. Cl₂ (Cl-Cl) and F₂ (F-F) have covalent nonpolar bonds. CaCl₂ and KF have ionic bonds. SO₂ has a covalent polar bond."
+    "question": "From the given list, select two substances with covalent nonpolar bonds.",
+    "explanation": "A covalent nonpolar bond exists between identical nonmetal atoms. Cl₂ (Cl-Cl) and F₂ (F-F) have covalent nonpolar bonds. CaCl₂ and KF have ionic bonds. SO₂ has a covalent polar bond."
   },
   "demo_2025_06": {
-    "question_ru": "Select two correct completions of the following statement.\nThe similarity between boron, carbon, and nitrogen is that...",
-    "explanation_ru": "B, C, and N are in period 2, so they have the same number of electron shells (2). All three are nonmetals (boron is a metalloid but is considered a nonmetal in the OGE context). Their numbers of protons differ (5, 6, 7). Nitrogen exhibits negative oxidation states. The highest oxides B₂O₃ and CO₂ are acidic.",
+    "question": "Select two correct completions of the following statement.\nThe similarity between boron, carbon, and nitrogen is that...",
+    "explanation": "B, C, and N are in period 2, so they have the same number of electron shells (2). All three are nonmetals (boron is a metalloid but is considered a nonmetal in the OGE context). Their numbers of protons differ (5, 6, 7). Nitrogen exhibits negative oxidation states. The highest oxides B₂O₃ and CO₂ are acidic.",
     "options": [
-      { "id": "1", "text": "their atomic nuclei contain the same number of protons." },
-      { "id": "2", "text": "their atoms have the same number of electron shells filled with electrons." },
-      { "id": "3", "text": "the simple substances they form are nonmetals." },
-      { "id": "4", "text": "in compounds, they exhibit only positive oxidation states." },
-      { "id": "5", "text": "their highest oxides are basic oxides." }
+      {
+        "id": "1",
+        "text": "their atomic nuclei contain the same number of protons."
+      },
+      {
+        "id": "2",
+        "text": "their atoms have the same number of electron shells filled with electrons."
+      },
+      {
+        "id": "3",
+        "text": "the simple substances they form are nonmetals."
+      },
+      {
+        "id": "4",
+        "text": "in compounds, they exhibit only positive oxidation states."
+      },
+      {
+        "id": "5",
+        "text": "their highest oxides are basic oxides."
+      }
     ]
   },
   "sdamgia_258_06": {
-    "question_ru": "Which two statements are true for characterizing both sodium and aluminium?",
-    "explanation_ru": "Na and Al are elements of period 3; their valence electrons are in the 3rd shell (2 is correct). Both are metals (3 is correct). 12 protons belong only to Mg (1 is incorrect). They do not form diatomic molecules (4 is incorrect). Na₂O is correct, but Al₂O₃, not Al₂O (5 is incorrect).",
+    "question": "Which two statements are true for characterizing both sodium and aluminium?",
+    "explanation": "Na and Al are elements of period 3; their valence electrons are in the 3rd shell (2 is correct). Both are metals (3 is correct). 12 protons belong only to Mg (1 is incorrect). They do not form diatomic molecules (4 is incorrect). Na₂O is correct, but Al₂O₃, not Al₂O (5 is incorrect).",
     "options": [
-      { "id": "1", "text": "Their atomic nuclei contain 12 protons." },
-      { "id": "2", "text": "Their valence electrons are in the third electron shell." },
-      { "id": "3", "text": "They form simple substances that are metals." },
-      { "id": "4", "text": "They exist in nature as diatomic molecules." },
-      { "id": "5", "text": "They form highest oxides with the general formula E₂O." }
+      {
+        "id": "1",
+        "text": "Their atomic nuclei contain 12 protons."
+      },
+      {
+        "id": "2",
+        "text": "Their valence electrons are in the third electron shell."
+      },
+      {
+        "id": "3",
+        "text": "They form simple substances that are metals."
+      },
+      {
+        "id": "4",
+        "text": "They exist in nature as diatomic molecules."
+      },
+      {
+        "id": "5",
+        "text": "They form highest oxides with the general formula E₂O."
+      }
     ]
   },
   "sdamgia_5851_06": {
-    "question_ru": "Which two statements are true for characterizing both chlorine and bromine?",
-    "explanation_ru": "17 protons belong only to Cl (1 is incorrect). Cl has 3 shells, Br has 4 shells (2 is incorrect). Both are nonmetals (3 is correct). Cl₂ and Br₂ are diatomic molecules (4 is correct). Cl₂ is a gas at standard conditions (5 is incorrect).",
+    "question": "Which two statements are true for characterizing both chlorine and bromine?",
+    "explanation": "17 protons belong only to Cl (1 is incorrect). Cl has 3 shells, Br has 4 shells (2 is incorrect). Both are nonmetals (3 is correct). Cl₂ and Br₂ are diatomic molecules (4 is correct). Cl₂ is a gas at standard conditions (5 is incorrect).",
     "options": [
-      { "id": "1", "text": "The nucleus of the atom contains 17 protons." },
-      { "id": "2", "text": "The electrons in the atom are arranged in three electron shells." },
-      { "id": "3", "text": "The chemical element is a nonmetal." },
-      { "id": "4", "text": "The corresponding simple substance exists as diatomic molecules." },
-      { "id": "5", "text": "The corresponding simple substance is a liquid at standard conditions." }
+      {
+        "id": "1",
+        "text": "The nucleus of the atom contains 17 protons."
+      },
+      {
+        "id": "2",
+        "text": "The electrons in the atom are arranged in three electron shells."
+      },
+      {
+        "id": "3",
+        "text": "The chemical element is a nonmetal."
+      },
+      {
+        "id": "4",
+        "text": "The corresponding simple substance exists as diatomic molecules."
+      },
+      {
+        "id": "5",
+        "text": "The corresponding simple substance is a liquid at standard conditions."
+      }
     ]
   },
   "demo_2025_07": {
-    "question_ru": "From the given list of substances, select the basic oxide and the amphoteric hydroxide.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nWrite in the answer field first the number of the basic oxide, then the number of the amphoteric hydroxide.",
-    "explanation_ru": "FeO is a basic oxide (oxide of a metal with a low oxidation state). Al(OH)₃ is an amphoteric hydroxide (aluminium is an amphoteric element). Mg(OH)₂ is a base (not amphoteric). OF₂ is not an oxide (oxygen has oxidation state +2). N₂O is a non-salt-forming oxide."
+    "question": "From the given list of substances, select the basic oxide and the amphoteric hydroxide.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nWrite in the answer field first the number of the basic oxide, then the number of the amphoteric hydroxide.",
+    "explanation": "FeO is a basic oxide (oxide of a metal with a low oxidation state). Al(OH)₃ is an amphoteric hydroxide (aluminium is an amphoteric element). Mg(OH)₂ is a base (not amphoteric). OF₂ is not an oxide (oxygen has oxidation state +2). N₂O is a non-salt-forming oxide."
   },
   "sdamgia_1008_07": {
-    "question_ru": "The anhydride of perchloric acid HClO₄ is",
-    "explanation_ru": "Cl in HClO₄ has an oxidation state of +7. The oxide corresponding to this oxidation state is Cl₂O₇. Check: Cl₂O₇ + H₂O = 2HClO₄."
+    "question": "The anhydride of perchloric acid HClO₄ is",
+    "explanation": "Cl in HClO₄ has an oxidation state of +7. The oxide corresponding to this oxidation state is Cl₂O₇. Check: Cl₂O₇ + H₂O = 2HClO₄."
   },
   "bank_fipi_07": {
-    "question_ru": "From the given list of substances, select the acidic oxide and the base.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nWrite in the answer field first the number of the acidic oxide, then the number of the base.",
-    "explanation_ru": "SO₂ is an acidic oxide (3). Mg(OH)₂ is a base (2). CO is a non-salt-forming oxide. NaClO₄ is a salt. Al(OH)₃ is an amphoteric hydroxide (not a base). Answer: first the acidic oxide (3), then the base (2)."
+    "question": "From the given list of substances, select the acidic oxide and the base.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nWrite in the answer field first the number of the acidic oxide, then the number of the base.",
+    "explanation": "SO₂ is an acidic oxide (3). Mg(OH)₂ is a base (2). CO is a non-salt-forming oxide. NaClO₄ is a salt. Al(OH)₃ is an amphoteric hydroxide (not a base). Answer: first the acidic oxide (3), then the base (2)."
   },
   "demo_2025_08": {
-    "question_ru": "Which two of the listed substances do not react with phosphorus?",
-    "explanation_ru": "Phosphorus reacts with O₂ (combustion: 4P + 5O₂ → 2P₂O₅), with HNO₃ (strong oxidizer), and with Mg (forming a phosphide: 3Mg + 2P → Mg₃P₂). It does not react with Na₂SO₄ (a salt, no driving force) or CO (an inert oxide, weak reducing agent).",
+    "question": "Which two of the listed substances do not react with phosphorus?",
+    "explanation": "Phosphorus reacts with O₂ (combustion: 4P + 5O₂ → 2P₂O₅), with HNO₃ (strong oxidizer), and with Mg (forming a phosphide: 3Mg + 2P → Mg₃P₂). It does not react with Na₂SO₄ (a salt, no driving force) or CO (an inert oxide, weak reducing agent).",
     "options": [
-      { "id": "1", "text": "Na₂SO₄" },
-      { "id": "2", "text": "HNO₃" },
-      { "id": "3", "text": "O₂" },
-      { "id": "4", "text": "Mg" },
-      { "id": "5", "text": "CO" }
+      {
+        "id": "1",
+        "text": "Na₂SO₄"
+      },
+      {
+        "id": "2",
+        "text": "HNO₃"
+      },
+      {
+        "id": "3",
+        "text": "O₂"
+      },
+      {
+        "id": "4",
+        "text": "Mg"
+      },
+      {
+        "id": "5",
+        "text": "CO"
+      }
     ]
   },
   "sdamgia_10869_08": {
-    "question_ru": "From the given list, select two pairs of substances with each of which copper(II) oxide reacts.",
-    "explanation_ru": "CuO is a basic oxide. It reacts with acids (HNO₃, HCl) and reducing agents (H₂, CO). Pair 3: H₂ + HNO₃ — both react with CuO. Pair 5: CO + HCl — both react with CuO. Pair 4: HCl — yes, but NaOH does not react with a basic oxide (CuO is not amphoteric).",
+    "question": "From the given list, select two pairs of substances with each of which copper(II) oxide reacts.",
+    "explanation": "CuO is a basic oxide. It reacts with acids (HNO₃, HCl) and reducing agents (H₂, CO). Pair 3: H₂ + HNO₃ — both react with CuO. Pair 5: CO + HCl — both react with CuO. Pair 4: HCl — yes, but NaOH does not react with a basic oxide (CuO is not amphoteric).",
     "options": [
-      { "id": "1", "text": "H₂O and CO₂" },
-      { "id": "2", "text": "O₂ and C" },
-      { "id": "3", "text": "H₂ and HNO₃" },
-      { "id": "4", "text": "HCl and NaOH" },
-      { "id": "5", "text": "CO and HCl" }
+      {
+        "id": "1",
+        "text": "H₂O and CO₂"
+      },
+      {
+        "id": "2",
+        "text": "O₂ and C"
+      },
+      {
+        "id": "3",
+        "text": "H₂ and HNO₃"
+      },
+      {
+        "id": "4",
+        "text": "HCl and NaOH"
+      },
+      {
+        "id": "5",
+        "text": "CO and HCl"
+      }
     ]
   },
   "bank_fipi_08_subst": {
-    "question_ru": "From the given list, select two substitution reactions.",
-    "explanation_ru": "A substitution reaction involves a simple substance + a compound → a new simple substance + a new compound. Fe + CuSO₄ (2) is a substitution reaction. Zn + HCl (4) is a substitution reaction. CaCO₃ → CaO + CO₂ (1) is decomposition. NaOH + H₂SO₄ (3) is a double replacement. 2H₂O → 2H₂ + O₂ (5) is decomposition (electrolysis).",
+    "question": "From the given list, select two substitution reactions.",
+    "explanation": "A substitution reaction involves a simple substance + a compound → a new simple substance + a new compound. Fe + CuSO₄ (2) is a substitution reaction. Zn + HCl (4) is a substitution reaction. CaCO₃ → CaO + CO₂ (1) is decomposition. NaOH + H₂SO₄ (3) is a double replacement. 2H₂O → 2H₂ + O₂ (5) is decomposition (electrolysis).",
     "options": [
-      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
-      { "id": "2", "text": "Fe + CuSO₄ → FeSO₄ + Cu" },
-      { "id": "3", "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O" },
-      { "id": "4", "text": "Zn + 2HCl → ZnCl₂ + H₂" },
-      { "id": "5", "text": "2H₂O → 2H₂ + O₂" }
+      {
+        "id": "1",
+        "text": "CaCO₃ → CaO + CO₂"
+      },
+      {
+        "id": "2",
+        "text": "Fe + CuSO₄ → FeSO₄ + Cu"
+      },
+      {
+        "id": "3",
+        "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O"
+      },
+      {
+        "id": "4",
+        "text": "Zn + 2HCl → ZnCl₂ + H₂"
+      },
+      {
+        "id": "5",
+        "text": "2H₂O → 2H₂ + O₂"
+      }
     ]
   },
   "demo_2025_09": {
-    "question_ru": "Match the reacting substances with the products of their reaction: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → answer 2.\nB) Fe + H₂SO₄(dilute) → FeSO₄ + H₂↑ (Fe is divalent with dilute acid) → answer 1.\nC) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → answer 4.",
+    "question": "Match the reacting substances with the products of their reaction: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → answer 2.\nB) Fe + H₂SO₄(dilute) → FeSO₄ + H₂↑ (Fe is divalent with dilute acid) → answer 1.\nC) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → answer 4.",
     "left_items": [
-      { "label": "A", "text": "Fe₂(SO₄)₃ and BaCl₂" },
-      { "label": "B", "text": "Fe and H₂SO₄ (dilute)" },
-      { "label": "C", "text": "Fe₂O₃ and H₂SO₄ (dilute)" }
+      {
+        "label": "A",
+        "text": "Fe₂(SO₄)₃ and BaCl₂"
+      },
+      {
+        "label": "B",
+        "text": "Fe and H₂SO₄ (dilute)"
+      },
+      {
+        "label": "C",
+        "text": "Fe₂O₃ and H₂SO₄ (dilute)"
+      }
     ],
     "options": [
-      { "id": "1", "text": "FeSO₄ and H₂" },
-      { "id": "2", "text": "FeCl₃ and BaSO₄" },
-      { "id": "3", "text": "FeSO₄ and H₂O" },
-      { "id": "4", "text": "Fe₂(SO₄)₃ and H₂O" },
-      { "id": "5", "text": "FeCl₂ and BaSO₄" }
+      {
+        "id": "1",
+        "text": "FeSO₄ and H₂"
+      },
+      {
+        "id": "2",
+        "text": "FeCl₃ and BaSO₄"
+      },
+      {
+        "id": "3",
+        "text": "FeSO₄ and H₂O"
+      },
+      {
+        "id": "4",
+        "text": "Fe₂(SO₄)₃ and H₂O"
+      },
+      {
+        "id": "5",
+        "text": "FeCl₂ and BaSO₄"
+      }
     ]
   },
   "sdamgia_327_09": {
-    "question_ru": "Match the reacting substances with the product(s) of their reaction.",
-    "explanation_ru": "A) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nB) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (normal salt + acidic oxide + water → acid salt) → 4.\nC) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (double replacement) → 5.",
+    "question": "Match the reacting substances with the product(s) of their reaction.",
+    "explanation": "A) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nB) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (normal salt + acidic oxide + water → acid salt) → 4.\nC) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (double replacement) → 5.",
     "left_items": [
-      { "label": "A", "text": "Na₂CO₃ and HCl" },
-      { "label": "B", "text": "Na₂CO₃ and CO₂ and H₂O" },
-      { "label": "C", "text": "Na₂CO₃ and CaCl₂" }
+      {
+        "label": "A",
+        "text": "Na₂CO₃ and HCl"
+      },
+      {
+        "label": "B",
+        "text": "Na₂CO₃ and CO₂ and H₂O"
+      },
+      {
+        "label": "C",
+        "text": "Na₂CO₃ and CaCl₂"
+      }
     ],
     "options": [
-      { "id": "1", "text": "NaCl and CO₂ and H₂O" },
-      { "id": "2", "text": "NaHCO₃ and HCl" },
-      { "id": "3", "text": "NaOH and NaHCO₃" },
-      { "id": "4", "text": "NaHCO₃" },
-      { "id": "5", "text": "NaCl and CaCO₃" }
+      {
+        "id": "1",
+        "text": "NaCl and CO₂ and H₂O"
+      },
+      {
+        "id": "2",
+        "text": "NaHCO₃ and HCl"
+      },
+      {
+        "id": "3",
+        "text": "NaOH and NaHCO₃"
+      },
+      {
+        "id": "4",
+        "text": "NaHCO₃"
+      },
+      {
+        "id": "5",
+        "text": "NaCl and CaCO₃"
+      }
     ]
   },
   "sdamgia_6445_09": {
-    "question_ru": "Match the reacting substances with the product(s) of their reaction.",
-    "explanation_ru": "A) Fe + Cl₂ → FeCl₃ (Cl₂ is a strong oxidizer, gives Fe³⁺) → 4.\nB) Fe + 2HCl → FeCl₂ + H₂ (dilute acid → Fe²⁺) → 2.\nC) Fe + H₂SO₄(dilute) → FeSO₄ + H₂ (dilute sulfuric acid → Fe²⁺) → 5.",
+    "question": "Match the reacting substances with the product(s) of their reaction.",
+    "explanation": "A) Fe + Cl₂ → FeCl₃ (Cl₂ is a strong oxidizer, gives Fe³⁺) → 4.\nB) Fe + 2HCl → FeCl₂ + H₂ (dilute acid → Fe²⁺) → 2.\nC) Fe + H₂SO₄(dilute) → FeSO₄ + H₂ (dilute sulfuric acid → Fe²⁺) → 5.",
     "left_items": [
-      { "label": "A", "text": "Fe and Cl₂" },
-      { "label": "B", "text": "Fe and HCl" },
-      { "label": "C", "text": "Fe and H₂SO₄ (dilute)" }
+      {
+        "label": "A",
+        "text": "Fe and Cl₂"
+      },
+      {
+        "label": "B",
+        "text": "Fe and HCl"
+      },
+      {
+        "label": "C",
+        "text": "Fe and H₂SO₄ (dilute)"
+      }
     ]
   },
   "demo_2025_10": {
-    "question_ru": "Match the substance with the reagents with each of which it can react: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) Al reacts with Fe₂O₃ (thermite reaction) and O₂ (combustion) → 4.\nB) Ca(OH)₂ reacts with CO₂ (lime water turns cloudy) and Al₂O₃ (amphoteric oxide) → 1.\nC) SO₃ (acidic oxide) reacts with H₂S (redox) and Na₂O (basic oxide) → 3."
+    "question": "Match the substance with the reagents with each of which it can react: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) Al reacts with Fe₂O₃ (thermite reaction) and O₂ (combustion) → 4.\nB) Ca(OH)₂ reacts with CO₂ (lime water turns cloudy) and Al₂O₃ (amphoteric oxide) → 1.\nC) SO₃ (acidic oxide) reacts with H₂S (redox) and Na₂O (basic oxide) → 3."
   },
   "sdamgia_2145_10": {
-    "question_ru": "Match the formula of the substance with the reagents with each of which this substance can react.",
-    "explanation_ru": "A) CaCl₂ reacts with Na₂CO₃ (→ CaCO₃↓) and AgNO₃ (→ AgCl↓) → 4.\nB) SO₂ (acidic oxide) reacts with CaO (basic oxide) and Ba(OH)₂ (alkali) → 2.\nC) H₂ reacts with N₂ (→ NH₃) and Fe₂O₃ (reduction → Fe + H₂O) → 1."
+    "question": "Match the formula of the substance with the reagents with each of which this substance can react.",
+    "explanation": "A) CaCl₂ reacts with Na₂CO₃ (→ CaCO₃↓) and AgNO₃ (→ AgCl↓) → 4.\nB) SO₂ (acidic oxide) reacts with CaO (basic oxide) and Ba(OH)₂ (alkali) → 2.\nC) H₂ reacts with N₂ (→ NH₃) and Fe₂O₃ (reduction → Fe + H₂O) → 1."
   },
   "bank_fipi_10": {
-    "question_ru": "Match the formula of the substance with the reagents with each of which this substance can react.",
-    "explanation_ru": "A) Fe: with HCl → FeCl₂ + H₂, with CuSO₄ → FeSO₄ + Cu (Fe is above Cu in the activity series) → 1.\nB) CO₂ (acidic oxide): with Na₂O → Na₂CO₃, with KOH → K₂CO₃ + H₂O → 2.\nC) NaOH: with CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, with CO₂ → Na₂CO₃ + H₂O → 4."
+    "question": "Match the formula of the substance with the reagents with each of which this substance can react.",
+    "explanation": "A) Fe: with HCl → FeCl₂ + H₂, with CuSO₄ → FeSO₄ + Cu (Fe is above Cu in the activity series) → 1.\nB) CO₂ (acidic oxide): with Na₂O → Na₂CO₃, with KOH → K₂CO₃ + H₂O → 2.\nC) NaOH: with CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, with CO₂ → Na₂CO₃ + H₂O → 4."
   },
   "demo_2025_11": {
-    "question_ru": "From the given list, select two pairs of substances that undergo a double replacement (metathesis) reaction.",
-    "explanation_ru": "A double replacement reaction involves two compounds exchanging parts. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (double replacement). NaOH + HCl → NaCl + H₂O (neutralization = a type of double replacement). Br₂ + 2KI → 2KBr + I₂ is a single replacement. H₂SO₄ + Zn → ZnSO₄ + H₂ is a single replacement. NaOH + Al is a non-standard reaction.",
+    "question": "From the given list, select two pairs of substances that undergo a double replacement (metathesis) reaction.",
+    "explanation": "A double replacement reaction involves two compounds exchanging parts. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (double replacement). NaOH + HCl → NaCl + H₂O (neutralization = a type of double replacement). Br₂ + 2KI → 2KBr + I₂ is a single replacement. H₂SO₄ + Zn → ZnSO₄ + H₂ is a single replacement. NaOH + Al is a non-standard reaction.",
     "options": [
-      { "id": "1", "text": "bromine and potassium iodide" },
-      { "id": "2", "text": "sulfuric acid and zinc" },
-      { "id": "3", "text": "sodium hydroxide and aluminium" },
-      { "id": "4", "text": "sodium sulfate and barium chloride" },
-      { "id": "5", "text": "sodium hydroxide and hydrochloric acid" }
+      {
+        "id": "1",
+        "text": "bromine and potassium iodide"
+      },
+      {
+        "id": "2",
+        "text": "sulfuric acid and zinc"
+      },
+      {
+        "id": "3",
+        "text": "sodium hydroxide and aluminium"
+      },
+      {
+        "id": "4",
+        "text": "sodium sulfate and barium chloride"
+      },
+      {
+        "id": "5",
+        "text": "sodium hydroxide and hydrochloric acid"
+      }
     ]
   },
   "bank_fipi_11_decomp": {
-    "question_ru": "From the given list, select two exothermic reactions.",
-    "explanation_ru": "The combustion of magnesium (2) and the combustion of carbon (4) are exothermic reactions. The decomposition of CaCO₃ (1) and electrolysis of water (3) are endothermic. The reaction N₂ + O₂ → 2NO (5) is also endothermic (it only occurs at very high temperatures).",
+    "question": "From the given list, select two exothermic reactions.",
+    "explanation": "The combustion of magnesium (2) and the combustion of carbon (4) are exothermic reactions. The decomposition of CaCO₃ (1) and electrolysis of water (3) are endothermic. The reaction N₂ + O₂ → 2NO (5) is also endothermic (it only occurs at very high temperatures).",
     "options": [
-      { "id": "1", "text": "CaCO₃ → CaO + CO₂" },
-      { "id": "2", "text": "2Mg + O₂ → 2MgO" },
-      { "id": "3", "text": "2H₂O → 2H₂ + O₂" },
-      { "id": "4", "text": "C + O₂ → CO₂" },
-      { "id": "5", "text": "N₂ + O₂ → 2NO" }
+      {
+        "id": "1",
+        "text": "CaCO₃ → CaO + CO₂"
+      },
+      {
+        "id": "2",
+        "text": "2Mg + O₂ → 2MgO"
+      },
+      {
+        "id": "3",
+        "text": "2H₂O → 2H₂ + O₂"
+      },
+      {
+        "id": "4",
+        "text": "C + O₂ → CO₂"
+      },
+      {
+        "id": "5",
+        "text": "N₂ + O₂ → 2NO"
+      }
     ]
   },
   "bank_fipi_11_signs": {
-    "question_ru": "From the given list, select two correct statements about the signs of chemical reactions.",
-    "explanation_ru": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl is a white curdy precipitate (correct). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ is colorless, not brown (incorrect). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ is a blue precipitate (correct). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — a precipitate, not a gas (incorrect). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — a bright yellow precipitate (correct, but only 2 answers are needed).",
+    "question": "From the given list, select two correct statements about the signs of chemical reactions.",
+    "explanation": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl is a white curdy precipitate (correct). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ is colorless, not brown (incorrect). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ is a blue precipitate (correct). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — a precipitate, not a gas (incorrect). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — a bright yellow precipitate (correct, but only 2 answers are needed).",
     "options": [
-      { "id": "1", "text": "When solutions of silver nitrate and sodium chloride are mixed, a white curdy precipitate forms." },
-      { "id": "2", "text": "When solutions of sodium carbonate and hydrochloric acid are mixed, a brown gas is released." },
-      { "id": "3", "text": "When solutions of copper(II) sulfate and sodium hydroxide are mixed, a blue precipitate forms." },
-      { "id": "4", "text": "When solutions of barium chloride and sulfuric acid are mixed, a gas is released." },
-      { "id": "5", "text": "When solutions of lead(II) nitrate and potassium iodide are mixed, a bright yellow precipitate forms." }
+      {
+        "id": "1",
+        "text": "When solutions of silver nitrate and sodium chloride are mixed, a white curdy precipitate forms."
+      },
+      {
+        "id": "2",
+        "text": "When solutions of sodium carbonate and hydrochloric acid are mixed, a brown gas is released."
+      },
+      {
+        "id": "3",
+        "text": "When solutions of copper(II) sulfate and sodium hydroxide are mixed, a blue precipitate forms."
+      },
+      {
+        "id": "4",
+        "text": "When solutions of barium chloride and sulfuric acid are mixed, a gas is released."
+      },
+      {
+        "id": "5",
+        "text": "When solutions of lead(II) nitrate and potassium iodide are mixed, a bright yellow precipitate forms."
+      }
     ]
   },
   "demo_2025_12": {
-    "question_ru": "Match the reacting substances with the sign of the reaction occurring between them: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — silicic acid forms a colorless gelatinous precipitate → 3.\nB) H₂S + CuCl₂ → CuS↓ + 2HCl — copper(II) sulfide is a black precipitate → 1.\nC) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — gas evolution → 2.",
+    "question": "Match the reacting substances with the sign of the reaction occurring between them: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — silicic acid forms a colorless gelatinous precipitate → 3.\nB) H₂S + CuCl₂ → CuS↓ + 2HCl — copper(II) sulfide is a black precipitate → 1.\nC) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — gas evolution → 2.",
     "options": [
-      { "id": "1", "text": "formation of a black precipitate" },
-      { "id": "2", "text": "gas evolution" },
-      { "id": "3", "text": "formation of a colorless gelatinous precipitate" },
-      { "id": "4", "text": "formation of a blue precipitate" }
+      {
+        "id": "1",
+        "text": "formation of a black precipitate"
+      },
+      {
+        "id": "2",
+        "text": "gas evolution"
+      },
+      {
+        "id": "3",
+        "text": "formation of a colorless gelatinous precipitate"
+      },
+      {
+        "id": "4",
+        "text": "formation of a blue precipitate"
+      }
     ]
   },
   "bank_fipi_12a": {
-    "question_ru": "Match the reacting substances with the sign of the reaction occurring between them.",
-    "explanation_ru": "A) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ is a blue precipitate → 2.\nB) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S is a gas with a rotten egg smell → 1.\nC) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ is a brown precipitate → 3.",
+    "question": "Match the reacting substances with the sign of the reaction occurring between them.",
+    "explanation": "A) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ is a blue precipitate → 2.\nB) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S is a gas with a rotten egg smell → 1.\nC) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ is a brown precipitate → 3.",
     "options": [
-      { "id": "1", "text": "evolution of a gas with a rotten egg smell" },
-      { "id": "2", "text": "formation of a blue precipitate" },
-      { "id": "3", "text": "formation of a brown precipitate" },
-      { "id": "4", "text": "no visible signs of reaction" }
+      {
+        "id": "1",
+        "text": "evolution of a gas with a rotten egg smell"
+      },
+      {
+        "id": "2",
+        "text": "formation of a blue precipitate"
+      },
+      {
+        "id": "3",
+        "text": "formation of a brown precipitate"
+      },
+      {
+        "id": "4",
+        "text": "no visible signs of reaction"
+      }
     ]
   },
   "bank_fipi_12b": {
-    "question_ru": "Match the reacting substances with the sign of the reaction occurring between them.",
-    "explanation_ru": "A) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ is a white precipitate → 1.\nB) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ is a gas with a pungent smell → 2.\nC) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl is a white curdy precipitate → 1.",
+    "question": "Match the reacting substances with the sign of the reaction occurring between them.",
+    "explanation": "A) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ is a white precipitate → 1.\nB) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ is a gas with a pungent smell → 2.\nC) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl is a white curdy precipitate → 1.",
     "options": [
-      { "id": "1", "text": "formation of a white precipitate" },
-      { "id": "2", "text": "evolution of a gas with a pungent smell" },
-      { "id": "3", "text": "evolution of a colorless odorless gas" },
-      { "id": "4", "text": "dissolution of the precipitate" }
+      {
+        "id": "1",
+        "text": "formation of a white precipitate"
+      },
+      {
+        "id": "2",
+        "text": "evolution of a gas with a pungent smell"
+      },
+      {
+        "id": "3",
+        "text": "evolution of a colorless odorless gas"
+      },
+      {
+        "id": "4",
+        "text": "dissolution of the precipitate"
+      }
     ]
   },
   "demo_2025_13": {
-    "question_ru": "From the given list, select two non-electrolytes.",
-    "explanation_ru": "Electrolytes are substances whose solutions or melts conduct electric current: acids, bases, and salts. CH₄ (methane) is a covalent nonpolar compound, a non-electrolyte. CO (carbon monoxide) is a covalent compound that does not dissociate, a non-electrolyte. HNO₃ is a strong acid (electrolyte). KClO is a salt (electrolyte). CuSO₄ is a salt (electrolyte)."
+    "question": "From the given list, select two non-electrolytes.",
+    "explanation": "Electrolytes are substances whose solutions or melts conduct electric current: acids, bases, and salts. CH₄ (methane) is a covalent nonpolar compound, a non-electrolyte. CO (carbon monoxide) is a covalent compound that does not dissociate, a non-electrolyte. HNO₃ is a strong acid (electrolyte). KClO is a salt (electrolyte). CuSO₄ is a salt (electrolyte)."
   },
   "bank_fipi_13_ions": {
-    "question_ru": "From the given list, select two substances whose complete dissociation of 1 mole produces 3 moles of ions.",
-    "explanation_ru": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 ions (correct). NaCl → Na⁺ + Cl⁻ — 2 ions. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 ions (correct). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 ions. KNO₃ → K⁺ + NO₃⁻ — 2 ions."
+    "question": "From the given list, select two substances whose complete dissociation of 1 mole produces 3 moles of ions.",
+    "explanation": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 ions (correct). NaCl → Na⁺ + Cl⁻ — 2 ions. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 ions (correct). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 ions. KNO₃ → K⁺ + NO₃⁻ — 2 ions."
   },
   "bank_fipi_13_weak": {
-    "question_ru": "From the given list, select two weak electrolytes.",
-    "explanation_ru": "H₂SO₄ is a strong acid (strong electrolyte). CH₃COOH is acetic acid (weak electrolyte). NaOH is an alkali (strong electrolyte). H₂CO₃ is carbonic acid (weak electrolyte, unstable). KCl is a soluble salt (strong electrolyte)."
+    "question": "From the given list, select two weak electrolytes.",
+    "explanation": "H₂SO₄ is a strong acid (strong electrolyte). CH₃COOH is acetic acid (weak electrolyte). NaOH is an alkali (strong electrolyte). H₂CO₃ is carbonic acid (weak electrolyte, unstable). KCl is a soluble salt (strong electrolyte)."
   },
   "demo_2025_14": {
-    "question_ru": "Select two initial substances whose reaction in aqueous solution corresponds to the net ionic equation\n  H⁺ + OH⁻ = H₂O",
-    "explanation_ru": "The net ionic equation H⁺ + OH⁻ = H₂O corresponds to the reaction of a strong acid with a soluble base, producing a soluble salt. HI is a strong acid (fully dissociates). Ba(OH)₂ is a soluble base. HI + Ba(OH)₂ → BaI₂ (soluble) + H₂O. H₂S is a weak acid. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — the ionic equation would be different."
+    "question": "Select two initial substances whose reaction in aqueous solution corresponds to the net ionic equation\n  H⁺ + OH⁻ = H₂O",
+    "explanation": "The net ionic equation H⁺ + OH⁻ = H₂O corresponds to the reaction of a strong acid with a soluble base, producing a soluble salt. HI is a strong acid (fully dissociates). Ba(OH)₂ is a soluble base. HI + Ba(OH)₂ → BaI₂ (soluble) + H₂O. H₂S is a weak acid. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — the ionic equation would be different."
   },
   "bank_4ege_14_co3": {
-    "question_ru": "Select two initial substances whose reaction corresponds to the net ionic equation\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
-    "explanation_ru": "Required: 1) a soluble carbonate (CO₃²⁻ as an ion) — Na₂CO₃ (1); CaCO₃ and BaCO₃ are insoluble; NaHCO₃ is a bicarbonate (HCO₃⁻). 2) A strong acid (H⁺) — HBr (5); HNO₂ is a weak acid. Answer: 15."
+    "question": "Select two initial substances whose reaction corresponds to the net ionic equation\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
+    "explanation": "Required: 1) a soluble carbonate (CO₃²⁻ as an ion) — Na₂CO₃ (1); CaCO₃ and BaCO₃ are insoluble; NaHCO₃ is a bicarbonate (HCO₃⁻). 2) A strong acid (H⁺) — HBr (5); HNO₂ is a weak acid. Answer: 15."
   },
   "bank_4ege_14_s2": {
-    "question_ru": "Select two initial substances whose reaction corresponds to the net ionic equation\n  2H⁺ + S²⁻ = H₂S",
-    "explanation_ru": "Required: 1) a strong acid (H⁺) — HCl (1); HF is weak (4). 2) A soluble sulfide (S²⁻ as an ion) — K₂S (5); CuS is insoluble (2); S is a simple substance (3); Al₂S₃ hydrolyzes (6). Answer: 15."
+    "question": "Select two initial substances whose reaction corresponds to the net ionic equation\n  2H⁺ + S²⁻ = H₂S",
+    "explanation": "Required: 1) a strong acid (H⁺) — HCl (1); HF is weak (4). 2) A soluble sulfide (S²⁻ as an ion) — K₂S (5); CuS is insoluble (2); S is a simple substance (3); Al₂S₃ hydrolyzes (6). Answer: 15."
   },
   "demo_2025_15": {
-    "question_ru": "Match the scheme of the process occurring in a redox reaction with the name of that process: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) I⁺⁵ → I⁺⁷: oxidation state increases (+5 → +7), the element loses electrons → oxidation → 1.\nB) Si⁺⁴ → Si⁰: oxidation state decreases (+4 → 0), the element gains electrons → reduction → 2.\nC) N⁰ → N⁻³: oxidation state decreases (0 → −3), the element gains electrons → reduction → 2.",
+    "question": "Match the scheme of the process occurring in a redox reaction with the name of that process: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) I⁺⁵ → I⁺⁷: oxidation state increases (+5 → +7), the element loses electrons → oxidation → 1.\nB) Si⁺⁴ → Si⁰: oxidation state decreases (+4 → 0), the element gains electrons → reduction → 2.\nC) N⁰ → N⁻³: oxidation state decreases (0 → −3), the element gains electrons → reduction → 2.",
     "options": [
-      { "id": "1", "text": "oxidation" },
-      { "id": "2", "text": "reduction" }
+      {
+        "id": "1",
+        "text": "oxidation"
+      },
+      {
+        "id": "2",
+        "text": "reduction"
+      }
     ]
   },
   "bank_fipi_15_fe2o3": {
-    "question_ru": "Given the scheme of the redox reaction:\n  Fe₂O₃ + CO → Fe + CO₂\nMatch the formula of the substance with its role in this reaction.",
-    "explanation_ru": "Fe in Fe₂O₃: +3 → 0 (decrease, gains electrons) — oxidizing agent → 1.\nC in CO: +2 → +4 (increase, loses electrons) — reducing agent → 2.",
+    "question": "Given the scheme of the redox reaction:\n  Fe₂O₃ + CO → Fe + CO₂\nMatch the formula of the substance with its role in this reaction.",
+    "explanation": "Fe in Fe₂O₃: +3 → 0 (decrease, gains electrons) — oxidizing agent → 1.\nC in CO: +2 → +4 (increase, loses electrons) — reducing agent → 2.",
     "options": [
-      { "id": "1", "text": "oxidizing agent" },
-      { "id": "2", "text": "reducing agent" },
-      { "id": "3", "text": "both oxidizing and reducing agent" }
+      {
+        "id": "1",
+        "text": "oxidizing agent"
+      },
+      {
+        "id": "2",
+        "text": "reducing agent"
+      },
+      {
+        "id": "3",
+        "text": "both oxidizing and reducing agent"
+      }
     ]
   },
   "bank_fipi_15_cu": {
-    "question_ru": "Given the scheme of the redox reaction:\n  Cu + HNO₃(dilute) → Cu(NO₃)₂ + NO + H₂O\nMatch the formula of the substance with its role in this reaction.",
-    "explanation_ru": "Cu: 0 → +2 (increase, loses electrons) — reducing agent → 2.\nN in HNO₃: +5 → +2 in NO (decrease, gains electrons) — oxidizing agent → 1.",
+    "question": "Given the scheme of the redox reaction:\n  Cu + HNO₃(dilute) → Cu(NO₃)₂ + NO + H₂O\nMatch the formula of the substance with its role in this reaction.",
+    "explanation": "Cu: 0 → +2 (increase, loses electrons) — reducing agent → 2.\nN in HNO₃: +5 → +2 in NO (decrease, gains electrons) — oxidizing agent → 1.",
     "options": [
-      { "id": "1", "text": "oxidizing agent" },
-      { "id": "2", "text": "reducing agent" },
-      { "id": "3", "text": "both oxidizing and reducing agent" }
+      {
+        "id": "1",
+        "text": "oxidizing agent"
+      },
+      {
+        "id": "2",
+        "text": "reducing agent"
+      },
+      {
+        "id": "3",
+        "text": "both oxidizing and reducing agent"
+      }
     ]
   },
   "demo_2025_16": {
-    "question_ru": "From the listed statements about pure substances and mixtures, select the correct statement(s).\n\n1) Cast iron is a pure substance.\n2) A separating funnel can be used to separate a mixture of motor oil and water.\n3) Lake water can be purified from sand impurities by settling and filtration.\n4) A magnet is used to separate two-component heterogeneous mixtures containing iron filings.\n\nWrite the number(s) of the correct statement(s) in the answer field.",
-    "explanation_ru": "1) Cast iron is an alloy of iron and carbon, which is a mixture, not a pure substance → incorrect.\n2) Oil and water are immiscible liquids, separated using a separating funnel → correct.\n3) Sand is an insoluble impurity, removed by settling and filtration → correct.\n4) A magnet attracts iron filings, allowing them to be separated from a non-magnetic component → correct.",
+    "question": "From the listed statements about pure substances and mixtures, select the correct statement(s).\n\n1) Cast iron is a pure substance.\n2) A separating funnel can be used to separate a mixture of motor oil and water.\n3) Lake water can be purified from sand impurities by settling and filtration.\n4) A magnet is used to separate two-component heterogeneous mixtures containing iron filings.\n\nWrite the number(s) of the correct statement(s) in the answer field.",
+    "explanation": "1) Cast iron is an alloy of iron and carbon, which is a mixture, not a pure substance → incorrect.\n2) Oil and water are immiscible liquids, separated using a separating funnel → correct.\n3) Sand is an insoluble impurity, removed by settling and filtration → correct.\n4) A magnet attracts iron filings, allowing them to be separated from a non-magnetic component → correct.",
     "options": [
-      { "id": "1", "text": "Cast iron is a pure substance." },
-      { "id": "2", "text": "A separating funnel can be used to separate a mixture of motor oil and water." },
-      { "id": "3", "text": "Lake water can be purified from sand impurities by settling and filtration." },
-      { "id": "4", "text": "A magnet is used to separate two-component heterogeneous mixtures containing iron filings." }
+      {
+        "id": "1",
+        "text": "Cast iron is a pure substance."
+      },
+      {
+        "id": "2",
+        "text": "A separating funnel can be used to separate a mixture of motor oil and water."
+      },
+      {
+        "id": "3",
+        "text": "Lake water can be purified from sand impurities by settling and filtration."
+      },
+      {
+        "id": "4",
+        "text": "A magnet is used to separate two-component heterogeneous mixtures containing iron filings."
+      }
     ]
   },
   "sdamgia_10893_16": {
-    "question_ru": "From the listed statements about safety rules for working in a chemistry lab and with household chemicals, select the correct statement(s).",
-    "explanation_ru": "1) It is forbidden to taste substances in the laboratory (incorrect). 2) Work with alkali-containing products wearing gloves (correct). 3) Acid on skin should be washed with water and treated with baking soda (correct). 4) Flammable liquids should be stored away from heat sources, but not necessarily in a refrigerator (incorrect).",
+    "question": "From the listed statements about safety rules for working in a chemistry lab and with household chemicals, select the correct statement(s).",
+    "explanation": "1) It is forbidden to taste substances in the laboratory (incorrect). 2) Work with alkali-containing products wearing gloves (correct). 3) Acid on skin should be washed with water and treated with baking soda (correct). 4) Flammable liquids should be stored away from heat sources, but not necessarily in a refrigerator (incorrect).",
     "options": [
-      { "id": "1", "text": "In the laboratory, the presence of acid in a solution is determined by taste." },
-      { "id": "2", "text": "When working with household chemical products containing alkali, rubber gloves must be worn." },
-      { "id": "3", "text": "If an acid solution gets on the skin, it should be rinsed with water and treated with a baking soda solution." },
-      { "id": "4", "text": "Flammable liquids, such as acetone, may only be stored in a refrigerator." }
+      {
+        "id": "1",
+        "text": "In the laboratory, the presence of acid in a solution is determined by taste."
+      },
+      {
+        "id": "2",
+        "text": "When working with household chemical products containing alkali, rubber gloves must be worn."
+      },
+      {
+        "id": "3",
+        "text": "If an acid solution gets on the skin, it should be rinsed with water and treated with a baking soda solution."
+      },
+      {
+        "id": "4",
+        "text": "Flammable liquids, such as acetone, may only be stored in a refrigerator."
+      }
     ]
   },
   "sdamgia_10898_16": {
-    "question_ru": "From the listed statements about methods for separating mixtures, select the correct statement(s).",
-    "explanation_ru": "1) Iron is attracted to a magnet, sand is not (correct). 2) Seawater is a homogeneous solution; filtration will not remove dissolved salts (incorrect). 3) Filter paper separates a precipitate from a solution (correct). 4) Distillation is a physical method, not a chemical one (incorrect).",
+    "question": "From the listed statements about methods for separating mixtures, select the correct statement(s).",
+    "explanation": "1) Iron is attracted to a magnet, sand is not (correct). 2) Seawater is a homogeneous solution; filtration will not remove dissolved salts (incorrect). 3) Filter paper separates a precipitate from a solution (correct). 4) Distillation is a physical method, not a chemical one (incorrect).",
     "options": [
-      { "id": "1", "text": "A magnet can be used to separate a mixture of river sand and iron filings." },
-      { "id": "2", "text": "Seawater can be purified of dissolved salts by filtration." },
-      { "id": "3", "text": "Filter paper can be used to separate a precipitate from a solution." },
-      { "id": "4", "text": "Distillation is a chemical method of separating mixtures." }
+      {
+        "id": "1",
+        "text": "A magnet can be used to separate a mixture of river sand and iron filings."
+      },
+      {
+        "id": "2",
+        "text": "Seawater can be purified of dissolved salts by filtration."
+      },
+      {
+        "id": "3",
+        "text": "Filter paper can be used to separate a precipitate from a solution."
+      },
+      {
+        "id": "4",
+        "text": "Distillation is a chemical method of separating mixtures."
+      }
     ]
   },
   "demo_2025_17": {
-    "question_ru": "Match the two substances (taken as aqueous solutions) with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) KF and KCl: AgNO₃ produces a precipitate AgCl with KCl, but AgF is soluble → distinguishes → 1.\nB) NaCl and HCl: BaCO₃ reacts with HCl (CO₂ evolution), but not with NaCl → distinguishes → 3.\nC) KCl and MgCl₂: KOH produces a precipitate Mg(OH)₂ with MgCl₂, but not with KCl → distinguishes → 4."
+    "question": "Match the two substances (taken as aqueous solutions) with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) KF and KCl: AgNO₃ produces a precipitate AgCl with KCl, but AgF is soluble → distinguishes → 1.\nB) NaCl and HCl: BaCO₃ reacts with HCl (CO₂ evolution), but not with NaCl → distinguishes → 3.\nC) KCl and MgCl₂: KOH produces a precipitate Mg(OH)₂ with MgCl₂, but not with KCl → distinguishes → 4."
   },
   "sdamgia_1123_17": {
-    "question_ru": "Match the two substances with the reagent that can be used to distinguish them.",
-    "explanation_ru": "A) AgNO₃: NaCl → AgCl↓ (white), KNO₃ does not react → distinguishes → 4.\nB) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (white), NaNO₃ does not react → distinguishes → 2.\nC) KOH: NH₄Cl → NH₃↑ (smell), ZnCl₂ → Zn(OH)₂↓ (white) → distinguishes → 1."
+    "question": "Match the two substances with the reagent that can be used to distinguish them.",
+    "explanation": "A) AgNO₃: NaCl → AgCl↓ (white), KNO₃ does not react → distinguishes → 4.\nB) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (white), NaNO₃ does not react → distinguishes → 2.\nC) KOH: NH₄Cl → NH₃↑ (smell), ZnCl₂ → Zn(OH)₂↓ (white) → distinguishes → 1."
   },
   "sdamgia_855_17": {
-    "question_ru": "Match the two salts with the reagent that can be used to distinguish them.",
-    "explanation_ru": "A) KOH: NH₄Cl + KOH → NH₃↑ (smell), NaCl does not react → distinguishes → 1.\nB) AgNO₃: AgF is soluble, AgBr↓ (yellowish) → distinguishes → 3.\nC) HCl: Na₂CO₃ + HCl → CO₂↑ (gas), K₂SO₄ does not react → distinguishes → 4."
+    "question": "Match the two salts with the reagent that can be used to distinguish them.",
+    "explanation": "A) KOH: NH₄Cl + KOH → NH₃↑ (smell), NaCl does not react → distinguishes → 1.\nB) AgNO₃: AgF is soluble, AgBr↓ (yellowish) → distinguishes → 3.\nC) HCl: Na₂CO₃ + HCl → CO₂↑ (gas), K₂SO₄ does not react → distinguishes → 4."
   },
   "demo_2025_18": {
-    "question_ru": "Calculate the mass fraction of magnesium in magnesium citrate, as a percentage. Write the number rounded to whole numbers.",
-    "context_ru": "Magnesium citrate is a chemical compound, a salt of magnesium and citric acid, with the formula Mg₃(C₆H₅O₇)₂, used in medicine for magnesium deficiency, which affects the cardiovascular system in the human body.",
-    "explanation_ru": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 g/mol.\nw(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+    "question": "Calculate the mass fraction of magnesium in magnesium citrate, as a percentage. Write the number rounded to whole numbers.",
+    "context": "Magnesium citrate is a chemical compound, a salt of magnesium and citric acid, with the formula Mg₃(C₆H₅O₇)₂, used in medicine for magnesium deficiency, which affects the cardiovascular system in the human body.",
+    "explanation": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 g/mol.\nw(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
   },
   "sdamgia_10943_18": {
-    "question_ru": "Calculate the mass fraction of iron in iron(III) oxide, as a percentage. Write the number rounded to whole numbers.",
-    "context_ru": "Iron(III) oxide is a chemical compound Fe₂O₃, used in the smelting of cast iron.",
-    "explanation_ru": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 g/mol.\nw(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+    "question": "Calculate the mass fraction of iron in iron(III) oxide, as a percentage. Write the number rounded to whole numbers.",
+    "context": "Iron(III) oxide is a chemical compound Fe₂O₃, used in the smelting of cast iron.",
+    "explanation": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 g/mol.\nw(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
   },
   "sdamgia_10938_18": {
-    "question_ru": "Calculate the mass fraction of calcium in calcium nitrate, as a percentage. Write the number rounded to whole numbers.",
-    "context_ru": "Calcium nitrate is a chemical compound Ca(NO₃)₂, used in pyrotechnics as an inexpensive source of brick-red flame.",
-    "explanation_ru": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 g/mol.\nw(Ca) = 40/164 × 100% = 24.4% ≈ 24%."
+    "question": "Calculate the mass fraction of calcium in calcium nitrate, as a percentage. Write the number rounded to whole numbers.",
+    "context": "Calcium nitrate is a chemical compound Ca(NO₃)₂, used in pyrotechnics as an inexpensive source of brick-red flame.",
+    "explanation": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 g/mol.\nw(Ca) = 40/164 × 100% = 24.4% ≈ 24%."
   },
   "demo_2025_19": {
-    "question_ru": "To meet the daily magnesium requirement of an animal, a dog weighing about 20 kg is given one measuring spoon (10 g) of magnesium citrate daily with its food. Calculate how many grams (g) of magnesium the dog receives daily from this supplement. Write the number rounded to tenths.",
-    "context_ru": "Magnesium citrate is a chemical compound, a salt of magnesium and citric acid, with the formula Mg₃(C₆H₅O₇)₂, used in medicine for magnesium deficiency, which affects the cardiovascular system in the human body.",
-    "explanation_ru": "From task 18: w(Mg) = 16% = 0.16.\nm(Mg) = m(citrate) × w(Mg) = 10 g × 0.16 = 1.6 g."
+    "question": "To meet the daily magnesium requirement of an animal, a dog weighing about 20 kg is given one measuring spoon (10 g) of magnesium citrate daily with its food. Calculate how many grams (g) of magnesium the dog receives daily from this supplement. Write the number rounded to tenths.",
+    "context": "Magnesium citrate is a chemical compound, a salt of magnesium and citric acid, with the formula Mg₃(C₆H₅O₇)₂, used in medicine for magnesium deficiency, which affects the cardiovascular system in the human body.",
+    "explanation": "From task 18: w(Mg) = 16% = 0.16.\nm(Mg) = m(citrate) × w(Mg) = 10 g × 0.16 = 1.6 g."
   },
   "sdamgia_10980_19": {
-    "question_ru": "To prepare an alloy for casting one cannon, 600 kg of pure iron is needed. What amount (in kg) of iron ore (mainly hematite Fe₂O₃) must be processed to cast three cannons? Assume that 100% of the iron is extracted from the ore. Write the answer rounded to whole numbers.",
-    "context_ru": "Iron(III) oxide is a chemical compound Fe₂O₃, used in the smelting of cast iron.",
-    "explanation_ru": "Iron needed: 600 × 3 = 1800 kg.\nw(Fe) in Fe₂O₃ = 70% = 0.70.\nm(Fe₂O₃) = 1800 / 0.70 = 2571.4 ≈ 2571 kg."
+    "question": "To prepare an alloy for casting one cannon, 600 kg of pure iron is needed. What amount (in kg) of iron ore (mainly hematite Fe₂O₃) must be processed to cast three cannons? Assume that 100% of the iron is extracted from the ore. Write the answer rounded to whole numbers.",
+    "context": "Iron(III) oxide is a chemical compound Fe₂O₃, used in the smelting of cast iron.",
+    "explanation": "Iron needed: 600 × 3 = 1800 kg.\nw(Fe) in Fe₂O₃ = 70% = 0.70.\nm(Fe₂O₃) = 1800 / 0.70 = 2571.4 ≈ 2571 kg."
   },
   "sdamgia_10979_19": {
-    "question_ru": "To prepare one firework charge, 50 g of calcium is required. How many grams of calcium nitrate must be weighed? Write the answer rounded to whole numbers.",
-    "context_ru": "Calcium nitrate is a chemical compound Ca(NO₃)₂, used in pyrotechnics as an inexpensive source of brick-red flame.",
-    "explanation_ru": "w(Ca) in Ca(NO₃)₂ = 24% = 0.24.\nm(Ca(NO₃)₂) = 50 / 0.24 = 208.3 ≈ 208 g."
+    "question": "To prepare one firework charge, 50 g of calcium is required. How many grams of calcium nitrate must be weighed? Write the answer rounded to whole numbers.",
+    "context": "Calcium nitrate is a chemical compound Ca(NO₃)₂, used in pyrotechnics as an inexpensive source of brick-red flame.",
+    "explanation": "w(Ca) in Ca(NO₃)₂ = 24% = 0.24.\nm(Ca(NO₃)₂) = 50 / 0.24 = 208.3 ≈ 208 g."
   },
   "demo_2021_01": {
-    "question_ru": "Select two statements that describe iron as a chemical element.",
-    "explanation_ru": "Iron as a chemical element is mentioned in the context of the composition of substances (hemoglobin contains iron, rust contains iron). The remaining statements refer to iron as a simple substance (reacts, rusts, is a raw material).",
+    "question": "Select two statements that describe iron as a chemical element.",
+    "explanation": "Iron as a chemical element is mentioned in the context of the composition of substances (hemoglobin contains iron, rust contains iron). The remaining statements refer to iron as a simple substance (reacts, rusts, is a raw material).",
     "options": [
-      { "id": "1", "text": "Iron reacts with chlorine." },
-      { "id": "2", "text": "Iron quickly rusts in humid air." },
-      { "id": "3", "text": "Pyrite is a raw material for producing iron." },
-      { "id": "4", "text": "Hemoglobin, which contains iron, transports oxygen." },
-      { "id": "5", "text": "Rust contains iron." }
+      {
+        "id": "1",
+        "text": "Iron reacts with chlorine."
+      },
+      {
+        "id": "2",
+        "text": "Iron quickly rusts in humid air."
+      },
+      {
+        "id": "3",
+        "text": "Pyrite is a raw material for producing iron."
+      },
+      {
+        "id": "4",
+        "text": "Hemoglobin, which contains iron, transports oxygen."
+      },
+      {
+        "id": "5",
+        "text": "Rust contains iron."
+      }
     ]
   },
   "demo_2021_02": {
-    "question_ru": "The figure shows a model of an atom of a chemical element. Write in the table the nuclear charge (X) of the atom of the chemical element whose model is shown, and the group number (Y) in which this element is located in the Periodic Table. (Use Arabic numerals.)",
-    "explanation_ru": "The figure shows a model of an atom with nuclear charge +15 and 5 electrons in the outer shell. This is phosphorus (P), located in period 3, group V (group 5). X = 15, Y = 5.",
-    "input_labels": ["X", "Y"]
+    "question": "The figure shows a model of an atom of a chemical element. Write in the table the nuclear charge (X) of the atom of the chemical element whose model is shown, and the group number (Y) in which this element is located in the Periodic Table. (Use Arabic numerals.)",
+    "explanation": "The figure shows a model of an atom with nuclear charge +15 and 5 electrons in the outer shell. This is phosphorus (P), located in period 3, group V (group 5). X = 15, Y = 5.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "demo_2021_03": {
-    "question_ru": "Arrange the chemical elements\n1) sulfur\n2) chlorine\n3) phosphorus\nin order of increasing electronegativity. Write the numbers of the selected elements in the corresponding order.",
-    "explanation_ru": "Electronegativity increases across a period from left to right and up a group. Phosphorus (P) < sulfur (S) < chlorine (Cl). Order of numbers: 3, 1, 2.",
+    "question": "Arrange the chemical elements\n1) sulfur\n2) chlorine\n3) phosphorus\nin order of increasing electronegativity. Write the numbers of the selected elements in the corresponding order.",
+    "explanation": "Electronegativity increases across a period from left to right and up a group. Phosphorus (P) < sulfur (S) < chlorine (Cl). Order of numbers: 3, 1, 2.",
     "items": [
-      { "id": "1", "text": "sulfur" },
-      { "id": "2", "text": "chlorine" },
-      { "id": "3", "text": "phosphorus" }
+      {
+        "id": "1",
+        "text": "sulfur"
+      },
+      {
+        "id": "2",
+        "text": "chlorine"
+      },
+      {
+        "id": "3",
+        "text": "phosphorus"
+      }
     ]
   },
   "demo_2021_04": {
-    "question_ru": "Match the formula of the compound with the oxidation state of nitrogen in that compound: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "HNO₃: nitrogen has oxidation state +5 (4). N₂O: nitrogen has oxidation state +1 (1). NH₃: nitrogen has oxidation state −3 (2). Answer: 412."
+    "question": "Match the formula of the compound with the oxidation state of nitrogen in that compound: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "HNO₃: nitrogen has oxidation state +5 (4). N₂O: nitrogen has oxidation state +1 (1). NH₃: nitrogen has oxidation state −3 (2). Answer: 412."
   },
   "demo_2021_05": {
-    "question_ru": "From the given list, select two substances with ionic bonds.",
-    "explanation_ru": "An ionic bond forms between a metal and a nonmetal with a large difference in electronegativity. CaO (calcium + oxygen) and Li₃N (lithium + nitrogen) are ionic compounds. PCl₃ has covalent polar bonds, Br₂ has covalent nonpolar bonds, H₂S has covalent polar bonds."
+    "question": "From the given list, select two substances with ionic bonds.",
+    "explanation": "An ionic bond forms between a metal and a nonmetal with a large difference in electronegativity. CaO (calcium + oxygen) and Li₃N (lithium + nitrogen) are ionic compounds. PCl₃ has covalent polar bonds, Br₂ has covalent nonpolar bonds, H₂S has covalent polar bonds."
   },
   "demo_2021_06": {
-    "question_ru": "Which two statements are true for characterizing both magnesium and silicon?",
-    "explanation_ru": "Magnesium (Mg, Z=12) and silicon (Si, Z=14) are both in period 3 — they have 3 electron shells (1). Both have electronegativity less than that of phosphorus (4). Mg is a metal, Si is a nonmetal, so (3) is incorrect. The highest oxide of Mg is MgO (not EO₂), so (5) is incorrect.",
+    "question": "Which two statements are true for characterizing both magnesium and silicon?",
+    "explanation": "Magnesium (Mg, Z=12) and silicon (Si, Z=14) are both in period 3 — they have 3 electron shells (1). Both have electronegativity less than that of phosphorus (4). Mg is a metal, Si is a nonmetal, so (3) is incorrect. The highest oxide of Mg is MgO (not EO₂), so (5) is incorrect.",
     "options": [
-      { "id": "1", "text": "The electrons in the atom are arranged in three electron shells." },
-      { "id": "2", "text": "The corresponding simple substance exists as diatomic molecules." },
-      { "id": "3", "text": "The chemical element is a metal." },
-      { "id": "4", "text": "The electronegativity value is less than that of phosphorus." },
-      { "id": "5", "text": "The chemical element forms highest oxides with the general formula EO₂." }
+      {
+        "id": "1",
+        "text": "The electrons in the atom are arranged in three electron shells."
+      },
+      {
+        "id": "2",
+        "text": "The corresponding simple substance exists as diatomic molecules."
+      },
+      {
+        "id": "3",
+        "text": "The chemical element is a metal."
+      },
+      {
+        "id": "4",
+        "text": "The electronegativity value is less than that of phosphorus."
+      },
+      {
+        "id": "5",
+        "text": "The chemical element forms highest oxides with the general formula EO₂."
+      }
     ]
   },
   "demo_2021_08": {
-    "question_ru": "From the given list, select two substances that react with aluminium oxide.",
-    "explanation_ru": "Al₂O₃ is an amphoteric oxide; it reacts with acids and basic oxides/alkalis. It reacts with HNO₃ (acid, 2) and Na₂O (basic oxide, 5). Cu(OH)₂ is a weak insoluble base, does not react. O₂ does not react (Al is already in its highest oxidation state). Be(OH)₂ is an amphoteric hydroxide, does not react with an amphoteric oxide."
+    "question": "From the given list, select two substances that react with aluminium oxide.",
+    "explanation": "Al₂O₃ is an amphoteric oxide; it reacts with acids and basic oxides/alkalis. It reacts with HNO₃ (acid, 2) and Na₂O (basic oxide, 5). Cu(OH)₂ is a weak insoluble base, does not react. O₂ does not react (Al is already in its highest oxidation state). Be(OH)₂ is an amphoteric hydroxide, does not react with an amphoteric oxide."
   },
   "demo_2021_09": {
-    "question_ru": "Match the reacting substances with the product(s) of their reaction: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) MgO + SO₃ = MgSO₄ (basic oxide + acidic oxide = salt, no water) → answer 5. B) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (base + acid = salt + water) → answer 2. C) Mg + H₂SO₄(dilute) = MgSO₄ + H₂ (metal + acid = salt + hydrogen) → answer 4.",
+    "question": "Match the reacting substances with the product(s) of their reaction: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) MgO + SO₃ = MgSO₄ (basic oxide + acidic oxide = salt, no water) → answer 5. B) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (base + acid = salt + water) → answer 2. C) Mg + H₂SO₄(dilute) = MgSO₄ + H₂ (metal + acid = salt + hydrogen) → answer 4.",
     "options": [
-      { "id": "1", "text": "→ MgSO₃ + H₂" },
-      { "id": "2", "text": "→ MgSO₄ + H₂O" },
-      { "id": "3", "text": "→ MgSO₃ + H₂O" },
-      { "id": "4", "text": "→ MgSO₄ + H₂" },
-      { "id": "5", "text": "→ MgSO₄" }
+      {
+        "id": "1",
+        "text": "→ MgSO₃ + H₂"
+      },
+      {
+        "id": "2",
+        "text": "→ MgSO₄ + H₂O"
+      },
+      {
+        "id": "3",
+        "text": "→ MgSO₃ + H₂O"
+      },
+      {
+        "id": "4",
+        "text": "→ MgSO₄ + H₂"
+      },
+      {
+        "id": "5",
+        "text": "→ MgSO₄"
+      }
     ]
   },
   "demo_2021_10": {
-    "question_ru": "Match the formula of the substance with the reagents with which this substance can react: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) Carbon (C) reacts with O₂ (combustion) and concentrated H₂SO₄ (redox) → answer 1. B) Al₂O₃ is an amphoteric oxide; it reacts with KOH and HCl → answer 3. C) CuCl₂ reacts with Mg (substitution) and AgNO₃ (double replacement, forming AgCl) → answer 2.",
+    "question": "Match the formula of the substance with the reagents with which this substance can react: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) Carbon (C) reacts with O₂ (combustion) and concentrated H₂SO₄ (redox) → answer 1. B) Al₂O₃ is an amphoteric oxide; it reacts with KOH and HCl → answer 3. C) CuCl₂ reacts with Mg (substitution) and AgNO₃ (double replacement, forming AgCl) → answer 2.",
     "options": [
-      { "id": "1", "text": "O₂, H₂SO₄(conc.)" },
-      { "id": "2", "text": "Mg, AgNO₃(soln.)" },
-      { "id": "3", "text": "KOH, HCl(soln.)" },
-      { "id": "4", "text": "N₂, K₂SO₄(soln.)" }
+      {
+        "id": "1",
+        "text": "O₂, H₂SO₄(conc.)"
+      },
+      {
+        "id": "2",
+        "text": "Mg, AgNO₃(soln.)"
+      },
+      {
+        "id": "3",
+        "text": "KOH, HCl(soln.)"
+      },
+      {
+        "id": "4",
+        "text": "N₂, K₂SO₄(soln.)"
+      }
     ]
   },
   "demo_2021_11": {
-    "question_ru": "From the given list, select two pairs of substances that undergo a single replacement (substitution) reaction.",
-    "explanation_ru": "A single replacement reaction involves one element replacing another. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (single replacement, 1). Na + H₂O → NaOH + H₂ (single replacement, 5). The rest: (2) is a combination reaction, (3) is a double replacement, (4) is a combination reaction.",
+    "question": "From the given list, select two pairs of substances that undergo a single replacement (substitution) reaction.",
+    "explanation": "A single replacement reaction involves one element replacing another. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (single replacement, 1). Na + H₂O → NaOH + H₂ (single replacement, 5). The rest: (2) is a combination reaction, (3) is a double replacement, (4) is a combination reaction.",
     "options": [
-      { "id": "1", "text": "iron and silver nitrate" },
-      { "id": "2", "text": "sulfur trioxide and iron(III) oxide" },
-      { "id": "3", "text": "copper(II) oxide and hydrochloric acid" },
-      { "id": "4", "text": "aluminium and chlorine" },
-      { "id": "5", "text": "sodium and water" }
+      {
+        "id": "1",
+        "text": "iron and silver nitrate"
+      },
+      {
+        "id": "2",
+        "text": "sulfur trioxide and iron(III) oxide"
+      },
+      {
+        "id": "3",
+        "text": "copper(II) oxide and hydrochloric acid"
+      },
+      {
+        "id": "4",
+        "text": "aluminium and chlorine"
+      },
+      {
+        "id": "5",
+        "text": "sodium and water"
+      }
     ]
   },
   "demo_2021_12": {
-    "question_ru": "Match the reacting substances with the sign of the reaction occurring between them: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ is a brown precipitate (2). B) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ is a white precipitate (1). C) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Gas evolution (4).",
+    "question": "Match the reacting substances with the sign of the reaction occurring between them: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ is a brown precipitate (2). B) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ is a white precipitate (1). C) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Gas evolution (4).",
     "options": [
-      { "id": "1", "text": "formation of a white precipitate" },
-      { "id": "2", "text": "formation of a brown precipitate" },
-      { "id": "3", "text": "formation of a gray-green precipitate" },
-      { "id": "4", "text": "gas evolution" }
+      {
+        "id": "1",
+        "text": "formation of a white precipitate"
+      },
+      {
+        "id": "2",
+        "text": "formation of a brown precipitate"
+      },
+      {
+        "id": "3",
+        "text": "formation of a gray-green precipitate"
+      },
+      {
+        "id": "4",
+        "text": "gas evolution"
+      }
     ]
   },
   "demo_2021_13": {
-    "question_ru": "Complete dissociation of 1 mole of which two of the given substances produces 2 moles of anions?",
-    "explanation_ru": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 moles of anions, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 moles of anions, 2). NaCl → Na⁺ + Cl⁻ (1 mole). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 mole of anions). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 mole of anions).",
+    "question": "Complete dissociation of 1 mole of which two of the given substances produces 2 moles of anions?",
+    "explanation": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 moles of anions, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 moles of anions, 2). NaCl → Na⁺ + Cl⁻ (1 mole). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 mole of anions). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 mole of anions).",
     "options": [
-      { "id": "1", "text": "magnesium nitrate" },
-      { "id": "2", "text": "barium hydroxide" },
-      { "id": "3", "text": "sodium chloride" },
-      { "id": "4", "text": "potassium phosphate" },
-      { "id": "5", "text": "sodium sulfate" }
+      {
+        "id": "1",
+        "text": "magnesium nitrate"
+      },
+      {
+        "id": "2",
+        "text": "barium hydroxide"
+      },
+      {
+        "id": "3",
+        "text": "sodium chloride"
+      },
+      {
+        "id": "4",
+        "text": "potassium phosphate"
+      },
+      {
+        "id": "5",
+        "text": "sodium sulfate"
+      }
     ]
   },
   "demo_2021_14": {
-    "question_ru": "Select two initial substances whose reaction corresponds to the net ionic equation\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
-    "explanation_ru": "The net ionic equation Ca²⁺ + SO₃²⁻ = CaSO₃↓ means that Ca²⁺ and SO₃²⁻ exist in solution as ions. CaCl₂ (3) is a soluble salt, providing Ca²⁺. K₂SO₃ (4) is a soluble salt, providing SO₃²⁻. CaO and Ca do not dissociate, H₂SO₃ is a weak acid."
+    "question": "Select two initial substances whose reaction corresponds to the net ionic equation\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
+    "explanation": "The net ionic equation Ca²⁺ + SO₃²⁻ = CaSO₃↓ means that Ca²⁺ and SO₃²⁻ exist in solution as ions. CaCl₂ (3) is a soluble salt, providing Ca²⁺. K₂SO₃ (4) is a soluble salt, providing SO₃²⁻. CaO and Ca do not dissociate, H₂SO₃ is a weak acid."
   },
   "demo_2021_15": {
-    "question_ru": "Match the scheme of the process occurring in a redox reaction with the name of that process: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) S⁻² → S⁰: the oxidation state increases (−2 → 0), this is oxidation (1). B) H₂⁰ → 2H⁺: the oxidation state increases (0 → +1), this is oxidation (1). C) Cr⁺⁶ → Cr⁺³: the oxidation state decreases (+6 → +3), this is reduction (2).",
+    "question": "Match the scheme of the process occurring in a redox reaction with the name of that process: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) S⁻² → S⁰: the oxidation state increases (−2 → 0), this is oxidation (1). B) H₂⁰ → 2H⁺: the oxidation state increases (0 → +1), this is oxidation (1). C) Cr⁺⁶ → Cr⁺³: the oxidation state decreases (+6 → +3), this is reduction (2).",
     "options": [
-      { "id": "1", "text": "oxidation" },
-      { "id": "2", "text": "reduction" }
+      {
+        "id": "1",
+        "text": "oxidation"
+      },
+      {
+        "id": "2",
+        "text": "reduction"
+      }
     ]
   },
   "demo_2021_16": {
-    "question_ru": "From the listed statements about rules for working with substances in the laboratory and at home, select the correct statement(s).\n1. Chlorine can only be produced in a fume hood.\n2. When preparing an acid solution, concentrated sulfuric acid is added to water.\n3. When heating a solution, the test tube with liquid is held strictly vertically.\n4. Work with caustic substances should be performed wearing rubber gloves.\nWrite the number(s) of the correct statement(s) in the answer field.",
-    "explanation_ru": "Statements 1 (chlorine is a toxic gas, produced in a fume hood), 2 (acid is added to water, not the other way around), and 4 (work with caustic substances requires gloves) are correct. Statement 3 is incorrect: when heating, the test tube is held at an angle, not vertically.",
+    "question": "From the listed statements about rules for working with substances in the laboratory and at home, select the correct statement(s).\n1. Chlorine can only be produced in a fume hood.\n2. When preparing an acid solution, concentrated sulfuric acid is added to water.\n3. When heating a solution, the test tube with liquid is held strictly vertically.\n4. Work with caustic substances should be performed wearing rubber gloves.\nWrite the number(s) of the correct statement(s) in the answer field.",
+    "explanation": "Statements 1 (chlorine is a toxic gas, produced in a fume hood), 2 (acid is added to water, not the other way around), and 4 (work with caustic substances requires gloves) are correct. Statement 3 is incorrect: when heating, the test tube is held at an angle, not vertically.",
     "options": [
-      { "id": "1", "text": "Chlorine can only be produced in a fume hood." },
-      { "id": "2", "text": "When preparing an acid solution, concentrated sulfuric acid is added to water." },
-      { "id": "3", "text": "When heating a solution, the test tube with liquid is held strictly vertically." },
-      { "id": "4", "text": "Work with caustic substances should be performed wearing rubber gloves." }
+      {
+        "id": "1",
+        "text": "Chlorine can only be produced in a fume hood."
+      },
+      {
+        "id": "2",
+        "text": "When preparing an acid solution, concentrated sulfuric acid is added to water."
+      },
+      {
+        "id": "3",
+        "text": "When heating a solution, the test tube with liquid is held strictly vertically."
+      },
+      {
+        "id": "4",
+        "text": "Work with caustic substances should be performed wearing rubber gloves."
+      }
     ]
   },
   "demo_2021_17": {
-    "question_ru": "Match the two substances with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.",
-    "explanation_ru": "A) KCl and K₂SiO₃: add HCl (2) — with K₂SiO₃, insoluble silicic acid forms (precipitate); with KCl, no reaction. B) K₂CO₃ and Li₂CO₃: add K₃PO₄ (4) — Li₃PO₄ is insoluble (precipitate); K₃PO₄ + K₂CO₃ — no reaction. C) Na₂SO₄ and NaOH: add CuCl₂ (1) — with NaOH, blue precipitate Cu(OH)₂ forms; with Na₂SO₄, no reaction.",
+    "question": "Match the two substances with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.",
+    "explanation": "A) KCl and K₂SiO₃: add HCl (2) — with K₂SiO₃, insoluble silicic acid forms (precipitate); with KCl, no reaction. B) K₂CO₃ and Li₂CO₃: add K₃PO₄ (4) — Li₃PO₄ is insoluble (precipitate); K₃PO₄ + K₂CO₃ — no reaction. C) Na₂SO₄ and NaOH: add CuCl₂ (1) — with NaOH, blue precipitate Cu(OH)₂ forms; with Na₂SO₄, no reaction.",
     "left_items": [
-      { "label": "A", "text": "KCl and K₂SiO₃" },
-      { "label": "B", "text": "K₂CO₃ and Li₂CO₃" },
-      { "label": "C", "text": "Na₂SO₄ and NaOH" }
+      {
+        "label": "A",
+        "text": "KCl and K₂SiO₃"
+      },
+      {
+        "label": "B",
+        "text": "K₂CO₃ and Li₂CO₃"
+      },
+      {
+        "label": "C",
+        "text": "Na₂SO₄ and NaOH"
+      }
     ]
   },
   "demo_2021_18": {
-    "question_ru": "Ammonium nitrate (ammonium saltpeter) is a chemical compound NH₄NO₃, a salt of nitric acid, used as a nitrogen fertilizer.\nCalculate the mass fraction of nitrogen in ammonium nitrate, as a percentage. Write the number rounded to whole numbers.",
-    "explanation_ru": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 g/mol. The formula contains 2 nitrogen atoms: 2 × 14 = 28. w(N) = 28/80 × 100% = 35%."
+    "question": "Ammonium nitrate (ammonium saltpeter) is a chemical compound NH₄NO₃, a salt of nitric acid, used as a nitrogen fertilizer.\nCalculate the mass fraction of nitrogen in ammonium nitrate, as a percentage. Write the number rounded to whole numbers.",
+    "explanation": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 g/mol. The formula contains 2 nitrogen atoms: 2 × 14 = 28. w(N) = 28/80 × 100% = 35%."
   },
   "demo_2021_19": {
-    "question_ru": "When fertilizing vegetable and flower crops, 200 g of nitrogen per 100 m² is applied to the soil. Calculate how many grams of ammonium nitrate should be applied to a plot of land with an area of 70 m². Write the number rounded to whole numbers.",
-    "explanation_ru": "Nitrogen needed for 70 m²: 200 × 70/100 = 140 g nitrogen. The mass fraction of nitrogen in NH₄NO₃ = 35% (from task 18). Mass of NH₄NO₃ = 140/0.35 = 400 g."
+    "question": "When fertilizing vegetable and flower crops, 200 g of nitrogen per 100 m² is applied to the soil. Calculate how many grams of ammonium nitrate should be applied to a plot of land with an area of 70 m². Write the number rounded to whole numbers.",
+    "explanation": "Nitrogen needed for 70 m²: 200 × 70/100 = 140 g nitrogen. The mass fraction of nitrogen in NH₄NO₃ = 35% (from task 18). Mass of NH₄NO₃ = 140/0.35 = 400 g."
   },
   "demo_2022_02": {
-    "question_ru": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which the chemical element whose model is shown is located. (Use Arabic numerals.)\n\nIn the figure: a model of an atom with 2 electron shells (2 and 5 electrons). This is nitrogen (N, Z=7).",
-    "explanation_ru": "The figure shows a model of an atom with 2 electron shells: the first has 2 electrons, the second has 5 electrons. Total 7 electrons = nuclear charge 7 = nitrogen (N). Nitrogen is in period 2 (2 electron shells), group V (5 electrons in the outer shell). X = 2, Y = 5.",
-    "input_labels": ["X", "Y"]
+    "question": "The figure shows a model of an atom of a chemical element.\nWrite in the answer field the period number (X) and the group number (Y) in which the chemical element whose model is shown is located. (Use Arabic numerals.)\n\nIn the figure: a model of an atom with 2 electron shells (2 and 5 electrons). This is nitrogen (N, Z=7).",
+    "explanation": "The figure shows a model of an atom with 2 electron shells: the first has 2 electrons, the second has 5 electrons. Total 7 electrons = nuclear charge 7 = nitrogen (N). Nitrogen is in period 2 (2 electron shells), group V (5 electrons in the outer shell). X = 2, Y = 5.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "demo_2022_17": {
-    "question_ru": "Match the two substances with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.\n\nSUBSTANCES                    REAGENT\nA) K₂CO₃ and K₂SiO₃           1) CuCl₂\nB) K₂CO₃ and Li₂CO₃           2) HCl\nC) Na₂SO₄ and NaOH            3) MgO\n                               4) K₃PO₄\n\nWrite the selected numbers in the table under the corresponding letters.",
-    "explanation_ru": "A) K₂CO₃ and K₂SiO₃: add HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (gas). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (precipitate). Different signs — distinguished.\nB) K₂CO₃ and Li₂CO₃: add K₃PO₄ (4). Li₃PO₄ is insoluble (precipitate forms); K₃PO₄ + K₂CO₃ — no reaction.\nC) Na₂SO₄ and NaOH: add CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (blue precipitate) + 2NaCl. Na₂SO₄ + CuCl₂ — no precipitate (CuSO₄ is soluble)."
+    "question": "Match the two substances with the reagent that can be used to distinguish them: for each item labeled with a letter, select the corresponding item labeled with a number.\n\nSUBSTANCES                    REAGENT\nA) K₂CO₃ and K₂SiO₃           1) CuCl₂\nB) K₂CO₃ and Li₂CO₃           2) HCl\nC) Na₂SO₄ and NaOH            3) MgO\n                               4) K₃PO₄\n\nWrite the selected numbers in the table under the corresponding letters.",
+    "explanation": "A) K₂CO₃ and K₂SiO₃: add HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (gas). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (precipitate). Different signs — distinguished.\nB) K₂CO₃ and Li₂CO₃: add K₃PO₄ (4). Li₃PO₄ is insoluble (precipitate forms); K₃PO₄ + K₂CO₃ — no reaction.\nC) Na₂SO₄ and NaOH: add CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (blue precipitate) + 2NaCl. Na₂SO₄ + CuCl₂ — no precipitate (CuSO₄ is soluble)."
   },
   "demo_2022_19": {
-    "question_ru": "When fertilizing vegetable and flower crops, 200 g of nitrogen per 100 m² is applied to the soil. Calculate how many grams of ammonium nitrate should be applied to a plot of land with an area of 100 m². Write the number rounded to whole numbers.\n\nUse the value determined in task 18 with the precision indicated there.",
-    "explanation_ru": "From task 18: w(N) in NH₄NO₃ = 35% = 0.35.\nFor 100 m², 200 g of nitrogen is needed.\nMass of NH₄NO₃ = m(N) / w(N) = 200 / 0.35 = 571.4 ≈ 571 g."
+    "question": "When fertilizing vegetable and flower crops, 200 g of nitrogen per 100 m² is applied to the soil. Calculate how many grams of ammonium nitrate should be applied to a plot of land with an area of 100 m². Write the number rounded to whole numbers.\n\nUse the value determined in task 18 with the precision indicated there.",
+    "explanation": "From task 18: w(N) in NH₄NO₃ = 35% = 0.35.\nFor 100 m², 200 g of nitrogen is needed.\nMass of NH₄NO₃ = m(N) / w(N) = 200 / 0.35 = 571.4 ≈ 571 g."
   }
 }

@@ -1,0 +1,54 @@
+{
+  "speed_increase": {
+    "name": "увеличение скорости",
+    "description": "Повышение скорости реакции"
+  },
+  "speed_decrease": {
+    "name": "уменьшение скорости",
+    "description": "Понижение скорости реакции"
+  },
+  "activation_energy_decrease": {
+    "name": "снижение Ea",
+    "description": "Снижение энергии активации"
+  },
+  "equilibrium_shift_right": {
+    "name": "смещение равновесия →",
+    "description": "Смещение равновесия в сторону продуктов"
+  },
+  "equilibrium_shift_left": {
+    "name": "смещение равновесия ←",
+    "description": "Смещение равновесия в сторону реагентов"
+  },
+  "exothermic": {
+    "name": "экзотермический",
+    "description": "Выделение теплоты"
+  },
+  "endothermic": {
+    "name": "эндотермический",
+    "description": "Поглощение теплоты"
+  },
+  "surface_increase": {
+    "name": "увеличение площади контакта",
+    "description": "Увеличение площади поверхности контакта реагентов"
+  },
+  "concentration_increase": {
+    "name": "увеличение концентрации",
+    "description": "Увеличение концентрации реагента"
+  },
+  "concentration_decrease": {
+    "name": "уменьшение концентрации",
+    "description": "Уменьшение концентрации реагента"
+  },
+  "product_removal": {
+    "name": "удаление продукта",
+    "description": "Удаление продукта из зоны реакции"
+  },
+  "phase_transition": {
+    "name": "фазовый переход",
+    "description": "Переход вещества из одного агрегатного состояния в другое"
+  },
+  "ion_formation": {
+    "name": "образование ионов",
+    "description": "Распад на ионы при растворении или плавлении"
+  }
+}

@@ -1,7 +1,6 @@
 {
   "id": "hmno4",
   "formula": "HMnO₄",
-  "name_ru": "Марганцовая кислота",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
@@ -15,15 +14,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": null,
-  "appearance_ru": "Тёмно-фиолетовый раствор (существует только в растворе)",
-  "hazards_ru": [
-    "Сильный окислитель"
-  ],
-  "industrial_ru": "Лабораторный реактив, промежуточный продукт",
-  "production_ru": "Действие серной кислоты на перманганат бария: Ba(MnO₄)₂ + H₂SO₄ → 2HMnO₄ + BaSO₄↓",
-  "fun_facts_ru": [
-    "Существует только в разбавленных растворах — в концентрированном виде разлагается",
-    "Фиолетовый цвет раствора KMnO₄ обусловлен именно ионом MnO₄⁻"
-  ]
+  "density_g_cm3": null
 }

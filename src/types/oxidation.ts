@@ -1,15 +1,15 @@
 export interface OxidationRule {
   id: string;
   order: number;
-  name_ru: string;
-  rule_ru: string;
+  name: string;
+  rule: string;
   examples: string[];
 }
 
 export interface RedoxConcepts {
-  oxidizer_ru: string;
-  reducer_ru: string;
-  mnemonic_ru: string;
+  oxidizer: string;
+  reducer: string;
+  mnemonic: string;
 }
 
 export interface OxidationTheory {

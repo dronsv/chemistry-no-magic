@@ -1,7 +1,6 @@
 {
   "id": "pb_oh_2",
   "formula": "Pb(OH)₂",
-  "name_ru": "Гидроксид свинца(II)",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
@@ -14,16 +13,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 7.59,
-  "appearance_ru": "Белый аморфный осадок",
-  "hazards_ru": [
-    "Токсичное",
-    "Вредно для окружающей среды"
-  ],
-  "industrial_ru": "Промежуточный продукт для получения солей свинца",
-  "production_ru": "Реакция соли свинца(II) со щёлочью: Pb(NO₃)₂ + 2NaOH → Pb(OH)₂↓ + 2NaNO₃",
-  "fun_facts_ru": [
-    "Амфотерный гидроксид — в щёлочи образует плюмбит: Pb(OH)₂ + 2NaOH → Na₂[Pb(OH)₄]",
-    "Свинцовые белила (основной карбонат свинца) исторически были главным белым пигментом"
-  ]
+  "density_g_cm3": 7.59
 }

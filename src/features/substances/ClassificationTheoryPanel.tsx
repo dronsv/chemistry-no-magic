@@ -47,7 +47,7 @@ function ClassificationRuleCard({ rule, substanceMap, locale }: {
       <div className="subst-theory__rule-header">
         {SUBCLASS_LABELS[rule.subclass]?.() ?? rule.subclass}
       </div>
-      <p className="subst-theory__rule-desc">{rule.description_ru}</p>
+      <p className="subst-theory__rule-desc">{rule.description}</p>
       <div className="subst-theory__rule-examples subst-theory__formula-chips">
         {rule.examples.map((formula, i) => {
           const sub = substanceMap.get(formula);
@@ -55,7 +55,7 @@ function ClassificationRuleCard({ rule, substanceMap, locale }: {
             <FormulaChip
               key={i}
               formula={formula}
-              name={sub?.name_ru}
+              name={sub?.name}
               substanceClass={rule.class}
               subclass={rule.subclass}
               substanceId={sub?.id}
@@ -76,7 +76,7 @@ function NamingRuleCard({ rule, substanceMap, locale }: {
   return (
     <div className="subst-theory__rule">
       <div className="subst-theory__rule-header">
-        {rule.template_ru}
+        {rule.template}
       </div>
       <div className="subst-theory__naming-examples">
         {rule.examples.map((ex, i) => {
@@ -85,7 +85,7 @@ function NamingRuleCard({ rule, substanceMap, locale }: {
             <span key={i} className="subst-theory__naming-pair">
               <FormulaChip
                 formula={ex.formula}
-                name={ex.name_ru}
+                name={ex.name}
                 substanceClass={rule.class}
                 subclass={sub?.subclass}
                 substanceId={sub?.id}

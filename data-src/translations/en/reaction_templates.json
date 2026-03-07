@@ -1,38 +1,38 @@
 {
   "neutralization": {
-    "description_ru": "Neutralization: acid + base = salt + water"
+    "description": "Neutralization: acid + base = salt + water"
   },
   "metal_acid": {
-    "description_ru": "Active metal + dilute acid: metal + acid = salt + hydrogen",
+    "description": "Active metal + dilute acid: metal + acid = salt + hydrogen",
     "conditions": "Metal must be above hydrogen in the activity series; acid must be dilute (not HNO₃)"
   },
   "carbonate_acid": {
-    "description_ru": "Carbonate + acid = salt + water + carbon dioxide"
+    "description": "Carbonate + acid = salt + water + carbon dioxide"
   },
   "metal_displacement": {
-    "description_ru": "Displacement of a less active metal from a salt solution by a more active metal",
+    "description": "Displacement of a less active metal from a salt solution by a more active metal",
     "conditions": "More active metal (not alkali/alkaline earth) + solution of a less active metal salt"
   },
   "basic_oxide_water": {
-    "description_ru": "Basic oxide of alkali or alkaline-earth metal + water = alkali",
+    "description": "Basic oxide of alkali or alkaline-earth metal + water = alkali",
     "conditions": "Oxide must be soluble (Na₂O, K₂O, CaO, BaO)"
   },
   "acidic_oxide_water": {
-    "description_ru": "Acidic oxide + water = acid (except SiO₂)",
+    "description": "Acidic oxide + water = acid (except SiO₂)",
     "conditions": "Oxide must not be SiO₂ (does not react with water)"
   },
   "base_acidic_oxide": {
-    "description_ru": "Alkali + acidic oxide = salt + water"
+    "description": "Alkali + acidic oxide = salt + water"
   },
   "basic_oxide_acidic_oxide": {
-    "description_ru": "Basic oxide + acidic oxide = salt"
+    "description": "Basic oxide + acidic oxide = salt"
   },
   "salt_precipitate_exchange": {
-    "description_ru": "Exchange between two soluble salts to form an insoluble salt (precipitate)",
+    "description": "Exchange between two soluble salts to form an insoluble salt (precipitate)",
     "conditions": "Both starting substances must be soluble; one product must be an insoluble precipitate"
   },
   "insoluble_base_decomposition": {
-    "description_ru": "Decomposition of an insoluble base on heating: insoluble base = metal oxide + water",
+    "description": "Decomposition of an insoluble base on heating: insoluble base = metal oxide + water",
     "conditions": "Heating"
   }
 }

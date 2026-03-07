@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "What is the naming condition for the suffix \"{suffix_ru}\"?",
+    "question": "What is the naming condition for the suffix \"{suffix}\"?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {

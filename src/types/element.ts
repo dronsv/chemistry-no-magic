@@ -14,8 +14,8 @@ export type ElementGroup =
 
 export interface ElementDiscovery {
   year?: number;
-  scientist_ru?: string;
-  country_ru?: string;
+  scientist?: string;
+  country?: string;
 }
 
 export interface ElectronException {
@@ -23,14 +23,13 @@ export interface ElectronException {
   expected_formula: string;
   actual_formula: string;
   rule: string;
-  reason_ru: string;
+  reason: string;
 }
 
 export interface Element {
   Z: number;
   symbol: string;
-  name_ru: string;
-  name_en: string;
+  name?: string;
   name_latin: string;
   group: number;
   period: number;
@@ -44,11 +43,11 @@ export interface Element {
   boiling_point_C?: number | null;
   density_g_cm3?: number | null;
   discovery?: ElementDiscovery;
-  hazards_ru?: string[];
+  hazards?: string[];
   storage_profiles?: string[];
-  industrial_ru?: string;
-  production_ru?: string;
-  abundance_ru?: string;
-  fun_facts_ru?: string[];
+  industrial?: string;
+  production?: string;
+  abundance?: string;
+  fun_facts?: string[];
   electron_exception?: ElectronException;
 }

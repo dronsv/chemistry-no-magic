@@ -26,7 +26,7 @@ const TEST_ELEMENTS = [
       expected_formula: '',
       actual_formula: '',
       rule: 'half-filled d',
-      reason_ru: '',
+      reason: '',
     },
   },
   { Z: 26, symbol: 'Fe' },
@@ -38,7 +38,7 @@ const TEST_ELEMENTS = [
       expected_formula: '',
       actual_formula: '',
       rule: 'filled d',
-      reason_ru: '',
+      reason: '',
     },
   },
 ];

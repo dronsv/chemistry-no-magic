@@ -171,7 +171,7 @@ export default function ExamPage({ locale = 'ru' }: ExamPageProps) {
         setBktParamsMap(pm);
 
         const nm = new Map<string, string>();
-        for (const c of comps) nm.set(c.id, c.name_ru);
+        for (const c of comps) nm.set(c.id, c.name);
         setCompNames(nm);
       }
 

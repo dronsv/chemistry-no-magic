@@ -1,7 +1,6 @@
 {
   "id": "sno",
   "formula": "SnO",
-  "name_ru": "Оксид олова(II)",
   "class": "oxide",
   "subclass": "amphoteric",
   "ions": [],
@@ -10,12 +9,5 @@
   ],
   "melting_point_C": 1080,
   "boiling_point_C": 1425,
-  "density_g_cm3": 6.45,
-  "appearance_ru": "Чёрный или тёмно-коричневый порошок",
-  "industrial_ru": "Производство покрытий для стекла, катализатор",
-  "production_ru": "Нагревание гидроксида олова(II): Sn(OH)₂ → SnO + H₂O",
-  "fun_facts_ru": [
-    "Является полупроводником и используется в газовых сенсорах",
-    "При нагревании на воздухе окисляется до SnO₂ — оловянного камня"
-  ]
+  "density_g_cm3": 6.45
 }

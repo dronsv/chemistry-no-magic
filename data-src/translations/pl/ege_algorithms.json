@@ -1,165 +1,165 @@
 {
   "1": {
-    "title_ru": "Konfiguracja elektronowa atomu",
-    "topic_ru": "Budowa atomu. Konfiguracje elektronowe pierwiastków",
-    "algorithm_ru": [
+    "title": "Konfiguracja elektronowa atomu",
+    "topic": "Budowa atomu. Konfiguracje elektronowe pierwiastków",
+    "algorithm": [
       "Zapisz konfigurację elektronową każdego pierwiastka z wykazu.",
       "Określ liczbę elektronów na zewnętrznej powłoce, liczbę niesparowanych elektronów lub inny wymagany parametr.",
       "Porównaj z warunkiem zadania i wybierz dwa pasujące pierwiastki.",
       "Zapisz odpowiedź jako dwie cyfry w kolejności rosnącej."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Kolejność zapełniania orbitali: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → ...",
       "Maksymalna liczba elektronów na podpowłoce: s — 2, p — 6, d — 10, f — 14.",
       "Wyjątki: Cr [Ar]3d⁵4s¹, Cu [Ar]3d¹⁰4s¹ (prowokan elektronu).",
       "Niesparowane elektrony określa się zgodnie z regułą Hunda: najpierw po jednym na każdy orbital."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Nie myl numeru grupy z liczbą elektronów walencyjnych dla pierwiastków bloku d.",
-      "Pamiętaj o „prowokanie" elektronu u Cr, Cu, Mo, Ag.",
+      "Pamiętaj o „prowokanie” elektronu u Cr, Cu, Mo, Ag.",
       "Konfiguracja jonu różni się od atomu: najpierw usuwane są elektrony z zewnętrznej podpowłoki s."
     ],
-    "variability_ru": "Zmieniają się pierwiastki i wymagana właściwość (liczba niesparowanych e⁻, konfiguracja zewnętrzna, liczba elektronów s/p/d)."
+    "variability": "Zmieniają się pierwiastki i wymagana właściwość (liczba niesparowanych e⁻, konfiguracja zewnętrzna, liczba elektronów s/p/d)."
   },
   "2": {
-    "title_ru": "Prawidłowości układu okresowego",
-    "topic_ru": "Prawo okresowości. Trendy zmian właściwości pierwiastków",
-    "algorithm_ru": [
+    "title": "Prawidłowości układu okresowego",
+    "topic": "Prawo okresowości. Trendy zmian właściwości pierwiastków",
+    "algorithm": [
       "Określ położenie każdego pierwiastka w tablicy (okres, grupa).",
       "Znajdź trzy pierwiastki z tego samego okresu lub tej samej grupy (zgodnie z warunkiem).",
       "Ułóż je w kolejności rosnącej żądanej właściwości.",
       "Zapisz numery w uzyskanej kolejności."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "W okresie od lewej do prawej: ↑ elektroujemność, ↑ energia jonizacji, ↓ promień atomowy, ↑ właściwości niemetaliczne.",
       "W grupie od góry do dołu: ↑ promień atomowy, ↓ elektroujemność, ↑ właściwości metaliczne.",
       "Elektroujemność: F > O > N > Cl > Br > S > C > H.",
       "Promień atomowy rośnie w dół grupy i w lewo w okresie."
     ],
-    "common_traps_ru": [
-      "Nie myl „rosnąco" i „malejąco" w treści zadania.",
+    "common_traps": [
+      "Nie myl „rosnąco” i „malejąco” w treści zadania.",
       "Właściwości metaliczne i niemetaliczne zmieniają się odwrotnie.",
       "Pierwiastki bloku d mogą zaburzać proste prawidłowości."
     ],
-    "variability_ru": "Zmieniają się pierwiastki i wymagana właściwość (elektroujemność, promień, metaliczność, kwasowość tlenków)."
+    "variability": "Zmieniają się pierwiastki i wymagana właściwość (elektroujemność, promień, metaliczność, kwasowość tlenków)."
   },
   "5": {
-    "title_ru": "Klasyfikacja związków nieorganicznych",
-    "topic_ru": "Klasy związków nieorganicznych: tlenki, kwasy, zasady, sole",
-    "algorithm_ru": [
+    "title": "Klasyfikacja związków nieorganicznych",
+    "topic": "Klasy związków nieorganicznych: tlenki, kwasy, zasady, sole",
+    "algorithm": [
       "Przeczytaj, które klasy substancji należy znaleźć (kwas, tlenek, zasada, sól itp.).",
       "Określ klasę każdej substancji w tabeli 3×3.",
       "Dla każdej pozycji A, B, C wybierz jedną substancję odpowiedniej klasy.",
       "Zapisz numery komórek."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Tlenki: zasadowe (Me₂O₃ dla grup I–III), kwasowe (niemetali lub Me⁶⁺,⁷⁺), amfoteryczne (Al₂O₃, ZnO, Cr₂O₃).",
       "Kwasy: HₓKwas (H₂SO₄, HNO₃, H₃PO₄...). Sole: metal + reszta kwasowa.",
       "Zasady: Me(OH)ₙ. Wodorotlenki rozpuszczalne (NaOH, KOH, Ca(OH)₂) i nierozpuszczalne (Cu(OH)₂, Fe(OH)₃).",
       "Wodorotlenki amfoteryczne: Al(OH)₃, Zn(OH)₂, Cr(OH)₃, Be(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "H₂O — to ani kwas, ani zasada (jest tlenkiem).",
       "NH₃ — to nie zasada (zasadą jest NH₃·H₂O lub NH₄OH).",
       "CaO — tlenek zasadowy, ale CO₂ — tlenek kwasowy."
     ],
-    "variability_ru": "Zmienia się zestaw substancji w tabeli i wymagane klasy."
+    "variability": "Zmienia się zestaw substancji w tabeli i wymagane klasy."
   },
   "7": {
-    "title_ru": "Właściwości związków nieorganicznych (dopasowanie)",
-    "topic_ru": "Właściwości chemiczne tlenków, kwasów, zasad, soli",
-    "algorithm_ru": [
+    "title": "Właściwości związków nieorganicznych (dopasowanie)",
+    "topic": "Właściwości chemiczne tlenków, kwasów, zasad, soli",
+    "algorithm": [
       "Dla każdej substancji w lewej kolumnie określ jej klasę i właściwości.",
       "Sprawdź, z którymi odczynnikami z prawej kolumny może reagować.",
       "Uwzględnij: tlenki zasadowe + kwasy, tlenki kwasowe + zasady, amfoteryczne + jedno i drugie.",
       "Zapisz odpowiedniość A-B-C-D → cyfry."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Metale stojące przed H w szeregu aktywności wypierają H₂ z kwasów rozcieńczonych.",
       "Zasady reagują z tlenkami kwasowymi i amfoterycznymi oraz wodorotlenkami amfoterycznymi.",
       "Sole słabych kwasów + mocny kwas → reakcja zachodzi.",
       "Stężone H₂SO₄ i HNO₃ — szczególne utleniacze, reagują nawet z Cu i Ag."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Cu nie reaguje z rozcieńczonym HCl ani H₂SO₄.",
       "SiO₂ nie reaguje z wodą (w odróżnieniu od większości tlenków kwasowych).",
       "Al₂O₃ i Al(OH)₃ — amfoteryczne, reagują zarówno z kwasami, jak i z zasadami."
     ],
-    "variability_ru": "Zmieniają się substancje i zestawy odczynników. Zasada ta sama: określ klasę → przypomnij właściwości."
+    "variability": "Zmieniają się substancje i zestawy odczynników. Zasada ta sama: określ klasę → przypomnij właściwości."
   },
   "11": {
-    "title_ru": "Klasyfikacja związków organicznych",
-    "topic_ru": "Klasy związków organicznych według grupy funkcyjnej",
-    "algorithm_ru": [
+    "title": "Klasyfikacja związków organicznych",
+    "topic": "Klasy związków organicznych według grupy funkcyjnej",
+    "algorithm": [
       "Określ grupę funkcyjną każdej substancji.",
       "Dopasuj do klasy: –OH (alkohol), –CHO (aldehyd), –COOH (kwas karboksylowy), –NH₂ (amina), –COO– (ester).",
       "Dla każdej substancji po lewej wybierz właściwą klasę po prawej.",
       "Zapisz odpowiedniość."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Alkohole: R–OH (metanol, etanol, glicerol).",
       "Aldehydy: R–CHO (formaldehyd, acetaldehyd).",
       "Kwasy karboksylowe: R–COOH (mrówkowy, octowy, stearynowy).",
       "Aminy: R–NH₂ (metyloamina, anilina).",
       "Estry: R–COO–R' (octan etylu, tłuszcze)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Glicerol — alkohol wielohydroksylowy (trzy grupy –OH).",
       "Anilina — amina aromatyczna (C₆H₅NH₂).",
       "Nie myl aldehydów (–CHO) z ketonami (–CO–)."
     ],
-    "variability_ru": "Zmieniają się substancje. Czasem podawane są wzory, czasem nazwy."
+    "variability": "Zmieniają się substancje. Czasem podawane są wzory, czasem nazwy."
   },
   "18": {
-    "title_ru": "Szybkość reakcji chemicznej",
-    "topic_ru": "Czynniki wpływające na szybkość reakcji",
-    "algorithm_ru": [
+    "title": "Szybkość reakcji chemicznej",
+    "topic": "Czynniki wpływające na szybkość reakcji",
+    "algorithm": [
       "Określ typ reakcji (homogeniczna/heterogeniczna) i stany skupienia substancji.",
       "Dla każdego zaproponowanego czynnika określ, czy zwiększa on szybkość.",
       "Czynniki zwiększające szybkość: ↑T, ↑C substratów, ↑S kontaktu, ↑P (dla gazów), katalizator.",
       "Wybierz dwa czynniki, które zwiększają szybkość."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Reguła van't Hoffa: wzrost T o 10 °C zwiększa szybkość 2–4-krotnie.",
       "Rozdrobnienie stałego substratu zwiększa powierzchnię kontaktu → szybkość rośnie.",
       "Stężenie produktów NIE wpływa na szybkość reakcji prostej.",
       "Ciśnienie wpływa tylko na reakcje z udziałem gazów."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Zwiększenie stężenia PRODUKTU nie przyspiesza reakcji prostej.",
       "Obniżenie temperatury SPOWALNIA reakcję.",
       "Katalizator nie przesuwa równowagi, ale przyspiesza jej osiągnięcie."
     ],
-    "variability_ru": "Zmienia się reakcja i zestaw czynników. Często pojawiają się pułapki ze stężeniem produktu."
+    "variability": "Zmienia się reakcja i zestaw czynników. Często pojawiają się pułapki ze stężeniem produktu."
   },
   "21": {
-    "title_ru": "Hydroliza soli",
-    "topic_ru": "Hydroliza: określanie odczynu roztworu soli",
-    "algorithm_ru": [
+    "title": "Hydroliza soli",
+    "topic": "Hydroliza: określanie odczynu roztworu soli",
+    "algorithm": [
       "Dla każdej soli określ, czy zasada i kwas, z których powstała, są mocne czy słabe.",
       "Sól mocnej zasady + słabego kwasu → odczyn zasadowy (pH > 7).",
       "Sól słabej zasady + mocnego kwasu → odczyn kwasowy (pH < 7).",
       "Sól mocnej zasady + mocnego kwasu → odczyn obojętny (pH = 7).",
       "Zapisz odpowiedniość."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Mocne kwasy: HCl, HBr, HI, H₂SO₄, HNO₃, HClO₄.",
       "Mocne zasady (wodorotlenki rozpuszczalne): NaOH, KOH, Ba(OH)₂, Ca(OH)₂.",
       "Słabe kwasy: H₂CO₃, H₂S, H₂SiO₃, CH₃COOH, HF, H₃PO₄, HNO₂, H₂SO₃.",
       "Słabe zasady: NH₃·H₂O, Cu(OH)₂, Fe(OH)₂, Fe(OH)₃, Al(OH)₃, Zn(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Na₂SO₄ — obojętny (NaOH + H₂SO₄, oba mocne).",
       "Na₂CO₃ — zasadowy (NaOH — mocna, H₂CO₃ — słaby).",
       "FeCl₃ — kwasowy (Fe(OH)₃ — słaba, HCl — mocny).",
       "CH₃COONa — zasadowy."
     ],
-    "variability_ru": "Zmieniają się sole. Może być też pytanie o kolor wskaźnika (lakmus, fenoloftaleina, oranż metylowy)."
+    "variability": "Zmieniają się sole. Może być też pytanie o kolor wskaźnika (lakmus, fenoloftaleina, oranż metylowy)."
   },
   "27": {
-    "title_ru": "Zadanie obliczeniowe (podstawowe)",
-    "topic_ru": "Obliczenia ułamka masowego, masy molowej, objętości gazu",
-    "algorithm_ru": [
+    "title": "Zadanie obliczeniowe (podstawowe)",
+    "topic": "Obliczenia ułamka masowego, masy molowej, objętości gazu",
+    "algorithm": [
       "Zapisz dane zadania: masy, objętości, stężenia.",
       "Zapisz równanie reakcji i dobierz współczynniki.",
       "Oblicz liczbę moli (n = m/M lub n = V/22,4 lub n = C × V).",
@@ -167,23 +167,23 @@
       "Oblicz odpowiedź (masa, objętość, ułamek masowy).",
       "Zaokrąglij do wymaganej dokładności."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "M(NaCl) = 58,5 g/mol, M(Na₂CO₃) = 106 g/mol, M(BaSO₄) = 233 g/mol.",
       "V (w warunkach normalnych) = n × 22,4 l/mol.",
       "ω = m(substancji rozpuszczonej) / m(roztworu) × 100%.",
       "Przy mieszaniu roztworów: m(łączna) = m₁ + m₂, m(substancji, łączna) = m(substancji)₁ + m(substancji)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Nie zapomnij przeliczyć ml na l przy stosowaniu stężenia molowego.",
       "Sprawdź jednostki w odpowiedzi.",
       "Przy mieszaniu roztworów masa roztworu to suma mas obu roztworów."
     ],
-    "variability_ru": "Zadania na ułamek masowy, stężenie molowe, objętość gazu w warunkach normalnych, wydajność reakcji."
+    "variability": "Zadania na ułamek masowy, stężenie molowe, objętość gazu w warunkach normalnych, wydajność reakcji."
   },
   "29": {
-    "title_ru": "Bilans elektronowy (reakcje redoks)",
-    "topic_ru": "Metoda bilansu elektronowego do bilansowania równań redoks",
-    "algorithm_ru": [
+    "title": "Bilans elektronowy (reakcje redoks)",
+    "topic": "Metoda bilansu elektronowego do bilansowania równań redoks",
+    "algorithm": [
       "Wyznacz stopnie utlenienia wszystkich pierwiastków po obu stronach równania.",
       "Określ, które pierwiastki zmieniły stopień utlenienia.",
       "Zapisz półreakcje: utlenianie (oddawanie e⁻) i redukcja (przyjmowanie e⁻).",
@@ -191,23 +191,23 @@
       "Wstaw współczynniki do równania, sprawdź bilans atomów i ładunków.",
       "Wskaż utleniacz i reduktor."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Utleniacz — przyjmuje elektrony (obniża swój stopień utlenienia).",
       "Reduktor — oddaje elektrony (podwyższa swój stopień utlenienia).",
       "Typowe utleniacze: KMnO₄, K₂Cr₂O₇, stęż. HNO₃, stęż. H₂SO₄.",
       "Typowe reduktory: metale, HCl, H₂S, węgiel, CO."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "W HCl część Cl tworzy sól, a część utlenia się do Cl₂.",
       "Nie zapomnij sprawdzić bilansu wodoru i tlenu po wstawieniu współczynników.",
       "Środowisko ma znaczenie: KMnO₄ w kwasowym → Mn²⁺, w obojętnym → MnO₂, w zasadowym → MnO₄²⁻."
     ],
-    "variability_ru": "Zmieniają się substraty i produkty, ale zasada bilansu elektronowego jest ta sama."
+    "variability": "Zmieniają się substraty i produkty, ale zasada bilansu elektronowego jest ta sama."
   },
   "34": {
-    "title_ru": "Zadanie na wyznaczenie wzoru związku organicznego",
-    "topic_ru": "Wyznaczanie wzoru cząsteczkowego na podstawie mas produktów spalania",
-    "algorithm_ru": [
+    "title": "Zadanie na wyznaczenie wzoru związku organicznego",
+    "topic": "Wyznaczanie wzoru cząsteczkowego na podstawie mas produktów spalania",
+    "algorithm": [
       "Na podstawie mas CO₂ i H₂O oblicz liczbę moli C i H: n(C) = m(CO₂)/44, n(H) = 2 × m(H₂O)/18.",
       "Oblicz masy C i H: m(C) = 12 × n(C), m(H) = n(H).",
       "Wyznacz masę O (jeśli występuje): m(O) = m(substancji) − m(C) − m(H) − m(N).",
@@ -215,17 +215,17 @@
       "Na podstawie gęstości par lub masy molowej określ wzór rzeczywisty.",
       "M = D(H₂) × 2 lub M = D(powietrza) × 29."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Przy spalaniu CₓHᵧOᵤ: CₓHᵧOᵤ + O₂ → x CO₂ + (y/2) H₂O.",
       "Jeśli m(substancji) = m(C) + m(H), to w składzie nie ma tlenu.",
       "D(H₂) = M/2, D(powietrza) = M/29, D(N₂) = M/28.",
       "Wzór najprostszy × k = wzór rzeczywisty (k = M / M_najprostszego)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Nie zapomnij sprawdzić obecności tlenu (lub azotu) — oblicz z różnicy.",
       "Jeśli w zadaniu podano azot (N₂), uwzględnij go: m(N) = m(substancji) − m(C) − m(H) − m(O).",
       "k musi być liczbą całkowitą. Jeśli nie jest — błąd w obliczeniach."
     ],
-    "variability_ru": "Zmieniają się substancje i warunki (masa, gęstość, dodatkowe dane). Zawsze: znajdź C, H → O z różnicy → wzór najprostszy → wzór rzeczywisty."
+    "variability": "Zmieniają się substancje i warunki (masa, gęstość, dodatkowe dane). Zawsze: znajdź C, H → O z różnicy → wzór najprostszy → wzór rzeczywisty."
   }
 }

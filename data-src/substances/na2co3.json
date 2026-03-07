@@ -1,16 +1,16 @@
 {
   "id": "na2co3",
-  "formula": "Na\u2082CO\u2083",
-  "name_ru": "Карбонат натрия",
+  "formula": "Na₂CO₃",
   "class": "salt",
   "subclass": "normal",
-  "ions": ["Na_plus", "CO3_2minus"],
-  "tags": ["soluble"],
+  "ions": [
+    "Na_plus",
+    "CO3_2minus"
+  ],
+  "tags": [
+    "soluble"
+  ],
   "melting_point_C": 851,
   "boiling_point_C": null,
-  "density_g_cm3": 2.54,
-  "appearance_ru": "Белый порошок",
-  "industrial_ru": "Производство стекла, мыла, моющих средств, целлюлозы",
-  "production_ru": "Метод Сольве (аммиачный способ) из NaCl и CaCO₃",
-  "fun_facts_ru": ["Кальцинированная сода (Na₂CO₃) — один из важнейших продуктов химической промышленности", "Декагидрат Na₂CO₃·10H₂O известен как «стиральная сода»"]
+  "density_g_cm3": 2.54
 }

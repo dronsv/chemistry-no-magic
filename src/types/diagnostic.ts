@@ -9,8 +9,8 @@ export interface DiagnosticQuestion {
   id: string;
   competency_id: CompetencyId;
   task_type: number;
-  question_ru: string;
+  question: string;
   options: DiagnosticOption[];
   correct_option: string;
-  explanation_ru: string;
+  explanation: string;
 }

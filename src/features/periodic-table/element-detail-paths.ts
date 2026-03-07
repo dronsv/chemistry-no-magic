@@ -4,15 +4,14 @@ import { cachedReadJson, cachedReadDataSrc } from '../../lib/build-data-cache';
 
 export interface ElementDiscovery {
   year?: number;
-  scientist_ru?: string;
-  country_ru?: string;
+  scientist?: string;
+  country?: string;
 }
 
 export interface ElementData {
   Z: number;
   symbol: string;
-  name_ru: string;
-  name_en: string;
+  name?: string;
   name_latin: string;
   group: number;
   period: number;
@@ -25,18 +24,18 @@ export interface ElementData {
   boiling_point_C?: number | null;
   density_g_cm3?: number | null;
   discovery?: ElementDiscovery;
-  hazards_ru?: string[];
-  storage_ru?: string;
-  industrial_ru?: string;
-  production_ru?: string;
-  abundance_ru?: string;
-  fun_facts_ru?: string[];
+  hazards?: string[];
+  storage?: string;
+  industrial?: string;
+  production?: string;
+  abundance?: string;
+  fun_facts?: string[];
   electron_exception?: {
     config_override: [number, string, number][];
     expected_formula: string;
     actual_formula: string;
     rule: string;
-    reason_ru: string;
+    reason: string;
   };
 }
 
@@ -59,29 +58,29 @@ export interface ReactionData {
 export interface SubstanceEntry {
   id: string;
   formula: string;
-  name_ru?: string;
+  name?: string;
   class: string;
 }
 
 export interface ElementGroupInfo {
-  name_ru: string;
-  name_singular_ru: string;
+  name: string;
+  name_singular: string;
 }
 
 export interface IonData {
   id: string;
   formula: string;
-  name_ru: string;
+  name: string;
   charge: number;
   type: 'cation' | 'anion';
 }
 
 export interface QualitativeTestData {
   target_id: string;
-  target_name_ru: string;
+  target_name: string;
   reagent_formula: string;
-  reagent_name_ru: string;
-  observation_ru: string;
+  reagent_name: string;
+  observation: string;
   reaction_id?: string;
 }
 
@@ -125,8 +124,8 @@ export async function getStaticPaths() {
     const files = await readdir(substancesDir);
     for (const f of files) {
       if (!f.endsWith('.json')) continue;
-      const data = await cachedReadJson<{ id: string; formula: string; name_ru?: string; class: string }>(join(substancesDir, f));
-      substances.push({ id: data.id, formula: data.formula, name_ru: data.name_ru, class: data.class });
+      const data = await cachedReadJson<{ id: string; formula: string; name?: string; class: string }>(join(substancesDir, f));
+      substances.push({ id: data.id, formula: data.formula, name: data.name, class: data.class });
     }
   } catch { /* optional */ }
 
@@ -149,7 +148,7 @@ export async function getStaticPaths() {
       return reStart.test(s.formula) || re.test(s.formula);
     });
 
-    const groupLabel = groupsDict[el.element_group]?.name_singular_ru ?? el.element_group;
+    const groupLabel = groupsDict[el.element_group]?.name_singular ?? el.element_group;
 
     // Find ions that contain this element's symbol
     const elementIons = allIons.filter(ion => {
@@ -159,7 +158,7 @@ export async function getStaticPaths() {
 
     // Find qualitative tests whose target ion formula contains this element's symbol
     const elQualTests = qualitativeTests.filter(qt => {
-      // Extract formula from target_name_ru (last word) or target_id
+      // Extract formula from target_name (last word) or target_id
       const targetFormula = qt.target_id;
       const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
       return re.test(targetFormula);

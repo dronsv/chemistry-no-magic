@@ -1,57 +1,35 @@
 [
   {
-    "id": "reactant",
-    "name_ru": "Реагент",
-    "description_ru": "Вещество, расходуемое в реакции"
+    "id": "reactant"
   },
   {
-    "id": "product",
-    "name_ru": "Продукт",
-    "description_ru": "Вещество, образующееся в реакции"
+    "id": "product"
   },
   {
-    "id": "catalyst",
-    "name_ru": "Катализатор",
-    "description_ru": "Вещество, ускоряющее реакцию, но не расходуемое"
+    "id": "catalyst"
   },
   {
-    "id": "inhibitor",
-    "name_ru": "Ингибитор",
-    "description_ru": "Вещество, замедляющее реакцию"
+    "id": "inhibitor"
   },
   {
-    "id": "solvent",
-    "name_ru": "Растворитель",
-    "description_ru": "Среда, в которой протекает реакция"
+    "id": "solvent"
   },
   {
-    "id": "medium",
-    "name_ru": "Среда",
-    "description_ru": "Реакционная среда / окружение"
+    "id": "medium"
   },
   {
-    "id": "oxidizing_agent",
-    "name_ru": "Окислитель",
-    "description_ru": "Вещество, которое восстанавливается (принимает электроны)"
+    "id": "oxidizing_agent"
   },
   {
-    "id": "reducing_agent",
-    "name_ru": "Восстановитель",
-    "description_ru": "Вещество, которое окисляется (отдаёт электроны)"
+    "id": "reducing_agent"
   },
   {
-    "id": "precipitate",
-    "name_ru": "Осадок",
-    "description_ru": "Твёрдое вещество, выпадающее в ходе реакции"
+    "id": "precipitate"
   },
   {
-    "id": "gas_evolved",
-    "name_ru": "Выделяющийся газ",
-    "description_ru": "Газ, выделяющийся в ходе реакции"
+    "id": "gas_evolved"
   },
   {
-    "id": "electrolyte",
-    "name_ru": "Электролит",
-    "description_ru": "Электролит в электрохимическом процессе"
+    "id": "electrolyte"
   }
 ]

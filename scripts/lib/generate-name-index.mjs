@@ -3,16 +3,16 @@
  * mapping localized common names to chemistry entities.
  *
  * Name sources:
- * 1. Elements: name_ru → { kind: 'element', id: symbol }
- * 2. Ions: name_ru → { kind: 'ion', id: ion.id }
- * 3. Substances: name_ru → { kind: 'substance', id: 'sub:' + substanceId }
- * 4. Terms + bindings: name_ru + synonyms_ru → binding.ref
+ * 1. Elements: name → { kind: 'element', id: symbol }
+ * 2. Ions: name → { kind: 'ion', id: ion.id }
+ * 3. Substances: name → { kind: 'substance', id: 'sub:' + substanceId }
+ * 4. Terms + bindings: name + synonyms → binding.ref
  */
 
 /**
  * @param {object} params
- * @param {any[]} params.elements - Element data (with name_ru)
- * @param {any[]} params.ions - Ion data (with name_ru)
+ * @param {any[]} params.elements - Element data (with name from locale overlay)
+ * @param {any[]} params.ions - Ion data (with name from locale overlay)
  * @param {Array<{filename: string, data: any}>} params.substances - Substance file entries
  * @param {any[]} params.terms - ChemTerm entries
  * @param {any[]} params.bindings - TermBinding entries
@@ -31,22 +31,22 @@ export function generateNameIndex({ elements, ions, substances, terms, bindings 
 
   // 1. Elements
   for (const el of elements) {
-    if (el.name_ru) {
-      addEntry(el.name_ru, { kind: 'element', id: el.symbol }, 'element');
+    if (el.name) {
+      addEntry(el.name, { kind: 'element', id: el.symbol }, 'element');
     }
   }
 
   // 2. Ions
   for (const ion of ions) {
-    if (ion.name_ru) {
-      addEntry(ion.name_ru, { kind: 'ion', id: ion.id }, 'ion');
+    if (ion.name) {
+      addEntry(ion.name, { kind: 'ion', id: ion.id }, 'ion');
     }
   }
 
   // 3. Substances
   for (const { data: sub } of substances) {
-    if (sub.name_ru) {
-      addEntry(sub.name_ru, { kind: 'substance', id: 'sub:' + sub.id }, 'substance');
+    if (sub.name) {
+      addEntry(sub.name, { kind: 'substance', id: 'sub:' + sub.id }, 'substance');
     }
   }
 
@@ -59,9 +59,9 @@ export function generateNameIndex({ elements, ions, substances, terms, bindings 
   for (const term of terms) {
     const ref = bindingMap.get(term.id);
     if (!ref) continue;
-    addEntry(term.name_ru, ref, 'term');
-    if (term.synonyms_ru) {
-      for (const syn of term.synonyms_ru) {
+    if (term.name) addEntry(term.name, ref, 'term');
+    if (term.synonyms) {
+      for (const syn of term.synonyms) {
         addEntry(syn, ref, 'term');
       }
     }

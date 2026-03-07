@@ -1,33 +1,33 @@
 export interface RateFactor {
   factor_id: string;
-  name_ru: string;
-  effect_ru: string;
-  detail_ru: string;
+  name: string;
+  effect: string;
+  detail: string;
   applies_to: 'all' | 'homogeneous' | 'heterogeneous';
 }
 
 export interface CatalystProperties {
-  changes_ru: string[];
-  does_not_change_ru: string[];
+  changes: string[];
+  does_not_change: string[];
 }
 
 export interface CommonCatalyst {
   catalyst: string;
-  name_ru: string;
-  reaction_ru: string;
+  name: string;
+  reaction: string;
 }
 
 export interface EquilibriumShift {
   factor: string;
-  shift_ru: string;
-  explanation_ru: string;
+  shift: string;
+  explanation: string;
 }
 
 export interface HeatClassification {
-  exothermic_ru: string;
-  endothermic_ru: string;
-  examples_exo_ru: string[];
-  examples_endo_ru: string[];
+  exothermic: string;
+  endothermic: string;
+  examples_exo: string[];
+  examples_endo: string[];
 }
 
 export interface EnergyCatalystTheory {

@@ -1,9 +1,5 @@
 {
   "id": "oge",
-  "full_name_ru": "Основной государственный экзамен по химии",
-  "full_name_en": "Basic State Examination in Chemistry",
-  "description_ru": "Обязательный экзамен для выпускников 9 класса. Проверяет знания по неорганической химии: строение атома, классы веществ, реакции, расчёты.",
-  "description_en": "Mandatory exam for 9th-grade graduates. Tests knowledge of inorganic chemistry: atomic structure, substance classes, reactions, calculations.",
   "country": "RU",
   "grade": "9",
   "duration_min": 180,

@@ -52,7 +52,7 @@ export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale, fil
       list = list.filter(
         s =>
           (hasUpper ? s.formula.includes(raw) : s.formula.toLowerCase().includes(q)) ||
-          (s.name_ru && s.name_ru.toLowerCase().includes(q)),
+          (s.name && s.name.toLowerCase().includes(q)),
       );
     }
     return list;
@@ -94,7 +94,7 @@ export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale, fil
         {filtered.map(s => (
           <a key={s.id} href={localizeUrl(`/substances/${s.id}/`, locale)} className="subst-card">
             <span className="subst-card__formula">{s.formula}</span>
-            {s.name_ru && <span className="subst-card__name">{s.name_ru}</span>}
+            {s.name && <span className="subst-card__name">{s.name}</span>}
             <span className={`subst-card__badge subst-card__badge--${s.class}`}>
               {CLASS_LABELS[s.class]?.() ?? s.class}
             </span>

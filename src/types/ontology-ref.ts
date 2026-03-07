@@ -42,7 +42,7 @@ export interface ConceptEntry {
 /** Concept registry: conceptId -> ConceptEntry */
 export type ConceptRegistry = Record<string, ConceptEntry>;
 
-/** Grammatical forms map (e.g. gen_pl -> "щелочных металлов") */
+/** Grammatical forms map (e.g. gen -> "щелочных металлов") */
 export type GramForms = Record<string, string>;
 
 /** Per-concept locale overlay entry */

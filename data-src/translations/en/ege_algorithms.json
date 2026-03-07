@@ -1,165 +1,165 @@
 {
   "1": {
-    "title_ru": "Electron configuration of an atom",
-    "topic_ru": "Atomic structure. Electron configurations of elements",
-    "algorithm_ru": [
+    "title": "Electron configuration of an atom",
+    "topic": "Atomic structure. Electron configurations of elements",
+    "algorithm": [
       "Write out the electron configuration of each element from the list.",
       "Determine the number of electrons in the outer level, the number of unpaired electrons, or another requested parameter.",
       "Compare with the problem condition and select two matching elements.",
       "Write the answer as two digits in ascending order."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Orbital filling order: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → ...",
       "Maximum number of electrons per sublevel: s — 2, p — 6, d — 10, f — 14.",
       "Exceptions: Cr [Ar]3d⁵4s¹, Cu [Ar]3d¹⁰4s¹ (electron promotion).",
       "Unpaired electrons are determined by Hund's rule: first one electron per orbital."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse the group number and the number of valence electrons for d-block elements.",
       "Remember the electron 'promotion' in Cr, Cu, Mo, Ag.",
       "The configuration of an ion differs from that of the atom: electrons are removed first from the outer s-sublevel."
     ],
-    "variability_ru": "The elements and the requested property change (number of unpaired e⁻, outer level configuration, number of s/p/d electrons)."
+    "variability": "The elements and the requested property change (number of unpaired e⁻, outer level configuration, number of s/p/d electrons)."
   },
   "2": {
-    "title_ru": "Periodic Table trends",
-    "topic_ru": "The Periodic Law. Trends in element properties",
-    "algorithm_ru": [
+    "title": "Periodic Table trends",
+    "topic": "The Periodic Law. Trends in element properties",
+    "algorithm": [
       "Determine the position of each element in the table (period, group).",
       "Find three elements from the same period or the same group (as stated in the problem).",
       "Arrange them in order of increasing requested property.",
       "Write the numbers in the resulting order."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Across a period (left to right): ↑ electronegativity, ↑ ionization energy, ↓ atomic radius, ↑ nonmetallic character.",
       "Down a group (top to bottom): ↑ atomic radius, ↓ electronegativity, ↑ metallic character.",
       "Electronegativity: F > O > N > Cl > Br > S > C > H.",
       "Atomic radius increases moving down a group and to the left across a period."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse 'increasing' and 'decreasing' in the problem statement.",
       "Metallic and nonmetallic properties change in opposite directions.",
       "d-block elements may deviate from simple trends."
     ],
-    "variability_ru": "The elements and the requested property change (electronegativity, radius, metallic character, acidity of oxides)."
+    "variability": "The elements and the requested property change (electronegativity, radius, metallic character, acidity of oxides)."
   },
   "5": {
-    "title_ru": "Classification of inorganic substances",
-    "topic_ru": "Classes of inorganic compounds: oxides, acids, bases, salts",
-    "algorithm_ru": [
+    "title": "Classification of inorganic substances",
+    "topic": "Classes of inorganic compounds: oxides, acids, bases, salts",
+    "algorithm": [
       "Read which classes of substances need to be identified (acid, oxide, base, salt, etc.).",
       "Determine the class of each substance in the 3×3 table.",
       "For each position A, B, C select one substance of the corresponding class.",
       "Write the cell numbers."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Oxides: basic (Me₂O₃ for groups I–III), acidic (nonmetal or Me⁶⁺,⁷⁺), amphoteric (Al₂O₃, ZnO, Cr₂O₃).",
       "Acids: HₓAcid (H₂SO₄, HNO₃, H₃PO₄...). Salts: metal + acid residue.",
       "Bases: Me(OH)ₙ. Alkalis (NaOH, KOH, Ca(OH)₂) vs insoluble (Cu(OH)₂, Fe(OH)₃).",
       "Amphoteric hydroxides: Al(OH)₃, Zn(OH)₂, Cr(OH)₃, Be(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "H₂O is neither an acid nor a base (it is an oxide).",
       "NH₃ is not a base (the base is NH₃·H₂O or NH₄OH).",
       "CaO is a basic oxide, but CO₂ is an acidic oxide."
     ],
-    "variability_ru": "The set of substances in the table and the requested classes change."
+    "variability": "The set of substances in the table and the requested classes change."
   },
   "7": {
-    "title_ru": "Properties of inorganic substances (matching)",
-    "topic_ru": "Chemical properties of oxides, acids, bases, salts",
-    "algorithm_ru": [
+    "title": "Properties of inorganic substances (matching)",
+    "topic": "Chemical properties of oxides, acids, bases, salts",
+    "algorithm": [
       "For each substance in the left column, determine its class and properties.",
       "Check which reagents from the right column it can react with.",
       "Consider: basic oxides + acids, acidic oxides + bases, amphoteric + both.",
       "Write the correspondence A-B-C-D → numbers."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Metals above H in the activity series displace H₂ from dilute acids.",
       "Alkalis react with acidic and amphoteric oxides/hydroxides.",
       "Salts of weak acids + strong acid → reaction proceeds.",
       "Concentrated H₂SO₄ and HNO₃ are special oxidizers, react even with Cu and Ag."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Cu does not react with dilute HCl or H₂SO₄.",
       "SiO₂ does not react with water (unlike most acidic oxides).",
       "Al₂O₃ and Al(OH)₃ are amphoteric: they react with both acids and bases."
     ],
-    "variability_ru": "The substances and reagent sets change. The principle is the same: determine the class → recall properties."
+    "variability": "The substances and reagent sets change. The principle is the same: determine the class → recall properties."
   },
   "11": {
-    "title_ru": "Classification of organic substances",
-    "topic_ru": "Classes of organic compounds by functional group",
-    "algorithm_ru": [
+    "title": "Classification of organic substances",
+    "topic": "Classes of organic compounds by functional group",
+    "algorithm": [
       "Identify the functional group of each substance.",
       "Match it with the class: –OH (alcohol), –CHO (aldehyde), –COOH (carboxylic acid), –NH₂ (amine), –COO– (ester).",
       "For each substance on the left, select the correct class on the right.",
       "Write the correspondence."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Alcohols: R–OH (methanol, ethanol, glycerol).",
       "Aldehydes: R–CHO (formaldehyde, acetaldehyde).",
       "Carboxylic acids: R–COOH (formic, acetic, stearic).",
       "Amines: R–NH₂ (methylamine, aniline).",
       "Esters: R–COO–R' (ethyl acetate, fats)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Glycerol is a polyhydric alcohol (three –OH groups).",
       "Aniline is an aromatic amine (C₆H₅NH₂).",
       "Do not confuse aldehydes (–CHO) with ketones (–CO–)."
     ],
-    "variability_ru": "The substances change. Sometimes formulas are given, sometimes names."
+    "variability": "The substances change. Sometimes formulas are given, sometimes names."
   },
   "18": {
-    "title_ru": "Rate of a chemical reaction",
-    "topic_ru": "Factors affecting reaction rate",
-    "algorithm_ru": [
+    "title": "Rate of a chemical reaction",
+    "topic": "Factors affecting reaction rate",
+    "algorithm": [
       "Determine the type of reaction (homogeneous/heterogeneous) and the states of matter of the substances.",
       "For each proposed factor, determine whether it increases the rate.",
       "Rate-increasing factors: ↑T, ↑C of reactants, ↑ contact area, ↑P (for gases), catalyst.",
       "Select the two factors that increase the rate."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Van 't Hoff's rule: increasing T by 10 °C increases the rate by a factor of 2–4.",
       "Grinding a solid reactant increases the contact area → rate increases.",
       "Product concentration does NOT affect the rate of the forward reaction.",
       "Pressure affects only reactions involving gases."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Increasing the concentration of the PRODUCT does not speed up the forward reaction.",
       "Lowering the temperature SLOWS DOWN the reaction.",
       "A catalyst does not shift the equilibrium, but it accelerates reaching equilibrium."
     ],
-    "variability_ru": "The reaction and the set of factors change. Product concentration traps are common."
+    "variability": "The reaction and the set of factors change. Product concentration traps are common."
   },
   "21": {
-    "title_ru": "Salt hydrolysis",
-    "topic_ru": "Hydrolysis: determining the environment of a salt solution",
-    "algorithm_ru": [
+    "title": "Salt hydrolysis",
+    "topic": "Hydrolysis: determining the environment of a salt solution",
+    "algorithm": [
       "For each salt, determine whether the base and acid from which it is formed are strong or weak.",
       "Salt of a strong base + weak acid → alkaline environment (pH > 7).",
       "Salt of a weak base + strong acid → acidic environment (pH < 7).",
       "Salt of a strong base + strong acid → neutral environment (pH = 7).",
       "Write the correspondence."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Strong acids: HCl, HBr, HI, H₂SO₄, HNO₃, HClO₄.",
       "Strong bases (alkalis): NaOH, KOH, Ba(OH)₂, Ca(OH)₂.",
       "Weak acids: H₂CO₃, H₂S, H₂SiO₃, CH₃COOH, HF, H₃PO₄, HNO₂, H₂SO₃.",
       "Weak bases: NH₃·H₂O, Cu(OH)₂, Fe(OH)₂, Fe(OH)₃, Al(OH)₃, Zn(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Na₂SO₄ — neutral (NaOH + H₂SO₄, both strong).",
       "Na₂CO₃ — alkaline (NaOH is strong, H₂CO₃ is weak).",
       "FeCl₃ — acidic (Fe(OH)₃ is weak, HCl is strong).",
       "CH₃COONa — alkaline."
     ],
-    "variability_ru": "The salts change. May also ask about indicator color (litmus, phenolphthalein, methyl orange)."
+    "variability": "The salts change. May also ask about indicator color (litmus, phenolphthalein, methyl orange)."
   },
   "27": {
-    "title_ru": "Calculation problem (basic)",
-    "topic_ru": "Calculations of mass fraction, molar mass, gas volume",
-    "algorithm_ru": [
+    "title": "Calculation problem (basic)",
+    "topic": "Calculations of mass fraction, molar mass, gas volume",
+    "algorithm": [
       "Write down the given data: masses, volumes, concentrations.",
       "Write and balance the chemical equation.",
       "Find the amount of substance (n = m/M or n = V/22.4 or n = C × V).",
@@ -167,23 +167,23 @@
       "Calculate the answer (mass, volume, mass fraction).",
       "Round to the required precision."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "M(NaCl) = 58.5 g/mol, M(Na₂CO₃) = 106 g/mol, M(BaSO₄) = 233 g/mol.",
       "V (at STP) = n × 22.4 L/mol.",
       "ω = m(solute) / m(solution) × 100%.",
       "When mixing solutions: m(total) = m₁ + m₂, m(solute, total) = m(solute)₁ + m(solute)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Don't forget to convert mL to L when using molar concentration.",
       "Check the units of the answer.",
       "When mixing solutions, the solution mass is the sum of both solution masses."
     ],
-    "variability_ru": "Problems on mass fraction, molar concentration, gas volume at STP, product yield."
+    "variability": "Problems on mass fraction, molar concentration, gas volume at STP, product yield."
   },
   "29": {
-    "title_ru": "Electron balance (redox reactions)",
-    "topic_ru": "Electron balance method for balancing redox equations",
-    "algorithm_ru": [
+    "title": "Electron balance (redox reactions)",
+    "topic": "Electron balance method for balancing redox equations",
+    "algorithm": [
       "Assign oxidation states to all elements on both sides.",
       "Identify which elements changed their oxidation states.",
       "Write half-reactions: oxidation (loss of e⁻) and reduction (gain of e⁻).",
@@ -191,23 +191,23 @@
       "Place the coefficients in the equation, verify atom and charge balance.",
       "Identify the oxidizing agent and the reducing agent."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Oxidizing agent — accepts electrons (decreases its oxidation state).",
       "Reducing agent — donates electrons (increases its oxidation state).",
       "Typical oxidizing agents: KMnO₄, K₂Cr₂O₇, conc. HNO₃, conc. H₂SO₄.",
       "Typical reducing agents: metals, HCl, H₂S, carbon, CO."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "In HCl, some Cl goes to form the salt, and some is oxidized to Cl₂.",
       "Don't forget to check the hydrogen and oxygen balance after placing coefficients.",
       "The medium matters: KMnO₄ in acidic → Mn²⁺, in neutral → MnO₂, in alkaline → MnO₄²⁻."
     ],
-    "variability_ru": "The reactants and products change, but the electron balance principle remains the same."
+    "variability": "The reactants and products change, but the electron balance principle remains the same."
   },
   "34": {
-    "title_ru": "Determining the formula of an organic substance",
-    "topic_ru": "Determining molecular formula from combustion product masses",
-    "algorithm_ru": [
+    "title": "Determining the formula of an organic substance",
+    "topic": "Determining molecular formula from combustion product masses",
+    "algorithm": [
       "From the masses of CO₂ and H₂O, find the amounts of C and H: n(C) = m(CO₂)/44, n(H) = 2 × m(H₂O)/18.",
       "Find the masses of C and H: m(C) = 12 × n(C), m(H) = n(H).",
       "Determine the mass of O (if present): m(O) = m(substance) − m(C) − m(H) − m(N).",
@@ -215,17 +215,17 @@
       "Using vapor density or molar mass, determine the true formula.",
       "M = D(H₂) × 2 or M = D(air) × 29."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "When burning CₓHᵧOᵤ: CₓHᵧOᵤ + O₂ → x CO₂ + (y/2) H₂O.",
       "If m(substance) = m(C) + m(H), then there is no oxygen in the composition.",
       "D(H₂) = M/2, D(air) = M/29, D(N₂) = M/28.",
       "Simplest formula × k = true formula (k = M / M_simplest)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Don't forget to check for oxygen (or nitrogen) — calculate by difference.",
       "If nitrogen (N₂) is given in the problem, account for it: m(N) = m(substance) − m(C) − m(H) − m(O).",
       "k must be a whole number. If it isn't — there is a calculation error."
     ],
-    "variability_ru": "The substance and conditions change (mass, density, additional data). Always: find C, H → O by difference → simplest → true formula."
+    "variability": "The substance and conditions change (mass, density, additional data). Always: find C, H → O by difference → simplest → true formula."
   }
 }

@@ -25,9 +25,9 @@ const topic: Topic = (topicOverlay?.[topicId])
   : baseTopic;
 
 const localeTopicPage = topicPagesOverlay?.[topicId];
-const seoTitle = localeTopicPage?.seo_title ?? baseTopicPage?.seo_title_ru ?? topic.title_ru;
-const description = topic.summary_ru;
-const faq: FAQItem[] = localeTopicPage?.faq ?? baseTopicPage?.faq_ru ?? [];
+const seoTitle = localeTopicPage?.seo_title ?? baseTopicPage?.seo_title ?? topic.title;
+const description = topic.summary;
+const faq: FAQItem[] = localeTopicPage?.faq ?? baseTopicPage?.faq ?? [];
 
 // Section nav
 const sectionPath = `/${baseTopic.section}/`;
@@ -89,7 +89,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: Astro.url.origin + '/' },
     { '@type': 'ListItem', position: 2, name: sectionLabel, item: Astro.url.origin + sectionUrl },
-    { '@type': 'ListItem', position: 3, name: topic.title_ru },
+    { '@type': 'ListItem', position: 3, name: topic.title },
   ],
 };
 ---
@@ -106,11 +106,11 @@ const breadcrumbSchema = {
       <ol>
         <li><a href="/">{homeLabel[locale]}</a></li>
         <li><a href={sectionUrl}>{sectionLabel}</a></li>
-        <li aria-current="page">{topic.title_ru}</li>
+        <li aria-current="page">{topic.title}</li>
       </ol>
     </nav>
 
-    <h1 class="topic-title">{topic.title_ru}</h1>
+    <h1 class="topic-title">{topic.title}</h1>
     <p class="topic-summary">{description}</p>
 
     {moduleKey && (

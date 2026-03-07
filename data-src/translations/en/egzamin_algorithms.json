@@ -1,194 +1,194 @@
 {
   "1": {
-    "title_ru": "Atomic Structure and the Periodic Table",
-    "topic_ru": "Electron configuration, isotopes, ionization energies, periodic trends",
-    "algorithm_ru": [
+    "title": "Atomic Structure and the Periodic Table",
+    "topic": "Electron configuration, isotopes, ionization energies, periodic trends",
+    "algorithm": [
       "Read the problem carefully — determine what it asks about: electron configuration, isotopes, or periodic trends.",
       "For electron configuration: write subshells in order following the aufbau principle (1s → 2s → 2p → 3s → ...). Number of shells = period number. Sum of valence electrons (s + p in the outermost shell) = group number (s and p blocks).",
       "For isotopes: remember that Z = number of protons = number of electrons (neutral atom), A = Z + N (neutrons).",
       "For trends: across a period (→) ionization energy and electronegativity increase, atomic radius decreases. Down a group (↓) the opposite.",
       "Watch for anomalies: e.g. IE(Al) < IE(Mg) due to the full 3s² subshell of magnesium."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Electron configuration is built following the aufbau principle: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p...",
       "Hund's rule: electrons occupy separate orbitals of the same subshell before pairing up.",
       "Pauli exclusion principle: two electrons in the same orbital must have opposite spins.",
       "Isotopes are atoms of the same element that differ in the number of neutrons.",
       "Ionization energy generally increases across a period and decreases down a group, but there are exceptions (full and half-full subshells are more stable)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse mass number (A = p + n) with atomic number (Z = p).",
       "Remember the ionization energy anomalies (e.g. B < Be, O < N).",
       "For d-block elements, ion configuration differs from the atom — s electrons are removed first (e.g. Fe²⁺: [Ar]3d⁶, not [Ar]3d⁴4s²)."
     ],
-    "variability_ru": "The element, question type (configuration, isotopes, trend comparison) varies. The principles are universal."
+    "variability": "The element, question type (configuration, isotopes, trend comparison) varies. The principles are universal."
   },
   "2": {
-    "title_ru": "Chemical Bonds and Intermolecular Interactions",
-    "topic_ru": "Bond types (ionic, covalent, metallic, coordinate), hybridization, hydrogen bonding, van der Waals forces",
-    "algorithm_ru": [
+    "title": "Chemical Bonds and Intermolecular Interactions",
+    "topic": "Bond types (ionic, covalent, metallic, coordinate), hybridization, hydrogen bonding, van der Waals forces",
+    "algorithm": [
       "Determine the bond type from the electronegativity difference: ΔEN > 1.7 → ionic; 0.4 < ΔEN < 1.7 → polar covalent; ΔEN < 0.4 → nonpolar covalent; metal–metal → metallic.",
       "Coordinate (dative) bond: one atom supplies both electrons of the bonding pair (e.g. NH₄⁺, H₃O⁺, transition metal complexes).",
       "Intermolecular interactions: hydrogen bonds (N–H···X, O–H···X, F–H···X) > dipole–dipole > dispersion (London) forces.",
       "When comparing boiling points: stronger interactions → higher T_b. Hydrogen bonds significantly raise the boiling point.",
       "In descriptive questions: always refer to specific interactions and provide justification (electronegativity, lone pairs, atomic size)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Ionic bond: between a metal and a nonmetal (large ΔEN), forms an ionic crystal.",
       "Covalent bond: sharing of electron pairs between nonmetals.",
       "Metallic bond: a 'sea' of delocalized valence electrons among metal cations.",
       "The O–H···O hydrogen bond is the strongest type of hydrogen bond in inorganic chemistry.",
       "A coordinate bond, once formed, is indistinguishable from a regular covalent bond."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse intermolecular interactions (weak) with chemical bonds (strong).",
       "HF has a higher T_b than HCl, but lower than H₂O — despite F being more electronegative, H₂O forms more hydrogen bonds (2 lone pairs, 2 H atoms).",
       "In questions about coordinate bonds, remember NH₄⁺ and H₃O⁺ — these are classic examples."
     ],
-    "variability_ru": "The set of substances and bond type to match varies. Questions about hybridization (sp, sp², sp³), molecular shape, and polarity may appear."
+    "variability": "The set of substances and bond type to match varies. Questions about hybridization (sp, sp², sp³), molecular shape, and polarity may appear."
   },
   "3": {
-    "title_ru": "Stoichiometric Calculations",
-    "topic_ru": "Molar mass, mole, molar volume, percent composition, calculations from chemical equations",
-    "algorithm_ru": [
+    "title": "Stoichiometric Calculations",
+    "topic": "Molar mass, mole, molar volume, percent composition, calculations from chemical equations",
+    "algorithm": [
       "Write down the given and required quantities. Determine which conversion is needed.",
       "Molar mass: sum the atomic masses of all atoms in the formula. Remember subscripts and parentheses.",
       "Calculations from equations: (1) write the balanced equation, (2) calculate n = m/M or n = V/V_m, (3) convert moles using stoichiometric coefficients, (4) calculate the required quantity.",
       "Molar volume of a gas at STP: V_m = 22.4 dm³/mol.",
       "Mass fraction of an element: ω = (n × M_element) / M_compound × 100%."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "1 mole = 6.022 × 10²³ particles (Avogadro's number).",
       "n = m/M (moles = mass/molar mass); n = V/V_m (for gases at STP).",
       "Law of conservation of mass: mass of reactants = mass of products.",
       "Avogadro's law: at the same T and p, equal volumes of gases contain the same number of molecules.",
       "Law of definite proportions (Proust): a chemical compound has a constant quantitative composition."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Don't forget parentheses in formulas — e.g. (NH₄)₂SO₄ has 2 N atoms and 8 H atoms.",
       "V_m = 22.4 dm³/mol applies only at STP (0 °C, 1013 hPa).",
       "Check that the equation is balanced before starting calculations."
     ],
-    "variability_ru": "The substance and calculation type (molar mass, gas volume, percent composition, equation-based calculation) varies. The conversion principles are the same."
+    "variability": "The substance and calculation type (molar mass, gas volume, percent composition, equation-based calculation) varies. The conversion principles are the same."
   },
   "4": {
-    "title_ru": "Acids, Bases, and pH",
-    "topic_ru": "Acid-base theories, pH, salt hydrolysis, buffer solutions",
-    "algorithm_ru": [
+    "title": "Acids, Bases, and pH",
+    "topic": "Acid-base theories, pH, salt hydrolysis, buffer solutions",
+    "algorithm": [
       "Determine acid/base strength: strong acids (HCl, H₂SO₄, HNO₃, HClO₄) dissociate completely; weak acids (CH₃COOH, H₂CO₃, HF) — partially.",
       "pH = −log[H⁺]. For strong acids: [H⁺] = acid concentration. For strong bases: [OH⁻] = base concentration, pOH = −log[OH⁻], pH = 14 − pOH.",
       "Strength of oxyacids: increases with the number of oxygen atoms not bonded to hydrogen (more O → stronger acid).",
       "Salt hydrolysis: salt of weak acid + strong base → pH > 7 (basic); salt of strong acid + weak base → pH < 7 (acidic); both strong → pH ≈ 7.",
       "When comparing acid strength, consider the oxidation state of the central atom and the stability of the anion."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "pH scale: 0–14; pH < 7 → acidic, pH = 7 → neutral, pH > 7 → basic.",
       "Binary acids (HF, HCl, HBr, HI): strength increases down the group (HF < HCl < HBr < HI).",
       "Oxyacids of the same element: strength increases with oxidation state (HClO < HClO₂ < HClO₃ < HClO₄).",
       "A buffer solution: maintains approximately constant pH upon addition of small amounts of acid or base.",
       "K_w = [H⁺][OH⁻] = 10⁻¹⁴ (at 25 °C)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "HF is a weak acid, despite fluorine being the strongest oxidizer — don't confuse electronegativity with acid strength.",
       "Don't confuse 'concentrated' acid with 'strong' — these are different concepts (concentration vs. degree of dissociation).",
       "When calculating the pH of a salt solution, you must account for hydrolysis — knowing the salt concentration alone is not enough."
     ],
-    "variability_ru": "The acid/base/salt and question type (strength comparison, pH calculation, predicting solution reaction) varies. The classification and calculation principles are universal."
+    "variability": "The acid/base/salt and question type (strength comparison, pH calculation, predicting solution reaction) varies. The classification and calculation principles are universal."
   },
   "5": {
-    "title_ru": "Oxidation-Reduction (Redox) Reactions",
-    "topic_ru": "Oxidation states, electron balance, oxidizing and reducing agents, balancing redox equations",
-    "algorithm_ru": [
+    "title": "Oxidation-Reduction (Redox) Reactions",
+    "topic": "Oxidation states, electron balance, oxidizing and reducing agents, balancing redox equations",
+    "algorithm": [
       "Determine the oxidation states of all atoms in reactants and products.",
       "Identify which atom changes its oxidation state — determine who is the oxidizing agent (decreases o.s., gains e⁻) and who is the reducing agent (increases o.s., loses e⁻).",
       "Write the half-reactions of oxidation and reduction with the number of electrons transferred.",
       "Balance the electrons: find the LCM of electrons lost and gained.",
       "Balance the equation: coefficients from the electron balance → fill in the remaining atoms (H, O) using H₂O and H⁺ (or OH⁻ in basic media)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Oxidation = loss of electrons = increase in oxidation state.",
       "Reduction = gain of electrons = decrease in oxidation state.",
       "Typical oxidizing agents: KMnO₄, K₂Cr₂O₇, HNO₃(conc.), H₂SO₄(conc.), Cl₂, O₂.",
       "Typical reducing agents: active metals (Zn, Fe, Al), H₂S, SO₂, C, CO.",
       "In disproportionation reactions, the same element is simultaneously oxidized and reduced."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Don't confuse the oxidizing agent (the substance that is reduced) with oxidation (the process of losing electrons).",
       "When balancing reactions with HNO₃: some nitrogen acts as the oxidizer (→ NO, NO₂) and some forms the salt — account for both roles.",
       "The oxidation state of H is almost always +1, O almost always −2 (exceptions: NaH → H⁻¹, H₂O₂ → O⁻¹, OF₂ → O⁺²)."
     ],
-    "variability_ru": "The redox reaction, the atom in question, and the format (oxidation states, balancing, identifying the oxidizer/reducer) varies. The electron balance method is universal."
+    "variability": "The redox reaction, the atom in question, and the format (oxidation states, balancing, identifying the oxidizer/reducer) varies. The electron balance method is universal."
   },
   "6": {
-    "title_ru": "Organic Chemistry",
-    "topic_ru": "Functional groups, nomenclature, organic reactions (substitution, addition, elimination, esterification), identification",
-    "algorithm_ru": [
+    "title": "Organic Chemistry",
+    "topic": "Functional groups, nomenclature, organic reactions (substitution, addition, elimination, esterification), identification",
+    "algorithm": [
       "Identify the functional group: −OH (alcohol/phenol), −CHO (aldehyde), −CO− (ketone), −COOH (carboxylic acid), −NH₂ (amine), −COO− (ester).",
       "Characteristic reactions: aldehydes → Tollens' test (silver mirror) and Fehling's test; alkenes → decolorization of bromine water; alcohols → test with Na (H₂ evolution).",
       "Esterification: acid + alcohol ⇌ ester + H₂O (catalyst: conc. H₂SO₄, reversible reaction).",
       "Polymers: addition (polyaddition) reaction — e.g. polyethylene from ethylene; condensation (polycondensation) reaction — e.g. PET, nylon.",
       "IUPAC nomenclature: find the longest chain, number from the end closest to the substituent, name substituents with prefixes (methyl-, ethyl-...)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Homologous series: alkanes (CₙH₂ₙ₊₂), alkenes (CₙH₂ₙ), alkynes (CₙH₂ₙ₋₂).",
       "Tollens' test detects aldehydes (and glucose — aldose sugars) — metallic silver is deposited.",
       "Lucas test: distinguishes primary, secondary, and tertiary alcohols by reaction rate with HCl/ZnCl₂.",
       "Primary alcohols → oxidation → aldehyde → further oxidation → carboxylic acid.",
       "Isomerism: structural (chain, positional, functional group) and geometric (cis/trans)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Acetone (propanone) is a ketone — it does NOT give a positive Tollens' test (unlike aldehydes).",
       "Phenol (C₆H₅OH) has acidic properties, even though it contains an −OH group like alcohols.",
       "Glucose has an open-chain form with a −CHO group, so it gives a positive Tollens' test, even though the cyclic form predominates in solution."
     ],
-    "variability_ru": "The type of organic compound, reaction, and identification method varies. The key is recognizing functional groups and knowing the characteristic reactions of each class."
+    "variability": "The type of organic compound, reaction, and identification method varies. The key is recognizing functional groups and knowing the characteristic reactions of each class."
   },
   "7": {
-    "title_ru": "Chemical Kinetics and Equilibrium",
-    "topic_ru": "Reaction rate, factors affecting rate, chemical equilibrium, Le Chatelier's principle, equilibrium constant",
-    "algorithm_ru": [
+    "title": "Chemical Kinetics and Equilibrium",
+    "topic": "Reaction rate, factors affecting rate, chemical equilibrium, Le Chatelier's principle, equilibrium constant",
+    "algorithm": [
       "Factors affecting reaction rate: temperature, concentration (pressure for gases), contact surface area, catalyst, nature of reactants.",
       "Van't Hoff's rule: a 10 °C temperature increase raises the rate 2–4 times.",
       "Le Chatelier's principle: a system at equilibrium responds to a change in conditions so as to partially counteract that change.",
       "Equilibrium shift: ↑pressure → toward fewer moles of gas; ↑temperature → toward the endothermic reaction; ↑reactant concentration → toward products.",
       "A catalyst does NOT shift the equilibrium — it accelerates both the forward and reverse reactions and shortens the time to reach equilibrium."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "K_c = [products]ⁿ / [reactants]ᵐ — the equilibrium constant (depends only on temperature).",
       "K_c > 1 → equilibrium favors products; K_c < 1 → equilibrium favors reactants.",
       "A catalyst lowers the activation energy but does not change ΔH or K_c.",
       "Exothermic reaction (ΔH < 0): raising temperature shifts the equilibrium to the left (toward reactants).",
       "Pressure change affects equilibrium only when the number of gaseous moles of reactants ≠ number of gaseous moles of products."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "A catalyst does NOT shift the equilibrium — this is the most common exam mistake.",
       "Adding a solid (e.g. carbon in C + CO₂ ⇌ 2CO) does not shift the equilibrium, because the concentration of a solid is constant.",
       "When analyzing the effect of pressure: count gaseous moles on both sides of the equation (ignore solids and liquids)."
     ],
-    "variability_ru": "The equilibrium reaction and factor type (T, p, concentration, catalyst) varies. Le Chatelier's principle is always the same."
+    "variability": "The equilibrium reaction and factor type (T, p, concentration, catalyst) varies. Le Chatelier's principle is always the same."
   },
   "8": {
-    "title_ru": "Electrochemistry",
-    "topic_ru": "Galvanic cells, electrolysis, standard electrode potentials, corrosion, metal protection",
-    "algorithm_ru": [
+    "title": "Electrochemistry",
+    "topic": "Galvanic cells, electrolysis, standard electrode potentials, corrosion, metal protection",
+    "algorithm": [
       "Galvanic cell: the metal with the lower E° is the anode (oxidation), the metal with the higher E° is the cathode (reduction). EMF = E°(cathode) − E°(anode).",
       "Electrolysis: the reverse of a galvanic cell — requires electrical energy input. At the cathode: reduction (metal deposition or H₂ evolution). At the anode: oxidation.",
       "Electrolysis of aqueous solutions: at the cathode, either the metal or H₂ may be produced (depends on the metal's E°); at the anode: O₂, Cl₂, or oxidation of the anode itself.",
       "Corrosion: a spontaneous electrochemical process. Protection: coatings, sacrificial anode (galvanizing), cathodic protection.",
       "Faraday's law: m = (M × I × t) / (n × F), where F = 96,500 C/mol."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Electrochemical series (selected): Li < K < Ca < Na < Mg < Al < Zn < Fe < Ni < Sn < Pb < H₂ < Cu < Ag < Au.",
       "EMF (electromotive force) = E°(cathode) − E°(anode); EMF > 0 → the cell operates spontaneously.",
       "Electrolysis of NaCl(aq): cathode → H₂, anode → Cl₂ (not O₂, due to anodic overpotential).",
       "Galvanizing = sacrificial protection: Zn (E° = −0.76 V) corrodes instead of Fe (E° = −0.44 V).",
       "1 Faraday (F) = 96,500 C/mol = the charge of 1 mole of electrons."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Don't confuse anode and cathode: in a galvanic cell the anode is negative (−), in an electrolytic cell it's positive (+), but always: oxidation occurs at the anode.",
       "In aqueous electrolysis: metals with E° > E°(H₂O/H₂) ≈ −0.83 V are deposited at the cathode; more active metals → H₂ is evolved instead.",
       "EMF must be positive for the cell to work spontaneously. If you calculate a negative EMF, you've swapped the anode and cathode."
     ],
-    "variability_ru": "The metal pair in the cell, electrolyte in electrolysis, and corrosion protection method varies. The principles of cell and electrolysis operation remain constant."
+    "variability": "The metal pair in the cell, electrolyte in electrolysis, and corrosion protection method varies. The principles of cell and electrolysis operation remain constant."
   }
 }

@@ -1,38 +1,38 @@
 {
   "oxide_basic": {
-    "description_ru": "Basic oxides: oxides of metals with oxidation state +1 or +2 (except amphoteric ones). React with acids and acidic oxides."
+    "description": "Basic oxides: oxides of metals with oxidation state +1 or +2 (except amphoteric ones). React with acids and acidic oxides."
   },
   "oxide_acidic": {
-    "description_ru": "Acidic oxides: oxides of nonmetals (except CO, NO, N\u2082O) and metal oxides with high oxidation state (+5, +6, +7). React with bases and basic oxides."
+    "description": "Acidic oxides: oxides of nonmetals (except CO, NO, N₂O) and metal oxides with high oxidation state (+5, +6, +7). React with bases and basic oxides."
   },
   "oxide_amphoteric": {
-    "description_ru": "Amphoteric oxides: oxides of amphoteric metals. React with both acids and alkalis."
+    "description": "Amphoteric oxides: oxides of amphoteric metals. React with both acids and alkalis."
   },
   "oxide_indifferent": {
-    "description_ru": "Non-salt-forming oxides: do not form salts when interacting with acids or bases."
+    "description": "Non-salt-forming oxides: do not form salts when interacting with acids or bases."
   },
   "acid_oxygen_containing": {
-    "description_ru": "Oxyacids: contain oxygen in the acid residue."
+    "description": "Oxyacids: contain oxygen in the acid residue."
   },
   "acid_oxygen_free": {
-    "description_ru": "Binary acids: do not contain oxygen. Formed by hydrogen and a nonmetal."
+    "description": "Binary acids: do not contain oxygen. Formed by hydrogen and a nonmetal."
   },
   "base_soluble": {
-    "description_ru": "Soluble bases (alkalis): hydroxides of alkali and alkaline earth metals. Soluble in water, dissociate producing OH\u207b ions."
+    "description": "Soluble bases (alkalis): hydroxides of alkali and alkaline earth metals. Soluble in water, dissociate producing OH⁻ ions."
   },
   "base_insoluble": {
-    "description_ru": "Insoluble bases: hydroxides of heavy metals. Do not dissolve in water, decompose upon heating."
+    "description": "Insoluble bases: hydroxides of heavy metals. Do not dissolve in water, decompose upon heating."
   },
   "base_amphoteric": {
-    "description_ru": "Amphoteric hydroxides: exhibit both acidic and basic properties. React with both acids and alkalis."
+    "description": "Amphoteric hydroxides: exhibit both acidic and basic properties. React with both acids and alkalis."
   },
   "salt_normal": {
-    "description_ru": "Normal (neutral) salts: product of complete replacement of hydrogen atoms in an acid by metal cations (or NH\u2084\u207a)."
+    "description": "Normal (neutral) salts: product of complete replacement of hydrogen atoms in an acid by metal cations (or NH₄⁺)."
   },
   "salt_acidic": {
-    "description_ru": "Acidic salts: product of incomplete replacement of hydrogen atoms in a polybasic acid. Contain hydrogen ion in the acid residue."
+    "description": "Acidic salts: product of incomplete replacement of hydrogen atoms in a polybasic acid. Contain hydrogen ion in the acid residue."
   },
   "salt_basic": {
-    "description_ru": "Basic salts: product of incomplete replacement of hydroxide ions in a polyacidic base. Contain a hydroxo group."
+    "description": "Basic salts: product of incomplete replacement of hydroxide ions in a polyacidic base. Contain a hydroxo group."
   }
 }

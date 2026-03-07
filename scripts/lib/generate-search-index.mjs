@@ -56,7 +56,7 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
   // Elements
   for (const el of elements) {
     const elOverlay = translations?.elements?.[el.symbol];
-    const name = elOverlay?.name_ru ?? el.name_ru;
+    const name = elOverlay?.name ?? el.name;
 
     entries.push({
       id: `element_${el.symbol}`,
@@ -66,7 +66,6 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
       search: buildSearch([
         el.symbol,
         name,
-        el.name_en,
         el.name_latin,
         String(el.Z),
         el.element_group,
@@ -82,7 +81,7 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
   // Substances
   for (const { data: sub } of substances) {
     const subOverlay = translations?.substances?.[sub.id];
-    const name = subOverlay?.name_ru ?? sub.name_ru;
+    const name = subOverlay?.name ?? sub.name;
     const normalized = normalizeFormula(sub.formula);
 
     entries.push({
@@ -139,9 +138,9 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
   // Competencies
   for (const comp of competencies) {
     const compOverlay = translations?.competencies?.[comp.id];
-    const name = compOverlay?.name_ru ?? comp.name_ru;
-    const description = compOverlay?.description_ru ?? comp.description_ru;
-    const blockName = compOverlay?.block_name_ru ?? comp.block_name_ru;
+    const name = compOverlay?.name ?? comp.name;
+    const description = compOverlay?.description ?? comp.description;
+    const blockName = compOverlay?.block_name ?? comp.block_name;
 
     entries.push({
       id: `competency_${comp.id}`,
@@ -159,7 +158,7 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
   // Ions
   for (const ion of ions) {
     const ionOverlay = translations?.ions?.[ion.id];
-    const name = ionOverlay?.name_ru ?? ion.name_ru;
+    const name = ionOverlay?.name ?? ion.name;
     const normalized = normalizeFormula(ion.formula);
 
     entries.push({

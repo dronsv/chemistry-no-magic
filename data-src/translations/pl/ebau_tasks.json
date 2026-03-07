@@ -1,139 +1,256 @@
 {
   "ebau_2024_01a": {
-    "question_ru": "Zapisz konfiguracje elektronowa atomu chromu (Z = 24) w stanie podstawowym. Podaj liczby kwantowe ostatniego elektronu dodanego zgodnie z zasada Aufbau.",
-    "explanation_ru": "Chrom jest wyjatkiem od reguly Aufbau. Oczekiwana konfiguracja to [Ar] 3d4 4s2, ale rzeczywista konfiguracja to [Ar] 3d5 4s1, poniewaz podpoziom d wypelniony w polowie (5 elektronow) jest bardziej stabilny. Ostatni elektron zajmuje orbital 3d: n=3, l=2, ml=+2, ms=+1/2."
+    "question": "Zapisz konfiguracje elektronowa atomu chromu (Z = 24) w stanie podstawowym. Podaj liczby kwantowe ostatniego elektronu dodanego zgodnie z zasada Aufbau.",
+    "explanation": "Chrom jest wyjatkiem od reguly Aufbau. Oczekiwana konfiguracja to [Ar] 3d4 4s2, ale rzeczywista konfiguracja to [Ar] 3d5 4s1, poniewaz podpoziom d wypelniony w polowie (5 elektronow) jest bardziej stabilny. Ostatni elektron zajmuje orbital 3d: n=3, l=2, ml=+2, ms=+1/2."
   },
   "ebau_2024_01b": {
-    "question_ru": "Wybierz dwa prawdziwe stwierdzenia dotyczace pierwiastka siarki (S, Z = 16) i jej polozenia w ukladzie okresowym.",
+    "question": "Wybierz dwa prawdziwe stwierdzenia dotyczace pierwiastka siarki (S, Z = 16) i jej polozenia w ukladzie okresowym.",
     "options": [
-      { "id": "1", "text": "Siarka nalezy do trzeciego okresu i grupy 16 (VIA)." },
-      { "id": "2", "text": "Pierwsza energia jonizacji siarki jest wieksza niz tlenu." },
-      { "id": "3", "text": "Promien atomowy siarki jest mniejszy niz chloru." },
-      { "id": "4", "text": "Siarka moze przyjmowac stopnie utlenienia -2, +2, +4 i +6." },
-      { "id": "5", "text": "Elektroujemnosc siarki jest wieksza niz selenu." }
+      {
+        "id": "1",
+        "text": "Siarka nalezy do trzeciego okresu i grupy 16 (VIA)."
+      },
+      {
+        "id": "2",
+        "text": "Pierwsza energia jonizacji siarki jest wieksza niz tlenu."
+      },
+      {
+        "id": "3",
+        "text": "Promien atomowy siarki jest mniejszy niz chloru."
+      },
+      {
+        "id": "4",
+        "text": "Siarka moze przyjmowac stopnie utlenienia -2, +2, +4 i +6."
+      },
+      {
+        "id": "5",
+        "text": "Elektroujemnosc siarki jest wieksza niz selenu."
+      }
     ],
-    "explanation_ru": "1) Prawda: S ma 3 powloki elektronowe (okres 3) i 6 elektronow walencyjnych (grupa 16). 2) Falsz: EJ1 tlenu (1314 kJ/mol) jest wieksza niz siarki (1000 kJ/mol). 3) Falsz: promien atomowy S jest wiekszy niz Cl (ten sam okres, promien maleje w prawo). 4) Prawda: S przyjmuje wszystkie te stopnie utlenienia dzieki promocji elektronow na wolne orbitale 3d. 5) Samo w sobie prawdziwe, ale wymagane sa tylko 2 odpowiedzi, a opcje 1 i 4 sa najwyrazniej poprawne."
+    "explanation": "1) Prawda: S ma 3 powloki elektronowe (okres 3) i 6 elektronow walencyjnych (grupa 16). 2) Falsz: EJ1 tlenu (1314 kJ/mol) jest wieksza niz siarki (1000 kJ/mol). 3) Falsz: promien atomowy S jest wiekszy niz Cl (ten sam okres, promien maleje w prawo). 4) Prawda: S przyjmuje wszystkie te stopnie utlenienia dzieki promocji elektronow na wolne orbitale 3d. 5) Samo w sobie prawdziwe, ale wymagane sa tylko 2 odpowiedzi, a opcje 1 i 4 sa najwyrazniej poprawne."
   },
   "ebau_2024_02a": {
-    "question_ru": "Dopasuj kazda substancje do dominujacego typu wiazania.",
+    "question": "Dopasuj kazda substancje do dominujacego typu wiazania.",
     "left_items": [
-      { "label": "A", "text": "NaCl" },
-      { "label": "B", "text": "CO₂" },
-      { "label": "C", "text": "Fe" }
+      {
+        "label": "A",
+        "text": "NaCl"
+      },
+      {
+        "label": "B",
+        "text": "CO₂"
+      },
+      {
+        "label": "C",
+        "text": "Fe"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Wiazanie jonowe" },
-      { "id": "2", "text": "Wiazanie kowalencyjne polarne" },
-      { "id": "3", "text": "Wiazanie kowalencyjne niepolarne" },
-      { "id": "4", "text": "Wiazanie metaliczne" }
+      {
+        "id": "1",
+        "text": "Wiazanie jonowe"
+      },
+      {
+        "id": "2",
+        "text": "Wiazanie kowalencyjne polarne"
+      },
+      {
+        "id": "3",
+        "text": "Wiazanie kowalencyjne niepolarne"
+      },
+      {
+        "id": "4",
+        "text": "Wiazanie metaliczne"
+      }
     ],
-    "explanation_ru": "A) NaCl: zwiazek metalu (Na) i niemetalu (Cl) z duza roznica elektroujemnosci — wiazanie jonowe (1). B) CO₂: zwiazek niemetali z roznica elektroujemnosci — wiazanie kowalencyjne polarne (2). C) Fe: czysty pierwiastek metaliczny — wiazanie metaliczne (4)."
+    "explanation": "A) NaCl: zwiazek metalu (Na) i niemetalu (Cl) z duza roznica elektroujemnosci — wiazanie jonowe (1). B) CO₂: zwiazek niemetali z roznica elektroujemnosci — wiazanie kowalencyjne polarne (2). C) Fe: czysty pierwiastek metaliczny — wiazanie metaliczne (4)."
   },
   "ebau_2024_02b": {
-    "question_ru": "Wyjasnij, korzystajac z teorii VSEPR, geometrie czasteczek amoniaku (NH₃) i wody (H₂O). Podaj przyblizne katy wiazania i uzasadnij, dlaczego roznia sie od idealnego kata tetraedrycznego 109,5°.",
-    "explanation_ru": "Zgodnie z teoria VSEPR atom centralny rozmieszcza pary elektronowe tak, aby zminimalizowac odpychanie. W NH₃ azot ma 4 pary (3 wiazace + 1 wolna); geometria elektronowa jest tetraedryczna, ale geometria czasteczkowa to piramida trygonalna. Wolna para elektronowa odpycha silniej niz para wiazaca, zmniejszajac kat ze 109,5° do ~107°. W H₂O tlen ma 4 pary (2 wiazace + 2 wolne); geometria czasteczkowa jest katowa. Z dwoma wolnymi parami scisniecie jest wieksze: kat ~104,5°."
+    "question": "Wyjasnij, korzystajac z teorii VSEPR, geometrie czasteczek amoniaku (NH₃) i wody (H₂O). Podaj przyblizne katy wiazania i uzasadnij, dlaczego roznia sie od idealnego kata tetraedrycznego 109,5°.",
+    "explanation": "Zgodnie z teoria VSEPR atom centralny rozmieszcza pary elektronowe tak, aby zminimalizowac odpychanie. W NH₃ azot ma 4 pary (3 wiazace + 1 wolna); geometria elektronowa jest tetraedryczna, ale geometria czasteczkowa to piramida trygonalna. Wolna para elektronowa odpycha silniej niz para wiazaca, zmniejszajac kat ze 109,5° do ~107°. W H₂O tlen ma 4 pary (2 wiazace + 2 wolne); geometria czasteczkowa jest katowa. Z dwoma wolnymi parami scisniecie jest wieksze: kat ~104,5°."
   },
   "ebau_2024_02c": {
-    "question_ru": "Uszereguj nastepujace substancje wedlug rosnacych temperatur wrzenia i uzasadnij swoja odpowiedz:\n  1) CH₄  2) NH₃  3) H₂O",
+    "question": "Uszereguj nastepujace substancje wedlug rosnacych temperatur wrzenia i uzasadnij swoja odpowiedz:\n  1) CH₄  2) NH₃  3) H₂O",
     "items": [
-      { "id": "1", "text": "CH₄" },
-      { "id": "2", "text": "NH₃" },
-      { "id": "3", "text": "H₂O" }
+      {
+        "id": "1",
+        "text": "CH₄"
+      },
+      {
+        "id": "2",
+        "text": "NH₃"
+      },
+      {
+        "id": "3",
+        "text": "H₂O"
+      }
     ],
-    "explanation_ru": "CH₄ (t.wrz. -161 °C) wykazuje jedynie sily dyspersyjne Londona (czasteczka niepolarna). NH₃ (t.wrz. -33 °C) tworzy wiazania wodorowe z udzialem N, slabsze niz w wodzie. H₂O (t.wrz. 100 °C) tworzy bardzo silne wiazania wodorowe (O jest silnie elektroujemny i ma 2 wolne pary, tworzac rozlegla siec). Kolejnosc: CH₄ < NH₃ < H₂O."
+    "explanation": "CH₄ (t.wrz. -161 °C) wykazuje jedynie sily dyspersyjne Londona (czasteczka niepolarna). NH₃ (t.wrz. -33 °C) tworzy wiazania wodorowe z udzialem N, slabsze niz w wodzie. H₂O (t.wrz. 100 °C) tworzy bardzo silne wiazania wodorowe (O jest silnie elektroujemny i ma 2 wolne pary, tworzac rozlegla siec). Kolejnosc: CH₄ < NH₃ < H₂O."
   },
   "ebau_2024_03a": {
-    "context_ru": "Reakcja spalania metanu: CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)\nDane: ΔH°f [CO₂(g)] = -393,5 kJ/mol; ΔH°f [H₂O(l)] = -285,8 kJ/mol; ΔH°f [CH₄(g)] = -74,8 kJ/mol.",
-    "question_ru": "Oblicz standardowa entalpie spalania metanu ΔH°s w kJ/mol.",
-    "explanation_ru": "Stosujac prawo Hessa: ΔH°s = ΣΔH°f(produkty) - ΣΔH°f(substraty) = [1×(-393,5) + 2×(-285,8)] - [1×(-74,8) + 2×0] = (-393,5 - 571,6) - (-74,8) = -965,1 + 74,8 = -890,3 kJ/mol. Reakcja jest egzotermiczna."
+    "context": "Reakcja spalania metanu: CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)\nDane: ΔH°f [CO₂(g)] = -393,5 kJ/mol; ΔH°f [H₂O(l)] = -285,8 kJ/mol; ΔH°f [CH₄(g)] = -74,8 kJ/mol.",
+    "question": "Oblicz standardowa entalpie spalania metanu ΔH°s w kJ/mol.",
+    "explanation": "Stosujac prawo Hessa: ΔH°s = ΣΔH°f(produkty) - ΣΔH°f(substraty) = [1×(-393,5) + 2×(-285,8)] - [1×(-74,8) + 2×0] = (-393,5 - 571,6) - (-74,8) = -965,1 + 74,8 = -890,3 kJ/mol. Reakcja jest egzotermiczna."
   },
   "ebau_2024_03c": {
-    "context_ru": "Dana jest reakcja: CaCO₃(s) → CaO(s) + CO₂(g)\nΔH° = +178,3 kJ; ΔS° = +160,5 J/(mol·K).",
-    "question_ru": "Wyznacz minimalna temperature (w °C), powyzej ktorej rozklad weglanu wapnia jest samorzutny. Zaokraglij do najblizszej liczby calkowitej.",
-    "explanation_ru": "Reakcja jest samorzutna, gdy ΔG° < 0, czyli gdy ΔH° - TΔS° < 0. Na granicy: T = ΔH°/ΔS° = 178300 J / 160,5 J/(mol·K) = 1110,9 K. Przeliczajac na °C: 1110,9 - 273,15 = 837,8 ≈ 838 °C. Powyzej tej temperatury reakcja jest samorzutna (ΔH° > 0, ΔS° > 0 — faworyzowana w wysokiej T)."
+    "context": "Dana jest reakcja: CaCO₃(s) → CaO(s) + CO₂(g)\nΔH° = +178,3 kJ; ΔS° = +160,5 J/(mol·K).",
+    "question": "Wyznacz minimalna temperature (w °C), powyzej ktorej rozklad weglanu wapnia jest samorzutny. Zaokraglij do najblizszej liczby calkowitej.",
+    "explanation": "Reakcja jest samorzutna, gdy ΔG° < 0, czyli gdy ΔH° - TΔS° < 0. Na granicy: T = ΔH°/ΔS° = 178300 J / 160,5 J/(mol·K) = 1110,9 K. Przeliczajac na °C: 1110,9 - 273,15 = 837,8 ≈ 838 °C. Powyzej tej temperatury reakcja jest samorzutna (ΔH° > 0, ΔS° > 0 — faworyzowana w wysokiej T)."
   },
   "ebau_2024_04a": {
-    "context_ru": "Dla reakcji w fazie gazowej: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g), w temperaturze 600 K stala rownowagi wynosi Kc = 4,32.",
-    "question_ru": "Wybierz dwa prawdziwe stwierdzenia dotyczace tego ukladu w stanie rownowagi.",
+    "context": "Dla reakcji w fazie gazowej: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g), w temperaturze 600 K stala rownowagi wynosi Kc = 4,32.",
+    "question": "Wybierz dwa prawdziwe stwierdzenia dotyczace tego ukladu w stanie rownowagi.",
     "options": [
-      { "id": "1", "text": "Wzrost cisnienia calkowitego przesuwa rownowage w kierunku tworzenia SO₃." },
-      { "id": "2", "text": "Dodanie katalizatora zmienia wartosc Kc." },
-      { "id": "3", "text": "Jezeli reakcja w kierunku prostym jest egzotermiczna, wzrost temperatury zmniejsza Kc." },
-      { "id": "4", "text": "Usuniecie SO₃ z ukladu przesuwa rownowage w kierunku substratow." },
-      { "id": "5", "text": "Wyrazenie na Kc to [SO₂]²[O₂] / [SO₃]²." }
+      {
+        "id": "1",
+        "text": "Wzrost cisnienia calkowitego przesuwa rownowage w kierunku tworzenia SO₃."
+      },
+      {
+        "id": "2",
+        "text": "Dodanie katalizatora zmienia wartosc Kc."
+      },
+      {
+        "id": "3",
+        "text": "Jezeli reakcja w kierunku prostym jest egzotermiczna, wzrost temperatury zmniejsza Kc."
+      },
+      {
+        "id": "4",
+        "text": "Usuniecie SO₃ z ukladu przesuwa rownowage w kierunku substratow."
+      },
+      {
+        "id": "5",
+        "text": "Wyrazenie na Kc to [SO₂]²[O₂] / [SO₃]²."
+      }
     ],
-    "explanation_ru": "1) Prawda: po lewej stronie sa 3 mole gazu, po prawej 2; wzrost cisnienia przesuwa rownowage w kierunku mniejszej liczby moli gazu (w prawo, produkty). 2) Falsz: katalizator przyspiesza obie reakcje jednakowo, nie zmienia Kc. 3) Prawda: zgodnie z zasada Le Chateliera, jezeli reakcja jest egzotermiczna, wzrost T przesuwa rownowage w kierunku substratow, zmniejszajac Kc. 4) Falsz: usuniecie produktu przesuwa rownowage w kierunku produktow (w prawo). 5) Falsz: poprawne wyrazenie to Kc = [SO₃]² / ([SO₂]²[O₂])."
+    "explanation": "1) Prawda: po lewej stronie sa 3 mole gazu, po prawej 2; wzrost cisnienia przesuwa rownowage w kierunku mniejszej liczby moli gazu (w prawo, produkty). 2) Falsz: katalizator przyspiesza obie reakcje jednakowo, nie zmienia Kc. 3) Prawda: zgodnie z zasada Le Chateliera, jezeli reakcja jest egzotermiczna, wzrost T przesuwa rownowage w kierunku substratow, zmniejszajac Kc. 4) Falsz: usuniecie produktu przesuwa rownowage w kierunku produktow (w prawo). 5) Falsz: poprawne wyrazenie to Kc = [SO₃]² / ([SO₂]²[O₂])."
   },
   "ebau_2024_04c": {
-    "question_ru": "Dopasuj kazdy czynnik do jego wplywu na szybkosc reakcji chemicznej.",
+    "question": "Dopasuj kazdy czynnik do jego wplywu na szybkosc reakcji chemicznej.",
     "left_items": [
-      { "label": "A", "text": "Zwiekszenie stezenia substratow" },
-      { "label": "B", "text": "Dodanie katalizatora dodatniego" },
-      { "label": "C", "text": "Obnizenie temperatury" }
+      {
+        "label": "A",
+        "text": "Zwiekszenie stezenia substratow"
+      },
+      {
+        "label": "B",
+        "text": "Dodanie katalizatora dodatniego"
+      },
+      {
+        "label": "C",
+        "text": "Obnizenie temperatury"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Zwieksza szybkosc dzieki wiekszej czestosci efektywnych zderzen" },
-      { "id": "2", "text": "Zwieksza szybkosc poprzez obnizenie energii aktywacji" },
-      { "id": "3", "text": "Zmniejsza szybkosc poprzez obnizenie energii kinetycznej czasteczek" },
-      { "id": "4", "text": "Nie wplywa na szybkosc reakcji" }
+      {
+        "id": "1",
+        "text": "Zwieksza szybkosc dzieki wiekszej czestosci efektywnych zderzen"
+      },
+      {
+        "id": "2",
+        "text": "Zwieksza szybkosc poprzez obnizenie energii aktywacji"
+      },
+      {
+        "id": "3",
+        "text": "Zmniejsza szybkosc poprzez obnizenie energii kinetycznej czasteczek"
+      },
+      {
+        "id": "4",
+        "text": "Nie wplywa na szybkosc reakcji"
+      }
     ],
-    "explanation_ru": "A) Zwiekszenie stezenia — wieksza czestosc zderzen — wieksza szybkosc (1). B) Katalizator dodatni zapewnia alternatywna droge reakcji o nizszej energii aktywacji (2). C) Obnizenie temperatury zmniejsza srednia energie kinetyczna czasteczek, mniej zderzen pokonuje Ea — mniejsza szybkosc (3)."
+    "explanation": "A) Zwiekszenie stezenia — wieksza czestosc zderzen — wieksza szybkosc (1). B) Katalizator dodatni zapewnia alternatywna droge reakcji o nizszej energii aktywacji (2). C) Obnizenie temperatury zmniejsza srednia energie kinetyczna czasteczek, mniej zderzen pokonuje Ea — mniejsza szybkosc (3)."
   },
   "ebau_2024_05a": {
-    "context_ru": "Przygotowano 0,10 M roztwor kwasu octowego (CH₃COOH). Stala kwasowosci Ka = 1,8 × 10⁻⁵.",
-    "question_ru": "Oblicz pH 0,10 M roztworu kwasu octowego. Wynik podaj z dokladnoscia do dwoch miejsc po przecinku.",
-    "explanation_ru": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. Przy c = 0,10 M i Ka = 1,8 × 10⁻⁵ (Ka << c, przyblizenie jest poprawne):\n[H⁺] = √(Ka × c) = √(1,8 × 10⁻⁵ × 0,10) = √(1,8 × 10⁻⁶) = 1,34 × 10⁻³ M.\npH = -log(1,34 × 10⁻³) = 2,87."
+    "context": "Przygotowano 0,10 M roztwor kwasu octowego (CH₃COOH). Stala kwasowosci Ka = 1,8 × 10⁻⁵.",
+    "question": "Oblicz pH 0,10 M roztworu kwasu octowego. Wynik podaj z dokladnoscia do dwoch miejsc po przecinku.",
+    "explanation": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. Przy c = 0,10 M i Ka = 1,8 × 10⁻⁵ (Ka << c, przyblizenie jest poprawne):\n[H⁺] = √(Ka × c) = √(1,8 × 10⁻⁵ × 0,10) = √(1,8 × 10⁻⁶) = 1,34 × 10⁻³ M.\npH = -log(1,34 × 10⁻³) = 2,87."
   },
   "ebau_2024_05b": {
-    "question_ru": "Zmieszano 25,0 ml 0,20 M NaOH z 25,0 ml 0,10 M HCl. Oblicz pH powstalego roztworu w temperaturze 25 °C.",
-    "explanation_ru": "Mole NaOH = 0,025 l × 0,20 mol/l = 5,0 × 10⁻³ mol.\nMole HCl = 0,025 l × 0,10 mol/l = 2,5 × 10⁻³ mol.\nPo neutralizacji: nadmiar NaOH = 5,0 × 10⁻³ - 2,5 × 10⁻³ = 2,5 × 10⁻³ mol.\nObjietosc calkowita = 50,0 ml = 0,050 l.\n[OH⁻] = 2,5 × 10⁻³ / 0,050 = 0,050 M.\npOH = -log(0,050) = 1,30.\npH = 14,00 - 1,30 = 12,70."
+    "question": "Zmieszano 25,0 ml 0,20 M NaOH z 25,0 ml 0,10 M HCl. Oblicz pH powstalego roztworu w temperaturze 25 °C.",
+    "explanation": "Mole NaOH = 0,025 l × 0,20 mol/l = 5,0 × 10⁻³ mol.\nMole HCl = 0,025 l × 0,10 mol/l = 2,5 × 10⁻³ mol.\nPo neutralizacji: nadmiar NaOH = 5,0 × 10⁻³ - 2,5 × 10⁻³ = 2,5 × 10⁻³ mol.\nObjietosc calkowita = 50,0 ml = 0,050 l.\n[OH⁻] = 2,5 × 10⁻³ / 0,050 = 0,050 M.\npOH = -log(0,050) = 1,30.\npH = 14,00 - 1,30 = 12,70."
   },
   "ebau_2024_05c": {
-    "question_ru": "Uzupelnij puste pola dla miareczkowania kwasowo-zasadowego:\n\n20,0 ml roztworu HCl o nieznanym stezeniu miareczkuje sie 0,15 M NaOH. Punkt rownowaznikowy osiagnieto po dodaniu 18,0 ml NaOH.\n\nX = stezenie HCl (w mol/l)\nY = liczba moli HCl w probce (× 10⁻³)",
-    "input_labels": ["X", "Y"],
-    "explanation_ru": "W punkcie rownowaznikowym: mole HCl = mole NaOH.\nMole NaOH = 0,018 l × 0,15 mol/l = 2,70 × 10⁻³ mol → Y = 2,70.\nStezenie HCl = mole / objetosc = 2,70 × 10⁻³ / 0,020 = 0,135 M → X = 0,135."
+    "question": "Uzupelnij puste pola dla miareczkowania kwasowo-zasadowego:\n\n20,0 ml roztworu HCl o nieznanym stezeniu miareczkuje sie 0,15 M NaOH. Punkt rownowaznikowy osiagnieto po dodaniu 18,0 ml NaOH.\n\nX = stezenie HCl (w mol/l)\nY = liczba moli HCl w probce (× 10⁻³)",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "explanation": "W punkcie rownowaznikowym: mole HCl = mole NaOH.\nMole NaOH = 0,018 l × 0,15 mol/l = 2,70 × 10⁻³ mol → Y = 2,70.\nStezenie HCl = mole / objetosc = 2,70 × 10⁻³ / 0,020 = 0,135 M → X = 0,135."
   },
   "ebau_2024_06a": {
-    "question_ru": "Zbilansuj nastepujaca reakcje redoks metoda jonowo-elektronowa (polreakcji) w srodowisku kwasnym:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nPodaj polreakcje utleniania i redukcji oraz zbilansowane rownanie sumaryczne.",
-    "explanation_ru": "Polreakcja redukcji: MnO₄⁻ → Mn²⁺. Mn przechodzi z +7 do +2 (przyjmuje 5 e⁻). Aby zbilansowac tlen w srodowisku kwasnym, dodaje sie H₂O i H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nPolreakcja utleniania: Fe²⁺ → Fe³⁺ + e⁻. Fe przechodzi z +2 do +3 (traci 1 e⁻).\nAby wyrownac liczbe elektronow, polreakcje utleniania mnozy sie przez 5.\nRownanie sumaryczne: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
+    "question": "Zbilansuj nastepujaca reakcje redoks metoda jonowo-elektronowa (polreakcji) w srodowisku kwasnym:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nPodaj polreakcje utleniania i redukcji oraz zbilansowane rownanie sumaryczne.",
+    "explanation": "Polreakcja redukcji: MnO₄⁻ → Mn²⁺. Mn przechodzi z +7 do +2 (przyjmuje 5 e⁻). Aby zbilansowac tlen w srodowisku kwasnym, dodaje sie H₂O i H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nPolreakcja utleniania: Fe²⁺ → Fe³⁺ + e⁻. Fe przechodzi z +2 do +3 (traci 1 e⁻).\nAby wyrownac liczbe elektronow, polreakcje utleniania mnozy sie przez 5.\nRownanie sumaryczne: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
   },
   "ebau_2024_06b": {
-    "context_ru": "Zbudowano ogniwo galwaniczne z nastepujacymi elektrodami:\n- Elektroda cynkowa: Zn²⁺/Zn, E° = -0,76 V\n- Elektroda miedziana: Cu²⁺/Cu, E° = +0,34 V",
-    "question_ru": "Oblicz standardowa sile elektromotoryczna (SEM) ogniwa w woltach. Wskazz, ktora elektroda jest anoda, a ktora katoda.",
-    "explanation_ru": "SEM ogniwa oblicza sie jako: SEM = E°(katoda) - E°(anoda).\nElektroda o nizszym potencjale redukcji pelni role anody (ulega utlenieniu): Zn → Zn²⁺ + 2e⁻ (E° = -0,76 V).\nElektroda o wyzszym potencjale pelni role katody (ulega redukcji): Cu²⁺ + 2e⁻ → Cu (E° = +0,34 V).\nSEM = +0,34 - (-0,76) = +1,10 V."
+    "context": "Zbudowano ogniwo galwaniczne z nastepujacymi elektrodami:\n- Elektroda cynkowa: Zn²⁺/Zn, E° = -0,76 V\n- Elektroda miedziana: Cu²⁺/Cu, E° = +0,34 V",
+    "question": "Oblicz standardowa sile elektromotoryczna (SEM) ogniwa w woltach. Wskazz, ktora elektroda jest anoda, a ktora katoda.",
+    "explanation": "SEM ogniwa oblicza sie jako: SEM = E°(katoda) - E°(anoda).\nElektroda o nizszym potencjale redukcji pelni role anody (ulega utlenieniu): Zn → Zn²⁺ + 2e⁻ (E° = -0,76 V).\nElektroda o wyzszym potencjale pelni role katody (ulega redukcji): Cu²⁺ + 2e⁻ → Cu (E° = +0,34 V).\nSEM = +0,34 - (-0,76) = +1,10 V."
   },
   "ebau_2024_06c": {
-    "context_ru": "Przeprowadza sie elektrolize wodnego roztworu CuSO₄ z elektrodami obojetnymi przez 30 minut przy natezeniu pradu 2,5 A. Dane: M(Cu) = 63,5 g/mol; F = 96 485 C/mol.",
-    "question_ru": "Oblicz mase miedzi wydzielonej na katodzie w gramach. Zaokraglij do dwoch miejsc po przecinku.",
-    "explanation_ru": "Na katodzie: Cu²⁺ + 2e⁻ → Cu.\nCalkowity ladunek: Q = I × t = 2,5 A × (30 × 60 s) = 2,5 × 1800 = 4500 C.\nLiczba moli elektronow: n(e⁻) = Q / F = 4500 / 96485 = 0,04665 mol.\nLiczba moli Cu = n(e⁻) / 2 = 0,02332 mol (potrzeba 2 e⁻ na atom Cu).\nMasa Cu = 0,02332 × 63,5 = 1,48 g."
+    "context": "Przeprowadza sie elektrolize wodnego roztworu CuSO₄ z elektrodami obojetnymi przez 30 minut przy natezeniu pradu 2,5 A. Dane: M(Cu) = 63,5 g/mol; F = 96 485 C/mol.",
+    "question": "Oblicz mase miedzi wydzielonej na katodzie w gramach. Zaokraglij do dwoch miejsc po przecinku.",
+    "explanation": "Na katodzie: Cu²⁺ + 2e⁻ → Cu.\nCalkowity ladunek: Q = I × t = 2,5 A × (30 × 60 s) = 2,5 × 1800 = 4500 C.\nLiczba moli elektronow: n(e⁻) = Q / F = 4500 / 96485 = 0,04665 mol.\nLiczba moli Cu = n(e⁻) / 2 = 0,02332 mol (potrzeba 2 e⁻ na atom Cu).\nMasa Cu = 0,02332 × 63,5 = 1,48 g."
   },
   "ebau_2024_07a": {
-    "question_ru": "Dopasuj kazdy zwiazek organiczny do jego charakterystycznej grupy funkcyjnej.",
+    "question": "Dopasuj kazdy zwiazek organiczny do jego charakterystycznej grupy funkcyjnej.",
     "left_items": [
-      { "label": "A", "text": "CH₃CH₂OH" },
-      { "label": "B", "text": "CH₃COOH" },
-      { "label": "C", "text": "CH₃COCH₃" }
+      {
+        "label": "A",
+        "text": "CH₃CH₂OH"
+      },
+      {
+        "label": "B",
+        "text": "CH₃COOH"
+      },
+      {
+        "label": "C",
+        "text": "CH₃COCH₃"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Grupa hydroksylowa (-OH) — Alkohol" },
-      { "id": "2", "text": "Grupa karboksylowa (-COOH) — Kwas karboksylowy" },
-      { "id": "3", "text": "Grupa karbonylowa (>C=O) — Keton" },
-      { "id": "4", "text": "Grupa aminowa (-NH₂) — Amina" }
+      {
+        "id": "1",
+        "text": "Grupa hydroksylowa (-OH) — Alkohol"
+      },
+      {
+        "id": "2",
+        "text": "Grupa karboksylowa (-COOH) — Kwas karboksylowy"
+      },
+      {
+        "id": "3",
+        "text": "Grupa karbonylowa (>C=O) — Keton"
+      },
+      {
+        "id": "4",
+        "text": "Grupa aminowa (-NH₂) — Amina"
+      }
     ],
-    "explanation_ru": "A) CH₃CH₂OH (etanol) zawiera grupe -OH zwiazana z nasyconym atomem wegla — alkohol (1). B) CH₃COOH (kwas octowy) ma grupe -COOH — kwas karboksylowy (2). C) CH₃COCH₃ (aceton) ma grupe >C=O miedzy dwoma atomami wegla — keton (3)."
+    "explanation": "A) CH₃CH₂OH (etanol) zawiera grupe -OH zwiazana z nasyconym atomem wegla — alkohol (1). B) CH₃COOH (kwas octowy) ma grupe -COOH — kwas karboksylowy (2). C) CH₃COCH₃ (aceton) ma grupe >C=O miedzy dwoma atomami wegla — keton (3)."
   },
   "ebau_2024_07b": {
-    "question_ru": "Wybierz opcje zawierajaca poprawna serie nazw IUPAC dla zwiazkow:\na) CH₃-CH=CH-CH₃\nb) CH₃-CH(CH₃)-CH₂-OH\nc) CH₃-CO-CH₂-CH₃",
+    "question": "Wybierz opcje zawierajaca poprawna serie nazw IUPAC dla zwiazkow:\na) CH₃-CH=CH-CH₃\nb) CH₃-CH(CH₃)-CH₂-OH\nc) CH₃-CO-CH₂-CH₃",
     "options": [
-      { "id": "1", "text": "a) but-2-en, b) 2-metylopropan-1-ol, c) butanon" },
-      { "id": "2", "text": "a) but-1-en, b) 2-metylopropan-2-ol, c) butanal" },
-      { "id": "3", "text": "a) but-2-en, b) butan-2-ol, c) butanon" },
-      { "id": "4", "text": "a) but-2-en, b) 2-metylopropan-1-ol, c) pentan-2-on" }
+      {
+        "id": "1",
+        "text": "a) but-2-en, b) 2-metylopropan-1-ol, c) butanon"
+      },
+      {
+        "id": "2",
+        "text": "a) but-1-en, b) 2-metylopropan-2-ol, c) butanal"
+      },
+      {
+        "id": "3",
+        "text": "a) but-2-en, b) butan-2-ol, c) butanon"
+      },
+      {
+        "id": "4",
+        "text": "a) but-2-en, b) 2-metylopropan-1-ol, c) pentan-2-on"
+      }
     ],
-    "explanation_ru": "a) CH₃-CH=CH-CH₃: lancuch 4-weglowy z wiazaniem podwojnym w pozycji 2 — but-2-en. b) CH₃-CH(CH₃)-CH₂-OH: lancuch glowny 3-weglowy z OH przy C1 i grupa metylowa przy C2 — 2-metylopropan-1-ol. c) CH₃-CO-CH₂-CH₃: lancuch 4-weglowy z grupa ketonowa przy C2 — butanon (lub butan-2-on). Opcja 1 jest poprawna."
+    "explanation": "a) CH₃-CH=CH-CH₃: lancuch 4-weglowy z wiazaniem podwojnym w pozycji 2 — but-2-en. b) CH₃-CH(CH₃)-CH₂-OH: lancuch glowny 3-weglowy z OH przy C1 i grupa metylowa przy C2 — 2-metylopropan-1-ol. c) CH₃-CO-CH₂-CH₃: lancuch 4-weglowy z grupa ketonowa przy C2 — butanon (lub butan-2-on). Opcja 1 jest poprawna."
   },
   "ebau_2024_07c": {
-    "question_ru": "Napisz reakcje zmydlania octanu etylu (CH₃COOCH₂CH₃) wodorotlenkiem sodu. Nazwij otrzymane produkty i okresl typ reakcji.",
-    "explanation_ru": "Zmydlanie to hydroliza estru w srodowisku zasadowym. Octan etylu reaguje z NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nProdukty to octan sodu (sol kwasu octowego) i etanol (alkohol pierwszorzedowy). Jest to reakcja nukleofilowego podstawienia acylowego (nieodwracalna hydroliza zasadowa)."
+    "question": "Napisz reakcje zmydlania octanu etylu (CH₃COOCH₂CH₃) wodorotlenkiem sodu. Nazwij otrzymane produkty i okresl typ reakcji.",
+    "explanation": "Zmydlanie to hydroliza estru w srodowisku zasadowym. Octan etylu reaguje z NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nProdukty to octan sodu (sol kwasu octowego) i etanol (alkohol pierwszorzedowy). Jest to reakcja nukleofilowego podstawienia acylowego (nieodwracalna hydroliza zasadowa)."
   }
 }

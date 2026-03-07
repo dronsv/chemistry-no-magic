@@ -434,8 +434,8 @@ function generateObservationDistractors(
 
   if (data.rules.qualitativeTests) {
     for (const test of data.rules.qualitativeTests) {
-      if (test.observation_ru !== correctAnswer) {
-        candidates.push(test.observation_ru);
+      if (test.observation !== correctAnswer) {
+        candidates.push(test.observation);
       }
     }
   }

@@ -68,7 +68,7 @@ export default function ReactionFacets({ facets, onFacetsChange, reactions, subs
   useEffect(() => {
     loadCompetencies(locale).then(comps => {
       const map = new Map<string, string>();
-      for (const c of comps) map.set(c.id, c.name_ru);
+      for (const c of comps) map.set(c.id, c.name);
       setCompetencyMap(map);
     });
   }, [locale]);

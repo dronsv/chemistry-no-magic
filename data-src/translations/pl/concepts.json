@@ -3,335 +3,456 @@
     "name": "Tlenki",
     "slug": "tlenki",
     "description": "Związki binarne pierwiastka z tlenem",
-    "surface_forms": ["tlenki", "tlenek"],
+    "surface_forms": [
+      "tlenki",
+      "tlenek"
+    ],
     "forms": {
       "nom_sg": "tlenek",
-      "nom_pl": "tlenki",
+      "nom": "tlenki",
       "gen_sg": "tlenku",
-      "gen_pl": "tlenków",
-      "dat_pl": "tlenkom",
-      "ins_pl": "tlenkami",
-      "prep_pl": "o tlenkach"
+      "gen": "tlenków",
+      "dat": "tlenkom",
+      "ins": "tlenkami",
+      "prep": "o tlenkach"
     }
   },
   "cls:oxide_basic": {
     "name": "Tlenki zasadowe",
     "slug": "tlenki-zasadowe",
     "description": "Tlenki metali reagujące z kwasami z utworzeniem soli i wody",
-    "surface_forms": ["tlenki zasadowe", "tlenek zasadowy"],
+    "surface_forms": [
+      "tlenki zasadowe",
+      "tlenek zasadowy"
+    ],
     "forms": {
-      "nom_pl": "tlenki zasadowe",
-      "gen_pl": "tlenków zasadowych",
-      "dat_pl": "tlenkom zasadowym",
-      "ins_pl": "tlenkami zasadowymi",
-      "prep_pl": "o tlenkach zasadowych"
+      "nom": "tlenki zasadowe",
+      "gen": "tlenków zasadowych",
+      "dat": "tlenkom zasadowym",
+      "ins": "tlenkami zasadowymi",
+      "prep": "o tlenkach zasadowych"
     }
   },
   "cls:oxide_acidic": {
     "name": "Tlenki kwasowe",
     "slug": "tlenki-kwasowe",
     "description": "Tlenki niemetali reagujące z zasadami z utworzeniem soli i wody",
-    "surface_forms": ["tlenki kwasowe", "tlenek kwasowy"],
+    "surface_forms": [
+      "tlenki kwasowe",
+      "tlenek kwasowy"
+    ],
     "forms": {
-      "nom_pl": "tlenki kwasowe",
-      "gen_pl": "tlenków kwasowych",
-      "dat_pl": "tlenkom kwasowym",
-      "ins_pl": "tlenkami kwasowymi",
-      "prep_pl": "o tlenkach kwasowych"
+      "nom": "tlenki kwasowe",
+      "gen": "tlenków kwasowych",
+      "dat": "tlenkom kwasowym",
+      "ins": "tlenkami kwasowymi",
+      "prep": "o tlenkach kwasowych"
     }
   },
   "cls:oxide_amphoteric": {
     "name": "Tlenki amfoteryczne",
     "slug": "tlenki-amfoteryczne",
     "description": "Tlenki wykazujące właściwości zarówno zasadowe, jak i kwasowe",
-    "surface_forms": ["tlenki amfoteryczne", "tlenek amfoteryczny"],
+    "surface_forms": [
+      "tlenki amfoteryczne",
+      "tlenek amfoteryczny"
+    ],
     "forms": {
-      "nom_pl": "tlenki amfoteryczne",
-      "gen_pl": "tlenków amfoterycznych",
-      "dat_pl": "tlenkom amfoterycznym",
-      "ins_pl": "tlenkami amfoterycznymi",
-      "prep_pl": "o tlenkach amfoterycznych"
+      "nom": "tlenki amfoteryczne",
+      "gen": "tlenków amfoterycznych",
+      "dat": "tlenkom amfoterycznym",
+      "ins": "tlenkami amfoterycznymi",
+      "prep": "o tlenkach amfoterycznych"
     }
   },
   "cls:oxide_indifferent": {
     "name": "Tlenki obojętne",
     "slug": "tlenki-obojetne",
     "description": "Tlenki nie tworzące soli z kwasami ani zasadami",
-    "surface_forms": ["tlenki obojętne", "tlenek obojętny"],
+    "surface_forms": [
+      "tlenki obojętne",
+      "tlenek obojętny"
+    ],
     "forms": {
-      "nom_pl": "tlenki obojętne",
-      "gen_pl": "tlenków obojętnych",
-      "dat_pl": "tlenkom obojętnym",
-      "ins_pl": "tlenkami obojętnymi",
-      "prep_pl": "o tlenkach obojętnych"
+      "nom": "tlenki obojętne",
+      "gen": "tlenków obojętnych",
+      "dat": "tlenkom obojętnym",
+      "ins": "tlenkami obojętnymi",
+      "prep": "o tlenkach obojętnych"
     }
   },
   "cls:acid": {
     "name": "Kwasy",
     "slug": "kwasy",
     "description": "Związki złożone z atomów wodoru i reszty kwasowej",
-    "surface_forms": ["kwasy", "kwas"],
+    "surface_forms": [
+      "kwasy",
+      "kwas"
+    ],
     "forms": {
       "nom_sg": "kwas",
-      "nom_pl": "kwasy",
+      "nom": "kwasy",
       "gen_sg": "kwasu",
-      "gen_pl": "kwasów",
-      "dat_pl": "kwasom",
-      "ins_pl": "kwasami",
-      "prep_pl": "o kwasach"
+      "gen": "kwasów",
+      "dat": "kwasom",
+      "ins": "kwasami",
+      "prep": "o kwasach"
     }
   },
   "cls:acid_oxygen": {
     "name": "Kwasy tlenowe",
     "slug": "kwasy-tlenowe",
     "description": "Kwasy, których reszta kwasowa zawiera tlen",
-    "surface_forms": ["kwasy tlenowe", "kwas tlenowy"],
+    "surface_forms": [
+      "kwasy tlenowe",
+      "kwas tlenowy"
+    ],
     "forms": {
-      "nom_pl": "kwasy tlenowe",
-      "gen_pl": "kwasów tlenowych",
-      "dat_pl": "kwasom tlenowym",
-      "ins_pl": "kwasami tlenowymi",
-      "prep_pl": "o kwasach tlenowych"
+      "nom": "kwasy tlenowe",
+      "gen": "kwasów tlenowych",
+      "dat": "kwasom tlenowym",
+      "ins": "kwasami tlenowymi",
+      "prep": "o kwasach tlenowych"
     }
   },
   "cls:acid_oxygenfree": {
     "name": "Kwasy beztlenowe",
     "slug": "kwasy-beztlenowe",
     "description": "Kwasy, których reszta kwasowa nie zawiera tlenu",
-    "surface_forms": ["kwasy beztlenowe", "kwas beztlenowy"],
+    "surface_forms": [
+      "kwasy beztlenowe",
+      "kwas beztlenowy"
+    ],
     "forms": {
-      "nom_pl": "kwasy beztlenowe",
-      "gen_pl": "kwasów beztlenowych",
-      "dat_pl": "kwasom beztlenowym",
-      "ins_pl": "kwasami beztlenowymi",
-      "prep_pl": "o kwasach beztlenowych"
+      "nom": "kwasy beztlenowe",
+      "gen": "kwasów beztlenowych",
+      "dat": "kwasom beztlenowym",
+      "ins": "kwasami beztlenowymi",
+      "prep": "o kwasach beztlenowych"
     }
   },
   "cls:base": {
     "name": "Zasady",
     "slug": "zasady",
     "description": "Związki złożone z kationu metalu i anionu wodorotlenkowego OH⁻",
-    "surface_forms": ["zasady", "zasada"],
+    "surface_forms": [
+      "zasady",
+      "zasada"
+    ],
     "forms": {
       "nom_sg": "zasada",
-      "nom_pl": "zasady",
+      "nom": "zasady",
       "gen_sg": "zasady",
-      "gen_pl": "zasad",
-      "dat_pl": "zasadom",
-      "ins_pl": "zasadami",
-      "prep_pl": "o zasadach"
+      "gen": "zasad",
+      "dat": "zasadom",
+      "ins": "zasadami",
+      "prep": "o zasadach"
     }
   },
   "cls:base_alkali": {
     "name": "Wodorotlenki rozpuszczalne",
     "slug": "wodorotlenki-rozpuszczalne",
     "description": "Zasady rozpuszczalne w wodzie, utworzone przez metale alkaliczne i ziem alkalicznych",
-    "surface_forms": ["wodorotlenki rozpuszczalne", "ługi", "ług"],
+    "surface_forms": [
+      "wodorotlenki rozpuszczalne",
+      "ługi",
+      "ług"
+    ],
     "forms": {
-      "nom_pl": "wodorotlenki rozpuszczalne",
-      "gen_pl": "wodorotlenków rozpuszczalnych",
-      "dat_pl": "wodorotlenkom rozpuszczalnym",
-      "ins_pl": "wodorotlenkami rozpuszczalnymi",
-      "prep_pl": "o wodorotlenkach rozpuszczalnych"
+      "nom": "wodorotlenki rozpuszczalne",
+      "gen": "wodorotlenków rozpuszczalnych",
+      "dat": "wodorotlenkom rozpuszczalnym",
+      "ins": "wodorotlenkami rozpuszczalnymi",
+      "prep": "o wodorotlenkach rozpuszczalnych"
     }
   },
   "cls:base_insoluble": {
     "name": "Zasady nierozpuszczalne",
     "slug": "zasady-nierozpuszczalne",
     "description": "Zasady nierozpuszczalne w wodzie, rozkładające się pod wpływem ciepła",
-    "surface_forms": ["zasady nierozpuszczalne", "zasada nierozpuszczalna"],
+    "surface_forms": [
+      "zasady nierozpuszczalne",
+      "zasada nierozpuszczalna"
+    ],
     "forms": {
-      "nom_pl": "zasady nierozpuszczalne",
-      "gen_pl": "zasad nierozpuszczalnych",
-      "dat_pl": "zasadom nierozpuszczalnym",
-      "ins_pl": "zasadami nierozpuszczalnymi",
-      "prep_pl": "o zasadach nierozpuszczalnych"
+      "nom": "zasady nierozpuszczalne",
+      "gen": "zasad nierozpuszczalnych",
+      "dat": "zasadom nierozpuszczalnym",
+      "ins": "zasadami nierozpuszczalnymi",
+      "prep": "o zasadach nierozpuszczalnych"
     }
   },
   "cls:base_amphoteric": {
     "name": "Zasady amfoteryczne",
     "slug": "zasady-amfoteryczne",
     "description": "Zasady wykazujące zarówno właściwości zasadowe, jak i kwasowe",
-    "surface_forms": ["zasady amfoteryczne", "zasada amfoteryczna", "wodorotlenki amfoteryczne"],
+    "surface_forms": [
+      "zasady amfoteryczne",
+      "zasada amfoteryczna",
+      "wodorotlenki amfoteryczne"
+    ],
     "forms": {
-      "nom_pl": "zasady amfoteryczne",
-      "gen_pl": "zasad amfoterycznych",
-      "dat_pl": "zasadom amfoterycznym",
-      "ins_pl": "zasadami amfoterycznymi",
-      "prep_pl": "o zasadach amfoterycznych"
+      "nom": "zasady amfoteryczne",
+      "gen": "zasad amfoterycznych",
+      "dat": "zasadom amfoterycznym",
+      "ins": "zasadami amfoterycznymi",
+      "prep": "o zasadach amfoterycznych"
     }
   },
   "cls:salt": {
     "name": "Sole",
     "slug": "sole",
     "description": "Związki złożone z kationu metalu i anionu reszty kwasowej",
-    "surface_forms": ["sole", "sól"],
+    "surface_forms": [
+      "sole",
+      "sól"
+    ],
     "forms": {
       "nom_sg": "sól",
-      "nom_pl": "sole",
+      "nom": "sole",
       "gen_sg": "soli",
-      "gen_pl": "soli",
-      "dat_pl": "solom",
-      "ins_pl": "solami",
-      "prep_pl": "o solach"
+      "gen": "soli",
+      "dat": "solom",
+      "ins": "solami",
+      "prep": "o solach"
     }
   },
   "cls:salt_normal": {
     "name": "Sole obojętne",
     "slug": "sole-obojetne",
     "description": "Sole, w których wszystkie atomy wodoru kwasu zostały zastąpione metalem",
-    "surface_forms": ["sole obojętne", "sól obojętna", "sole normalne"]
+    "surface_forms": [
+      "sole obojętne",
+      "sól obojętna",
+      "sole normalne"
+    ]
   },
   "cls:salt_acidic": {
     "name": "Sole kwaśne",
     "slug": "sole-kwasne",
     "description": "Sole, w których nie wszystkie atomy wodoru kwasu zostały zastąpione metalem",
-    "surface_forms": ["sole kwaśne", "sól kwaśna", "wodorosole"]
+    "surface_forms": [
+      "sole kwaśne",
+      "sól kwaśna",
+      "wodorosole"
+    ]
   },
   "cls:salt_basic": {
     "name": "Sole zasadowe",
     "slug": "sole-zasadowe",
     "description": "Sole, w których nie wszystkie grupy hydroksylowe zasady zostały zastąpione resztą kwasową",
-    "surface_forms": ["sole zasadowe", "sól zasadowa", "hydroksosole"]
+    "surface_forms": [
+      "sole zasadowe",
+      "sól zasadowa",
+      "hydroksosole"
+    ]
   },
   "grp:alkali_metals": {
     "name": "Metale alkaliczne",
     "slug": "metale-alkaliczne",
-    "surface_forms": ["metale alkaliczne", "metal alkaliczny"],
+    "surface_forms": [
+      "metale alkaliczne",
+      "metal alkaliczny"
+    ],
     "forms": {
-      "nom_pl": "metale alkaliczne",
-      "gen_pl": "metali alkalicznych",
-      "dat_pl": "metalom alkalicznym",
-      "ins_pl": "metalami alkalicznymi",
-      "prep_pl": "o metalach alkalicznych"
+      "nom": "metale alkaliczne",
+      "gen": "metali alkalicznych",
+      "dat": "metalom alkalicznym",
+      "ins": "metalami alkalicznymi",
+      "prep": "o metalach alkalicznych"
     }
   },
   "grp:halogens": {
     "name": "Fluorowce",
     "slug": "fluorowce",
-    "surface_forms": ["fluorowce", "fluorowiec", "halogenki"],
+    "surface_forms": [
+      "fluorowce",
+      "fluorowiec",
+      "halogenki"
+    ],
     "forms": {
       "nom_sg": "fluorowiec",
-      "nom_pl": "fluorowce",
+      "nom": "fluorowce",
       "gen_sg": "fluorowca",
-      "gen_pl": "fluorowców",
-      "dat_pl": "fluorowcom",
-      "ins_pl": "fluorowcami",
-      "prep_pl": "o fluorowcach"
+      "gen": "fluorowców",
+      "dat": "fluorowcom",
+      "ins": "fluorowcami",
+      "prep": "o fluorowcach"
     }
   },
   "grp:noble_gases": {
     "name": "Gazy szlachetne",
     "slug": "gazy-szlachetne",
-    "surface_forms": ["gazy szlachetne", "gaz szlachetny"],
+    "surface_forms": [
+      "gazy szlachetne",
+      "gaz szlachetny"
+    ],
     "forms": {
-      "nom_pl": "gazy szlachetne",
-      "gen_pl": "gazów szlachetnych",
-      "dat_pl": "gazom szlachetnym",
-      "ins_pl": "gazami szlachetnymi",
-      "prep_pl": "o gazach szlachetnych"
+      "nom": "gazy szlachetne",
+      "gen": "gazów szlachetnych",
+      "dat": "gazom szlachetnym",
+      "ins": "gazami szlachetnymi",
+      "prep": "o gazach szlachetnych"
     }
   },
   "grp:alkaline_earth": {
     "name": "Berylowce",
     "slug": "berylowce",
-    "surface_forms": ["berylowce", "berylowiec", "metale ziem alkalicznych"],
+    "surface_forms": [
+      "berylowce",
+      "berylowiec",
+      "metale ziem alkalicznych"
+    ],
     "forms": {
-      "nom_pl": "berylowce",
-      "gen_pl": "berylowców",
-      "dat_pl": "berylowcom",
-      "ins_pl": "berylowcami",
-      "prep_pl": "o berylowcach"
+      "nom": "berylowce",
+      "gen": "berylowców",
+      "dat": "berylowcom",
+      "ins": "berylowcami",
+      "prep": "o berylowcach"
     }
   },
   "prop:oxidation_state": {
     "name": "Stopień utlenienia",
     "slug": "stopien-utlenienia",
-    "surface_forms": ["stopień utlenienia", "stopnie utlenienia"]
+    "surface_forms": [
+      "stopień utlenienia",
+      "stopnie utlenienia"
+    ]
   },
   "prop:valence": {
     "name": "Wartościowość",
     "slug": "wartosciowosc",
-    "surface_forms": ["wartościowość"]
+    "surface_forms": [
+      "wartościowość"
+    ]
   },
   "prop:solubility": {
     "name": "Rozpuszczalność",
     "slug": "rozpuszczalnosc",
-    "surface_forms": ["rozpuszczalność"]
+    "surface_forms": [
+      "rozpuszczalność"
+    ]
   },
   "prop:amphoteric": {
     "name": "Amfoteryczność",
     "slug": "amfoterycznosc",
-    "surface_forms": ["amfoteryczność", "właściwości amfoteryczne"]
+    "surface_forms": [
+      "amfoteryczność",
+      "właściwości amfoteryczne"
+    ]
   },
   "prop:dissociation": {
     "name": "Dysocjacja",
     "slug": "dysocjacja",
-    "surface_forms": ["dysocjacja", "dysocjacja elektrolityczna"]
+    "surface_forms": [
+      "dysocjacja",
+      "dysocjacja elektrolityczna"
+    ]
   },
   "prop:electronegativity": {
     "name": "Elektroujemność",
     "slug": "elektroujemnosc",
-    "surface_forms": ["elektroujemność"]
+    "surface_forms": [
+      "elektroujemność"
+    ]
   },
   "rxfacet:by_count": {
     "name": "Według liczby substratów i produktów",
     "slug": "wg-liczby-substancji",
-    "surface_forms": ["według liczby substancji"]
+    "surface_forms": [
+      "według liczby substancji"
+    ]
   },
   "rxfacet:by_redox": {
     "name": "Według zmiany stopnia utlenienia",
     "slug": "wg-utlenienia",
-    "surface_forms": ["według zmiany stopnia utlenienia"]
+    "surface_forms": [
+      "według zmiany stopnia utlenienia"
+    ]
   },
   "rxfacet:by_thermal": {
     "name": "Według efektu cieplnego",
     "slug": "wg-efektu-cieplnego",
-    "surface_forms": ["według efektu cieplnego"]
+    "surface_forms": [
+      "według efektu cieplnego"
+    ]
   },
   "rxtype:combination": {
     "name": "Reakcje syntezy",
     "slug": "synteza",
-    "surface_forms": ["reakcja syntezy", "reakcje syntezy", "reakcje łączenia"]
+    "surface_forms": [
+      "reakcja syntezy",
+      "reakcje syntezy",
+      "reakcje łączenia"
+    ]
   },
   "rxtype:decomposition": {
     "name": "Reakcje rozkładu",
     "slug": "rozklad",
-    "surface_forms": ["rozkład", "reakcja rozkładu", "reakcje rozkładu"]
+    "surface_forms": [
+      "rozkład",
+      "reakcja rozkładu",
+      "reakcje rozkładu"
+    ]
   },
   "rxtype:substitution": {
     "name": "Reakcje wymiany pojedynczej",
     "slug": "wymiana-pojedyncza",
-    "surface_forms": ["wymiana pojedyncza", "reakcja podstawienia"]
+    "surface_forms": [
+      "wymiana pojedyncza",
+      "reakcja podstawienia"
+    ]
   },
   "rxtype:exchange": {
     "name": "Reakcje wymiany",
     "slug": "wymiana",
-    "surface_forms": ["reakcja wymiany", "reakcje wymiany", "wymiana podwójna"]
+    "surface_forms": [
+      "reakcja wymiany",
+      "reakcje wymiany",
+      "wymiana podwójna"
+    ]
   },
   "rxtype:neutralization": {
     "name": "Reakcje zobojętniania",
     "slug": "zobojetnianie",
-    "surface_forms": ["zobojętnianie", "reakcja zobojętniania", "reakcje zobojętniania"]
+    "surface_forms": [
+      "zobojętnianie",
+      "reakcja zobojętniania",
+      "reakcje zobojętniania"
+    ]
   },
   "rxtype:redox": {
     "name": "Reakcje redoks",
     "slug": "redoks",
-    "surface_forms": ["redoks", "reakcja redoks", "reakcje redoks", "utlenianie-redukcja"]
+    "surface_forms": [
+      "redoks",
+      "reakcja redoks",
+      "reakcje redoks",
+      "utlenianie-redukcja"
+    ]
   },
   "rxtype:non_redox": {
     "name": "Reakcje nie-redoks",
     "slug": "nie-redoks",
-    "surface_forms": ["nie-redoks", "reakcje bez zmiany stopnia utlenienia"]
+    "surface_forms": [
+      "nie-redoks",
+      "reakcje bez zmiany stopnia utlenienia"
+    ]
   },
   "rxtype:exothermic": {
     "name": "Reakcje egzotermiczne",
     "slug": "egzotermiczne",
-    "surface_forms": ["reakcje egzotermiczne", "reakcja egzotermiczna"]
+    "surface_forms": [
+      "reakcje egzotermiczne",
+      "reakcja egzotermiczna"
+    ]
   },
   "rxtype:endothermic": {
     "name": "Reakcje endotermiczne",
     "slug": "endotermiczne",
-    "surface_forms": ["reakcje endotermiczne", "reakcja endotermiczna"]
+    "surface_forms": [
+      "reakcje endotermiczne",
+      "reakcja endotermiczna"
+    ]
   }
 }

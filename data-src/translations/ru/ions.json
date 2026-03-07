@@ -1,0 +1,305 @@
+{
+  "H_plus": {
+    "name": "Ион водорода",
+    "name_genitive": "водорода"
+  },
+  "Na_plus": {
+    "name": "Ион натрия",
+    "name_genitive": "натрия"
+  },
+  "K_plus": {
+    "name": "Ион калия",
+    "name_genitive": "калия"
+  },
+  "NH4_plus": {
+    "name": "Ион аммония",
+    "name_genitive": "аммония"
+  },
+  "Ca_2plus": {
+    "name": "Ион кальция",
+    "name_genitive": "кальция"
+  },
+  "Mg_2plus": {
+    "name": "Ион магния",
+    "name_genitive": "магния"
+  },
+  "Ba_2plus": {
+    "name": "Ион бария",
+    "name_genitive": "бария"
+  },
+  "Al_3plus": {
+    "name": "Ион алюминия",
+    "name_genitive": "алюминия"
+  },
+  "Fe_2plus": {
+    "name": "Ион железа(II)",
+    "name_genitive": "железа(II)"
+  },
+  "Fe_3plus": {
+    "name": "Ион железа(III)",
+    "name_genitive": "железа(III)"
+  },
+  "Cu_2plus": {
+    "name": "Ион меди(II)",
+    "name_genitive": "меди(II)"
+  },
+  "Zn_2plus": {
+    "name": "Ион цинка",
+    "name_genitive": "цинка"
+  },
+  "Ag_plus": {
+    "name": "Ион серебра",
+    "name_genitive": "серебра"
+  },
+  "Pb_2plus": {
+    "name": "Ион свинца(II)",
+    "name_genitive": "свинца(II)"
+  },
+  "Li_plus": {
+    "name": "Ион лития",
+    "name_genitive": "лития"
+  },
+  "Sr_2plus": {
+    "name": "Ион стронция",
+    "name_genitive": "стронция"
+  },
+  "Mn_2plus": {
+    "name": "Ион марганца(II)",
+    "name_genitive": "марганца(II)"
+  },
+  "Ni_2plus": {
+    "name": "Ион никеля(II)",
+    "name_genitive": "никеля(II)"
+  },
+  "Co_2plus": {
+    "name": "Ион кобальта(II)",
+    "name_genitive": "кобальта(II)"
+  },
+  "Cd_2plus": {
+    "name": "Ион кадмия",
+    "name_genitive": "кадмия"
+  },
+  "Hg_2plus": {
+    "name": "Ион ртути(II)",
+    "name_genitive": "ртути(II)"
+  },
+  "Hg2_2plus": {
+    "name": "Ион ртути(I)",
+    "name_genitive": "ртути(I)"
+  },
+  "Sn_2plus": {
+    "name": "Ион олова(II)",
+    "name_genitive": "олова(II)"
+  },
+  "Cr_3plus": {
+    "name": "Ион хрома(III)",
+    "name_genitive": "хрома(III)"
+  },
+  "OH_minus": {
+    "name": "Гидроксид-ион",
+    "name_genitive": "гидроксида"
+  },
+  "F_minus": {
+    "name": "Фторид-ион",
+    "naming": {
+      "root": "фтор",
+      "suffix": "-ид",
+      "derivation": "бескислородная → -ид"
+    },
+    "name_genitive": "фторида"
+  },
+  "Cl_minus": {
+    "name": "Хлорид-ион",
+    "naming": {
+      "root": "хлор",
+      "suffix": "-ид",
+      "derivation": "бескислородная → -ид"
+    },
+    "name_genitive": "хлорида"
+  },
+  "Br_minus": {
+    "name": "Бромид-ион",
+    "naming": {
+      "root": "бром",
+      "suffix": "-ид",
+      "derivation": "бескислородная → -ид"
+    },
+    "name_genitive": "бромида"
+  },
+  "I_minus": {
+    "name": "Иодид-ион",
+    "naming": {
+      "root": "иод",
+      "suffix": "-ид",
+      "derivation": "бескислородная → -ид"
+    },
+    "name_genitive": "иодида"
+  },
+  "S_2minus": {
+    "name": "Сульфид-ион",
+    "naming": {
+      "root": "сульф",
+      "suffix": "-ид",
+      "derivation": "бескислородная → -ид"
+    },
+    "name_genitive": "сульфида"
+  },
+  "SO4_2minus": {
+    "name": "Сульфат-ион",
+    "naming": {
+      "root": "сульф",
+      "suffix": "-ат",
+      "derivation": "макс. СО серы (+6) → -ат"
+    },
+    "name_genitive": "сульфата"
+  },
+  "SO3_2minus": {
+    "name": "Сульфит-ион",
+    "naming": {
+      "root": "сульф",
+      "suffix": "-ит",
+      "derivation": "меньшая СО серы (+4) → -ит"
+    },
+    "name_genitive": "сульфита"
+  },
+  "NO3_minus": {
+    "name": "Нитрат-ион",
+    "naming": {
+      "root": "нитр",
+      "suffix": "-ат",
+      "derivation": "макс. СО азота (+5) → -ат"
+    },
+    "name_genitive": "нитрата"
+  },
+  "NO2_minus": {
+    "name": "Нитрит-ион",
+    "naming": {
+      "root": "нитр",
+      "suffix": "-ит",
+      "derivation": "меньшая СО азота (+3) → -ит"
+    },
+    "name_genitive": "нитрита"
+  },
+  "CO3_2minus": {
+    "name": "Карбонат-ион",
+    "naming": {
+      "root": "карбон",
+      "suffix": "-ат",
+      "derivation": "кислородная → -ат"
+    },
+    "name_genitive": "карбоната"
+  },
+  "SiO3_2minus": {
+    "name": "Силикат-ион",
+    "naming": {
+      "root": "силик",
+      "suffix": "-ат",
+      "derivation": "кислородная → -ат"
+    },
+    "name_genitive": "силиката"
+  },
+  "PO4_3minus": {
+    "name": "Фосфат-ион",
+    "naming": {
+      "root": "фосф",
+      "suffix": "-ат",
+      "derivation": "кислородная → -ат"
+    },
+    "name_genitive": "фосфата"
+  },
+  "CH3COO_minus": {
+    "name": "Ацетат-ион",
+    "naming": {
+      "root": "ацет",
+      "suffix": "-ат",
+      "derivation": "кислородная (орг.) → -ат"
+    },
+    "name_genitive": "ацетата"
+  },
+  "MnO4_minus": {
+    "name": "Перманганат-ион",
+    "naming": {
+      "root": "манган",
+      "prefix": "пер-",
+      "suffix": "-ат",
+      "derivation": "СО Mn (+7), выше макс. → пер-...-ат"
+    },
+    "name_genitive": "перманганата"
+  },
+  "CrO4_2minus": {
+    "name": "Хромат-ион",
+    "naming": {
+      "root": "хром",
+      "suffix": "-ат",
+      "derivation": "кислородная → -ат"
+    },
+    "name_genitive": "хромата"
+  },
+  "Cr2O7_2minus": {
+    "name": "Дихромат-ион",
+    "naming": {
+      "root": "дихром",
+      "suffix": "-ат",
+      "derivation": "кислородная → -ат"
+    },
+    "name_genitive": "дихромата"
+  },
+  "Be_2plus": {
+    "name": "Катион бериллия",
+    "name_genitive": "бериллия"
+  },
+  "Cu_plus": {
+    "name": "Катион меди(I)",
+    "name_genitive": "меди(I)"
+  },
+  "HCO3_minus": {
+    "name": "Гидрокарбонат-ион",
+    "naming": {
+      "root": "карбон",
+      "prefix": "гидро-",
+      "suffix": "-ат",
+      "derivation": "кислая соль → гидро-...-ат"
+    },
+    "name_genitive": "гидрокарбоната"
+  },
+  "HSO4_minus": {
+    "name": "Гидросульфат-ион",
+    "naming": {
+      "root": "сульф",
+      "prefix": "гидро-",
+      "suffix": "-ат",
+      "derivation": "кислая соль → гидро-...-ат"
+    },
+    "name_genitive": "гидросульфата"
+  },
+  "HSO3_minus": {
+    "name": "Гидросульфит-ион",
+    "naming": {
+      "root": "сульф",
+      "prefix": "гидро-",
+      "suffix": "-ит",
+      "derivation": "кислая соль → гидро-...-ит"
+    },
+    "name_genitive": "гидросульфита"
+  },
+  "HPO4_2minus": {
+    "name": "Гидрофосфат-ион",
+    "naming": {
+      "root": "фосф",
+      "prefix": "гидро-",
+      "suffix": "-ат",
+      "derivation": "кислая соль → гидро-...-ат"
+    },
+    "name_genitive": "гидрофосфата"
+  },
+  "H2PO4_minus": {
+    "name": "Дигидрофосфат-ион",
+    "naming": {
+      "root": "фосф",
+      "prefix": "дигидро-",
+      "suffix": "-ат",
+      "derivation": "кислая соль → дигидро-...-ат"
+    },
+    "name_genitive": "дигидрофосфата"
+  }
+}

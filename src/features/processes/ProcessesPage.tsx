@@ -41,8 +41,8 @@ export default function ProcessesPage({
     const q = search.trim().toLowerCase();
     return entries.filter(
       e =>
-        e.name_ru.toLowerCase().includes(q) ||
-        e.description_ru.toLowerCase().includes(q),
+        e.name.toLowerCase().includes(q) ||
+        e.description.toLowerCase().includes(q),
     );
   }, [entries, search]);
 
@@ -62,7 +62,7 @@ export default function ProcessesPage({
   const nameById = useMemo(() => {
     const map = new Map<string, string>();
     for (const e of entries) {
-      map.set(e.id, e.name_ru);
+      map.set(e.id, e.name);
     }
     return map;
   }, [entries]);
@@ -81,14 +81,14 @@ export default function ProcessesPage({
       const eff = effectsMap.get(ref);
       return (
         <span key={i} className="proc-page__effect">
-          {eff?.name_ru ?? ref}
+          {eff?.name ?? ref}
         </span>
       );
     }
     const eff = effectsMap.get(ref.id);
     return (
       <span key={i} className="proc-page__effect proc-page__effect--conditional">
-        {eff?.name_ru ?? ref.id}
+        {eff?.name ?? ref.id}
         <span className="proc-page__effect-when">{ref.when}</span>
       </span>
     );
@@ -154,9 +154,9 @@ export default function ProcessesPage({
               <div className="proc-page__entries">
                 {items.map(entry => (
                   <div key={entry.id} className="proc-page__entry">
-                    <p className="proc-page__entry-name">{entry.name_ru}</p>
+                    <p className="proc-page__entry-name">{entry.name}</p>
                     <p className="proc-page__entry-desc">
-                      {entry.description_ru}
+                      {entry.description}
                     </p>
                     {entry.parent && (
                       <p className="proc-page__parent">

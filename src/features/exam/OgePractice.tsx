@@ -135,12 +135,12 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
       </div>
 
       <div className="oge-task">
-        {currentTask.context_ru && (
-          <div className="oge-task__context"><ChemText text={currentTask.context_ru} /></div>
+        {currentTask.context && (
+          <div className="oge-task__context"><ChemText text={currentTask.context} /></div>
         )}
         <div className="oge-task__question">
           <span className="oge-task__number">{m.exam_task_number({ number: String(currentTask.task_number) })}</span>
-          <p className="oge-task__text"><ChemText text={currentTask.question_ru} /></p>
+          <p className="oge-task__text"><ChemText text={currentTask.question} /></p>
         </div>
 
         <div className="oge-task__answer">
@@ -179,7 +179,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
           <div className="oge-task__algorithm">
             <h4 className="oge-task__algorithm-title">{m.oge_algorithm_title()}</h4>
             <ol className="oge-task__algorithm-steps">
-              {algo.algorithm_ru.map((step, i) => (
+              {algo.algorithm.map((step, i) => (
                 <li key={i}><ChemText text={step} /></li>
               ))}
             </ol>
@@ -192,30 +192,30 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
               {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? m.oge_score_unit_1() : m.oge_score_unit_2()}
             </div>
             <div className="oge-task__explanation">
-              <ChemText text={currentTask.explanation_ru} />
+              <ChemText text={currentTask.explanation} />
             </div>
 
             {algo && (
               <details className="oge-task__algo-details">
                 <summary>{m.oge_algorithm_summary({ number: String(currentTask.task_number) })}</summary>
                 <div className="oge-task__algo-content">
-                  <h4>{algo.title_ru}</h4>
+                  <h4>{algo.title}</h4>
                   <ol className="oge-task__algorithm-steps">
-                    {algo.algorithm_ru.map((step, i) => (
+                    {algo.algorithm.map((step, i) => (
                       <li key={i}><ChemText text={step} /></li>
                     ))}
                   </ol>
 
                   <h4>{m.oge_key_facts()}</h4>
                   <ul>
-                    {algo.key_facts_ru.map((fact, i) => (
+                    {algo.key_facts.map((fact, i) => (
                       <li key={i}><ChemText text={fact} /></li>
                     ))}
                   </ul>
 
                   <h4>{m.oge_common_traps()}</h4>
                   <ul className="oge-task__traps">
-                    {algo.common_traps_ru.map((trap, i) => (
+                    {algo.common_traps.map((trap, i) => (
                       <li key={i}><ChemText text={trap} /></li>
                     ))}
                   </ul>

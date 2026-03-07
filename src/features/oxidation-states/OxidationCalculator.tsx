@@ -26,7 +26,7 @@ interface StepCardProps {
 
 function StepCard({ step, rule, locale }: StepCardProps) {
   const borderColor = stateColor(step.state);
-  const title = rule?.title_ru ?? step.rule_id;
+  const title = rule?.title ?? step.rule_id;
 
   return (
     <div className={`ox-step ox-step--${rule?.kind ?? 'assignment'}`} style={{ borderLeftColor: borderColor }}>

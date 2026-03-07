@@ -33,15 +33,15 @@ const cid = competency.id;
 ---
 
 <BaseLayout
-  title={`${competency.name_ru} — ${siteName}`}
-  description={competency.description_ru}
+  title={`${competency.name} — ${siteName}`}
+  description={competency.description}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LearningResource",
-      "name": competency.name_ru,
-      "description": competency.description_ru,
+      "name": competency.name,
+      "description": competency.description,
       "educationalLevel": "ОГЭ, 9 класс",
       "learningResourceType": "Practice problem",
       "inLanguage": locale,
@@ -57,14 +57,14 @@ const cid = competency.id;
   </Fragment>
   <article class="comp-page container">
     <div class="comp-page__header">
-      <span class="comp-page__badge">{m.comp_block()} {competency.block} — {competency.block_name_ru}</span>
-      <h1 class="comp-page__title">{competency.name_ru}</h1>
-      <p class="comp-page__desc">{competency.description_ru}</p>
+      <span class="comp-page__badge">{m.comp_block()} {competency.block} — {competency.block_name}</span>
+      <h1 class="comp-page__title">{competency.name}</h1>
+      <p class="comp-page__desc">{competency.description}</p>
     </div>
 
     <section class="comp-page__section">
       <h2>{m.comp_mastery()}</h2>
-      <CompetencyMasteryIsland client:idle id={competency.id} name={competency.name_ru} />
+      <CompetencyMasteryIsland client:idle id={competency.id} name={competency.name} />
     </section>
 
     {/* Reference content section */}
@@ -246,7 +246,7 @@ const cid = competency.id;
       <CompetencyPracticeIsland
         client:idle
         competencyId={competency.id}
-        competencyName={competency.name_ru}
+        competencyName={competency.name}
         locale={locale}
       />
     </section>
@@ -257,7 +257,7 @@ const cid = competency.id;
         <ul class="comp-page__dep-list">
           {prereqs.map(p => (
             <li>
-              <a href={localizeUrl(`/competency/${p.id}/`, locale)}>{p.name_ru}</a>
+              <a href={localizeUrl(`/competency/${p.id}/`, locale)}>{p.name}</a>
               <span class="comp-page__dep-block">{p.block}</span>
             </li>
           ))}
@@ -273,7 +273,7 @@ const cid = competency.id;
         <ul class="comp-page__dep-list">
           {unlocks.map(u => (
             <li>
-              <a href={localizeUrl(`/competency/${u.id}/`, locale)}>{u.name_ru}</a>
+              <a href={localizeUrl(`/competency/${u.id}/`, locale)}>{u.name}</a>
               <span class="comp-page__dep-block">{u.block}</span>
             </li>
           ))}
@@ -287,7 +287,7 @@ const cid = competency.id;
       <section class="comp-page__section">
         <h2>{m.comp_materials()}</h2>
         <a href={localizeUrl(competency.link, locale)} class="comp-page__material-link">
-          {competency.name_ru} &rarr;
+          {competency.name} &rarr;
         </a>
       </section>
     )}

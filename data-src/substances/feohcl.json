@@ -1,7 +1,6 @@
 {
   "id": "feohcl",
   "formula": "FeOHCl",
-  "name_ru": "Гидроксохлорид железа(II)",
   "class": "salt",
   "subclass": "basic",
   "ions": [
@@ -14,12 +13,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": null,
-  "appearance_ru": "Зеленовато-белый осадок",
-  "industrial_ru": "Промежуточный продукт в химическом синтезе",
-  "production_ru": "Неполная нейтрализация: FeCl₂ + NaOH(недост.) → FeOHCl↓ + NaCl",
-  "fun_facts_ru": [
-    "Типичный пример основной соли — содержит и гидроксильную группу, и кислотный остаток",
-    "Образуется при действии недостатка щёлочи на соль"
-  ]
+  "density_g_cm3": null
 }

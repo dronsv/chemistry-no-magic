@@ -11,17 +11,17 @@ import type { QualitativeTest } from '../../../types/qualitative';
 
 const MOCK_ELEMENTS: Element[] = [
   {
-    Z: 11, symbol: 'Na', name_ru: 'Натрий', name_en: 'Sodium', name_latin: 'Natrium',
+    Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
   },
   {
-    Z: 12, symbol: 'Mg', name_ru: 'Магний', name_en: 'Magnesium', name_latin: 'Magnesium',
+    Z: 12, symbol: 'Mg', name: 'Магний', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
   },
   {
-    Z: 17, symbol: 'Cl', name_ru: 'Хлор', name_en: 'Chlorine', name_latin: 'Chlorum',
+    Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
   },
@@ -37,10 +37,10 @@ const MOCK_PROPERTIES: PropertyDef[] = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'] },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: 'Сульфат-ион', tags: ['sulfate'] },
-  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name_ru: 'Фосфат-ион', tags: ['phosphate'] },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
+  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
 ];
 
 const MOCK_BOND_EXAMPLES: BondExamplesData = {
@@ -55,41 +55,41 @@ const MOCK_BOND_EXAMPLES: BondExamplesData = {
 };
 
 const MOCK_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
-  { id: 'CaO', formula: 'CaO', name_ru: 'Оксид кальция', class: 'oxide' },
-  { id: 'HCl', formula: 'HCl', name_ru: 'Соляная кислота', class: 'acid' },
-  { id: 'NaOH', formula: 'NaOH', name_ru: 'Гидроксид натрия', class: 'base' },
-  { id: 'NaCl', formula: 'NaCl', name_ru: 'Хлорид натрия', class: 'salt' },
-  { id: 'Fe2O3', formula: 'Fe\u2082O\u2083', name_ru: 'Оксид железа(III)', class: 'oxide' },
+  { id: 'CaO', formula: 'CaO', name: 'Оксид кальция', class: 'oxide' },
+  { id: 'HCl', formula: 'HCl', name: 'Соляная кислота', class: 'acid' },
+  { id: 'NaOH', formula: 'NaOH', name: 'Гидроксид натрия', class: 'base' },
+  { id: 'NaCl', formula: 'NaCl', name: 'Хлорид натрия', class: 'salt' },
+  { id: 'Fe2O3', formula: 'Fe\u2082O\u2083', name: 'Оксид железа(III)', class: 'oxide' },
 ];
 
 const MOCK_QUALITATIVE_TESTS: QualitativeTest[] = [
   {
     target_id: 'Cl_minus',
-    target_name_ru: 'Хлорид-ион',
+    target_name: 'Хлорид-ион',
     reagent_formula: 'AgNO\u2083',
-    reagent_name_ru: 'Нитрат серебра',
-    observation_ru: 'белый творожистый осадок',
+    reagent_name: 'Нитрат серебра',
+    observation: 'белый творожистый осадок',
   },
   {
     target_id: 'SO4_2minus',
-    target_name_ru: 'Сульфат-ион',
+    target_name: 'Сульфат-ион',
     reagent_formula: 'BaCl\u2082',
-    reagent_name_ru: 'Хлорид бария',
-    observation_ru: 'белый кристаллический осадок',
+    reagent_name: 'Хлорид бария',
+    observation: 'белый кристаллический осадок',
   },
   {
     target_id: 'CO3_2minus',
-    target_name_ru: 'Карбонат-ион',
+    target_name: 'Карбонат-ион',
     reagent_formula: 'HCl',
-    reagent_name_ru: 'Соляная кислота',
-    observation_ru: 'выделение газа без цвета и запаха',
+    reagent_name: 'Соляная кислота',
+    observation: 'выделение газа без цвета и запаха',
   },
   {
     target_id: 'Fe3_plus',
-    target_name_ru: 'Ион железа(III)',
+    target_name: 'Ион железа(III)',
     reagent_formula: 'KSCN',
-    reagent_name_ru: 'Тиоцианат калия',
-    observation_ru: 'кроваво-красное окрашивание',
+    reagent_name: 'Тиоцианат калия',
+    observation: 'кроваво-красное окрашивание',
   },
 ];
 

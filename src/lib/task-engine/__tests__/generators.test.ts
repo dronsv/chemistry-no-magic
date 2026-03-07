@@ -9,31 +9,31 @@ import type { OxidationExample } from '../../../types/oxidation';
 
 const MOCK_ELEMENTS: Element[] = [
   {
-    Z: 11, symbol: 'Na', name_ru: 'Натрий', name_en: 'Sodium', name_latin: 'Natrium',
+    Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
     melting_point_C: 97.8, boiling_point_C: 883, density_g_cm3: 0.97,
   },
   {
-    Z: 12, symbol: 'Mg', name_ru: 'Магний', name_en: 'Magnesium', name_latin: 'Magnesium',
+    Z: 12, symbol: 'Mg', name: 'Магний', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
     melting_point_C: 650, boiling_point_C: 1091, density_g_cm3: 1.74,
   },
   {
-    Z: 13, symbol: 'Al', name_ru: 'Алюминий', name_en: 'Aluminium', name_latin: 'Aluminium',
+    Z: 13, symbol: 'Al', name: 'Алюминий', name_latin: 'Aluminium',
     group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition_metal',
     atomic_mass: 26.982, typical_oxidation_states: [3], electronegativity: 1.61,
     melting_point_C: 660.3, boiling_point_C: 2519, density_g_cm3: 2.7,
   },
   {
-    Z: 14, symbol: 'Si', name_ru: 'Кремний', name_en: 'Silicon', name_latin: 'Silicium',
+    Z: 14, symbol: 'Si', name: 'Кремний', name_latin: 'Silicium',
     group: 14, period: 3, metal_type: 'metalloid', element_group: 'metalloid',
     atomic_mass: 28.086, typical_oxidation_states: [-4, 4], electronegativity: 1.9,
     melting_point_C: 1414, boiling_point_C: 3265, density_g_cm3: 2.33,
   },
   {
-    Z: 15, symbol: 'P', name_ru: 'Фосфор', name_en: 'Phosphorus', name_latin: 'Phosphorus',
+    Z: 15, symbol: 'P', name: 'Фосфор', name_latin: 'Phosphorus',
     group: 15, period: 3, metal_type: 'nonmetal', element_group: 'nonmetal',
     atomic_mass: 30.974, typical_oxidation_states: [-3, 3, 5], electronegativity: 2.19,
     melting_point_C: 44.15, boiling_point_C: 280.5, density_g_cm3: 1.82,
@@ -55,12 +55,12 @@ const MOCK_PROPERTIES: PropertyDef[] = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', charge: 2, type: 'cation', name_ru: 'Ион кальция', tags: ['alkaline_earth'] },
-  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', charge: 3, type: 'cation', name_ru: 'Ион алюминия', tags: ['amphoteric'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'] },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: 'Сульфат-ион', tags: ['sulfate'] },
-  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name_ru: 'Фосфат-ион', tags: ['phosphate'] },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', charge: 2, type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'] },
+  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', charge: 3, type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
+  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
 ];
 
 const MOCK_SOLUBILITY_PAIRS = [
@@ -421,30 +421,30 @@ describe('gen.pick_element_position', () => {
 // ── Phase 3 mock data ────────────────────────────────────────────
 
 const MOCK_CLASSIFICATION_RULES = [
-  { id: 'oxide_basic', class: 'oxide', subclass: 'basic_oxide', pattern: 'MeₓOᵧ', description_ru: 'Оксид металла', examples: ['Na2O', 'CaO'] },
-  { id: 'acid_oxygen', class: 'acid', pattern: 'HₓAcidRest', description_ru: 'Кислородсодержащая кислота', examples: ['H2SO4', 'HNO3'] },
+  { id: 'oxide_basic', class: 'oxide', subclass: 'basic_oxide', pattern: 'MeₓOᵧ', description: 'Оксид металла', examples: ['Na2O', 'CaO'] },
+  { id: 'acid_oxygen', class: 'acid', pattern: 'HₓAcidRest', description: 'Кислородсодержащая кислота', examples: ['H2SO4', 'HNO3'] },
 ];
 
 const MOCK_NAMING_RULES = [
-  { id: 'oxide_naming', class: 'oxide', pattern: 'MeₓOᵧ', template_ru: 'оксид {Me}', examples: [{ formula: 'Na2O', name_ru: 'оксид натрия' }, { formula: 'CaO', name_ru: 'оксид кальция' }] },
-  { id: 'acid_naming', class: 'acid', pattern: 'HₓAcidRest', template_ru: '{root}ая кислота', examples: [{ formula: 'H2SO4', name_ru: 'серная кислота' }] },
+  { id: 'oxide_naming', class: 'oxide', pattern: 'MeₓOᵧ', template: 'оксид {Me}', examples: [{ formula: 'Na2O', name: 'оксид натрия' }, { formula: 'CaO', name: 'оксид кальция' }] },
+  { id: 'acid_naming', class: 'acid', pattern: 'HₓAcidRest', template: '{root}ая кислота', examples: [{ formula: 'H2SO4', name: 'серная кислота' }] },
 ];
 
 const MOCK_ACTIVITY_SERIES = [
-  { symbol: 'Li', name_ru: 'Литий', position: 1, reduces_H: true },
-  { symbol: 'Na', name_ru: 'Натрий', position: 3, reduces_H: true },
-  { symbol: 'Cu', name_ru: 'Медь', position: 15, reduces_H: false },
+  { symbol: 'Li', name: 'Литий', position: 1, reduces_H: true },
+  { symbol: 'Na', name: 'Натрий', position: 3, reduces_H: true },
+  { symbol: 'Cu', name: 'Медь', position: 15, reduces_H: false },
 ];
 
 const MOCK_QUALITATIVE_TESTS = [
-  { target_id: 'Cl_minus', target_name_ru: 'Хлорид-ион', reagent_formula: 'AgNO3', reagent_name_ru: 'нитрат серебра', observation_ru: 'белый творожистый осадок', reaction_id: 'rx_ag_cl' },
-  { target_id: 'SO4_2minus', target_name_ru: 'Сульфат-ион', reagent_formula: 'BaCl2', reagent_name_ru: 'хлорид бария', observation_ru: 'белый осадок' },
+  { target_id: 'Cl_minus', target_name: 'Хлорид-ион', reagent_formula: 'AgNO3', reagent_name: 'нитрат серебра', observation: 'белый творожистый осадок', reaction_id: 'rx_ag_cl' },
+  { target_id: 'SO4_2minus', target_name: 'Сульфат-ион', reagent_formula: 'BaCl2', reagent_name: 'хлорид бария', observation: 'белый осадок' },
 ];
 
 const MOCK_GENETIC_CHAINS = [
   {
     chain_id: 'metal_chain',
-    title_ru: 'Цепочка металла',
+    title: 'Цепочка металла',
     class_sequence: ['metal', 'oxide', 'base', 'salt'],
     steps: [
       { substance: 'Na', reagent: 'O2', next: 'Na2O', type: 'oxidation' },
@@ -456,46 +456,46 @@ const MOCK_GENETIC_CHAINS = [
 
 const MOCK_ENERGY_CATALYST = {
   rate_factors: [
-    { factor_id: 'temperature', name_ru: 'Температура', effect_ru: 'Увеличивает скорость', detail_ru: 'Правило Вант-Гоффа', applies_to: 'all' as const },
-    { factor_id: 'concentration', name_ru: 'Концентрация', effect_ru: 'Увеличивает скорость', detail_ru: 'Закон действующих масс', applies_to: 'homogeneous' as const },
+    { factor_id: 'temperature', name: 'Температура', effect: 'Увеличивает скорость', detail: 'Правило Вант-Гоффа', applies_to: 'all' as const },
+    { factor_id: 'concentration', name: 'Концентрация', effect: 'Увеличивает скорость', detail: 'Закон действующих масс', applies_to: 'homogeneous' as const },
   ],
-  catalyst_properties: { changes_ru: ['скорость реакции'], does_not_change_ru: ['равновесие'] },
+  catalyst_properties: { changes: ['скорость реакции'], does_not_change: ['равновесие'] },
   common_catalysts: [
-    { catalyst: 'MnO2', name_ru: 'Оксид марганца(IV)', reaction_ru: 'Разложение пероксида водорода' },
+    { catalyst: 'MnO2', name: 'Оксид марганца(IV)', reaction: 'Разложение пероксида водорода' },
   ],
   equilibrium_shifts: [
-    { factor: 'temperature_increase', shift_ru: 'В сторону эндотермической реакции', explanation_ru: 'Принцип Ле Шателье' },
+    { factor: 'temperature_increase', shift: 'В сторону эндотермической реакции', explanation: 'Принцип Ле Шателье' },
   ],
-  heat_classification: { exothermic_ru: 'Экзотермическая', endothermic_ru: 'Эндотермическая', examples_exo_ru: ['горение'], examples_endo_ru: ['разложение'] },
+  heat_classification: { exothermic: 'Экзотермическая', endothermic: 'Эндотермическая', examples_exo: ['горение'], examples_endo: ['разложение'] },
 };
 
 const MOCK_CALCULATIONS_DATA = {
   calc_substances: [
-    { formula: 'H2O', name_ru: 'вода', M: 18, composition: [{ element: 'H', Ar: 1, count: 2 }, { element: 'O', Ar: 16, count: 1 }] },
-    { formula: 'NaCl', name_ru: 'хлорид натрия', M: 58.5, composition: [{ element: 'Na', Ar: 23, count: 1 }, { element: 'Cl', Ar: 35.5, count: 1 }] },
+    { formula: 'H2O', name: 'вода', M: 18, composition: [{ element: 'H', Ar: 1, count: 2 }, { element: 'O', Ar: 16, count: 1 }] },
+    { formula: 'NaCl', name: 'хлорид натрия', M: 58.5, composition: [{ element: 'Na', Ar: 23, count: 1 }, { element: 'Cl', Ar: 35.5, count: 1 }] },
   ],
   calc_reactions: [
-    { equation_ru: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
+    { equation: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
   ],
 };
 
 const MOCK_ION_NOMENCLATURE = {
   suffix_rules: [
-    { id: 'binary_anion', condition: 'бескислородная кислота', suffix_ru: '-ид', suffix_en: '-ide', description_ru: 'Для бескислородных анионов', examples: ['Cl⁻ — хлорид'] },
-    { id: 'oxy_max', condition: 'максимальная степень окисления', suffix_ru: '-ат', suffix_en: '-ate', description_ru: 'Для кислородсодержащих анионов (макс. с.о.)', examples: ['SO₄²⁻ — сульфат'] },
+    { id: 'binary_anion', condition: 'бескислородная кислота', suffix: '-ид', suffix_en: '-ide', description: 'Для бескислородных анионов', examples: ['Cl⁻ — хлорид'] },
+    { id: 'oxy_max', condition: 'максимальная степень окисления', suffix: '-ат', suffix_en: '-ate', description: 'Для кислородсодержащих анионов (макс. с.о.)', examples: ['SO₄²⁻ — сульфат'] },
   ],
-  multilingual_comparison: { description_ru: 'Сравнение', columns: ['ru', 'en'], binary: ['хлорид', 'chloride'], oxy_max: ['сульфат', 'sulfate'], oxy_lower: ['сульфит', 'sulfite'] },
-  mnemonic_ru: 'Ат — больше кислорода, ит — меньше',
+  multilingual_comparison: { description: 'Сравнение', columns: ['ru', 'en'], binary: ['хлорид', 'chloride'], oxy_max: ['сульфат', 'sulfate'], oxy_lower: ['сульфит', 'sulfite'] },
+  mnemonic: 'Ат — больше кислорода, ит — меньше',
   acid_to_anion_pairs: [
-    { acid: 'HCl', anion_id: 'Cl_minus', acid_name_ru: 'соляная кислота' },
-    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name_ru: 'серная кислота' },
+    { acid: 'HCl', anion_id: 'Cl_minus', acid_name: 'соляная кислота' },
+    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name: 'серная кислота' },
   ],
 };
 
 const MOCK_IONS_WITH_NAMING: Ion[] = [
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'], naming: { root_ru: 'хлор', suffix_ru: '-ид', oxidation_state: -1 } },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: 'Сульфат-ион', tags: ['sulfate'], naming: { root_ru: 'сульф', suffix_ru: '-ат', oxidation_state: 6 } },
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'], naming: { root: 'сульф', suffix: '-ат', oxidation_state: 6 } },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
 ];
 
 const dataWithClassification: OntologyData = {
@@ -763,9 +763,9 @@ describe('gen.pick_thermo_reaction', () => {
     calc_substances: MOCK_CALCULATIONS_DATA.calc_substances,
     calc_reactions: [
       // Reaction WITH delta_H_kJmol (thermo reaction)
-      { equation_ru: 'H2 + 1/2 O2 → H2O', given: { formula: 'H2', coeff: 1, M: 2 }, find: { formula: 'H2O', coeff: 1, M: 18 }, delta_H_kJmol: -285.8 },
+      { equation: 'H2 + 1/2 O2 → H2O', given: { formula: 'H2', coeff: 1, M: 2 }, find: { formula: 'H2O', coeff: 1, M: 18 }, delta_H_kJmol: -285.8 },
       // Reaction WITHOUT delta_H_kJmol (should be excluded)
-      { equation_ru: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
+      { equation: '2Na + 2H2O → 2NaOH + H2↑', given: { formula: 'Na', coeff: 2, M: 23 }, find: { formula: 'NaOH', coeff: 2, M: 40 } },
     ],
   };
 
@@ -845,8 +845,7 @@ describe('gen.pick_ion_nomenclature', () => {
     expect(result.mode).toBe('default');
     expect(result).toHaveProperty('rule_id');
     expect(result).toHaveProperty('condition');
-    expect(result).toHaveProperty('suffix_ru');
-    expect(result).toHaveProperty('suffix_en');
+    expect(result).toHaveProperty('suffix');
     expect(result).toHaveProperty('description');
     expect(result).toHaveProperty('examples');
   });

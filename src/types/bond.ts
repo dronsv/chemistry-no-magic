@@ -1,24 +1,24 @@
 export interface BondTypeInfo {
   id: string;
-  name_ru: string;
-  description_ru: string;
-  rule_ru: string;
+  name: string;
+  description: string;
+  rule: string;
   examples: string[];
-  properties_ru: string;
+  properties: string;
 }
 
 import type { MatterRef } from './matter';
 
 export interface CrystalStructureInfo {
   id: string;
-  name_ru: string;
+  name: string;
   bond_type: string;
-  description_ru: string;
+  description: string;
   properties: {
-    melting_point_ru: string;
-    hardness_ru: string;
-    conductivity_ru: string;
-    solubility_ru: string;
+    melting_point: string;
+    hardness: string;
+    conductivity: string;
+    solubility: string;
   };
   examples: MatterRef[];
 }

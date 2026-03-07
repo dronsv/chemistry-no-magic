@@ -1,43 +1,125 @@
 {
-  "H_plus": { "name_ru": "Ion hidrógeno" },
-  "Na_plus": { "name_ru": "Ion sodio" },
-  "K_plus": { "name_ru": "Ion potasio" },
-  "NH4_plus": { "name_ru": "Ion amonio" },
-  "Ca_2plus": { "name_ru": "Ion calcio" },
-  "Mg_2plus": { "name_ru": "Ion magnesio" },
-  "Ba_2plus": { "name_ru": "Ion bario" },
-  "Al_3plus": { "name_ru": "Ion aluminio" },
-  "Fe_2plus": { "name_ru": "Ion hierro(II)" },
-  "Fe_3plus": { "name_ru": "Ion hierro(III)" },
-  "Cu_2plus": { "name_ru": "Ion cobre(II)" },
-  "Zn_2plus": { "name_ru": "Ion zinc" },
-  "Ag_plus": { "name_ru": "Ion plata" },
-  "Pb_2plus": { "name_ru": "Ion plomo(II)" },
-  "Li_plus": { "name_ru": "Ion litio" },
-  "Sr_2plus": { "name_ru": "Ion estroncio" },
-  "Mn_2plus": { "name_ru": "Ion manganeso(II)" },
-  "Ni_2plus": { "name_ru": "Ion níquel(II)" },
-  "Co_2plus": { "name_ru": "Ion cobalto(II)" },
-  "Cd_2plus": { "name_ru": "Ion cadmio" },
-  "Hg_2plus": { "name_ru": "Ion mercurio(II)" },
-  "Hg2_2plus": { "name_ru": "Ion mercurio(I)" },
-  "Sn_2plus": { "name_ru": "Ion estaño(II)" },
-  "Cr_3plus": { "name_ru": "Ion cromo(III)" },
-  "OH_minus": { "name_ru": "Ion hidróxido" },
-  "F_minus": { "name_ru": "Ion fluoruro" },
-  "Cl_minus": { "name_ru": "Ion cloruro" },
-  "Br_minus": { "name_ru": "Ion bromuro" },
-  "I_minus": { "name_ru": "Ion yoduro" },
-  "S_2minus": { "name_ru": "Ion sulfuro" },
-  "SO4_2minus": { "name_ru": "Ion sulfato" },
-  "SO3_2minus": { "name_ru": "Ion sulfito" },
-  "NO3_minus": { "name_ru": "Ion nitrato" },
-  "NO2_minus": { "name_ru": "Ion nitrito" },
-  "CO3_2minus": { "name_ru": "Ion carbonato" },
-  "SiO3_2minus": { "name_ru": "Ion silicato" },
-  "PO4_3minus": { "name_ru": "Ion fosfato" },
-  "CH3COO_minus": { "name_ru": "Ion acetato" },
-  "MnO4_minus": { "name_ru": "Ion permanganato" },
-  "CrO4_2minus": { "name_ru": "Ion cromato" },
-  "Cr2O7_2minus": { "name_ru": "Ion dicromato" }
+  "H_plus": {
+    "name": "Ion hidrógeno"
+  },
+  "Na_plus": {
+    "name": "Ion sodio"
+  },
+  "K_plus": {
+    "name": "Ion potasio"
+  },
+  "NH4_plus": {
+    "name": "Ion amonio"
+  },
+  "Ca_2plus": {
+    "name": "Ion calcio"
+  },
+  "Mg_2plus": {
+    "name": "Ion magnesio"
+  },
+  "Ba_2plus": {
+    "name": "Ion bario"
+  },
+  "Al_3plus": {
+    "name": "Ion aluminio"
+  },
+  "Fe_2plus": {
+    "name": "Ion hierro(II)"
+  },
+  "Fe_3plus": {
+    "name": "Ion hierro(III)"
+  },
+  "Cu_2plus": {
+    "name": "Ion cobre(II)"
+  },
+  "Zn_2plus": {
+    "name": "Ion zinc"
+  },
+  "Ag_plus": {
+    "name": "Ion plata"
+  },
+  "Pb_2plus": {
+    "name": "Ion plomo(II)"
+  },
+  "Li_plus": {
+    "name": "Ion litio"
+  },
+  "Sr_2plus": {
+    "name": "Ion estroncio"
+  },
+  "Mn_2plus": {
+    "name": "Ion manganeso(II)"
+  },
+  "Ni_2plus": {
+    "name": "Ion níquel(II)"
+  },
+  "Co_2plus": {
+    "name": "Ion cobalto(II)"
+  },
+  "Cd_2plus": {
+    "name": "Ion cadmio"
+  },
+  "Hg_2plus": {
+    "name": "Ion mercurio(II)"
+  },
+  "Hg2_2plus": {
+    "name": "Ion mercurio(I)"
+  },
+  "Sn_2plus": {
+    "name": "Ion estaño(II)"
+  },
+  "Cr_3plus": {
+    "name": "Ion cromo(III)"
+  },
+  "OH_minus": {
+    "name": "Ion hidróxido"
+  },
+  "F_minus": {
+    "name": "Ion fluoruro"
+  },
+  "Cl_minus": {
+    "name": "Ion cloruro"
+  },
+  "Br_minus": {
+    "name": "Ion bromuro"
+  },
+  "I_minus": {
+    "name": "Ion yoduro"
+  },
+  "S_2minus": {
+    "name": "Ion sulfuro"
+  },
+  "SO4_2minus": {
+    "name": "Ion sulfato"
+  },
+  "SO3_2minus": {
+    "name": "Ion sulfito"
+  },
+  "NO3_minus": {
+    "name": "Ion nitrato"
+  },
+  "NO2_minus": {
+    "name": "Ion nitrito"
+  },
+  "CO3_2minus": {
+    "name": "Ion carbonato"
+  },
+  "SiO3_2minus": {
+    "name": "Ion silicato"
+  },
+  "PO4_3minus": {
+    "name": "Ion fosfato"
+  },
+  "CH3COO_minus": {
+    "name": "Ion acetato"
+  },
+  "MnO4_minus": {
+    "name": "Ion permanganato"
+  },
+  "CrO4_2minus": {
+    "name": "Ion cromato"
+  },
+  "Cr2O7_2minus": {
+    "name": "Ion dicromato"
+  }
 }

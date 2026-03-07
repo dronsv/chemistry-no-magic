@@ -1,183 +1,381 @@
 {
   "matura_2024_01a": {
-    "question_ru": "Un átomo de cierto elemento tiene la configuración electrónica 1s² 2s² 2p⁶ 3s² 3p⁴. Indica el número del período (X) y el número del grupo (Y) en los que se encuentra este elemento en la tabla periódica.",
-    "explanation_ru": "La configuración 1s² 2s² 2p⁶ 3s² 3p⁴ significa 16 electrones (Z = 16, azufre). Tres capas — período 3. Grupo = 10 + número de electrones s y p en la última capa: 2 + 4 = 6, es decir, grupo 16 (IUPAC). Respuesta: X = 3, Y = 16.",
-    "input_labels": ["X", "Y"]
+    "question": "Un átomo de cierto elemento tiene la configuración electrónica 1s² 2s² 2p⁶ 3s² 3p⁴. Indica el número del período (X) y el número del grupo (Y) en los que se encuentra este elemento en la tabla periódica.",
+    "explanation": "La configuración 1s² 2s² 2p⁶ 3s² 3p⁴ significa 16 electrones (Z = 16, azufre). Tres capas — período 3. Grupo = 10 + número de electrones s y p en la última capa: 2 + 4 = 6, es decir, grupo 16 (IUPAC). Respuesta: X = 3, Y = 16.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "matura_2024_01b": {
-    "question_ru": "Selecciona dos afirmaciones correctas sobre la estructura del átomo del isótopo ⁵⁶Fe.",
-    "explanation_ru": "⁵⁶Fe: Z = 26 (26 protones, 26 electrones), A = 56 (30 neutrones = 56 − 26). La afirmación 1 es correcta (26p, 30n). La afirmación 4 es correcta: la configuración del hierro en estado fundamental es [Ar] 3d⁶ 4s². Las afirmaciones 2, 3 y 5 son incorrectas.",
+    "question": "Selecciona dos afirmaciones correctas sobre la estructura del átomo del isótopo ⁵⁶Fe.",
+    "explanation": "⁵⁶Fe: Z = 26 (26 protones, 26 electrones), A = 56 (30 neutrones = 56 − 26). La afirmación 1 es correcta (26p, 30n). La afirmación 4 es correcta: la configuración del hierro en estado fundamental es [Ar] 3d⁶ 4s². Las afirmaciones 2, 3 y 5 son incorrectas.",
     "options": [
-      { "id": "1", "text": "El núcleo del átomo contiene 26 protones y 30 neutrones." },
-      { "id": "2", "text": "El átomo tiene 56 electrones." },
-      { "id": "3", "text": "El número másico de este isótopo es 26." },
-      { "id": "4", "text": "En estado fundamental, el átomo tiene la configuración [Ar] 3d⁶ 4s²." },
-      { "id": "5", "text": "El átomo tiene 56 protones en el núcleo." }
+      {
+        "id": "1",
+        "text": "El núcleo del átomo contiene 26 protones y 30 neutrones."
+      },
+      {
+        "id": "2",
+        "text": "El átomo tiene 56 electrones."
+      },
+      {
+        "id": "3",
+        "text": "El número másico de este isótopo es 26."
+      },
+      {
+        "id": "4",
+        "text": "En estado fundamental, el átomo tiene la configuración [Ar] 3d⁶ 4s²."
+      },
+      {
+        "id": "5",
+        "text": "El átomo tiene 56 protones en el núcleo."
+      }
     ]
   },
   "matura_2024_01c": {
-    "question_ru": "Ordena los siguientes elementos en orden creciente de la primera energía de ionización.\n  1) Na  2) Mg  3) Al",
-    "explanation_ru": "En el tercer período, la energía de ionización generalmente aumenta de izquierda a derecha, pero Al (3p¹) tiene menor energía de ionización que Mg (3s² — la subcapa s completa es más estable). Orden correcto: Na (495,8 kJ/mol) < Al (577,5 kJ/mol) < Mg (737,7 kJ/mol), es decir, 1 → 3 → 2.",
+    "question": "Ordena los siguientes elementos en orden creciente de la primera energía de ionización.\n  1) Na  2) Mg  3) Al",
+    "explanation": "En el tercer período, la energía de ionización generalmente aumenta de izquierda a derecha, pero Al (3p¹) tiene menor energía de ionización que Mg (3s² — la subcapa s completa es más estable). Orden correcto: Na (495,8 kJ/mol) < Al (577,5 kJ/mol) < Mg (737,7 kJ/mol), es decir, 1 → 3 → 2.",
     "items": [
-      { "id": "1", "text": "Na" },
-      { "id": "2", "text": "Mg" },
-      { "id": "3", "text": "Al" }
+      {
+        "id": "1",
+        "text": "Na"
+      },
+      {
+        "id": "2",
+        "text": "Mg"
+      },
+      {
+        "id": "3",
+        "text": "Al"
+      }
     ]
   },
   "matura_2024_02a": {
-    "question_ru": "Asigna a cada sustancia el tipo de enlace químico predominante en su estructura.",
-    "explanation_ru": "NaCl — sal, enlace iónico (1). H₂O — molécula con enlace covalente polar O–H (2). Fe — metal, enlace metálico (4). Respuesta: A→1, B→2, C→4.",
+    "question": "Asigna a cada sustancia el tipo de enlace químico predominante en su estructura.",
+    "explanation": "NaCl — sal, enlace iónico (1). H₂O — molécula con enlace covalente polar O–H (2). Fe — metal, enlace metálico (4). Respuesta: A→1, B→2, C→4.",
     "left_items": [
-      { "label": "A", "text": "NaCl" },
-      { "label": "B", "text": "H₂O" },
-      { "label": "C", "text": "Fe" }
+      {
+        "label": "A",
+        "text": "NaCl"
+      },
+      {
+        "label": "B",
+        "text": "H₂O"
+      },
+      {
+        "label": "C",
+        "text": "Fe"
+      }
     ],
     "options": [
-      { "id": "1", "text": "enlace iónico" },
-      { "id": "2", "text": "enlace covalente polar" },
-      { "id": "3", "text": "enlace covalente apolar" },
-      { "id": "4", "text": "enlace metálico" }
+      {
+        "id": "1",
+        "text": "enlace iónico"
+      },
+      {
+        "id": "2",
+        "text": "enlace covalente polar"
+      },
+      {
+        "id": "3",
+        "text": "enlace covalente apolar"
+      },
+      {
+        "id": "4",
+        "text": "enlace metálico"
+      }
     ]
   },
   "matura_2024_02c": {
-    "question_ru": "Explica por qué el punto de ebullición del agua (100 °C) es mucho más alto que el del sulfuro de hidrógeno H₂S (−60 °C), a pesar de que H₂S tiene mayor masa molecular. En tu respuesta, haz referencia al tipo de interacciones intermoleculares.",
-    "explanation_ru": "Puntos clave: (1) el agua forma enlaces de hidrógeno O–H···O, (2) el azufre es menos electronegativo y tiene mayor radio que el oxígeno, por lo que el H₂S no forma enlaces de hidrógeno efectivos, (3) interacciones intermoleculares más fuertes = punto de ebullición más alto."
+    "question": "Explica por qué el punto de ebullición del agua (100 °C) es mucho más alto que el del sulfuro de hidrógeno H₂S (−60 °C), a pesar de que H₂S tiene mayor masa molecular. En tu respuesta, haz referencia al tipo de interacciones intermoleculares.",
+    "explanation": "Puntos clave: (1) el agua forma enlaces de hidrógeno O–H···O, (2) el azufre es menos electronegativo y tiene mayor radio que el oxígeno, por lo que el H₂S no forma enlaces de hidrógeno efectivos, (3) interacciones intermoleculares más fuertes = punto de ebullición más alto."
   },
   "matura_2024_03a": {
-    "question_ru": "Calcula la masa molar del sulfato de amonio (NH₄)₂SO₄ y expresa el resultado en g/mol redondeado a números enteros.",
-    "explanation_ru": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 g/mol."
+    "question": "Calcula la masa molar del sulfato de amonio (NH₄)₂SO₄ y expresa el resultado en g/mol redondeado a números enteros.",
+    "explanation": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 g/mol."
   },
   "matura_2024_03b": {
-    "question_ru": "En la reacción de combustión completa del metano: CH₄ + 2O₂ → CO₂ + 2H₂O, se quemaron 8,0 g de metano. Calcula el volumen (en dm³) de CO₂ producido en condiciones normales (CN: 1 mol de gas = 22,4 dm³). Expresa el resultado con precisión de décimas.",
-    "explanation_ru": "M(CH₄) = 16 g/mol. n(CH₄) = 8,0 / 16 = 0,5 mol. De la ecuación: n(CO₂) = n(CH₄) = 0,5 mol. V(CO₂) = 0,5 × 22,4 = 11,2 dm³."
+    "question": "En la reacción de combustión completa del metano: CH₄ + 2O₂ → CO₂ + 2H₂O, se quemaron 8,0 g de metano. Calcula el volumen (en dm³) de CO₂ producido en condiciones normales (CN: 1 mol de gas = 22,4 dm³). Expresa el resultado con precisión de décimas.",
+    "explanation": "M(CH₄) = 16 g/mol. n(CH₄) = 8,0 / 16 = 0,5 mol. De la ecuación: n(CO₂) = n(CH₄) = 0,5 mol. V(CO₂) = 0,5 × 22,4 = 11,2 dm³."
   },
   "matura_2024_03c": {
-    "question_ru": "Asigna a cada descripción la ley o concepto estequiométrico correspondiente.",
-    "explanation_ru": "A — ley de Avogadro (1): volúmenes iguales de gases → mismo número de moléculas. B — ley de conservación de la masa (2): masa de reactivos = masa de productos. C — ley de las proporciones definidas (Proust) (3): proporción constante de masas de los elementos.",
+    "question": "Asigna a cada descripción la ley o concepto estequiométrico correspondiente.",
+    "explanation": "A — ley de Avogadro (1): volúmenes iguales de gases → mismo número de moléculas. B — ley de conservación de la masa (2): masa de reactivos = masa de productos. C — ley de las proporciones definidas (Proust) (3): proporción constante de masas de los elementos.",
     "left_items": [
-      { "label": "A", "text": "En las mismas condiciones de T y p, volúmenes iguales de gases contienen el mismo número de moléculas." },
-      { "label": "B", "text": "La masa de los reactivos en una reacción química es igual a la masa de los productos." },
-      { "label": "C", "text": "La proporción de masas de los elementos en un compuesto químico dado es constante." }
+      {
+        "label": "A",
+        "text": "En las mismas condiciones de T y p, volúmenes iguales de gases contienen el mismo número de moléculas."
+      },
+      {
+        "label": "B",
+        "text": "La masa de los reactivos en una reacción química es igual a la masa de los productos."
+      },
+      {
+        "label": "C",
+        "text": "La proporción de masas de los elementos en un compuesto químico dado es constante."
+      }
     ],
     "options": [
-      { "id": "1", "text": "ley de Avogadro" },
-      { "id": "2", "text": "ley de conservación de la masa (Lomonósov–Lavoisier)" },
-      { "id": "3", "text": "ley de las proporciones definidas (Proust)" },
-      { "id": "4", "text": "ley de Gay-Lussac" }
+      {
+        "id": "1",
+        "text": "ley de Avogadro"
+      },
+      {
+        "id": "2",
+        "text": "ley de conservación de la masa (Lomonósov–Lavoisier)"
+      },
+      {
+        "id": "3",
+        "text": "ley de las proporciones definidas (Proust)"
+      },
+      {
+        "id": "4",
+        "text": "ley de Gay-Lussac"
+      }
     ]
   },
   "matura_2024_04a": {
-    "question_ru": "Ordena los siguientes ácidos en orden creciente de fuerza ácida.\n  1) HClO₄  2) HClO  3) HClO₃",
-    "explanation_ru": "La fuerza de los oxoácidos aumenta con el estado de oxidación del átomo central (más átomos de oxígeno aumentan la deslocalización de la carga negativa en el anión). HClO (Cl⁺¹, el más débil) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, el más fuerte). Orden: 2 → 3 → 1.",
+    "question": "Ordena los siguientes ácidos en orden creciente de fuerza ácida.\n  1) HClO₄  2) HClO  3) HClO₃",
+    "explanation": "La fuerza de los oxoácidos aumenta con el estado de oxidación del átomo central (más átomos de oxígeno aumentan la deslocalización de la carga negativa en el anión). HClO (Cl⁺¹, el más débil) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, el más fuerte). Orden: 2 → 3 → 1.",
     "items": [
-      { "id": "1", "text": "HClO₄" },
-      { "id": "2", "text": "HClO" },
-      { "id": "3", "text": "HClO₃" }
+      {
+        "id": "1",
+        "text": "HClO₄"
+      },
+      {
+        "id": "2",
+        "text": "HClO"
+      },
+      {
+        "id": "3",
+        "text": "HClO₃"
+      }
     ]
   },
   "matura_2024_04b": {
-    "question_ru": "Asigna a cada disolución el carácter químico (reacción del medio) correspondiente.",
-    "explanation_ru": "CH₃COONa — sal de ácido débil y base fuerte → hidrólisis aniónica → pH > 7 (2). NH₄Cl — sal de base débil y ácido fuerte → hidrólisis catiónica → pH < 7 (1). KNO₃ — sal de ácido fuerte y base fuerte → sin hidrólisis → pH = 7 (3).",
+    "question": "Asigna a cada disolución el carácter químico (reacción del medio) correspondiente.",
+    "explanation": "CH₃COONa — sal de ácido débil y base fuerte → hidrólisis aniónica → pH > 7 (2). NH₄Cl — sal de base débil y ácido fuerte → hidrólisis catiónica → pH < 7 (1). KNO₃ — sal de ácido fuerte y base fuerte → sin hidrólisis → pH = 7 (3).",
     "left_items": [
-      { "label": "A", "text": "0,1 mol/dm³ CH₃COONa" },
-      { "label": "B", "text": "0,1 mol/dm³ NH₄Cl" },
-      { "label": "C", "text": "0,1 mol/dm³ KNO₃" }
+      {
+        "label": "A",
+        "text": "0,1 mol/dm³ CH₃COONa"
+      },
+      {
+        "label": "B",
+        "text": "0,1 mol/dm³ NH₄Cl"
+      },
+      {
+        "label": "C",
+        "text": "0,1 mol/dm³ KNO₃"
+      }
     ],
     "options": [
-      { "id": "1", "text": "medio ácido (pH < 7)" },
-      { "id": "2", "text": "medio básico (pH > 7)" },
-      { "id": "3", "text": "medio neutro (pH = 7)" },
-      { "id": "4", "text": "fuertemente ácido (pH < 2)" }
+      {
+        "id": "1",
+        "text": "medio ácido (pH < 7)"
+      },
+      {
+        "id": "2",
+        "text": "medio básico (pH > 7)"
+      },
+      {
+        "id": "3",
+        "text": "medio neutro (pH = 7)"
+      },
+      {
+        "id": "4",
+        "text": "fuertemente ácido (pH < 2)"
+      }
     ]
   },
   "matura_2024_05a": {
-    "question_ru": "Para la reacción: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O, indica los estados de oxidación del manganeso en el reactivo (X) y en el producto (Y).",
-    "explanation_ru": "En KMnO₄: K⁺¹, O²⁻, por lo tanto Mn: +1 + x + 4×(−2) = 0 → x = +7. En MnCl₂: Cl⁻¹, por lo tanto Mn: x + 2×(−1) = 0 → x = +2. El manganeso se reduce de +7 a +2.",
-    "input_labels": ["X", "Y"]
+    "question": "Para la reacción: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O, indica los estados de oxidación del manganeso en el reactivo (X) y en el producto (Y).",
+    "explanation": "En KMnO₄: K⁺¹, O²⁻, por lo tanto Mn: +1 + x + 4×(−2) = 0 → x = +7. En MnCl₂: Cl⁻¹, por lo tanto Mn: x + 2×(−1) = 0 → x = +2. El manganeso se reduce de +7 a +2.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "matura_2024_05b": {
-    "question_ru": "Selecciona dos procesos que sean ejemplos de oxidación.",
-    "explanation_ru": "La oxidación es la pérdida de electrones (aumento del estado de oxidación). Fe²⁺ → Fe³⁺ + e⁻ (1) — oxidación del hierro. S²⁻ → S⁰ + 2e⁻ (3) — oxidación del azufre. Los restantes (2, 4, 5) son reducción (ganancia de electrones).",
+    "question": "Selecciona dos procesos que sean ejemplos de oxidación.",
+    "explanation": "La oxidación es la pérdida de electrones (aumento del estado de oxidación). Fe²⁺ → Fe³⁺ + e⁻ (1) — oxidación del hierro. S²⁻ → S⁰ + 2e⁻ (3) — oxidación del azufre. Los restantes (2, 4, 5) son reducción (ganancia de electrones).",
     "options": [
-      { "id": "1", "text": "Fe²⁺ → Fe³⁺ + e⁻" },
-      { "id": "2", "text": "Cu²⁺ + 2e⁻ → Cu" },
-      { "id": "3", "text": "S²⁻ → S⁰ + 2e⁻" },
-      { "id": "4", "text": "Cl₂ + 2e⁻ → 2Cl⁻" },
-      { "id": "5", "text": "Ag⁺ + e⁻ → Ag" }
+      {
+        "id": "1",
+        "text": "Fe²⁺ → Fe³⁺ + e⁻"
+      },
+      {
+        "id": "2",
+        "text": "Cu²⁺ + 2e⁻ → Cu"
+      },
+      {
+        "id": "3",
+        "text": "S²⁻ → S⁰ + 2e⁻"
+      },
+      {
+        "id": "4",
+        "text": "Cl₂ + 2e⁻ → 2Cl⁻"
+      },
+      {
+        "id": "5",
+        "text": "Ag⁺ + e⁻ → Ag"
+      }
     ]
   },
   "matura_2024_06a": {
-    "question_ru": "Asigna a cada compuesto orgánico el grupo funcional correspondiente.",
-    "explanation_ru": "CH₃COOH — ácido acético, contiene el grupo carboxilo −COOH (2). CH₃CHO — acetaldehído (etanal), contiene el grupo aldehído −CHO (3). C₂H₅OH — etanol, contiene el grupo hidroxilo −OH (1).",
+    "question": "Asigna a cada compuesto orgánico el grupo funcional correspondiente.",
+    "explanation": "CH₃COOH — ácido acético, contiene el grupo carboxilo −COOH (2). CH₃CHO — acetaldehído (etanal), contiene el grupo aldehído −CHO (3). C₂H₅OH — etanol, contiene el grupo hidroxilo −OH (1).",
     "left_items": [
-      { "label": "A", "text": "CH₃COOH" },
-      { "label": "B", "text": "CH₃CHO" },
-      { "label": "C", "text": "C₂H₅OH" }
+      {
+        "label": "A",
+        "text": "CH₃COOH"
+      },
+      {
+        "label": "B",
+        "text": "CH₃CHO"
+      },
+      {
+        "label": "C",
+        "text": "C₂H₅OH"
+      }
     ],
     "options": [
-      { "id": "1", "text": "grupo hidroxilo −OH" },
-      { "id": "2", "text": "grupo carboxilo −COOH" },
-      { "id": "3", "text": "grupo aldehído −CHO" },
-      { "id": "4", "text": "grupo amino −NH₂" }
+      {
+        "id": "1",
+        "text": "grupo hidroxilo −OH"
+      },
+      {
+        "id": "2",
+        "text": "grupo carboxilo −COOH"
+      },
+      {
+        "id": "3",
+        "text": "grupo aldehído −CHO"
+      },
+      {
+        "id": "4",
+        "text": "grupo amino −NH₂"
+      }
     ]
   },
   "matura_2024_06b": {
-    "question_ru": "Selecciona dos compuestos que darán resultado positivo en la prueba de Tollens (reacción del espejo de plata).",
-    "explanation_ru": "La prueba de Tollens detecta el grupo aldehído (−CHO). El metanal (HCHO) es un aldehído (1) — produce un espejo de plata. La glucosa (3) tiene un grupo aldehído oculto en su forma de cadena abierta. La acetona es una cetona (no reacciona), el etanol es un alcohol, el ácido benzoico es un ácido carboxílico — ninguno de ellos da positivo en la prueba de Tollens.",
+    "question": "Selecciona dos compuestos que darán resultado positivo en la prueba de Tollens (reacción del espejo de plata).",
+    "explanation": "La prueba de Tollens detecta el grupo aldehído (−CHO). El metanal (HCHO) es un aldehído (1) — produce un espejo de plata. La glucosa (3) tiene un grupo aldehído oculto en su forma de cadena abierta. La acetona es una cetona (no reacciona), el etanol es un alcohol, el ácido benzoico es un ácido carboxílico — ninguno de ellos da positivo en la prueba de Tollens.",
     "options": [
-      { "id": "1", "text": "metanal (HCHO)" },
-      { "id": "2", "text": "propanona (acetona, CH₃COCH₃)" },
-      { "id": "3", "text": "glucosa (C₆H₁₂O₆)" },
-      { "id": "4", "text": "etanol (C₂H₅OH)" },
-      { "id": "5", "text": "ácido benzoico (C₆H₅COOH)" }
+      {
+        "id": "1",
+        "text": "metanal (HCHO)"
+      },
+      {
+        "id": "2",
+        "text": "propanona (acetona, CH₃COCH₃)"
+      },
+      {
+        "id": "3",
+        "text": "glucosa (C₆H₁₂O₆)"
+      },
+      {
+        "id": "4",
+        "text": "etanol (C₂H₅OH)"
+      },
+      {
+        "id": "5",
+        "text": "ácido benzoico (C₆H₅COOH)"
+      }
     ]
   },
   "matura_2024_06c": {
-    "question_ru": "Escribe la ecuación de la reacción de esterificación del ácido acético con etanol. Indica el nombre sistemático (IUPAC) del éster resultante y las condiciones de la reacción.",
-    "explanation_ru": "Esterificación: ácido carboxílico + alcohol ⇌ éster + agua. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Nombre IUPAC: etanoato de etilo (comúnmente acetato de etilo). Catalizador: H₂SO₄ concentrado. La reacción es reversible — el equilibrio se desplaza hacia los productos eliminando agua, por ejemplo."
+    "question": "Escribe la ecuación de la reacción de esterificación del ácido acético con etanol. Indica el nombre sistemático (IUPAC) del éster resultante y las condiciones de la reacción.",
+    "explanation": "Esterificación: ácido carboxílico + alcohol ⇌ éster + agua. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Nombre IUPAC: etanoato de etilo (comúnmente acetato de etilo). Catalizador: H₂SO₄ concentrado. La reacción es reversible — el equilibrio se desplaza hacia los productos eliminando agua, por ejemplo."
   },
   "matura_2024_07a": {
-    "question_ru": "Para la reacción en equilibrio: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ\nSelecciona dos factores que desplazan el equilibrio hacia los productos (hacia la derecha).",
-    "explanation_ru": "Principio de Le Chatelier: (1) Aumentar la presión desplaza el equilibrio hacia el menor número de moles gaseosos: 4 moles de reactivos → 2 moles de productos, es decir, hacia la derecha. (3) Disminuir la temperatura favorece la reacción exotérmica (ΔH < 0), es decir, hacia la derecha. El catalizador (4) no desplaza el equilibrio. Aumentar la temperatura (2) y disminuir la presión (5) lo desplazan hacia la izquierda.",
+    "question": "Para la reacción en equilibrio: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ\nSelecciona dos factores que desplazan el equilibrio hacia los productos (hacia la derecha).",
+    "explanation": "Principio de Le Chatelier: (1) Aumentar la presión desplaza el equilibrio hacia el menor número de moles gaseosos: 4 moles de reactivos → 2 moles de productos, es decir, hacia la derecha. (3) Disminuir la temperatura favorece la reacción exotérmica (ΔH < 0), es decir, hacia la derecha. El catalizador (4) no desplaza el equilibrio. Aumentar la temperatura (2) y disminuir la presión (5) lo desplazan hacia la izquierda.",
     "options": [
-      { "id": "1", "text": "aumento de la presión" },
-      { "id": "2", "text": "aumento de la temperatura" },
-      { "id": "3", "text": "disminución de la temperatura" },
-      { "id": "4", "text": "adición de un catalizador" },
-      { "id": "5", "text": "disminución de la presión" }
+      {
+        "id": "1",
+        "text": "aumento de la presión"
+      },
+      {
+        "id": "2",
+        "text": "aumento de la temperatura"
+      },
+      {
+        "id": "3",
+        "text": "disminución de la temperatura"
+      },
+      {
+        "id": "4",
+        "text": "adición de un catalizador"
+      },
+      {
+        "id": "5",
+        "text": "disminución de la presión"
+      }
     ]
   },
   "matura_2024_07b": {
-    "context_ru": "En un experimento se estudió la velocidad de descomposición del peróxido de hidrógeno: 2H₂O₂ → 2H₂O + O₂. Se midió el volumen de O₂ desprendido en función del tiempo. En el experimento A se usaron 50 cm³ de disolución de H₂O₂ a una concentración de 0,5 mol/dm³ a 20 °C. En el experimento B se cambió una condición.",
-    "question_ru": "¿Cuál de los siguientes factores podría hacer que en el experimento B el gas se desprendiera más rápido, pero el volumen final de O₂ fuera el mismo que en A? Indica el número y justifica tu elección.",
-    "explanation_ru": "Un catalizador (MnO₂) acelera la reacción pero no cambia la cantidad de reactivos — el volumen final de O₂ es el mismo (mismos moles de H₂O₂). Aumentar la concentración (1) aumentaría tanto la velocidad como el volumen final (más moles de H₂O₂). Reducir el volumen de disolución (3) daría un volumen final menor.",
+    "context": "En un experimento se estudió la velocidad de descomposición del peróxido de hidrógeno: 2H₂O₂ → 2H₂O + O₂. Se midió el volumen de O₂ desprendido en función del tiempo. En el experimento A se usaron 50 cm³ de disolución de H₂O₂ a una concentración de 0,5 mol/dm³ a 20 °C. En el experimento B se cambió una condición.",
+    "question": "¿Cuál de los siguientes factores podría hacer que en el experimento B el gas se desprendiera más rápido, pero el volumen final de O₂ fuera el mismo que en A? Indica el número y justifica tu elección.",
+    "explanation": "Un catalizador (MnO₂) acelera la reacción pero no cambia la cantidad de reactivos — el volumen final de O₂ es el mismo (mismos moles de H₂O₂). Aumentar la concentración (1) aumentaría tanto la velocidad como el volumen final (más moles de H₂O₂). Reducir el volumen de disolución (3) daría un volumen final menor.",
     "options": [
-      { "id": "1", "text": "Aumentar la concentración de H₂O₂ a 1,0 mol/dm³ manteniendo el volumen en 50 cm³." },
-      { "id": "2", "text": "Añadir MnO₂ como catalizador." },
-      { "id": "3", "text": "Reducir el volumen de la disolución a 25 cm³ manteniendo la concentración en 0,5 mol/dm³." }
+      {
+        "id": "1",
+        "text": "Aumentar la concentración de H₂O₂ a 1,0 mol/dm³ manteniendo el volumen en 50 cm³."
+      },
+      {
+        "id": "2",
+        "text": "Añadir MnO₂ como catalizador."
+      },
+      {
+        "id": "3",
+        "text": "Reducir el volumen de la disolución a 25 cm³ manteniendo la concentración en 0,5 mol/dm³."
+      }
     ]
   },
   "matura_2024_08a": {
-    "question_ru": "Asigna a cada proceso electroquímico la descripción correspondiente.",
-    "explanation_ru": "Electrólisis de NaCl(ac): proceso no espontáneo; en el cátodo: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Pila Daniell: conversión de energía química en eléctrica; el Zn es el ánodo (metal más activo) (2). Corrosión del hierro: proceso electroquímico espontáneo que destruye el metal (3).",
+    "question": "Asigna a cada proceso electroquímico la descripción correspondiente.",
+    "explanation": "Electrólisis de NaCl(ac): proceso no espontáneo; en el cátodo: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Pila Daniell: conversión de energía química en eléctrica; el Zn es el ánodo (metal más activo) (2). Corrosión del hierro: proceso electroquímico espontáneo que destruye el metal (3).",
     "left_items": [
-      { "label": "A", "text": "Electrólisis de disolución acuosa de NaCl" },
-      { "label": "B", "text": "Pila Daniell (Zn|Cu)" },
-      { "label": "C", "text": "Corrosión del hierro en aire húmedo" }
+      {
+        "label": "A",
+        "text": "Electrólisis de disolución acuosa de NaCl"
+      },
+      {
+        "label": "B",
+        "text": "Pila Daniell (Zn|Cu)"
+      },
+      {
+        "label": "C",
+        "text": "Corrosión del hierro en aire húmedo"
+      }
     ],
     "options": [
-      { "id": "1", "text": "La energía eléctrica se convierte en energía química; en el cátodo se desprende H₂." },
-      { "id": "2", "text": "La energía química se convierte en eléctrica; el ánodo es el cinc." },
-      { "id": "3", "text": "Proceso electroquímico espontáneo que conduce a la destrucción del metal." },
-      { "id": "4", "text": "La energía eléctrica se convierte en energía térmica." }
+      {
+        "id": "1",
+        "text": "La energía eléctrica se convierte en energía química; en el cátodo se desprende H₂."
+      },
+      {
+        "id": "2",
+        "text": "La energía química se convierte en eléctrica; el ánodo es el cinc."
+      },
+      {
+        "id": "3",
+        "text": "Proceso electroquímico espontáneo que conduce a la destrucción del metal."
+      },
+      {
+        "id": "4",
+        "text": "La energía eléctrica se convierte en energía térmica."
+      }
     ]
   },
   "matura_2024_08b": {
-    "question_ru": "Durante la electrólisis de una disolución acuosa de CuSO₄ con electrodos de platino (inertes), se depositaron 3,2 g de cobre en el cátodo. Calcula el volumen de gas (en dm³, en condiciones normales) desprendido en el ánodo. M(Cu) = 64 g/mol; V_m = 22,4 dm³/mol. Expresa el resultado con precisión de décimas.",
-    "explanation_ru": "En el cátodo: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3,2/64 = 0,05 mol. Electrones transferidos: 0,05 × 2 = 0,1 mol.\nEn el ánodo (electrodos inertes): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0,1/4 = 0,025 mol.\nV(O₂) = 0,025 × 22,4 = 0,56 dm³ ≈ 0,6 dm³."
+    "question": "Durante la electrólisis de una disolución acuosa de CuSO₄ con electrodos de platino (inertes), se depositaron 3,2 g de cobre en el cátodo. Calcula el volumen de gas (en dm³, en condiciones normales) desprendido en el ánodo. M(Cu) = 64 g/mol; V_m = 22,4 dm³/mol. Expresa el resultado con precisión de décimas.",
+    "explanation": "En el cátodo: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3,2/64 = 0,05 mol. Electrones transferidos: 0,05 × 2 = 0,1 mol.\nEn el ánodo (electrodos inertes): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0,1/4 = 0,025 mol.\nV(O₂) = 0,025 × 22,4 = 0,56 dm³ ≈ 0,6 dm³."
   },
   "matura_2024_08c": {
-    "question_ru": "Explica por qué el galvanizado (recubrimiento de cinc) es un método eficaz para proteger el hierro de la corrosión, incluso cuando el recubrimiento de cinc se daña (raya). Haz referencia a los potenciales estándar: E°(Zn²⁺/Zn) = −0,76 V; E°(Fe²⁺/Fe) = −0,44 V.",
-    "explanation_ru": "Puntos clave: (1) E°(Zn) < E°(Fe), por lo tanto el cinc actúa como ánodo, (2) el cinc se oxida en lugar del hierro — protección catódica (de sacrificio), (3) el hierro se convierte en cátodo y no se corroe mientras esté en contacto con el cinc."
+    "question": "Explica por qué el galvanizado (recubrimiento de cinc) es un método eficaz para proteger el hierro de la corrosión, incluso cuando el recubrimiento de cinc se daña (raya). Haz referencia a los potenciales estándar: E°(Zn²⁺/Zn) = −0,76 V; E°(Fe²⁺/Fe) = −0,44 V.",
+    "explanation": "Puntos clave: (1) E°(Zn) < E°(Fe), por lo tanto el cinc actúa como ánodo, (2) el cinc se oxida en lugar del hierro — protección catódica (de sacrificio), (3) el hierro se convierte en cátodo y no se corroe mientras esté en contacto con el cinc."
   }
 }

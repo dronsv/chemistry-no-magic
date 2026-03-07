@@ -1,42 +1,42 @@
 {
   "alkali_metal": {
-    "name_ru": "Alkali metals",
-    "name_singular_ru": "Alkali metal"
+    "name": "Alkali metals",
+    "name_singular": "Alkali metal"
   },
   "alkaline_earth": {
-    "name_ru": "Alkaline earth metals",
-    "name_singular_ru": "Alkaline earth metal"
+    "name": "Alkaline earth metals",
+    "name_singular": "Alkaline earth metal"
   },
   "transition_metal": {
-    "name_ru": "Transition metals",
-    "name_singular_ru": "Transition metal"
+    "name": "Transition metals",
+    "name_singular": "Transition metal"
   },
   "post_transition_metal": {
-    "name_ru": "Post-transition metals",
-    "name_singular_ru": "Post-transition metal"
+    "name": "Post-transition metals",
+    "name_singular": "Post-transition metal"
   },
   "metalloid": {
-    "name_ru": "Metalloids",
-    "name_singular_ru": "Metalloid"
+    "name": "Metalloids",
+    "name_singular": "Metalloid"
   },
   "nonmetal": {
-    "name_ru": "Nonmetals",
-    "name_singular_ru": "Nonmetal"
+    "name": "Nonmetals",
+    "name_singular": "Nonmetal"
   },
   "halogen": {
-    "name_ru": "Halogens",
-    "name_singular_ru": "Halogen"
+    "name": "Halogens",
+    "name_singular": "Halogen"
   },
   "noble_gas": {
-    "name_ru": "Noble gases",
-    "name_singular_ru": "Noble gas"
+    "name": "Noble gases",
+    "name_singular": "Noble gas"
   },
   "lanthanide": {
-    "name_ru": "Lanthanides",
-    "name_singular_ru": "Lanthanide"
+    "name": "Lanthanides",
+    "name_singular": "Lanthanide"
   },
   "actinide": {
-    "name_ru": "Actinides",
-    "name_singular_ru": "Actinide"
+    "name": "Actinides",
+    "name_singular": "Actinide"
   }
 }

@@ -1,7 +1,6 @@
 {
   "id": "cus",
   "formula": "CuS",
-  "name_ru": "Сульфид меди(II)",
   "class": "salt",
   "subclass": "normal",
   "ions": [
@@ -13,12 +12,5 @@
   ],
   "melting_point_C": 507,
   "boiling_point_C": null,
-  "density_g_cm3": 4.76,
-  "appearance_ru": "Чёрный порошок",
-  "industrial_ru": "Исходное сырьё для получения меди, катализатор",
-  "production_ru": "Пропускание H₂S через раствор соли меди(II): CuSO₄ + H₂S → CuS↓ + H₂SO₄",
-  "fun_facts_ru": [
-    "Не растворяется даже в разбавленных кислотах — один из самых нерастворимых сульфидов",
-    "В природе встречается как минерал ковеллин"
-  ]
+  "density_g_cm3": 4.76
 }

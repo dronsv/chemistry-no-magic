@@ -82,8 +82,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
     for (const el of elements) {
       if (
         el.symbol.toLowerCase().includes(q) ||
-        el.name_ru.toLowerCase().includes(q) ||
-        el.name_en.toLowerCase().includes(q) ||
+        (el.name?.toLowerCase() ?? '').includes(q) ||
         el.name_latin.toLowerCase().includes(q) ||
         String(el.Z) === q
       ) {

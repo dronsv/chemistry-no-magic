@@ -1,39 +1,39 @@
 {
   "simple_substance": {
-    "name_ru": "Sustancia simple",
-    "rule_ru": "El estado de oxidación de un elemento en una sustancia simple = 0"
+    "name": "Sustancia simple",
+    "rule": "El estado de oxidación de un elemento en una sustancia simple = 0"
   },
   "fluorine": {
-    "name_ru": "Flúor",
-    "rule_ru": "F siempre tiene un estado de oxidación de −1 (el elemento más electronegativo)"
+    "name": "Flúor",
+    "rule": "F siempre tiene un estado de oxidación de −1 (el elemento más electronegativo)"
   },
   "group1": {
-    "name_ru": "Metales alcalinos (Grupo I)",
-    "rule_ru": "Li, Na, K, Rb, Cs, Fr — siempre +1"
+    "name": "Metales alcalinos (Grupo I)",
+    "rule": "Li, Na, K, Rb, Cs, Fr — siempre +1"
   },
   "group2": {
-    "name_ru": "Metales alcalinotérreos (Grupo II)",
-    "rule_ru": "Be, Mg, Ca, Sr, Ba, Ra — siempre +2"
+    "name": "Metales alcalinotérreos (Grupo II)",
+    "rule": "Be, Mg, Ca, Sr, Ba, Ra — siempre +2"
   },
   "aluminum": {
-    "name_ru": "Aluminio",
-    "rule_ru": "Al — siempre +3"
+    "name": "Aluminio",
+    "rule": "Al — siempre +3"
   },
   "oxygen": {
-    "name_ru": "Oxígeno",
-    "rule_ru": "O normalmente es −2. Excepción: en peróxidos (H₂O₂, Na₂O₂) → −1"
+    "name": "Oxígeno",
+    "rule": "O normalmente es −2. Excepción: en peróxidos (H₂O₂, Na₂O₂) → −1"
   },
   "hydrogen": {
-    "name_ru": "Hidrógeno",
-    "rule_ru": "H normalmente es +1. Excepción: en hidruros metálicos (NaH, CaH₂) → −1"
+    "name": "Hidrógeno",
+    "rule": "H normalmente es +1. Excepción: en hidruros metálicos (NaH, CaH₂) → −1"
   },
   "algebraic": {
-    "name_ru": "Cálculo algebraico",
-    "rule_ru": "La suma de los estados de oxidación de todos los átomos en una molécula neutra = 0. Conociendo todos los EO menos uno, se resuelve la ecuación."
+    "name": "Cálculo algebraico",
+    "rule": "La suma de los estados de oxidación de todos los átomos en una molécula neutra = 0. Conociendo todos los EO menos uno, se resuelve la ecuación."
   },
   "_redox": {
-    "oxidizer_ru": "Un oxidante es un átomo (elemento) que acepta electrones. Su estado de oxidación disminuye.",
-    "reducer_ru": "Un reductor es un átomo (elemento) que cede electrones. Su estado de oxidación aumenta.",
-    "mnemonic_ru": "OA: el Oxidante se reduce (Acepta e⁻, EO↓), el Reductor se oxida (cede e⁻, EO↑)."
+    "oxidizer": "Un oxidante es un átomo (elemento) que acepta electrones. Su estado de oxidación disminuye.",
+    "reducer": "Un reductor es un átomo (elemento) que cede electrones. Su estado de oxidación aumenta.",
+    "mnemonic": "OA: el Oxidante se reduce (Acepta e⁻, EO↓), el Reductor se oxida (cede e⁻, EO↑)."
   }
 }

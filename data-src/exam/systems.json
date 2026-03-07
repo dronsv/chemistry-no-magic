@@ -2,75 +2,73 @@
   {
     "id": "oge",
     "country": "RU",
-    "name_ru": "ОГЭ по химии",
-    "name_en": "OGE Chemistry (Russia)",
-    "name_pl": "OGE Chemia (Rosja)",
-    "name_es": "OGE Química (Rusia)",
     "grade": "9",
     "duration_min": 180,
     "max_score": 40,
     "task_count": 24,
-    "sections": ["multiple_choice", "open_answer", "extended"],
+    "sections": [
+      "multiple_choice",
+      "open_answer",
+      "extended"
+    ],
     "primary_locale": "ru",
     "flag": "🇷🇺"
   },
   {
     "id": "ege",
     "country": "RU",
-    "name_ru": "ЕГЭ по химии",
-    "name_en": "USE Chemistry (Russia)",
-    "name_pl": "EGE Chemia (Rosja)",
-    "name_es": "EGE Química (Rusia)",
     "grade": "11",
     "duration_min": 210,
     "max_score": 56,
     "task_count": 34,
-    "sections": ["short_answer", "extended"],
+    "sections": [
+      "short_answer",
+      "extended"
+    ],
     "primary_locale": "ru",
     "flag": "🇷🇺"
   },
   {
     "id": "gcse",
     "country": "GB",
-    "name_ru": "GCSE Chemistry (Великобритания)",
-    "name_en": "GCSE Chemistry",
-    "name_pl": "GCSE Chemia (Wielka Brytania)",
-    "name_es": "GCSE Química (Reino Unido)",
     "grade": "10-11",
     "duration_min": 105,
     "max_score": 100,
     "task_count": 30,
-    "sections": ["multiple_choice", "structured", "extended"],
+    "sections": [
+      "multiple_choice",
+      "structured",
+      "extended"
+    ],
     "primary_locale": "en",
     "flag": "🇬🇧"
   },
   {
     "id": "egzamin",
     "country": "PL",
-    "name_ru": "Матура по химии (Польша)",
-    "name_en": "Matura Chemistry (Poland)",
-    "name_pl": "Matura z chemii",
-    "name_es": "Matura Química (Polonia)",
     "grade": "12",
     "duration_min": 180,
     "max_score": 60,
     "task_count": 45,
-    "sections": ["closed", "open", "extended"],
+    "sections": [
+      "closed",
+      "open",
+      "extended"
+    ],
     "primary_locale": "pl",
     "flag": "🇵🇱"
   },
   {
     "id": "ebau",
     "country": "ES",
-    "name_ru": "EBAU/Selectividad (Испания)",
-    "name_en": "EBAU/Selectividad (Spain)",
-    "name_pl": "EBAU/Selectividad (Hiszpania)",
-    "name_es": "EBAU Química",
     "grade": "12",
     "duration_min": 90,
     "max_score": 10,
     "task_count": 6,
-    "sections": ["problems", "theory"],
+    "sections": [
+      "problems",
+      "theory"
+    ],
     "primary_locale": "es",
     "flag": "🇪🇸"
   }

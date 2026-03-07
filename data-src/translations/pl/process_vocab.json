@@ -1,107 +1,107 @@
 {
   "chemical_reaction": {
-    "name_ru": "reakcja chemiczna"
+    "name": "reakcja chemiczna"
   },
   "neutralization": {
-    "name_ru": "neutralizacja"
+    "name": "neutralizacja"
   },
   "displacement": {
-    "name_ru": "wypieranie"
+    "name": "wypieranie"
   },
   "heating": {
-    "name_ru": "ogrzewanie"
+    "name": "ogrzewanie"
   },
   "cooling": {
-    "name_ru": "chłodzenie"
+    "name": "chłodzenie"
   },
   "stirring": {
-    "name_ru": "mieszanie"
+    "name": "mieszanie"
   },
   "grinding": {
-    "name_ru": "rozdrabnianie"
+    "name": "rozdrabnianie"
   },
   "dilution": {
-    "name_ru": "rozcieńczanie"
+    "name": "rozcieńczanie"
   },
   "excess_reagent": {
-    "name_ru": "nadmiar reagenta"
+    "name": "nadmiar reagenta"
   },
   "filtration": {
-    "name_ru": "filtracja"
+    "name": "filtracja"
   },
   "washing": {
-    "name_ru": "przemywanie"
+    "name": "przemywanie"
   },
   "drying": {
-    "name_ru": "suszenie"
+    "name": "suszenie"
   },
   "evaporation": {
-    "name_ru": "odparowanie"
+    "name": "odparowanie"
   },
   "decantation": {
-    "name_ru": "dekantacja"
+    "name": "dekantacja"
   },
   "distillation": {
-    "name_ru": "destylacja"
+    "name": "destylacja"
   },
   "dissolution": {
-    "name_ru": "rozpuszczanie"
+    "name": "rozpuszczanie"
   },
   "crystallization": {
-    "name_ru": "krystalizacja"
+    "name": "krystalizacja"
   },
   "sublimation": {
-    "name_ru": "sublimacja"
+    "name": "sublimacja"
   },
   "condensation": {
-    "name_ru": "kondensacja"
+    "name": "kondensacja"
   },
   "melting": {
-    "name_ru": "topnienie"
+    "name": "topnienie"
   },
   "boiling": {
-    "name_ru": "wrzenie"
+    "name": "wrzenie"
   },
   "dissociation": {
-    "name_ru": "dysocjacja"
+    "name": "dysocjacja"
   },
   "precipitation": {
-    "name_ru": "wytrącanie"
+    "name": "wytrącanie"
   },
   "gas_evolution": {
-    "name_ru": "wydzielanie gazu"
+    "name": "wydzielanie gazu"
   },
   "gas_absorption": {
-    "name_ru": "absorpcja gazu"
+    "name": "absorpcja gazu"
   },
   "complexation": {
-    "name_ru": "kompleksowanie"
+    "name": "kompleksowanie"
   },
   "water_formation": {
-    "name_ru": "tworzenie wody"
+    "name": "tworzenie wody"
   },
   "weak_electrolyte_formation": {
-    "name_ru": "tworzenie słabego elektrolitu"
+    "name": "tworzenie słabego elektrolitu"
   },
   "catalysis": {
-    "name_ru": "kataliza"
+    "name": "kataliza"
   },
   "adsorption": {
-    "name_ru": "adsorpcja"
+    "name": "adsorpcja"
   },
   "photodecomposition": {
-    "name_ru": "fotodekompozycja"
+    "name": "fotodekompozycja"
   },
   "electrolysis": {
-    "name_ru": "elektroliza"
+    "name": "elektroliza"
   },
   "remove_gas": {
-    "name_ru": "usuwanie gazu"
+    "name": "usuwanie gazu"
   },
   "remove_solid": {
-    "name_ru": "usuwanie osadu"
+    "name": "usuwanie osadu"
   },
   "closed_system": {
-    "name_ru": "układ zamknięty"
+    "name": "układ zamknięty"
   }
 }

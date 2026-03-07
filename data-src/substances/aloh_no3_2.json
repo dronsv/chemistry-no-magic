@@ -1,7 +1,6 @@
 {
   "id": "aloh_no3_2",
   "formula": "AlOH(NO₃)₂",
-  "name_ru": "Гидроксонитрат алюминия",
   "class": "salt",
   "subclass": "basic",
   "ions": [
@@ -14,12 +13,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": null,
-  "appearance_ru": "Белый кристаллический порошок",
-  "industrial_ru": "Антиперспиранты, водоподготовка (коагулянт), дубление кожи",
-  "production_ru": "Неполная нейтрализация: Al(NO₃)₃ + NaOH(недост.) → AlOH(NO₃)₂ + NaNO₃",
-  "fun_facts_ru": [
-    "Основные соли алюминия — главные компоненты антиперспирантов",
-    "Образуется при частичной нейтрализации нитрата алюминия щёлочью"
-  ]
+  "density_g_cm3": null
 }

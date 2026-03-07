@@ -3,7 +3,7 @@ export interface ClassificationRule {
   class: string;
   subclass?: string;
   pattern: string;
-  description_ru: string;
+  description: string;
   examples: string[];
 }
 
@@ -11,8 +11,8 @@ export interface NamingRule {
   id: string;
   class: string;
   pattern: string;
-  template_ru: string;
-  examples: Array<{ formula: string; name_ru: string }>;
+  template: string;
+  examples: Array<{ formula: string; name: string }>;
 }
 
 export interface SolubilityEntry {
@@ -45,7 +45,7 @@ export interface SolubilityRulesFull {
 
 export interface ActivitySeriesEntry {
   symbol: string;
-  name_ru: string;
+  name: string;
   position: number;
   reduces_H: boolean;
 }
@@ -53,6 +53,6 @@ export interface ActivitySeriesEntry {
 export interface ApplicabilityRule {
   id: string;
   type: string;
-  condition_ru: string;
-  description_ru: string;
+  condition: string;
+  description: string;
 }

@@ -1,15 +1,59 @@
 {
   "rules": [
-    { "id": "simple_substance", "title_ru": "Prosta substancja", "description_ru": "W prostej substancji stopień utlenienia atomu wynosi 0." },
-    { "id": "fluorine", "title_ru": "Fluor: zawsze −1", "description_ru": "Fluor ma najwyższą elektroujemność, dlatego zawsze ma −1 we wszystkich związkach." },
-    { "id": "group1", "title_ru": "Metale alkaliczne: +1", "description_ru": "Li, Na, K, Rb, Cs, Fr zawsze mają +1 w związkach." },
-    { "id": "group2", "title_ru": "Metale ziem alkalicznych: +2", "description_ru": "Be, Mg, Ca, Sr, Ba, Ra zawsze mają +2 w związkach." },
-    { "id": "aluminum", "title_ru": "Glin: +3", "description_ru": "Glin zawsze ma +3 w związkach." },
-    { "id": "oxygen", "title_ru": "Tlen: zwykle −2", "description_ru": "W większości związków tlen ma −2. Wyjątki: nadtlenki (−1) i związki z F." },
-    { "id": "oxygen_peroxide", "title_ru": "Tlen w nadtlenkach: −1", "description_ru": "W nadtlenkach tlen ma −1 (wyjątek od reguły −2)." },
-    { "id": "hydrogen", "title_ru": "Wodór: zwykle +1", "description_ru": "W większości związków wodór ma +1. Wyjątek: wodorki metali (−1)." },
-    { "id": "hydrogen_hydride", "title_ru": "Wodór w wodorkach metali: −1", "description_ru": "W wodorkach metali alkalicznych i ziem alkalicznych wodór ma −1." },
-    { "id": "algebraic", "title_ru": "Obliczenie algebraiczne", "description_ru": "Nieznany stopień utlenienia wyznacza się z warunku, że suma wszystkich stopni wynosi 0. Np.: KMnO4 → Mn = +7, H2SO4 → S = +6." },
-    { "id": "sum_equals_zero", "title_ru": "Suma stopni utlenienia = 0", "description_ru": "W obojętnej cząsteczce suma stopni utlenienia wszystkich atomów wynosi 0." }
+    {
+      "id": "simple_substance",
+      "title": "Prosta substancja",
+      "description": "W prostej substancji stopień utlenienia atomu wynosi 0."
+    },
+    {
+      "id": "fluorine",
+      "title": "Fluor: zawsze −1",
+      "description": "Fluor ma najwyższą elektroujemność, dlatego zawsze ma −1 we wszystkich związkach."
+    },
+    {
+      "id": "group1",
+      "title": "Metale alkaliczne: +1",
+      "description": "Li, Na, K, Rb, Cs, Fr zawsze mają +1 w związkach."
+    },
+    {
+      "id": "group2",
+      "title": "Metale ziem alkalicznych: +2",
+      "description": "Be, Mg, Ca, Sr, Ba, Ra zawsze mają +2 w związkach."
+    },
+    {
+      "id": "aluminum",
+      "title": "Glin: +3",
+      "description": "Glin zawsze ma +3 w związkach."
+    },
+    {
+      "id": "oxygen",
+      "title": "Tlen: zwykle −2",
+      "description": "W większości związków tlen ma −2. Wyjątki: nadtlenki (−1) i związki z F."
+    },
+    {
+      "id": "oxygen_peroxide",
+      "title": "Tlen w nadtlenkach: −1",
+      "description": "W nadtlenkach tlen ma −1 (wyjątek od reguły −2)."
+    },
+    {
+      "id": "hydrogen",
+      "title": "Wodór: zwykle +1",
+      "description": "W większości związków wodór ma +1. Wyjątek: wodorki metali (−1)."
+    },
+    {
+      "id": "hydrogen_hydride",
+      "title": "Wodór w wodorkach metali: −1",
+      "description": "W wodorkach metali alkalicznych i ziem alkalicznych wodór ma −1."
+    },
+    {
+      "id": "algebraic",
+      "title": "Obliczenie algebraiczne",
+      "description": "Nieznany stopień utlenienia wyznacza się z warunku, że suma wszystkich stopni wynosi 0. Np.: KMnO4 → Mn = +7, H2SO4 → S = +6."
+    },
+    {
+      "id": "sum_equals_zero",
+      "title": "Suma stopni utlenienia = 0",
+      "description": "W obojętnej cząsteczce suma stopni utlenienia wszystkich atomów wynosi 0."
+    }
   ]
 }

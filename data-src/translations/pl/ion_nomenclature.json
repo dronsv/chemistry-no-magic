@@ -1,32 +1,53 @@
 {
-  "mnemonic_ru": "Bez tlenu → -EK. Z tlenem: maks. s.u. → -AN, niższy → -IAN. Jeszcze wyżej → NAD-...-AN, jeszcze niżej → POD-...-IAN.",
+  "mnemonic": "Bez tlenu → -EK. Z tlenem: maks. s.u. → -AN, niższy → -IAN. Jeszcze wyżej → NAD-...-AN, jeszcze niżej → POD-...-IAN.",
   "suffix_rules": [
     {
       "id": "binary_ide",
-      "suffix_ru": "-ek",
-      "description_ru": "Aniony beztlenowe (proste binarne) → sufiks -ek"
+      "suffix": "-ek",
+      "description": "Aniony beztlenowe (proste binarne) → sufiks -ek"
     },
     {
       "id": "oxy_max_ate",
-      "suffix_ru": "-an",
-      "description_ru": "Anion tlenowy z maksymalnym s.u. atomu centralnego → -an"
+      "suffix": "-an",
+      "description": "Anion tlenowy z maksymalnym s.u. atomu centralnego → -an"
     },
     {
       "id": "oxy_lower_ite",
-      "suffix_ru": "-ian",
-      "description_ru": "Anion tlenowy z niższym s.u. → -ian"
+      "suffix": "-ian",
+      "description": "Anion tlenowy z niższym s.u. → -ian"
     },
     {
       "id": "per_prefix",
-      "prefix_ru": "nad-",
-      "suffix_ru": "-an",
-      "description_ru": "S.u. powyżej typowego maksimum → nad-...-an"
+      "prefix": "nad-",
+      "suffix": "-an",
+      "description": "S.u. powyżej typowego maksimum → nad-...-an"
     },
     {
       "id": "hypo_prefix",
-      "prefix_ru": "pod-",
-      "suffix_ru": "-ian",
-      "description_ru": "S.u. poniżej typowego minimum dla anionów tlenowych → pod-...-ian"
+      "prefix": "pod-",
+      "suffix": "-ian",
+      "description": "S.u. poniżej typowego minimum dla anionów tlenowych → pod-...-ian"
     }
-  ]
+  ],
+  "acid_to_anion_pairs": [
+    { "acid": "HCl",      "acid_name": "kwas chlorowodorowy" },
+    { "acid": "HBr",      "acid_name": "kwas bromowodorowy" },
+    { "acid": "HI",       "acid_name": "kwas jodowodorowy" },
+    { "acid": "HF",       "acid_name": "kwas fluorowodorowy" },
+    { "acid": "H₂S",     "acid_name": "kwas siarkowodorowy" },
+    { "acid": "H₂SO₄",   "acid_name": "kwas siarkowy(VI)" },
+    { "acid": "H₂SO₃",   "acid_name": "kwas siarkowy(IV)" },
+    { "acid": "HNO₃",    "acid_name": "kwas azotowy(V)" },
+    { "acid": "HNO₂",    "acid_name": "kwas azotowy(III)" },
+    { "acid": "H₂CO₃",   "acid_name": "kwas węglowy" },
+    { "acid": "H₂SiO₃",  "acid_name": "kwas krzemowy" },
+    { "acid": "H₃PO₄",   "acid_name": "kwas fosforowy(V)" },
+    { "acid": "CH₃COOH", "acid_name": "kwas octowy" },
+    { "acid": "HMnO₄",   "acid_name": "kwas nadmanganowy" },
+    { "acid": "H₂CrO₄",  "acid_name": "kwas chromowy(VI)" },
+    { "acid": "H₂Cr₂O₇", "acid_name": "kwas dichromowy(VI)" }
+  ],
+  "multilingual_comparison": {
+    "description": "Sufiksy w różnych językach: -ek/-ian/-an (pol.) ≈ -ide/-ite/-ate (ang.) ≈ -ид/-ит/-ат (ros.) ≈ -uro/-ito/-ato (hiszp.)"
+  }
 }

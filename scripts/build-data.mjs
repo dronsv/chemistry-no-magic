@@ -32,6 +32,7 @@ import {
   validateBondExamples,
   validateOxidationExamples,
   validateEngineTaskTemplates,
+  validateRelations,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import {
@@ -220,6 +221,16 @@ async function main() {
     }
   } catch { /* courses dir optional */ }
 
+  // Load relations (optional directory)
+  const relationsDir = join(DATA_SRC, 'relations');
+  let relationEntries = [];  // Array of { data, filename }
+  try {
+    const rFiles = (await readdir(relationsDir)).filter(f => f.endsWith('.json') && !f.endsWith('_schema.json'));
+    for (const f of rFiles) {
+      relationEntries.push({ data: await loadJson(join(relationsDir, f)), filename: f });
+    }
+  } catch { /* relations dir optional */ }
+
   // Load contexts layer
   const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
   const substanceVariants = await loadJson(join(DATA_SRC, 'contexts', 'substance_variants.json'));
@@ -287,6 +298,7 @@ async function main() {
     ...validateBondExamples(bondExamples),
     ...validateOxidationExamples(oxidationExamples),
     ...validateEngineTaskTemplates(engineTaskTemplates),
+    ...relationEntries.flatMap(({ data, filename }) => validateRelations(data, filename)),
   ];
 
   for (const { filename, data } of substances) {
@@ -551,6 +563,18 @@ async function main() {
     console.log(`  ${courseEntries.length} courses`);
   }
 
+  // 6a4. Copy relations (pre-loaded)
+  const relationFiles = {};
+  if (relationEntries.length > 0) {
+    await mkdir(join(bundleDir, 'relations'), { recursive: true });
+    for (const { data, filename } of relationEntries) {
+      const key = filename.replace('.json', '');
+      await writeFile(join(bundleDir, 'relations', filename), JSON.stringify(data));
+      relationFiles[key] = `relations/${filename}`;
+    }
+    console.log(`  ${relationEntries.length} relation files`);
+  }
+
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
   const reactionParticipants = generateReactionParticipants(reactions);
@@ -575,17 +599,7 @@ async function main() {
     console.log(`  ${locale}: ${count} concept entries`);
   }
 
-  // 7c. Generate search index (Russian — default)
-  console.log('Generating search index...');
-  const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies, ions });
-  await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
-  console.log(`  ${searchIndex.length} search entries (ru)`);
-
-  // 7d. Generate name index (Russian — default)
-  console.log('Generating name index...');
-  const nameIndexRu = generateNameIndex({ elements, ions, substances, terms: chemTerms, bindings: termBindings });
-  await writeFile(join(bundleDir, 'name_index.ru.json'), JSON.stringify(nameIndexRu));
-  console.log(`  ${Object.keys(nameIndexRu).length} name entries (ru)`);
+  // 7c. Search index and name index are now generated per-locale in the translations loop below
 
   // 7d. Load translation overlays and generate per-locale data
   console.log('\nProcessing translations...');
@@ -630,6 +644,10 @@ async function main() {
       translations: overlays,
     });
     await writeFile(join(bundleDir, `search_index.${locale}.json`), JSON.stringify(localeSearchIndex));
+    // ru is the default locale — also write as the base search_index.json
+    if (locale === 'ru') {
+      await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(localeSearchIndex));
+    }
     console.log(`  ${locale}: ${localeSearchIndex.length} search entries`);
 
     // Generate locale-specific name index
@@ -654,6 +672,10 @@ async function main() {
       bindings: termBindings,
     });
     await writeFile(join(bundleDir, `name_index.${locale}.json`), JSON.stringify(localeNameIndex));
+    // ru is the default locale — also write as the base name_index.json
+    if (locale === 'ru') {
+      await writeFile(join(bundleDir, 'name_index.json'), JSON.stringify(localeNameIndex));
+    }
     console.log(`  ${locale}: ${Object.keys(localeNameIndex).length} name entries`);
   }
 
@@ -698,6 +720,7 @@ async function main() {
     examSystemIds: examSystems.map(s => s.id),
     theoryModules: theoryModuleFiles,
     courses: courseFiles,
+    relations: relationFiles,
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

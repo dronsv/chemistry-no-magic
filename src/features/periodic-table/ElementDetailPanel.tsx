@@ -40,10 +40,10 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
       <a href={localizeUrl(`/periodic-table/${element.symbol}/`, locale)} className="detail-panel__header detail-panel__header--link">
         <span className="detail-panel__z">Z={Z}</span>
         <span className="detail-panel__symbol">{element.symbol}</span>
-        <span className="detail-panel__name">{element.name_ru}</span>
+        <span className="detail-panel__name">{element.name}</span>
       </a>
       <div className="detail-panel__meta">
-        {m.elem_period_group_meta({ period: String(element.period), group: String(element.group), type: groupInfo?.name_singular_ru ?? element.element_group })}
+        {m.elem_period_group_meta({ period: String(element.period), group: String(element.group), type: groupInfo?.name_singular ?? element.element_group })}
       </div>
 
       {/* Orbital diagram — full width, right after header */}
@@ -81,7 +81,7 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
             <span>{m.elem_expected()} <s>{exc.expected_formula}</s></span>
             <span>{m.elem_actual()} <b>{exc.actual_formula}</b></span>
           </div>
-          <p className="detail-panel__exception-reason">{exc.reason_ru}</p>
+          <p className="detail-panel__exception-reason">{exc.reason}</p>
         </div>
       )}
 

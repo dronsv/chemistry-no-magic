@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "Какое условие номенклатуры соответствует суффиксу «{suffix_ru}»?",
+    "question": "Какое условие номенклатуры соответствует суффиксу «{suffix}»?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {

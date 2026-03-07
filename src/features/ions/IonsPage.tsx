@@ -38,7 +38,7 @@ export default function IonsPage({ locale = 'ru' as SupportedLocale }: { locale?
       const q = search.trim().toLowerCase();
       result = result.filter(ion =>
         ion.formula.toLowerCase().includes(q) ||
-        ion.name_ru.toLowerCase().includes(q) ||
+        ion.name.toLowerCase().includes(q) ||
         ion.id.toLowerCase().includes(q),
       );
     }
@@ -125,10 +125,10 @@ function IonCard({ ion }: { ion: Ion }) {
           formula={ion.formula}
           ionType={ion.type}
           ionId={ion.id}
-          name={ion.name_ru}
+          name={ion.name}
         />
       </div>
-      <div className="ion-card__name">{ion.name_ru}</div>
+      <div className="ion-card__name">{ion.name}</div>
     </div>
   );
 }

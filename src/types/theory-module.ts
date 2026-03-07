@@ -29,17 +29,17 @@ export type TheoryBlock =
       examples: { mode: 'filter'; limit?: number } }
   | { t: 'text_block'; content: RichText }
   // Text content
-  | { t: 'heading'; level: 2 | 3 | 4; text_ru: string }
-  | { t: 'paragraph'; text_ru: string }
-  | { t: 'ordered_list'; items_ru: string[] }
-  | { t: 'equation'; text_ru: string }
+  | { t: 'heading'; level: 2 | 3 | 4; text: string }
+  | { t: 'paragraph'; text: string }
+  | { t: 'ordered_list'; items: string[] }
+  | { t: 'equation'; text: string }
   // Formula display
   | { t: 'formula_list'; formulas: string[] }
   // Structured cards
-  | { t: 'rule_card'; title_ru: string; rule_ru: string; description_ru?: string; examples?: string[] }
-  | { t: 'example_block'; label_ru: string; content_ru: string }
+  | { t: 'rule_card'; title: string; rule: string; description?: string; examples?: string[] }
+  | { t: 'example_block'; label: string; content: string }
   // Table
-  | { t: 'table'; columns_ru: string[]; rows: TableRow[] }
+  | { t: 'table'; columns: string[]; rows: TableRow[] }
   // Embedded React component (SolubilityTable, ActivitySeriesBar, etc.)
   | { t: 'component_slot'; component: string; props?: Record<string, unknown> }
   // Language frame (semantic event → localized sentence)
@@ -53,7 +53,7 @@ export type TheoryBlock =
 
 export interface TheorySection {
   id: string;
-  title_ru: string;
+  title: string;
   /** Legacy: concept ref for title */
   title_ref?: string;
   blocks: TheoryBlock[];
@@ -68,6 +68,6 @@ export interface TheoryModule {
 
 export interface Course {
   id: string;
-  title_ru: string;
+  title: string;
   modules: string[];
 }

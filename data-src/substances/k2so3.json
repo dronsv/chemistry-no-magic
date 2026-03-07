@@ -1,7 +1,6 @@
 {
   "id": "k2so3",
   "formula": "K₂SO₃",
-  "name_ru": "Сульфит калия",
   "class": "salt",
   "subclass": "normal",
   "ions": [
@@ -13,12 +12,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 2.66,
-  "appearance_ru": "Белый кристаллический порошок",
-  "industrial_ru": "Пищевая промышленность (E225 — консервант), фотография",
-  "production_ru": "Пропускание SO₂ через раствор KOH: SO₂ + 2KOH → K₂SO₃ + H₂O",
-  "fun_facts_ru": [
-    "Пищевая добавка E225 — применяется как консервант в виноделии",
-    "Как и Na₂SO₃, на воздухе медленно окисляется до сульфата"
-  ]
+  "density_g_cm3": 2.66
 }

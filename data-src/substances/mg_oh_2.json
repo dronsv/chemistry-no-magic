@@ -1,16 +1,17 @@
 {
   "id": "mg_oh_2",
-  "formula": "Mg(OH)\u2082",
-  "name_ru": "Гидроксид магния",
+  "formula": "Mg(OH)₂",
   "class": "base",
   "subclass": "insoluble",
-  "ions": ["Mg_2plus", "OH_minus"],
-  "tags": ["insoluble", "white"],
+  "ions": [
+    "Mg_2plus",
+    "OH_minus"
+  ],
+  "tags": [
+    "insoluble",
+    "white"
+  ],
   "melting_point_C": 350,
   "boiling_point_C": null,
-  "density_g_cm3": 2.34,
-  "appearance_ru": "Белый аморфный порошок",
-  "industrial_ru": "Антацидный препарат (средство от изжоги), антипирен",
-  "production_ru": "Осаждение из растворов солей магния щёлочью",
-  "fun_facts_ru": ["Mg(OH)₂ — действующее вещество препарата «Молоко магнезии», применяемого при изжоге", "При нагревании разлагается на MgO и воду"]
+  "density_g_cm3": 2.34
 }

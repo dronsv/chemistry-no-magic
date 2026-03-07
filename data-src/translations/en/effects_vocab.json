@@ -1,54 +1,54 @@
 {
   "speed_increase": {
-    "name_ru": "speed increase",
-    "description_ru": "Increase in reaction rate"
+    "name": "speed increase",
+    "description": "Increase in reaction rate"
   },
   "speed_decrease": {
-    "name_ru": "speed decrease",
-    "description_ru": "Decrease in reaction rate"
+    "name": "speed decrease",
+    "description": "Decrease in reaction rate"
   },
   "activation_energy_decrease": {
-    "name_ru": "activation energy decrease",
-    "description_ru": "Lowering of activation energy"
+    "name": "activation energy decrease",
+    "description": "Lowering of activation energy"
   },
   "equilibrium_shift_right": {
-    "name_ru": "equilibrium shift →",
-    "description_ru": "Shift of equilibrium toward products"
+    "name": "equilibrium shift →",
+    "description": "Shift of equilibrium toward products"
   },
   "equilibrium_shift_left": {
-    "name_ru": "equilibrium shift ←",
-    "description_ru": "Shift of equilibrium toward reactants"
+    "name": "equilibrium shift ←",
+    "description": "Shift of equilibrium toward reactants"
   },
   "exothermic": {
-    "name_ru": "exothermic",
-    "description_ru": "Heat release"
+    "name": "exothermic",
+    "description": "Heat release"
   },
   "endothermic": {
-    "name_ru": "endothermic",
-    "description_ru": "Heat absorption"
+    "name": "endothermic",
+    "description": "Heat absorption"
   },
   "surface_increase": {
-    "name_ru": "contact area increase",
-    "description_ru": "Increase in reagent contact surface area"
+    "name": "contact area increase",
+    "description": "Increase in reagent contact surface area"
   },
   "concentration_increase": {
-    "name_ru": "concentration increase",
-    "description_ru": "Increase in reagent concentration"
+    "name": "concentration increase",
+    "description": "Increase in reagent concentration"
   },
   "concentration_decrease": {
-    "name_ru": "concentration decrease",
-    "description_ru": "Decrease in reagent concentration"
+    "name": "concentration decrease",
+    "description": "Decrease in reagent concentration"
   },
   "product_removal": {
-    "name_ru": "product removal",
-    "description_ru": "Removal of product from reaction zone"
+    "name": "product removal",
+    "description": "Removal of product from reaction zone"
   },
   "phase_transition": {
-    "name_ru": "phase transition",
-    "description_ru": "Transition of substance from one state of matter to another"
+    "name": "phase transition",
+    "description": "Transition of substance from one state of matter to another"
   },
   "ion_formation": {
-    "name_ru": "ion formation",
-    "description_ru": "Breakdown into ions during dissolution or melting"
+    "name": "ion formation",
+    "description": "Breakdown into ions during dissolution or melting"
   }
 }

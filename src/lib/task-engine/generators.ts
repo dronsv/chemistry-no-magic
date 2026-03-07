@@ -344,7 +344,7 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
 
   const result: SlotValues = {
     formula: s.formula,
-    name: s.name_ru ?? '',
+    name: s.name ?? '',
     substance_class: s.class,
     substance_subclass: s.subclass ?? '',
   };
@@ -507,7 +507,7 @@ function genPickClassificationRule(_params: Record<string, unknown>, data: Ontol
     class_label: rule.class,
     subclass: rule.subclass ?? '',
     pattern: rule.pattern,
-    description: rule.description_ru,
+    description: rule.description,
     example: rule.examples.length > 0 ? rule.examples[0] : '',
     examples: rule.examples,
   };
@@ -523,9 +523,9 @@ function genPickNamingRule(_params: Record<string, unknown>, data: OntologyData)
     rule_id: rule.id,
     class_label: rule.class,
     pattern: rule.pattern,
-    template: rule.template_ru,
+    template: rule.template,
     example_formula: ex?.formula ?? '',
-    example_name: ex?.name_ru ?? '',
+    example_name: ex?.name ?? '',
   };
 }
 
@@ -537,8 +537,8 @@ function genPickActivityPair(_params: Record<string, unknown>, data: OntologyDat
   return {
     metalA: a.symbol,
     metalB: b.symbol,
-    nameA: a.name_ru,
-    nameB: b.name_ru,
+    nameA: a.name,
+    nameB: b.name,
     positionA: a.position,
     positionB: b.position,
     reduces_H_A: a.reduces_H ? 1 : 0,
@@ -554,10 +554,10 @@ function genPickQualitativeTest(_params: Record<string, unknown>, data: Ontology
   const test: QualitativeTest = pickRandom(data.rules.qualitativeTests);
   return {
     target_id: test.target_id,
-    target_name: test.target_name_ru,
+    target_name: test.target_name,
     reagent_formula: test.reagent_formula,
-    reagent_name: test.reagent_name_ru,
-    observation: test.observation_ru,
+    reagent_name: test.reagent_name,
+    observation: test.observation,
     reaction_id: test.reaction_id ?? '',
   };
 }
@@ -616,8 +616,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'rate',
       factor_id: factor.factor_id,
-      factor_name: factor.name_ru,
-      factor_effect: factor.effect_ru,
+      factor_name: factor.name,
+      factor_effect: factor.effect,
       applies_to: factor.applies_to,
     };
   } else if (mode === 'cat') {
@@ -626,8 +626,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'cat',
       catalyst: cat.catalyst,
-      catalyst_name: cat.name_ru,
-      catalyst_reaction: cat.reaction_ru,
+      catalyst_name: cat.name,
+      catalyst_reaction: cat.reaction,
     };
   } else {
     // eq
@@ -636,8 +636,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'eq',
       eq_factor: shift.factor,
-      eq_shift: shift.shift_ru,
-      eq_explanation: shift.explanation_ru,
+      eq_shift: shift.shift,
+      eq_explanation: shift.explanation,
     };
   }
 }
@@ -664,7 +664,7 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
 
   return {
     formula: sub.formula,
-    name: sub.name_ru,
+    name: sub.name,
     M: sub.M,
     mass,
     amount,
@@ -683,7 +683,7 @@ function genPickThermoReaction(_params: Record<string, unknown>, data: OntologyD
   const reaction = pickRandom(reactions) as CalcReaction;
   return {
     calcReaction: reaction as unknown as string,
-    equation: reaction.equation_ru,
+    equation: reaction.equation,
     delta_H: String(reaction.delta_H_kJmol),
   };
 }
@@ -707,7 +707,7 @@ function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyDat
   const yieldPercent = 60 + Math.floor(Math.random() * 36);
 
   return {
-    equation: rx.equation_ru,
+    equation: rx.equation,
     given_formula: rx.given.formula,
     given_coeff: rx.given.coeff,
     given_M: rx.given.M,
@@ -757,10 +757,10 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
     return {
       mode: 'acid_pair',
       acid_formula: pair.acid,
-      acid_name: pair.acid_name_ru,
+      acid_name: pair.acid_name,
       anion_id: pair.anion_id,
       anion_formula: anion?.formula ?? pair.anion_id,
-      anion_name: anion?.name_ru ?? '',
+      anion_name: anion?.name ?? '',
     };
   } else if (mode === 'paired') {
     // Pick two ions with naming info for comparison
@@ -771,12 +771,12 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       mode: 'paired',
       ionA_id: ionA.id,
       ionA_formula: ionA.formula,
-      ionA_name: ionA.name_ru,
-      ionA_suffix: ionA.naming!.suffix_ru,
+      ionA_name: ionA.name,
+      ionA_suffix: ionA.naming!.suffix,
       ionB_id: ionB.id,
       ionB_formula: ionB.formula,
-      ionB_name: ionB.name_ru,
-      ionB_suffix: ionB.naming!.suffix_ru,
+      ionB_name: ionB.name,
+      ionB_suffix: ionB.naming!.suffix,
     };
   } else {
     // default: pick a random suffix rule
@@ -788,9 +788,8 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       mode: 'default',
       rule_id: rule.id,
       condition: rule.condition,
-      suffix_ru: rule.suffix_ru,
-      suffix_en: rule.suffix_en,
-      description: rule.description_ru,
+      suffix: rule.suffix,
+      description: rule.description,
       example: rule.examples.length > 0 ? rule.examples[0] : '',
       examples: rule.examples,
     };

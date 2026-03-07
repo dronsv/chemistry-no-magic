@@ -1,291 +1,603 @@
 {
   "naming_oxide_single_valence": {
-    "template_ru": "\u00f3xido de {metal}",
+    "template": "óxido de {metal}",
     "examples": [
-      { "formula": "Na\u2082O", "name_ru": "\u00f3xido de sodio" },
-      { "formula": "CaO", "name_ru": "\u00f3xido de calcio" },
-      { "formula": "BaO", "name_ru": "\u00f3xido de bario" },
-      { "formula": "MgO", "name_ru": "\u00f3xido de magnesio" },
-      { "formula": "K\u2082O", "name_ru": "\u00f3xido de potasio" },
-      { "formula": "Li\u2082O", "name_ru": "\u00f3xido de litio" }
+      {
+        "formula": "Na₂O",
+        "name": "óxido de sodio"
+      },
+      {
+        "formula": "CaO",
+        "name": "óxido de calcio"
+      },
+      {
+        "formula": "BaO",
+        "name": "óxido de bario"
+      },
+      {
+        "formula": "MgO",
+        "name": "óxido de magnesio"
+      },
+      {
+        "formula": "K₂O",
+        "name": "óxido de potasio"
+      },
+      {
+        "formula": "Li₂O",
+        "name": "óxido de litio"
+      }
     ]
   },
   "naming_oxide_variable_valence": {
-    "template_ru": "\u00f3xido de {metal}({roman_numeral})",
+    "template": "óxido de {metal}({roman_numeral})",
     "examples": [
-      { "formula": "FeO", "name_ru": "\u00f3xido de hierro(II)" },
-      { "formula": "Fe\u2082O\u2083", "name_ru": "\u00f3xido de hierro(III)" },
-      { "formula": "CuO", "name_ru": "\u00f3xido de cobre(II)" },
-      { "formula": "Cu\u2082O", "name_ru": "\u00f3xido de cobre(I)" },
-      { "formula": "Cr\u2082O\u2083", "name_ru": "\u00f3xido de cromo(III)" },
-      { "formula": "CrO\u2083", "name_ru": "\u00f3xido de cromo(VI)" },
-      { "formula": "MnO\u2082", "name_ru": "\u00f3xido de manganeso(IV)" },
-      { "formula": "Mn\u2082O\u2087", "name_ru": "\u00f3xido de manganeso(VII)" }
+      {
+        "formula": "FeO",
+        "name": "óxido de hierro(II)"
+      },
+      {
+        "formula": "Fe₂O₃",
+        "name": "óxido de hierro(III)"
+      },
+      {
+        "formula": "CuO",
+        "name": "óxido de cobre(II)"
+      },
+      {
+        "formula": "Cu₂O",
+        "name": "óxido de cobre(I)"
+      },
+      {
+        "formula": "Cr₂O₃",
+        "name": "óxido de cromo(III)"
+      },
+      {
+        "formula": "CrO₃",
+        "name": "óxido de cromo(VI)"
+      },
+      {
+        "formula": "MnO₂",
+        "name": "óxido de manganeso(IV)"
+      },
+      {
+        "formula": "Mn₂O₇",
+        "name": "óxido de manganeso(VII)"
+      }
     ]
   },
   "naming_oxide_nonmetal": {
-    "template_ru": "\u00f3xido de {no_metal}({roman_numeral})",
+    "template": "óxido de {no_metal}({roman_numeral})",
     "examples": [
-      { "formula": "CO\u2082", "name_ru": "\u00f3xido de carbono(IV)" },
-      { "formula": "CO", "name_ru": "\u00f3xido de carbono(II)" },
-      { "formula": "SO\u2082", "name_ru": "\u00f3xido de azufre(IV)" },
-      { "formula": "SO\u2083", "name_ru": "\u00f3xido de azufre(VI)" },
-      { "formula": "P\u2082O\u2085", "name_ru": "\u00f3xido de f\u00f3sforo(V)" },
-      { "formula": "N\u2082O\u2085", "name_ru": "\u00f3xido de nitr\u00f3geno(V)" },
-      { "formula": "NO\u2082", "name_ru": "\u00f3xido de nitr\u00f3geno(IV)" },
-      { "formula": "NO", "name_ru": "\u00f3xido de nitr\u00f3geno(II)" },
-      { "formula": "SiO\u2082", "name_ru": "\u00f3xido de silicio(IV)" }
+      {
+        "formula": "CO₂",
+        "name": "óxido de carbono(IV)"
+      },
+      {
+        "formula": "CO",
+        "name": "óxido de carbono(II)"
+      },
+      {
+        "formula": "SO₂",
+        "name": "óxido de azufre(IV)"
+      },
+      {
+        "formula": "SO₃",
+        "name": "óxido de azufre(VI)"
+      },
+      {
+        "formula": "P₂O₅",
+        "name": "óxido de fósforo(V)"
+      },
+      {
+        "formula": "N₂O₅",
+        "name": "óxido de nitrógeno(V)"
+      },
+      {
+        "formula": "NO₂",
+        "name": "óxido de nitrógeno(IV)"
+      },
+      {
+        "formula": "NO",
+        "name": "óxido de nitrógeno(II)"
+      },
+      {
+        "formula": "SiO₂",
+        "name": "óxido de silicio(IV)"
+      }
     ]
   },
   "naming_acid_hcl": {
-    "template_ru": "\u00e1cido clorh\u00eddrico",
+    "template": "ácido clorhídrico",
     "examples": [
-      { "formula": "HCl", "name_ru": "\u00e1cido clorh\u00eddrico" }
+      {
+        "formula": "HCl",
+        "name": "ácido clorhídrico"
+      }
     ]
   },
   "naming_acid_hbr": {
-    "template_ru": "\u00e1cido bromh\u00eddrico",
+    "template": "ácido bromhídrico",
     "examples": [
-      { "formula": "HBr", "name_ru": "\u00e1cido bromh\u00eddrico" }
+      {
+        "formula": "HBr",
+        "name": "ácido bromhídrico"
+      }
     ]
   },
   "naming_acid_hi": {
-    "template_ru": "\u00e1cido yodh\u00eddrico",
+    "template": "ácido yodhídrico",
     "examples": [
-      { "formula": "HI", "name_ru": "\u00e1cido yodh\u00eddrico" }
+      {
+        "formula": "HI",
+        "name": "ácido yodhídrico"
+      }
     ]
   },
   "naming_acid_hf": {
-    "template_ru": "\u00e1cido fluorh\u00eddrico",
+    "template": "ácido fluorhídrico",
     "examples": [
-      { "formula": "HF", "name_ru": "\u00e1cido fluorh\u00eddrico" }
+      {
+        "formula": "HF",
+        "name": "ácido fluorhídrico"
+      }
     ]
   },
   "naming_acid_h2s": {
-    "template_ru": "\u00e1cido sulfh\u00eddrico",
+    "template": "ácido sulfhídrico",
     "examples": [
-      { "formula": "H\u2082S", "name_ru": "\u00e1cido sulfh\u00eddrico" }
+      {
+        "formula": "H₂S",
+        "name": "ácido sulfhídrico"
+      }
     ]
   },
   "naming_acid_h2so4": {
-    "template_ru": "\u00e1cido sulf\u00farico",
+    "template": "ácido sulfúrico",
     "examples": [
-      { "formula": "H\u2082SO\u2084", "name_ru": "\u00e1cido sulf\u00farico" }
+      {
+        "formula": "H₂SO₄",
+        "name": "ácido sulfúrico"
+      }
     ]
   },
   "naming_acid_h2so3": {
-    "template_ru": "\u00e1cido sulfuroso",
+    "template": "ácido sulfuroso",
     "examples": [
-      { "formula": "H\u2082SO\u2083", "name_ru": "\u00e1cido sulfuroso" }
+      {
+        "formula": "H₂SO₃",
+        "name": "ácido sulfuroso"
+      }
     ]
   },
   "naming_acid_hno3": {
-    "template_ru": "\u00e1cido n\u00edtrico",
+    "template": "ácido nítrico",
     "examples": [
-      { "formula": "HNO\u2083", "name_ru": "\u00e1cido n\u00edtrico" }
+      {
+        "formula": "HNO₃",
+        "name": "ácido nítrico"
+      }
     ]
   },
   "naming_acid_hno2": {
-    "template_ru": "\u00e1cido nitroso",
+    "template": "ácido nitroso",
     "examples": [
-      { "formula": "HNO\u2082", "name_ru": "\u00e1cido nitroso" }
+      {
+        "formula": "HNO₂",
+        "name": "ácido nitroso"
+      }
     ]
   },
   "naming_acid_h2co3": {
-    "template_ru": "\u00e1cido carb\u00f3nico",
+    "template": "ácido carbónico",
     "examples": [
-      { "formula": "H\u2082CO\u2083", "name_ru": "\u00e1cido carb\u00f3nico" }
+      {
+        "formula": "H₂CO₃",
+        "name": "ácido carbónico"
+      }
     ]
   },
   "naming_acid_h3po4": {
-    "template_ru": "\u00e1cido fosf\u00f3rico (\u00e1cido ortofosf\u00f3rico)",
+    "template": "ácido fosfórico (ácido ortofosfórico)",
     "examples": [
-      { "formula": "H\u2083PO\u2084", "name_ru": "\u00e1cido fosf\u00f3rico" }
+      {
+        "formula": "H₃PO₄",
+        "name": "ácido fosfórico"
+      }
     ]
   },
   "naming_acid_h2sio3": {
-    "template_ru": "\u00e1cido sil\u00edcico",
+    "template": "ácido silícico",
     "examples": [
-      { "formula": "H\u2082SiO\u2083", "name_ru": "\u00e1cido sil\u00edcico" }
+      {
+        "formula": "H₂SiO₃",
+        "name": "ácido silícico"
+      }
     ]
   },
   "naming_base": {
-    "template_ru": "hidr\u00f3xido de {metal}",
+    "template": "hidróxido de {metal}",
     "examples": [
-      { "formula": "NaOH", "name_ru": "hidr\u00f3xido de sodio" },
-      { "formula": "KOH", "name_ru": "hidr\u00f3xido de potasio" },
-      { "formula": "Ca(OH)\u2082", "name_ru": "hidr\u00f3xido de calcio" },
-      { "formula": "Ba(OH)\u2082", "name_ru": "hidr\u00f3xido de bario" },
-      { "formula": "Mg(OH)\u2082", "name_ru": "hidr\u00f3xido de magnesio" },
-      { "formula": "LiOH", "name_ru": "hidr\u00f3xido de litio" }
+      {
+        "formula": "NaOH",
+        "name": "hidróxido de sodio"
+      },
+      {
+        "formula": "KOH",
+        "name": "hidróxido de potasio"
+      },
+      {
+        "formula": "Ca(OH)₂",
+        "name": "hidróxido de calcio"
+      },
+      {
+        "formula": "Ba(OH)₂",
+        "name": "hidróxido de bario"
+      },
+      {
+        "formula": "Mg(OH)₂",
+        "name": "hidróxido de magnesio"
+      },
+      {
+        "formula": "LiOH",
+        "name": "hidróxido de litio"
+      }
     ]
   },
   "naming_base_variable_valence": {
-    "template_ru": "hidr\u00f3xido de {metal}({roman_numeral})",
+    "template": "hidróxido de {metal}({roman_numeral})",
     "examples": [
-      { "formula": "Fe(OH)\u2082", "name_ru": "hidr\u00f3xido de hierro(II)" },
-      { "formula": "Fe(OH)\u2083", "name_ru": "hidr\u00f3xido de hierro(III)" },
-      { "formula": "Cu(OH)\u2082", "name_ru": "hidr\u00f3xido de cobre(II)" },
-      { "formula": "Cr(OH)\u2083", "name_ru": "hidr\u00f3xido de cromo(III)" }
+      {
+        "formula": "Fe(OH)₂",
+        "name": "hidróxido de hierro(II)"
+      },
+      {
+        "formula": "Fe(OH)₃",
+        "name": "hidróxido de hierro(III)"
+      },
+      {
+        "formula": "Cu(OH)₂",
+        "name": "hidróxido de cobre(II)"
+      },
+      {
+        "formula": "Cr(OH)₃",
+        "name": "hidróxido de cromo(III)"
+      }
     ]
   },
   "naming_salt_chloride": {
-    "template_ru": "cloruro de {metal}",
+    "template": "cloruro de {metal}",
     "examples": [
-      { "formula": "NaCl", "name_ru": "cloruro de sodio" },
-      { "formula": "KCl", "name_ru": "cloruro de potasio" },
-      { "formula": "CaCl\u2082", "name_ru": "cloruro de calcio" },
-      { "formula": "BaCl\u2082", "name_ru": "cloruro de bario" },
-      { "formula": "FeCl\u2083", "name_ru": "cloruro de hierro(III)" },
-      { "formula": "FeCl\u2082", "name_ru": "cloruro de hierro(II)" },
-      { "formula": "AlCl\u2083", "name_ru": "cloruro de aluminio" }
+      {
+        "formula": "NaCl",
+        "name": "cloruro de sodio"
+      },
+      {
+        "formula": "KCl",
+        "name": "cloruro de potasio"
+      },
+      {
+        "formula": "CaCl₂",
+        "name": "cloruro de calcio"
+      },
+      {
+        "formula": "BaCl₂",
+        "name": "cloruro de bario"
+      },
+      {
+        "formula": "FeCl₃",
+        "name": "cloruro de hierro(III)"
+      },
+      {
+        "formula": "FeCl₂",
+        "name": "cloruro de hierro(II)"
+      },
+      {
+        "formula": "AlCl₃",
+        "name": "cloruro de aluminio"
+      }
     ]
   },
   "naming_salt_sulfate": {
-    "template_ru": "sulfato de {metal}",
+    "template": "sulfato de {metal}",
     "examples": [
-      { "formula": "Na\u2082SO\u2084", "name_ru": "sulfato de sodio" },
-      { "formula": "K\u2082SO\u2084", "name_ru": "sulfato de potasio" },
-      { "formula": "CaSO\u2084", "name_ru": "sulfato de calcio" },
-      { "formula": "BaSO\u2084", "name_ru": "sulfato de bario" },
-      { "formula": "CuSO\u2084", "name_ru": "sulfato de cobre(II)" },
-      { "formula": "FeSO\u2084", "name_ru": "sulfato de hierro(II)" },
-      { "formula": "Al\u2082(SO\u2084)\u2083", "name_ru": "sulfato de aluminio" }
+      {
+        "formula": "Na₂SO₄",
+        "name": "sulfato de sodio"
+      },
+      {
+        "formula": "K₂SO₄",
+        "name": "sulfato de potasio"
+      },
+      {
+        "formula": "CaSO₄",
+        "name": "sulfato de calcio"
+      },
+      {
+        "formula": "BaSO₄",
+        "name": "sulfato de bario"
+      },
+      {
+        "formula": "CuSO₄",
+        "name": "sulfato de cobre(II)"
+      },
+      {
+        "formula": "FeSO₄",
+        "name": "sulfato de hierro(II)"
+      },
+      {
+        "formula": "Al₂(SO₄)₃",
+        "name": "sulfato de aluminio"
+      }
     ]
   },
   "naming_salt_nitrate": {
-    "template_ru": "nitrato de {metal}",
+    "template": "nitrato de {metal}",
     "examples": [
-      { "formula": "NaNO\u2083", "name_ru": "nitrato de sodio" },
-      { "formula": "KNO\u2083", "name_ru": "nitrato de potasio" },
-      { "formula": "Ca(NO\u2083)\u2082", "name_ru": "nitrato de calcio" },
-      { "formula": "AgNO\u2083", "name_ru": "nitrato de plata" },
-      { "formula": "Pb(NO\u2083)\u2082", "name_ru": "nitrato de plomo(II)" },
-      { "formula": "Cu(NO\u2083)\u2082", "name_ru": "nitrato de cobre(II)" }
+      {
+        "formula": "NaNO₃",
+        "name": "nitrato de sodio"
+      },
+      {
+        "formula": "KNO₃",
+        "name": "nitrato de potasio"
+      },
+      {
+        "formula": "Ca(NO₃)₂",
+        "name": "nitrato de calcio"
+      },
+      {
+        "formula": "AgNO₃",
+        "name": "nitrato de plata"
+      },
+      {
+        "formula": "Pb(NO₃)₂",
+        "name": "nitrato de plomo(II)"
+      },
+      {
+        "formula": "Cu(NO₃)₂",
+        "name": "nitrato de cobre(II)"
+      }
     ]
   },
   "naming_salt_carbonate": {
-    "template_ru": "carbonato de {metal}",
+    "template": "carbonato de {metal}",
     "examples": [
-      { "formula": "Na\u2082CO\u2083", "name_ru": "carbonato de sodio" },
-      { "formula": "K\u2082CO\u2083", "name_ru": "carbonato de potasio" },
-      { "formula": "CaCO\u2083", "name_ru": "carbonato de calcio" },
-      { "formula": "BaCO\u2083", "name_ru": "carbonato de bario" },
-      { "formula": "MgCO\u2083", "name_ru": "carbonato de magnesio" }
+      {
+        "formula": "Na₂CO₃",
+        "name": "carbonato de sodio"
+      },
+      {
+        "formula": "K₂CO₃",
+        "name": "carbonato de potasio"
+      },
+      {
+        "formula": "CaCO₃",
+        "name": "carbonato de calcio"
+      },
+      {
+        "formula": "BaCO₃",
+        "name": "carbonato de bario"
+      },
+      {
+        "formula": "MgCO₃",
+        "name": "carbonato de magnesio"
+      }
     ]
   },
   "naming_salt_phosphate": {
-    "template_ru": "fosfato de {metal}",
+    "template": "fosfato de {metal}",
     "examples": [
-      { "formula": "Na\u2083PO\u2084", "name_ru": "fosfato de sodio" },
-      { "formula": "Ca\u2083(PO\u2084)\u2082", "name_ru": "fosfato de calcio" },
-      { "formula": "AlPO\u2084", "name_ru": "fosfato de aluminio" }
+      {
+        "formula": "Na₃PO₄",
+        "name": "fosfato de sodio"
+      },
+      {
+        "formula": "Ca₃(PO₄)₂",
+        "name": "fosfato de calcio"
+      },
+      {
+        "formula": "AlPO₄",
+        "name": "fosfato de aluminio"
+      }
     ]
   },
   "naming_salt_sulfide": {
-    "template_ru": "sulfuro de {metal}",
+    "template": "sulfuro de {metal}",
     "examples": [
-      { "formula": "Na\u2082S", "name_ru": "sulfuro de sodio" },
-      { "formula": "FeS", "name_ru": "sulfuro de hierro(II)" },
-      { "formula": "ZnS", "name_ru": "sulfuro de cinc" },
-      { "formula": "CuS", "name_ru": "sulfuro de cobre(II)" },
-      { "formula": "PbS", "name_ru": "sulfuro de plomo(II)" }
+      {
+        "formula": "Na₂S",
+        "name": "sulfuro de sodio"
+      },
+      {
+        "formula": "FeS",
+        "name": "sulfuro de hierro(II)"
+      },
+      {
+        "formula": "ZnS",
+        "name": "sulfuro de cinc"
+      },
+      {
+        "formula": "CuS",
+        "name": "sulfuro de cobre(II)"
+      },
+      {
+        "formula": "PbS",
+        "name": "sulfuro de plomo(II)"
+      }
     ]
   },
   "naming_salt_silicate": {
-    "template_ru": "silicato de {metal}",
+    "template": "silicato de {metal}",
     "examples": [
-      { "formula": "Na\u2082SiO\u2083", "name_ru": "silicato de sodio" },
-      { "formula": "CaSiO\u2083", "name_ru": "silicato de calcio" }
+      {
+        "formula": "Na₂SiO₃",
+        "name": "silicato de sodio"
+      },
+      {
+        "formula": "CaSiO₃",
+        "name": "silicato de calcio"
+      }
     ]
   },
   "naming_salt_sulfite": {
-    "template_ru": "sulfito de {metal}",
+    "template": "sulfito de {metal}",
     "examples": [
-      { "formula": "Na\u2082SO\u2083", "name_ru": "sulfito de sodio" },
-      { "formula": "K\u2082SO\u2083", "name_ru": "sulfito de potasio" }
+      {
+        "formula": "Na₂SO₃",
+        "name": "sulfito de sodio"
+      },
+      {
+        "formula": "K₂SO₃",
+        "name": "sulfito de potasio"
+      }
     ]
   },
   "naming_salt_fluoride": {
-    "template_ru": "fluoruro de {metal}",
+    "template": "fluoruro de {metal}",
     "examples": [
-      { "formula": "NaF", "name_ru": "fluoruro de sodio" },
-      { "formula": "CaF\u2082", "name_ru": "fluoruro de calcio" }
+      {
+        "formula": "NaF",
+        "name": "fluoruro de sodio"
+      },
+      {
+        "formula": "CaF₂",
+        "name": "fluoruro de calcio"
+      }
     ]
   },
   "naming_salt_bromide": {
-    "template_ru": "bromuro de {metal}",
+    "template": "bromuro de {metal}",
     "examples": [
-      { "formula": "NaBr", "name_ru": "bromuro de sodio" },
-      { "formula": "KBr", "name_ru": "bromuro de potasio" }
+      {
+        "formula": "NaBr",
+        "name": "bromuro de sodio"
+      },
+      {
+        "formula": "KBr",
+        "name": "bromuro de potasio"
+      }
     ]
   },
   "naming_salt_iodide": {
-    "template_ru": "yoduro de {metal}",
+    "template": "yoduro de {metal}",
     "examples": [
-      { "formula": "NaI", "name_ru": "yoduro de sodio" },
-      { "formula": "KI", "name_ru": "yoduro de potasio" }
+      {
+        "formula": "NaI",
+        "name": "yoduro de sodio"
+      },
+      {
+        "formula": "KI",
+        "name": "yoduro de potasio"
+      }
     ]
   },
   "naming_salt_nitrite": {
-    "template_ru": "nitrito de {metal}",
+    "template": "nitrito de {metal}",
     "examples": [
-      { "formula": "NaNO\u2082", "name_ru": "nitrito de sodio" },
-      { "formula": "KNO\u2082", "name_ru": "nitrito de potasio" }
+      {
+        "formula": "NaNO₂",
+        "name": "nitrito de sodio"
+      },
+      {
+        "formula": "KNO₂",
+        "name": "nitrito de potasio"
+      }
     ]
   },
   "naming_salt_acetate": {
-    "template_ru": "acetato de {metal}",
+    "template": "acetato de {metal}",
     "examples": [
-      { "formula": "CH\u2083COONa", "name_ru": "acetato de sodio" },
-      { "formula": "(CH\u2083COO)\u2082Cu", "name_ru": "acetato de cobre(II)" }
+      {
+        "formula": "CH₃COONa",
+        "name": "acetato de sodio"
+      },
+      {
+        "formula": "(CH₃COO)₂Cu",
+        "name": "acetato de cobre(II)"
+      }
     ]
   },
   "naming_salt_permanganate": {
-    "template_ru": "permanganato de {metal}",
+    "template": "permanganato de {metal}",
     "examples": [
-      { "formula": "KMnO\u2084", "name_ru": "permanganato de potasio" }
+      {
+        "formula": "KMnO₄",
+        "name": "permanganato de potasio"
+      }
     ]
   },
   "naming_salt_chromate": {
-    "template_ru": "cromato de {metal}",
+    "template": "cromato de {metal}",
     "examples": [
-      { "formula": "K\u2082CrO\u2084", "name_ru": "cromato de potasio" },
-      { "formula": "Na\u2082CrO\u2084", "name_ru": "cromato de sodio" }
+      {
+        "formula": "K₂CrO₄",
+        "name": "cromato de potasio"
+      },
+      {
+        "formula": "Na₂CrO₄",
+        "name": "cromato de sodio"
+      }
     ]
   },
   "naming_salt_dichromate": {
-    "template_ru": "dicromato de {metal}",
+    "template": "dicromato de {metal}",
     "examples": [
-      { "formula": "K\u2082Cr\u2082O\u2087", "name_ru": "dicromato de potasio" }
+      {
+        "formula": "K₂Cr₂O₇",
+        "name": "dicromato de potasio"
+      }
     ]
   },
   "naming_salt_acidic_hydrocarbonate": {
-    "template_ru": "hidrogenocarbonato de {metal}",
+    "template": "hidrogenocarbonato de {metal}",
     "examples": [
-      { "formula": "NaHCO\u2083", "name_ru": "hidrogenocarbonato de sodio" },
-      { "formula": "Ca(HCO\u2083)\u2082", "name_ru": "hidrogenocarbonato de calcio" }
+      {
+        "formula": "NaHCO₃",
+        "name": "hidrogenocarbonato de sodio"
+      },
+      {
+        "formula": "Ca(HCO₃)₂",
+        "name": "hidrogenocarbonato de calcio"
+      }
     ]
   },
   "naming_salt_acidic_hydrosulfate": {
-    "template_ru": "hidrogenosulfato de {metal}",
+    "template": "hidrogenosulfato de {metal}",
     "examples": [
-      { "formula": "KHSO\u2084", "name_ru": "hidrogenosulfato de potasio" },
-      { "formula": "NaHSO\u2084", "name_ru": "hidrogenosulfato de sodio" }
+      {
+        "formula": "KHSO₄",
+        "name": "hidrogenosulfato de potasio"
+      },
+      {
+        "formula": "NaHSO₄",
+        "name": "hidrogenosulfato de sodio"
+      }
     ]
   },
   "naming_salt_acidic_dihydrophosphate": {
-    "template_ru": "dihidrogenofosfato de {metal}",
+    "template": "dihidrogenofosfato de {metal}",
     "examples": [
-      { "formula": "NaH\u2082PO\u2084", "name_ru": "dihidrogenofosfato de sodio" },
-      { "formula": "Ca(H\u2082PO\u2084)\u2082", "name_ru": "dihidrogenofosfato de calcio" }
+      {
+        "formula": "NaH₂PO₄",
+        "name": "dihidrogenofosfato de sodio"
+      },
+      {
+        "formula": "Ca(H₂PO₄)₂",
+        "name": "dihidrogenofosfato de calcio"
+      }
     ]
   },
   "naming_salt_acidic_hydrophosphate": {
-    "template_ru": "hidrogenofosfato de {metal}",
+    "template": "hidrogenofosfato de {metal}",
     "examples": [
-      { "formula": "Na\u2082HPO\u2084", "name_ru": "hidrogenofosfato de sodio" },
-      { "formula": "CaHPO\u2084", "name_ru": "hidrogenofosfato de calcio" }
+      {
+        "formula": "Na₂HPO₄",
+        "name": "hidrogenofosfato de sodio"
+      },
+      {
+        "formula": "CaHPO₄",
+        "name": "hidrogenofosfato de calcio"
+      }
     ]
   }
 }

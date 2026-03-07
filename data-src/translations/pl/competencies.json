@@ -1,107 +1,107 @@
 {
   "periodic_table": {
-    "name_ru": "Układ okresowy",
-    "description_ru": "Określanie pozycji pierwiastka w układzie okresowym: okres, grupa, podgrupa. Metale i niemetale. Liczba atomowa i jej związek z budową atomu.",
-    "block_name_ru": "Budowa atomu i układ okresowy"
+    "name": "Układ okresowy",
+    "description": "Określanie pozycji pierwiastka w układzie okresowym: okres, grupa, podgrupa. Metale i niemetale. Liczba atomowa i jej związek z budową atomu.",
+    "block_name": "Budowa atomu i układ okresowy"
   },
   "electron_config": {
-    "name_ru": "Konfiguracja elektronowa",
-    "description_ru": "Zapisywanie konfiguracji elektronowej atomów, rozumienie podpowłok, reguła Klechkowskiego, reguła Hunda. Wyjątki (Cr, Cu i inne).",
-    "block_name_ru": "Budowa atomu i układ okresowy"
+    "name": "Konfiguracja elektronowa",
+    "description": "Zapisywanie konfiguracji elektronowej atomów, rozumienie podpowłok, reguła Klechkowskiego, reguła Hunda. Wyjątki (Cr, Cu i inne).",
+    "block_name": "Budowa atomu i układ okresowy"
   },
   "periodic_trends": {
-    "name_ru": "Trendy okresowe",
-    "description_ru": "Prawidłowości zmian promienia atomowego, energii jonizacji, elektroujemności w okresach i grupach. Wyjaśnienie przez strukturę elektronową.",
-    "block_name_ru": "Budowa atomu i układ okresowy"
+    "name": "Trendy okresowe",
+    "description": "Prawidłowości zmian promienia atomowego, energii jonizacji, elektroujemności w okresach i grupach. Wyjaśnienie przez strukturę elektronową.",
+    "block_name": "Budowa atomu i układ okresowy"
   },
   "oxidation_states": {
-    "name_ru": "Stopnie utlenienia",
-    "description_ru": "Określanie stopni utlenienia pierwiastków w związkach. Związek z konfiguracją elektronową i pozycją w tablicy. Utleniacz i reduktor.",
-    "block_name_ru": "Budowa atomu i układ okresowy"
+    "name": "Stopnie utlenienia",
+    "description": "Określanie stopni utlenienia pierwiastków w związkach. Związek z konfiguracją elektronową i pozycją w tablicy. Utleniacz i reduktor.",
+    "block_name": "Budowa atomu i układ okresowy"
   },
   "bond_type": {
-    "name_ru": "Typy wiązań chemicznych",
-    "description_ru": "Kowalencyjne (polarne i niepolarne), jonowe, metaliczne wiązania. Określanie typu wiązania na podstawie różnicy elektroujemności i składu substancji.",
-    "block_name_ru": "Wiązania chemiczne i budowa substancji"
+    "name": "Typy wiązań chemicznych",
+    "description": "Kowalencyjne (polarne i niepolarne), jonowe, metaliczne wiązania. Określanie typu wiązania na podstawie różnicy elektroujemności i składu substancji.",
+    "block_name": "Wiązania chemiczne i budowa substancji"
   },
   "crystal_structure_type": {
-    "name_ru": "Typy sieci krystalicznych",
-    "description_ru": "Jonowa, molekularna, atomowa i metaliczna sieć krystaliczna. Związek typu sieci z właściwościami fizycznymi (temperatura topnienia, rozpuszczalność, przewodnictwo).",
-    "block_name_ru": "Wiązania chemiczne i budowa substancji"
+    "name": "Typy sieci krystalicznych",
+    "description": "Jonowa, molekularna, atomowa i metaliczna sieć krystaliczna. Związek typu sieci z właściwościami fizycznymi (temperatura topnienia, rozpuszczalność, przewodnictwo).",
+    "block_name": "Wiązania chemiczne i budowa substancji"
   },
   "classification": {
-    "name_ru": "Klasyfikacja substancji",
-    "description_ru": "Tlenki (zasadowe, kwasowe, amfoteryczne), kwasy, zasady, sole. Określanie klasy na podstawie składu i właściwości.",
-    "block_name_ru": "Klasy substancji i nomenklatura"
+    "name": "Klasyfikacja substancji",
+    "description": "Tlenki (zasadowe, kwasowe, amfoteryczne), kwasy, zasady, sole. Określanie klasy na podstawie składu i właściwości.",
+    "block_name": "Klasy substancji i nomenklatura"
   },
   "naming": {
-    "name_ru": "Nomenklatura",
-    "description_ru": "Nazwy systematyczne i zwyczajowe substancji. Nazwa na podstawie wzoru i wzór na podstawie nazwy.",
-    "block_name_ru": "Klasy substancji i nomenklatura"
+    "name": "Nomenklatura",
+    "description": "Nazwy systematyczne i zwyczajowe substancji. Nazwa na podstawie wzoru i wzór na podstawie nazwy.",
+    "block_name": "Klasy substancji i nomenklatura"
   },
   "amphoterism_logic": {
-    "name_ru": "Amfoteryczność",
-    "description_ru": "Tlenki i wodorotlenki amfoteryczne: reakcje z kwasami i zasadami. Typowe pierwiastki amfoteryczne (Al, Zn, Be, Cr).",
-    "block_name_ru": "Klasy substancji i nomenklatura"
+    "name": "Amfoteryczność",
+    "description": "Tlenki i wodorotlenki amfoteryczne: reakcje z kwasami i zasadami. Typowe pierwiastki amfoteryczne (Al, Zn, Be, Cr).",
+    "block_name": "Klasy substancji i nomenklatura"
   },
   "reactions_exchange": {
-    "name_ru": "Reakcje wymiany jonowej",
-    "description_ru": "Reakcje wymiany w roztworach: neutralizacja, sól + kwas, sól + zasada, sól + sól. Pełne i skrócone równania jonowe.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name": "Reakcje wymiany jonowej",
+    "description": "Reakcje wymiany w roztworach: neutralizacja, sól + kwas, sól + zasada, sól + sól. Pełne i skrócone równania jonowe.",
+    "block_name": "Reakcje chemiczne"
   },
   "gas_precipitate_logic": {
-    "name_ru": "Oznaki reakcji",
-    "description_ru": "Siły napędowe reakcji wymiany jonowej: powstawanie osadu, gazu lub wody. Tabela rozpuszczalności. Węglan + kwas → CO₂.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name": "Oznaki reakcji",
+    "description": "Siły napędowe reakcji wymiany jonowej: powstawanie osadu, gazu lub wody. Tabela rozpuszczalności. Węglan + kwas → CO₂.",
+    "block_name": "Reakcje chemiczne"
   },
   "reactions_redox": {
-    "name_ru": "Reakcje redoks",
-    "description_ru": "Podstawienie, bilansowanie reakcji redoks metodą bilansu elektronowego. Szereg aktywności metali. Metal + sól, metal + kwas.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name": "Reakcje redoks",
+    "description": "Podstawienie, bilansowanie reakcji redoks metodą bilansu elektronowego. Szereg aktywności metali. Metal + sól, metal + kwas.",
+    "block_name": "Reakcje chemiczne"
   },
   "genetic_chain_logic": {
-    "name_ru": "Łańcuchy genetyczne",
-    "description_ru": "Związek genetyczny między klasami substancji: łańcuchy przemian metal → tlenek → zasada → sól itd.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name": "Łańcuchy genetyczne",
+    "description": "Związek genetyczny między klasami substancji: łańcuchy przemian metal → tlenek → zasada → sól itd.",
+    "block_name": "Reakcje chemiczne"
   },
   "qualitative_analysis_logic": {
-    "name_ru": "Reakcje jakościowe",
-    "description_ru": "Rozpoznawanie substancji na podstawie charakterystycznych reakcji: kolor osadu, wydzielanie gazu, zmiana barwy wskaźnika.",
-    "block_name_ru": "Reakcje chemiczne"
+    "name": "Reakcje jakościowe",
+    "description": "Rozpoznawanie substancji na podstawie charakterystycznych reakcji: kolor osadu, wydzielanie gazu, zmiana barwy wskaźnika.",
+    "block_name": "Reakcje chemiczne"
   },
   "reaction_energy_profile": {
-    "name_ru": "Szybkość i równowaga",
-    "description_ru": "Czynniki wpływające na szybkość reakcji (temperatura, stężenie, katalizator, powierzchnia). Energia aktywacji. Równowaga chemiczna.",
-    "block_name_ru": "Energetyka"
+    "name": "Szybkość i równowaga",
+    "description": "Czynniki wpływające na szybkość reakcji (temperatura, stężenie, katalizator, powierzchnia). Energia aktywacji. Równowaga chemiczna.",
+    "block_name": "Energetyka"
   },
   "catalyst_role_understanding": {
-    "name_ru": "Kataliza i energetyka",
-    "description_ru": "Rola katalizatora: co zmienia (szybkość, Ea) i czego nie zmienia (skład produktów, efekt cieplny, równowaga). Reakcje egzo- i endotermiczne.",
-    "block_name_ru": "Energetyka"
+    "name": "Kataliza i energetyka",
+    "description": "Rola katalizatora: co zmienia (szybkość, Ea) i czego nie zmienia (skład produktów, efekt cieplny, równowaga). Reakcje egzo- i endotermiczne.",
+    "block_name": "Energetyka"
   },
   "calculations_basic": {
-    "name_ru": "Obliczenia podstawowe",
-    "description_ru": "Masa molowa (Mr), ilość substancji (n = m/M), udział masowy pierwiastka. Obliczenia na podstawie wzoru substancji.",
-    "block_name_ru": "Obliczenia chemiczne"
+    "name": "Obliczenia podstawowe",
+    "description": "Masa molowa (Mr), ilość substancji (n = m/M), udział masowy pierwiastka. Obliczenia na podstawie wzoru substancji.",
+    "block_name": "Obliczenia chemiczne"
   },
   "calculations_solutions": {
-    "name_ru": "Obliczenia roztworów",
-    "description_ru": "Stężenie procentowe (ω). Zadania na przygotowanie, rozcieńczanie i mieszanie roztworów.",
-    "block_name_ru": "Obliczenia chemiczne"
+    "name": "Obliczenia roztworów",
+    "description": "Stężenie procentowe (ω). Zadania na przygotowanie, rozcieńczanie i mieszanie roztworów.",
+    "block_name": "Obliczenia chemiczne"
   },
   "reaction_yield_logic": {
-    "name_ru": "Wydajność reakcji",
-    "description_ru": "Obliczanie wydajności produktu reakcji. Wydajność praktyczna i teoretyczna. Nadmiar i niedomiar reagenta.",
-    "block_name_ru": "Obliczenia chemiczne"
+    "name": "Wydajność reakcji",
+    "description": "Obliczanie wydajności produktu reakcji. Wydajność praktyczna i teoretyczna. Nadmiar i niedomiar reagenta.",
+    "block_name": "Obliczenia chemiczne"
   },
   "electrolyte_logic": {
-    "name_ru": "Elektrolity i dysocjacja",
-    "description_ru": "Elektrolity i nieelektrolity. Elektrolity mocne i słabe. Dysocjacja elektrolityczna kwasów, zasad i soli.",
-    "block_name_ru": "Roztwory i elektrolity"
+    "name": "Elektrolity i dysocjacja",
+    "description": "Elektrolity i nieelektrolity. Elektrolity mocne i słabe. Dysocjacja elektrolityczna kwasów, zasad i soli.",
+    "block_name": "Roztwory i elektrolity"
   },
   "ion_nomenclature": {
-    "name_ru": "Nomenklatura jonów",
-    "description_ru": "Nazwy jonów według systemu sufiksów: -ek (beztlenowe), -yn/-an (tlenowe). Związek między nazwą anionu a kwasem macierzystym i stopniem utlenienia atomu centralnego.",
-    "block_name_ru": "Roztwory i elektrolity"
+    "name": "Nomenklatura jonów",
+    "description": "Nazwy jonów według systemu sufiksów: -ek (beztlenowe), -yn/-an (tlenowe). Związek między nazwą anionu a kwasem macierzystym i stopniem utlenienia atomu centralnego.",
+    "block_name": "Roztwory i elektrolity"
   }
 }

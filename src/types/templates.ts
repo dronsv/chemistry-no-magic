@@ -6,7 +6,7 @@ export interface ReactionTemplate {
   id: string;
   type: string;
   pattern: string;
-  description_ru: string;
+  description: string;
   conditions?: string;
   catalyst?: string;
   examples: Array<{ reactants: string[]; products: string[] }>;
@@ -15,8 +15,8 @@ export interface ReactionTemplate {
 export interface TaskTemplate {
   id: string;
   type_number: number;
-  name_ru: string;
-  description_ru: string;
+  name: string;
+  description: string;
   competencies: Partial<Record<CompetencyId, CompetencyCoverage>>;
   seed_params: Record<string, unknown>;
 }

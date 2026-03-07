@@ -1,32 +1,53 @@
 {
-  "mnemonic_ru": "Sin oxígeno → -URO. Con oxígeno: máx. e.o. → -ATO, menor → -ITO. Aún más alto → PER-...-ATO, aún más bajo → HIPO-...-ITO.",
+  "mnemonic": "Sin oxígeno → -URO. Con oxígeno: máx. e.o. → -ATO, menor → -ITO. Aún más alto → PER-...-ATO, aún más bajo → HIPO-...-ITO.",
   "suffix_rules": [
     {
       "id": "binary_ide",
-      "suffix_ru": "-uro",
-      "description_ru": "Aniones binarios (sin oxígeno) → sufijo -uro"
+      "suffix": "-uro",
+      "description": "Aniones binarios (sin oxígeno) → sufijo -uro"
     },
     {
       "id": "oxy_max_ate",
-      "suffix_ru": "-ato",
-      "description_ru": "Oxoanión con el estado de oxidación máximo del átomo central → -ato"
+      "suffix": "-ato",
+      "description": "Oxoanión con el estado de oxidación máximo del átomo central → -ato"
     },
     {
       "id": "oxy_lower_ite",
-      "suffix_ru": "-ito",
-      "description_ru": "Oxoanión con estado de oxidación menor → -ito"
+      "suffix": "-ito",
+      "description": "Oxoanión con estado de oxidación menor → -ito"
     },
     {
       "id": "per_prefix",
-      "prefix_ru": "per-",
-      "suffix_ru": "-ato",
-      "description_ru": "Estado de oxidación superior al máximo típico → per-...-ato"
+      "prefix": "per-",
+      "suffix": "-ato",
+      "description": "Estado de oxidación superior al máximo típico → per-...-ato"
     },
     {
       "id": "hypo_prefix",
-      "prefix_ru": "hipo-",
-      "suffix_ru": "-ito",
-      "description_ru": "Estado de oxidación inferior al mínimo típico para oxoaniones → hipo-...-ito"
+      "prefix": "hipo-",
+      "suffix": "-ito",
+      "description": "Estado de oxidación inferior al mínimo típico para oxoaniones → hipo-...-ito"
     }
-  ]
+  ],
+  "acid_to_anion_pairs": [
+    { "acid": "HCl",      "acid_name": "ácido clorhídrico" },
+    { "acid": "HBr",      "acid_name": "ácido bromhídrico" },
+    { "acid": "HI",       "acid_name": "ácido yodhídrico" },
+    { "acid": "HF",       "acid_name": "ácido fluorhídrico" },
+    { "acid": "H₂S",     "acid_name": "ácido sulfhídrico" },
+    { "acid": "H₂SO₄",   "acid_name": "ácido sulfúrico" },
+    { "acid": "H₂SO₃",   "acid_name": "ácido sulfuroso" },
+    { "acid": "HNO₃",    "acid_name": "ácido nítrico" },
+    { "acid": "HNO₂",    "acid_name": "ácido nitroso" },
+    { "acid": "H₂CO₃",   "acid_name": "ácido carbónico" },
+    { "acid": "H₂SiO₃",  "acid_name": "ácido silícico" },
+    { "acid": "H₃PO₄",   "acid_name": "ácido fosfórico" },
+    { "acid": "CH₃COOH", "acid_name": "ácido acético" },
+    { "acid": "HMnO₄",   "acid_name": "ácido permangánico" },
+    { "acid": "H₂CrO₄",  "acid_name": "ácido crómico" },
+    { "acid": "H₂Cr₂O₇", "acid_name": "ácido dicrómico" }
+  ],
+  "multilingual_comparison": {
+    "description": "Sistemas de sufijos en diferentes idiomas: -uro/-ito/-ato (esp.) ≈ -ide/-ite/-ate (ingl.) ≈ -ид/-ит/-ат (rus.) ≈ -ek/-ian/-an (pol.)"
+  }
 }

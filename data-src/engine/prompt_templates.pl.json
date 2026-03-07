@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix_ru}\u201d?",
+    "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix}\u201d?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {

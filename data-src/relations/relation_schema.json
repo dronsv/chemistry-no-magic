@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Schema for knowledge graph relation triples",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["subject", "predicate", "object"],
+    "properties": {
+      "subject":   { "type": "string", "description": "Entity ID of the subject (e.g. ion:SO4_2minus, sub:h2so4)" },
+      "predicate": { "type": "string", "description": "Relation type (e.g. has_conjugate_base, has_role)" },
+      "object":    { "type": "string", "description": "Entity ID or role ID of the object" },
+      "step":      { "type": "number", "description": "Step index for multi-step chains (e.g. proton dissociation)" }
+    },
+    "additionalProperties": false
+  }
+}

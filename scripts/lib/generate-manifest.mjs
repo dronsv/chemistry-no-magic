@@ -14,7 +14,7 @@ import { join } from 'node:path';
  * @param {Record<string, string>} [opts.theoryModules] - { key: "theory_modules/key.json" }
  * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -102,6 +102,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       quantities_units: 'quantities_units.json',
       topics: 'topics.json',
       topic_pages: 'topic_pages.json',
+      relations: relations && Object.keys(relations).length > 0 ? relations : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',
       },

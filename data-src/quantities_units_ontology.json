@@ -13,7 +13,6 @@
   "quantities": [
     {
       "id": "q:mass",
-      "name_ru": "масса",
       "dimension": "M",
       "recommended_units": [
         "unit:g",
@@ -22,7 +21,6 @@
     },
     {
       "id": "q:amount",
-      "name_ru": "количество вещества",
       "dimension": "N",
       "recommended_units": [
         "unit:mol"
@@ -30,7 +28,6 @@
     },
     {
       "id": "q:volume",
-      "name_ru": "объём",
       "dimension": "L3",
       "recommended_units": [
         "unit:L",
@@ -39,7 +36,6 @@
     },
     {
       "id": "q:concentration",
-      "name_ru": "молярная концентрация",
       "dimension": "N/L3",
       "recommended_units": [
         "unit:mol_per_L",
@@ -48,7 +44,6 @@
     },
     {
       "id": "q:temperature",
-      "name_ru": "температура",
       "dimension": "Theta",
       "recommended_units": [
         "unit:K",
@@ -57,7 +52,6 @@
     },
     {
       "id": "q:pressure",
-      "name_ru": "давление",
       "dimension": "P",
       "recommended_units": [
         "unit:Pa",
@@ -67,7 +61,6 @@
     },
     {
       "id": "q:energy",
-      "name_ru": "энергия/теплота",
       "dimension": "E",
       "recommended_units": [
         "unit:J",
@@ -76,7 +69,6 @@
     },
     {
       "id": "q:density",
-      "name_ru": "плотность",
       "dimension": "M/L3",
       "recommended_units": [
         "unit:g_per_mL",
@@ -86,7 +78,6 @@
     },
     {
       "id": "q:molar_mass",
-      "name_ru": "молярная масса",
       "dimension": "M/N",
       "recommended_units": [
         "unit:g_per_mol",
@@ -96,7 +87,6 @@
     },
     {
       "id": "q:mass_fraction",
-      "name_ru": "массовая доля",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
@@ -106,7 +96,6 @@
     },
     {
       "id": "q:volume_fraction",
-      "name_ru": "объёмная доля",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
@@ -116,7 +105,6 @@
     },
     {
       "id": "q:molar_volume",
-      "name_ru": "молярный объём",
       "dimension": "L3/N",
       "recommended_units": [
         "unit:L_per_mol"
@@ -125,7 +113,6 @@
     },
     {
       "id": "q:solubility",
-      "name_ru": "растворимость",
       "dimension": "M/M",
       "recommended_units": [
         "unit:g_per_100g"
@@ -134,7 +121,6 @@
     },
     {
       "id": "q:yield",
-      "name_ru": "выход продукта",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
@@ -144,7 +130,6 @@
     },
     {
       "id": "q:enthalpy",
-      "name_ru": "энтальпия реакции",
       "dimension": "E/N",
       "recommended_units": [
         "unit:kJ_per_mol"
@@ -153,7 +138,6 @@
     },
     {
       "id": "q:condition",
-      "name_ru": "качественное условие",
       "dimension": "enum",
       "recommended_units": [
         "unit:enum"
@@ -164,7 +148,6 @@
   "units": [
     {
       "id": "unit:g",
-      "name_ru": "г",
       "quantity": "q:mass",
       "to_SI": {
         "unit": "kg",
@@ -173,25 +156,22 @@
     },
     {
       "id": "unit:kg",
-      "name_ru": "кг",
       "quantity": "q:mass",
       "to_SI": {
         "unit": "kg",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:mol",
-      "name_ru": "моль",
       "quantity": "q:amount",
       "to_SI": {
         "unit": "mol",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:L",
-      "name_ru": "л",
       "quantity": "q:volume",
       "to_SI": {
         "unit": "m3",
@@ -200,117 +180,104 @@
     },
     {
       "id": "unit:m3",
-      "name_ru": "м³",
       "quantity": "q:volume",
       "to_SI": {
         "unit": "m3",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:mol_per_L",
-      "name_ru": "моль/л",
       "quantity": "q:concentration",
       "to_SI": {
         "unit": "mol_per_m3",
-        "factor": 1000.0
+        "factor": 1000
       }
     },
     {
       "id": "unit:mol_per_m3",
-      "name_ru": "моль/м³",
       "quantity": "q:concentration",
       "to_SI": {
         "unit": "mol_per_m3",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:K",
-      "name_ru": "K",
       "quantity": "q:temperature",
       "to_SI": {
         "unit": "K",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:degC",
-      "name_ru": "°C",
       "quantity": "q:temperature",
       "to_SI": {
         "unit": "K",
         "offset": 273.15,
-        "factor": 1.0
+        "factor": 1
       },
       "notes": "K = °C + 273.15"
     },
     {
       "id": "unit:Pa",
-      "name_ru": "Па",
       "quantity": "q:pressure",
       "to_SI": {
         "unit": "Pa",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:bar",
-      "name_ru": "бар",
       "quantity": "q:pressure",
       "to_SI": {
         "unit": "Pa",
-        "factor": 100000.0
+        "factor": 100000
       }
     },
     {
       "id": "unit:atm",
-      "name_ru": "атм",
       "quantity": "q:pressure",
       "to_SI": {
         "unit": "Pa",
-        "factor": 101325.0
+        "factor": 101325
       }
     },
     {
       "id": "unit:J",
-      "name_ru": "Дж",
       "quantity": "q:energy",
       "to_SI": {
         "unit": "J",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:kJ",
-      "name_ru": "кДж",
       "quantity": "q:energy",
       "to_SI": {
         "unit": "J",
-        "factor": 1000.0
+        "factor": 1000
       }
     },
     {
       "id": "unit:g_per_mL",
-      "name_ru": "г/мл",
       "quantity": "q:density",
       "to_SI": {
         "unit": "kg_per_m3",
-        "factor": 1000.0
+        "factor": 1000
       }
     },
     {
       "id": "unit:kg_per_m3",
-      "name_ru": "кг/м³",
       "quantity": "q:density",
       "to_SI": {
         "unit": "kg_per_m3",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:g_per_mol",
-      "name_ru": "г/моль",
       "quantity": "q:molar_mass",
       "to_SI": {
         "unit": "kg_per_mol",
@@ -319,34 +286,30 @@
     },
     {
       "id": "unit:kg_per_mol",
-      "name_ru": "кг/моль",
       "quantity": "q:molar_mass",
       "to_SI": {
         "unit": "kg_per_mol",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:mL",
-      "name_ru": "мл",
       "quantity": "q:volume",
       "to_SI": {
         "unit": "m3",
-        "factor": 1e-6
+        "factor": 0.000001
       }
     },
     {
       "id": "unit:kPa",
-      "name_ru": "кПа",
       "quantity": "q:pressure",
       "to_SI": {
         "unit": "Pa",
-        "factor": 1000.0
+        "factor": 1000
       }
     },
     {
       "id": "unit:mmHg",
-      "name_ru": "мм рт. ст.",
       "quantity": "q:pressure",
       "to_SI": {
         "unit": "Pa",
@@ -355,14 +318,12 @@
     },
     {
       "id": "unit:fraction",
-      "name_ru": "доля",
       "quantity": "q:mass_fraction",
       "to_SI": null,
       "notes": "Безразмерная доля (0..1). Используется для ω, φ, η."
     },
     {
       "id": "unit:percent",
-      "name_ru": "%",
       "quantity": "q:mass_fraction",
       "to_SI": {
         "unit": "fraction",
@@ -372,7 +333,6 @@
     },
     {
       "id": "unit:L_per_mol",
-      "name_ru": "л/моль",
       "quantity": "q:molar_volume",
       "to_SI": {
         "unit": "m3_per_mol",
@@ -381,32 +341,28 @@
     },
     {
       "id": "unit:g_per_100g",
-      "name_ru": "г/100 г",
       "quantity": "q:solubility",
       "to_SI": null,
       "notes": "Специфическая единица растворимости. Не имеет прямого SI-эквивалента."
     },
     {
       "id": "unit:kJ_per_mol",
-      "name_ru": "кДж/моль",
       "quantity": "q:enthalpy",
       "to_SI": {
         "unit": "J_per_mol",
-        "factor": 1000.0
+        "factor": 1000
       }
     },
     {
       "id": "unit:J_per_mol",
-      "name_ru": "Дж/моль",
       "quantity": "q:enthalpy",
       "to_SI": {
         "unit": "J_per_mol",
-        "factor": 1.0
+        "factor": 1
       }
     },
     {
       "id": "unit:enum",
-      "name_ru": "enum",
       "quantity": "q:condition",
       "to_SI": null
     }
@@ -524,7 +480,7 @@
             },
             {
               "quantity": "q:pressure",
-              "value": 1.0,
+              "value": 1,
               "unit": "unit:atm"
             }
           ]

@@ -1,256 +1,256 @@
 {
   "1": {
-    "title_ru": "Строение атома и периодическая таблица",
-    "topic_ru": "Атомы, элементы, изотопы, электронная конфигурация, закономерности периодической таблицы",
-    "algorithm_ru": [
-      "Внимательно прочитайте вопрос: определите, спрашивается ли о строении атома (протоны, нейтроны, электроны), электронной конфигурации или положении в периодической таблице.",
-      "Для вопросов о строении атома: помните, что атомный номер = число протонов = число электронов (в нейтральном атоме). Массовое число = протоны + нейтроны.",
-      "Для электронной конфигурации: заполняйте оболочки по порядку (2, 8, 8, ...). Число заполненных оболочек = номер периода. Число электронов на внешней оболочке = номер группы.",
-      "Для вопросов об изотопах: изотопы имеют одинаковое число протонов, но разное число нейтронов.",
-      "Исключите варианты, которые путают свойства элементов со свойствами соединений или неверно утверждают универсальные правила (например, «всегда одинаковое массовое число»)."
+    "title": "Atomic Structure and the Periodic Table",
+    "topic": "Atoms, elements, isotopes, electronic structure, periodic table trends",
+    "algorithm": [
+      "Read the question carefully: identify whether it asks about atomic structure (protons, neutrons, electrons), electronic configuration, or periodic table position.",
+      "For atomic structure questions: remember that the atomic number = number of protons = number of electrons (in a neutral atom). Mass number = protons + neutrons.",
+      "For electronic configuration: fill shells in order (2, 8, 8, ...). The number of occupied shells = period number. The number of outer electrons = group number.",
+      "For isotope questions: isotopes have the same number of protons but different numbers of neutrons.",
+      "Eliminate options that confuse element properties with compound properties, or that incorrectly state universal rules (e.g. 'always same mass number')."
     ],
-    "key_facts_ru": [
-      "Атомный номер = число протонов (определяет элемент).",
-      "Изотопы: одинаковое число протонов, разное число нейтронов (например, углерод-12 и углерод-14).",
-      "Заполнение электронных оболочек: 1-я оболочка вмещает 2, 2-я — 8, 3-я — 8 (для первых 20 элементов).",
-      "Номер группы = число электронов на внешней оболочке; номер периода = число заполненных оболочек.",
-      "Элементы одной группы имеют сходные химические свойства, потому что имеют одинаковое число внешних электронов."
+    "key_facts": [
+      "Atomic number = number of protons (defines the element).",
+      "Isotopes: same protons, different neutrons (e.g. carbon-12 and carbon-14).",
+      "Electron shell filling: 1st shell holds 2, 2nd holds 8, 3rd holds 8 (for first 20 elements).",
+      "Group number = number of outer shell electrons; Period number = number of occupied shells.",
+      "Elements in the same group have similar chemical properties because they have the same number of outer electrons."
     ],
-    "common_traps_ru": [
-      "Путаница атомного номера с массовым числом.",
-      "Предположение, что все атомы элемента имеют одинаковое массовое число (забывая об изотопах).",
-      "Ошибка при подсчёте электронных оболочек — третья оболочка может вместить 18 электронов, но для элементов 1–20 она заполняется максимум до 8 электронов, после чего начинает заполняться 4-я оболочка."
+    "common_traps": [
+      "Confusing atomic number with mass number.",
+      "Assuming all atoms of an element have the same mass number (forgetting isotopes).",
+      "Miscounting electron shells — the third shell can hold 18 electrons total, but for elements 1-20 it holds a maximum of 8 before the 4th shell starts."
     ],
-    "variability_ru": "В вопросах меняется используемый элемент и то, спрашивается ли определение группы/периода, свойства изотопов или интерпретация электронной конфигурации."
+    "variability": "Questions vary the element used and whether they ask for group/period identification, isotope properties, or electronic structure interpretation."
   },
   "2": {
-    "title_ru": "Химическая связь, строение и свойства вещества",
-    "topic_ru": "Ионная, ковалентная и металлическая связь; гигантские и молекулярные структуры; свойства",
-    "algorithm_ru": [
-      "Определите тип вещества: металл, неметалл или соединение металла с неметаллом.",
-      "Металл + неметалл → ионная связь (перенос электронов). Неметалл + неметалл → ковалентная связь (обобществление электронов). Чистый металл → металлическая связь (делокализованные электроны).",
-      "Для вопросов о структуре: определите, является ли она гигантской (ионная решётка, гигантская ковалентная, металлическая) или простой молекулярной.",
-      "Связь структуры со свойствами: гигантские структуры имеют высокие температуры плавления; простые молекулярные — низкие. Ионные соединения проводят ток в расплавленном состоянии и в растворе. Металлы проводят ток благодаря делокализованным электронам.",
-      "Для развёрнутых ответов: всегда называйте тип связи И объясняйте структуру И связывайте со свойством, о котором спрашивается."
+    "title": "Bonding, Structure, and Properties of Matter",
+    "topic": "Ionic, covalent, and metallic bonding; giant and simple molecular structures; properties",
+    "algorithm": [
+      "Identify the type of substance: metal, non-metal, or compound of metal + non-metal.",
+      "Metal + non-metal → ionic bonding (electron transfer). Non-metal + non-metal → covalent bonding (electron sharing). Metal alone → metallic bonding (delocalised electrons).",
+      "For structure questions: determine if it is a giant structure (ionic lattice, giant covalent, metallic) or simple molecular.",
+      "Link structure to properties: giant structures have high melting points; simple molecular structures have low melting points. Ionic compounds conduct when molten/dissolved. Metals conduct due to delocalised electrons.",
+      "For extended answers: always name the type of bonding AND explain the structure AND link to the property asked about."
     ],
-    "key_facts_ru": [
-      "Ионная связь: перенос электронов от металла к неметаллу с образованием положительных и отрицательных ионов, притягиваемых электростатическими силами.",
-      "Ковалентная связь: обобществление электронных пар между атомами неметаллов.",
-      "Металлическая связь: положительные ионы металла в «море» делокализованных электронов.",
-      "Алмаз: каждый атом углерода связан с 4 другими (гигантская ковалентная структура, очень твёрдый, высокая т. пл.).",
-      "Графит: каждый атом углерода связан с 3 другими в слоях, делокализованные электроны между слоями (проводит электричество, слои скользят — мягкий).",
-      "Простые молекулярные вещества (например, H₂O, CO₂): прочные ковалентные связи внутри молекул, слабые межмолекулярные силы между молекулами → низкие температуры плавления."
+    "key_facts": [
+      "Ionic bonding: transfer of electrons from metal to non-metal, forming positive and negative ions attracted by electrostatic forces.",
+      "Covalent bonding: sharing of electron pairs between non-metal atoms.",
+      "Metallic bonding: positive metal ions in a sea of delocalised electrons.",
+      "Diamond: each carbon bonded to 4 others (giant covalent, very hard, high mp).",
+      "Graphite: each carbon bonded to 3 others in layers, with delocalised electrons between layers (conducts electricity, layers slide — soft).",
+      "Simple molecular substances (e.g. H₂O, CO₂): strong covalent bonds within molecules, weak intermolecular forces between molecules → low melting points."
     ],
-    "common_traps_ru": [
-      "Утверждение «ковалентные связи слабые» — связи внутри молекул прочные; межмолекулярные силы между молекулами слабые.",
-      "Забывают объяснить, ПОЧЕМУ существует данное свойство (например, говорят, что графит проводит ток, но не упоминают делокализованные электроны).",
-      "Путаница ионной и ковалентной связи: NaCl — ионная (металл + неметалл), HCl — ковалентная (неметалл + неметалл)."
+    "common_traps": [
+      "Saying 'covalent bonds are weak' — the bonds within molecules are strong; the intermolecular forces between molecules are weak.",
+      "Forgetting to explain WHY a property exists (e.g. saying graphite conducts but not mentioning delocalised electrons).",
+      "Confusing ionic bonding with covalent: NaCl is ionic (metal + non-metal), HCl is covalent (non-metal + non-metal)."
     ],
-    "variability_ru": "В вопросах меняются вещества для сопоставления и конкретное свойство для объяснения (твёрдость, проводимость, температура плавления, растворимость). Развёрнутые ответы могут требовать сравнения двух аллотропных модификаций или двух типов структуры."
+    "variability": "Questions change the substances used for matching and the specific property to explain (hardness, conductivity, melting point, solubility). Extended answers may compare two allotropes or two types of structure."
   },
   "3": {
-    "title_ru": "Количественная химия",
-    "topic_ru": "Относительная молекулярная масса, массовая доля, количество вещества, расчёты по уравнениям реакций",
-    "algorithm_ru": [
-      "Прочитайте вопрос и определите, что нужно рассчитать: Mr, массовую долю, количество вещества или массу по уравнению реакции.",
-      "Для относительной молекулярной массы (Mr): сложите значения Ar всех атомов в формуле. Обращайте внимание на скобки — умножайте индекс за скобкой на всё, что внутри.",
-      "Для массовой доли: % = (суммарная Ar элемента в формуле / Mr соединения) × 100.",
-      "Для расчёта количества вещества: n = m / Mr.",
-      "Для расчёта масс реагентов: (1) Рассчитайте количество вещества данного вещества. (2) Используйте соотношение по уравнению реакции для нахождения количества вещества искомого вещества. (3) Пересчитайте обратно в массу: m = n × Mr.",
-      "Всегда показывайте ход решения и проверяйте единицы измерения."
+    "title": "Quantitative Chemistry",
+    "topic": "Relative formula mass, percentage composition, moles, reacting mass calculations",
+    "algorithm": [
+      "Read the question and identify what is being calculated: Mr, percentage mass, moles, or mass from a balanced equation.",
+      "For relative formula mass (Mr): add up the Ar values of all atoms in the formula. Watch for brackets — multiply the subscript outside by everything inside.",
+      "For percentage by mass: % = (total Ar of the element in formula / Mr of compound) × 100.",
+      "For moles calculations: moles = mass / Mr.",
+      "For reacting masses: (1) Calculate moles of the given substance. (2) Use the balanced equation ratio to find moles of the required substance. (3) Convert back to mass using mass = moles × Mr.",
+      "Always show working and check units."
     ],
-    "key_facts_ru": [
-      "Количество вещества (моль) = масса (г) / Mr (относительная молекулярная масса).",
-      "Масса = количество вещества × Mr.",
-      "Уравнение реакции даёт молярное соотношение между реагентами и продуктами.",
-      "Один моль любого газа при нормальных условиях (RTP) занимает 24 дм³.",
-      "Молярная концентрация (моль/дм³) = количество вещества / объём (в дм³)."
+    "key_facts": [
+      "Moles = mass (g) / Mr (relative formula mass).",
+      "Mass = moles × Mr.",
+      "The balanced equation gives the molar ratio between reactants and products.",
+      "One mole of any gas occupies 24 dm³ at room temperature and pressure (RTP).",
+      "Concentration (mol/dm³) = moles / volume (in dm³)."
     ],
-    "common_traps_ru": [
-      "Забывают умножить Ar на число атомов (например, в MgCl₂ два атома хлора: Mr = 24 + 2×35,5 = 95, а не 59,5).",
-      "Используют Mr не того вещества при пересчёте между количеством вещества и массой.",
-      "Не обращают внимания на требуемую точность — некоторые ответы требуют округления до одного десятичного знака."
+    "common_traps": [
+      "Forgetting to multiply Ar by the number of atoms (e.g. in MgCl₂, there are 2 chlorine atoms: Mr = 24 + 2×35.5 = 95, not 59.5).",
+      "Using the wrong substance's Mr when converting between moles and mass.",
+      "Not reading the precision required — some answers need rounding to one decimal place."
     ],
-    "variability_ru": "В вопросах меняется соединение, элемент для расчёта массовой доли и реакция для стехиометрических расчётов. Сложность варьируется от простого расчёта Mr до многоэтапных задач на расчёт масс реагентов."
+    "variability": "Questions change the compound, the element of interest for percentage mass, and the reaction for stoichiometric calculations. The level of difficulty varies from simple Mr calculations to multi-step reacting mass problems."
   },
   "4": {
-    "title_ru": "Химические превращения",
-    "topic_ru": "Ряд активности, кислоты и щёлочи, нейтрализация, электролиз, окисление и восстановление",
-    "algorithm_ru": [
-      "Для ряда активности: вспомните порядок — K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (от наиболее к наименее активному).",
-      "Более активный металл вытесняет менее активный из его соединения.",
-      "Для типов реакций: нейтрализация = кислота + основание → соль + вода; замещение = более активный элемент замещает менее активный; разложение = одно вещество распадается на более простые.",
-      "Для электролиза: на катоде (отрицательный электрод) положительные ионы принимают электроны (восстановление). На аноде (положительный электрод) отрицательные ионы отдают электроны (окисление).",
-      "Запомните: окисление — это потеря электронов, восстановление — это приобретение электронов."
+    "title": "Chemical Changes",
+    "topic": "Reactivity series, acids and alkalis, neutralisation, electrolysis, oxidation and reduction",
+    "algorithm": [
+      "For reactivity series: recall the order — K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (most to least reactive).",
+      "A more reactive metal displaces a less reactive metal from its compound.",
+      "For reaction types: neutralisation = acid + base → salt + water; displacement = more reactive element replaces less reactive one; decomposition = one substance breaks into simpler substances.",
+      "For electrolysis: at the cathode (negative electrode) positive ions gain electrons (reduction). At the anode (positive electrode) negative ions lose electrons (oxidation).",
+      "Remember OIL RIG: Oxidation Is Loss (of electrons), Reduction Is Gain (of electrons)."
     ],
-    "key_facts_ru": [
-      "Ряд активности (от высокой к низкой): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au, Pt.",
-      "Металлы выше углерода извлекают электролизом; металлы ниже углерода — восстановлением углеродом.",
-      "Кислота + металл → соль + водород (только если металл стоит выше H в ряду активности).",
-      "Кислота + основание → соль + вода (нейтрализация).",
-      "Кислота + карбонат → соль + вода + углекислый газ.",
-      "При электролизе водных растворов: на катоде выделяется водород, если металл активнее водорода; на аноде выделяется кислород, если нет галогенид-иона."
+    "key_facts": [
+      "Reactivity series (high to low): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au, Pt.",
+      "Metals above carbon are extracted by electrolysis; metals below carbon are extracted by reduction with carbon.",
+      "Acid + metal → salt + hydrogen (only if metal is above H in reactivity series).",
+      "Acid + base → salt + water (neutralisation).",
+      "Acid + carbonate → salt + water + carbon dioxide.",
+      "In electrolysis of aqueous solutions: at cathode, hydrogen is produced if the metal is more reactive than hydrogen; at anode, oxygen is produced unless a halide ion is present."
     ],
-    "common_traps_ru": [
-      "Путаница окисления и восстановления — запомните: окисление — потеря электронов, восстановление — приобретение.",
-      "Мнение, что медь реагирует с разбавленной кислотой (не реагирует — медь стоит ниже водорода).",
-      "При электролизе водных растворов забывают, что вода поставляет ионы H⁺ и OH⁻ как альтернативные продукты разряда."
+    "common_traps": [
+      "Confusing oxidation and reduction — remember OIL RIG.",
+      "Thinking copper reacts with dilute acid (it does not — copper is below hydrogen).",
+      "In electrolysis of aqueous solutions, forgetting that water provides H⁺ and OH⁻ ions as alternative discharge products."
     ],
-    "variability_ru": "В вопросах меняются металлы для сравнения активности, конкретные реакции с кислотами и то, включает ли электролиз расплав или водный раствор."
+    "variability": "Questions vary the metals used in reactivity comparisons, the specific acid reactions tested, and whether electrolysis involves molten or aqueous compounds."
   },
   "5": {
-    "title_ru": "Энергетические изменения",
-    "topic_ru": "Экзотермические и эндотермические реакции, расчёт по энергиям связей, энергетические профили реакций",
-    "algorithm_ru": [
-      "Определите, спрашивает ли вопрос о классификации реакций (экзо-/эндотермическая) или о расчёте изменения энергии по энергиям связей.",
-      "Экзотермическая: выделяет энергию в окружающую среду, температура повышается, энергия продуктов < энергия реагентов.",
-      "Эндотермическая: поглощает энергию из окружающей среды, температура понижается, энергия продуктов > энергия реагентов.",
-      "Для расчётов по энергиям связей: (1) Рассчитайте суммарную энергию для разрыва всех связей в реагентах. (2) Рассчитайте суммарную энергию, выделяемую при образовании всех связей в продуктах. (3) Общее изменение = энергия разрыва связей − энергия образования связей.",
-      "Если ответ отрицательный, реакция экзотермическая. Если положительный — эндотермическая."
+    "title": "Energy Changes",
+    "topic": "Exothermic and endothermic reactions, bond energy calculations, reaction profiles",
+    "algorithm": [
+      "Identify whether the question asks about classifying reactions (exo/endothermic) or calculating energy changes from bond energies.",
+      "Exothermic: releases energy to surroundings, temperature rises, energy of products < energy of reactants.",
+      "Endothermic: absorbs energy from surroundings, temperature falls, energy of products > energy of reactants.",
+      "For bond energy calculations: (1) Calculate total energy needed to break all bonds in reactants. (2) Calculate total energy released forming all bonds in products. (3) Overall change = energy to break bonds − energy released forming bonds.",
+      "If the answer is negative, the reaction is exothermic. If positive, the reaction is endothermic."
     ],
-    "key_facts_ru": [
-      "Горение и нейтрализация — экзотермические реакции.",
-      "Фотосинтез и термическое разложение — эндотермические реакции.",
-      "Разрыв связей требует энергии (эндотермический процесс).",
-      "Образование связей выделяет энергию (экзотермический процесс).",
-      "Изменение энергии = Σ(разорванные связи) − Σ(образованные связи).",
-      "Энергия активации — минимальная энергия, необходимая для начала реакции."
+    "key_facts": [
+      "Combustion and neutralisation are exothermic reactions.",
+      "Photosynthesis and thermal decomposition are endothermic reactions.",
+      "Bond breaking requires energy (endothermic process).",
+      "Bond forming releases energy (exothermic process).",
+      "Energy change = Σ(bonds broken) − Σ(bonds formed).",
+      "Activation energy is the minimum energy needed for a reaction to occur."
     ],
-    "common_traps_ru": [
-      "Утверждение, что разрыв связей выделяет энергию — он всегда требует энергии.",
-      "Забывают посчитать все связи (например, в 2HCl две связи H–Cl).",
-      "Ошибка в знаке: если при образовании связей выделяется больше энергии, чем поглощается при разрыве, общее изменение отрицательно (экзотермическая реакция)."
+    "common_traps": [
+      "Saying bond breaking releases energy — it always requires energy.",
+      "Forgetting to count all the bonds (e.g. in 2HCl there are TWO H-Cl bonds).",
+      "Getting the sign wrong: if bonds formed release more energy than bonds broken absorb, the overall change is negative (exothermic)."
     ],
-    "variability_ru": "В вопросах меняется конкретная реакция для расчёта по энергиям связей и примеры для классификации экзотермических и эндотермических реакций. Реакция и значения энергий связей различаются между вариантами."
+    "variability": "Questions change the specific reaction used for bond energy calculations and the examples used for classifying exothermic vs endothermic. The reaction and bond energy values change between papers."
   },
   "6": {
-    "title_ru": "Скорость и полнота химических реакций",
-    "topic_ru": "Факторы, влияющие на скорость, теория столкновений, катализаторы, обратимые реакции, равновесие",
-    "algorithm_ru": [
-      "Определите фактор, о котором спрашивается: температура, концентрация, площадь поверхности, давление (для газов) или катализатор.",
-      "Применяйте теорию столкновений: реакции происходят при столкновении частиц с достаточной энергией (≥ энергия активации) и правильной ориентацией.",
-      "Температура ↑ → частицы движутся быстрее → более частые столкновения И больше частиц превышают энергию активации → скорость возрастает.",
-      "Концентрация/давление ↑ → больше частиц в том же объёме → более частые столкновения → скорость возрастает.",
-      "Площадь поверхности ↑ (мелкие кусочки/порошок) → больше частиц доступно → более частые столкновения → скорость возрастает.",
-      "Катализатор обеспечивает альтернативный путь реакции с более низкой энергией активации → больше частиц имеют достаточно энергии для реакции → скорость возрастает.",
-      "Для развёрнутых ответов: всегда связывайте фактор с поведением частиц, частотой столкновений или энергией и скоростью."
+    "title": "Rate and Extent of Chemical Change",
+    "topic": "Factors affecting rate, collision theory, catalysts, reversible reactions, equilibrium",
+    "algorithm": [
+      "Identify the factor being asked about: temperature, concentration, surface area, pressure (gases), or catalyst.",
+      "Apply collision theory: reactions occur when particles collide with sufficient energy (≥ activation energy) and correct orientation.",
+      "Temperature ↑ → particles move faster → more frequent collisions AND more particles exceed activation energy → rate increases.",
+      "Concentration/pressure ↑ → more particles in same volume → more frequent collisions → rate increases.",
+      "Surface area ↑ (smaller pieces/powder) → more particles exposed → more frequent collisions → rate increases.",
+      "Catalyst provides an alternative reaction pathway with a lower activation energy → more particles have enough energy to react → rate increases.",
+      "For extended answers: always link the factor to particle behaviour to collision frequency or energy to rate."
     ],
-    "key_facts_ru": [
-      "Скорость реакции = количество образовавшегося продукта (или израсходованного реагента) / время.",
-      "Теория столкновений: частицы должны столкнуться с достаточной энергией и правильной ориентацией.",
-      "Катализатор ускоряет реакцию, не расходуясь сам, обеспечивая альтернативный путь с более низкой энергией активации.",
-      "Для обратимых реакций в равновесии: скорость прямой реакции = скорость обратной реакции.",
-      "Принцип Ле Шателье: если условия изменяются, равновесие смещается, чтобы противодействовать изменению."
+    "key_facts": [
+      "Rate of reaction = amount of product formed (or reactant used) / time.",
+      "Collision theory: particles must collide with enough energy and correct orientation.",
+      "A catalyst speeds up a reaction without being used up, by providing an alternative pathway with lower activation energy.",
+      "For reversible reactions at equilibrium: rate of forward reaction = rate of backward reaction.",
+      "Le Chatelier's principle: if conditions change, the equilibrium shifts to oppose the change."
     ],
-    "common_traps_ru": [
-      "Утверждение, что более высокая температура означает только «больше столкновений», без упоминания того, что частицы также обладают большей энергией (оба фактора важны, но энергетический фактор важнее).",
-      "Путаница скорости и выхода — катализатор увеличивает скорость, но не изменяет положение равновесия и выход.",
-      "Забывают сказать «результативные столкновения» или «столкновения с энергией, равной или превышающей энергию активации»."
+    "common_traps": [
+      "Saying higher temperature means 'more collisions' without mentioning that particles also have more energy (both factors matter, but the energy factor is more important).",
+      "Confusing rate with yield — a catalyst increases rate but does not change the equilibrium position or yield.",
+      "Forgetting to say 'successful collisions' or 'collisions with energy equal to or greater than the activation energy'."
     ],
-    "variability_ru": "В вопросах меняется конкретная реакция (мраморная крошка + кислота, магний + кислота, разложение перекиси водорода) и исследуемый фактор. Развёрнутые вопросы всегда требуют объяснения с помощью теории столкновений."
+    "variability": "Questions vary the specific reaction (marble chips + acid, magnesium + acid, decomposition of hydrogen peroxide) and which factor is being investigated. Extended questions always require collision theory explanations."
   },
   "7": {
-    "title_ru": "Органическая химия",
-    "topic_ru": "Углеводороды, функциональные группы, гомологические ряды, реакции алканов и алкенов",
-    "algorithm_ru": [
-      "Определите гомологический ряд по функциональной группе: алканы (только C–C, CₙH₂ₙ₊₂), алкены (C=C, CₙH₂ₙ), спирты (–OH), карбоновые кислоты (–COOH).",
-      "Для упорядочивания по температуре кипения: в пределах гомологического ряда более длинные цепи имеют более высокие температуры кипения из-за более сильных межмолекулярных сил.",
-      "Для реакций: алканы подвергаются горению и замещению (с галогенами при УФ-свете). Алкены подвергаются реакциям присоединения (с H₂, H₂O, галогенами) и могут полимеризоваться.",
-      "Проба на алкены: бромная вода из оранжевой становится бесцветной (обесцвечивается).",
-      "Для вопросов о полимерах: определите мономер (повторяющееся звено) по структуре полимера, или наоборот."
+    "title": "Organic Chemistry",
+    "topic": "Hydrocarbons, functional groups, homologous series, reactions of alkanes and alkenes",
+    "algorithm": [
+      "Identify the homologous series by the functional group: alkanes (C–C only, CₙH₂ₙ₊₂), alkenes (C=C, CₙH₂ₙ), alcohols (–OH), carboxylic acids (–COOH).",
+      "For boiling point ordering: within a homologous series, longer chains have higher boiling points due to stronger intermolecular forces.",
+      "For reactions: alkanes undergo combustion and substitution (with halogens in UV light). Alkenes undergo addition reactions (with H₂, H₂O, halogens) and can be polymerised.",
+      "Test for alkenes: bromine water turns from orange to colourless (decolourised).",
+      "For polymer questions: identify the monomer (the repeating unit) from the polymer structure, or vice versa."
     ],
-    "key_facts_ru": [
-      "Алканы: насыщенные углеводороды, общая формула CₙH₂ₙ₊₂, только одинарные связи C–C.",
-      "Алкены: ненасыщенные углеводороды, общая формула CₙH₂ₙ, содержат двойную связь C=C.",
-      "Спирты: содержат группу –OH, общая формула CₙH₂ₙ₊₁OH.",
-      "Карбоновые кислоты: содержат группу –COOH, общая формула CₙH₂ₙ₊₁COOH.",
-      "Сырая нефть — смесь углеводородов, разделяемая фракционной перегонкой.",
-      "Крекинг расщепляет длинноцепочечные алканы на более короткие алканы и алкены (термический или каталитический).",
-      "Температура кипения возрастает с длиной цепи в пределах гомологического ряда."
+    "key_facts": [
+      "Alkanes: saturated hydrocarbons, general formula CₙH₂ₙ₊₂, only single C–C bonds.",
+      "Alkenes: unsaturated hydrocarbons, general formula CₙH₂ₙ, contain a C=C double bond.",
+      "Alcohols: contain –OH group, general formula CₙH₂ₙ₊₁OH.",
+      "Carboxylic acids: contain –COOH group, general formula CₙH₂ₙ₊₁COOH.",
+      "Crude oil is a mixture of hydrocarbons separated by fractional distillation.",
+      "Cracking breaks long-chain alkanes into shorter alkanes and alkenes (thermal or catalytic).",
+      "Boiling point increases with chain length within a homologous series."
     ],
-    "common_traps_ru": [
-      "Путаница алканов и алкенов — алкЕНы имеют двойную связь.",
-      "Неправильные общие формулы (например, алкан CₙH₂ₙ вместо CₙH₂ₙ₊₂).",
-      "Забывают, что алкены обесцвечивают бромную воду, а алканы — нет (если нет УФ-света)."
+    "common_traps": [
+      "Confusing alkanes and alkenes — alkENEs have the double bond (think 'e' for 'extra bond').",
+      "Writing wrong general formulae (e.g. alkane CₙH₂ₙ instead of CₙH₂ₙ₊₂).",
+      "Forgetting that alkenes decolourise bromine water but alkanes do not (unless UV light is present)."
     ],
-    "variability_ru": "В вопросах меняются конкретные соединения для определения или упорядочивания, описываемые реакции. Могут спросить структурные формулы, развёрнутые формулы или уравнения в словесной форме."
+    "variability": "Questions change the specific compounds to identify or order, the reactions to describe, and may ask for structural formulae, displayed formulae, or word equations."
   },
   "8": {
-    "title_ru": "Химический анализ",
-    "topic_ru": "Чистота, составы, хроматография, пламенные пробы, определение газов, идентификация ионов",
-    "algorithm_ru": [
-      "Для вопросов о pH/индикаторах: pH < 7 — кислая среда, pH = 7 — нейтральная, pH > 7 — щелочная. Сильные кислоты имеют очень низкий pH (1–2), слабые кислоты — pH 3–6.",
-      "Для хроматографии: Rf = расстояние, пройденное веществом / расстояние, пройденное растворителем. Чистое вещество даёт одно пятно; смесь — несколько пятен.",
-      "Для пламенных проб: Li = малиновый, Na = жёлтый, K = сиреневый, Ca = оранжево-красный, Cu = зелёный/сине-зелёный.",
-      "Для проб на газы: водород — хлопок при поднесении горящей лучинки; кислород — вспыхивает тлеющая лучинка; углекислый газ — известковая вода мутнеет; хлор — обесцвечивает влажную лакмусовую бумагу.",
-      "Для проб на ионы: карбонат + кислота → шипение (CO₂); сульфат + хлорид бария → белый осадок; галогениды + нитрат серебра → белый (Cl⁻), кремовый (Br⁻), жёлтый (I⁻) осадок."
+    "title": "Chemical Analysis",
+    "topic": "Purity, formulations, chromatography, flame tests, gas tests, identification of ions",
+    "algorithm": [
+      "For pH/indicator questions: pH < 7 is acidic, pH = 7 is neutral, pH > 7 is alkaline. Strong acids have very low pH (1-2), weak acids have pH 3-6.",
+      "For chromatography: Rf = distance moved by substance / distance moved by solvent. A pure substance gives one spot; a mixture gives multiple spots.",
+      "For flame tests: Li = crimson, Na = yellow, K = lilac, Ca = orange-red, Cu = green/blue-green.",
+      "For gas tests: hydrogen — squeaky pop; oxygen — relights a glowing splint; carbon dioxide — turns limewater milky; chlorine — bleaches damp litmus paper.",
+      "For ion tests: carbonate + acid → fizzes (CO₂); sulfate + barium chloride → white precipitate; halides + silver nitrate → white (Cl⁻), cream (Br⁻), yellow (I⁻) precipitate."
     ],
-    "key_facts_ru": [
-      "Чистое вещество имеет чёткую, определённую температуру плавления. Нечистое вещество плавится в диапазоне и при более низкой температуре.",
-      "Состав (формуляция) — это смесь, разработанная для определённой цели (например, краска, лекарство).",
-      "Значение Rf = расстояние вещества ÷ расстояние фронта растворителя.",
-      "Цвета пламенных проб: Li (малиновый), Na (жёлтый), K (сиреневый), Ca (оранжево-красный), Cu (зелёный).",
-      "Проба на водород: хлопок при поднесении горящей лучинки.",
-      "Проба на кислород: вспыхивает тлеющая лучинка.",
-      "Проба на углекислый газ: известковая вода мутнеет."
+    "key_facts": [
+      "A pure substance has a sharp, specific melting point. An impure substance melts over a range and at a lower temperature.",
+      "A formulation is a mixture designed for a specific purpose (e.g. paint, medicine).",
+      "Rf value = distance moved by substance ÷ distance moved by solvent front.",
+      "Flame test colours: Li (crimson), Na (yellow), K (lilac), Ca (orange-red), Cu (green).",
+      "Test for hydrogen: squeaky pop with a burning splint.",
+      "Test for oxygen: relights a glowing splint.",
+      "Test for carbon dioxide: turns limewater milky/cloudy."
     ],
-    "common_traps_ru": [
-      "Путаница цветов пламенных проб — особенно малиновый (Li) и оранжево-красный (Ca).",
-      "Забывают сказать «влажная» лакмусовая бумага для пробы на хлор.",
-      "В хроматографии путают расстояние фронта растворителя с расстоянием пятна при расчёте Rf."
+    "common_traps": [
+      "Confusing the flame test colours — especially crimson (Li) vs orange-red (Ca).",
+      "Forgetting to say 'damp' litmus paper for the chlorine test.",
+      "In chromatography, confusing the solvent front distance with the spot distance when calculating Rf."
     ],
-    "variability_ru": "В вопросах меняются вещества для идентификации, конкретная проба для применения. Могут предоставить хроматограммы для расчёта Rf. Элементы для пламенных проб и газы берутся из стандартного списка GCSE."
+    "variability": "Questions vary the substances to identify, the specific test to apply, and may provide chromatography diagrams for Rf calculations. Flame test elements and gas test gases are drawn from the standard GCSE list."
   },
   "9": {
-    "title_ru": "Химия атмосферы",
-    "topic_ru": "Состав атмосферы, парниковые газы, изменение климата, загрязнители атмосферы",
-    "algorithm_ru": [
-      "Знайте современный состав атмосферы: ~78% азот, ~21% кислород, ~0,04% углекислый газ, ~1% аргон, плюс переменное количество водяного пара.",
-      "Парниковые газы (CO₂, метан, водяной пар) поглощают и переизлучают инфракрасное излучение, сохраняя тепло Земли. Увеличение их концентрации приводит к усилению парникового эффекта и глобальному потеплению.",
-      "Деятельность человека, увеличивающая CO₂: сжигание ископаемого топлива, вырубка лесов. Увеличение метана: сельское хозяйство (крупный рогатый скот, рис), мусорные свалки.",
-      "Последствия изменения климата: повышение уровня моря, учащение экстремальных погодных явлений, потеря среды обитания, изменения в производстве продовольствия.",
-      "Загрязнители при сгорании: угарный газ (неполное сгорание, токсичен), диоксид серы (из примесей серы, вызывает кислотные дожди), оксиды азота (при высоких температурах в двигателях, вызывают кислотные дожди и смог), твёрдые частицы (вызывают заболевания дыхательных путей и глобальное затемнение)."
+    "title": "Chemistry of the Atmosphere",
+    "topic": "Composition of the atmosphere, greenhouse gases, climate change, atmospheric pollutants",
+    "algorithm": [
+      "Know the current atmospheric composition: ~78% nitrogen, ~21% oxygen, ~0.04% carbon dioxide, ~1% argon, plus variable water vapour.",
+      "Greenhouse gases (CO₂, methane, water vapour) absorb and re-emit infrared radiation, keeping Earth warm. Increased levels lead to enhanced greenhouse effect and global warming.",
+      "Human activities increasing CO₂: burning fossil fuels, deforestation. Increasing methane: agriculture (cattle, rice), landfill sites.",
+      "Consequences of climate change: rising sea levels, more extreme weather, habitat loss, changes in food production.",
+      "Pollutants from combustion: carbon monoxide (incomplete combustion, toxic), sulfur dioxide (from sulfur impurities, causes acid rain), nitrogen oxides (from high temperatures in engines, cause acid rain and smog), particulates (cause respiratory problems and global dimming)."
     ],
-    "key_facts_ru": [
-      "Атмосфера Земли: 78% N₂, 21% O₂, 0,9% Ar, 0,04% CO₂.",
-      "Ранняя атмосфера состояла в основном из CO₂ и водяного пара (от вулканической активности).",
-      "Содержание кислорода увеличилось благодаря фотосинтезу ранних растений и водорослей.",
-      "Содержание CO₂ уменьшилось, потому что он растворялся в океанах, использовался в фотосинтезе и образовывал карбонатные породы и ископаемое топливо.",
-      "Парниковый эффект: CO₂ и метан поглощают инфракрасное излучение, переизлучаемое поверхностью Земли.",
-      "Углеродный след: общие выбросы парниковых газов, вызванные человеком, событием или продуктом."
+    "key_facts": [
+      "Earth's atmosphere: 78% N₂, 21% O₂, 0.9% Ar, 0.04% CO₂.",
+      "Early atmosphere was mostly CO₂ and water vapour (from volcanic activity).",
+      "Oxygen increased due to photosynthesis by early plants and algae.",
+      "CO₂ decreased because it dissolved in oceans, was used in photosynthesis, and formed carbonate rocks and fossil fuels.",
+      "Greenhouse effect: CO₂ and methane absorb infrared radiation re-emitted by Earth's surface.",
+      "Carbon footprint: total greenhouse gas emissions caused by an individual, event, or product."
     ],
-    "common_traps_ru": [
-      "Путаница парникового эффекта (естественного и необходимого) с усиленным парниковым эффектом (вызванным деятельностью человека).",
-      "Утверждение, что CO₂ «задерживает тепло» — точнее, он поглощает и переизлучает инфракрасное излучение.",
-      "Путаница загрязнителей: SO₂ образуется из серы в топливе, NOₓ — при реакции азота и кислорода воздуха при высоких температурах в двигателях."
+    "common_traps": [
+      "Confusing the greenhouse effect (natural and necessary) with the enhanced greenhouse effect (caused by human activities).",
+      "Saying CO₂ 'traps heat' — more accurately, it absorbs and re-emits infrared radiation.",
+      "Mixing up the pollutants: SO₂ comes from sulfur in fuels, NOₓ comes from the nitrogen and oxygen in air reacting at high temperatures in engines."
     ],
-    "variability_ru": "В вопросах меняются газы или загрязнители, конкретная деятельность человека для определения. Могут включать интерпретацию данных (графики уровня CO₂ в атмосфере, данные об отклонениях температуры)."
+    "variability": "Questions change which gases or pollutants are featured, the specific human activities to identify, and may include data interpretation (graphs of atmospheric CO₂ levels over time, temperature anomaly data)."
   },
   "10": {
-    "title_ru": "Использование ресурсов",
-    "topic_ru": "Исчерпаемые и возобновляемые ресурсы, оценка жизненного цикла, переработка, извлечение металлов, очистка воды, процесс Габера",
-    "algorithm_ru": [
-      "Для оценки жизненного цикла (ОЖЦ): четыре этапа — (1) добыча сырья, (2) производство, (3) использование/эксплуатация, (4) утилизация. Учитывайте потребление энергии, отходы и воздействие на окружающую среду на каждом этапе.",
-      "Для извлечения металлов: металлы выше углерода в ряду активности извлекают электролизом; металлы ниже углерода — восстановлением углеродом в доменной печи.",
-      "Для вопросов о переработке: учитывайте экономию энергии, сокращение добычи, уменьшение объёма свалок, снижение выбросов CO₂.",
-      "Для очистки воды: осаждение, фильтрация, хлорирование (или обработка озоном/УФ). Опреснение (дистилляция или обратный осмос) для морской воды.",
-      "Для расчётных задач: используйте уравнение реакции для расчёта количества вещества и масс, как в теме 3.",
-      "Процесс Габера: N₂ + 3H₂ ⇌ 2NH₃, условия: 450°C, 200 атм, железный катализатор — компромисс между скоростью и выходом."
+    "title": "Using Resources",
+    "topic": "Finite and renewable resources, life cycle assessment, recycling, extraction of metals, water treatment, Haber process",
+    "algorithm": [
+      "For life cycle assessment (LCA): the four stages are (1) extracting raw materials, (2) manufacturing, (3) use/operation, (4) disposal. Consider energy use, waste, and environmental impact at each stage.",
+      "For metal extraction: metals above carbon in the reactivity series are extracted by electrolysis; metals below carbon are extracted by reduction with carbon in a blast furnace.",
+      "For recycling questions: consider energy savings, reduced mining, reduced landfill, reduced CO₂ emissions.",
+      "For water treatment: sedimentation, filtration, chlorination (or ozonation/UV treatment). Desalination (distillation or reverse osmosis) for seawater.",
+      "For calculation questions: use the balanced equation to calculate moles and masses as in topic 3.",
+      "The Haber process: N₂ + 3H₂ ⇌ 2NH₃, conditions: 450°C, 200 atm, iron catalyst — a compromise between rate and yield."
     ],
-    "key_facts_ru": [
-      "Исчерпаемые ресурсы (ископаемое топливо, руды) закончатся. Возобновляемые ресурсы (древесина, сельхозкультуры) могут быть восполнены.",
-      "Этапы ОЖЦ: сырьё → производство → использование → утилизация.",
-      "Переработка металлов экономит энергию, сокращает добычу и снижает выбросы парниковых газов.",
-      "Питьевая вода: вода, безопасная для питья (не обязательно чистая). Требует фильтрации и обеззараживания.",
-      "Фитодобыча: растения поглощают соединения металлов из почвы; растения сжигают и металл извлекают из золы.",
-      "Биовыщелачивание: бактерии производят кислые растворы (выщелачиватель), растворяющие металлы из руд.",
-      "Условия процесса Габера — компромисс: высокое давление повышает выход, но дорого; умеренная температура обеспечивает приемлемую скорость при достаточном выходе."
+    "key_facts": [
+      "Finite resources (fossil fuels, metal ores) will run out. Renewable resources (timber, crops) can be replenished.",
+      "LCA stages: raw materials → manufacturing → use → disposal.",
+      "Recycling metals saves energy, reduces mining, and reduces greenhouse gas emissions.",
+      "Potable water: water safe to drink (not necessarily pure). Requires filtration and sterilisation.",
+      "Phytomining: plants absorb metal compounds from soil; plants are burned and metal extracted from ash.",
+      "Bioleaching: bacteria produce acidic solutions (leachate) that dissolve metals from ores.",
+      "Haber process conditions are a compromise: high pressure favours yield but is expensive; moderate temperature gives reasonable rate with acceptable yield."
     ],
-    "common_traps_ru": [
-      "Мнение, что «питьевая вода» означает «чистая вода» — это лишь означает безопасную для питья воду, которая может содержать растворённые минералы.",
-      "Забывают, что ОЖЦ может быть субъективной, потому что оценка воздействия на окружающую среду включает субъективные суждения.",
-      "В расчётных задачах на извлечение используют неправильное молярное соотношение из уравнения реакции."
+    "common_traps": [
+      "Thinking 'potable water' means 'pure water' — it just means safe to drink and may contain dissolved minerals.",
+      "Forgetting that LCA can be subjective because assigning environmental impact values involves judgement.",
+      "In extraction calculations, using the wrong molar ratio from the balanced equation."
     ],
-    "variability_ru": "В вопросах меняется извлекаемый металл, конкретный продукт для ОЖЦ и расчётные значения. Очистка воды и процесс Габера — частые темы для развёрнутых ответов."
+    "variability": "Questions vary the metal being extracted, the specific LCA product, and the calculation values. Water treatment and the Haber process are common extended response topics."
   }
 }

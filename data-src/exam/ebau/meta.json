@@ -1,11 +1,5 @@
 {
   "id": "ebau",
-  "full_name_ru": "EBAU/Selectividad — Химия (Испания)",
-  "full_name_en": "EBAU/Selectividad — Chemistry (Spain)",
-  "full_name_es": "Evaluación de Bachillerato para el Acceso a la Universidad — Química",
-  "description_ru": "Вступительный экзамен в университеты Испании. Углублённая химия для 12 класса.",
-  "description_en": "University entrance exam in Spain. Advanced chemistry for 12th grade.",
-  "description_es": "Examen de acceso a la universidad. Química avanzada de 2.º de Bachillerato.",
   "country": "ES",
   "grade": "12",
   "duration_min": 90,
@@ -27,57 +21,32 @@
   ],
   "competencies": [
     {
-      "id": "ebau_atomic_structure",
-      "name_es": "Estructura atómica y sistema periódico",
-      "name_en": "Atomic structure and periodic system",
-      "name_ru": "Строение атома и периодическая система"
+      "id": "ebau_atomic_structure"
     },
     {
-      "id": "ebau_bonding",
-      "name_es": "Enlace químico y propiedades",
-      "name_en": "Chemical bonding and properties",
-      "name_ru": "Химическая связь и свойства"
+      "id": "ebau_bonding"
     },
     {
-      "id": "ebau_thermodynamics",
-      "name_es": "Termodinámica química",
-      "name_en": "Chemical thermodynamics",
-      "name_ru": "Химическая термодинамика"
+      "id": "ebau_thermodynamics"
     },
     {
-      "id": "ebau_kinetics",
-      "name_es": "Cinética química y equilibrio",
-      "name_en": "Chemical kinetics and equilibrium",
-      "name_ru": "Кинетика и химическое равновесие"
+      "id": "ebau_kinetics"
     },
     {
-      "id": "ebau_acid_base",
-      "name_es": "Reacciones ácido-base",
-      "name_en": "Acid-base reactions",
-      "name_ru": "Кислотно-основные реакции"
+      "id": "ebau_acid_base"
     },
     {
-      "id": "ebau_redox",
-      "name_es": "Oxidación-reducción y electroquímica",
-      "name_en": "Redox and electrochemistry",
-      "name_ru": "ОВР и электрохимия"
+      "id": "ebau_redox"
     },
     {
-      "id": "ebau_organic",
-      "name_es": "Química orgánica",
-      "name_en": "Organic chemistry",
-      "name_ru": "Органическая химия"
+      "id": "ebau_organic"
     }
   ],
   "official_links": [
     {
-      "label_es": "Ministerio de Educación — EBAU",
-      "label_en": "Ministry of Education — EBAU",
       "url": "https://www.educacionyfp.gob.es/contenidos/estudiantes/selectividad.html"
     },
     {
-      "label_es": "Modelos de examen EBAU (universidades)",
-      "label_en": "EBAU exam models (universities)",
       "url": "https://www.uned.es/universidad/inicio/estudios/acceso/mayores-25/quimica.html"
     }
   ]
