@@ -1,0 +1,65 @@
+{
+  "rate_factors": {
+    "temperature": {
+      "name": "Temperatura",
+      "effect": "Podwyższenie temperatury zwiększa szybkość reakcji",
+      "detail": "Reguła van't Hoffa: wzrost temperatury o każde 10 °C powoduje 2–4-krotny wzrost szybkości. Cząstki poruszają się szybciej i częściej zderzają się z wystarczającą energią."
+    },
+    "concentration": {
+      "name": "Stężenie reagentów",
+      "effect": "Zwiększenie stężenia zwiększa szybkość reakcji",
+      "detail": "Więcej cząstek w jednostce objętości oznacza częstsze zderzenia. Dla gazów: wzrost ciśnienia zwiększa stężenie."
+    },
+    "surface_area": {
+      "name": "Powierzchnia kontaktu",
+      "effect": "Rozdrobnienie ciała stałego zwiększa szybkość reakcji",
+      "detail": "Więcej punktów kontaktu między reagentami. Przykład: proszek żelaza reaguje szybciej niż bryłka."
+    },
+    "catalyst": {
+      "name": "Katalizator",
+      "effect": "Obniża energię aktywacji, przyspiesza reakcję",
+      "detail": "Katalizator proponuje alternatywną drogę reakcji o niższej energii aktywacji. Sam nie ulega zużyciu."
+    },
+    "nature_of_reagents": {
+      "name": "Natura reagentów",
+      "effect": "Różne substancje reagują z różną szybkością",
+      "detail": "Reakcje jonowe w roztworze przebiegają niemal natychmiastowo. Reakcje z zerwaniem wiązań kowalencyjnych są wolniejsze."
+    }
+  },
+  "catalyst_properties": {
+    "changes": [
+      "Szybkość reakcji (zwiększa)",
+      "Energia aktywacji (obniża)",
+      "Droga reakcji (alternatywny mechanizm)"
+    ],
+    "does_not_change": [
+      "Efekt cieplny reakcji (ΔH)",
+      "Skład produktów",
+      "Położenie równowagi chemicznej",
+      "Ilość produktów przy całkowitym przebiegu reakcji"
+    ]
+  },
+  "common_catalysts": {
+    "name": "platyna",
+    "reaction": "Utlenianie amoniaku: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+  },
+  "equilibrium_shifts": {
+    "shift": "Nie przesuwa równowagi",
+    "explanation": "Katalizator w jednakowym stopniu przyspiesza reakcję w kierunku prostym i odwrotnym"
+  },
+  "heat_classification": {
+    "exothermic": "Reakcja egzotermiczna — przebiega z wydzielaniem ciepła (ΔH < 0)",
+    "endothermic": "Reakcja endotermiczna — przebiega z pochłanianiem ciepła (ΔH > 0)",
+    "examples_exo": [
+      "Spalanie substancji",
+      "Neutralizacja kwasów i zasad",
+      "Reakcja aktywnych metali z wodą i kwasami",
+      "Większość reakcji łączenia"
+    ],
+    "examples_endo": [
+      "Rozkład substancji pod wpływem ogrzewania",
+      "Elektroliza",
+      "Fotosynteza"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "no_precipitate_no_gas_no_water": { "pedagogical_note": null },
+  "insoluble_base_no_acid_reaction": { "pedagogical_note": null },
+  "noble_metal_no_acid": { "pedagogical_note": null },
+  "less_active_no_displacement": { "pedagogical_note": null },
+  "alkali_metal_water_not_salt": { "pedagogical_note": null },
+  "sio2_no_water": { "pedagogical_note": null },
+  "insoluble_base_heat_decomposition": { "pedagogical_note": null },
+  "carbonate_acid_gas": {
+    "pedagogical_note": "The intermediate is H₂CO₃, which immediately decomposes into CO₂ and H₂O."
+  },
+  "sulfite_acid_gas": {
+    "pedagogical_note": "The intermediate is H₂SO₃, which decomposes into SO₂ and H₂O."
+  },
+  "sulfide_acid_gas": {
+    "pedagogical_note": "H₂S is a gas with the smell of rotten eggs. Produced only from soluble sulfides."
+  },
+  "ammonium_alkali_gas": {
+    "pedagogical_note": "The intermediate is NH₃·H₂O, which decomposes releasing ammonia NH₃."
+  },
+  "h2so4_conc_oxidizer": {
+    "pedagogical_note": "Reduction products of S(+6): SO₂ (active metals), S or H₂S (excess metal)."
+  },
+  "hno3_oxidizer": {
+    "pedagogical_note": "Reduction products of N(+5): NO₂ (conc.), NO (dil.), N₂O, N₂, NH₃ (very active metals)."
+  },
+  "passivation_cold_conc": {
+    "pedagogical_note": "Passivation — formation of a dense oxide film preventing further reaction. Reaction proceeds when heated."
+  },
+  "amphoteric_both_directions": {
+    "pedagogical_note": "Examples: Al₂O₃, ZnO, BeO, Al(OH)₃, Zn(OH)₂, Be(OH)₂."
+  }
+}

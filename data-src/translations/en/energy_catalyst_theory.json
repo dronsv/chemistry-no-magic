@@ -1,0 +1,65 @@
+{
+  "rate_factors": {
+    "temperature": {
+      "name": "Temperature",
+      "effect": "Raising temperature increases the reaction rate",
+      "detail": "Van't Hoff rule: for every 10 °C rise, the rate increases 2–4 times. Particles move faster and collide more often with sufficient energy."
+    },
+    "concentration": {
+      "name": "Concentration of reactants",
+      "effect": "Increasing concentration increases the reaction rate",
+      "detail": "More particles per unit volume means more frequent collisions. For gases: increasing pressure raises concentration."
+    },
+    "surface_area": {
+      "name": "Surface area",
+      "effect": "Grinding a solid increases the reaction rate",
+      "detail": "More contact points between reactants. Example: iron powder reacts faster than a lump."
+    },
+    "catalyst": {
+      "name": "Catalyst",
+      "effect": "Lowers activation energy, speeds up the reaction",
+      "detail": "A catalyst provides an alternative reaction pathway with lower activation energy. It is not consumed."
+    },
+    "nature_of_reagents": {
+      "name": "Nature of reactants",
+      "effect": "Different substances react at different rates",
+      "detail": "Ionic reactions in solution occur almost instantaneously. Reactions involving covalent bond breaking are slower."
+    }
+  },
+  "catalyst_properties": {
+    "changes": [
+      "Reaction rate (increases)",
+      "Activation energy (lowers)",
+      "Reaction pathway (alternative mechanism)"
+    ],
+    "does_not_change": [
+      "Heat of reaction (ΔH)",
+      "Composition of products",
+      "Position of chemical equilibrium",
+      "Amount of products when reaction goes to completion"
+    ]
+  },
+  "common_catalysts": {
+    "name": "platinum",
+    "reaction": "Oxidation of ammonia: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+  },
+  "equilibrium_shifts": {
+    "shift": "Does not shift equilibrium",
+    "explanation": "A catalyst speeds up both the forward and reverse reactions equally"
+  },
+  "heat_classification": {
+    "exothermic": "Exothermic reaction — proceeds with release of heat (ΔH < 0)",
+    "endothermic": "Endothermic reaction — proceeds with absorption of heat (ΔH > 0)",
+    "examples_exo": [
+      "Combustion of substances",
+      "Neutralization of acids and bases",
+      "Reaction of active metals with water and acids",
+      "Most combination reactions"
+    ],
+    "examples_endo": [
+      "Decomposition of substances upon heating",
+      "Electrolysis",
+      "Photosynthesis"
+    ]
+  }
+}

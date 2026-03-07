@@ -1,0 +1,20 @@
+{
+  "Li": { "name": "Lit" },
+  "K": { "name": "Potas" },
+  "Ba": { "name": "Bar" },
+  "Ca": { "name": "Wapń" },
+  "Na": { "name": "Sód" },
+  "Mg": { "name": "Magnez" },
+  "Al": { "name": "Glin" },
+  "Zn": { "name": "Cynk" },
+  "Fe": { "name": "Żelazo" },
+  "Ni": { "name": "Nikiel" },
+  "Sn": { "name": "Cyna" },
+  "Pb": { "name": "Ołów" },
+  "H": { "name": "Wodór" },
+  "Cu": { "name": "Miedź" },
+  "Hg": { "name": "Rtęć" },
+  "Ag": { "name": "Srebro" },
+  "Pt": { "name": "Platyna" },
+  "Au": { "name": "Złoto" }
+}

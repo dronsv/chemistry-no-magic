@@ -1,0 +1,17 @@
+{
+  "Ca_chain": {
+    "title": "Calcium chain"
+  },
+  "Na_chain": {
+    "title": "Sodium chain"
+  },
+  "Cu_chain": {
+    "title": "Copper chain"
+  },
+  "Fe_chain": {
+    "title": "Iron chain"
+  },
+  "S_chain": {
+    "title": "Sulfur chain (non-metal)"
+  }
+}
