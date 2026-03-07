@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
@@ -21,5 +22,6 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
       "isAccessibleForFree": true,
     })} />
   </Fragment>
+  <TopicLinks section="calculations" locale={locale} />
   <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

@@ -3,30 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TheoryModulePanel from '../../components/TheoryModulePanel';
 import { cachedReadDataSrcSync } from '../../lib/build-data-cache';
 import { loadBuildOverlay } from '../../lib/build-overlay';
-import type { Topic, TopicPage, TopicPagesMap, TopicPageLocaleOverlay, FAQItem } from '../../types/topic';
+import type { Topic, TopicPage, TopicPagesMap, TopicPageLocaleOverlay, TopicLocaleOverlay, FAQItem } from '../../types/topic';
 import type { SupportedLocale } from '../../types/i18n';
 import type { TopicDetailProps } from './topic-detail-paths';
-import { localizeUrl, SITE_NAME } from '../../lib/i18n';
+import { localizeUrl, SITE_NAME, SUPPORTED_LOCALES } from '../../lib/i18n';
 
 const { topicId, locale } = Astro.props as TopicDetailProps;
 
-// Load base data (sync — already in build cache after first topic in section)
+// Load base data (sync — in build cache after first topic in section)
 const allTopics: Topic[] = cachedReadDataSrcSync('topics.json');
 const topicPages: TopicPagesMap = cachedReadDataSrcSync('topic_pages.json');
 const baseTopic = allTopics.find(t => t.id === topicId)!;
 const baseTopicPage: TopicPage | null = topicPages[topicId] ?? null;
 
-// Apply locale overlays (async, cached per build)
-const topicOverlay = await loadBuildOverlay(locale, 'topics');
+// Load locale overlays for current locale (async, cached per build)
+const topicOverlay = await loadBuildOverlay(locale, 'topics') as TopicLocaleOverlay | null;
 const topicPagesOverlay = await loadBuildOverlay(locale, 'topic_pages') as TopicPageLocaleOverlay | null;
 
-const topic: Topic = (topicOverlay?.[topicId])
-  ? { ...baseTopic, ...topicOverlay[topicId] } as Topic
-  : baseTopic;
+// Merge: base fields + locale overlay (overlay keys: title, summary, slug)
+const topicLocaleFields = topicOverlay?.[topicId];
+const topic = topicLocaleFields ? { ...baseTopic, ...topicLocaleFields } : baseTopic;
+// Prefer localized title, fall back to title_ru
+const topicTitle: string = (topic as { title?: string }).title ?? topic.title_ru;
+const topicSummary: string = (topic as { summary?: string }).summary ?? topic.summary_ru;
 
 const localeTopicPage = topicPagesOverlay?.[topicId];
-const seoTitle = localeTopicPage?.seo_title ?? baseTopicPage?.seo_title_ru ?? topic.title_ru;
-const description = topic.summary_ru;
+const seoTitle = localeTopicPage?.seo_title ?? baseTopicPage?.seo_title_ru ?? topicTitle;
 const faq: FAQItem[] = localeTopicPage?.faq ?? baseTopicPage?.faq_ru ?? [];
 
 // Section nav
@@ -34,9 +36,14 @@ const sectionPath = `/${baseTopic.section}/`;
 const sectionUrl = localizeUrl(sectionPath, locale);
 
 const SECTION_LABELS: Record<string, Record<SupportedLocale, string>> = {
-  'bonds':            { ru: 'Химическая связь',  en: 'Chemical Bonds',   pl: 'Wiązania chemiczne', es: 'Enlaces químicos'       },
-  'oxidation-states': { ru: 'Степени окисления', en: 'Oxidation States', pl: 'Stopnie utlenienia', es: 'Estados de oxidación'   },
-  'calculations':     { ru: 'Расчёты',           en: 'Calculations',     pl: 'Obliczenia',         es: 'Cálculos'               },
+  'bonds':            { ru: 'Химическая связь',  en: 'Chemical Bonds',   pl: 'Wiązania chemiczne', es: 'Enlaces químicos'     },
+  'oxidation-states': { ru: 'Степени окисления', en: 'Oxidation States', pl: 'Stopnie utlenienia', es: 'Estados de oxidación' },
+  'calculations':     { ru: 'Расчёты',           en: 'Calculations',     pl: 'Obliczenia',         es: 'Cálculos'             },
+};
+const SECTION_PATHS: Record<string, Record<SupportedLocale, string>> = {
+  'bonds':            { ru: '/bonds/',            en: '/en/bonds/',            pl: '/pl/wiazania/',            es: '/es/enlaces/'             },
+  'oxidation-states': { ru: '/oxidation-states/', en: '/en/oxidation-states/', pl: '/pl/stopnie-utlenienia/',  es: '/es/estados-oxidacion/'   },
+  'calculations':     { ru: '/calculations/',     en: '/en/calculations/',     pl: '/pl/obliczenia/',          es: '/es/calculos/'            },
 };
 
 const FAQ_HEADING: Record<SupportedLocale, string> = {
@@ -46,13 +53,18 @@ const FAQ_HEADING: Record<SupportedLocale, string> = {
 const THEORY_HEADING: Record<SupportedLocale, string> = {
   ru: 'Теория', en: 'Theory', pl: 'Teoria', es: 'Teoría',
 };
+const RELATED_HEADING: Record<SupportedLocale, string> = {
+  ru: 'Связанные темы', en: 'Related topics', pl: 'Powiązane tematy', es: 'Temas relacionados',
+};
 const CALC_CTA: Record<SupportedLocale, string> = {
   ru: 'Открыть калькулятор', en: 'Open calculator',
   pl: 'Otwórz kalkulator', es: 'Abrir calculadora',
 };
+const HOME_LABEL: Record<SupportedLocale, string> = {
+  ru: 'Главная', en: 'Home', pl: 'Strona główna', es: 'Inicio',
+};
 
 const sectionLabel = SECTION_LABELS[baseTopic.section]?.[locale] ?? baseTopic.section;
-const homeLabel: Record<SupportedLocale, string> = { ru: 'Главная', en: 'Home', pl: 'Strona główna', es: 'Inicio' };
 
 // Extract moduleKey: "module:bonds_and_crystals.v1" → "bonds_and_crystals"
 const firstRef = topic.theory_refs[0] ?? null;
@@ -60,6 +72,29 @@ const moduleKey = firstRef
   ? firstRef.module.replace(/^module:/, '').replace(/\.\w+$/, '')
   : null;
 const forceSectionId = firstRef?.section_id;
+
+// Related topics — load titles in current locale
+const relatedTopics = topic.related_topic_ids
+  .map(rid => allTopics.find(t => t.id === rid))
+  .filter(Boolean) as Topic[];
+const relatedItems = relatedTopics.map(rt => {
+  const lf = topicOverlay?.[rt.id];
+  const rtTitle: string = (lf as { title?: string } | undefined)?.title ?? rt.title_ru;
+  const rtSlug: string = (lf as { slug?: string } | undefined)?.slug ?? rt.slug;
+  const rtSectionPath = SECTION_PATHS[rt.section]?.[locale] ?? localizeUrl(`/${rt.section}/`, locale);
+  return { href: `${rtSectionPath}${rtSlug}/`, title: rtTitle };
+});
+
+// Hreflang alternate URLs — resolve slug per locale
+const alternateUrls = {} as Record<SupportedLocale, string>;
+for (const loc of SUPPORTED_LOCALES) {
+  const locOverlay = loc === locale
+    ? (topicOverlay as TopicLocaleOverlay | null)
+    : (await loadBuildOverlay(loc, 'topics') as TopicLocaleOverlay | null);
+  const locSlug = (locOverlay?.[topicId] as { slug?: string } | undefined)?.slug ?? baseTopic.slug;
+  const secPath = SECTION_PATHS[baseTopic.section]?.[loc] ?? localizeUrl(sectionPath, loc);
+  alternateUrls[loc] = `${secPath}${locSlug}/`;
+}
 
 // JSON-LD schemas
 const faqSchema = faq.length > 0 ? {
@@ -76,7 +111,7 @@ const courseSchema = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: seoTitle.replace(/\s*\|.*$/, ''),
-  description,
+  description: topicSummary,
   provider: { '@type': 'Organization', name: SITE_NAME[locale], url: 'https://chemistry.svistunov.online' },
   inLanguage: locale,
   isAccessibleForFree: true,
@@ -87,14 +122,14 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: Astro.url.origin + '/' },
+    { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: Astro.url.origin + '/' },
     { '@type': 'ListItem', position: 2, name: sectionLabel, item: Astro.url.origin + sectionUrl },
-    { '@type': 'ListItem', position: 3, name: topic.title_ru },
+    { '@type': 'ListItem', position: 3, name: topicTitle },
   ],
 };
 ---
 
-<BaseLayout title={seoTitle} description={description}>
+<BaseLayout title={seoTitle} description={topicSummary} alternateUrls={alternateUrls}>
   <Fragment slot="head">
     {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
     <script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
@@ -104,14 +139,14 @@ const breadcrumbSchema = {
   <div class="topic-page">
     <nav class="topic-breadcrumb" aria-label="breadcrumb">
       <ol>
-        <li><a href="/">{homeLabel[locale]}</a></li>
+        <li><a href="/">{HOME_LABEL[locale]}</a></li>
         <li><a href={sectionUrl}>{sectionLabel}</a></li>
-        <li aria-current="page">{topic.title_ru}</li>
+        <li aria-current="page">{topicTitle}</li>
       </ol>
     </nav>
 
-    <h1 class="topic-title">{topic.title_ru}</h1>
-    <p class="topic-summary">{description}</p>
+    <h1 class="topic-title">{topicTitle}</h1>
+    <p class="topic-summary">{topicSummary}</p>
 
     {moduleKey && (
       <section class="topic-theory">
@@ -135,6 +170,17 @@ const breadcrumbSchema = {
             <p class="faq-answer">{item.answer}</p>
           </details>
         ))}
+      </section>
+    )}
+
+    {relatedItems.length > 0 && (
+      <section class="topic-related">
+        <h2 class="topic-section-heading">{RELATED_HEADING[locale]}</h2>
+        <ul class="related-list">
+          {relatedItems.map(item => (
+            <li><a href={item.href}>{item.title}</a></li>
+          ))}
+        </ul>
       </section>
     )}
 
@@ -196,7 +242,8 @@ const breadcrumbSchema = {
   }
 
   .topic-theory,
-  .topic-faq {
+  .topic-faq,
+  .topic-related {
     margin-bottom: 2rem;
   }
 
@@ -233,6 +280,32 @@ const breadcrumbSchema = {
     line-height: 1.65;
     color: var(--text-secondary, #374151);
     border-top: 1px solid var(--border-color, #e5e7eb);
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .related-list a {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: var(--surface-alt, #f9fafb);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 2rem;
+    color: var(--color-primary, #2563eb);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .related-list a:hover {
+    background: var(--color-primary, #2563eb);
+    border-color: var(--color-primary, #2563eb);
+    color: #fff;
   }
 
   .topic-cta {

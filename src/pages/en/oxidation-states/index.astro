@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
@@ -20,6 +21,33 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/en/oxidation-states/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to find the oxidation state of an element in a compound?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Apply the rules: fluorine is always −1; oxygen is −2 (except peroxides and OF₂); hydrogen is +1 (except metal hydrides); alkali metals +1, alkaline earth +2. The sum of oxidation states in a neutral compound equals 0, in an ion equals the charge." }
+        },
+        {
+          "@type": "Question",
+          "name": "How to use the oxidation state calculator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Enter a chemical formula (e.g., H₂SO₄ or K₂Cr₂O₇) in the input field. The calculator applies all rules in order and shows the oxidation state of each element with a detailed step-by-step explanation." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which elements always have a fixed oxidation state?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fixed oxidation states: F (−1), O (−2, rarely exceptions), H (+1 in acids/bases, −1 in hydrides), Na (+1), K (+1), Ca (+2), Mg (+2), Al (+3). These values do not change in most compounds." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an oxidizing agent and a reducing agent?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oxidizing agent: substance that accepts electrons (its oxidation state decreases). Reducing agent: substance that donates electrons (its oxidation state increases). Common oxidizers: O₂, Cl₂, KMnO₄, K₂Cr₂O₇. Common reducers: H₂, C, CO, metals." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="oxidation-states" locale={locale} />
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

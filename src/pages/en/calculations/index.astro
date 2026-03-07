@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
@@ -20,6 +21,33 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/en/calculations/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to calculate the molar mass of a substance?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Molar mass (g/mol) = sum of atomic masses of all atoms in the formula. Example: H₂SO₄: 2×1 + 32 + 4×16 = 98 g/mol. Atomic masses are taken from the periodic table (round to integers for most calculations)." }
+        },
+        {
+          "@type": "Question",
+          "name": "How to use the chemistry calculations calculator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Select the task type (molar mass, stoichiometry, mass fraction, etc.), enter the known values. The calculator finds the formulas, substitutes values, and shows a step-by-step solution with explanations." }
+        },
+        {
+          "@type": "Question",
+          "name": "How to solve a problem using a chemical reaction equation?",
+          "acceptedAnswer": { "@type": "Answer", "text": "1) Write the equation and balance it. 2) Find moles of the given reactant: n = m/M. 3) Use coefficients to find moles of product. 4) Calculate mass: m = n × M. This method is called stoichiometry." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is mass fraction and how do you calculate it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mass fraction (ω) is the ratio of component mass to total mixture or solution mass: ω = m(substance) / m(solution). Expressed as decimal (0–1) or percentage (0–100%). For an element in a compound: ω(X) = n × Ar(X) / Mr(compound)." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="calculations" locale={locale} />
   <CalculationsPage locale={locale} client:idle />
 </BaseLayout>

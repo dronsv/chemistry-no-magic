@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import BondsPage from '../../../features/bonds/BondsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
@@ -20,6 +21,33 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/en/bonds/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to determine the type of chemical bond from a formula?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Find the electronegativity (EN) of each element. Difference ΔEN: &lt;0.5 — nonpolar covalent, 0.5–1.7 — polar covalent, &gt;1.7 — ionic. Metal + nonmetal → ionic; two metals → metallic bond." }
+        },
+        {
+          "@type": "Question",
+          "name": "How to use the chemical bond calculator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Enter a chemical formula in the input field. The calculator automatically determines the bond type and crystal lattice, shows electronegativity values and the ΔEN difference with a step-by-step explanation." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between ionic and covalent bonds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ionic bond: complete transfer of electrons from metal to nonmetal (NaCl, KBr). Covalent: shared electron pairs between nonmetals. Polar covalent: different EN values (HCl, H₂O). Nonpolar: equal EN (H₂, O₂, Cl₂)." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a crystal lattice and how does it affect properties?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ionic lattice (salts): high melting point, brittle, conducts electricity when dissolved. Atomic (diamond, SiO₂): very high melting point, hardness. Molecular (ice, CO₂): low melting point, volatile. Metallic: heat and electrical conductivity, ductility." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="bonds" locale={locale} />
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

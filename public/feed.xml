@@ -5,24 +5,72 @@
     <link>https://chemistry.svistunov.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Fri, 06 Mar 2026 14:47:15 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 18:11:50 GMT</lastBuildDate>
     <atom:link href="https://chemistry.svistunov.online/feed.xml" rel="self" type="application/rss+xml" />
 
-  <item>
-    <title>Периодическая таблица Менделеева</title>
-    <link>https://chemistry.svistunov.online/periodic-table/</link>
-    <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>ru</language>
-  </item>
   <item>
     <title>Химическая связь</title>
     <link>https://chemistry.svistunov.online/bonds/</link>
     <description>Определение типа химической связи и кристаллической решётки.</description>
     <guid isPermaLink="true">https://chemistry.svistunov.online/bonds/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
+    <pubDate>Fri, 06 Mar 2026 18:11:50 GMT</pubDate>
     <language>ru</language>
+  </item>
+  <item>
+    <title>Chemical Bonds</title>
+    <link>https://chemistry.svistunov.online/en/bonds/</link>
+    <description>Determine bond types and crystal lattices.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/en/bonds/</guid>
+    <pubDate>Fri, 06 Mar 2026 18:11:50 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Wiązania chemiczne</title>
+    <link>https://chemistry.svistunov.online/pl/wiazania/</link>
+    <description>Określanie typów wiązań chemicznych i sieci krystalicznych.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/wiazania/</guid>
+    <pubDate>Fri, 06 Mar 2026 18:11:50 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Enlaces químicos</title>
+    <link>https://chemistry.svistunov.online/es/enlaces/</link>
+    <description>Determinación de tipos de enlaces y redes cristalinas.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/es/enlaces/</guid>
+    <pubDate>Fri, 06 Mar 2026 18:11:50 GMT</pubDate>
+    <language>es</language>
+  </item>
+  <item>
+    <title>Периодическая таблица Менделеева</title>
+    <link>https://chemistry.svistunov.online/periodic-table/</link>
+    <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/</guid>
+    <pubDate>Fri, 06 Mar 2026 16:09:25 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Periodic Table</title>
+    <link>https://chemistry.svistunov.online/en/periodic-table/</link>
+    <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/en/periodic-table/</guid>
+    <pubDate>Fri, 06 Mar 2026 16:09:25 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Układ okresowy</title>
+    <link>https://chemistry.svistunov.online/pl/tablica-okresowa/</link>
+    <description>Interaktywny układ okresowy pierwiastków.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/tablica-okresowa/</guid>
+    <pubDate>Fri, 06 Mar 2026 16:09:25 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Tabla periódica</title>
+    <link>https://chemistry.svistunov.online/es/tabla-periodica/</link>
+    <description>Tabla periódica interactiva de elementos.</description>
+    <guid isPermaLink="true">https://chemistry.svistunov.online/es/tabla-periodica/</guid>
+    <pubDate>Fri, 06 Mar 2026 16:09:25 GMT</pubDate>
+    <language>es</language>
   </item>
   <item>
     <title>Степени окисления</title>
@@ -41,22 +89,6 @@
     <language>ru</language>
   </item>
   <item>
-    <title>Periodic Table</title>
-    <link>https://chemistry.svistunov.online/en/periodic-table/</link>
-    <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/periodic-table/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Chemical Bonds</title>
-    <link>https://chemistry.svistunov.online/en/bonds/</link>
-    <description>Determine bond types and crystal lattices.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/bonds/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
     <title>Oxidation States</title>
     <link>https://chemistry.svistunov.online/en/oxidation-states/</link>
     <description>Determine oxidation states step by step.</description>
@@ -73,22 +105,6 @@
     <language>en</language>
   </item>
   <item>
-    <title>Układ okresowy</title>
-    <link>https://chemistry.svistunov.online/pl/tablica-okresowa/</link>
-    <description>Interaktywny układ okresowy pierwiastków.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/tablica-okresowa/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Wiązania chemiczne</title>
-    <link>https://chemistry.svistunov.online/pl/wiazania/</link>
-    <description>Określanie typów wiązań chemicznych i sieci krystalicznych.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/wiazania/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
     <title>Stopnie utlenienia</title>
     <link>https://chemistry.svistunov.online/pl/stopnie-utlenienia/</link>
     <description>Określanie stopni utlenienia krok po kroku.</description>
@@ -103,22 +119,6 @@
     <guid isPermaLink="true">https://chemistry.svistunov.online/pl/obliczenia/</guid>
     <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
     <language>pl</language>
-  </item>
-  <item>
-    <title>Tabla periódica</title>
-    <link>https://chemistry.svistunov.online/es/tabla-periodica/</link>
-    <description>Tabla periódica interactiva de elementos.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/tabla-periodica/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>es</language>
-  </item>
-  <item>
-    <title>Enlaces químicos</title>
-    <link>https://chemistry.svistunov.online/es/enlaces/</link>
-    <description>Determinación de tipos de enlaces y redes cristalinas.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/enlaces/</guid>
-    <pubDate>Fri, 06 Mar 2026 14:47:15 GMT</pubDate>
-    <language>es</language>
   </item>
   <item>
     <title>Estados de oxidación</title>

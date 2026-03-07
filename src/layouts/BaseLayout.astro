@@ -12,6 +12,8 @@ interface Props {
   description?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  /** Override auto-generated hreflang links (e.g. for dynamic topic slugs). */
+  alternateUrls?: Record<SupportedLocale, string>;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   description = 'Адаптивная платформа подготовки к ОГЭ по химии',
   canonicalUrl,
   ogImage,
+  alternateUrls: alternateUrlsOverride,
 } = Astro.props;
 
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
@@ -29,7 +32,7 @@ const canonical = canonicalUrl ?? Astro.url.href;
 
 // i18n: get canonical path and alternate URLs for hreflang
 const { canonical: canonicalPath } = getCanonicalPath(Astro.url.pathname);
-const alternateUrls = getAlternateUrls(canonicalPath);
+const alternateUrls = alternateUrlsOverride ?? getAlternateUrls(canonicalPath);
 
 // Breadcrumb segments from URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);

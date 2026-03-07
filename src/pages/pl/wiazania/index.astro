@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import BondsPage from '../../../features/bonds/BondsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
@@ -20,6 +21,33 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/pl/wiazania/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak określić typ wiązania chemicznego na podstawie wzoru?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Wyznacz elektroujemność (EU) każdego pierwiastka. Różnica ΔEU: &lt;0,5 — kowalencyjne niepolarne, 0,5–1,7 — kowalencyjne polarne, &gt;1,7 — jonowe. Metal + niemetal → jonowe; dwa metale → wiązanie metaliczne." }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak korzystać z kalkulatora wiązań chemicznych?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Wpisz wzór chemiczny substancji w pole wyszukiwania. Kalkulator automatycznie określi typ wiązania i sieci krystalicznej, pokaże elektroujemności pierwiastków i różnicę ΔEU z wyjaśnieniem krok po kroku." }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaka jest różnica między wiązaniem jonowym a kowalencyjnym?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Wiązanie jonowe: całkowite przekazanie elektronów od metalu do niemetalu (NaCl, KBr). Kowalencyjne: wspólne pary elektronowe między niemetalami. Polarne: różne EU (HCl, H₂O). Niepolarne: jednakowe EU (H₂, O₂, Cl₂)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Co to jest sieć krystaliczna i jak wpływa na właściwości?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Jonowa (sole): wysoka temperatura topnienia, kruchość, przewodnictwo w roztworze. Atomowa (diament, SiO₂): bardzo wysoka tw, twardość. Cząsteczkowa (lód, CO₂): niska tw, lotność. Metaliczna: przewodnictwo cieplne i elektryczne, plastyczność." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="bonds" locale={locale} />
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

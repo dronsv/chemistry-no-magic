@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TopicLinks from '../../../components/TopicLinks.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
@@ -20,6 +21,33 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/pl/stopnie-utlenienia/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak wyznaczyć stopień utlenienia pierwiastka w związku?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Stosuj reguły: fluor zawsze −1; tlen −2 (oprócz nadtlenków i OF₂); wodór +1 (oprócz wodorków metali); metale alkaliczne +1, ziem alkalicznych +2. Suma stopni utlenienia w obojętnym związku = 0, w jonie = ładunkowi." }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak korzystać z kalkulatora stopni utlenienia?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Wpisz wzór chemiczny (np. H₂SO₄ lub K₂Cr₂O₇) w pole wyszukiwania. Kalkulator zastosuje wszystkie reguły po kolei i pokaże stopień utlenienia każdego pierwiastka z wyjaśnieniem krok po kroku." }
+        },
+        {
+          "@type": "Question",
+          "name": "Które pierwiastki mają zawsze stały stopień utlenienia?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Stały stopień utlenienia: F (−1), O (−2, rzadko wyjątki), H (+1 w kwasach/zasadach, −1 w wodorkach), Na (+1), K (+1), Ca (+2), Mg (+2), Al (+3). Wartości te nie zmieniają się w większości związków." }
+        },
+        {
+          "@type": "Question",
+          "name": "Co to jest utleniacz i reduktor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Utleniacz: substancja przyjmująca elektrony (jej SU maleje). Reduktor: substancja oddająca elektrony (jej SU rośnie). Typowe utleniacze: O₂, Cl₂, KMnO₄, K₂Cr₂O₇. Typowe reduktory: H₂, C, CO, metale." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="oxidation-states" locale={locale} />
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

@@ -1,7 +1,7 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-03-05
+> Last updated: 2026-03-07
 >
 > See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, ConceptRef, MoleculeView, BondEnergyTrace, etc.)
 
@@ -49,14 +49,17 @@
 | **Calculators** | `data-src/calculators.json` | 1 | 1 (bond_energy_v1) | Active |
 | **Element Groups** | `data-src/element-groups.json` | 1 | 10 | Active |
 | **Sources** | `data-src/sources_list.json` | 1 | 4 references | Active |
-| **Translation Overlays** | `data-src/translations/{en,pl,es}/*.json` | 32 | 3 locales × 10–11 files | Active |
-| **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties | Active |
+| **Locale Packs (ru)** | `data-src/translations/ru/*.json` | ~45 | Full Russian text pack (names, descriptions, task text, theory) | Active |
+| **Locale Packs (en/pl/es)** | `data-src/translations/{en,pl,es}/*.json` | ~35 | 3 locales × ~12 files | Active |
+| **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties (part of ru/ pack) | Active |
 | **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
 | **Theory Modules** | `data-src/theory_modules/*.json` | 3 | bonds_and_crystals, oxidation_states, calculations | Active |
+| **Relations Graph** | `data-src/relations/*.json` | 2 | acid_base_relations (40 triples), ion_roles (26 triples) | Active |
+| **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | ~50-100 typed terms for rule text generation | Planned (B1) |
+| **Rule Templates** | `data-src/templates/rule_summary_templates.json` | 1 | Templates per rule_kind × locale | Planned (B1) |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
-| **Relations Graph** | (proposed) `predicates.v1.json` | — | ~20 predicates | Deferred |
 
-**Totals**: ~220 source JSON files, ~280+ built files, 4 locales, 5 exam systems.
+**Totals**: ~270 source JSON files (incl. locale packs), 4 locales, 5 exam systems. 480 built files.
 
 ---
 
@@ -78,12 +81,12 @@ erDiagram
     ELEMENT {
         int Z PK "Atomic number"
         string symbol "e.g. Fe"
-        string name_ru "Russian name"
         string block "s/p/d/f"
         int group "1-18"
         int period "1-7"
         float electronegativity
         boolean amphoteric "7 elements"
+        string name "← from locale pack (translations/{locale}/elements.json)"
     }
 
     ION {
@@ -91,7 +94,7 @@ erDiagram
         string formula
         int charge
         string type "cation/anion"
-        string name_ru
+        string name "← from locale pack"
     }
 
     SUBSTANCE {
@@ -99,7 +102,7 @@ erDiagram
         string formula "NaCl"
         string class "acid/base/salt/oxide/other"
         string subclass "e.g. basic_oxide"
-        string name_ru
+        string name "← from locale pack"
     }
 
     REACTION {
@@ -380,16 +383,22 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    subgraph Base["Base Data (Russian)"]
-        BD["elements.json<br/>substances/*.json<br/>competencies.json<br/>etc."]
+    subgraph Base["Core Data (Locale-Free)"]
+        BD["elements.json<br/>ions.json<br/>substances/*.json<br/>rules/*.json<br/>reactions/*.json<br/>(no natural language)"]
     end
 
-    subgraph Overlays["Translation Overlays"]
+    subgraph Overlays["Locale Packs (all equal)"]
         direction TB
-        EN["translations/en/<br/>11 files"]
-        PL["translations/pl/<br/>10 files"]
-        ES["translations/es/<br/>10 files"]
-        RU_M["translations/ru/<br/>morphology.json<br/>(43 entries)"]
+        RU["translations/ru/<br/>~45 files (full pack)"]
+        EN["translations/en/<br/>~12 files"]
+        PL["translations/pl/<br/>~12 files"]
+        ES["translations/es/<br/>~12 files"]
+    end
+
+    subgraph Generated["Build-Time Generated (Phase B1)"]
+        VOCAB["vocab/rule_terms.json"]
+        TMPL["templates/rule_summary_templates.json"]
+        GEN["generate-rule-texts.mjs<br/>→ derived text from structure"]
     end
 
     subgraph Runtime["Client-Side Runtime"]
@@ -399,41 +408,117 @@ flowchart LR
     end
 
     BD --> LOAD
+    RU --> LOAD
     EN --> LOAD
     PL --> LOAD
     ES --> LOAD
     LOAD --> APPLY
     APPLY --> RESULT
+    VOCAB --> GEN
+    TMPL --> GEN
+    BD --> GEN
 
-    style Base fill:#fff3e0,stroke:#ff9800
+    style Base fill:#e3f2fd,stroke:#1976d2
     style Overlays fill:#e8eaf6,stroke:#3f51b5
+    style Generated fill:#fff8e1,stroke:#ffa000
     style Runtime fill:#e8f5e9,stroke:#4caf50
 ```
 
 ### Overlay Mechanics
 
 - **Key matching**: Overlay files are keyed by item `id` field (same as base data)
-- **Field merging**: Only translated fields are present in overlay; merged at runtime via `applyOverlay()`
-- **Convention**: Base data uses `_ru` suffix for Russian fields (`name_ru`, `description_ru`)
+- **Field merging**: Only localized fields are present in overlay; merged at runtime via `applyOverlay(baseData, overlay)`
+- **Locale-free core**: Core data (`data-src/`) contains NO natural language. Russian is a locale pack like any other (`translations/ru/`)
 - **Locale detection**: `PARAGLIDE_LOCALE` cookie → `Astro.currentLocale` → passed to loaders
+- **Text generation principle**: For Tier 1 rule data, prefer generating text from structured fields (rule_kind, conditions, exceptions) via vocab + templates rather than authoring manually per locale (Phase B1)
 
 ### Translation Coverage
 
-| Data Key | en | pl | es |
-|----------|:--:|:--:|:--:|
-| `elements` | ✓ | ✓ | ✓ |
-| `ions` | ✓ | ✓ | ✓ |
-| `substances` | ✓ | ✓ | ✓ |
-| `competencies` | ✓ | ✓ | ✓ |
-| `reactions` | ✓ | ✓ | ✓ |
-| `pages` | ✓ | ✓ | ✓ |
-| `element_groups` | ✓ | ✓ | ✓ |
-| `bond_theory` | ✓ | ✓ | ✓ |
-| `process_vocab` | ✓ | ✓ | ✓ |
-| `terms` | ✓ | ✓ | ✓ |
-| `diagnostic_questions` | ✓ | — | — |
-| **Prompt templates** | ✓ (65) | ✓ (65) | ✓ (65) |
-| **RU Morphology** | — | — | — |
+| Data Key | ru | en | pl | es |
+|----------|:--:|:--:|:--:|:--:|
+| `elements` | ✓ | ✓ | ✓ | ✓ |
+| `ions` | ✓ | ✓ | ✓ | ✓ |
+| `substances` | ✓ | ✓ | ✓ | ✓ |
+| `competencies` | ✓ | ✓ | ✓ | ✓ |
+| `reactions` | ✓ | ✓ | ✓ | ✓ |
+| `element_groups` | ✓ | ✓ | ✓ | ✓ |
+| `bond_theory` | ✓ | ✓ | ✓ | ✓ |
+| `process_vocab` | ✓ | ✓ | ✓ | ✓ |
+| `terms` | ✓ | ✓ | ✓ | ✓ |
+| `naming_rules` | ✓ | — | — | — |
+| `applicability_rules` | ✓ | — | — | — |
+| `activity_series` | ✓ | — | — | — |
+| `ion_nomenclature` | ✓ | ✓ | ✓ | ✓ |
+| `oxidation_rules` | ✓ | ✓ | ✓ | ✓ |
+| `diagnostic_questions` | ✓ | ✓ | — | — |
+| `topic_pages` | ✓ | — | — | — |
+| **Prompt templates** | ✓ (65) | ✓ (65) | ✓ (65) | ✓ (65) |
+| **RU Morphology** | ✓ | — | — | — |
+
+---
+
+## 6a. Knowledge Graph Relations
+
+Knowledge graph triple store introduced in Phase A (commit a8ef33f, 2026-03-07).
+
+### Schema
+
+```json
+{ "subject": "sub:h2so4", "predicate": "has_conjugate_base", "object": "ion:hso4_minus", "step": 1 }
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `subject` | string | Entity ID (`el:`, `ion:`, `sub:`, `rx:`) |
+| `predicate` | string | Relation type (see table below) |
+| `object` | string | Entity or role ID |
+| `step` | number? | Step index for polyprotic chains |
+
+### Files
+
+| File | Predicates | Count |
+|------|------------|-------|
+| `data-src/relations/acid_base_relations.json` | `has_conjugate_base`, `has_conjugate_acid` | ~40 triples |
+| `data-src/relations/ion_roles.json` | `has_role` | ~26 triples |
+
+### Implemented Relations (Phase A)
+
+| Predicate | Direction | Use case |
+|-----------|-----------|----------|
+| `has_conjugate_base` | acid/ion → ion | Brønsted-Lowry chains with `step` |
+| `has_conjugate_acid` | base/ion → acid | Reverse of above |
+| `has_role` | entity → role | Ampholyte, oxidizing/reducing agent, acid residue |
+
+### Planned Relations
+
+| Predicate | Phase | Use case |
+|-----------|-------|----------|
+| `forms_salt_with` | B | cation ↔ anion salt formation |
+| `has_naming_rule` | B | ion → suffix_rule.id |
+| `instance_of` | B | substance → substance class |
+| `subclass_of` | B | class → superclass |
+| `reacts_with` | C | general reaction pairs |
+| `can_oxidize` / `can_reduce` | C | redox agents |
+
+### Roles Vocabulary
+
+| Role ID | Meaning |
+|---------|---------|
+| `role:ampholyte` | Acts as acid and base |
+| `role:acid_residue` | Terminal conjugate base of an acid |
+| `role:oxidizing_agent` | Accepts electrons |
+| `role:reducing_agent` | Donates electrons |
+| `role:spectator_ion` | Does not participate in net ionic equation |
+
+### Design Principles
+
+- **`sub:` prefix for substances** — canonical, NOT `subst:`. Validator (Phase B) forbids `subst:`.
+- **Derived, not stored**: `has_conjugate_acid` is reverse traversal of `has_conjugate_base` — never stored
+- **Terminal conjugate base** = traverse `has_conjugate_base` until no further step
+- **`acid_residue` ≡ terminal conjugate base** — no separate data entry needed
+- **One entity, multiple roles** via `has_role` predicates, not duplicated fields
+- **knowledge_level** (optional): `strict_chemistry` | `school_convention` | `pedagogical` — marks epistemic status of a triple
+- **Loader**: `loadRelations<T>(key)` in `src/lib/data-loader.ts`
 
 ---
 

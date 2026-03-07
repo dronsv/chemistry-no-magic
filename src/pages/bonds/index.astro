@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BondsPage from '../../features/bonds/BondsPage';
+import TopicLinks from '../../components/TopicLinks.astro';
 import type { SupportedLocale } from '../../types/i18n';
 
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
@@ -31,6 +32,33 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       "url": "https://chemistry.svistunov.online/bonds/",
       "isAccessibleForFree": true,
     })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как определить тип химической связи по формуле?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Определите электроотрицательность (ЭО) каждого элемента. Разность ΔЭО: &lt;0.5 — ковалентная неполярная, 0.5–1.7 — ковалентная полярная, &gt;1.7 — ионная. Металл + неметалл → ионная; два металла → металлическая." }
+        },
+        {
+          "@type": "Question",
+          "name": "Как пользоваться калькулятором химической связи?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Введите химическую формулу вещества в поле ввода. Калькулятор автоматически определит тип связи и кристаллической решётки, покажет электроотрицательности элементов и разность ΔЭО с пошаговым объяснением." }
+        },
+        {
+          "@type": "Question",
+          "name": "В чём разница между ионной и ковалентной связью?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ионная связь — полная передача электронов от металла к неметаллу (NaCl, KBr). Ковалентная — общие электронные пары между неметаллами. Полярная ковалентная: ЭО разные (HCl, H₂O). Неполярная: ЭО одинаковые (H₂, O₂, Cl₂)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое кристаллическая решётка и как она влияет на свойства?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ионная решётка (соли) — высокая температура плавления, хрупкость, электропроводность в растворе. Атомная (алмаз, SiO₂) — очень высокая тпл, твёрдость. Молекулярная (лёд, CO₂) — низкая тпл, летучесть. Металлическая — тепло- и электропроводность, пластичность." }
+        }
+      ]
+    })} />
   </Fragment>
+  <TopicLinks section="bonds" locale={locale} />
   <BondsPage locale={locale} client:idle />
 </BaseLayout>
