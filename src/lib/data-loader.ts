@@ -1046,3 +1046,22 @@ export async function loadKineticsRules(locale?: SupportedLocale): Promise<impor
   const overlay = await loadTranslationOverlay(locale, 'kinetics');
   return applyOverlay(data, overlay, r => r.id);
 }
+
+export interface KineticsData {
+  rules: import('../types/kinetics').KineticsRule[];
+  /** Locale-resolved display names for prop:* IDs, from overlay _prop_names section. */
+  propNames: Record<string, string>;
+}
+
+/**
+ * Load kinetics rules with locale overlay + prop name vocabulary.
+ * Use this when the frame renderer is needed (Stage 4+).
+ */
+export async function loadKineticsData(locale?: SupportedLocale): Promise<KineticsData> {
+  const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];
+  if (!locale) return { rules: data, propNames: {} };
+  const overlay = await loadTranslationOverlay(locale, 'kinetics');
+  const rules = applyOverlay(data, overlay, r => r.id);
+  const propNames = (overlay?.['_prop_names'] ?? {}) as Record<string, string>;
+  return { rules, propNames };
+}

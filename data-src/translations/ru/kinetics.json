@@ -1,4 +1,12 @@
 {
+  "_prop_names": {
+    "prop:temperature": "температура",
+    "prop:reactant_concentration": "концентрация реагентов",
+    "prop:reaction_rate": "скорость реакции",
+    "prop:surface_area": "площадь поверхности",
+    "prop:activation_energy": "энергия активации",
+    "prop:catalyst_presence": "катализатор"
+  },
   "law:vanthoff_rule": {
     "name": "Правило Вант-Гоффа"
   },

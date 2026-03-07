@@ -1,4 +1,12 @@
 {
+  "_prop_names": {
+    "prop:temperature": "temperatura",
+    "prop:reactant_concentration": "concentración de reactivos",
+    "prop:reaction_rate": "velocidad de reacción",
+    "prop:surface_area": "superficie de contacto",
+    "prop:activation_energy": "energía de activación",
+    "prop:catalyst_presence": "catalizador"
+  },
   "law:vanthoff_rule": {
     "name": "Regla de Van't Hoff"
   },

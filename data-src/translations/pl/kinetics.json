@@ -1,4 +1,12 @@
 {
+  "_prop_names": {
+    "prop:temperature": "temperatura",
+    "prop:reactant_concentration": "stężenie substratów",
+    "prop:reaction_rate": "szybkość reakcji",
+    "prop:surface_area": "powierzchnia kontaktu",
+    "prop:activation_energy": "energia aktywacji",
+    "prop:catalyst_presence": "katalizator"
+  },
   "law:vanthoff_rule": {
     "name": "Reguła Van't Hoffa"
   },
