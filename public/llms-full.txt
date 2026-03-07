@@ -7,211 +7,211 @@
 
 ## Компетенции (учебные модули)
 
-### Периодическая таблица
+### 
 
-**Блок:** Строение атома и ПСХЭ | **ID:** `periodic_table`
+**Блок:**  | **ID:** `periodic_table`
 
-Определение положения элемента в ПСХЭ: период, группа, подгруппа. Металлы и неметаллы. Порядковый номер и его связь со строением атома.
+
 
 Задания ОГЭ: 1
 
 Страница: https://chemistry.svistunov.online/periodic-table/
 
-### Электронная конфигурация
+### 
 
-**Блок:** Строение атома и ПСХЭ | **ID:** `electron_config`
+**Блок:**  | **ID:** `electron_config`
 
-Заполнение электронных оболочек по правилам Клечковского, Хунда, Паули. Запись конфигурации, определение валентных электронов. Исключения (Cr, Cu).
+
 
 Задания ОГЭ: 3, 4
 
 Страница: https://chemistry.svistunov.online/periodic-table/
 
-### Периодические закономерности
+### 
 
-**Блок:** Строение атома и ПСХЭ | **ID:** `periodic_trends`
+**Блок:**  | **ID:** `periodic_trends`
 
-Изменение свойств элементов в периодах и группах: радиус, электроотрицательность, энергия ионизации, металличность. Объяснение через электронную структуру.
+
 
 Задания ОГЭ: 2
 
 Страница: https://chemistry.svistunov.online/periodic-table/
 
-### Степени окисления
+### 
 
-**Блок:** Строение атома и ПСХЭ | **ID:** `oxidation_states`
+**Блок:**  | **ID:** `oxidation_states`
 
-Определение степени окисления элемента в соединении. Связь с электронной конфигурацией и положением в таблице. Окислитель и восстановитель.
+
 
 Задания ОГЭ: 16, 17
 
 Страница: https://chemistry.svistunov.online/oxidation-states/
 
-### Типы химической связи
+### 
 
-**Блок:** Химическая связь и строение вещества | **ID:** `bond_type`
+**Блок:**  | **ID:** `bond_type`
 
-Ковалентная (полярная и неполярная), ионная, металлическая связь. Определение типа связи по разности электроотрицательностей и составу вещества.
+
 
 Задания ОГЭ: 5
 
 Страница: https://chemistry.svistunov.online/bonds/
 
-### Типы кристаллических решёток
+### 
 
-**Блок:** Химическая связь и строение вещества | **ID:** `crystal_structure_type`
+**Блок:**  | **ID:** `crystal_structure_type`
 
-Ионная, молекулярная, атомная и металлическая решётки. Связь типа решётки с физическими свойствами (температура плавления, растворимость, проводимость).
+
 
 Задания ОГЭ: 6
 
 Страница: https://chemistry.svistunov.online/bonds/
 
-### Классификация веществ
+### 
 
-**Блок:** Классы веществ и номенклатура | **ID:** `classification`
+**Блок:**  | **ID:** `classification`
 
-Оксиды (основные, кислотные, амфотерные), кислоты, основания, соли. Определение класса по составу и свойствам.
+
 
 Задания ОГЭ: 7
 
 Страница: https://chemistry.svistunov.online/substances/
 
-### Номенклатура
+### 
 
-**Блок:** Классы веществ и номенклатура | **ID:** `naming`
+**Блок:**  | **ID:** `naming`
 
-Систематическое и тривиальное названия веществ. Название по формуле и формула по названию.
+
 
 Задания ОГЭ: 8
 
 Страница: https://chemistry.svistunov.online/substances/
 
-### Амфотерность
+### 
 
-**Блок:** Классы веществ и номенклатура | **ID:** `amphoterism_logic`
+**Блок:**  | **ID:** `amphoterism_logic`
 
-Амфотерные оксиды и гидроксиды: реакции с кислотами и щелочами. Типичные амфотерные элементы (Al, Zn, Be, Cr).
+
 
 Задания ОГЭ: 9
 
 Страница: https://chemistry.svistunov.online/substances/
 
-### Реакции ионного обмена
+### 
 
-**Блок:** Реакции | **ID:** `reactions_exchange`
+**Блок:**  | **ID:** `reactions_exchange`
 
-Реакции обмена в растворах: нейтрализация, соль + кислота, соль + щёлочь, соль + соль. Полные и сокращённые ионные уравнения.
+
 
 Задания ОГЭ: 11, 12, 13
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Признаки реакций
+### 
 
-**Блок:** Реакции | **ID:** `gas_precipitate_logic`
+**Блок:**  | **ID:** `gas_precipitate_logic`
 
-Движущие силы реакций ионного обмена: образование осадка, газа или воды. Таблица растворимости. Карбонат + кислота → CO₂.
+
 
 Задания ОГЭ: 10, 14
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Окислительно-восстановительные реакции
+### 
 
-**Блок:** Реакции | **ID:** `reactions_redox`
+**Блок:**  | **ID:** `reactions_redox`
 
-Замещение, балансировка ОВР методом электронного баланса. Ряд активности металлов. Металл + соль, металл + кислота.
+
 
 Задания ОГЭ: 15, 18
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Генетические цепочки
+### 
 
-**Блок:** Реакции | **ID:** `genetic_chain_logic`
+**Блок:**  | **ID:** `genetic_chain_logic`
 
-Генетическая связь между классами веществ: цепочки превращений металл → оксид → гидроксид → соль и т.д.
+
 
 Задания ОГЭ: 19
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Качественные реакции
+### 
 
-**Блок:** Реакции | **ID:** `qualitative_analysis_logic`
+**Блок:**  | **ID:** `qualitative_analysis_logic`
 
-Распознавание веществ по характерным реакциям: цвет осадка, выделение газа, изменение цвета индикатора.
+
 
 Задания ОГЭ: 20
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Скорость и равновесие
+### 
 
-**Блок:** Энергетика | **ID:** `reaction_energy_profile`
+**Блок:**  | **ID:** `reaction_energy_profile`
 
-Факторы, влияющие на скорость реакции (температура, концентрация, катализатор, площадь поверхности). Энергия активации. Химическое равновесие.
+
 
 Задания ОГЭ: 21
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Катализ и энергетика
+### 
 
-**Блок:** Энергетика | **ID:** `catalyst_role_understanding`
+**Блок:**  | **ID:** `catalyst_role_understanding`
 
-Роль катализатора: что он меняет (скорость, Ea) и что не меняет (состав продуктов, тепловой эффект, равновесие). Экзо- и эндотермические реакции.
+
 
 Задания ОГЭ: 22
 
 Страница: https://chemistry.svistunov.online/reactions/
 
-### Базовые расчёты
+### 
 
-**Блок:** Расчёты | **ID:** `calculations_basic`
+**Блок:**  | **ID:** `calculations_basic`
 
-Молярная масса (Mr), количество вещества (n = m/M), массовая доля элемента. Расчёты по формуле вещества.
+
 
 Задания ОГЭ: 24, 25
 
 Страница: https://chemistry.svistunov.online/calculations/
 
-### Расчёты растворов
+### 
 
-**Блок:** Расчёты | **ID:** `calculations_solutions`
+**Блок:**  | **ID:** `calculations_solutions`
 
-Массовая доля растворённого вещества (ω). Задачи на приготовление, разбавление и смешивание растворов.
+
 
 Задания ОГЭ: 26
 
 Страница: https://chemistry.svistunov.online/calculations/
 
-### Выход продукта реакции
+### 
 
-**Блок:** Расчёты | **ID:** `reaction_yield_logic`
+**Блок:**  | **ID:** `reaction_yield_logic`
 
-Расчёт выхода продукта реакции. Практический и теоретический выход. Избыток и недостаток реагента.
+
 
 Задания ОГЭ: 27
 
 Страница: https://chemistry.svistunov.online/calculations/
 
-### Электролиты и диссоциация
+### 
 
-**Блок:** Растворы и электролиты | **ID:** `electrolyte_logic`
+**Блок:**  | **ID:** `electrolyte_logic`
 
-Электролиты и неэлектролиты. Сильные и слабые электролиты. Электролитическая диссоциация кислот, оснований и солей.
+
 
 Задания ОГЭ: 23
 
 Страница: https://chemistry.svistunov.online/ions/
 
-### Номенклатура ионов
+### 
 
-**Блок:** Растворы и электролиты | **ID:** `ion_nomenclature`
+**Блок:**  | **ID:** `ion_nomenclature`
 
-Названия ионов по суффиксной системе: -ид (бескислородные), -ит/-ат (кислородсодержащие). Связь названия аниона с кислотой-родителем и степенью окисления центрального атома.
+
 
 Задания ОГЭ: 23
 
@@ -219,8 +219,6 @@
 
 
 ## Периодический закон — тренды свойств
-
-[object Object]
 
 ### atomic_radius
 
@@ -240,210 +238,147 @@
 
 ## Правила определения степени окисления
 
-### Простое вещество [assignment]
+###  [assignment]
 
-В простом веществе степень окисления атома равна 0.
+
 
 Примеры: O2, Fe, Cl2
 
-### Фтор всегда −1 [assignment]
+###  [assignment]
 
-Фтор имеет наибольшую электроотрицательность, поэтому всегда −1 во всех соединениях.
+
 
 Примеры: HF, CaF2
 
-### Щелочные металлы: +1 [assignment]
+###  [assignment]
 
-Li, Na, K, Rb, Cs, Fr всегда имеют +1 в соединениях.
+
 
 Примеры: NaCl, KOH, Li2O
 
-### Щелочноземельные металлы: +2 [assignment]
+###  [assignment]
 
-Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
+
 
 Примеры: CaO, MgCl2, BaSO4
 
-### Алюминий: +3 [assignment]
+###  [assignment]
 
-Алюминий всегда имеет +3 в соединениях.
+
 
 Примеры: Al2O3, AlCl3, Al(OH)3
 
-### Кислород: обычно −2 [default]
+###  [default]
 
-В большинстве соединений кислород имеет −2. Исключения: пероксиды (−1) и соединения с F (положительная).
+
 
 Примеры: H2O, SO3, Fe2O3
 
-### Кислород в пероксидах: −1 [exception]
+###  [exception]
 
-В пероксидах кислород имеет −1 (исключение из правила −2).
+
 
 Примеры: H2O2, Na2O2, BaO2
 
-### Водород: обычно +1 [default]
+###  [default]
 
-В большинстве соединений водород имеет +1. Исключение: гидриды металлов (−1).
+
 
 Примеры: H2O, HCl, NH3
 
-### Водород в гидридах металлов: −1 [exception]
+###  [exception]
 
-В гидридах щелочных и щелочноземельных металлов водород имеет −1.
+
 
 Примеры: NaH, CaH2
 
-### Алгебраический расчёт [assignment]
+###  [assignment]
 
-Неизвестная степень окисления находится из условия, что сумма всех степеней окисления равна 0. Например: KMnO4 → Mn = +7, H2SO4 → S = +6.
+
 
 Примеры: KMnO4, H2SO4
 
-### Сумма степеней окисления = 0 [constraint]
+###  [constraint]
 
-В нейтральной молекуле сумма степеней окисления всех атомов равна 0.
+
 
 
 ## Типы химических связей
 
-### Ионная связь [ionic]
+###  [ionic]
 
-Связь между металлом и неметаллом за счёт переноса электронов. Образуются ионы: катион (+) и анион (−).
 
-Правило: Δχ ≥ 1,7 или металл + неметалл с высокой разностью электроотрицательностей
-
-Свойства: Высокие температуры плавления, хрупкие, проводят ток в расплаве и растворе
 
 Примеры: NaCl, KBr, CaO, MgF2
 
-### Ковалентная полярная связь [covalent_polar]
+###  [covalent_polar]
 
-Связь между разными неметаллами за счёт общих электронных пар. Электронная плотность смещена к более электроотрицательному атому (δ+, δ−).
 
-Правило: 0,4 < Δχ < 1,7 (оба — неметаллы)
-
-Свойства: Различные т.пл., часто жидкости или газы, не проводят ток
 
 Примеры: HCl, H2O, NH3, CO2
 
-### Ковалентная неполярная связь [covalent_nonpolar]
+###  [covalent_nonpolar]
 
-Связь между одинаковыми неметаллами за счёт общих электронных пар. Электронная плотность распределена симметрично.
 
-Правило: Δχ ≤ 0,4 (одинаковые или очень близкие неметаллы)
-
-Свойства: Низкие т.пл., газы или легкокипящие жидкости, не проводят ток
 
 Примеры: H2, O2, N2, Cl2, F2
 
-### Металлическая связь [metallic]
+###  [metallic]
 
-Связь в металлах: атомы отдают валентные электроны в общее «электронное облако», которое удерживает положительные ионы в решётке.
 
-Правило: Простое вещество металла или сплав (оба — металлы)
-
-Свойства: Электро- и теплопроводность, пластичность, металлический блеск
 
 Примеры: Fe, Cu, Na, Al
 
 
 ## Типы кристаллических решёток
 
-### Ионная решётка [ionic]
+###  [ionic]
 
-В узлах — чередующиеся катионы и анионы, удерживаемые электростатическим притяжением.
+
 
 Примеры: [object Object], [object Object], [object Object]
 
-### Молекулярная решётка [molecular]
+###  [molecular]
 
-В узлах — молекулы, связанные слабыми межмолекулярными силами (Ван-дер-Ваальса, водородные связи).
+
 
 Примеры: [object Object], [object Object], [object Object], [object Object]
 
-### Атомная решётка [atomic]
+###  [atomic]
 
-В узлах — атомы, связанные прочными ковалентными связями по всему кристаллу.
+
 
 Примеры: [object Object], [object Object], [object Object]
 
-### Металлическая решётка [metallic]
+###  [metallic]
 
-В узлах — ионы металла, между ними — свободные электроны (электронный газ).
+
 
 Примеры: [object Object], [object Object], [object Object], [object Object]
 
 
 ## Расчёты по химии
 
-### Молярная масса
-
-Молярная масса (M) — масса одного моля вещества, измеряется в г/моль.
-
-Формула: `M = Σ(Ar × число атомов)`
-
-Где Ar — относительная атомная масса элемента (из таблицы Менделеева).
+### 
 
 
 
-### Количество вещества
-
-Количество вещества (n) — число молей, связывает массу с молярной массой.
-
-Формула: `n = m / M`
-
-Формула: `m = n × M`
-
-Формула: `V = n × Vm (для газов, Vm = 22,4 л/моль при н.у.)`
-
-Формула: `N = n × NA (NA = 6,02 × 10²³)`
+### 
 
 
 
-### Массовая доля элемента
-
-Массовая доля элемента (ω) — доля массы данного элемента в общей массе вещества.
-
-Формула: `ω(E) = n × Ar(E) / M(вещества) × 100%`
-
-Где n — число атомов элемента в формуле.
+### 
 
 
 
-### Массовая доля растворённого вещества
-
-Массовая доля растворённого вещества (ω) — отношение массы растворённого вещества к массе раствора.
-
-Формула: `ω = m(р.в.) / m(р-ра) × 100%`
-
-Формула: `m(р-ра) = m(р.в.) + m(воды)`
-
-Формула: `m(р.в.) = ω × m(р-ра) / 100%`
-
-При разбавлении: масса растворённого вещества не меняется, а масса раствора увеличивается.
+### 
 
 
 
-### Расчёты по уравнению реакции
-
-Алгоритм расчёта по уравнению реакции:
-
-- Записать уравнение реакции, расставить коэффициенты.
-- Найти количество вещества (n) данного вещества: n = m / M.
-- По коэффициентам уравнения найти n искомого вещества.
-- Найти массу (или объём) искомого вещества: m = n × M.
+### 
 
 
-### Выход продукта реакции
-
-Выход продукта (η) — отношение практически полученной массы продукта к теоретически возможной.
-
-Формула: `η = m(практ.) / m(теорет.) × 100%`
-
-Формула: `m(практ.) = m(теорет.) × η / 100%`
-
-Теоретическая масса — рассчитанная по уравнению реакции (η = 100%). На практике выход всегда меньше 100% из-за потерь и побочных реакций.
+### 
 
 
 
@@ -451,129 +386,129 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 
 | Z | Символ | Название | Период | Группа | Тип | Электроотрицательность | Типичные СО |
 |---|--------|----------|--------|--------|-----|------------------------|-------------|
-| 1 | [H](https://chemistry.svistunov.online/periodic-table/H/)  | Водород / Hydrogen | 1 | 1 | nonmetal | 2.20 | -1, 0, 1 |
-| 2 | [He](https://chemistry.svistunov.online/periodic-table/He/)  | Гелий / Helium | 1 | 18 | nonmetal | — | 0 |
-| 3 | [Li](https://chemistry.svistunov.online/periodic-table/Li/)  | Литий / Lithium | 2 | 1 | metal | 0.98 | 0, 1 |
-| 4 | [Be](https://chemistry.svistunov.online/periodic-table/Be/)  | Бериллий / Beryllium | 2 | 2 | metal | 1.57 | 0, 2 |
-| 5 | [B](https://chemistry.svistunov.online/periodic-table/B/)  | Бор / Boron | 2 | 13 | metalloid | 2.04 | 0, 3 |
-| 6 | [C](https://chemistry.svistunov.online/periodic-table/C/)  | Углерод / Carbon | 2 | 14 | nonmetal | 2.55 | -4, 0, 2, 4 |
-| 7 | [N](https://chemistry.svistunov.online/periodic-table/N/)  | Азот / Nitrogen | 2 | 15 | nonmetal | 3.04 | -3, 0, 1, 2, 3, 4, 5 |
-| 8 | [O](https://chemistry.svistunov.online/periodic-table/O/)  | Кислород / Oxygen | 2 | 16 | nonmetal | 3.44 | -2, -1, 0 |
-| 9 | [F](https://chemistry.svistunov.online/periodic-table/F/)  | Фтор / Fluorine | 2 | 17 | nonmetal | 3.98 | -1, 0 |
-| 10 | [Ne](https://chemistry.svistunov.online/periodic-table/Ne/)  | Неон / Neon | 2 | 18 | nonmetal | — | 0 |
-| 11 | [Na](https://chemistry.svistunov.online/periodic-table/Na/)  | Натрий / Sodium | 3 | 1 | metal | 0.93 | 0, 1 |
-| 12 | [Mg](https://chemistry.svistunov.online/periodic-table/Mg/)  | Магний / Magnesium | 3 | 2 | metal | 1.31 | 0, 2 |
-| 13 | [Al](https://chemistry.svistunov.online/periodic-table/Al/)  | Алюминий / Aluminium | 3 | 13 | metal | 1.61 | 0, 3 |
-| 14 | [Si](https://chemistry.svistunov.online/periodic-table/Si/)  | Кремний / Silicon | 3 | 14 | metalloid | 1.90 | -4, 0, 4 |
-| 15 | [P](https://chemistry.svistunov.online/periodic-table/P/)  | Фосфор / Phosphorus | 3 | 15 | nonmetal | 2.19 | -3, 0, 3, 5 |
-| 16 | [S](https://chemistry.svistunov.online/periodic-table/S/)  | Сера / Sulfur | 3 | 16 | nonmetal | 2.58 | -2, 0, 4, 6 |
-| 17 | [Cl](https://chemistry.svistunov.online/periodic-table/Cl/)  | Хлор / Chlorine | 3 | 17 | nonmetal | 3.16 | -1, 0, 1, 3, 5, 7 |
-| 18 | [Ar](https://chemistry.svistunov.online/periodic-table/Ar/)  | Аргон / Argon | 3 | 18 | nonmetal | — | 0 |
-| 19 | [K](https://chemistry.svistunov.online/periodic-table/K/)  | Калий / Potassium | 4 | 1 | metal | 0.82 | 0, 1 |
-| 20 | [Ca](https://chemistry.svistunov.online/periodic-table/Ca/)  | Кальций / Calcium | 4 | 2 | metal | 1.00 | 0, 2 |
-| 21 | [Sc](https://chemistry.svistunov.online/periodic-table/Sc/)  | Скандий / Scandium | 4 | 3 | metal | 1.36 | 0, 3 |
-| 22 | [Ti](https://chemistry.svistunov.online/periodic-table/Ti/)  | Титан / Titanium | 4 | 4 | metal | 1.54 | 0, 2, 3, 4 |
-| 23 | [V](https://chemistry.svistunov.online/periodic-table/V/)  | Ванадий / Vanadium | 4 | 5 | metal | 1.63 | 0, 2, 3, 4, 5 |
-| 24 | [Cr](https://chemistry.svistunov.online/periodic-table/Cr/)  | Хром / Chromium | 4 | 6 | metal | 1.66 | 0, 2, 3, 6 |
-| 25 | [Mn](https://chemistry.svistunov.online/periodic-table/Mn/)  | Марганец / Manganese | 4 | 7 | metal | 1.55 | 0, 2, 4, 6, 7 |
-| 26 | [Fe](https://chemistry.svistunov.online/periodic-table/Fe/)  | Железо / Iron | 4 | 8 | metal | 1.83 | 0, 2, 3 |
-| 27 | [Co](https://chemistry.svistunov.online/periodic-table/Co/)  | Кобальт / Cobalt | 4 | 9 | metal | 1.88 | 0, 2, 3 |
-| 28 | [Ni](https://chemistry.svistunov.online/periodic-table/Ni/)  | Никель / Nickel | 4 | 10 | metal | 1.91 | 0, 2 |
-| 29 | [Cu](https://chemistry.svistunov.online/periodic-table/Cu/)  | Медь / Copper | 4 | 11 | metal | 1.90 | 0, 1, 2 |
-| 30 | [Zn](https://chemistry.svistunov.online/periodic-table/Zn/)  | Цинк / Zinc | 4 | 12 | metal | 1.65 | 0, 2 |
-| 31 | [Ga](https://chemistry.svistunov.online/periodic-table/Ga/)  | Галлий / Gallium | 4 | 13 | metal | 1.81 | 0, 3 |
-| 32 | [Ge](https://chemistry.svistunov.online/periodic-table/Ge/)  | Германий / Germanium | 4 | 14 | metalloid | 2.01 | 0, 2, 4 |
-| 33 | [As](https://chemistry.svistunov.online/periodic-table/As/)  | Мышьяк / Arsenic | 4 | 15 | metalloid | 2.18 | -3, 0, 3, 5 |
-| 34 | [Se](https://chemistry.svistunov.online/periodic-table/Se/)  | Селен / Selenium | 4 | 16 | nonmetal | 2.55 | -2, 0, 4, 6 |
-| 35 | [Br](https://chemistry.svistunov.online/periodic-table/Br/)  | Бром / Bromine | 4 | 17 | nonmetal | 2.96 | -1, 0, 1, 5 |
-| 36 | [Kr](https://chemistry.svistunov.online/periodic-table/Kr/)  | Криптон / Krypton | 4 | 18 | nonmetal | 3.00 | 0, 2 |
-| 37 | [Rb](https://chemistry.svistunov.online/periodic-table/Rb/)  | Рубидий / Rubidium | 5 | 1 | metal | 0.82 | 0, 1 |
-| 38 | [Sr](https://chemistry.svistunov.online/periodic-table/Sr/)  | Стронций / Strontium | 5 | 2 | metal | 0.95 | 0, 2 |
-| 39 | [Y](https://chemistry.svistunov.online/periodic-table/Y/)  | Иттрий / Yttrium | 5 | 3 | metal | 1.22 | 0, 3 |
-| 40 | [Zr](https://chemistry.svistunov.online/periodic-table/Zr/)  | Цирконий / Zirconium | 5 | 4 | metal | 1.33 | 0, 4 |
-| 41 | [Nb](https://chemistry.svistunov.online/periodic-table/Nb/)  | Ниобий / Niobium | 5 | 5 | metal | 1.60 | 0, 3, 5 |
-| 42 | [Mo](https://chemistry.svistunov.online/periodic-table/Mo/)  | Молибден / Molybdenum | 5 | 6 | metal | 2.16 | 0, 4, 6 |
-| 43 | [Tc](https://chemistry.svistunov.online/periodic-table/Tc/)  | Технеций / Technetium | 5 | 7 | metal | 1.90 | 0, 4, 7 |
-| 44 | [Ru](https://chemistry.svistunov.online/periodic-table/Ru/)  | Рутений / Ruthenium | 5 | 8 | metal | 2.20 | 0, 3, 4, 8 |
-| 45 | [Rh](https://chemistry.svistunov.online/periodic-table/Rh/)  | Родий / Rhodium | 5 | 9 | metal | 2.28 | 0, 3 |
-| 46 | [Pd](https://chemistry.svistunov.online/periodic-table/Pd/)  | Палладий / Palladium | 5 | 10 | metal | 2.20 | 0, 2, 4 |
-| 47 | [Ag](https://chemistry.svistunov.online/periodic-table/Ag/)  | Серебро / Silver | 5 | 11 | metal | 1.93 | 0, 1 |
-| 48 | [Cd](https://chemistry.svistunov.online/periodic-table/Cd/)  | Кадмий / Cadmium | 5 | 12 | metal | 1.69 | 0, 2 |
-| 49 | [In](https://chemistry.svistunov.online/periodic-table/In/)  | Индий / Indium | 5 | 13 | metal | 1.78 | 0, 3 |
-| 50 | [Sn](https://chemistry.svistunov.online/periodic-table/Sn/)  | Олово / Tin | 5 | 14 | metal | 1.96 | 0, 2, 4 |
-| 51 | [Sb](https://chemistry.svistunov.online/periodic-table/Sb/)  | Сурьма / Antimony | 5 | 15 | metalloid | 2.05 | -3, 0, 3, 5 |
-| 52 | [Te](https://chemistry.svistunov.online/periodic-table/Te/)  | Теллур / Tellurium | 5 | 16 | metalloid | 2.10 | -2, 0, 4, 6 |
-| 53 | [I](https://chemistry.svistunov.online/periodic-table/I/)  | Иод / Iodine | 5 | 17 | nonmetal | 2.66 | -1, 0, 1, 5, 7 |
-| 54 | [Xe](https://chemistry.svistunov.online/periodic-table/Xe/)  | Ксенон / Xenon | 5 | 18 | nonmetal | 2.60 | 0, 2, 4, 6 |
-| 55 | [Cs](https://chemistry.svistunov.online/periodic-table/Cs/)  | Цезий / Caesium | 6 | 1 | metal | 0.79 | 0, 1 |
-| 56 | [Ba](https://chemistry.svistunov.online/periodic-table/Ba/)  | Барий / Barium | 6 | 2 | metal | 0.89 | 0, 2 |
-| 57 | [La](https://chemistry.svistunov.online/periodic-table/La/)  | Лантан / Lanthanum | 6 | 3 | metal | 1.10 | 0, 3 |
-| 58 | [Ce](https://chemistry.svistunov.online/periodic-table/Ce/)  | Церий / Cerium | 6 | 3 | metal | 1.12 | 0, 3, 4 |
-| 59 | [Pr](https://chemistry.svistunov.online/periodic-table/Pr/)  | Празеодим / Praseodymium | 6 | 3 | metal | 1.13 | 0, 3 |
-| 60 | [Nd](https://chemistry.svistunov.online/periodic-table/Nd/)  | Неодим / Neodymium | 6 | 3 | metal | 1.14 | 0, 3 |
-| 61 | [Pm](https://chemistry.svistunov.online/periodic-table/Pm/)  | Прометий / Promethium | 6 | 3 | metal | 1.13 | 0, 3 |
-| 62 | [Sm](https://chemistry.svistunov.online/periodic-table/Sm/)  | Самарий / Samarium | 6 | 3 | metal | 1.17 | 0, 2, 3 |
-| 63 | [Eu](https://chemistry.svistunov.online/periodic-table/Eu/)  | Европий / Europium | 6 | 3 | metal | 1.20 | 0, 2, 3 |
-| 64 | [Gd](https://chemistry.svistunov.online/periodic-table/Gd/)  | Гадолиний / Gadolinium | 6 | 3 | metal | 1.20 | 0, 3 |
-| 65 | [Tb](https://chemistry.svistunov.online/periodic-table/Tb/)  | Тербий / Terbium | 6 | 3 | metal | 1.20 | 0, 3 |
-| 66 | [Dy](https://chemistry.svistunov.online/periodic-table/Dy/)  | Диспрозий / Dysprosium | 6 | 3 | metal | 1.22 | 0, 3 |
-| 67 | [Ho](https://chemistry.svistunov.online/periodic-table/Ho/)  | Гольмий / Holmium | 6 | 3 | metal | 1.23 | 0, 3 |
-| 68 | [Er](https://chemistry.svistunov.online/periodic-table/Er/)  | Эрбий / Erbium | 6 | 3 | metal | 1.24 | 0, 3 |
-| 69 | [Tm](https://chemistry.svistunov.online/periodic-table/Tm/)  | Тулий / Thulium | 6 | 3 | metal | 1.25 | 0, 3 |
-| 70 | [Yb](https://chemistry.svistunov.online/periodic-table/Yb/)  | Иттербий / Ytterbium | 6 | 3 | metal | 1.10 | 0, 2, 3 |
-| 71 | [Lu](https://chemistry.svistunov.online/periodic-table/Lu/)  | Лютеций / Lutetium | 6 | 3 | metal | 1.27 | 0, 3 |
-| 72 | [Hf](https://chemistry.svistunov.online/periodic-table/Hf/)  | Гафний / Hafnium | 6 | 4 | metal | 1.30 | 0, 4 |
-| 73 | [Ta](https://chemistry.svistunov.online/periodic-table/Ta/)  | Тантал / Tantalum | 6 | 5 | metal | 1.50 | 0, 5 |
-| 74 | [W](https://chemistry.svistunov.online/periodic-table/W/)  | Вольфрам / Tungsten | 6 | 6 | metal | 2.36 | 0, 4, 6 |
-| 75 | [Re](https://chemistry.svistunov.online/periodic-table/Re/)  | Рений / Rhenium | 6 | 7 | metal | 1.90 | 0, 4, 7 |
-| 76 | [Os](https://chemistry.svistunov.online/periodic-table/Os/)  | Осмий / Osmium | 6 | 8 | metal | 2.20 | 0, 4, 8 |
-| 77 | [Ir](https://chemistry.svistunov.online/periodic-table/Ir/)  | Иридий / Iridium | 6 | 9 | metal | 2.20 | 0, 3, 4 |
-| 78 | [Pt](https://chemistry.svistunov.online/periodic-table/Pt/)  | Платина / Platinum | 6 | 10 | metal | 2.28 | 0, 2, 4 |
-| 79 | [Au](https://chemistry.svistunov.online/periodic-table/Au/)  | Золото / Gold | 6 | 11 | metal | 2.54 | 0, 1, 3 |
-| 80 | [Hg](https://chemistry.svistunov.online/periodic-table/Hg/)  | Ртуть / Mercury | 6 | 12 | metal | 2.00 | 0, 1, 2 |
-| 81 | [Tl](https://chemistry.svistunov.online/periodic-table/Tl/)  | Таллий / Thallium | 6 | 13 | metal | 1.62 | 0, 1, 3 |
-| 82 | [Pb](https://chemistry.svistunov.online/periodic-table/Pb/)  | Свинец / Lead | 6 | 14 | metal | 2.33 | 0, 2, 4 |
-| 83 | [Bi](https://chemistry.svistunov.online/periodic-table/Bi/)  | Висмут / Bismuth | 6 | 15 | metal | 2.02 | 0, 3, 5 |
-| 84 | [Po](https://chemistry.svistunov.online/periodic-table/Po/)  | Полоний / Polonium | 6 | 16 | metalloid | 2.00 | 0, 2, 4 |
-| 85 | [At](https://chemistry.svistunov.online/periodic-table/At/)  | Астат / Astatine | 6 | 17 | nonmetal | 2.20 | -1, 0, 1 |
-| 86 | [Rn](https://chemistry.svistunov.online/periodic-table/Rn/)  | Радон / Radon | 6 | 18 | nonmetal | 2.20 | 0, 2 |
-| 87 | [Fr](https://chemistry.svistunov.online/periodic-table/Fr/)  | Франций / Francium | 7 | 1 | metal | 0.70 | 0, 1 |
-| 88 | [Ra](https://chemistry.svistunov.online/periodic-table/Ra/)  | Радий / Radium | 7 | 2 | metal | 0.90 | 0, 2 |
-| 89 | [Ac](https://chemistry.svistunov.online/periodic-table/Ac/)  | Актиний / Actinium | 7 | 3 | metal | 1.10 | 0, 3 |
-| 90 | [Th](https://chemistry.svistunov.online/periodic-table/Th/)  | Торий / Thorium | 7 | 3 | metal | 1.30 | 0, 4 |
-| 91 | [Pa](https://chemistry.svistunov.online/periodic-table/Pa/)  | Протактиний / Protactinium | 7 | 3 | metal | 1.50 | 0, 4, 5 |
-| 92 | [U](https://chemistry.svistunov.online/periodic-table/U/)  | Уран / Uranium | 7 | 3 | metal | 1.38 | 0, 3, 4, 5, 6 |
-| 93 | [Np](https://chemistry.svistunov.online/periodic-table/Np/)  | Нептуний / Neptunium | 7 | 3 | metal | 1.36 | 0, 3, 4, 5 |
-| 94 | [Pu](https://chemistry.svistunov.online/periodic-table/Pu/)  | Плутоний / Plutonium | 7 | 3 | metal | 1.28 | 0, 3, 4, 5, 6 |
-| 95 | [Am](https://chemistry.svistunov.online/periodic-table/Am/)  | Америций / Americium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 96 | [Cm](https://chemistry.svistunov.online/periodic-table/Cm/)  | Кюрий / Curium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 97 | [Bk](https://chemistry.svistunov.online/periodic-table/Bk/)  | Берклий / Berkelium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 98 | [Cf](https://chemistry.svistunov.online/periodic-table/Cf/)  | Калифорний / Californium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 99 | [Es](https://chemistry.svistunov.online/periodic-table/Es/)  | Эйнштейний / Einsteinium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 100 | [Fm](https://chemistry.svistunov.online/periodic-table/Fm/)  | Фермий / Fermium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 101 | [Md](https://chemistry.svistunov.online/periodic-table/Md/)  | Менделевий / Mendelevium | 7 | 3 | metal | 1.30 | 0, 2, 3 |
-| 102 | [No](https://chemistry.svistunov.online/periodic-table/No/)  | Нобелий / Nobelium | 7 | 3 | metal | 1.30 | 0, 2, 3 |
-| 103 | [Lr](https://chemistry.svistunov.online/periodic-table/Lr/)  | Лоуренсий / Lawrencium | 7 | 3 | metal | 1.30 | 0, 3 |
-| 104 | [Rf](https://chemistry.svistunov.online/periodic-table/Rf/)  | Резерфордий / Rutherfordium | 7 | 4 | metal | — | 0, 4 |
-| 105 | [Db](https://chemistry.svistunov.online/periodic-table/Db/)  | Дубний / Dubnium | 7 | 5 | metal | — | 0, 5 |
-| 106 | [Sg](https://chemistry.svistunov.online/periodic-table/Sg/)  | Сиборгий / Seaborgium | 7 | 6 | metal | — | 0, 6 |
-| 107 | [Bh](https://chemistry.svistunov.online/periodic-table/Bh/)  | Борий / Bohrium | 7 | 7 | metal | — | 0, 7 |
-| 108 | [Hs](https://chemistry.svistunov.online/periodic-table/Hs/)  | Хассий / Hassium | 7 | 8 | metal | — | 0, 8 |
-| 109 | [Mt](https://chemistry.svistunov.online/periodic-table/Mt/)  | Мейтнерий / Meitnerium | 7 | 9 | metal | — | 0 |
-| 110 | [Ds](https://chemistry.svistunov.online/periodic-table/Ds/)  | Дармштадтий / Darmstadtium | 7 | 10 | metal | — | 0 |
-| 111 | [Rg](https://chemistry.svistunov.online/periodic-table/Rg/)  | Рентгений / Roentgenium | 7 | 11 | metal | — | 0 |
-| 112 | [Cn](https://chemistry.svistunov.online/periodic-table/Cn/)  | Коперниций / Copernicium | 7 | 12 | metal | — | 0, 2 |
-| 113 | [Nh](https://chemistry.svistunov.online/periodic-table/Nh/)  | Нихоний / Nihonium | 7 | 13 | metal | — | 0 |
-| 114 | [Fl](https://chemistry.svistunov.online/periodic-table/Fl/)  | Флеровий / Flerovium | 7 | 14 | metal | — | 0, 2 |
-| 115 | [Mc](https://chemistry.svistunov.online/periodic-table/Mc/)  | Московий / Moscovium | 7 | 15 | metal | — | 0 |
-| 116 | [Lv](https://chemistry.svistunov.online/periodic-table/Lv/)  | Ливерморий / Livermorium | 7 | 16 | metal | — | 0 |
-| 117 | [Ts](https://chemistry.svistunov.online/periodic-table/Ts/)  | Теннессин / Tennessine | 7 | 17 | nonmetal | — | 0 |
-| 118 | [Og](https://chemistry.svistunov.online/periodic-table/Og/)  | Оганесон / Oganesson | 7 | 18 | nonmetal | — | 0 |
+| 1 | [H](https://chemistry.svistunov.online/periodic-table/H/)  |  /  | 1 | 1 | nonmetal | 2.20 | -1, 0, 1 |
+| 2 | [He](https://chemistry.svistunov.online/periodic-table/He/)  |  /  | 1 | 18 | nonmetal | — | 0 |
+| 3 | [Li](https://chemistry.svistunov.online/periodic-table/Li/)  |  /  | 2 | 1 | metal | 0.98 | 0, 1 |
+| 4 | [Be](https://chemistry.svistunov.online/periodic-table/Be/)  |  /  | 2 | 2 | metal | 1.57 | 0, 2 |
+| 5 | [B](https://chemistry.svistunov.online/periodic-table/B/)  |  /  | 2 | 13 | metalloid | 2.04 | 0, 3 |
+| 6 | [C](https://chemistry.svistunov.online/periodic-table/C/)  |  /  | 2 | 14 | nonmetal | 2.55 | -4, 0, 2, 4 |
+| 7 | [N](https://chemistry.svistunov.online/periodic-table/N/)  |  /  | 2 | 15 | nonmetal | 3.04 | -3, 0, 1, 2, 3, 4, 5 |
+| 8 | [O](https://chemistry.svistunov.online/periodic-table/O/)  |  /  | 2 | 16 | nonmetal | 3.44 | -2, -1, 0 |
+| 9 | [F](https://chemistry.svistunov.online/periodic-table/F/)  |  /  | 2 | 17 | nonmetal | 3.98 | -1, 0 |
+| 10 | [Ne](https://chemistry.svistunov.online/periodic-table/Ne/)  |  /  | 2 | 18 | nonmetal | — | 0 |
+| 11 | [Na](https://chemistry.svistunov.online/periodic-table/Na/)  |  /  | 3 | 1 | metal | 0.93 | 0, 1 |
+| 12 | [Mg](https://chemistry.svistunov.online/periodic-table/Mg/)  |  /  | 3 | 2 | metal | 1.31 | 0, 2 |
+| 13 | [Al](https://chemistry.svistunov.online/periodic-table/Al/)  |  /  | 3 | 13 | metal | 1.61 | 0, 3 |
+| 14 | [Si](https://chemistry.svistunov.online/periodic-table/Si/)  |  /  | 3 | 14 | metalloid | 1.90 | -4, 0, 4 |
+| 15 | [P](https://chemistry.svistunov.online/periodic-table/P/)  |  /  | 3 | 15 | nonmetal | 2.19 | -3, 0, 3, 5 |
+| 16 | [S](https://chemistry.svistunov.online/periodic-table/S/)  |  /  | 3 | 16 | nonmetal | 2.58 | -2, 0, 4, 6 |
+| 17 | [Cl](https://chemistry.svistunov.online/periodic-table/Cl/)  |  /  | 3 | 17 | nonmetal | 3.16 | -1, 0, 1, 3, 5, 7 |
+| 18 | [Ar](https://chemistry.svistunov.online/periodic-table/Ar/)  |  /  | 3 | 18 | nonmetal | — | 0 |
+| 19 | [K](https://chemistry.svistunov.online/periodic-table/K/)  |  /  | 4 | 1 | metal | 0.82 | 0, 1 |
+| 20 | [Ca](https://chemistry.svistunov.online/periodic-table/Ca/)  |  /  | 4 | 2 | metal | 1.00 | 0, 2 |
+| 21 | [Sc](https://chemistry.svistunov.online/periodic-table/Sc/)  |  /  | 4 | 3 | metal | 1.36 | 0, 3 |
+| 22 | [Ti](https://chemistry.svistunov.online/periodic-table/Ti/)  |  /  | 4 | 4 | metal | 1.54 | 0, 2, 3, 4 |
+| 23 | [V](https://chemistry.svistunov.online/periodic-table/V/)  |  /  | 4 | 5 | metal | 1.63 | 0, 2, 3, 4, 5 |
+| 24 | [Cr](https://chemistry.svistunov.online/periodic-table/Cr/)  |  /  | 4 | 6 | metal | 1.66 | 0, 2, 3, 6 |
+| 25 | [Mn](https://chemistry.svistunov.online/periodic-table/Mn/)  |  /  | 4 | 7 | metal | 1.55 | 0, 2, 4, 6, 7 |
+| 26 | [Fe](https://chemistry.svistunov.online/periodic-table/Fe/)  |  /  | 4 | 8 | metal | 1.83 | 0, 2, 3 |
+| 27 | [Co](https://chemistry.svistunov.online/periodic-table/Co/)  |  /  | 4 | 9 | metal | 1.88 | 0, 2, 3 |
+| 28 | [Ni](https://chemistry.svistunov.online/periodic-table/Ni/)  |  /  | 4 | 10 | metal | 1.91 | 0, 2 |
+| 29 | [Cu](https://chemistry.svistunov.online/periodic-table/Cu/)  |  /  | 4 | 11 | metal | 1.90 | 0, 1, 2 |
+| 30 | [Zn](https://chemistry.svistunov.online/periodic-table/Zn/)  |  /  | 4 | 12 | metal | 1.65 | 0, 2 |
+| 31 | [Ga](https://chemistry.svistunov.online/periodic-table/Ga/)  |  /  | 4 | 13 | metal | 1.81 | 0, 3 |
+| 32 | [Ge](https://chemistry.svistunov.online/periodic-table/Ge/)  |  /  | 4 | 14 | metalloid | 2.01 | 0, 2, 4 |
+| 33 | [As](https://chemistry.svistunov.online/periodic-table/As/)  |  /  | 4 | 15 | metalloid | 2.18 | -3, 0, 3, 5 |
+| 34 | [Se](https://chemistry.svistunov.online/periodic-table/Se/)  |  /  | 4 | 16 | nonmetal | 2.55 | -2, 0, 4, 6 |
+| 35 | [Br](https://chemistry.svistunov.online/periodic-table/Br/)  |  /  | 4 | 17 | nonmetal | 2.96 | -1, 0, 1, 5 |
+| 36 | [Kr](https://chemistry.svistunov.online/periodic-table/Kr/)  |  /  | 4 | 18 | nonmetal | 3.00 | 0, 2 |
+| 37 | [Rb](https://chemistry.svistunov.online/periodic-table/Rb/)  |  /  | 5 | 1 | metal | 0.82 | 0, 1 |
+| 38 | [Sr](https://chemistry.svistunov.online/periodic-table/Sr/)  |  /  | 5 | 2 | metal | 0.95 | 0, 2 |
+| 39 | [Y](https://chemistry.svistunov.online/periodic-table/Y/)  |  /  | 5 | 3 | metal | 1.22 | 0, 3 |
+| 40 | [Zr](https://chemistry.svistunov.online/periodic-table/Zr/)  |  /  | 5 | 4 | metal | 1.33 | 0, 4 |
+| 41 | [Nb](https://chemistry.svistunov.online/periodic-table/Nb/)  |  /  | 5 | 5 | metal | 1.60 | 0, 3, 5 |
+| 42 | [Mo](https://chemistry.svistunov.online/periodic-table/Mo/)  |  /  | 5 | 6 | metal | 2.16 | 0, 4, 6 |
+| 43 | [Tc](https://chemistry.svistunov.online/periodic-table/Tc/)  |  /  | 5 | 7 | metal | 1.90 | 0, 4, 7 |
+| 44 | [Ru](https://chemistry.svistunov.online/periodic-table/Ru/)  |  /  | 5 | 8 | metal | 2.20 | 0, 3, 4, 8 |
+| 45 | [Rh](https://chemistry.svistunov.online/periodic-table/Rh/)  |  /  | 5 | 9 | metal | 2.28 | 0, 3 |
+| 46 | [Pd](https://chemistry.svistunov.online/periodic-table/Pd/)  |  /  | 5 | 10 | metal | 2.20 | 0, 2, 4 |
+| 47 | [Ag](https://chemistry.svistunov.online/periodic-table/Ag/)  |  /  | 5 | 11 | metal | 1.93 | 0, 1 |
+| 48 | [Cd](https://chemistry.svistunov.online/periodic-table/Cd/)  |  /  | 5 | 12 | metal | 1.69 | 0, 2 |
+| 49 | [In](https://chemistry.svistunov.online/periodic-table/In/)  |  /  | 5 | 13 | metal | 1.78 | 0, 3 |
+| 50 | [Sn](https://chemistry.svistunov.online/periodic-table/Sn/)  |  /  | 5 | 14 | metal | 1.96 | 0, 2, 4 |
+| 51 | [Sb](https://chemistry.svistunov.online/periodic-table/Sb/)  |  /  | 5 | 15 | metalloid | 2.05 | -3, 0, 3, 5 |
+| 52 | [Te](https://chemistry.svistunov.online/periodic-table/Te/)  |  /  | 5 | 16 | metalloid | 2.10 | -2, 0, 4, 6 |
+| 53 | [I](https://chemistry.svistunov.online/periodic-table/I/)  |  /  | 5 | 17 | nonmetal | 2.66 | -1, 0, 1, 5, 7 |
+| 54 | [Xe](https://chemistry.svistunov.online/periodic-table/Xe/)  |  /  | 5 | 18 | nonmetal | 2.60 | 0, 2, 4, 6 |
+| 55 | [Cs](https://chemistry.svistunov.online/periodic-table/Cs/)  |  /  | 6 | 1 | metal | 0.79 | 0, 1 |
+| 56 | [Ba](https://chemistry.svistunov.online/periodic-table/Ba/)  |  /  | 6 | 2 | metal | 0.89 | 0, 2 |
+| 57 | [La](https://chemistry.svistunov.online/periodic-table/La/)  |  /  | 6 | 3 | metal | 1.10 | 0, 3 |
+| 58 | [Ce](https://chemistry.svistunov.online/periodic-table/Ce/)  |  /  | 6 | 3 | metal | 1.12 | 0, 3, 4 |
+| 59 | [Pr](https://chemistry.svistunov.online/periodic-table/Pr/)  |  /  | 6 | 3 | metal | 1.13 | 0, 3 |
+| 60 | [Nd](https://chemistry.svistunov.online/periodic-table/Nd/)  |  /  | 6 | 3 | metal | 1.14 | 0, 3 |
+| 61 | [Pm](https://chemistry.svistunov.online/periodic-table/Pm/)  |  /  | 6 | 3 | metal | 1.13 | 0, 3 |
+| 62 | [Sm](https://chemistry.svistunov.online/periodic-table/Sm/)  |  /  | 6 | 3 | metal | 1.17 | 0, 2, 3 |
+| 63 | [Eu](https://chemistry.svistunov.online/periodic-table/Eu/)  |  /  | 6 | 3 | metal | 1.20 | 0, 2, 3 |
+| 64 | [Gd](https://chemistry.svistunov.online/periodic-table/Gd/)  |  /  | 6 | 3 | metal | 1.20 | 0, 3 |
+| 65 | [Tb](https://chemistry.svistunov.online/periodic-table/Tb/)  |  /  | 6 | 3 | metal | 1.20 | 0, 3 |
+| 66 | [Dy](https://chemistry.svistunov.online/periodic-table/Dy/)  |  /  | 6 | 3 | metal | 1.22 | 0, 3 |
+| 67 | [Ho](https://chemistry.svistunov.online/periodic-table/Ho/)  |  /  | 6 | 3 | metal | 1.23 | 0, 3 |
+| 68 | [Er](https://chemistry.svistunov.online/periodic-table/Er/)  |  /  | 6 | 3 | metal | 1.24 | 0, 3 |
+| 69 | [Tm](https://chemistry.svistunov.online/periodic-table/Tm/)  |  /  | 6 | 3 | metal | 1.25 | 0, 3 |
+| 70 | [Yb](https://chemistry.svistunov.online/periodic-table/Yb/)  |  /  | 6 | 3 | metal | 1.10 | 0, 2, 3 |
+| 71 | [Lu](https://chemistry.svistunov.online/periodic-table/Lu/)  |  /  | 6 | 3 | metal | 1.27 | 0, 3 |
+| 72 | [Hf](https://chemistry.svistunov.online/periodic-table/Hf/)  |  /  | 6 | 4 | metal | 1.30 | 0, 4 |
+| 73 | [Ta](https://chemistry.svistunov.online/periodic-table/Ta/)  |  /  | 6 | 5 | metal | 1.50 | 0, 5 |
+| 74 | [W](https://chemistry.svistunov.online/periodic-table/W/)  |  /  | 6 | 6 | metal | 2.36 | 0, 4, 6 |
+| 75 | [Re](https://chemistry.svistunov.online/periodic-table/Re/)  |  /  | 6 | 7 | metal | 1.90 | 0, 4, 7 |
+| 76 | [Os](https://chemistry.svistunov.online/periodic-table/Os/)  |  /  | 6 | 8 | metal | 2.20 | 0, 4, 8 |
+| 77 | [Ir](https://chemistry.svistunov.online/periodic-table/Ir/)  |  /  | 6 | 9 | metal | 2.20 | 0, 3, 4 |
+| 78 | [Pt](https://chemistry.svistunov.online/periodic-table/Pt/)  |  /  | 6 | 10 | metal | 2.28 | 0, 2, 4 |
+| 79 | [Au](https://chemistry.svistunov.online/periodic-table/Au/)  |  /  | 6 | 11 | metal | 2.54 | 0, 1, 3 |
+| 80 | [Hg](https://chemistry.svistunov.online/periodic-table/Hg/)  |  /  | 6 | 12 | metal | 2.00 | 0, 1, 2 |
+| 81 | [Tl](https://chemistry.svistunov.online/periodic-table/Tl/)  |  /  | 6 | 13 | metal | 1.62 | 0, 1, 3 |
+| 82 | [Pb](https://chemistry.svistunov.online/periodic-table/Pb/)  |  /  | 6 | 14 | metal | 2.33 | 0, 2, 4 |
+| 83 | [Bi](https://chemistry.svistunov.online/periodic-table/Bi/)  |  /  | 6 | 15 | metal | 2.02 | 0, 3, 5 |
+| 84 | [Po](https://chemistry.svistunov.online/periodic-table/Po/)  |  /  | 6 | 16 | metalloid | 2.00 | 0, 2, 4 |
+| 85 | [At](https://chemistry.svistunov.online/periodic-table/At/)  |  /  | 6 | 17 | nonmetal | 2.20 | -1, 0, 1 |
+| 86 | [Rn](https://chemistry.svistunov.online/periodic-table/Rn/)  |  /  | 6 | 18 | nonmetal | 2.20 | 0, 2 |
+| 87 | [Fr](https://chemistry.svistunov.online/periodic-table/Fr/)  |  /  | 7 | 1 | metal | 0.70 | 0, 1 |
+| 88 | [Ra](https://chemistry.svistunov.online/periodic-table/Ra/)  |  /  | 7 | 2 | metal | 0.90 | 0, 2 |
+| 89 | [Ac](https://chemistry.svistunov.online/periodic-table/Ac/)  |  /  | 7 | 3 | metal | 1.10 | 0, 3 |
+| 90 | [Th](https://chemistry.svistunov.online/periodic-table/Th/)  |  /  | 7 | 3 | metal | 1.30 | 0, 4 |
+| 91 | [Pa](https://chemistry.svistunov.online/periodic-table/Pa/)  |  /  | 7 | 3 | metal | 1.50 | 0, 4, 5 |
+| 92 | [U](https://chemistry.svistunov.online/periodic-table/U/)  |  /  | 7 | 3 | metal | 1.38 | 0, 3, 4, 5, 6 |
+| 93 | [Np](https://chemistry.svistunov.online/periodic-table/Np/)  |  /  | 7 | 3 | metal | 1.36 | 0, 3, 4, 5 |
+| 94 | [Pu](https://chemistry.svistunov.online/periodic-table/Pu/)  |  /  | 7 | 3 | metal | 1.28 | 0, 3, 4, 5, 6 |
+| 95 | [Am](https://chemistry.svistunov.online/periodic-table/Am/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 96 | [Cm](https://chemistry.svistunov.online/periodic-table/Cm/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 97 | [Bk](https://chemistry.svistunov.online/periodic-table/Bk/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 98 | [Cf](https://chemistry.svistunov.online/periodic-table/Cf/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 99 | [Es](https://chemistry.svistunov.online/periodic-table/Es/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 100 | [Fm](https://chemistry.svistunov.online/periodic-table/Fm/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 101 | [Md](https://chemistry.svistunov.online/periodic-table/Md/)  |  /  | 7 | 3 | metal | 1.30 | 0, 2, 3 |
+| 102 | [No](https://chemistry.svistunov.online/periodic-table/No/)  |  /  | 7 | 3 | metal | 1.30 | 0, 2, 3 |
+| 103 | [Lr](https://chemistry.svistunov.online/periodic-table/Lr/)  |  /  | 7 | 3 | metal | 1.30 | 0, 3 |
+| 104 | [Rf](https://chemistry.svistunov.online/periodic-table/Rf/)  |  /  | 7 | 4 | metal | — | 0, 4 |
+| 105 | [Db](https://chemistry.svistunov.online/periodic-table/Db/)  |  /  | 7 | 5 | metal | — | 0, 5 |
+| 106 | [Sg](https://chemistry.svistunov.online/periodic-table/Sg/)  |  /  | 7 | 6 | metal | — | 0, 6 |
+| 107 | [Bh](https://chemistry.svistunov.online/periodic-table/Bh/)  |  /  | 7 | 7 | metal | — | 0, 7 |
+| 108 | [Hs](https://chemistry.svistunov.online/periodic-table/Hs/)  |  /  | 7 | 8 | metal | — | 0, 8 |
+| 109 | [Mt](https://chemistry.svistunov.online/periodic-table/Mt/)  |  /  | 7 | 9 | metal | — | 0 |
+| 110 | [Ds](https://chemistry.svistunov.online/periodic-table/Ds/)  |  /  | 7 | 10 | metal | — | 0 |
+| 111 | [Rg](https://chemistry.svistunov.online/periodic-table/Rg/)  |  /  | 7 | 11 | metal | — | 0 |
+| 112 | [Cn](https://chemistry.svistunov.online/periodic-table/Cn/)  |  /  | 7 | 12 | metal | — | 0, 2 |
+| 113 | [Nh](https://chemistry.svistunov.online/periodic-table/Nh/)  |  /  | 7 | 13 | metal | — | 0 |
+| 114 | [Fl](https://chemistry.svistunov.online/periodic-table/Fl/)  |  /  | 7 | 14 | metal | — | 0, 2 |
+| 115 | [Mc](https://chemistry.svistunov.online/periodic-table/Mc/)  |  /  | 7 | 15 | metal | — | 0 |
+| 116 | [Lv](https://chemistry.svistunov.online/periodic-table/Lv/)  |  /  | 7 | 16 | metal | — | 0 |
+| 117 | [Ts](https://chemistry.svistunov.online/periodic-table/Ts/)  |  /  | 7 | 17 | nonmetal | — | 0 |
+| 118 | [Og](https://chemistry.svistunov.online/periodic-table/Og/)  |  /  | 7 | 18 | nonmetal | — | 0 |
 
 
 ## Детали ключевых элементов
 
-### H — Водород / Hydrogen
+### H —  / 
 
 - **Атомный номер:** 1
 - **Атомная масса:** 1.008
@@ -585,7 +520,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** -252.87 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/H/
 
-### O — Кислород / Oxygen
+### O —  / 
 
 - **Атомный номер:** 8
 - **Атомная масса:** 15.999
@@ -597,7 +532,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** -182.96 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/O/
 
-### C — Углерод / Carbon
+### C —  / 
 
 - **Атомный номер:** 6
 - **Атомная масса:** 12.011
@@ -609,7 +544,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 4827 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/C/
 
-### N — Азот / Nitrogen
+### N —  / 
 
 - **Атомный номер:** 7
 - **Атомная масса:** 14.007
@@ -621,7 +556,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** -195.79 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/N/
 
-### Na — Натрий / Sodium
+### Na —  / 
 
 - **Атомный номер:** 11
 - **Атомная масса:** 22.99
@@ -633,7 +568,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 882.94 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Na/
 
-### Cl — Хлор / Chlorine
+### Cl —  / 
 
 - **Атомный номер:** 17
 - **Атомная масса:** 35.453
@@ -645,7 +580,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** -34.04 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Cl/
 
-### Fe — Железо / Iron
+### Fe —  / 
 
 - **Атомный номер:** 26
 - **Атомная масса:** 55.845
@@ -657,7 +592,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 2862 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Fe/
 
-### Cu — Медь / Copper
+### Cu —  / 
 
 - **Атомный номер:** 29
 - **Атомная масса:** 63.546
@@ -669,7 +604,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 2562 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Cu/
 
-### Au — Золото / Gold
+### Au —  / 
 
 - **Атомный номер:** 79
 - **Атомная масса:** 196.967
@@ -681,7 +616,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 2856 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Au/
 
-### Ca — Кальций / Calcium
+### Ca —  / 
 
 - **Атомный номер:** 20
 - **Атомная масса:** 40.078
@@ -693,7 +628,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 1484 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Ca/
 
-### Al — Алюминий / Aluminium
+### Al —  / 
 
 - **Атомный номер:** 13
 - **Атомная масса:** 26.982
@@ -705,7 +640,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 2519 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Al/
 
-### Si — Кремний / Silicon
+### Si —  / 
 
 - **Атомный номер:** 14
 - **Атомная масса:** 28.086
@@ -717,7 +652,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 3265 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/Si/
 
-### P — Фосфор / Phosphorus
+### P —  / 
 
 - **Атомный номер:** 15
 - **Атомная масса:** 30.974
@@ -729,7 +664,7 @@ Be, Mg, Ca, Sr, Ba, Ra всегда имеют +2 в соединениях.
 - **Т кипения:** 280.5 °C
 - **Страница:** https://chemistry.svistunov.online/periodic-table/P/
 
-### S — Сера / Sulfur
+### S —  / 
 
 - **Атомный номер:** 16
 - **Атомная масса:** 32.065
