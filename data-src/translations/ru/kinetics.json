@@ -1,4 +1,9 @@
 {
+  "_direction_labels": {
+    "increase": "возрастёт",
+    "decrease": "уменьшится",
+    "no_change": "не изменится"
+  },
   "_prop_names": {
     "prop:temperature": "температура",
     "prop:reactant_concentration": "концентрация реагентов",

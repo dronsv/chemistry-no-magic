@@ -1051,17 +1051,20 @@ export interface KineticsData {
   rules: import('../types/kinetics').KineticsRule[];
   /** Locale-resolved display names for prop:* IDs, from overlay _prop_names section. */
   propNames: Record<string, string>;
+  /** Locale-resolved direction labels (increase/decrease/no_change), from overlay _direction_labels. */
+  directionLabels: Record<string, string>;
 }
 
 /**
- * Load kinetics rules with locale overlay + prop name vocabulary.
- * Use this when the frame renderer is needed (Stage 4+).
+ * Load kinetics rules with locale overlay + prop name vocabulary + direction labels.
+ * Use this when the frame renderer is needed (Stage 4+) or task generation (Stage 5).
  */
 export async function loadKineticsData(locale?: SupportedLocale): Promise<KineticsData> {
   const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];
-  if (!locale) return { rules: data, propNames: {} };
+  if (!locale) return { rules: data, propNames: {}, directionLabels: {} };
   const overlay = await loadTranslationOverlay(locale, 'kinetics');
   const rules = applyOverlay(data, overlay, r => r.id);
   const propNames = (overlay?.['_prop_names'] ?? {}) as Record<string, string>;
-  return { rules, propNames };
+  const directionLabels = (overlay?.['_direction_labels'] ?? {}) as Record<string, string>;
+  return { rules, propNames, directionLabels };
 }

@@ -3769,5 +3769,42 @@
     "competency_hint": {
       "naming": "P"
     }
+  },
+  {
+    "template_id": "tmpl.kinetics.directional.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "domain": "chemical_kinetics",
+      "kind": "directional_influence"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_kinetics_directional",
+        "params": {}
+      },
+      "solvers": [
+        {
+          "id": "solver.slot_lookup",
+          "params": { "answer_field": "direction_label" }
+        }
+      ],
+      "renderers": [
+        {
+          "id": "view.choice_single",
+          "params": { "option_count": 3 }
+        }
+      ]
+    },
+    "prompt_template_id": "prompt.kinetics_direction",
+    "explanation_template_id": "explain.kinetics_direction",
+    "evidence_rules": ["chemical_kinetics"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": {
+      "reaction_energy_profile": "P"
+    }
   }
 ]

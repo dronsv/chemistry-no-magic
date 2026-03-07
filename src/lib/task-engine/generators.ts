@@ -1,3 +1,4 @@
+import type { KineticsRule } from '../../types/kinetics';
 import type { BondExampleEntry } from '../../types/bond';
 import type { CalcReaction, CalcSubstance } from '../../types/calculations';
 import type { ClassificationRule } from '../../types/classification';
@@ -843,6 +844,70 @@ function genPickAcidAnionFromGraph(_params: Record<string, unknown>, data: Ontol
   };
 }
 
+function genPickKineticsDirectional(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const rules = data.rules.kineticsRules;
+  const propNames = data.rules.kineticsDirectionLabels !== undefined
+    ? data.rules.kineticsDirectionLabels
+    : ({} as Record<string, string>);
+
+  if (!rules || rules.length === 0) {
+    throw new Error('kineticsRules not available in data');
+  }
+
+  // Filter to directional_influence rules with a clear direction response
+  const directional = rules.filter(
+    (r: KineticsRule) =>
+      r.kind === 'directional_influence' &&
+      r.source_property &&
+      r.target_property &&
+      r.source_change?.operator &&
+      r.target_response?.mode === 'direction' &&
+      r.target_response.direction,
+  );
+
+  if (directional.length === 0) throw new Error('No directional_influence kinetics rules available');
+
+  const rule: KineticsRule = pickRandom(directional);
+  const direction = rule.target_response!.direction as string; // "increase" | "decrease"
+
+  // Resolve locale-specific prop names from kineticsDirectionLabels (acting as propNames here)
+  // Actually propNames for prop:* come from a different source. Let's use rule.name fields if available.
+  // The rule entity already has locale-resolved name from applyOverlay.
+  // We need source/target display names; derive from the rule's source/target property IDs.
+  // At this point, we don't have propNames from the kinetics overlay here — only kineticsDirectionLabels.
+  // Use the rule name as the question context instead.
+  const sourcePropId = rule.source_property ?? '';
+  const targetPropId = rule.target_property ?? '';
+
+  // Strip namespace as fallback display
+  function stripNs(id: string): string {
+    return id.replace(/^[a-z_]+:/, '').replace(/_/g, '\u00a0');
+  }
+
+  // The kinetics overlay may have locale names baked into the rule.name field already.
+  // For prop names, derive from the prop ID namespace-stripped form.
+  const sourceName = stripNs(sourcePropId);
+  const targetName = stripNs(targetPropId);
+
+  // Resolve direction labels
+  const directionLabel = propNames[direction] ?? direction;
+  const allDirections = ['increase', 'decrease', 'no_change'];
+  const wrongDirections = allDirections.filter(d => d !== direction);
+
+  return {
+    rule_id: rule.id,
+    rule_name: rule.name ?? rule.id,
+    source_prop: sourcePropId,
+    source_name: sourceName,
+    target_prop: targetPropId,
+    target_name: targetName,
+    direction,
+    direction_label: directionLabel,
+    direction_wrong_1: propNames[wrongDirections[0]] ?? wrongDirections[0],
+    direction_wrong_2: propNames[wrongDirections[1]] ?? wrongDirections[1],
+  };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 const GENERATORS: Record<string, (params: Record<string, unknown>, data: OntologyData) => SlotValues> = {
@@ -869,6 +934,7 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_solution_params': genPickSolutionParams,
   'gen.pick_ion_nomenclature': genPickIonNomenclature,
   'gen.pick_acid_anion_from_graph': genPickAcidAnionFromGraph,
+  'gen.pick_kinetics_directional': genPickKineticsDirectional,
 };
 
 export function runGenerator(

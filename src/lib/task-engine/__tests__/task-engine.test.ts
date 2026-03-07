@@ -613,6 +613,14 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     template: 'The acid residue of {acid_formula} is {anion_formula}.',
     slots: {},
   },
+  'prompt.kinetics_direction': {
+    question: 'How does {target_name} change when {source_name} increases?',
+    slots: {},
+  },
+  'explain.kinetics_direction': {
+    template: 'When {source_name} increases, {target_name} {direction_label}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -835,6 +843,44 @@ function loadAllTemplates(): TaskTemplate[] {
   return JSON.parse(raw) as TaskTemplate[];
 }
 
+const MOCK_KINETICS_RULES = [
+  {
+    id: 'rule:kinetics.concentration.rate',
+    kind: 'directional_influence',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    source_property: 'prop:reactant_concentration',
+    source_change: { operator: 'increase' },
+    target_property: 'prop:reaction_rate',
+    target_response: { mode: 'direction', direction: 'increase' },
+    name: 'Effect of concentration on reaction rate',
+  },
+  {
+    id: 'rule:kinetics.catalyst.activation_energy',
+    kind: 'directional_influence',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    source_property: 'prop:catalyst_presence',
+    source_change: { operator: 'enable' },
+    target_property: 'prop:activation_energy',
+    target_response: { mode: 'direction', direction: 'decrease' },
+    name: 'Effect of catalyst on activation energy',
+  },
+  {
+    id: 'law:vanthoff_rule',
+    kind: 'empirical_rule',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    name: "Van't Hoff Rule",
+  },
+];
+
+const MOCK_KINETICS_DIRECTION_LABELS: Record<string, string> = {
+  increase: 'increases',
+  decrease: 'decreases',
+  no_change: 'remains unchanged',
+};
+
 const MOCK_ACID_BASE_RELATIONS_PHASE2 = [
   { subject: 'sub:hcl', predicate: 'has_conjugate_base', object: 'ion:Cl_minus', step: 1 },
   { subject: 'ion:Cl_minus', predicate: 'has_conjugate_acid', object: 'sub:hcl', step: 1 },
@@ -859,6 +905,8 @@ function buildPhase2Ontology(): OntologyData {
       energyCatalyst: MOCK_ENERGY_CATALYST,
       ionNomenclature: MOCK_ION_NOMENCLATURE,
       acidBaseRelations: MOCK_ACID_BASE_RELATIONS_PHASE2,
+      kineticsRules: MOCK_KINETICS_RULES as import('../../../types/kinetics').KineticsRule[],
+      kineticsDirectionLabels: MOCK_KINETICS_DIRECTION_LABELS,
     },
     data: {
       substances: PHASE2_SUBSTANCE_INDEX,
@@ -874,8 +922,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 67 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(67);
+  it('loads all 68 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(68);
   });
 
   describe('bond templates', () => {
@@ -1218,6 +1266,65 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.competency_map).toEqual({ amphoterism_logic: 'P' });
       // Slots should include reaction_partners
       expect(task.slots.reaction_partners).toEqual(['acid', 'base']);
+    });
+  });
+
+  describe('kinetics directional template', () => {
+    it('generates a task from tmpl.kinetics.directional.v1', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+
+      expect(task.template_id).toBe('tmpl.kinetics.directional.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(task.competency_map).toEqual({ reaction_energy_profile: 'P' });
+    });
+
+    it('correct answer is a locale direction label string', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      const validLabels = Object.values(MOCK_KINETICS_DIRECTION_LABELS);
+      expect(validLabels).toContain(task.correct_answer);
+    });
+
+    it('produces exactly 2 distractors (all 3 direction labels shown)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      // 2 wrong directions + 1 correct = 3 options
+      expect(task.distractors.length).toBe(2);
+    });
+
+    it('distractors are the other direction labels, not the correct one', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      const allLabels = Object.values(MOCK_KINETICS_DIRECTION_LABELS);
+      for (const d of task.distractors) {
+        expect(allLabels).toContain(d);
+        expect(d).not.toBe(task.correct_answer);
+      }
+    });
+
+    it('slots contain source_name, target_name, direction', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      expect(task.slots.source_name).toBeDefined();
+      expect(task.slots.target_name).toBeDefined();
+      expect(['increase', 'decrease']).toContain(task.slots.direction);
+    });
+
+    it('question contains target_name and source_name', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      expect(task.question).toContain(String(task.slots.target_name));
+      expect(task.question).toContain(String(task.slots.source_name));
+    });
+
+    it('throws when kineticsRules is missing', () => {
+      const noKineticsOntology = {
+        ...ontology,
+        rules: { ...ontology.rules, kineticsRules: undefined },
+      };
+      const engine = createTaskEngine(allTemplates, noKineticsOntology);
+      expect(() => engine.generate('tmpl.kinetics.directional.v1')).toThrow('kineticsRules not available');
     });
   });
 });

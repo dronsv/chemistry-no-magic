@@ -298,5 +298,13 @@
   "explain.acid_residue_graph": {
     "template": "Kwas {acid_formula} dysocjuje z wytworzeniem anionu {anion_formula} ({anion_name}) — to jego reszta kwasowa.",
     "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "Jak zmienia się {target_name} przy wzroście {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "Przy wzroście {source_name} {target_name} {direction_label}.",
+    "slots": {}
   }
 }

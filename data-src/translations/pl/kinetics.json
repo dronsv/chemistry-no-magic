@@ -1,4 +1,9 @@
 {
+  "_direction_labels": {
+    "increase": "rośnie",
+    "decrease": "maleje",
+    "no_change": "nie zmienia się"
+  },
   "_prop_names": {
     "prop:temperature": "temperatura",
     "prop:reactant_concentration": "stężenie substratów",

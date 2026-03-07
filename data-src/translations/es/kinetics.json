@@ -1,4 +1,9 @@
 {
+  "_direction_labels": {
+    "increase": "aumenta",
+    "decrease": "disminuye",
+    "no_change": "no cambia"
+  },
   "_prop_names": {
     "prop:temperature": "temperatura",
     "prop:reactant_concentration": "concentración de reactivos",
