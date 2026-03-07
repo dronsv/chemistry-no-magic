@@ -60,7 +60,8 @@
     "reactant_class": "carbonate",
     "reagent_class": "acid",
     "gas_product": "CO2",
-    "intermediate": "H2CO3"
+    "intermediate": "H2CO3",
+    "observation_facets": ["gas_evolution:CO2"]
   },
   {
     "id": "sulfite_acid_gas",
@@ -69,7 +70,8 @@
     "reactant_class": "sulfite",
     "reagent_class": "acid",
     "gas_product": "SO2",
-    "intermediate": "H2SO3"
+    "intermediate": "H2SO3",
+    "observation_facets": ["gas_evolution:SO2"]
   },
   {
     "id": "sulfide_acid_gas",
@@ -77,7 +79,8 @@
     "rule_kind": "gas_evolution",
     "reactant_class": "soluble_sulfide",
     "reagent_class": "acid",
-    "gas_product": "H2S"
+    "gas_product": "H2S",
+    "observation_facets": ["gas_evolution:H2S"]
   },
   {
     "id": "ammonium_alkali_gas",
@@ -86,7 +89,8 @@
     "reactant_class": "ammonium_salt",
     "reagent_class": "alkali",
     "gas_product": "NH3",
-    "intermediate": "NH3_H2O"
+    "intermediate": "NH3_H2O",
+    "observation_facets": ["gas_evolution:NH3"]
   },
   {
     "id": "h2so4_conc_oxidizer",

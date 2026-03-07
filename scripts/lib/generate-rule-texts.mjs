@@ -122,6 +122,19 @@ function generateRuleText(rule, vocab, templates) {
     }
   }
 
+  // Observation summary — uses the first observation facet (current rules have exactly one)
+  if (rule.observation_facets?.length) {
+    const [facetKind] = rule.observation_facets[0].split(':');
+    const obsTmpl = templates[`observation_summary:${facetKind}`];
+    if (obsTmpl) {
+      slots.observation_summary = {};
+      for (const locale of LOCALES) {
+        const text = interpolate(obsTmpl[locale], rule, vocab, locale);
+        if (text) slots.observation_summary[locale] = text;
+      }
+    }
+  }
+
   return {
     rule_id: rule.id,
     text_origin: 'generated',

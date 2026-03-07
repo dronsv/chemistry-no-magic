@@ -9,6 +9,8 @@ export interface RuleSummaryProjection {
    * Undefined if neither is available.
    */
   detail?: string;
+  /** Observable sign of reaction (e.g. gas released). */
+  observation?: string;
 }
 
 /**
@@ -42,9 +44,12 @@ export function buildRuleSummaryProjection(
     const pedNote = rule?.pedagogical_note ?? undefined;
     if (pedNote) parts.push(pedNote);
 
+    const obsNote = rt.slots.observation_summary?.[locale] ?? rt.slots.observation_summary?.['ru'];
+
     result[rt.rule_id] = {
       summary,
       detail: parts.length > 0 ? parts.join(' ') : undefined,
+      observation: obsNote,
     };
   }
 

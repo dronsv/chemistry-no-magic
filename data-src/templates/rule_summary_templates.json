@@ -64,5 +64,11 @@
     "en": "{substance} does not react with water, unlike most acidic oxides.",
     "pl": "{substance} nie reaguje z wodą, w przeciwieństwie do większości tlenków kwasowych.",
     "es": "{substance} no reacciona con el agua, a diferencia de la mayoría de los óxidos ácidos."
+  },
+  "observation_summary:gas_evolution": {
+    "ru": "Признак реакции: выделение газа {gas_product}.",
+    "en": "Observable: gas {gas_product} is released.",
+    "pl": "Objaw reakcji: wydziela się gaz {gas_product}.",
+    "es": "Signo observable: se libera el gas {gas_product}."
   }
 }
