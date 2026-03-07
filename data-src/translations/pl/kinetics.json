@@ -1,0 +1,30 @@
+{
+  "law:vanthoff_rule": {
+    "name": "Reguła Van't Hoffa"
+  },
+  "rule:vanthoff.school.temperature_rate": {
+    "name": "Wpływ temperatury na szybkość reakcji",
+    "short_statement": "Wzrost temperatury o 10 K powoduje wzrost szybkości reakcji 2–4-krotnie.",
+    "explanation": "Szkolna postać reguły Van't Hoffa. Podgrzanie mieszaniny reakcyjnej o 10°C zwiększa szybkość reakcji homogenicznej 2–4-krotnie, ponieważ wzrasta udział cząsteczek zdolnych do pokonania bariery energetycznej."
+  },
+  "rule:kinetics.concentration.rate": {
+    "name": "Wpływ stężenia na szybkość reakcji",
+    "short_statement": "Zwiększenie stężenia substratów powoduje wzrost szybkości reakcji.",
+    "explanation": "Prawo działania mas: szybkość reakcji chemicznej jest proporcjonalna do stężeń substratów. Wyższe stężenie oznacza częstsze zderzenia między cząsteczkami reagentów."
+  },
+  "rule:kinetics.surface_area.rate": {
+    "name": "Wpływ powierzchni kontaktu na szybkość reakcji",
+    "short_statement": "Zwiększenie powierzchni substratów zwiększa szybkość reakcji heterogenicznej.",
+    "explanation": "Rozdrobnienie ciał stałych i stosowanie materiałów porowatych zwiększa powierzchnię kontaktu między fazami. Reakcja heterogeniczna zachodzi na granicy faz, więc powierzchnia wyznacza liczbę aktywnych centrów."
+  },
+  "rule:kinetics.catalyst.activation_energy": {
+    "name": "Wpływ katalizatora na energię aktywacji",
+    "short_statement": "Katalizator obniża energię aktywacji reakcji.",
+    "explanation": "Katalizator zmienia mechanizm reakcji, umożliwiając przejście przez produkty pośrednie o niższej energii. Całkowita bariera energetyczna drogi reakcji zostaje obniżona."
+  },
+  "rule:kinetics.catalyst.rate": {
+    "name": "Wpływ katalizatora na szybkość reakcji",
+    "short_statement": "Katalizator przyspiesza reakcję chemiczną, nie zużywając się.",
+    "explanation": "Dzięki obniżeniu energii aktywacji większy ułamek cząsteczek może pokonać barierę energetyczną w tej samej temperaturze, co zwiększa szybkość reakcji. Katalizator jest odtwarzany po każdym cyklu."
+  }
+}

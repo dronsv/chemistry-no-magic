@@ -345,6 +345,7 @@
   "rxn_theory_chains": "Генетические цепочки",
   "rxn_theory_speed": "Скорость реакции и равновесие",
   "rxn_theory_catalysis": "Катализ и энергетика",
+  "theory_kinetics_trigger": "Кинетика реакций",
   "rxn_heat_exothermic": "Экзотермическая",
   "rxn_heat_endothermic": "Эндотермическая",
   "sol_soluble": "Р",

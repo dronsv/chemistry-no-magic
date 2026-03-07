@@ -1038,3 +1038,11 @@ export async function loadRuleTexts(): Promise<GeneratedRuleText[]> {
 export async function loadInstanceOf(): Promise<import('../types/relation').Relation[]> {
   return loadRelations<import('../types/relation').Relation>('instance_of');
 }
+
+/** Load kinetics theory rules. Applies locale overlay (name, short_statement, explanation) when locale is provided. */
+export async function loadKineticsRules(locale?: SupportedLocale): Promise<import('../types/kinetics').KineticsRule[]> {
+  const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'kinetics');
+  return applyOverlay(data, overlay, r => r.id);
+}

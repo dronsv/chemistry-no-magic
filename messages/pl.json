@@ -345,6 +345,7 @@
   "rxn_theory_chains": "Ciągi genetyczne",
   "rxn_theory_speed": "Szybkość reakcji i równowaga",
   "rxn_theory_catalysis": "Kataliza i energetyka",
+  "theory_kinetics_trigger": "Kinetyka reakcji",
   "rxn_heat_exothermic": "Egzotermiczna",
   "rxn_heat_endothermic": "Endotermiczna",
   "sol_soluble": "R",
