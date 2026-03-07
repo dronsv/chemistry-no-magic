@@ -9,7 +9,8 @@
       "subject":   { "type": "string", "description": "Entity ID of the subject (e.g. ion:SO4_2minus, sub:h2so4)" },
       "predicate": { "type": "string", "description": "Relation type (e.g. has_conjugate_base, has_role)" },
       "object":    { "type": "string", "description": "Entity ID or role ID of the object" },
-      "step":      { "type": "number", "description": "Step index for multi-step chains (e.g. proton dissociation)" }
+      "step":      { "type": "number", "description": "Step index for multi-step chains (e.g. proton dissociation)" },
+      "solubility": { "type": "string", "enum": ["soluble", "slightly_soluble", "decomposes"], "description": "Solubility for forms_salt_with triples" }
     },
     "additionalProperties": false
   }

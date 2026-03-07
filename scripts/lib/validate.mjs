@@ -547,8 +547,37 @@ export function validateRelations(relations, filename) {
     if (!r.predicate) errors.push(`${p}: missing predicate`);
     if (!r.object)    errors.push(`${p}: missing object`);
     if (r.step !== undefined && typeof r.step !== 'number') errors.push(`${p}: step must be a number`);
-    const extra = Object.keys(r).filter(k => !['subject','predicate','object','step'].includes(k));
+    const extra = Object.keys(r).filter(k => !['subject','predicate','object','step','solubility'].includes(k));
     if (extra.length) errors.push(`${p}: unexpected fields: ${extra.join(', ')}`);
+  }
+  return errors;
+}
+
+/**
+ * Validate relation ID integrity: all ion:, sub:, el: IDs must reference
+ * known entities in the ontology.
+ *
+ * @param {Array<object>} allRelations - All relation triples from all files
+ * @param {{ ionIds: Set<string>, substanceIds: Set<string>, elementSymbols: Set<string> }} registry
+ * @returns {string[]} errors
+ */
+export function validateRelationIdIntegrity(allRelations, { ionIds, substanceIds, elementSymbols }) {
+  const errors = [];
+  for (const r of allRelations) {
+    for (const field of ['subject', 'object']) {
+      const val = r[field];
+      if (!val || typeof val !== 'string') continue;
+      if (val.startsWith('ion:')) {
+        const id = val.slice(4);
+        if (!ionIds.has(id)) errors.push(`Relation integrity: unknown ion ID "${val}" in ${field}`);
+      } else if (val.startsWith('sub:')) {
+        const id = val.slice(4);
+        if (!substanceIds.has(id)) errors.push(`Relation integrity: unknown substance ID "${val}" in ${field}`);
+      } else if (val.startsWith('el:')) {
+        const sym = val.slice(3);
+        if (!elementSymbols.has(sym)) errors.push(`Relation integrity: unknown element "${val}" in ${field}`);
+      }
+    }
   }
   return errors;
 }

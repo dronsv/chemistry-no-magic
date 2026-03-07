@@ -33,6 +33,7 @@ import {
   validateOxidationExamples,
   validateEngineTaskTemplates,
   validateRelations,
+  validateRelationIdIntegrity,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import {
@@ -53,6 +54,7 @@ import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
 import { generateRuleTexts } from './lib/generate-rule-texts.mjs';
+import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -305,6 +307,13 @@ async function main() {
     ...validateEngineTaskTemplates(engineTaskTemplates),
     ...relationEntries.flatMap(({ data, filename }) => validateRelations(data, filename)),
   ];
+
+  // 2a. Relation ID integrity check
+  const ionIds = new Set(ions.map(i => i.id));
+  const substanceIds = new Set(substances.map(s => s.data.id));
+  const elementSymbols = new Set(elements.map(e => e.symbol));
+  const allRelationTriples = relationEntries.flatMap(e => e.data);
+  allErrors.push(...validateRelationIdIntegrity(allRelationTriples, { ionIds, substanceIds, elementSymbols }));
 
   for (const { filename, data } of substances) {
     allErrors.push(...validateSubstance(data, filename));
@@ -570,10 +579,10 @@ async function main() {
     console.log(`  ${courseEntries.length} courses`);
   }
 
-  // 6a4. Copy relations (pre-loaded)
+  // 6a4. Copy relations (pre-loaded) + generate derived relations
   const relationFiles = {};
+  await mkdir(join(bundleDir, 'relations'), { recursive: true });
   if (relationEntries.length > 0) {
-    await mkdir(join(bundleDir, 'relations'), { recursive: true });
     for (const { data, filename } of relationEntries) {
       const key = filename.replace('.json', '');
       await writeFile(join(bundleDir, 'relations', filename), JSON.stringify(data));
@@ -581,6 +590,12 @@ async function main() {
     }
     console.log(`  ${relationEntries.length} relation files`);
   }
+
+  // Generate forms_salt_with relation triples from solubility data
+  const formsSaltWith = generateFormsSaltWith(solubility);
+  await writeFile(join(bundleDir, 'relations', 'forms_salt_with.json'), JSON.stringify(formsSaltWith));
+  relationFiles['forms_salt_with'] = 'relations/forms_salt_with.json';
+  console.log(`  ${formsSaltWith.length} forms_salt_with triples`);
 
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
