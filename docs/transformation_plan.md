@@ -1,7 +1,7 @@
 # Transformation Plan — Chemistry Without Magic
 
 > Живой план преобразований онтологии, локализации и архитектуры.
-> Закрываем пункты по мере выполнения. Последнее обновление: 2026-03-07.
+> Закрываем пункты по мере выполнения. Последнее обновление: 2026-03-07 (Phase E).
 
 ---
 
@@ -13,8 +13,10 @@
 | **B1** | Controlled Rule Text Generation | ✅ Done | `feature/locale-free-ontology` 1ee8966 |
 | **B1.5** | Projection / Facet Integration | ✅ Done | `feature/locale-free-ontology` 0c8b3c6 |
 | **B** | Relations Expansion | ✅ Done | `feature/locale-free-ontology` (see below) |
+| **E** | Ontology Completion (schema + query API + observation facets + activity flags) | ✅ Done | `feature/locale-free-ontology` dc226f7 |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
 | **D** | Student Materials → Theory Layer | 🔲 Deferred | — |
+| **L** | Localization Foundation (EN/PL/ES overlays + morphology) | 🔲 Planned | `feature/localization-foundation` (after E merge) |
 
 ---
 
@@ -38,7 +40,7 @@
 
 ### Pending
 
-- [ ] Push `feature/locale-free-ontology` → PR → merge to master
+- [x] Push `feature/locale-free-ontology` → PR → merge to master (PR #1 opened, Phases A–E)
 
 ---
 
@@ -51,27 +53,27 @@
 
 ### Шаги
 
-- [ ] **Data: applicability_rules** — добавить `rule_kind`, `reactant_pattern`, `conditions[]`, `product_template`, `exceptions[]` в `data-src/rules/applicability_rules.json` (15 правил)
-- [ ] **Data: activity_series** — добавить машиночитаемые флаги (`reduces_H_from_acid`, `reduces_H_from_water`, `displacement_below`) в `data-src/rules/activity_series.json`
-- [ ] **Vocab**: создать `data-src/vocab/rule_terms.json` — typed vocab per locale (~50-100 terms: condition:heating, class:metal_hydroxide.insoluble.plural, product_template:metal_oxide, ...)
-- [ ] **Templates**: создать `data-src/templates/rule_summary_templates.json` — шаблоны per `rule_kind` × locale
-- [ ] **Generator**: реализовать `scripts/generate-rule-texts.mjs` — читает core + vocab + templates, генерирует summaries
-- [ ] **Build integration**: вызов генератора в `scripts/build-data.mjs`, output в `public/data/{hash}/generated/`
-- [ ] **Validator**: запрет `condition_ru`/`description_ru` в Tier 1 файлах; проверка наличия структурных полей
-- [ ] **Loader**: `loadGeneratedRuleText(ruleId, locale)` в `src/lib/data-loader.ts`
-- [ ] **Locale packs**: убрать `applicability_rules` и `activity_series` из ручных ru overlay (заменить генерацией); оставить только `pedagogical_note` override где нужно
-- [ ] **knowledge_level**: добавить опциональный `knowledge_level` + `source_kind` в relation schema (`strict_chemistry` | `school_convention` | `pedagogical`)
-- [ ] **Tests**: покрытие генератора (детерминированность, корректность для каждого из 15 правил)
+- [x] **Data: applicability_rules** — добавить `rule_kind`, `reactant_pattern`, `conditions[]`, `product_template`, `exceptions[]` в `data-src/rules/applicability_rules.json` (15 правил)
+- [x] **Data: activity_series** — добавить машиночитаемые флаги (`reduces_H_from_water`, `displacement_below`) в `data-src/rules/activity_series.json` (Phase E4)
+- [x] **Vocab**: создать `data-src/vocab/rule_terms.json` — typed vocab per locale
+- [x] **Templates**: создать `data-src/templates/rule_summary_templates.json` — шаблоны per `rule_kind` × locale
+- [x] **Generator**: реализовать `scripts/lib/generate-rule-texts.mjs` — читает core + vocab + templates, генерирует summaries
+- [x] **Build integration**: вызов генератора в `scripts/build-data.mjs`, output в bundle
+- [x] **Validator**: `validateApplicabilityRuleStructure()` — проверка структурных полей; validator читает allowed fields из schema динамически
+- [x] **Loader**: `loadRuleTexts()` в `src/lib/data-loader.ts`
+- [x] **Locale packs**: убрать `condition`/`description` из ru overlay; оставить только `pedagogical_note`
+- [x] **knowledge_level**: добавить `knowledge_level` + `source_kind` в relation schema (Phase E1); аннотированы acid_base_relations, ion_roles, has_naming_rule
+- [x] **Tests**: 728 тестов ✓
 
 ---
 
-## Phase B1.5 — Projection / Facet Integration 🔲
+## Phase B1.5 — Projection / Facet Integration ✅
 
-- [ ] Ввести `projection_builder` слой: generated texts потребляются через projections, не напрямую страницами
-- [ ] `rule_summary_projection` — per locale, агрегирует canonical_summary + exception_note
-- [ ] `observation_facet_projection` — gas evolution, precipitate, color → human-readable per locale
-- [ ] Задокументировать data flow: generated JSON → projection builder → page component
-- [ ] Запретить прямое чтение `generated/` файлов в page компонентах (lint rule или документальный контракт)
+- [x] Ввести `projection_builder` слой: `src/lib/rule-text-projection.ts`
+- [x] `rule_summary_projection` — per locale, агрегирует canonical_summary + exception_note → `RuleSummaryProjection`
+- [x] `observation_facet_projection` — gas evolution → `observation?: string` в projection (Phase E3)
+- [x] Data flow: generated JSON → projection builder → page component (ReactionTheoryPanel)
+- [x] Прямое чтение `generated/` файлов запрещено через документальный контракт
 
 ---
 
@@ -84,6 +86,43 @@
 - [x] TypeScript тип `Relation` — `src/types/relation.ts`
 - [x] Task engine generators: `gen.pick_acid_anion_from_graph` — находит кислотный остаток через граф acid_base_relations; шаблон `tmpl.ion.acid_residue_graph.v1` (4 локали)
 - [x] ~~Resolve `sub:` vs `subst:`~~ — **решено: `sub:`**. Валидатор Phase B запрещает `subst:`.
+
+---
+
+## Phase E — Ontology Completion ✅
+
+**Design**: `docs/plans/2026-03-07-ontology-completion-design.md`
+
+### E1: Relation Schema Extension
+
+- [x] `data-src/relations/relation_schema.json` — добавлены `knowledge_level` (strict_chemistry | school_convention | pedagogical) и `source_kind`
+- [x] `src/types/relation.ts` — опциональные поля + тип `KnowledgeLevel`
+- [x] `acid_base_relations.json` аннотирован `knowledge_level: "strict_chemistry"` (42 триплета)
+- [x] `ion_roles.json` аннотирован `knowledge_level: "school_convention"` (27 триплетов)
+- [x] `has_naming_rule.json` аннотирован `knowledge_level: "school_convention"` (22 триплета)
+- [x] Validator читает allowed fields из schema динамически (не hardcoded)
+
+### E2: Relations Query API
+
+- [x] `src/lib/relations.ts` — 5 чистых функций: `getTargets`, `getSources`, `filterByKnowledgeLevel`, `terminalConjugateBase`, `getAtStep`
+- [x] `src/lib/__tests__/relations.test.ts` — 13 тестов; monoprotic + diprotic chain traversal
+- [x] `generators.ts` дедуплицирован: `buildTerminalAnionMap` заменён на `terminalConjugateBase` из `relations.ts`
+
+### E3: Observation Facets
+
+- [x] `applicability_rules.json` — добавлены `observation_facets` в 4 gas-evolution правила (CO2, SO2, H2S, NH3)
+- [x] `rule_summary_templates.json` — шаблон `observation_summary:gas_evolution` (4 локали)
+- [x] `generate-rule-texts.mjs` — генерирует `observation_summary` слот из facets
+- [x] `src/lib/rule-text-projection.ts` — добавлено поле `observation?: string` в `RuleSummaryProjection`
+
+### E4: Activity Series Machine Flags
+
+- [x] `src/types/rules.ts` — `ActivitySeriesEntry`: добавлены `reduces_H_from_water?`, `displacement_below?`; `name` сделан опциональным (locale-free)
+- [x] `data-src/rules/activity_series.json` — все 18 металлов обновлены с обоими флагами
+- [x] `src/lib/__tests__/activity-series-flags.test.ts` — 4 теста проверяют назначение флагов
+- [x] `generators.ts` — fallback `a.name ?? a.symbol` для locale-free данных
+
+**Итог**: 728 тестов ✓, build ✓, PR #1 обновлён
 
 ---
 
