@@ -1,92 +1,20 @@
 [
-  {
-    "symbol": "Li",
-    "position": 0,
-    "reduces_H": true
-  },
-  {
-    "symbol": "K",
-    "position": 1,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Ba",
-    "position": 2,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Ca",
-    "position": 3,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Na",
-    "position": 4,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Mg",
-    "position": 5,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Al",
-    "position": 6,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Zn",
-    "position": 7,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Fe",
-    "position": 8,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Ni",
-    "position": 9,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Sn",
-    "position": 10,
-    "reduces_H": true
-  },
-  {
-    "symbol": "Pb",
-    "position": 11,
-    "reduces_H": true
-  },
-  {
-    "symbol": "H",
-    "position": 12,
-    "reduces_H": false
-  },
-  {
-    "symbol": "Cu",
-    "position": 13,
-    "reduces_H": false
-  },
-  {
-    "symbol": "Hg",
-    "position": 14,
-    "reduces_H": false
-  },
-  {
-    "symbol": "Ag",
-    "position": 15,
-    "reduces_H": false
-  },
-  {
-    "symbol": "Pt",
-    "position": 16,
-    "reduces_H": false
-  },
-  {
-    "symbol": "Au",
-    "position": 17,
-    "reduces_H": false
-  }
+  { "symbol": "Li", "position": 0,  "reduces_H": true,  "reduces_H_from_water": true,  "displacement_below": false },
+  { "symbol": "K",  "position": 1,  "reduces_H": true,  "reduces_H_from_water": true,  "displacement_below": false },
+  { "symbol": "Ba", "position": 2,  "reduces_H": true,  "reduces_H_from_water": true,  "displacement_below": false },
+  { "symbol": "Ca", "position": 3,  "reduces_H": true,  "reduces_H_from_water": true,  "displacement_below": false },
+  { "symbol": "Na", "position": 4,  "reduces_H": true,  "reduces_H_from_water": true,  "displacement_below": false },
+  { "symbol": "Mg", "position": 5,  "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Al", "position": 6,  "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Zn", "position": 7,  "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Fe", "position": 8,  "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Ni", "position": 9,  "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Sn", "position": 10, "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "Pb", "position": 11, "reduces_H": true,  "reduces_H_from_water": false, "displacement_below": true  },
+  { "symbol": "H",  "position": 12, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false },
+  { "symbol": "Cu", "position": 13, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false },
+  { "symbol": "Hg", "position": 14, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false },
+  { "symbol": "Ag", "position": 15, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false },
+  { "symbol": "Pt", "position": 16, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false },
+  { "symbol": "Au", "position": 17, "reduces_H": false, "reduces_H_from_water": false, "displacement_below": false }
 ]

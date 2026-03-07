@@ -45,9 +45,13 @@ export interface SolubilityRulesFull {
 
 export interface ActivitySeriesEntry {
   symbol: string;
-  name: string;
+  name?: string;  // present only after locale overlay is applied
   position: number;
   reduces_H: boolean;
+  /** Reacts with cold water to release H₂ (alkali and alkaline earth metals only). */
+  reduces_H_from_water?: boolean;
+  /** Can displace metals below it from aqueous salt solutions. False for alkali/alkaline earths (react with water first) and for H and below. */
+  displacement_below?: boolean;
 }
 
 export interface ApplicabilityRule {

@@ -538,8 +538,8 @@ function genPickActivityPair(_params: Record<string, unknown>, data: OntologyDat
   return {
     metalA: a.symbol,
     metalB: b.symbol,
-    nameA: a.name,
-    nameB: b.name,
+    nameA: a.name ?? a.symbol,
+    nameB: b.name ?? b.symbol,
     positionA: a.position,
     positionB: b.position,
     reduces_H_A: a.reduces_H ? 1 : 0,
