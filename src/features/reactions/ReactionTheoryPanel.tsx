@@ -13,7 +13,9 @@ import {
   loadQualitativeTests,
   loadGeneticChains,
   loadEnergyCatalystTheory,
+  loadRuleTexts,
 } from '../../lib/data-loader';
+import { buildRuleSummaryProjection, type RuleSummaryProjection } from '../../lib/rule-text-projection';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
@@ -55,6 +57,7 @@ function getTargetSection(facets?: FacetState): string | null {
 export default function ReactionTheoryPanel({ facets, locale = 'ru' as SupportedLocale }: { facets?: FacetState; locale?: SupportedLocale }) {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
+  const [ruleProjection, setRuleProjection] = useState<Record<string, RuleSummaryProjection> | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
   const [chains, setChains] = useState<GeneticChain[] | null>(null);
   const [energyTheory, setEnergyTheory] = useState<EnergyCatalystTheory | null>(null);
@@ -69,13 +72,15 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
     Promise.all([
       loadReactionTemplates(locale),
       loadApplicabilityRules(locale),
+      loadRuleTexts(),
       loadQualitativeTests(locale),
       loadGeneticChains(locale),
       loadEnergyCatalystTheory(locale),
     ])
-      .then(([t, r, qt, gc, et]) => {
+      .then(([t, r, rt, qt, gc, et]) => {
         setTemplates(t);
         setRules(r);
+        setRuleProjection(buildRuleSummaryProjection(rt, r, locale));
         setQualTests(qt);
         setChains(gc);
         setEnergyTheory(et);
@@ -130,7 +135,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
           {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
-          {templates && rules && (
+          {templates && rules && ruleProjection && (
             <>
               <CollapsibleSection id="types" pageKey="reactions" title={m.rxn_theory_types()} forceOpen={targetSection === 'types'}>
                 {templateGroups.map(group => (
@@ -160,12 +165,15 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                 {ruleGroups.map(group => (
                   <div key={group.type} className="rxn-theory__rule-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
-                    {group.items.map(rule => (
-                      <div key={rule.id} className="rxn-theory__rule">
-                        <div className="rxn-theory__rule-condition">{rule.condition}</div>
-                        <div className="rxn-theory__rule-desc">{rule.description}</div>
-                      </div>
-                    ))}
+                    {group.items.map(rule => {
+                      const proj = ruleProjection[rule.id];
+                      return (
+                        <div key={rule.id} className="rxn-theory__rule">
+                          <div className="rxn-theory__rule-condition">{proj?.summary ?? rule.id}</div>
+                          {proj?.detail && <div className="rxn-theory__rule-desc">{proj.detail}</div>}
+                        </div>
+                      );
+                    })}
                   </div>
                 ))}
               </CollapsibleSection>

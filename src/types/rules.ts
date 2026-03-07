@@ -53,6 +53,7 @@ export interface ActivitySeriesEntry {
 export interface ApplicabilityRule {
   id: string;
   type: string;
-  condition: string;
-  description: string;
+  rule_kind?: string;
+  /** Locale overlay fields — present only when overlay loaded */
+  pedagogical_note?: string | null;
 }
