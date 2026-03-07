@@ -12,7 +12,7 @@
 | **A** | Locale-Free Core + Relations Layer | ✅ Done | `feature/locale-free-ontology` a8ef33f |
 | **B1** | Controlled Rule Text Generation | ✅ Done | `feature/locale-free-ontology` 1ee8966 |
 | **B1.5** | Projection / Facet Integration | ✅ Done | `feature/locale-free-ontology` 0c8b3c6 |
-| **B** | Relations Expansion | ✅ Done | `feature/locale-free-ontology` 8fa321f |
+| **B** | Relations Expansion | ✅ Done | `feature/locale-free-ontology` (see below) |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
 | **D** | Student Materials → Theory Layer | 🔲 Deferred | — |
 
@@ -75,14 +75,14 @@
 
 ---
 
-## Phase B — Relations Expansion 🔲
+## Phase B — Relations Expansion ✅
 
-- [ ] `data-src/relations/forms_salt_with.json` — cation ↔ anion пары (из solubility data)
-- [ ] `data-src/relations/has_naming_rule.json` — ion → suffix_rule.id маппинг
-- [ ] `instance_of` / `subclass_of` — классификационный граф (интеграция с `class`/`subclass` на веществах)
-- [ ] Validator: проверка что все `subject`/`object` ID существуют в онтологии (ID integrity)
-- [ ] TypeScript тип `Relation` — добавить в `src/types/`
-- [ ] Task engine generators: использовать граф для задач типа "найди кислотный остаток" / "назови кислоту"
+- [x] `data-src/relations/forms_salt_with.json` — 67 cation ↔ anion пар (build-time из solubility data)
+- [x] `data-src/relations/has_naming_rule.json` — 22 ion → suffix_rule.id триплета
+- [x] `relations/instance_of.json` — 328 классификационных триплетов (build-time из class/subclass веществ)
+- [x] Validator: `validateRelationIdIntegrity()` — проверка sub:/ion:/el: ID в онтологии
+- [x] TypeScript тип `Relation` — `src/types/relation.ts`
+- [x] Task engine generators: `gen.pick_acid_anion_from_graph` — находит кислотный остаток через граф acid_base_relations; шаблон `tmpl.ion.acid_residue_graph.v1` (4 локали)
 - [x] ~~Resolve `sub:` vs `subst:`~~ — **решено: `sub:`**. Валидатор Phase B запрещает `subst:`.
 
 ---
