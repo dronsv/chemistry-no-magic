@@ -298,5 +298,13 @@
   "explain.acid_residue_graph": {
     "template": "Кислота {acid_formula} диссоциирует с образованием аниона {anion_formula} ({anion_name}) — это её кислотный остаток.",
     "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "Как изменится {target_name} при увеличении {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "При увеличении {source_name} {target_name} {direction_label}.",
+    "slots": {}
   }
 }

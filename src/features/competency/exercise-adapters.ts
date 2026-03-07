@@ -98,7 +98,7 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   electrolyte_logic: ['tmpl.rxn.match_ionic.v1', 'tmpl.rxn.spectator_ions.v1'],
   reaction_energy_profile: [
     'tmpl.rxn.factors_rate.v1', 'tmpl.rxn.exo_endo.v1',
-    'tmpl.rxn.equilibrium_shift.v1',
+    'tmpl.rxn.equilibrium_shift.v1', 'tmpl.kinetics.directional.v1',
   ],
   catalyst_role_understanding: ['tmpl.rxn.catalyst_props.v1', 'tmpl.rxn.identify_catalyst.v1'],
   // ── Calculations ──
@@ -126,7 +126,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     promptTemplates, morphology, templates, bondExamples, substanceIndex, reactions,
     activitySeries, classificationRules, namingRules, qualitativeTests,
     energyCatalystTheory, geneticChains, calculationsData, ionNomenclature,
-    acidBaseRelations,
+    acidBaseRelations, kineticsData,
   ] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
@@ -148,6 +148,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadCalculationsData(locale).catch(() => null),
     dl.loadIonNomenclature(locale).catch(() => null),
     dl.loadRelations('acid_base_relations').catch(() => []),
+    dl.loadKineticsData(locale).catch(() => null),
   ]);
 
   const ontology = {
@@ -158,6 +159,8 @@ export async function buildEngine(locale?: SupportedLocale) {
       qualitativeTests, energyCatalyst: energyCatalystTheory,
       ionNomenclature: ionNomenclature ?? undefined,
       acidBaseRelations: acidBaseRelations.length > 0 ? acidBaseRelations as import('../../types/relation').Relation[] : undefined,
+      kineticsRules: kineticsData?.rules,
+      kineticsDirectionLabels: kineticsData?.directionLabels,
     },
     data: {
       substances: substanceIndex, reactions, geneticChains,

@@ -298,5 +298,13 @@
   "explain.acid_residue_graph": {
     "template": "El ácido {acid_formula} se disocia formando el anión {anion_formula} ({anion_name}) — ese es su residuo ácido.",
     "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "¿Cómo cambia {target_name} cuando aumenta {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "Al aumentar {source_name}, {target_name} {direction_label}.",
+    "slots": {}
   }
 }

@@ -1,0 +1,57 @@
+{
+  "Cl-": {
+    "target_name": "chloride ion Cl⁻",
+    "reagent_name": "silver nitrate",
+    "observation": "white curdy precipitate AgCl, darkens in light"
+  },
+  "SO4^2-": {
+    "target_name": "sulfate ion SO₄²⁻",
+    "reagent_name": "barium chloride",
+    "observation": "white precipitate BaSO₄, insoluble in acids"
+  },
+  "CO3^2-": {
+    "target_name": "carbonate ion CO₃²⁻",
+    "reagent_name": "hydrochloric acid",
+    "observation": "gas CO₂ evolved (fizzing), limewater turns milky"
+  },
+  "PO4^3-": {
+    "target_name": "phosphate ion PO₄³⁻",
+    "reagent_name": "silver nitrate",
+    "observation": "yellow precipitate Ag₃PO₄"
+  },
+  "NH4+": {
+    "target_name": "ammonium ion NH₄⁺",
+    "reagent_name": "sodium hydroxide (with heating)",
+    "observation": "NH₃ gas released with pungent smell, moist litmus paper turns blue"
+  },
+  "Cu^2+": {
+    "target_name": "copper(II) ion Cu²⁺",
+    "reagent_name": "sodium hydroxide",
+    "observation": "blue precipitate Cu(OH)₂"
+  },
+  "Fe^3+": {
+    "target_name": "iron(III) ion Fe³⁺",
+    "reagent_name": "sodium hydroxide",
+    "observation": "brown precipitate Fe(OH)₃"
+  },
+  "Fe^2+": {
+    "target_name": "iron(II) ion Fe²⁺",
+    "reagent_name": "sodium hydroxide",
+    "observation": "white (grey-green) precipitate Fe(OH)₂, quickly turns brown in air"
+  },
+  "CO2": {
+    "target_name": "carbon dioxide CO₂",
+    "reagent_name": "limewater",
+    "observation": "limewater turns milky (precipitate CaCO₃)"
+  },
+  "NH3": {
+    "target_name": "ammonia NH₃",
+    "reagent_name": "moist litmus paper",
+    "observation": "moist red litmus paper turns blue"
+  },
+  "H2S": {
+    "target_name": "hydrogen sulfide H₂S",
+    "reagent_name": "lead acetate/nitrate solution",
+    "observation": "black precipitate PbS, characteristic rotten-egg smell"
+  }
+}

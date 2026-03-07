@@ -1,0 +1,17 @@
+{
+  "Ca_chain": {
+    "title": "Łańcuch wapnia"
+  },
+  "Na_chain": {
+    "title": "Łańcuch sodu"
+  },
+  "Cu_chain": {
+    "title": "Łańcuch miedzi"
+  },
+  "Fe_chain": {
+    "title": "Łańcuch żelaza"
+  },
+  "S_chain": {
+    "title": "Łańcuch siarki (niemetal)"
+  }
+}

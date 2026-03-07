@@ -8,6 +8,7 @@ import { createEmptyFacetState } from './facet-filter';
 import ReactionFacets from './ReactionFacets';
 import ReactionCards from './ReactionCards';
 import ReactionTheoryPanel from './ReactionTheoryPanel';
+import KineticsRulesPanel from '../../components/KineticsRulesPanel';
 import PracticeSection from './practice/PracticeSection';
 import './reactions.css';
 
@@ -24,6 +25,7 @@ export default function ReactionsPage({ locale = 'ru' as SupportedLocale }: { lo
       <div className="reactions-page">
         <ReactionCards locale={locale} facets={facets} onFacetsChange={setFacets} />
         <ReactionTheoryPanel facets={facets} locale={locale} />
+        <KineticsRulesPanel locale={locale} />
         <PracticeSection locale={locale} />
       </div>
     </FormulaLookupProvider>
