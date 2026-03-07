@@ -1,29 +1,134 @@
 [
-  { "subject": "ion:F_minus",       "predicate": "has_naming_rule", "object": "binary_ide" },
-  { "subject": "ion:Cl_minus",      "predicate": "has_naming_rule", "object": "binary_ide" },
-  { "subject": "ion:Br_minus",      "predicate": "has_naming_rule", "object": "binary_ide" },
-  { "subject": "ion:I_minus",       "predicate": "has_naming_rule", "object": "binary_ide" },
-  { "subject": "ion:S_2minus",      "predicate": "has_naming_rule", "object": "binary_ide" },
-
-  { "subject": "ion:SO4_2minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:NO3_minus",     "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:CO3_2minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:PO4_3minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:SiO3_2minus",   "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:CrO4_2minus",   "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:MnO4_minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:Cr2O7_2minus",  "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-
-  { "subject": "ion:SO3_2minus",    "predicate": "has_naming_rule", "object": "oxy_lower_ite" },
-  { "subject": "ion:NO2_minus",     "predicate": "has_naming_rule", "object": "oxy_lower_ite" },
-  { "subject": "ion:HSO3_minus",    "predicate": "has_naming_rule", "object": "oxy_lower_ite" },
-
-  { "subject": "ion:HCO3_minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:HSO4_minus",    "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:HPO4_2minus",   "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-  { "subject": "ion:H2PO4_minus",   "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-
-  { "subject": "ion:CH3COO_minus",  "predicate": "has_naming_rule", "object": "oxy_max_ate" },
-
-  { "subject": "ion:OH_minus",      "predicate": "has_naming_rule", "object": "binary_ide" }
+  {
+    "subject": "ion:F_minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Cl_minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Br_minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:I_minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:S_2minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SO4_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CO3_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:PO4_3minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SiO3_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CrO4_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SO3_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_lower_ite",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NO2_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_lower_ite",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_lower_ite",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "has_naming_rule",
+    "object": "oxy_max_ate",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:OH_minus",
+    "predicate": "has_naming_rule",
+    "object": "binary_ide",
+    "knowledge_level": "school_convention"
+  }
 ]

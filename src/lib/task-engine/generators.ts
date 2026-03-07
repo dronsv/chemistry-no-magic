@@ -6,11 +6,11 @@ import type { CommonCatalyst, EquilibriumShift, RateFactor } from '../../types/e
 import type { ChainStep, GeneticChain } from '../../types/genetic-chain';
 import type { Ion } from '../../types/ion';
 import type { AcidAnionPair, SuffixRule } from '../../types/ion-nomenclature';
-import type { Relation } from '../../types/relation';
 import type { NamingRule } from '../../types/classification';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
+import { terminalConjugateBase } from '../relations';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -797,51 +797,24 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
   }
 }
 
-/**
- * Derive acid-anion pairs by traversing the acid_base_relations knowledge graph.
- *
- * For each acid substance (subject starts with "sub:"), follows has_conjugate_base
- * chains to find the terminal conjugate base (final anion = acid residue).
- * Diprotic/triprotic acids are handled by following the chain to its end.
- */
-function buildTerminalAnionMap(relations: Relation[]): Array<{ acidId: string; anionId: string }> {
-  // Build conjugate_base map: entity → list of {step, target}
-  const cbMap = new Map<string, Array<{ step: number; target: string }>>();
-  for (const r of relations) {
-    if (r.predicate !== 'has_conjugate_base') continue;
-    const entries = cbMap.get(r.subject) ?? [];
-    entries.push({ step: r.step ?? 1, target: r.object });
-    cbMap.set(r.subject, entries);
-  }
-
-  const pairs: Array<{ acidId: string; anionId: string }> = [];
-  for (const [entity, targets] of cbMap) {
-    if (!entity.startsWith('sub:')) continue;
-    // Follow the chain from this acid to the terminal base
-    let current: string = entity;
-    let terminal: string | null = null;
-    const visited = new Set<string>();
-    while (cbMap.has(current) && !visited.has(current)) {
-      visited.add(current);
-      // Pick the minimum-step target (next step in the dissociation chain)
-      const nexts = cbMap.get(current)!.sort((a, b) => a.step - b.step);
-      terminal = nexts[0].target;
-      current = terminal;
-    }
-    if (terminal) {
-      pairs.push({ acidId: entity, anionId: terminal });
-    }
-  }
-  return pairs;
-}
-
 function genPickAcidAnionFromGraph(_params: Record<string, unknown>, data: OntologyData): SlotValues {
   const relations = data.rules.acidBaseRelations;
   if (!relations || relations.length === 0) {
     throw new Error('acidBaseRelations not available in OntologyData');
   }
 
-  const pairs = buildTerminalAnionMap(relations);
+  // Build acid → terminal anion pairs by following has_conjugate_base chains
+  const pairs: Array<{ acidId: string; anionId: string }> = [];
+  for (const r of relations) {
+    if (r.predicate !== 'has_conjugate_base' || !r.subject.startsWith('sub:')) continue;
+    // Only process step-1 entries (acid starts) to avoid intermediate ions
+    if ((r.step ?? 1) !== 1) continue;
+    const terminal = terminalConjugateBase(relations, r.subject);
+    if (terminal && !pairs.some(p => p.acidId === r.subject)) {
+      pairs.push({ acidId: r.subject, anionId: terminal });
+    }
+  }
+
   if (pairs.length === 0) {
     throw new Error('No acid-anion pairs derivable from acidBaseRelations graph');
   }

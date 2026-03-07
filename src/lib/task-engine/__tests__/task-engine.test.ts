@@ -605,6 +605,14 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     template: 'Heat of reaction: ΔH = {delta_H} kJ.',
     slots: {},
   },
+  'prompt.acid_residue_graph': {
+    question: 'What is the acid residue of {acid_formula}?',
+    slots: {},
+  },
+  'explain.acid_residue_graph': {
+    template: 'The acid residue of {acid_formula} is {anion_formula}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
