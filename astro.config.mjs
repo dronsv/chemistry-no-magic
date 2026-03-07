@@ -2,6 +2,20 @@
 import { defineConfig } from 'astro/config';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+// Load route policy for sitemap filtering
+let _routePolicy;
+try {
+  _routePolicy = JSON.parse(readFileSync(join(process.cwd(), 'data-src/route_policy.json'), 'utf-8'));
+} catch {
+  _routePolicy = { elements: { mode: 'all' }, substances: { mode: 'all' } };
+}
+function _inSitemap(policy, id) {
+  if (!policy || policy.mode === 'all') return true;
+  return (policy.sitemap ?? policy.full ?? []).includes(id);
+}
 
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -125,8 +139,16 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) =>
-        !page.includes('/profile/') && !page.includes('/profil/') && !page.includes('/perfil/'),
+      filter: (page) => {
+        if (page.includes('/profile/') || page.includes('/profil/') || page.includes('/perfil/')) return false;
+        // Element detail pages — filter by sitemap policy
+        const elMatch = page.match(/\/(periodic-table|tablica-okresowa|tabla-periodica)\/([^/]+)\//);
+        if (elMatch) return _inSitemap(_routePolicy.elements, elMatch[2]);
+        // Substance detail pages — filter by sitemap policy (skip class slug pages with Cyrillic)
+        const subMatch = page.match(/\/(substances|substancje|sustancias)\/([^/]+)\//);
+        if (subMatch && !/[а-яА-Я]/.test(subMatch[2])) return _inSitemap(_routePolicy.substances, subMatch[2]);
+        return true;
+      },
       serialize: (item) => {
         const p = priority(item.url);
         return {

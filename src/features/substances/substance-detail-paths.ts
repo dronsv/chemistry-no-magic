@@ -1,6 +1,7 @@
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { cachedReadJson, cachedReadDataSrc } from '../../lib/build-data-cache';
+import { loadRoutePolicy, isRouteAllowed } from '../../lib/route-policy';
 
 export interface SubstanceData {
   id: string;
@@ -103,10 +104,14 @@ export async function getStaticPaths() {
     reactions = await cachedReadDataSrc('reactions/reactions.json');
   } catch { /* reactions optional */ }
 
+  const policy = await loadRoutePolicy();
+  const substancePolicy = policy.substances;
+
   const paths = [];
   for (const file of files) {
     if (!file.endsWith('.json')) continue;
     const id = file.replace('.json', '');
+    if (!isRouteAllowed(substancePolicy, id)) continue;
     const substance: SubstanceData = await cachedReadJson(join(substancesDir, file));
     allSubstances.push(substance);
     paths.push({ params: { id }, props: { substance, classificationRules, namingRules } });

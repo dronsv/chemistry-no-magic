@@ -1,0 +1,36 @@
+{
+  "_comment": "Route materialization policy. mode=allowlist → only listed IDs get standalone static routes. sitemap subset is indexed by search engines; full set is generated but may be noindex in future.",
+  "elements": {
+    "mode": "allowlist",
+    "full": [
+      "H", "O", "C", "N",
+      "Na", "K", "Ca", "Mg", "Al", "Fe", "Cu", "Zn",
+      "S", "P", "Cl", "F", "Br", "I",
+      "Si", "Mn", "Cr", "Ba", "Ag", "Pb"
+    ],
+    "sitemap": [
+      "H", "O", "C", "N",
+      "Na", "K", "Ca", "Al", "Fe", "Cu", "Zn",
+      "S", "Cl", "Mg", "Si"
+    ]
+  },
+  "substances": {
+    "mode": "allowlist",
+    "full": [
+      "h2o", "hcl", "h2so4", "naoh", "h3po4", "hno3",
+      "nacl", "co2", "caco3", "na2co3", "nh3",
+      "kmno4", "k2cr2o7", "bacl2", "agno3",
+      "zno", "sio2", "fe2o3", "al2o3", "koh",
+      "h2s", "cu_oh_2", "fe_oh_3", "cao", "so2",
+      "cl2", "o2", "h2", "h2o2", "na2so4"
+    ],
+    "sitemap": [
+      "h2o", "hcl", "h2so4", "naoh", "h3po4", "hno3",
+      "nacl", "co2", "caco3", "na2co3", "nh3",
+      "kmno4", "bacl2", "agno3"
+    ]
+  },
+  "competencies": {
+    "mode": "all"
+  }
+}

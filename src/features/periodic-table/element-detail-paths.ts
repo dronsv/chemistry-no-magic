@@ -1,6 +1,7 @@
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { cachedReadJson, cachedReadDataSrc } from '../../lib/build-data-cache';
+import { loadRoutePolicy, isRouteAllowed } from '../../lib/route-policy';
 
 export interface ElementDiscovery {
   year?: number;
@@ -95,7 +96,9 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const elements: ElementData[] = await cachedReadDataSrc('elements.json');
+  const allElements: ElementData[] = await cachedReadDataSrc('elements.json');
+  const policy = await loadRoutePolicy();
+  const elements = allElements.filter(el => isRouteAllowed(policy.elements, el.symbol));
 
   // Load element groups for display names
   const groupsDict: Record<string, ElementGroupInfo> = await cachedReadDataSrc('element-groups.json');
