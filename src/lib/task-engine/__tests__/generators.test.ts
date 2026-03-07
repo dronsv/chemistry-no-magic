@@ -882,6 +882,61 @@ describe('gen.pick_ion_nomenclature', () => {
   });
 });
 
+// ── gen.pick_acid_anion_from_graph ────────────────────────────────
+
+const MOCK_ACID_BASE_RELATIONS = [
+  // HCl → Cl⁻ (monoprotic)
+  { subject: 'sub:hcl', predicate: 'has_conjugate_base', object: 'ion:Cl_minus', step: 1 },
+  { subject: 'ion:Cl_minus', predicate: 'has_conjugate_acid', object: 'sub:hcl', step: 1 },
+  // H₂SO₄ → HSO₄⁻ → SO₄²⁻ (diprotic)
+  { subject: 'sub:h2so4', predicate: 'has_conjugate_base', object: 'ion:HSO4_minus', step: 1 },
+  { subject: 'ion:HSO4_minus', predicate: 'has_conjugate_base', object: 'ion:SO4_2minus', step: 2 },
+];
+
+const MOCK_IONS_FOR_GRAPH: Ion[] = [
+  { id: 'Cl_minus', formula: 'Cl⁻', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: [] },
+  { id: 'HSO4_minus', formula: 'HSO₄⁻', charge: -1, type: 'anion', name: 'Гидросульфат-ион', tags: [] },
+  { id: 'SO4_2minus', formula: 'SO₄²⁻', charge: -2, type: 'anion', name: 'Сульфат-ион', tags: [] },
+];
+
+const dataWithAcidBaseRelations: OntologyData = {
+  ...MOCK_DATA,
+  core: { ...MOCK_DATA.core, ions: MOCK_IONS_FOR_GRAPH },
+  rules: { ...MOCK_DATA.rules, acidBaseRelations: MOCK_ACID_BASE_RELATIONS },
+};
+
+describe('gen.pick_acid_anion_from_graph', () => {
+  it('returns acid and terminal anion slots', () => {
+    const result = runGenerator('gen.pick_acid_anion_from_graph', {}, dataWithAcidBaseRelations);
+    expect(result.acid_id).toMatch(/^sub:/);
+    expect(result.anion_id).toMatch(/^ion:/);
+    expect(typeof result.acid_formula).toBe('string');
+    expect(typeof result.anion_formula).toBe('string');
+  });
+
+  it('resolves terminal conjugate base for diprotic acid (H₂SO₄ → SO₄²⁻)', () => {
+    // Run multiple times to catch H₂SO₄
+    let foundDiprotic = false;
+    for (let i = 0; i < 20; i++) {
+      const result = runGenerator('gen.pick_acid_anion_from_graph', {}, dataWithAcidBaseRelations);
+      if (result.acid_id === 'sub:h2so4') {
+        // Must give terminal anion SO₄²⁻, NOT intermediate HSO₄⁻
+        expect(result.anion_id).toBe('ion:SO4_2minus');
+        foundDiprotic = true;
+        break;
+      }
+    }
+    // H₂SO₄ is one of 2 acids — with 20 tries it should appear
+    expect(foundDiprotic).toBe(true);
+  });
+
+  it('throws when acidBaseRelations is not available', () => {
+    expect(() => runGenerator('gen.pick_acid_anion_from_graph', {}, MOCK_DATA)).toThrow(
+      'acidBaseRelations not available',
+    );
+  });
+});
+
 // ── Registry tests ───────────────────────────────────────────────
 
 describe('runGenerator', () => {

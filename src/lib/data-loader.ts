@@ -1033,3 +1033,8 @@ export async function loadRuleTexts(): Promise<GeneratedRuleText[]> {
   const path = 'rules/rule_texts.json';
   return loadDataFile<GeneratedRuleText[]>(path);
 }
+
+/** Load instance_of classification triples generated at build time from substance class/subclass fields. */
+export async function loadInstanceOf(): Promise<import('../types/relation').Relation[]> {
+  return loadRelations<import('../types/relation').Relation>('instance_of');
+}

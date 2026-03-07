@@ -3731,5 +3731,43 @@
     "competency_hint": {
       "calculations_basic": "P"
     }
+  },
+  {
+    "template_id": "tmpl.ion.acid_residue_graph.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["ion", "substance"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_acid_anion_from_graph",
+        "params": {}
+      },
+      "solvers": [
+        {
+          "id": "solver.slot_lookup",
+          "params": { "answer_field": "anion_formula" }
+        }
+      ],
+      "renderers": [
+        {
+          "id": "view.choice_single",
+          "params": { "option_count": 4 }
+        }
+      ]
+    },
+    "prompt_template_id": "prompt.acid_residue_graph",
+    "explanation_template_id": "explain.acid_residue_graph",
+    "evidence_rules": ["acid_anion_relationship"],
+    "difficulty_model": {
+      "features": { "oxyacid": "auto" },
+      "target_band": [0.2, 0.5]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": {
+      "naming": "P"
+    }
   }
 ]

@@ -55,6 +55,7 @@ import { generateReactionParticipants } from './lib/generate-reaction-participan
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
 import { generateRuleTexts } from './lib/generate-rule-texts.mjs';
 import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
+import { generateInstanceOf } from './lib/generate-classification-triples.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -596,6 +597,12 @@ async function main() {
   await writeFile(join(bundleDir, 'relations', 'forms_salt_with.json'), JSON.stringify(formsSaltWith));
   relationFiles['forms_salt_with'] = 'relations/forms_salt_with.json';
   console.log(`  ${formsSaltWith.length} forms_salt_with triples`);
+
+  // Generate instance_of classification triples from substance class/subclass fields
+  const instanceOf = generateInstanceOf(substances.map(s => s.data));
+  await writeFile(join(bundleDir, 'relations', 'instance_of.json'), JSON.stringify(instanceOf));
+  relationFiles['instance_of'] = 'relations/instance_of.json';
+  console.log(`  ${instanceOf.length} instance_of triples`);
 
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');

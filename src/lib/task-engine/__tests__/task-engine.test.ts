@@ -827,6 +827,13 @@ function loadAllTemplates(): TaskTemplate[] {
   return JSON.parse(raw) as TaskTemplate[];
 }
 
+const MOCK_ACID_BASE_RELATIONS_PHASE2 = [
+  { subject: 'sub:hcl', predicate: 'has_conjugate_base', object: 'ion:Cl_minus', step: 1 },
+  { subject: 'ion:Cl_minus', predicate: 'has_conjugate_acid', object: 'sub:hcl', step: 1 },
+  { subject: 'sub:hno3', predicate: 'has_conjugate_base', object: 'ion:NO3_minus', step: 1 },
+  { subject: 'ion:NO3_minus', predicate: 'has_conjugate_acid', object: 'sub:hno3', step: 1 },
+];
+
 function buildPhase2Ontology(): OntologyData {
   return {
     ...MOCK_DATA,
@@ -843,6 +850,7 @@ function buildPhase2Ontology(): OntologyData {
       qualitativeTests: MOCK_QUALITATIVE_TESTS,
       energyCatalyst: MOCK_ENERGY_CATALYST,
       ionNomenclature: MOCK_ION_NOMENCLATURE,
+      acidBaseRelations: MOCK_ACID_BASE_RELATIONS_PHASE2,
     },
     data: {
       substances: PHASE2_SUBSTANCE_INDEX,
@@ -858,8 +866,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 66 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(66);
+  it('loads all 67 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(67);
   });
 
   describe('bond templates', () => {

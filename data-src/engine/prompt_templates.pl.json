@@ -290,5 +290,13 @@
   "explain.calc_heat_of_reaction": {
     "template": "Efekt cieplny reakcji: ΔH = {delta_H} kJ.",
     "slots": {}
+  },
+  "prompt.acid_residue_graph": {
+    "question": "Resztą kwasową kwasu {acid_formula} jest:",
+    "slots": {}
+  },
+  "explain.acid_residue_graph": {
+    "template": "Kwas {acid_formula} dysocjuje z wytworzeniem anionu {anion_formula} ({anion_name}) — to jego reszta kwasowa.",
+    "slots": {}
   }
 }

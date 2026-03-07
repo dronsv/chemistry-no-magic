@@ -290,5 +290,13 @@
   "explain.calc_heat_of_reaction": {
     "template": "Heat of reaction: ΔH = {delta_H} kJ.",
     "slots": {}
+  },
+  "prompt.acid_residue_graph": {
+    "question": "The acid residue of {acid_formula} is:",
+    "slots": {}
+  },
+  "explain.acid_residue_graph": {
+    "template": "The acid {acid_formula} dissociates to form the anion {anion_formula} ({anion_name}) — this is its acid residue.",
+    "slots": {}
   }
 }
