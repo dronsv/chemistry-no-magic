@@ -11,7 +11,7 @@
 |------|----------|--------|--------------|
 | **A** | Locale-Free Core + Relations Layer | ✅ Done | `feature/locale-free-ontology` a8ef33f |
 | **B1** | Controlled Rule Text Generation | ✅ Done | `feature/locale-free-ontology` 1ee8966 |
-| **B1.5** | Projection / Facet Integration | 🔲 Next | — |
+| **B1.5** | Projection / Facet Integration | ✅ Done | `feature/locale-free-ontology` 0c8b3c6 |
 | **B** | Relations Expansion | 🔲 Planned | — |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
 | **D** | Student Materials → Theory Layer | 🔲 Deferred | — |
