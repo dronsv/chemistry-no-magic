@@ -37,6 +37,7 @@ import type { ReactionRole, ReactionParticipant } from '../types/reaction-partic
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
 import type { Topic, TopicPagesMap } from '../types/topic';
+import type { GeneratedRuleText } from '../types/rule-text';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -1025,4 +1026,10 @@ export async function loadTopicPages(locale?: SupportedLocale): Promise<TopicPag
     if (result[id]) result[id] = { ...result[id], ...fields };
   }
   return result;
+}
+
+/** Load generated rule texts (build-time summaries per rule × locale). */
+export async function loadRuleTexts(): Promise<GeneratedRuleText[]> {
+  const path = 'rules/rule_texts.json';
+  return loadDataFile<GeneratedRuleText[]>(path);
 }

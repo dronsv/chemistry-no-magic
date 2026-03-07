@@ -52,6 +52,7 @@ import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
+import { generateRuleTexts } from './lib/generate-rule-texts.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -200,6 +201,10 @@ async function main() {
   const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
   const topics = await loadJson(join(DATA_SRC, 'topics.json'));
   const topicPages = await loadJson(join(DATA_SRC, 'topic_pages.json'));
+
+  // Load Phase B1: rule vocab and summary templates
+  const ruleVocab = await loadJson(join(DATA_SRC, 'vocab', 'rule_terms.json')).catch(() => ({}));
+  const ruleSummaryTemplates = await loadJson(join(DATA_SRC, 'templates', 'rule_summary_templates.json')).catch(() => ({}));
 
   // Load theory modules early for validation (optional directory)
   const theoryModulesDir = join(DATA_SRC, 'theory_modules');
@@ -382,6 +387,8 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'solubility_rules_full.json'), JSON.stringify(solubilityFull));
   await writeFile(join(bundleDir, 'rules', 'activity_series.json'), JSON.stringify(activitySeries));
   await writeFile(join(bundleDir, 'rules', 'applicability_rules.json'), JSON.stringify(applicabilityRules));
+  const ruleTexts = generateRuleTexts(applicabilityRules, ruleVocab, ruleSummaryTemplates);
+  await writeFile(join(bundleDir, 'rules', 'rule_texts.json'), JSON.stringify(ruleTexts));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
   await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 

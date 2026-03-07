@@ -241,6 +241,35 @@ export function validateApplicabilityRules(rules) {
     const prefix = `applicability_rules[${i}]`;
     if (typeof r.id !== 'string') errors.push(`${prefix}: missing id`);
   }
+  errors.push(...validateApplicabilityRuleStructure(rules));
+  return errors;
+}
+
+const VALID_RULE_KINDS = [
+  'exchange_condition', 'activity_restriction', 'thermal_decomposition',
+  'gas_evolution', 'oxidizing_acid', 'passivation', 'amphoteric_reaction', 'oxide_exception',
+];
+
+const REQUIRED_FIELDS_BY_KIND = {
+  thermal_decomposition: ['reactant_class', 'conditions', 'product_classes'],
+  gas_evolution: ['reactant_class', 'reagent_class', 'gas_product'],
+  activity_restriction: ['subject_class', 'constraint'],
+  passivation: ['metals', 'acids'],
+  exchange_condition: ['required_products'],
+};
+
+export function validateApplicabilityRuleStructure(rules) {
+  const errors = [];
+  if (!Array.isArray(rules)) return ['applicability_rules.json must be an array'];
+  for (const rule of rules) {
+    if (!rule.rule_kind)
+      errors.push(`applicability_rules: ${rule.id} — missing rule_kind`);
+    else if (!VALID_RULE_KINDS.includes(rule.rule_kind))
+      errors.push(`applicability_rules: ${rule.id} — unknown rule_kind '${rule.rule_kind}'`);
+    const required = REQUIRED_FIELDS_BY_KIND[rule.rule_kind] ?? [];
+    for (const f of required)
+      if (!rule[f]) errors.push(`applicability_rules: ${rule.id} — missing '${f}' for kind '${rule.rule_kind}'`);
+  }
   return errors;
 }
 

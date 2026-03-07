@@ -1,0 +1,68 @@
+{
+  "canonical_summary:exchange_condition": {
+    "ru": "Реакция обмена не протекает до конца, если не образуется {required_products}.",
+    "en": "Exchange reaction does not proceed unless {required_products} form.",
+    "pl": "Reakcja wymiany nie zachodzi do końca, jeśli nie powstaje {required_products}.",
+    "es": "La reacción de intercambio no avanza si no se forma {required_products}."
+  },
+  "canonical_summary:thermal_decomposition": {
+    "ru": "{reactant_class} {conditions} разлагаются с образованием {product_classes}.",
+    "en": "{reactant_class} decompose {conditions} to form {product_classes}.",
+    "pl": "{reactant_class} {conditions} rozkładają się z wytworzeniem {product_classes}.",
+    "es": "{reactant_class} se descomponen {conditions} formando {product_classes}."
+  },
+  "exception_note:thermally_stable": {
+    "ru": "{exceptions} термически устойчивы.",
+    "en": "{exceptions} are thermally stable.",
+    "pl": "{exceptions} są termicznie stabilne.",
+    "es": "{exceptions} son termoestables."
+  },
+  "canonical_summary:gas_evolution": {
+    "ru": "{reactant_class} при действии {reagent_class} выделяют {gas_product}.",
+    "en": "{reactant_class} release {gas_product} when treated with {reagent_class}.",
+    "pl": "{reactant_class} wydzielają {gas_product} pod działaniem {reagent_class}.",
+    "es": "{reactant_class} liberan {gas_product} al reaccionar con {reagent_class}."
+  },
+  "canonical_summary:activity_restriction.position_after_H": {
+    "ru": "{subject_class} не вытесняют водород из разбавленных кислот.",
+    "en": "{subject_class} do not displace hydrogen from dilute acids.",
+    "pl": "{subject_class} nie wypierają wodoru z rozcieńczonych kwasów.",
+    "es": "{subject_class} no desplazan hidrógeno de los ácidos diluidos."
+  },
+  "canonical_summary:activity_restriction.position_right_of_target": {
+    "ru": "Менее активный металл не вытесняет более активный из раствора его соли.",
+    "en": "A less active metal cannot displace a more active metal from its salt solution.",
+    "pl": "Mniej aktywny metal nie wypiera bardziej aktywnego z roztworu jego soli.",
+    "es": "Un metal menos activo no desplaza a uno más activo de la solución de su sal."
+  },
+  "canonical_summary:activity_restriction.reacts_with_water_first": {
+    "ru": "{subject_class} реагируют с водой, а не с солями в растворе.",
+    "en": "{subject_class} react with water rather than with salts in solution.",
+    "pl": "{subject_class} reagują z wodą, a nie z solami w roztworze.",
+    "es": "{subject_class} reaccionan con el agua en lugar de con las sales en solución."
+  },
+  "canonical_summary:oxidizing_acid": {
+    "ru": "{acid} — окислитель; водород при реакции с металлами не выделяется.",
+    "en": "{acid} acts as an oxidizer; hydrogen is not released when reacting with metals.",
+    "pl": "{acid} jest utleniaczem; wodór nie wydziela się podczas reakcji z metalami.",
+    "es": "{acid} actúa como oxidante; el hidrógeno no se libera al reaccionar con metales."
+  },
+  "canonical_summary:passivation": {
+    "ru": "{metals} пассивируются холодными концентрированными {acids}.",
+    "en": "{metals} are passivated by cold concentrated {acids}.",
+    "pl": "{metals} ulegają pasywacji przez zimne stężone {acids}.",
+    "es": "{metals} se pasivizan con {acids} concentrados fríos."
+  },
+  "canonical_summary:amphoteric_reaction": {
+    "ru": "Амфотерные оксиды и гидроксиды реагируют и с кислотами, и со щелочами.",
+    "en": "Amphoteric oxides and hydroxides react with both acids and alkalis.",
+    "pl": "Amfoteryczne tlenki i wodorotlenki reagują zarówno z kwasami, jak i zasadami.",
+    "es": "Los óxidos e hidróxidos anfóteros reaccionan tanto con ácidos como con álcalis."
+  },
+  "canonical_summary:oxide_exception": {
+    "ru": "{substance} не реагирует с водой, в отличие от большинства кислотных оксидов.",
+    "en": "{substance} does not react with water, unlike most acidic oxides.",
+    "pl": "{substance} nie reaguje z wodą, w przeciwieństwie do większości tlenków kwasowych.",
+    "es": "{substance} no reacciona con el agua, a diferencia de la mayoría de los óxidos ácidos."
+  }
+}

@@ -1,62 +1,118 @@
 [
   {
     "id": "no_precipitate_no_gas_no_water",
-    "type": "exchange_reaction_condition"
+    "type": "exchange_reaction_condition",
+    "rule_kind": "exchange_condition",
+    "required_products": ["precipitate", "gas", "weak_electrolyte"],
+    "logic": "at_least_one"
   },
   {
     "id": "insoluble_base_no_acid_reaction",
-    "type": "exchange_reaction_condition"
+    "type": "exchange_reaction_condition",
+    "rule_kind": "exchange_condition",
+    "required_products": ["precipitate", "gas", "weak_electrolyte"],
+    "logic": "at_least_one",
+    "reactant_constraint": "solubility:at_least_one_soluble"
   },
   {
     "id": "noble_metal_no_acid",
-    "type": "activity_series_condition"
+    "type": "activity_series_condition",
+    "rule_kind": "activity_restriction",
+    "subject_class": "noble_metals",
+    "constraint": "position_after_H",
+    "examples": ["Cu", "Hg", "Ag", "Pt", "Au"]
   },
   {
     "id": "less_active_no_displacement",
-    "type": "activity_series_condition"
+    "type": "activity_series_condition",
+    "rule_kind": "activity_restriction",
+    "subject_class": "less_active_metal",
+    "constraint": "position_right_of_target"
   },
   {
     "id": "alkali_metal_water_not_salt",
-    "type": "activity_series_condition"
+    "type": "activity_series_condition",
+    "rule_kind": "activity_restriction",
+    "subject_class": "alkali_alkaline_earth_metals",
+    "constraint": "reacts_with_water_first"
   },
   {
     "id": "sio2_no_water",
-    "type": "oxide_reaction_condition"
+    "type": "oxide_reaction_condition",
+    "rule_kind": "oxide_exception",
+    "substance": "SiO2",
+    "reagent": "water"
   },
   {
     "id": "insoluble_base_heat_decomposition",
-    "type": "thermal_condition"
+    "type": "thermal_condition",
+    "rule_kind": "thermal_decomposition",
+    "reactant_class": "metal_hydroxide",
+    "reactant_constraint": "solubility:insoluble",
+    "conditions": ["heating"],
+    "product_classes": ["metal_oxide", "water"],
+    "exceptions": ["alkali_hydroxides"]
   },
   {
     "id": "carbonate_acid_gas",
-    "type": "gas_forming_condition"
+    "type": "gas_forming_condition",
+    "rule_kind": "gas_evolution",
+    "reactant_class": "carbonate",
+    "reagent_class": "acid",
+    "gas_product": "CO2",
+    "intermediate": "H2CO3"
   },
   {
     "id": "sulfite_acid_gas",
-    "type": "gas_forming_condition"
+    "type": "gas_forming_condition",
+    "rule_kind": "gas_evolution",
+    "reactant_class": "sulfite",
+    "reagent_class": "acid",
+    "gas_product": "SO2",
+    "intermediate": "H2SO3"
   },
   {
     "id": "sulfide_acid_gas",
-    "type": "gas_forming_condition"
+    "type": "gas_forming_condition",
+    "rule_kind": "gas_evolution",
+    "reactant_class": "soluble_sulfide",
+    "reagent_class": "acid",
+    "gas_product": "H2S"
   },
   {
     "id": "ammonium_alkali_gas",
-    "type": "gas_forming_condition"
+    "type": "gas_forming_condition",
+    "rule_kind": "gas_evolution",
+    "reactant_class": "ammonium_salt",
+    "reagent_class": "alkali",
+    "gas_product": "NH3",
+    "intermediate": "NH3_H2O"
   },
   {
     "id": "h2so4_conc_oxidizer",
-    "type": "special_acid_condition"
+    "type": "special_acid_condition",
+    "rule_kind": "oxidizing_acid",
+    "acid": "H2SO4_conc"
   },
   {
     "id": "hno3_oxidizer",
-    "type": "special_acid_condition"
+    "type": "special_acid_condition",
+    "rule_kind": "oxidizing_acid",
+    "acid": "HNO3"
   },
   {
     "id": "passivation_cold_conc",
-    "type": "passivation_condition"
+    "type": "passivation_condition",
+    "rule_kind": "passivation",
+    "metals": ["Fe", "Al", "Cr"],
+    "acids": ["H2SO4_conc", "HNO3_conc"],
+    "condition": "cold"
   },
   {
     "id": "amphoteric_both_directions",
-    "type": "amphoteric_condition"
+    "type": "amphoteric_condition",
+    "rule_kind": "amphoteric_reaction",
+    "subject_class": "amphoteric_hydroxides_oxides",
+    "reacts_with": ["acid", "alkali"]
   }
 ]

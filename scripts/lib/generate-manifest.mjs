@@ -49,6 +49,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         periodic_trend_anomalies: 'rules/periodic_trend_anomalies.json',
         reason_vocab: 'rules/reason_vocab.json',
         solubility_rules_full: 'rules/solubility_rules_full.json',
+        rule_texts: 'rules/rule_texts.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
