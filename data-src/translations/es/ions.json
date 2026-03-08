@@ -121,5 +121,26 @@
   },
   "Cr2O7_2minus": {
     "name": "Ion dicromato"
+  },
+  "Be_2plus": {
+    "name": "Ion berilio"
+  },
+  "Cu_plus": {
+    "name": "Ion cobre(I)"
+  },
+  "HCO3_minus": {
+    "name": "Ion bicarbonato"
+  },
+  "HSO4_minus": {
+    "name": "Ion bisulfato"
+  },
+  "HSO3_minus": {
+    "name": "Ion bisulfito"
+  },
+  "HPO4_2minus": {
+    "name": "Ion hidrogenofosfato"
+  },
+  "H2PO4_minus": {
+    "name": "Ion dihidrogenofosfato"
   }
 }

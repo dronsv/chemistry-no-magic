@@ -1,4 +1,13 @@
 {
+  "_ch3coo_2cu": {
+    "name": "Octan miedzi(II)"
+  },
+  "_cuoh_2co3": {
+    "name": "Zasadowy węglan miedzi(II)"
+  },
+  "agcl": {
+    "name": "Chlorek srebra"
+  },
   "agno3": {
     "name": "Azotan srebra",
     "appearance": "Bezbarwne kryształy ciemniejące pod wpływem światła",
@@ -14,6 +23,9 @@
       "Lapis (azotan srebra) jest stosowany w medycynie do przyżegania ran",
       "Pozostawia trwałe czarne plamy na skórze w wyniku redukcji do srebra metalicznego"
     ]
+  },
+  "al_no3_3": {
+    "name": "Azotan(V) glinu"
   },
   "al2_so4_3": {
     "name": "Siarczan glinu",
@@ -45,6 +57,12 @@
       "Rozkłada się na Al₂O₃ i wodę pod wpływem ogrzewania"
     ]
   },
+  "aloh_no3_2": {
+    "name": "Zasadowy azotan(V) glinu"
+  },
+  "alpo4": {
+    "name": "Fosforan(V) glinu"
+  },
   "alcl3": {
     "name": "Chlorek glinu",
     "appearance": "Biały lub żółtawy proszek",
@@ -58,6 +76,15 @@
       "Bezwodny AlCl₃ jest kluczowym katalizatorem w syntezie organicznej (reakcja Friedela-Craftsa)",
       "Jego temperatura wrzenia jest niższa od temperatury topnienia — sublimuje pod ciśnieniem atmosferycznym"
     ]
+  },
+  "ba_oh_2": {
+    "name": "Wodorotlenek baru"
+  },
+  "baco3": {
+    "name": "Węglan baru"
+  },
+  "bao": {
+    "name": "Tlenek baru"
   },
   "bacl2": {
     "name": "Chlorek baru",

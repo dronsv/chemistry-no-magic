@@ -171,27 +171,38 @@
       "suffix": "-ate"
     }
   },
+  "Be_2plus": {
+    "name": "Beryllium ion"
+  },
+  "Cu_plus": {
+    "name": "Copper(I) ion"
+  },
   "HCO3_minus": {
+    "name": "Hydrogen carbonate ion",
     "naming": {
       "suffix": "-ate"
     }
   },
   "HSO4_minus": {
+    "name": "Hydrogen sulfate ion",
     "naming": {
       "suffix": "-ate"
     }
   },
   "HSO3_minus": {
+    "name": "Hydrogen sulfite ion",
     "naming": {
       "suffix": "-ite"
     }
   },
   "HPO4_2minus": {
+    "name": "Hydrogen phosphate ion",
     "naming": {
       "suffix": "-ate"
     }
   },
   "H2PO4_minus": {
+    "name": "Dihydrogen phosphate ion",
     "naming": {
       "suffix": "-ate"
     }

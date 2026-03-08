@@ -121,5 +121,26 @@
   },
   "Cr2O7_2minus": {
     "name": "Jon dichromianowy(VI)"
+  },
+  "Be_2plus": {
+    "name": "Jon berylowy"
+  },
+  "Cu_plus": {
+    "name": "Jon miedzi(I)"
+  },
+  "HCO3_minus": {
+    "name": "Jon wodorowęglanowy"
+  },
+  "HSO4_minus": {
+    "name": "Jon wodorosiarczanowy(VI)"
+  },
+  "HSO3_minus": {
+    "name": "Jon wodorosiarczanowy(IV)"
+  },
+  "HPO4_2minus": {
+    "name": "Jon wodorofosforanowy(V)"
+  },
+  "H2PO4_minus": {
+    "name": "Jon diwodorofosforanowy(V)"
   }
 }
