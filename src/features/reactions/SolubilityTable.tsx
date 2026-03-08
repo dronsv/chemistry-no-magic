@@ -26,12 +26,12 @@ const SOLUBILITY_CLASSES: Record<string, string> = {
 };
 
 const COMPACT_CATION_ORDER = [
-  'H_plus', 'Na_plus', 'K_plus', 'NH4_plus', 'Ba_2plus', 'Ca_2plus', 'Mg_2plus',
-  'Al_3plus', 'Fe_2plus', 'Fe_3plus', 'Cu_2plus', 'Zn_2plus', 'Ag_plus', 'Pb_2plus',
+  'ion:H_plus', 'ion:Na_plus', 'ion:K_plus', 'ion:NH4_plus', 'ion:Ba_2plus', 'ion:Ca_2plus', 'ion:Mg_2plus',
+  'ion:Al_3plus', 'ion:Fe_2plus', 'ion:Fe_3plus', 'ion:Cu_2plus', 'ion:Zn_2plus', 'ion:Ag_plus', 'ion:Pb_2plus',
 ];
 
 const COMPACT_ANION_ORDER = [
-  'Cl_minus', 'SO4_2minus', 'NO3_minus', 'CO3_2minus', 'PO4_3minus', 'S_2minus', 'OH_minus', 'SiO3_2minus',
+  'ion:Cl_minus', 'ion:SO4_2minus', 'ion:NO3_minus', 'ion:CO3_2minus', 'ion:PO4_3minus', 'ion:S_2minus', 'ion:OH_minus', 'ion:SiO3_2minus',
 ];
 
 interface SolubilityTableProps {
