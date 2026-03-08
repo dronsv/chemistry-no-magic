@@ -346,9 +346,7 @@ export default function TheoryModulePanel({
     if (!open || module) return;
     setLoading(true);
 
-    const overlayPromise = locale !== 'ru'
-      ? loadTheoryModuleOverlay(moduleKey, locale)
-      : Promise.resolve(null);
+    const overlayPromise = loadTheoryModuleOverlay(moduleKey, locale);
 
     const oxRulesPromise = moduleKey === 'oxidation_states'
       ? loadOxidationRules(locale)

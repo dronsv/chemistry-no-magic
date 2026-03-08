@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "anion_suffixes": {
+      "title": "Anion Suffixes in Salt Names",
+      "blocks": [
+        { "text": "The anion name determines the suffix in the salt name. The suffix depends on the presence of oxygen and the oxidation state of the central atom." },
+        { "title": "Binary anions: -ide", "rule": "Simple anions without oxygen → suffix -IDE", "description": "Cl⁻ → chloride, S²⁻ → sulfide, Br⁻ → bromide, F⁻ → fluoride, I⁻ → iodide" },
+        { "title": "Oxyanions (max OS): -ate", "rule": "Oxygen-containing anion with maximum oxidation state → -ATE", "description": "SO₄²⁻ → sulfate, NO₃⁻ → nitrate, CrO₄²⁻ → chromate" },
+        { "title": "Oxyanions (lower OS): -ite", "rule": "Oxygen-containing anion with lower oxidation state → -ITE", "description": "SO₃²⁻ → sulfite, NO₂⁻ → nitrite" },
+        { "title": "OS above maximum: per-...-ate", "rule": "Oxidation state above typical maximum → prefix PER- + -ATE", "description": "MnO₄⁻ → permanganate, ClO₄⁻ → perchlorate" },
+        { "title": "OS below minimum: hypo-...-ite", "rule": "Oxidation state below typical minimum → prefix HYPO- + -ITE", "description": "ClO⁻ → hypochlorite" },
+        { "text": "Mnemonic: no O → -IDE. Has O: max OS → -ATE, lower → -ITE. Higher than max → PER-...-ATE, lower than min → HYPO-...-ITE." }
+      ]
+    },
+    "substance_naming": {
+      "title": "Nomenclature of Inorganic Substances",
+      "blocks": [
+        { "text": "Oxides: {metal/nonmetal} oxide [(valency)]. Examples: Na₂O → sodium oxide; Fe₂O₃ → iron(III) oxide; SO₂ → sulfur(IV) oxide." },
+        { "text": "Acids: oxyacids are named from their anion. H₂SO₄ → sulfuric acid (sulfate), HNO₃ → nitric acid (nitrate). Binary acids: HCl → hydrochloric acid, H₂S → hydrogen sulfide (hydrosulfuric acid)." },
+        { "text": "Bases: {metal} hydroxide [(valency)]. Examples: NaOH → sodium hydroxide; Fe(OH)₃ → iron(III) hydroxide; Mg(OH)₂ → magnesium hydroxide." },
+        { "text": "Salts: {anion (-ate/-ite/-ide)} {metal} [(valency)]. Examples: NaCl → sodium chloride; CuSO₄ → copper(II) sulfate; FeCl₃ → iron(III) chloride." }
+      ]
+    }
+  }
+}

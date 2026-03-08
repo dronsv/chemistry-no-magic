@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "anion_suffixes": {
+      "title": "Sufijos de aniones en nombres de sales",
+      "blocks": [
+        { "text": "El nombre del anión determina el sufijo en el nombre de la sal. El sufijo depende de la presencia de oxígeno y el estado de oxidación del átomo central." },
+        { "title": "Aniones binarios: -uro", "rule": "Aniones simples sin oxígeno → sufijo -URO", "description": "Cl⁻ → cloruro, S²⁻ → sulfuro, Br⁻ → bromuro, F⁻ → fluoruro, I⁻ → yoduro" },
+        { "title": "Oxoaniones (EO máx.): -ato", "rule": "Anión de ácido con oxígeno en estado de oxidación máximo → -ATO", "description": "SO₄²⁻ → sulfato, NO₃⁻ → nitrato, CrO₄²⁻ → cromato" },
+        { "title": "Oxoaniones (EO menor): -ito", "rule": "Anión de ácido con oxígeno en estado de oxidación menor → -ITO", "description": "SO₃²⁻ → sulfito, NO₂⁻ → nitrito" },
+        { "title": "EO superior al máximo: per-...-ato", "rule": "Estado de oxidación superior al típico máximo → prefijo PER- + -ATO", "description": "MnO₄⁻ → permanganato, ClO₄⁻ → perclorato" },
+        { "title": "EO inferior al mínimo: hipo-...-ito", "rule": "Estado de oxidación inferior al típico mínimo → prefijo HIPO- + -ITO", "description": "ClO⁻ → hipoclorito" },
+        { "text": "Mnemotecnia: sin O → -URO. Con O: EO máx. → -ATO, menor → -ITO. Más que máx. → PER-...-ATO, menos que mín. → HIPO-...-ITO." }
+      ]
+    },
+    "substance_naming": {
+      "title": "Nomenclatura de sustancias inorgánicas",
+      "blocks": [
+        { "text": "Óxidos: óxido de {metal/no metal} [(valencia)]. Ejemplos: Na₂O → óxido de sodio; Fe₂O₃ → óxido de hierro(III); SO₂ → óxido de azufre(IV)." },
+        { "text": "Ácidos: los oxoácidos se nombran según su anión. H₂SO₄ → ácido sulfúrico (sulfato), HNO₃ → ácido nítrico (nitrato). Binarios: HCl → ácido clorhídrico, H₂S → ácido sulfhídrico." },
+        { "text": "Bases: hidróxido de {metal} [(valencia)]. Ejemplos: NaOH → hidróxido de sodio; Fe(OH)₃ → hidróxido de hierro(III); Mg(OH)₂ → hidróxido de magnesio." },
+        { "text": "Sales: {anión (-ato/-ito/-uro)} de {metal} [(valencia)]. Ejemplos: NaCl → cloruro de sodio; CuSO₄ → sulfato de cobre(II); FeCl₃ → cloruro de hierro(III)." }
+      ]
+    }
+  }
+}

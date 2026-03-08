@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "anion_suffixes": {
+      "title": "Przyrostki anionów w nazwach soli",
+      "blocks": [
+        { "text": "Nazwa anionu określa przyrostek w nazwie soli. Przyrostek zależy od obecności tlenu i stopnia utlenienia centralnego atomu." },
+        { "title": "Aniony beztlenowe: -ek", "rule": "Proste aniony bez tlenu → przyrostek -EK", "description": "Cl⁻ → chlorek, S²⁻ → siarczek, Br⁻ → bromek, F⁻ → fluorek, I⁻ → jodek" },
+        { "title": "Aniony tlenowe (maks. SU): -an", "rule": "Anion kwasu tlenowego z maksymalnym stopniem utlenienia → -AN", "description": "SO₄²⁻ → siarczan, NO₃⁻ → azotan, CrO₄²⁻ → chromian" },
+        { "title": "Aniony tlenowe (niższy SU): -in/-yn", "rule": "Anion kwasu tlenowego z niższym stopniem utlenienia → -IN/-YN", "description": "SO₃²⁻ → siarczyn, NO₂⁻ → azotyn" },
+        { "title": "SU powyżej maksimum: nad-...-an", "rule": "Stopień utlenienia powyżej typowego maksimum → przedrostek NAD- + -AN", "description": "MnO₄⁻ → nadmanganian, ClO₄⁻ → nadchloran" },
+        { "title": "SU poniżej minimum: pod-...-yn", "rule": "Stopień utlenienia poniżej typowego minimum → przedrostek POD- + -YN", "description": "ClO⁻ → podchloryn" },
+        { "text": "Mnemotechnika: brak O → -EK. Jest O: maks. SU → -AN, niższy → -YN. Wyższy niż maks. → NAD-...-AN, niższy niż min. → POD-...-YN." }
+      ]
+    },
+    "substance_naming": {
+      "title": "Nomenklatura nieorganiczna",
+      "blocks": [
+        { "text": "Tlenki: tlenek {metalu/niemetalu w D.} [(wartościowość)]. Przykłady: Na₂O → tlenek sodu; Fe₂O₃ → tlenek żelaza(III); SO₂ → tlenek siarki(IV)." },
+        { "text": "Kwasy: kwasy tlenowe nazywane są od anionu. H₂SO₄ → kwas siarkowy(VI) (siarczan), HNO₃ → kwas azotowy(V) (azotan). Beztlenowe: HCl → kwas chlorowodorowy, H₂S → kwas siarkowodorowy." },
+        { "text": "Zasady: wodorotlenek {metalu w D.} [(wartościowość)]. Przykłady: NaOH → wodorotlenek sodu; Fe(OH)₃ → wodorotlenek żelaza(III); Mg(OH)₂ → wodorotlenek magnezu." },
+        { "text": "Sole: {anion (-an/-yn/-ek)} {metalu w D.} [(wartościowość)]. Przykłady: NaCl → chlorek sodu; CuSO₄ → siarczan miedzi(II); FeCl₃ → chlorek żelaza(III)." }
+      ]
+    }
+  }
+}
