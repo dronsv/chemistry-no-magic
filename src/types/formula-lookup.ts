@@ -2,7 +2,7 @@
 export interface FormulaLookupEntry {
   /** Whether this is a substance, element symbol, or ion. */
   type: 'substance' | 'element' | 'ion';
-  /** Substance ID (e.g. "h2o"), element symbol (e.g. "Fe"), or ion ID (e.g. "SO4_2minus"). */
+  /** Substance ID (e.g. "sub:h2o"), element symbol (e.g. "Fe"), or ion ID (e.g. "ion:SO4_2minus"). */
   id: string;
   /** Substance class for coloring (oxide, acid, base, salt, etc.). Only for substances. */
   cls?: string;
