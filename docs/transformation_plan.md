@@ -14,9 +14,10 @@
 | **B1.5** | Projection / Facet Integration | ✅ Done | `feature/locale-free-ontology` 0c8b3c6 |
 | **B** | Relations Expansion | ✅ Done | `feature/locale-free-ontology` (see below) |
 | **E** | Ontology Completion (schema + query API + observation facets + activity flags) | ✅ Done | `feature/locale-free-ontology` dc226f7 |
+| **E3+** | Observation Ontology (reaction_observations + substance_properties + indicator model) | ✅ Done | `feature/localization-foundation` |
+| **L** | Localization Foundation (EN/PL/ES overlays + morphology + generated texts) | ✅ Done | `feature/localization-foundation` c02dcef |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
 | **D** | Student Materials → Theory Layer | 🔲 Deferred | — |
-| **L** | Localization Foundation (EN/PL/ES overlays + morphology) | 🔲 Planned | `feature/localization-foundation` (after E merge) |
 
 ---
 
@@ -126,7 +127,54 @@
 
 ---
 
-## Phase C — ADR-002 ID Migration 🔲
+## Phase E3+ — Observation Ontology ✅
+
+**Branch**: `feature/localization-foundation`
+
+Расширение E3 (observation facets): вместо прямых vocab lookup создана полноценная онтология наблюдений.
+
+### Завершено
+
+- [x] `data-src/rules/reaction_observations.json` — 11 structured observation entities (`obs:*`): precipitate (8), gas_evolution (2), indicator_change (1)
+- [x] `data-src/substances/substance_properties.json` — 9 физических свойств веществ (`prop:color`, `prop:texture`, `phase:solid`) с `sub:*` ID
+- [x] `data-src/rules/indicator_entities.json` — 3 индикатора (litmus, phenolphthalein, methyl_orange)
+- [x] `data-src/rules/indicator_response_rules.json` — правило-маппинг indicator + medium → color
+- [x] `data-src/rules/medium_states.json` — 3 состояния среды (acidic, neutral, alkaline)
+- [x] `data-src/translations/{locale}/color_terms.json` — 4 locale packs (ru/en/pl/es): `color:brown` → "бурый" (ru), "brunatny" (pl)
+- [x] `data-src/translations/{locale}/indicator_response_rules.json` — 4 locale packs с `short_statement_override` для идиом ("посинение лакмуса")
+- [x] `scripts/lib/generate-rule-texts.mjs` — `generateQualitativeTexts()`: precipitate text из ontology props → locale noun assembly; gas → formula_display; indicator → override
+- [x] `data-src/rules/qualitative_reactions.json` — `observation_facets` теперь ссылаются на `obs:*` ID (вместо плоских `"precipitate:AgCl"`)
+- [x] `data-src/vocab/rule_terms.json` + translations — удалены `precipitate:*`/`indicator:*` (перешли в ontology)
+- [x] Build: 5 новых файлов в bundle; manifest обновлён
+- [x] Tests: 757 тестов ✓ (новая suite `generateQualitativeTexts`)
+
+### Ключевые принципы реализации
+
+- **Locale-specific noun assembly** (не в данных): `PRECIPITATE_NOUN = {ru: 'осадок', en: 'precipitate', pl: 'osad', es: 'precipitado'}` — rendering logic, not data
+- **ES word order**: `{noun} {color} [texture] de {formula}` — branch в `buildPrecipitateDesc()`
+- **Idiom override**: `computed:indicator_change:ind:litmus:medium:alkaline.short_statement_override = "посинение лакмуса"` — допустимо для фразеологизмов
+
+---
+
+## Phase L — Localization Foundation ✅
+
+**Branch**: `feature/localization-foundation` c02dcef
+
+### Завершено
+
+- [x] EN/PL/ES locale overlays для ~15 data files (elements, ions, competencies, substances, reactions, …)
+- [x] `generateActivityTexts()` — activity_summary в 4 локалях из machine flags + templates
+- [x] `generateQualitativeTexts()` — observation_summary в 4 локалях из ontology (E3+)
+- [x] `data-src/translations/ru/rule_terms.json` — Russian locale pack (ранее в vocab)
+- [x] Build: `activity_texts.json`, `qualitative_texts.json` в bundle
+- [x] PL ions.json: name_genitive (cations) + salt_anion (anions) + gender — морфологические поля для генерации
+- [x] Morphological substance name generator: `scripts/lib/generate-substance-names.mjs` — 55 EN/ES + 49 PL из ион-морфологии
+- [x] Manual entries: оксиды, кислоты, основные соли — все 80 веществ покрыты во всех 4 локалях
+- [x] Тест-покрытие locale packs: `locale-coverage.test.ts` — threshold 0 для всех; 769 тестов ✓
+
+---
+
+## Что Phase C — ADR-002 ID Migration 🔲
 
 **Масштаб**: 300+ файлов. Только после стабилизации A + B.
 
