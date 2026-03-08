@@ -17,7 +17,7 @@
 | **E3+** | Observation Ontology (reaction_observations + substance_properties + indicator model) | ✅ Done | `feature/localization-foundation` |
 | **L** | Localization Foundation (EN/PL/ES overlays + morphology + generated texts) | ✅ Done | `feature/localization-foundation` c02dcef |
 | **D** | Student Materials → Theory Layer | ✅ Done | `feature/localization-foundation` 896c2d2 |
-| **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
+| **C** | ADR-002 ID Migration (`sub:` everywhere) | ✅ Done | `feature/localization-foundation` |
 
 ---
 
@@ -174,17 +174,17 @@
 
 ---
 
-## Что Phase C — ADR-002 ID Migration 🔲
+## Phase C — ADR-002 ID Migration ✅
 
-**Масштаб**: 300+ файлов. Только после стабилизации A + B.
+**Branch**: `feature/localization-foundation` (Tasks 1–5, 2026-03-08)
 
-- [ ] Audit: инвентаризация всех ID в `data-src/` (текущий формат)
+- [x] Audit: инвентаризация всех ID в `data-src/` (текущий формат)
 - [x] ~~Decide `sub:` vs `subst:`~~ — **`sub:`** зафиксировано
-- [ ] Migration script: `scripts/migrate-ids.mjs` — batch rename `nacl` → `sub:nacl`, `SO4_2minus` → `ion:SO4_2minus` и т.д.
-- [ ] Update all `subject`/`object` поля в `relations/*.json`
-- [ ] Update `ions[]` поля на веществах
-- [ ] Update `formula_lookup.json` pipeline
-- [ ] Regression: все 1424 страницы + 708 тестов
+- [x] Migration script: `scripts/migrate-ids.mjs` — 48 ions prefixed, 164 substances prefixed, 212+ ion refs updated
+- [x] Update all `subject`/`object` поля в `relations/*.json` — already correct (no changes needed)
+- [x] Update `ions[]` поля на веществах — done via migration script
+- [x] Update `formula_lookup.json` pipeline — auto-updated via data migration
+- [x] Regression: validate:data ✓, 769 tests (765 pass, 4 pre-existing locale-coverage failures)
 
 ---
 
