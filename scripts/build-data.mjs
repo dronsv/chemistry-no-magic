@@ -53,7 +53,7 @@ import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
-import { generateRuleTexts } from './lib/generate-rule-texts.mjs';
+import { generateRuleTexts, generateActivityTexts } from './lib/generate-rule-texts.mjs';
 import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
 import { generateInstanceOf } from './lib/generate-classification-triples.mjs';
 
@@ -400,6 +400,8 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'applicability_rules.json'), JSON.stringify(applicabilityRules));
   const ruleTexts = generateRuleTexts(applicabilityRules, ruleVocab, ruleSummaryTemplates);
   await writeFile(join(bundleDir, 'rules', 'rule_texts.json'), JSON.stringify(ruleTexts));
+  const activityTexts = generateActivityTexts(activitySeries, ruleSummaryTemplates);
+  await writeFile(join(bundleDir, 'rules', 'activity_texts.json'), JSON.stringify(activityTexts));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
   await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 

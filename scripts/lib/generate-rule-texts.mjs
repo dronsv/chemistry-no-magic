@@ -155,3 +155,47 @@ function generateRuleText(rule, vocab, templates) {
 export function generateRuleTexts(rules, vocab, templates) {
   return rules.map(rule => generateRuleText(rule, vocab, templates));
 }
+
+/**
+ * Determine activity_summary template key from machine flags.
+ *
+ * @param {{ reduces_H_from_water: boolean, reduces_H: boolean }} entry
+ * @returns {string}
+ */
+function resolveActivityTemplateKey(entry) {
+  if (entry.reduces_H_from_water) return 'reacts_water_and_acids';
+  if (entry.reduces_H) return 'reacts_acids_only';
+  return 'noble_metal';
+}
+
+/**
+ * Generate activity_summary texts for each metal in the activity series.
+ * H (the reference point) is excluded from output.
+ *
+ * @param {Array<object>} activitySeries - activity_series.json entries
+ * @param {Record<string, Record<string, string>>} templates - rule_summary_templates
+ * @returns {Array<object>} GeneratedActivityText[]
+ */
+export function generateActivityTexts(activitySeries, templates) {
+  return activitySeries
+    .filter(entry => entry.symbol !== 'H')
+    .map(entry => {
+      const key = resolveActivityTemplateKey(entry);
+      const templateId = `activity_summary:${key}`;
+      const tmpl = templates[templateId];
+      const slots = {};
+      if (tmpl) {
+        slots.activity_summary = {};
+        for (const locale of LOCALES) {
+          if (tmpl[locale]) slots.activity_summary[locale] = tmpl[locale];
+        }
+      }
+      return {
+        metal_symbol: entry.symbol,
+        text_origin: 'generated',
+        generation_kind: 'activity_summary',
+        template_id: templateId,
+        slots,
+      };
+    });
+}

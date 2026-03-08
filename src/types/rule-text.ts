@@ -19,3 +19,15 @@ export interface GeneratedRuleText {
 }
 
 export type RuleTextsData = GeneratedRuleText[];
+
+export interface GeneratedActivityText {
+  metal_symbol: string;
+  text_origin: 'generated';
+  generation_kind: 'activity_summary';
+  template_id: string;
+  slots: {
+    activity_summary?: Record<string, string>;
+  };
+}
+
+export type ActivityTextsData = GeneratedActivityText[];
