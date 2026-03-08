@@ -1,7 +1,7 @@
 # Transformation Plan — Chemistry Without Magic
 
 > Живой план преобразований онтологии, локализации и архитектуры.
-> Закрываем пункты по мере выполнения. Последнее обновление: 2026-03-07 (Phase E).
+> Закрываем пункты по мере выполнения. Последнее обновление: 2026-03-08 (Phase D).
 
 ---
 
@@ -16,8 +16,8 @@
 | **E** | Ontology Completion (schema + query API + observation facets + activity flags) | ✅ Done | `feature/locale-free-ontology` dc226f7 |
 | **E3+** | Observation Ontology (reaction_observations + substance_properties + indicator model) | ✅ Done | `feature/localization-foundation` |
 | **L** | Localization Foundation (EN/PL/ES overlays + morphology + generated texts) | ✅ Done | `feature/localization-foundation` c02dcef |
+| **D** | Student Materials → Theory Layer | ✅ Done | `feature/localization-foundation` 896c2d2 |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | 🔲 Deferred | — |
-| **D** | Student Materials → Theory Layer | 🔲 Deferred | — |
 
 ---
 
@@ -188,13 +188,18 @@
 
 ---
 
-## Phase D — Student Materials → Theory Layer 🔲
+## Phase D — Student Materials → Theory Layer ✅
 
-- [ ] Извлечь педагогические тексты из ZIP-архивов (`student_materials/`, `acid_base_for_students.md`)
-- [ ] Создать `data-src/theory_modules/ion_nomenclature.json` — расширить секцию Brønsted
-- [ ] `data-src/translations/ru/theory_modules/ion_nomenclature.json` — Russian text
-- [ ] `data-src/translations/en/theory_modules/ion_nomenclature.json` — English text
-- [ ] Locale pack для pl/es
+**Branch**: `feature/localization-foundation` 896c2d2
+
+### Завершено
+
+- [x] `data-src/theory_modules/ion_nomenclature.json` — locale-free theory module: 2 секции (`anion_suffixes` + `substance_naming`), 5 `rule_card` блоков (binary_ide, oxy_max_ate, oxy_lower_ite, per_prefix, hypo_prefix) + параграфы
+- [x] `data-src/translations/ru/theory_modules/ion_nomenclature.json` — Russian locale overlay
+- [x] `data-src/translations/en/theory_modules/ion_nomenclature.json` — English locale overlay
+- [x] `data-src/translations/pl/theory_modules/ion_nomenclature.json` — Polish locale overlay
+- [x] `data-src/translations/es/theory_modules/ion_nomenclature.json` — Spanish locale overlay
+- [x] `src/components/TheoryModulePanel.tsx` — bug fix: Russian overlay теперь тоже загружается (убран `locale !== 'ru'` guard — параграфы были пустыми для RU пользователей)
 
 ---
 
