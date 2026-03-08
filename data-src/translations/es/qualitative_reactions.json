@@ -1,57 +1,57 @@
 {
   "Cl-": {
-    "target_name_ru": "ion cloruro Cl⁻",
-    "reagent_name_ru": "nitrato de plata",
-    "observation_ru": "precipitado blanco cuajado de AgCl, oscurece con la luz"
+    "target_name": "ion cloruro Cl⁻",
+    "reagent_name": "nitrato de plata",
+    "observation": "precipitado blanco cuajado de AgCl, oscurece con la luz"
   },
   "SO4^2-": {
-    "target_name_ru": "ion sulfato SO₄²⁻",
-    "reagent_name_ru": "cloruro de bario",
-    "observation_ru": "precipitado blanco de BaSO₄, insoluble en ácidos"
+    "target_name": "ion sulfato SO₄²⁻",
+    "reagent_name": "cloruro de bario",
+    "observation": "precipitado blanco de BaSO₄, insoluble en ácidos"
   },
   "CO3^2-": {
-    "target_name_ru": "ion carbonato CO₃²⁻",
-    "reagent_name_ru": "ácido clorhídrico",
-    "observation_ru": "se libera gas CO₂ (efervescencia), enturbiamiento del agua de cal"
+    "target_name": "ion carbonato CO₃²⁻",
+    "reagent_name": "ácido clorhídrico",
+    "observation": "se libera gas CO₂ (efervescencia), enturbiamiento del agua de cal"
   },
   "PO4^3-": {
-    "target_name_ru": "ion fosfato PO₄³⁻",
-    "reagent_name_ru": "nitrato de plata",
-    "observation_ru": "precipitado amarillo de Ag₃PO₄"
+    "target_name": "ion fosfato PO₄³⁻",
+    "reagent_name": "nitrato de plata",
+    "observation": "precipitado amarillo de Ag₃PO₄"
   },
   "NH4+": {
-    "target_name_ru": "ion amonio NH₄⁺",
-    "reagent_name_ru": "hidróxido de sodio (al calentar)",
-    "observation_ru": "se libera NH₃ con olor penetrante, el papel de tornasol húmedo se vuelve azul"
+    "target_name": "ion amonio NH₄⁺",
+    "reagent_name": "hidróxido de sodio (al calentar)",
+    "observation": "se libera NH₃ con olor penetrante, el papel de tornasol húmedo se vuelve azul"
   },
   "Cu^2+": {
-    "target_name_ru": "ion cobre(II) Cu²⁺",
-    "reagent_name_ru": "hidróxido de sodio",
-    "observation_ru": "precipitado azul celeste de Cu(OH)₂"
+    "target_name": "ion cobre(II) Cu²⁺",
+    "reagent_name": "hidróxido de sodio",
+    "observation": "precipitado azul celeste de Cu(OH)₂"
   },
   "Fe^3+": {
-    "target_name_ru": "ion hierro(III) Fe³⁺",
-    "reagent_name_ru": "hidróxido de sodio",
-    "observation_ru": "precipitado pardo de Fe(OH)₃"
+    "target_name": "ion hierro(III) Fe³⁺",
+    "reagent_name": "hidróxido de sodio",
+    "observation": "precipitado pardo de Fe(OH)₃"
   },
   "Fe^2+": {
-    "target_name_ru": "ion hierro(II) Fe²⁺",
-    "reagent_name_ru": "hidróxido de sodio",
-    "observation_ru": "precipitado blanco (gris verdoso) de Fe(OH)₂, se oscurece rápidamente al aire"
+    "target_name": "ion hierro(II) Fe²⁺",
+    "reagent_name": "hidróxido de sodio",
+    "observation": "precipitado blanco (gris verdoso) de Fe(OH)₂, se oscurece rápidamente al aire"
   },
   "CO2": {
-    "target_name_ru": "dióxido de carbono CO₂",
-    "reagent_name_ru": "agua de cal",
-    "observation_ru": "enturbiamiento del agua de cal (precipitado de CaCO₃)"
+    "target_name": "dióxido de carbono CO₂",
+    "reagent_name": "agua de cal",
+    "observation": "enturbiamiento del agua de cal (precipitado de CaCO₃)"
   },
   "NH3": {
-    "target_name_ru": "amoníaco NH₃",
-    "reagent_name_ru": "papel de tornasol húmedo",
-    "observation_ru": "el papel de tornasol rojo húmedo se vuelve azul"
+    "target_name": "amoníaco NH₃",
+    "reagent_name": "papel de tornasol húmedo",
+    "observation": "el papel de tornasol rojo húmedo se vuelve azul"
   },
   "H2S": {
-    "target_name_ru": "sulfuro de hidrógeno H₂S",
-    "reagent_name_ru": "solución de acetato/nitrato de plomo",
-    "observation_ru": "precipitado negro de PbS, olor característico a huevos podridos"
+    "target_name": "sulfuro de hidrógeno H₂S",
+    "reagent_name": "solución de acetato/nitrato de plomo",
+    "observation": "precipitado negro de PbS, olor característico a huevos podridos"
   }
 }

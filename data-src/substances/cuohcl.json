@@ -1,25 +1,17 @@
 {
-  "id": "cuohcl",
+  "id": "sub:cuohcl",
   "formula": "CuOHCl",
-  "name_ru": "Гидроксохлорид меди(II)",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Cu_2plus",
-    "OH_minus",
-    "Cl_minus"
+    "ion:Cu_2plus",
+    "ion:OH_minus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": null,
-  "appearance_ru": "Зелёный осадок",
-  "industrial_ru": "Фунгицид в сельском хозяйстве",
-  "production_ru": "Неполная нейтрализация: CuCl₂ + NaOH(недост.) → CuOHCl↓ + NaCl",
-  "fun_facts_ru": [
-    "Зелёный налёт (патина) на медных крышах — смесь основных солей меди, включая CuOHCl",
-    "Используется как фунгицид — защищает растения от грибковых заболеваний"
-  ]
+  "density_g_cm3": null
 }

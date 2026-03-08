@@ -15,8 +15,8 @@ export type ReactionRoleId =
 /** A role definition from reaction_roles.json. */
 export interface ReactionRole {
   id: ReactionRoleId;
-  name_ru: string;
-  description_ru: string;
+  name: string;
+  description: string;
 }
 
 /** An n-ary participation record linking reaction, entity, and role. */

@@ -1,6 +1,6 @@
 export interface QuantityDef {
   id: string;
-  name_ru: string;
+  name: string;
   dimension: string;
   recommended_units: string[];
   optional?: boolean;
@@ -9,7 +9,7 @@ export interface QuantityDef {
 
 export interface UnitDef {
   id: string;
-  name_ru: string;
+  name: string;
   quantity: string;
   to_SI: { unit: string; factor: number; offset?: number } | null;
   notes?: string;

@@ -42,7 +42,7 @@ function CollapsibleSection({
 }
 
 function ElementChip({ el }: { el: TrendExampleElement }) {
-  const display = el.value || el.value_ru || '';
+  const display = el.value || el.value || '';
   return (
     <span className="theory-trend-element">
       <FormulaChip formula={el.symbol} elementId={el.symbol} />
@@ -53,33 +53,22 @@ function ElementChip({ el }: { el: TrendExampleElement }) {
 
 function TrendExamples({
   examples,
-  fallback,
 }: {
-  examples?: TrendExample[];
-  fallback: string[];
+  examples: TrendExample[];
 }) {
-  if (!examples || examples.length === 0) {
-    return (
-      <ul>
-        {fallback.map((ex, i) => (
-          <li key={i}>{ex}</li>
-        ))}
-      </ul>
-    );
-  }
   return (
     <div className="theory-trend__examples-list">
       {examples.map((ex, i) => {
         if (ex.type === 'text') {
           return (
             <p key={i} className="theory-trend__example-text">
-              {ex.text_ru}
+              {ex.text}
             </p>
           );
         }
         return (
           <div key={i} className="theory-trend__example-series">
-            <span className="theory-trend__example-label">{ex.label_ru}:</span>
+            <span className="theory-trend__example-label">{ex.label}:</span>
             <div className="theory-trend__example-chain">
               {ex.elements.map((el, j) => (
                 <span key={`${el.symbol}-${j}`}>
@@ -88,8 +77,8 @@ function TrendExamples({
                 </span>
               ))}
             </div>
-            {ex.comment_ru && (
-              <span className="theory-trend__example-comment">— {ex.comment_ru}</span>
+            {ex.comment && (
+              <span className="theory-trend__example-comment">— {ex.comment}</span>
             )}
           </div>
         );
@@ -143,32 +132,32 @@ function TrendCard({
   locale: string;
 }) {
   return (
-    <CollapsibleSection title={trend.title_ru} icon={trend.icon}>
+    <CollapsibleSection title={trend.title} icon={trend.icon}>
       <div className="theory-trend">
         <div className="theory-trend__directions">
           <div className="theory-trend__dir">
             <span className="theory-trend__arrow-label">{m.theory_pt_period()}</span>
-            <span>{trend.trend_period_ru}</span>
+            <span>{trend.trend_period}</span>
           </div>
           <div className="theory-trend__dir">
             <span className="theory-trend__arrow-label">{m.theory_pt_group()}</span>
-            <span>{trend.trend_group_ru}</span>
+            <span>{trend.trend_group}</span>
           </div>
         </div>
 
         <div className="theory-trend__why">
           <strong>{m.theory_pt_why_period()}</strong>
-          <p>{trend.why_period_ru}</p>
+          <p>{trend.why_period}</p>
         </div>
         <div className="theory-trend__why">
           <strong>{m.theory_pt_why_group()}</strong>
-          <p>{trend.why_group_ru}</p>
+          <p>{trend.why_group}</p>
         </div>
 
-        {(trend.examples || trend.examples_ru.length > 0) && (
+        {trend.examples && trend.examples.length > 0 && (
           <div className="theory-trend__examples">
             <strong>{m.theory_examples_label()}</strong>
-            <TrendExamples examples={trend.examples} fallback={trend.examples_ru} />
+            <TrendExamples examples={trend.examples} />
           </div>
         )}
 
@@ -188,12 +177,12 @@ function ExceptionCard({ exc }: { exc: ExceptionConsequence }) {
     <CollapsibleSection title={`${exc.symbol} (Z=${exc.element_Z})`} icon="⚛">
       <div className="theory-exception">
         <div className="theory-exception__config">
-          <s>{exc.config_change_ru.split(' → ')[0]}</s>
+          <s>{exc.config_change.split(' → ')[0]}</s>
           {' → '}
-          <strong>{exc.config_change_ru.split(' → ')[1]}</strong>
+          <strong>{exc.config_change.split(' → ')[1]}</strong>
         </div>
         <ul className="theory-exception__list">
-          {exc.consequences_ru.map((c, i) => (
+          {exc.consequences.map((c, i) => (
             <li key={i}>{c}</li>
           ))}
         </ul>
@@ -252,11 +241,13 @@ export default function TheoryPanel({ locale }: { locale?: SupportedLocale }) {
           {theory && (
             <>
               {/* General principle */}
-              <div className="theory-principle">
-                <strong>{theory.general_principle_ru.title_ru}</strong>
-                <p>{theory.general_principle_ru.text_ru}</p>
-                <code className="theory-principle__formula">{theory.general_principle_ru.formula_ru}</code>
-              </div>
+              {theory.general_principle && (
+                <div className="theory-principle">
+                  <strong>{theory.general_principle.title}</strong>
+                  <p>{theory.general_principle.text}</p>
+                  <code className="theory-principle__formula">{theory.general_principle.formula}</code>
+                </div>
+              )}
 
               {/* Property trends */}
               <h3 className="theory-panel__heading">{m.theory_pt_trends_heading()}</h3>

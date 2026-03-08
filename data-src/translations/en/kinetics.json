@@ -1,0 +1,43 @@
+{
+  "_direction_labels": {
+    "increase": "increases",
+    "decrease": "decreases",
+    "no_change": "remains unchanged"
+  },
+  "_prop_names": {
+    "prop:temperature": "temperature",
+    "prop:reactant_concentration": "reactant concentration",
+    "prop:reaction_rate": "reaction rate",
+    "prop:surface_area": "surface area",
+    "prop:activation_energy": "activation energy",
+    "prop:catalyst_presence": "catalyst"
+  },
+  "law:vanthoff_rule": {
+    "name": "Van't Hoff Rule"
+  },
+  "rule:vanthoff.school.temperature_rate": {
+    "name": "Effect of temperature on reaction rate",
+    "short_statement": "For every 10 K rise in temperature, the reaction rate increases 2–4 times.",
+    "explanation": "School formulation of Van't Hoff's rule. Heating the reaction mixture by 10°C roughly doubles to quadruples the rate of a homogeneous reaction, because more molecules acquire sufficient energy to overcome the activation barrier."
+  },
+  "rule:kinetics.concentration.rate": {
+    "name": "Effect of concentration on reaction rate",
+    "short_statement": "Increasing the concentration of reactants increases the reaction rate.",
+    "explanation": "Law of mass action: the rate of a chemical reaction is directly proportional to the concentrations of the reacting substances. Higher concentrations mean more frequent collisions between reactant molecules."
+  },
+  "rule:kinetics.surface_area.rate": {
+    "name": "Effect of surface area on reaction rate",
+    "short_statement": "Increasing the surface area of reactants increases the rate of a heterogeneous reaction.",
+    "explanation": "Grinding solid reactants and using porous materials increases the contact area between phases. Since a heterogeneous reaction occurs at the phase boundary, surface area determines the number of active sites."
+  },
+  "rule:kinetics.catalyst.activation_energy": {
+    "name": "Effect of catalyst on activation energy",
+    "short_statement": "A catalyst lowers the activation energy of a reaction.",
+    "explanation": "A catalyst changes the reaction mechanism by providing an alternative pathway with lower-energy intermediates, reducing the overall energy barrier of the reaction."
+  },
+  "rule:kinetics.catalyst.rate": {
+    "name": "Effect of catalyst on reaction rate",
+    "short_statement": "A catalyst speeds up a chemical reaction without being consumed.",
+    "explanation": "By lowering the activation energy, a larger fraction of molecules can overcome the energy barrier at the same temperature, increasing the reaction rate. The catalyst is regenerated at the end of each cycle."
+  }
+}

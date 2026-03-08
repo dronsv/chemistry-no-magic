@@ -1,65 +1,65 @@
 {
   "1": {
-    "title_ru": "Budowa atomu i uklad okresowy",
-    "topic_ru": "Konfiguracja elektronowa, liczby kwantowe i wlasciwosci okresowe",
-    "algorithm_ru": [
+    "title": "Budowa atomu i uklad okresowy",
+    "topic": "Konfiguracja elektronowa, liczby kwantowe i wlasciwosci okresowe",
+    "algorithm": [
       "Zidentyfikuj pierwiastek na podstawie jego liczby atomowej (Z) lub konfiguracji elektronowej.",
       "Zapisz konfiguracje elektronowa zgodnie z kolejnoscia zapelniania (1s, 2s, 2p, 3s, 3p, 4s, 3d...). Sprawdz, czy jest wyjatkiem (Cr, Cu itp.).",
       "Dla liczb kwantowych ostatniego elektronu: okresl n (poziom), l (0=s, 1=p, 2=d, 3=f), ml (od -l do +l) oraz ms (+1/2 lub -1/2).",
       "Dla wlasciwosci okresowych: przypomnij sobie trendy (EJ, PEP, EN, promien) w okresach (→) i grupach (↓).",
       "Zawsze uzasadniaj pozycja w ukladzie okresowym i efektywnym ladunkiem jadrowym."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Kolejnosc zapelniania (Aufbau): 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d...",
       "Wyjatki: Cr = [Ar] 3d5 4s1, Cu = [Ar] 3d10 4s1 (podpoziomy w polowie wypelnione lub calkowicie wypelnione sa bardziej stabilne).",
       "W okresie (→): rosnie Zef → maleje promien, rosnie EJ, rosnie EN.",
       "W grupie (↓): rosnie liczba powlok → rosnie promien, maleje EJ, maleje EN.",
       "Liczby kwantowe: n (1,2,3...), l (od 0 do n-1), ml (od -l do +l), ms (+1/2, -1/2)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Zapomnienie o wyjatkach Cr i Cu w konfiguracji elektronowej.",
       "Pomylenie konfiguracji atomu obojetnego z konfiguracja jonu (podczas jonizacji elektrony sa usuwane najpierw z podpoziomu o najwyzszym n, nie z ostatniego zapelnionego).",
       "Odwrocenie trendow EJ i promienia: pamietaj, ze sa przeciwne w tym samym okresie.",
       "Niepoprawne przeliczanie miedzy konfiguracja walencyjna a pozycja w ukladzie okresowym dla pierwiastkow przejsciowych."
     ],
-    "variability_ru": "Zmienia sie pierwiastek (zazwyczaj Z = 1-36), porownywana wlasciwosc okresowa (EJ, EN, promien, charakter metaliczny) oraz to, czy pytanie dotyczy atomu obojetnego czy jonu."
+    "variability": "Zmienia sie pierwiastek (zazwyczaj Z = 1-36), porownywana wlasciwosc okresowa (EJ, EN, promien, charakter metaliczny) oraz to, czy pytanie dotyczy atomu obojetnego czy jonu."
   },
   "2": {
-    "title_ru": "Wiazania chemiczne i sily miedzyczasteczkowe",
-    "topic_ru": "Typy wiazania, geometria czasteczkowa (VSEPR), polarnosc i sily miedzyczasteczkowe",
-    "algorithm_ru": [
+    "title": "Wiazania chemiczne i sily miedzyczasteczkowe",
+    "topic": "Typy wiazania, geometria czasteczkowa (VSEPR), polarnosc i sily miedzyczasteczkowe",
+    "algorithm": [
       "Okresl typ wiazania: jonowe (metal + niemetal, duza ΔEN), kowalencyjne (niemetale, umiarkowana lub zerowa ΔEN), metaliczne (czysty metal).",
       "Dla geometrii VSEPR: policz pary elektronowe atomu centralnego (wiazace + wolne). Okresl geometrie elektronowa i czasteczkowa.",
       "Porownaj katy: wolne pary odpychaja silniej niz pary wiazace, zmniejszajac katy wiazania.",
       "Dla temperatur wrzenia/topnienia: porownaj sily miedzyczasteczkowe (Londona < dipolowe < wiazania wodorowe < jonowe/siec kowalencyjna).",
       "Uzasadnij polarnosc czasteczki: czasteczka jest polarna, jesli ma polarne wiazania i niesymetryczna geometrie."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Geometrie VSEPR: 2 pary = liniowa (180°), 3 = trojkatna plaska (120°), 4 = tetraedryczna (109,5°).",
       "Wolne pary sciskaja katy: NH₃ ≈ 107°, H₂O ≈ 104,5°.",
       "Wiazanie wodorowe: tworzy sie, gdy H jest zwiazany z F, O lub N, a wolna para na sasiednich F, O lub N jest dostepna.",
       "Sily Londona: obecne we wszystkich czasteczkach, rosna z masa molowa i powierzchnia.",
       "Czasteczki symetryczne (CO₂, BF₃, CH₄, CCl₄) sa niepolarne, nawet jesli maja polarne wiazania."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Pomylenie geometrii elektronowej z geometria czasteczkowa (np. NH₃ jest elektronowo tetraedryczny, ale czasteczkowo piramidalny).",
       "Stwierdzenie, ze CO₂ jest polarny z powodu polarnych wiazan C=O (jest liniowy i symetryczny → niepolarny).",
       "Zapomnienie, ze sily Londona rowniez przyczyniaja sie do temperatury wrzenia czasteczek polarnych.",
       "Pomylenie wiazania wodorowego (miedzyczasteczkowego) z wiazaniem kowalencyjnym O-H (wewnatrzczasteczkowym)."
     ],
-    "variability_ru": "Zmieniaja sie analizowane czasteczki, porownywana wlasciwosc (temperatura wrzenia, rozpuszczalnosc, polarnosc) oraz to, czy wymagana jest pelna geometria czy tylko typ wiazania."
+    "variability": "Zmieniaja sie analizowane czasteczki, porownywana wlasciwosc (temperatura wrzenia, rozpuszczalnosc, polarnosc) oraz to, czy wymagana jest pelna geometria czy tylko typ wiazania."
   },
   "3": {
-    "title_ru": "Termodynamika chemiczna",
-    "topic_ru": "Entalpia (prawo Hessa), entropia, energia swobodna Gibbsa i samorzutnosc",
-    "algorithm_ru": [
+    "title": "Termodynamika chemiczna",
+    "topic": "Entalpia (prawo Hessa), entropia, energia swobodna Gibbsa i samorzutnosc",
+    "algorithm": [
       "Zidentyfikuj, jaka wielkosc jest wymagana: ΔH° (entalpia), ΔS° (entropia) czy ΔG° (energia Gibbsa).",
       "Dla ΔH° na podstawie prawa Hessa: ΔH° = ΣΔH°f(produkty) - ΣΔH°f(substraty). Pamietaj, ze ΔH°f pierwiastkow w stanie standardowym wynosi 0.",
       "Dla ΔG°: zastosuj ΔG° = ΔH° - TΔS°. Uwaga na jednostki! Jesli ΔH° jest w kJ, a ΔS° w J/(mol·K), przelicz dzielac ΔS° przez 1000.",
       "Dla temperatury zmiany samorzutnosci: przyrownaj ΔG° = 0 → T = ΔH° / ΔS°. Wynik w K, przelicz na °C odejmujac 273,15.",
       "Interpretuj znak ΔG°: ujemny = samorzutna; dodatni = niesamorzutna."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "ΔG° = ΔH° - TΔS°. Jesli ΔG° < 0, reakcja jest samorzutna.",
       "ΔH° < 0 i ΔS° > 0 → samorzutna w kazdej T.",
       "ΔH° > 0 i ΔS° < 0 → nigdy samorzutna.",
@@ -67,112 +67,112 @@
       "ΔH° < 0 i ΔS° < 0 → samorzutna w niskiej T (T < ΔH°/ΔS°).",
       "Prawo Hessa: ΔH° reakcji jest niezalezne od drogi, zalezy tylko od stanu poczatkowego i koncowego."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Mieszanie jednostek: ΔH° w kJ i ΔS° w J/(mol·K). Nalezy przeliczyc przed obliczeniami.",
       "Zapomnienie, ze temperatura we wzorze Gibbsa musi byc w kelwinach (K = °C + 273,15).",
       "Nie pomnozenie przez wspolczynniki stechiometryczne przy stosowaniu prawa Hessa.",
       "Mylenie 'reakcja jest samorzutna' z 'reakcja jest szybka' (termodynamika nie mowi nic o szybkosci)."
     ],
-    "variability_ru": "Zmieniaja sie reakcja i podane dane (entalpie tworzenia, entropie lub bezposrednio ΔH° i ΔS° reakcji). Moga pytac o ΔH°, ΔG°, temperature samorzutnosci lub interpretacje jakosciowa."
+    "variability": "Zmieniaja sie reakcja i podane dane (entalpie tworzenia, entropie lub bezposrednio ΔH° i ΔS° reakcji). Moga pytac o ΔH°, ΔG°, temperature samorzutnosci lub interpretacje jakosciowa."
   },
   "4": {
-    "title_ru": "Kinetyka chemiczna i rownowaga",
-    "topic_ru": "Szybkosc reakcji, czynniki kinetyczne, stala rownowagi i zasada Le Chateliera",
-    "algorithm_ru": [
+    "title": "Kinetyka chemiczna i rownowaga",
+    "topic": "Szybkosc reakcji, czynniki kinetyczne, stala rownowagi i zasada Le Chateliera",
+    "algorithm": [
       "Dla Kc: zapisz wyrazenie rownowagowe z produktami w liczniku i substratami w mianowniku, kazdy podniesiony do potegi swojego wspolczynnika stechiometrycznego.",
       "Ustaw tabele ICE (Inicjalne - Change - Equilibrium / Poczatkowe - Zmiana - Rownowagowe) do obliczenia stezen rownowagowych.",
       "Podstaw do wyrazenia Kc i rozwiaz.",
       "Dla zasady Le Chateliera: zidentyfikuj zaburzenie (T, P, stezenie, katalizator) i okresl kierunek przesuniecia rownowagi.",
       "Pamietaj: katalizator NIE przesuwa rownowagi (nie zmienia Kc ani Kp), jedynie przyspiesza jej osiagniecie."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Kc = [produkty]^wsp / [substraty]^wsp. Uwzglednia sie tylko substancje w roztworze lub fazie gazowej.",
       "Wzrost P: rownowaga przesuwa sie w kierunku mniejszej liczby moli gazu.",
       "Wzrost T: jesli ΔH° < 0 (egzotermiczna), Kc maleje; jesli ΔH° > 0 (endotermiczna), Kc rosnie.",
       "Katalizator obniza Ea, ale nie zmienia ΔH°, Kc ani skladu rownowagowego.",
       "Kp = Kc(RT)^Δn, gdzie Δn = mole gazowych produktow - mole gazowych substratow."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Uwzglednienie cial stalych lub czystych cieczy w wyrazeniu Kc (nie powinny sie tam pojawiac).",
       "Mylenie 'przesuniecia w kierunku produktow' ze 'zwiekszeniem Kc' (zmiana stezenia przesuwa rownowage, ale nie zmienia Kc; zmiana T zmienia Kc).",
       "Bledy w tabeli ICE: niestosowanie stechiometrii przy obliczaniu zmian.",
       "Zapomnienie, ze Kp i Kc sa rowne tylko gdy Δn = 0."
     ],
-    "variability_ru": "Zmieniaja sie reakcja, dane wyjsciowe (stezenia poczatkowe, stopien dysocjacji, cisnienia czasteczkowe) i pytanie (obliczyc Kc/Kp, przewidziec przesuniecie, efekt czynnika)."
+    "variability": "Zmieniaja sie reakcja, dane wyjsciowe (stezenia poczatkowe, stopien dysocjacji, cisnienia czasteczkowe) i pytanie (obliczyc Kc/Kp, przewidziec przesuniecie, efekt czynnika)."
   },
   "5": {
-    "title_ru": "Reakcje kwasowo-zasadowe",
-    "topic_ru": "Obliczanie pH, miareczkowania i roztwory buforowe",
-    "algorithm_ru": [
+    "title": "Reakcje kwasowo-zasadowe",
+    "topic": "Obliczanie pH, miareczkowania i roztwory buforowe",
+    "algorithm": [
       "Dla mocnych kwasow/zasad: [H⁺] = Ca lub [OH⁻] = Cb bezposrednio. Oblicz pH = -log[H⁺] lub pOH = -log[OH⁻], nastepnie pH = 14 - pOH.",
       "Dla slabych kwasow: ustaw rownowage i uzyj Ka. Jesli Ka << c, przyblizenie: [H⁺] ≈ √(Ka·c).",
       "Dla miareczkowania: oblicz mole kwasu i zasady. Okresl, co jest w nadmiarze po reakcji. Oblicz stezenie nadmiaru w calkowitej objetosci.",
       "W punkcie rownowaznikowym: mole kwasu = mole zasady (dla kwasow jednoproteinowych i zasad jednohydroksylowych).",
       "Pamietaj: pH + pOH = 14 (w 25 °C, Kw = 10⁻¹⁴)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "pH = -log[H⁺]; pOH = -log[OH⁻]; pH + pOH = 14 (w 25 °C).",
       "Mocny kwas: pelna dysocjacja (HCl, HNO₃, H₂SO₄). Mocna zasada: NaOH, KOH, Ca(OH)₂.",
       "Slaby kwas: Ka < 1 (CH₃COOH Ka = 1,8 × 10⁻⁵). [H⁺] ≈ √(Ka × c) jesli Ka << c.",
       "W miareczkowaniu punkt rownowaznikowy to moment, gdy n(kwas) = n(zasada).",
       "Rownanie Hendersona-Hasselbalcha: pH = pKa + log([A⁻]/[HA]) dla roztworow buforowych."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Mylenie mocnego kwasu ze slabym: nie uzywac Ka dla HCl (jest mocnym kwasem, pelna dysocjacja).",
       "Niedodanie objetosci przy mieszaniu roztworow (V_calkowita = V₁ + V₂).",
       "Stosowanie -log do calkowitego stezenia zamiast do [H⁺] lub [OH⁻].",
       "Zapomnienie, ze przy nadmiarze mocnej zasady najpierw oblicza sie pOH, a nastepnie pH = 14 - pOH."
     ],
-    "variability_ru": "Zmienia sie kwas/zasada (mocny lub slaby), stezenia, objetosci mieszania i to, czego sie pyta — pH, stezenie, objetosc w punkcie rownowaznikowym lub interpretacja krzywej miareczkowania."
+    "variability": "Zmienia sie kwas/zasada (mocny lub slaby), stezenia, objetosci mieszania i to, czego sie pyta — pH, stezenie, objetosc w punkcie rownowaznikowym lub interpretacja krzywej miareczkowania."
   },
   "6": {
-    "title_ru": "Utlenianie-redukcja i elektrochemia",
-    "topic_ru": "Bilansowanie redoks (metoda jonowo-elektronowa), ogniwa galwaniczne, SEM i elektroliza (prawo Faradaya)",
-    "algorithm_ru": [
+    "title": "Utlenianie-redukcja i elektrochemia",
+    "topic": "Bilansowanie redoks (metoda jonowo-elektronowa), ogniwa galwaniczne, SEM i elektroliza (prawo Faradaya)",
+    "algorithm": [
       "Dla bilansowania metoda jonowo-elektronowa: rozdziel na dwie polreakcje (utlenianie i redukcja). Zbilansuj atomy, nastepnie O za pomoca H₂O, nastepnie H za pomoca H⁺ (srodowisko kwasne) lub OH⁻ (srodowisko zasadowe), na koniec ladunki za pomoca e⁻.",
       "Wyrownaj liczbe elektronow w obu polreakcjach i dodaj, aby uzyskac rownanie sumaryczne.",
       "Dla ogniw: SEM = E°(katoda) - E°(anoda). Anoda to elektroda o nizszym E°.",
       "Dla elektrolizy (Faraday): Q = I × t; n(e⁻) = Q / F; nastepnie n(substancja) = n(e⁻) / z (gdzie z = elektrony na jon).",
       "Masa wydzielona: m = n(substancja) × M."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Utleniacz ulega redukcji (przyjmuje e⁻); reduktor ulega utlenieniu (traci e⁻).",
       "SEM > 0 → reakcja jest samorzutna. ΔG° = -nFE°.",
       "Stala Faradaya: F = 96 485 C/mol elektronow.",
       "Na katodzie zawsze zachodzi redukcja (zarowno w ogniwie galwanicznym, jak i w elektrolizie).",
       "Potencjaly standardowe: mierzone wzgledem standardowej elektrody wodorowej (E° = 0 V)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Zmiana znaku potencjalu przy zapisie polreakcji utleniania (E° sie nie zmienia, porownanie jest bezposrednie).",
       "Zapomnienie o przeliczeniu minut na sekundy przy obliczaniu Q = I × t.",
       "Niepoprawne zbilansowanie H₂O i H⁺ w srodowisku kwasnym lub OH⁻ w srodowisku zasadowym.",
       "Mylenie anody/katody miedzy ogniwem galwanicznym a ogniwem elektrolitycznym (w ogniwie galwanicznym anoda to «-», w elektrolizie anoda to «+», ale w obu przypadkach na anodzie zachodzi utlenianie)."
     ],
-    "variability_ru": "Zmieniaja sie bilansowana reakcja redoks, srodowisko (kwasne/zasadowe), elektrody ogniwa, dane elektrolizy (prad, czas, substancja) oraz to, czego sie pyta — SEM, masa wydzielona lub potrzebny czas."
+    "variability": "Zmieniaja sie bilansowana reakcja redoks, srodowisko (kwasne/zasadowe), elektrody ogniwa, dane elektrolizy (prad, czas, substancja) oraz to, czego sie pyta — SEM, masa wydzielona lub potrzebny czas."
   },
   "7": {
-    "title_ru": "Chemia organiczna",
-    "topic_ru": "Nomenklatura IUPAC, grupy funkcyjne, izomeria i reakcje organiczne",
-    "algorithm_ru": [
+    "title": "Chemia organiczna",
+    "topic": "Nomenklatura IUPAC, grupy funkcyjne, izomeria i reakcje organiczne",
+    "algorithm": [
       "Dla nazewnictwa: zidentyfikuj najdluzszy lancuch weglowy zawierajacy glowna grupe funkcyjna. Ponumeruj tak, aby grupa funkcyjna otrzymala najnizszy lokant.",
       "Zidentyfikuj i nazwij podstawniki. Dodaj przedrostki (di-, tri-) przy powtarzajacych sie podstawnikach.",
       "Dla grup funkcyjnych: -OH (alkohol), -COOH (kwas karboksylowy), >C=O (keton/aldehyd), -NH₂ (amina), -COO- (ester).",
       "Dla reakcji: okresl typ (addycja, eliminacja, substytucja, kondensacja, hydroliza/zmydlanie, utlenianie, redukcja).",
       "Dla izomerii: okresl, czy jest strukturalna (lancuchowa, polozenowa, funkcyjna) czy stereoizomeria (geometryczna cis/trans, optyczna)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Priorytet grup funkcyjnych (IUPAC): kwas > ester > amid > aldehyd > keton > alkohol > amina.",
       "Alkany (C-C): koncowka -an. Alkeny (C=C): -en. Alkiny (C≡C): -in.",
       "Zmydlanie: ester + NaOH → sol kwasu + alkohol (nieodwracalna hydroliza zasadowa).",
       "Estryfikacja: kwas + alkohol ⇌ ester + woda (katalizowana H⁺, odwracalna).",
       "Izomeria cis/trans: wymaga wiazania podwojnego C=C z roznymi podstawnikami przy kazdym atomie wegla."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Niewybranie najdluzszego lancucha zawierajacego grupe funkcyjna jako lancucha glownego.",
       "Pomylenie aldehydu (-CHO, weglowodor terminalny) z ketonem (>C=O, weglowodor wewnetrzny).",
       "Zapomnienie, ze estryfikacja jest odwracalna, a zmydlanie jest nieodwracalne.",
       "Nierozpoznanie izomerow funkcyjnych (np. alkohol i eter o tej samej masie czasteczkowej)."
     ],
-    "variability_ru": "Zmieniaja sie zwiazki do nazwania, zapisywane reakcje organiczne, typ izomerii do zidentyfikowania oraz to, czy pytanie dotyczy nazewnictwa, mechanizmu, produktu reakcji czy klasyfikacji grup funkcyjnych."
+    "variability": "Zmieniaja sie zwiazki do nazwania, zapisywane reakcje organiczne, typ izomerii do zidentyfikowania oraz to, czy pytanie dotyczy nazewnictwa, mechanizmu, produktu reakcji czy klasyfikacji grup funkcyjnych."
   }
 }

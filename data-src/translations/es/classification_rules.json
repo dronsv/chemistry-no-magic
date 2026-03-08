@@ -1,38 +1,38 @@
 {
   "oxide_basic": {
-    "description_ru": "\u00d3xidos b\u00e1sicos: \u00f3xidos de metales con estado de oxidaci\u00f3n +1, +2 (excepto los anf\u00f3teros). Reaccionan con \u00e1cidos y \u00f3xidos \u00e1cidos."
+    "description": "Óxidos básicos: óxidos de metales con estado de oxidación +1, +2 (excepto los anfóteros). Reaccionan con ácidos y óxidos ácidos."
   },
   "oxide_acidic": {
-    "description_ru": "\u00d3xidos \u00e1cidos: \u00f3xidos de no metales (excepto CO, NO, N\u2082O) y \u00f3xidos de metales con alto estado de oxidaci\u00f3n (+5, +6, +7). Reaccionan con bases y \u00f3xidos b\u00e1sicos."
+    "description": "Óxidos ácidos: óxidos de no metales (excepto CO, NO, N₂O) y óxidos de metales con alto estado de oxidación (+5, +6, +7). Reaccionan con bases y óxidos básicos."
   },
   "oxide_amphoteric": {
-    "description_ru": "\u00d3xidos anf\u00f3teros: \u00f3xidos de metales anf\u00f3teros. Reaccionan tanto con \u00e1cidos como con \u00e1lcalis."
+    "description": "Óxidos anfóteros: óxidos de metales anfóteros. Reaccionan tanto con ácidos como con álcalis."
   },
   "oxide_indifferent": {
-    "description_ru": "\u00d3xidos no formadores de sales: no forman sales al interactuar con \u00e1cidos ni con bases."
+    "description": "Óxidos no formadores de sales: no forman sales al interactuar con ácidos ni con bases."
   },
   "acid_oxygen_containing": {
-    "description_ru": "\u00c1cidos oxigenados: contienen ox\u00edgeno en el residuo \u00e1cido."
+    "description": "Ácidos oxigenados: contienen oxígeno en el residuo ácido."
   },
   "acid_oxygen_free": {
-    "description_ru": "\u00c1cidos sin ox\u00edgeno: no contienen ox\u00edgeno. Formados por hidr\u00f3geno y un no metal."
+    "description": "Ácidos sin oxígeno: no contienen oxígeno. Formados por hidrógeno y un no metal."
   },
   "base_soluble": {
-    "description_ru": "Bases solubles (\u00e1lcalis): hidr\u00f3xidos de metales alcalinos y alcalinot\u00e9rreos. Solubles en agua, se disocian produciendo iones OH\u207b."
+    "description": "Bases solubles (álcalis): hidróxidos de metales alcalinos y alcalinotérreos. Solubles en agua, se disocian produciendo iones OH⁻."
   },
   "base_insoluble": {
-    "description_ru": "Bases insolubles: hidr\u00f3xidos de metales pesados. No se disuelven en agua, se descomponen al calentarse."
+    "description": "Bases insolubles: hidróxidos de metales pesados. No se disuelven en agua, se descomponen al calentarse."
   },
   "base_amphoteric": {
-    "description_ru": "Hidr\u00f3xidos anf\u00f3teros: presentan propiedades tanto \u00e1cidas como b\u00e1sicas. Reaccionan tanto con \u00e1cidos como con \u00e1lcalis."
+    "description": "Hidróxidos anfóteros: presentan propiedades tanto ácidas como básicas. Reaccionan tanto con ácidos como con álcalis."
   },
   "salt_normal": {
-    "description_ru": "Sales neutras (normales): producto de la sustituci\u00f3n completa de los \u00e1tomos de hidr\u00f3geno del \u00e1cido por cationes met\u00e1licos (o NH\u2084\u207a)."
+    "description": "Sales neutras (normales): producto de la sustitución completa de los átomos de hidrógeno del ácido por cationes metálicos (o NH₄⁺)."
   },
   "salt_acidic": {
-    "description_ru": "Sales \u00e1cidas: producto de la sustituci\u00f3n incompleta de los \u00e1tomos de hidr\u00f3geno en un \u00e1cido polib\u00e1sico. Contienen ion hidr\u00f3geno en el residuo \u00e1cido."
+    "description": "Sales ácidas: producto de la sustitución incompleta de los átomos de hidrógeno en un ácido polibásico. Contienen ion hidrógeno en el residuo ácido."
   },
   "salt_basic": {
-    "description_ru": "Sales b\u00e1sicas: producto de la sustituci\u00f3n incompleta de los iones hidr\u00f3xido en una base poli\u00e1cida. Contienen un grupo hidroxo."
+    "description": "Sales básicas: producto de la sustitución incompleta de los iones hidróxido en una base poliácida. Contienen un grupo hidroxo."
   }
 }

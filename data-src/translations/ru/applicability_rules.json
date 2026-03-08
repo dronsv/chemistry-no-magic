@@ -1,0 +1,47 @@
+{
+  "no_precipitate_no_gas_no_water": {
+    "pedagogical_note": null
+  },
+  "insoluble_base_no_acid_reaction": {
+    "pedagogical_note": null
+  },
+  "noble_metal_no_acid": {
+    "pedagogical_note": null
+  },
+  "less_active_no_displacement": {
+    "pedagogical_note": null
+  },
+  "alkali_metal_water_not_salt": {
+    "pedagogical_note": null
+  },
+  "sio2_no_water": {
+    "pedagogical_note": null
+  },
+  "insoluble_base_heat_decomposition": {
+    "pedagogical_note": null
+  },
+  "carbonate_acid_gas": {
+    "pedagogical_note": "Промежуточный продукт — H₂CO₃, которая немедленно разлагается на CO₂ и H₂O."
+  },
+  "sulfite_acid_gas": {
+    "pedagogical_note": "Промежуточный продукт — H₂SO₃, которая разлагается на SO₂ и H₂O."
+  },
+  "sulfide_acid_gas": {
+    "pedagogical_note": "H₂S — газ с запахом тухлых яиц. Выделяется только из растворимых сульфидов."
+  },
+  "ammonium_alkali_gas": {
+    "pedagogical_note": "Промежуточный продукт — NH₃·H₂O, который разлагается с выделением аммиака NH₃."
+  },
+  "h2so4_conc_oxidizer": {
+    "pedagogical_note": "Продукты восстановления S(+6): SO₂ (активные металлы), S или H₂S (при избытке металла)."
+  },
+  "hno3_oxidizer": {
+    "pedagogical_note": "Продукты восстановления N(+5): NO₂ (конц.), NO (разб.), N₂O, N₂, NH₃ (очень активные металлы)."
+  },
+  "passivation_cold_conc": {
+    "pedagogical_note": "Пассивация — образование плотной оксидной плёнки, препятствующей дальнейшей реакции. При нагревании реакция идёт."
+  },
+  "amphoteric_both_directions": {
+    "pedagogical_note": "Примеры: Al₂O₃, ZnO, BeO, Al(OH)₃, Zn(OH)₂, Be(OH)₂."
+  }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "law:vanthoff_rule",
+    "kind": "empirical_rule",
+    "category": "kinetics",
+    "domain": "chemical_kinetics"
+  },
+  {
+    "id": "rule:vanthoff.school.temperature_rate",
+    "kind": "quantified_influence",
+    "category": "kinetics",
+    "domain": "chemical_kinetics",
+    "law_ref": "law:vanthoff_rule",
+    "source_property": "prop:temperature",
+    "source_change": {
+      "operator": "increase_by",
+      "value": 10,
+      "unit": "unit:K"
+    },
+    "target_property": "prop:reaction_rate",
+    "target_response": {
+      "mode": "multiplier_range",
+      "min": 2,
+      "max": 4
+    },
+    "scope": "school_chemistry",
+    "applicability": ["ctx:general_school_kinetics"]
+  },
+  {
+    "id": "rule:kinetics.concentration.rate",
+    "kind": "directional_influence",
+    "category": "kinetics",
+    "domain": "chemical_kinetics",
+    "source_property": "prop:reactant_concentration",
+    "source_change": {
+      "operator": "increase"
+    },
+    "target_property": "prop:reaction_rate",
+    "target_response": {
+      "mode": "direction",
+      "direction": "increase"
+    },
+    "scope": "school_chemistry",
+    "applicability": ["ctx:general_school_kinetics"]
+  },
+  {
+    "id": "rule:kinetics.surface_area.rate",
+    "kind": "directional_influence",
+    "category": "kinetics",
+    "domain": "chemical_kinetics",
+    "source_property": "prop:surface_area",
+    "source_change": {
+      "operator": "increase"
+    },
+    "target_property": "prop:reaction_rate",
+    "target_response": {
+      "mode": "direction",
+      "direction": "increase"
+    },
+    "scope": "school_chemistry",
+    "applicability": ["ctx:heterogeneous_reaction"]
+  },
+  {
+    "id": "rule:kinetics.catalyst.activation_energy",
+    "kind": "directional_influence",
+    "category": "kinetics",
+    "domain": "chemical_kinetics",
+    "source_property": "prop:catalyst_presence",
+    "source_change": {
+      "operator": "enable"
+    },
+    "target_property": "prop:activation_energy",
+    "target_response": {
+      "mode": "direction",
+      "direction": "decrease"
+    },
+    "scope": "school_chemistry",
+    "applicability": ["ctx:catalyzed_reaction"]
+  },
+  {
+    "id": "rule:kinetics.catalyst.rate",
+    "kind": "directional_influence",
+    "category": "kinetics",
+    "domain": "chemical_kinetics",
+    "depends_on": ["rule:kinetics.catalyst.activation_energy"],
+    "source_property": "prop:catalyst_presence",
+    "source_change": {
+      "operator": "enable"
+    },
+    "target_property": "prop:reaction_rate",
+    "target_response": {
+      "mode": "direction",
+      "direction": "increase"
+    },
+    "scope": "school_chemistry",
+    "applicability": ["ctx:catalyzed_reaction"]
+  }
+]

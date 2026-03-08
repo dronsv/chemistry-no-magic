@@ -1,107 +1,107 @@
 {
   "periodic_table": {
-    "name_ru": "Periodic Table",
-    "description_ru": "Determining the position of an element in the periodic table: period, group, subgroup. Metals and nonmetals. Atomic number and its relation to atomic structure.",
-    "block_name_ru": "Atomic Structure and Periodic Table"
+    "name": "Periodic Table",
+    "description": "Determining the position of an element in the periodic table: period, group, subgroup. Metals and nonmetals. Atomic number and its relation to atomic structure.",
+    "block_name": "Atomic Structure and Periodic Table"
   },
   "electron_config": {
-    "name_ru": "Electron Configuration",
-    "description_ru": "Writing electron configuration of atoms, understanding subshells, Klechkovsky's rule, Hund's rule. Exceptions (Cr, Cu and others).",
-    "block_name_ru": "Atomic Structure and Periodic Table"
+    "name": "Electron Configuration",
+    "description": "Writing electron configuration of atoms, understanding subshells, Klechkovsky's rule, Hund's rule. Exceptions (Cr, Cu and others).",
+    "block_name": "Atomic Structure and Periodic Table"
   },
   "periodic_trends": {
-    "name_ru": "Periodic Trends",
-    "description_ru": "Patterns in element properties across periods and groups: radius, electronegativity, ionization energy, metallic character. Explained through electronic structure.",
-    "block_name_ru": "Atomic Structure and Periodic Table"
+    "name": "Periodic Trends",
+    "description": "Patterns in element properties across periods and groups: radius, electronegativity, ionization energy, metallic character. Explained through electronic structure.",
+    "block_name": "Atomic Structure and Periodic Table"
   },
   "oxidation_states": {
-    "name_ru": "Oxidation States",
-    "description_ru": "Determining oxidation states of elements in compounds. Relationship with electron configuration and position in the table. Oxidizer and reducer.",
-    "block_name_ru": "Atomic Structure and Periodic Table"
+    "name": "Oxidation States",
+    "description": "Determining oxidation states of elements in compounds. Relationship with electron configuration and position in the table. Oxidizer and reducer.",
+    "block_name": "Atomic Structure and Periodic Table"
   },
   "bond_type": {
-    "name_ru": "Chemical Bond Types",
-    "description_ru": "Covalent (polar and nonpolar), ionic, metallic bonds. Determining bond type by electronegativity difference and substance composition.",
-    "block_name_ru": "Chemical Bonding and Structure"
+    "name": "Chemical Bond Types",
+    "description": "Covalent (polar and nonpolar), ionic, metallic bonds. Determining bond type by electronegativity difference and substance composition.",
+    "block_name": "Chemical Bonding and Structure"
   },
   "crystal_structure_type": {
-    "name_ru": "Crystal Lattice Types",
-    "description_ru": "Ionic, molecular, atomic, and metallic lattices. Relationship of lattice type with physical properties (melting point, solubility, conductivity).",
-    "block_name_ru": "Chemical Bonding and Structure"
+    "name": "Crystal Lattice Types",
+    "description": "Ionic, molecular, atomic, and metallic lattices. Relationship of lattice type with physical properties (melting point, solubility, conductivity).",
+    "block_name": "Chemical Bonding and Structure"
   },
   "classification": {
-    "name_ru": "Substance Classification",
-    "description_ru": "Oxides (basic, acidic, amphoteric), acids, bases, salts. Determining class by composition and properties.",
-    "block_name_ru": "Substance Classes and Nomenclature"
+    "name": "Substance Classification",
+    "description": "Oxides (basic, acidic, amphoteric), acids, bases, salts. Determining class by composition and properties.",
+    "block_name": "Substance Classes and Nomenclature"
   },
   "naming": {
-    "name_ru": "Nomenclature",
-    "description_ru": "Systematic and trivial names of substances. Name from formula and formula from name.",
-    "block_name_ru": "Substance Classes and Nomenclature"
+    "name": "Nomenclature",
+    "description": "Systematic and trivial names of substances. Name from formula and formula from name.",
+    "block_name": "Substance Classes and Nomenclature"
   },
   "amphoterism_logic": {
-    "name_ru": "Amphoterism",
-    "description_ru": "Amphoteric oxides and hydroxides: reactions with acids and alkalis. Typical amphoteric elements (Al, Zn, Be, Cr).",
-    "block_name_ru": "Substance Classes and Nomenclature"
+    "name": "Amphoterism",
+    "description": "Amphoteric oxides and hydroxides: reactions with acids and alkalis. Typical amphoteric elements (Al, Zn, Be, Cr).",
+    "block_name": "Substance Classes and Nomenclature"
   },
   "reactions_exchange": {
-    "name_ru": "Ion Exchange Reactions",
-    "description_ru": "Exchange reactions in solutions: neutralization, salt + acid, salt + alkali, salt + salt. Full and net ionic equations.",
-    "block_name_ru": "Reactions"
+    "name": "Ion Exchange Reactions",
+    "description": "Exchange reactions in solutions: neutralization, salt + acid, salt + alkali, salt + salt. Full and net ionic equations.",
+    "block_name": "Reactions"
   },
   "gas_precipitate_logic": {
-    "name_ru": "Reaction Signs",
-    "description_ru": "Driving forces of ion exchange reactions: formation of precipitate, gas, or water. Solubility table. Carbonate + acid → CO₂.",
-    "block_name_ru": "Reactions"
+    "name": "Reaction Signs",
+    "description": "Driving forces of ion exchange reactions: formation of precipitate, gas, or water. Solubility table. Carbonate + acid → CO₂.",
+    "block_name": "Reactions"
   },
   "reactions_redox": {
-    "name_ru": "Redox Reactions",
-    "description_ru": "Substitution, balancing redox reactions using electron balance method. Activity series of metals. Metal + salt, metal + acid.",
-    "block_name_ru": "Reactions"
+    "name": "Redox Reactions",
+    "description": "Substitution, balancing redox reactions using electron balance method. Activity series of metals. Metal + salt, metal + acid.",
+    "block_name": "Reactions"
   },
   "genetic_chain_logic": {
-    "name_ru": "Genetic Chains",
-    "description_ru": "Genetic relationship between substance classes: transformation chains metal → oxide → hydroxide → salt, etc.",
-    "block_name_ru": "Reactions"
+    "name": "Genetic Chains",
+    "description": "Genetic relationship between substance classes: transformation chains metal → oxide → hydroxide → salt, etc.",
+    "block_name": "Reactions"
   },
   "qualitative_analysis_logic": {
-    "name_ru": "Qualitative Reactions",
-    "description_ru": "Identifying substances by characteristic reactions: precipitate color, gas evolution, indicator color change.",
-    "block_name_ru": "Reactions"
+    "name": "Qualitative Reactions",
+    "description": "Identifying substances by characteristic reactions: precipitate color, gas evolution, indicator color change.",
+    "block_name": "Reactions"
   },
   "reaction_energy_profile": {
-    "name_ru": "Rate and Equilibrium",
-    "description_ru": "Factors affecting reaction rate (temperature, concentration, catalyst, surface area). Activation energy. Chemical equilibrium.",
-    "block_name_ru": "Energetics"
+    "name": "Rate and Equilibrium",
+    "description": "Factors affecting reaction rate (temperature, concentration, catalyst, surface area). Activation energy. Chemical equilibrium.",
+    "block_name": "Energetics"
   },
   "catalyst_role_understanding": {
-    "name_ru": "Catalysis and Energetics",
-    "description_ru": "Role of a catalyst: what it changes (rate, Ea) and what it doesn't (product composition, heat effect, equilibrium). Exo- and endothermic reactions.",
-    "block_name_ru": "Energetics"
+    "name": "Catalysis and Energetics",
+    "description": "Role of a catalyst: what it changes (rate, Ea) and what it doesn't (product composition, heat effect, equilibrium). Exo- and endothermic reactions.",
+    "block_name": "Energetics"
   },
   "calculations_basic": {
-    "name_ru": "Basic Calculations",
-    "description_ru": "Molar mass (Mr), amount of substance (n = m/M), mass fraction of an element. Calculations from substance formula.",
-    "block_name_ru": "Calculations"
+    "name": "Basic Calculations",
+    "description": "Molar mass (Mr), amount of substance (n = m/M), mass fraction of an element. Calculations from substance formula.",
+    "block_name": "Calculations"
   },
   "calculations_solutions": {
-    "name_ru": "Solution Calculations",
-    "description_ru": "Mass fraction of dissolved substance (ω). Problems on preparing, diluting, and mixing solutions.",
-    "block_name_ru": "Calculations"
+    "name": "Solution Calculations",
+    "description": "Mass fraction of dissolved substance (ω). Problems on preparing, diluting, and mixing solutions.",
+    "block_name": "Calculations"
   },
   "reaction_yield_logic": {
-    "name_ru": "Reaction Yield",
-    "description_ru": "Calculating product yield. Practical and theoretical yield. Excess and limiting reagent.",
-    "block_name_ru": "Calculations"
+    "name": "Reaction Yield",
+    "description": "Calculating product yield. Practical and theoretical yield. Excess and limiting reagent.",
+    "block_name": "Calculations"
   },
   "electrolyte_logic": {
-    "name_ru": "Electrolytes and Dissociation",
-    "description_ru": "Electrolytes and non-electrolytes. Strong and weak electrolytes. Electrolytic dissociation of acids, bases, and salts.",
-    "block_name_ru": "Solutions and Electrolytes"
+    "name": "Electrolytes and Dissociation",
+    "description": "Electrolytes and non-electrolytes. Strong and weak electrolytes. Electrolytic dissociation of acids, bases, and salts.",
+    "block_name": "Solutions and Electrolytes"
   },
   "ion_nomenclature": {
-    "name_ru": "Ion Nomenclature",
-    "description_ru": "Ion names by suffix system: -ide (non-oxygen), -ite/-ate (oxygen-containing). Relationship between anion name and parent acid and oxidation state of the central atom.",
-    "block_name_ru": "Solutions and Electrolytes"
+    "name": "Ion Nomenclature",
+    "description": "Ion names by suffix system: -ide (non-oxygen), -ite/-ate (oxygen-containing). Relationship between anion name and parent acid and oxidation state of the central atom.",
+    "block_name": "Solutions and Electrolytes"
   }
 }

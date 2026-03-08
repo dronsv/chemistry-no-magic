@@ -3,7 +3,7 @@
  * to data loaded directly from data-src/ during static page generation.
  *
  * Reads overlay files from data-src/translations/{locale}/{dataKey}.json.
- * Returns null for 'ru' locale (base data is already Russian) or if file doesn't exist.
+ * Returns null if the overlay file doesn't exist.
  */
 import { cachedLoadOverlay } from './build-data-cache';
 

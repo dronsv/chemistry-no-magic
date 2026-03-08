@@ -37,7 +37,7 @@ export default function ActivitySeriesBar({ locale }: { locale?: SupportedLocale
           >
             <span className="activity-series__symbol">{metal.symbol}</span>
             {hoveredIdx === i && (
-              <span className="activity-series__tooltip">{metal.name_ru}</span>
+              <span className="activity-series__tooltip">{metal.name}</span>
             )}
           </div>
         ))}

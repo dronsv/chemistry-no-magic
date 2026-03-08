@@ -3,24 +3,24 @@ import * as m from '../../paraglide/messages.js';
 
 interface RateFactor {
   factor_id: string;
-  name_ru: string;
-  effect_ru: string;
-  detail_ru: string;
+  name: string;
+  effect: string;
+  detail: string;
   applies_to: string;
 }
 interface EquilibriumShift {
   factor: string;
-  shift_ru: string;
-  explanation_ru: string;
+  shift: string;
+  explanation: string;
 }
 interface EnergyCatalystTheory {
   rate_factors: RateFactor[];
   equilibrium_shifts: EquilibriumShift[];
   heat_classification: {
-    exothermic_ru: string;
-    endothermic_ru: string;
-    examples_exo_ru: string[];
-    examples_endo_ru: string[];
+    exothermic: string;
+    endothermic: string;
+    examples_exo: string[];
+    examples_endo: string[];
   };
 }
 
@@ -42,8 +42,8 @@ const { theory } = Astro.props;
   <tbody>
     {theory.rate_factors.map(f => (
       <tr>
-        <td><strong>{f.name_ru}</strong></td>
-        <td>{f.effect_ru}. {f.detail_ru}</td>
+        <td><strong>{f.name}</strong></td>
+        <td>{f.effect}. {f.detail}</td>
       </tr>
     ))}
   </tbody>
@@ -62,8 +62,8 @@ const { theory } = Astro.props;
   <tbody>
     {theory.equilibrium_shifts.map(s => (
       <tr>
-        <td>{s.explanation_ru}</td>
-        <td>{s.shift_ru}</td>
+        <td>{s.explanation}</td>
+        <td>{s.shift}</td>
       </tr>
     ))}
   </tbody>
@@ -74,13 +74,13 @@ const { theory } = Astro.props;
   <div>
     <strong>{m.rxn_theory_exothermic()}</strong> (ΔH &lt; 0)
     <ul class="comp-content__list">
-      {theory.heat_classification.examples_exo_ru.map(e => <li>{e}</li>)}
+      {theory.heat_classification.examples_exo.map(e => <li>{e}</li>)}
     </ul>
   </div>
   <div>
     <strong>{m.rxn_theory_endothermic()}</strong> (ΔH &gt; 0)
     <ul class="comp-content__list">
-      {theory.heat_classification.examples_endo_ru.map(e => <li>{e}</li>)}
+      {theory.heat_classification.examples_endo.map(e => <li>{e}</li>)}
     </ul>
   </div>
 </div>

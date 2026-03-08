@@ -1,0 +1,39 @@
+{
+  "full_name": "General Certificate of Secondary Education — Chemistry",
+  "description": "UK chemistry exam for Year 10-11 students. Covers both inorganic and organic chemistry, quantitative chemistry, and analytical techniques.",
+  "competencies": {
+    "gcse_atomic_structure": {
+      "name": "Atomic structure and the periodic table"
+    },
+    "gcse_bonding": {
+      "name": "Bonding, structure, and properties"
+    },
+    "gcse_quantitative": {
+      "name": "Quantitative chemistry"
+    },
+    "gcse_chemical_changes": {
+      "name": "Chemical changes"
+    },
+    "gcse_energy": {
+      "name": "Energy changes"
+    },
+    "gcse_rates": {
+      "name": "Rate and extent of chemical change"
+    },
+    "gcse_organic": {
+      "name": "Organic chemistry"
+    },
+    "gcse_analysis": {
+      "name": "Chemical analysis"
+    },
+    "gcse_atmosphere": {
+      "name": "Chemistry of the atmosphere"
+    },
+    "gcse_resources": {
+      "name": "Using resources"
+    }
+  },
+  "official_links": {
+    "label": "OCR Gateway GCSE Chemistry"
+  }
+}

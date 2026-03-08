@@ -1,26 +1,29 @@
 {
   "schema_version": "1.0",
   "description": "Exam profiles: per-exam configuration for topic weights, required substance classes, and UI customization. Separates exam requirements from chemical taxonomy.",
-
   "profiles": [
     {
       "id": "ru_oge",
-      "name_ru": "ОГЭ по химии",
       "country": "RU",
       "default_locale": "ru",
       "data_dir": "exam/oge",
       "required_taxonomy_classes": [
-        "simple_substance", "oxide", "acid", "base", "salt", "other_inorganic"
+        "simple_substance",
+        "oxide",
+        "acid",
+        "base",
+        "salt",
+        "other_inorganic"
       ],
       "topic_weights": {
         "periodic_table": 1.2,
         "oxidation_states": 1.2,
         "classification": 1.1,
         "reactions_exchange": 1.1,
-        "reactions_redox": 1.0,
-        "calculations_basic": 1.0,
-        "calculations_solutions": 1.0,
-        "electrolyte_logic": 1.0
+        "reactions_redox": 1,
+        "calculations_basic": 1,
+        "calculations_solutions": 1,
+        "electrolyte_logic": 1
       },
       "substance_boosts": {
         "h2o2": 1.1,
@@ -36,17 +39,27 @@
     },
     {
       "id": "ru_ege",
-      "name_ru": "ЕГЭ по химии",
       "country": "RU",
       "default_locale": "ru",
       "data_dir": "exam/ege",
       "required_taxonomy_classes": [
-        "simple_substance", "oxide", "acid", "base", "salt",
-        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid",
-        "aldehyde", "ketone", "ester", "amine", "phenol"
+        "simple_substance",
+        "oxide",
+        "acid",
+        "base",
+        "salt",
+        "other_inorganic",
+        "hydrocarbon",
+        "alcohol",
+        "carboxylic_acid",
+        "aldehyde",
+        "ketone",
+        "ester",
+        "amine",
+        "phenol"
       ],
       "topic_weights": {
-        "periodic_table": 1.0,
+        "periodic_table": 1,
         "electron_config": 1.2,
         "oxidation_states": 1.1,
         "bond_type": 1.1,
@@ -67,12 +80,16 @@
     },
     {
       "id": "gb_gcse",
-      "name_ru": "GCSE Chemistry",
       "country": "GB",
       "default_locale": "en",
       "data_dir": "exam/gcse",
       "required_taxonomy_classes": [
-        "simple_substance", "oxide", "acid", "base", "salt", "other_inorganic"
+        "simple_substance",
+        "oxide",
+        "acid",
+        "base",
+        "salt",
+        "other_inorganic"
       ],
       "topic_weights": {
         "periodic_table": 1.1,
@@ -91,16 +108,22 @@
     },
     {
       "id": "pl_matura",
-      "name_ru": "Matura z chemii",
       "country": "PL",
       "default_locale": "pl",
       "data_dir": "exam/egzamin",
       "required_taxonomy_classes": [
-        "simple_substance", "oxide", "acid", "base", "salt",
-        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid"
+        "simple_substance",
+        "oxide",
+        "acid",
+        "base",
+        "salt",
+        "other_inorganic",
+        "hydrocarbon",
+        "alcohol",
+        "carboxylic_acid"
       ],
       "topic_weights": {
-        "periodic_table": 1.0,
+        "periodic_table": 1,
         "oxidation_states": 1.1,
         "reactions_redox": 1.2,
         "calculations_basic": 1.2,
@@ -116,16 +139,22 @@
     },
     {
       "id": "es_ebau",
-      "name_ru": "EBAU Química",
       "country": "ES",
       "default_locale": "es",
       "data_dir": "exam/ebau",
       "required_taxonomy_classes": [
-        "simple_substance", "oxide", "acid", "base", "salt",
-        "other_inorganic", "hydrocarbon", "alcohol", "carboxylic_acid"
+        "simple_substance",
+        "oxide",
+        "acid",
+        "base",
+        "salt",
+        "other_inorganic",
+        "hydrocarbon",
+        "alcohol",
+        "carboxylic_acid"
       ],
       "topic_weights": {
-        "periodic_table": 1.0,
+        "periodic_table": 1,
         "periodic_trends": 1.1,
         "bond_type": 1.1,
         "reaction_energy_profile": 1.2,

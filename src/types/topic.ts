@@ -24,8 +24,8 @@ export interface Topic {
   section: string;          // parent section url slug (ru), e.g. "bonds"
   slug: string;             // topic url slug, e.g. "ionic"
   course_unit_kind: CourseUnitKind;
-  title_ru: string;
-  summary_ru: string;
+  title: string;
+  summary: string;
   competency_ids: string[];
   theory_refs: TheoryRef[];
   example_refs: ExampleRef[];
@@ -35,9 +35,9 @@ export interface Topic {
 
 /** SEO/delivery overlay keyed by topic id */
 export interface TopicPage {
-  seo_title_ru: string;
-  search_aliases_ru: string[];
-  faq_ru: FAQItem[];
+  seo_title: string;
+  search_aliases: string[];
+  faq: FAQItem[];
 }
 
 export interface FAQItem {

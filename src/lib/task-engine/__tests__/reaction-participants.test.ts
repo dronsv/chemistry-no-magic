@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — .mjs module, no type declarations
 import { generateReactionParticipants } from '../../../../scripts/lib/generate-reaction-participants.mjs';
 import type { ReactionRole, ReactionParticipant, ReactionRoleId } from '../../../types/reaction-participant';
 import reactionRoles from '../../../../data-src/reactions/reaction_roles.json';
@@ -10,11 +9,9 @@ describe('reaction_roles.json', () => {
     expect(reactionRoles).toHaveLength(11);
   });
 
-  it('each role has id, name_ru, description_ru', () => {
+  it('each role has id', () => {
     for (const role of reactionRoles as ReactionRole[]) {
       expect(role.id).toBeTruthy();
-      expect(role.name_ru).toBeTruthy();
-      expect(role.description_ru).toBeTruthy();
     }
   });
 

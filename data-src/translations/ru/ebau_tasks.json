@@ -1,139 +1,256 @@
 {
   "ebau_2024_01a": {
-    "question_ru": "Запишите электронную конфигурацию атома хрома (Z = 24) в основном состоянии. Укажите квантовые числа последнего электрона, добавляемого в соответствии с принципом Ауфбау.",
-    "explanation_ru": "Хром является исключением из правила Ауфбау. Ожидаемая конфигурация [Ar] 3d4 4s2, но реальная конфигурация [Ar] 3d5 4s1, поскольку полузаполненный подуровень d (5 электронов) более стабилен. Последний электрон занимает орбиталь 3d: n=3, l=2, ml=+2, ms=+1/2."
+    "question": "Escriba la configuración electrónica del átomo de cromo (Z = 24) en su estado fundamental. Indique los números cuánticos del último electrón que se añade siguiendo el principio de Aufbau.",
+    "explanation": "El cromo es una excepción a la regla de Aufbau. La configuración esperada sería [Ar] 3d⁴ 4s², pero la configuración real es [Ar] 3d⁵ 4s¹ porque un subnivel d semiocupado (5 electrones) es más estable. El último electrón ocupa un orbital 3d: n=3, l=2, ml=+2, ms=+1/2."
   },
   "ebau_2024_01b": {
-    "question_ru": "Выберите два верных утверждения об элементе сере (S, Z = 16) и её положении в периодической таблице.",
+    "question": "Seleccione las dos afirmaciones correctas sobre el elemento azufre (S, Z = 16) y su posición en la tabla periódica.",
     "options": [
-      { "id": "1", "text": "Сера расположена в третьем периоде и в 16-й группе (VIA)." },
-      { "id": "2", "text": "Первая энергия ионизации серы больше, чем у кислорода." },
-      { "id": "3", "text": "Атомный радиус серы меньше, чем у хлора." },
-      { "id": "4", "text": "Сера может проявлять степени окисления -2, +2, +4 и +6." },
-      { "id": "5", "text": "Электроотрицательность серы больше, чем у селена." }
+      {
+        "id": "1",
+        "text": "Сера расположена в третьем периоде и в 16-й группе (VIA)."
+      },
+      {
+        "id": "2",
+        "text": "Первая энергия ионизации серы больше, чем у кислорода."
+      },
+      {
+        "id": "3",
+        "text": "Атомный радиус серы меньше, чем у хлора."
+      },
+      {
+        "id": "4",
+        "text": "Сера может проявлять степени окисления -2, +2, +4 и +6."
+      },
+      {
+        "id": "5",
+        "text": "Электроотрицательность серы больше, чем у селена."
+      }
     ],
-    "explanation_ru": "1) Верно: у S три электронных слоя (3-й период) и 6 валентных электронов (16-я группа). 2) Неверно: ЭИ1 кислорода (1314 кДж/моль) больше, чем у серы (1000 кДж/моль). 3) Неверно: атомный радиус S больше, чем у Cl (в одном периоде радиус уменьшается слева направо). 4) Верно: S проявляет все эти степени окисления благодаря промотированию электронов на вакантные орбитали 3d. 5) Само по себе верно, но требуется выбрать только 2 ответа, и варианты 1 и 4 наиболее однозначно верны."
+    "explanation": "1) Correcto: S tiene 3 capas electrónicas (período 3) y 6 electrones de valencia (grupo 16). 2) Incorrecto: la EI₁ del O (1314 kJ/mol) es mayor que la del S (1000 kJ/mol). 3) Incorrecto: el radio atómico del S es mayor que el del Cl (mismo período, el radio disminuye hacia la derecha). 4) Correcto: S presenta todos esos estados de oxidación gracias a la promoción de electrones a orbitales 3d vacíos. 5) Correcto en sí, pero solo se piden 2 respuestas y la 1 y la 4 son las más claramente correctas."
   },
   "ebau_2024_02a": {
-    "question_ru": "Установите соответствие между каждым веществом и преобладающим типом связи.",
+    "question": "Establezca la correspondencia entre cada sustancia y el tipo de enlace predominante.",
     "left_items": [
-      { "label": "A", "text": "NaCl" },
-      { "label": "B", "text": "CO₂" },
-      { "label": "C", "text": "Fe" }
+      {
+        "label": "A",
+        "text": "NaCl"
+      },
+      {
+        "label": "B",
+        "text": "CO₂"
+      },
+      {
+        "label": "C",
+        "text": "Fe"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Ионная связь" },
-      { "id": "2", "text": "Ковалентная полярная связь" },
-      { "id": "3", "text": "Ковалентная неполярная связь" },
-      { "id": "4", "text": "Металлическая связь" }
+      {
+        "id": "1",
+        "text": "Ионная связь"
+      },
+      {
+        "id": "2",
+        "text": "Ковалентная полярная связь"
+      },
+      {
+        "id": "3",
+        "text": "Ковалентная неполярная связь"
+      },
+      {
+        "id": "4",
+        "text": "Металлическая связь"
+      }
     ],
-    "explanation_ru": "A) NaCl: соединение металла (Na) и неметалла (Cl) с большой разницей электроотрицательностей — ионная связь (1). B) CO₂: соединение неметаллов с разницей электроотрицательностей — ковалентная полярная связь (2). C) Fe: чистый металлический элемент — металлическая связь (4)."
+    "explanation": "A) NaCl: compuesto formado por un metal (Na) y un no metal (Cl) con gran diferencia de electronegatividad → enlace iónico (1). B) CO₂: compuesto entre no metales con diferencia de electronegatividad → enlace covalente polar (2). C) Fe: elemento metálico puro → enlace metálico (4)."
   },
   "ebau_2024_02b": {
-    "question_ru": "Объясните, используя теорию ОЭПВО (VSEPR), молекулярную геометрию аммиака (NH₃) и воды (H₂O). Укажите приблизительные валентные углы и обоснуйте, почему они отличаются от идеального тетраэдрического угла 109,5°.",
-    "explanation_ru": "Согласно теории ОЭПВО, центральный атом располагает электронные пары так, чтобы минимизировать отталкивание. В NH₃ у азота 4 пары (3 связывающие + 1 неподелённая); электронная геометрия — тетраэдрическая, но молекулярная геометрия — тригонально-пирамидальная. Неподелённая пара отталкивает сильнее, чем связывающая, сжимая угол от 109,5° до ~107°. В H₂O у кислорода 4 пары (2 связывающие + 2 неподелённые); молекулярная геометрия — угловая. С двумя неподелёнными парами сжатие больше: угол ~104,5°."
+    "question": "Explique, utilizando la teoría RPECV (VSEPR), la geometría molecular del amoníaco (NH₃) y del agua (H₂O). Indique los ángulos de enlace aproximados y justifique por qué difieren del ángulo tetraédrico ideal de 109,5°.",
+    "explanation": "Según la teoría RPECV, el átomo central distribuye los pares de electrones para minimizar la repulsión. En NH₃, el N tiene 4 pares (3 enlazantes + 1 solitario); la disposición electrónica es tetraédrica, pero la geometría molecular es piramidal trigonal. El par solitario repele más que un par enlazante, comprimiendo el ángulo de 109,5° a ~107°. En H₂O, el O tiene 4 pares (2 enlazantes + 2 solitarios); geometría molecular angular. Con dos pares solitarios, la compresión es mayor: ángulo ~104,5°."
   },
   "ebau_2024_02c": {
-    "question_ru": "Расположите следующие вещества в порядке возрастания температуры кипения и обоснуйте свой ответ:\n  1) CH₄  2) NH₃  3) H₂O",
+    "question": "Ordene las siguientes sustancias de menor a mayor punto de ebullición y justifique su respuesta:\n  1) CH₄  2) NH₃  3) H₂O",
     "items": [
-      { "id": "1", "text": "CH₄" },
-      { "id": "2", "text": "NH₃" },
-      { "id": "3", "text": "H₂O" }
+      {
+        "id": "1",
+        "text": "CH₄"
+      },
+      {
+        "id": "2",
+        "text": "NH₃"
+      },
+      {
+        "id": "3",
+        "text": "H₂O"
+      }
     ],
-    "explanation_ru": "CH₄ (т. кип. -161 °C) обладает только дисперсионными силами Лондона (неполярная молекула). NH₃ (т. кип. -33 °C) образует водородные связи с участием N, более слабые, чем у воды. H₂O (т. кип. 100 °C) образует очень прочные водородные связи (O сильно электроотрицателен и имеет 2 неподелённые пары, формируя обширную сеть). Порядок: CH₄ < NH₃ < H₂O."
+    "explanation": "CH₄ (p.e. −161 °C) solo presenta fuerzas de dispersión de London (molécula apolar). NH₃ (p.e. −33 °C) forma enlaces de hidrógeno con N, más débiles que los del agua. H₂O (p.e. 100 °C) forma enlaces de hidrógeno muy fuertes (O es muy electronegativo y tiene 2 pares solitarios, formando una red extensa). Orden: CH₄ < NH₃ < H₂O."
   },
   "ebau_2024_03a": {
-    "context_ru": "Реакция горения метана: CH₄(г) + 2 O₂(г) → CO₂(г) + 2 H₂O(ж)\nДанные: ΔH°f [CO₂(г)] = -393,5 кДж/моль; ΔH°f [H₂O(ж)] = -285,8 кДж/моль; ΔH°f [CH₄(г)] = -74,8 кДж/моль.",
-    "question_ru": "Рассчитайте стандартную энтальпию сгорания метана ΔH°с в кДж/моль.",
-    "explanation_ru": "Применяя закон Гесса: ΔH°с = ΣΔH°f(продукты) - ΣΔH°f(реагенты) = [1×(-393,5) + 2×(-285,8)] - [1×(-74,8) + 2×0] = (-393,5 - 571,6) - (-74,8) = -965,1 + 74,8 = -890,3 кДж/моль. Реакция экзотермическая."
+    "context": "La combustión del metano es: CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)\nDatos: ΔH°f [CO₂(g)] = −393,5 kJ/mol; ΔH°f [H₂O(l)] = −285,8 kJ/mol; ΔH°f [CH₄(g)] = −74,8 kJ/mol.",
+    "question": "Calcule la entalpía estándar de combustión del metano, ΔH°c, en kJ/mol.",
+    "explanation": "Aplicando la ley de Hess: ΔH°c = ΣΔH°f(productos) − ΣΔH°f(reactivos) = [1×(−393,5) + 2×(−285,8)] − [1×(−74,8) + 2×0] = (−393,5 − 571,6) − (−74,8) = −965,1 + 74,8 = −890,3 kJ/mol. La reacción es exotérmica."
   },
   "ebau_2024_03c": {
-    "context_ru": "Дана реакция: CaCO₃(тв) → CaO(тв) + CO₂(г)\nΔH° = +178,3 кДж; ΔS° = +160,5 Дж/(моль·К).",
-    "question_ru": "Определите минимальную температуру (в °C), начиная с которой разложение карбоната кальция протекает самопроизвольно. Округлите до ближайшего целого числа.",
-    "explanation_ru": "Реакция самопроизвольна, когда ΔG° < 0, т. е. когда ΔH° - TΔS° < 0. На границе: T = ΔH°/ΔS° = 178300 Дж / 160,5 Дж/(моль·К) = 1110,9 К. Переводим в °C: 1110,9 - 273,15 = 837,8 ≈ 838 °C. Выше этой температуры реакция самопроизвольна (ΔH° > 0, ΔS° > 0 — благоприятна при высокой T)."
+    "context": "Se tiene la reacción: CaCO₃(s) → CaO(s) + CO₂(g)\nΔH° = +178,3 kJ; ΔS° = +160,5 J/(mol·K).",
+    "question": "Determine la temperatura mínima (en °C) a partir de la cual la descomposición del carbonato de calcio es espontánea. Redondee al entero más cercano.",
+    "explanation": "La reacción es espontánea cuando ΔG° < 0, es decir, cuando ΔH° − TΔS° < 0. En el límite: T = ΔH°/ΔS° = 178300 J / 160,5 J/(mol·K) = 1110,9 K. Convertimos a °C: 1110,9 − 273,15 = 837,8 ≈ 838 °C. Por encima de esta temperatura la reacción es espontánea (ΔH° > 0, ΔS° > 0 → favorecida a alta T)."
   },
   "ebau_2024_04a": {
-    "context_ru": "Для газофазной реакции: 2 SO₂(г) + O₂(г) ⇌ 2 SO₃(г) при 600 К константа равновесия Kc = 4,32.",
-    "question_ru": "Выберите два верных утверждения об этой системе в состоянии равновесия.",
+    "context": "Para la reacción en fase gaseosa: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g), a 600 K, la constante de equilibrio es Kc = 4,32.",
+    "question": "Seleccione las dos afirmaciones correctas sobre este sistema en equilibrio.",
     "options": [
-      { "id": "1", "text": "Увеличение общего давления смещает равновесие в сторону образования SO₃." },
-      { "id": "2", "text": "Добавление катализатора изменяет значение Kc." },
-      { "id": "3", "text": "При повышении температуры, если прямая реакция экзотермическая, Kc уменьшается." },
-      { "id": "4", "text": "Удаление SO₃ из системы смещает равновесие в сторону реагентов." },
-      { "id": "5", "text": "Выражение для Kc: [SO₂]²[O₂] / [SO₃]²." }
+      {
+        "id": "1",
+        "text": "Увеличение общего давления смещает равновесие в сторону образования SO₃."
+      },
+      {
+        "id": "2",
+        "text": "Добавление катализатора изменяет значение Kc."
+      },
+      {
+        "id": "3",
+        "text": "При повышении температуры, если прямая реакция экзотермическая, Kc уменьшается."
+      },
+      {
+        "id": "4",
+        "text": "Удаление SO₃ из системы смещает равновесие в сторону реагентов."
+      },
+      {
+        "id": "5",
+        "text": "Выражение для Kc: [SO₂]²[O₂] / [SO₃]²."
+      }
     ],
-    "explanation_ru": "1) Верно: слева 3 моля газа, справа 2; повышение давления смещает равновесие в сторону меньшего числа молей газа (вправо, к продуктам). 2) Неверно: катализатор ускоряет обе реакции одинаково, не изменяет Kc. 3) Верно: по принципу Ле Шателье, если реакция экзотермическая, повышение T смещает равновесие к реагентам, уменьшая Kc. 4) Неверно: удаление продукта смещает равновесие в сторону продуктов (вправо). 5) Неверно: правильное выражение Kc = [SO₃]² / ([SO₂]²[O₂])."
+    "explanation": "1) Correcto: hay 3 moles de gas a la izquierda y 2 a la derecha; un aumento de presión desplaza el equilibrio hacia donde hay menos moles de gas (derecha, productos). 2) Incorrecto: el catalizador acelera ambas reacciones por igual, no cambia Kc. 3) Correcto: según Le Chatelier, si la reacción es exotérmica, un aumento de T desplaza el equilibrio hacia los reactivos, disminuyendo Kc. 4) Incorrecto: retirar producto desplaza hacia los productos (derecha). 5) Incorrecto: la expresión correcta es Kc = [SO₃]² / ([SO₂]²[O₂])."
   },
   "ebau_2024_04c": {
-    "question_ru": "Установите соответствие между каждым фактором и его влиянием на скорость химической реакции.",
+    "question": "Establezca la correspondencia entre cada factor y su efecto sobre la velocidad de una reacción química.",
     "left_items": [
-      { "label": "A", "text": "Увеличение концентрации реагентов" },
-      { "label": "B", "text": "Добавление положительного катализатора" },
-      { "label": "C", "text": "Понижение температуры" }
+      {
+        "label": "A",
+        "text": "Увеличение концентрации реагентов"
+      },
+      {
+        "label": "B",
+        "text": "Добавление положительного катализатора"
+      },
+      {
+        "label": "C",
+        "text": "Понижение температуры"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Увеличивает скорость за счёт большей частоты эффективных столкновений" },
-      { "id": "2", "text": "Увеличивает скорость за счёт снижения энергии активации" },
-      { "id": "3", "text": "Уменьшает скорость из-за снижения кинетической энергии молекул" },
-      { "id": "4", "text": "Не влияет на скорость реакции" }
+      {
+        "id": "1",
+        "text": "Увеличивает скорость за счёт большей частоты эффективных столкновений"
+      },
+      {
+        "id": "2",
+        "text": "Увеличивает скорость за счёт снижения энергии активации"
+      },
+      {
+        "id": "3",
+        "text": "Уменьшает скорость из-за снижения кинетической энергии молекул"
+      },
+      {
+        "id": "4",
+        "text": "Не влияет на скорость реакции"
+      }
     ],
-    "explanation_ru": "A) Увеличение концентрации — большая частота столкновений — большая скорость (1). B) Положительный катализатор предоставляет альтернативный путь реакции с меньшей энергией активации (2). C) Понижение температуры снижает среднюю кинетическую энергию молекул, меньше столкновений преодолевают Ea — меньшая скорость (3)."
+    "explanation": "A) Aumentar la concentración → mayor frecuencia de colisiones → mayor velocidad (1). B) Un catalizador positivo proporciona un camino de reacción alternativo con menor energía de activación (2). C) Disminuir la temperatura reduce la energía cinética media de las moléculas, menos colisiones superan Ea → menor velocidad (3)."
   },
   "ebau_2024_05a": {
-    "context_ru": "Приготовлен 0,10 М раствор уксусной кислоты (CH₃COOH). Константа кислотности Ka = 1,8 × 10⁻⁵.",
-    "question_ru": "Рассчитайте pH 0,10 М раствора уксусной кислоты. Результат выразите с точностью до двух десятичных знаков.",
-    "explanation_ru": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. При c = 0,10 М и Ka = 1,8 × 10⁻⁵ (Ka << c, можно использовать приближение):\n[H⁺] = √(Ka × c) = √(1,8 × 10⁻⁵ × 0,10) = √(1,8 × 10⁻⁶) = 1,34 × 10⁻³ М.\npH = -log(1,34 × 10⁻³) = 2,87."
+    "context": "Se prepara una disolución de ácido acético (CH₃COOH) 0,10 M. La constante de acidez es Ka = 1,8 × 10⁻⁵.",
+    "question": "Calcule el pH de la disolución de ácido acético 0,10 M. Exprese el resultado con dos cifras decimales.",
+    "explanation": "CH₃COOH ⇌ CH₃COO⁻ + H⁺. Siendo c = 0,10 M y Ka = 1,8 × 10⁻⁵ (Ka << c, se puede aproximar):\n[H⁺] = √(Ka × c) = √(1,8 × 10⁻⁵ × 0,10) = √(1,8 × 10⁻⁶) = 1,34 × 10⁻³ M.\npH = −log(1,34 × 10⁻³) = 2,87."
   },
   "ebau_2024_05b": {
-    "question_ru": "Смешивают 25,0 мл 0,20 М NaOH с 25,0 мл 0,10 М HCl. Рассчитайте pH полученного раствора при 25 °C.",
-    "explanation_ru": "Моли NaOH = 0,025 л × 0,20 моль/л = 5,0 × 10⁻³ моль.\nМоли HCl = 0,025 л × 0,10 моль/л = 2,5 × 10⁻³ моль.\nПосле нейтрализации: избыток NaOH = 5,0 × 10⁻³ - 2,5 × 10⁻³ = 2,5 × 10⁻³ моль.\nОбщий объём = 50,0 мл = 0,050 л.\n[OH⁻] = 2,5 × 10⁻³ / 0,050 = 0,050 М.\npOH = -log(0,050) = 1,30.\npH = 14,00 - 1,30 = 12,70."
+    "question": "Se mezclan 25,0 mL de NaOH 0,20 M con 25,0 mL de HCl 0,10 M. Calcule el pH de la disolución resultante a 25 °C.",
+    "explanation": "Moles NaOH = 0,025 L × 0,20 mol/L = 5,0 × 10⁻³ mol.\nMoles HCl = 0,025 L × 0,10 mol/L = 2,5 × 10⁻³ mol.\nTras la neutralización: exceso de NaOH = 5,0 × 10⁻³ − 2,5 × 10⁻³ = 2,5 × 10⁻³ mol.\nVolumen total = 50,0 mL = 0,050 L.\n[OH⁻] = 2,5 × 10⁻³ / 0,050 = 0,050 M.\npOH = −log(0,050) = 1,30.\npH = 14,00 − 1,30 = 12,70."
   },
   "ebau_2024_05c": {
-    "question_ru": "Заполните пропуски для кислотно-основного титрования:\n\n20,0 мл раствора HCl неизвестной концентрации титруют 0,15 М NaOH. Точка эквивалентности достигается при добавлении 18,0 мл NaOH.\n\nX = концентрация HCl (моль/л)\nY = количество вещества HCl в пробе (× 10⁻³)",
-    "input_labels": ["X", "Y"],
-    "explanation_ru": "В точке эквивалентности: моли HCl = моли NaOH.\nМоли NaOH = 0,018 л × 0,15 моль/л = 2,70 × 10⁻³ моль → Y = 2,70.\nКонцентрация HCl = моли / объём = 2,70 × 10⁻³ / 0,020 = 0,135 М → X = 0,135."
+    "question": "Complete las siguientes casillas para la valoración ácido-base:\n\nSe valoran 20,0 mL de una disolución de HCl de concentración desconocida con NaOH 0,15 M. El punto de equivalencia se alcanza al añadir 18,0 mL de NaOH.\n\nX = concentración de HCl (en mol/L)\nY = moles de HCl en la muestra (× 10⁻³)",
+    "input_labels": [
+      "X",
+      "Y"
+    ],
+    "explanation": "En el punto de equivalencia: moles HCl = moles NaOH.\nMoles NaOH = 0,018 L × 0,15 mol/L = 2,70 × 10⁻³ mol → Y = 2,70.\nConcentración HCl = moles / volumen = 2,70 × 10⁻³ / 0,020 = 0,135 M → X = 0,135."
   },
   "ebau_2024_06a": {
-    "question_ru": "Уравняйте следующую окислительно-восстановительную реакцию методом полуреакций (ионно-электронным методом) в кислой среде:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nУкажите полуреакции окисления и восстановления, а также суммарное уравнение.",
-    "explanation_ru": "Полуреакция восстановления: MnO₄⁻ → Mn²⁺. Марганец переходит из +7 в +2 (принимает 5 e⁻). Для уравнивания кислородов в кислой среде добавляют H₂O и H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nПолуреакция окисления: Fe²⁺ → Fe³⁺ + e⁻. Железо переходит из +2 в +3 (теряет 1 e⁻).\nДля уравнивания электронов окисление умножается на 5.\nСуммарное уравнение: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
+    "question": "Ajuste la siguiente reacción redox por el método del ion-electrón en medio ácido:\n\nMnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺\n\nIndique las semirreacciones de oxidación y reducción, y la reacción global ajustada.",
+    "explanation": "Semirreacción de reducción: MnO₄⁻ → Mn²⁺. El Mn pasa de +7 a +2 (gana 5 e⁻). Para ajustar los oxígenos en medio ácido se añaden H₂O y H⁺: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.\nSemirreacción de oxidación: Fe²⁺ → Fe³⁺ + e⁻. El Fe pasa de +2 a +3 (pierde 1 e⁻).\nPara igualar electrones se multiplica la oxidación por 5.\nGlobal: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O."
   },
   "ebau_2024_06b": {
-    "context_ru": "Собран гальванический элемент со следующими электродами:\n- Цинковый электрод: Zn²⁺/Zn, E° = -0,76 В\n- Медный электрод: Cu²⁺/Cu, E° = +0,34 В",
-    "question_ru": "Рассчитайте стандартную ЭДС (электродвижущую силу) гальванического элемента в вольтах. Укажите, какой электрод является анодом, а какой — катодом.",
-    "explanation_ru": "ЭДС элемента рассчитывается как: ЭДС = E°(катод) - E°(анод).\nЭлектрод с меньшим потенциалом восстановления выступает анодом (окисляется): Zn → Zn²⁺ + 2e⁻ (E° = -0,76 В).\nЭлектрод с большим потенциалом выступает катодом (восстанавливается): Cu²⁺ + 2e⁻ → Cu (E° = +0,34 В).\nЭДС = +0,34 - (-0,76) = +1,10 В."
+    "context": "Se construye una pila galvánica con los siguientes electrodos:\n- Electrodo de zinc: Zn²⁺/Zn, E° = −0,76 V\n- Electrodo de cobre: Cu²⁺/Cu, E° = +0,34 V",
+    "question": "Calcule la fuerza electromotriz estándar (fem) de la pila en voltios. Indique cuál es el ánodo y cuál el cátodo.",
+    "explanation": "La fem de la pila se calcula como: fem = E°(cátodo) − E°(ánodo).\nEl electrodo con menor potencial de reducción actúa como ánodo (se oxida): Zn → Zn²⁺ + 2e⁻ (E° = −0,76 V).\nEl electrodo con mayor potencial actúa como cátodo (se reduce): Cu²⁺ + 2e⁻ → Cu (E° = +0,34 V).\nfem = +0,34 − (−0,76) = +1,10 V."
   },
   "ebau_2024_06c": {
-    "context_ru": "Проводится электролиз водного раствора CuSO₄ с инертными электродами в течение 30 минут при силе тока 2,5 А. Данные: M(Cu) = 63,5 г/моль; F = 96 485 Кл/моль.",
-    "question_ru": "Рассчитайте массу меди, выделившейся на катоде, в граммах. Округлите до двух десятичных знаков.",
-    "explanation_ru": "На катоде: Cu²⁺ + 2e⁻ → Cu.\nОбщий заряд: Q = I × t = 2,5 А × (30 × 60 с) = 2,5 × 1800 = 4500 Кл.\nМоли электронов: n(e⁻) = Q / F = 4500 / 96485 = 0,04665 моль.\nМоли Cu = n(e⁻) / 2 = 0,02332 моль (требуется 2 e⁻ на атом Cu).\nМасса Cu = 0,02332 × 63,5 = 1,48 г."
+    "context": "Se realiza la electrólisis de una disolución acuosa de CuSO₄ con electrodos inertes durante 30 minutos con una corriente de 2,5 A. Dato: M(Cu) = 63,5 g/mol; F = 96 485 C/mol.",
+    "question": "Calcule la masa de cobre depositada en el cátodo, en gramos. Redondee a dos cifras decimales.",
+    "explanation": "En el cátodo: Cu²⁺ + 2e⁻ → Cu.\nCarga total: Q = I × t = 2,5 A × (30 × 60 s) = 2,5 × 1800 = 4500 C.\nMoles de electrones: n(e⁻) = Q / F = 4500 / 96485 = 0,04665 mol.\nMoles de Cu = n(e⁻) / 2 = 0,02332 mol (se necesitan 2 e⁻ por átomo de Cu).\nMasa de Cu = 0,02332 × 63,5 = 1,48 g."
   },
   "ebau_2024_07a": {
-    "question_ru": "Установите соответствие между каждым органическим соединением и его характерной функциональной группой.",
+    "question": "Establezca la correspondencia entre cada compuesto orgánico y su grupo funcional característico.",
     "left_items": [
-      { "label": "A", "text": "CH₃CH₂OH" },
-      { "label": "B", "text": "CH₃COOH" },
-      { "label": "C", "text": "CH₃COCH₃" }
+      {
+        "label": "A",
+        "text": "CH₃CH₂OH"
+      },
+      {
+        "label": "B",
+        "text": "CH₃COOH"
+      },
+      {
+        "label": "C",
+        "text": "CH₃COCH₃"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Гидроксильная группа (-OH) — Спирт" },
-      { "id": "2", "text": "Карбоксильная группа (-COOH) — Карбоновая кислота" },
-      { "id": "3", "text": "Карбонильная группа (>C=O) — Кетон" },
-      { "id": "4", "text": "Аминогруппа (-NH₂) — Амин" }
+      {
+        "id": "1",
+        "text": "Гидроксильная группа (-OH) — Спирт"
+      },
+      {
+        "id": "2",
+        "text": "Карбоксильная группа (-COOH) — Карбоновая кислота"
+      },
+      {
+        "id": "3",
+        "text": "Карбонильная группа (>C=O) — Кетон"
+      },
+      {
+        "id": "4",
+        "text": "Аминогруппа (-NH₂) — Амин"
+      }
     ],
-    "explanation_ru": "A) CH₃CH₂OH (этанол) содержит группу -OH, связанную с насыщенным атомом углерода — спирт (1). B) CH₃COOH (уксусная кислота) имеет группу -COOH — карбоновая кислота (2). C) CH₃COCH₃ (ацетон) имеет группу >C=O между двумя атомами углерода — кетон (3)."
+    "explanation": "A) CH₃CH₂OH (etanol) contiene un grupo −OH unido a un carbono saturado → alcohol (1). B) CH₃COOH (ácido acético) tiene un grupo −COOH → ácido carboxílico (2). C) CH₃COCH₃ (acetona) tiene un grupo >C=O entre dos carbonos → cetona (3)."
   },
   "ebau_2024_07b": {
-    "question_ru": "Выберите вариант, содержащий правильную серию названий по IUPAC для соединений:\na) CH₃-CH=CH-CH₃\nb) CH₃-CH(CH₃)-CH₂-OH\nc) CH₃-CO-CH₂-CH₃",
+    "question": "Seleccione la opción que contiene la serie correcta de nombres IUPAC para los compuestos:\na) CH₃−CH=CH−CH₃\nb) CH₃−CH(CH₃)−CH₂−OH\nc) CH₃−CO−CH₂−CH₃",
     "options": [
-      { "id": "1", "text": "a) бут-2-ен, b) 2-метилпропан-1-ол, c) бутанон" },
-      { "id": "2", "text": "a) бут-1-ен, b) 2-метилпропан-2-ол, c) бутаналь" },
-      { "id": "3", "text": "a) бут-2-ен, b) бутан-2-ол, c) бутанон" },
-      { "id": "4", "text": "a) бут-2-ен, b) 2-метилпропан-1-ол, c) пентан-2-он" }
+      {
+        "id": "1",
+        "text": "a) бут-2-ен, b) 2-метилпропан-1-ол, c) бутанон"
+      },
+      {
+        "id": "2",
+        "text": "a) бут-1-ен, b) 2-метилпропан-2-ол, c) бутаналь"
+      },
+      {
+        "id": "3",
+        "text": "a) бут-2-ен, b) бутан-2-ол, c) бутанон"
+      },
+      {
+        "id": "4",
+        "text": "a) бут-2-ен, b) 2-метилпропан-1-ол, c) пентан-2-он"
+      }
     ],
-    "explanation_ru": "a) CH₃-CH=CH-CH₃: цепь из 4 атомов C с двойной связью в положении 2 — бут-2-ен. b) CH₃-CH(CH₃)-CH₂-OH: основная цепь из 3 атомов C с OH в C1 и метильной группой в C2 — 2-метилпропан-1-ол. c) CH₃-CO-CH₂-CH₃: цепь из 4 атомов C с кетонной группой в C2 — бутанон (или бутан-2-он). Вариант 1 — верный."
+    "explanation": "a) CH₃−CH=CH−CH₃: cadena de 4 C con doble enlace en posición 2 → but-2-eno. b) CH₃−CH(CH₃)−CH₂−OH: cadena principal de 3 C con OH en C1 y un metilo en C2 → 2-metilpropan-1-ol. c) CH₃−CO−CH₂−CH₃: cadena de 4 C con grupo cetona en C2 → butanona (o butan-2-ona). La opción 1 es correcta."
   },
   "ebau_2024_07c": {
-    "question_ru": "Запишите реакцию омыления этилацетата (CH₃COOCH₂CH₃) гидроксидом натрия. Назовите полученные продукты и укажите тип реакции.",
-    "explanation_ru": "Омыление — это гидролиз сложного эфира в щелочной среде. Этилацетат реагирует с NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nПолучаются ацетат натрия (соль уксусной кислоты) и этанол (первичный спирт). Это реакция нуклеофильного ацильного замещения (необратимый щелочной гидролиз)."
+    "question": "Escriba la reacción de saponificación del acetato de etilo (CH₃COOCH₂CH₃) con hidróxido de sodio. Nombre los productos obtenidos e indique el tipo de reacción.",
+    "explanation": "La saponificación es la hidrólisis de un éster en medio básico. El acetato de etilo reacciona con NaOH:\nCH₃COOCH₂CH₃ + NaOH → CH₃COONa + CH₃CH₂OH.\nSe obtiene acetato de sodio (una sal del ácido acético) y etanol (un alcohol primario). Es una reacción de sustitución nucleófila acílica (hidrólisis básica irreversible)."
   }
 }

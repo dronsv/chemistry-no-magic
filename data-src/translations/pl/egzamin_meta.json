@@ -1,0 +1,33 @@
+{
+  "full_name": "Matura z chemii — poziom rozszerzony",
+  "description": "Egzamin maturalny z chemii na poziomie rozszerzonym. Dla uczniów planujących studia przyrodnicze na uczelniach wyższych.",
+  "competencies": {
+    "matura_atomic_structure": {
+      "name": "Budowa atomu i układ okresowy"
+    },
+    "matura_bonding": {
+      "name": "Wiązania chemiczne"
+    },
+    "matura_stoichiometry": {
+      "name": "Obliczenia stechiometryczne"
+    },
+    "matura_acids_bases": {
+      "name": "Kwasy, zasady i pH"
+    },
+    "matura_redox": {
+      "name": "Reakcje utleniania-redukcji"
+    },
+    "matura_organic": {
+      "name": "Chemia organiczna"
+    },
+    "matura_kinetics": {
+      "name": "Kinetyka i równowaga chemiczna"
+    },
+    "matura_electrochemistry": {
+      "name": "Elektrochemia"
+    }
+  },
+  "official_links": {
+    "label": "Arkusze maturalne z chemii (CKE)"
+  }
+}

@@ -5,7 +5,7 @@ interface ReactionTemplate {
   id: string;
   type: string;
   pattern: string;
-  description_ru: string;
+  description: string;
   conditions: string | null;
   catalyst: string | null;
   examples: { reactants: string[]; products: string[] }[];
@@ -14,8 +14,8 @@ interface ReactionTemplate {
 interface ApplicabilityRule {
   id: string;
   type: string;
-  condition_ru: string;
-  description_ru: string;
+  condition: string;
+  description: string;
 }
 
 interface Props {
@@ -39,7 +39,7 @@ const exchangeTemplates = templates.filter(t => t.type === 'exchange');
     {exchangeTemplates.map(t => (
       <tr>
         <td>
-          <strong>{t.description_ru}</strong>
+          <strong>{t.description}</strong>
           {t.conditions && <div class="comp-content__note">{m.rxn_theory_conditions_label({ conditions: t.conditions })}</div>}
         </td>
         <td>
@@ -59,7 +59,7 @@ const exchangeTemplates = templates.filter(t => t.type === 'exchange');
     <p class="comp-content__subtitle">{m.rxn_theory_forces()}</p>
     <ul class="comp-content__list">
       {rules.map(r => (
-        <li><strong>{r.condition_ru}</strong> — {r.description_ru}</li>
+        <li><strong>{r.condition}</strong> — {r.description}</li>
       ))}
     </ul>
   </>

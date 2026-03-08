@@ -1,0 +1,57 @@
+{
+  "Cl-": {
+    "target_name": "jon chlorkowy Cl⁻",
+    "reagent_name": "azotan srebra",
+    "observation": "biały serowaty osad AgCl, ciemnieje na świetle"
+  },
+  "SO4^2-": {
+    "target_name": "jon siarczanowy SO₄²⁻",
+    "reagent_name": "chlorek baru",
+    "observation": "biały osad BaSO₄, nierozpuszczalny w kwasach"
+  },
+  "CO3^2-": {
+    "target_name": "jon węglanowy CO₃²⁻",
+    "reagent_name": "kwas solny",
+    "observation": "wydziela się gaz CO₂ (szumowanie), woda wapienna mętnieje"
+  },
+  "PO4^3-": {
+    "target_name": "jon fosforanowy PO₄³⁻",
+    "reagent_name": "azotan srebra",
+    "observation": "żółty osad Ag₃PO₄"
+  },
+  "NH4+": {
+    "target_name": "jon amonowy NH₄⁺",
+    "reagent_name": "wodorotlenek sodu (po podgrzaniu)",
+    "observation": "wydziela się NH₃ o ostrym zapachu, wilgotny papier lakmusowy niebieścieje"
+  },
+  "Cu^2+": {
+    "target_name": "jon miedzi(II) Cu²⁺",
+    "reagent_name": "wodorotlenek sodu",
+    "observation": "niebieski osad Cu(OH)₂"
+  },
+  "Fe^3+": {
+    "target_name": "jon żelaza(III) Fe³⁺",
+    "reagent_name": "wodorotlenek sodu",
+    "observation": "brunatny osad Fe(OH)₃"
+  },
+  "Fe^2+": {
+    "target_name": "jon żelaza(II) Fe²⁺",
+    "reagent_name": "wodorotlenek sodu",
+    "observation": "biały (szaro-zielony) osad Fe(OH)₂, szybko brunatnieje na powietrzu"
+  },
+  "CO2": {
+    "target_name": "dwutlenek węgla CO₂",
+    "reagent_name": "woda wapienna",
+    "observation": "woda wapienna mętnieje (osad CaCO₃)"
+  },
+  "NH3": {
+    "target_name": "amoniak NH₃",
+    "reagent_name": "wilgotny papier lakmusowy",
+    "observation": "wilgotny czerwony papier lakmusowy niebieścieje"
+  },
+  "H2S": {
+    "target_name": "siarkowodór H₂S",
+    "reagent_name": "roztwór octanu/azotanu ołowiu",
+    "observation": "czarny osad PbS, charakterystyczny zapach zgniłych jaj"
+  }
+}

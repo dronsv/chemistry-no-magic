@@ -4,7 +4,7 @@ export interface NameIndexEntry {
   ref: EntityRef;
   /** Source of this name: 'term' | 'element' | 'ion' | 'substance' */
   source: string;
-  /** Original name_ru or translated name (lowercase) */
+  /** Original name or translated name (lowercase) */
   name: string;
 }
 

@@ -24,10 +24,10 @@ export type CompetencyBlock = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
 
 export interface CompetencyNode {
   id: CompetencyId;
-  name_ru: string;
-  description_ru: string;
+  name: string;
+  description: string;
   block: CompetencyBlock;
-  block_name_ru: string;
+  block_name: string;
   prerequisites: CompetencyId[];
   oge_task_types: number[];
   link: string | null;

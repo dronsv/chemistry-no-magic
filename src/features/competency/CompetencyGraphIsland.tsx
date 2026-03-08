@@ -172,7 +172,7 @@ export default function CompetencyGraphIsland({
         {(['A', 'B', 'C', 'D', 'E', 'F', 'G'] as CompetencyBlock[]).map(block => {
           const hasBlock = competencies.some(c => c.block === block);
           if (!hasBlock) return null;
-          const label = competencies.find(c => c.block === block)?.block_name_ru ?? BLOCK_LABELS[block];
+          const label = competencies.find(c => c.block === block)?.block_name ?? BLOCK_LABELS[block];
           return (
             <span key={block} className="comp-graph__legend-item">
               <span className={`comp-graph__legend-dot comp-graph__block--${block}`} />
@@ -249,7 +249,7 @@ export default function CompetencyGraphIsland({
                     <span className={`comp-graph__block-badge comp-graph__block--${c.block}`}>
                       {c.block}
                     </span>
-                    <span className="comp-graph__node-name">{c.name_ru}</span>
+                    <span className="comp-graph__node-name">{c.name}</span>
                   </div>
                   <div className="comp-graph__node-bar">
                     <div
@@ -272,13 +272,13 @@ export default function CompetencyGraphIsland({
               <span className={`comp-graph__block-badge comp-graph__block--${block}`}>
                 {block}
               </span>
-              {nodes[0]?.block_name_ru ?? BLOCK_LABELS[block]}
+              {nodes[0]?.block_name ?? BLOCK_LABELS[block]}
             </h2>
             <div className="comp-graph__group-items">
               {nodes.map(c => {
                 const level = getNodeLevel(c.id);
                 const pct = getNodePercent(c.id);
-                const nameMap = new Map(competencies.map(n => [n.id, n.name_ru]));
+                const nameMap = new Map(competencies.map(n => [n.id, n.name]));
                 return (
                   <a
                     key={c.id}
@@ -289,7 +289,7 @@ export default function CompetencyGraphIsland({
                       <span className={`comp-graph__block-badge comp-graph__block--${c.block}`}>
                         {c.block}
                       </span>
-                      <span className="comp-graph__node-name">{c.name_ru}</span>
+                      <span className="comp-graph__node-name">{c.name}</span>
                     </div>
                     <div className="comp-graph__node-bar">
                       <div

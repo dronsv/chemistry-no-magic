@@ -96,12 +96,12 @@ const rxQualitative = mockReaction({
 const allReactions = [rxExchange, rxNeutralization, rxSubstitution, rxDecomposition, rxQualitative];
 
 const substanceMap = makeSubstanceMap([
-  { id: 'naoh', formula: 'NaOH', name_ru: 'Гидроксид натрия', class: 'base' },
-  { id: 'hcl', formula: 'HCl', name_ru: 'Хлороводородная кислота', class: 'acid' },
-  { id: 'nacl', formula: 'NaCl', name_ru: 'Хлорид натрия', class: 'salt' },
-  { id: 'h2o', formula: 'H₂O', name_ru: 'Вода', class: 'oxide' },
-  { id: 'fe', formula: 'Fe', name_ru: 'Железо', class: 'simple' },
-  { id: 'cu', formula: 'Cu', name_ru: 'Медь', class: 'simple' },
+  { id: 'naoh', formula: 'NaOH', name: 'Гидроксид натрия', class: 'base' },
+  { id: 'hcl', formula: 'HCl', name: 'Хлороводородная кислота', class: 'acid' },
+  { id: 'nacl', formula: 'NaCl', name: 'Хлорид натрия', class: 'salt' },
+  { id: 'h2o', formula: 'H₂O', name: 'Вода', class: 'oxide' },
+  { id: 'fe', formula: 'Fe', name: 'Железо', class: 'simple' },
+  { id: 'cu', formula: 'Cu', name: 'Медь', class: 'simple' },
 ]);
 
 // ──────────────────────────────────────────────

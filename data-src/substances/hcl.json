@@ -1,19 +1,19 @@
 {
-  "id": "hcl",
+  "id": "sub:hcl",
   "formula": "HCl",
-  "name_ru": "Соляная кислота",
   "class": "acid",
   "subclass": "oxygen_free",
-  "ions": ["H_plus", "Cl_minus"],
-  "tags": ["soluble", "strong_electrolyte", "strong_acid"],
+  "ions": [
+    "ion:H_plus",
+    "ion:Cl_minus"
+  ],
+  "tags": [
+    "soluble",
+    "strong_electrolyte",
+    "strong_acid"
+  ],
   "phase_standard": "g",
   "melting_point_C": -114.2,
   "boiling_point_C": -85.1,
-  "density_g_cm3": 1.19,
-  "appearance_ru": "Бесцветный газ с резким запахом; в продаже — в виде водного раствора (соляная кислота)",
-  "hazards_ru": ["Коррозионное", "Раздражает дыхательные пути"],
-  "storage_ru": "Хранить в стеклянной или полиэтиленовой таре, в проветриваемом помещении",
-  "industrial_ru": "Очистка металлов, производство хлоридов, пищевая промышленность",
-  "production_ru": "Синтез из водорода и хлора или побочный продукт хлорирования органических веществ",
-  "fun_facts_ru": ["Соляная кислота содержится в желудочном соке человека (pH ≈ 1,5–2)", "Концентрированная HCl «дымит» на воздухе из-за выделения газообразного HCl"]
+  "density_g_cm3": 1.19
 }

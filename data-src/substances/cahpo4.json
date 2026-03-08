@@ -1,24 +1,16 @@
 {
-  "id": "cahpo4",
+  "id": "sub:cahpo4",
   "formula": "CaHPO₄",
-  "name_ru": "Гидрофосфат кальция",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Ca_2plus",
-    "HPO4_2minus"
+    "ion:Ca_2plus",
+    "ion:HPO4_2minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 2.31,
-  "appearance_ru": "Белый кристаллический порошок",
-  "industrial_ru": "Удобрения (преципитат), кормовые добавки, зубные пасты",
-  "production_ru": "Реакция Ca(OH)₂ + H₃PO₄ → CaHPO₄↓ + 2H₂O",
-  "fun_facts_ru": [
-    "Преципитат (CaHPO₄) — фосфорное удобрение и кормовая добавка для животных",
-    "Входит в состав зубных паст как мягкий абразив"
-  ]
+  "density_g_cm3": 2.31
 }

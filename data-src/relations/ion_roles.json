@@ -1,0 +1,164 @@
+[
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SO4_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SO3_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NO2_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Cl_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Br_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:I_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:F_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:S_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:PO4_3minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CO3_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:SiO3_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:CrO4_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "has_role",
+    "object": "role:acid_residue",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "has_role",
+    "object": "role:oxidizing_agent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "has_role",
+    "object": "role:oxidizing_agent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "has_role",
+    "object": "role:oxidizing_agent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:OH_minus",
+    "predicate": "has_role",
+    "object": "role:base_component",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:H_plus",
+    "predicate": "has_role",
+    "object": "role:acid_component",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "ion:NH4_plus",
+    "predicate": "has_role",
+    "object": "role:ampholyte",
+    "knowledge_level": "school_convention"
+  }
+]

@@ -16,8 +16,8 @@ export default function ElementList({ elements, groups }: Props) {
     if (!q) return elements;
     return elements.filter(el =>
       el.symbol.toLowerCase().includes(q) ||
-      el.name_ru.toLowerCase().includes(q) ||
-      el.name_en.toLowerCase().includes(q) ||
+      (el.name?.toLowerCase() ?? '').includes(q) ||
+      (el.name_latin?.toLowerCase() ?? '').includes(q) ||
       String(el.Z) === q
     );
   }, [query, elements]);
@@ -41,8 +41,8 @@ export default function ElementList({ elements, groups }: Props) {
           >
             <span className="element-list__item-z">{el.Z}</span>
             <span className="element-list__item-symbol">{el.symbol}</span>
-            <span className="element-list__item-name">{el.name_ru}</span>
-            <span className="element-list__item-group">{groups[el.element_group]?.name_singular_ru ?? ''}</span>
+            <span className="element-list__item-name">{el.name}</span>
+            <span className="element-list__item-group">{groups[el.element_group]?.name_singular ?? ''}</span>
           </a>
         ))}
       </div>

@@ -1,24 +1,16 @@
 {
-  "id": "fe_oh_2",
+  "id": "sub:fe_oh_2",
   "formula": "Fe(OH)₂",
-  "name_ru": "Гидроксид железа(II)",
   "class": "base",
   "subclass": "insoluble",
   "ions": [
-    "Fe_2plus",
-    "OH_minus"
+    "ion:Fe_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 3.4,
-  "appearance_ru": "Белый осадок, быстро темнеет на воздухе до бурого",
-  "industrial_ru": "Промежуточный продукт в химическом синтезе",
-  "production_ru": "Реакция соли железа(II) со щёлочью: FeSO₄ + 2NaOH → Fe(OH)₂↓ + Na₂SO₄",
-  "fun_facts_ru": [
-    "Свежеосаждённый Fe(OH)₂ белый, но на воздухе мгновенно зеленеет, а затем буреет из-за окисления до Fe(OH)₃",
-    "Классический лабораторный опыт — наблюдение изменения цвета осадка на воздухе"
-  ]
+  "density_g_cm3": 3.4
 }

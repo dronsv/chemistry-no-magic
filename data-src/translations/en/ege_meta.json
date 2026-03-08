@@ -1,0 +1,36 @@
+{
+  "full_name": "Unified State Examination — Chemistry (Russia)",
+  "description": "Final exam for 11th-grade graduates, required for admission to universities in chemistry, medicine, and natural science fields. Covers inorganic, organic, and general chemistry.",
+  "competencies": {
+    "ege_atomic_structure": {
+      "name": "Atomic structure and electron configurations"
+    },
+    "ege_periodic_law": {
+      "name": "Periodic law and periodic table"
+    },
+    "ege_bonding": {
+      "name": "Chemical bonding and structure of matter"
+    },
+    "ege_inorganic": {
+      "name": "Properties of inorganic substances"
+    },
+    "ege_organic": {
+      "name": "Organic chemistry"
+    },
+    "ege_kinetics": {
+      "name": "Chemical kinetics and equilibrium"
+    },
+    "ege_solutions": {
+      "name": "Solutions, electrolytic dissociation, hydrolysis"
+    },
+    "ege_redox": {
+      "name": "Redox reactions and electrolysis"
+    },
+    "ege_calculations": {
+      "name": "Calculations by chemical formulas and equations"
+    }
+  },
+  "official_links": {
+    "label": "Open EGE task bank (FIPI)"
+  }
+}

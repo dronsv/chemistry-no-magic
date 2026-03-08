@@ -13,7 +13,9 @@ import {
   loadQualitativeTests,
   loadGeneticChains,
   loadEnergyCatalystTheory,
+  loadRuleTexts,
 } from '../../lib/data-loader';
+import { buildRuleSummaryProjection, type RuleSummaryProjection } from '../../lib/rule-text-projection';
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
@@ -55,6 +57,7 @@ function getTargetSection(facets?: FacetState): string | null {
 export default function ReactionTheoryPanel({ facets, locale = 'ru' as SupportedLocale }: { facets?: FacetState; locale?: SupportedLocale }) {
   const [templates, setTemplates] = useState<ReactionTemplate[] | null>(null);
   const [rules, setRules] = useState<ApplicabilityRule[] | null>(null);
+  const [ruleProjection, setRuleProjection] = useState<Record<string, RuleSummaryProjection> | null>(null);
   const [qualTests, setQualTests] = useState<QualitativeTest[] | null>(null);
   const [chains, setChains] = useState<GeneticChain[] | null>(null);
   const [energyTheory, setEnergyTheory] = useState<EnergyCatalystTheory | null>(null);
@@ -69,13 +72,15 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
     Promise.all([
       loadReactionTemplates(locale),
       loadApplicabilityRules(locale),
+      loadRuleTexts(),
       loadQualitativeTests(locale),
       loadGeneticChains(locale),
       loadEnergyCatalystTheory(locale),
     ])
-      .then(([t, r, qt, gc, et]) => {
+      .then(([t, r, rt, qt, gc, et]) => {
         setTemplates(t);
         setRules(r);
+        setRuleProjection(buildRuleSummaryProjection(rt, r, locale));
         setQualTests(qt);
         setChains(gc);
         setEnergyTheory(et);
@@ -130,7 +135,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
           {loading && <div className="theory-panel__loading">{m.loading()}</div>}
           {error && <div className="theory-panel__error">{error}</div>}
 
-          {templates && rules && (
+          {templates && rules && ruleProjection && (
             <>
               <CollapsibleSection id="types" pageKey="reactions" title={m.rxn_theory_types()} forceOpen={targetSection === 'types'}>
                 {templateGroups.map(group => (
@@ -138,7 +143,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
                     {group.items.map(t => (
                       <div key={t.id} className="rxn-theory__template">
-                        <div className="rxn-theory__desc">{t.description_ru}</div>
+                        <div className="rxn-theory__desc">{t.description}</div>
                         <div className="rxn-theory__pattern">{t.pattern}</div>
                         {t.conditions && (
                           <div className="rxn-theory__conditions">{m.rxn_theory_conditions_label({ conditions: t.conditions })}</div>
@@ -160,12 +165,15 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                 {ruleGroups.map(group => (
                   <div key={group.type} className="rxn-theory__rule-group">
                     <h4 className="rxn-theory__type-title">{group.label}</h4>
-                    {group.items.map(rule => (
-                      <div key={rule.id} className="rxn-theory__rule">
-                        <div className="rxn-theory__rule-condition">{rule.condition_ru}</div>
-                        <div className="rxn-theory__rule-desc">{rule.description_ru}</div>
-                      </div>
-                    ))}
+                    {group.items.map(rule => {
+                      const proj = ruleProjection[rule.id];
+                      return (
+                        <div key={rule.id} className="rxn-theory__rule">
+                          <div className="rxn-theory__rule-condition">{proj?.summary ?? rule.id}</div>
+                          {proj?.detail && <div className="rxn-theory__rule-desc">{proj.detail}</div>}
+                        </div>
+                      );
+                    })}
                   </div>
                 ))}
               </CollapsibleSection>
@@ -221,9 +229,9 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                       <tbody>
                         {qualTests.map(t => (
                           <tr key={t.target_id}>
-                            <td>{t.target_name_ru}</td>
-                            <td>{t.reagent_name_ru}</td>
-                            <td>{t.observation_ru}</td>
+                            <td>{t.target_name}</td>
+                            <td>{t.reagent_name}</td>
+                            <td>{t.observation}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -249,7 +257,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                       const allSubstances = [chain.steps[0].substance, ...chain.steps.map(s => s.next)];
                       return (
                         <div key={chain.chain_id} className="rxn-theory__chain-example">
-                          <strong>{chain.title_ru}:</strong>{' '}
+                          <strong>{chain.title}:</strong>{' '}
                           <span className="rxn-theory__chain-sequence">
                             {allSubstances.join(' → ')}
                           </span>
@@ -270,8 +278,8 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                     <div className="rxn-theory__definitions">
                       {energyTheory.rate_factors.map(f => (
                         <div key={f.factor_id} className="rxn-theory__def-item">
-                          <strong>{f.name_ru}</strong> — {f.effect_ru}.
-                          <div className="rxn-theory__rule-desc">{f.detail_ru}</div>
+                          <strong>{f.name}</strong> — {f.effect}.
+                          <div className="rxn-theory__rule-desc">{f.detail}</div>
                         </div>
                       ))}
                     </div>
@@ -279,15 +287,15 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_exo_endo()}</h4>
                     <div className="rxn-theory__definitions">
                       <div className="rxn-theory__def-item">
-                        <strong>{m.rxn_theory_exothermic()}</strong> — {energyTheory.heat_classification.exothermic_ru.replace('Экзотермическая реакция — ', '')}
+                        <strong>{m.rxn_theory_exothermic()}</strong> — {energyTheory.heat_classification.exothermic.replace('Экзотермическая реакция — ', '')}
                       </div>
                       <div className="rxn-theory__def-item">
-                        <strong>{m.rxn_theory_endothermic()}</strong> — {energyTheory.heat_classification.endothermic_ru.replace('Эндотермическая реакция — ', '')}
+                        <strong>{m.rxn_theory_endothermic()}</strong> — {energyTheory.heat_classification.endothermic.replace('Эндотермическая реакция — ', '')}
                       </div>
                     </div>
                     <div className="rxn-theory__rule-desc">
-                      <em>{m.rxn_theory_exo_examples()}</em> {energyTheory.heat_classification.examples_exo_ru.join(', ')}.<br />
-                      <em>{m.rxn_theory_endo_examples()}</em> {energyTheory.heat_classification.examples_endo_ru.join(', ')}.
+                      <em>{m.rxn_theory_exo_examples()}</em> {energyTheory.heat_classification.examples_exo.join(', ')}.<br />
+                      <em>{m.rxn_theory_endo_examples()}</em> {energyTheory.heat_classification.examples_endo.join(', ')}.
                     </div>
 
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_equilibrium()}</h4>
@@ -302,8 +310,8 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                       <tbody>
                         {energyTheory.equilibrium_shifts.map(s => (
                           <tr key={s.factor}>
-                            <td>{s.explanation_ru}</td>
-                            <td>{s.shift_ru}</td>
+                            <td>{s.explanation}</td>
+                            <td>{s.shift}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -319,14 +327,14 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
 
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_catalyst_changes()}</h4>
                     <ul className="rxn-theory__steps">
-                      {energyTheory.catalyst_properties.changes_ru.map((item, i) => (
+                      {energyTheory.catalyst_properties.changes.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
 
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_catalyst_not_changes()}</h4>
                     <ul className="rxn-theory__steps">
-                      {energyTheory.catalyst_properties.does_not_change_ru.map((item, i) => (
+                      {energyTheory.catalyst_properties.does_not_change.map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
@@ -342,8 +350,8 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                       <tbody>
                         {energyTheory.common_catalysts.map(c => (
                           <tr key={c.catalyst}>
-                            <td><strong>{c.catalyst}</strong> ({c.name_ru})</td>
-                            <td>{c.reaction_ru}</td>
+                            <td><strong>{c.catalyst}</strong> ({c.name})</td>
+                            <td>{c.reaction}</td>
                           </tr>
                         ))}
                       </tbody>

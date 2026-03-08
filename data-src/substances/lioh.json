@@ -1,12 +1,11 @@
 {
-  "id": "lioh",
+  "id": "sub:lioh",
   "formula": "LiOH",
-  "name_ru": "Гидроксид лития",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Li_plus",
-    "OH_minus"
+    "ion:Li_plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",
@@ -15,16 +14,5 @@
   ],
   "melting_point_C": 462,
   "boiling_point_C": 924,
-  "density_g_cm3": 1.46,
-  "appearance_ru": "Белый кристаллический порошок, гигроскопичный",
-  "hazards_ru": [
-    "Коррозионное",
-    "Вызывает ожоги"
-  ],
-  "industrial_ru": "Производство литиевых смазок, поглотитель CO₂ на подводных лодках",
-  "production_ru": "Реакция оксида лития с водой: Li₂O + H₂O → 2LiOH",
-  "fun_facts_ru": [
-    "Используется для очистки воздуха на подводных лодках и космических станциях",
-    "Самая лёгкая щёлочь, хорошо поглощает CO₂ из воздуха"
-  ]
+  "density_g_cm3": 1.46
 }

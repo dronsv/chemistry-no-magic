@@ -1,0 +1,7 @@
+{
+  "rule:indicator.litmus.medium_color": { "name": "Litmus response to medium" },
+  "rule:indicator.phenolphthalein.medium_color": { "name": "Phenolphthalein response to medium" },
+  "rule:indicator.methyl_orange.medium_color": { "name": "Methyl orange response to medium" },
+  "computed:indicator_change:ind:litmus:medium:alkaline": { "short_statement_override": "litmus turns blue" },
+  "computed:indicator_change:ind:litmus:medium:acidic": { "short_statement_override": "litmus turns red" }
+}

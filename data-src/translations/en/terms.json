@@ -1,60 +1,231 @@
 {
-  "term:ice": { "name_ru": "ice", "synonyms_ru": ["solid water"] },
-  "term:dry_ice": { "name_ru": "dry ice" },
-  "term:aqua_regia": { "name_ru": "aqua regia" },
-  "term:conc_sulfuric_acid": { "name_ru": "concentrated sulfuric acid" },
-  "term:diamond": { "name_ru": "diamond" },
-  "term:graphite": { "name_ru": "graphite" },
-  "term:coal": { "name_ru": "coal", "synonyms_ru": ["charcoal"] },
-  "term:white_phosphorus": { "name_ru": "white phosphorus" },
-  "term:red_phosphorus": { "name_ru": "red phosphorus" },
-
-  "term:table_salt": { "name_ru": "table salt", "synonyms_ru": ["rock salt", "common salt"] },
-  "term:potash": { "name_ru": "potash" },
-  "term:soda": { "name_ru": "soda ash", "synonyms_ru": ["washing soda"] },
-  "term:baking_soda": { "name_ru": "baking soda", "synonyms_ru": ["bicarbonate of soda"] },
-  "term:quicklime": { "name_ru": "quicklime", "synonyms_ru": ["burnt lime"] },
-  "term:slaked_lime": { "name_ru": "slaked lime", "synonyms_ru": ["milk of lime"] },
-  "term:chalk": { "name_ru": "chalk" },
-  "term:marble": { "name_ru": "marble" },
-  "term:limestone": { "name_ru": "limestone" },
-  "term:alumina": { "name_ru": "alumina" },
-  "term:corundum": { "name_ru": "corundum" },
-  "term:quartz": { "name_ru": "quartz", "synonyms_ru": ["silica"] },
-  "term:magnesia": { "name_ru": "magnesia", "synonyms_ru": ["burnt magnesia"] },
-  "term:gypsum": { "name_ru": "gypsum" },
-  "term:caustic_soda": { "name_ru": "caustic soda", "synonyms_ru": ["lye"] },
-  "term:caustic_potash": { "name_ru": "caustic potash" },
-  "term:sal_ammoniac": { "name_ru": "sal ammoniac" },
-  "term:ammonia_water": { "name_ru": "ammonia water", "synonyms_ru": ["aqueous ammonia"] },
-  "term:blue_vitriol": { "name_ru": "blue vitriol", "synonyms_ru": ["copper sulfate pentahydrate"] },
-  "term:green_vitriol": { "name_ru": "green vitriol", "synonyms_ru": ["iron sulfate heptahydrate"] },
-  "term:potassium_permanganate": { "name_ru": "potassium permanganate" },
-
-  "term:hydrochloric_acid": { "name_ru": "hydrochloric acid", "synonyms_ru": ["muriatic acid"] },
-  "term:sulfuric_acid": { "name_ru": "sulfuric acid" },
-  "term:nitric_acid": { "name_ru": "nitric acid" },
-  "term:acetic_acid": { "name_ru": "acetic acid", "synonyms_ru": ["vinegar"] },
-  "term:carbonic_acid": { "name_ru": "carbonic acid" },
-  "term:phosphoric_acid": { "name_ru": "phosphoric acid" },
-  "term:sulfurous_acid": { "name_ru": "sulfurous acid" },
-  "term:hydrogen_sulfide": { "name_ru": "hydrogen sulfide" },
-
-  "term:carbon_monoxide": { "name_ru": "carbon monoxide" },
-  "term:carbon_dioxide": { "name_ru": "carbon dioxide" },
-  "term:laughing_gas": { "name_ru": "laughing gas", "synonyms_ru": ["nitrous oxide"] },
-  "term:marsh_gas": { "name_ru": "marsh gas" },
-  "term:ammonia": { "name_ru": "ammonia" },
-  "term:chlorine_gas": { "name_ru": "chlorine" },
-  "term:sulfur_dioxide_gas": { "name_ru": "sulfur dioxide" },
-
-  "term:hydrogen_peroxide": { "name_ru": "hydrogen peroxide" },
-  "term:oleum": { "name_ru": "oleum", "synonyms_ru": ["fuming sulfuric acid"] },
-  "term:saltpeter": { "name_ru": "saltpeter", "synonyms_ru": ["potassium nitrate", "niter"] },
-  "term:sodium_aluminate": { "name_ru": "sodium aluminate" },
-  "term:pyrolusite": { "name_ru": "pyrolusite" },
-  "term:rust": { "name_ru": "rust" },
-  "term:barite": { "name_ru": "barite", "synonyms_ru": ["heavy spar"] },
-  "term:ethanol": { "name_ru": "ethyl alcohol", "synonyms_ru": ["ethanol", "grain alcohol"] },
-  "term:methanol": { "name_ru": "methyl alcohol", "synonyms_ru": ["methanol", "wood alcohol"] }
+  "term:ice": {
+    "name": "ice",
+    "synonyms": [
+      "solid water"
+    ]
+  },
+  "term:dry_ice": {
+    "name": "dry ice"
+  },
+  "term:aqua_regia": {
+    "name": "aqua regia"
+  },
+  "term:conc_sulfuric_acid": {
+    "name": "concentrated sulfuric acid"
+  },
+  "term:diamond": {
+    "name": "diamond"
+  },
+  "term:graphite": {
+    "name": "graphite"
+  },
+  "term:coal": {
+    "name": "coal",
+    "synonyms": [
+      "charcoal"
+    ]
+  },
+  "term:white_phosphorus": {
+    "name": "white phosphorus"
+  },
+  "term:red_phosphorus": {
+    "name": "red phosphorus"
+  },
+  "term:table_salt": {
+    "name": "table salt",
+    "synonyms": [
+      "rock salt",
+      "common salt"
+    ]
+  },
+  "term:potash": {
+    "name": "potash"
+  },
+  "term:soda": {
+    "name": "soda ash",
+    "synonyms": [
+      "washing soda"
+    ]
+  },
+  "term:baking_soda": {
+    "name": "baking soda",
+    "synonyms": [
+      "bicarbonate of soda"
+    ]
+  },
+  "term:quicklime": {
+    "name": "quicklime",
+    "synonyms": [
+      "burnt lime"
+    ]
+  },
+  "term:slaked_lime": {
+    "name": "slaked lime",
+    "synonyms": [
+      "milk of lime"
+    ]
+  },
+  "term:chalk": {
+    "name": "chalk"
+  },
+  "term:marble": {
+    "name": "marble"
+  },
+  "term:limestone": {
+    "name": "limestone"
+  },
+  "term:alumina": {
+    "name": "alumina"
+  },
+  "term:corundum": {
+    "name": "corundum"
+  },
+  "term:quartz": {
+    "name": "quartz",
+    "synonyms": [
+      "silica"
+    ]
+  },
+  "term:magnesia": {
+    "name": "magnesia",
+    "synonyms": [
+      "burnt magnesia"
+    ]
+  },
+  "term:gypsum": {
+    "name": "gypsum"
+  },
+  "term:caustic_soda": {
+    "name": "caustic soda",
+    "synonyms": [
+      "lye"
+    ]
+  },
+  "term:caustic_potash": {
+    "name": "caustic potash"
+  },
+  "term:sal_ammoniac": {
+    "name": "sal ammoniac"
+  },
+  "term:ammonia_water": {
+    "name": "ammonia water",
+    "synonyms": [
+      "aqueous ammonia"
+    ]
+  },
+  "term:blue_vitriol": {
+    "name": "blue vitriol",
+    "synonyms": [
+      "copper sulfate pentahydrate"
+    ]
+  },
+  "term:green_vitriol": {
+    "name": "green vitriol",
+    "synonyms": [
+      "iron sulfate heptahydrate"
+    ]
+  },
+  "term:potassium_permanganate": {
+    "name": "potassium permanganate"
+  },
+  "term:hydrochloric_acid": {
+    "name": "hydrochloric acid",
+    "synonyms": [
+      "muriatic acid"
+    ]
+  },
+  "term:sulfuric_acid": {
+    "name": "sulfuric acid"
+  },
+  "term:nitric_acid": {
+    "name": "nitric acid"
+  },
+  "term:acetic_acid": {
+    "name": "acetic acid",
+    "synonyms": [
+      "vinegar"
+    ]
+  },
+  "term:carbonic_acid": {
+    "name": "carbonic acid"
+  },
+  "term:phosphoric_acid": {
+    "name": "phosphoric acid"
+  },
+  "term:sulfurous_acid": {
+    "name": "sulfurous acid"
+  },
+  "term:hydrogen_sulfide": {
+    "name": "hydrogen sulfide"
+  },
+  "term:carbon_monoxide": {
+    "name": "carbon monoxide"
+  },
+  "term:carbon_dioxide": {
+    "name": "carbon dioxide"
+  },
+  "term:laughing_gas": {
+    "name": "laughing gas",
+    "synonyms": [
+      "nitrous oxide"
+    ]
+  },
+  "term:marsh_gas": {
+    "name": "marsh gas"
+  },
+  "term:ammonia": {
+    "name": "ammonia"
+  },
+  "term:chlorine_gas": {
+    "name": "chlorine"
+  },
+  "term:sulfur_dioxide_gas": {
+    "name": "sulfur dioxide"
+  },
+  "term:hydrogen_peroxide": {
+    "name": "hydrogen peroxide"
+  },
+  "term:oleum": {
+    "name": "oleum",
+    "synonyms": [
+      "fuming sulfuric acid"
+    ]
+  },
+  "term:saltpeter": {
+    "name": "saltpeter",
+    "synonyms": [
+      "potassium nitrate",
+      "niter"
+    ]
+  },
+  "term:sodium_aluminate": {
+    "name": "sodium aluminate"
+  },
+  "term:pyrolusite": {
+    "name": "pyrolusite"
+  },
+  "term:rust": {
+    "name": "rust"
+  },
+  "term:barite": {
+    "name": "barite",
+    "synonyms": [
+      "heavy spar"
+    ]
+  },
+  "term:ethanol": {
+    "name": "ethyl alcohol",
+    "synonyms": [
+      "ethanol",
+      "grain alcohol"
+    ]
+  },
+  "term:methanol": {
+    "name": "methyl alcohol",
+    "synonyms": [
+      "methanol",
+      "wood alcohol"
+    ]
+  }
 }

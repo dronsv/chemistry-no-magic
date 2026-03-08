@@ -1,24 +1,16 @@
 {
-  "id": "nabr",
+  "id": "sub:nabr",
   "formula": "NaBr",
-  "name_ru": "Бромид натрия",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "Br_minus"
+    "ion:Na_plus",
+    "ion:Br_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 747,
   "boiling_point_C": 1390,
-  "density_g_cm3": 3.21,
-  "appearance_ru": "Белые кристаллы",
-  "industrial_ru": "Фотография, фармацевтика (седативное средство), нефтедобыча",
-  "production_ru": "Нейтрализация: NaOH + HBr → NaBr + H₂O",
-  "fun_facts_ru": [
-    "Исторически применялся в медицине как успокоительное — «принять бром»",
-    "В нефтедобыче используется для приготовления тяжёлых буровых растворов"
-  ]
+  "density_g_cm3": 3.21
 }

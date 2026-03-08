@@ -7,7 +7,7 @@ export interface ChainStep {
 
 export interface GeneticChain {
   chain_id: string;
-  title_ru: string;
+  title: string;
   class_sequence: string[];
   steps: ChainStep[];
 }

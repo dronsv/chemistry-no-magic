@@ -35,7 +35,7 @@ export default function QuestionCard({ question, onAnswer }: QuestionCardProps) 
 
   return (
     <div>
-      <p className="diag-question__text">{question.question_ru}</p>
+      <p className="diag-question__text">{question.question}</p>
       <div className="diag-question__options">
         {question.options.map((opt) => (
           <button
@@ -56,7 +56,7 @@ export default function QuestionCard({ question, onAnswer }: QuestionCardProps) 
             <span className="diag-feedback__label">
               {isCorrect ? m.correct() : m.wrong()}
             </span>
-            {question.explanation_ru}
+            {question.explanation}
           </div>
           <button
             type="button"

@@ -25,7 +25,7 @@ export default function ResultsSummary({ results, competencies, locale = 'ru' }:
         {shown.map((c) => (
           <CompetencyBar
             key={c.id}
-            name={c.name_ru}
+            name={c.name}
             pL={results.get(c.id) ?? 0.25}
             href={localizeUrl(`/competency/${c.id}/`, locale)}
           />

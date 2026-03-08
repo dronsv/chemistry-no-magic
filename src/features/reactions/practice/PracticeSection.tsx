@@ -54,7 +54,7 @@ export default function PracticeSection({ locale }: Props) {
       setBktParamsMap(map);
 
       const names = new Map<string, string>();
-      for (const c of comps) names.set(c.id, c.name_ru);
+      for (const c of comps) names.set(c.id, c.name);
       setCompNames(names);
 
       setPLevels(loadBktState());

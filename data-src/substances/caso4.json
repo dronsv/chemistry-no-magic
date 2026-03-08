@@ -1,24 +1,16 @@
 {
-  "id": "caso4",
+  "id": "sub:caso4",
   "formula": "CaSO₄",
-  "name_ru": "Сульфат кальция",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "SO4_2minus"
+    "ion:Ca_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": 1460,
   "boiling_point_C": null,
-  "density_g_cm3": 2.96,
-  "appearance_ru": "Белый кристаллический порошок",
-  "industrial_ru": "Строительство (гипс, алебастр), медицина (гипсовые повязки), скульптура",
-  "production_ru": "Добыча природного гипса (CaSO₄·2H₂O), обжиг при 150 °C → полуводный гипс",
-  "fun_facts_ru": [
-    "Гипс (CaSO₄·2H₂O) и алебастр (CaSO₄·½H₂O) — разные гидратные формы одного вещества",
-    "Малорастворим в воде — именно CaSO₄ образует «жёсткую» накипь в трубах"
-  ]
+  "density_g_cm3": 2.96
 }

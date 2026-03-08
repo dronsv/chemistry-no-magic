@@ -1,12 +1,11 @@
 {
-  "id": "h2cro4",
+  "id": "sub:h2cro4",
   "formula": "H₂CrO₄",
-  "name_ru": "Хромовая кислота",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "CrO4_2minus"
+    "ion:H_plus",
+    "ion:CrO4_2minus"
   ],
   "tags": [
     "soluble",
@@ -15,17 +14,5 @@
   ],
   "melting_point_C": 197,
   "boiling_point_C": null,
-  "density_g_cm3": 1.201,
-  "appearance_ru": "Тёмно-красные кристаллы (существует в основном в растворе)",
-  "hazards_ru": [
-    "Канцерогенное",
-    "Сильный окислитель",
-    "Токсичное"
-  ],
-  "industrial_ru": "Хромирование, обработка древесины, окислитель",
-  "production_ru": "Растворение CrO₃ в воде: CrO₃ + H₂O → H₂CrO₄",
-  "fun_facts_ru": [
-    "В растворе существует в равновесии с дихромовой кислотой",
-    "Соли — хроматы — имеют характерный жёлтый цвет"
-  ]
+  "density_g_cm3": 1.201
 }

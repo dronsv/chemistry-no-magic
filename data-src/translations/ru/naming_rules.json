@@ -1,0 +1,603 @@
+{
+  "naming_oxide_single_valence": {
+    "template": "оксид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂O",
+        "name": "оксид натрия"
+      },
+      {
+        "formula": "CaO",
+        "name": "оксид кальция"
+      },
+      {
+        "formula": "BaO",
+        "name": "оксид бария"
+      },
+      {
+        "formula": "MgO",
+        "name": "оксид магния"
+      },
+      {
+        "formula": "K₂O",
+        "name": "оксид калия"
+      },
+      {
+        "formula": "Li₂O",
+        "name": "оксид лития"
+      }
+    ]
+  },
+  "naming_oxide_variable_valence": {
+    "template": "оксид {metal_genitive}({roman_numeral})",
+    "examples": [
+      {
+        "formula": "FeO",
+        "name": "оксид железа(II)"
+      },
+      {
+        "formula": "Fe₂O₃",
+        "name": "оксид железа(III)"
+      },
+      {
+        "formula": "CuO",
+        "name": "оксид меди(II)"
+      },
+      {
+        "formula": "Cu₂O",
+        "name": "оксид меди(I)"
+      },
+      {
+        "formula": "Cr₂O₃",
+        "name": "оксид хрома(III)"
+      },
+      {
+        "formula": "CrO₃",
+        "name": "оксид хрома(VI)"
+      },
+      {
+        "formula": "MnO₂",
+        "name": "оксид марганца(IV)"
+      },
+      {
+        "formula": "Mn₂O₇",
+        "name": "оксид марганца(VII)"
+      }
+    ]
+  },
+  "naming_oxide_nonmetal": {
+    "template": "оксид {nonmetal_genitive}({roman_numeral})",
+    "examples": [
+      {
+        "formula": "CO₂",
+        "name": "оксид углерода(IV)"
+      },
+      {
+        "formula": "CO",
+        "name": "оксид углерода(II)"
+      },
+      {
+        "formula": "SO₂",
+        "name": "оксид серы(IV)"
+      },
+      {
+        "formula": "SO₃",
+        "name": "оксид серы(VI)"
+      },
+      {
+        "formula": "P₂O₅",
+        "name": "оксид фосфора(V)"
+      },
+      {
+        "formula": "N₂O₅",
+        "name": "оксид азота(V)"
+      },
+      {
+        "formula": "NO₂",
+        "name": "оксид азота(IV)"
+      },
+      {
+        "formula": "NO",
+        "name": "оксид азота(II)"
+      },
+      {
+        "formula": "SiO₂",
+        "name": "оксид кремния(IV)"
+      }
+    ]
+  },
+  "naming_acid_hcl": {
+    "template": "соляная кислота (хлороводородная кислота)",
+    "examples": [
+      {
+        "formula": "HCl",
+        "name": "соляная кислота"
+      }
+    ]
+  },
+  "naming_acid_hbr": {
+    "template": "бромоводородная кислота",
+    "examples": [
+      {
+        "formula": "HBr",
+        "name": "бромоводородная кислота"
+      }
+    ]
+  },
+  "naming_acid_hi": {
+    "template": "иодоводородная кислота",
+    "examples": [
+      {
+        "formula": "HI",
+        "name": "иодоводородная кислота"
+      }
+    ]
+  },
+  "naming_acid_hf": {
+    "template": "плавиковая кислота (фтороводородная кислота)",
+    "examples": [
+      {
+        "formula": "HF",
+        "name": "плавиковая кислота"
+      }
+    ]
+  },
+  "naming_acid_h2s": {
+    "template": "сероводородная кислота",
+    "examples": [
+      {
+        "formula": "H₂S",
+        "name": "сероводородная кислота"
+      }
+    ]
+  },
+  "naming_acid_h2so4": {
+    "template": "серная кислота",
+    "examples": [
+      {
+        "formula": "H₂SO₄",
+        "name": "серная кислота"
+      }
+    ]
+  },
+  "naming_acid_h2so3": {
+    "template": "сернистая кислота",
+    "examples": [
+      {
+        "formula": "H₂SO₃",
+        "name": "сернистая кислота"
+      }
+    ]
+  },
+  "naming_acid_hno3": {
+    "template": "азотная кислота",
+    "examples": [
+      {
+        "formula": "HNO₃",
+        "name": "азотная кислота"
+      }
+    ]
+  },
+  "naming_acid_hno2": {
+    "template": "азотистая кислота",
+    "examples": [
+      {
+        "formula": "HNO₂",
+        "name": "азотистая кислота"
+      }
+    ]
+  },
+  "naming_acid_h2co3": {
+    "template": "угольная кислота",
+    "examples": [
+      {
+        "formula": "H₂CO₃",
+        "name": "угольная кислота"
+      }
+    ]
+  },
+  "naming_acid_h3po4": {
+    "template": "фосфорная кислота (ортофосфорная кислота)",
+    "examples": [
+      {
+        "formula": "H₃PO₄",
+        "name": "фосфорная кислота"
+      }
+    ]
+  },
+  "naming_acid_h2sio3": {
+    "template": "кремниевая кислота",
+    "examples": [
+      {
+        "formula": "H₂SiO₃",
+        "name": "кремниевая кислота"
+      }
+    ]
+  },
+  "naming_base": {
+    "template": "гидроксид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaOH",
+        "name": "гидроксид натрия"
+      },
+      {
+        "formula": "KOH",
+        "name": "гидроксид калия"
+      },
+      {
+        "formula": "Ca(OH)₂",
+        "name": "гидроксид кальция"
+      },
+      {
+        "formula": "Ba(OH)₂",
+        "name": "гидроксид бария"
+      },
+      {
+        "formula": "Mg(OH)₂",
+        "name": "гидроксид магния"
+      },
+      {
+        "formula": "LiOH",
+        "name": "гидроксид лития"
+      }
+    ]
+  },
+  "naming_base_variable_valence": {
+    "template": "гидроксид {metal_genitive}({roman_numeral})",
+    "examples": [
+      {
+        "formula": "Fe(OH)₂",
+        "name": "гидроксид железа(II)"
+      },
+      {
+        "formula": "Fe(OH)₃",
+        "name": "гидроксид железа(III)"
+      },
+      {
+        "formula": "Cu(OH)₂",
+        "name": "гидроксид меди(II)"
+      },
+      {
+        "formula": "Cr(OH)₃",
+        "name": "гидроксид хрома(III)"
+      }
+    ]
+  },
+  "naming_salt_chloride": {
+    "template": "хлорид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaCl",
+        "name": "хлорид натрия"
+      },
+      {
+        "formula": "KCl",
+        "name": "хлорид калия"
+      },
+      {
+        "formula": "CaCl₂",
+        "name": "хлорид кальция"
+      },
+      {
+        "formula": "BaCl₂",
+        "name": "хлорид бария"
+      },
+      {
+        "formula": "FeCl₃",
+        "name": "хлорид железа(III)"
+      },
+      {
+        "formula": "FeCl₂",
+        "name": "хлорид железа(II)"
+      },
+      {
+        "formula": "AlCl₃",
+        "name": "хлорид алюминия"
+      }
+    ]
+  },
+  "naming_salt_sulfate": {
+    "template": "сульфат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂SO₄",
+        "name": "сульфат натрия"
+      },
+      {
+        "formula": "K₂SO₄",
+        "name": "сульфат калия"
+      },
+      {
+        "formula": "CaSO₄",
+        "name": "сульфат кальция"
+      },
+      {
+        "formula": "BaSO₄",
+        "name": "сульфат бария"
+      },
+      {
+        "formula": "CuSO₄",
+        "name": "сульфат меди(II)"
+      },
+      {
+        "formula": "FeSO₄",
+        "name": "сульфат железа(II)"
+      },
+      {
+        "formula": "Al₂(SO₄)₃",
+        "name": "сульфат алюминия"
+      }
+    ]
+  },
+  "naming_salt_nitrate": {
+    "template": "нитрат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaNO₃",
+        "name": "нитрат натрия"
+      },
+      {
+        "formula": "KNO₃",
+        "name": "нитрат калия"
+      },
+      {
+        "formula": "Ca(NO₃)₂",
+        "name": "нитрат кальция"
+      },
+      {
+        "formula": "AgNO₃",
+        "name": "нитрат серебра"
+      },
+      {
+        "formula": "Pb(NO₃)₂",
+        "name": "нитрат свинца(II)"
+      },
+      {
+        "formula": "Cu(NO₃)₂",
+        "name": "нитрат меди(II)"
+      }
+    ]
+  },
+  "naming_salt_carbonate": {
+    "template": "карбонат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂CO₃",
+        "name": "карбонат натрия"
+      },
+      {
+        "formula": "K₂CO₃",
+        "name": "карбонат калия"
+      },
+      {
+        "formula": "CaCO₃",
+        "name": "карбонат кальция"
+      },
+      {
+        "formula": "BaCO₃",
+        "name": "карбонат бария"
+      },
+      {
+        "formula": "MgCO₃",
+        "name": "карбонат магния"
+      }
+    ]
+  },
+  "naming_salt_phosphate": {
+    "template": "фосфат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₃PO₄",
+        "name": "фосфат натрия"
+      },
+      {
+        "formula": "Ca₃(PO₄)₂",
+        "name": "фосфат кальция"
+      },
+      {
+        "formula": "AlPO₄",
+        "name": "фосфат алюминия"
+      }
+    ]
+  },
+  "naming_salt_sulfide": {
+    "template": "сульфид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂S",
+        "name": "сульфид натрия"
+      },
+      {
+        "formula": "FeS",
+        "name": "сульфид железа(II)"
+      },
+      {
+        "formula": "ZnS",
+        "name": "сульфид цинка"
+      },
+      {
+        "formula": "CuS",
+        "name": "сульфид меди(II)"
+      },
+      {
+        "formula": "PbS",
+        "name": "сульфид свинца(II)"
+      }
+    ]
+  },
+  "naming_salt_silicate": {
+    "template": "силикат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂SiO₃",
+        "name": "силикат натрия"
+      },
+      {
+        "formula": "CaSiO₃",
+        "name": "силикат кальция"
+      }
+    ]
+  },
+  "naming_salt_sulfite": {
+    "template": "сульфит {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂SO₃",
+        "name": "сульфит натрия"
+      },
+      {
+        "formula": "K₂SO₃",
+        "name": "сульфит калия"
+      }
+    ]
+  },
+  "naming_salt_fluoride": {
+    "template": "фторид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaF",
+        "name": "фторид натрия"
+      },
+      {
+        "formula": "CaF₂",
+        "name": "фторид кальция"
+      }
+    ]
+  },
+  "naming_salt_bromide": {
+    "template": "бромид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaBr",
+        "name": "бромид натрия"
+      },
+      {
+        "formula": "KBr",
+        "name": "бромид калия"
+      }
+    ]
+  },
+  "naming_salt_iodide": {
+    "template": "иодид {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaI",
+        "name": "иодид натрия"
+      },
+      {
+        "formula": "KI",
+        "name": "иодид калия"
+      }
+    ]
+  },
+  "naming_salt_nitrite": {
+    "template": "нитрит {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaNO₂",
+        "name": "нитрит натрия"
+      },
+      {
+        "formula": "KNO₂",
+        "name": "нитрит калия"
+      }
+    ]
+  },
+  "naming_salt_acetate": {
+    "template": "ацетат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "CH₃COONa",
+        "name": "ацетат натрия"
+      },
+      {
+        "formula": "(CH₃COO)₂Cu",
+        "name": "ацетат меди(II)"
+      }
+    ]
+  },
+  "naming_salt_permanganate": {
+    "template": "перманганат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "KMnO₄",
+        "name": "перманганат калия"
+      }
+    ]
+  },
+  "naming_salt_chromate": {
+    "template": "хромат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "K₂CrO₄",
+        "name": "хромат калия"
+      },
+      {
+        "formula": "Na₂CrO₄",
+        "name": "хромат натрия"
+      }
+    ]
+  },
+  "naming_salt_dichromate": {
+    "template": "дихромат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "K₂Cr₂O₇",
+        "name": "дихромат калия"
+      }
+    ]
+  },
+  "naming_salt_acidic_hydrocarbonate": {
+    "template": "гидрокарбонат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaHCO₃",
+        "name": "гидрокарбонат натрия"
+      },
+      {
+        "formula": "Ca(HCO₃)₂",
+        "name": "гидрокарбонат кальция"
+      }
+    ]
+  },
+  "naming_salt_acidic_hydrosulfate": {
+    "template": "гидросульфат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "KHSO₄",
+        "name": "гидросульфат калия"
+      },
+      {
+        "formula": "NaHSO₄",
+        "name": "гидросульфат натрия"
+      }
+    ]
+  },
+  "naming_salt_acidic_dihydrophosphate": {
+    "template": "дигидрофосфат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "NaH₂PO₄",
+        "name": "дигидрофосфат натрия"
+      },
+      {
+        "formula": "Ca(H₂PO₄)₂",
+        "name": "дигидрофосфат кальция"
+      }
+    ]
+  },
+  "naming_salt_acidic_hydrophosphate": {
+    "template": "гидрофосфат {metal_genitive}",
+    "examples": [
+      {
+        "formula": "Na₂HPO₄",
+        "name": "гидрофосфат натрия"
+      },
+      {
+        "formula": "CaHPO₄",
+        "name": "гидрофосфат кальция"
+      }
+    ]
+  }
+}

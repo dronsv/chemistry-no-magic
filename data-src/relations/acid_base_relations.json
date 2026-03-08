@@ -1,0 +1,296 @@
+[
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2so4",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2so4",
+    "predicate": "has_conjugate_base",
+    "object": "ion:HSO4_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO4_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "ion:HSO4_minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "has_conjugate_base",
+    "object": "ion:SO4_2minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2so3",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2so3",
+    "predicate": "has_conjugate_base",
+    "object": "ion:HSO3_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO3_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "ion:HSO3_minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "has_conjugate_base",
+    "object": "ion:SO3_2minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hno3",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hno3",
+    "predicate": "has_conjugate_base",
+    "object": "ion:NO3_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO2_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hno2",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hno2",
+    "predicate": "has_conjugate_base",
+    "object": "ion:NO2_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cl_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hcl",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hcl",
+    "predicate": "has_conjugate_base",
+    "object": "ion:Cl_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Br_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hbr",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hbr",
+    "predicate": "has_conjugate_base",
+    "object": "ion:Br_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:I_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hi",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hi",
+    "predicate": "has_conjugate_base",
+    "object": "ion:I_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:F_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hf",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hf",
+    "predicate": "has_conjugate_base",
+    "object": "ion:F_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h3po4",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h3po4",
+    "predicate": "has_conjugate_base",
+    "object": "ion:H2PO4_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "ion:H2PO4_minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "has_conjugate_base",
+    "object": "ion:HPO4_2minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:PO4_3minus",
+    "predicate": "has_conjugate_acid",
+    "object": "ion:HPO4_2minus",
+    "step": 3,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "has_conjugate_base",
+    "object": "ion:PO4_3minus",
+    "step": 3,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2co3",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2co3",
+    "predicate": "has_conjugate_base",
+    "object": "ion:HCO3_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CO3_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "ion:HCO3_minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "has_conjugate_base",
+    "object": "ion:CO3_2minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:S_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2s",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2s",
+    "predicate": "has_conjugate_base",
+    "object": "ion:S_2minus",
+    "step": 2,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SiO3_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2sio3",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2sio3",
+    "predicate": "has_conjugate_base",
+    "object": "ion:SiO3_2minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:ch3cooh",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:hmno4",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hmno4",
+    "predicate": "has_conjugate_base",
+    "object": "ion:MnO4_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CrO4_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2cro4",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2cro4",
+    "predicate": "has_conjugate_base",
+    "object": "ion:CrO4_2minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2cr2o7",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:h2cr2o7",
+    "predicate": "has_conjugate_base",
+    "object": "ion:Cr2O7_2minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:OH_minus",
+    "predicate": "has_conjugate_acid",
+    "object": "sub:h2o",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "no_precipitate_no_gas_no_water": { "pedagogical_note": null },
+  "insoluble_base_no_acid_reaction": { "pedagogical_note": null },
+  "noble_metal_no_acid": { "pedagogical_note": null },
+  "less_active_no_displacement": { "pedagogical_note": null },
+  "alkali_metal_water_not_salt": { "pedagogical_note": null },
+  "sio2_no_water": { "pedagogical_note": null },
+  "insoluble_base_heat_decomposition": { "pedagogical_note": null },
+  "carbonate_acid_gas": {
+    "pedagogical_note": "Produktem pośrednim jest H₂CO₃, który natychmiast rozkłada się na CO₂ i H₂O."
+  },
+  "sulfite_acid_gas": {
+    "pedagogical_note": "Produktem pośrednim jest H₂SO₃, który rozkłada się na SO₂ i H₂O."
+  },
+  "sulfide_acid_gas": {
+    "pedagogical_note": "H₂S jest gazem o zapachu zgniłych jaj. Wydzielany tylko z rozpuszczalnych siarczków."
+  },
+  "ammonium_alkali_gas": {
+    "pedagogical_note": "Produktem pośrednim jest NH₃·H₂O, który rozkłada się z wydzieleniem amoniaku NH₃."
+  },
+  "h2so4_conc_oxidizer": {
+    "pedagogical_note": "Produkty redukcji S(+6): SO₂ (aktywne metale), S lub H₂S (nadmiar metalu)."
+  },
+  "hno3_oxidizer": {
+    "pedagogical_note": "Produkty redukcji N(+5): NO₂ (stęż.), NO (rozc.), N₂O, N₂, NH₃ (bardzo aktywne metale)."
+  },
+  "passivation_cold_conc": {
+    "pedagogical_note": "Pasywacja — tworzenie gęstej warstwy tlenku uniemożliwiającej dalszą reakcję. Przy ogrzewaniu reakcja przebiega."
+  },
+  "amphoteric_both_directions": {
+    "pedagogical_note": "Przykłady: Al₂O₃, ZnO, BeO, Al(OH)₃, Zn(OH)₂, Be(OH)₂."
+  }
+}

@@ -14,7 +14,7 @@ import { join } from 'node:path';
  * @param {Record<string, string>} [opts.theoryModules] - { key: "theory_modules/key.json" }
  * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -49,6 +49,14 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         periodic_trend_anomalies: 'rules/periodic_trend_anomalies.json',
         reason_vocab: 'rules/reason_vocab.json',
         solubility_rules_full: 'rules/solubility_rules_full.json',
+        rule_texts: 'rules/rule_texts.json',
+        activity_texts: 'rules/activity_texts.json',
+        qualitative_texts: 'rules/qualitative_texts.json',
+        reaction_observations: 'rules/reaction_observations.json',
+        indicator_response_rules: 'rules/indicator_response_rules.json',
+        indicator_entities: 'rules/indicator_entities.json',
+        medium_states: 'rules/medium_states.json',
+        kinetics: 'rules/kinetics.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',
@@ -71,6 +79,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       theory_modules: theoryModules && Object.keys(theoryModules).length > 0 ? theoryModules : undefined,
       courses: courses && Object.keys(courses).length > 0 ? courses : undefined,
       substances: 'substances',
+      substance_properties: 'substances/substance_properties.json',
       diagnostic: 'diagnostic/questions.json',
       element_groups: 'element-groups.json',
       periodic_table_content: 'periodic-table-content.json',
@@ -102,6 +111,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       quantities_units: 'quantities_units.json',
       topics: 'topics.json',
       topic_pages: 'topic_pages.json',
+      relations: relations && Object.keys(relations).length > 0 ? relations : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',
       },

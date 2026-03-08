@@ -5,8 +5,8 @@ export type EffectCategory = 'kinetic' | 'thermodynamic' | 'mass_transfer' | 'ph
 export interface EffectsVocabEntry {
   id: string;
   category: EffectCategory;
-  name_ru: string;
-  description_ru: string;
+  name: string;
+  description: string;
 }
 
 export type EffectRef = string | { id: string; when: string };
@@ -14,8 +14,8 @@ export type EffectRef = string | { id: string; when: string };
 export interface ProcessVocabEntry {
   id: string;
   kind: ProcessKind;
-  name_ru: string;
-  description_ru: string;
+  name: string;
+  description: string;
   params?: string[];
   effects?: EffectRef[];
   parent?: string;

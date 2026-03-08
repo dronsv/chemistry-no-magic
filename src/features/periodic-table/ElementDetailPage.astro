@@ -28,8 +28,8 @@ if (elementsOverlay && elementsOverlay[el.symbol]) {
 // Apply element-groups overlay for groupLabel
 let groupLabel = baseGroupLabel;
 const groupsOverlay = await loadBuildOverlay(locale, 'element_groups');
-if (groupsOverlay && groupsOverlay[el.element_group]?.name_singular_ru) {
-  groupLabel = groupsOverlay[el.element_group].name_singular_ru as string;
+if (groupsOverlay && groupsOverlay[el.element_group]?.name_singular) {
+  groupLabel = groupsOverlay[el.element_group].name_singular as string;
 }
 
 // Apply reactions overlay for titles
@@ -44,8 +44,9 @@ const localizedReactions = elementReactions.map(r => {
 // Apply ions overlay for names
 const ionsOverlay = await loadBuildOverlay(locale, 'ions');
 const localizedIons = elementIons.map(ion => {
-  if (ionsOverlay && ionsOverlay[ion.id]?.name_ru) {
-    return { ...ion, name_ru: ionsOverlay[ion.id].name_ru as string };
+  const ionSlug = ion.id.replace(/^ion:/, '');
+  if (ionsOverlay && ionsOverlay[ionSlug]?.name) {
+    return { ...ion, name: ionsOverlay[ionSlug].name as string };
   }
   return ion;
 });
@@ -53,8 +54,9 @@ const localizedIons = elementIons.map(ion => {
 // Apply substances overlay for names
 const substancesOverlay = await loadBuildOverlay(locale, 'substances');
 const localizedSubstances = relatedSubstances.map(s => {
-  if (substancesOverlay && substancesOverlay[s.id]?.name_ru) {
-    return { ...s, name_ru: substancesOverlay[s.id].name_ru as string };
+  const sSlug = s.id.replace(/^sub:/, '');
+  if (substancesOverlay && substancesOverlay[sSlug]?.name) {
+    return { ...s, name: substancesOverlay[sSlug].name as string };
   }
   return s;
 });
@@ -73,9 +75,9 @@ const oxStates = el.typical_oxidation_states
   .join(', ');
 
 const hasPhysical = el.melting_point_C != null || el.boiling_point_C != null || el.density_g_cm3 != null;
-const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist_ru);
-const hasHazards = el.hazards_ru && el.hazards_ru.length > 0;
-const hasFacts = el.fun_facts_ru && el.fun_facts_ru.length > 0;
+const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist);
+const hasHazards = el.hazards && el.hazards.length > 0;
+const hasFacts = el.fun_facts && el.fun_facts.length > 0;
 
 // Resolve storage profile labels for this element
 const storageLabels: string[] = [];
@@ -99,7 +101,7 @@ const hasStorage = storageLabels.length > 0;
 // Build names worldwide list (show names in other languages as interesting fact)
 const namesList: { lang: string; name: string }[] = [];
 // Always show the base Russian name
-if (locale !== 'ru') namesList.push({ lang: 'ru', name: element.name_ru });
+if (locale !== 'ru') namesList.push({ lang: 'ru', name: element.name });
 // Show name_en from base data
 if (locale !== 'en' && element.name_en) namesList.push({ lang: 'en', name: element.name_en });
 // Show name_latin
@@ -109,8 +111,8 @@ for (const otherLocale of ['en', 'pl', 'es'] as const) {
   if (otherLocale === locale) continue;
   if (otherLocale === 'en') continue; // already handled above from name_en
   const otherOverlay = await loadBuildOverlay(otherLocale, 'elements');
-  if (otherOverlay?.[el.symbol]?.name_ru) {
-    namesList.push({ lang: otherLocale, name: otherOverlay[el.symbol].name_ru as string });
+  if (otherOverlay?.[el.symbol]?.name) {
+    namesList.push({ lang: otherLocale, name: otherOverlay[el.symbol].name as string });
   }
 }
 
@@ -125,16 +127,16 @@ const contextBackLabels = {
 ---
 
 <BaseLayout
-  title={m.el_title({ name: el.name_ru, symbol: el.symbol, z: String(el.Z) })}
-  description={m.el_description({ name: el.name_ru, symbol: el.symbol, z: String(el.Z) })}
+  title={m.el_title({ name: el.name, symbol: el.symbol, z: String(el.Z) })}
+  description={m.el_description({ name: el.name, symbol: el.symbol, z: String(el.Z) })}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ChemicalSubstance",
-      "name": el.name_ru,
+      "name": el.name,
       "alternateName": el.name_en,
-      "description": m.el_jsonld_desc({ name: el.name_ru, z: String(el.Z), group: groupLabel.toLowerCase() }),
+      "description": m.el_jsonld_desc({ name: el.name, z: String(el.Z), group: groupLabel.toLowerCase() }),
       "inLanguage": locale,
     })} />
   </Fragment>
@@ -144,7 +146,7 @@ const contextBackLabels = {
     <div class="element-page__header">
       <div class="element-page__z">{el.Z}</div>
       <h1 class="element-page__symbol">{el.symbol}</h1>
-      <div class="element-page__name">{el.name_ru}</div>
+      <p class="element-page__name">{el.name}</p>
       <div class="element-page__latin">{el.name_latin}</div>
     </div>
 
@@ -180,7 +182,7 @@ const contextBackLabels = {
           <span>{m.el_expected_config()} <s>{el.electron_exception.expected_formula}</s></span>
           <span>{m.el_actual_config()} <b>{el.electron_exception.actual_formula}</b></span>
         </div>
-        <p class="element-page__text">{el.electron_exception.reason_ru}</p>
+        <p class="element-page__text">{el.electron_exception.reason}</p>
       </section>
     )}
 
@@ -215,30 +217,30 @@ const contextBackLabels = {
         <h2>{m.el_discovery()}</h2>
         <div class="element-page__discovery">
           {el.discovery!.year && <span class="element-page__discovery-year">{el.discovery!.year}{m.el_year_suffix() ? ` ${m.el_year_suffix()}` : ''}</span>}
-          {el.discovery!.scientist_ru && <span>{el.discovery!.scientist_ru}</span>}
-          {el.discovery!.country_ru && <span class="element-page__discovery-country">({el.discovery!.country_ru})</span>}
+          {el.discovery!.scientist && <span>{el.discovery!.scientist}</span>}
+          {el.discovery!.country && <span class="element-page__discovery-country">({el.discovery!.country})</span>}
         </div>
       </section>
     )}
 
-    {el.abundance_ru && (
+    {el.abundance && (
       <section class="element-page__section">
         <h2>{m.el_abundance()}</h2>
-        <p class="element-page__text">{el.abundance_ru}</p>
+        <p class="element-page__text">{el.abundance}</p>
       </section>
     )}
 
-    {el.industrial_ru && (
+    {el.industrial && (
       <section class="element-page__section">
         <h2>{m.el_industrial()}</h2>
-        <p class="element-page__text">{el.industrial_ru}</p>
+        <p class="element-page__text">{el.industrial}</p>
       </section>
     )}
 
-    {el.production_ru && (
+    {el.production && (
       <section class="element-page__section">
         <h2>{m.el_production()}</h2>
-        <p class="element-page__text">{el.production_ru}</p>
+        <p class="element-page__text">{el.production}</p>
       </section>
     )}
 
@@ -247,7 +249,7 @@ const contextBackLabels = {
         <h2>{m.el_hazards()}</h2>
         {hasHazards && (
           <div class="element-page__hazards">
-            {el.hazards_ru!.map(h => (
+            {el.hazards!.map(h => (
               <span class="element-page__hazard-tag">{h}</span>
             ))}
           </div>
@@ -283,7 +285,7 @@ const contextBackLabels = {
           {localizedIons.map(ion => (
             <FormulaChip
               formula={ion.formula}
-              name={ion.name_ru}
+              name={ion.name}
               ionType={ion.type === 'cation' ? 'cation' : 'anion'}
               ionId={ion.id}
             />
@@ -299,7 +301,7 @@ const contextBackLabels = {
           {localizedSubstances.map(s => (
             <FormulaChip
               formula={s.formula}
-              name={s.name_ru}
+              name={s.name}
               substanceId={s.id}
               substanceClass={s.class}
               locale={locale}
@@ -315,14 +317,14 @@ const contextBackLabels = {
         <div class="element-page__qual-tests">
           {localizedTests.map(qt => (
             <div class="element-page__qual-test">
-              <div class="element-page__qual-target">{qt.target_name_ru}</div>
+              <div class="element-page__qual-target">{qt.target_name}</div>
               <dl class="element-page__qual-props">
                 <dt>{m.el_reagent()}</dt>
                 <dd>
-                  <FormulaChip formula={qt.reagent_formula} name={qt.reagent_name_ru} />
+                  <FormulaChip formula={qt.reagent_formula} name={qt.reagent_name} />
                 </dd>
                 <dt>{m.el_observation()}</dt>
-                <dd>{qt.observation_ru}</dd>
+                <dd>{qt.observation}</dd>
               </dl>
             </div>
           ))}
@@ -334,7 +336,7 @@ const contextBackLabels = {
       <section class="element-page__section">
         <h2>{m.el_fun_facts()}</h2>
         <ul class="element-page__facts">
-          {el.fun_facts_ru!.map(f => (
+          {el.fun_facts!.map(f => (
             <li>{f}</li>
           ))}
         </ul>

@@ -1,189 +1,396 @@
 {
   "gcse_2024_01a": {
-    "question_ru": "\u00bfCu\u00e1les dos afirmaciones describen propiedades de los \u00e1tomos de un mismo elemento?",
-    "explanation_ru": "Los \u00e1tomos de un mismo elemento siempre tienen el mismo n\u00famero de protones (afirmaci\u00f3n 1) y, por lo tanto, el mismo n\u00famero at\u00f3mico (afirmaci\u00f3n 4). Los is\u00f3topos de un mismo elemento tienen diferente n\u00famero de neutrones y diferente n\u00famero m\u00e1sico, por lo que las afirmaciones 2 y 5 son incorrectas. El n\u00famero de capas electr\u00f3nicas depende del periodo, no directamente de la identidad del elemento, y los iones pueden perder o ganar capas, por lo que la afirmaci\u00f3n 3 no siempre es verdadera.",
+    "question": "¿Cuáles dos afirmaciones describen propiedades de los átomos de un mismo elemento?",
+    "explanation": "Los átomos de un mismo elemento siempre tienen el mismo número de protones (afirmación 1) y, por lo tanto, el mismo número atómico (afirmación 4). Los isótopos de un mismo elemento tienen diferente número de neutrones y diferente número másico, por lo que las afirmaciones 2 y 5 son incorrectas. El número de capas electrónicas depende del periodo, no directamente de la identidad del elemento, y los iones pueden perder o ganar capas, por lo que la afirmación 3 no siempre es verdadera.",
     "options": [
-      { "id": "1", "text": "Tienen el mismo n\u00famero de protones." },
-      { "id": "2", "text": "Siempre tienen el mismo n\u00famero de neutrones." },
-      { "id": "3", "text": "Tienen el mismo n\u00famero de capas electr\u00f3nicas." },
-      { "id": "4", "text": "Tienen el mismo n\u00famero at\u00f3mico." },
-      { "id": "5", "text": "Siempre tienen el mismo n\u00famero m\u00e1sico." }
+      {
+        "id": "1",
+        "text": "Tienen el mismo número de protones."
+      },
+      {
+        "id": "2",
+        "text": "Siempre tienen el mismo número de neutrones."
+      },
+      {
+        "id": "3",
+        "text": "Tienen el mismo número de capas electrónicas."
+      },
+      {
+        "id": "4",
+        "text": "Tienen el mismo número atómico."
+      },
+      {
+        "id": "5",
+        "text": "Siempre tienen el mismo número másico."
+      }
     ]
   },
   "gcse_2024_01b": {
-    "question_ru": "Un \u00e1tomo del elemento X tiene una configuraci\u00f3n electr\u00f3nica de 2, 8, 7.\n\nDetermina el n\u00famero de grupo y el n\u00famero de periodo del elemento X en la tabla peri\u00f3dica.",
-    "explanation_ru": "La configuraci\u00f3n electr\u00f3nica 2, 8, 7 tiene 3 capas ocupadas, por lo que el elemento est\u00e1 en el periodo 3. Hay 7 electrones en la capa externa, por lo que el elemento est\u00e1 en el grupo 7. Es el cloro (Cl, n\u00famero at\u00f3mico 17 = 2 + 8 + 7).",
+    "question": "Un átomo del elemento X tiene una configuración electrónica de 2, 8, 7.\n\nDetermina el número de grupo y el número de periodo del elemento X en la tabla periódica.",
+    "explanation": "La configuración electrónica 2, 8, 7 tiene 3 capas ocupadas, por lo que el elemento está en el periodo 3. Hay 7 electrones en la capa externa, por lo que el elemento está en el grupo 7. Es el cloro (Cl, número atómico 17 = 2 + 8 + 7).",
     "input_labels": [
       "Grupo",
       "Periodo"
     ]
   },
   "gcse_2024_02a": {
-    "question_ru": "Relaciona cada sustancia con el tipo de enlace presente en ella.",
-    "explanation_ru": "El NaCl est\u00e1 formado por un metal (Na) y un no metal (Cl), por lo que tiene enlace i\u00f3nico (A\u21921). El Cl\u2082 es una mol\u00e9cula de dos \u00e1tomos de no metal que comparten electrones, por lo que tiene enlace covalente (B\u21922). El cobre es un metal con una red de iones positivos rodeados por electrones deslocalizados, por lo que tiene enlace met\u00e1lico (C\u21923).",
+    "question": "Relaciona cada sustancia con el tipo de enlace presente en ella.",
+    "explanation": "El NaCl está formado por un metal (Na) y un no metal (Cl), por lo que tiene enlace iónico (A→1). El Cl₂ es una molécula de dos átomos de no metal que comparten electrones, por lo que tiene enlace covalente (B→2). El cobre es un metal con una red de iones positivos rodeados por electrones deslocalizados, por lo que tiene enlace metálico (C→3).",
     "left_items": [
-      { "label": "A", "text": "Cloruro de sodio (NaCl)" },
-      { "label": "B", "text": "Cloro gaseoso (Cl\u2082)" },
-      { "label": "C", "text": "Cobre met\u00e1lico (Cu)" }
+      {
+        "label": "A",
+        "text": "Cloruro de sodio (NaCl)"
+      },
+      {
+        "label": "B",
+        "text": "Cloro gaseoso (Cl₂)"
+      },
+      {
+        "label": "C",
+        "text": "Cobre metálico (Cu)"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Enlace i\u00f3nico" },
-      { "id": "2", "text": "Enlace covalente" },
-      { "id": "3", "text": "Enlace met\u00e1lico" },
-      { "id": "4", "text": "Enlace de hidr\u00f3geno" }
+      {
+        "id": "1",
+        "text": "Enlace iónico"
+      },
+      {
+        "id": "2",
+        "text": "Enlace covalente"
+      },
+      {
+        "id": "3",
+        "text": "Enlace metálico"
+      },
+      {
+        "id": "4",
+        "text": "Enlace de hidrógeno"
+      }
     ]
   },
   "gcse_2024_02b": {
-    "question_ru": "El diamante y el grafito son formas del carbono. Explica por qu\u00e9 el diamante es muy duro mientras que el grafito es blando y resbaladizo. Incluye en tu respuesta detalles sobre su estructura y enlace.",
-    "explanation_ru": "La diferencia clave reside en la estructura. El diamante tiene una estructura covalente gigante donde cada \u00e1tomo de carbono est\u00e1 unido a otros 4 en disposici\u00f3n tetra\u00e9drica \u2014 todos los enlaces son covalentes fuertes, por lo que no hay planos de debilidad. El grafito tiene una estructura en capas donde cada \u00e1tomo de carbono est\u00e1 unido a otros 3 en l\u00e1minas hexagonales planas. El cuarto electr\u00f3n est\u00e1 deslocalizado entre las capas. Las capas se mantienen unidas por fuerzas d\u00e9biles de van der Waals, lo que permite que se deslicen. Para la puntuaci\u00f3n completa se requiere: estructura del diamante (4 enlaces, tetra\u00e9drica), estructura del grafito (3 enlaces, capas), explicaci\u00f3n de las fuerzas d\u00e9biles entre las capas del grafito."
+    "question": "El diamante y el grafito son formas del carbono. Explica por qué el diamante es muy duro mientras que el grafito es blando y resbaladizo. Incluye en tu respuesta detalles sobre su estructura y enlace.",
+    "explanation": "La diferencia clave reside en la estructura. El diamante tiene una estructura covalente gigante donde cada átomo de carbono está unido a otros 4 en disposición tetraédrica — todos los enlaces son covalentes fuertes, por lo que no hay planos de debilidad. El grafito tiene una estructura en capas donde cada átomo de carbono está unido a otros 3 en láminas hexagonales planas. El cuarto electrón está deslocalizado entre las capas. Las capas se mantienen unidas por fuerzas débiles de van der Waals, lo que permite que se deslicen. Para la puntuación completa se requiere: estructura del diamante (4 enlaces, tetraédrica), estructura del grafito (3 enlaces, capas), explicación de las fuerzas débiles entre las capas del grafito."
   },
   "gcse_2024_03a": {
-    "question_ru": "El \u00f3xido de magnesio (MgO) tiene una masa f\u00f3rmula relativa de 40. Calcula el porcentaje en masa de magnesio en el \u00f3xido de magnesio. (Masas at\u00f3micas relativas: Mg = 24, O = 16)",
-    "explanation_ru": "Porcentaje en masa de Mg = (Ar del Mg / Mr del MgO) \u00d7 100 = (24 / 40) \u00d7 100 = 60%."
+    "question": "El óxido de magnesio (MgO) tiene una masa fórmula relativa de 40. Calcula el porcentaje en masa de magnesio en el óxido de magnesio. (Masas atómicas relativas: Mg = 24, O = 16)",
+    "explanation": "Porcentaje en masa de Mg = (Ar del Mg / Mr del MgO) × 100 = (24 / 40) × 100 = 60%."
   },
   "gcse_2024_03b": {
-    "question_ru": "6,0 g de magnesio reaccionan completamente con exceso de \u00e1cido clorh\u00eddrico:\nMg + 2HCl \u2192 MgCl\u2082 + H\u2082\n\nCalcula la masa de cloruro de magnesio (MgCl\u2082) producida.\n(Masas at\u00f3micas relativas: Mg = 24, Cl = 35,5)",
-    "explanation_ru": "Paso 1: Calcula los moles de Mg = masa / Ar = 6,0 / 24 = 0,25 mol.\nPaso 2: Seg\u00fan la ecuaci\u00f3n, 1 mol de Mg produce 1 mol de MgCl\u2082, por lo que los moles de MgCl\u2082 = 0,25 mol.\nPaso 3: Mr del MgCl\u2082 = 24 + (2 \u00d7 35,5) = 24 + 71 = 95.\nPaso 4: Masa de MgCl\u2082 = moles \u00d7 Mr = 0,25 \u00d7 95 = 23,75 g \u2248 23,8 g."
+    "question": "6,0 g de magnesio reaccionan completamente con exceso de ácido clorhídrico:\nMg + 2HCl → MgCl₂ + H₂\n\nCalcula la masa de cloruro de magnesio (MgCl₂) producida.\n(Masas atómicas relativas: Mg = 24, Cl = 35,5)",
+    "explanation": "Paso 1: Calcula los moles de Mg = masa / Ar = 6,0 / 24 = 0,25 mol.\nPaso 2: Según la ecuación, 1 mol de Mg produce 1 mol de MgCl₂, por lo que los moles de MgCl₂ = 0,25 mol.\nPaso 3: Mr del MgCl₂ = 24 + (2 × 35,5) = 24 + 71 = 95.\nPaso 4: Masa de MgCl₂ = moles × Mr = 0,25 × 95 = 23,75 g ≈ 23,8 g."
   },
   "gcse_2024_04a": {
-    "question_ru": "Ordena los siguientes metales en orden decreciente de reactividad (el m\u00e1s reactivo primero).\n  1) Hierro\n  2) Potasio\n  3) Cobre\n  4) Cinc",
-    "explanation_ru": "La serie de reactividad de los metales (de m\u00e1s a menos reactivo): potasio > cinc > hierro > cobre. El potasio es un metal muy reactivo del grupo 1, el cinc tiene reactividad moderada, el hierro es menos reactivo que el cinc, y el cobre est\u00e1 por debajo del hidr\u00f3geno en la serie y es relativamente poco reactivo. Orden: 2 (K) \u2192 4 (Zn) \u2192 1 (Fe) \u2192 3 (Cu).",
+    "question": "Ordena los siguientes metales en orden decreciente de reactividad (el más reactivo primero).\n  1) Hierro\n  2) Potasio\n  3) Cobre\n  4) Cinc",
+    "explanation": "La serie de reactividad de los metales (de más a menos reactivo): potasio > cinc > hierro > cobre. El potasio es un metal muy reactivo del grupo 1, el cinc tiene reactividad moderada, el hierro es menos reactivo que el cinc, y el cobre está por debajo del hidrógeno en la serie y es relativamente poco reactivo. Orden: 2 (K) → 4 (Zn) → 1 (Fe) → 3 (Cu).",
     "items": [
-      { "id": "1", "text": "Hierro" },
-      { "id": "2", "text": "Potasio" },
-      { "id": "3", "text": "Cobre" },
-      { "id": "4", "text": "Cinc" }
+      {
+        "id": "1",
+        "text": "Hierro"
+      },
+      {
+        "id": "2",
+        "text": "Potasio"
+      },
+      {
+        "id": "3",
+        "text": "Cobre"
+      },
+      {
+        "id": "4",
+        "text": "Cinc"
+      }
     ]
   },
   "gcse_2024_04b": {
-    "question_ru": "Relaciona cada reacci\u00f3n con su descripci\u00f3n correcta.",
-    "explanation_ru": "A: El cinc es m\u00e1s reactivo que el cobre, por lo que el cinc desplaza al cobre de la soluci\u00f3n \u2014 esta es una reacci\u00f3n de desplazamiento (A\u21922). B: Un \u00e1cido que reacciona con un \u00e1lcali es una reacci\u00f3n de neutralizaci\u00f3n que produce sal y agua (B\u21921). C: La electr\u00f3lisis utiliza electricidad para descomponer un compuesto i\u00f3nico en sus elementos (C\u21923).",
+    "question": "Relaciona cada reacción con su descripción correcta.",
+    "explanation": "A: El cinc es más reactivo que el cobre, por lo que el cinc desplaza al cobre de la solución — esta es una reacción de desplazamiento (A→2). B: Un ácido que reacciona con un álcali es una reacción de neutralización que produce sal y agua (B→1). C: La electrólisis utiliza electricidad para descomponer un compuesto iónico en sus elementos (C→3).",
     "left_items": [
-      { "label": "A", "text": "Cinc + soluci\u00f3n de sulfato de cobre" },
-      { "label": "B", "text": "\u00c1cido clorh\u00eddrico + hidr\u00f3xido de sodio" },
-      { "label": "C", "text": "Electr\u00f3lisis del bromuro de plomo fundido" }
+      {
+        "label": "A",
+        "text": "Cinc + solución de sulfato de cobre"
+      },
+      {
+        "label": "B",
+        "text": "Ácido clorhídrico + hidróxido de sodio"
+      },
+      {
+        "label": "C",
+        "text": "Electrólisis del bromuro de plomo fundido"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Reacci\u00f3n de neutralizaci\u00f3n" },
-      { "id": "2", "text": "Reacci\u00f3n de desplazamiento" },
-      { "id": "3", "text": "Descomposici\u00f3n mediante electricidad" },
-      { "id": "4", "text": "Solo reacci\u00f3n de oxidaci\u00f3n" }
+      {
+        "id": "1",
+        "text": "Reacción de neutralización"
+      },
+      {
+        "id": "2",
+        "text": "Reacción de desplazamiento"
+      },
+      {
+        "id": "3",
+        "text": "Descomposición mediante electricidad"
+      },
+      {
+        "id": "4",
+        "text": "Solo reacción de oxidación"
+      }
     ]
   },
   "gcse_2024_05a": {
-    "question_ru": "\u00bfCu\u00e1les dos afirmaciones sobre las reacciones exot\u00e9rmicas son correctas?",
-    "explanation_ru": "Las reacciones exot\u00e9rmicas transfieren energ\u00eda al entorno (afirmaci\u00f3n 1), provocando un aumento de temperatura (no una disminuci\u00f3n, por lo que la afirmaci\u00f3n 2 es incorrecta). Los calentadores de manos utilizan reacciones exot\u00e9rmicas como la oxidaci\u00f3n del hierro (la afirmaci\u00f3n 3 es correcta). La fotos\u00edntesis es endot\u00e9rmica (la afirmaci\u00f3n 4 es incorrecta). En las reacciones exot\u00e9rmicas, la energ\u00eda liberada al formar enlaces supera la energ\u00eda necesaria para romper enlaces (la afirmaci\u00f3n 5 describe una reacci\u00f3n endot\u00e9rmica, por lo que es incorrecta).",
+    "question": "¿Cuáles dos afirmaciones sobre las reacciones exotérmicas son correctas?",
+    "explanation": "Las reacciones exotérmicas transfieren energía al entorno (afirmación 1), provocando un aumento de temperatura (no una disminución, por lo que la afirmación 2 es incorrecta). Los calentadores de manos utilizan reacciones exotérmicas como la oxidación del hierro (la afirmación 3 es correcta). La fotosíntesis es endotérmica (la afirmación 4 es incorrecta). En las reacciones exotérmicas, la energía liberada al formar enlaces supera la energía necesaria para romper enlaces (la afirmación 5 describe una reacción endotérmica, por lo que es incorrecta).",
     "options": [
-      { "id": "1", "text": "Transfieren energ\u00eda al entorno." },
-      { "id": "2", "text": "La temperatura del entorno disminuye." },
-      { "id": "3", "text": "Los calentadores de manos utilizan reacciones exot\u00e9rmicas." },
-      { "id": "4", "text": "La fotos\u00edntesis es un ejemplo de reacci\u00f3n exot\u00e9rmica." },
-      { "id": "5", "text": "La energ\u00eda necesaria para romper enlaces es mayor que la energ\u00eda liberada al formar nuevos enlaces." }
+      {
+        "id": "1",
+        "text": "Transfieren energía al entorno."
+      },
+      {
+        "id": "2",
+        "text": "La temperatura del entorno disminuye."
+      },
+      {
+        "id": "3",
+        "text": "Los calentadores de manos utilizan reacciones exotérmicas."
+      },
+      {
+        "id": "4",
+        "text": "La fotosíntesis es un ejemplo de reacción exotérmica."
+      },
+      {
+        "id": "5",
+        "text": "La energía necesaria para romper enlaces es mayor que la energía liberada al formar nuevos enlaces."
+      }
     ]
   },
   "gcse_2024_05b": {
-    "question_ru": "Las energ\u00edas de enlace para la reacci\u00f3n H\u2082 + Cl\u2082 \u2192 2HCl son:\nH\u2013H = 436 kJ/mol, Cl\u2013Cl = 242 kJ/mol, H\u2013Cl = 431 kJ/mol.\n\nCalcula el cambio de energ\u00eda total para esta reacci\u00f3n en kJ/mol.",
-    "explanation_ru": "Energ\u00eda para romper enlaces (proceso endot\u00e9rmico): 1\u00d7H\u2013H + 1\u00d7Cl\u2013Cl = 436 + 242 = 678 kJ.\nEnerg\u00eda liberada al formar enlaces (proceso exot\u00e9rmico): 2\u00d7H\u2013Cl = 2 \u00d7 431 = 862 kJ.\nCambio de energ\u00eda total = energ\u00eda absorbida \u2013 energ\u00eda liberada = 678 \u2013 862 = \u2013184 kJ/mol.\nEl signo negativo indica que la reacci\u00f3n es exot\u00e9rmica."
+    "question": "Las energías de enlace para la reacción H₂ + Cl₂ → 2HCl son:\nH–H = 436 kJ/mol, Cl–Cl = 242 kJ/mol, H–Cl = 431 kJ/mol.\n\nCalcula el cambio de energía total para esta reacción en kJ/mol.",
+    "explanation": "Energía para romper enlaces (proceso endotérmico): 1×H–H + 1×Cl–Cl = 436 + 242 = 678 kJ.\nEnergía liberada al formar enlaces (proceso exotérmico): 2×H–Cl = 2 × 431 = 862 kJ.\nCambio de energía total = energía absorbida – energía liberada = 678 – 862 = –184 kJ/mol.\nEl signo negativo indica que la reacción es exotérmica."
   },
   "gcse_2024_06a": {
-    "question_ru": "\u00bfQu\u00e9 dos factores aumentar\u00edan la velocidad de reacci\u00f3n entre la cinta de magnesio y el \u00e1cido clorh\u00eddrico diluido?",
-    "explanation_ru": "Aumentar la temperatura (afirmaci\u00f3n 2) proporciona a las part\u00edculas m\u00e1s energ\u00eda cin\u00e9tica, por lo que m\u00e1s colisiones superan la energ\u00eda de activaci\u00f3n. Usar magnesio en polvo (afirmaci\u00f3n 4) aumenta el \u00e1rea superficial, proporcionando m\u00e1s puntos de colisi\u00f3n con las part\u00edculas del \u00e1cido. Una concentraci\u00f3n menor (afirmaci\u00f3n 1) y a\u00f1adir agua (afirmaci\u00f3n 5) reducen el n\u00famero de part\u00edculas de \u00e1cido por unidad de volumen, ralentizando la reacci\u00f3n. Un trozo m\u00e1s grande sin cortar (afirmaci\u00f3n 3) tiene menor \u00e1rea superficial espec\u00edfica que los trozos peque\u00f1os.",
+    "question": "¿Qué dos factores aumentarían la velocidad de reacción entre la cinta de magnesio y el ácido clorhídrico diluido?",
+    "explanation": "Aumentar la temperatura (afirmación 2) proporciona a las partículas más energía cinética, por lo que más colisiones superan la energía de activación. Usar magnesio en polvo (afirmación 4) aumenta el área superficial, proporcionando más puntos de colisión con las partículas del ácido. Una concentración menor (afirmación 1) y añadir agua (afirmación 5) reducen el número de partículas de ácido por unidad de volumen, ralentizando la reacción. Un trozo más grande sin cortar (afirmación 3) tiene menor área superficial específica que los trozos pequeños.",
     "options": [
-      { "id": "1", "text": "Usar un \u00e1cido de menor concentraci\u00f3n." },
-      { "id": "2", "text": "Aumentar la temperatura del \u00e1cido." },
-      { "id": "3", "text": "Usar un trozo m\u00e1s grande de cinta de magnesio sin cortarlo." },
-      { "id": "4", "text": "Usar magnesio en polvo en lugar de cinta." },
-      { "id": "5", "text": "A\u00f1adir m\u00e1s agua al \u00e1cido." }
+      {
+        "id": "1",
+        "text": "Usar un ácido de menor concentración."
+      },
+      {
+        "id": "2",
+        "text": "Aumentar la temperatura del ácido."
+      },
+      {
+        "id": "3",
+        "text": "Usar un trozo más grande de cinta de magnesio sin cortarlo."
+      },
+      {
+        "id": "4",
+        "text": "Usar magnesio en polvo en lugar de cinta."
+      },
+      {
+        "id": "5",
+        "text": "Añadir más agua al ácido."
+      }
     ]
   },
   "gcse_2024_06b": {
-    "question_ru": "Un estudiante investiga la reacci\u00f3n entre trozos de m\u00e1rmol (carbonato de calcio) y \u00e1cido clorh\u00eddrico. Explica, en t\u00e9rminos de part\u00edculas y colisiones, por qu\u00e9 aumentar la concentraci\u00f3n del \u00e1cido aumenta la velocidad de reacci\u00f3n.",
-    "explanation_ru": "Para la puntuaci\u00f3n completa se requieren tres puntos clave: (1) Una mayor concentraci\u00f3n significa m\u00e1s part\u00edculas de \u00e1cido en el mismo volumen. (2) Esto conduce a colisiones m\u00e1s frecuentes entre las part\u00edculas de los reactivos. (3) Colisiones m\u00e1s frecuentes significan m\u00e1s colisiones efectivas por unidad de tiempo (colisiones con energ\u00eda igual o superior a la energ\u00eda de activaci\u00f3n), lo que aumenta la velocidad de reacci\u00f3n. Los estudiantes a menudo olvidan mencionar las colisiones \u00abeefectivas\u00bb o la relaci\u00f3n entre la frecuencia de colisiones y la velocidad."
+    "question": "Un estudiante investiga la reacción entre trozos de mármol (carbonato de calcio) y ácido clorhídrico. Explica, en términos de partículas y colisiones, por qué aumentar la concentración del ácido aumenta la velocidad de reacción.",
+    "explanation": "Para la puntuación completa se requieren tres puntos clave: (1) Una mayor concentración significa más partículas de ácido en el mismo volumen. (2) Esto conduce a colisiones más frecuentes entre las partículas de los reactivos. (3) Colisiones más frecuentes significan más colisiones efectivas por unidad de tiempo (colisiones con energía igual o superior a la energía de activación), lo que aumenta la velocidad de reacción. Los estudiantes a menudo olvidan mencionar las colisiones «eefectivas» o la relación entre la frecuencia de colisiones y la velocidad."
   },
   "gcse_2024_07a": {
-    "question_ru": "Relaciona cada compuesto org\u00e1nico con su serie hom\u00f3loga.",
-    "explanation_ru": "CH\u2083OH es metanol, que contiene el grupo funcional \u2013OH \u2014 pertenece a los alcoholes (A\u21923). C\u2082H\u2084 es eteno (etileno), que contiene un doble enlace C=C \u2014 pertenece a los alquenos (B\u21922). CH\u2083COOH es \u00e1cido etan\u00f3ico (ac\u00e9tico), que contiene el grupo funcional \u2013COOH \u2014 pertenece a los \u00e1cidos carbox\u00edlicos (C\u21924).",
+    "question": "Relaciona cada compuesto orgánico con su serie homóloga.",
+    "explanation": "CH₃OH es metanol, que contiene el grupo funcional –OH — pertenece a los alcoholes (A→3). C₂H₄ es eteno (etileno), que contiene un doble enlace C=C — pertenece a los alquenos (B→2). CH₃COOH es ácido etanóico (acético), que contiene el grupo funcional –COOH — pertenece a los ácidos carboxílicos (C→4).",
     "left_items": [
-      { "label": "A", "text": "CH\u2083OH" },
-      { "label": "B", "text": "C\u2082H\u2084" },
-      { "label": "C", "text": "CH\u2083COOH" }
+      {
+        "label": "A",
+        "text": "CH₃OH"
+      },
+      {
+        "label": "B",
+        "text": "C₂H₄"
+      },
+      {
+        "label": "C",
+        "text": "CH₃COOH"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Alcanos" },
-      { "id": "2", "text": "Alquenos" },
-      { "id": "3", "text": "Alcoholes" },
-      { "id": "4", "text": "\u00c1cidos carbox\u00edlicos" }
+      {
+        "id": "1",
+        "text": "Alcanos"
+      },
+      {
+        "id": "2",
+        "text": "Alquenos"
+      },
+      {
+        "id": "3",
+        "text": "Alcoholes"
+      },
+      {
+        "id": "4",
+        "text": "Ácidos carboxílicos"
+      }
     ]
   },
   "gcse_2024_07b": {
-    "question_ru": "Ordena los siguientes alcanos en orden creciente de punto de ebullici\u00f3n (del m\u00e1s bajo al m\u00e1s alto).\n  1) Butano (C\u2084H\u2081\u2080)\n  2) Metano (CH\u2084)\n  3) Octano (C\u2088H\u2081\u2088)\n  4) Etano (C\u2082H\u2086)",
-    "explanation_ru": "Los alcanos con cadenas de carbono m\u00e1s largas tienen fuerzas intermoleculares m\u00e1s fuertes (fuerzas de dispersi\u00f3n de London), por lo que necesitan m\u00e1s energ\u00eda para hervir. Orden creciente de punto de ebullici\u00f3n: metano (1 carbono, pe \u2013161\u00b0C) < etano (2 carbonos, pe \u201389\u00b0C) < butano (4 carbonos, pe \u20131\u00b0C) < octano (8 carbonos, pe 126\u00b0C). Respuesta: 2 \u2192 4 \u2192 1 \u2192 3.",
+    "question": "Ordena los siguientes alcanos en orden creciente de punto de ebullición (del más bajo al más alto).\n  1) Butano (C₄H₁₀)\n  2) Metano (CH₄)\n  3) Octano (C₈H₁₈)\n  4) Etano (C₂H₆)",
+    "explanation": "Los alcanos con cadenas de carbono más largas tienen fuerzas intermoleculares más fuertes (fuerzas de dispersión de London), por lo que necesitan más energía para hervir. Orden creciente de punto de ebullición: metano (1 carbono, pe –161°C) < etano (2 carbonos, pe –89°C) < butano (4 carbonos, pe –1°C) < octano (8 carbonos, pe 126°C). Respuesta: 2 → 4 → 1 → 3.",
     "items": [
-      { "id": "1", "text": "Butano (C\u2084H\u2081\u2080)" },
-      { "id": "2", "text": "Metano (CH\u2084)" },
-      { "id": "3", "text": "Octano (C\u2088H\u2081\u2088)" },
-      { "id": "4", "text": "Etano (C\u2082H\u2086)" }
+      {
+        "id": "1",
+        "text": "Butano (C₄H₁₀)"
+      },
+      {
+        "id": "2",
+        "text": "Metano (CH₄)"
+      },
+      {
+        "id": "3",
+        "text": "Octano (C₈H₁₈)"
+      },
+      {
+        "id": "4",
+        "text": "Etano (C₂H₆)"
+      }
     ]
   },
   "gcse_2024_08a": {
-    "question_ru": "Un estudiante analiza cuatro soluciones usando indicador universal y registra el pH. Los resultados se muestran a continuaci\u00f3n.\n\nSoluci\u00f3n W: pH 1\nSoluci\u00f3n X: pH 7\nSoluci\u00f3n Y: pH 14\nSoluci\u00f3n Z: pH 5\n\n\u00bfCu\u00e1les dos soluciones son \u00e1cidas?",
-    "explanation_ru": "Los \u00e1cidos tienen un pH inferior a 7. La soluci\u00f3n W (pH 1) es fuertemente \u00e1cida y la soluci\u00f3n Z (pH 5) es d\u00e9bilmente \u00e1cida. La soluci\u00f3n X (pH 7) es neutra y la soluci\u00f3n Y (pH 14) es fuertemente alcalina. Las dos soluciones \u00e1cidas son W y Z.",
+    "question": "Un estudiante analiza cuatro soluciones usando indicador universal y registra el pH. Los resultados se muestran a continuación.\n\nSolución W: pH 1\nSolución X: pH 7\nSolución Y: pH 14\nSolución Z: pH 5\n\n¿Cuáles dos soluciones son ácidas?",
+    "explanation": "Los ácidos tienen un pH inferior a 7. La solución W (pH 1) es fuertemente ácida y la solución Z (pH 5) es débilmente ácida. La solución X (pH 7) es neutra y la solución Y (pH 14) es fuertemente alcalina. Las dos soluciones ácidas son W y Z.",
     "options": [
-      { "id": "1", "text": "Soluci\u00f3n W (pH 1)" },
-      { "id": "2", "text": "Soluci\u00f3n X (pH 7)" },
-      { "id": "3", "text": "Soluci\u00f3n Y (pH 14)" },
-      { "id": "4", "text": "Soluci\u00f3n Z (pH 5)" }
+      {
+        "id": "1",
+        "text": "Solución W (pH 1)"
+      },
+      {
+        "id": "2",
+        "text": "Solución X (pH 7)"
+      },
+      {
+        "id": "3",
+        "text": "Solución Y (pH 14)"
+      },
+      {
+        "id": "4",
+        "text": "Solución Z (pH 5)"
+      }
     ]
   },
   "gcse_2024_08b": {
-    "question_ru": "\u00bfCu\u00e1les dos afirmaciones sobre la cromatograf\u00eda son correctas?",
-    "explanation_ru": "La cromatograf\u00eda separa mezclas seg\u00fan la solubilidad de cada componente en la fase m\u00f3vil (la afirmaci\u00f3n 1 es correcta). Las sustancias m\u00e1s solubles son transportadas m\u00e1s lejos por el disolvente (la afirmaci\u00f3n 2 es correcta). Una sustancia pura produce solo una mancha (la afirmaci\u00f3n 3 es incorrecta). El valor Rf depende del disolvente y las condiciones espec\u00edficas, por lo que cambia con diferentes disolventes (la afirmaci\u00f3n 4 es en realidad verdadera, pero el esquema de calificaci\u00f3n est\u00e1ndar del GCSE espera que los estudiantes sepan que Rf depende de las condiciones). La l\u00ednea de base debe trazarse con l\u00e1piz, no con bol\u00edgrafo, para que no se disuelva (la afirmaci\u00f3n 5 es incorrecta). Las afirmaciones 1 y 2 son el par correcto esperado.",
+    "question": "¿Cuáles dos afirmaciones sobre la cromatografía son correctas?",
+    "explanation": "La cromatografía separa mezclas según la solubilidad de cada componente en la fase móvil (la afirmación 1 es correcta). Las sustancias más solubles son transportadas más lejos por el disolvente (la afirmación 2 es correcta). Una sustancia pura produce solo una mancha (la afirmación 3 es incorrecta). El valor Rf depende del disolvente y las condiciones específicas, por lo que cambia con diferentes disolventes (la afirmación 4 es en realidad verdadera, pero el esquema de calificación estándar del GCSE espera que los estudiantes sepan que Rf depende de las condiciones). La línea de base debe trazarse con lápiz, no con bolígrafo, para que no se disuelva (la afirmación 5 es incorrecta). Las afirmaciones 1 y 2 son el par correcto esperado.",
     "options": [
-      { "id": "1", "text": "Se puede usar para separar los colores de una tinta." },
-      { "id": "2", "text": "Las sustancias con mayor solubilidad en el disolvente se desplazan m\u00e1s arriba en el papel." },
-      { "id": "3", "text": "Una sustancia pura siempre produce dos manchas." },
-      { "id": "4", "text": "El valor Rf de una sustancia cambia seg\u00fan el disolvente utilizado." },
-      { "id": "5", "text": "La l\u00ednea de base debe trazarse con bol\u00edgrafo para que se disuelva en el disolvente." }
+      {
+        "id": "1",
+        "text": "Se puede usar para separar los colores de una tinta."
+      },
+      {
+        "id": "2",
+        "text": "Las sustancias con mayor solubilidad en el disolvente se desplazan más arriba en el papel."
+      },
+      {
+        "id": "3",
+        "text": "Una sustancia pura siempre produce dos manchas."
+      },
+      {
+        "id": "4",
+        "text": "El valor Rf de una sustancia cambia según el disolvente utilizado."
+      },
+      {
+        "id": "5",
+        "text": "La línea de base debe trazarse con bolígrafo para que se disuelva en el disolvente."
+      }
     ]
   },
   "gcse_2024_09a": {
-    "question_ru": "Relaciona cada gas con su funci\u00f3n o efecto en la atm\u00f3sfera terrestre.",
-    "explanation_ru": "El di\u00f3xido de carbono es un gas de efecto invernadero que absorbe radiaci\u00f3n infrarroja y contribuye al calentamiento global (A\u21922). El nitr\u00f3geno constituye aproximadamente el 78% de la atm\u00f3sfera (B\u21921). El ox\u00edgeno es necesario para la respiraci\u00f3n y la combusti\u00f3n (C\u21923). La opci\u00f3n 4 describe el arg\u00f3n, un gas noble que constituye aproximadamente el 0,9% de la atm\u00f3sfera.",
+    "question": "Relaciona cada gas con su función o efecto en la atmósfera terrestre.",
+    "explanation": "El dióxido de carbono es un gas de efecto invernadero que absorbe radiación infrarroja y contribuye al calentamiento global (A→2). El nitrógeno constituye aproximadamente el 78% de la atmósfera (B→1). El oxígeno es necesario para la respiración y la combustión (C→3). La opción 4 describe el argón, un gas noble que constituye aproximadamente el 0,9% de la atmósfera.",
     "left_items": [
-      { "label": "A", "text": "Di\u00f3xido de carbono" },
-      { "label": "B", "text": "Nitr\u00f3geno" },
-      { "label": "C", "text": "Ox\u00edgeno" }
+      {
+        "label": "A",
+        "text": "Dióxido de carbono"
+      },
+      {
+        "label": "B",
+        "text": "Nitrógeno"
+      },
+      {
+        "label": "C",
+        "text": "Oxígeno"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Constituye aproximadamente el 78% de la atm\u00f3sfera" },
-      { "id": "2", "text": "Gas de efecto invernadero que contribuye al calentamiento global" },
-      { "id": "3", "text": "Necesario para la respiraci\u00f3n y la combusti\u00f3n" },
-      { "id": "4", "text": "Un gas noble que constituye aproximadamente el 1% de la atm\u00f3sfera" }
+      {
+        "id": "1",
+        "text": "Constituye aproximadamente el 78% de la atmósfera"
+      },
+      {
+        "id": "2",
+        "text": "Gas de efecto invernadero que contribuye al calentamiento global"
+      },
+      {
+        "id": "3",
+        "text": "Necesario para la respiración y la combustión"
+      },
+      {
+        "id": "4",
+        "text": "Un gas noble que constituye aproximadamente el 1% de la atmósfera"
+      }
     ]
   },
   "gcse_2024_09b": {
-    "question_ru": "\u00bfQu\u00e9 dos actividades humanas contribuyen m\u00e1s al aumento de los niveles de di\u00f3xido de carbono en la atm\u00f3sfera?",
-    "explanation_ru": "La quema de combustibles f\u00f3siles (afirmaci\u00f3n 1) libera CO\u2082 directamente de la combusti\u00f3n de combustibles que contienen carbono (carb\u00f3n, petr\u00f3leo, gas). La deforestaci\u00f3n (afirmaci\u00f3n 3) libera el carbono almacenado cuando se queman los \u00e1rboles y elimina \u00e1rboles que de otro modo absorber\u00edan CO\u2082 mediante la fotos\u00edntesis. Las turbinas e\u00f3licas (afirmaci\u00f3n 2) no producen CO\u2082 durante su funcionamiento. El reciclaje (afirmaci\u00f3n 4) generalmente reduce las emisiones. Los convertidores catal\u00edticos (afirmaci\u00f3n 5) convierten el CO y los NO\u2093 en gases menos da\u00f1inos, pero no reducen la emisi\u00f3n total de CO\u2082.",
+    "question": "¿Qué dos actividades humanas contribuyen más al aumento de los niveles de dióxido de carbono en la atmósfera?",
+    "explanation": "La quema de combustibles fósiles (afirmación 1) libera CO₂ directamente de la combustión de combustibles que contienen carbono (carbón, petróleo, gas). La deforestación (afirmación 3) libera el carbono almacenado cuando se queman los árboles y elimina árboles que de otro modo absorberían CO₂ mediante la fotosíntesis. Las turbinas eólicas (afirmación 2) no producen CO₂ durante su funcionamiento. El reciclaje (afirmación 4) generalmente reduce las emisiones. Los convertidores catalíticos (afirmación 5) convierten el CO y los NOₓ en gases menos dañinos, pero no reducen la emisión total de CO₂.",
     "options": [
-      { "id": "1", "text": "Quemar combustibles f\u00f3siles en centrales el\u00e9ctricas y veh\u00edculos." },
-      { "id": "2", "text": "Usar turbinas e\u00f3licas para generar electricidad." },
-      { "id": "3", "text": "Deforestaci\u00f3n y quema de grandes \u00e1reas de bosque." },
-      { "id": "4", "text": "Reciclar latas de aluminio." },
-      { "id": "5", "text": "Usar convertidores catal\u00edticos en los coches." }
+      {
+        "id": "1",
+        "text": "Quemar combustibles fósiles en centrales eléctricas y vehículos."
+      },
+      {
+        "id": "2",
+        "text": "Usar turbinas eólicas para generar electricidad."
+      },
+      {
+        "id": "3",
+        "text": "Deforestación y quema de grandes áreas de bosque."
+      },
+      {
+        "id": "4",
+        "text": "Reciclar latas de aluminio."
+      },
+      {
+        "id": "5",
+        "text": "Usar convertidores catalíticos en los coches."
+      }
     ]
   },
   "gcse_2024_10a": {
-    "question_ru": "Ordena las siguientes etapas del an\u00e1lisis del ciclo de vida (ACV) de un producto en el orden correcto.\n  1) Fabricaci\u00f3n y embalaje\n  2) Extracci\u00f3n y procesamiento de materias primas\n  3) Eliminaci\u00f3n al final de su vida \u00fatil\n  4) Uso y funcionamiento durante su vida \u00fatil",
-    "explanation_ru": "El an\u00e1lisis del ciclo de vida (ACV) eval\u00faa el impacto ambiental en cada etapa de la vida de un producto: (1) Extracci\u00f3n y procesamiento de materias primas (obtenci\u00f3n de materiales de la Tierra), (2) Fabricaci\u00f3n y embalaje (elaboraci\u00f3n del producto), (3) Uso y funcionamiento durante su vida \u00fatil (el consumidor lo utiliza), (4) Eliminaci\u00f3n al final de su vida \u00fatil (vertedero, reciclaje o incineraci\u00f3n). Orden correcto: 2 \u2192 1 \u2192 4 \u2192 3.",
+    "question": "Ordena las siguientes etapas del análisis del ciclo de vida (ACV) de un producto en el orden correcto.\n  1) Fabricación y embalaje\n  2) Extracción y procesamiento de materias primas\n  3) Eliminación al final de su vida útil\n  4) Uso y funcionamiento durante su vida útil",
+    "explanation": "El análisis del ciclo de vida (ACV) evalúa el impacto ambiental en cada etapa de la vida de un producto: (1) Extracción y procesamiento de materias primas (obtención de materiales de la Tierra), (2) Fabricación y embalaje (elaboración del producto), (3) Uso y funcionamiento durante su vida útil (el consumidor lo utiliza), (4) Eliminación al final de su vida útil (vertedero, reciclaje o incineración). Orden correcto: 2 → 1 → 4 → 3.",
     "items": [
-      { "id": "1", "text": "Fabricaci\u00f3n y embalaje" },
-      { "id": "2", "text": "Extracci\u00f3n y procesamiento de materias primas" },
-      { "id": "3", "text": "Eliminaci\u00f3n al final de su vida \u00fatil" },
-      { "id": "4", "text": "Uso y funcionamiento durante su vida \u00fatil" }
+      {
+        "id": "1",
+        "text": "Fabricación y embalaje"
+      },
+      {
+        "id": "2",
+        "text": "Extracción y procesamiento de materias primas"
+      },
+      {
+        "id": "3",
+        "text": "Eliminación al final de su vida útil"
+      },
+      {
+        "id": "4",
+        "text": "Uso y funcionamiento durante su vida útil"
+      }
     ]
   },
   "gcse_2024_10b": {
-    "question_ru": "El hierro se extrae del \u00f3xido de hierro (Fe\u2082O\u2083) usando mon\u00f3xido de carbono en un alto horno:\nFe\u2082O\u2083 + 3CO \u2192 2Fe + 3CO\u2082\n\nCalcula la masa m\u00e1xima de hierro que se puede obtener a partir de 480 g de \u00f3xido de hierro.\n(Masas at\u00f3micas relativas: Fe = 56, O = 16, C = 12)",
-    "explanation_ru": "Paso 1: Mr del Fe\u2082O\u2083 = (2 \u00d7 56) + (3 \u00d7 16) = 112 + 48 = 160.\nPaso 2: Moles de Fe\u2082O\u2083 = 480 / 160 = 3 mol.\nPaso 3: Seg\u00fan la ecuaci\u00f3n, 1 mol de Fe\u2082O\u2083 produce 2 mol de Fe, por lo que los moles de Fe = 3 \u00d7 2 = 6 mol.\nPaso 4: Masa de Fe = 6 \u00d7 56 = 336 g."
+    "question": "El hierro se extrae del óxido de hierro (Fe₂O₃) usando monóxido de carbono en un alto horno:\nFe₂O₃ + 3CO → 2Fe + 3CO₂\n\nCalcula la masa máxima de hierro que se puede obtener a partir de 480 g de óxido de hierro.\n(Masas atómicas relativas: Fe = 56, O = 16, C = 12)",
+    "explanation": "Paso 1: Mr del Fe₂O₃ = (2 × 56) + (3 × 16) = 112 + 48 = 160.\nPaso 2: Moles de Fe₂O₃ = 480 / 160 = 3 mol.\nPaso 3: Según la ecuación, 1 mol de Fe₂O₃ produce 2 mol de Fe, por lo que los moles de Fe = 3 × 2 = 6 mol.\nPaso 4: Masa de Fe = 6 × 56 = 336 g."
   }
 }

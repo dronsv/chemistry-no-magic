@@ -1,12 +1,11 @@
 {
-  "id": "be_oh_2",
+  "id": "sub:be_oh_2",
   "formula": "Be(OH)₂",
-  "name_ru": "Гидроксид бериллия",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Be_2plus",
-    "OH_minus"
+    "ion:Be_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",
@@ -14,16 +13,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 1.92,
-  "appearance_ru": "Белый аморфный осадок",
-  "hazards_ru": [
-    "Токсичное",
-    "Канцерогенное при вдыхании пыли"
-  ],
-  "industrial_ru": "Промежуточный продукт для получения оксида бериллия",
-  "production_ru": "Реакция соли бериллия со щёлочью: BeCl₂ + 2NaOH → Be(OH)₂↓ + 2NaCl",
-  "fun_facts_ru": [
-    "Амфотерный гидроксид — растворяется и в кислотах, и в щелочах",
-    "Бериллий и его соединения очень токсичны при вдыхании — бериллиоз"
-  ]
+  "density_g_cm3": 1.92
 }

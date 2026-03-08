@@ -1,43 +1,210 @@
 {
-  "H_plus": { "name_ru": "Hydrogen ion" },
-  "Na_plus": { "name_ru": "Sodium ion" },
-  "K_plus": { "name_ru": "Potassium ion" },
-  "NH4_plus": { "name_ru": "Ammonium ion" },
-  "Ca_2plus": { "name_ru": "Calcium ion" },
-  "Mg_2plus": { "name_ru": "Magnesium ion" },
-  "Ba_2plus": { "name_ru": "Barium ion" },
-  "Al_3plus": { "name_ru": "Aluminium ion" },
-  "Fe_2plus": { "name_ru": "Iron(II) ion" },
-  "Fe_3plus": { "name_ru": "Iron(III) ion" },
-  "Cu_2plus": { "name_ru": "Copper(II) ion" },
-  "Zn_2plus": { "name_ru": "Zinc ion" },
-  "Ag_plus": { "name_ru": "Silver ion" },
-  "Pb_2plus": { "name_ru": "Lead(II) ion" },
-  "Li_plus": { "name_ru": "Lithium ion" },
-  "Sr_2plus": { "name_ru": "Strontium ion" },
-  "Mn_2plus": { "name_ru": "Manganese(II) ion" },
-  "Ni_2plus": { "name_ru": "Nickel(II) ion" },
-  "Co_2plus": { "name_ru": "Cobalt(II) ion" },
-  "Cd_2plus": { "name_ru": "Cadmium ion" },
-  "Hg_2plus": { "name_ru": "Mercury(II) ion" },
-  "Hg2_2plus": { "name_ru": "Mercury(I) ion" },
-  "Sn_2plus": { "name_ru": "Tin(II) ion" },
-  "Cr_3plus": { "name_ru": "Chromium(III) ion" },
-  "OH_minus": { "name_ru": "Hydroxide ion" },
-  "F_minus": { "name_ru": "Fluoride ion" },
-  "Cl_minus": { "name_ru": "Chloride ion" },
-  "Br_minus": { "name_ru": "Bromide ion" },
-  "I_minus": { "name_ru": "Iodide ion" },
-  "S_2minus": { "name_ru": "Sulfide ion" },
-  "SO4_2minus": { "name_ru": "Sulfate ion" },
-  "SO3_2minus": { "name_ru": "Sulfite ion" },
-  "NO3_minus": { "name_ru": "Nitrate ion" },
-  "NO2_minus": { "name_ru": "Nitrite ion" },
-  "CO3_2minus": { "name_ru": "Carbonate ion" },
-  "SiO3_2minus": { "name_ru": "Silicate ion" },
-  "PO4_3minus": { "name_ru": "Phosphate ion" },
-  "CH3COO_minus": { "name_ru": "Acetate ion" },
-  "MnO4_minus": { "name_ru": "Permanganate ion" },
-  "CrO4_2minus": { "name_ru": "Chromate ion" },
-  "Cr2O7_2minus": { "name_ru": "Dichromate ion" }
+  "H_plus": {
+    "name": "Hydrogen ion"
+  },
+  "Na_plus": {
+    "name": "Sodium ion"
+  },
+  "K_plus": {
+    "name": "Potassium ion"
+  },
+  "NH4_plus": {
+    "name": "Ammonium ion"
+  },
+  "Ca_2plus": {
+    "name": "Calcium ion"
+  },
+  "Mg_2plus": {
+    "name": "Magnesium ion"
+  },
+  "Ba_2plus": {
+    "name": "Barium ion"
+  },
+  "Al_3plus": {
+    "name": "Aluminium ion"
+  },
+  "Fe_2plus": {
+    "name": "Iron(II) ion"
+  },
+  "Fe_3plus": {
+    "name": "Iron(III) ion"
+  },
+  "Cu_2plus": {
+    "name": "Copper(II) ion"
+  },
+  "Zn_2plus": {
+    "name": "Zinc ion"
+  },
+  "Ag_plus": {
+    "name": "Silver ion"
+  },
+  "Pb_2plus": {
+    "name": "Lead(II) ion"
+  },
+  "Li_plus": {
+    "name": "Lithium ion"
+  },
+  "Sr_2plus": {
+    "name": "Strontium ion"
+  },
+  "Mn_2plus": {
+    "name": "Manganese(II) ion"
+  },
+  "Ni_2plus": {
+    "name": "Nickel(II) ion"
+  },
+  "Co_2plus": {
+    "name": "Cobalt(II) ion"
+  },
+  "Cd_2plus": {
+    "name": "Cadmium ion"
+  },
+  "Hg_2plus": {
+    "name": "Mercury(II) ion"
+  },
+  "Hg2_2plus": {
+    "name": "Mercury(I) ion"
+  },
+  "Sn_2plus": {
+    "name": "Tin(II) ion"
+  },
+  "Cr_3plus": {
+    "name": "Chromium(III) ion"
+  },
+  "OH_minus": {
+    "name": "Hydroxide ion"
+  },
+  "F_minus": {
+    "name": "Fluoride ion",
+    "naming": {
+      "suffix": "-ide"
+    }
+  },
+  "Cl_minus": {
+    "name": "Chloride ion",
+    "naming": {
+      "suffix": "-ide"
+    }
+  },
+  "Br_minus": {
+    "name": "Bromide ion",
+    "naming": {
+      "suffix": "-ide"
+    }
+  },
+  "I_minus": {
+    "name": "Iodide ion",
+    "naming": {
+      "suffix": "-ide"
+    }
+  },
+  "S_2minus": {
+    "name": "Sulfide ion",
+    "naming": {
+      "suffix": "-ide"
+    }
+  },
+  "SO4_2minus": {
+    "name": "Sulfate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "SO3_2minus": {
+    "name": "Sulfite ion",
+    "naming": {
+      "suffix": "-ite"
+    }
+  },
+  "NO3_minus": {
+    "name": "Nitrate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "NO2_minus": {
+    "name": "Nitrite ion",
+    "naming": {
+      "suffix": "-ite"
+    }
+  },
+  "CO3_2minus": {
+    "name": "Carbonate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "SiO3_2minus": {
+    "name": "Silicate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "PO4_3minus": {
+    "name": "Phosphate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "CH3COO_minus": {
+    "name": "Acetate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "MnO4_minus": {
+    "name": "Permanganate ion",
+    "naming": {
+      "prefix": "per-",
+      "suffix": "-ate"
+    }
+  },
+  "CrO4_2minus": {
+    "name": "Chromate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "Cr2O7_2minus": {
+    "name": "Dichromate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "Be_2plus": {
+    "name": "Beryllium ion"
+  },
+  "Cu_plus": {
+    "name": "Copper(I) ion"
+  },
+  "HCO3_minus": {
+    "name": "Hydrogen carbonate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "HSO4_minus": {
+    "name": "Hydrogen sulfate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "HSO3_minus": {
+    "name": "Hydrogen sulfite ion",
+    "naming": {
+      "suffix": "-ite"
+    }
+  },
+  "HPO4_2minus": {
+    "name": "Hydrogen phosphate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  },
+  "H2PO4_minus": {
+    "name": "Dihydrogen phosphate ion",
+    "naming": {
+      "suffix": "-ate"
+    }
+  }
 }

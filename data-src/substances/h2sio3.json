@@ -1,12 +1,11 @@
 {
-  "id": "h2sio3",
+  "id": "sub:h2sio3",
   "formula": "H₂SiO₃",
-  "name_ru": "Кремниевая кислота",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "SiO3_2minus"
+    "ion:H_plus",
+    "ion:SiO3_2minus"
   ],
   "tags": [
     "insoluble",
@@ -15,12 +14,5 @@
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 2.1,
-  "appearance_ru": "Белый студенистый осадок (гель)",
-  "industrial_ru": "Производство силикагеля (осушитель), адсорбентов",
-  "production_ru": "Действие кислоты на силикат натрия: Na₂SiO₃ + 2HCl → H₂SiO₃↓ + 2NaCl",
-  "fun_facts_ru": [
-    "Нерастворима в воде — одна из немногих нерастворимых кислот",
-    "Силикагель в пакетиках «не есть» — это высушенная кремниевая кислота"
-  ]
+  "density_g_cm3": 2.1
 }

@@ -1,0 +1,138 @@
+{
+  "quantities": {
+    "q:mass": {
+      "name": "масса"
+    },
+    "q:amount": {
+      "name": "количество вещества"
+    },
+    "q:volume": {
+      "name": "объём"
+    },
+    "q:concentration": {
+      "name": "молярная концентрация"
+    },
+    "q:temperature": {
+      "name": "температура"
+    },
+    "q:pressure": {
+      "name": "давление"
+    },
+    "q:energy": {
+      "name": "энергия/теплота"
+    },
+    "q:density": {
+      "name": "плотность"
+    },
+    "q:molar_mass": {
+      "name": "молярная масса"
+    },
+    "q:mass_fraction": {
+      "name": "массовая доля"
+    },
+    "q:volume_fraction": {
+      "name": "объёмная доля"
+    },
+    "q:molar_volume": {
+      "name": "молярный объём"
+    },
+    "q:solubility": {
+      "name": "растворимость"
+    },
+    "q:yield": {
+      "name": "выход продукта"
+    },
+    "q:enthalpy": {
+      "name": "энтальпия реакции"
+    },
+    "q:condition": {
+      "name": "качественное условие"
+    }
+  },
+  "units": {
+    "unit:g": {
+      "name": "г"
+    },
+    "unit:kg": {
+      "name": "кг"
+    },
+    "unit:mol": {
+      "name": "моль"
+    },
+    "unit:L": {
+      "name": "л"
+    },
+    "unit:m3": {
+      "name": "м³"
+    },
+    "unit:mol_per_L": {
+      "name": "моль/л"
+    },
+    "unit:mol_per_m3": {
+      "name": "моль/м³"
+    },
+    "unit:K": {
+      "name": "K"
+    },
+    "unit:degC": {
+      "name": "°C"
+    },
+    "unit:Pa": {
+      "name": "Па"
+    },
+    "unit:bar": {
+      "name": "бар"
+    },
+    "unit:atm": {
+      "name": "атм"
+    },
+    "unit:J": {
+      "name": "Дж"
+    },
+    "unit:kJ": {
+      "name": "кДж"
+    },
+    "unit:g_per_mL": {
+      "name": "г/мл"
+    },
+    "unit:kg_per_m3": {
+      "name": "кг/м³"
+    },
+    "unit:g_per_mol": {
+      "name": "г/моль"
+    },
+    "unit:kg_per_mol": {
+      "name": "кг/моль"
+    },
+    "unit:mL": {
+      "name": "мл"
+    },
+    "unit:kPa": {
+      "name": "кПа"
+    },
+    "unit:mmHg": {
+      "name": "мм рт. ст."
+    },
+    "unit:fraction": {
+      "name": "доля"
+    },
+    "unit:percent": {
+      "name": "%"
+    },
+    "unit:L_per_mol": {
+      "name": "л/моль"
+    },
+    "unit:g_per_100g": {
+      "name": "г/100 г"
+    },
+    "unit:kJ_per_mol": {
+      "name": "кДж/моль"
+    },
+    "unit:J_per_mol": {
+      "name": "Дж/моль"
+    },
+    "unit:enum": {
+      "name": "enum"
+    }
+  }
+}

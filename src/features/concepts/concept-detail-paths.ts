@@ -9,7 +9,7 @@ const DATA_SRC = join(process.cwd(), 'data-src');
 export interface SubstanceInfo {
   id: string;
   formula: string;
-  name_ru?: string;
+  name?: string;
   class: string;
 }
 
@@ -41,7 +41,7 @@ function loadSubstanceIndex(): Record<string, SubstanceInfo> {
       index[data.id] = {
         id: data.id,
         formula: data.formula,
-        name_ru: data.name_ru,
+        name: data.name,
         class: data.class,
       };
     }
@@ -81,12 +81,12 @@ export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
   // Apply locale overlay to substance names if available
   if (locale !== 'ru') {
     try {
-      const substOverlay = cachedReadJsonSync<Record<string, { name_ru?: string }>>(
+      const substOverlay = cachedReadJsonSync<Record<string, { name?: string }>>(
         join(DATA_SRC, 'translations', locale, 'substances.json'),
       );
       for (const [id, ov] of Object.entries(substOverlay)) {
-        if (substanceIndex[id] && ov.name_ru) {
-          substanceIndex[id] = { ...substanceIndex[id], name_ru: ov.name_ru };
+        if (substanceIndex[id] && ov.name) {
+          substanceIndex[id] = { ...substanceIndex[id], name: ov.name };
         }
       }
     } catch { /* overlay optional */ }

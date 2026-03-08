@@ -1,28 +1,16 @@
 {
-  "id": "cu_no3_2",
+  "id": "sub:cu_no3_2",
   "formula": "Cu(NO₃)₂",
-  "name_ru": "Нитрат меди(II)",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "NO3_minus"
+    "ion:Cu_2plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 256,
   "boiling_point_C": null,
-  "density_g_cm3": 3.05,
-  "appearance_ru": "Синие кристаллы",
-  "hazards_ru": [
-    "Окислитель",
-    "Раздражающее"
-  ],
-  "industrial_ru": "Производство катализаторов, пиротехника (зелёное пламя), окрашивание металлов",
-  "production_ru": "Растворение меди в разбавленной азотной кислоте: 3Cu + 8HNO₃(разб.) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O",
-  "fun_facts_ru": [
-    "Окрашивает пламя в зелёный цвет — используется в пиротехнике",
-    "При нагревании разлагается: 2Cu(NO₃)₂ → 2CuO + 4NO₂ + O₂ — бурые пары"
-  ]
+  "density_g_cm3": 3.05
 }

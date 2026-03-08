@@ -190,7 +190,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
                     formula={formula}
                     ionType="anion"
                     ionId={ion?.id}
-                    name={ion?.name_ru}
+                    name={ion?.name}
                   />
                 </th>
               );
@@ -215,7 +215,7 @@ export default function SolubilityTable({ locale = 'ru', variant = 'compact' }: 
                     formula={catFormula}
                     ionType="cation"
                     ionId={catIon?.id}
-                    name={catIon?.name_ru}
+                    name={catIon?.name}
                   />
                 </th>
                 {anionOrder.map(anionId => {

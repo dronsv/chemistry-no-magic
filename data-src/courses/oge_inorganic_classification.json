@@ -1,5 +1,6 @@
 {
   "id": "course:oge.inorganic_classification.v1",
-  "title_ru": "Классификация неорганических веществ",
-  "modules": ["module:classification.inorganic_substances.v1"]
+  "modules": [
+    "module:classification.inorganic_substances.v1"
+  ]
 }

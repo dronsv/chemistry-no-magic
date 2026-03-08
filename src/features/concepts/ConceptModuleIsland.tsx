@@ -21,7 +21,7 @@ interface Props {
 interface SubstanceInfo {
   id: string;
   formula: string;
-  name_ru?: string;
+  name?: string;
   class: string;
   subclass?: string;
   tags?: string[];
@@ -309,7 +309,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                   <FormulaChip
                     key={s.id}
                     formula={s.formula}
-                    name={s.name_ru}
+                    name={s.name}
                     substanceId={s.id}
                     substanceClass={s.class}
                     locale={locale}

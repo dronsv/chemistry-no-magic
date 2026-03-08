@@ -1,32 +1,31 @@
 {
-  "mnemonic_ru": "No oxygen → -IDE. Has oxygen: max OS → -ATE, lower → -ITE. Even higher → PER-...-ATE, even lower → HYPO-...-ITE.",
   "suffix_rules": [
-    {
-      "id": "binary_ide",
-      "suffix_ru": "-ide",
-      "description_ru": "Binary anions (no oxygen) use the -ide suffix"
-    },
-    {
-      "id": "oxy_max_ate",
-      "suffix_ru": "-ate",
-      "description_ru": "Oxoanion with the maximum oxidation state of the central atom → -ate"
-    },
-    {
-      "id": "oxy_lower_ite",
-      "suffix_ru": "-ite",
-      "description_ru": "Oxoanion with a lower oxidation state → -ite"
-    },
-    {
-      "id": "per_prefix",
-      "prefix_ru": "per-",
-      "suffix_ru": "-ate",
-      "description_ru": "Oxidation state above the typical maximum → per-...-ate"
-    },
-    {
-      "id": "hypo_prefix",
-      "prefix_ru": "hypo-",
-      "suffix_ru": "-ite",
-      "description_ru": "Oxidation state below the typical minimum for oxy-anions → hypo-...-ite"
-    }
-  ]
+    { "id": "binary_ide",    "suffix": "-ide",  "description": "Binary anions (no oxygen) → suffix -ide" },
+    { "id": "oxy_max_ate",   "suffix": "-ate",  "description": "Oxoacid with max oxidation state of central atom → -ate" },
+    { "id": "oxy_lower_ite", "suffix": "-ite",  "description": "Oxoacid with lower oxidation state → -ite" },
+    { "id": "per_prefix",    "prefix": "per-",  "suffix": "-ate", "description": "Oxidation state above typical maximum → prefix per- + suffix -ate" },
+    { "id": "hypo_prefix",   "prefix": "hypo-", "suffix": "-ite", "description": "Oxidation state below typical minimum for oxy-anions → prefix hypo- + suffix -ite" }
+  ],
+  "acid_to_anion_pairs": [
+    { "acid": "HCl",      "acid_name": "hydrochloric acid" },
+    { "acid": "HBr",      "acid_name": "hydrobromic acid" },
+    { "acid": "HI",       "acid_name": "hydroiodic acid" },
+    { "acid": "HF",       "acid_name": "hydrofluoric acid" },
+    { "acid": "H₂S",     "acid_name": "hydrogen sulfide (hydrosulfuric acid)" },
+    { "acid": "H₂SO₄",   "acid_name": "sulfuric acid" },
+    { "acid": "H₂SO₃",   "acid_name": "sulfurous acid" },
+    { "acid": "HNO₃",    "acid_name": "nitric acid" },
+    { "acid": "HNO₂",    "acid_name": "nitrous acid" },
+    { "acid": "H₂CO₃",   "acid_name": "carbonic acid" },
+    { "acid": "H₂SiO₃",  "acid_name": "silicic acid" },
+    { "acid": "H₃PO₄",   "acid_name": "phosphoric acid" },
+    { "acid": "CH₃COOH", "acid_name": "acetic acid" },
+    { "acid": "HMnO₄",   "acid_name": "permanganic acid" },
+    { "acid": "H₂CrO₄",  "acid_name": "chromic acid" },
+    { "acid": "H₂Cr₂O₇", "acid_name": "dichromic acid" }
+  ],
+  "mnemonic": "No oxygen → -IDE. Has oxygen: max OS → -ATE, lower → -ITE. Even higher → PER-...-ATE, even lower → HYPO-...-ITE.",
+  "multilingual_comparison": {
+    "description": "Suffix systems across languages: -ide/-ite/-ate (Eng.) ≈ -ид/-ит/-ат (Rus.) ≈ -ek/-ian/-an (Pol.) ≈ -uro/-ito/-ato (Spa.)"
+  }
 }

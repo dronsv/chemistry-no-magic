@@ -1,0 +1,5 @@
+[
+  { "id": "ind:litmus", "kind": "indicator" },
+  { "id": "ind:phenolphthalein", "kind": "indicator" },
+  { "id": "ind:methyl_orange", "kind": "indicator" }
+]

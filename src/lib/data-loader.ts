@@ -37,6 +37,7 @@ import type { ReactionRole, ReactionParticipant } from '../types/reaction-partic
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
 import type { Topic, TopicPagesMap } from '../types/topic';
+import type { GeneratedRuleText, GeneratedActivityText, GeneratedQualitativeText } from '../types/rule-text';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -99,18 +100,11 @@ const overlayCache = new Map<string, Promise<Record<string, Record<string, unkno
 /**
  * Load a translation overlay file for a given locale and data key.
  * Returns null if overlay is not available or fetch fails.
- *
- * By default, skips 'ru' locale (base language for most data).
- * Pass `allowRu: true` for data where the base language varies
- * (e.g. exam tasks whose primary locale is en/pl/es).
  */
 async function loadTranslationOverlay(
   locale: SupportedLocale,
   dataKey: string,
-  allowRu = false,
 ): Promise<Record<string, Record<string, unknown>> | null> {
-  if (locale === 'ru' && !allowRu) return null;
-
   const cacheKey = `${locale}:${dataKey}`;
   const cached = overlayCache.get(cacheKey);
   if (cached !== undefined) return cached;
@@ -135,9 +129,9 @@ async function loadTranslationOverlay(
 
 /**
  * Apply a translation overlay to an array of items.
- * Overlay values are shallow-merged onto matching items, replacing `_ru` fields in-place.
+ * Overlay values are shallow-merged onto matching items.
  */
-function applyOverlay<T extends Record<string, unknown>>(
+function applyOverlay<T>(
   items: T[],
   overlay: Record<string, Record<string, unknown>> | null,
   keyFn: (item: T) => string,
@@ -153,7 +147,7 @@ function applyOverlay<T extends Record<string, unknown>>(
 /**
  * Apply a translation overlay to a single object (e.g. a substance).
  */
-function applyOverlaySingle<T extends Record<string, unknown>>(
+function applyOverlaySingle<T>(
   item: T,
   overlay: Record<string, Record<string, unknown>> | null,
   key: string,
@@ -168,7 +162,7 @@ function applyOverlaySingle<T extends Record<string, unknown>>(
  * Merge an overlay array into a base array by matching items on a key field.
  * Used for nested object overlays where sub-arrays need ID-based merging.
  */
-function mergeArrayOverlay<T extends Record<string, unknown>>(
+function mergeArrayOverlay<T>(
   base: T[], over: unknown, keyFn: (item: T) => string,
 ): T[] {
   if (!Array.isArray(over)) return base;
@@ -188,7 +182,7 @@ function mergeArrayOverlay<T extends Record<string, unknown>>(
 export async function loadElements(locale?: SupportedLocale): Promise<Element[]> {
   const manifest = await getManifest();
   const elements = await loadDataFile<Element[]>(manifest.entrypoints.elements);
-  if (!locale || locale === 'ru') return elements;
+  if (!locale) return elements;
   const overlay = await loadTranslationOverlay(locale, 'elements');
   return applyOverlay(elements, overlay, el => el.symbol);
 }
@@ -197,7 +191,7 @@ export async function loadElements(locale?: SupportedLocale): Promise<Element[]>
 export async function loadIons(locale?: SupportedLocale): Promise<Ion[]> {
   const manifest = await getManifest();
   const ions = await loadDataFile<Ion[]>(manifest.entrypoints.ions);
-  if (!locale || locale === 'ru') return ions;
+  if (!locale) return ions;
   const overlay = await loadTranslationOverlay(locale, 'ions');
   return applyOverlay(ions, overlay, ion => ion.id);
 }
@@ -213,7 +207,7 @@ export async function loadSubstance(id: string, locale?: SupportedLocale): Promi
   // Substances directory contains individual files per substance
   const path = `${basePath}/${id}.json`;
   const substance = await loadDataFile<Substance>(path);
-  if (!locale || locale === 'ru') return substance;
+  if (!locale) return substance;
   const overlay = await loadTranslationOverlay(locale, 'substances');
   return applyOverlaySingle(substance, overlay, id);
 }
@@ -268,7 +262,7 @@ export async function loadCompetencies(locale?: SupportedLocale): Promise<Compet
   }
 
   const competencies = await loadDataFile<CompetencyNode[]>(path);
-  if (!locale || locale === 'ru') return competencies;
+  if (!locale) return competencies;
   const overlay = await loadTranslationOverlay(locale, 'competencies');
   return applyOverlay(competencies, overlay, c => c.id);
 }
@@ -351,7 +345,7 @@ export async function loadDiagnosticQuestions(locale?: SupportedLocale): Promise
   }
 
   const questions = await loadDataFile<DiagnosticQuestion[]>(path);
-  if (!locale || locale === 'ru') return questions;
+  if (!locale) return questions;
   const overlay = await loadTranslationOverlay(locale, 'diagnostic_questions');
   return applyOverlay(questions, overlay, q => q.id);
 }
@@ -368,7 +362,7 @@ export async function loadElementGroups(locale?: SupportedLocale): Promise<Eleme
   }
 
   const groups = await loadDataFile<ElementGroupDict>(path);
-  if (!locale || locale === 'ru') return groups;
+  if (!locale) return groups;
   const overlay = await loadTranslationOverlay(locale, 'element_groups');
   if (!overlay) return groups;
   const result: ElementGroupDict = {};
@@ -425,7 +419,7 @@ export async function loadPeriodicTableTheory(locale?: SupportedLocale): Promise
   }
 
   const data = await loadDataFile<PeriodicTableTheory>(path);
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
 
   const overlay = await loadTranslationOverlay(locale, 'periodic_table_theory');
   if (!overlay) return data;
@@ -440,7 +434,7 @@ export async function loadPeriodicTableTheory(locale?: SupportedLocale): Promise
             const exO = oExamples[i];
             if (!exO) return ex;
             if (ex.type === 'series' && exO.elements) {
-              // Merge element-level overrides (e.g. value_ru for metallic_character)
+              // Merge element-level overrides (e.g. value for metallic_character)
               const mergedElements = ex.elements.map((el, j) => {
                 const elO = (exO.elements as Record<string, unknown>[])?.[j];
                 return elO ? { ...el, ...elO } : el;
@@ -457,16 +451,16 @@ export async function loadPeriodicTableTheory(locale?: SupportedLocale): Promise
       const o = overlay[`exception:${exc.id}`];
       return o ? { ...exc, ...o } as typeof exc : exc;
     }),
-    general_principle_ru: overlay['principle']
-      ? { ...data.general_principle_ru, ...overlay['principle'] } as typeof data.general_principle_ru
-      : data.general_principle_ru,
+    general_principle: overlay['general_principle']
+      ? { ...data.general_principle, ...overlay['general_principle'] } as typeof data.general_principle
+      : data.general_principle,
   };
 }
 
 /** Load classification rules. */
 export async function loadClassificationRules(locale?: SupportedLocale): Promise<ClassificationRule[]> {
   const data = await loadRule('classification_rules') as ClassificationRule[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'classification_rules');
   return applyOverlay(data, overlay, r => r.id);
 }
@@ -474,7 +468,7 @@ export async function loadClassificationRules(locale?: SupportedLocale): Promise
 /** Load naming rules. */
 export async function loadNamingRules(locale?: SupportedLocale): Promise<NamingRule[]> {
   const data = await loadRule('naming_rules') as NamingRule[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'naming_rules');
   return applyOverlay(data, overlay, r => r.id);
 }
@@ -483,7 +477,7 @@ export async function loadNamingRules(locale?: SupportedLocale): Promise<NamingR
 export async function loadSubstancesIndex(locale?: SupportedLocale): Promise<SubstanceIndexEntry[]> {
   const data = await loadIndex('substances_index');
   const substances = (data as { substances: SubstanceIndexEntry[] }).substances;
-  if (!locale || locale === 'ru') return substances;
+  if (!locale) return substances;
   const overlay = await loadTranslationOverlay(locale, 'substances');
   return applyOverlay(substances, overlay, s => s.id);
 }
@@ -504,7 +498,7 @@ export async function loadSolubilityRulesFull(): Promise<SolubilityRulesFull> {
 /** Load activity series of metals. */
 export async function loadActivitySeries(locale?: SupportedLocale): Promise<ActivitySeriesEntry[]> {
   const data = await loadRule('activity_series') as ActivitySeriesEntry[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'activity_series');
   return applyOverlay(data, overlay, e => e.symbol);
 }
@@ -512,7 +506,7 @@ export async function loadActivitySeries(locale?: SupportedLocale): Promise<Acti
 /** Load applicability rules. */
 export async function loadApplicabilityRules(locale?: SupportedLocale): Promise<ApplicabilityRule[]> {
   const data = await loadRule('applicability_rules') as ApplicabilityRule[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'applicability_rules');
   return applyOverlay(data, overlay, r => r.id);
 }
@@ -550,7 +544,7 @@ export async function loadOxidationExamples(): Promise<OxidationExample[]> {
 /** Load oxidation state rules catalog (descriptions + examples per rule ID). */
 export async function loadOxidationRules(locale?: SupportedLocale): Promise<OxRulesData> {
   const data = await loadRule('oxidation_rules') as OxRulesData;
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'oxidation_rules');
   if (!overlay) return data;
   const o = overlay as unknown as Partial<Record<string, unknown>>;
@@ -572,7 +566,7 @@ export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[
   }
 
   const reactions = await loadDataFile<Reaction[]>(path);
-  if (!locale || locale === 'ru') return reactions;
+  if (!locale) return reactions;
   const overlay = await loadTranslationOverlay(locale, 'reactions');
   return applyOverlay(reactions, overlay, r => r.reaction_id);
 }
@@ -583,7 +577,7 @@ export async function loadReactionRoles(locale?: SupportedLocale): Promise<React
   const path = manifest.entrypoints.reaction_roles;
   if (!path) throw new Error('reaction_roles not found in manifest');
   const roles = await loadDataFile<ReactionRole[]>(path);
-  if (!locale || locale === 'ru') return roles;
+  if (!locale) return roles;
   const overlay = await loadTranslationOverlay(locale, 'reaction_roles');
   return applyOverlay(roles, overlay, r => r.id);
 }
@@ -594,6 +588,14 @@ export async function loadReactionParticipants(): Promise<ReactionParticipant[]>
   const path = manifest.entrypoints.reaction_participants;
   if (!path) throw new Error('reaction_participants not found in manifest');
   return loadDataFile<ReactionParticipant[]>(path);
+}
+
+/** Load a relations file by key (e.g. 'acid_base_relations', 'ion_roles'). */
+export async function loadRelations<T = unknown>(key: string): Promise<T[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.relations?.[key];
+  if (!path) return [];
+  return loadDataFile<T[]>(path);
 }
 
 /** Load all reaction templates. */
@@ -608,7 +610,7 @@ export async function loadReactionTemplates(locale?: SupportedLocale): Promise<R
   }
 
   const templates = await loadDataFile<ReactionTemplate[]>(path);
-  if (!locale || locale === 'ru') return templates;
+  if (!locale) return templates;
   const overlay = await loadTranslationOverlay(locale, 'reaction_templates');
   return applyOverlay(templates, overlay, t => t.id);
 }
@@ -616,7 +618,7 @@ export async function loadReactionTemplates(locale?: SupportedLocale): Promise<R
 /** Load qualitative reaction tests. */
 export async function loadQualitativeTests(locale?: SupportedLocale): Promise<QualitativeTest[]> {
   const data = await loadRule('qualitative_reactions') as QualitativeTest[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'qualitative_reactions');
   return applyOverlay(data, overlay, t => t.target_id);
 }
@@ -624,7 +626,7 @@ export async function loadQualitativeTests(locale?: SupportedLocale): Promise<Qu
 /** Load genetic chains. */
 export async function loadGeneticChains(locale?: SupportedLocale): Promise<GeneticChain[]> {
   const data = await loadRule('genetic_chains') as GeneticChain[];
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'genetic_chains');
   return applyOverlay(data, overlay, c => c.chain_id);
 }
@@ -632,7 +634,7 @@ export async function loadGeneticChains(locale?: SupportedLocale): Promise<Genet
 /** Load energy & catalyst theory content. */
 export async function loadEnergyCatalystTheory(locale?: SupportedLocale): Promise<EnergyCatalystTheory> {
   const data = await loadRule('energy_catalyst_theory') as EnergyCatalystTheory;
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'energy_catalyst_theory');
   if (!overlay) return data;
   const o = overlay as unknown as Partial<Record<string, unknown>>;
@@ -652,20 +654,32 @@ export async function loadEnergyCatalystTheory(locale?: SupportedLocale): Promis
 /** Load calculations data (substances + reactions for calc exercises). */
 export async function loadCalculationsData(locale?: SupportedLocale): Promise<CalculationsData> {
   const data = await loadRule('calculations_data') as CalculationsData;
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'calculations_data');
   if (!overlay) return data;
-  const o = overlay as unknown as Partial<Record<string, unknown>>;
+  const o = overlay as unknown as Partial<Record<string, Record<string, unknown>>>;
+  const substOverlay = o['calc_substances'];
+  const rxnOverlay = o['calc_reactions'];
   return {
-    calc_substances: mergeArrayOverlay(data.calc_substances, o['calc_substances'], s => s.formula),
-    calc_reactions: mergeArrayOverlay(data.calc_reactions, o['calc_reactions'], r => r.equation_ru),
+    calc_substances: substOverlay
+      ? data.calc_substances.map(s => {
+          const over = substOverlay[s.formula];
+          return over ? { ...s, ...over } as typeof s : s;
+        })
+      : data.calc_substances,
+    calc_reactions: rxnOverlay
+      ? data.calc_reactions.map((r, i) => {
+          const over = rxnOverlay[String(i)];
+          return over ? { ...r, ...over } as typeof r : r;
+        })
+      : data.calc_reactions,
   };
 }
 
 /** Load ion nomenclature rules (suffix derivation system). */
 export async function loadIonNomenclature(locale?: SupportedLocale): Promise<IonNomenclatureRules> {
   const data = await loadRule('ion_nomenclature') as IonNomenclatureRules;
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'ion_nomenclature');
   if (!overlay) return data;
   const o = overlay as unknown as Partial<Record<string, unknown>>;
@@ -675,7 +689,7 @@ export async function loadIonNomenclature(locale?: SupportedLocale): Promise<Ion
     multilingual_comparison: o['multilingual_comparison']
       ? { ...data.multilingual_comparison, ...(o['multilingual_comparison'] as object) } as typeof data.multilingual_comparison
       : data.multilingual_comparison,
-    mnemonic_ru: typeof o['mnemonic_ru'] === 'string' ? o['mnemonic_ru'] : data.mnemonic_ru,
+    mnemonic: typeof o['mnemonic'] === 'string' ? o['mnemonic'] : data.mnemonic,
   };
 }
 
@@ -696,7 +710,7 @@ export async function loadOgeTasks(locale?: SupportedLocale): Promise<OgeTask[]>
   }
 
   const tasks = await loadDataFile<OgeTask[]>(path);
-  if (!locale || locale === 'ru') return tasks;
+  if (!locale) return tasks;
   const overlay = await loadTranslationOverlay(locale, 'oge_tasks');
   return applyOverlay(tasks, overlay, t => t.task_id);
 }
@@ -713,7 +727,7 @@ export async function loadOgeSolutionAlgorithms(locale?: SupportedLocale): Promi
   }
 
   const algos = await loadDataFile<OgeSolutionAlgorithm[]>(path);
-  if (!locale || locale === 'ru') return algos;
+  if (!locale) return algos;
   const overlay = await loadTranslationOverlay(locale, 'oge_algorithms');
   return applyOverlay(algos, overlay, a => String(a.task_number));
 }
@@ -729,13 +743,13 @@ export async function loadSearchIndex(locale?: SupportedLocale): Promise<SearchI
     );
   }
 
-  // For non-ru locales, try locale-specific search index first
-  if (locale && locale !== 'ru') {
+  // Try locale-specific search index first
+  if (locale) {
     const localePath = basePath.replace('.json', `.${locale}.json`);
     try {
       return await loadDataFile<SearchIndexEntry[]>(localePath);
     } catch {
-      // Fall back to default (Russian) search index
+      // Fall back to default search index
     }
   }
 
@@ -766,7 +780,7 @@ export async function loadExamTasks(systemId: string, locale?: SupportedLocale):
   const tasks = await loadDataFile<OgeTask[]>(`exam/${systemId}/tasks.json`);
   const primaryLocale = EXAM_PRIMARY_LOCALE[systemId] ?? 'ru';
   if (!locale || locale === primaryLocale) return tasks;
-  const overlay = await loadTranslationOverlay(locale, `${systemId}_tasks`, true);
+  const overlay = await loadTranslationOverlay(locale, `${systemId}_tasks`);
   return applyOverlay(tasks, overlay, t => t.task_id);
 }
 
@@ -775,7 +789,7 @@ export async function loadExamAlgorithms(systemId: string, locale?: SupportedLoc
   const algos = await loadDataFile<OgeSolutionAlgorithm[]>(`exam/${systemId}/algorithms.json`);
   const primaryLocale = EXAM_PRIMARY_LOCALE[systemId] ?? 'ru';
   if (!locale || locale === primaryLocale) return algos;
-  const overlay = await loadTranslationOverlay(locale, `${systemId}_algorithms`, true);
+  const overlay = await loadTranslationOverlay(locale, `${systemId}_algorithms`);
   return applyOverlay(algos, overlay, a => String(a.task_number));
 }
 
@@ -783,7 +797,7 @@ export async function loadExamAlgorithms(systemId: string, locale?: SupportedLoc
 export async function loadTopicMapping(locale?: SupportedLocale): Promise<UnifiedTopic[]> {
   const topics = await loadRule('topic_mapping') as UnifiedTopic[];
   if (!locale) return topics;
-  const overlay = await loadTranslationOverlay(locale, 'topic_mapping', true);
+  const overlay = await loadTranslationOverlay(locale, 'topic_mapping');
   return applyOverlay(topics, overlay, t => t.topic_id);
 }
 
@@ -813,7 +827,7 @@ export async function loadProcessVocab(locale?: SupportedLocale): Promise<Proces
   }
 
   const data = await loadDataFile<ProcessVocabEntry[]>(path);
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'process_vocab');
   return overlay ? applyOverlay(data, overlay, item => item.id) : data;
 }
@@ -830,7 +844,7 @@ export async function loadEffectsVocab(locale?: SupportedLocale): Promise<Effect
   }
 
   const data = await loadDataFile<EffectsVocabEntry[]>(path);
-  if (!locale || locale === 'ru') return data;
+  if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'effects_vocab');
   return overlay ? applyOverlay(data, overlay, item => item.id) : data;
 }
@@ -907,7 +921,7 @@ export async function loadContextsData(locale?: SupportedLocale): Promise<Contex
     loadDataFile<Record<string, string[]>>(ep.reverse_index),
   ]);
 
-  if (!locale || locale === 'ru') {
+  if (!locale) {
     return { contexts, variants, terms, bindings, reverse_index: reverseIndex };
   }
   const overlay = await loadTranslationOverlay(locale, 'terms');
@@ -943,7 +957,7 @@ export async function loadConcepts(): Promise<ConceptRegistry> {
 
 /** Load concept locale overlay (names, slugs, surface_forms, grammatical forms). */
 export async function loadConceptOverlay(locale: SupportedLocale): Promise<ConceptOverlay | null> {
-  const overlay = await loadTranslationOverlay(locale, 'concepts', true);
+  const overlay = await loadTranslationOverlay(locale, 'concepts');
   return overlay as ConceptOverlay | null;
 }
 
@@ -973,7 +987,7 @@ export async function loadTheoryModuleOverlay(
   moduleKey: string,
   locale: SupportedLocale,
 ): Promise<Record<string, unknown> | null> {
-  return loadTranslationOverlay(locale, `theory_modules/${moduleKey}`, false);
+  return loadTranslationOverlay(locale, `theory_modules/${moduleKey}`);
 }
 
 /** Load a course by its filename key. */
@@ -992,7 +1006,7 @@ export async function loadTopics(locale?: SupportedLocale): Promise<Topic[]> {
   const path = manifest.entrypoints.topics;
   if (!path) throw new Error('topics not found in manifest');
   const topics = await loadDataFile<Topic[]>(path);
-  if (!locale || locale === 'ru') return topics;
+  if (!locale) return topics;
   const overlay = await loadTranslationOverlay(locale, 'topics');
   return applyOverlay(topics, overlay, t => t.id);
 }
@@ -1003,7 +1017,7 @@ export async function loadTopicPages(locale?: SupportedLocale): Promise<TopicPag
   const path = manifest.entrypoints.topic_pages;
   if (!path) throw new Error('topic_pages not found in manifest');
   const pages = await loadDataFile<TopicPagesMap>(path);
-  if (!locale || locale === 'ru') return pages;
+  if (!locale) return pages;
   const overlay = await loadTranslationOverlay(locale, 'topic_pages');
   if (!overlay) return pages;
   // topic_pages is a Record<id, obj> — merge each entry
@@ -1012,4 +1026,55 @@ export async function loadTopicPages(locale?: SupportedLocale): Promise<TopicPag
     if (result[id]) result[id] = { ...result[id], ...fields };
   }
   return result;
+}
+
+/** Load generated rule texts (build-time summaries per rule × locale). */
+export async function loadRuleTexts(): Promise<GeneratedRuleText[]> {
+  const path = 'rules/rule_texts.json';
+  return loadDataFile<GeneratedRuleText[]>(path);
+}
+
+/** Load generated activity series texts (build-time activity_summary per metal × locale). */
+export async function loadActivityTexts(): Promise<GeneratedActivityText[]> {
+  return loadDataFile<GeneratedActivityText[]>('rules/activity_texts.json');
+}
+
+/** Load generated qualitative reaction observation texts (build-time observation_summary per target × locale). */
+export async function loadQualitativeTexts(): Promise<GeneratedQualitativeText[]> {
+  return loadDataFile<GeneratedQualitativeText[]>('rules/qualitative_texts.json');
+}
+
+/** Load instance_of classification triples generated at build time from substance class/subclass fields. */
+export async function loadInstanceOf(): Promise<import('../types/relation').Relation[]> {
+  return loadRelations<import('../types/relation').Relation>('instance_of');
+}
+
+/** Load kinetics theory rules. Applies locale overlay (name, short_statement, explanation) when locale is provided. */
+export async function loadKineticsRules(locale?: SupportedLocale): Promise<import('../types/kinetics').KineticsRule[]> {
+  const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'kinetics');
+  return applyOverlay(data, overlay, r => r.id);
+}
+
+export interface KineticsData {
+  rules: import('../types/kinetics').KineticsRule[];
+  /** Locale-resolved display names for prop:* IDs, from overlay _prop_names section. */
+  propNames: Record<string, string>;
+  /** Locale-resolved direction labels (increase/decrease/no_change), from overlay _direction_labels. */
+  directionLabels: Record<string, string>;
+}
+
+/**
+ * Load kinetics rules with locale overlay + prop name vocabulary + direction labels.
+ * Use this when the frame renderer is needed (Stage 4+) or task generation (Stage 5).
+ */
+export async function loadKineticsData(locale?: SupportedLocale): Promise<KineticsData> {
+  const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];
+  if (!locale) return { rules: data, propNames: {}, directionLabels: {} };
+  const overlay = await loadTranslationOverlay(locale, 'kinetics');
+  const rules = applyOverlay(data, overlay, r => r.id);
+  const propNames = (overlay?.['_prop_names'] ?? {}) as Record<string, string>;
+  const directionLabels = (overlay?.['_direction_labels'] ?? {}) as Record<string, string>;
+  return { rules, propNames, directionLabels };
 }

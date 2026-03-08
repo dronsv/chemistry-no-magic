@@ -31,7 +31,7 @@ export default function IonNomenclatureTheory({ rules }: Props) {
 
           <div className="ion-theory__mnemonic">
             <strong>{m.ion_theory_mnemonic()}: </strong>
-            {rules.mnemonic_ru}
+            {rules.mnemonic}
           </div>
 
           <h3>{m.ion_theory_comparison()}</h3>

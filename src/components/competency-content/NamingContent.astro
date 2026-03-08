@@ -1,13 +1,13 @@
 ---
 interface NamingExample {
   formula: string;
-  name_ru: string;
+  name: string;
 }
 interface NamingRule {
   id: string;
   class: string;
   pattern: string;
-  template_ru: string;
+  template: string;
   examples: NamingExample[];
 }
 
@@ -37,11 +37,11 @@ for (const r of rules) {
     <p class="comp-content__subtitle">{classLabels[cls] ?? cls}</p>
     {items.map(rule => (
       <div class="comp-content__chain">
-        <div class="comp-content__chain-title">{rule.template_ru}</div>
+        <div class="comp-content__chain-title">{rule.template}</div>
         <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
           {rule.examples.slice(0, 4).map((ex, i) => (
             <span>
-              {ex.formula} — {ex.name_ru}{i < Math.min(rule.examples.length, 4) - 1 ? '; ' : ''}
+              {ex.formula} — {ex.name}{i < Math.min(rule.examples.length, 4) - 1 ? '; ' : ''}
             </span>
           ))}
         </div>

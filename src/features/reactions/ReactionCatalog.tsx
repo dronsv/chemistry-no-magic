@@ -33,7 +33,7 @@ function ReactionCard({ template }: { template: ReactionTemplate }) {
         <span className={`rxn-card__type-badge rxn-card__type-badge--${template.type}`}>
           {TYPE_LABELS[template.type]?.() ?? template.type}
         </span>
-        <span className="rxn-card__title">{template.description_ru}</span>
+        <span className="rxn-card__title">{template.description}</span>
         <span className="rxn-card__arrow">{expanded ? '▾' : '▸'}</span>
       </button>
       {expanded && (

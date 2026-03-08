@@ -1,3 +1,4 @@
+import type { KineticsRule } from '../../types/kinetics';
 import type { BondExampleEntry } from '../../types/bond';
 import type { CalcReaction, CalcSubstance } from '../../types/calculations';
 import type { ClassificationRule } from '../../types/classification';
@@ -10,6 +11,7 @@ import type { NamingRule } from '../../types/classification';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
+import { terminalConjugateBase } from '../relations';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -344,7 +346,7 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
 
   const result: SlotValues = {
     formula: s.formula,
-    name: s.name_ru ?? '',
+    name: s.name ?? '',
     substance_class: s.class,
     substance_subclass: s.subclass ?? '',
   };
@@ -507,7 +509,7 @@ function genPickClassificationRule(_params: Record<string, unknown>, data: Ontol
     class_label: rule.class,
     subclass: rule.subclass ?? '',
     pattern: rule.pattern,
-    description: rule.description_ru,
+    description: rule.description,
     example: rule.examples.length > 0 ? rule.examples[0] : '',
     examples: rule.examples,
   };
@@ -523,9 +525,9 @@ function genPickNamingRule(_params: Record<string, unknown>, data: OntologyData)
     rule_id: rule.id,
     class_label: rule.class,
     pattern: rule.pattern,
-    template: rule.template_ru,
+    template: rule.template,
     example_formula: ex?.formula ?? '',
-    example_name: ex?.name_ru ?? '',
+    example_name: ex?.name ?? '',
   };
 }
 
@@ -537,8 +539,8 @@ function genPickActivityPair(_params: Record<string, unknown>, data: OntologyDat
   return {
     metalA: a.symbol,
     metalB: b.symbol,
-    nameA: a.name_ru,
-    nameB: b.name_ru,
+    nameA: a.name ?? a.symbol,
+    nameB: b.name ?? b.symbol,
     positionA: a.position,
     positionB: b.position,
     reduces_H_A: a.reduces_H ? 1 : 0,
@@ -554,10 +556,10 @@ function genPickQualitativeTest(_params: Record<string, unknown>, data: Ontology
   const test: QualitativeTest = pickRandom(data.rules.qualitativeTests);
   return {
     target_id: test.target_id,
-    target_name: test.target_name_ru,
+    target_name: test.target_name,
     reagent_formula: test.reagent_formula,
-    reagent_name: test.reagent_name_ru,
-    observation: test.observation_ru,
+    reagent_name: test.reagent_name,
+    observation: test.observation,
     reaction_id: test.reaction_id ?? '',
   };
 }
@@ -616,8 +618,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'rate',
       factor_id: factor.factor_id,
-      factor_name: factor.name_ru,
-      factor_effect: factor.effect_ru,
+      factor_name: factor.name,
+      factor_effect: factor.effect,
       applies_to: factor.applies_to,
     };
   } else if (mode === 'cat') {
@@ -626,8 +628,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'cat',
       catalyst: cat.catalyst,
-      catalyst_name: cat.name_ru,
-      catalyst_reaction: cat.reaction_ru,
+      catalyst_name: cat.name,
+      catalyst_reaction: cat.reaction,
     };
   } else {
     // eq
@@ -636,8 +638,8 @@ function genPickEnergyCatalyst(params: Record<string, unknown>, data: OntologyDa
     return {
       mode: 'eq',
       eq_factor: shift.factor,
-      eq_shift: shift.shift_ru,
-      eq_explanation: shift.explanation_ru,
+      eq_shift: shift.shift,
+      eq_explanation: shift.explanation,
     };
   }
 }
@@ -664,7 +666,7 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
 
   return {
     formula: sub.formula,
-    name: sub.name_ru,
+    name: sub.name,
     M: sub.M,
     mass,
     amount,
@@ -683,7 +685,7 @@ function genPickThermoReaction(_params: Record<string, unknown>, data: OntologyD
   const reaction = pickRandom(reactions) as CalcReaction;
   return {
     calcReaction: reaction as unknown as string,
-    equation: reaction.equation_ru,
+    equation: reaction.equation,
     delta_H: String(reaction.delta_H_kJmol),
   };
 }
@@ -707,7 +709,7 @@ function genPickCalcReaction(_params: Record<string, unknown>, data: OntologyDat
   const yieldPercent = 60 + Math.floor(Math.random() * 36);
 
   return {
-    equation: rx.equation_ru,
+    equation: rx.equation,
     given_formula: rx.given.formula,
     given_coeff: rx.given.coeff,
     given_M: rx.given.M,
@@ -757,10 +759,10 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
     return {
       mode: 'acid_pair',
       acid_formula: pair.acid,
-      acid_name: pair.acid_name_ru,
+      acid_name: pair.acid_name,
       anion_id: pair.anion_id,
       anion_formula: anion?.formula ?? pair.anion_id,
-      anion_name: anion?.name_ru ?? '',
+      anion_name: anion?.name ?? '',
     };
   } else if (mode === 'paired') {
     // Pick two ions with naming info for comparison
@@ -771,12 +773,12 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       mode: 'paired',
       ionA_id: ionA.id,
       ionA_formula: ionA.formula,
-      ionA_name: ionA.name_ru,
-      ionA_suffix: ionA.naming!.suffix_ru,
+      ionA_name: ionA.name,
+      ionA_suffix: ionA.naming!.suffix,
       ionB_id: ionB.id,
       ionB_formula: ionB.formula,
-      ionB_name: ionB.name_ru,
-      ionB_suffix: ionB.naming!.suffix_ru,
+      ionB_name: ionB.name,
+      ionB_suffix: ionB.naming!.suffix,
     };
   } else {
     // default: pick a random suffix rule
@@ -788,13 +790,120 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       mode: 'default',
       rule_id: rule.id,
       condition: rule.condition,
-      suffix_ru: rule.suffix_ru,
-      suffix_en: rule.suffix_en,
-      description: rule.description_ru,
+      suffix: rule.suffix,
+      description: rule.description,
       example: rule.examples.length > 0 ? rule.examples[0] : '',
       examples: rule.examples,
     };
   }
+}
+
+function genPickAcidAnionFromGraph(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const relations = data.rules.acidBaseRelations;
+  if (!relations || relations.length === 0) {
+    throw new Error('acidBaseRelations not available in OntologyData');
+  }
+
+  // Build acid → terminal anion pairs by following has_conjugate_base chains
+  const pairs: Array<{ acidId: string; anionId: string }> = [];
+  for (const r of relations) {
+    if (r.predicate !== 'has_conjugate_base' || !r.subject.startsWith('sub:')) continue;
+    // Only process step-1 entries (acid starts) to avoid intermediate ions
+    if ((r.step ?? 1) !== 1) continue;
+    const terminal = terminalConjugateBase(relations, r.subject);
+    if (terminal && !pairs.some(p => p.acidId === r.subject)) {
+      pairs.push({ acidId: r.subject, anionId: terminal });
+    }
+  }
+
+  if (pairs.length === 0) {
+    throw new Error('No acid-anion pairs derivable from acidBaseRelations graph');
+  }
+
+  const pair = pickRandom(pairs);
+
+  // Find substance data for acid (name, formula)
+  const substanceEntry = data.data.substances?.find(s => s.id === pair.acidId);
+  const acid_formula = substanceEntry?.formula ?? pair.acidId;
+  const acid_name = substanceEntry?.name ?? pair.acidId;
+
+  // Find ion data for anion (name, formula)
+  const ion = data.core.ions.find(i => i.id === pair.anionId);
+  const anion_formula = ion?.formula ?? pair.anionId;
+  const anion_name = ion?.name ?? pair.anionId;
+
+  return {
+    acid_id: pair.acidId,
+    acid_formula,
+    acid_name,
+    anion_id: pair.anionId,
+    anion_formula,
+    anion_name,
+  };
+}
+
+function genPickKineticsDirectional(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const rules = data.rules.kineticsRules;
+  const propNames = data.rules.kineticsDirectionLabels !== undefined
+    ? data.rules.kineticsDirectionLabels
+    : ({} as Record<string, string>);
+
+  if (!rules || rules.length === 0) {
+    throw new Error('kineticsRules not available in data');
+  }
+
+  // Filter to directional_influence rules with a clear direction response
+  const directional = rules.filter(
+    (r: KineticsRule) =>
+      r.kind === 'directional_influence' &&
+      r.source_property &&
+      r.target_property &&
+      r.source_change?.operator &&
+      r.target_response?.mode === 'direction' &&
+      r.target_response.direction,
+  );
+
+  if (directional.length === 0) throw new Error('No directional_influence kinetics rules available');
+
+  const rule: KineticsRule = pickRandom(directional);
+  const direction = rule.target_response!.direction as string; // "increase" | "decrease"
+
+  // Resolve locale-specific prop names from kineticsDirectionLabels (acting as propNames here)
+  // Actually propNames for prop:* come from a different source. Let's use rule.name fields if available.
+  // The rule entity already has locale-resolved name from applyOverlay.
+  // We need source/target display names; derive from the rule's source/target property IDs.
+  // At this point, we don't have propNames from the kinetics overlay here — only kineticsDirectionLabels.
+  // Use the rule name as the question context instead.
+  const sourcePropId = rule.source_property ?? '';
+  const targetPropId = rule.target_property ?? '';
+
+  // Strip namespace as fallback display
+  function stripNs(id: string): string {
+    return id.replace(/^[a-z_]+:/, '').replace(/_/g, '\u00a0');
+  }
+
+  // The kinetics overlay may have locale names baked into the rule.name field already.
+  // For prop names, derive from the prop ID namespace-stripped form.
+  const sourceName = stripNs(sourcePropId);
+  const targetName = stripNs(targetPropId);
+
+  // Resolve direction labels
+  const directionLabel = propNames[direction] ?? direction;
+  const allDirections = ['increase', 'decrease', 'no_change'];
+  const wrongDirections = allDirections.filter(d => d !== direction);
+
+  return {
+    rule_id: rule.id,
+    rule_name: rule.name ?? rule.id,
+    source_prop: sourcePropId,
+    source_name: sourceName,
+    target_prop: targetPropId,
+    target_name: targetName,
+    direction,
+    direction_label: directionLabel,
+    direction_wrong_1: propNames[wrongDirections[0]] ?? wrongDirections[0],
+    direction_wrong_2: propNames[wrongDirections[1]] ?? wrongDirections[1],
+  };
 }
 
 // ── Registry ─────────────────────────────────────────────────────
@@ -822,6 +931,8 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_thermo_reaction': genPickThermoReaction,
   'gen.pick_solution_params': genPickSolutionParams,
   'gen.pick_ion_nomenclature': genPickIonNomenclature,
+  'gen.pick_acid_anion_from_graph': genPickAcidAnionFromGraph,
+  'gen.pick_kinetics_directional': genPickKineticsDirectional,
 };
 
 export function runGenerator(

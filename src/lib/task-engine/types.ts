@@ -155,6 +155,9 @@ export interface OntologyRules {
   qualitativeTests?: import('../../types/qualitative').QualitativeTest[];
   energyCatalyst?: import('../../types/energy-catalyst').EnergyCatalystTheory;
   ionNomenclature?: import('../../types/ion-nomenclature').IonNomenclatureRules;
+  acidBaseRelations?: import('../../types/relation').Relation[];
+  kineticsRules?: import('../../types/kinetics').KineticsRule[];
+  kineticsDirectionLabels?: Record<string, string>;
 }
 
 export interface OntologyDataSources {

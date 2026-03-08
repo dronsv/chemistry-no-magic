@@ -39,7 +39,7 @@ export default function ElementCell({ element, dimmed, highlighted, isException,
       onClick={() => onSelect(element)}
       onMouseEnter={() => onHoverElement(element.element_group)}
       onMouseLeave={onHoverElementEnd}
-      title={`${element.Z} ${element.name_ru}`}
+      title={`${element.Z} ${element.name}`}
       type="button"
     >
       <span className="pt-cell__z">{element.Z}</span>

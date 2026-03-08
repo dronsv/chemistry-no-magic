@@ -3,7 +3,7 @@ export interface ClassificationRule {
   class: string;
   subclass: string;
   pattern: string;
-  description_ru: string;
+  description: string;
   examples: string[];
 }
 
@@ -11,14 +11,14 @@ export interface NamingRule {
   id: string;
   class: string;
   pattern: string;
-  template_ru: string;
-  examples: Array<{ formula: string; name_ru: string }>;
+  template: string;
+  examples: Array<{ formula: string; name: string }>;
 }
 
 export interface SubstanceIndexEntry {
   id: string;
   formula: string;
-  name_ru?: string;
+  name?: string;
   class: string;
   subclass?: string;
 }

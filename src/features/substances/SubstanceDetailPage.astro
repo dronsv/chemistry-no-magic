@@ -19,12 +19,16 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 
 // Apply locale overlays
 const substance = { ...baseSubstance };
+const substanceSlug = substance.id.replace(/^sub:/, '');
 const substancesOverlay = await loadBuildOverlay(locale, 'substances');
-if (substancesOverlay && substancesOverlay[substance.id]) {
-  Object.assign(substance, substancesOverlay[substance.id]);
+if (substancesOverlay && substancesOverlay[substanceSlug]) {
+  Object.assign(substance, substancesOverlay[substanceSlug]);
 }
 
-const displayName = substance.name_ru ?? substance.formula;
+const displayName = substance.name ?? substance.formula;
+const pageTitle = substance.name
+  ? m.subst_detail_title({ name: substance.name, formula: substance.formula })
+  : m.subst_detail_title_formula({ formula: substance.formula });
 
 // Apply classification rules overlay
 const classOverlay = await loadBuildOverlay(locale, 'classification_rules');
@@ -42,8 +46,8 @@ const namingRules = baseNamingRules.map(r => {
     const overlay = namingOverlay[r.id] as Record<string, unknown>;
     return {
       ...r,
-      ...(overlay.template_ru ? { template_ru: overlay.template_ru as string } : {}),
-      ...(overlay.examples ? { examples: overlay.examples as Array<{ formula: string; name_ru: string }> } : {}),
+      ...(overlay.template ? { template: overlay.template as string } : {}),
+      ...(overlay.examples ? { examples: overlay.examples as Array<{ formula: string; name: string }> } : {}),
     };
   }
   return r;
@@ -62,8 +66,9 @@ const substanceReactions = baseReactions.map(r => {
 const ionsOverlay = await loadBuildOverlay(locale, 'ions');
 const ions: Record<string, typeof baseIons[string]> = {};
 for (const [id, ion] of Object.entries(baseIons)) {
-  if (ionsOverlay && ionsOverlay[id]?.name_ru) {
-    ions[id] = { ...ion, name_ru: ionsOverlay[id].name_ru as string };
+  const ionSlug = id.replace(/^ion:/, '');
+  if (ionsOverlay && ionsOverlay[ionSlug]?.name) {
+    ions[id] = { ...ion, name: ionsOverlay[ionSlug].name as string };
   } else {
     ions[id] = ion;
   }
@@ -71,8 +76,9 @@ for (const [id, ion] of Object.entries(baseIons)) {
 
 // Apply substances overlay to allSubstances (for related substances names)
 const allSubstances = baseAllSubstances.map(s => {
-  if (substancesOverlay && substancesOverlay[s.id]?.name_ru) {
-    return { ...s, name_ru: substancesOverlay[s.id].name_ru as string };
+  const sSlug = s.id.replace(/^sub:/, '');
+  if (substancesOverlay && substancesOverlay[sSlug]?.name) {
+    return { ...s, name: substancesOverlay[sSlug].name as string };
   }
   return s;
 });
@@ -155,7 +161,7 @@ function humanizeTemplate(tpl: string): string {
   }
   return result;
 }
-const readableTemplate = namingRule ? humanizeTemplate(namingRule.template_ru) : null;
+const readableTemplate = namingRule ? humanizeTemplate(namingRule.template) : null;
 
 // Related substances (same class, same subclass first, then same class)
 const related = allSubstances
@@ -174,7 +180,7 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
 let structure = null;
 try {
   structure = await cachedReadJson(
-    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`)
+    join(process.cwd(), 'data-src', 'structures', `${substanceSlug}.json`)
   );
 } catch { /* no structure for this substance */ }
 
@@ -193,14 +199,14 @@ let bondEnergyResult: BondEnergyResult | null = null;
 try {
   const beIndex = await cachedReadDerived<Record<string, BondEnergyResult>>(['derived', 'bond_energy']);
   if (beIndex) {
-    bondEnergyResult = beIndex[substance.id] ?? null;
+    bondEnergyResult = beIndex[substanceSlug] ?? null;
   }
 } catch { /* bond energy data not available */ }
 
-const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance_ru;
-const hasHazards = (substance.hazards_ru && substance.hazards_ru.length > 0) || substance.storage_ru;
-const hasProduction = substance.production_ru || substance.industrial_ru;
-const hasFacts = substance.fun_facts_ru && substance.fun_facts_ru.length > 0;
+const hasPhysical = substance.melting_point_C != null || substance.boiling_point_C != null || substance.density_g_cm3 != null || substance.appearance;
+const hasHazards = (substance.hazards && substance.hazards.length > 0) || substance.storage;
+const hasProduction = substance.production || substance.industrial;
+const hasFacts = substance.fun_facts && substance.fun_facts.length > 0;
 
 const contextBackLabels = {
   exam: m.back_to_exam(),
@@ -211,7 +217,7 @@ const contextBackLabels = {
 ---
 
 <BaseLayout
-  title={displayName}
+  title={pageTitle}
   description={m.subst_detail_description({ name: displayName, formula: substance.formula })}
 >
   <Fragment slot="head">
@@ -227,8 +233,8 @@ const contextBackLabels = {
 
   <ContextBackLink client:idle labels={contextBackLabels} />
   <article class="substance-page">
-    <h1>{substance.formula}</h1>
-    {substance.name_ru && <p class="substance-name">{substance.name_ru}</p>}
+    <h1>{displayName}</h1>
+    {substance.name && <p class="substance-name">{substance.formula}</p>}
 
     <dl class="substance-props">
       <dt>{m.subst_detail_class_label()}</dt>
@@ -251,7 +257,7 @@ const contextBackLabels = {
                   {ion ? (
                     <FormulaChip
                       formula={ion.formula}
-                      name={ion.name_ru}
+                      name={ion.name}
                       ionType={ion.type === 'cation' ? 'cation' : 'anion'}
                       ionId={ion.id}
                     />
@@ -280,7 +286,7 @@ const contextBackLabels = {
     {classRule && (
       <div class="subst-detail__section">
         <h3>{m.subst_detail_classification()}</h3>
-        <div class="subst-detail__explanation">{classRule.description_ru}</div>
+        <div class="subst-detail__explanation">{classRule.description}</div>
       </div>
     )}
 
@@ -291,7 +297,7 @@ const contextBackLabels = {
           <div>{m.subst_detail_template_prefix()}<span class="subst-detail__template">{readableTemplate}</span></div>
           {namingExample && (
             <div class="subst-detail__naming-result">
-              {namingExample.formula} &rarr; <strong>{namingExample.name_ru}</strong>
+              {namingExample.formula} &rarr; <strong>{namingExample.name}</strong>
             </div>
           )}
         </div>
@@ -322,8 +328,8 @@ const contextBackLabels = {
     {hasPhysical && (
       <div class="subst-detail__section">
         <h3>{m.subst_detail_physical()}</h3>
-        {substance.appearance_ru && (
-          <p class="subst-detail__appearance">{substance.appearance_ru}</p>
+        {substance.appearance && (
+          <p class="subst-detail__appearance">{substance.appearance}</p>
         )}
         <dl class="subst-detail__phys-props">
           {substance.melting_point_C != null && (
@@ -351,15 +357,15 @@ const contextBackLabels = {
     {hasHazards && (
       <div class="subst-detail__section">
         <h3>{m.subst_detail_hazards()}</h3>
-        {substance.hazards_ru && substance.hazards_ru.length > 0 && (
+        {substance.hazards && substance.hazards.length > 0 && (
           <div class="subst-detail__hazards">
-            {substance.hazards_ru.map(h => (
+            {substance.hazards.map(h => (
               <span class="subst-detail__hazard-tag">{h}</span>
             ))}
           </div>
         )}
-        {substance.storage_ru && (
-          <p class="subst-detail__storage">{substance.storage_ru}</p>
+        {substance.storage && (
+          <p class="subst-detail__storage">{substance.storage}</p>
         )}
       </div>
     )}
@@ -367,11 +373,11 @@ const contextBackLabels = {
     {hasProduction && (
       <div class="subst-detail__section">
         <h3>{m.subst_detail_production()}</h3>
-        {substance.production_ru && (
-          <div class="subst-detail__explanation">{substance.production_ru}</div>
+        {substance.production && (
+          <div class="subst-detail__explanation">{substance.production}</div>
         )}
-        {substance.industrial_ru && (
-          <p class="subst-detail__text">{substance.industrial_ru}</p>
+        {substance.industrial && (
+          <p class="subst-detail__text">{substance.industrial}</p>
         )}
       </div>
     )}
@@ -394,7 +400,7 @@ const contextBackLabels = {
       <div class="subst-detail__section">
         <h3>{m.subst_detail_facts()}</h3>
         <ul class="subst-detail__facts">
-          {substance.fun_facts_ru!.map(f => (
+          {substance.fun_facts!.map(f => (
             <li>{f}</li>
           ))}
         </ul>
@@ -408,7 +414,7 @@ const contextBackLabels = {
           {related.map(r => (
             <FormulaChip
               formula={r.formula}
-              name={r.name_ru}
+              name={r.name}
               substanceId={r.id}
               substanceClass={r.class}
               locale={locale}

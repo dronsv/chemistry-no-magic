@@ -187,7 +187,7 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
             <option value="">{m.bond_element_a()}</option>
             {sortedElements.map(el => (
               <option key={el.symbol} value={el.symbol}>
-                {el.symbol} — {el.name_ru}
+                {el.symbol} — {el.name}
               </option>
             ))}
           </select>
@@ -199,7 +199,7 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
             <option value="">{m.bond_element_b()}</option>
             {sortedElements.map(el => (
               <option key={el.symbol} value={el.symbol}>
-                {el.symbol} — {el.name_ru}
+                {el.symbol} — {el.name}
               </option>
             ))}
           </select>

@@ -1,54 +1,54 @@
 {
   "speed_increase": {
-    "name_ru": "wzrost szybkości",
-    "description_ru": "Zwiększenie szybkości reakcji"
+    "name": "wzrost szybkości",
+    "description": "Zwiększenie szybkości reakcji"
   },
   "speed_decrease": {
-    "name_ru": "spadek szybkości",
-    "description_ru": "Zmniejszenie szybkości reakcji"
+    "name": "spadek szybkości",
+    "description": "Zmniejszenie szybkości reakcji"
   },
   "activation_energy_decrease": {
-    "name_ru": "obniżenie Ea",
-    "description_ru": "Obniżenie energii aktywacji"
+    "name": "obniżenie Ea",
+    "description": "Obniżenie energii aktywacji"
   },
   "equilibrium_shift_right": {
-    "name_ru": "przesunięcie równowagi →",
-    "description_ru": "Przesunięcie równowagi w stronę produktów"
+    "name": "przesunięcie równowagi →",
+    "description": "Przesunięcie równowagi w stronę produktów"
   },
   "equilibrium_shift_left": {
-    "name_ru": "przesunięcie równowagi ←",
-    "description_ru": "Przesunięcie równowagi w stronę substratów"
+    "name": "przesunięcie równowagi ←",
+    "description": "Przesunięcie równowagi w stronę substratów"
   },
   "exothermic": {
-    "name_ru": "egzotermiczny",
-    "description_ru": "Wydzielanie ciepła"
+    "name": "egzotermiczny",
+    "description": "Wydzielanie ciepła"
   },
   "endothermic": {
-    "name_ru": "endotermiczny",
-    "description_ru": "Pochłanianie ciepła"
+    "name": "endotermiczny",
+    "description": "Pochłanianie ciepła"
   },
   "surface_increase": {
-    "name_ru": "zwiększenie powierzchni kontaktu",
-    "description_ru": "Zwiększenie powierzchni kontaktu substratów"
+    "name": "zwiększenie powierzchni kontaktu",
+    "description": "Zwiększenie powierzchni kontaktu substratów"
   },
   "concentration_increase": {
-    "name_ru": "wzrost stężenia",
-    "description_ru": "Zwiększenie stężenia substratu"
+    "name": "wzrost stężenia",
+    "description": "Zwiększenie stężenia substratu"
   },
   "concentration_decrease": {
-    "name_ru": "spadek stężenia",
-    "description_ru": "Zmniejszenie stężenia substratu"
+    "name": "spadek stężenia",
+    "description": "Zmniejszenie stężenia substratu"
   },
   "product_removal": {
-    "name_ru": "usunięcie produktu",
-    "description_ru": "Usunięcie produktu ze strefy reakcji"
+    "name": "usunięcie produktu",
+    "description": "Usunięcie produktu ze strefy reakcji"
   },
   "phase_transition": {
-    "name_ru": "przemiana fazowa",
-    "description_ru": "Przejście substancji z jednego stanu skupienia do drugiego"
+    "name": "przemiana fazowa",
+    "description": "Przejście substancji z jednego stanu skupienia do drugiego"
   },
   "ion_formation": {
-    "name_ru": "tworzenie jonów",
-    "description_ru": "Rozpad na jony podczas rozpuszczania lub topienia"
+    "name": "tworzenie jonów",
+    "description": "Rozpad na jony podczas rozpuszczania lub topienia"
   }
 }

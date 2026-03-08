@@ -1,24 +1,16 @@
 {
-  "id": "fes",
+  "id": "sub:fes",
   "formula": "FeS",
-  "name_ru": "Сульфид железа(II)",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Fe_2plus",
-    "S_2minus"
+    "ion:Fe_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": 1194,
   "boiling_point_C": null,
-  "density_g_cm3": 4.84,
-  "appearance_ru": "Чёрно-коричневые кристаллы или порошок",
-  "industrial_ru": "Лабораторный источник H₂S, металлургия",
-  "production_ru": "Сплавление железа с серой: Fe + S → FeS",
-  "fun_facts_ru": [
-    "Классический лабораторный способ получения сероводорода: FeS + 2HCl → FeCl₂ + H₂S↑",
-    "В природе встречается как минерал троилит — также обнаружен в метеоритах"
-  ]
+  "density_g_cm3": 4.84
 }

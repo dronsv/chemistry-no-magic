@@ -1,20 +1,56 @@
 {
-  "Li": { "name_ru": "Litio" },
-  "K": { "name_ru": "Potasio" },
-  "Ba": { "name_ru": "Bario" },
-  "Ca": { "name_ru": "Calcio" },
-  "Na": { "name_ru": "Sodio" },
-  "Mg": { "name_ru": "Magnesio" },
-  "Al": { "name_ru": "Aluminio" },
-  "Zn": { "name_ru": "Zinc" },
-  "Fe": { "name_ru": "Hierro" },
-  "Ni": { "name_ru": "Níquel" },
-  "Sn": { "name_ru": "Estaño" },
-  "Pb": { "name_ru": "Plomo" },
-  "H": { "name_ru": "Hidrógeno" },
-  "Cu": { "name_ru": "Cobre" },
-  "Hg": { "name_ru": "Mercurio" },
-  "Ag": { "name_ru": "Plata" },
-  "Pt": { "name_ru": "Platino" },
-  "Au": { "name_ru": "Oro" }
+  "Li": {
+    "name": "Litio"
+  },
+  "K": {
+    "name": "Potasio"
+  },
+  "Ba": {
+    "name": "Bario"
+  },
+  "Ca": {
+    "name": "Calcio"
+  },
+  "Na": {
+    "name": "Sodio"
+  },
+  "Mg": {
+    "name": "Magnesio"
+  },
+  "Al": {
+    "name": "Aluminio"
+  },
+  "Zn": {
+    "name": "Zinc"
+  },
+  "Fe": {
+    "name": "Hierro"
+  },
+  "Ni": {
+    "name": "Níquel"
+  },
+  "Sn": {
+    "name": "Estaño"
+  },
+  "Pb": {
+    "name": "Plomo"
+  },
+  "H": {
+    "name": "Hidrógeno"
+  },
+  "Cu": {
+    "name": "Cobre"
+  },
+  "Hg": {
+    "name": "Mercurio"
+  },
+  "Ag": {
+    "name": "Plata"
+  },
+  "Pt": {
+    "name": "Platino"
+  },
+  "Au": {
+    "name": "Oro"
+  }
 }

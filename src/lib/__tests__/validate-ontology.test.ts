@@ -415,12 +415,12 @@ describe('validateCourseRefs', () => {
   ];
 
   it('returns empty errors for a valid course', () => {
-    const courses = [{ id: 'course:c1', title_ru: 'Test', modules: ['module:test.v1'] }];
+    const courses = [{ id: 'course:c1', title: 'Test', modules: ['module:test.v1'] }];
     expect(validateCourseRefs(courses, modules)).toEqual([]);
   });
 
   it('reports dangling module ref', () => {
-    const courses = [{ id: 'course:c1', title_ru: 'Test', modules: ['module:nonexistent'] }];
+    const courses = [{ id: 'course:c1', title: 'Test', modules: ['module:nonexistent'] }];
     const errors = validateCourseRefs(courses, modules);
     expect(errors).toHaveLength(1);
     expect(errors[0]).toContain('module:nonexistent');

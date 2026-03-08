@@ -5,35 +5,60 @@
   "sections": [
     {
       "id": "oxidation_rules",
-      "title_ru": "Правила определения СО",
       "blocks": [
-        { "t": "ox_rule", "rule_id": "simple_substance" },
-        { "t": "ox_rule", "rule_id": "fluorine" },
-        { "t": "ox_rule", "rule_id": "group1" },
-        { "t": "ox_rule", "rule_id": "group2" },
-        { "t": "ox_rule", "rule_id": "aluminum" },
-        { "t": "ox_rule", "rule_id": "oxygen" },
-        { "t": "ox_rule", "rule_id": "oxygen_peroxide" },
-        { "t": "ox_rule", "rule_id": "hydrogen" },
-        { "t": "ox_rule", "rule_id": "hydrogen_hydride" },
-        { "t": "ox_rule", "rule_id": "algebraic" }
+        {
+          "t": "ox_rule",
+          "rule_id": "simple_substance"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "fluorine"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "group1"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "group2"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "aluminum"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "oxygen"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "oxygen_peroxide"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "hydrogen"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "hydrogen_hydride"
+        },
+        {
+          "t": "ox_rule",
+          "rule_id": "algebraic"
+        }
       ]
     },
     {
       "id": "redox_concepts",
-      "title_ru": "Окислитель и восстановитель",
       "blocks": [
         {
-          "t": "paragraph",
-          "text_ru": "Окислитель — атом (элемент), который принимает электроны. Его СО понижается."
+          "t": "paragraph"
         },
         {
-          "t": "paragraph",
-          "text_ru": "Восстановитель — атом (элемент), который отдаёт электроны. Его СО повышается."
+          "t": "paragraph"
         },
         {
-          "t": "paragraph",
-          "text_ru": "ОВ: Окислитель Восстанавливается (принимает e⁻, СО↓), Восстановитель Окисляется (отдаёт e⁻, СО↑)."
+          "t": "paragraph"
         }
       ]
     }

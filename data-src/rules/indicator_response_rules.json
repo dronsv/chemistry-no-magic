@@ -1,0 +1,35 @@
+[
+  {
+    "id": "rule:indicator.litmus.medium_color",
+    "kind": "indicator_response_rule",
+    "indicator": "ind:litmus",
+    "input_property": "prop:acid_base_character",
+    "mapping": [
+      { "input": "medium:acidic",   "output_color": "color:red" },
+      { "input": "medium:neutral",  "output_color": "color:violet" },
+      { "input": "medium:alkaline", "output_color": "color:blue" }
+    ]
+  },
+  {
+    "id": "rule:indicator.phenolphthalein.medium_color",
+    "kind": "indicator_response_rule",
+    "indicator": "ind:phenolphthalein",
+    "input_property": "prop:acid_base_character",
+    "mapping": [
+      { "input": "medium:acidic",   "output_color": "color:colorless" },
+      { "input": "medium:neutral",  "output_color": "color:colorless" },
+      { "input": "medium:alkaline", "output_color": "color:crimson" }
+    ]
+  },
+  {
+    "id": "rule:indicator.methyl_orange.medium_color",
+    "kind": "indicator_response_rule",
+    "indicator": "ind:methyl_orange",
+    "input_property": "prop:acid_base_character",
+    "mapping": [
+      { "input": "medium:acidic",   "output_color": "color:red" },
+      { "input": "medium:neutral",  "output_color": "color:orange" },
+      { "input": "medium:alkaline", "output_color": "color:yellow" }
+    ]
+  }
+]

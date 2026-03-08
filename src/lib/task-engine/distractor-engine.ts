@@ -112,7 +112,14 @@ export function generateDistractors(
   ) {
     candidates = generateChainSubstanceDistractors(correctAnswer, data);
   }
-  // 13. Fallback
+  // 13. Kinetics direction context (direction_wrong_1 slot present)
+  else if (
+    slots.direction_wrong_1 !== undefined &&
+    typeof correctAnswer === 'string'
+  ) {
+    candidates = generateKineticsDirectionDistractors(slots);
+  }
+  // 14. Fallback
   else {
     candidates = generateFallbackDistractors(correctAnswer, data);
   }
@@ -434,8 +441,8 @@ function generateObservationDistractors(
 
   if (data.rules.qualitativeTests) {
     for (const test of data.rules.qualitativeTests) {
-      if (test.observation_ru !== correctAnswer) {
-        candidates.push(test.observation_ru);
+      if (test.observation !== correctAnswer) {
+        candidates.push(test.observation);
       }
     }
   }
@@ -490,6 +497,17 @@ function generateChainSubstanceDistractors(
     [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
   }
 
+  return candidates;
+}
+
+// ── Strategy: fallback ───────────────────────────────────────────
+
+// ── Strategy: kinetics direction ────────────────────────────────
+
+function generateKineticsDirectionDistractors(slots: SlotValues): string[] {
+  const candidates: string[] = [];
+  if (slots.direction_wrong_1 !== undefined) candidates.push(String(slots.direction_wrong_1));
+  if (slots.direction_wrong_2 !== undefined) candidates.push(String(slots.direction_wrong_2));
   return candidates;
 }
 

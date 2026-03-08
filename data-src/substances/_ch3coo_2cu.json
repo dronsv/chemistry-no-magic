@@ -1,28 +1,16 @@
 {
-  "id": "_ch3coo_2cu",
+  "id": "sub:_ch3coo_2cu",
   "formula": "(CH₃COO)₂Cu",
-  "name_ru": "Ацетат меди(II)",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "CH3COO_minus"
+    "ion:Cu_2plus",
+    "ion:CH3COO_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 115,
   "boiling_point_C": 240,
-  "density_g_cm3": 1.882,
-  "appearance_ru": "Тёмно-зелёные кристаллы",
-  "hazards_ru": [
-    "Токсичное",
-    "Раздражающее"
-  ],
-  "industrial_ru": "Катализатор, фунгицид (бордоская жидкость), пигмент (ярь-медянка)",
-  "production_ru": "Растворение оксида меди(II) в уксусной кислоте: CuO + 2CH₃COOH → (CH₃COO)₂Cu + H₂O",
-  "fun_facts_ru": [
-    "Ярь-медянка (ацетат меди) — один из древнейших зелёных пигментов в живописи",
-    "Моногидрат (CH₃COO)₂Cu·H₂O имеет характерный тёмно-сине-зелёный цвет"
-  ]
+  "density_g_cm3": 1.882
 }

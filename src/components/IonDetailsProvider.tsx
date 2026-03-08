@@ -131,7 +131,7 @@ function IonDetailsPopup({
               </button>
             </div>
             <div className="ion-details-popup__body">
-              <div className="ion-details-popup__name">{ion.name_ru}</div>
+              <div className="ion-details-popup__name">{ion.name}</div>
               <div className="ion-details-popup__meta">
                 <span className="ion-details-popup__meta-label">{m.ion_type_label()}:</span>
                 <span className={`ion-details-popup__badge ion-details-popup__badge--${ion.type}`}>

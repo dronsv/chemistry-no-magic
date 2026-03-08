@@ -1,183 +1,381 @@
 {
   "matura_2024_01a": {
-    "question_ru": "Атом некоторого элемента имеет электронную конфигурацию 1s² 2s² 2p⁶ 3s² 3p⁴. Укажите номер периода (X) и номер группы (Y), в которых этот элемент находится в периодической таблице.",
-    "explanation_ru": "Конфигурация 1s² 2s² 2p⁶ 3s² 3p⁴ означает 16 электронов (Z = 16, сера). Три оболочки — 3-й период. Группа = 10 + число электронов s и p на последнем уровне: 2 + 4 = 6, то есть группа 16 (по IUPAC). Ответ: X = 3, Y = 16.",
-    "input_labels": ["X", "Y"]
+    "question": "Atom pewnego pierwiastka ma konfigurację elektronową 1s² 2s² 2p⁶ 3s² 3p⁴. Podaj numer okresu (X) i numer grupy (Y), w których ten pierwiastek znajduje się w układzie okresowym.",
+    "explanation": "Konfiguracja 1s² 2s² 2p⁶ 3s² 3p⁴ oznacza 16 elektronów (Z = 16, siarka). Trzy powłoki → 3. okres. Grupa = 10 + liczba elektronów s i p na ostatniej powłoce: 2 + 4 = 6, czyli grupa 16 (wg IUPAC). Odpowiedź: X = 3, Y = 16.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "matura_2024_01b": {
-    "question_ru": "Выберите два верных утверждения о строении атома изотопа ⁵⁶Fe.",
-    "explanation_ru": "⁵⁶Fe: Z = 26 (26 протонов, 26 электронов), A = 56 (30 нейтронов = 56 − 26). Утверждение 1 верно (26p, 30n). Утверждение 4 верно — конфигурация железа в основном состоянии: [Ar] 3d⁶ 4s². Утверждения 2, 3 и 5 ошибочны.",
+    "question": "Wybierz dwa poprawne stwierdzenia dotyczące budowy atomu izotopu ⁵⁶Fe.",
+    "explanation": "⁵⁶Fe: Z = 26 (26 protonów, 26 elektronów), A = 56 (30 neutronów = 56 − 26). Stwierdzenie 1 jest poprawne (26p, 30n). Stwierdzenie 4 jest poprawne — konfiguracja żelaza w stanie podstawowym to [Ar] 3d⁶ 4s². Stwierdzenia 2, 3 i 5 są błędne.",
     "options": [
-      { "id": "1", "text": "Ядро атома содержит 26 протонов и 30 нейтронов." },
-      { "id": "2", "text": "Атом имеет 56 электронов." },
-      { "id": "3", "text": "Массовое число этого изотопа равно 26." },
-      { "id": "4", "text": "В основном состоянии атом имеет конфигурацию [Ar] 3d⁶ 4s²." },
-      { "id": "5", "text": "Атом имеет 56 протонов в ядре." }
+      {
+        "id": "1",
+        "text": "Ядро атома содержит 26 протонов и 30 нейтронов."
+      },
+      {
+        "id": "2",
+        "text": "Атом имеет 56 электронов."
+      },
+      {
+        "id": "3",
+        "text": "Массовое число этого изотопа равно 26."
+      },
+      {
+        "id": "4",
+        "text": "В основном состоянии атом имеет конфигурацию [Ar] 3d⁶ 4s²."
+      },
+      {
+        "id": "5",
+        "text": "Атом имеет 56 протонов в ядре."
+      }
     ]
   },
   "matura_2024_01c": {
-    "question_ru": "Расположите следующие элементы в порядке возрастания первой энергии ионизации.\n  1) Na  2) Mg  3) Al",
-    "explanation_ru": "В третьем периоде энергия ионизации в целом растёт слева направо, но Al (3p¹) имеет меньшую энергию ионизации, чем Mg (3s² — полностью заполненная s-подоболочка стабильнее). Правильный порядок: Na (495,8 кДж/моль) < Al (577,5 кДж/моль) < Mg (737,7 кДж/моль), то есть 1 → 3 → 2.",
+    "question": "Uporządkuj poniższe pierwiastki według rosnącej wartości pierwszej energii jonizacji.\n  1) Na  2) Mg  3) Al",
+    "explanation": "W trzecim okresie energia jonizacji ogólnie rośnie od lewej do prawej, ale Al (3p¹) ma niższą energię jonizacji niż Mg (3s² — pełna podpowłoka s jest stabilna). Prawidłowa kolejność: Na (495,8 kJ/mol) < Al (577,5 kJ/mol) < Mg (737,7 kJ/mol), czyli 1 → 3 → 2.",
     "items": [
-      { "id": "1", "text": "Na" },
-      { "id": "2", "text": "Mg" },
-      { "id": "3", "text": "Al" }
+      {
+        "id": "1",
+        "text": "Na"
+      },
+      {
+        "id": "2",
+        "text": "Mg"
+      },
+      {
+        "id": "3",
+        "text": "Al"
+      }
     ]
   },
   "matura_2024_02a": {
-    "question_ru": "Сопоставьте каждому веществу соответствующий тип химической связи, преобладающей в его структуре.",
-    "explanation_ru": "NaCl — соль, ионная связь (1). H₂O — молекула с ковалентной полярной связью O–H (2). Fe — металл, металлическая связь (4). Ответ: A→1, B→2, C→4.",
+    "question": "Przyporządkuj każdej substancji odpowiedni typ wiązania chemicznego dominującego w jej strukturze.",
+    "explanation": "NaCl — sól, wiązanie jonowe (1). H₂O — cząsteczka z wiązaniem kowalencyjnym spolaryzowanym O–H (2). Fe — metal, wiązanie metaliczne (4). Odpowiedź: A→1, B→2, C→4.",
     "left_items": [
-      { "label": "A", "text": "NaCl" },
-      { "label": "B", "text": "H₂O" },
-      { "label": "C", "text": "Fe" }
+      {
+        "label": "A",
+        "text": "NaCl"
+      },
+      {
+        "label": "B",
+        "text": "H₂O"
+      },
+      {
+        "label": "C",
+        "text": "Fe"
+      }
     ],
     "options": [
-      { "id": "1", "text": "ионная связь" },
-      { "id": "2", "text": "ковалентная полярная связь" },
-      { "id": "3", "text": "ковалентная неполярная связь" },
-      { "id": "4", "text": "металлическая связь" }
+      {
+        "id": "1",
+        "text": "ионная связь"
+      },
+      {
+        "id": "2",
+        "text": "ковалентная полярная связь"
+      },
+      {
+        "id": "3",
+        "text": "ковалентная неполярная связь"
+      },
+      {
+        "id": "4",
+        "text": "металлическая связь"
+      }
     ]
   },
   "matura_2024_02c": {
-    "question_ru": "Объясните, почему температура кипения воды (100 °C) значительно выше температуры кипения сероводорода H₂S (−60 °C), несмотря на то что H₂S имеет большую молекулярную массу. В ответе укажите тип межмолекулярных взаимодействий.",
-    "explanation_ru": "Ключевые элементы ответа: (1) вода образует водородные связи O–H···O, (2) сера менее электроотрицательна и имеет больший радиус, чем кислород, поэтому H₂S не образует эффективных водородных связей, (3) более сильные межмолекулярные взаимодействия = более высокая температура кипения."
+    "question": "Wyjaśnij, dlaczego temperatura wrzenia wody (100 °C) jest znacznie wyższa niż temperatura wrzenia siarkowodoru H₂S (−60 °C), mimo że H₂S ma większą masę cząsteczkową. W odpowiedzi odwołaj się do rodzaju oddziaływań międzycząsteczkowych.",
+    "explanation": "Kluczowe elementy odpowiedzi: (1) woda tworzy wiązania wodorowe O–H···O, (2) siarka jest mniej elektroujemna i ma większy promień niż tlen, więc H₂S nie tworzy skutecznych wiązań wodorowych, (3) silniejsze oddziaływania międzycząsteczkowe = wyższa temperatura wrzenia."
   },
   "matura_2024_03a": {
-    "question_ru": "Вычислите молярную массу сульфата аммония (NH₄)₂SO₄ и укажите результат в г/моль с точностью до целых чисел.",
-    "explanation_ru": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 г/моль."
+    "question": "Oblicz masę molową siarczanu(VI) amonu (NH₄)₂SO₄ i podaj wynik w g/mol z dokładnością do liczb całkowitych.",
+    "explanation": "M((NH₄)₂SO₄) = 2 × (14 + 4 × 1) + 32 + 4 × 16 = 2 × 18 + 32 + 64 = 36 + 32 + 64 = 132 g/mol."
   },
   "matura_2024_03b": {
-    "question_ru": "В реакции полного сгорания метана: CH₄ + 2O₂ → CO₂ + 2H₂O сожгли 8,0 г метана. Вычислите объём (в дм³) образовавшегося CO₂ при нормальных условиях (н.у.: 1 моль газа = 22,4 дм³). Укажите результат с точностью до десятых.",
-    "explanation_ru": "M(CH₄) = 16 г/моль. n(CH₄) = 8,0 / 16 = 0,5 моль. Из уравнения: n(CO₂) = n(CH₄) = 0,5 моль. V(CO₂) = 0,5 × 22,4 = 11,2 дм³."
+    "question": "W reakcji spalania całkowitego metanu: CH₄ + 2O₂ → CO₂ + 2H₂O, spalono 8,0 g metanu. Oblicz objętość (w dm³) powstałego CO₂ w warunkach normalnych (STP: 1 mol gazu = 22,4 dm³). Podaj wynik z dokładnością do dziesiątych.",
+    "explanation": "M(CH₄) = 16 g/mol. n(CH₄) = 8,0 / 16 = 0,5 mol. Z równania: n(CO₂) = n(CH₄) = 0,5 mol. V(CO₂) = 0,5 × 22,4 = 11,2 dm³."
   },
   "matura_2024_03c": {
-    "question_ru": "Сопоставьте каждому описанию соответствующий закон или стехиометрическое понятие.",
-    "explanation_ru": "A — закон Авогадро (1): равные объёмы газов → одинаковое число молекул. B — закон сохранения массы (2): масса реагентов = масса продуктов. C — закон постоянства состава Пруста (3): постоянное соотношение масс элементов.",
+    "question": "Przyporządkuj każdemu opisowi odpowiednie prawo lub pojęcie stechiometryczne.",
+    "explanation": "A — prawo Avogadra (1): równe objętości gazów → ta sama liczba cząsteczek. B — prawo zachowania masy (2): masa substratów = masa produktów. C — prawo stałości składu Prousta (3): stały stosunek mas pierwiastków.",
     "left_items": [
-      { "label": "A", "text": "При одинаковых условиях T и p равные объёмы газов содержат одинаковое число молекул." },
-      { "label": "B", "text": "Масса реагентов в химической реакции равна массе продуктов." },
-      { "label": "C", "text": "Соотношение масс элементов в данном химическом соединении постоянно." }
+      {
+        "label": "A",
+        "text": "При одинаковых условиях T и p равные объёмы газов содержат одинаковое число молекул."
+      },
+      {
+        "label": "B",
+        "text": "Масса реагентов в химической реакции равна массе продуктов."
+      },
+      {
+        "label": "C",
+        "text": "Соотношение масс элементов в данном химическом соединении постоянно."
+      }
     ],
     "options": [
-      { "id": "1", "text": "закон Авогадро" },
-      { "id": "2", "text": "закон сохранения массы (Ломоносов — Лавуазье)" },
-      { "id": "3", "text": "закон постоянства состава (Пруст)" },
-      { "id": "4", "text": "закон Гей-Люссака" }
+      {
+        "id": "1",
+        "text": "закон Авогадро"
+      },
+      {
+        "id": "2",
+        "text": "закон сохранения массы (Ломоносов — Лавуазье)"
+      },
+      {
+        "id": "3",
+        "text": "закон постоянства состава (Пруст)"
+      },
+      {
+        "id": "4",
+        "text": "закон Гей-Люссака"
+      }
     ]
   },
   "matura_2024_04a": {
-    "question_ru": "Расположите следующие кислоты в порядке возрастания кислотной силы.\n  1) HClO₄  2) HClO  3) HClO₃",
-    "explanation_ru": "Сила кислородных кислот растёт с увеличением степени окисления центрального атома (больше атомов кислорода усиливают делокализацию отрицательного заряда в анионе). HClO (Cl⁺¹, самая слабая) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, самая сильная). Порядок: 2 → 3 → 1.",
+    "question": "Uporządkuj poniższe kwasy według rosnącej mocy kwasowej.\n  1) HClO₄  2) HClO  3) HClO₃",
+    "explanation": "Moc kwasów tlenowych rośnie ze wzrostem stopnia utlenienia atomu centralnego (więcej atomów tlenu zwiększa delokalizację ładunku ujemnego w anionie). HClO (Cl⁺¹, najsłabszy) < HClO₃ (Cl⁺⁵) < HClO₄ (Cl⁺⁷, najsilniejszy). Kolejność: 2 → 3 → 1.",
     "items": [
-      { "id": "1", "text": "HClO₄" },
-      { "id": "2", "text": "HClO" },
-      { "id": "3", "text": "HClO₃" }
+      {
+        "id": "1",
+        "text": "HClO₄"
+      },
+      {
+        "id": "2",
+        "text": "HClO"
+      },
+      {
+        "id": "3",
+        "text": "HClO₃"
+      }
     ]
   },
   "matura_2024_04b": {
-    "question_ru": "Сопоставьте каждому раствору соответствующий характер среды (реакцию).",
-    "explanation_ru": "CH₃COONa — соль слабой кислоты и сильного основания → гидролиз по аниону → pH > 7 (2). NH₄Cl — соль слабого основания и сильной кислоты → гидролиз по катиону → pH < 7 (1). KNO₃ — соль сильной кислоты и сильного основания → гидролиза нет → pH = 7 (3).",
+    "question": "Przyporządkuj każdemu roztworowi odpowiedni charakter chemiczny (odczyn).",
+    "explanation": "CH₃COONa — sól słabego kwasu i mocnej zasady → hydroliza anionowa → pH > 7 (2). NH₄Cl — sól słabej zasady i mocnego kwasu → hydroliza kationowa → pH < 7 (1). KNO₃ — sól mocnego kwasu i mocnej zasady → brak hydrolizy → pH = 7 (3).",
     "left_items": [
-      { "label": "A", "text": "0,1 моль/дм³ CH₃COONa" },
-      { "label": "B", "text": "0,1 моль/дм³ NH₄Cl" },
-      { "label": "C", "text": "0,1 моль/дм³ KNO₃" }
+      {
+        "label": "A",
+        "text": "0,1 моль/дм³ CH₃COONa"
+      },
+      {
+        "label": "B",
+        "text": "0,1 моль/дм³ NH₄Cl"
+      },
+      {
+        "label": "C",
+        "text": "0,1 моль/дм³ KNO₃"
+      }
     ],
     "options": [
-      { "id": "1", "text": "кислая среда (pH < 7)" },
-      { "id": "2", "text": "щелочная среда (pH > 7)" },
-      { "id": "3", "text": "нейтральная среда (pH = 7)" },
-      { "id": "4", "text": "сильнокислая среда (pH < 2)" }
+      {
+        "id": "1",
+        "text": "кислая среда (pH < 7)"
+      },
+      {
+        "id": "2",
+        "text": "щелочная среда (pH > 7)"
+      },
+      {
+        "id": "3",
+        "text": "нейтральная среда (pH = 7)"
+      },
+      {
+        "id": "4",
+        "text": "сильнокислая среда (pH < 2)"
+      }
     ]
   },
   "matura_2024_05a": {
-    "question_ru": "Для реакции: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O укажите степени окисления марганца в реагенте (X) и в продукте (Y).",
-    "explanation_ru": "В KMnO₄: K⁺¹, O²⁻, следовательно Mn: +1 + x + 4×(−2) = 0 → x = +7. В MnCl₂: Cl⁻¹, следовательно Mn: x + 2×(−1) = 0 → x = +2. Марганец восстанавливается от +7 до +2.",
-    "input_labels": ["X", "Y"]
+    "question": "Dla reakcji: 2KMnO₄ + 16HCl → 2MnCl₂ + 5Cl₂ + 2KCl + 8H₂O podaj stopnie utlenienia manganu w substracie (X) i produkcie (Y).",
+    "explanation": "W KMnO₄: K⁺¹, O²⁻, więc Mn: +1 + x + 4×(−2) = 0 → x = +7. W MnCl₂: Cl⁻¹, więc Mn: x + 2×(−1) = 0 → x = +2. Mangan ulega redukcji z +7 do +2.",
+    "input_labels": [
+      "X",
+      "Y"
+    ]
   },
   "matura_2024_05b": {
-    "question_ru": "Выберите два процесса, которые являются примерами окисления.",
-    "explanation_ru": "Окисление — это отдача электронов (увеличение степени окисления). Fe²⁺ → Fe³⁺ + e⁻ (1) — окисление железа. S²⁻ → S⁰ + 2e⁻ (3) — окисление серы. Остальные (2, 4, 5) — это восстановление (принятие электронов).",
+    "question": "Wybierz dwa procesy, które są przykładami utleniania.",
+    "explanation": "Utlenianie to oddawanie elektronów (wzrost stopnia utlenienia). Fe²⁺ → Fe³⁺ + e⁻ (1) — utlenianie żelaza. S²⁻ → S⁰ + 2e⁻ (3) — utlenianie siarki. Pozostałe (2, 4, 5) to redukcja (przyjmowanie elektronów).",
     "options": [
-      { "id": "1", "text": "Fe²⁺ → Fe³⁺ + e⁻" },
-      { "id": "2", "text": "Cu²⁺ + 2e⁻ → Cu" },
-      { "id": "3", "text": "S²⁻ → S⁰ + 2e⁻" },
-      { "id": "4", "text": "Cl₂ + 2e⁻ → 2Cl⁻" },
-      { "id": "5", "text": "Ag⁺ + e⁻ → Ag" }
+      {
+        "id": "1",
+        "text": "Fe²⁺ → Fe³⁺ + e⁻"
+      },
+      {
+        "id": "2",
+        "text": "Cu²⁺ + 2e⁻ → Cu"
+      },
+      {
+        "id": "3",
+        "text": "S²⁻ → S⁰ + 2e⁻"
+      },
+      {
+        "id": "4",
+        "text": "Cl₂ + 2e⁻ → 2Cl⁻"
+      },
+      {
+        "id": "5",
+        "text": "Ag⁺ + e⁻ → Ag"
+      }
     ]
   },
   "matura_2024_06a": {
-    "question_ru": "Сопоставьте каждому органическому соединению соответствующую функциональную группу.",
-    "explanation_ru": "CH₃COOH — уксусная кислота, содержит карбоксильную группу −COOH (2). CH₃CHO — уксусный альдегид (этаналь), содержит альдегидную группу −CHO (3). C₂H₅OH — этанол, содержит гидроксильную группу −OH (1).",
+    "question": "Przyporządkuj każdemu związkowi organicznemu odpowiednią grupę funkcyjną.",
+    "explanation": "CH₃COOH — kwas octowy, zawiera grupę karboksylową −COOH (2). CH₃CHO — aldehyd octowy (etanal), zawiera grupę aldehydową −CHO (3). C₂H₅OH — etanol, zawiera grupę hydroksylową −OH (1).",
     "left_items": [
-      { "label": "A", "text": "CH₃COOH" },
-      { "label": "B", "text": "CH₃CHO" },
-      { "label": "C", "text": "C₂H₅OH" }
+      {
+        "label": "A",
+        "text": "CH₃COOH"
+      },
+      {
+        "label": "B",
+        "text": "CH₃CHO"
+      },
+      {
+        "label": "C",
+        "text": "C₂H₅OH"
+      }
     ],
     "options": [
-      { "id": "1", "text": "гидроксильная группа −OH" },
-      { "id": "2", "text": "карбоксильная группа −COOH" },
-      { "id": "3", "text": "альдегидная группа −CHO" },
-      { "id": "4", "text": "аминогруппа −NH₂" }
+      {
+        "id": "1",
+        "text": "гидроксильная группа −OH"
+      },
+      {
+        "id": "2",
+        "text": "карбоксильная группа −COOH"
+      },
+      {
+        "id": "3",
+        "text": "альдегидная группа −CHO"
+      },
+      {
+        "id": "4",
+        "text": "аминогруппа −NH₂"
+      }
     ]
   },
   "matura_2024_06b": {
-    "question_ru": "Выберите два соединения, которые дадут положительный результат пробы Толленса (реакция серебряного зеркала).",
-    "explanation_ru": "Проба Толленса обнаруживает альдегидную группу (−CHO). Метаналь (HCHO) — альдегид (1) — даёт серебряное зеркало. Глюкоза (3) имеет скрытую альдегидную группу в открытоцепной форме. Ацетон — кетон (не реагирует), этанол — спирт, бензойная кислота — карбоновая кислота — ни одно из них не даёт положительной пробы Толленса.",
+    "question": "Wybierz dwa związki, które dadzą pozytywny wynik próby Tollensa (reakcja z lustrem srebrowym).",
+    "explanation": "Próba Tollensa wykrywa grupę aldehydową (−CHO). Metanal (HCHO) jest aldehydem (1) — daje lustro srebrowe. Glukoza (3) ma ukrytą grupę aldehydową w formie otwartołańcuchowej. Aceton jest ketonem (nie reaguje), etanol to alkohol, kwas benzoesowy to kwas karboksylowy — żaden z nich nie daje pozytywnej próby Tollensa.",
     "options": [
-      { "id": "1", "text": "метаналь (HCHO)" },
-      { "id": "2", "text": "пропанон (ацетон, CH₃COCH₃)" },
-      { "id": "3", "text": "глюкоза (C₆H₁₂O₆)" },
-      { "id": "4", "text": "этанол (C₂H₅OH)" },
-      { "id": "5", "text": "бензойная кислота (C₆H₅COOH)" }
+      {
+        "id": "1",
+        "text": "метаналь (HCHO)"
+      },
+      {
+        "id": "2",
+        "text": "пропанон (ацетон, CH₃COCH₃)"
+      },
+      {
+        "id": "3",
+        "text": "глюкоза (C₆H₁₂O₆)"
+      },
+      {
+        "id": "4",
+        "text": "этанол (C₂H₅OH)"
+      },
+      {
+        "id": "5",
+        "text": "бензойная кислота (C₆H₅COOH)"
+      }
     ]
   },
   "matura_2024_06c": {
-    "question_ru": "Напишите уравнение реакции этерификации уксусной кислоты с этанолом. Укажите систематическое название (IUPAC) образовавшегося сложного эфира и условия проведения реакции.",
-    "explanation_ru": "Этерификация: карбоновая кислота + спирт ⇌ сложный эфир + вода. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Название по IUPAC: этилэтаноат (тривиальное: этилацетат). Катализатор: концентрированная H₂SO₄. Реакция обратима — сдвиг равновесия в сторону продуктов, например, путём удаления воды."
+    "question": "Napisz równanie reakcji estryfikacji kwasu octowego z etanolem. Podaj nazwę systematyczną (IUPAC) powstałego estru oraz warunki prowadzenia tej reakcji.",
+    "explanation": "Estryfikacja: kwas karboksylowy + alkohol ⇌ ester + woda. CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O. Nazwa IUPAC: etanian etylu (potocznie octan etylu). Katalizator: stężony H₂SO₄. Reakcja odwracalna — przesunięcie równowagi w stronę produktów np. przez usuwanie wody."
   },
   "matura_2024_07a": {
-    "question_ru": "Для равновесной реакции: N₂(г) + 3H₂(г) ⇌ 2NH₃(г), ΔH = −92 кДж\nВыберите два фактора, которые смещают равновесие в сторону продуктов (вправо).",
-    "explanation_ru": "Принцип Ле Шателье: (1) Повышение давления смещает равновесие в сторону меньшего числа молей газа: 4 моля реагентов → 2 моля продуктов, значит вправо. (3) Понижение температуры благоприятствует экзотермической реакции (ΔH < 0), то есть вправо. Катализатор (4) не смещает равновесие. Повышение температуры (2) и уменьшение давления (5) смещают влево.",
+    "question": "Dla reakcji równowagowej: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ\nWybierz dwa czynniki, które przesuwają równowagę w stronę produktów (w prawo).",
+    "explanation": "Zasada Le Chateliera: (1) Zwiększenie ciśnienia przesuwa równowagę w stronę mniejszej liczby moli gazowych: 4 mole substratów → 2 mole produktów, więc w prawo. (3) Obniżenie temperatury sprzyja reakcji egzotermicznej (ΔH < 0), czyli w prawo. Katalizator (4) nie przesuwa równowagi. Podwyższenie temperatury (2) i zmniejszenie ciśnienia (5) przesuwają w lewo.",
     "options": [
-      { "id": "1", "text": "увеличение давления" },
-      { "id": "2", "text": "повышение температуры" },
-      { "id": "3", "text": "понижение температуры" },
-      { "id": "4", "text": "добавление катализатора" },
-      { "id": "5", "text": "уменьшение давления" }
+      {
+        "id": "1",
+        "text": "увеличение давления"
+      },
+      {
+        "id": "2",
+        "text": "повышение температуры"
+      },
+      {
+        "id": "3",
+        "text": "понижение температуры"
+      },
+      {
+        "id": "4",
+        "text": "добавление катализатора"
+      },
+      {
+        "id": "5",
+        "text": "уменьшение давления"
+      }
     ]
   },
   "matura_2024_07b": {
-    "context_ru": "В некотором опыте исследовали скорость реакции разложения пероксида водорода: 2H₂O₂ → 2H₂O + O₂. Измеряли объём выделившегося O₂ в зависимости от времени. В опыте A использовали 50 см³ раствора H₂O₂ с концентрацией 0,5 моль/дм³ при температуре 20 °C. В опыте B изменили одно условие.",
-    "question_ru": "Какой из следующих факторов мог привести к тому, что в опыте B газ выделялся быстрее, но конечный объём O₂ был таким же, как в A? Укажите номер и обоснуйте выбор.",
-    "explanation_ru": "Катализатор (MnO₂) ускоряет реакцию, но не изменяет количество реагентов — конечный объём O₂ тот же (то же число молей H₂O₂). Увеличение концентрации (1) увеличит и скорость, и конечный объём (больше молей H₂O₂). Уменьшение объёма раствора (3) приведёт к меньшему конечному объёму.",
+    "context": "W pewnym doświadczeniu zbadano szybkość reakcji rozkładu nadtlenku wodoru: 2H₂O₂ → 2H₂O + O₂. Zmierzono objętość wydzielonego O₂ w funkcji czasu. W doświadczeniu A użyto 50 cm³ roztworu H₂O₂ o stężeniu 0,5 mol/dm³ w temperaturze 20 °C. W doświadczeniu B zmieniono jeden warunek.",
+    "question": "Który z poniższych czynników mógłby spowodować, że w doświadczeniu B gaz wydzielał się szybciej, ale końcowa objętość O₂ była taka sama jak w A? Podaj numer i uzasadnij wybór.",
+    "explanation": "Katalizator (MnO₂) przyspiesza reakcję, ale nie zmienia ilości substratów — końcowa objętość O₂ jest taka sama (ta sama liczba moli H₂O₂). Zwiększenie stężenia (1) zwiększyłoby szybkość, ale też końcową objętość (więcej moli H₂O₂). Zmniejszenie objętości (3) dałoby mniejszą końcową objętość.",
     "options": [
-      { "id": "1", "text": "Увеличение концентрации H₂O₂ до 1,0 моль/дм³ при сохранении объёма 50 см³." },
-      { "id": "2", "text": "Добавление MnO₂ в качестве катализатора." },
-      { "id": "3", "text": "Уменьшение объёма раствора до 25 см³ при сохранении концентрации 0,5 моль/дм³." }
+      {
+        "id": "1",
+        "text": "Увеличение концентрации H₂O₂ до 1,0 моль/дм³ при сохранении объёма 50 см³."
+      },
+      {
+        "id": "2",
+        "text": "Добавление MnO₂ в качестве катализатора."
+      },
+      {
+        "id": "3",
+        "text": "Уменьшение объёма раствора до 25 см³ при сохранении концентрации 0,5 моль/дм³."
+      }
     ]
   },
   "matura_2024_08a": {
-    "question_ru": "Сопоставьте каждому электрохимическому процессу соответствующее описание.",
-    "explanation_ru": "Электролиз NaCl(водн.): несамопроизвольный процесс, на катоде: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Элемент Даниэля: преобразование химической энергии в электрическую, Zn является анодом (более активный металл) (2). Коррозия железа: самопроизвольный электрохимический процесс, разрушающий металл (3).",
+    "question": "Przyporządkuj każdemu procesowi elektrochemicznemu odpowiedni opis.",
+    "explanation": "Elektroliza NaCl(aq): proces niesamorzutny, na katodzie: 2H₂O + 2e⁻ → H₂ + 2OH⁻ (1). Ogniwo Daniella: zamiana energii chemicznej na elektryczną, Zn jest anodą (bardziej aktywny metal) (2). Korozja żelaza: samorzutny proces elektrochemiczny niszczący metal (3).",
     "left_items": [
-      { "label": "A", "text": "Электролиз водного раствора NaCl" },
-      { "label": "B", "text": "Элемент Даниэля (Zn|Cu)" },
-      { "label": "C", "text": "Коррозия железа во влажном воздухе" }
+      {
+        "label": "A",
+        "text": "Электролиз водного раствора NaCl"
+      },
+      {
+        "label": "B",
+        "text": "Элемент Даниэля (Zn|Cu)"
+      },
+      {
+        "label": "C",
+        "text": "Коррозия железа во влажном воздухе"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Электрическая энергия превращается в химическую; на катоде выделяется H₂." },
-      { "id": "2", "text": "Химическая энергия превращается в электрическую; анодом является цинк." },
-      { "id": "3", "text": "Самопроизвольный электрохимический процесс, приводящий к разрушению металла." },
-      { "id": "4", "text": "Электрическая энергия превращается в тепловую." }
+      {
+        "id": "1",
+        "text": "Электрическая энергия превращается в химическую; на катоде выделяется H₂."
+      },
+      {
+        "id": "2",
+        "text": "Химическая энергия превращается в электрическую; анодом является цинк."
+      },
+      {
+        "id": "3",
+        "text": "Самопроизвольный электрохимический процесс, приводящий к разрушению металла."
+      },
+      {
+        "id": "4",
+        "text": "Электрическая энергия превращается в тепловую."
+      }
     ]
   },
   "matura_2024_08b": {
-    "question_ru": "При электролизе водного раствора CuSO₄ с платиновыми (инертными) электродами на катоде выделилось 3,2 г меди. Вычислите объём газа (в дм³, нормальные условия), выделившегося на аноде. M(Cu) = 64 г/моль; V_m = 22,4 дм³/моль. Укажите результат с точностью до десятых.",
-    "explanation_ru": "На катоде: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3,2/64 = 0,05 моль. Перенесено 0,05 × 2 = 0,1 моль электронов.\nНа аноде (инертные электроды): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0,1/4 = 0,025 моль.\nV(O₂) = 0,025 × 22,4 = 0,56 дм³ ≈ 0,6 дм³."
+    "question": "Podczas elektrolizy wodnego roztworu CuSO₄ z elektrodami platynowymi (biernymi) na katodzie wydzieliło się 3,2 g miedzi. Oblicz objętość gazu (w dm³, warunki normalne) wydzielonego na anodzie. M(Cu) = 64 g/mol; V_m = 22,4 dm³/mol. Podaj wynik z dokładnością do dziesiątych.",
+    "explanation": "Na katodzie: Cu²⁺ + 2e⁻ → Cu. n(Cu) = 3,2/64 = 0,05 mol. Przeniesiono 0,05 × 2 = 0,1 mol elektronów.\nNa anodzie (bierne elektrody): 2H₂O → O₂ + 4H⁺ + 4e⁻. n(O₂) = 0,1/4 = 0,025 mol.\nV(O₂) = 0,025 × 22,4 = 0,56 dm³ ≈ 0,6 dm³."
   },
   "matura_2024_08c": {
-    "question_ru": "Объясните, почему цинкование является эффективным методом защиты железа от коррозии даже при повреждении (царапании) цинкового покрытия. Используйте стандартные потенциалы: E°(Zn²⁺/Zn) = −0,76 В; E°(Fe²⁺/Fe) = −0,44 В.",
-    "explanation_ru": "Ключевые элементы: (1) E°(Zn) < E°(Fe), следовательно цинк является анодом, (2) цинк окисляется вместо железа — протекторная/катодная защита, (3) железо становится катодом и не корродирует, пока имеется контакт с цинком."
+    "question": "Wyjaśnij, dlaczego cynkowanie jest skuteczną metodą ochrony żelaza przed korozją, nawet gdy powłoka cynkowa zostanie uszkodzona (zarysowana). Odwołaj się do potencjałów standardowych: E°(Zn²⁺/Zn) = −0,76 V; E°(Fe²⁺/Fe) = −0,44 V.",
+    "explanation": "Kluczowe elementy: (1) E°(Zn) < E°(Fe), więc cynk jest anodą, (2) cynk utlenia się zamiast żelaza — ochrona protektorowa/katodowa, (3) żelazo staje się katodą i nie koroduje, dopóki jest kontakt z cynkiem."
   }
 }

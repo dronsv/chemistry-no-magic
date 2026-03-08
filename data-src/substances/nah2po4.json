@@ -1,24 +1,16 @@
 {
-  "id": "nah2po4",
+  "id": "sub:nah2po4",
   "formula": "NaH₂PO₄",
-  "name_ru": "Дигидрофосфат натрия",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Na_plus",
-    "H2PO4_minus"
+    "ion:Na_plus",
+    "ion:H2PO4_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 60,
   "boiling_point_C": null,
-  "density_g_cm3": 2.04,
-  "appearance_ru": "Бесцветные кристаллы или белый порошок",
-  "industrial_ru": "Пищевая промышленность (E339i — регулятор кислотности), буферные растворы",
-  "production_ru": "Неполная нейтрализация: NaOH + H₃PO₄(изб.) → NaH₂PO₄ + H₂O",
-  "fun_facts_ru": [
-    "Создаёт кислую среду в растворе (pH ≈ 4,5)",
-    "Компонент фосфатных буферных растворов (PBS), широко используемых в биологии"
-  ]
+  "density_g_cm3": 2.04
 }

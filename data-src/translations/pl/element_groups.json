@@ -1,42 +1,42 @@
 {
   "alkali_metal": {
-    "name_ru": "Metale alkaliczne",
-    "name_singular_ru": "Metal alkaliczny"
+    "name": "Metale alkaliczne",
+    "name_singular": "Metal alkaliczny"
   },
   "alkaline_earth": {
-    "name_ru": "Metale ziem alkalicznych",
-    "name_singular_ru": "Metal ziem alkalicznych"
+    "name": "Metale ziem alkalicznych",
+    "name_singular": "Metal ziem alkalicznych"
   },
   "transition_metal": {
-    "name_ru": "Metale przejściowe",
-    "name_singular_ru": "Metal przejściowy"
+    "name": "Metale przejściowe",
+    "name_singular": "Metal przejściowy"
   },
   "post_transition_metal": {
-    "name_ru": "Metale po-przejściowe",
-    "name_singular_ru": "Metal po-przejściowy"
+    "name": "Metale po-przejściowe",
+    "name_singular": "Metal po-przejściowy"
   },
   "metalloid": {
-    "name_ru": "Metaloidy",
-    "name_singular_ru": "Metaloid"
+    "name": "Metaloidy",
+    "name_singular": "Metaloid"
   },
   "nonmetal": {
-    "name_ru": "Niemetale",
-    "name_singular_ru": "Niemetal"
+    "name": "Niemetale",
+    "name_singular": "Niemetal"
   },
   "halogen": {
-    "name_ru": "Fluorowce",
-    "name_singular_ru": "Fluorowiec"
+    "name": "Fluorowce",
+    "name_singular": "Fluorowiec"
   },
   "noble_gas": {
-    "name_ru": "Gazy szlachetne",
-    "name_singular_ru": "Gaz szlachetny"
+    "name": "Gazy szlachetne",
+    "name_singular": "Gaz szlachetny"
   },
   "lanthanide": {
-    "name_ru": "Lantanowce",
-    "name_singular_ru": "Lantanowiec"
+    "name": "Lantanowce",
+    "name_singular": "Lantanowiec"
   },
   "actinide": {
-    "name_ru": "Aktynowce",
-    "name_singular_ru": "Aktynowiec"
+    "name": "Aktynowce",
+    "name_singular": "Aktynowiec"
   }
 }

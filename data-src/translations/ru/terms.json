@@ -1,0 +1,220 @@
+{
+  "term:ice": {
+    "name": "лёд",
+    "synonyms": [
+      "твёрдая вода"
+    ]
+  },
+  "term:dry_ice": {
+    "name": "сухой лёд"
+  },
+  "term:aqua_regia": {
+    "name": "царская водка"
+  },
+  "term:conc_sulfuric_acid": {
+    "name": "концентрированная серная кислота"
+  },
+  "term:diamond": {
+    "name": "алмаз"
+  },
+  "term:graphite": {
+    "name": "графит"
+  },
+  "term:coal": {
+    "name": "уголь",
+    "synonyms": [
+      "древесный уголь",
+      "каменный уголь"
+    ]
+  },
+  "term:white_phosphorus": {
+    "name": "белый фосфор"
+  },
+  "term:red_phosphorus": {
+    "name": "красный фосфор"
+  },
+  "term:table_salt": {
+    "name": "поваренная соль",
+    "synonyms": [
+      "каменная соль",
+      "пищевая соль"
+    ]
+  },
+  "term:potash": {
+    "name": "поташ"
+  },
+  "term:soda": {
+    "name": "сода",
+    "synonyms": [
+      "кальцинированная сода"
+    ]
+  },
+  "term:baking_soda": {
+    "name": "питьевая сода",
+    "synonyms": [
+      "пищевая сода"
+    ]
+  },
+  "term:quicklime": {
+    "name": "негашёная известь",
+    "synonyms": [
+      "жжёная известь"
+    ]
+  },
+  "term:slaked_lime": {
+    "name": "гашёная известь",
+    "synonyms": [
+      "известковое молоко"
+    ]
+  },
+  "term:chalk": {
+    "name": "мел"
+  },
+  "term:marble": {
+    "name": "мрамор"
+  },
+  "term:limestone": {
+    "name": "известняк"
+  },
+  "term:alumina": {
+    "name": "глинозём"
+  },
+  "term:corundum": {
+    "name": "корунд"
+  },
+  "term:quartz": {
+    "name": "кварц",
+    "synonyms": [
+      "кремнезём"
+    ]
+  },
+  "term:magnesia": {
+    "name": "магнезия",
+    "synonyms": [
+      "жжёная магнезия"
+    ]
+  },
+  "term:gypsum": {
+    "name": "гипс"
+  },
+  "term:caustic_soda": {
+    "name": "каустик",
+    "synonyms": [
+      "каустическая сода",
+      "едкий натр"
+    ]
+  },
+  "term:caustic_potash": {
+    "name": "едкое кали"
+  },
+  "term:sal_ammoniac": {
+    "name": "нашатырь"
+  },
+  "term:ammonia_water": {
+    "name": "нашатырный спирт"
+  },
+  "term:blue_vitriol": {
+    "name": "медный купорос"
+  },
+  "term:green_vitriol": {
+    "name": "железный купорос"
+  },
+  "term:potassium_permanganate": {
+    "name": "марганцовка"
+  },
+  "term:hydrochloric_acid": {
+    "name": "соляная кислота",
+    "synonyms": [
+      "хлороводородная кислота"
+    ]
+  },
+  "term:sulfuric_acid": {
+    "name": "серная кислота"
+  },
+  "term:nitric_acid": {
+    "name": "азотная кислота"
+  },
+  "term:acetic_acid": {
+    "name": "уксусная кислота",
+    "synonyms": [
+      "уксус"
+    ]
+  },
+  "term:carbonic_acid": {
+    "name": "угольная кислота"
+  },
+  "term:phosphoric_acid": {
+    "name": "фосфорная кислота"
+  },
+  "term:sulfurous_acid": {
+    "name": "сернистая кислота"
+  },
+  "term:hydrogen_sulfide": {
+    "name": "сероводород"
+  },
+  "term:carbon_monoxide": {
+    "name": "угарный газ"
+  },
+  "term:carbon_dioxide": {
+    "name": "углекислый газ"
+  },
+  "term:laughing_gas": {
+    "name": "веселящий газ"
+  },
+  "term:marsh_gas": {
+    "name": "болотный газ"
+  },
+  "term:ammonia": {
+    "name": "аммиак"
+  },
+  "term:chlorine_gas": {
+    "name": "хлор"
+  },
+  "term:sulfur_dioxide_gas": {
+    "name": "сернистый газ"
+  },
+  "term:hydrogen_peroxide": {
+    "name": "перекись водорода",
+    "synonyms": [
+      "пероксид водорода"
+    ]
+  },
+  "term:oleum": {
+    "name": "олеум"
+  },
+  "term:saltpeter": {
+    "name": "селитра",
+    "synonyms": [
+      "калийная селитра"
+    ]
+  },
+  "term:sodium_aluminate": {
+    "name": "алюминат натрия"
+  },
+  "term:pyrolusite": {
+    "name": "пиролюзит"
+  },
+  "term:rust": {
+    "name": "ржавчина"
+  },
+  "term:barite": {
+    "name": "барит",
+    "synonyms": [
+      "тяжёлый шпат"
+    ]
+  },
+  "term:ethanol": {
+    "name": "этиловый спирт",
+    "synonyms": [
+      "этанол",
+      "винный спирт"
+    ]
+  },
+  "term:methanol": {
+    "name": "метиловый спирт",
+    "synonyms": [
+      "метанол",
+      "древесный спирт"
+    ]
+  }
+}

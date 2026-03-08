@@ -1,17 +1,15 @@
 {
-  "id": "co2",
-  "formula": "CO\u2082",
-  "name_ru": "Оксид углерода(IV)",
+  "id": "sub:co2",
+  "formula": "CO₂",
   "class": "oxide",
   "subclass": "acidic",
   "ions": [],
-  "tags": ["gas", "reacts_with_water"],
+  "tags": [
+    "gas",
+    "reacts_with_water"
+  ],
   "phase_standard": "g",
   "melting_point_C": -78.5,
   "boiling_point_C": null,
-  "density_g_cm3": 1.977,
-  "appearance_ru": "Бесцветный газ без запаха",
-  "industrial_ru": "Газирование напитков, пожаротушение, производство соды",
-  "production_ru": "Побочный продукт сжигания топлива, спиртового брожения, обжига известняка",
-  "fun_facts_ru": ["Сухой лёд — твёрдый CO₂, сублимирует при −78,5 °C, минуя жидкую фазу", "Содержание CO₂ в атмосфере Земли — около 0,04%, но это ключевой парниковый газ"]
+  "density_g_cm3": 1.977
 }

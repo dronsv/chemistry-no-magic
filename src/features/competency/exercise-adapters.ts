@@ -60,15 +60,16 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
     'tmpl.class.classify_subclass.v1', 'tmpl.class.identify_by_description.v1',
     'tmpl.sub.identify_amphoteric.v1', 'tmpl.sub.formula_to_name.v1',
     'tmpl.sub.name_to_formula.v1', 'tmpl.ion.compose_salt.v1',
-    'tmpl.ion.acid_to_anion.v1', 'tmpl.ion.anion_to_acid.v1',
+    'tmpl.ion.acid_to_anion.v1', 'tmpl.ion.anion_to_acid.v1', 'tmpl.ion.acid_residue_graph.v1',
   ],
   naming: [
     'tmpl.ion.compose_salt.v1', 'tmpl.sub.formula_to_name.v1',
     'tmpl.sub.name_to_formula.v1', 'tmpl.sub.naming_rule.v1',
     'tmpl.ion.formula_to_name.v1', 'tmpl.ion.name_to_formula.v1',
     'tmpl.ion.suffix_rule.v1', 'tmpl.ion.acid_to_anion.v1',
-    'tmpl.ion.anion_to_acid.v1', 'tmpl.ion.ate_ite_pair.v1',
-    'tmpl.ion.ox_state_to_suffix.v1', 'tmpl.ion.classify_suffix_type.v1',
+    'tmpl.ion.anion_to_acid.v1', 'tmpl.ion.acid_residue_graph.v1',
+    'tmpl.ion.ate_ite_pair.v1', 'tmpl.ion.ox_state_to_suffix.v1',
+    'tmpl.ion.classify_suffix_type.v1',
   ],
   amphoterism_logic: [
     'tmpl.sub.identify_amphoteric.v1', 'tmpl.sub.amphoteric_partner.v1',
@@ -76,8 +77,9 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   ion_nomenclature: [
     'tmpl.ion.formula_to_name.v1', 'tmpl.ion.name_to_formula.v1',
     'tmpl.ion.suffix_rule.v1', 'tmpl.ion.acid_to_anion.v1',
-    'tmpl.ion.anion_to_acid.v1', 'tmpl.ion.ate_ite_pair.v1',
-    'tmpl.ion.ox_state_to_suffix.v1', 'tmpl.ion.classify_suffix_type.v1',
+    'tmpl.ion.anion_to_acid.v1', 'tmpl.ion.acid_residue_graph.v1',
+    'tmpl.ion.ate_ite_pair.v1', 'tmpl.ion.ox_state_to_suffix.v1',
+    'tmpl.ion.classify_suffix_type.v1',
   ],
   // ── Reactions ──
   reactions_exchange: [
@@ -96,7 +98,7 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   electrolyte_logic: ['tmpl.rxn.match_ionic.v1', 'tmpl.rxn.spectator_ions.v1'],
   reaction_energy_profile: [
     'tmpl.rxn.factors_rate.v1', 'tmpl.rxn.exo_endo.v1',
-    'tmpl.rxn.equilibrium_shift.v1',
+    'tmpl.rxn.equilibrium_shift.v1', 'tmpl.kinetics.directional.v1',
   ],
   catalyst_role_understanding: ['tmpl.rxn.catalyst_props.v1', 'tmpl.rxn.identify_catalyst.v1'],
   // ── Calculations ──
@@ -124,6 +126,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     promptTemplates, morphology, templates, bondExamples, substanceIndex, reactions,
     activitySeries, classificationRules, namingRules, qualitativeTests,
     energyCatalystTheory, geneticChains, calculationsData, ionNomenclature,
+    acidBaseRelations, kineticsData,
   ] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
@@ -144,6 +147,8 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadGeneticChains(locale).catch(() => []),
     dl.loadCalculationsData(locale).catch(() => null),
     dl.loadIonNomenclature(locale).catch(() => null),
+    dl.loadRelations('acid_base_relations').catch(() => []),
+    dl.loadKineticsData(locale).catch(() => null),
   ]);
 
   const ontology = {
@@ -153,6 +158,9 @@ export async function buildEngine(locale?: SupportedLocale) {
       activitySeries, classificationRules, namingRules,
       qualitativeTests, energyCatalyst: energyCatalystTheory,
       ionNomenclature: ionNomenclature ?? undefined,
+      acidBaseRelations: acidBaseRelations.length > 0 ? acidBaseRelations as import('../../types/relation').Relation[] : undefined,
+      kineticsRules: kineticsData?.rules,
+      kineticsDirectionLabels: kineticsData?.directionLabels,
     },
     data: {
       substances: substanceIndex, reactions, geneticChains,

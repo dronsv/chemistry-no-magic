@@ -1,28 +1,16 @@
 {
-  "id": "cucl2",
+  "id": "sub:cucl2",
   "formula": "CuCl₂",
-  "name_ru": "Хлорид меди(II)",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "Cl_minus"
+    "ion:Cu_2plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 598,
   "boiling_point_C": 993,
-  "density_g_cm3": 3.39,
-  "appearance_ru": "Жёлто-коричневые кристаллы (безводный) или зелёные (дигидрат)",
-  "hazards_ru": [
-    "Токсичное",
-    "Раздражающее"
-  ],
-  "industrial_ru": "Катализатор в органическом синтезе, травление печатных плат",
-  "production_ru": "Растворение оксида меди(II) в соляной кислоте: CuO + 2HCl → CuCl₂ + H₂O",
-  "fun_facts_ru": [
-    "Раствор CuCl₂ окрашивает пламя в зелёный цвет",
-    "Используется при травлении печатных плат в электронной промышленности"
-  ]
+  "density_g_cm3": 3.39
 }

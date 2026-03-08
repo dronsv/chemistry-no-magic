@@ -1,7 +1,6 @@
 [
   {
     "reaction_id": "rx_neutral_01_hcl_naoh",
-    "title": "Нейтрализация сильной кислоты и щёлочи",
     "equation": "HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)",
     "phase": {
       "medium": "aq",
@@ -22,24 +21,20 @@
       "reactants": [
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 1
         },
         {
           "formula": "NaOH",
-          "name": "гидроксид натрия",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -88,7 +83,6 @@
   },
   {
     "reaction_id": "rx_neutral_02_h2so4_koh",
-    "title": "Нейтрализация двухосновной кислоты",
     "equation": "H₂SO₄(aq) + 2KOH(aq) → K₂SO₄(aq) + 2H₂O(l)",
     "phase": {
       "medium": "aq"
@@ -108,24 +102,20 @@
       "reactants": [
         {
           "formula": "H2SO4",
-          "name": "серная кислота",
           "coeff": 1
         },
         {
           "formula": "KOH",
-          "name": "гидроксид калия",
           "coeff": 2
         }
       ],
       "products": [
         {
           "formula": "K2SO4",
-          "name": "сульфат калия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 2
         }
       ]
@@ -167,7 +157,6 @@
   },
   {
     "reaction_id": "rx_carbonate_01_caco3_hcl",
-    "title": "Карбонат + кислота: выделение CO₂",
     "equation": "CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)↑",
     "phase": {
       "medium": "mixed",
@@ -188,29 +177,24 @@
       "reactants": [
         {
           "formula": "CaCO3",
-          "name": "карбонат кальция (мел/мрамор)",
           "coeff": 1
         },
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 2
         }
       ],
       "products": [
         {
           "formula": "CaCl2",
-          "name": "хлорид кальция",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         },
         {
           "formula": "CO2",
-          "name": "углекислый газ",
           "coeff": 1
         }
       ]
@@ -263,7 +247,6 @@
   },
   {
     "reaction_id": "rx_carbonate_02_na2co3_h2so4",
-    "title": "Растворимый карбонат + кислота",
     "equation": "Na₂CO₃(aq) + H₂SO₄(aq) → Na₂SO₄(aq) + H₂O(l) + CO₂(g)↑",
     "phase": {
       "medium": "aq"
@@ -283,29 +266,24 @@
       "reactants": [
         {
           "formula": "Na2CO3",
-          "name": "карбонат натрия",
           "coeff": 1
         },
         {
           "formula": "H2SO4",
-          "name": "серная кислота",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "Na2SO4",
-          "name": "сульфат натрия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         },
         {
           "formula": "CO2",
-          "name": "углекислый газ",
           "coeff": 1
         }
       ]
@@ -350,7 +328,6 @@
   },
   {
     "reaction_id": "rx_acid_oxide_01_naoh_co2",
-    "title": "Щёлочь + кислотный оксид: образование карбоната",
     "equation": "2NaOH(aq) + CO₂(g) → Na₂CO₃(aq) + H₂O(l)",
     "phase": {
       "medium": "mixed",
@@ -373,24 +350,20 @@
       "reactants": [
         {
           "formula": "NaOH",
-          "name": "гидроксид натрия",
           "coeff": 2
         },
         {
           "formula": "CO2",
-          "name": "углекислый газ",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "Na2CO3",
-          "name": "карбонат натрия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -438,7 +411,6 @@
   },
   {
     "reaction_id": "rx_acid_oxide_02_koh_so2",
-    "title": "Щёлочь + кислотный оксид: образование сульфита",
     "equation": "2KOH(aq) + SO₂(g) → K₂SO₃(aq) + H₂O(l)",
     "phase": {
       "medium": "mixed"
@@ -459,24 +431,20 @@
       "reactants": [
         {
           "formula": "KOH",
-          "name": "гидроксид калия",
           "coeff": 2
         },
         {
           "formula": "SO2",
-          "name": "диоксид серы",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "K2SO3",
-          "name": "сульфит калия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -523,7 +491,6 @@
   },
   {
     "reaction_id": "rx_precip_01_baso4",
-    "title": "Осадкообразование: BaSO₄↓",
     "equation": "BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq)",
     "phase": {
       "medium": "aq"
@@ -542,24 +509,20 @@
       "reactants": [
         {
           "formula": "BaCl2",
-          "name": "хлорид бария",
           "coeff": 1
         },
         {
           "formula": "Na2SO4",
-          "name": "сульфат натрия",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "BaSO4",
-          "name": "сульфат бария (осадок)",
           "coeff": 1
         },
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 2
         }
       ]
@@ -604,7 +567,6 @@
   },
   {
     "reaction_id": "rx_precip_02_agcl",
-    "title": "Осадкообразование: AgCl↓ (качественная реакция на Cl⁻)",
     "equation": "AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq)",
     "phase": {
       "medium": "aq"
@@ -624,24 +586,20 @@
       "reactants": [
         {
           "formula": "AgNO3",
-          "name": "нитрат серебра",
           "coeff": 1
         },
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "AgCl",
-          "name": "хлорид серебра (осадок)",
           "coeff": 1
         },
         {
           "formula": "NaNO3",
-          "name": "нитрат натрия",
           "coeff": 1
         }
       ]
@@ -688,7 +646,6 @@
   },
   {
     "reaction_id": "rx_precip_03_cuoh2",
-    "title": "Осадкообразование: Cu(OH)₂↓",
     "equation": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s)↓ + Na₂SO₄(aq)",
     "phase": {
       "medium": "aq"
@@ -707,24 +664,20 @@
       "reactants": [
         {
           "formula": "CuSO4",
-          "name": "сульфат меди(II)",
           "coeff": 1
         },
         {
           "formula": "NaOH",
-          "name": "гидроксид натрия",
           "coeff": 2
         }
       ],
       "products": [
         {
           "formula": "Cu(OH)2",
-          "name": "гидроксид меди(II) (осадок)",
           "coeff": 1
         },
         {
           "formula": "Na2SO4",
-          "name": "сульфат натрия",
           "coeff": 1
         }
       ]
@@ -767,7 +720,6 @@
   },
   {
     "reaction_id": "rx_gas_01_nahco3_hcl",
-    "title": "Гидрокарбонат + кислота: CO₂↑",
     "equation": "NaHCO₃(aq) + HCl(aq) → NaCl(aq) + H₂O(l) + CO₂(g)↑",
     "phase": {
       "medium": "aq"
@@ -787,29 +739,24 @@
       "reactants": [
         {
           "formula": "NaHCO3",
-          "name": "гидрокарбонат натрия",
           "coeff": 1
         },
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         },
         {
           "formula": "CO2",
-          "name": "углекислый газ",
           "coeff": 1
         }
       ]
@@ -857,7 +804,6 @@
   },
   {
     "reaction_id": "rx_gas_02_na2s_hcl",
-    "title": "Сульфид + кислота: H₂S↑",
     "equation": "Na₂S(aq) + 2HCl(aq) → 2NaCl(aq) + H₂S(g)↑",
     "phase": {
       "medium": "aq"
@@ -877,24 +823,20 @@
       "reactants": [
         {
           "formula": "Na2S",
-          "name": "сульфид натрия",
           "coeff": 1
         },
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 2
         }
       ],
       "products": [
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 2
         },
         {
           "formula": "H2S",
-          "name": "сероводород",
           "coeff": 1
         }
       ]
@@ -938,7 +880,6 @@
   },
   {
     "reaction_id": "rx_gas_03_nh4cl_naoh",
-    "title": "Соль аммония + щёлочь: NH₃↑",
     "equation": "NH₄Cl(aq) + NaOH(aq) → NaCl(aq) + NH₃(g)↑ + H₂O(l)",
     "phase": {
       "medium": "aq"
@@ -960,29 +901,24 @@
       "reactants": [
         {
           "formula": "NH4Cl",
-          "name": "хлорид аммония",
           "coeff": 1
         },
         {
           "formula": "NaOH",
-          "name": "гидроксид натрия",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "NaCl",
-          "name": "хлорид натрия",
           "coeff": 1
         },
         {
           "formula": "NH3",
-          "name": "аммиак",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -1030,7 +966,6 @@
   },
   {
     "reaction_id": "rx_amph_01_aloh3_hcl",
-    "title": "Амфотерный гидроксид + кислота",
     "equation": "Al(OH)₃(s) + 3HCl(aq) → AlCl₃(aq) + 3H₂O(l)",
     "phase": {
       "medium": "mixed"
@@ -1051,24 +986,20 @@
       "reactants": [
         {
           "formula": "Al(OH)3",
-          "name": "гидроксид алюминия",
           "coeff": 1
         },
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 3
         }
       ],
       "products": [
         {
           "formula": "AlCl3",
-          "name": "хлорид алюминия",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 3
         }
       ]
@@ -1109,7 +1040,6 @@
   },
   {
     "reaction_id": "rx_amph_02_aloh3_naoh",
-    "title": "Амфотерный гидроксид + щёлочь: комплекс",
     "equation": "Al(OH)₃(s) + NaOH(aq) → Na[Al(OH)₄](aq)",
     "phase": {
       "medium": "mixed"
@@ -1130,19 +1060,16 @@
       "reactants": [
         {
           "formula": "Al(OH)3",
-          "name": "гидроксид алюминия",
           "coeff": 1
         },
         {
           "formula": "NaOH",
-          "name": "гидроксид натрия",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "Na[Al(OH)4]",
-          "name": "тетрагидроксоалюминат натрия",
           "coeff": 1
         }
       ]
@@ -1183,7 +1110,6 @@
   },
   {
     "reaction_id": "rx_exchange_01_cuo_hcl",
-    "title": "Основный оксид + кислота",
     "equation": "CuO(s) + 2HCl(aq) → CuCl₂(aq) + H₂O(l)",
     "phase": {
       "medium": "mixed"
@@ -1203,24 +1129,20 @@
       "reactants": [
         {
           "formula": "CuO",
-          "name": "оксид меди(II)",
           "coeff": 1
         },
         {
           "formula": "HCl",
-          "name": "соляная кислота",
           "coeff": 2
         }
       ],
       "products": [
         {
           "formula": "CuCl2",
-          "name": "хлорид меди(II)",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -1263,7 +1185,6 @@
   },
   {
     "reaction_id": "rx_exchange_02_caoh2_co2",
-    "title": "Известковая вода + CO₂: CaCO₃↓",
     "equation": "Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s)↓ + H₂O(l)",
     "phase": {
       "medium": "mixed"
@@ -1283,24 +1204,20 @@
       "reactants": [
         {
           "formula": "Ca(OH)2",
-          "name": "известковая вода",
           "coeff": 1
         },
         {
           "formula": "CO2",
-          "name": "углекислый газ",
           "coeff": 1
         }
       ],
       "products": [
         {
           "formula": "CaCO3",
-          "name": "карбонат кальция (осадок)",
           "coeff": 1
         },
         {
           "formula": "H2O",
-          "name": "вода",
           "coeff": 1
         }
       ]
@@ -1344,7 +1261,6 @@
   },
   {
     "reaction_id": "rx_precip_04_feoh3",
-    "title": "Осадкообразование: Fe(OH)₃↓",
     "equation": "FeCl₃(aq) + 3NaOH(aq) → Fe(OH)₃(s)↓ + 3NaCl(aq)",
     "phase": {
       "medium": "aq"
@@ -1418,7 +1334,6 @@
   },
   {
     "reaction_id": "rx_neutral_03_ch3cooh_naoh",
-    "title": "Нейтрализация слабой кислоты (уксусной)",
     "equation": "CH₃COOH(aq) + NaOH(aq) → CH₃COONa(aq) + H₂O(l)",
     "phase": {
       "medium": "aq"
@@ -1438,7 +1353,6 @@
       "reactants": [
         {
           "formula": "CH3COOH",
-          "name": "уксусная кислота",
           "coeff": 1
         },
         {
@@ -1449,7 +1363,6 @@
       "products": [
         {
           "formula": "CH3COONa",
-          "name": "ацетат натрия",
           "coeff": 1
         },
         {
@@ -1492,7 +1405,6 @@
   },
   {
     "reaction_id": "rx_precip_05_caco3_from_salts",
-    "title": "Осадкообразование: CaCO₃↓ из растворов солей",
     "equation": "Na₂CO₃(aq) + CaCl₂(aq) → CaCO₃(s)↓ + 2NaCl(aq)",
     "phase": {
       "medium": "aq"
@@ -1562,7 +1474,6 @@
   },
   {
     "reaction_id": "rx_precip_06_pbi2",
-    "title": "Осадкообразование: PbI₂↓ (жёлтый)",
     "equation": "Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq)",
     "phase": {
       "medium": "aq"
@@ -1633,7 +1544,6 @@
   },
   {
     "reaction_id": "rx_precip_07_h2so4_bacl2",
-    "title": "Качественная реакция на SO₄²⁻: BaSO₄↓",
     "equation": "H₂SO₄(aq) + BaCl₂(aq) → BaSO₄(s)↓ + 2HCl(aq)",
     "phase": {
       "medium": "aq"
@@ -1706,7 +1616,6 @@
   },
   {
     "reaction_id": "rx_gas_04_na2so3_hcl",
-    "title": "Сульфит + кислота: SO₂↑",
     "equation": "Na₂SO₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g)↑ + H₂O(l)",
     "phase": {
       "medium": "aq"
@@ -1783,7 +1692,6 @@
   },
   {
     "reaction_id": "rx_exchange_03_cao_hcl",
-    "title": "Основный оксид + кислота (пример с CaO)",
     "equation": "CaO(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l)",
     "phase": {
       "medium": "mixed"
@@ -1855,7 +1763,6 @@
   },
   {
     "reaction_id": "rx_neutral_04_hno3_caoh2",
-    "title": "Нейтрализация: HNO₃ + Ca(OH)₂",
     "equation": "2HNO₃(aq) + Ca(OH)₂(aq) → Ca(NO₃)₂(aq) + 2H₂O(l)",
     "phase": {
       "medium": "aq"
@@ -1925,7 +1832,6 @@
   },
   {
     "reaction_id": "rx_precip_08_caso4",
-    "title": "Осадкообразование: CaSO₄↓ (малорастворим)",
     "equation": "CaCl₂(aq) + Na₂SO₄(aq) → CaSO₄(s)↓ + 2NaCl(aq)",
     "phase": {
       "medium": "aq"
@@ -1997,7 +1903,6 @@
   },
   {
     "reaction_id": "rx_gas_05_caco3_heat",
-    "title": "Термическое разложение карбоната: CaCO₃",
     "equation": "CaCO₃(s) —t°→ CaO(s) + CO₂(g)↑",
     "phase": {
       "medium": "s"
@@ -2069,20 +1974,42 @@
   },
   {
     "reaction_id": "rx_redox_01_zn_hcl",
-    "title": "Замещение: цинк + соляная кислота",
     "equation": "Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑",
-    "phase": { "medium": "mixed", "notes": "металл + раствор кислоты" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_evolution"],
+    "phase": {
+      "medium": "mixed",
+      "notes": "металл + раствор кислоты"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Zn", "name": "цинк", "coeff": 1 },
-        { "formula": "HCl", "name": "соляная кислота", "coeff": 2 }
+        {
+          "formula": "Zn",
+          "coeff": 1
+        },
+        {
+          "formula": "HCl",
+          "coeff": 2
+        }
       ],
       "products": [
-        { "formula": "ZnCl2", "name": "хлорид цинка", "coeff": 1 },
-        { "formula": "H2", "name": "водород", "coeff": 1 }
+        {
+          "formula": "ZnCl2",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
       ]
     },
     "ionic": {
@@ -2090,9 +2017,13 @@
       "net": "Zn(s) + 2H⁺ → Zn²⁺ + H₂↑"
     },
     "observations": {
-      "gas": ["H₂ (пузырьки)"],
+      "gas": [
+        "H₂ (пузырьки)"
+      ],
       "precipitate": [],
-      "other": ["цинк растворяется"]
+      "other": [
+        "цинк растворяется"
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
@@ -2100,37 +2031,81 @@
         "Повысить концентрацию кислоты.",
         "Небольшой нагрев."
       ],
-      "what_slows_down": ["Разбавление кислоты."]
+      "what_slows_down": [
+        "Разбавление кислоты."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["H₂ горюч; не подносить открытое пламя."],
+    "safety_notes": [
+      "H₂ горюч; не подносить открытое пламя."
+    ],
     "oge": {
-      "topics": ["замещение", "ОВР", "ряд активности"],
-      "typical_tasks": ["определить окислитель и восстановитель"]
+      "topics": [
+        "замещение",
+        "ОВР",
+        "ряд активности"
+      ],
+      "typical_tasks": [
+        "определить окислитель и восстановитель"
+      ]
     },
-    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "competencies": {
+      "reactions_redox": "P",
+      "oxidation_states": "S"
+    },
     "redox": {
-      "oxidizer": { "formula": "HCl", "element": "H", "from": 1, "to": 0 },
-      "reducer": { "formula": "Zn", "element": "Zn", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "HCl",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Zn",
+        "element": "Zn",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
     }
   },
   {
     "reaction_id": "rx_redox_02_fe_h2so4",
-    "title": "Замещение: железо + серная кислота (разб.)",
     "equation": "Fe(s) + H₂SO₄(aq) → FeSO₄(aq) + H₂(g)↑",
-    "phase": { "medium": "mixed" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_evolution"],
+    "phase": {
+      "medium": "mixed"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Fe", "name": "железо", "coeff": 1 },
-        { "formula": "H2SO4", "name": "серная кислота (разб.)", "coeff": 1 }
+        {
+          "formula": "Fe",
+          "coeff": 1
+        },
+        {
+          "formula": "H2SO4",
+          "coeff": 1
+        }
       ],
       "products": [
-        { "formula": "FeSO4", "name": "сульфат железа(II)", "coeff": 1 },
-        { "formula": "H2", "name": "водород", "coeff": 1 }
+        {
+          "formula": "FeSO4",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
       ]
     },
     "ionic": {
@@ -2138,43 +2113,93 @@
       "net": "Fe(s) + 2H⁺ → Fe²⁺ + H₂↑"
     },
     "observations": {
-      "gas": ["H₂ (пузырьки)"],
+      "gas": [
+        "H₂ (пузырьки)"
+      ],
       "precipitate": [],
-      "other": ["железо растворяется"]
+      "other": [
+        "железо растворяется"
+      ]
     },
     "rate_tips": {
-      "how_to_speed_up": ["Измельчить железо.", "Нагреть."],
-      "what_slows_down": ["Разбавление."]
+      "how_to_speed_up": [
+        "Измельчить железо.",
+        "Нагреть."
+      ],
+      "what_slows_down": [
+        "Разбавление."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["H₂ горюч."],
+    "safety_notes": [
+      "H₂ горюч."
+    ],
     "oge": {
-      "topics": ["замещение", "ОВР"],
-      "typical_tasks": ["составить электронный баланс"]
+      "topics": [
+        "замещение",
+        "ОВР"
+      ],
+      "typical_tasks": [
+        "составить электронный баланс"
+      ]
     },
-    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "competencies": {
+      "reactions_redox": "P",
+      "oxidation_states": "S"
+    },
     "redox": {
-      "oxidizer": { "formula": "H2SO4", "element": "H", "from": 1, "to": 0 },
-      "reducer": { "formula": "Fe", "element": "Fe", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "H2SO4",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Fe",
+        "element": "Fe",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
     }
   },
   {
     "reaction_id": "rx_redox_03_mg_hcl",
-    "title": "Замещение: магний + соляная кислота",
     "equation": "Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)↑",
-    "phase": { "medium": "mixed" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox", "gas_evolution"],
-    "driving_forces": ["gas_evolution"],
+    "phase": {
+      "medium": "mixed"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Mg", "name": "магний", "coeff": 1 },
-        { "formula": "HCl", "name": "соляная кислота", "coeff": 2 }
+        {
+          "formula": "Mg",
+          "coeff": 1
+        },
+        {
+          "formula": "HCl",
+          "coeff": 2
+        }
       ],
       "products": [
-        { "formula": "MgCl2", "name": "хлорид магния", "coeff": 1 },
-        { "formula": "H2", "name": "водород", "coeff": 1 }
+        {
+          "formula": "MgCl2",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
       ]
     },
     "ionic": {
@@ -2182,43 +2207,90 @@
       "net": "Mg(s) + 2H⁺ → Mg²⁺ + H₂↑"
     },
     "observations": {
-      "gas": ["H₂ (бурное выделение)"],
+      "gas": [
+        "H₂ (бурное выделение)"
+      ],
       "precipitate": [],
       "heat": "заметное тепловыделение"
     },
     "rate_tips": {
-      "how_to_speed_up": ["Магний очень активен; реакция идёт быстро."],
-      "what_slows_down": ["Разбавление кислоты."]
+      "how_to_speed_up": [
+        "Магний очень активен; реакция идёт быстро."
+      ],
+      "what_slows_down": [
+        "Разбавление кислоты."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["Бурная реакция; добавлять кислоту осторожно."],
+    "safety_notes": [
+      "Бурная реакция; добавлять кислоту осторожно."
+    ],
     "oge": {
-      "topics": ["замещение", "ОВР"],
-      "typical_tasks": ["определить тип реакции"]
+      "topics": [
+        "замещение",
+        "ОВР"
+      ],
+      "typical_tasks": [
+        "определить тип реакции"
+      ]
     },
-    "competencies": { "reactions_redox": "P", "oxidation_states": "S" },
+    "competencies": {
+      "reactions_redox": "P",
+      "oxidation_states": "S"
+    },
     "redox": {
-      "oxidizer": { "formula": "HCl", "element": "H", "from": 1, "to": 0 },
-      "reducer": { "formula": "Mg", "element": "Mg", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "HCl",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Mg",
+        "element": "Mg",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Mg⁰ − 2e⁻ → Mg²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
     }
   },
   {
     "reaction_id": "rx_redox_04_fe_cuso4",
-    "title": "Замещение: железо вытесняет медь",
     "equation": "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)↓",
-    "phase": { "medium": "mixed", "notes": "металл + раствор соли" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox"],
-    "driving_forces": ["precipitation"],
+    "phase": {
+      "medium": "mixed",
+      "notes": "металл + раствор соли"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox"
+    ],
+    "driving_forces": [
+      "precipitation"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Fe", "name": "железо", "coeff": 1 },
-        { "formula": "CuSO4", "name": "сульфат меди(II)", "coeff": 1 }
+        {
+          "formula": "Fe",
+          "coeff": 1
+        },
+        {
+          "formula": "CuSO4",
+          "coeff": 1
+        }
       ],
       "products": [
-        { "formula": "FeSO4", "name": "сульфат железа(II)", "coeff": 1 },
-        { "formula": "Cu", "name": "медь", "coeff": 1 }
+        {
+          "formula": "FeSO4",
+          "coeff": 1
+        },
+        {
+          "formula": "Cu",
+          "coeff": 1
+        }
       ]
     },
     "ionic": {
@@ -2229,41 +2301,87 @@
       "precipitate": [],
       "gas": [],
       "color_change": "раствор бледнеет (Cu²⁺ исчезает), на железе — красноватый налёт меди",
-      "other": ["на поверхности железа выделяется медь"]
+      "other": [
+        "на поверхности железа выделяется медь"
+      ]
     },
     "rate_tips": {
-      "how_to_speed_up": ["Зачистить поверхность железа.", "Перемешивание."],
-      "what_slows_down": ["Оксидная плёнка на железе."]
+      "how_to_speed_up": [
+        "Зачистить поверхность железа.",
+        "Перемешивание."
+      ],
+      "what_slows_down": [
+        "Оксидная плёнка на железе."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["Соли меди токсичны при попадании внутрь."],
+    "safety_notes": [
+      "Соли меди токсичны при попадании внутрь."
+    ],
     "oge": {
-      "topics": ["замещение", "ряд активности"],
-      "typical_tasks": ["предсказать, пойдёт ли реакция"]
+      "topics": [
+        "замещение",
+        "ряд активности"
+      ],
+      "typical_tasks": [
+        "предсказать, пойдёт ли реакция"
+      ]
     },
-    "competencies": { "reactions_redox": "P" },
+    "competencies": {
+      "reactions_redox": "P"
+    },
     "redox": {
-      "oxidizer": { "formula": "CuSO4", "element": "Cu", "from": 2, "to": 0 },
-      "reducer": { "formula": "Fe", "element": "Fe", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "CuSO4",
+        "element": "Cu",
+        "from": 2,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Fe",
+        "element": "Fe",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
     }
   },
   {
     "reaction_id": "rx_redox_05_zn_cuso4",
-    "title": "Замещение: цинк вытесняет медь",
     "equation": "Zn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)↓",
-    "phase": { "medium": "mixed" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox"],
-    "driving_forces": ["precipitation"],
+    "phase": {
+      "medium": "mixed"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox"
+    ],
+    "driving_forces": [
+      "precipitation"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Zn", "name": "цинк", "coeff": 1 },
-        { "formula": "CuSO4", "name": "сульфат меди(II)", "coeff": 1 }
+        {
+          "formula": "Zn",
+          "coeff": 1
+        },
+        {
+          "formula": "CuSO4",
+          "coeff": 1
+        }
       ],
       "products": [
-        { "formula": "ZnSO4", "name": "сульфат цинка", "coeff": 1 },
-        { "formula": "Cu", "name": "медь", "coeff": 1 }
+        {
+          "formula": "ZnSO4",
+          "coeff": 1
+        },
+        {
+          "formula": "Cu",
+          "coeff": 1
+        }
       ]
     },
     "ionic": {
@@ -2276,37 +2394,79 @@
       "color_change": "раствор обесцвечивается, на цинке — красноватый налёт меди"
     },
     "rate_tips": {
-      "how_to_speed_up": ["Зачистить поверхность цинка.", "Перемешивание."]
+      "how_to_speed_up": [
+        "Зачистить поверхность цинка.",
+        "Перемешивание."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["Соли меди токсичны."],
+    "safety_notes": [
+      "Соли меди токсичны."
+    ],
     "oge": {
-      "topics": ["замещение", "ОВР"],
-      "typical_tasks": ["предсказать продукты"]
+      "topics": [
+        "замещение",
+        "ОВР"
+      ],
+      "typical_tasks": [
+        "предсказать продукты"
+      ]
     },
-    "competencies": { "reactions_redox": "P" },
+    "competencies": {
+      "reactions_redox": "P"
+    },
     "redox": {
-      "oxidizer": { "formula": "CuSO4", "element": "Cu", "from": 2, "to": 0 },
-      "reducer": { "formula": "Zn", "element": "Zn", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "CuSO4",
+        "element": "Cu",
+        "from": 2,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Zn",
+        "element": "Zn",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
     }
   },
   {
     "reaction_id": "rx_redox_06_cu_agno3",
-    "title": "Замещение: медь вытесняет серебро",
     "equation": "Cu(s) + 2AgNO₃(aq) → Cu(NO₃)₂(aq) + 2Ag(s)↓",
-    "phase": { "medium": "mixed" },
-    "conditions": { "temperature": "room" },
-    "type_tags": ["substitution", "redox"],
-    "driving_forces": ["precipitation"],
+    "phase": {
+      "medium": "mixed"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "substitution",
+      "redox"
+    ],
+    "driving_forces": [
+      "precipitation"
+    ],
     "molecular": {
       "reactants": [
-        { "formula": "Cu", "name": "медь", "coeff": 1 },
-        { "formula": "AgNO3", "name": "нитрат серебра", "coeff": 2 }
+        {
+          "formula": "Cu",
+          "coeff": 1
+        },
+        {
+          "formula": "AgNO3",
+          "coeff": 2
+        }
       ],
       "products": [
-        { "formula": "Cu(NO3)2", "name": "нитрат меди(II)", "coeff": 1 },
-        { "formula": "Ag", "name": "серебро", "coeff": 2 }
+        {
+          "formula": "Cu(NO3)2",
+          "coeff": 1
+        },
+        {
+          "formula": "Ag",
+          "coeff": 2
+        }
       ]
     },
     "ionic": {
@@ -2317,21 +2477,45 @@
       "precipitate": [],
       "gas": [],
       "color_change": "раствор становится голубым (Cu²⁺), на меди — серебристые кристаллы",
-      "other": ["«серебряное дерево» на поверхности меди"]
+      "other": [
+        "«серебряное дерево» на поверхности меди"
+      ]
     },
     "rate_tips": {
-      "how_to_speed_up": ["Зачистить медь.", "Перемешивание."]
+      "how_to_speed_up": [
+        "Зачистить медь.",
+        "Перемешивание."
+      ]
     },
     "heat_effect": "exo",
-    "safety_notes": ["AgNO₃ оставляет тёмные пятна."],
+    "safety_notes": [
+      "AgNO₃ оставляет тёмные пятна."
+    ],
     "oge": {
-      "topics": ["замещение", "ряд активности"],
-      "typical_tasks": ["определить, пойдёт ли реакция"]
+      "topics": [
+        "замещение",
+        "ряд активности"
+      ],
+      "typical_tasks": [
+        "определить, пойдёт ли реакция"
+      ]
     },
-    "competencies": { "reactions_redox": "P" },
+    "competencies": {
+      "reactions_redox": "P"
+    },
     "redox": {
-      "oxidizer": { "formula": "AgNO3", "element": "Ag", "from": 1, "to": 0 },
-      "reducer": { "formula": "Cu", "element": "Cu", "from": 0, "to": 2 },
+      "oxidizer": {
+        "formula": "AgNO3",
+        "element": "Ag",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Cu",
+        "element": "Cu",
+        "from": 0,
+        "to": 2
+      },
       "electron_transfer": "Cu⁰ − 2e⁻ → Cu²⁺ (восстановитель)\n2Ag⁺ + 2e⁻ → 2Ag⁰ (окислитель)"
     }
   }

@@ -2,91 +2,121 @@
   {
     "id": "no_precipitate_no_gas_no_water",
     "type": "exchange_reaction_condition",
-    "condition_ru": "Реакция обмена не идёт, если не образуется осадок, газ или вода (слабый электролит)",
-    "description_ru": "Реакции ионного обмена протекают до конца только при выполнении хотя бы одного из условий: образование осадка, выделение газа, образование воды (слабого электролита)."
+    "rule_kind": "exchange_condition",
+    "required_products": ["precipitate", "gas", "weak_electrolyte"],
+    "logic": "at_least_one"
   },
   {
     "id": "insoluble_base_no_acid_reaction",
     "type": "exchange_reaction_condition",
-    "condition_ru": "Нерастворимое основание не реагирует с солью другого нерастворимого основания",
-    "description_ru": "Для реакции обмена между основанием и солью оба исходных вещества должны быть в растворе (хотя бы одно) или одно из них растворимо."
+    "rule_kind": "exchange_condition",
+    "required_products": ["precipitate", "gas", "weak_electrolyte"],
+    "logic": "at_least_one",
+    "reactant_constraint": "solubility:at_least_one_soluble"
   },
   {
     "id": "noble_metal_no_acid",
     "type": "activity_series_condition",
-    "condition_ru": "Металлы, стоящие в ряду активности после водорода, не вытесняют водород из разбавленных кислот",
-    "description_ru": "Cu, Hg, Ag, Pt, Au не реагируют с разбавленными кислотами (HCl, H\u2082SO\u2084 разб.) с выделением водорода."
+    "rule_kind": "activity_restriction",
+    "subject_class": "noble_metals",
+    "constraint": "position_after_H",
+    "examples": ["Cu", "Hg", "Ag", "Pt", "Au"]
   },
   {
     "id": "less_active_no_displacement",
     "type": "activity_series_condition",
-    "condition_ru": "Менее активный металл не вытесняет более активный из раствора его соли",
-    "description_ru": "Металл может вытеснить другой металл из раствора его соли, только если он расположен в ряду активности левее вытесняемого металла."
+    "rule_kind": "activity_restriction",
+    "subject_class": "less_active_metal",
+    "constraint": "position_right_of_target"
   },
   {
     "id": "alkali_metal_water_not_salt",
     "type": "activity_series_condition",
-    "condition_ru": "Щелочные и щёлочноземельные металлы реагируют с водой, а не с солями в растворе",
-    "description_ru": "Li, Na, K, Ca, Ba при добавлении в раствор соли прежде всего реагируют с водой, а не вытесняют металл из соли."
+    "rule_kind": "activity_restriction",
+    "subject_class": "alkali_alkaline_earth_metals",
+    "constraint": "reacts_with_water_first"
   },
   {
     "id": "sio2_no_water",
     "type": "oxide_reaction_condition",
-    "condition_ru": "SiO\u2082 не реагирует с водой",
-    "description_ru": "В отличие от большинства кислотных оксидов, оксид кремния(IV) не растворяется в воде и не образует кремниевую кислоту при взаимодействии с H\u2082O."
+    "rule_kind": "oxide_exception",
+    "substance": "SiO2",
+    "reagent": "water"
   },
   {
     "id": "insoluble_base_heat_decomposition",
     "type": "thermal_condition",
-    "condition_ru": "Нерастворимые основания при нагревании разлагаются на оксид металла и воду",
-    "description_ru": "Cu(OH)\u2082, Fe(OH)\u2083, Al(OH)\u2083 и другие нерастворимые основания при нагревании разлагаются. Щёлочи термически устойчивы."
+    "rule_kind": "thermal_decomposition",
+    "reactant_class": "metal_hydroxide",
+    "reactant_constraint": "solubility:insoluble",
+    "conditions": ["heating"],
+    "product_classes": ["metal_oxide", "water"],
+    "exceptions": ["alkali_hydroxides"]
   },
   {
     "id": "carbonate_acid_gas",
     "type": "gas_forming_condition",
-    "condition_ru": "Карбонаты и гидрокарбонаты при действии кислот выделяют CO\u2082",
-    "description_ru": "При взаимодействии карбонатов (CO\u2083\u00b2\u207b) с кислотами промежуточно образуется H\u2082CO\u2083, которая немедленно разлагается на CO\u2082 и H\u2082O."
+    "rule_kind": "gas_evolution",
+    "reactant_class": "carbonate",
+    "reagent_class": "acid",
+    "gas_product": "CO2",
+    "intermediate": "H2CO3",
+    "observation_facets": ["gas_evolution:CO2"]
   },
   {
     "id": "sulfite_acid_gas",
     "type": "gas_forming_condition",
-    "condition_ru": "Сульфиты при действии кислот выделяют SO\u2082",
-    "description_ru": "При взаимодействии сульфитов (SO\u2083\u00b2\u207b) с кислотами промежуточно образуется H\u2082SO\u2083, которая разлагается на SO\u2082 и H\u2082O."
+    "rule_kind": "gas_evolution",
+    "reactant_class": "sulfite",
+    "reagent_class": "acid",
+    "gas_product": "SO2",
+    "intermediate": "H2SO3",
+    "observation_facets": ["gas_evolution:SO2"]
   },
   {
     "id": "sulfide_acid_gas",
     "type": "gas_forming_condition",
-    "condition_ru": "Растворимые сульфиды при действии кислот выделяют H\u2082S",
-    "description_ru": "Растворимые сульфиды при взаимодействии с кислотами выделяют сероводород H\u2082S (газ с запахом тухлых яиц)."
+    "rule_kind": "gas_evolution",
+    "reactant_class": "soluble_sulfide",
+    "reagent_class": "acid",
+    "gas_product": "H2S",
+    "observation_facets": ["gas_evolution:H2S"]
   },
   {
     "id": "ammonium_alkali_gas",
     "type": "gas_forming_condition",
-    "condition_ru": "Соли аммония при действии щелочей выделяют NH\u2083",
-    "description_ru": "При взаимодействии солей аммония с щелочами промежуточно образуется NH\u2083\u00b7H\u2082O, который разлагается с выделением аммиака NH\u2083."
+    "rule_kind": "gas_evolution",
+    "reactant_class": "ammonium_salt",
+    "reagent_class": "alkali",
+    "gas_product": "NH3",
+    "intermediate": "NH3_H2O",
+    "observation_facets": ["gas_evolution:NH3"]
   },
   {
     "id": "h2so4_conc_oxidizer",
     "type": "special_acid_condition",
-    "condition_ru": "Концентрированная H\u2082SO\u2084 — сильный окислитель, реагирует иначе, чем разбавленная",
-    "description_ru": "Концентрированная серная кислота окисляет металлы (в том числе Cu) за счёт S(+6), а не H(+1). Продукты восстановления: SO\u2082, S, H\u2082S."
+    "rule_kind": "oxidizing_acid",
+    "acid": "H2SO4_conc"
   },
   {
     "id": "hno3_oxidizer",
     "type": "special_acid_condition",
-    "condition_ru": "HNO\u2083 любой концентрации — окислитель; водород не выделяется",
-    "description_ru": "Азотная кислота окисляет металлы за счёт N(+5), а не H(+1). Водород никогда не выделяется. Продукты восстановления зависят от концентрации и активности металла."
+    "rule_kind": "oxidizing_acid",
+    "acid": "HNO3"
   },
   {
     "id": "passivation_cold_conc",
     "type": "passivation_condition",
-    "condition_ru": "Fe, Al, Cr пассивируются холодными концентрированными H\u2082SO\u2084 и HNO\u2083",
-    "description_ru": "Железо, алюминий и хром покрываются плотной оксидной плёнкой при контакте с холодной концентрированной серной или азотной кислотой (пассивация). Реакция не идёт."
+    "rule_kind": "passivation",
+    "metals": ["Fe", "Al", "Cr"],
+    "acids": ["H2SO4_conc", "HNO3_conc"],
+    "condition": "cold"
   },
   {
     "id": "amphoteric_both_directions",
     "type": "amphoteric_condition",
-    "condition_ru": "Амфотерные оксиды и гидроксиды реагируют и с кислотами, и с щелочами",
-    "description_ru": "Al\u2082O\u2083, ZnO, BeO, Al(OH)\u2083, Zn(OH)\u2082, Be(OH)\u2082 проявляют двойственные свойства: с кислотами ведут себя как основания, со щелочами — как кислоты."
+    "rule_kind": "amphoteric_reaction",
+    "subject_class": "amphoteric_hydroxides_oxides",
+    "reacts_with": ["acid", "alkali"]
   }
 ]

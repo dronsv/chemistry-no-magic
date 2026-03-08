@@ -1,165 +1,165 @@
 {
   "1": {
-    "title_ru": "Configuración electrónica del átomo",
-    "topic_ru": "Estructura atómica. Configuraciones electrónicas de los elementos",
-    "algorithm_ru": [
+    "title": "Configuración electrónica del átomo",
+    "topic": "Estructura atómica. Configuraciones electrónicas de los elementos",
+    "algorithm": [
       "Escribe la configuración electrónica de cada elemento de la lista.",
       "Determina el número de electrones en el nivel externo, el número de electrones desapareados u otro parámetro solicitado.",
       "Compara con la condición del problema y selecciona dos elementos que coincidan.",
       "Escribe la respuesta como dos cifras en orden ascendente."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Orden de llenado de orbitales: 1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → ...",
       "Número máximo de electrones por subnivel: s — 2, p — 6, d — 10, f — 14.",
       "Excepciones: Cr [Ar]3d⁵4s¹, Cu [Ar]3d¹⁰4s¹ (promoción electrónica).",
       "Los electrones desapareados se determinan por la regla de Hund: primero un electrón por orbital."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "No confundas el número de grupo con el número de electrones de valencia en los elementos del bloque d.",
       "Recuerda la «promoción» del electrón en Cr, Cu, Mo, Ag.",
       "La configuración de un ion difiere de la del átomo: primero se eliminan los electrones del subnivel s externo."
     ],
-    "variability_ru": "Cambian los elementos y la propiedad solicitada (número de e⁻ desapareados, configuración del nivel externo, número de electrones s/p/d)."
+    "variability": "Cambian los elementos y la propiedad solicitada (número de e⁻ desapareados, configuración del nivel externo, número de electrones s/p/d)."
   },
   "2": {
-    "title_ru": "Tendencias de la Tabla Periódica",
-    "topic_ru": "Ley Periódica. Tendencias en las propiedades de los elementos",
-    "algorithm_ru": [
+    "title": "Tendencias de la Tabla Periódica",
+    "topic": "Ley Periódica. Tendencias en las propiedades de los elementos",
+    "algorithm": [
       "Determina la posición de cada elemento en la tabla (período, grupo).",
       "Encuentra tres elementos del mismo período o del mismo grupo (según el enunciado).",
       "Ordénalos en orden creciente de la propiedad solicitada.",
       "Escribe los números en el orden obtenido."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "A lo largo de un período (de izquierda a derecha): ↑ electronegatividad, ↑ energía de ionización, ↓ radio atómico, ↑ carácter no metálico.",
       "Dentro de un grupo (de arriba abajo): ↑ radio atómico, ↓ electronegatividad, ↑ carácter metálico.",
       "Electronegatividad: F > O > N > Cl > Br > S > C > H.",
       "El radio atómico aumenta al descender en un grupo y al moverse hacia la izquierda en un período."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "No confundas «creciente» y «decreciente» en el enunciado.",
       "Las propiedades metálicas y no metálicas varían en direcciones opuestas.",
       "Los elementos del bloque d pueden desviarse de las tendencias simples."
     ],
-    "variability_ru": "Cambian los elementos y la propiedad solicitada (electronegatividad, radio, metalicidad, acidez de los óxidos)."
+    "variability": "Cambian los elementos y la propiedad solicitada (electronegatividad, radio, metalicidad, acidez de los óxidos)."
   },
   "5": {
-    "title_ru": "Clasificación de sustancias inorgánicas",
-    "topic_ru": "Clases de compuestos inorgánicos: óxidos, ácidos, bases, sales",
-    "algorithm_ru": [
+    "title": "Clasificación de sustancias inorgánicas",
+    "topic": "Clases de compuestos inorgánicos: óxidos, ácidos, bases, sales",
+    "algorithm": [
       "Lee qué clases de sustancias hay que identificar (ácido, óxido, base, sal, etc.).",
       "Determina la clase de cada sustancia en la tabla 3×3.",
       "Para cada posición A, B, C selecciona una sustancia de la clase correspondiente.",
       "Escribe los números de las celdas."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Óxidos: básicos (Me₂O₃ para los grupos I–III), ácidos (no metales o Me⁶⁺,⁷⁺), anfóteros (Al₂O₃, ZnO, Cr₂O₃).",
       "Ácidos: HₓÁcido (H₂SO₄, HNO₃, H₃PO₄...). Sales: metal + residuo ácido.",
       "Bases: Me(OH)ₙ. Hidróxidos solubles (NaOH, KOH, Ca(OH)₂) e insolubles (Cu(OH)₂, Fe(OH)₃).",
       "Hidróxidos anfóteros: Al(OH)₃, Zn(OH)₂, Cr(OH)₃, Be(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "H₂O no es ni ácido ni base (es un óxido).",
       "NH₃ no es una base (la base es NH₃·H₂O o NH₄OH).",
       "CaO es un óxido básico, pero CO₂ es un óxido ácido."
     ],
-    "variability_ru": "Cambian el conjunto de sustancias en la tabla y las clases solicitadas."
+    "variability": "Cambian el conjunto de sustancias en la tabla y las clases solicitadas."
   },
   "7": {
-    "title_ru": "Propiedades de sustancias inorgánicas (correspondencia)",
-    "topic_ru": "Propiedades químicas de óxidos, ácidos, bases, sales",
-    "algorithm_ru": [
+    "title": "Propiedades de sustancias inorgánicas (correspondencia)",
+    "topic": "Propiedades químicas de óxidos, ácidos, bases, sales",
+    "algorithm": [
       "Para cada sustancia de la columna izquierda, determina su clase y propiedades.",
       "Verifica con qué reactivos de la columna derecha puede reaccionar.",
       "Considera: óxidos básicos + ácidos, óxidos ácidos + bases, anfóteros + ambos.",
       "Escribe la correspondencia A-B-C-D → números."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Los metales situados antes del H en la serie de actividad desplazan H₂ de los ácidos diluidos.",
       "Los hidróxidos solubles reaccionan con óxidos e hidróxidos ácidos y anfóteros.",
       "Sales de ácidos débiles + ácido fuerte → la reacción procede.",
       "H₂SO₄ y HNO₃ concentrados son oxidantes especiales, reaccionan incluso con Cu y Ag."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Cu no reacciona con HCl diluido ni con H₂SO₄ diluido.",
       "SiO₂ no reacciona con agua (a diferencia de la mayoría de los óxidos ácidos).",
       "Al₂O₃ y Al(OH)₃ son anfóteros: reaccionan tanto con ácidos como con bases."
     ],
-    "variability_ru": "Cambian las sustancias y los conjuntos de reactivos. El principio es el mismo: determinar la clase → recordar propiedades."
+    "variability": "Cambian las sustancias y los conjuntos de reactivos. El principio es el mismo: determinar la clase → recordar propiedades."
   },
   "11": {
-    "title_ru": "Clasificación de sustancias orgánicas",
-    "topic_ru": "Clases de compuestos orgánicos por grupo funcional",
-    "algorithm_ru": [
+    "title": "Clasificación de sustancias orgánicas",
+    "topic": "Clases de compuestos orgánicos por grupo funcional",
+    "algorithm": [
       "Identifica el grupo funcional de cada sustancia.",
       "Asócialo con la clase: –OH (alcohol), –CHO (aldehído), –COOH (ácido carboxílico), –NH₂ (amina), –COO– (éster).",
       "Para cada sustancia de la izquierda, selecciona la clase correcta de la derecha.",
       "Escribe la correspondencia."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Alcoholes: R–OH (metanol, etanol, glicerol).",
       "Aldehídos: R–CHO (formaldehído, acetaldehído).",
       "Ácidos carboxílicos: R–COOH (fórmico, acético, esteárico).",
       "Aminas: R–NH₂ (metilamina, anilina).",
       "Ésteres: R–COO–R' (acetato de etilo, grasas)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "El glicerol es un alcohol polihidroxílico (tres grupos –OH).",
       "La anilina es una amina aromática (C₆H₅NH₂).",
       "No confundas aldehídos (–CHO) con cetonas (–CO–)."
     ],
-    "variability_ru": "Cambian las sustancias. A veces se dan fórmulas, a veces nombres."
+    "variability": "Cambian las sustancias. A veces se dan fórmulas, a veces nombres."
   },
   "18": {
-    "title_ru": "Velocidad de reacción química",
-    "topic_ru": "Factores que afectan la velocidad de reacción",
-    "algorithm_ru": [
+    "title": "Velocidad de reacción química",
+    "topic": "Factores que afectan la velocidad de reacción",
+    "algorithm": [
       "Determina el tipo de reacción (homogénea/heterogénea) y los estados de agregación de las sustancias.",
       "Para cada factor propuesto, determina si aumenta la velocidad.",
       "Factores que aumentan la velocidad: ↑T, ↑C de reactivos, ↑ área de contacto, ↑P (para gases), catalizador.",
       "Selecciona los dos factores que aumentan la velocidad."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Regla de van't Hoff: al aumentar la T en 10 °C, la velocidad se multiplica por 2–4.",
       "Triturar un reactivo sólido aumenta el área de contacto → la velocidad crece.",
       "La concentración de productos NO afecta la velocidad de la reacción directa.",
       "La presión solo afecta a las reacciones con participación de gases."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Aumentar la concentración del PRODUCTO no acelera la reacción directa.",
       "Disminuir la temperatura RALENTIZA la reacción.",
       "Un catalizador no desplaza el equilibrio, pero acelera su consecución."
     ],
-    "variability_ru": "Cambian la reacción y el conjunto de factores. Son frecuentes las trampas con la concentración del producto."
+    "variability": "Cambian la reacción y el conjunto de factores. Son frecuentes las trampas con la concentración del producto."
   },
   "21": {
-    "title_ru": "Hidrólisis de sales",
-    "topic_ru": "Hidrólisis: determinación del medio de una solución salina",
-    "algorithm_ru": [
+    "title": "Hidrólisis de sales",
+    "topic": "Hidrólisis: determinación del medio de una solución salina",
+    "algorithm": [
       "Para cada sal, determina si la base y el ácido de los que proviene son fuertes o débiles.",
       "Sal de base fuerte + ácido débil → medio alcalino (pH > 7).",
       "Sal de base débil + ácido fuerte → medio ácido (pH < 7).",
       "Sal de base fuerte + ácido fuerte → medio neutro (pH = 7).",
       "Escribe la correspondencia."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Ácidos fuertes: HCl, HBr, HI, H₂SO₄, HNO₃, HClO₄.",
       "Bases fuertes (hidróxidos solubles): NaOH, KOH, Ba(OH)₂, Ca(OH)₂.",
       "Ácidos débiles: H₂CO₃, H₂S, H₂SiO₃, CH₃COOH, HF, H₃PO₄, HNO₂, H₂SO₃.",
       "Bases débiles: NH₃·H₂O, Cu(OH)₂, Fe(OH)₂, Fe(OH)₃, Al(OH)₃, Zn(OH)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Na₂SO₄ — neutro (NaOH + H₂SO₄, ambos fuertes).",
       "Na₂CO₃ — alcalino (NaOH es fuerte, H₂CO₃ es débil).",
       "FeCl₃ — ácido (Fe(OH)₃ es débil, HCl es fuerte).",
       "CH₃COONa — alcalino."
     ],
-    "variability_ru": "Cambian las sales. También pueden preguntar por el color del indicador (tornasol, fenolftaleína, anaranjado de metilo)."
+    "variability": "Cambian las sales. También pueden preguntar por el color del indicador (tornasol, fenolftaleína, anaranjado de metilo)."
   },
   "27": {
-    "title_ru": "Problema de cálculo (básico)",
-    "topic_ru": "Cálculos de fracción másica, masa molar, volumen de gas",
-    "algorithm_ru": [
+    "title": "Problema de cálculo (básico)",
+    "topic": "Cálculos de fracción másica, masa molar, volumen de gas",
+    "algorithm": [
       "Escribe los datos del problema: masas, volúmenes, concentraciones.",
       "Escribe y balancea la ecuación química.",
       "Calcula la cantidad de sustancia (n = m/M o n = V/22,4 o n = C × V).",
@@ -167,23 +167,23 @@
       "Calcula la respuesta (masa, volumen, fracción másica).",
       "Redondea a la precisión requerida."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "M(NaCl) = 58,5 g/mol, M(Na₂CO₃) = 106 g/mol, M(BaSO₄) = 233 g/mol.",
       "V (en condiciones normales) = n × 22,4 L/mol.",
       "ω = m(soluto) / m(solución) × 100 %.",
       "Al mezclar soluciones: m(total) = m₁ + m₂, m(soluto, total) = m(soluto)₁ + m(soluto)₂."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "No olvides convertir mL a L al usar la concentración molar.",
       "Verifica las unidades de la respuesta.",
       "Al mezclar soluciones, la masa de la solución es la suma de las masas de ambas soluciones."
     ],
-    "variability_ru": "Problemas sobre fracción másica, concentración molar, volumen de gas en condiciones normales, rendimiento del producto."
+    "variability": "Problemas sobre fracción másica, concentración molar, volumen de gas en condiciones normales, rendimiento del producto."
   },
   "29": {
-    "title_ru": "Balance electrónico (reacciones redox)",
-    "topic_ru": "Método del balance electrónico para balancear ecuaciones redox",
-    "algorithm_ru": [
+    "title": "Balance electrónico (reacciones redox)",
+    "topic": "Método del balance electrónico para balancear ecuaciones redox",
+    "algorithm": [
       "Asigna los estados de oxidación a todos los elementos en ambos lados.",
       "Identifica qué elementos cambiaron su estado de oxidación.",
       "Escribe las semirreacciones: oxidación (pérdida de e⁻) y reducción (ganancia de e⁻).",
@@ -191,23 +191,23 @@
       "Coloca los coeficientes en la ecuación, verifica el balance de átomos y cargas.",
       "Identifica el agente oxidante y el agente reductor."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Agente oxidante — acepta electrones (disminuye su estado de oxidación).",
       "Agente reductor — dona electrones (aumenta su estado de oxidación).",
       "Oxidantes típicos: KMnO₄, K₂Cr₂O₇, HNO₃ conc., H₂SO₄ conc.",
       "Reductores típicos: metales, HCl, H₂S, carbono, CO."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "En el HCl, parte del Cl forma la sal y parte se oxida a Cl₂.",
       "No olvides verificar el balance de hidrógeno y oxígeno después de colocar los coeficientes.",
       "El medio importa: KMnO₄ en ácido → Mn²⁺, en neutro → MnO₂, en alcalino → MnO₄²⁻."
     ],
-    "variability_ru": "Cambian los reactivos y productos, pero el principio del balance electrónico es el mismo."
+    "variability": "Cambian los reactivos y productos, pero el principio del balance electrónico es el mismo."
   },
   "34": {
-    "title_ru": "Determinación de la fórmula de una sustancia orgánica",
-    "topic_ru": "Determinación de la fórmula molecular a partir de las masas de los productos de combustión",
-    "algorithm_ru": [
+    "title": "Determinación de la fórmula de una sustancia orgánica",
+    "topic": "Determinación de la fórmula molecular a partir de las masas de los productos de combustión",
+    "algorithm": [
       "A partir de las masas de CO₂ y H₂O, calcula las cantidades de C y H: n(C) = m(CO₂)/44, n(H) = 2 × m(H₂O)/18.",
       "Calcula las masas de C y H: m(C) = 12 × n(C), m(H) = n(H).",
       "Determina la masa de O (si existe): m(O) = m(sustancia) − m(C) − m(H) − m(N).",
@@ -215,17 +215,17 @@
       "Usando la densidad de vapor o la masa molar, determina la fórmula verdadera.",
       "M = D(H₂) × 2 o M = D(aire) × 29."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Al quemar CₓHᵧOᵤ: CₓHᵧOᵤ + O₂ → x CO₂ + (y/2) H₂O.",
       "Si m(sustancia) = m(C) + m(H), entonces no hay oxígeno en la composición.",
       "D(H₂) = M/2, D(aire) = M/29, D(N₂) = M/28.",
       "Fórmula empírica × k = fórmula verdadera (k = M / M_empírica)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "No olvides verificar la presencia de oxígeno (o nitrógeno) — calcula por diferencia.",
       "Si se da nitrógeno (N₂) en el problema, tenlo en cuenta: m(N) = m(sustancia) − m(C) − m(H) − m(O).",
       "k debe ser un número entero. Si no lo es, hay un error de cálculo."
     ],
-    "variability_ru": "Cambian la sustancia y las condiciones (masa, densidad, datos adicionales). Siempre: encontrar C, H → O por diferencia → fórmula empírica → fórmula verdadera."
+    "variability": "Cambian la sustancia y las condiciones (masa, densidad, datos adicionales). Siempre: encontrar C, H → O por diferencia → fórmula empírica → fórmula verdadera."
   }
 }

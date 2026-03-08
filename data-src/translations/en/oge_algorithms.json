@@ -1,53 +1,53 @@
 {
   "1": {
-    "title_ru": "Simple substance vs. chemical element",
-    "topic_ru": "Atomic structure. Distinguishing between 'element' and 'simple substance'",
-    "algorithm_ru": [
+    "title": "Simple substance vs. chemical element",
+    "topic": "Atomic structure. Distinguishing between 'element' and 'simple substance'",
+    "algorithm": [
       "Read each statement and determine: is it about a substance (can be touched, seen, used) or an element (abstract type of atoms).",
       "Signs of an element: 'is a component of,' 'atom,' 'abundance in the Earth's crust,' 'forms a chemical bond,' 'is contained in a molecule.'",
       "Signs of a simple substance: physical properties (color, odor, density), practical applications, allotropy, combustion, corrosion.",
       "Select the 2 statements that refer to the element."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "A chemical element is a specific type of atoms with the same nuclear charge.",
       "A simple substance is a specific form of existence of an element (e.g., O₂ and O₃ are two substances of the same element).",
       "'Abundance in the Earth's crust' always refers to the element (it concerns the proportion of atoms, not a piece of substance).",
       "'Allotropic modifications' always refers to the simple substance.",
       "'Is a component of a compound/protein/mineral' always refers to the element."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "'Forms a bond with oxygen' refers to the element, not the substance (it concerns the chemical nature of the atom).",
       "'Used in industry' refers to the substance (a specific application).",
       "Do not confuse: 'phosphorus is a component of proteins' (element) and 'phosphorus is applied to matches' (substance)."
     ],
-    "variability_ru": "The element changes (Al, P, S, H, O, N, Fe, C, Cl...) as does the set of statements. The principle remains the same."
+    "variability": "The element changes (Al, P, S, H, O, N, Fe, C, Cl...) as does the set of statements. The principle remains the same."
   },
   "2": {
-    "title_ru": "Period and group from electron configuration",
-    "topic_ru": "Periodic Table: finding an element from its electron distribution",
-    "algorithm_ru": [
+    "title": "Period and group from electron configuration",
+    "topic": "Periodic Table: finding an element from its electron distribution",
+    "algorithm": [
       "Given the distribution of electrons across shells (e.g., 2, 8, 5).",
       "The number of electron shells = the period number. Count: 2, 8, 5 → 3 shells → period 3.",
       "The number of electrons in the outermost shell = the group number. The outermost shell has 5 → group V.",
       "Write X (period) and Y (group) in the answer cells."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Maximum number of electrons per shell: 1st → 2, 2nd → 8, 3rd → 18, 4th → 32.",
       "For elements in the first 4 periods, the outer shell contains no more than 8 electrons.",
       "Group number = number of electrons in the outer shell (for main group elements, the first 20 elements).",
       "Total number of electrons = atomic number (use this to verify your answer)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse the period (number of shells) and the group (electrons in the outer shell).",
       "Verification: the sum of all electrons must equal the atomic number of a real element.",
       "For transition elements (from element 21 onward), the rule 'outer shell = group' does not apply, but the OGE typically tests the first 20 elements."
     ],
-    "variability_ru": "The element changes (first 20 elements). The electron distribution always uniquely identifies the element."
+    "variability": "The element changes (first 20 elements). The electron distribution always uniquely identifies the element."
   },
   "3": {
-    "title_ru": "Trends in properties across periods and groups",
-    "topic_ru": "Arranging elements in order of increasing/decreasing a property",
-    "algorithm_ru": [
+    "title": "Trends in properties across periods and groups",
+    "topic": "Arranging elements in order of increasing/decreasing a property",
+    "algorithm": [
       "Determine which property needs to be ordered (nonmetallic properties, metallic properties, electronegativity, atomic radius).",
       "Locate all 3 elements in the Periodic Table.",
       "If the elements are in the same period: from left to right, nonmetallic properties increase, metallic properties decrease, and atomic radius decreases.",
@@ -55,24 +55,24 @@
       "If the elements are positioned diagonally, combine both rules.",
       "Write the numbers in the required order."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Across a period (→): nuclear charge ↑, radius ↓, electronegativity ↑, nonmetallic character ↑, metallic character ↓.",
       "Down a group (↓): nuclear charge ↑, radius ↑, electronegativity ↓, nonmetallic character ↓, metallic character ↑.",
       "Electronegativity and nonmetallic properties change in the same direction.",
       "The strongest nonmetal is F (upper right corner, excluding noble gases).",
       "The strongest metal is Fr (lower left corner)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Read carefully: 'increasing' or 'decreasing' of the property. Writing numbers in reverse order is a common error.",
       "If elements are not in the same period/group (e.g., Si, S, Cl — all in period 3, but Si in group IV), use their position in the table.",
       "Noble gases are usually excluded from nonmetallic character comparisons."
     ],
-    "variability_ru": "The elements change (usually 3 from the same period or group) as does the property (nonmetallic character, metallic character, radius, electronegativity)."
+    "variability": "The elements change (usually 3 from the same period or group) as does the property (nonmetallic character, metallic character, radius, electronegativity)."
   },
   "4": {
-    "title_ru": "Oxidation states of an element in compounds",
-    "topic_ru": "Determining the oxidation state from a compound's formula",
-    "algorithm_ru": [
+    "title": "Oxidation states of an element in compounds",
+    "topic": "Determining the oxidation state from a compound's formula",
+    "algorithm": [
       "For each substance (A, B, C), determine the oxidation state of the specified element.",
       "Use the rules: O is always −2 (except in OF₂ and peroxides), H = +1 (in acids, with nonmetals), H = −1 (in metal hydrides).",
       "Group I metals: +1, Group II metals: +2.",
@@ -80,25 +80,25 @@
       "Set up an equation and find the unknown oxidation state.",
       "Match the calculated values with the answer options."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "F is always −1. O is almost always −2 (exceptions: OF₂ → O = +2, peroxides → O = −1).",
       "H = +1 in most compounds, −1 in hydrides (NaH, CaH₂).",
       "The sum of all oxidation states = 0 in a neutral molecule.",
       "Simple substances: oxidation state = 0 (Na⁰, Cl₂⁰).",
       "In oxyacids: H = +1, O = −2; find the oxidation state of the central atom."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "OF₂: here oxygen is +2, not −2 (fluorine is more electronegative).",
       "Distinguish NH₄Br (Br = −1, in the salt) from KBrO₃ (Br = +5, bromate).",
       "Do not forget to account for the number of atoms: in KBrO₄ → K(+1) + Br(x) + 4×O(−2) = 0, so x = +7.",
       "Oxidation state is not valence! Oxidation state can be negative."
     ],
-    "variability_ru": "The element changes (Br, S, N, Cl, Mn, Cr, P) as does the set of compounds. Always 3 substances → 4 oxidation state options."
+    "variability": "The element changes (Br, S, N, Cl, Mn, Cr, P) as does the set of compounds. Always 3 substances → 4 oxidation state options."
   },
   "5": {
-    "title_ru": "Types of chemical bonds",
-    "topic_ru": "Determining the type of bond in substances",
-    "algorithm_ru": [
+    "title": "Types of chemical bonds",
+    "topic": "Determining the type of bond in substances",
+    "algorithm": [
       "Determine the type of each substance: metal, nonmetal as a simple substance, binary compound, ionic compound.",
       "Metallic bond: between metal atoms (Na, Fe, Cu).",
       "Covalent nonpolar bond: between identical nonmetal atoms (H₂, O₂, N₂, Cl₂, P₄, S₈).",
@@ -106,24 +106,24 @@
       "Ionic bond: between a metal and a nonmetal (NaCl, MgF₂, CaO), or NH₄⁺ with an anion.",
       "Select the 2 substances with the specified bond type."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Covalent polar is the most common bond type in OGE: any two DIFFERENT nonmetals.",
       "NH₄Cl has an ionic bond (NH₄⁺ and Cl⁻), but within NH₄⁺ the bond is covalent polar.",
       "Noble gases (He, Ne, Ar) have no chemical bonds (monatomic).",
       "Electronegativity difference > 1.7 → ionic bond (approximately)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "MgF₂ is ionic, not covalent (Mg is a metal!).",
       "CO has a covalent polar bond (both are nonmetals, but different).",
       "HF has a covalent polar bond (not ionic, even though the electronegativity difference is high — in the school curriculum, this is covalent polar).",
       "Diamond (C), graphite — covalent nonpolar (one element)."
     ],
-    "variability_ru": "The bond type changes (covalent polar/nonpolar, ionic, metallic) as does the set of 5 substances."
+    "variability": "The bond type changes (covalent polar/nonpolar, ionic, metallic) as does the set of 5 substances."
   },
   "6": {
-    "title_ru": "Common properties of elements in the same period/group",
-    "topic_ru": "Periodic Table trends + atomic structure",
-    "algorithm_ru": [
+    "title": "Common properties of elements in the same period/group",
+    "topic": "Periodic Table trends + atomic structure",
+    "algorithm": [
       "Determine what the given elements (usually 2-3 elements from the same period or group) have in common.",
       "Check each statement:",
       "— Same number of protons? → No (different elements).",
@@ -133,25 +133,25 @@
       "— Highest oxides of the same type? → Depends on the group.",
       "Select the 2 correct statements."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Elements of the same period: same number of electron shells.",
       "Elements of the same group: same number of electrons in the outer shell.",
       "B, C, N are in period 2, all are nonmetals (boron is considered a nonmetal in the OGE context).",
       "Li, Na, K are in group 1, all are active metals, all form alkalis.",
       "N can exhibit negative oxidation states (−3 in NH₃), unlike many nonmetals."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "'Same number of protons' — no! These are different elements.",
       "'Only positive oxidation states' — incorrect for many nonmetals (N: −3, S: −2).",
       "Fluorine does NOT exhibit positive oxidation states (the most electronegative element).",
       "Highest oxides of elements in the same period have different types (Na₂O is basic, SO₃ is acidic)."
     ],
-    "variability_ru": "The elements change (a pair or trio from the same period or group) as does the set of statements."
+    "variability": "The elements change (a pair or trio from the same period or group) as does the set of statements."
   },
   "7": {
-    "title_ru": "Classification of inorganic substances",
-    "topic_ru": "Selecting substances of specific classes from a list",
-    "algorithm_ru": [
+    "title": "Classification of inorganic substances",
+    "topic": "Selecting substances of specific classes from a list",
+    "algorithm": [
       "Read carefully which two classes need to be found and in what order to write them.",
       "Classify each substance from the list:",
       "— Oxide: two elements, one is oxygen. Basic (metal with low oxidation state), acidic (nonmetal), amphoteric (Al₂O₃, ZnO, Cr₂O₃, BeO), non-salt-forming (CO, NO, N₂O).",
@@ -160,25 +160,25 @@
       "— Salt: metal cation + acid residue anion.",
       "Write the number of the first class first, then the second (order matters!)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Amphoteric oxides: Al₂O₃, ZnO, BeO, Cr₂O₃, Fe₂O₃ (debatable), PbO.",
       "Amphoteric hydroxides: Al(OH)₃, Zn(OH)₂, Be(OH)₂, Cr(OH)₃.",
       "OF₂ is NOT an oxide (oxygen is +2, fluorine is −1). It is oxygen difluoride.",
       "N₂O, NO, CO are non-salt-forming oxides.",
       "FeO is a basic oxide (Fe²⁺), Fe₂O₃ is conditionally amphoteric (but often considered basic in OGE)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "ORDER MATTERS! Write the number of the class mentioned first in the question first.",
       "OF₂ is not an oxide! (a common trap).",
       "Mg(OH)₂ is a base, but NOT an amphoteric hydroxide.",
       "N₂O is a non-salt-forming oxide, not an acidic one."
     ],
-    "variability_ru": "The class pairs change (basic oxide + amphoteric hydroxide, acid + basic salt, etc.) as does the set of 5 substances. The format has changed over the years: previously it was one substance from 4."
+    "variability": "The class pairs change (basic oxide + amphoteric hydroxide, acid + basic salt, etc.) as does the set of 5 substances. The format has changed over the years: previously it was one substance from 4."
   },
   "8": {
-    "title_ru": "Chemical properties of substances / reaction types",
-    "topic_ru": "Does the given substance react with those listed?",
-    "algorithm_ru": [
+    "title": "Chemical properties of substances / reaction types",
+    "topic": "Does the given substance react with those listed?",
+    "algorithm": [
       "Determine the class of the given substance (metal, nonmetal, oxide, acid, base, salt).",
       "For each option, check whether the reaction occurs:",
       "— Metal + acid → salt + H₂ (if the metal is above H in the activity series).",
@@ -188,25 +188,25 @@
       "— Acidic oxide + base → salt + H₂O.",
       "If the reaction does not occur (no driving force), this is one of the answers (if the question asks 'do not react')."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Driving forces of reactions: formation of a precipitate ↓, gas ↑, water, or a weak electrolyte.",
       "Activity series: Li K Ca Na Mg Al Zn Fe Ni Sn Pb (H₂) Cu Hg Ag Pt Au.",
       "Cu, Ag, Au do not react with dilute acids (to the right of H).",
       "SiO₂ does not react with water (insoluble oxide).",
       "CO does not react with most substances at standard conditions."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Pay attention: 'do not react' (look for those that DON'T react) or 'react' (look for those that DO react).",
       "Na₂SO₄ is a stable salt; it does not react with most nonmetals.",
       "Concentrated HNO₃ is a strong oxidizer; it reacts even with Cu and some nonmetals.",
       "Alkali metals (Na, K) do not displace less active metals from solutions — they react with water instead."
     ],
-    "variability_ru": "The substance changes (phosphorus, zinc, calcium oxide, sulfuric acid...) as does the list of 5 reagents. The question may ask 'reacts' or 'does not react.'"
+    "variability": "The substance changes (phosphorus, zinc, calcium oxide, sulfuric acid...) as does the list of 5 reagents. The question may ask 'reacts' or 'does not react.'"
   },
   "9": {
-    "title_ru": "Reagents → products (exchange reactions)",
-    "topic_ru": "Matching reagents with reaction products",
-    "algorithm_ru": [
+    "title": "Reagents → products (exchange reactions)",
+    "topic": "Matching reagents with reaction products",
+    "algorithm": [
       "For each pair of reagents (A, B, C), determine the reaction type and write the products.",
       "Double replacement: AB + CD → AD + CB (cations and anions swap partners).",
       "Single replacement: A + BC → AC + B (an active metal displaces a less active one).",
@@ -215,25 +215,25 @@
       "Pay attention to the valence of the metal in the products (Fe²⁺ or Fe³⁺ depends on the reagent).",
       "Find the products in the right column."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Fe with dilute acids → Fe²⁺ (FeSO₄, FeCl₂).",
       "Fe₂O₃ + acid → Fe³⁺ (Fe₂(SO₄)₃, FeCl₃).",
       "Fe₂(SO₄)₃ + BaCl₂ → FeCl₃ + BaSO₄↓ (double replacement, Fe³⁺ is preserved).",
       "In double replacement: verify that the ion charges are balanced.",
       "Basic oxide + acid → salt + water."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Fe²⁺ vs. Fe³⁺ is the main trap! Fe with acid → Fe²⁺, but Fe₂O₃ with acid → Fe³⁺.",
       "There is a spare option in the right column — not all options are used.",
       "Do not confuse FeSO₄ (Fe²⁺) and Fe₂(SO₄)₃ (Fe³⁺).",
       "BaSO₄ is a precipitate, insoluble in acids."
     ],
-    "variability_ru": "The reagent pairs change. Fe, Cu, and Ba compounds are frequently featured. Always 3 pairs → 4-5 product options."
+    "variability": "The reagent pairs change. Fe, Cu, and Ba compounds are frequently featured. Always 3 pairs → 4-5 product options."
   },
   "10": {
-    "title_ru": "Substance → pair of reagents",
-    "topic_ru": "Selecting a pair of reagents with each of which the substance reacts",
-    "algorithm_ru": [
+    "title": "Substance → pair of reagents",
+    "topic": "Selecting a pair of reagents with each of which the substance reacts",
+    "algorithm": [
       "For each substance (A, B, C), check whether it reacts with BOTH substances in each option.",
       "Important: the substance must react with EACH of the two reagents in the pair.",
       "Determine the class of the substance and recall its properties:",
@@ -243,24 +243,24 @@
       "— Acid: reacts with metals (above H), bases, basic/amphoteric oxides, salts (if a precipitate/gas forms).",
       "Check all options systematically for each substance."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Al is an amphoteric metal: it reacts with both acids and alkalis.",
       "Ca(OH)₂ reacts with CO₂ (lime water turns cloudy) and with amphoteric oxides (Al₂O₃).",
       "SO₃ (acidic oxide) reacts with basic oxides (Na₂O) and with reducing agents (H₂S).",
       "Check each reagent in the pair separately!"
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Mistake: checking only the first reagent and forgetting to check the second.",
       "N₂ is a very inert gas; it reacts with very few substances (at high T: with Li, Mg, H₂).",
       "CaO reacts with water and acids, but does NOT react with basic oxides.",
       "Amphoteric substances react with both acids and alkalis — use this."
     ],
-    "variability_ru": "The 3 substances change (metal, base, oxide, etc.) as do the 4 reagent pairs. The key is knowing the properties of each class."
+    "variability": "The 3 substances change (metal, base, oxide, etc.) as do the 4 reagent pairs. The key is knowing the properties of each class."
   },
   "11": {
-    "title_ru": "Reaction types, conditions, and signs",
-    "topic_ru": "Double replacement / single replacement / decomposition / combination reaction",
-    "algorithm_ru": [
+    "title": "Reaction types, conditions, and signs",
+    "topic": "Double replacement / single replacement / decomposition / combination reaction",
+    "algorithm": [
       "For each pair of substances, determine the reaction type:",
       "— Double replacement: two compounds exchange parts (AB + CD → AD + CB). Neutralization is a subtype.",
       "— Single replacement: a simple substance + a compound → a new simple substance + a new compound (A + BC → AC + B).",
@@ -269,24 +269,24 @@
       "Verify that the reaction actually occurs (there is a driving force).",
       "Select the pairs that correspond to the specified type."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Neutralization (acid + base → salt + water) is a double replacement reaction.",
       "Br₂ + 2KI → 2KBr + I₂ — single replacement (a halogen displaces another).",
       "Zn + H₂SO₄ → ZnSO₄ + H₂↑ — single replacement (not double replacement!).",
       "Exo/endothermic: combustion is exothermic, decomposition is usually endothermic.",
       "Catalytic: decomposition of H₂O₂ (catalyst MnO₂)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Metal + acid is SINGLE REPLACEMENT, not double replacement (even though it may look similar).",
       "NaOH + Al is a non-standard reaction (Al + NaOH + H₂O → Na[Al(OH)₄] + H₂↑); it is neither double replacement nor simple single replacement.",
       "Not every pair reacts: Na₂SO₄ + KCl → does not proceed (no precipitate/gas/water)."
     ],
-    "variability_ru": "The specified reaction type changes (double replacement/single replacement/decomposition/combination) as does the set of 5 substance pairs."
+    "variability": "The specified reaction type changes (double replacement/single replacement/decomposition/combination) as does the set of 5 substance pairs."
   },
   "12": {
-    "title_ru": "Signs of occurring reactions",
-    "topic_ru": "Matching reagents with observable reaction signs",
-    "algorithm_ru": [
+    "title": "Signs of occurring reactions",
+    "topic": "Matching reagents with observable reaction signs",
+    "algorithm": [
       "For each pair of reagents, write the reaction equation.",
       "Determine what is observed: precipitate (↓), gas (↑), color change, dissolution.",
       "The key is to memorize precipitate colors and gas properties:",
@@ -299,7 +299,7 @@
       "— Gas with odor: H₂S (rotten eggs), NH₃ (pungent), SO₂ (acrid).",
       "Match the observations with the options."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Cu(OH)₂ — blue precipitate (from CuSO₄ + NaOH or Cu²⁺ + OH⁻).",
       "Fe(OH)₃ — brown precipitate.",
       "Fe(OH)₂ — white, quickly turns brown in air (oxidation to Fe(OH)₃).",
@@ -308,18 +308,18 @@
       "H₂SiO₃ — colorless gelatinous precipitate.",
       "CuS — black precipitate, insoluble even in acids."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse: 'white precipitate' includes AgCl, BaSO₄, CaCO₃, and Mg(OH)₂. It matters which one EXACTLY.",
       "NH₃ — gas with a pungent smell (from NH₄⁺ + OH⁻).",
       "H₂S — gas with a rotten egg smell.",
       "CO₂ — colorless odorless gas."
     ],
-    "variability_ru": "The 3 reagent pairs and 4 sign options change. The set is based on qualitative reactions from the OGE curriculum."
+    "variability": "The 3 reagent pairs and 4 sign options change. The set is based on qualitative reactions from the OGE curriculum."
   },
   "13": {
-    "title_ru": "Electrolytes and non-electrolytes",
-    "topic_ru": "Classifying substances by their ability to dissociate",
-    "algorithm_ru": [
+    "title": "Electrolytes and non-electrolytes",
+    "topic": "Classifying substances by their ability to dissociate",
+    "algorithm": [
       "For each substance, determine: electrolyte or non-electrolyte.",
       "Electrolytes (dissociate in solution/melt): all soluble salts, strong acids, alkalis.",
       "Non-electrolytes: simple substances (metals, nonmetals), oxides, most organic compounds, water (weakly).",
@@ -327,7 +327,7 @@
       "Na₂SO₄ → 2Na⁺ + SO₄²⁻ → 3 ions. CaCl₂ → Ca²⁺ + 2Cl⁻ → 3 ions.",
       "Select the substances matching the given criterion."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄.",
       "Weak acids: H₂CO₃, H₂S, CH₃COOH, HF, H₃PO₄, H₂SiO₃.",
       "Alkalis (soluble bases): NaOH, KOH, Ca(OH)₂, Ba(OH)₂.",
@@ -335,18 +335,18 @@
       "CH₄, CO, CO₂, SiO₂ — non-electrolytes.",
       "Counting ions: account for subscripts in the formula."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "CO is a non-electrolyte (an oxide that does not dissolve to form ions).",
       "HF is a WEAK acid (an exception among hydrogen halides).",
       "H₂O is a very weak electrolyte (usually considered a non-electrolyte in OGE).",
       "Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ → 5 ions (not 6! count formula units)."
     ],
-    "variability_ru": "Three subtypes: (1) select electrolytes/non-electrolytes, (2) select strong/weak electrolytes, (3) select substances that produce a given number of ions upon dissociation."
+    "variability": "Three subtypes: (1) select electrolytes/non-electrolytes, (2) select strong/weak electrolytes, (3) select substances that produce a given number of ions upon dissociation."
   },
   "14": {
-    "title_ru": "Net ionic equations",
-    "topic_ru": "Selecting substances that match a net ionic equation",
-    "algorithm_ru": [
+    "title": "Net ionic equations",
+    "topic": "Selecting substances that match a net ionic equation",
+    "algorithm": [
       "Read the net ionic equation (e.g., H⁺ + OH⁻ = H₂O).",
       "Determine which initial substances are needed: one contains the cation/anion from the left side, the other contains the second ion.",
       "Rule: a substance is written in ionic form only if it is a STRONG electrolyte AND SOLUBLE.",
@@ -355,25 +355,25 @@
       "Insoluble substances (Cu(OH)₂, BaSO₄, CaCO₃) are also written as whole molecules.",
       "Select 2 substances from the list."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "H⁺ + OH⁻ = H₂O — the reaction of a strong acid with a soluble base (the salt is soluble).",
       "CO₃²⁻ + 2H⁺ = H₂O + CO₂ — the carbonate is written as an ion → it is SOLUBLE (Na₂CO₃, K₂CO₃).",
       "CaCO₃ is insoluble, so it does not fit the equation with CO₃²⁻.",
       "NaHCO₃ is a bicarbonate (HCO₃⁻), not a carbonate (CO₃²⁻).",
       "H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — the ionic equation is different: SO₄²⁻ + Ba²⁺ = BaSO₄↓."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "H₂S is a weak acid; it is NOT written as H⁺ + S²⁻ in ionic equations.",
       "H₂SO₄ + Ba(OH)₂: BaSO₄↓ forms — a precipitate; the ionic equation will NOT be H⁺ + OH⁻ = H₂O.",
       "Al(OH)₃ is an insoluble hydroxide; it is not written as OH⁻.",
       "Mg(OH)₂ is insoluble; it does not serve as a source of OH⁻."
     ],
-    "variability_ru": "The net ionic equation changes (H⁺+OH⁻=H₂O, CO₃²⁻+2H⁺=H₂O+CO₂, S²⁻+2H⁺=H₂S, Ba²⁺+SO₄²⁻=BaSO₄↓) as does the set of 6 substances."
+    "variability": "The net ionic equation changes (H⁺+OH⁻=H₂O, CO₃²⁻+2H⁺=H₂O+CO₂, S²⁻+2H⁺=H₂S, Ba²⁺+SO₄²⁻=BaSO₄↓) as does the set of 6 substances."
   },
   "15": {
-    "title_ru": "Oxidizing and reducing agents in redox reactions",
-    "topic_ru": "Identifying oxidation/reduction from oxidation state change schemes",
-    "algorithm_ru": [
+    "title": "Oxidizing and reducing agents in redox reactions",
+    "topic": "Identifying oxidation/reduction from oxidation state change schemes",
+    "algorithm": [
       "Subtype 1 (schemes): For each scheme (A, B, C), determine whether the oxidation state of the element increases or decreases.",
       "Oxidation state increases → the element LOSES electrons → OXIDATION (reducing agent).",
       "Oxidation state decreases → the element GAINS electrons → REDUCTION (oxidizing agent).",
@@ -382,25 +382,25 @@
       "The substance containing the element whose oxidation state decreases → oxidizing agent.",
       "Mnemonic: 'Loses — Reducing agent' (LR)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Oxidation = loss of electrons = increase in oxidation state.",
       "Reduction = gain of electrons = decrease in oxidation state.",
       "The oxidizing agent gains electrons; the reducing agent loses electrons.",
       "In the reaction Cu + HNO₃: Cu⁰→Cu²⁺ (reducing agent), N⁺⁵→N⁺² (oxidizing agent).",
       "Elemental metals are always reducing agents."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not confuse: the oxidizing agent is REDUCED (its oxidation state decreases), the reducing agent is OXIDIZED.",
       "HNO₃ in the reaction with Cu is the oxidizing agent (N⁺⁵→N⁺²), even though H in HNO₃ does not change its oxidation state.",
       "N₂⁰ → 2N⁻³: oxidation state decreases → reduction.",
       "If an element is both oxidized and reduced, this is disproportionation (rare in OGE)."
     ],
-    "variability_ru": "Two subtypes: (1) 3 schemes of oxidation state changes → oxidation/reduction; (2) a reaction → the role of each substance (oxidizing agent/reducing agent/both)."
+    "variability": "Two subtypes: (1) 3 schemes of oxidation state changes → oxidation/reduction; (2) a reaction → the role of each substance (oxidizing agent/reducing agent/both)."
   },
   "16": {
-    "title_ru": "Laboratory practice / separation of mixtures / pollution",
-    "topic_ru": "Correct statements about practical chemistry questions",
-    "algorithm_ru": [
+    "title": "Laboratory practice / separation of mixtures / pollution",
+    "topic": "Correct statements about practical chemistry questions",
+    "algorithm": [
       "Read all 4 statements. Determine the topic: laboratory safety, separation of mixtures, or ecology/pollution.",
       "For each statement, determine whether it is correct:",
       "— Safety rules: never taste substances, smell cautiously (wafting), acid on skin → rinse with water + baking soda.",
@@ -408,50 +408,50 @@
       "— Ecology: greenhouse effect (CO₂), acid rain (SO₂, NO₂), ozone layer (CFCs).",
       "The number of correct statements may be 1, 2, or 3."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Cast iron, bronze, steel are alloys = mixtures.",
       "Distilled water, ice are pure substances.",
       "Filtration does NOT separate dissolved salts (evaporation or distillation is needed).",
       "Distillation is a physical method (not chemical).",
       "Acid is poured into water (not water into acid!)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Task 16 has a VARIABLE number of correct answers (from 1 to 3)! Write ALL correct ones.",
       "'Seawater can be purified from salts by filtration' — INCORRECT (salts are dissolved).",
       "'Distillation is a chemical method' — INCORRECT (it is physical).",
       "'Flammable liquids should only be stored in a refrigerator' — imprecise (away from fire, but not necessarily in a refrigerator)."
     ],
-    "variability_ru": "Three main topics: (1) laboratory safety, (2) separation of mixtures, (3) environmental pollution. Each variant covers one topic. Number of correct answers ranges from 1 to 3."
+    "variability": "Three main topics: (1) laboratory safety, (2) separation of mixtures, (3) environmental pollution. Each variant covers one topic. Number of correct answers ranges from 1 to 3."
   },
   "17": {
-    "title_ru": "Distinguishing substances using reagents",
-    "topic_ru": "Selecting a reagent to identify a pair of substances",
-    "algorithm_ru": [
+    "title": "Distinguishing substances using reagents",
+    "topic": "Selecting a reagent to identify a pair of substances",
+    "algorithm": [
       "For each pair of substances (A, B, C), find the reagent that gives DIFFERENT results with the two substances.",
       "Checking algorithm: reagent + substance 1 → effect 1 (precipitate/gas/nothing). Reagent + substance 2 → effect 2.",
       "If the effects are different → the reagent distinguishes.",
       "Main qualitative reagents: AgNO₃ (for Cl⁻, Br⁻, I⁻), BaCl₂ (for SO₄²⁻), alkali KOH/NaOH (for cations: Cu²⁺, Fe³⁺, Mg²⁺, NH₄⁺), acids (for CO₃²⁻), litmus/indicator (acid vs. neutral).",
       "Select the reagent from the given options."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "AgNO₃: with Cl⁻ → AgCl↓ (white), with F⁻ → soluble (no precipitate), with Br⁻ → AgBr↓ (yellowish), with I⁻ → AgI↓ (yellow).",
       "BaCl₂/Ba(NO₃)₂: with SO₄²⁻ → BaSO₄↓ (white).",
       "KOH/NaOH: with Cu²⁺ → Cu(OH)₂↓ (blue), with Fe³⁺ → Fe(OH)₃↓ (brown), with Mg²⁺ → Mg(OH)₂↓ (white), with NH₄⁺ → NH₃↑ (smell).",
       "Acid: with CO₃²⁻ → CO₂↑ (bubbles).",
       "BaCO₃ reacts with acids (dissolves + CO₂), but not with neutral salts."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "AgF is soluble! AgNO₃ does NOT distinguish F⁻ by precipitate (but it distinguishes F⁻ from Cl⁻: no precipitate with KF, precipitate with KCl).",
       "A spare reagent in the right column — not all are used.",
       "FeO is insoluble; it does not react with salt solutions.",
       "KOH distinguishes NH₄Cl from other salts (NH₃ evolution with smell)."
     ],
-    "variability_ru": "The 3 substance pairs and 4 reagents change. Pairs often include salts with the same anion but different cations, or vice versa."
+    "variability": "The 3 substance pairs and 4 reagents change. Pairs often include salts with the same anion but different cations, or vice versa."
   },
   "18": {
-    "title_ru": "Calculating the mass fraction of an element",
-    "topic_ru": "Calculating w(element) in a compound",
-    "algorithm_ru": [
+    "title": "Calculating the mass fraction of an element",
+    "topic": "Calculating w(element) in a compound",
+    "algorithm": [
       "Write the formula of the substance from the problem statement.",
       "Calculate the molar mass M: sum of the atomic masses of all atoms.",
       "M = sum(Ai x ni), where Ai is the atomic mass and ni is the number of atoms of the element.",
@@ -459,23 +459,23 @@
       "Round to whole numbers.",
       "Important: count the atoms carefully, especially in formulas with multiple parentheses."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Atomic masses (rounded): H=1, C=12, N=14, O=16, Na=23, Mg=24, Al=27, P=31, S=32, Cl=35.5, K=39, Ca=40, Fe=56, Cu=64, Zn=65, Ag=108, Ba=137.",
       "In the formula Mg₃(C₆H₅O₇)₂: 3 Mg atoms, 2x6=12 C atoms, 2x5=10 H atoms, 2x7=14 O atoms.",
       "Verification: w values of all elements should sum to approximately 100%."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not forget the subscript outside parentheses: (OH)₂ → 2 O atoms and 2 H atoms.",
       "Ca(NO₃)₂: N = 2x1 = 2 atoms, O = 2x3 = 6 atoms.",
       "Mg₃(C₆H₅O₇)₂: the subscript 2 multiplies EVERYTHING inside the parentheses.",
       "Rounding: 24.39% → 24%, but 24.5% → also 24 or 25 (follow 'rounded to whole numbers' — standard mathematical rounding)."
     ],
-    "variability_ru": "The substance changes (from simple ones like NaCl, CaCO₃ to complex ones like Mg₃(C₆H₅O₇)₂). The context involves a practical application of the substance. Tasks 18 and 19 share a common context."
+    "variability": "The substance changes (from simple ones like NaCl, CaCO₃ to complex ones like Mg₃(C₆H₅O₇)₂). The context involves a practical application of the substance. Tasks 18 and 19 share a common context."
   },
   "19": {
-    "title_ru": "Practical calculation using mass fraction",
-    "topic_ru": "Applying w(element) to a specific problem",
-    "algorithm_ru": [
+    "title": "Practical calculation using mass fraction",
+    "topic": "Applying w(element) to a specific problem",
+    "algorithm": [
       "Use the mass fraction calculated in task 18.",
       "Typical problem: 'In N grams of substance, there are X grams of element. Find X.'",
       "Formula: m(element) = m(substance) x w(element).",
@@ -483,18 +483,18 @@
       "Write the answer to the nearest tenth.",
       "Tolerance for grading: ±0.05 (e.g., 1.6 is accepted as correct when the standard answer is 1.6)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "w is used as a decimal fraction in formulas: 16% = 0.16.",
       "m(X) = m(substance) x w(X) — mass of the element in the given portion.",
       "m(substance) = m(X) / w(X) — mass of the substance containing the given mass of element.",
       "Tasks 18 and 19 are always linked: the result of 18 is used in 19."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Do not forget to convert percent to a decimal: 16% → 0.16.",
       "If the problem asks 'how many kg of ore,' and w is given for the element in the pure compound — the ore may not be 100% pure (but in OGE, it is usually assumed to be 100%).",
       "Check units: if the mass is in grams, the answer is also in grams.",
       "Precision 'to the nearest tenth': 1.6 g, not 1.60 g or 2 g."
     ],
-    "variability_ru": "Linked to task 18. Context: medicine, agriculture, industry. The formula is the same; the numbers change."
+    "variability": "Linked to task 18. Context: medicine, agriculture, industry. The formula is the same; the numbers change."
   }
 }

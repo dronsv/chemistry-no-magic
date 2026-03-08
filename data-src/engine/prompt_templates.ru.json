@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "Какое условие номенклатуры соответствует суффиксу «{suffix_ru}»?",
+    "question": "Какое условие номенклатуры соответствует суффиксу «{suffix}»?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {
@@ -289,6 +289,22 @@
   },
   "explain.calc_heat_of_reaction": {
     "template": "Тепловой эффект реакции: ΔH = {delta_H} кДж.",
+    "slots": {}
+  },
+  "prompt.acid_residue_graph": {
+    "question": "Кислотный остаток кислоты {acid_formula} — это:",
+    "slots": {}
+  },
+  "explain.acid_residue_graph": {
+    "template": "Кислота {acid_formula} диссоциирует с образованием аниона {anion_formula} ({anion_name}) — это её кислотный остаток.",
+    "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "Как изменится {target_name} при увеличении {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "При увеличении {source_name} {target_name} {direction_label}.",
     "slots": {}
   }
 }

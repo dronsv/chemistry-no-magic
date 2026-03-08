@@ -32,6 +32,8 @@ import {
   validateBondExamples,
   validateOxidationExamples,
   validateEngineTaskTemplates,
+  validateRelations,
+  validateRelationIdIntegrity,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import {
@@ -51,6 +53,9 @@ import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
+import { generateRuleTexts, generateActivityTexts, generateQualitativeTexts } from './lib/generate-rule-texts.mjs';
+import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
+import { generateInstanceOf } from './lib/generate-classification-triples.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -187,6 +192,7 @@ async function main() {
   const storageProfiles = await loadJson(join(DATA_SRC, 'storage_profiles.json'));
   const periodicTrendAnomalies = await loadJson(join(DATA_SRC, 'rules', 'periodic_trend_anomalies.json'));
   const reasonVocab = await loadJson(join(DATA_SRC, 'rules', 'reason_vocab.json'));
+  const kineticsRules = await loadJson(join(DATA_SRC, 'rules', 'kinetics.json'));
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
   const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
   const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
@@ -199,6 +205,40 @@ async function main() {
   const concepts = await loadJson(join(DATA_SRC, 'concepts.json'));
   const topics = await loadJson(join(DATA_SRC, 'topics.json'));
   const topicPages = await loadJson(join(DATA_SRC, 'topic_pages.json'));
+
+  // Load Phase B1: rule vocab (merged from per-locale packs) and summary templates
+  const ALL_LOCALES = ['ru', ...TRANSLATION_LOCALES];
+  const ruleVocab = {};
+  for (const locale of ALL_LOCALES) {
+    const pack = await loadJson(join(DATA_SRC, 'translations', locale, 'rule_terms.json')).catch(() => ({}));
+    for (const [key, text] of Object.entries(pack)) {
+      if (!ruleVocab[key]) ruleVocab[key] = {};
+      ruleVocab[key][locale] = text;
+    }
+  }
+  const ruleSummaryTemplates = await loadJson(join(DATA_SRC, 'templates', 'rule_summary_templates.json')).catch(() => ({}));
+
+  // Load observation ontology: reaction_observations + substance_properties
+  const reactionObservations = await loadJson(join(DATA_SRC, 'rules', 'reaction_observations.json')).catch(() => []);
+  const substanceProperties = await loadJson(join(DATA_SRC, 'substances', 'substance_properties.json')).catch(() => []);
+
+  // Load color_terms locale packs (merged)
+  const colorTerms = {};
+  for (const locale of ALL_LOCALES) {
+    const pack = await loadJson(join(DATA_SRC, 'translations', locale, 'color_terms.json')).catch(() => ({}));
+    for (const [key, text] of Object.entries(pack)) {
+      if (!colorTerms[key]) colorTerms[key] = {};
+      colorTerms[key][locale] = text;
+    }
+  }
+
+  // Load indicator_response_rules locale packs (per-locale, keyed by computed observation ID)
+  const indicatorResponseLocale = {};
+  for (const locale of ALL_LOCALES) {
+    indicatorResponseLocale[locale] = await loadJson(
+      join(DATA_SRC, 'translations', locale, 'indicator_response_rules.json'),
+    ).catch(() => ({}));
+  }
 
   // Load theory modules early for validation (optional directory)
   const theoryModulesDir = join(DATA_SRC, 'theory_modules');
@@ -219,6 +259,16 @@ async function main() {
       courseEntries.push({ data: await loadJson(join(coursesDir, f)), filename: f });
     }
   } catch { /* courses dir optional */ }
+
+  // Load relations (optional directory)
+  const relationsDir = join(DATA_SRC, 'relations');
+  let relationEntries = [];  // Array of { data, filename }
+  try {
+    const rFiles = (await readdir(relationsDir)).filter(f => f.endsWith('.json') && !f.endsWith('_schema.json'));
+    for (const f of rFiles) {
+      relationEntries.push({ data: await loadJson(join(relationsDir, f)), filename: f });
+    }
+  } catch { /* relations dir optional */ }
 
   // Load contexts layer
   const chemContexts = await loadJson(join(DATA_SRC, 'contexts', 'contexts.json'));
@@ -287,7 +337,15 @@ async function main() {
     ...validateBondExamples(bondExamples),
     ...validateOxidationExamples(oxidationExamples),
     ...validateEngineTaskTemplates(engineTaskTemplates),
+    ...relationEntries.flatMap(({ data, filename }) => validateRelations(data, filename)),
   ];
+
+  // 2a. Relation ID integrity check
+  const ionIds = new Set(ions.map(i => i.id));
+  const substanceIds = new Set(substances.map(s => s.data.id));
+  const elementSymbols = new Set(elements.map(e => e.symbol));
+  const allRelationTriples = relationEntries.flatMap(e => e.data);
+  allErrors.push(...validateRelationIdIntegrity(allRelationTriples, { ionIds, substanceIds, elementSymbols }));
 
   for (const { filename, data } of substances) {
     allErrors.push(...validateSubstance(data, filename));
@@ -370,6 +428,28 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'solubility_rules_full.json'), JSON.stringify(solubilityFull));
   await writeFile(join(bundleDir, 'rules', 'activity_series.json'), JSON.stringify(activitySeries));
   await writeFile(join(bundleDir, 'rules', 'applicability_rules.json'), JSON.stringify(applicabilityRules));
+  const ruleTexts = generateRuleTexts(applicabilityRules, ruleVocab, ruleSummaryTemplates);
+  await writeFile(join(bundleDir, 'rules', 'rule_texts.json'), JSON.stringify(ruleTexts));
+  const activityTexts = generateActivityTexts(activitySeries, ruleSummaryTemplates);
+  await writeFile(join(bundleDir, 'rules', 'activity_texts.json'), JSON.stringify(activityTexts));
+  const qualitativeTexts = generateQualitativeTexts(
+    qualitativeReactions,
+    reactionObservations,
+    substanceProperties,
+    colorTerms,
+    indicatorResponseLocale,
+    ruleSummaryTemplates,
+  );
+  await writeFile(join(bundleDir, 'rules', 'qualitative_texts.json'), JSON.stringify(qualitativeTexts));
+  await writeFile(join(bundleDir, 'rules', 'reaction_observations.json'), JSON.stringify(reactionObservations));
+  await writeFile(join(bundleDir, 'rules', 'indicator_response_rules.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'indicator_response_rules.json')).catch(() => [])));
+  await writeFile(join(bundleDir, 'rules', 'indicator_entities.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'indicator_entities.json')).catch(() => [])));
+  await writeFile(join(bundleDir, 'rules', 'medium_states.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'medium_states.json')).catch(() => [])));
+  await mkdir(join(bundleDir, 'substances'), { recursive: true });
+  await writeFile(join(bundleDir, 'substances', 'substance_properties.json'), JSON.stringify(substanceProperties));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
   await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 
@@ -407,6 +487,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'storage_profiles.json'), JSON.stringify(storageProfiles));
   await writeFile(join(bundleDir, 'rules', 'periodic_trend_anomalies.json'), JSON.stringify(periodicTrendAnomalies));
   await writeFile(join(bundleDir, 'rules', 'reason_vocab.json'), JSON.stringify(reasonVocab));
+  await writeFile(join(bundleDir, 'rules', 'kinetics.json'), JSON.stringify(kineticsRules));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   await mkdir(join(bundleDir, 'engine'), { recursive: true });
@@ -551,6 +632,30 @@ async function main() {
     console.log(`  ${courseEntries.length} courses`);
   }
 
+  // 6a4. Copy relations (pre-loaded) + generate derived relations
+  const relationFiles = {};
+  await mkdir(join(bundleDir, 'relations'), { recursive: true });
+  if (relationEntries.length > 0) {
+    for (const { data, filename } of relationEntries) {
+      const key = filename.replace('.json', '');
+      await writeFile(join(bundleDir, 'relations', filename), JSON.stringify(data));
+      relationFiles[key] = `relations/${filename}`;
+    }
+    console.log(`  ${relationEntries.length} relation files`);
+  }
+
+  // Generate forms_salt_with relation triples from solubility data
+  const formsSaltWith = generateFormsSaltWith(solubility);
+  await writeFile(join(bundleDir, 'relations', 'forms_salt_with.json'), JSON.stringify(formsSaltWith));
+  relationFiles['forms_salt_with'] = 'relations/forms_salt_with.json';
+  console.log(`  ${formsSaltWith.length} forms_salt_with triples`);
+
+  // Generate instance_of classification triples from substance class/subclass fields
+  const instanceOf = generateInstanceOf(substances.map(s => s.data));
+  await writeFile(join(bundleDir, 'relations', 'instance_of.json'), JSON.stringify(instanceOf));
+  relationFiles['instance_of'] = 'relations/instance_of.json';
+  console.log(`  ${instanceOf.length} instance_of triples`);
+
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');
   const reactionParticipants = generateReactionParticipants(reactions);
@@ -575,17 +680,7 @@ async function main() {
     console.log(`  ${locale}: ${count} concept entries`);
   }
 
-  // 7c. Generate search index (Russian — default)
-  console.log('Generating search index...');
-  const searchIndex = generateSearchIndex({ elements, substances, reactions, competencies, ions });
-  await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(searchIndex));
-  console.log(`  ${searchIndex.length} search entries (ru)`);
-
-  // 7d. Generate name index (Russian — default)
-  console.log('Generating name index...');
-  const nameIndexRu = generateNameIndex({ elements, ions, substances, terms: chemTerms, bindings: termBindings });
-  await writeFile(join(bundleDir, 'name_index.ru.json'), JSON.stringify(nameIndexRu));
-  console.log(`  ${Object.keys(nameIndexRu).length} name entries (ru)`);
+  // 7c. Search index and name index are now generated per-locale in the translations loop below
 
   // 7d. Load translation overlays and generate per-locale data
   console.log('\nProcessing translations...');
@@ -630,6 +725,10 @@ async function main() {
       translations: overlays,
     });
     await writeFile(join(bundleDir, `search_index.${locale}.json`), JSON.stringify(localeSearchIndex));
+    // ru is the default locale — also write as the base search_index.json
+    if (locale === 'ru') {
+      await writeFile(join(bundleDir, 'search_index.json'), JSON.stringify(localeSearchIndex));
+    }
     console.log(`  ${locale}: ${localeSearchIndex.length} search entries`);
 
     // Generate locale-specific name index
@@ -654,6 +753,10 @@ async function main() {
       bindings: termBindings,
     });
     await writeFile(join(bundleDir, `name_index.${locale}.json`), JSON.stringify(localeNameIndex));
+    // ru is the default locale — also write as the base name_index.json
+    if (locale === 'ru') {
+      await writeFile(join(bundleDir, 'name_index.json'), JSON.stringify(localeNameIndex));
+    }
     console.log(`  ${locale}: ${Object.keys(localeNameIndex).length} name entries`);
   }
 
@@ -698,6 +801,7 @@ async function main() {
     examSystemIds: examSystems.map(s => s.id),
     theoryModules: theoryModuleFiles,
     courses: courseFiles,
+    relations: relationFiles,
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

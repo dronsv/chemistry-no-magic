@@ -1,0 +1,43 @@
+{
+  "_direction_labels": {
+    "increase": "aumenta",
+    "decrease": "disminuye",
+    "no_change": "no cambia"
+  },
+  "_prop_names": {
+    "prop:temperature": "temperatura",
+    "prop:reactant_concentration": "concentración de reactivos",
+    "prop:reaction_rate": "velocidad de reacción",
+    "prop:surface_area": "superficie de contacto",
+    "prop:activation_energy": "energía de activación",
+    "prop:catalyst_presence": "catalizador"
+  },
+  "law:vanthoff_rule": {
+    "name": "Regla de Van't Hoff"
+  },
+  "rule:vanthoff.school.temperature_rate": {
+    "name": "Efecto de la temperatura en la velocidad de reacción",
+    "short_statement": "Por cada 10 K de aumento de temperatura, la velocidad de reacción aumenta 2–4 veces.",
+    "explanation": "Formulación escolar de la regla de Van't Hoff. Calentar la mezcla reaccionante 10°C aproximadamente duplica o cuadruplica la velocidad de una reacción homogénea, ya que más moléculas adquieren la energía necesaria para superar la barrera de activación."
+  },
+  "rule:kinetics.concentration.rate": {
+    "name": "Efecto de la concentración en la velocidad de reacción",
+    "short_statement": "Al aumentar la concentración de los reactivos, la velocidad de reacción aumenta.",
+    "explanation": "Ley de acción de masas: la velocidad de una reacción química es proporcional a las concentraciones de los reactivos. Mayor concentración implica colisiones más frecuentes entre las moléculas de los reactivos."
+  },
+  "rule:kinetics.surface_area.rate": {
+    "name": "Efecto de la superficie de contacto en la velocidad de reacción",
+    "short_statement": "Al aumentar la superficie de contacto de los reactivos sólidos, la velocidad de la reacción heterogénea aumenta.",
+    "explanation": "Triturar los reactivos sólidos y usar materiales porosos aumenta el área de contacto entre las fases. La reacción heterogénea ocurre en la interfaz entre fases, por lo que la superficie determina el número de centros activos."
+  },
+  "rule:kinetics.catalyst.activation_energy": {
+    "name": "Efecto del catalizador en la energía de activación",
+    "short_statement": "El catalizador disminuye la energía de activación de la reacción.",
+    "explanation": "El catalizador cambia el mecanismo de reacción, proporcionando una vía alternativa con intermediarios de menor energía y reduciendo la barrera energética total."
+  },
+  "rule:kinetics.catalyst.rate": {
+    "name": "Efecto del catalizador en la velocidad de reacción",
+    "short_statement": "El catalizador acelera la reacción química sin consumirse.",
+    "explanation": "Al disminuir la energía de activación, una mayor fracción de moléculas puede superar la barrera energética a la misma temperatura, lo que aumenta la velocidad de reacción. El catalizador se regenera al final de cada ciclo."
+  }
+}

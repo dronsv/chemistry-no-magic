@@ -1,0 +1,7 @@
+{
+  "rule:indicator.litmus.medium_color": { "name": "Respuesta del tornasol al medio" },
+  "rule:indicator.phenolphthalein.medium_color": { "name": "Respuesta de la fenolftaleína al medio" },
+  "rule:indicator.methyl_orange.medium_color": { "name": "Respuesta del anaranjado de metilo al medio" },
+  "computed:indicator_change:ind:litmus:medium:alkaline": { "short_statement_override": "el tornasol se vuelve azul" },
+  "computed:indicator_change:ind:litmus:medium:acidic": { "short_statement_override": "el tornasol se vuelve rojo" }
+}

@@ -4,7 +4,7 @@ interface ClassificationRule {
   class: string;
   subclass: string;
   pattern: string;
-  description_ru: string;
+  description: string;
   examples: string[];
 }
 
@@ -44,7 +44,7 @@ for (const r of rules) {
         {items.map(r => (
           <tr>
             <td><strong>{r.subclass}</strong></td>
-            <td>{r.description_ru}</td>
+            <td>{r.description}</td>
             <td style="font-size: 0.8125rem;">{r.examples.join(', ')}</td>
           </tr>
         ))}

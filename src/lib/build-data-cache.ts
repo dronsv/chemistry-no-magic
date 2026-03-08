@@ -51,14 +51,13 @@ export function cachedReadDataSrcSync<T>(relativePath: string): T {
 
 /**
  * Load a translation overlay file at build time, with caching.
- * Returns null for 'ru' locale or if the file doesn't exist.
+ * Returns null if the file doesn't exist.
  * Caches null results (missing overlays).
  */
 export async function cachedLoadOverlay(
   locale: string,
   dataKey: string,
 ): Promise<Record<string, Record<string, unknown>> | null> {
-  if (locale === 'ru') return null;
 
   const cacheKey = `${locale}:${dataKey}`;
   const cached = overlayCacheMap.get(cacheKey);

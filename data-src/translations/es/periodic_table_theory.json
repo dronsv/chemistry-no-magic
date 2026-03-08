@@ -1,14 +1,14 @@
 {
   "trend:atomic_radius": {
-    "title_ru": "Radio atómico",
-    "trend_period_ru": "Disminuye de izquierda a derecha en un período",
-    "trend_group_ru": "Aumenta de arriba a abajo en un grupo",
-    "why_period_ru": "Al moverse de izquierda a derecha en un período, la carga nuclear aumenta en +1 mientras que los electrones se añaden al mismo nivel energético. Los electrones internos apantallan el núcleo de igual manera, pero la carga aumentada atrae los electrones externos con más fuerza, comprimiendo la capa electrónica. Cada nuevo protón acerca los orbitales al núcleo.",
-    "why_group_ru": "Al descender en un grupo, se añade un nuevo nivel energético. Aunque la carga nuclear también aumenta, los electrones internos la apantallan eficazmente: cada nivel lleno crea una barrera entre el núcleo y los electrones externos. Como resultado, los electrones externos están más lejos del núcleo y el átomo se hace más grande.",
+    "title": "Radio atómico",
+    "trend_period": "Disminuye de izquierda a derecha en un período",
+    "trend_group": "Aumenta de arriba a abajo en un grupo",
+    "why_period": "Al moverse de izquierda a derecha en un período, la carga nuclear aumenta en +1 mientras que los electrones se añaden al mismo nivel energético. Los electrones internos apantallan el núcleo de igual manera, pero la carga aumentada atrae los electrones externos con más fuerza, comprimiendo la capa electrónica. Cada nuevo protón acerca los orbitales al núcleo.",
+    "why_group": "Al descender en un grupo, se añade un nuevo nivel energético. Aunque la carga nuclear también aumenta, los electrones internos la apantallan eficazmente: cada nivel lleno crea una barrera entre el núcleo y los electrones externos. Como resultado, los electrones externos están más lejos del núcleo y el átomo se hace más grande.",
     "examples": [
       {
-        "label_ru": "Período 2",
-        "comment_ru": "el radio disminuye a la mitad a lo largo del período",
+        "label": "Período 2",
+        "comment": "el radio disminuye a la mitad a lo largo del período",
         "elements": [
           {
             "value": "152 pm"
@@ -22,8 +22,8 @@
         ]
       },
       {
-        "label_ru": "Grupo IA",
-        "comment_ru": "el radio crece con cada nueva capa",
+        "label": "Grupo IA",
+        "comment": "el radio crece con cada nueva capa",
         "elements": [
           {
             "value": "152 pm"
@@ -37,15 +37,15 @@
     ]
   },
   "trend:ionization_energy": {
-    "title_ru": "Energía de ionización",
-    "trend_period_ru": "Aumenta de izquierda a derecha en un período",
-    "trend_group_ru": "Disminuye de arriba a abajo en un grupo",
-    "why_period_ru": "Cuanto menor es el radio atómico y mayor la carga nuclear con el mismo número de niveles, más fuertemente retiene el núcleo al electrón externo. Por lo tanto se necesita más energía para arrancarlo. Excepciones: el berilio (2s²) tiene mayor energía de ionización que el boro (2s²2p¹) porque el subnivel 2s completamente lleno es particularmente estable, y el nitrógeno (2p³) tiene mayor energía de ionización que el oxígeno (2p⁴) debido a la estabilidad del subnivel 2p semilleno.",
-    "why_group_ru": "Con el aumento del número de niveles energéticos, el electrón externo se aleja del núcleo y es apantallado por las capas internas. El núcleo lo retiene más débilmente, por lo que se necesita menos energía para extraerlo. Por eso los metales alcalinos en la parte inferior del grupo (Cs, Fr) pierden su electrón más fácilmente.",
+    "title": "Energía de ionización",
+    "trend_period": "Aumenta de izquierda a derecha en un período",
+    "trend_group": "Disminuye de arriba a abajo en un grupo",
+    "why_period": "Cuanto menor es el radio atómico y mayor la carga nuclear con el mismo número de niveles, más fuertemente retiene el núcleo al electrón externo. Por lo tanto se necesita más energía para arrancarlo. Excepciones: el berilio (2s²) tiene mayor energía de ionización que el boro (2s²2p¹) porque el subnivel 2s completamente lleno es particularmente estable, y el nitrógeno (2p³) tiene mayor energía de ionización que el oxígeno (2p⁴) debido a la estabilidad del subnivel 2p semilleno.",
+    "why_group": "Con el aumento del número de niveles energéticos, el electrón externo se aleja del núcleo y es apantallado por las capas internas. El núcleo lo retiene más débilmente, por lo que se necesita menos energía para extraerlo. Por eso los metales alcalinos en la parte inferior del grupo (Cs, Fr) pierden su electrón más fácilmente.",
     "examples": [
       {
-        "label_ru": "Período 3",
-        "comment_ru": "aumento general con excepciones",
+        "label": "Período 3",
+        "comment": "aumento general con excepciones",
         "elements": [
           {
             "value": "496 kJ/mol"
@@ -59,8 +59,8 @@
         ]
       },
       {
-        "label_ru": "Grupo IA",
-        "comment_ru": "disminución constante",
+        "label": "Grupo IA",
+        "comment": "disminución constante",
         "elements": [
           {
             "value": "520 kJ/mol"
@@ -74,63 +74,63 @@
     ]
   },
   "trend:electronegativity": {
-    "title_ru": "Electronegatividad",
-    "trend_period_ru": "Aumenta de izquierda a derecha en un período",
-    "trend_group_ru": "Disminuye de arriba a abajo en un grupo",
-    "why_period_ru": "La electronegatividad es la capacidad de un átomo para atraer los electrones compartidos en un enlace químico. Al moverse por un período, el radio atómico disminuye y la carga nuclear aumenta, por lo que el núcleo atrae los electrones de enlace con más fuerza. El flúor (EN = 4,0) es el elemento más electronegativo: radio pequeño y 7 electrones de valencia, le falta solo uno para completar su capa.",
-    "why_group_ru": "Al descender en un grupo, el radio atómico aumenta y el apantallamiento nuclear se fortalece. El núcleo atrae los electrones de enlace con menos fuerza. Por eso el flúor (4,0) es más electronegativo que el cloro (3,16), y el cloro más que el bromo (2,96). Los metales en la parte inferior del grupo (Cs, Fr) tienen electronegatividad mínima y ceden electrones fácilmente.",
+    "title": "Electronegatividad",
+    "trend_period": "Aumenta de izquierda a derecha en un período",
+    "trend_group": "Disminuye de arriba a abajo en un grupo",
+    "why_period": "La electronegatividad es la capacidad de un átomo para atraer los electrones compartidos en un enlace químico. Al moverse por un período, el radio atómico disminuye y la carga nuclear aumenta, por lo que el núcleo atrae los electrones de enlace con más fuerza. El flúor (EN = 4,0) es el elemento más electronegativo: radio pequeño y 7 electrones de valencia, le falta solo uno para completar su capa.",
+    "why_group": "Al descender en un grupo, el radio atómico aumenta y el apantallamiento nuclear se fortalece. El núcleo atrae los electrones de enlace con menos fuerza. Por eso el flúor (4,0) es más electronegativo que el cloro (3,16), y el cloro más que el bromo (2,96). Los metales en la parte inferior del grupo (Cs, Fr) tienen electronegatividad mínima y ceden electrones fácilmente.",
     "examples": [
       {
-        "label_ru": "Escala de Pauling",
-        "comment_ru": ""
+        "label": "Escala de Pauling",
+        "comment": ""
       },
       {
-        "text_ru": "El carácter metálico y la EN están inversamente correlacionados: alta EN → no metal, baja EN → metal activo"
+        "text": "El carácter metálico y la EN están inversamente correlacionados: alta EN → no metal, baja EN → metal activo"
       }
     ]
   },
   "trend:metallic_character": {
-    "title_ru": "Carácter metálico",
-    "trend_period_ru": "Se debilita de izquierda a derecha en un período",
-    "trend_group_ru": "Se fortalece de arriba a abajo en un grupo",
-    "why_period_ru": "El carácter metálico está determinado por la capacidad del átomo para perder electrones. Al inicio del período hay metales activos (Na, Mg) con 1–2 electrones de valencia que se pierden fácilmente. En el medio — metales de transición. Al final — no metales con 5–7 electrones de valencia que energéticamente prefieren ganar electrones a perderlos.",
-    "why_group_ru": "Cuanto mayor es el radio atómico y más débilmente el núcleo retiene los electrones externos, más fácil es perderlos. Por eso el litio es un metal menos activo que el cesio. El francio es el metal más activo de todos (teóricamente). De manera similar, en el subgrupo del carbono: C es un no metal, Si y Ge son metaloides, Sn y Pb son metales.",
+    "title": "Carácter metálico",
+    "trend_period": "Se debilita de izquierda a derecha en un período",
+    "trend_group": "Se fortalece de arriba a abajo en un grupo",
+    "why_period": "El carácter metálico está determinado por la capacidad del átomo para perder electrones. Al inicio del período hay metales activos (Na, Mg) con 1–2 electrones de valencia que se pierden fácilmente. En el medio — metales de transición. Al final — no metales con 5–7 electrones de valencia que energéticamente prefieren ganar electrones a perderlos.",
+    "why_group": "Cuanto mayor es el radio atómico y más débilmente el núcleo retiene los electrones externos, más fácil es perderlos. Por eso el litio es un metal menos activo que el cesio. El francio es el metal más activo de todos (teóricamente). De manera similar, en el subgrupo del carbono: C es un no metal, Si y Ge son metaloides, Sn y Pb son metales.",
     "examples": [
       {
-        "label_ru": "Período 3",
+        "label": "Período 3",
         "elements": [
           {
-            "value_ru": "metal"
+            "value": "metal"
           },
           {},
           {},
           {
-            "value_ru": "metaloide"
+            "value": "metaloide"
           },
           {},
           {},
           {
-            "value_ru": "no metal"
+            "value": "no metal"
           }
         ],
-        "comment_ru": ""
+        "comment": ""
       },
       {
-        "label_ru": "Grupo IA",
-        "comment_ru": "la actividad de los metales aumenta (la reacción con el agua se vuelve cada vez más violenta)"
+        "label": "Grupo IA",
+        "comment": "la actividad de los metales aumenta (la reacción con el agua se vuelve cada vez más violenta)"
       }
     ]
   },
   "trend:electron_affinity": {
-    "title_ru": "Afinidad electrónica",
-    "trend_period_ru": "Aumenta de izquierda a derecha en un período (con excepciones)",
-    "trend_group_ru": "Disminuye de arriba a abajo en un grupo",
-    "why_period_ru": "Los átomos con una capa externa casi llena (halógenos) liberan el máximo de energía al ganar un electrón — les falta solo uno para la configuración estable de gas noble. Los elementos con subniveles semillenos y completamente llenos (N, Be) tienen una afinidad anómalamente baja: añadir un electrón altera la simetría estable.",
-    "why_group_ru": "El cloro (349 kJ/mol) tiene mayor afinidad electrónica que el flúor (328 kJ/mol), a pesar de tener menor electronegatividad — esta excepción se explica por el radio muy pequeño del flúor, donde el electrón añadido experimenta una fuerte repulsión de los demás electrones en el subnivel 2p. Más abajo en el grupo, la afinidad disminuye (Br: 325, I: 295).",
+    "title": "Afinidad electrónica",
+    "trend_period": "Aumenta de izquierda a derecha en un período (con excepciones)",
+    "trend_group": "Disminuye de arriba a abajo en un grupo",
+    "why_period": "Los átomos con una capa externa casi llena (halógenos) liberan el máximo de energía al ganar un electrón — les falta solo uno para la configuración estable de gas noble. Los elementos con subniveles semillenos y completamente llenos (N, Be) tienen una afinidad anómalamente baja: añadir un electrón altera la simetría estable.",
+    "why_group": "El cloro (349 kJ/mol) tiene mayor afinidad electrónica que el flúor (328 kJ/mol), a pesar de tener menor electronegatividad — esta excepción se explica por el radio muy pequeño del flúor, donde el electrón añadido experimenta una fuerte repulsión de los demás electrones en el subnivel 2p. Más abajo en el grupo, la afinidad disminuye (Br: 325, I: 295).",
     "examples": [
       {
-        "label_ru": "Halógenos",
-        "comment_ru": "el cloro, no el flúor, es el líder",
+        "label": "Halógenos",
+        "comment": "el cloro, no el flúor, es el líder",
         "elements": [
           {
             "value": "349 kJ/mol"
@@ -143,8 +143,8 @@
     ]
   },
   "exception:cr_consequences": {
-    "title_ru": "Cromo: consecuencias de la promoción electrónica",
-    "consequences_ru": [
+    "title": "Cromo: consecuencias de la promoción electrónica",
+    "consequences": [
       "El cromo presenta estados de oxidación +2, +3 y +6 (no solo +4 como cabría esperar).",
       "El estado de oxidación más estable es +3: la pérdida de 3 electrones (1 del 4s y 2 del 3d) deja una configuración estable 3d³ con tres electrones desapareados.",
       "Cr₂O₃ (óxido de cromo(III)) es un compuesto muy estable, utilizado como pigmento y abrasivo.",
@@ -152,8 +152,8 @@
     ]
   },
   "exception:cu_consequences": {
-    "title_ru": "Cobre: consecuencias de la promoción electrónica",
-    "consequences_ru": [
+    "title": "Cobre: consecuencias de la promoción electrónica",
+    "consequences": [
       "El cobre presenta estados de oxidación +1 y +2 (en vez de solo +2).",
       "Cu⁺ (pérdida del único electrón 4s) da un 3d¹⁰ completamente lleno — configuración muy estable. Compuestos de Cu(I): Cu₂O, CuCl.",
       "Cu²⁺ (pérdida de 4s¹ y un 3d) también es estable porque 3d⁹ está cerca de llenarse. CuSO₄ — vitriolo azul, el compuesto de cobre más común.",
@@ -161,8 +161,8 @@
     ]
   },
   "exception:pd_consequences": {
-    "title_ru": "Paladio: un caso único — subnivel s vacío",
-    "consequences_ru": [
+    "title": "Paladio: un caso único — subnivel s vacío",
+    "consequences": [
       "El paladio es el único elemento donde ambos electrones s caen al subnivel d.",
       "El estado de oxidación principal es +2: la pérdida de dos electrones d da una configuración estable 4d⁸.",
       "El paladio se usa activamente como catalizador (hidrogenación, reacciones de acoplamiento cruzado) porque su subnivel d lleno puede donar y aceptar electrones de forma reversible.",
@@ -170,8 +170,8 @@
     ]
   },
   "exception:ag_consequences": {
-    "title_ru": "Plata: análogo del cobre en el quinto período",
-    "consequences_ru": [
+    "title": "Plata: análogo del cobre en el quinto período",
+    "consequences": [
       "La plata presenta predominantemente el estado de oxidación +1: la pérdida del electrón 5s¹ da un 4d¹⁰ completamente lleno.",
       "Ag⁺ con configuración 4d¹⁰ es una de las formas más estables entre los elementos d.",
       "Como el cobre, la plata es un metal noble: no se disuelve en ácidos diluidos.",
@@ -179,8 +179,8 @@
     ]
   },
   "exception:au_consequences": {
-    "title_ru": "Oro: efecto relativista + promoción electrónica",
-    "consequences_ru": [
+    "title": "Oro: efecto relativista + promoción electrónica",
+    "consequences": [
       "El oro presenta estados de oxidación +1 y +3. Au⁺ tiene un 5d¹⁰ lleno, Au³⁺ tiene configuración 5d⁸.",
       "La contracción relativista del orbital 6s reduce la brecha entre los niveles 5d y 6s. Esta es la razón del color amarillo del oro: la energía de transición 5d→6s cae en el rango visible.",
       "El oro es el más noble de todos los metales: solo se disuelve en agua regia (HNO₃ + 3HCl) o soluciones de cianuros.",
@@ -188,8 +188,8 @@
     ]
   },
   "principle": {
-    "title_ru": "Principio general: por qué las propiedades cambian periódicamente",
-    "text_ru": "Todas las tendencias en la tabla periódica se explican por dos factores competidores: la carga nuclear (Z) y el apantallamiento (σ). La carga nuclear efectiva Z_eff = Z − σ determina cuán fuertemente el núcleo retiene los electrones externos. A lo largo de un período, Z aumenta mientras σ apenas cambia → Z_eff aumenta → los electrones son atraídos con más fuerza. Bajando por un grupo, Z aumenta pero σ aumenta aún más rápido (cada nuevo nivel proporciona un fuerte apantallamiento) → Z_eff para los electrones externos disminuye → los electrones se retienen más débilmente.",
-    "formula_ru": "Z_eff = Z − σ, donde Z — carga nuclear, σ — constante de apantallamiento"
+    "title": "Principio general: por qué las propiedades cambian periódicamente",
+    "text": "Todas las tendencias en la tabla periódica se explican por dos factores competidores: la carga nuclear (Z) y el apantallamiento (σ). La carga nuclear efectiva Z_eff = Z − σ determina cuán fuertemente el núcleo retiene los electrones externos. A lo largo de un período, Z aumenta mientras σ apenas cambia → Z_eff aumenta → los electrones son atraídos con más fuerza. Bajando por un grupo, Z aumenta pero σ aumenta aún más rápido (cada nuevo nivel proporciona un fuerte apantallamiento) → Z_eff para los electrones externos disminuye → los electrones se retienen más débilmente.",
+    "formula": "Z_eff = Z − σ, donde Z — carga nuclear, σ — constante de apantallamiento"
   }
 }

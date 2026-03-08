@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "\u00bfQu\u00e9 condici\u00f3n de nomenclatura corresponde al sufijo \u00ab{suffix_ru}\u00bb?",
+    "question": "\u00bfQu\u00e9 condici\u00f3n de nomenclatura corresponde al sufijo \u00ab{suffix}\u00bb?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {
@@ -289,6 +289,22 @@
   },
   "explain.calc_heat_of_reaction": {
     "template": "Efecto térmico de la reacción: ΔH = {delta_H} kJ.",
+    "slots": {}
+  },
+  "prompt.acid_residue_graph": {
+    "question": "El residuo ácido del ácido {acid_formula} es:",
+    "slots": {}
+  },
+  "explain.acid_residue_graph": {
+    "template": "El ácido {acid_formula} se disocia formando el anión {anion_formula} ({anion_name}) — ese es su residuo ácido.",
+    "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "¿Cómo cambia {target_name} cuando aumenta {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "Al aumentar {source_name}, {target_name} {direction_label}.",
     "slots": {}
   }
 }

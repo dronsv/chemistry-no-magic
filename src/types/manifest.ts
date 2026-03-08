@@ -49,6 +49,7 @@ export interface ManifestEntrypoints {
   courses?: Record<string, string>;
   topics?: string;
   topic_pages?: string;
+  relations?: Record<string, string>;
 }
 
 export interface ManifestStats {

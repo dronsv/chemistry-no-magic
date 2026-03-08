@@ -1,0 +1,44 @@
+{
+  "exercise_types": {
+    "find_period_group": {
+      "type_label": "Положение в таблице",
+      "question_template": "Элемент с порядковым номером {Z} расположен в:",
+      "explanation_template": "{symbol} ({name_ru}): электронная конфигурация {config}, значит {period}-й период, {group_explanation}."
+    },
+    "select_electron_config": {
+      "type_label": "Электронная конфигурация",
+      "question_template": "Какая электронная конфигурация соответствует элементу {name_ru} ({symbol})?",
+      "explanation_template": "{symbol} (Z={Z}): последовательно заполняем подуровни по правилу Клечковского — {config}. Обратите внимание на порядок заполнения: {filling_order}."
+    },
+    "fill_orbital_boxes": {
+      "type_label": "Орбитальная диаграмма",
+      "question_template": "Заполните орбитальную диаграмму для атома {name_ru} ({symbol}, Z={Z}) в основном состоянии.",
+      "explanation_template": "{symbol} имеет {Z} электронов. Заполняем орбитали по правилу Клечковского с учётом правила Хунда: {orbital_diagram}. Валентные электроны расположены на {valence_subshells}."
+    },
+    "count_valence": {
+      "type_label": "Валентные электроны",
+      "question_template": "Сколько валентных электронов у атома {name_ru} ({symbol}) в основном состоянии?",
+      "explanation_template": "Конфигурация {symbol}: {config}. Валентные электроны — это электроны внешнего энергетического уровня ({valence_subshells}), их {valence_count}. Номер группы {group} подтверждает это."
+    },
+    "identify_exception": {
+      "type_label": "Провал электрона",
+      "question_template": "У какого из перечисленных элементов наблюдается провал электрона (аномальная электронная конфигурация)?",
+      "explanation_template": "У {symbol} ({name_ru}) происходит провал электрона: вместо ожидаемой конфигурации {expected_config} реальная конфигурация — {actual_config}. Это связано с повышенной устойчивостью {stability_reason}."
+    },
+    "element_from_config": {
+      "type_label": "Элемент по конфигурации",
+      "question_template": "Какому элементу соответствует электронная конфигурация {config}?",
+      "explanation_template": "Подсчитаем общее число электронов в конфигурации {config}: всего {Z} электронов. Элемент с порядковым номером {Z} — это {name_ru} ({symbol}), расположен в {period}-м периоде, {group}-й группе."
+    },
+    "predict_oxidation": {
+      "type_label": "Степени окисления",
+      "question_template": "Какие степени окисления характерны для элемента {name_ru} ({symbol}) исходя из его электронной конфигурации?",
+      "explanation_template": "Конфигурация {symbol}: {config}. На внешнем уровне {valence_count} электронов. Максимальная положительная степень окисления: {max_ox}, минимальная: {min_ox}. Характерные степени окисления: {typical_ox_states}."
+    },
+    "compare_electronegativity": {
+      "type_label": "Сравнение электроотрицательности",
+      "question_template": "Какой из двух элементов — {name_ru_1} ({symbol_1}) или {name_ru_2} ({symbol_2}) — обладает большей электроотрицательностью?",
+      "explanation_template": "Электроотрицательность растёт в периоде слева направо и в группе снизу вверх. {symbol_1} находится в {period_1}-м периоде, {group_1}-й группе, а {symbol_2} — в {period_2}-м периоде, {group_2}-й группе. Поэтому {answer_symbol} ({answer_name_ru}) более электроотрицателен ({en_1} против {en_2} по шкале Полинга)."
+    }
+  }
+}

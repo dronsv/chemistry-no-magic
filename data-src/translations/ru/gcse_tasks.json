@@ -1,189 +1,396 @@
 {
   "gcse_2024_01a": {
-    "question_ru": "Какие два утверждения описывают свойства атомов одного и того же элемента?",
-    "explanation_ru": "Атомы одного и того же элемента всегда имеют одинаковое число протонов (утверждение 1) и, следовательно, одинаковый атомный номер (утверждение 4). Изотопы одного элемента имеют разное число нейтронов и разные массовые числа, поэтому утверждения 2 и 5 неверны. Число электронных оболочек зависит от периода, а не напрямую от элемента, а ионы могут терять или приобретать оболочки, поэтому утверждение 3 не всегда верно.",
+    "question": "Which two statements describe properties of atoms of the same element?",
+    "explanation": "Atoms of the same element always have the same number of protons (statement 1) and therefore the same atomic number (statement 4). Isotopes of the same element have different numbers of neutrons and different mass numbers, so statements 2 and 5 are incorrect. The number of electron shells depends on the period, not the element identity directly, and ions can lose/gain shells, so statement 3 is not always true.",
     "options": [
-      { "id": "1", "text": "Они имеют одинаковое число протонов." },
-      { "id": "2", "text": "Они всегда имеют одинаковое число нейтронов." },
-      { "id": "3", "text": "Они имеют одинаковое число электронных оболочек." },
-      { "id": "4", "text": "Они имеют одинаковый атомный номер." },
-      { "id": "5", "text": "Они всегда имеют одинаковое массовое число." }
+      {
+        "id": "1",
+        "text": "Они имеют одинаковое число протонов."
+      },
+      {
+        "id": "2",
+        "text": "Они всегда имеют одинаковое число нейтронов."
+      },
+      {
+        "id": "3",
+        "text": "Они имеют одинаковое число электронных оболочек."
+      },
+      {
+        "id": "4",
+        "text": "Они имеют одинаковый атомный номер."
+      },
+      {
+        "id": "5",
+        "text": "Они всегда имеют одинаковое массовое число."
+      }
     ]
   },
   "gcse_2024_01b": {
-    "question_ru": "Атом элемента X имеет электронную конфигурацию 2, 8, 7.\n\nОпределите номер группы и номер периода для элемента X в периодической таблице.",
-    "explanation_ru": "Электронная конфигурация 2, 8, 7 имеет 3 заполненные оболочки, значит элемент находится в 3-м периоде. На внешней оболочке 7 электронов, значит элемент в 7-й группе. Это хлор (Cl, атомный номер 17 = 2 + 8 + 7).",
+    "question": "An atom of element X has an electronic structure of 2, 8, 7.\n\nDetermine the group number and the period number for element X in the periodic table.",
+    "explanation": "The electronic structure 2, 8, 7 has 3 occupied shells, so the element is in period 3. There are 7 electrons in the outer shell, so the element is in group 7. This is chlorine (Cl, atomic number 17 = 2 + 8 + 7).",
     "input_labels": [
       "Группа",
       "Период"
     ]
   },
   "gcse_2024_02a": {
-    "question_ru": "Сопоставьте каждое вещество с типом химической связи, характерной для него.",
-    "explanation_ru": "NaCl образован металлом (Na) и неметаллом (Cl), поэтому имеет ионную связь (A\u21921). Cl\u2082 \u2014 молекула из двух атомов неметалла, которые делят электроны, поэтому имеет ковалентную связь (B\u21922). Медь \u2014 металл с кристаллической решёткой из положительных ионов, окружённых делокализованными электронами, поэтому имеет металлическую связь (C\u21923).",
+    "question": "Match each substance to the type of bonding present in it.",
+    "explanation": "NaCl is formed between a metal (Na) and a non-metal (Cl), so it has ionic bonding (A→1). Cl₂ is a molecule of two non-metal atoms sharing electrons, so it has covalent bonding (B→2). Copper is a metal with a lattice of positive ions surrounded by delocalised electrons, so it has metallic bonding (C→3).",
     "left_items": [
-      { "label": "A", "text": "Хлорид натрия (NaCl)" },
-      { "label": "B", "text": "Газообразный хлор (Cl\u2082)" },
-      { "label": "C", "text": "Медь (Cu)" }
+      {
+        "label": "A",
+        "text": "Хлорид натрия (NaCl)"
+      },
+      {
+        "label": "B",
+        "text": "Газообразный хлор (Cl₂)"
+      },
+      {
+        "label": "C",
+        "text": "Медь (Cu)"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Ионная связь" },
-      { "id": "2", "text": "Ковалентная связь" },
-      { "id": "3", "text": "Металлическая связь" },
-      { "id": "4", "text": "Водородная связь" }
+      {
+        "id": "1",
+        "text": "Ионная связь"
+      },
+      {
+        "id": "2",
+        "text": "Ковалентная связь"
+      },
+      {
+        "id": "3",
+        "text": "Металлическая связь"
+      },
+      {
+        "id": "4",
+        "text": "Водородная связь"
+      }
     ]
   },
   "gcse_2024_02b": {
-    "question_ru": "Алмаз и графит \u2014 это формы углерода. Объясните, почему алмаз очень твёрдый, а графит мягкий и скользкий. Включите в ответ описание их структуры и типа связи.",
-    "explanation_ru": "Ключевое различие заключается в структуре. Алмаз имеет гигантскую ковалентную структуру, в которой каждый атом углерода связан с 4 другими тетраэдрически \u2014 все связи прочные ковалентные, поэтому нет плоскостей слабости. Графит имеет слоистую структуру, в которой каждый атом углерода связан с 3 другими в плоских шестиугольных слоях. Четвёртый электрон делокализован между слоями. Слои удерживаются слабыми силами Ван-дер-Ваальса, что позволяет им скользить. Для полного балла необходимо указать: структуру алмаза (4 связи, тетраэдрическая), структуру графита (3 связи, слои), объяснение слабых сил между слоями графита."
+    "question": "Diamond and graphite are both forms of carbon. Explain why diamond is very hard while graphite is soft and slippery. Include details of their structures and bonding in your answer.",
+    "explanation": "The key difference lies in the structure. Diamond has a giant covalent structure where each carbon bonds to 4 others tetrahedrally — all bonds are strong covalent bonds, so there are no planes of weakness. Graphite has a layered structure where each carbon bonds to 3 others in flat hexagonal sheets. The fourth electron is delocalised between layers. The layers are held together by weak van der Waals forces, allowing them to slide. Full marks require: structure of diamond (4 bonds, tetrahedral), structure of graphite (3 bonds, layers), explanation of weak forces between graphite layers."
   },
   "gcse_2024_03a": {
-    "question_ru": "Оксид магния (MgO) имеет относительную молекулярную массу 40. Вычислите массовую долю магния в оксиде магния. (Относительные атомные массы: Mg = 24, O = 16)",
-    "explanation_ru": "Массовая доля Mg = (Ar Mg / Mr MgO) \u00d7 100 = (24 / 40) \u00d7 100 = 60%."
+    "question": "Magnesium oxide (MgO) has a relative formula mass of 40. Calculate the percentage by mass of magnesium in magnesium oxide. (Relative atomic masses: Mg = 24, O = 16)",
+    "explanation": "Percentage by mass of Mg = (Ar of Mg / Mr of MgO) × 100 = (24 / 40) × 100 = 60%."
   },
   "gcse_2024_03b": {
-    "question_ru": "6,0 г магния полностью реагирует с избытком соляной кислоты:\nMg + 2HCl \u2192 MgCl\u2082 + H\u2082\n\nВычислите массу хлорида магния (MgCl\u2082), образовавшегося в результате реакции.\n(Относительные атомные массы: Mg = 24, Cl = 35,5)",
-    "explanation_ru": "Шаг 1: Рассчитаем количество вещества Mg = масса / Ar = 6,0 / 24 = 0,25 моль.\nШаг 2: По уравнению реакции 1 моль Mg образует 1 моль MgCl\u2082, значит количество вещества MgCl\u2082 = 0,25 моль.\nШаг 3: Mr MgCl\u2082 = 24 + (2 \u00d7 35,5) = 24 + 71 = 95.\nШаг 4: Масса MgCl\u2082 = количество вещества \u00d7 Mr = 0,25 \u00d7 95 = 23,75 г \u2248 23,8 г."
+    "question": "6.0 g of magnesium reacts completely with excess hydrochloric acid:\nMg + 2HCl → MgCl₂ + H₂\n\nCalculate the mass of magnesium chloride (MgCl₂) produced.\n(Relative atomic masses: Mg = 24, Cl = 35.5)",
+    "explanation": "Step 1: Calculate moles of Mg = mass / Ar = 6.0 / 24 = 0.25 mol.\nStep 2: From the equation, 1 mol Mg produces 1 mol MgCl₂, so moles of MgCl₂ = 0.25 mol.\nStep 3: Mr of MgCl₂ = 24 + (2 × 35.5) = 24 + 71 = 95.\nStep 4: Mass of MgCl₂ = moles × Mr = 0.25 × 95 = 23.75 g ≈ 23.8 g."
   },
   "gcse_2024_04a": {
-    "question_ru": "Расположите следующие металлы в порядке убывания активности (от наиболее активного к наименее активному).\n  1) Железо\n  2) Калий\n  3) Медь\n  4) Цинк",
-    "explanation_ru": "Ряд активности металлов (от наиболее к наименее активному): калий > цинк > железо > медь. Калий \u2014 очень активный металл 1-й группы, цинк обладает средней активностью, железо менее активно, чем цинк, а медь находится ниже водорода в ряду активности и относительно малоактивна. Порядок: 2 (K) \u2192 4 (Zn) \u2192 1 (Fe) \u2192 3 (Cu).",
+    "question": "Arrange the following metals in order of decreasing reactivity (most reactive first).\n  1) Iron\n  2) Potassium\n  3) Copper\n  4) Zinc",
+    "explanation": "The reactivity series of metals (most to least reactive): potassium > zinc > iron > copper. Potassium is a very reactive group 1 metal, zinc is moderately reactive, iron is less reactive than zinc, and copper is below hydrogen in the series and relatively unreactive. Order: 2 (K) → 4 (Zn) → 1 (Fe) → 3 (Cu).",
     "items": [
-      { "id": "1", "text": "Железо" },
-      { "id": "2", "text": "Калий" },
-      { "id": "3", "text": "Медь" },
-      { "id": "4", "text": "Цинк" }
+      {
+        "id": "1",
+        "text": "Железо"
+      },
+      {
+        "id": "2",
+        "text": "Калий"
+      },
+      {
+        "id": "3",
+        "text": "Медь"
+      },
+      {
+        "id": "4",
+        "text": "Цинк"
+      }
     ]
   },
   "gcse_2024_04b": {
-    "question_ru": "Сопоставьте каждую реакцию с её правильным описанием.",
-    "explanation_ru": "A: Цинк активнее меди, поэтому цинк вытесняет медь из раствора \u2014 это реакция замещения (A\u21922). B: Реакция кислоты со щёлочью \u2014 это реакция нейтрализации с образованием соли и воды (B\u21921). C: Электролиз использует электрический ток для разложения ионного соединения на его элементы (C\u21923).",
+    "question": "Match each reaction to its correct description.",
+    "explanation": "A: Zinc is more reactive than copper, so zinc displaces copper from the solution — this is a displacement reaction (A→2). B: An acid reacting with an alkali is a neutralisation reaction producing salt and water (B→1). C: Electrolysis uses electricity to decompose an ionic compound into its elements (C→3).",
     "left_items": [
-      { "label": "A", "text": "Цинк + раствор сульфата меди" },
-      { "label": "B", "text": "Соляная кислота + гидроксид натрия" },
-      { "label": "C", "text": "Электролиз расплава бромида свинца" }
+      {
+        "label": "A",
+        "text": "Цинк + раствор сульфата меди"
+      },
+      {
+        "label": "B",
+        "text": "Соляная кислота + гидроксид натрия"
+      },
+      {
+        "label": "C",
+        "text": "Электролиз расплава бромида свинца"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Реакция нейтрализации" },
-      { "id": "2", "text": "Реакция замещения" },
-      { "id": "3", "text": "Разложение с помощью электрического тока" },
-      { "id": "4", "text": "Только реакция окисления" }
+      {
+        "id": "1",
+        "text": "Реакция нейтрализации"
+      },
+      {
+        "id": "2",
+        "text": "Реакция замещения"
+      },
+      {
+        "id": "3",
+        "text": "Разложение с помощью электрического тока"
+      },
+      {
+        "id": "4",
+        "text": "Только реакция окисления"
+      }
     ]
   },
   "gcse_2024_05a": {
-    "question_ru": "Какие два утверждения об экзотермических реакциях верны?",
-    "explanation_ru": "Экзотермические реакции отдают энергию окружающей среде (утверждение 1), вызывая повышение температуры (а не понижение, поэтому утверждение 2 неверно). Грелки для рук используют экзотермические реакции, такие как окисление железа (утверждение 3 верно). Фотосинтез \u2014 эндотермический процесс (утверждение 4 неверно). В экзотермических реакциях энергия, выделяемая при образовании связей, превышает энергию, необходимую для разрыва связей (утверждение 5 описывает эндотермическую реакцию, поэтому оно неверно).",
+    "question": "Which two statements about exothermic reactions are correct?",
+    "explanation": "Exothermic reactions transfer energy to the surroundings (statement 1), causing the temperature to increase (not decrease, so statement 2 is wrong). Hand warmers use exothermic reactions such as iron oxidation (statement 3 is correct). Photosynthesis is endothermic (statement 4 is wrong). In exothermic reactions, the energy released forming bonds exceeds the energy needed to break bonds (statement 5 describes endothermic, so it is wrong).",
     "options": [
-      { "id": "1", "text": "Они передают энергию окружающей среде." },
-      { "id": "2", "text": "Температура окружающей среды понижается." },
-      { "id": "3", "text": "Грелки для рук используют экзотермические реакции." },
-      { "id": "4", "text": "Фотосинтез \u2014 пример экзотермической реакции." },
-      { "id": "5", "text": "Энергия, необходимая для разрыва связей, больше энергии, выделяемой при образовании новых связей." }
+      {
+        "id": "1",
+        "text": "Они передают энергию окружающей среде."
+      },
+      {
+        "id": "2",
+        "text": "Температура окружающей среды понижается."
+      },
+      {
+        "id": "3",
+        "text": "Грелки для рук используют экзотермические реакции."
+      },
+      {
+        "id": "4",
+        "text": "Фотосинтез — пример экзотермической реакции."
+      },
+      {
+        "id": "5",
+        "text": "Энергия, необходимая для разрыва связей, больше энергии, выделяемой при образовании новых связей."
+      }
     ]
   },
   "gcse_2024_05b": {
-    "question_ru": "Энергии связей для реакции H\u2082 + Cl\u2082 \u2192 2HCl:\nH\u2013H = 436 кДж/моль, Cl\u2013Cl = 242 кДж/моль, H\u2013Cl = 431 кДж/моль.\n\nВычислите общее изменение энергии для этой реакции в кДж/моль.",
-    "explanation_ru": "Энергия для разрыва связей (эндотермический процесс): 1\u00d7H\u2013H + 1\u00d7Cl\u2013Cl = 436 + 242 = 678 кДж.\nЭнергия, выделяемая при образовании связей (экзотермический процесс): 2\u00d7H\u2013Cl = 2 \u00d7 431 = 862 кДж.\nОбщее изменение энергии = поглощённая энергия \u2013 выделенная энергия = 678 \u2013 862 = \u2013184 кДж/моль.\nОтрицательный знак указывает на экзотермическую реакцию."
+    "question": "The bond energies for the reaction H₂ + Cl₂ → 2HCl are:\nH–H = 436 kJ/mol, Cl–Cl = 242 kJ/mol, H–Cl = 431 kJ/mol.\n\nCalculate the overall energy change for this reaction in kJ/mol.",
+    "explanation": "Energy to break bonds (endothermic): 1×H–H + 1×Cl–Cl = 436 + 242 = 678 kJ.\nEnergy released forming bonds (exothermic): 2×H–Cl = 2 × 431 = 862 kJ.\nOverall energy change = energy in – energy out = 678 – 862 = –184 kJ/mol.\nThe negative sign indicates the reaction is exothermic."
   },
   "gcse_2024_06a": {
-    "question_ru": "Какие два фактора увеличат скорость реакции между магниевой лентой и разбавленной соляной кислотой?",
-    "explanation_ru": "Повышение температуры (утверждение 2) придаёт частицам больше кинетической энергии, поэтому большее число столкновений превышает энергию активации. Использование порошкообразного магния (утверждение 4) увеличивает площадь поверхности, предоставляя больше мест для столкновения с частицами кислоты. Более низкая концентрация (утверждение 1) и добавление воды (утверждение 5) уменьшают число частиц кислоты в единице объёма, замедляя реакцию. Более крупный кусок без разрезания (утверждение 3) имеет меньшую удельную площадь поверхности, чем мелкие кусочки.",
+    "question": "Which two factors would increase the rate of reaction between magnesium ribbon and dilute hydrochloric acid?",
+    "explanation": "Increasing the temperature (statement 2) gives particles more kinetic energy, so more collisions exceed the activation energy. Using powdered magnesium (statement 4) increases the surface area, giving more sites for acid particles to collide with. Lower concentration (statement 1) and adding water (statement 5) both decrease the number of acid particles per unit volume, slowing the reaction. A larger piece without cutting (statement 3) has less surface area per unit mass than smaller pieces.",
     "options": [
-      { "id": "1", "text": "Использование кислоты более низкой концентрации." },
-      { "id": "2", "text": "Повышение температуры кислоты." },
-      { "id": "3", "text": "Использование более крупного куска магниевой ленты без её разрезания." },
-      { "id": "4", "text": "Использование порошкообразного магния вместо ленты." },
-      { "id": "5", "text": "Добавление большего количества воды в кислоту." }
+      {
+        "id": "1",
+        "text": "Использование кислоты более низкой концентрации."
+      },
+      {
+        "id": "2",
+        "text": "Повышение температуры кислоты."
+      },
+      {
+        "id": "3",
+        "text": "Использование более крупного куска магниевой ленты без её разрезания."
+      },
+      {
+        "id": "4",
+        "text": "Использование порошкообразного магния вместо ленты."
+      },
+      {
+        "id": "5",
+        "text": "Добавление большего количества воды в кислоту."
+      }
     ]
   },
   "gcse_2024_06b": {
-    "question_ru": "Ученик исследует реакцию между мраморной крошкой (карбонат кальция) и соляной кислотой. Объясните, с точки зрения частиц и столкновений, почему увеличение концентрации кислоты увеличивает скорость реакции.",
-    "explanation_ru": "Для получения полного балла необходимо указать три ключевых момента: (1) Более высокая концентрация означает больше частиц кислоты в том же объёме. (2) Это приводит к более частым столкновениям между частицами реагентов. (3) Более частые столкновения означают больше результативных столкновений в единицу времени (столкновений с энергией, равной или превышающей энергию активации), что увеличивает скорость реакции. Ученики часто забывают упомянуть «результативные» столкновения или связь между частотой столкновений и скоростью."
+    "question": "A student investigates the reaction between marble chips (calcium carbonate) and hydrochloric acid. Explain, in terms of particles and collisions, why increasing the concentration of the acid increases the rate of reaction.",
+    "explanation": "Full marks require three key points: (1) Higher concentration means more particles of acid in the same volume. (2) This leads to more frequent collisions between reactant particles. (3) More frequent collisions means more successful collisions per unit time (collisions with energy equal to or greater than the activation energy), which increases the rate. Students often forget to mention 'successful' collisions or the link between frequency and rate."
   },
   "gcse_2024_07a": {
-    "question_ru": "Сопоставьте каждое органическое соединение с его гомологическим рядом.",
-    "explanation_ru": "CH\u2083OH \u2014 это метанол, содержащий функциональную группу \u2013OH, он относится к спиртам (A\u21923). C\u2082H\u2084 \u2014 это этилен, содержащий двойную связь C=C, он относится к алкенам (B\u21922). CH\u2083COOH \u2014 это уксусная кислота, содержащая функциональную группу \u2013COOH, она относится к карбоновым кислотам (C\u21924).",
+    "question": "Match each organic compound to its homologous series.",
+    "explanation": "CH₃OH is methanol, which contains the –OH functional group — it belongs to the alcohols (A→3). C₂H₄ is ethene, which contains a C=C double bond — it belongs to the alkenes (B→2). CH₃COOH is ethanoic acid, which contains the –COOH functional group — it belongs to the carboxylic acids (C→4).",
     "left_items": [
-      { "label": "A", "text": "CH\u2083OH" },
-      { "label": "B", "text": "C\u2082H\u2084" },
-      { "label": "C", "text": "CH\u2083COOH" }
+      {
+        "label": "A",
+        "text": "CH₃OH"
+      },
+      {
+        "label": "B",
+        "text": "C₂H₄"
+      },
+      {
+        "label": "C",
+        "text": "CH₃COOH"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Алканы" },
-      { "id": "2", "text": "Алкены" },
-      { "id": "3", "text": "Спирты" },
-      { "id": "4", "text": "Карбоновые кислоты" }
+      {
+        "id": "1",
+        "text": "Алканы"
+      },
+      {
+        "id": "2",
+        "text": "Алкены"
+      },
+      {
+        "id": "3",
+        "text": "Спирты"
+      },
+      {
+        "id": "4",
+        "text": "Карбоновые кислоты"
+      }
     ]
   },
   "gcse_2024_07b": {
-    "question_ru": "Расположите следующие алканы в порядке возрастания температуры кипения (от наименьшей к наибольшей).\n  1) Бутан (C\u2084H\u2081\u2080)\n  2) Метан (CH\u2084)\n  3) Октан (C\u2088H\u2081\u2088)\n  4) Этан (C\u2082H\u2086)",
-    "explanation_ru": "Алканы с более длинными углеродными цепями имеют более сильные межмолекулярные силы (дисперсионные силы Лондона), поэтому для их кипения требуется больше энергии. Порядок возрастания температуры кипения: метан (1 атом углерода, т.кип. \u2013161\u00b0C) < этан (2 атома углерода, т.кип. \u201389\u00b0C) < бутан (4 атома углерода, т.кип. \u20131\u00b0C) < октан (8 атомов углерода, т.кип. 126\u00b0C). Ответ: 2 \u2192 4 \u2192 1 \u2192 3.",
+    "question": "Arrange the following alkanes in order of increasing boiling point (lowest boiling point first).\n  1) Butane (C₄H₁₀)\n  2) Methane (CH₄)\n  3) Octane (C₈H₁₈)\n  4) Ethane (C₂H₆)",
+    "explanation": "Alkanes with longer carbon chains have stronger intermolecular forces (London dispersion forces), so they require more energy to boil. Order of increasing boiling point: methane (1 carbon, bp –161°C) < ethane (2 carbons, bp –89°C) < butane (4 carbons, bp –1°C) < octane (8 carbons, bp 126°C). Answer: 2 → 4 → 1 → 3.",
     "items": [
-      { "id": "1", "text": "Бутан (C\u2084H\u2081\u2080)" },
-      { "id": "2", "text": "Метан (CH\u2084)" },
-      { "id": "3", "text": "Октан (C\u2088H\u2081\u2088)" },
-      { "id": "4", "text": "Этан (C\u2082H\u2086)" }
+      {
+        "id": "1",
+        "text": "Бутан (C₄H₁₀)"
+      },
+      {
+        "id": "2",
+        "text": "Метан (CH₄)"
+      },
+      {
+        "id": "3",
+        "text": "Октан (C₈H₁₈)"
+      },
+      {
+        "id": "4",
+        "text": "Этан (C₂H₆)"
+      }
     ]
   },
   "gcse_2024_08a": {
-    "question_ru": "Ученик проверяет четыре раствора с помощью универсального индикатора и записывает значения pH. Результаты приведены ниже.\n\nРаствор W: pH 1\nРаствор X: pH 7\nРаствор Y: pH 14\nРаствор Z: pH 5\n\nКакие два раствора являются кислотными?",
-    "explanation_ru": "Кислоты имеют pH ниже 7. Раствор W (pH 1) является сильнокислым, а раствор Z (pH 5) \u2014 слабокислым. Раствор X (pH 7) нейтрален, а раствор Y (pH 14) является сильнощелочным. Два кислотных раствора \u2014 это W и Z.",
+    "question": "A student tests four solutions using universal indicator and records the pH. The results are shown below.\n\nSolution W: pH 1\nSolution X: pH 7\nSolution Y: pH 14\nSolution Z: pH 5\n\nWhich two solutions are acidic?",
+    "explanation": "Acids have a pH less than 7. Solution W (pH 1) is strongly acidic and solution Z (pH 5) is weakly acidic. Solution X (pH 7) is neutral and solution Y (pH 14) is strongly alkaline. The two acidic solutions are W and Z.",
     "options": [
-      { "id": "1", "text": "Раствор W (pH 1)" },
-      { "id": "2", "text": "Раствор X (pH 7)" },
-      { "id": "3", "text": "Раствор Y (pH 14)" },
-      { "id": "4", "text": "Раствор Z (pH 5)" }
+      {
+        "id": "1",
+        "text": "Раствор W (pH 1)"
+      },
+      {
+        "id": "2",
+        "text": "Раствор X (pH 7)"
+      },
+      {
+        "id": "3",
+        "text": "Раствор Y (pH 14)"
+      },
+      {
+        "id": "4",
+        "text": "Раствор Z (pH 5)"
+      }
     ]
   },
   "gcse_2024_08b": {
-    "question_ru": "Какие два утверждения о хроматографии верны?",
-    "explanation_ru": "Хроматография разделяет смеси на основе растворимости каждого компонента в подвижной фазе (утверждение 1 верно). Более растворимые вещества переносятся растворителем дальше (утверждение 2 верно). Чистое вещество даёт только одно пятно (утверждение 3 неверно). Значение Rf зависит от конкретного растворителя и условий, поэтому оно меняется при использовании разных растворителей (утверждение 4 на самом деле верно, но стандартная схема оценки GCSE ожидает, что ученики знают, что Rf зависит от условий). Базовая линия должна быть нарисована карандашом, а не ручкой, чтобы не раствориться (утверждение 5 неверно). Утверждения 1 и 2 \u2014 ожидаемая правильная пара.",
+    "question": "Which two statements about chromatography are correct?",
+    "explanation": "Chromatography separates mixtures based on how soluble each component is in the mobile phase (statement 1 is correct). More soluble substances are carried further by the solvent (statement 2 is correct). A pure substance produces only one spot (statement 3 is wrong). The Rf value is specific to a given solvent and conditions, so it does change with different solvents (statement 4 is actually true, but the standard GCSE mark scheme expects students to know Rf depends on conditions). The baseline must be drawn in pencil, not pen, so it does not dissolve (statement 5 is wrong). Statements 1 and 2 are the expected correct pair.",
     "options": [
-      { "id": "1", "text": "Её можно использовать для разделения красителей в чернилах." },
-      { "id": "2", "text": "Вещества с более высокой растворимостью в растворителе перемещаются выше по бумаге." },
-      { "id": "3", "text": "Чистое вещество всегда даёт два пятна." },
-      { "id": "4", "text": "Значение Rf вещества меняется в зависимости от используемого растворителя." },
-      { "id": "5", "text": "Базовая линия должна быть нарисована ручкой, чтобы она растворялась в растворителе." }
+      {
+        "id": "1",
+        "text": "Её можно использовать для разделения красителей в чернилах."
+      },
+      {
+        "id": "2",
+        "text": "Вещества с более высокой растворимостью в растворителе перемещаются выше по бумаге."
+      },
+      {
+        "id": "3",
+        "text": "Чистое вещество всегда даёт два пятна."
+      },
+      {
+        "id": "4",
+        "text": "Значение Rf вещества меняется в зависимости от используемого растворителя."
+      },
+      {
+        "id": "5",
+        "text": "Базовая линия должна быть нарисована ручкой, чтобы она растворялась в растворителе."
+      }
     ]
   },
   "gcse_2024_09a": {
-    "question_ru": "Сопоставьте каждый газ с его ролью или воздействием в атмосфере Земли.",
-    "explanation_ru": "Углекислый газ \u2014 парниковый газ, который поглощает инфракрасное излучение и способствует глобальному потеплению (A\u21922). Азот составляет примерно 78% атмосферы (B\u21921). Кислород необходим для дыхания и горения (C\u21923). Вариант 4 описывает аргон \u2014 благородный газ, составляющий около 0,9% атмосферы.",
+    "question": "Match each gas to its role or effect in the Earth's atmosphere.",
+    "explanation": "Carbon dioxide is a greenhouse gas that absorbs infrared radiation and contributes to global warming (A→2). Nitrogen makes up approximately 78% of the atmosphere (B→1). Oxygen is needed for both respiration and combustion (C→3). Option 4 describes argon, which is a noble gas making up about 0.9% of the atmosphere.",
     "left_items": [
-      { "label": "A", "text": "Углекислый газ" },
-      { "label": "B", "text": "Азот" },
-      { "label": "C", "text": "Кислород" }
+      {
+        "label": "A",
+        "text": "Углекислый газ"
+      },
+      {
+        "label": "B",
+        "text": "Азот"
+      },
+      {
+        "label": "C",
+        "text": "Кислород"
+      }
     ],
     "options": [
-      { "id": "1", "text": "Составляет около 78% атмосферы" },
-      { "id": "2", "text": "Парниковый газ, способствующий глобальному потеплению" },
-      { "id": "3", "text": "Необходим для дыхания и горения" },
-      { "id": "4", "text": "Благородный газ, составляющий около 1% атмосферы" }
+      {
+        "id": "1",
+        "text": "Составляет около 78% атмосферы"
+      },
+      {
+        "id": "2",
+        "text": "Парниковый газ, способствующий глобальному потеплению"
+      },
+      {
+        "id": "3",
+        "text": "Необходим для дыхания и горения"
+      },
+      {
+        "id": "4",
+        "text": "Благородный газ, составляющий около 1% атмосферы"
+      }
     ]
   },
   "gcse_2024_09b": {
-    "question_ru": "Какие два вида деятельности человека в наибольшей степени способствуют увеличению содержания углекислого газа в атмосфере?",
-    "explanation_ru": "Сжигание ископаемого топлива (утверждение 1) напрямую выделяет CO\u2082 при сгорании углеродсодержащего топлива (уголь, нефть, газ). Вырубка лесов (утверждение 3) высвобождает накопленный углерод при сжигании деревьев и устраняет деревья, которые иначе поглощали бы CO\u2082 посредством фотосинтеза. Ветряные турбины (утверждение 2) не выделяют CO\u2082 при работе. Переработка (утверждение 4) обычно снижает выбросы. Каталитические нейтрализаторы (утверждение 5) преобразуют CO и NO\u2093 в менее вредные газы, но не снижают общий выброс CO\u2082.",
+    "question": "Which two human activities contribute most to the increase in carbon dioxide levels in the atmosphere?",
+    "explanation": "Burning fossil fuels (statement 1) releases CO₂ directly from combustion of carbon-containing fuels (coal, oil, gas). Deforestation (statement 3) both releases stored carbon when trees are burned and removes trees that would otherwise absorb CO₂ through photosynthesis. Wind turbines (statement 2) produce no CO₂ during operation. Recycling (statement 4) generally reduces emissions. Catalytic converters (statement 5) convert CO and NOₓ to less harmful gases but do not reduce overall CO₂ output.",
     "options": [
-      { "id": "1", "text": "Сжигание ископаемого топлива на электростанциях и в транспорте." },
-      { "id": "2", "text": "Использование ветряных турбин для производства электроэнергии." },
-      { "id": "3", "text": "Вырубка и сжигание больших площадей леса." },
-      { "id": "4", "text": "Переработка алюминиевых банок." },
-      { "id": "5", "text": "Использование каталитических нейтрализаторов в автомобилях." }
+      {
+        "id": "1",
+        "text": "Сжигание ископаемого топлива на электростанциях и в транспорте."
+      },
+      {
+        "id": "2",
+        "text": "Использование ветряных турбин для производства электроэнергии."
+      },
+      {
+        "id": "3",
+        "text": "Вырубка и сжигание больших площадей леса."
+      },
+      {
+        "id": "4",
+        "text": "Переработка алюминиевых банок."
+      },
+      {
+        "id": "5",
+        "text": "Использование каталитических нейтрализаторов в автомобилях."
+      }
     ]
   },
   "gcse_2024_10a": {
-    "question_ru": "Расположите следующие этапы оценки жизненного цикла (ОЖЦ) продукта в правильном порядке.\n  1) Производство и упаковка\n  2) Добыча и переработка сырья\n  3) Утилизация по окончании срока службы\n  4) Использование и эксплуатация в течение срока службы",
-    "explanation_ru": "Оценка жизненного цикла (ОЖЦ) оценивает воздействие на окружающую среду на каждом этапе существования продукта: (1) Добыча и переработка сырья (получение материалов из Земли), (2) Производство и упаковка (изготовление продукта), (3) Использование и эксплуатация в течение срока службы (потребитель использует продукт), (4) Утилизация по окончании срока службы (захоронение, переработка или сжигание). Правильный порядок: 2 \u2192 1 \u2192 4 \u2192 3.",
+    "question": "Arrange the following steps of the life cycle assessment (LCA) of a product in the correct order.\n  1) Manufacturing and packaging\n  2) Extracting and processing raw materials\n  3) Disposal at the end of useful life\n  4) Use and operation during its lifetime",
+    "explanation": "A life cycle assessment (LCA) evaluates the environmental impact at each stage of a product's life: (1) Extracting and processing raw materials (getting materials from the Earth), (2) Manufacturing and packaging (making the product), (3) Use and operation during its lifetime (the consumer using it), (4) Disposal at end of useful life (landfill, recycling, or incineration). Correct order: 2 → 1 → 4 → 3.",
     "items": [
-      { "id": "1", "text": "Производство и упаковка" },
-      { "id": "2", "text": "Добыча и переработка сырья" },
-      { "id": "3", "text": "Утилизация по окончании срока службы" },
-      { "id": "4", "text": "Использование и эксплуатация в течение срока службы" }
+      {
+        "id": "1",
+        "text": "Производство и упаковка"
+      },
+      {
+        "id": "2",
+        "text": "Добыча и переработка сырья"
+      },
+      {
+        "id": "3",
+        "text": "Утилизация по окончании срока службы"
+      },
+      {
+        "id": "4",
+        "text": "Использование и эксплуатация в течение срока службы"
+      }
     ]
   },
   "gcse_2024_10b": {
-    "question_ru": "Железо извлекают из оксида железа (Fe\u2082O\u2083) с помощью монооксида углерода в доменной печи:\nFe\u2082O\u2083 + 3CO \u2192 2Fe + 3CO\u2082\n\nВычислите максимальную массу железа, которую можно получить из 480 г оксида железа.\n(Относительные атомные массы: Fe = 56, O = 16, C = 12)",
-    "explanation_ru": "Шаг 1: Mr Fe\u2082O\u2083 = (2 \u00d7 56) + (3 \u00d7 16) = 112 + 48 = 160.\nШаг 2: Количество вещества Fe\u2082O\u2083 = 480 / 160 = 3 моль.\nШаг 3: По уравнению реакции 1 моль Fe\u2082O\u2083 даёт 2 моль Fe, значит количество вещества Fe = 3 \u00d7 2 = 6 моль.\nШаг 4: Масса Fe = 6 \u00d7 56 = 336 г."
+    "question": "Iron is extracted from iron oxide (Fe₂O₃) using carbon monoxide in a blast furnace:\nFe₂O₃ + 3CO → 2Fe + 3CO₂\n\nCalculate the maximum mass of iron that can be obtained from 480 g of iron oxide.\n(Relative atomic masses: Fe = 56, O = 16, C = 12)",
+    "explanation": "Step 1: Mr of Fe₂O₃ = (2 × 56) + (3 × 16) = 112 + 48 = 160.\nStep 2: Moles of Fe₂O₃ = 480 / 160 = 3 mol.\nStep 3: From the equation, 1 mol Fe₂O₃ produces 2 mol Fe, so moles of Fe = 3 × 2 = 6 mol.\nStep 4: Mass of Fe = 6 × 56 = 336 g."
   }
 }

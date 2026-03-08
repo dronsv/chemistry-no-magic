@@ -1,65 +1,65 @@
 {
   "1": {
-    "title_ru": "Atomic structure and the periodic table",
-    "topic_ru": "Electron configuration, quantum numbers, and periodic properties",
-    "algorithm_ru": [
+    "title": "Atomic structure and the periodic table",
+    "topic": "Electron configuration, quantum numbers, and periodic properties",
+    "algorithm": [
       "Identify the element by its atomic number (Z) or electron configuration.",
       "Write the electron configuration following the filling order (1s, 2s, 2p, 3s, 3p, 4s, 3d...). Check whether it is an exception (Cr, Cu, etc.).",
       "For the quantum numbers of the last electron: determine n (level), l (0=s, 1=p, 2=d, 3=f), ml (from -l to +l), and ms (+1/2 or -1/2).",
       "For periodic properties: recall the trends (IE, EA, EN, radius) across periods (→) and down groups (↓).",
       "Always justify your answer using the position in the periodic table and the effective nuclear charge."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Filling order (Aufbau): 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d...",
       "Exceptions: Cr = [Ar] 3d5 4s1, Cu = [Ar] 3d10 4s1 (half-filled or fully filled sublevels are more stable).",
       "Across a period (→): Zeff increases → radius decreases, IE increases, EN increases.",
       "Down a group (↓): number of shells increases → radius increases, IE decreases, EN decreases.",
       "Quantum numbers: n (1,2,3...), l (0 to n-1), ml (-l to +l), ms (+1/2, -1/2)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Forgetting the Cr and Cu exceptions in electron configuration.",
       "Confusing the neutral atom configuration with that of an ion (when ionizing, electrons are removed first from the sublevel with the highest n, not from the last one filled).",
       "Inverting the IE and radius trends: remember they are opposite within the same period.",
       "Incorrectly converting between valence configuration and periodic table position for transition elements."
     ],
-    "variability_ru": "The element changes (typically Z = 1-36), the periodic property to compare (IE, EN, radius, metallic character), and whether the question is about the neutral atom or an ion."
+    "variability": "The element changes (typically Z = 1-36), the periodic property to compare (IE, EN, radius, metallic character), and whether the question is about the neutral atom or an ion."
   },
   "2": {
-    "title_ru": "Chemical bonding and intermolecular forces",
-    "topic_ru": "Types of bonds, molecular geometry (VSEPR), polarity, and intermolecular forces",
-    "algorithm_ru": [
+    "title": "Chemical bonding and intermolecular forces",
+    "topic": "Types of bonds, molecular geometry (VSEPR), polarity, and intermolecular forces",
+    "algorithm": [
       "Determine the type of bond: ionic (metal + nonmetal, large ΔEN), covalent (nonmetals, moderate or zero ΔEN), metallic (pure metal).",
       "For VSEPR geometry: count the electron pairs of the central atom (bonding + lone pairs). Determine the electron geometry and the molecular geometry.",
       "Compare angles: lone pairs repel more strongly than bonding pairs, reducing bond angles.",
       "For boiling/melting points: compare intermolecular forces (London < dipole-dipole < hydrogen bonding < ionic/covalent network).",
       "Justify molecular polarity: a molecule is polar if it has polar bonds and an asymmetric geometry."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "VSEPR geometries: 2 pairs = linear (180°), 3 = trigonal planar (120°), 4 = tetrahedral (109.5°).",
       "Lone pairs compress bond angles: NH₃ ≈ 107°, H₂O ≈ 104.5°.",
       "Hydrogen bonding: occurs when H is bonded to F, O, or N and a lone pair on a nearby F, O, or N is available.",
       "London dispersion forces: present in all molecules; increase with molar mass and surface area.",
       "Symmetric molecules (CO₂, BF₃, CH₄, CCl₄) are nonpolar even if they have polar bonds."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Confusing electron geometry with molecular geometry (e.g., NH₃ is electronically tetrahedral but molecularly pyramidal).",
       "Saying CO₂ is polar because it has polar C=O bonds (it is linear and symmetric → nonpolar).",
       "Forgetting that London forces also contribute to the boiling point of polar molecules.",
       "Confusing hydrogen bonding (intermolecular) with the covalent O-H bond (intramolecular)."
     ],
-    "variability_ru": "The molecules analyzed change, the property to compare (boiling point, solubility, polarity), and whether the full geometry or just the bond type is requested."
+    "variability": "The molecules analyzed change, the property to compare (boiling point, solubility, polarity), and whether the full geometry or just the bond type is requested."
   },
   "3": {
-    "title_ru": "Chemical thermodynamics",
-    "topic_ru": "Enthalpy (Hess's law), entropy, Gibbs free energy, and spontaneity",
-    "algorithm_ru": [
+    "title": "Chemical thermodynamics",
+    "topic": "Enthalpy (Hess's law), entropy, Gibbs free energy, and spontaneity",
+    "algorithm": [
       "Identify which quantity is asked for: ΔH° (enthalpy), ΔS° (entropy), or ΔG° (Gibbs energy).",
       "For ΔH° using Hess's law: ΔH° = ΣΔH°f(products) - ΣΔH°f(reactants). Remember that ΔH°f of elements in their standard state is 0.",
       "For ΔG°: apply ΔG° = ΔH° - TΔS°. Watch the units! If ΔH° is in kJ and ΔS° in J/(mol·K), convert by dividing ΔS° by 1000.",
       "For the temperature at which spontaneity changes: set ΔG° = 0 → T = ΔH° / ΔS°. Result is in K; convert to °C by subtracting 273.15.",
       "Interpret the sign of ΔG°: negative = spontaneous; positive = non-spontaneous."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "ΔG° = ΔH° - TΔS°. If ΔG° < 0, the reaction is spontaneous.",
       "ΔH° < 0 and ΔS° > 0 → spontaneous at any T.",
       "ΔH° > 0 and ΔS° < 0 → never spontaneous.",
@@ -67,112 +67,112 @@
       "ΔH° < 0 and ΔS° < 0 → spontaneous at low T (T < ΔH°/ΔS°).",
       "Hess's law: the ΔH° of a reaction is independent of the pathway, depending only on the initial and final states."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Mixing units: ΔH° in kJ and ΔS° in J/(mol·K). You must convert before calculating.",
       "Forgetting that temperature in the Gibbs formula must be in kelvin (K = °C + 273.15).",
       "Not multiplying by stoichiometric coefficients when applying Hess's law.",
       "Confusing 'the reaction is spontaneous' with 'the reaction is fast' (thermodynamics says nothing about rate)."
     ],
-    "variability_ru": "The reaction and provided data change (enthalpies of formation, entropies, or directly ΔH° and ΔS° of the reaction). Questions may ask for ΔH°, ΔG°, spontaneity temperature, or qualitative interpretation."
+    "variability": "The reaction and provided data change (enthalpies of formation, entropies, or directly ΔH° and ΔS° of the reaction). Questions may ask for ΔH°, ΔG°, spontaneity temperature, or qualitative interpretation."
   },
   "4": {
-    "title_ru": "Chemical kinetics and equilibrium",
-    "topic_ru": "Reaction rate, kinetic factors, equilibrium constant, and Le Chatelier's principle",
-    "algorithm_ru": [
+    "title": "Chemical kinetics and equilibrium",
+    "topic": "Reaction rate, kinetic factors, equilibrium constant, and Le Chatelier's principle",
+    "algorithm": [
       "For Kc: write the equilibrium expression with products in the numerator and reactants in the denominator, each raised to the power of its stoichiometric coefficient.",
       "Set up an ICE table (Initial - Change - Equilibrium) to calculate equilibrium concentrations.",
       "Substitute into the Kc expression and solve.",
       "For Le Chatelier's principle: identify the perturbation (T, P, concentration, catalyst) and determine which direction the equilibrium shifts.",
       "Remember: a catalyst does NOT shift the equilibrium (it does not change Kc or Kp); it only speeds up reaching equilibrium."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Kc = [products]^coeff / [reactants]^coeff. Only species in solution or gas phase are included.",
       "Increasing P: equilibrium shifts toward the side with fewer moles of gas.",
       "Increasing T: if ΔH° < 0 (exothermic), Kc decreases; if ΔH° > 0 (endothermic), Kc increases.",
       "A catalyst lowers Ea but does not change ΔH°, Kc, or the equilibrium composition.",
       "Kp = Kc(RT)^Δn, where Δn = moles of gaseous products - moles of gaseous reactants."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Including solids or pure liquids in the Kc expression (they should not appear).",
       "Confusing 'shifting toward products' with 'increasing Kc' (changing concentration shifts the equilibrium but does not change Kc; changing T does change Kc).",
       "Errors in the ICE table: not respecting stoichiometry when calculating changes.",
       "Forgetting that Kp and Kc are equal only when Δn = 0."
     ],
-    "variability_ru": "The reaction, starting data (initial concentrations, degree of dissociation, partial pressures), and question change (calculate Kc/Kp, predict shift, effect of a factor)."
+    "variability": "The reaction, starting data (initial concentrations, degree of dissociation, partial pressures), and question change (calculate Kc/Kp, predict shift, effect of a factor)."
   },
   "5": {
-    "title_ru": "Acid-base reactions",
-    "topic_ru": "pH calculation, titrations, and buffer solutions",
-    "algorithm_ru": [
+    "title": "Acid-base reactions",
+    "topic": "pH calculation, titrations, and buffer solutions",
+    "algorithm": [
       "For strong acids/bases: [H⁺] = Ca or [OH⁻] = Cb directly. Calculate pH = -log[H⁺] or pOH = -log[OH⁻], then pH = 14 - pOH.",
       "For weak acids: set up the equilibrium and use Ka. If Ka << c, approximate: [H⁺] ≈ √(Ka·c).",
       "For titrations: calculate moles of acid and base. Determine which is in excess after the reaction. Calculate the concentration of the excess in the total volume.",
       "At the equivalence point: moles of acid = moles of base (for monoprotic acids and monobasic bases).",
       "Remember: pH + pOH = 14 (at 25 °C, Kw = 10⁻¹⁴)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "pH = -log[H⁺]; pOH = -log[OH⁻]; pH + pOH = 14 (at 25 °C).",
       "Strong acid: complete dissociation (HCl, HNO₃, H₂SO₄). Strong base: NaOH, KOH, Ca(OH)₂.",
       "Weak acid: Ka < 1 (CH₃COOH Ka = 1.8 × 10⁻⁵). [H⁺] ≈ √(Ka × c) if Ka << c.",
       "In a titration, the equivalence point is where n(acid) = n(base).",
       "Henderson-Hasselbalch equation: pH = pKa + log([A⁻]/[HA]) for buffer solutions."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Confusing a strong acid with a weak acid: do not use Ka for HCl (it is a strong acid with complete dissociation).",
       "Not adding the volumes when mixing solutions (V_total = V₁ + V₂).",
       "Applying -log to the total concentration instead of [H⁺] or [OH⁻].",
       "Forgetting that if there is excess strong base, you calculate pOH first and then pH = 14 - pOH."
     ],
-    "variability_ru": "The acid/base (strong or weak), concentrations, mixing volumes, and what is asked change — pH, concentration, volume at the equivalence point, or interpretation of a titration curve."
+    "variability": "The acid/base (strong or weak), concentrations, mixing volumes, and what is asked change — pH, concentration, volume at the equivalence point, or interpretation of a titration curve."
   },
   "6": {
-    "title_ru": "Oxidation-reduction and electrochemistry",
-    "topic_ru": "Redox balancing (ion-electron method), galvanic cells, emf, and electrolysis (Faraday's law)",
-    "algorithm_ru": [
+    "title": "Oxidation-reduction and electrochemistry",
+    "topic": "Redox balancing (ion-electron method), galvanic cells, emf, and electrolysis (Faraday's law)",
+    "algorithm": [
       "For balancing by the ion-electron method: separate into two half-reactions (oxidation and reduction). Balance atoms, then O with H₂O, then H with H⁺ (acidic medium) or OH⁻ (basic medium), and finally charges with e⁻.",
       "Equalize the number of electrons in both half-reactions and add to obtain the overall reaction.",
       "For cells: emf = E°(cathode) - E°(anode). The anode is the electrode with the lower E°.",
       "For electrolysis (Faraday): Q = I × t; n(e⁻) = Q / F; then n(substance) = n(e⁻) / z (where z = electrons per ion).",
       "Mass deposited: m = n(substance) × M."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "The oxidizing agent is reduced (gains e⁻); the reducing agent is oxidized (loses e⁻).",
       "emf > 0 → the reaction is spontaneous. ΔG° = -nFE°.",
       "Faraday's constant: F = 96,485 C/mol of electrons.",
       "At the cathode, reduction always occurs (in both galvanic cells and electrolysis).",
       "Standard potentials: measured relative to the standard hydrogen electrode (E° = 0 V)."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Changing the sign of the potential when writing the oxidation half-reaction (E° is not changed; comparison is made directly).",
       "Forgetting to convert minutes to seconds when calculating Q = I × t.",
       "Not correctly balancing H₂O and H⁺ in acidic medium or OH⁻ in basic medium.",
       "Confusing anode/cathode between a galvanic cell and an electrolytic cell (in a galvanic cell the anode is -, in electrolysis the anode is +, but in both cases oxidation occurs at the anode)."
     ],
-    "variability_ru": "The redox reaction to balance, the medium (acidic/basic), the cell electrodes, the electrolysis data (current, time, substance), and what is asked — emf, deposited mass, or required time — all change."
+    "variability": "The redox reaction to balance, the medium (acidic/basic), the cell electrodes, the electrolysis data (current, time, substance), and what is asked — emf, deposited mass, or required time — all change."
   },
   "7": {
-    "title_ru": "Organic chemistry",
-    "topic_ru": "IUPAC nomenclature, functional groups, isomerism, and organic reactions",
-    "algorithm_ru": [
+    "title": "Organic chemistry",
+    "topic": "IUPAC nomenclature, functional groups, isomerism, and organic reactions",
+    "algorithm": [
       "For naming: identify the longest carbon chain containing the principal functional group. Number to give the lowest locant to the functional group.",
       "Identify and name substituents. Add prefixes (di-, tri-) for repeated substituents.",
       "For functional groups: -OH (alcohol), -COOH (carboxylic acid), >C=O (ketone/aldehyde), -NH₂ (amine), -COO- (ester).",
       "For reactions: identify the type (addition, elimination, substitution, condensation, hydrolysis/saponification, oxidation, reduction).",
       "For isomerism: determine whether it is structural (chain, position, functional group) or stereoisomerism (geometric cis/trans, optical)."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Functional group priority (IUPAC): acid > ester > amide > aldehyde > ketone > alcohol > amine.",
       "Alkanes (C-C): suffix -ane. Alkenes (C=C): -ene. Alkynes (C≡C): -yne.",
       "Saponification: ester + NaOH → acid salt + alcohol (irreversible basic hydrolysis).",
       "Esterification: acid + alcohol ⇌ ester + water (catalyzed by H⁺, reversible).",
       "Cis/trans isomerism: requires a C=C double bond with different substituents on each carbon."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Not choosing the longest chain containing the functional group as the main chain.",
       "Confusing aldehyde (-CHO, terminal carbon) with ketone (>C=O, internal carbon).",
       "Forgetting that esterification is reversible but saponification is irreversible.",
       "Not recognizing functional group isomers (e.g., an alcohol and an ether with the same molecular formula)."
     ],
-    "variability_ru": "The compounds to name, organic reactions to write, the type of isomerism to identify, and whether the question asks for nomenclature, mechanism, reaction product, or functional group classification all change."
+    "variability": "The compounds to name, organic reactions to write, the type of isomerism to identify, and whether the question asks for nomenclature, mechanism, reaction product, or functional group classification all change."
   }
 }

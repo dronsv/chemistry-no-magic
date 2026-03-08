@@ -1,107 +1,107 @@
 {
   "chemical_reaction": {
-    "name_ru": "reacción química"
+    "name": "reacción química"
   },
   "neutralization": {
-    "name_ru": "neutralización"
+    "name": "neutralización"
   },
   "displacement": {
-    "name_ru": "desplazamiento"
+    "name": "desplazamiento"
   },
   "heating": {
-    "name_ru": "calentamiento"
+    "name": "calentamiento"
   },
   "cooling": {
-    "name_ru": "enfriamiento"
+    "name": "enfriamiento"
   },
   "stirring": {
-    "name_ru": "agitación"
+    "name": "agitación"
   },
   "grinding": {
-    "name_ru": "trituración"
+    "name": "trituración"
   },
   "dilution": {
-    "name_ru": "dilución"
+    "name": "dilución"
   },
   "excess_reagent": {
-    "name_ru": "exceso de reactivo"
+    "name": "exceso de reactivo"
   },
   "filtration": {
-    "name_ru": "filtración"
+    "name": "filtración"
   },
   "washing": {
-    "name_ru": "lavado"
+    "name": "lavado"
   },
   "drying": {
-    "name_ru": "secado"
+    "name": "secado"
   },
   "evaporation": {
-    "name_ru": "evaporación"
+    "name": "evaporación"
   },
   "decantation": {
-    "name_ru": "decantación"
+    "name": "decantación"
   },
   "distillation": {
-    "name_ru": "destilación"
+    "name": "destilación"
   },
   "dissolution": {
-    "name_ru": "disolución"
+    "name": "disolución"
   },
   "crystallization": {
-    "name_ru": "cristalización"
+    "name": "cristalización"
   },
   "sublimation": {
-    "name_ru": "sublimación"
+    "name": "sublimación"
   },
   "condensation": {
-    "name_ru": "condensación"
+    "name": "condensación"
   },
   "melting": {
-    "name_ru": "fusión"
+    "name": "fusión"
   },
   "boiling": {
-    "name_ru": "ebullición"
+    "name": "ebullición"
   },
   "dissociation": {
-    "name_ru": "disociación"
+    "name": "disociación"
   },
   "precipitation": {
-    "name_ru": "precipitación"
+    "name": "precipitación"
   },
   "gas_evolution": {
-    "name_ru": "desprendimiento de gas"
+    "name": "desprendimiento de gas"
   },
   "gas_absorption": {
-    "name_ru": "absorción de gas"
+    "name": "absorción de gas"
   },
   "complexation": {
-    "name_ru": "formación de complejos"
+    "name": "formación de complejos"
   },
   "water_formation": {
-    "name_ru": "formación de agua"
+    "name": "formación de agua"
   },
   "weak_electrolyte_formation": {
-    "name_ru": "formación de electrolito débil"
+    "name": "formación de electrolito débil"
   },
   "catalysis": {
-    "name_ru": "catálisis"
+    "name": "catálisis"
   },
   "adsorption": {
-    "name_ru": "adsorción"
+    "name": "adsorción"
   },
   "photodecomposition": {
-    "name_ru": "fotodescomposición"
+    "name": "fotodescomposición"
   },
   "electrolysis": {
-    "name_ru": "electrólisis"
+    "name": "electrólisis"
   },
   "remove_gas": {
-    "name_ru": "eliminación de gas"
+    "name": "eliminación de gas"
   },
   "remove_solid": {
-    "name_ru": "eliminación de precipitado"
+    "name": "eliminación de precipitado"
   },
   "closed_system": {
-    "name_ru": "sistema cerrado"
+    "name": "sistema cerrado"
   }
 }

@@ -1,256 +1,256 @@
 {
   "1": {
-    "title_ru": "Estructura at\u00f3mica y tabla peri\u00f3dica",
-    "topic_ru": "\u00c1tomos, elementos, is\u00f3topos, configuraci\u00f3n electr\u00f3nica, tendencias de la tabla peri\u00f3dica",
-    "algorithm_ru": [
-      "Lee la pregunta con atenci\u00f3n: identifica si se pregunta sobre estructura at\u00f3mica (protones, neutrones, electrones), configuraci\u00f3n electr\u00f3nica o posici\u00f3n en la tabla peri\u00f3dica.",
-      "Para preguntas sobre estructura at\u00f3mica: recuerda que el n\u00famero at\u00f3mico = n\u00famero de protones = n\u00famero de electrones (en un \u00e1tomo neutro). N\u00famero m\u00e1sico = protones + neutrones.",
-      "Para configuraci\u00f3n electr\u00f3nica: llena las capas en orden (2, 8, 8, ...). El n\u00famero de capas ocupadas = n\u00famero de periodo. El n\u00famero de electrones en la capa externa = n\u00famero de grupo.",
-      "Para preguntas sobre is\u00f3topos: los is\u00f3topos tienen el mismo n\u00famero de protones pero diferente n\u00famero de neutrones.",
-      "Elimina las opciones que confundan propiedades de elementos con propiedades de compuestos, o que afirmen incorrectamente reglas universales (p. ej., \u00absiempre el mismo n\u00famero m\u00e1sico\u00bb)."
+    "title": "Estructura atómica y tabla periódica",
+    "topic": "Átomos, elementos, isótopos, configuración electrónica, tendencias de la tabla periódica",
+    "algorithm": [
+      "Lee la pregunta con atención: identifica si se pregunta sobre estructura atómica (protones, neutrones, electrones), configuración electrónica o posición en la tabla periódica.",
+      "Para preguntas sobre estructura atómica: recuerda que el número atómico = número de protones = número de electrones (en un átomo neutro). Número másico = protones + neutrones.",
+      "Para configuración electrónica: llena las capas en orden (2, 8, 8, ...). El número de capas ocupadas = número de periodo. El número de electrones en la capa externa = número de grupo.",
+      "Para preguntas sobre isótopos: los isótopos tienen el mismo número de protones pero diferente número de neutrones.",
+      "Elimina las opciones que confundan propiedades de elementos con propiedades de compuestos, o que afirmen incorrectamente reglas universales (p. ej., «siempre el mismo número másico»)."
     ],
-    "key_facts_ru": [
-      "N\u00famero at\u00f3mico = n\u00famero de protones (define al elemento).",
-      "Is\u00f3topos: mismo n\u00famero de protones, diferente n\u00famero de neutrones (p. ej., carbono-12 y carbono-14).",
-      "Llenado de capas electr\u00f3nicas: 1.\u00aa capa admite 2, 2.\u00aa admite 8, 3.\u00aa admite 8 (para los primeros 20 elementos).",
-      "N\u00famero de grupo = n\u00famero de electrones en la capa externa; n\u00famero de periodo = n\u00famero de capas ocupadas.",
-      "Los elementos del mismo grupo tienen propiedades qu\u00edmicas similares porque tienen el mismo n\u00famero de electrones externos."
+    "key_facts": [
+      "Número atómico = número de protones (define al elemento).",
+      "Isótopos: mismo número de protones, diferente número de neutrones (p. ej., carbono-12 y carbono-14).",
+      "Llenado de capas electrónicas: 1.ª capa admite 2, 2.ª admite 8, 3.ª admite 8 (para los primeros 20 elementos).",
+      "Número de grupo = número de electrones en la capa externa; número de periodo = número de capas ocupadas.",
+      "Los elementos del mismo grupo tienen propiedades químicas similares porque tienen el mismo número de electrones externos."
     ],
-    "common_traps_ru": [
-      "Confundir el n\u00famero at\u00f3mico con el n\u00famero m\u00e1sico.",
-      "Suponer que todos los \u00e1tomos de un elemento tienen el mismo n\u00famero m\u00e1sico (olvidando los is\u00f3topos).",
-      "Error al contar las capas electr\u00f3nicas \u2014 la tercera capa puede contener 18 electrones en total, pero para los elementos 1\u201320 se llena hasta un m\u00e1ximo de 8 antes de que comience la 4.\u00aa capa."
+    "common_traps": [
+      "Confundir el número atómico con el número másico.",
+      "Suponer que todos los átomos de un elemento tienen el mismo número másico (olvidando los isótopos).",
+      "Error al contar las capas electrónicas — la tercera capa puede contener 18 electrones en total, pero para los elementos 1–20 se llena hasta un máximo de 8 antes de que comience la 4.ª capa."
     ],
-    "variability_ru": "Las preguntas var\u00edan el elemento utilizado y si piden identificaci\u00f3n de grupo/periodo, propiedades de is\u00f3topos o interpretaci\u00f3n de la configuraci\u00f3n electr\u00f3nica."
+    "variability": "Las preguntas varían el elemento utilizado y si piden identificación de grupo/periodo, propiedades de isótopos o interpretación de la configuración electrónica."
   },
   "2": {
-    "title_ru": "Enlace, estructura y propiedades de la materia",
-    "topic_ru": "Enlace i\u00f3nico, covalente y met\u00e1lico; estructuras gigantes y moleculares simples; propiedades",
-    "algorithm_ru": [
+    "title": "Enlace, estructura y propiedades de la materia",
+    "topic": "Enlace iónico, covalente y metálico; estructuras gigantes y moleculares simples; propiedades",
+    "algorithm": [
       "Identifica el tipo de sustancia: metal, no metal o compuesto de metal + no metal.",
-      "Metal + no metal \u2192 enlace i\u00f3nico (transferencia de electrones). No metal + no metal \u2192 enlace covalente (compartici\u00f3n de electrones). Metal solo \u2192 enlace met\u00e1lico (electrones deslocalizados).",
-      "Para preguntas sobre estructura: determina si es una estructura gigante (red i\u00f3nica, covalente gigante, met\u00e1lica) o molecular simple.",
-      "Relaci\u00f3n estructura-propiedades: las estructuras gigantes tienen altos puntos de fusi\u00f3n; las moleculares simples tienen bajos puntos de fusi\u00f3n. Los compuestos i\u00f3nicos conducen cuando est\u00e1n fundidos o disueltos. Los metales conducen debido a los electrones deslocalizados.",
-      "Para respuestas extensas: siempre nombra el tipo de enlace Y explica la estructura Y rel\u00e1cialo con la propiedad que se pregunta."
+      "Metal + no metal → enlace iónico (transferencia de electrones). No metal + no metal → enlace covalente (compartición de electrones). Metal solo → enlace metálico (electrones deslocalizados).",
+      "Para preguntas sobre estructura: determina si es una estructura gigante (red iónica, covalente gigante, metálica) o molecular simple.",
+      "Relación estructura-propiedades: las estructuras gigantes tienen altos puntos de fusión; las moleculares simples tienen bajos puntos de fusión. Los compuestos iónicos conducen cuando están fundidos o disueltos. Los metales conducen debido a los electrones deslocalizados.",
+      "Para respuestas extensas: siempre nombra el tipo de enlace Y explica la estructura Y relácialo con la propiedad que se pregunta."
     ],
-    "key_facts_ru": [
-      "Enlace i\u00f3nico: transferencia de electrones del metal al no metal, formando iones positivos y negativos atra\u00eddos por fuerzas electrost\u00e1ticas.",
-      "Enlace covalente: compartici\u00f3n de pares de electrones entre \u00e1tomos de no metales.",
-      "Enlace met\u00e1lico: iones met\u00e1licos positivos en un mar de electrones deslocalizados.",
+    "key_facts": [
+      "Enlace iónico: transferencia de electrones del metal al no metal, formando iones positivos y negativos atraídos por fuerzas electrostáticas.",
+      "Enlace covalente: compartición de pares de electrones entre átomos de no metales.",
+      "Enlace metálico: iones metálicos positivos en un mar de electrones deslocalizados.",
       "Diamante: cada carbono unido a otros 4 (estructura covalente gigante, muy duro, alto pf).",
-      "Grafito: cada carbono unido a otros 3 en capas, con electrones deslocalizados entre capas (conduce electricidad, las capas se deslizan \u2014 blando).",
-      "Sustancias moleculares simples (p. ej., H\u2082O, CO\u2082): enlaces covalentes fuertes dentro de las mol\u00e9culas, fuerzas intermoleculares d\u00e9biles entre mol\u00e9culas \u2192 bajos puntos de fusi\u00f3n."
+      "Grafito: cada carbono unido a otros 3 en capas, con electrones deslocalizados entre capas (conduce electricidad, las capas se deslizan — blando).",
+      "Sustancias moleculares simples (p. ej., H₂O, CO₂): enlaces covalentes fuertes dentro de las moléculas, fuerzas intermoleculares débiles entre moléculas → bajos puntos de fusión."
     ],
-    "common_traps_ru": [
-      "Decir que \u00ablos enlaces covalentes son d\u00e9biles\u00bb \u2014 los enlaces dentro de las mol\u00e9culas son fuertes; las fuerzas intermoleculares entre mol\u00e9culas son d\u00e9biles.",
-      "Olvidar explicar POR QU\u00c9 existe una propiedad (p. ej., decir que el grafito conduce pero sin mencionar los electrones deslocalizados).",
-      "Confundir enlace i\u00f3nico con covalente: NaCl es i\u00f3nico (metal + no metal), HCl es covalente (no metal + no metal)."
+    "common_traps": [
+      "Decir que «los enlaces covalentes son débiles» — los enlaces dentro de las moléculas son fuertes; las fuerzas intermoleculares entre moléculas son débiles.",
+      "Olvidar explicar POR QUÉ existe una propiedad (p. ej., decir que el grafito conduce pero sin mencionar los electrones deslocalizados).",
+      "Confundir enlace iónico con covalente: NaCl es iónico (metal + no metal), HCl es covalente (no metal + no metal)."
     ],
-    "variability_ru": "Las preguntas cambian las sustancias para emparejar y la propiedad espec\u00edfica a explicar (dureza, conductividad, punto de fusi\u00f3n, solubilidad). Las respuestas extensas pueden comparar dos al\u00f3tropos o dos tipos de estructura."
+    "variability": "Las preguntas cambian las sustancias para emparejar y la propiedad específica a explicar (dureza, conductividad, punto de fusión, solubilidad). Las respuestas extensas pueden comparar dos alótropos o dos tipos de estructura."
   },
   "3": {
-    "title_ru": "Qu\u00edmica cuantitativa",
-    "topic_ru": "Masa f\u00f3rmula relativa, composici\u00f3n porcentual, moles, c\u00e1lculos de masas de reacci\u00f3n",
-    "algorithm_ru": [
-      "Lee la pregunta e identifica qu\u00e9 se calcula: Mr, porcentaje en masa, moles o masa a partir de una ecuaci\u00f3n ajustada.",
-      "Para la masa f\u00f3rmula relativa (Mr): suma los valores de Ar de todos los \u00e1tomos en la f\u00f3rmula. Cuidado con los par\u00e9ntesis \u2014 multiplica el sub\u00edndice exterior por todo lo que hay dentro.",
-      "Para porcentaje en masa: % = (Ar total del elemento en la f\u00f3rmula / Mr del compuesto) \u00d7 100.",
-      "Para c\u00e1lculos de moles: moles = masa / Mr.",
-      "Para masas de reacci\u00f3n: (1) Calcula los moles de la sustancia dada. (2) Usa la relaci\u00f3n molar de la ecuaci\u00f3n ajustada para encontrar los moles de la sustancia buscada. (3) Convierte de nuevo a masa: masa = moles \u00d7 Mr.",
+    "title": "Química cuantitativa",
+    "topic": "Masa fórmula relativa, composición porcentual, moles, cálculos de masas de reacción",
+    "algorithm": [
+      "Lee la pregunta e identifica qué se calcula: Mr, porcentaje en masa, moles o masa a partir de una ecuación ajustada.",
+      "Para la masa fórmula relativa (Mr): suma los valores de Ar de todos los átomos en la fórmula. Cuidado con los paréntesis — multiplica el subíndice exterior por todo lo que hay dentro.",
+      "Para porcentaje en masa: % = (Ar total del elemento en la fórmula / Mr del compuesto) × 100.",
+      "Para cálculos de moles: moles = masa / Mr.",
+      "Para masas de reacción: (1) Calcula los moles de la sustancia dada. (2) Usa la relación molar de la ecuación ajustada para encontrar los moles de la sustancia buscada. (3) Convierte de nuevo a masa: masa = moles × Mr.",
       "Siempre muestra el procedimiento y verifica las unidades."
     ],
-    "key_facts_ru": [
-      "Moles = masa (g) / Mr (masa f\u00f3rmula relativa).",
-      "Masa = moles \u00d7 Mr.",
-      "La ecuaci\u00f3n ajustada da la relaci\u00f3n molar entre reactivos y productos.",
-      "Un mol de cualquier gas ocupa 24 dm\u00b3 a temperatura y presi\u00f3n ambiente (RTP).",
-      "Concentraci\u00f3n (mol/dm\u00b3) = moles / volumen (en dm\u00b3)."
+    "key_facts": [
+      "Moles = masa (g) / Mr (masa fórmula relativa).",
+      "Masa = moles × Mr.",
+      "La ecuación ajustada da la relación molar entre reactivos y productos.",
+      "Un mol de cualquier gas ocupa 24 dm³ a temperatura y presión ambiente (RTP).",
+      "Concentración (mol/dm³) = moles / volumen (en dm³)."
     ],
-    "common_traps_ru": [
-      "Olvidar multiplicar Ar por el n\u00famero de \u00e1tomos (p. ej., en MgCl\u2082 hay 2 \u00e1tomos de cloro: Mr = 24 + 2\u00d735,5 = 95, no 59,5).",
+    "common_traps": [
+      "Olvidar multiplicar Ar por el número de átomos (p. ej., en MgCl₂ hay 2 átomos de cloro: Mr = 24 + 2×35,5 = 95, no 59,5).",
       "Usar el Mr de la sustancia incorrecta al convertir entre moles y masa.",
-      "No leer la precisi\u00f3n requerida \u2014 algunas respuestas necesitan redondeo a un decimal."
+      "No leer la precisión requerida — algunas respuestas necesitan redondeo a un decimal."
     ],
-    "variability_ru": "Las preguntas cambian el compuesto, el elemento de inter\u00e9s para el porcentaje en masa y la reacci\u00f3n para c\u00e1lculos estequiom\u00e9tricos. La dificultad var\u00eda desde c\u00e1lculos simples de Mr hasta problemas de masas de reacci\u00f3n en varios pasos."
+    "variability": "Las preguntas cambian el compuesto, el elemento de interés para el porcentaje en masa y la reacción para cálculos estequiométricos. La dificultad varía desde cálculos simples de Mr hasta problemas de masas de reacción en varios pasos."
   },
   "4": {
-    "title_ru": "Cambios qu\u00edmicos",
-    "topic_ru": "Serie de reactividad, \u00e1cidos y \u00e1lcalis, neutralizaci\u00f3n, electr\u00f3lisis, oxidaci\u00f3n y reducci\u00f3n",
-    "algorithm_ru": [
-      "Para la serie de reactividad: recuerda el orden \u2014 K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (de m\u00e1s a menos reactivo).",
-      "Un metal m\u00e1s reactivo desplaza a uno menos reactivo de su compuesto.",
-      "Para tipos de reacci\u00f3n: neutralizaci\u00f3n = \u00e1cido + base \u2192 sal + agua; desplazamiento = un elemento m\u00e1s reactivo reemplaza a uno menos reactivo; descomposici\u00f3n = una sustancia se descompone en sustancias m\u00e1s simples.",
-      "Para electr\u00f3lisis: en el c\u00e1todo (electrodo negativo) los iones positivos ganan electrones (reducci\u00f3n). En el \u00e1nodo (electrodo positivo) los iones negativos pierden electrones (oxidaci\u00f3n).",
-      "Recuerda: oxidaci\u00f3n es p\u00e9rdida de electrones, reducci\u00f3n es ganancia de electrones."
+    "title": "Cambios químicos",
+    "topic": "Serie de reactividad, ácidos y álcalis, neutralización, electrólisis, oxidación y reducción",
+    "algorithm": [
+      "Para la serie de reactividad: recuerda el orden — K, Na, Ca, Mg, Al, C, Zn, Fe, H, Cu, Ag, Au, Pt (de más a menos reactivo).",
+      "Un metal más reactivo desplaza a uno menos reactivo de su compuesto.",
+      "Para tipos de reacción: neutralización = ácido + base → sal + agua; desplazamiento = un elemento más reactivo reemplaza a uno menos reactivo; descomposición = una sustancia se descompone en sustancias más simples.",
+      "Para electrólisis: en el cátodo (electrodo negativo) los iones positivos ganan electrones (reducción). En el ánodo (electrodo positivo) los iones negativos pierden electrones (oxidación).",
+      "Recuerda: oxidación es pérdida de electrones, reducción es ganancia de electrones."
     ],
-    "key_facts_ru": [
+    "key_facts": [
       "Serie de reactividad (de alta a baja): K, Na, Ca, Mg, Al, (C), Zn, Fe, (H), Cu, Ag, Au, Pt.",
-      "Los metales por encima del carbono se extraen por electr\u00f3lisis; los metales por debajo del carbono se extraen por reducci\u00f3n con carbono.",
-      "\u00c1cido + metal \u2192 sal + hidr\u00f3geno (solo si el metal est\u00e1 por encima del H en la serie de reactividad).",
-      "\u00c1cido + base \u2192 sal + agua (neutralizaci\u00f3n).",
-      "\u00c1cido + carbonato \u2192 sal + agua + di\u00f3xido de carbono.",
-      "En la electr\u00f3lisis de soluciones acuosas: en el c\u00e1todo se produce hidr\u00f3geno si el metal es m\u00e1s reactivo que el hidr\u00f3geno; en el \u00e1nodo se produce ox\u00edgeno a menos que est\u00e9 presente un ion haluro."
+      "Los metales por encima del carbono se extraen por electrólisis; los metales por debajo del carbono se extraen por reducción con carbono.",
+      "Ácido + metal → sal + hidrógeno (solo si el metal está por encima del H en la serie de reactividad).",
+      "Ácido + base → sal + agua (neutralización).",
+      "Ácido + carbonato → sal + agua + dióxido de carbono.",
+      "En la electrólisis de soluciones acuosas: en el cátodo se produce hidrógeno si el metal es más reactivo que el hidrógeno; en el ánodo se produce oxígeno a menos que esté presente un ion haluro."
     ],
-    "common_traps_ru": [
-      "Confundir oxidaci\u00f3n y reducci\u00f3n \u2014 recuerda: oxidaci\u00f3n es p\u00e9rdida, reducci\u00f3n es ganancia de electrones.",
-      "Pensar que el cobre reacciona con \u00e1cido diluido (no lo hace \u2014 el cobre est\u00e1 por debajo del hidr\u00f3geno).",
-      "En la electr\u00f3lisis de soluciones acuosas, olvidar que el agua proporciona iones H\u207a y OH\u207b como productos de descarga alternativos."
+    "common_traps": [
+      "Confundir oxidación y reducción — recuerda: oxidación es pérdida, reducción es ganancia de electrones.",
+      "Pensar que el cobre reacciona con ácido diluido (no lo hace — el cobre está por debajo del hidrógeno).",
+      "En la electrólisis de soluciones acuosas, olvidar que el agua proporciona iones H⁺ y OH⁻ como productos de descarga alternativos."
     ],
-    "variability_ru": "Las preguntas var\u00edan los metales usados en comparaciones de reactividad, las reacciones espec\u00edficas con \u00e1cidos y si la electr\u00f3lisis involucra compuestos fundidos o acuosos."
+    "variability": "Las preguntas varían los metales usados en comparaciones de reactividad, las reacciones específicas con ácidos y si la electrólisis involucra compuestos fundidos o acuosos."
   },
   "5": {
-    "title_ru": "Cambios energ\u00e9ticos",
-    "topic_ru": "Reacciones exot\u00e9rmicas y endot\u00e9rmicas, c\u00e1lculos de energ\u00eda de enlace, perfiles de reacci\u00f3n",
-    "algorithm_ru": [
-      "Identifica si la pregunta pide clasificar reacciones (exo/endot\u00e9rmica) o calcular cambios de energ\u00eda a partir de energ\u00edas de enlace.",
-      "Exot\u00e9rmica: libera energ\u00eda al entorno, la temperatura sube, energ\u00eda de productos < energ\u00eda de reactivos.",
-      "Endot\u00e9rmica: absorbe energ\u00eda del entorno, la temperatura baja, energ\u00eda de productos > energ\u00eda de reactivos.",
-      "Para c\u00e1lculos de energ\u00eda de enlace: (1) Calcula la energ\u00eda total necesaria para romper todos los enlaces de los reactivos. (2) Calcula la energ\u00eda total liberada al formar todos los enlaces de los productos. (3) Cambio total = energ\u00eda de ruptura \u2212 energ\u00eda de formaci\u00f3n.",
-      "Si el resultado es negativo, la reacci\u00f3n es exot\u00e9rmica. Si es positivo, es endot\u00e9rmica."
+    "title": "Cambios energéticos",
+    "topic": "Reacciones exotérmicas y endotérmicas, cálculos de energía de enlace, perfiles de reacción",
+    "algorithm": [
+      "Identifica si la pregunta pide clasificar reacciones (exo/endotérmica) o calcular cambios de energía a partir de energías de enlace.",
+      "Exotérmica: libera energía al entorno, la temperatura sube, energía de productos < energía de reactivos.",
+      "Endotérmica: absorbe energía del entorno, la temperatura baja, energía de productos > energía de reactivos.",
+      "Para cálculos de energía de enlace: (1) Calcula la energía total necesaria para romper todos los enlaces de los reactivos. (2) Calcula la energía total liberada al formar todos los enlaces de los productos. (3) Cambio total = energía de ruptura − energía de formación.",
+      "Si el resultado es negativo, la reacción es exotérmica. Si es positivo, es endotérmica."
     ],
-    "key_facts_ru": [
-      "La combusti\u00f3n y la neutralizaci\u00f3n son reacciones exot\u00e9rmicas.",
-      "La fotos\u00edntesis y la descomposici\u00f3n t\u00e9rmica son reacciones endot\u00e9rmicas.",
-      "Romper enlaces requiere energ\u00eda (proceso endot\u00e9rmico).",
-      "Formar enlaces libera energ\u00eda (proceso exot\u00e9rmico).",
-      "Cambio de energ\u00eda = \u03a3(enlaces rotos) \u2212 \u03a3(enlaces formados).",
-      "La energ\u00eda de activaci\u00f3n es la energ\u00eda m\u00ednima necesaria para que ocurra una reacci\u00f3n."
+    "key_facts": [
+      "La combustión y la neutralización son reacciones exotérmicas.",
+      "La fotosíntesis y la descomposición térmica son reacciones endotérmicas.",
+      "Romper enlaces requiere energía (proceso endotérmico).",
+      "Formar enlaces libera energía (proceso exotérmico).",
+      "Cambio de energía = Σ(enlaces rotos) − Σ(enlaces formados).",
+      "La energía de activación es la energía mínima necesaria para que ocurra una reacción."
     ],
-    "common_traps_ru": [
-      "Decir que romper enlaces libera energ\u00eda \u2014 siempre requiere energ\u00eda.",
-      "Olvidar contar todos los enlaces (p. ej., en 2HCl hay DOS enlaces H\u2013Cl).",
-      "Error en el signo: si al formar enlaces se libera m\u00e1s energ\u00eda de la que se absorbe al romperlos, el cambio total es negativo (exot\u00e9rmica)."
+    "common_traps": [
+      "Decir que romper enlaces libera energía — siempre requiere energía.",
+      "Olvidar contar todos los enlaces (p. ej., en 2HCl hay DOS enlaces H–Cl).",
+      "Error en el signo: si al formar enlaces se libera más energía de la que se absorbe al romperlos, el cambio total es negativo (exotérmica)."
     ],
-    "variability_ru": "Las preguntas cambian la reacci\u00f3n espec\u00edfica para c\u00e1lculos de energ\u00eda de enlace y los ejemplos para clasificar reacciones exot\u00e9rmicas y endot\u00e9rmicas. La reacci\u00f3n y los valores de energ\u00eda de enlace cambian entre ex\u00e1menes."
+    "variability": "Las preguntas cambian la reacción específica para cálculos de energía de enlace y los ejemplos para clasificar reacciones exotérmicas y endotérmicas. La reacción y los valores de energía de enlace cambian entre exámenes."
   },
   "6": {
-    "title_ru": "Velocidad y extensi\u00f3n del cambio qu\u00edmico",
-    "topic_ru": "Factores que afectan la velocidad, teor\u00eda de colisiones, catalizadores, reacciones reversibles, equilibrio",
-    "algorithm_ru": [
-      "Identifica el factor sobre el que se pregunta: temperatura, concentraci\u00f3n, \u00e1rea superficial, presi\u00f3n (gases) o catalizador.",
-      "Aplica la teor\u00eda de colisiones: las reacciones ocurren cuando las part\u00edculas colisionan con suficiente energ\u00eda (\u2265 energ\u00eda de activaci\u00f3n) y orientaci\u00f3n correcta.",
-      "Temperatura \u2191 \u2192 las part\u00edculas se mueven m\u00e1s r\u00e1pido \u2192 colisiones m\u00e1s frecuentes Y m\u00e1s part\u00edculas superan la energ\u00eda de activaci\u00f3n \u2192 la velocidad aumenta.",
-      "Concentraci\u00f3n/presi\u00f3n \u2191 \u2192 m\u00e1s part\u00edculas en el mismo volumen \u2192 colisiones m\u00e1s frecuentes \u2192 la velocidad aumenta.",
-      "\u00c1rea superficial \u2191 (trozos m\u00e1s peque\u00f1os/polvo) \u2192 m\u00e1s part\u00edculas expuestas \u2192 colisiones m\u00e1s frecuentes \u2192 la velocidad aumenta.",
-      "El catalizador proporciona una ruta de reacci\u00f3n alternativa con menor energ\u00eda de activaci\u00f3n \u2192 m\u00e1s part\u00edculas tienen suficiente energ\u00eda para reaccionar \u2192 la velocidad aumenta.",
-      "Para respuestas extensas: siempre vincula el factor con el comportamiento de las part\u00edculas, la frecuencia de colisiones o la energ\u00eda y la velocidad."
+    "title": "Velocidad y extensión del cambio químico",
+    "topic": "Factores que afectan la velocidad, teoría de colisiones, catalizadores, reacciones reversibles, equilibrio",
+    "algorithm": [
+      "Identifica el factor sobre el que se pregunta: temperatura, concentración, área superficial, presión (gases) o catalizador.",
+      "Aplica la teoría de colisiones: las reacciones ocurren cuando las partículas colisionan con suficiente energía (≥ energía de activación) y orientación correcta.",
+      "Temperatura ↑ → las partículas se mueven más rápido → colisiones más frecuentes Y más partículas superan la energía de activación → la velocidad aumenta.",
+      "Concentración/presión ↑ → más partículas en el mismo volumen → colisiones más frecuentes → la velocidad aumenta.",
+      "Área superficial ↑ (trozos más pequeños/polvo) → más partículas expuestas → colisiones más frecuentes → la velocidad aumenta.",
+      "El catalizador proporciona una ruta de reacción alternativa con menor energía de activación → más partículas tienen suficiente energía para reaccionar → la velocidad aumenta.",
+      "Para respuestas extensas: siempre vincula el factor con el comportamiento de las partículas, la frecuencia de colisiones o la energía y la velocidad."
     ],
-    "key_facts_ru": [
-      "Velocidad de reacci\u00f3n = cantidad de producto formado (o reactivo consumido) / tiempo.",
-      "Teor\u00eda de colisiones: las part\u00edculas deben colisionar con suficiente energ\u00eda y orientaci\u00f3n correcta.",
-      "Un catalizador acelera una reacci\u00f3n sin consumirse, proporcionando una ruta alternativa con menor energ\u00eda de activaci\u00f3n.",
-      "Para reacciones reversibles en equilibrio: velocidad de la reacci\u00f3n directa = velocidad de la reacci\u00f3n inversa.",
+    "key_facts": [
+      "Velocidad de reacción = cantidad de producto formado (o reactivo consumido) / tiempo.",
+      "Teoría de colisiones: las partículas deben colisionar con suficiente energía y orientación correcta.",
+      "Un catalizador acelera una reacción sin consumirse, proporcionando una ruta alternativa con menor energía de activación.",
+      "Para reacciones reversibles en equilibrio: velocidad de la reacción directa = velocidad de la reacción inversa.",
       "Principio de Le Chatelier: si las condiciones cambian, el equilibrio se desplaza para oponerse al cambio."
     ],
-    "common_traps_ru": [
-      "Decir que mayor temperatura significa solo \u00abm\u00e1s colisiones\u00bb sin mencionar que las part\u00edculas tambi\u00e9n tienen m\u00e1s energ\u00eda (ambos factores importan, pero el factor energ\u00e9tico es m\u00e1s importante).",
-      "Confundir velocidad con rendimiento \u2014 un catalizador aumenta la velocidad pero no cambia la posici\u00f3n de equilibrio ni el rendimiento.",
-      "Olvidar decir \u00abcolisiones efectivas\u00bb o \u00abcolisiones con energ\u00eda igual o superior a la energ\u00eda de activaci\u00f3n\u00bb."
+    "common_traps": [
+      "Decir que mayor temperatura significa solo «más colisiones» sin mencionar que las partículas también tienen más energía (ambos factores importan, pero el factor energético es más importante).",
+      "Confundir velocidad con rendimiento — un catalizador aumenta la velocidad pero no cambia la posición de equilibrio ni el rendimiento.",
+      "Olvidar decir «colisiones efectivas» o «colisiones con energía igual o superior a la energía de activación»."
     ],
-    "variability_ru": "Las preguntas var\u00edan la reacci\u00f3n espec\u00edfica (trozos de m\u00e1rmol + \u00e1cido, magnesio + \u00e1cido, descomposici\u00f3n de per\u00f3xido de hidr\u00f3geno) y el factor investigado. Las preguntas extensas siempre requieren explicaciones basadas en la teor\u00eda de colisiones."
+    "variability": "Las preguntas varían la reacción específica (trozos de mármol + ácido, magnesio + ácido, descomposición de peróxido de hidrógeno) y el factor investigado. Las preguntas extensas siempre requieren explicaciones basadas en la teoría de colisiones."
   },
   "7": {
-    "title_ru": "Qu\u00edmica org\u00e1nica",
-    "topic_ru": "Hidrocarburos, grupos funcionales, series hom\u00f3logas, reacciones de alcanos y alquenos",
-    "algorithm_ru": [
-      "Identifica la serie hom\u00f3loga por el grupo funcional: alcanos (solo C\u2013C, C\u2099H\u2082\u2099\u208a\u2082), alquenos (C=C, C\u2099H\u2082\u2099), alcoholes (\u2013OH), \u00e1cidos carbox\u00edlicos (\u2013COOH).",
-      "Para ordenar por punto de ebullici\u00f3n: dentro de una serie hom\u00f3loga, las cadenas m\u00e1s largas tienen puntos de ebullici\u00f3n m\u00e1s altos debido a fuerzas intermoleculares m\u00e1s fuertes.",
-      "Para reacciones: los alcanos experimentan combusti\u00f3n y sustituci\u00f3n (con hal\u00f3genos bajo luz UV). Los alquenos experimentan reacciones de adici\u00f3n (con H\u2082, H\u2082O, hal\u00f3genos) y pueden polimerizar.",
+    "title": "Química orgánica",
+    "topic": "Hidrocarburos, grupos funcionales, series homólogas, reacciones de alcanos y alquenos",
+    "algorithm": [
+      "Identifica la serie homóloga por el grupo funcional: alcanos (solo C–C, CₙH₂ₙ₊₂), alquenos (C=C, CₙH₂ₙ), alcoholes (–OH), ácidos carboxílicos (–COOH).",
+      "Para ordenar por punto de ebullición: dentro de una serie homóloga, las cadenas más largas tienen puntos de ebullición más altos debido a fuerzas intermoleculares más fuertes.",
+      "Para reacciones: los alcanos experimentan combustión y sustitución (con halógenos bajo luz UV). Los alquenos experimentan reacciones de adición (con H₂, H₂O, halógenos) y pueden polimerizar.",
       "Prueba para alquenos: el agua de bromo cambia de naranja a incoloro (se decolora).",
-      "Para preguntas sobre pol\u00edmeros: identifica el mon\u00f3mero (la unidad repetitiva) a partir de la estructura del pol\u00edmero, o viceversa."
+      "Para preguntas sobre polímeros: identifica el monómero (la unidad repetitiva) a partir de la estructura del polímero, o viceversa."
     ],
-    "key_facts_ru": [
-      "Alcanos: hidrocarburos saturados, f\u00f3rmula general C\u2099H\u2082\u2099\u208a\u2082, solo enlaces simples C\u2013C.",
-      "Alquenos: hidrocarburos insaturados, f\u00f3rmula general C\u2099H\u2082\u2099, contienen un doble enlace C=C.",
-      "Alcoholes: contienen el grupo \u2013OH, f\u00f3rmula general C\u2099H\u2082\u2099\u208a\u2081OH.",
-      "\u00c1cidos carbox\u00edlicos: contienen el grupo \u2013COOH, f\u00f3rmula general C\u2099H\u2082\u2099\u208a\u2081COOH.",
-      "El petr\u00f3leo crudo es una mezcla de hidrocarburos separada por destilaci\u00f3n fraccionada.",
-      "El craqueo rompe alcanos de cadena larga en alcanos m\u00e1s cortos y alquenos (t\u00e9rmico o catal\u00edtico).",
-      "El punto de ebullici\u00f3n aumenta con la longitud de la cadena dentro de una serie hom\u00f3loga."
+    "key_facts": [
+      "Alcanos: hidrocarburos saturados, fórmula general CₙH₂ₙ₊₂, solo enlaces simples C–C.",
+      "Alquenos: hidrocarburos insaturados, fórmula general CₙH₂ₙ, contienen un doble enlace C=C.",
+      "Alcoholes: contienen el grupo –OH, fórmula general CₙH₂ₙ₊₁OH.",
+      "Ácidos carboxílicos: contienen el grupo –COOH, fórmula general CₙH₂ₙ₊₁COOH.",
+      "El petróleo crudo es una mezcla de hidrocarburos separada por destilación fraccionada.",
+      "El craqueo rompe alcanos de cadena larga en alcanos más cortos y alquenos (térmico o catalítico).",
+      "El punto de ebullición aumenta con la longitud de la cadena dentro de una serie homóloga."
     ],
-    "common_traps_ru": [
-      "Confundir alcanos con alquenos \u2014 los alquENos tienen el doble enlace.",
-      "Escribir f\u00f3rmulas generales incorrectas (p. ej., alcano C\u2099H\u2082\u2099 en vez de C\u2099H\u2082\u2099\u208a\u2082).",
+    "common_traps": [
+      "Confundir alcanos con alquenos — los alquENos tienen el doble enlace.",
+      "Escribir fórmulas generales incorrectas (p. ej., alcano CₙH₂ₙ en vez de CₙH₂ₙ₊₂).",
       "Olvidar que los alquenos decoloran el agua de bromo pero los alcanos no (a menos que haya luz UV)."
     ],
-    "variability_ru": "Las preguntas cambian los compuestos espec\u00edficos a identificar u ordenar, las reacciones a describir. Pueden pedir f\u00f3rmulas estructurales, f\u00f3rmulas desarrolladas o ecuaciones en palabras."
+    "variability": "Las preguntas cambian los compuestos específicos a identificar u ordenar, las reacciones a describir. Pueden pedir fórmulas estructurales, fórmulas desarrolladas o ecuaciones en palabras."
   },
   "8": {
-    "title_ru": "An\u00e1lisis qu\u00edmico",
-    "topic_ru": "Pureza, formulaciones, cromatograf\u00eda, ensayos a la llama, pruebas de gases, identificaci\u00f3n de iones",
-    "algorithm_ru": [
-      "Para preguntas de pH/indicadores: pH < 7 es \u00e1cido, pH = 7 es neutro, pH > 7 es alcalino. Los \u00e1cidos fuertes tienen pH muy bajo (1\u20132), los \u00e1cidos d\u00e9biles pH 3\u20136.",
-      "Para cromatograf\u00eda: Rf = distancia recorrida por la sustancia / distancia recorrida por el disolvente. Una sustancia pura da una mancha; una mezcla da varias manchas.",
-      "Ensayos a la llama: Li = carmes\u00ed, Na = amarillo, K = lila, Ca = rojo anaranjado, Cu = verde/verde azulado.",
-      "Pruebas de gases: hidr\u00f3geno \u2014 estallido al acercar una llama; ox\u00edgeno \u2014 reaviva una astilla incandescente; di\u00f3xido de carbono \u2014 enturbia el agua de cal; cloro \u2014 decolora el papel de tornasol h\u00famedo.",
-      "Pruebas de iones: carbonato + \u00e1cido \u2192 efervescencia (CO\u2082); sulfato + cloruro de bario \u2192 precipitado blanco; haluros + nitrato de plata \u2192 blanco (Cl\u207b), crema (Br\u207b), amarillo (I\u207b)."
+    "title": "Análisis químico",
+    "topic": "Pureza, formulaciones, cromatografía, ensayos a la llama, pruebas de gases, identificación de iones",
+    "algorithm": [
+      "Para preguntas de pH/indicadores: pH < 7 es ácido, pH = 7 es neutro, pH > 7 es alcalino. Los ácidos fuertes tienen pH muy bajo (1–2), los ácidos débiles pH 3–6.",
+      "Para cromatografía: Rf = distancia recorrida por la sustancia / distancia recorrida por el disolvente. Una sustancia pura da una mancha; una mezcla da varias manchas.",
+      "Ensayos a la llama: Li = carmesí, Na = amarillo, K = lila, Ca = rojo anaranjado, Cu = verde/verde azulado.",
+      "Pruebas de gases: hidrógeno — estallido al acercar una llama; oxígeno — reaviva una astilla incandescente; dióxido de carbono — enturbia el agua de cal; cloro — decolora el papel de tornasol húmedo.",
+      "Pruebas de iones: carbonato + ácido → efervescencia (CO₂); sulfato + cloruro de bario → precipitado blanco; haluros + nitrato de plata → blanco (Cl⁻), crema (Br⁻), amarillo (I⁻)."
     ],
-    "key_facts_ru": [
-      "Una sustancia pura tiene un punto de fusi\u00f3n n\u00edtido y espec\u00edfico. Una sustancia impura funde en un rango y a menor temperatura.",
-      "Una formulaci\u00f3n es una mezcla dise\u00f1ada para un prop\u00f3sito espec\u00edfico (p. ej., pintura, medicamento).",
-      "Valor Rf = distancia de la sustancia \u00f7 distancia del frente del disolvente.",
-      "Colores de ensayos a la llama: Li (carmes\u00ed), Na (amarillo), K (lila), Ca (rojo anaranjado), Cu (verde).",
-      "Prueba del hidr\u00f3geno: estallido con una astilla encendida.",
-      "Prueba del ox\u00edgeno: reaviva una astilla incandescente.",
-      "Prueba del di\u00f3xido de carbono: enturbia el agua de cal."
+    "key_facts": [
+      "Una sustancia pura tiene un punto de fusión nítido y específico. Una sustancia impura funde en un rango y a menor temperatura.",
+      "Una formulación es una mezcla diseñada para un propósito específico (p. ej., pintura, medicamento).",
+      "Valor Rf = distancia de la sustancia ÷ distancia del frente del disolvente.",
+      "Colores de ensayos a la llama: Li (carmesí), Na (amarillo), K (lila), Ca (rojo anaranjado), Cu (verde).",
+      "Prueba del hidrógeno: estallido con una astilla encendida.",
+      "Prueba del oxígeno: reaviva una astilla incandescente.",
+      "Prueba del dióxido de carbono: enturbia el agua de cal."
     ],
-    "common_traps_ru": [
-      "Confundir los colores de los ensayos a la llama \u2014 especialmente carmes\u00ed (Li) y rojo anaranjado (Ca).",
-      "Olvidar decir \u00abh\u00famedo\u00bb para el papel de tornasol en la prueba del cloro.",
-      "En cromatograf\u00eda, confundir la distancia del frente del disolvente con la distancia de la mancha al calcular Rf."
+    "common_traps": [
+      "Confundir los colores de los ensayos a la llama — especialmente carmesí (Li) y rojo anaranjado (Ca).",
+      "Olvidar decir «húmedo» para el papel de tornasol en la prueba del cloro.",
+      "En cromatografía, confundir la distancia del frente del disolvente con la distancia de la mancha al calcular Rf."
     ],
-    "variability_ru": "Las preguntas var\u00edan las sustancias a identificar, la prueba espec\u00edfica a aplicar. Pueden proporcionar cromatogramas para c\u00e1lculos de Rf. Los elementos para ensayos a la llama y los gases provienen de la lista est\u00e1ndar del GCSE."
+    "variability": "Las preguntas varían las sustancias a identificar, la prueba específica a aplicar. Pueden proporcionar cromatogramas para cálculos de Rf. Los elementos para ensayos a la llama y los gases provienen de la lista estándar del GCSE."
   },
   "9": {
-    "title_ru": "Qu\u00edmica de la atm\u00f3sfera",
-    "topic_ru": "Composici\u00f3n de la atm\u00f3sfera, gases de efecto invernadero, cambio clim\u00e1tico, contaminantes atmosf\u00e9ricos",
-    "algorithm_ru": [
-      "Conoce la composici\u00f3n actual de la atm\u00f3sfera: ~78% nitr\u00f3geno, ~21% ox\u00edgeno, ~0,04% di\u00f3xido de carbono, ~1% arg\u00f3n, m\u00e1s vapor de agua variable.",
-      "Los gases de efecto invernadero (CO\u2082, metano, vapor de agua) absorben y reemiten radiaci\u00f3n infrarroja, manteniendo la Tierra caliente. El aumento de sus niveles conduce al efecto invernadero intensificado y al calentamiento global.",
-      "Actividades humanas que aumentan el CO\u2082: quema de combustibles f\u00f3siles, deforestaci\u00f3n. Aumento de metano: agricultura (ganado, arroz), vertederos.",
-      "Consecuencias del cambio clim\u00e1tico: subida del nivel del mar, fen\u00f3menos meteorol\u00f3gicos m\u00e1s extremos, p\u00e9rdida de h\u00e1bitats, cambios en la producci\u00f3n de alimentos.",
-      "Contaminantes de la combusti\u00f3n: mon\u00f3xido de carbono (combusti\u00f3n incompleta, t\u00f3xico), di\u00f3xido de azufre (de impurezas de azufre, causa lluvia \u00e1cida), \u00f3xidos de nitr\u00f3geno (de altas temperaturas en motores, causan lluvia \u00e1cida y smog), part\u00edculas (causan problemas respiratorios y oscurecimiento global)."
+    "title": "Química de la atmósfera",
+    "topic": "Composición de la atmósfera, gases de efecto invernadero, cambio climático, contaminantes atmosféricos",
+    "algorithm": [
+      "Conoce la composición actual de la atmósfera: ~78% nitrógeno, ~21% oxígeno, ~0,04% dióxido de carbono, ~1% argón, más vapor de agua variable.",
+      "Los gases de efecto invernadero (CO₂, metano, vapor de agua) absorben y reemiten radiación infrarroja, manteniendo la Tierra caliente. El aumento de sus niveles conduce al efecto invernadero intensificado y al calentamiento global.",
+      "Actividades humanas que aumentan el CO₂: quema de combustibles fósiles, deforestación. Aumento de metano: agricultura (ganado, arroz), vertederos.",
+      "Consecuencias del cambio climático: subida del nivel del mar, fenómenos meteorológicos más extremos, pérdida de hábitats, cambios en la producción de alimentos.",
+      "Contaminantes de la combustión: monóxido de carbono (combustión incompleta, tóxico), dióxido de azufre (de impurezas de azufre, causa lluvia ácida), óxidos de nitrógeno (de altas temperaturas en motores, causan lluvia ácida y smog), partículas (causan problemas respiratorios y oscurecimiento global)."
     ],
-    "key_facts_ru": [
-      "Atm\u00f3sfera terrestre: 78% N\u2082, 21% O\u2082, 0,9% Ar, 0,04% CO\u2082.",
-      "La atm\u00f3sfera primitiva consist\u00eda principalmente en CO\u2082 y vapor de agua (de la actividad volc\u00e1nica).",
-      "El ox\u00edgeno aument\u00f3 debido a la fotos\u00edntesis de las primeras plantas y algas.",
-      "El CO\u2082 disminuy\u00f3 porque se disolvi\u00f3 en los oc\u00e9anos, se us\u00f3 en la fotos\u00edntesis y form\u00f3 rocas carbonatadas y combustibles f\u00f3siles.",
-      "Efecto invernadero: el CO\u2082 y el metano absorben la radiaci\u00f3n infrarroja reemitida por la superficie terrestre.",
+    "key_facts": [
+      "Atmósfera terrestre: 78% N₂, 21% O₂, 0,9% Ar, 0,04% CO₂.",
+      "La atmósfera primitiva consistía principalmente en CO₂ y vapor de agua (de la actividad volcánica).",
+      "El oxígeno aumentó debido a la fotosíntesis de las primeras plantas y algas.",
+      "El CO₂ disminuyó porque se disolvió en los océanos, se usó en la fotosíntesis y formó rocas carbonatadas y combustibles fósiles.",
+      "Efecto invernadero: el CO₂ y el metano absorben la radiación infrarroja reemitida por la superficie terrestre.",
       "Huella de carbono: emisiones totales de gases de efecto invernadero causadas por una persona, evento o producto."
     ],
-    "common_traps_ru": [
+    "common_traps": [
       "Confundir el efecto invernadero (natural y necesario) con el efecto invernadero intensificado (causado por actividades humanas).",
-      "Decir que el CO\u2082 \u00abatrapa calor\u00bb \u2014 m\u00e1s exactamente, absorbe y reemite radiaci\u00f3n infrarroja.",
-      "Mezclar los contaminantes: el SO\u2082 proviene del azufre en los combustibles, los NO\u2093 provienen de la reacci\u00f3n del nitr\u00f3geno y ox\u00edgeno del aire a altas temperaturas en motores."
+      "Decir que el CO₂ «atrapa calor» — más exactamente, absorbe y reemite radiación infrarroja.",
+      "Mezclar los contaminantes: el SO₂ proviene del azufre en los combustibles, los NOₓ provienen de la reacción del nitrógeno y oxígeno del aire a altas temperaturas en motores."
     ],
-    "variability_ru": "Las preguntas cambian los gases o contaminantes presentados, las actividades humanas espec\u00edficas a identificar. Pueden incluir interpretaci\u00f3n de datos (gr\u00e1ficos de niveles de CO\u2082 atmosf\u00e9rico, datos de anomal\u00edas de temperatura)."
+    "variability": "Las preguntas cambian los gases o contaminantes presentados, las actividades humanas específicas a identificar. Pueden incluir interpretación de datos (gráficos de niveles de CO₂ atmosférico, datos de anomalías de temperatura)."
   },
   "10": {
-    "title_ru": "Uso de recursos",
-    "topic_ru": "Recursos finitos y renovables, an\u00e1lisis del ciclo de vida, reciclaje, extracci\u00f3n de metales, tratamiento del agua, proceso de Haber",
-    "algorithm_ru": [
-      "Para el an\u00e1lisis del ciclo de vida (ACV): las cuatro etapas son (1) extracci\u00f3n de materias primas, (2) fabricaci\u00f3n, (3) uso/funcionamiento, (4) eliminaci\u00f3n. Considera el uso de energ\u00eda, los residuos y el impacto ambiental en cada etapa.",
-      "Para la extracci\u00f3n de metales: los metales por encima del carbono en la serie de reactividad se extraen por electr\u00f3lisis; los metales por debajo del carbono se extraen por reducci\u00f3n con carbono en un alto horno.",
-      "Para preguntas sobre reciclaje: considera el ahorro de energ\u00eda, la reducci\u00f3n de la miner\u00eda, la reducci\u00f3n de vertederos y la reducci\u00f3n de emisiones de CO\u2082.",
-      "Para el tratamiento del agua: sedimentaci\u00f3n, filtraci\u00f3n, cloraci\u00f3n (u ozonizaci\u00f3n/tratamiento UV). Desalinizaci\u00f3n (destilaci\u00f3n u \u00f3smosis inversa) para agua de mar.",
-      "Para preguntas de c\u00e1lculo: usa la ecuaci\u00f3n ajustada para calcular moles y masas como en el tema 3.",
-      "Proceso de Haber: N\u2082 + 3H\u2082 \u21cc 2NH\u2083, condiciones: 450\u00b0C, 200 atm, catalizador de hierro \u2014 un compromiso entre velocidad y rendimiento."
+    "title": "Uso de recursos",
+    "topic": "Recursos finitos y renovables, análisis del ciclo de vida, reciclaje, extracción de metales, tratamiento del agua, proceso de Haber",
+    "algorithm": [
+      "Para el análisis del ciclo de vida (ACV): las cuatro etapas son (1) extracción de materias primas, (2) fabricación, (3) uso/funcionamiento, (4) eliminación. Considera el uso de energía, los residuos y el impacto ambiental en cada etapa.",
+      "Para la extracción de metales: los metales por encima del carbono en la serie de reactividad se extraen por electrólisis; los metales por debajo del carbono se extraen por reducción con carbono en un alto horno.",
+      "Para preguntas sobre reciclaje: considera el ahorro de energía, la reducción de la minería, la reducción de vertederos y la reducción de emisiones de CO₂.",
+      "Para el tratamiento del agua: sedimentación, filtración, cloración (u ozonización/tratamiento UV). Desalinización (destilación u ósmosis inversa) para agua de mar.",
+      "Para preguntas de cálculo: usa la ecuación ajustada para calcular moles y masas como en el tema 3.",
+      "Proceso de Haber: N₂ + 3H₂ ⇌ 2NH₃, condiciones: 450°C, 200 atm, catalizador de hierro — un compromiso entre velocidad y rendimiento."
     ],
-    "key_facts_ru": [
-      "Los recursos finitos (combustibles f\u00f3siles, minerales met\u00e1licos) se agotar\u00e1n. Los recursos renovables (madera, cultivos) pueden reponerse.",
-      "Etapas del ACV: materias primas \u2192 fabricaci\u00f3n \u2192 uso \u2192 eliminaci\u00f3n.",
-      "Reciclar metales ahorra energ\u00eda, reduce la miner\u00eda y reduce las emisiones de gases de efecto invernadero.",
-      "Agua potable: agua segura para beber (no necesariamente pura). Requiere filtraci\u00f3n y esterilizaci\u00f3n.",
-      "Fitominer\u00eda: las plantas absorben compuestos met\u00e1licos del suelo; las plantas se queman y el metal se extrae de la ceniza.",
-      "Biolixiviaci\u00f3n: las bacterias producen soluciones \u00e1cidas (lixiviado) que disuelven metales de los minerales.",
-      "Las condiciones del proceso de Haber son un compromiso: alta presi\u00f3n favorece el rendimiento pero es costosa; temperatura moderada da una velocidad razonable con un rendimiento aceptable."
+    "key_facts": [
+      "Los recursos finitos (combustibles fósiles, minerales metálicos) se agotarán. Los recursos renovables (madera, cultivos) pueden reponerse.",
+      "Etapas del ACV: materias primas → fabricación → uso → eliminación.",
+      "Reciclar metales ahorra energía, reduce la minería y reduce las emisiones de gases de efecto invernadero.",
+      "Agua potable: agua segura para beber (no necesariamente pura). Requiere filtración y esterilización.",
+      "Fitominería: las plantas absorben compuestos metálicos del suelo; las plantas se queman y el metal se extrae de la ceniza.",
+      "Biolixiviación: las bacterias producen soluciones ácidas (lixiviado) que disuelven metales de los minerales.",
+      "Las condiciones del proceso de Haber son un compromiso: alta presión favorece el rendimiento pero es costosa; temperatura moderada da una velocidad razonable con un rendimiento aceptable."
     ],
-    "common_traps_ru": [
-      "Pensar que \u00abagua potable\u00bb significa \u00abagua pura\u00bb \u2014 solo significa agua segura para beber que puede contener minerales disueltos.",
+    "common_traps": [
+      "Pensar que «agua potable» significa «agua pura» — solo significa agua segura para beber que puede contener minerales disueltos.",
       "Olvidar que el ACV puede ser subjetivo porque asignar valores de impacto ambiental implica juicios de valor.",
-      "En c\u00e1lculos de extracci\u00f3n, usar la relaci\u00f3n molar incorrecta de la ecuaci\u00f3n ajustada."
+      "En cálculos de extracción, usar la relación molar incorrecta de la ecuación ajustada."
     ],
-    "variability_ru": "Las preguntas var\u00edan el metal extra\u00eddo, el producto espec\u00edfico del ACV y los valores de c\u00e1lculo. El tratamiento del agua y el proceso de Haber son temas frecuentes de respuestas extensas."
+    "variability": "Las preguntas varían el metal extraído, el producto específico del ACV y los valores de cálculo. El tratamiento del agua y el proceso de Haber son temas frecuentes de respuestas extensas."
   }
 }

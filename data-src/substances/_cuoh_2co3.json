@@ -1,28 +1,17 @@
 {
-  "id": "_cuoh_2co3",
+  "id": "sub:_cuoh_2co3",
   "formula": "(CuOH)₂CO₃",
-  "name_ru": "Гидроксокарбонат меди(II)",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Cu_2plus",
-    "OH_minus",
-    "CO3_2minus"
+    "ion:Cu_2plus",
+    "ion:OH_minus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 4,
-  "appearance_ru": "Ярко-зелёный порошок",
-  "hazards_ru": [
-    "Токсичное при проглатывании"
-  ],
-  "industrial_ru": "Пигмент (малахитовый зелёный), декоративный камень (малахит)",
-  "production_ru": "Реакция CuSO₄ + 2NaHCO₃ → (CuOH)₂CO₃↓ + Na₂SO₄ + CO₂ + H₂O",
-  "fun_facts_ru": [
-    "Минерал малахит — это природный (CuOH)₂CO₃, ценный поделочный камень",
-    "Зелёная патина на медных крышах и статуях (Статуя Свободы) — в основном этот минерал"
-  ]
+  "density_g_cm3": 4
 }

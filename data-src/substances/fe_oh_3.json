@@ -1,16 +1,18 @@
 {
-  "id": "fe_oh_3",
-  "formula": "Fe(OH)\u2083",
-  "name_ru": "Гидроксид железа(III)",
+  "id": "sub:fe_oh_3",
+  "formula": "Fe(OH)₃",
   "class": "base",
   "subclass": "insoluble",
-  "ions": ["Fe_3plus", "OH_minus"],
-  "tags": ["insoluble", "red_brown", "decomposes_on_heating"],
+  "ions": [
+    "ion:Fe_3plus",
+    "ion:OH_minus"
+  ],
+  "tags": [
+    "insoluble",
+    "red_brown",
+    "decomposes_on_heating"
+  ],
   "melting_point_C": null,
   "boiling_point_C": null,
-  "density_g_cm3": 3.12,
-  "appearance_ru": "Бурый студенистый осадок",
-  "industrial_ru": "Очистка воды (коагулянт), пигменты",
-  "production_ru": "Осаждение из растворов солей железа(III) щёлочью",
-  "fun_facts_ru": ["Не имеет точки плавления — при нагревании разлагается на Fe₂O₃ и воду", "Ржавчина — это смесь гидратированных оксидов железа, близких по составу к Fe(OH)₃"]
+  "density_g_cm3": 3.12
 }

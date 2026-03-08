@@ -85,7 +85,7 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
         {item.coeff > 1 ? `${item.coeff} ` : ''}
         <FormulaChip
           formula={item.formula}
-          name={sub?.name_ru ?? item.name}
+          name={sub?.name ?? item.name}
           substanceClass={sub?.class}
           substanceId={sub?.id}
           oxidationStates={!ox.error ? ox.assignments : undefined}

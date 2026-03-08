@@ -1,178 +1,178 @@
 {
   "1": {
-    "title_ru": "Строение атома и периодическая таблица",
-    "topic_ru": "Электронная конфигурация, квантовые числа и периодические свойства",
-    "algorithm_ru": [
-      "Определите элемент по его атомному номеру (Z) или электронной конфигурации.",
-      "Запишите электронную конфигурацию, следуя порядку заполнения (1s, 2s, 2p, 3s, 3p, 4s, 3d...). Проверьте, является ли элемент исключением (Cr, Cu и др.).",
-      "Для квантовых чисел последнего электрона: определите n (уровень), l (0=s, 1=p, 2=d, 3=f), ml (от -l до +l) и ms (+1/2 или -1/2).",
-      "Для периодических свойств: вспомните тенденции (ЭИ, СЭ, ЭО, радиус) в периодах (→) и группах (↓).",
-      "Всегда обосновывайте ответ положением в периодической таблице и эффективным зарядом ядра."
+    "title": "Estructura atómica y tabla periódica",
+    "topic": "Configuración electrónica, números cuánticos y propiedades periódicas",
+    "algorithm": [
+      "Identifique el elemento por su número atómico (Z) o configuración electrónica.",
+      "Escriba la configuración electrónica siguiendo el orden de llenado (1s, 2s, 2p, 3s, 3p, 4s, 3d...). Compruebe si es una excepción (Cr, Cu, etc.).",
+      "Para los números cuánticos del último electrón: determine n (nivel), l (0=s, 1=p, 2=d, 3=f), ml (de −l a +l) y ms (+1/2 o −1/2).",
+      "Para propiedades periódicas: recuerde las tendencias (EI, EA, EN, radio) en períodos (→) y grupos (↓).",
+      "Justifique siempre con la posición en la tabla periódica y la carga nuclear efectiva."
     ],
-    "key_facts_ru": [
-      "Порядок заполнения (Ауфбау): 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d...",
-      "Исключения: Cr = [Ar] 3d5 4s1, Cu = [Ar] 3d10 4s1 (полузаполненные или полностью заполненные подуровни более стабильны).",
-      "В периоде (→): увеличивается Zэф → уменьшается радиус, увеличивается ЭИ, увеличивается ЭО.",
-      "В группе (↓): увеличивается число электронных слоёв → увеличивается радиус, уменьшается ЭИ, уменьшается ЭО.",
-      "Квантовые числа: n (1,2,3...), l (от 0 до n-1), ml (от -l до +l), ms (+1/2, -1/2)."
+    "key_facts": [
+      "Orden de llenado (Aufbau): 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d...",
+      "Excepciones: Cr = [Ar] 3d⁵ 4s¹, Cu = [Ar] 3d¹⁰ 4s¹ (subniveles semiocupados o completos son más estables).",
+      "En un período (→): aumenta Z_ef → disminuye radio, aumenta EI, aumenta EN.",
+      "En un grupo (↓): aumenta el número de capas → aumenta radio, disminuye EI, disminuye EN.",
+      "Números cuánticos: n (1,2,3...), l (0 a n−1), ml (−l a +l), ms (+1/2, −1/2)."
     ],
-    "common_traps_ru": [
-      "Забыть об исключениях Cr и Cu в электронной конфигурации.",
-      "Спутать конфигурацию нейтрального атома с конфигурацией иона (при ионизации первыми удаляются электроны с подуровня с наибольшим n, а не с последнего заполненного).",
-      "Перепутать тенденции ЭИ и радиуса: помните, что они противоположны в одном периоде.",
-      "Неправильный переход между валентной конфигурацией и положением в периодической таблице для переходных элементов."
+    "common_traps": [
+      "Olvidar las excepciones del Cr y Cu en la configuración electrónica.",
+      "Confundir la configuración del átomo neutro con la del ion (al ionizar, se pierden primero los electrones del subnivel de mayor n, no del último en llenarse).",
+      "Invertir las tendencias de EI y radio: recuerde que son opuestas en el mismo período.",
+      "No convertir correctamente entre configuración de valencia y posición en la tabla periódica para elementos de transición."
     ],
-    "variability_ru": "Меняется элемент (Z = 1-36, как правило), периодическое свойство для сравнения (ЭИ, ЭО, радиус, металлический характер) и то, спрашивается ли о нейтральном атоме или ионе."
+    "variability": "Cambia el elemento (Z = 1–36 habitualmente), la propiedad periódica que se pide comparar (EI, EN, radio, carácter metálico) y si se pregunta por el átomo neutro o un ion."
   },
   "2": {
-    "title_ru": "Химическая связь и межмолекулярные силы",
-    "topic_ru": "Типы связей, молекулярная геометрия (ОЭПВО), полярность и межмолекулярные силы",
-    "algorithm_ru": [
-      "Определите тип связи: ионная (металл + неметалл, большая ΔЭО), ковалентная (неметаллы, умеренная или нулевая ΔЭО), металлическая (чистый металл).",
-      "Для геометрии ОЭПВО: посчитайте электронные пары центрального атома (связывающие + неподелённые). Определите электронную и молекулярную геометрию.",
-      "Сравните углы: неподелённые пары отталкивают сильнее, чем связывающие, уменьшая валентные углы.",
-      "Для температур кипения/плавления: сравните межмолекулярные силы (Лондоновские < диполь-дипольные < водородные связи < ионные/ковалентная сетка).",
-      "Обоснуйте полярность молекулы: молекула полярна, если имеет полярные связи и несимметричную геометрию."
+    "title": "Enlace químico y fuerzas intermoleculares",
+    "topic": "Tipos de enlace, geometría molecular (RPECV), polaridad y fuerzas intermoleculares",
+    "algorithm": [
+      "Determine el tipo de enlace: iónico (metal + no metal, gran ΔEN), covalente (no metales, ΔEN moderada o nula), metálico (metal puro).",
+      "Para geometría RPECV: cuente pares electrónicos del átomo central (enlazantes + solitarios). Determine la geometría electrónica y la molecular.",
+      "Compare ángulos: los pares solitarios repelen más que los enlazantes, reduciendo los ángulos de enlace.",
+      "Para puntos de ebullición/fusión: compare fuerzas intermoleculares (London < dipolo-dipolo < enlace de hidrógeno < iónico/red covalente).",
+      "Justifique la polaridad molecular: una molécula es polar si tiene enlaces polares y geometría asimétrica."
     ],
-    "key_facts_ru": [
-      "Геометрии ОЭПВО: 2 пары = линейная (180°), 3 = тригонально-плоскостная (120°), 4 = тетраэдрическая (109,5°).",
-      "Неподелённые пары сжимают углы: NH₃ ≈ 107°, H₂O ≈ 104,5°.",
-      "Водородная связь: образуется, когда H связан с F, O или N, и рядом есть неподелённая пара на F, O или N.",
-      "Силы Лондона: присутствуют во всех молекулах, возрастают с молярной массой и площадью поверхности.",
-      "Симметричные молекулы (CO₂, BF₃, CH₄, CCl₄) неполярны, даже если имеют полярные связи."
+    "key_facts": [
+      "Geometrías RPECV: 2 pares = lineal (180°), 3 = trigonal plana (120°), 4 = tetraédrica (109,5°).",
+      "Pares solitarios comprimen los ángulos: NH₃ ≈ 107°, H₂O ≈ 104,5°.",
+      "Enlace de hidrógeno: se forma cuando H está unido a F, O o N y hay un par solitario en F, O o N cercano.",
+      "Fuerzas de London: presentes en todas las moléculas, aumentan con la masa molar y la superficie.",
+      "Moléculas simétricas (CO₂, BF₃, CH₄, CCl₄) son apolares aunque tengan enlaces polares."
     ],
-    "common_traps_ru": [
-      "Спутать электронную геометрию с молекулярной геометрией (например, NH₃ электронно тетраэдрический, но молекулярно пирамидальный).",
-      "Сказать, что CO₂ полярна из-за полярных связей C=O (она линейна и симметрична → неполярна).",
-      "Забыть, что силы Лондона также влияют на температуру кипения полярных молекул.",
-      "Спутать водородную связь (межмолекулярную) с ковалентной связью O-H (внутримолекулярной)."
+    "common_traps": [
+      "Confundir geometría electrónica con geometría molecular (ej.: NH₃ es tetraédrica electrónicamente pero piramidal molecularmente).",
+      "Decir que CO₂ es polar porque tiene enlaces C=O polares (es lineal y simétrica → apolar).",
+      "Olvidar que las fuerzas de London también contribuyen al punto de ebullición de moléculas polares.",
+      "Confundir enlace de hidrógeno (intermolecular) con enlace covalente O−H (intramolecular)."
     ],
-    "variability_ru": "Меняются анализируемые молекулы, сравниваемое свойство (температура кипения, растворимость, полярность) и то, требуется ли полная геометрия или только тип связи."
+    "variability": "Cambian las moléculas a analizar, la propiedad a comparar (punto de ebullición, solubilidad, polaridad) y si se pide la geometría completa o solo el tipo de enlace."
   },
   "3": {
-    "title_ru": "Химическая термодинамика",
-    "topic_ru": "Энтальпия (закон Гесса), энтропия, энергия Гиббса и самопроизвольность",
-    "algorithm_ru": [
-      "Определите, какая величина запрашивается: ΔH° (энтальпия), ΔS° (энтропия) или ΔG° (энергия Гиббса).",
-      "Для ΔH° по закону Гесса: ΔH° = ΣΔH°f(продукты) - ΣΔH°f(реагенты). Помните, что ΔH°f элементов в стандартном состоянии равна 0.",
-      "Для ΔG°: примените ΔG° = ΔH° - TΔS°. Внимание к единицам! Если ΔH° в кДж, а ΔS° в Дж/(моль·К), переведите, разделив ΔS° на 1000.",
-      "Для температуры смены самопроизвольности: приравняйте ΔG° = 0 → T = ΔH° / ΔS°. Результат в К, переведите в °C, вычтя 273,15.",
-      "Интерпретируйте знак ΔG°: отрицательный = самопроизвольная; положительный = несамопроизвольная."
+    "title": "Termodinámica química",
+    "topic": "Entalpía (ley de Hess), entropía, energía libre de Gibbs y espontaneidad",
+    "algorithm": [
+      "Identifique qué magnitud se pide: ΔH° (entalpía), ΔS° (entropía) o ΔG° (energía de Gibbs).",
+      "Para ΔH° por ley de Hess: ΔH° = ΣΔH°f(productos) − ΣΔH°f(reactivos). Recuerde que ΔH°f de elementos en su estado estándar es 0.",
+      "Para ΔG°: aplique ΔG° = ΔH° − TΔS°. ¡Atención a las unidades! Si ΔH° está en kJ y ΔS° en J/(mol·K), convierta dividiendo ΔS° entre 1000.",
+      "Para la temperatura de cambio de espontaneidad: iguale ΔG° = 0 → T = ΔH° / ΔS°. Resultado en K, convierta a °C restando 273,15.",
+      "Interprete el signo de ΔG°: negativo = espontáneo; positivo = no espontáneo."
     ],
-    "key_facts_ru": [
-      "ΔG° = ΔH° - TΔS°. Если ΔG° < 0, реакция самопроизвольна.",
-      "ΔH° < 0 и ΔS° > 0 → самопроизвольна при любой T.",
-      "ΔH° > 0 и ΔS° < 0 → никогда не самопроизвольна.",
-      "ΔH° > 0 и ΔS° > 0 → самопроизвольна при высокой T (T > ΔH°/ΔS°).",
-      "ΔH° < 0 и ΔS° < 0 → самопроизвольна при низкой T (T < ΔH°/ΔS°).",
-      "Закон Гесса: ΔH° реакции не зависит от пути, а зависит только от начального и конечного состояний."
+    "key_facts": [
+      "ΔG° = ΔH° − TΔS°. Si ΔG° < 0, la reacción es espontánea.",
+      "ΔH° < 0 y ΔS° > 0 → espontánea a cualquier T.",
+      "ΔH° > 0 y ΔS° < 0 → nunca espontánea.",
+      "ΔH° > 0 y ΔS° > 0 → espontánea a alta T (T > ΔH°/ΔS°).",
+      "ΔH° < 0 y ΔS° < 0 → espontánea a baja T (T < ΔH°/ΔS°).",
+      "Ley de Hess: ΔH° de reacción es independiente del camino, solo depende del estado inicial y final."
     ],
-    "common_traps_ru": [
-      "Смешение единиц: ΔH° в кДж и ΔS° в Дж/(моль·К). Необходимо привести к одним единицам перед расчётом.",
-      "Забыть, что температура в формуле Гиббса должна быть в кельвинах (K = °C + 273,15).",
-      "Не умножать на стехиометрические коэффициенты при применении закона Гесса.",
-      "Путать «реакция самопроизвольна» с «реакция идёт быстро» (термодинамика не говорит о скорости)."
+    "common_traps": [
+      "Mezclar unidades: ΔH° en kJ y ΔS° en J/(mol·K). Hay que convertir antes de operar.",
+      "Olvidar que la temperatura en la fórmula de Gibbs debe estar en kelvin (K = °C + 273,15).",
+      "No multiplicar por los coeficientes estequiométricos al aplicar Hess.",
+      "Confundir «la reacción es espontánea» con «la reacción es rápida» (la termodinámica no dice nada sobre la velocidad)."
     ],
-    "variability_ru": "Меняются реакция и предоставленные данные (энтальпии образования, энтропии или непосредственно ΔH° и ΔS° реакции). Могут спрашивать ΔH°, ΔG°, T самопроизвольности или качественную интерпретацию."
+    "variability": "Cambian la reacción y los datos proporcionados (entalpías de formación, entropías, o directamente ΔH° y ΔS° de la reacción). Pueden pedir ΔH°, ΔG°, T de espontaneidad o interpretación cualitativa."
   },
   "4": {
-    "title_ru": "Химическая кинетика и равновесие",
-    "topic_ru": "Скорость реакции, кинетические факторы, константа равновесия и принцип Ле Шателье",
-    "algorithm_ru": [
-      "Для Kc: запишите выражение равновесия с продуктами в числителе и реагентами в знаменателе, каждый в степени своего стехиометрического коэффициента.",
-      "Составьте таблицу НИР (Начальное – Изменение – Равновесное) для расчёта равновесных концентраций.",
-      "Подставьте в выражение для Kc и решите.",
-      "Для принципа Ле Шателье: определите возмущение (T, P, концентрация, катализатор) и направление смещения равновесия.",
-      "Помните: катализатор НЕ смещает равновесие (не изменяет Kc или Kp), а лишь ускоряет его достижение."
+    "title": "Cinética química y equilibrio",
+    "topic": "Velocidad de reacción, factores cinéticos, constante de equilibrio y principio de Le Chatelier",
+    "algorithm": [
+      "Para Kc: escriba la expresión de equilibrio con los productos en el numerador y los reactivos en el denominador, cada uno elevado a su coeficiente estequiométrico.",
+      "Monte una tabla ICE (Inicial – Cambio – Equilibrio) para calcular las concentraciones en el equilibrio.",
+      "Sustituya en la expresión de Kc y resuelva.",
+      "Para Le Chatelier: identifique la perturbación (T, P, concentración, catalizador) y determine hacia dónde se desplaza el equilibrio.",
+      "Recuerde: un catalizador NO desplaza el equilibrio (no cambia Kc ni Kp), solo acelera el alcance del mismo."
     ],
-    "key_facts_ru": [
-      "Kc = [продукты]^коэф / [реагенты]^коэф. Включаются только вещества в растворе или газовой фазе.",
-      "При увеличении P: равновесие смещается в сторону с меньшим числом молей газа.",
-      "При увеличении T: если ΔH° < 0 (экзотермическая), Kc уменьшается; если ΔH° > 0 (эндотермическая), Kc увеличивается.",
-      "Катализатор снижает Ea, но не изменяет ΔH°, Kc и состав равновесной смеси.",
-      "Kp = Kc(RT)^Δn, где Δn = моли газообразных продуктов - моли газообразных реагентов."
+    "key_facts": [
+      "Kc = [productos]^coef / [reactivos]^coef. Solo se incluyen especies en disolución o gaseosas.",
+      "Al aumentar P: el equilibrio se desplaza hacia el lado con menos moles de gas.",
+      "Al aumentar T: si ΔH° < 0 (exotérmica), Kc disminuye; si ΔH° > 0 (endotérmica), Kc aumenta.",
+      "Un catalizador reduce Ea pero no modifica ΔH°, Kc ni la composición de equilibrio.",
+      "Kp = Kc(RT)^Δn, donde Δn = moles gaseosos productos − moles gaseosos reactivos."
     ],
-    "common_traps_ru": [
-      "Включение твёрдых веществ или чистых жидкостей в выражение для Kc (они не должны там быть).",
-      "Путать «смещение к продуктам» с «увеличением Kc» (изменение концентрации смещает равновесие, но не изменяет Kc; изменение T изменяет Kc).",
-      "Ошибки в таблице НИР: несоблюдение стехиометрии при расчёте изменений.",
-      "Забыть, что Kp и Kc совпадают только когда Δn = 0."
+    "common_traps": [
+      "Incluir sólidos o líquidos puros en la expresión de Kc (no deben aparecer).",
+      "Confundir «desplazar hacia productos» con «aumentar Kc» (cambiar concentración desplaza el equilibrio pero no cambia Kc; cambiar T sí cambia Kc).",
+      "Errores en la tabla ICE: no respetar la estequiometría al calcular el cambio.",
+      "Olvidar que Kp y Kc solo coinciden cuando Δn = 0."
     ],
-    "variability_ru": "Меняются реакция, исходные данные (начальные концентрации, степень диссоциации, парциальные давления) и вопрос (рассчитать Kc/Kp, предсказать смещение, эффект фактора)."
+    "variability": "Cambian la reacción, los datos de partida (concentraciones iniciales, grado de disociación, presiones parciales) y la pregunta (calcular Kc/Kp, predecir desplazamiento, efecto de un factor)."
   },
   "5": {
-    "title_ru": "Кислотно-основные реакции",
-    "topic_ru": "Расчёт pH, титрование и буферные растворы",
-    "algorithm_ru": [
-      "Для сильных кислот/оснований: [H⁺] = Ca или [OH⁻] = Cb непосредственно. Рассчитайте pH = -log[H⁺] или pOH = -log[OH⁻], затем pH = 14 - pOH.",
-      "Для слабых кислот: составьте равновесие и используйте Ka. Если Ka << c, приближение: [H⁺] ≈ √(Ka·c).",
-      "Для титрования: рассчитайте моли кислоты и основания. Определите, что в избытке после реакции. Рассчитайте концентрацию избытка в общем объёме.",
-      "В точке эквивалентности: моли кислоты = моли основания (для одноосновных кислот и однокислотных оснований).",
-      "Помните: pH + pOH = 14 (при 25 °C, Kw = 10⁻¹⁴)."
+    "title": "Reacciones ácido-base",
+    "topic": "Cálculo de pH, valoraciones y disoluciones reguladoras",
+    "algorithm": [
+      "Para ácidos/bases fuertes: [H⁺] = Ca o [OH⁻] = Cb directamente. Calcule pH = −log[H⁺] o pOH = −log[OH⁻], luego pH = 14 − pOH.",
+      "Para ácidos débiles: plantee el equilibrio y use Ka. Si Ka << c, aproxime: [H⁺] ≈ √(Ka·c).",
+      "Para valoraciones: calcule moles de ácido y base. Determine cuál está en exceso tras la reacción. Calcule la concentración del exceso en el volumen total.",
+      "En el punto de equivalencia: moles ácido = moles base (para ácidos y bases monopróticos).",
+      "Recuerde: pH + pOH = 14 (a 25 °C, Kw = 10⁻¹⁴)."
     ],
-    "key_facts_ru": [
-      "pH = -log[H⁺]; pOH = -log[OH⁻]; pH + pOH = 14 (при 25 °C).",
-      "Сильная кислота: полная диссоциация (HCl, HNO₃, H₂SO₄). Сильное основание: NaOH, KOH, Ca(OH)₂.",
-      "Слабая кислота: Ka < 1 (CH₃COOH Ka = 1,8 × 10⁻⁵). [H⁺] ≈ √(Ka × c) если Ka << c.",
-      "При титровании точка эквивалентности — это момент, когда n(кислота) = n(основание).",
-      "Уравнение Гендерсона-Гассельбаха: pH = pKa + log([A⁻]/[HA]) для буферных растворов."
+    "key_facts": [
+      "pH = −log[H⁺]; pOH = −log[OH⁻]; pH + pOH = 14 (a 25 °C).",
+      "Ácido fuerte: disociación completa (HCl, HNO₃, H₂SO₄). Base fuerte: NaOH, KOH, Ca(OH)₂.",
+      "Ácido débil: Ka < 1 (CH₃COOH Ka = 1,8 × 10⁻⁵). [H⁺] ≈ √(Ka × c) si Ka << c.",
+      "En una valoración, el punto de equivalencia es donde n(ácido) = n(base).",
+      "Ecuación de Henderson-Hasselbalch: pH = pKa + log([A⁻]/[HA]) para disoluciones reguladoras."
     ],
-    "common_traps_ru": [
-      "Путать сильную кислоту со слабой: не использовать Ka для HCl (это сильная кислота, полная диссоциация).",
-      "Не складывать объёмы при смешивании растворов (V_общий = V₁ + V₂).",
-      "Применять -log к общей концентрации вместо [H⁺] или [OH⁻].",
-      "Забыть, что при избытке сильного основания сначала рассчитывается pOH, а затем pH = 14 - pOH."
+    "common_traps": [
+      "Confundir ácido fuerte con ácido débil: no usar Ka para HCl (es fuerte, disociación total).",
+      "No sumar los volúmenes al mezclar disoluciones (V_total = V₁ + V₂).",
+      "Aplicar −log a la concentración total en lugar de a [H⁺] o [OH⁻].",
+      "Olvidar que si hay exceso de base fuerte, se calcula pOH primero y luego pH = 14 − pOH."
     ],
-    "variability_ru": "Меняются кислота/основание (сильные или слабые), концентрации, объёмы смешивания и то, что спрашивается — pH, концентрация, объём в точке эквивалентности или интерпретация кривой титрования."
+    "variability": "Cambian el ácido/base (fuertes o débiles), las concentraciones, los volúmenes de mezcla y si se pide pH, concentración, volumen en el punto de equivalencia o interpretación de una curva de valoración."
   },
   "6": {
-    "title_ru": "Окислительно-восстановительные реакции и электрохимия",
-    "topic_ru": "Уравнивание ОВР (метод полуреакций), гальванические элементы, ЭДС и электролиз (закон Фарадея)",
-    "algorithm_ru": [
-      "Для уравнивания методом полуреакций: разделите на две полуреакции (окисление и восстановление). Уравняйте атомы, затем O с помощью H₂O, затем H с помощью H⁺ (кислая среда) или OH⁻ (щелочная среда), наконец заряды с помощью e⁻.",
-      "Уравняйте число электронов в обеих полуреакциях и сложите для получения суммарного уравнения.",
-      "Для гальванических элементов: ЭДС = E°(катод) - E°(анод). Анод — электрод с меньшим E°.",
-      "Для электролиза (Фарадей): Q = I × t; n(e⁻) = Q / F; затем n(вещество) = n(e⁻) / z (где z = число электронов на ион).",
-      "Масса осаждённого вещества: m = n(вещество) × M."
+    "title": "Oxidación-reducción y electroquímica",
+    "topic": "Ajuste redox (ion-electrón), pilas galvánicas, fem y electrólisis (ley de Faraday)",
+    "algorithm": [
+      "Para ajustar por ion-electrón: separe en dos semirreacciones (oxidación y reducción). Ajuste átomos, luego O con H₂O, luego H con H⁺ (medio ácido) u OH⁻ (medio básico), finalmente cargas con e⁻.",
+      "Iguale el número de electrones en ambas semirreacciones y sume para obtener la reacción global.",
+      "Para pilas: fem = E°(cátodo) − E°(ánodo). El ánodo es el electrodo con menor E°.",
+      "Para electrólisis (Faraday): Q = I × t; n(e⁻) = Q / F; luego n(sustancia) = n(e⁻) / z (donde z = electrones por ion).",
+      "Masa depositada: m = n(sustancia) × M."
     ],
-    "key_facts_ru": [
-      "Окислитель восстанавливается (принимает e⁻); восстановитель окисляется (отдаёт e⁻).",
-      "ЭДС > 0 → реакция самопроизвольна. ΔG° = -nFE°.",
-      "Постоянная Фарадея: F = 96 485 Кл/моль электронов.",
-      "На катоде всегда происходит восстановление (как в гальваническом элементе, так и при электролизе).",
-      "Стандартные потенциалы: измеряются относительно стандартного водородного электрода (E° = 0 В)."
+    "key_facts": [
+      "El agente oxidante se reduce (gana e⁻); el agente reductor se oxida (pierde e⁻).",
+      "fem > 0 → la reacción es espontánea. ΔG° = −nFE°.",
+      "Constante de Faraday: F = 96 485 C/mol de electrones.",
+      "En el cátodo siempre ocurre la reducción (tanto en pilas como en electrólisis).",
+      "Potenciales estándar: se miden respecto al electrodo estándar de hidrógeno (E° = 0 V)."
     ],
-    "common_traps_ru": [
-      "Менять знак потенциала при записи полуреакции окисления (E° не меняется, сравнение производится напрямую).",
-      "Забыть перевести минуты в секунды при расчёте Q = I × t.",
-      "Неправильно уравнять H₂O и H⁺ в кислой среде или OH⁻ в щелочной среде.",
-      "Путать анод/катод в гальваническом элементе и электролитической ячейке (в гальваническом элементе анод — это «-», при электролизе анод — это «+», но в обоих случаях на аноде происходит окисление)."
+    "common_traps": [
+      "Cambiar el signo del potencial al escribir la semirreacción de oxidación (no se cambia E°, se compara directamente).",
+      "Olvidar convertir minutos a segundos al calcular Q = I × t.",
+      "No ajustar correctamente el H₂O y H⁺ en medio ácido o el OH⁻ en medio básico.",
+      "Confundir ánodo/cátodo entre pila galvánica y celda electrolítica (en la pila el ánodo es −, en electrólisis el ánodo es +, pero en ambos el ánodo es donde ocurre la oxidación)."
     ],
-    "variability_ru": "Меняются уравниваемая ОВР, среда (кислая/щелочная), электроды элемента, данные электролиза (ток, время, вещество) и то, что запрашивается — ЭДС, масса осаждённого вещества или необходимое время."
+    "variability": "Cambia la reacción redox a ajustar, el medio (ácido/básico), los electrodos de la pila, los datos de electrólisis (corriente, tiempo, sustancia) y si se pide fem, masa depositada o tiempo necesario."
   },
   "7": {
-    "title_ru": "Органическая химия",
-    "topic_ru": "Номенклатура IUPAC, функциональные группы, изомерия и органические реакции",
-    "algorithm_ru": [
-      "Для наименования: определите самую длинную углеродную цепь, содержащую главную функциональную группу. Пронумеруйте так, чтобы функциональная группа получила наименьший локант.",
-      "Определите и назовите заместители. Добавьте префиксы (ди-, три-) при повторяющихся заместителях.",
-      "Для функциональных групп: -OH (спирт), -COOH (карбоновая кислота), >C=O (кетон/альдегид), -NH₂ (амин), -COO- (сложный эфир).",
-      "Для реакций: определите тип (присоединение, элиминирование, замещение, конденсация, гидролиз/омыление, окисление, восстановление).",
-      "Для изомерии: определите, является ли она структурной (цепи, положения, функции) или стереоизомерией (геометрическая цис/транс, оптическая)."
+    "title": "Química orgánica",
+    "topic": "Nomenclatura IUPAC, grupos funcionales, isomería y reacciones orgánicas",
+    "algorithm": [
+      "Para nombrar: identifique la cadena carbonada más larga que contenga el grupo funcional principal. Numere para dar el localizador más bajo al grupo funcional.",
+      "Identifique y nombre los sustituyentes. Añada prefijos (di-, tri-) si hay sustituyentes repetidos.",
+      "Para grupos funcionales: −OH (alcohol), −COOH (ác. carboxílico), >C=O (cetona/aldehído), −NH₂ (amina), −COO− (éster).",
+      "Para reacciones: identifique el tipo (adición, eliminación, sustitución, condensación, hidrólisis/saponificación, oxidación, reducción).",
+      "Para isomería: determine si es estructural (cadena, posición, función) o estereoisomería (geométrica cis/trans, óptica)."
     ],
-    "key_facts_ru": [
-      "Приоритет функциональных групп (IUPAC): кислота > сложный эфир > амид > альдегид > кетон > спирт > амин.",
-      "Алканы (C-C): суффикс -ан. Алкены (C=C): -ен. Алкины (C≡C): -ин.",
-      "Омыление: сложный эфир + NaOH → соль кислоты + спирт (необратимый щелочной гидролиз).",
-      "Этерификация: кислота + спирт ⇌ сложный эфир + вода (катализируется H⁺, обратимая).",
-      "Цис/транс-изомерия: требуется двойная связь C=C с различными заместителями у каждого атома углерода."
+    "key_facts": [
+      "Prioridad de grupos funcionales (IUPAC): ácido > éster > amida > aldehído > cetona > alcohol > amina.",
+      "Alcanos (C−C): sufijo -ano. Alquenos (C=C): -eno. Alquinos (C≡C): -ino.",
+      "Saponificación: éster + NaOH → sal del ácido + alcohol (hidrólisis básica irreversible).",
+      "Esterificación: ácido + alcohol ⇌ éster + agua (catalizada por H⁺, reversible).",
+      "Isomería cis/trans: requiere doble enlace C=C con sustituyentes distintos en cada carbono."
     ],
-    "common_traps_ru": [
-      "Не выбрать самую длинную цепь, содержащую функциональную группу, в качестве главной цепи.",
-      "Спутать альдегид (-CHO, концевой углерод) с кетоном (>C=O, внутренний углерод).",
-      "Забыть, что этерификация обратима, а омыление — необратимо.",
-      "Не распознать изомеры функции (например, спирт и простой эфир с одинаковой молекулярной формулой)."
+    "common_traps": [
+      "No elegir la cadena más larga que contenga el grupo funcional como cadena principal.",
+      "Confundir aldehído (−CHO, carbono terminal) con cetona (>C=O, carbono interno).",
+      "Olvidar que la esterificación es reversible pero la saponificación es irreversible.",
+      "No reconocer isómeros de función (ej.: un alcohol y un éter con la misma fórmula molecular)."
     ],
-    "variability_ru": "Меняются соединения для наименования, записываемые органические реакции, тип изомерии для определения и то, что спрашивается — номенклатура, механизм, продукт реакции или классификация функциональных групп."
+    "variability": "Cambian los compuestos a nombrar, las reacciones orgánicas a escribir, el tipo de isomería a identificar y si se pide nomenclatura, mecanismo, producto de reacción o clasificación de grupos funcionales."
   }
 }

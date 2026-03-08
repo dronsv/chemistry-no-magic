@@ -9,20 +9,20 @@ const baseModule: TheoryModule = {
   sections: [
     {
       id: 'section_a',
-      title_ru: 'Заголовок A',
+      title: 'Заголовок A',
       blocks: [
-        { t: 'paragraph', text_ru: 'Текст параграфа.' },
+        { t: 'paragraph', text: 'Текст параграфа.' },
         { t: 'ox_rule', rule_id: 'simple_substance' },
-        { t: 'rule_card', title_ru: 'Карточка', rule_ru: 'Правило', description_ru: 'Описание' },
+        { t: 'rule_card', title: 'Карточка', rule: 'Правило', description: 'Описание' },
       ],
     },
     {
       id: 'section_b',
-      title_ru: 'Заголовок B',
+      title: 'Заголовок B',
       blocks: [
         {
           t: 'table',
-          columns_ru: ['Кол A', 'Кол B'],
+          columns: ['Кол A', 'Кол B'],
           rows: [{ cells: ['Ряд 1A', 'Ряд 1B'] }],
         },
       ],
@@ -48,8 +48,8 @@ describe('applyTheoryModuleOverlay', () => {
       },
     };
     const result = applyTheoryModuleOverlay(baseModule, overlay);
-    expect(result.sections[0].title_ru).toBe('Section A');
-    expect(result.sections[1].title_ru).toBe('Заголовок B'); // unchanged
+    expect(result.sections[0].title).toBe('Section A');
+    expect(result.sections[1].title).toBe('Заголовок B'); // unchanged
   });
 
   it('overrides paragraph text, skipping ox_rule blocks in index', () => {
@@ -67,14 +67,14 @@ describe('applyTheoryModuleOverlay', () => {
     };
     const result = applyTheoryModuleOverlay(baseModule, overlay);
     const section = result.sections[0];
-    expect((section.blocks[0] as { text_ru: string }).text_ru).toBe('Paragraph text.');
+    expect((section.blocks[0] as { text: string }).text).toBe('Paragraph text.');
     // ox_rule at index 1 is unchanged
     expect(section.blocks[1]).toEqual({ t: 'ox_rule', rule_id: 'simple_substance' });
     // rule_card at index 2 gets overlay from blocks[1]
-    const card = section.blocks[2] as { title_ru: string; rule_ru: string; description_ru: string };
-    expect(card.title_ru).toBe('Card');
-    expect(card.rule_ru).toBe('Rule');
-    expect(card.description_ru).toBe('Description');
+    const card = section.blocks[2] as { title: string; rule: string; description: string };
+    expect(card.title).toBe('Card');
+    expect(card.rule).toBe('Rule');
+    expect(card.description).toBe('Description');
   });
 
   it('overrides table columns and rows', () => {
@@ -89,8 +89,8 @@ describe('applyTheoryModuleOverlay', () => {
       },
     };
     const result = applyTheoryModuleOverlay(baseModule, overlay);
-    const table = result.sections[1].blocks[0] as { columns_ru: string[]; rows: { cells: string[] }[] };
-    expect(table.columns_ru).toEqual(['Col A', 'Col B']);
+    const table = result.sections[1].blocks[0] as { columns: string[]; rows: { cells: string[] }[] };
+    expect(table.columns).toEqual(['Col A', 'Col B']);
     expect(table.rows[0].cells).toEqual(['Row 1A', 'Row 1B']);
   });
 

@@ -1,39 +1,39 @@
 {
   "simple_substance": {
-    "name_ru": "Simple substance",
-    "rule_ru": "The oxidation state of an element in a simple substance = 0"
+    "name": "Simple substance",
+    "rule": "The oxidation state of an element in a simple substance = 0"
   },
   "fluorine": {
-    "name_ru": "Fluorine",
-    "rule_ru": "F always has an oxidation state of −1 (the most electronegative element)"
+    "name": "Fluorine",
+    "rule": "F always has an oxidation state of −1 (the most electronegative element)"
   },
   "group1": {
-    "name_ru": "Alkali metals (Group I)",
-    "rule_ru": "Li, Na, K, Rb, Cs, Fr — always +1"
+    "name": "Alkali metals (Group I)",
+    "rule": "Li, Na, K, Rb, Cs, Fr — always +1"
   },
   "group2": {
-    "name_ru": "Alkaline earth metals (Group II)",
-    "rule_ru": "Be, Mg, Ca, Sr, Ba, Ra — always +2"
+    "name": "Alkaline earth metals (Group II)",
+    "rule": "Be, Mg, Ca, Sr, Ba, Ra — always +2"
   },
   "aluminum": {
-    "name_ru": "Aluminum",
-    "rule_ru": "Al — always +3"
+    "name": "Aluminum",
+    "rule": "Al — always +3"
   },
   "oxygen": {
-    "name_ru": "Oxygen",
-    "rule_ru": "O is usually −2. Exception: in peroxides (H₂O₂, Na₂O₂) → −1"
+    "name": "Oxygen",
+    "rule": "O is usually −2. Exception: in peroxides (H₂O₂, Na₂O₂) → −1"
   },
   "hydrogen": {
-    "name_ru": "Hydrogen",
-    "rule_ru": "H is usually +1. Exception: in metal hydrides (NaH, CaH₂) → −1"
+    "name": "Hydrogen",
+    "rule": "H is usually +1. Exception: in metal hydrides (NaH, CaH₂) → −1"
   },
   "algebraic": {
-    "name_ru": "Algebraic calculation",
-    "rule_ru": "The sum of oxidation states of all atoms in a neutral molecule = 0. Knowing all OS except one, solve the equation."
+    "name": "Algebraic calculation",
+    "rule": "The sum of oxidation states of all atoms in a neutral molecule = 0. Knowing all OS except one, solve the equation."
   },
   "_redox": {
-    "oxidizer_ru": "An oxidizing agent is an atom (element) that accepts electrons. Its oxidation state decreases.",
-    "reducer_ru": "A reducing agent is an atom (element) that donates electrons. Its oxidation state increases.",
-    "mnemonic_ru": "LEO the lion says GER: Lose Electrons → Oxidation, Gain Electrons → Reduction."
+    "oxidizer": "An oxidizing agent is an atom (element) that accepts electrons. Its oxidation state decreases.",
+    "reducer": "A reducing agent is an atom (element) that donates electrons. Its oxidation state increases.",
+    "mnemonic": "LEO the lion says GER: Lose Electrons → Oxidation, Gain Electrons → Reduction."
   }
 }

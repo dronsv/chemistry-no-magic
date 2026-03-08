@@ -1,24 +1,16 @@
 {
-  "id": "ca3_po4_2",
+  "id": "sub:ca3_po4_2",
   "formula": "Ca₃(PO₄)₂",
-  "name_ru": "Фосфат кальция",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "PO4_3minus"
+    "ion:Ca_2plus",
+    "ion:PO4_3minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": 1670,
   "boiling_point_C": null,
-  "density_g_cm3": 3.14,
-  "appearance_ru": "Белый аморфный порошок",
-  "industrial_ru": "Производство удобрений (суперфосфат), кормовые добавки, керамика",
-  "production_ru": "Добыча фосфоритов и апатитов",
-  "fun_facts_ru": [
-    "Основной минеральный компонент костей и зубов человека — гидроксиапатит Ca₅(PO₄)₃OH",
-    "Фосфориты — осадочные породы из Ca₃(PO₄)₂ — главное сырьё для фосфорных удобрений"
-  ]
+  "density_g_cm3": 3.14
 }

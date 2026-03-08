@@ -3,6 +3,16 @@
  * Checks required fields, types, and value ranges.
  */
 
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
+
+const _schemaDir = dirname(fileURLToPath(import.meta.url));
+const _relationSchema = JSON.parse(
+  readFileSync(join(_schemaDir, '../../data-src/relations/relation_schema.json'), 'utf8')
+);
+const RELATION_ALLOWED_FIELDS = new Set(Object.keys(_relationSchema.items.properties));
+
 const VALID_METAL_TYPES = ['metal', 'nonmetal', 'metalloid'];
 const VALID_ELEMENT_GROUPS = [
   'alkali_metal', 'alkaline_earth', 'transition_metal', 'post_transition_metal',
@@ -36,7 +46,6 @@ export function validateElements(elements) {
     const prefix = `elements[${i}]`;
     if (typeof el.Z !== 'number' || el.Z < 1 || el.Z > 118) errors.push(`${prefix}: invalid Z`);
     if (typeof el.symbol !== 'string' || !el.symbol) errors.push(`${prefix}: missing symbol`);
-    if (typeof el.name_ru !== 'string' || !el.name_ru) errors.push(`${prefix}: missing name_ru`);
     if (typeof el.group !== 'number' || el.group < 1 || el.group > 18) errors.push(`${prefix}: invalid group`);
     if (typeof el.period !== 'number' || el.period < 1 || el.period > 7) errors.push(`${prefix}: invalid period`);
     if (!VALID_METAL_TYPES.includes(el.metal_type)) errors.push(`${prefix}: invalid metal_type "${el.metal_type}"`);
@@ -65,7 +74,6 @@ export function validateIons(ions) {
     if (typeof ion.formula !== 'string' || !ion.formula) errors.push(`${prefix}: missing formula`);
     if (typeof ion.charge !== 'number') errors.push(`${prefix}: missing charge`);
     if (!VALID_ION_TYPES.includes(ion.type)) errors.push(`${prefix}: invalid type "${ion.type}"`);
-    if (typeof ion.name_ru !== 'string' || !ion.name_ru) errors.push(`${prefix}: missing name_ru`);
     if (!Array.isArray(ion.tags)) errors.push(`${prefix}: tags must be array`);
   }
   return errors;
@@ -84,7 +92,6 @@ export function validateClassificationRules(rules) {
     const prefix = `classification_rules[${i}]`;
     if (typeof r.id !== 'string') errors.push(`${prefix}: missing id`);
     if (typeof r.class !== 'string') errors.push(`${prefix}: missing class`);
-    if (typeof r.description_ru !== 'string') errors.push(`${prefix}: missing description_ru`);
     if (!Array.isArray(r.examples)) errors.push(`${prefix}: examples must be array`);
   }
   return errors;
@@ -103,7 +110,6 @@ export function validateNamingRules(rules) {
     const prefix = `naming_rules[${i}]`;
     if (typeof r.id !== 'string') errors.push(`${prefix}: missing id`);
     if (typeof r.class !== 'string') errors.push(`${prefix}: missing class`);
-    if (typeof r.template_ru !== 'string') errors.push(`${prefix}: missing template_ru`);
     if (!Array.isArray(r.examples)) errors.push(`${prefix}: examples must be array`);
   }
   return errors;
@@ -142,7 +148,6 @@ export function validateActivitySeries(series) {
     const e = series[i];
     const prefix = `activity_series[${i}]`;
     if (typeof e.symbol !== 'string') errors.push(`${prefix}: missing symbol`);
-    if (typeof e.name_ru !== 'string') errors.push(`${prefix}: missing name_ru`);
     if (typeof e.position !== 'number') errors.push(`${prefix}: missing position`);
     if (typeof e.reduces_H !== 'boolean') errors.push(`${prefix}: reduces_H must be boolean`);
   }
@@ -189,7 +194,6 @@ export function validateReactionTemplates(templates) {
     const prefix = `reaction_templates[${i}]`;
     if (typeof t.id !== 'string') errors.push(`${prefix}: missing id`);
     if (typeof t.type !== 'string') errors.push(`${prefix}: missing type`);
-    if (typeof t.description_ru !== 'string') errors.push(`${prefix}: missing description_ru`);
     if (!Array.isArray(t.examples)) errors.push(`${prefix}: examples must be array`);
   }
   return errors;
@@ -208,7 +212,6 @@ export function validateTaskTemplates(templates) {
     const prefix = `task_templates[${i}]`;
     if (typeof t.id !== 'string') errors.push(`${prefix}: missing id`);
     if (typeof t.type_number !== 'number') errors.push(`${prefix}: missing type_number`);
-    if (typeof t.name_ru !== 'string') errors.push(`${prefix}: missing name_ru`);
     if (typeof t.competencies !== 'object' || t.competencies === null) {
       errors.push(`${prefix}: missing competencies`);
     } else {
@@ -247,7 +250,35 @@ export function validateApplicabilityRules(rules) {
     const r = rules[i];
     const prefix = `applicability_rules[${i}]`;
     if (typeof r.id !== 'string') errors.push(`${prefix}: missing id`);
-    if (typeof r.description_ru !== 'string') errors.push(`${prefix}: missing description_ru`);
+  }
+  errors.push(...validateApplicabilityRuleStructure(rules));
+  return errors;
+}
+
+const VALID_RULE_KINDS = [
+  'exchange_condition', 'activity_restriction', 'thermal_decomposition',
+  'gas_evolution', 'oxidizing_acid', 'passivation', 'amphoteric_reaction', 'oxide_exception',
+];
+
+const REQUIRED_FIELDS_BY_KIND = {
+  thermal_decomposition: ['reactant_class', 'conditions', 'product_classes'],
+  gas_evolution: ['reactant_class', 'reagent_class', 'gas_product'],
+  activity_restriction: ['subject_class', 'constraint'],
+  passivation: ['metals', 'acids'],
+  exchange_condition: ['required_products'],
+};
+
+export function validateApplicabilityRuleStructure(rules) {
+  const errors = [];
+  if (!Array.isArray(rules)) return ['applicability_rules.json must be an array'];
+  for (const rule of rules) {
+    if (!rule.rule_kind)
+      errors.push(`applicability_rules: ${rule.id} — missing rule_kind`);
+    else if (!VALID_RULE_KINDS.includes(rule.rule_kind))
+      errors.push(`applicability_rules: ${rule.id} — unknown rule_kind '${rule.rule_kind}'`);
+    const required = REQUIRED_FIELDS_BY_KIND[rule.rule_kind] ?? [];
+    for (const f of required)
+      if (!rule[f]) errors.push(`applicability_rules: ${rule.id} — missing '${f}' for kind '${rule.rule_kind}'`);
   }
   return errors;
 }
@@ -305,8 +336,6 @@ export function validateProcessVocab(vocab, effectsVocab) {
     const prefix = `process_vocab[${i}]`;
     if (typeof v.id !== 'string' || !v.id) errors.push(`${prefix}: missing id`);
     if (!VALID_KINDS.includes(v.kind)) errors.push(`${prefix}: invalid kind "${v.kind}"`);
-    if (typeof v.name_ru !== 'string' || !v.name_ru) errors.push(`${prefix}: missing name_ru`);
-    if (typeof v.description_ru !== 'string' || !v.description_ru) errors.push(`${prefix}: missing description_ru`);
     if (v.params !== undefined && !Array.isArray(v.params)) errors.push(`${prefix}: params must be array`);
     if (v.params && !v.params.every(p => typeof p === 'string')) errors.push(`${prefix}: params entries must be strings`);
     if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
@@ -359,8 +388,6 @@ export function validateEffectsVocab(vocab) {
     const prefix = `effects_vocab[${i}]`;
     if (typeof v.id !== 'string' || !v.id) errors.push(`${prefix}: missing id`);
     if (!VALID_CATEGORIES.includes(v.category)) errors.push(`${prefix}: invalid category "${v.category}"`);
-    if (typeof v.name_ru !== 'string' || !v.name_ru) errors.push(`${prefix}: missing name_ru`);
-    if (typeof v.description_ru !== 'string' || !v.description_ru) errors.push(`${prefix}: missing description_ru`);
     if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
     seen.add(v.id);
   }
@@ -386,7 +413,6 @@ export function validateQuantitiesUnits(ont) {
     const q = ont.quantities[i];
     const prefix = `quantities[${i}]`;
     if (typeof q.id !== 'string' || !q.id.startsWith('q:')) errors.push(`${prefix}: id must start with "q:"`);
-    if (typeof q.name_ru !== 'string' || !q.name_ru) errors.push(`${prefix}: missing name_ru`);
     if (typeof q.dimension !== 'string') errors.push(`${prefix}: missing dimension`);
     if (!Array.isArray(q.recommended_units)) errors.push(`${prefix}: recommended_units must be array`);
     quantityIds.add(q.id);
@@ -397,7 +423,6 @@ export function validateQuantitiesUnits(ont) {
     const u = ont.units[i];
     const prefix = `units[${i}]`;
     if (typeof u.id !== 'string' || !u.id.startsWith('unit:')) errors.push(`${prefix}: id must start with "unit:"`);
-    if (typeof u.name_ru !== 'string' || !u.name_ru) errors.push(`${prefix}: missing name_ru`);
     if (typeof u.quantity !== 'string') errors.push(`${prefix}: missing quantity`);
     if (!quantityIds.has(u.quantity)) errors.push(`${prefix}: quantity "${u.quantity}" not found in quantities`);
     if (u.to_SI !== null && typeof u.to_SI !== 'object') errors.push(`${prefix}: to_SI must be object or null`);
@@ -496,7 +521,7 @@ export function validateExamSystems(systems) {
   const errors = [];
   if (!Array.isArray(systems)) return ['exam/systems.json must be an array'];
 
-  const REQUIRED_FIELDS = ['id', 'country', 'name_ru', 'name_en', 'grade', 'duration_min', 'max_score', 'task_count'];
+  const REQUIRED_FIELDS = ['id', 'country', 'grade', 'duration_min', 'max_score', 'task_count'];
 
   for (let i = 0; i < systems.length; i++) {
     const sys = systems[i];
@@ -511,6 +536,55 @@ export function validateExamSystems(systems) {
     }
     if (!Array.isArray(sys.sections)) {
       errors.push(`${prefix}: sections must be array`);
+    }
+  }
+  return errors;
+}
+
+/**
+ * Validate a relations file (acid_base_relations.json, ion_roles.json, etc.)
+ * @param {any[]} relations
+ * @param {string} filename
+ * @returns {string[]} errors
+ */
+export function validateRelations(relations, filename) {
+  const errors = [];
+  if (!Array.isArray(relations)) return [`${filename} must be an array`];
+  for (let i = 0; i < relations.length; i++) {
+    const r = relations[i];
+    const p = `${filename}[${i}]`;
+    if (!r.subject)   errors.push(`${p}: missing subject`);
+    if (!r.predicate) errors.push(`${p}: missing predicate`);
+    if (!r.object)    errors.push(`${p}: missing object`);
+    if (r.step !== undefined && typeof r.step !== 'number') errors.push(`${p}: step must be a number`);
+    const extra = Object.keys(r).filter(k => !RELATION_ALLOWED_FIELDS.has(k));
+    if (extra.length) errors.push(`${p}: unexpected fields: ${extra.join(', ')}`);
+  }
+  return errors;
+}
+
+/**
+ * Validate relation ID integrity: all ion:, sub:, el: IDs must reference
+ * known entities in the ontology.
+ *
+ * @param {Array<object>} allRelations - All relation triples from all files
+ * @param {{ ionIds: Set<string>, substanceIds: Set<string>, elementSymbols: Set<string> }} registry
+ * @returns {string[]} errors
+ */
+export function validateRelationIdIntegrity(allRelations, { ionIds, substanceIds, elementSymbols }) {
+  const errors = [];
+  for (const r of allRelations) {
+    for (const field of ['subject', 'object']) {
+      const val = r[field];
+      if (!val || typeof val !== 'string') continue;
+      if (val.startsWith('ion:')) {
+        if (!ionIds.has(val)) errors.push(`Relation integrity: unknown ion ID "${val}" in ${field}`);
+      } else if (val.startsWith('sub:')) {
+        if (!substanceIds.has(val)) errors.push(`Relation integrity: unknown substance ID "${val}" in ${field}`);
+      } else if (val.startsWith('el:')) {
+        const sym = val.slice(3);
+        if (!elementSymbols.has(sym)) errors.push(`Relation integrity: unknown element "${val}" in ${field}`);
+      }
     }
   }
   return errors;

@@ -1,0 +1,33 @@
+{
+  "full_name": "Matura Chemistry — Extended Level (Poland)",
+  "description": "Chemistry exam within the Polish Matura (school-leaving exam). Extended level for students planning to study sciences at university.",
+  "competencies": {
+    "matura_atomic_structure": {
+      "name": "Atomic structure and periodic table"
+    },
+    "matura_bonding": {
+      "name": "Chemical bonding"
+    },
+    "matura_stoichiometry": {
+      "name": "Stoichiometric calculations"
+    },
+    "matura_acids_bases": {
+      "name": "Acids, bases, and pH"
+    },
+    "matura_redox": {
+      "name": "Redox reactions"
+    },
+    "matura_organic": {
+      "name": "Organic chemistry"
+    },
+    "matura_kinetics": {
+      "name": "Kinetics and chemical equilibrium"
+    },
+    "matura_electrochemistry": {
+      "name": "Electrochemistry"
+    }
+  },
+  "official_links": {
+    "label": "Past Matura Chemistry papers (CKE)"
+  }
+}

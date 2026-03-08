@@ -19,39 +19,39 @@ import type { CalculationsData } from '../../../types/calculations';
 
 const MOCK_ELEMENTS: Element[] = [
   {
-    Z: 11, symbol: 'Na', name_ru: '\u041D\u0430\u0442\u0440\u0438\u0439', name_en: 'Sodium', name_latin: 'Natrium',
+    Z: 11, symbol: 'Na', name: '\u041D\u0430\u0442\u0440\u0438\u0439', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
   },
   {
-    Z: 12, symbol: 'Mg', name_ru: '\u041C\u0430\u0433\u043D\u0438\u0439', name_en: 'Magnesium', name_latin: 'Magnesium',
+    Z: 12, symbol: 'Mg', name: '\u041C\u0430\u0433\u043D\u0438\u0439', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
   },
   {
-    Z: 17, symbol: 'Cl', name_ru: '\u0425\u043B\u043E\u0440', name_en: 'Chlorine', name_latin: 'Chlorum',
+    Z: 17, symbol: 'Cl', name: '\u0425\u043B\u043E\u0440', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
   },
   {
-    Z: 13, symbol: 'Al', name_ru: '\u0410\u043B\u044E\u043C\u0438\u043D\u0438\u0439', name_en: 'Aluminium', name_latin: 'Aluminium',
+    Z: 13, symbol: 'Al', name: '\u0410\u043B\u044E\u043C\u0438\u043D\u0438\u0439', name_latin: 'Aluminium',
     group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition',
     atomic_mass: 26.98, typical_oxidation_states: [3], electronegativity: 1.61,
     amphoteric: true,
   } as Element,
   {
-    Z: 30, symbol: 'Zn', name_ru: '\u0426\u0438\u043D\u043A', name_en: 'Zinc', name_latin: 'Zincum',
+    Z: 30, symbol: 'Zn', name: '\u0426\u0438\u043D\u043A', name_latin: 'Zincum',
     group: 12, period: 4, metal_type: 'metal', element_group: 'transition_metal',
     atomic_mass: 65.38, typical_oxidation_states: [2], electronegativity: 1.65,
     amphoteric: true,
   } as Element,
   {
-    Z: 1, symbol: 'H', name_ru: '\u0412\u043E\u0434\u043E\u0440\u043E\u0434', name_en: 'Hydrogen', name_latin: 'Hydrogenium',
+    Z: 1, symbol: 'H', name: '\u0412\u043E\u0434\u043E\u0440\u043E\u0434', name_latin: 'Hydrogenium',
     group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
     atomic_mass: 1.008, typical_oxidation_states: [1, -1], electronegativity: 2.2,
   },
   {
-    Z: 8, symbol: 'O', name_ru: '\u041A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', name_en: 'Oxygen', name_latin: 'Oxygenium',
+    Z: 8, symbol: 'O', name: '\u041A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', name_latin: 'Oxygenium',
     group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
     atomic_mass: 15.999, typical_oxidation_states: [-2], electronegativity: 3.44,
   },
@@ -67,26 +67,26 @@ const MOCK_PROPERTIES: PropertyDef[] = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
 ];
 
 const MOCK_IONS_WITH_NAMING: Ion[] = [
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name_ru: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root_ru: '\u0445\u043b\u043e\u0440', suffix_ru: '-\u0438\u0434', oxidation_state: -1 } },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name_ru: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root_ru: '\u0441\u0443\u043b\u044c\u0444', suffix_ru: '-\u0430\u0442', oxidation_state: 6 } },
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name_ru: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 } },
+  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
 ];
 
 const MOCK_ION_NOMENCLATURE = {
   suffix_rules: [
-    { id: 'binary_anion', condition: '\u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430', suffix_ru: '-\u0438\u0434', suffix_en: '-ide', description_ru: '\u0414\u043b\u044f \u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u044b\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432', examples: ['Cl\u207b \u2014 \u0445\u043b\u043e\u0440\u0438\u0434'] },
-    { id: 'oxy_max', condition: '\u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0435\u043f\u0435\u043d\u044c \u043e\u043a\u0438\u0441\u043b\u0435\u043d\u0438\u044f', suffix_ru: '-\u0430\u0442', suffix_en: '-ate', description_ru: '\u0414\u043b\u044f \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0441\u043e\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432 (\u043c\u0430\u043a\u0441. \u0441.\u043e.)', examples: ['SO\u2084\u00b2\u207b \u2014 \u0441\u0443\u043b\u044c\u0444\u0430\u0442'] },
+    { id: 'binary_anion', condition: '\u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430', suffix: '-\u0438\u0434', suffix_en: '-ide', description: '\u0414\u043b\u044f \u0431\u0435\u0441\u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u043d\u044b\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432', examples: ['Cl\u207b \u2014 \u0445\u043b\u043e\u0440\u0438\u0434'] },
+    { id: 'oxy_max', condition: '\u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0435\u043f\u0435\u043d\u044c \u043e\u043a\u0438\u0441\u043b\u0435\u043d\u0438\u044f', suffix: '-\u0430\u0442', suffix_en: '-ate', description: '\u0414\u043b\u044f \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0441\u043e\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0445 \u0430\u043d\u0438\u043e\u043d\u043e\u0432 (\u043c\u0430\u043a\u0441. \u0441.\u043e.)', examples: ['SO\u2084\u00b2\u207b \u2014 \u0441\u0443\u043b\u044c\u0444\u0430\u0442'] },
   ],
-  multilingual_comparison: { description_ru: '\u0421\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0435', columns: ['ru', 'en'], binary: ['\u0445\u043b\u043e\u0440\u0438\u0434', 'chloride'], oxy_max: ['\u0441\u0443\u043b\u044c\u0444\u0430\u0442', 'sulfate'], oxy_lower: ['\u0441\u0443\u043b\u044c\u0444\u0438\u0442', 'sulfite'] },
-  mnemonic_ru: '\u0410\u0442 \u2014 \u0431\u043e\u043b\u044c\u0448\u0435 \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0430, \u0438\u0442 \u2014 \u043c\u0435\u043d\u044c\u0448\u0435',
+  multilingual_comparison: { description: '\u0421\u0440\u0430\u0432\u043d\u0435\u043d\u0438\u0435', columns: ['ru', 'en'], binary: ['\u0445\u043b\u043e\u0440\u0438\u0434', 'chloride'], oxy_max: ['\u0441\u0443\u043b\u044c\u0444\u0430\u0442', 'sulfate'], oxy_lower: ['\u0441\u0443\u043b\u044c\u0444\u0438\u0442', 'sulfite'] },
+  mnemonic: '\u0410\u0442 \u2014 \u0431\u043e\u043b\u044c\u0448\u0435 \u043a\u0438\u0441\u043b\u043e\u0440\u043e\u0434\u0430, \u0438\u0442 \u2014 \u043c\u0435\u043d\u044c\u0448\u0435',
   acid_to_anion_pairs: [
-    { acid: 'HCl', anion_id: 'Cl_minus', acid_name_ru: '\u0441\u043e\u043b\u044f\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
-    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name_ru: '\u0441\u0435\u0440\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
+    { acid: 'HCl', anion_id: 'Cl_minus', acid_name: '\u0441\u043e\u043b\u044f\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
+    { acid: 'H2SO4', anion_id: 'SO4_2minus', acid_name: '\u0441\u0435\u0440\u043d\u0430\u044f \u043a\u0438\u0441\u043b\u043e\u0442\u0430' },
   ],
 };
 
@@ -594,7 +594,7 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     slots: {},
   },
   'prompt.classify_suffix_type': {
-    question: 'What is the naming condition for the suffix "{suffix_ru}"?',
+    question: 'What is the naming condition for the suffix "{suffix}"?',
     slots: {},
   },
   'prompt.calc_heat_of_reaction': {
@@ -603,6 +603,22 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
   },
   'explain.calc_heat_of_reaction': {
     template: 'Heat of reaction: ΔH = {delta_H} kJ.',
+    slots: {},
+  },
+  'prompt.acid_residue_graph': {
+    question: 'What is the acid residue of {acid_formula}?',
+    slots: {},
+  },
+  'explain.acid_residue_graph': {
+    template: 'The acid residue of {acid_formula} is {anion_formula}.',
+    slots: {},
+  },
+  'prompt.kinetics_direction': {
+    question: 'How does {target_name} change when {source_name} increases?',
+    slots: {},
+  },
+  'explain.kinetics_direction': {
+    template: 'When {source_name} increases, {target_name} {direction_label}.',
     slots: {},
   },
 };
@@ -619,14 +635,14 @@ const PHASE2_BOND_EXAMPLES: BondExamplesData = {
 };
 
 const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
-  { id: 'nacl', formula: 'NaCl', name_ru: '\u0425\u043B\u043E\u0440\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'salt', subclass: 'medium_salt' },
-  { id: 'hcl', formula: 'HCl', name_ru: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'non_oxygenated' },
-  { id: 'naoh', formula: 'NaOH', name_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'base', subclass: 'soluble_base' },
-  { id: 'na2o', formula: 'Na\u2082O', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
-  { id: 'h2so4', formula: 'H\u2082SO\u2084', name_ru: '\u0421\u0435\u0440\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'oxygenated' },
-  { id: 'cao', formula: 'CaO', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
-  { id: 'al2o3', formula: 'Al\u2082O\u2083', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u0430\u043B\u044E\u043C\u0438\u043D\u0438\u044F', class: 'oxide', subclass: 'amphoteric_oxide' },
-  { id: 'zno', formula: 'ZnO', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u0446\u0438\u043D\u043A\u0430', class: 'oxide', subclass: 'amphoteric_oxide' },
+  { id: 'nacl', formula: 'NaCl', name: '\u0425\u043B\u043E\u0440\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'salt', subclass: 'medium_salt' },
+  { id: 'hcl', formula: 'HCl', name: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'non_oxygenated' },
+  { id: 'naoh', formula: 'NaOH', name: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'base', subclass: 'soluble_base' },
+  { id: 'na2o', formula: 'Na\u2082O', name: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
+  { id: 'h2so4', formula: 'H\u2082SO\u2084', name: '\u0421\u0435\u0440\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'oxygenated' },
+  { id: 'cao', formula: 'CaO', name: '\u041E\u043A\u0441\u0438\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
+  { id: 'al2o3', formula: 'Al\u2082O\u2083', name: '\u041E\u043A\u0441\u0438\u0434 \u0430\u043B\u044E\u043C\u0438\u043D\u0438\u044F', class: 'oxide', subclass: 'amphoteric_oxide' },
+  { id: 'zno', formula: 'ZnO', name: '\u041E\u043A\u0441\u0438\u0434 \u0446\u0438\u043D\u043A\u0430', class: 'oxide', subclass: 'amphoteric_oxide' },
 ];
 
 const PHASE2_REACTIONS: Reaction[] = [
@@ -661,41 +677,41 @@ const PHASE2_REACTIONS: Reaction[] = [
 ] as Reaction[];
 
 const PHASE2_CLASSIFICATION_RULES: ClassificationRule[] = [
-  { id: 'rule_oxide', class: 'oxide', subclass: 'basic_oxide', pattern: 'Me_xO_y', description_ru: '\u041E\u043A\u0441\u0438\u0434\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430 \u0438\u0437 \u0434\u0432\u0443\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043E\u0434\u0438\u043D \u0438\u0437 \u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', examples: ['Na\u2082O', 'CaO'] },
-  { id: 'rule_acid', class: 'acid', subclass: 'oxygenated', pattern: 'H_xAcid', description_ru: '\u041A\u0438\u0441\u043B\u043E\u0442\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0438\u043E\u043D\u044B \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u0430', examples: ['HCl', 'H\u2082SO\u2084'] },
-  { id: 'rule_base', class: 'base', subclass: 'soluble_base', pattern: 'Me(OH)_x', description_ru: '\u041E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u044F \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0433\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434-\u0438\u043E\u043D\u044B', examples: ['NaOH', 'Ca(OH)\u2082'] },
-  { id: 'rule_salt', class: 'salt', subclass: 'medium_salt', pattern: 'Me_xAcid_y', description_ru: '\u0421\u043E\u043B\u0438 \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0441\u0442\u043E\u044F\u0449\u0438\u0435 \u0438\u0437 \u043A\u0430\u0442\u0438\u043E\u043D\u043E\u0432 \u043C\u0435\u0442\u0430\u043B\u043B\u0430 \u0438 \u0430\u043D\u0438\u043E\u043D\u043E\u0432 \u043A\u0438\u0441\u043B\u043E\u0442\u043D\u043E\u0433\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u0430', examples: ['NaCl', 'CaSO\u2084'] },
+  { id: 'rule_oxide', class: 'oxide', subclass: 'basic_oxide', pattern: 'Me_xO_y', description: '\u041E\u043A\u0441\u0438\u0434\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430 \u0438\u0437 \u0434\u0432\u0443\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043E\u0434\u0438\u043D \u0438\u0437 \u043A\u043E\u0442\u043E\u0440\u044B\u0445 \u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', examples: ['Na\u2082O', 'CaO'] },
+  { id: 'rule_acid', class: 'acid', subclass: 'oxygenated', pattern: 'H_xAcid', description: '\u041A\u0438\u0441\u043B\u043E\u0442\u044B \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0438\u043E\u043D\u044B \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u0430', examples: ['HCl', 'H\u2082SO\u2084'] },
+  { id: 'rule_base', class: 'base', subclass: 'soluble_base', pattern: 'Me(OH)_x', description: '\u041E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u044F \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u0449\u0438\u0435 \u0433\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434-\u0438\u043E\u043D\u044B', examples: ['NaOH', 'Ca(OH)\u2082'] },
+  { id: 'rule_salt', class: 'salt', subclass: 'medium_salt', pattern: 'Me_xAcid_y', description: '\u0421\u043E\u043B\u0438 \u2014 \u0441\u043B\u043E\u0436\u043D\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430, \u0441\u043E\u0441\u0442\u043E\u044F\u0449\u0438\u0435 \u0438\u0437 \u043A\u0430\u0442\u0438\u043E\u043D\u043E\u0432 \u043C\u0435\u0442\u0430\u043B\u043B\u0430 \u0438 \u0430\u043D\u0438\u043E\u043D\u043E\u0432 \u043A\u0438\u0441\u043B\u043E\u0442\u043D\u043E\u0433\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u0430', examples: ['NaCl', 'CaSO\u2084'] },
 ];
 
 const PHASE2_NAMING_RULES: NamingRule[] = [
-  { id: 'naming_oxide', class: 'oxide', pattern: 'Me_xO_y', template_ru: '\u041E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430 (\u0441.\u043E.)', examples: [{ formula: 'Na\u2082O', name_ru: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
-  { id: 'naming_acid_non_oxy', class: 'acid', pattern: 'H_xHal', template_ru: '\u0411\u0435\u0441\u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434\u043D\u044B\u0435: \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 + \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F', examples: [{ formula: 'HCl', name_ru: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430' }] },
-  { id: 'naming_base', class: 'base', pattern: 'Me(OH)_x', template_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043C\u0435\u0442\u0430\u043B\u043B\u0430', examples: [{ formula: 'NaOH', name_ru: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
+  { id: 'naming_oxide', class: 'oxide', pattern: 'Me_xO_y', template: '\u041E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430 (\u0441.\u043E.)', examples: [{ formula: 'Na\u2082O', name: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
+  { id: 'naming_acid_non_oxy', class: 'acid', pattern: 'H_xHal', template: '\u0411\u0435\u0441\u043A\u0438\u0441\u043B\u043E\u0440\u043E\u0434\u043D\u044B\u0435: \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 + \u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F', examples: [{ formula: 'HCl', name: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430' }] },
+  { id: 'naming_base', class: 'base', pattern: 'Me(OH)_x', template: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 + \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043C\u0435\u0442\u0430\u043B\u043B\u0430', examples: [{ formula: 'NaOH', name: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F' }] },
 ];
 
 // ── Mock data for reactions batch ────────────────────────────────
 
 const MOCK_ACTIVITY_SERIES: ActivitySeriesEntry[] = [
-  { symbol: 'Li', name_ru: 'Литий', position: 1, reduces_H: true },
-  { symbol: 'Na', name_ru: 'Натрий', position: 3, reduces_H: true },
-  { symbol: 'Mg', name_ru: 'Магний', position: 4, reduces_H: true },
-  { symbol: 'Zn', name_ru: 'Цинк', position: 8, reduces_H: true },
-  { symbol: 'Fe', name_ru: 'Железо', position: 9, reduces_H: true },
-  { symbol: 'Cu', name_ru: 'Медь', position: 14, reduces_H: false },
-  { symbol: 'Ag', name_ru: 'Серебро', position: 16, reduces_H: false },
-  { symbol: 'Au', name_ru: 'Золото', position: 18, reduces_H: false },
+  { symbol: 'Li', name: 'Литий', position: 1, reduces_H: true },
+  { symbol: 'Na', name: 'Натрий', position: 3, reduces_H: true },
+  { symbol: 'Mg', name: 'Магний', position: 4, reduces_H: true },
+  { symbol: 'Zn', name: 'Цинк', position: 8, reduces_H: true },
+  { symbol: 'Fe', name: 'Железо', position: 9, reduces_H: true },
+  { symbol: 'Cu', name: 'Медь', position: 14, reduces_H: false },
+  { symbol: 'Ag', name: 'Серебро', position: 16, reduces_H: false },
+  { symbol: 'Au', name: 'Золото', position: 18, reduces_H: false },
 ];
 
 const MOCK_QUALITATIVE_TESTS: QualitativeTest[] = [
-  { target_id: 'Cl_minus', target_name_ru: 'Хлорид-ион', reagent_formula: 'AgNO₃', reagent_name_ru: 'Нитрат серебра', observation_ru: 'Белый творожистый осадок AgCl' },
-  { target_id: 'SO4_2minus', target_name_ru: 'Сульфат-ион', reagent_formula: 'BaCl₂', reagent_name_ru: 'Хлорид бария', observation_ru: 'Белый осадок BaSO₄, нерастворимый в кислотах' },
-  { target_id: 'CO3_2minus', target_name_ru: 'Карбонат-ион', reagent_formula: 'HCl', reagent_name_ru: 'Соляная кислота', observation_ru: 'Выделение газа CO₂ (помутнение известковой воды)' },
+  { target_id: 'Cl_minus', target_name: 'Хлорид-ион', reagent_formula: 'AgNO₃', reagent_name: 'Нитрат серебра', observation: 'Белый творожистый осадок AgCl' },
+  { target_id: 'SO4_2minus', target_name: 'Сульфат-ион', reagent_formula: 'BaCl₂', reagent_name: 'Хлорид бария', observation: 'Белый осадок BaSO₄, нерастворимый в кислотах' },
+  { target_id: 'CO3_2minus', target_name: 'Карбонат-ион', reagent_formula: 'HCl', reagent_name: 'Соляная кислота', observation: 'Выделение газа CO₂ (помутнение известковой воды)' },
 ];
 
 const MOCK_GENETIC_CHAINS: GeneticChain[] = [
   {
     chain_id: 'chain_Ca',
-    title_ru: 'Цепочка превращений кальция',
+    title: 'Цепочка превращений кальция',
     class_sequence: ['element', 'oxide', 'hydroxide', 'salt'],
     steps: [
       { substance: 'Ca', reagent: 'O₂', next: 'CaO', type: 'oxidation' },
@@ -705,7 +721,7 @@ const MOCK_GENETIC_CHAINS: GeneticChain[] = [
   },
   {
     chain_id: 'chain_S',
-    title_ru: 'Цепочка превращений серы',
+    title: 'Цепочка превращений серы',
     class_sequence: ['element', 'oxide', 'acid'],
     steps: [
       { substance: 'S', reagent: 'O₂', next: 'SO₂', type: 'oxidation' },
@@ -716,29 +732,29 @@ const MOCK_GENETIC_CHAINS: GeneticChain[] = [
 
 const MOCK_ENERGY_CATALYST: EnergyCatalystTheory = {
   rate_factors: [
-    { factor_id: 'temperature', name_ru: 'Температура', effect_ru: 'Повышение температуры увеличивает скорость реакции', detail_ru: 'Правило Вант-Гоффа', applies_to: 'all' },
-    { factor_id: 'concentration', name_ru: 'Концентрация', effect_ru: 'Увеличение концентрации ускоряет реакцию', detail_ru: 'Закон действующих масс', applies_to: 'homogeneous' },
-    { factor_id: 'surface_area', name_ru: 'Площадь поверхности', effect_ru: 'Измельчение твёрдого вещества увеличивает скорость', detail_ru: 'Гетерогенные реакции', applies_to: 'heterogeneous' },
+    { factor_id: 'temperature', name: 'Температура', effect: 'Повышение температуры увеличивает скорость реакции', detail: 'Правило Вант-Гоффа', applies_to: 'all' },
+    { factor_id: 'concentration', name: 'Концентрация', effect: 'Увеличение концентрации ускоряет реакцию', detail: 'Закон действующих масс', applies_to: 'homogeneous' },
+    { factor_id: 'surface_area', name: 'Площадь поверхности', effect: 'Измельчение твёрдого вещества увеличивает скорость', detail: 'Гетерогенные реакции', applies_to: 'heterogeneous' },
   ],
   catalyst_properties: {
-    changes_ru: ['Скорость реакции'],
-    does_not_change_ru: ['Положение равновесия', 'Тепловой эффект'],
+    changes: ['Скорость реакции'],
+    does_not_change: ['Положение равновесия', 'Тепловой эффект'],
   },
   common_catalysts: [
-    { catalyst: 'MnO₂', name_ru: 'Диоксид марганца', reaction_ru: 'Разложение H₂O₂' },
-    { catalyst: 'V₂O₅', name_ru: 'Оксид ванадия(V)', reaction_ru: 'Контактный метод получения H₂SO₄' },
-    { catalyst: 'Pt', name_ru: 'Платина', reaction_ru: 'Окисление аммиака' },
+    { catalyst: 'MnO₂', name: 'Диоксид марганца', reaction: 'Разложение H₂O₂' },
+    { catalyst: 'V₂O₅', name: 'Оксид ванадия(V)', reaction: 'Контактный метод получения H₂SO₄' },
+    { catalyst: 'Pt', name: 'Платина', reaction: 'Окисление аммиака' },
   ],
   equilibrium_shifts: [
-    { factor: 'увеличение температуры', shift_ru: 'в сторону эндотермической реакции', explanation_ru: 'Принцип Ле Шателье' },
-    { factor: 'увеличение давления', shift_ru: 'в сторону меньшего объёма газов', explanation_ru: 'Принцип Ле Шателье' },
-    { factor: 'увеличение концентрации реагентов', shift_ru: 'в сторону продуктов', explanation_ru: 'Принцип Ле Шателье' },
+    { factor: 'увеличение температуры', shift: 'в сторону эндотермической реакции', explanation: 'Принцип Ле Шателье' },
+    { factor: 'увеличение давления', shift: 'в сторону меньшего объёма газов', explanation: 'Принцип Ле Шателье' },
+    { factor: 'увеличение концентрации реагентов', shift: 'в сторону продуктов', explanation: 'Принцип Ле Шателье' },
   ],
   heat_classification: {
-    exothermic_ru: 'Экзотермическая реакция',
-    endothermic_ru: 'Эндотермическая реакция',
-    examples_exo_ru: ['Горение', 'Нейтрализация'],
-    examples_endo_ru: ['Разложение', 'Электролиз'],
+    exothermic: 'Экзотермическая реакция',
+    endothermic: 'Эндотермическая реакция',
+    examples_exo: ['Горение', 'Нейтрализация'],
+    examples_endo: ['Разложение', 'Электролиз'],
   },
 };
 
@@ -792,7 +808,7 @@ const MOCK_CALCULATIONS: CalculationsData = {
   calc_substances: [
     {
       formula: 'H₂O',
-      name_ru: 'Вода',
+      name: 'Вода',
       M: 18.015,
       composition: [
         { element: 'H', Ar: 1.008, count: 2 },
@@ -801,7 +817,7 @@ const MOCK_CALCULATIONS: CalculationsData = {
     },
     {
       formula: 'NaCl',
-      name_ru: 'Хлорид натрия',
+      name: 'Хлорид натрия',
       M: 58.44,
       composition: [
         { element: 'Na', Ar: 22.99, count: 1 },
@@ -811,7 +827,7 @@ const MOCK_CALCULATIONS: CalculationsData = {
   ],
   calc_reactions: [
     {
-      equation_ru: '2H₂ + O₂ → 2H₂O',
+      equation: '2H₂ + O₂ → 2H₂O',
       given: { formula: 'H₂', coeff: 2, M: 2.016 },
       find: { formula: 'H₂O', coeff: 2, M: 18.015 },
       delta_H_kJmol: -571.6,
@@ -826,6 +842,51 @@ function loadAllTemplates(): TaskTemplate[] {
   );
   return JSON.parse(raw) as TaskTemplate[];
 }
+
+const MOCK_KINETICS_RULES = [
+  {
+    id: 'rule:kinetics.concentration.rate',
+    kind: 'directional_influence',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    source_property: 'prop:reactant_concentration',
+    source_change: { operator: 'increase' },
+    target_property: 'prop:reaction_rate',
+    target_response: { mode: 'direction', direction: 'increase' },
+    name: 'Effect of concentration on reaction rate',
+  },
+  {
+    id: 'rule:kinetics.catalyst.activation_energy',
+    kind: 'directional_influence',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    source_property: 'prop:catalyst_presence',
+    source_change: { operator: 'enable' },
+    target_property: 'prop:activation_energy',
+    target_response: { mode: 'direction', direction: 'decrease' },
+    name: 'Effect of catalyst on activation energy',
+  },
+  {
+    id: 'law:vanthoff_rule',
+    kind: 'empirical_rule',
+    category: 'kinetics',
+    domain: 'chemical_kinetics',
+    name: "Van't Hoff Rule",
+  },
+];
+
+const MOCK_KINETICS_DIRECTION_LABELS: Record<string, string> = {
+  increase: 'increases',
+  decrease: 'decreases',
+  no_change: 'remains unchanged',
+};
+
+const MOCK_ACID_BASE_RELATIONS_PHASE2 = [
+  { subject: 'sub:hcl', predicate: 'has_conjugate_base', object: 'ion:Cl_minus', step: 1 },
+  { subject: 'ion:Cl_minus', predicate: 'has_conjugate_acid', object: 'sub:hcl', step: 1 },
+  { subject: 'sub:hno3', predicate: 'has_conjugate_base', object: 'ion:NO3_minus', step: 1 },
+  { subject: 'ion:NO3_minus', predicate: 'has_conjugate_acid', object: 'sub:hno3', step: 1 },
+];
 
 function buildPhase2Ontology(): OntologyData {
   return {
@@ -843,6 +904,9 @@ function buildPhase2Ontology(): OntologyData {
       qualitativeTests: MOCK_QUALITATIVE_TESTS,
       energyCatalyst: MOCK_ENERGY_CATALYST,
       ionNomenclature: MOCK_ION_NOMENCLATURE,
+      acidBaseRelations: MOCK_ACID_BASE_RELATIONS_PHASE2,
+      kineticsRules: MOCK_KINETICS_RULES as import('../../../types/kinetics').KineticsRule[],
+      kineticsDirectionLabels: MOCK_KINETICS_DIRECTION_LABELS,
     },
     data: {
       substances: PHASE2_SUBSTANCE_INDEX,
@@ -858,8 +922,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 66 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(66);
+  it('loads all 68 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(68);
   });
 
   describe('bond templates', () => {
@@ -1144,7 +1208,7 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       expect(task.competency_map).toEqual({ naming: 'P', classification: 'S' });
       // Answer should be one of the known substance names
-      const allNames = PHASE2_SUBSTANCE_INDEX.map(s => s.name_ru).filter(Boolean);
+      const allNames = PHASE2_SUBSTANCE_INDEX.map(s => s.name).filter(Boolean);
       expect(allNames).toContain(task.correct_answer);
       // Question should contain a formula
       expect(task.slots.formula).toBeDefined();
@@ -1173,7 +1237,7 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       expect(task.competency_map).toEqual({ naming: 'P' });
       // Answer should be one of the naming rule templates
-      const allTemplateStrs = PHASE2_NAMING_RULES.map(r => r.template_ru);
+      const allTemplateStrs = PHASE2_NAMING_RULES.map(r => r.template);
       expect(allTemplateStrs).toContain(task.correct_answer);
     });
   });
@@ -1202,6 +1266,65 @@ describe('TaskEngine — Phase 2 integration', () => {
       expect(task.competency_map).toEqual({ amphoterism_logic: 'P' });
       // Slots should include reaction_partners
       expect(task.slots.reaction_partners).toEqual(['acid', 'base']);
+    });
+  });
+
+  describe('kinetics directional template', () => {
+    it('generates a task from tmpl.kinetics.directional.v1', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+
+      expect(task.template_id).toBe('tmpl.kinetics.directional.v1');
+      expect(task.interaction).toBe('choice_single');
+      expect(task.competency_map).toEqual({ reaction_energy_profile: 'P' });
+    });
+
+    it('correct answer is a locale direction label string', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      const validLabels = Object.values(MOCK_KINETICS_DIRECTION_LABELS);
+      expect(validLabels).toContain(task.correct_answer);
+    });
+
+    it('produces exactly 2 distractors (all 3 direction labels shown)', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      // 2 wrong directions + 1 correct = 3 options
+      expect(task.distractors.length).toBe(2);
+    });
+
+    it('distractors are the other direction labels, not the correct one', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      const allLabels = Object.values(MOCK_KINETICS_DIRECTION_LABELS);
+      for (const d of task.distractors) {
+        expect(allLabels).toContain(d);
+        expect(d).not.toBe(task.correct_answer);
+      }
+    });
+
+    it('slots contain source_name, target_name, direction', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      expect(task.slots.source_name).toBeDefined();
+      expect(task.slots.target_name).toBeDefined();
+      expect(['increase', 'decrease']).toContain(task.slots.direction);
+    });
+
+    it('question contains target_name and source_name', () => {
+      const engine = createTaskEngine(allTemplates, ontology);
+      const task = engine.generate('tmpl.kinetics.directional.v1');
+      expect(task.question).toContain(String(task.slots.target_name));
+      expect(task.question).toContain(String(task.slots.source_name));
+    });
+
+    it('throws when kineticsRules is missing', () => {
+      const noKineticsOntology = {
+        ...ontology,
+        rules: { ...ontology.rules, kineticsRules: undefined },
+      };
+      const engine = createTaskEngine(allTemplates, noKineticsOntology);
+      expect(() => engine.generate('tmpl.kinetics.directional.v1')).toThrow('kineticsRules not available');
     });
   });
 });
@@ -1321,7 +1444,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.qual.identify_ion.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allTargets = MOCK_QUALITATIVE_TESTS.map(t => t.target_name_ru);
+      const allTargets = MOCK_QUALITATIVE_TESTS.map(t => t.target_name);
       expect(allTargets).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ qualitative_reactions: 'P' });
       expect(task.slots.observation).toBeDefined();
@@ -1393,7 +1516,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.factors_rate.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allFactors = MOCK_ENERGY_CATALYST.rate_factors.map(f => f.name_ru);
+      const allFactors = MOCK_ENERGY_CATALYST.rate_factors.map(f => f.name);
       expect(allFactors).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ reaction_rate_factors: 'P' });
     });
@@ -1413,7 +1536,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.equilibrium_shift.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allShifts = MOCK_ENERGY_CATALYST.equilibrium_shifts.map(s => s.shift_ru);
+      const allShifts = MOCK_ENERGY_CATALYST.equilibrium_shifts.map(s => s.shift);
       expect(allShifts).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ equilibrium_shift: 'P' });
       expect(task.slots.eq_factor).toBeDefined();
@@ -1425,7 +1548,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.catalyst_props.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allNames = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.name_ru);
+      const allNames = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.name);
       expect(allNames).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ catalysis_concept: 'P' });
       expect(task.slots.catalyst_reaction).toBeDefined();
@@ -1710,7 +1833,7 @@ describe('TaskEngine — Ions batch integration', () => {
       expect(task.template_id).toBe('tmpl.ion.formula_to_name.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allNames = MOCK_IONS_WITH_NAMING.map(i => i.name_ru);
+      const allNames = MOCK_IONS_WITH_NAMING.map(i => i.name);
       expect(allNames).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ naming: 'P' });
       expect(task.slots.ionA_formula).toBeDefined();
@@ -1737,7 +1860,7 @@ describe('TaskEngine — Ions batch integration', () => {
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
       // Suffixes from our mock ions with naming
-      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix_ru);
+      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix);
       expect(allSuffixes).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ naming: 'P' });
       expect(task.slots.ionA_formula).toBeDefined();
@@ -1749,7 +1872,7 @@ describe('TaskEngine — Ions batch integration', () => {
       expect(task.template_id).toBe('tmpl.ion.ate_ite_pair.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix_ru);
+      const allSuffixes = MOCK_IONS_WITH_NAMING.filter(i => i.naming).map(i => i.naming!.suffix);
       expect(allSuffixes).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ naming: 'P' });
       expect(task.slots.ionB_formula).toBeDefined();
@@ -1786,7 +1909,7 @@ describe('TaskEngine — Ions batch integration', () => {
       expect(task.template_id).toBe('tmpl.ion.ox_state_to_suffix.v1');
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
-      const allSuffixes = MOCK_ION_NOMENCLATURE.suffix_rules.map(r => r.suffix_ru);
+      const allSuffixes = MOCK_ION_NOMENCLATURE.suffix_rules.map(r => r.suffix);
       expect(allSuffixes).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ naming: 'P' });
       expect(task.slots.condition).toBeDefined();
@@ -1801,7 +1924,7 @@ describe('TaskEngine — Ions batch integration', () => {
       const allConditions = MOCK_ION_NOMENCLATURE.suffix_rules.map(r => r.condition);
       expect(allConditions).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ naming: 'P' });
-      expect(task.slots.suffix_ru).toBeDefined();
+      expect(task.slots.suffix).toBeDefined();
     });
   });
 

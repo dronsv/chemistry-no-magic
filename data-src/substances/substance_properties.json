@@ -1,0 +1,74 @@
+[
+  {
+    "id": "subprop:agcl_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:agcl",
+    "property": "prop:color",
+    "value": "color:white",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:agcl_solid_texture",
+    "kind": "substance_property",
+    "subject": "sub:agcl",
+    "property": "prop:texture",
+    "value": "texture:curdy",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:baso4_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:baso4",
+    "property": "prop:color",
+    "value": "color:white",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:ag3po4_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:ag3po4",
+    "property": "prop:color",
+    "value": "color:yellow",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:cu_oh_2_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:cu_oh_2",
+    "property": "prop:color",
+    "value": "color:blue",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:fe_oh_3_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:fe_oh_3",
+    "property": "prop:color",
+    "value": "color:brown",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:fe_oh_2_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:fe_oh_2",
+    "property": "prop:color",
+    "value": "color:white",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:pbs_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:pbs",
+    "property": "prop:color",
+    "value": "color:black",
+    "phase": "phase:solid"
+  },
+  {
+    "id": "subprop:caco3_solid_color",
+    "kind": "substance_property",
+    "subject": "sub:caco3",
+    "property": "prop:color",
+    "value": "color:white",
+    "phase": "phase:solid"
+  }
+]

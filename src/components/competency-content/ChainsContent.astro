@@ -9,7 +9,7 @@ interface ChainStep {
 }
 interface GeneticChain {
   chain_id: string;
-  title_ru: string;
+  title: string;
   class_sequence: string[];
   steps: ChainStep[];
 }
@@ -38,7 +38,7 @@ const { chains } = Astro.props;
 <p class="comp-content__subtitle">{m.rxn_theory_chain_examples()}</p>
 {chains.map(chain => (
   <div class="comp-content__chain">
-    <div class="comp-content__chain-title">{chain.title_ru}</div>
+    <div class="comp-content__chain-title">{chain.title}</div>
     <div class="comp-content__chain-seq">{chain.class_sequence.join(' → ')}</div>
     <div style="margin-top: 0.25rem; font-size: 0.8125rem;">
       {chain.steps.map((step, i) => (

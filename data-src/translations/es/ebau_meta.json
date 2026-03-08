@@ -1,0 +1,30 @@
+{
+  "full_name": "Evaluación de Bachillerato para el Acceso a la Universidad — Química",
+  "description": "Examen de acceso a la universidad. Química avanzada de 2.º de Bachillerato.",
+  "competencies": {
+    "ebau_atomic_structure": {
+      "name": "Estructura atómica y sistema periódico"
+    },
+    "ebau_bonding": {
+      "name": "Enlace químico y propiedades"
+    },
+    "ebau_thermodynamics": {
+      "name": "Termodinámica química"
+    },
+    "ebau_kinetics": {
+      "name": "Cinética química y equilibrio"
+    },
+    "ebau_acid_base": {
+      "name": "Reacciones ácido-base"
+    },
+    "ebau_redox": {
+      "name": "Oxidación-reducción y electroquímica"
+    },
+    "ebau_organic": {
+      "name": "Química orgánica"
+    }
+  },
+  "official_links": {
+    "label": "Modelos de examen EBAU (universidades)"
+  }
+}

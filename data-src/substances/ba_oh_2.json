@@ -1,12 +1,11 @@
 {
-  "id": "ba_oh_2",
+  "id": "sub:ba_oh_2",
   "formula": "Ba(OH)₂",
-  "name_ru": "Гидроксид бария",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Ba_2plus",
-    "OH_minus"
+    "ion:Ba_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",
@@ -15,16 +14,5 @@
   ],
   "melting_point_C": 408,
   "boiling_point_C": 780,
-  "density_g_cm3": 4.5,
-  "appearance_ru": "Белые кристаллы, растворимые в воде",
-  "hazards_ru": [
-    "Токсичное",
-    "Коррозионное"
-  ],
-  "industrial_ru": "Аналитическая химия, очистка сахара, производство смазочных материалов",
-  "production_ru": "Реакция оксида бария с водой: BaO + H₂O → Ba(OH)₂",
-  "fun_facts_ru": [
-    "Баритовая вода — насыщенный раствор Ba(OH)₂ — реактив на CO₂ (белый осадок BaCO₃)",
-    "Реакция Ba(OH)₂·8H₂O с NH₄SCN настолько эндотермична, что замораживает стакан с водой"
-  ]
+  "density_g_cm3": 4.5
 }

@@ -1,8 +1,8 @@
 export interface QualitativeTest {
   target_id: string;
-  target_name_ru: string;
+  target_name: string;
   reagent_formula: string;
-  reagent_name_ru: string;
-  observation_ru: string;
+  reagent_name: string;
+  observation: string;
   reaction_id?: string;
 }

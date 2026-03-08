@@ -1,27 +1,16 @@
 {
-  "id": "nano3",
+  "id": "sub:nano3",
   "formula": "NaNO₃",
-  "name_ru": "Нитрат натрия",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "NO3_minus"
+    "ion:Na_plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 308,
   "boiling_point_C": null,
-  "density_g_cm3": 2.26,
-  "appearance_ru": "Бесцветные кристаллы или белый порошок",
-  "hazards_ru": [
-    "Окислитель"
-  ],
-  "industrial_ru": "Удобрения, пищевая промышленность (E251), производство стекла",
-  "production_ru": "Нейтрализация: NaOH + HNO₃ → NaNO₃ + H₂O",
-  "fun_facts_ru": [
-    "Природный NaNO₃ (чилийская селитра) добывался в пустыне Атакама — важнейшее удобрение XIX века",
-    "Используется как пищевая добавка E251 для консервирования мясных продуктов"
-  ]
+  "density_g_cm3": 2.26
 }

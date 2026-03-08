@@ -8,8 +8,8 @@ describe('OxRule types', () => {
     const _rule: OxRule = {
       id: 'oxygen',
       kind: 'default',
-      title_ru: 'Кислород: обычно −2',
-      description_ru: 'В большинстве соединений кислород имеет −2.',
+      title: 'Кислород: обычно −2',
+      description: 'В большинстве соединений кислород имеет −2.',
       examples: ['H2O'],
     };
     // TypeScript assignment IS the test.
@@ -19,8 +19,8 @@ describe('OxRule types', () => {
     const _rule: OxRule = {
       id: 'sum_equals_zero',
       kind: 'constraint',
-      title_ru: 'Сумма = 0',
-      description_ru: 'Сумма равна 0.',
+      title: 'Сумма = 0',
+      description: 'Сумма равна 0.',
       // no examples — must compile without error
     };
   });
@@ -39,8 +39,8 @@ describe('OxRule types', () => {
 
   it('buildRulesById lookup returns undefined for missing keys', () => {
     const rules: OxRule[] = [
-      { id: 'oxygen', kind: 'default', title_ru: 'O', description_ru: 'desc' },
-      { id: 'fluorine', kind: 'assignment', title_ru: 'F', description_ru: 'desc' },
+      { id: 'oxygen', kind: 'default', title: 'O', description: 'desc' },
+      { id: 'fluorine', kind: 'assignment', title: 'F', description: 'desc' },
     ];
     const byId: Record<string, OxRule> = Object.fromEntries(rules.map(r => [r.id, r]));
     expect(byId['oxygen']?.kind).toBe('default');

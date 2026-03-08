@@ -1,27 +1,16 @@
 {
-  "id": "nahso4",
+  "id": "sub:nahso4",
   "formula": "NaHSO₄",
-  "name_ru": "Гидросульфат натрия",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Na_plus",
-    "HSO4_minus"
+    "ion:Na_plus",
+    "ion:HSO4_minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 315,
   "boiling_point_C": null,
-  "density_g_cm3": 2.742,
-  "appearance_ru": "Бесцветные кристаллы",
-  "hazards_ru": [
-    "Коррозионное"
-  ],
-  "industrial_ru": "Бытовая химия (средства для чистки унитазов), регулятор pH в бассейнах",
-  "production_ru": "Неполная нейтрализация: NaOH + H₂SO₄(изб.) → NaHSO₄ + H₂O",
-  "fun_facts_ru": [
-    "Продаётся как «сухая кислота» — безопаснее жидкой H₂SO₄ при транспортировке",
-    "Раствор имеет сильно кислую реакцию — pH близок к H₂SO₄ той же концентрации"
-  ]
+  "density_g_cm3": 2.742
 }

@@ -1,24 +1,16 @@
 {
-  "id": "zns",
+  "id": "sub:zns",
   "formula": "ZnS",
-  "name_ru": "Сульфид цинка",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Zn_2plus",
-    "S_2minus"
+    "ion:Zn_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"
   ],
   "melting_point_C": 1185,
   "boiling_point_C": null,
-  "density_g_cm3": 4.09,
-  "appearance_ru": "Белый порошок (или желтоватый)",
-  "industrial_ru": "Люминофоры (экраны мониторов, циферблаты часов), пигмент",
-  "production_ru": "Осаждение: ZnCl₂ + Na₂S → ZnS↓ + 2NaCl",
-  "fun_facts_ru": [
-    "Люминесцирует при облучении — исторически использовался в экранах кинескопов",
-    "Минерал сфалерит (ZnS) — основная руда для получения цинка"
-  ]
+  "density_g_cm3": 4.09
 }

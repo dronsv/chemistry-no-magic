@@ -280,7 +280,7 @@
     "slots": {}
   },
   "prompt.classify_suffix_type": {
-    "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix_ru}\u201d?",
+    "question": "Jaki warunek nazewnictwa odpowiada sufiksowi \u201e{suffix}\u201d?",
     "slots": {}
   },
   "prompt.calc_heat_of_reaction": {
@@ -289,6 +289,22 @@
   },
   "explain.calc_heat_of_reaction": {
     "template": "Efekt cieplny reakcji: ΔH = {delta_H} kJ.",
+    "slots": {}
+  },
+  "prompt.acid_residue_graph": {
+    "question": "Resztą kwasową kwasu {acid_formula} jest:",
+    "slots": {}
+  },
+  "explain.acid_residue_graph": {
+    "template": "Kwas {acid_formula} dysocjuje z wytworzeniem anionu {anion_formula} ({anion_name}) — to jego reszta kwasowa.",
+    "slots": {}
+  },
+  "prompt.kinetics_direction": {
+    "question": "Jak zmienia się {target_name} przy wzroście {source_name}?",
+    "slots": {}
+  },
+  "explain.kinetics_direction": {
+    "template": "Przy wzroście {source_name} {target_name} {direction_label}.",
     "slots": {}
   }
 }

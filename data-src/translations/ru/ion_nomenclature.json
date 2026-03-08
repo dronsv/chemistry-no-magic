@@ -1,0 +1,31 @@
+{
+  "suffix_rules": [
+    { "id": "binary_ide",   "suffix": "-ид", "description": "Бескислородные анионы → суффикс -ид" },
+    { "id": "oxy_max_ate",  "suffix": "-ат", "description": "Кислородная кислота с макс. СО центрального атома → -ат" },
+    { "id": "oxy_lower_ite","suffix": "-ит", "description": "Кислородная кислота с меньшей СО → -ит" },
+    { "id": "per_prefix",   "prefix": "пер-", "suffix": "-ат", "description": "СО выше обычного максимума → приставка пер- + суффикс -ат" },
+    { "id": "hypo_prefix",  "prefix": "гипо-", "suffix": "-ит", "description": "СО ниже обычного минимума → приставка гипо- + суффикс -ит" }
+  ],
+  "acid_to_anion_pairs": [
+    { "acid": "HCl",      "acid_name": "соляная кислота" },
+    { "acid": "HBr",      "acid_name": "бромоводородная кислота" },
+    { "acid": "HI",       "acid_name": "иодоводородная кислота" },
+    { "acid": "HF",       "acid_name": "фтороводородная кислота" },
+    { "acid": "H₂S",     "acid_name": "сероводородная кислота" },
+    { "acid": "H₂SO₄",   "acid_name": "серная кислота" },
+    { "acid": "H₂SO₃",   "acid_name": "сернистая кислота" },
+    { "acid": "HNO₃",    "acid_name": "азотная кислота" },
+    { "acid": "HNO₂",    "acid_name": "азотистая кислота" },
+    { "acid": "H₂CO₃",   "acid_name": "угольная кислота" },
+    { "acid": "H₂SiO₃",  "acid_name": "кремниевая кислота" },
+    { "acid": "H₃PO₄",   "acid_name": "фосфорная кислота" },
+    { "acid": "CH₃COOH", "acid_name": "уксусная кислота" },
+    { "acid": "HMnO₄",   "acid_name": "марганцовая кислота" },
+    { "acid": "H₂CrO₄",  "acid_name": "хромовая кислота" },
+    { "acid": "H₂Cr₂O₇", "acid_name": "дихромовая кислота" }
+  ],
+  "mnemonic": "Нет кислорода → -ИД. Есть кислород: макс. СО → -АТ, меньше → -ИТ. Ещё выше → ПЕР-...-АТ, ещё ниже → ГИПО-...-ИТ.",
+  "multilingual_comparison": {
+    "description": "Система суффиксов в разных языках: -ид/-ит/-ат (рус.) ≈ -ide/-ite/-ate (англ.) ≈ -ek/-an/-ian (пол.) ≈ -uro/-ito/-ato (исп.)"
+  }
+}

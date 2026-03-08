@@ -1,28 +1,16 @@
 {
-  "id": "na2cro4",
+  "id": "sub:na2cro4",
   "formula": "Na₂CrO₄",
-  "name_ru": "Хромат натрия",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "CrO4_2minus"
+    "ion:Na_plus",
+    "ion:CrO4_2minus"
   ],
   "tags": [
     "soluble"
   ],
   "melting_point_C": 792,
   "boiling_point_C": null,
-  "density_g_cm3": 2.723,
-  "appearance_ru": "Жёлтые кристаллы",
-  "hazards_ru": [
-    "Канцерогенное",
-    "Токсичное"
-  ],
-  "industrial_ru": "Производство хромовых пигментов, антикоррозионная защита",
-  "production_ru": "Окислительный обжиг хромитовой руды с содой",
-  "fun_facts_ru": [
-    "Промежуточный продукт при переработке хромитовой руды",
-    "Растворы хроматов имеют характерный жёлтый цвет из-за иона CrO₄²⁻"
-  ]
+  "density_g_cm3": 2.723
 }

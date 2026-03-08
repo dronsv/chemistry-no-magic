@@ -1,0 +1,28 @@
+{
+  "id": "module:ion_nomenclature.v1",
+  "kind": "theory_module",
+  "applies_to": [],
+  "sections": [
+    {
+      "id": "anion_suffixes",
+      "blocks": [
+        { "t": "paragraph" },
+        { "t": "rule_card", "title": "", "rule": "", "examples": ["Cl⁻", "S²⁻", "Br⁻", "F⁻", "I⁻"] },
+        { "t": "rule_card", "title": "", "rule": "", "examples": ["SO₄²⁻", "NO₃⁻", "CrO₄²⁻"] },
+        { "t": "rule_card", "title": "", "rule": "", "examples": ["SO₃²⁻", "NO₂⁻", "ClO₂⁻"] },
+        { "t": "rule_card", "title": "", "rule": "", "examples": ["MnO₄⁻", "ClO₄⁻"] },
+        { "t": "rule_card", "title": "", "rule": "", "examples": ["ClO⁻"] },
+        { "t": "paragraph" }
+      ]
+    },
+    {
+      "id": "substance_naming",
+      "blocks": [
+        { "t": "paragraph" },
+        { "t": "paragraph" },
+        { "t": "paragraph" },
+        { "t": "paragraph" }
+      ]
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 {
   "trend:atomic_radius": {
-    "title_ru": "Promień atomowy",
-    "trend_period_ru": "Maleje od lewej do prawej w okresie",
-    "trend_group_ru": "Rośnie od góry do dołu w grupie",
-    "why_period_ru": "Przesuwając się w prawo w okresie, ładunek jądra zwiększa się o +1, a elektrony dodawane są na ten sam poziom energetyczny. Elektrony wewnętrzne ekranują jądro jednakowo, ale zwiększony ładunek silniej przyciąga elektrony zewnętrzne, ściśkając powłokę elektronową. Każdy nowy proton ściąga orbitale bliżej jądra.",
-    "why_group_ru": "Przesuwając się w dół grupy, dodawany jest nowy poziom energetyczny. Choć ładunek jądra również rośnie, elektrony wewnętrzne skutecznie go ekranują: każdy zapełniony poziom tworzy „tarczę” między jądrem a elektronami zewnętrznymi. W efekcie elektrony zewnętrzne znajdują się dalej od jądra, a atom staje się większy.",
+    "title": "Promień atomowy",
+    "trend_period": "Maleje od lewej do prawej w okresie",
+    "trend_group": "Rośnie od góry do dołu w grupie",
+    "why_period": "Przesuwając się w prawo w okresie, ładunek jądra zwiększa się o +1, a elektrony dodawane są na ten sam poziom energetyczny. Elektrony wewnętrzne ekranują jądro jednakowo, ale zwiększony ładunek silniej przyciąga elektrony zewnętrzne, ściśkając powłokę elektronową. Każdy nowy proton ściąga orbitale bliżej jądra.",
+    "why_group": "Przesuwając się w dół grupy, dodawany jest nowy poziom energetyczny. Choć ładunek jądra również rośnie, elektrony wewnętrzne skutecznie go ekranują: każdy zapełniony poziom tworzy „tarczę” między jądrem a elektronami zewnętrznymi. W efekcie elektrony zewnętrzne znajdują się dalej od jądra, a atom staje się większy.",
     "examples": [
       {
-        "label_ru": "Okres 2",
-        "comment_ru": "promień maleje dwukrotnie w ciągu okresu",
+        "label": "Okres 2",
+        "comment": "promień maleje dwukrotnie w ciągu okresu",
         "elements": [
           {
             "value": "152 pm"
@@ -22,8 +22,8 @@
         ]
       },
       {
-        "label_ru": "Grupa IA",
-        "comment_ru": "promień rośnie z każdym nowym poziomem",
+        "label": "Grupa IA",
+        "comment": "promień rośnie z każdym nowym poziomem",
         "elements": [
           {
             "value": "152 pm"
@@ -37,15 +37,15 @@
     ]
   },
   "trend:ionization_energy": {
-    "title_ru": "Energia jonizacji",
-    "trend_period_ru": "Rośnie od lewej do prawej w okresie",
-    "trend_group_ru": "Maleje od góry do dołu w grupie",
-    "why_period_ru": "Im mniejszy promień atomowy i większy ładunek jądra przy tej samej liczbie poziomów, tym silniej jądro zatrzymuje elektron zewnętrzny. Dlatego do jego oderwania potrzeba więcej energii. Wyjątki: beryl (2s²) ma wyższą energię jonizacji niż bor (2s²2p¹), ponieważ całkowicie zapełniony podpoziom 2s jest szczególnie stabilny, a azot (2p³) ma wyższą energię jonizacji niż tlen (2p⁴) dzięki stabilności na połowę zapełnionego podpoziomu 2p.",
-    "why_group_ru": "Wraz ze wzrostem liczby poziomów energetycznych elektron zewnętrzny oddala się od jądra i jest ekranowany przez powłoki wewnętrzne. Jądro słabiej go utrzymuje — do oderwania potrzeba mniej energii. Dlatego metale alkaliczne na dole grupy (Cs, Fr) najlątwiej tracą elektron.",
+    "title": "Energia jonizacji",
+    "trend_period": "Rośnie od lewej do prawej w okresie",
+    "trend_group": "Maleje od góry do dołu w grupie",
+    "why_period": "Im mniejszy promień atomowy i większy ładunek jądra przy tej samej liczbie poziomów, tym silniej jądro zatrzymuje elektron zewnętrzny. Dlatego do jego oderwania potrzeba więcej energii. Wyjątki: beryl (2s²) ma wyższą energię jonizacji niż bor (2s²2p¹), ponieważ całkowicie zapełniony podpoziom 2s jest szczególnie stabilny, a azot (2p³) ma wyższą energię jonizacji niż tlen (2p⁴) dzięki stabilności na połowę zapełnionego podpoziomu 2p.",
+    "why_group": "Wraz ze wzrostem liczby poziomów energetycznych elektron zewnętrzny oddala się od jądra i jest ekranowany przez powłoki wewnętrzne. Jądro słabiej go utrzymuje — do oderwania potrzeba mniej energii. Dlatego metale alkaliczne na dole grupy (Cs, Fr) najlątwiej tracą elektron.",
     "examples": [
       {
-        "label_ru": "Okres 3",
-        "comment_ru": "ogólny wzrost z wyjątkami",
+        "label": "Okres 3",
+        "comment": "ogólny wzrost z wyjątkami",
         "elements": [
           {
             "value": "496 kJ/mol"
@@ -59,8 +59,8 @@
         ]
       },
       {
-        "label_ru": "Grupa IA",
-        "comment_ru": "konsekwentny spadek",
+        "label": "Grupa IA",
+        "comment": "konsekwentny spadek",
         "elements": [
           {
             "value": "520 kJ/mol"
@@ -74,63 +74,63 @@
     ]
   },
   "trend:electronegativity": {
-    "title_ru": "Elektroujemność",
-    "trend_period_ru": "Rośnie od lewej do prawej w okresie",
-    "trend_group_ru": "Maleje od góry do dołu w grupie",
-    "why_period_ru": "Elektroujemność to zdolność atomu do przyciągania wspólnych elektronów w wiązaniu chemicznym. Przesuwając się w prawo w okresie, promień atomowy maleje, a ładunek jądra rośnie — jądro silniej przyciąga elektrony wiążące. Fluor (E = 4,0) jest najbardziej elektroujemnym pierwiastkiem: mały promień i 7 elektronów walencyjnych, brakuje mu tylko jednego do uzupełnienia powłoki.",
-    "why_group_ru": "Przesuwając się w dół grupy, promień atomowy rośnie, a ekranowanie jądra się wzmacnia. Jądro słabiej przyciąga elektrony wiążące. Dlatego fluor (4,0) jest bardziej elektroujemny niż chlor (3,16), a chlor bardziej niż brom (2,96). Metale na dole grupy (Cs, Fr) mają minimalną elektroujemność i łatwo oddają elektrony.",
+    "title": "Elektroujemność",
+    "trend_period": "Rośnie od lewej do prawej w okresie",
+    "trend_group": "Maleje od góry do dołu w grupie",
+    "why_period": "Elektroujemność to zdolność atomu do przyciągania wspólnych elektronów w wiązaniu chemicznym. Przesuwając się w prawo w okresie, promień atomowy maleje, a ładunek jądra rośnie — jądro silniej przyciąga elektrony wiążące. Fluor (E = 4,0) jest najbardziej elektroujemnym pierwiastkiem: mały promień i 7 elektronów walencyjnych, brakuje mu tylko jednego do uzupełnienia powłoki.",
+    "why_group": "Przesuwając się w dół grupy, promień atomowy rośnie, a ekranowanie jądra się wzmacnia. Jądro słabiej przyciąga elektrony wiążące. Dlatego fluor (4,0) jest bardziej elektroujemny niż chlor (3,16), a chlor bardziej niż brom (2,96). Metale na dole grupy (Cs, Fr) mają minimalną elektroujemność i łatwo oddają elektrony.",
     "examples": [
       {
-        "label_ru": "Skala Paulinga",
-        "comment_ru": ""
+        "label": "Skala Paulinga",
+        "comment": ""
       },
       {
-        "text_ru": "Charakter metaliczny i elektroujemność są odwrotnie skorelowane: wysoka E → niemetal, niska E → aktywny metal"
+        "text": "Charakter metaliczny i elektroujemność są odwrotnie skorelowane: wysoka E → niemetal, niska E → aktywny metal"
       }
     ]
   },
   "trend:metallic_character": {
-    "title_ru": "Właściwości metaliczne",
-    "trend_period_ru": "Słabną od lewej do prawej w okresie",
-    "trend_group_ru": "Wzmacniają się od góry do dołu w grupie",
-    "why_period_ru": "Właściwości metaliczne określa zdolność atomu do oddawania elektronów. Na początku okresu są aktywne metale (Na, Mg) z 1–2 elektronami walencyjnymi, które łatwo tracą. W środku — metale przejściowe. Na końcu — niemetale z 5–7 elektronami walencyjnymi, którym energetycznie bardziej opłaca się przyjmować elektrony niż oddawać.",
-    "why_group_ru": "Im większy promień atomowy i im słabiej jądro utrzymuje elektrony zewnętrzne, tym łatwiej je oddać. Dlatego lit jest mniej aktywnym metalem niż cez. Franc jest najbardziej aktywnym ze wszystkich metali (teoretycznie). Podobnie w podgrupie węgla: C — niemetal, Si i Ge — półmetale, Sn i Pb — metale.",
+    "title": "Właściwości metaliczne",
+    "trend_period": "Słabną od lewej do prawej w okresie",
+    "trend_group": "Wzmacniają się od góry do dołu w grupie",
+    "why_period": "Właściwości metaliczne określa zdolność atomu do oddawania elektronów. Na początku okresu są aktywne metale (Na, Mg) z 1–2 elektronami walencyjnymi, które łatwo tracą. W środku — metale przejściowe. Na końcu — niemetale z 5–7 elektronami walencyjnymi, którym energetycznie bardziej opłaca się przyjmować elektrony niż oddawać.",
+    "why_group": "Im większy promień atomowy i im słabiej jądro utrzymuje elektrony zewnętrzne, tym łatwiej je oddać. Dlatego lit jest mniej aktywnym metalem niż cez. Franc jest najbardziej aktywnym ze wszystkich metali (teoretycznie). Podobnie w podgrupie węgla: C — niemetal, Si i Ge — półmetale, Sn i Pb — metale.",
     "examples": [
       {
-        "label_ru": "Okres 3",
+        "label": "Okres 3",
         "elements": [
           {
-            "value_ru": "metal"
+            "value": "metal"
           },
           {},
           {},
           {
-            "value_ru": "półmetal"
+            "value": "półmetal"
           },
           {},
           {},
           {
-            "value_ru": "niemetal"
+            "value": "niemetal"
           }
         ],
-        "comment_ru": ""
+        "comment": ""
       },
       {
-        "label_ru": "Grupa IA",
-        "comment_ru": "aktywność metali rośnie (reakcja z wodą coraz bardziej gwałtowna)"
+        "label": "Grupa IA",
+        "comment": "aktywność metali rośnie (reakcja z wodą coraz bardziej gwałtowna)"
       }
     ]
   },
   "trend:electron_affinity": {
-    "title_ru": "Powinowactwo elektronowe",
-    "trend_period_ru": "Rośnie od lewej do prawej w okresie (z wyjątkami)",
-    "trend_group_ru": "Maleje od góry do dołu w grupie",
-    "why_period_ru": "Atomy z prawie zapełnioną powłoką zewnętrzną (fluorowce) wydzielają maksimum energii przy przyłączaniu elektronu — brakuje im tylko jednego elektronu do stabilnej konfiguracji gazu szlachetnego. Pierwiastki z na połowę i całkowicie zapełnionymi podpoziomami (N, Be) mają anomalnie niskie powinowactwo: dodanie elektronu zaburza stabilną symetrię.",
-    "why_group_ru": "Chlor (349 kJ/mol) ma większe powinowactwo do elektronu niż fluor (328 kJ/mol), pomimo niższej elektroujemności — ten wyjątek wyjaśnia bardzo mały promień fluoru, gdzie dodawany elektron doświadcza silnego odpychania od innych elektronów na podpoziomie 2p. Dalej w dół grupy powinowactwo maleje (Br: 325, I: 295).",
+    "title": "Powinowactwo elektronowe",
+    "trend_period": "Rośnie od lewej do prawej w okresie (z wyjątkami)",
+    "trend_group": "Maleje od góry do dołu w grupie",
+    "why_period": "Atomy z prawie zapełnioną powłoką zewnętrzną (fluorowce) wydzielają maksimum energii przy przyłączaniu elektronu — brakuje im tylko jednego elektronu do stabilnej konfiguracji gazu szlachetnego. Pierwiastki z na połowę i całkowicie zapełnionymi podpoziomami (N, Be) mają anomalnie niskie powinowactwo: dodanie elektronu zaburza stabilną symetrię.",
+    "why_group": "Chlor (349 kJ/mol) ma większe powinowactwo do elektronu niż fluor (328 kJ/mol), pomimo niższej elektroujemności — ten wyjątek wyjaśnia bardzo mały promień fluoru, gdzie dodawany elektron doświadcza silnego odpychania od innych elektronów na podpoziomie 2p. Dalej w dół grupy powinowactwo maleje (Br: 325, I: 295).",
     "examples": [
       {
-        "label_ru": "Fluorowce",
-        "comment_ru": "chlor, nie fluor, jest liderem",
+        "label": "Fluorowce",
+        "comment": "chlor, nie fluor, jest liderem",
         "elements": [
           {
             "value": "349 kJ/mol"
@@ -143,8 +143,8 @@
     ]
   },
   "exception:cr_consequences": {
-    "title_ru": "Chrom: konsekwencje promocji elektronu",
-    "consequences_ru": [
+    "title": "Chrom: konsekwencje promocji elektronu",
+    "consequences": [
       "Chrom wykazuje stopnie utlenienia +2, +3 i +6 (a nie tylko +4, jak można by oczekiwać).",
       "Najbardziej stabilny stopień utlenienia to +3: utrata 3 elektronów (1 z 4s i 2 z 3d) daje stabilną konfigurację 3d³ z trzema niesparowanymi elektronami.",
       "Cr₂O₃ (tlenek chromu(III)) — bardzo stabilny związek, używany jako pigment i ścierniwo.",
@@ -152,8 +152,8 @@
     ]
   },
   "exception:cu_consequences": {
-    "title_ru": "Miedź: konsekwencje promocji elektronu",
-    "consequences_ru": [
+    "title": "Miedź: konsekwencje promocji elektronu",
+    "consequences": [
       "Miedź wykazuje stopnie utlenienia +1 i +2 (zamiast tylko +2).",
       "Cu⁺ (utrata jedynego elektronu 4s) daje całkowicie zapełniony 3d¹⁰ — bardzo stabilna konfiguracja. Związki Cu(I): Cu₂O, CuCl.",
       "Cu²⁺ (utrata 4s¹ i jednego 3d) też jest stabilny, ponieważ 3d⁹ jest bliski zapełnienia. CuSO₄ — siarczan miedzi(II), najpowszechniejszy związek miedzi.",
@@ -161,8 +161,8 @@
     ]
   },
   "exception:pd_consequences": {
-    "title_ru": "Pallad: unikalny przypadek — pusty podpoziom s",
-    "consequences_ru": [
+    "title": "Pallad: unikalny przypadek — pusty podpoziom s",
+    "consequences": [
       "Pallad jest jedynym pierwiastkiem, w którym oba elektrony s „spadają” na podpoziom d.",
       "Główny stopień utlenienia to +2: utrata dwóch elektronów d daje stabilną konfigurację 4d⁸.",
       "Pallad jest aktywnie stosowany jako katalizator (uwodornienie, reakcje sprzęgania krzyżowego), ponieważ zapełniony podpoziom d może odwracalnie oddawać i przyjmować elektrony.",
@@ -170,8 +170,8 @@
     ]
   },
   "exception:ag_consequences": {
-    "title_ru": "Srebro: analog miedzi w piątym okresie",
-    "consequences_ru": [
+    "title": "Srebro: analog miedzi w piątym okresie",
+    "consequences": [
       "Srebro wykazuje przede wszystkim stopień utlenienia +1: utrata elektronu 5s¹ daje całkowicie zapełniony 4d¹⁰.",
       "Ag⁺ z konfiguracją 4d¹⁰ jest jedną z najbardziej stabilnych form wśród pierwiastków d.",
       "Podobnie jak miedź, srebro jest metalem szlachetnym: nie rozpuszcza się w rozcieńczonych kwasach.",
@@ -179,8 +179,8 @@
     ]
   },
   "exception:au_consequences": {
-    "title_ru": "Złoto: efekt relatywistyczny + promocja elektronu",
-    "consequences_ru": [
+    "title": "Złoto: efekt relatywistyczny + promocja elektronu",
+    "consequences": [
       "Złoto wykazuje stopnie utlenienia +1 i +3. Au⁺ ma zapełniony 5d¹⁰, Au³⁺ ma konfigurację 5d⁸.",
       "Relatywistyczne kurczenie się orbitalu 6s zmniejsza różnicę między poziomami 5d i 6s. To przyczyna żółtego koloru złota: energia przejścia 5d→6s wpada w zakres widzialny.",
       "Złoto jest najszlachetniejszym z metali: rozpuszcza się tylko w wodzie królewskiej (HNO₃ + 3HCl) lub roztworach cyjanidów.",
@@ -188,8 +188,8 @@
     ]
   },
   "principle": {
-    "title_ru": "Zasada ogólna: dlaczego właściwości zmieniają się okresowo",
-    "text_ru": "Wszystkie trendy w układzie okresowym wyjaśniają dwa konkurujące czynniki: ładunek jądra (Z) i ekranowanie (σ). Efektywny ładunek jądra Z_eff = Z − σ określa, jak silnie jądro utrzymuje elektrony zewnętrzne. W okresie Z rośnie, a σ prawie się nie zmienia → Z_eff rośnie → elektrony są przyciągane silniej. W grupie Z rośnie, ale σ rośnie jeszcze szybciej (każdy nowy poziom to silna osłona) → Z_eff dla elektronów zewnętrznych maleje → elektrony są utrzymywane słabiej.",
-    "formula_ru": "Z_eff = Z − σ, gdzie Z — ładunek jądra, σ — stała ekranowania"
+    "title": "Zasada ogólna: dlaczego właściwości zmieniają się okresowo",
+    "text": "Wszystkie trendy w układzie okresowym wyjaśniają dwa konkurujące czynniki: ładunek jądra (Z) i ekranowanie (σ). Efektywny ładunek jądra Z_eff = Z − σ określa, jak silnie jądro utrzymuje elektrony zewnętrzne. W okresie Z rośnie, a σ prawie się nie zmienia → Z_eff rośnie → elektrony są przyciągane silniej. W grupie Z rośnie, ale σ rośnie jeszcze szybciej (każdy nowy poziom to silna osłona) → Z_eff dla elektronów zewnętrznych maleje → elektrony są utrzymywane słabiej.",
+    "formula": "Z_eff = Z − σ, gdzie Z — ładunek jądra, σ — stała ekranowania"
   }
 }

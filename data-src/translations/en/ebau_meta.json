@@ -1,0 +1,30 @@
+{
+  "full_name": "EBAU/Selectividad — Chemistry (Spain)",
+  "description": "University entrance exam in Spain. Advanced chemistry for 12th grade.",
+  "competencies": {
+    "ebau_atomic_structure": {
+      "name": "Atomic structure and periodic system"
+    },
+    "ebau_bonding": {
+      "name": "Chemical bonding and properties"
+    },
+    "ebau_thermodynamics": {
+      "name": "Chemical thermodynamics"
+    },
+    "ebau_kinetics": {
+      "name": "Chemical kinetics and equilibrium"
+    },
+    "ebau_acid_base": {
+      "name": "Acid-base reactions"
+    },
+    "ebau_redox": {
+      "name": "Redox and electrochemistry"
+    },
+    "ebau_organic": {
+      "name": "Organic chemistry"
+    }
+  },
+  "official_links": {
+    "label": "EBAU exam models (universities)"
+  }
+}
