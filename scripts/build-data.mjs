@@ -89,9 +89,11 @@ async function loadSubstances() {
   } catch {
     return [];
   }
+  const EXCLUDED = new Set(['substance_properties.json']);
   const substances = [];
   for (const f of files) {
     if (!f.endsWith('.json')) continue;
+    if (EXCLUDED.has(f)) continue;
     const data = await loadJson(join(dir, f));
     substances.push({ filename: f, data });
   }
