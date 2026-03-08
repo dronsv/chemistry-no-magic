@@ -156,61 +156,111 @@ export function generateRuleTexts(rules, vocab, templates) {
   return rules.map(rule => generateRuleText(rule, vocab, templates));
 }
 
-// Maps facet namespace to the slot name used in the observation template
-const FACET_SLOT_MAP = {
-  precipitate: 'precipitate',
-  gas_evolution: 'gas_product',
-  indicator: 'indicator',
-};
+// Locale-specific noun for precipitate (rendering logic, not data)
+const PRECIPITATE_NOUN = { ru: 'осадок', en: 'precipitate', pl: 'osad', es: 'precipitado' };
 
-// Maps facet namespace to vocab namespace prefix for slot resolution
-const FACET_VOCAB_NS_MAP = {
-  precipitate: 'precipitate',
-  gas_evolution: 'substance',
-  indicator: 'indicator',
-};
+/**
+ * Build a localized precipitate description from ontology properties.
+ *
+ * Locale ordering:
+ *   ru/en/pl: "{color} [texture] {noun} {formula}"
+ *   es:       "{noun} {color} [texture] de {formula}"
+ */
+function buildPrecipitateDesc(obs, substancePropsMap, colorTermsForLocale, locale) {
+  const props = substancePropsMap[obs.substance] ?? [];
+  const colorProp = props.find(p => p.property === 'prop:color' && p.phase === 'phase:solid');
+  const textureProp = props.find(p => p.property === 'prop:texture' && p.phase === 'phase:solid');
+  const color = colorProp ? (colorTermsForLocale[colorProp.value] ?? '') : '';
+  const texture = textureProp ? (colorTermsForLocale[textureProp.value] ?? '') : '';
+  const noun = PRECIPITATE_NOUN[locale] ?? 'precipitate';
+  const formula = obs.formula_display;
+
+  if (locale === 'es') {
+    return [noun, color, texture, 'de', formula].filter(Boolean).join(' ');
+  }
+  return [color, texture, noun, formula].filter(Boolean).join(' ');
+}
 
 /**
  * Generate observation_summary texts for qualitative reactions.
- * Each entry must have observation_facets (e.g. ["precipitate:AgCl"]).
+ * Reads observation entities, substance properties, color terms, and indicator overrides
+ * from the ontology — no hardcoded text in data files.
  *
  * @param {Array<object>} qualitativeReactions - qualitative_reactions.json entries
- * @param {Record<string, Record<string, string>>} vocab - merged rule_terms vocab
+ * @param {Array<object>} reactionObservations - reaction_observations.json entities
+ * @param {Array<object>} substanceProperties - substance_properties.json entities
+ * @param {Record<string, Record<string, string>>} colorTerms - merged color_terms locale packs
+ * @param {Record<string, Record<string, object>>} indicatorResponseLocale - per-locale indicator_response_rules locale packs
  * @param {Record<string, Record<string, string>>} templates - rule_summary_templates
  * @returns {Array<object>} GeneratedQualitativeText[]
  */
-export function generateQualitativeTexts(qualitativeReactions, vocab, templates) {
+export function generateQualitativeTexts(
+  qualitativeReactions,
+  reactionObservations,
+  substanceProperties,
+  colorTerms,
+  indicatorResponseLocale,
+  templates,
+) {
+  // Build obs lookup map
+  const obsById = Object.fromEntries(reactionObservations.map(o => [o.id, o]));
+
+  // Build substance props lookup: sub:* → [property entries]
+  const substancePropsMap = {};
+  for (const p of substanceProperties) {
+    if (!substancePropsMap[p.subject]) substancePropsMap[p.subject] = [];
+    substancePropsMap[p.subject].push(p);
+  }
+
   return qualitativeReactions
     .filter(entry => entry.observation_facets?.length > 0)
     .map(entry => {
-      const facet = entry.observation_facets[0]; // primary facet
-      const [kind, id] = facet.split(':');
-      const templateId = `observation_summary:qualitative.${kind}`;
-      const tmpl = templates[templateId];
+      const obsId = entry.observation_facets[0];
+      const obs = obsById[obsId];
+      if (!obs) return null;
 
+      const templateId = `observation_summary:qualitative.${obs.observation_type}`;
+      const tmpl = templates[templateId];
       const slots = {};
-      if (tmpl) {
-        const slotName = FACET_SLOT_MAP[kind] ?? kind;
-        const vocabNs = FACET_VOCAB_NS_MAP[kind] ?? kind;
-        const vocabKey = `${vocabNs}:${id}`;
+
+      if (obs.observation_type === 'precipitate' && tmpl) {
         slots.observation_summary = {};
         for (const locale of LOCALES) {
           if (!tmpl[locale]) continue;
-          const facetText = (vocab[vocabKey] && vocab[vocabKey][locale]) ?? id;
-          const text = tmpl[locale].replace(`{${slotName}}`, facetText);
-          slots.observation_summary[locale] = text.charAt(0).toUpperCase() + text.slice(1);
+          const colorTermsLocal = Object.fromEntries(
+            Object.entries(colorTerms).map(([k, v]) => [k, v[locale] ?? '']),
+          );
+          const precipDesc = buildPrecipitateDesc(obs, substancePropsMap, colorTermsLocal, locale);
+          slots.observation_summary[locale] = tmpl[locale].replace('{precipitate}', precipDesc);
+        }
+      } else if (obs.observation_type === 'gas_evolution' && tmpl) {
+        slots.observation_summary = {};
+        for (const locale of LOCALES) {
+          if (!tmpl[locale]) continue;
+          slots.observation_summary[locale] = tmpl[locale].replace('{gas_product}', obs.formula_display);
+        }
+      } else if (obs.observation_type === 'indicator_change') {
+        const computedKey = `computed:indicator_change:${obs.indicator}:${obs.input_state}`;
+        slots.observation_summary = {};
+        for (const locale of LOCALES) {
+          const override = indicatorResponseLocale[locale]?.[computedKey]?.short_statement_override;
+          if (override) {
+            slots.observation_summary[locale] = override;
+          }
+          // Non-override fallback deferred to future Phase (indicator name locale lookup needed)
         }
       }
 
       return {
         target_id: entry.target_id,
-        primary_facet: facet,
+        observation_id: obsId,
         text_origin: 'generated',
         generation_kind: 'observation_summary',
         template_id: templateId,
         slots,
       };
-    });
+    })
+    .filter(Boolean);
 }
 
 /**

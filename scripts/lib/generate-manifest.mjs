@@ -52,6 +52,10 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         rule_texts: 'rules/rule_texts.json',
         activity_texts: 'rules/activity_texts.json',
         qualitative_texts: 'rules/qualitative_texts.json',
+        reaction_observations: 'rules/reaction_observations.json',
+        indicator_response_rules: 'rules/indicator_response_rules.json',
+        indicator_entities: 'rules/indicator_entities.json',
+        medium_states: 'rules/medium_states.json',
         kinetics: 'rules/kinetics.json',
       },
       templates: {
@@ -75,6 +79,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       theory_modules: theoryModules && Object.keys(theoryModules).length > 0 ? theoryModules : undefined,
       courses: courses && Object.keys(courses).length > 0 ? courses : undefined,
       substances: 'substances',
+      substance_properties: 'substances/substance_properties.json',
       diagnostic: 'diagnostic/questions.json',
       element_groups: 'element-groups.json',
       periodic_table_content: 'periodic-table-content.json',

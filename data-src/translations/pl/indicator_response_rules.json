@@ -1,0 +1,7 @@
+{
+  "rule:indicator.litmus.medium_color": { "name": "Reakcja lakmusu na środowisko" },
+  "rule:indicator.phenolphthalein.medium_color": { "name": "Reakcja fenoloftaleiny na środowisko" },
+  "rule:indicator.methyl_orange.medium_color": { "name": "Reakcja oranżu metylowego na środowisko" },
+  "computed:indicator_change:ind:litmus:medium:alkaline": { "short_statement_override": "lakmus zmienia kolor na niebieski" },
+  "computed:indicator_change:ind:litmus:medium:acidic": { "short_statement_override": "lakmus zmienia kolor na czerwony" }
+}

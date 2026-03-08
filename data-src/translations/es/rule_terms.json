@@ -25,14 +25,5 @@
   "reagent:acid": "ácidos",
   "reagent:alkali": "álcalis",
   "substance:H2SO4_conc_acids": "H₂SO₄ y HNO₃",
-  "substance:HNO3_conc": "HNO₃",
-  "precipitate:AgCl": "precipitado blanco cuajado de AgCl",
-  "precipitate:BaSO4": "precipitado blanco de BaSO₄",
-  "precipitate:Ag3PO4": "precipitado amarillo de Ag₃PO₄",
-  "precipitate:Cu(OH)2": "precipitado azul de Cu(OH)₂",
-  "precipitate:Fe(OH)3": "precipitado marrón de Fe(OH)₃",
-  "precipitate:Fe(OH)2": "precipitado blanco de Fe(OH)₂",
-  "precipitate:PbS": "precipitado negro de PbS",
-  "precipitate:CaCO3": "precipitado blanco de CaCO₃",
-  "indicator:litmus_blue": "el tornasol se vuelve azul"
+  "substance:HNO3_conc": "HNO₃"
 }

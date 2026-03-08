@@ -25,14 +25,5 @@
   "reagent:acid": "кислот",
   "reagent:alkali": "щелочей",
   "substance:H2SO4_conc_acids": "H₂SO₄ и HNO₃",
-  "substance:HNO3_conc": "HNO₃",
-  "precipitate:AgCl": "белый творожистый осадок AgCl",
-  "precipitate:BaSO4": "белый осадок BaSO₄",
-  "precipitate:Ag3PO4": "жёлтый осадок Ag₃PO₄",
-  "precipitate:Cu(OH)2": "синий осадок Cu(OH)₂",
-  "precipitate:Fe(OH)3": "бурый осадок Fe(OH)₃",
-  "precipitate:Fe(OH)2": "белый осадок Fe(OH)₂",
-  "precipitate:PbS": "чёрный осадок PbS",
-  "precipitate:CaCO3": "белый осадок CaCO₃",
-  "indicator:litmus_blue": "посинение лакмуса"
+  "substance:HNO3_conc": "HNO₃"
 }

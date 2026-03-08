@@ -1,0 +1,7 @@
+{
+  "rule:indicator.litmus.medium_color": { "name": "Отклик лакмуса на среду" },
+  "rule:indicator.phenolphthalein.medium_color": { "name": "Отклик фенолфталеина на среду" },
+  "rule:indicator.methyl_orange.medium_color": { "name": "Отклик метилоранжа на среду" },
+  "computed:indicator_change:ind:litmus:medium:alkaline": { "short_statement_override": "посинение лакмуса" },
+  "computed:indicator_change:ind:litmus:medium:acidic": { "short_statement_override": "покраснение лакмуса" }
+}

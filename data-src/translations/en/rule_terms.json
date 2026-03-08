@@ -25,14 +25,5 @@
   "reagent:acid": "acids",
   "reagent:alkali": "alkalis",
   "substance:H2SO4_conc_acids": "H₂SO₄ and HNO₃",
-  "substance:HNO3_conc": "HNO₃",
-  "precipitate:AgCl": "white curdy precipitate AgCl",
-  "precipitate:BaSO4": "white precipitate BaSO₄",
-  "precipitate:Ag3PO4": "yellow precipitate Ag₃PO₄",
-  "precipitate:Cu(OH)2": "blue precipitate Cu(OH)₂",
-  "precipitate:Fe(OH)3": "brown precipitate Fe(OH)₃",
-  "precipitate:Fe(OH)2": "white precipitate Fe(OH)₂",
-  "precipitate:PbS": "black precipitate PbS",
-  "precipitate:CaCO3": "white precipitate CaCO₃",
-  "indicator:litmus_blue": "litmus turns blue"
+  "substance:HNO3_conc": "HNO₃"
 }

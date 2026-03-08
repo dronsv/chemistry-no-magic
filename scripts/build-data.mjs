@@ -207,8 +207,9 @@ async function main() {
   const topicPages = await loadJson(join(DATA_SRC, 'topic_pages.json'));
 
   // Load Phase B1: rule vocab (merged from per-locale packs) and summary templates
+  const ALL_LOCALES = ['ru', ...TRANSLATION_LOCALES];
   const ruleVocab = {};
-  for (const locale of TRANSLATION_LOCALES) {
+  for (const locale of ALL_LOCALES) {
     const pack = await loadJson(join(DATA_SRC, 'translations', locale, 'rule_terms.json')).catch(() => ({}));
     for (const [key, text] of Object.entries(pack)) {
       if (!ruleVocab[key]) ruleVocab[key] = {};
@@ -216,6 +217,28 @@ async function main() {
     }
   }
   const ruleSummaryTemplates = await loadJson(join(DATA_SRC, 'templates', 'rule_summary_templates.json')).catch(() => ({}));
+
+  // Load observation ontology: reaction_observations + substance_properties
+  const reactionObservations = await loadJson(join(DATA_SRC, 'rules', 'reaction_observations.json')).catch(() => []);
+  const substanceProperties = await loadJson(join(DATA_SRC, 'substances', 'substance_properties.json')).catch(() => []);
+
+  // Load color_terms locale packs (merged)
+  const colorTerms = {};
+  for (const locale of ALL_LOCALES) {
+    const pack = await loadJson(join(DATA_SRC, 'translations', locale, 'color_terms.json')).catch(() => ({}));
+    for (const [key, text] of Object.entries(pack)) {
+      if (!colorTerms[key]) colorTerms[key] = {};
+      colorTerms[key][locale] = text;
+    }
+  }
+
+  // Load indicator_response_rules locale packs (per-locale, keyed by computed observation ID)
+  const indicatorResponseLocale = {};
+  for (const locale of ALL_LOCALES) {
+    indicatorResponseLocale[locale] = await loadJson(
+      join(DATA_SRC, 'translations', locale, 'indicator_response_rules.json'),
+    ).catch(() => ({}));
+  }
 
   // Load theory modules early for validation (optional directory)
   const theoryModulesDir = join(DATA_SRC, 'theory_modules');
@@ -409,8 +432,24 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'rule_texts.json'), JSON.stringify(ruleTexts));
   const activityTexts = generateActivityTexts(activitySeries, ruleSummaryTemplates);
   await writeFile(join(bundleDir, 'rules', 'activity_texts.json'), JSON.stringify(activityTexts));
-  const qualitativeTexts = generateQualitativeTexts(qualitativeReactions, ruleVocab, ruleSummaryTemplates);
+  const qualitativeTexts = generateQualitativeTexts(
+    qualitativeReactions,
+    reactionObservations,
+    substanceProperties,
+    colorTerms,
+    indicatorResponseLocale,
+    ruleSummaryTemplates,
+  );
   await writeFile(join(bundleDir, 'rules', 'qualitative_texts.json'), JSON.stringify(qualitativeTexts));
+  await writeFile(join(bundleDir, 'rules', 'reaction_observations.json'), JSON.stringify(reactionObservations));
+  await writeFile(join(bundleDir, 'rules', 'indicator_response_rules.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'indicator_response_rules.json')).catch(() => [])));
+  await writeFile(join(bundleDir, 'rules', 'indicator_entities.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'indicator_entities.json')).catch(() => [])));
+  await writeFile(join(bundleDir, 'rules', 'medium_states.json'),
+    JSON.stringify(await loadJson(join(DATA_SRC, 'rules', 'medium_states.json')).catch(() => [])));
+  await mkdir(join(bundleDir, 'substances'), { recursive: true });
+  await writeFile(join(bundleDir, 'substances', 'substance_properties.json'), JSON.stringify(substanceProperties));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
   await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 

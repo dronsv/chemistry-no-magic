@@ -1,0 +1,80 @@
+[
+  {
+    "id": "obs:precipitate_agcl",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:agcl",
+    "formula_display": "AgCl"
+  },
+  {
+    "id": "obs:precipitate_baso4",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:baso4",
+    "formula_display": "BaSO₄"
+  },
+  {
+    "id": "obs:precipitate_ag3po4",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:ag3po4",
+    "formula_display": "Ag₃PO₄"
+  },
+  {
+    "id": "obs:precipitate_cu_oh_2",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:cu_oh_2",
+    "formula_display": "Cu(OH)₂"
+  },
+  {
+    "id": "obs:precipitate_fe_oh_3",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:fe_oh_3",
+    "formula_display": "Fe(OH)₃"
+  },
+  {
+    "id": "obs:precipitate_fe_oh_2",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:fe_oh_2",
+    "formula_display": "Fe(OH)₂"
+  },
+  {
+    "id": "obs:precipitate_pbs",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:pbs",
+    "formula_display": "PbS"
+  },
+  {
+    "id": "obs:precipitate_caco3",
+    "kind": "reaction_observation",
+    "observation_type": "precipitate",
+    "substance": "sub:caco3",
+    "formula_display": "CaCO₃"
+  },
+  {
+    "id": "obs:gas_co2",
+    "kind": "reaction_observation",
+    "observation_type": "gas_evolution",
+    "substance": "sub:co2",
+    "formula_display": "CO₂"
+  },
+  {
+    "id": "obs:gas_nh3",
+    "kind": "reaction_observation",
+    "observation_type": "gas_evolution",
+    "substance": "sub:nh3",
+    "formula_display": "NH₃"
+  },
+  {
+    "id": "obs:indicator_change:ind:litmus:medium:alkaline",
+    "kind": "reaction_observation",
+    "observation_type": "indicator_change",
+    "indicator": "ind:litmus",
+    "input_state": "medium:alkaline",
+    "color_after": "color:blue"
+  }
+]

@@ -25,14 +25,5 @@
   "reagent:acid",
   "reagent:alkali",
   "substance:H2SO4_conc_acids",
-  "substance:HNO3_conc",
-  "precipitate:AgCl",
-  "precipitate:BaSO4",
-  "precipitate:Ag3PO4",
-  "precipitate:Cu(OH)2",
-  "precipitate:Fe(OH)3",
-  "precipitate:Fe(OH)2",
-  "precipitate:PbS",
-  "precipitate:CaCO3",
-  "indicator:litmus_blue"
+  "substance:HNO3_conc"
 ]

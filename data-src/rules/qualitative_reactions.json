@@ -3,62 +3,62 @@
     "target_id": "Cl-",
     "reagent_formula": "AgNO3",
     "reaction_id": "rx_precip_02_agcl",
-    "observation_facets": ["precipitate:AgCl"]
+    "observation_facets": ["obs:precipitate_agcl"]
   },
   {
     "target_id": "SO4^2-",
     "reagent_formula": "BaCl2",
     "reaction_id": "rx_precip_07_h2so4_bacl2",
-    "observation_facets": ["precipitate:BaSO4"]
+    "observation_facets": ["obs:precipitate_baso4"]
   },
   {
     "target_id": "CO3^2-",
     "reagent_formula": "HCl",
     "reaction_id": "rx_carbonate_01_caco3_hcl",
-    "observation_facets": ["gas_evolution:CO2"]
+    "observation_facets": ["obs:gas_co2"]
   },
   {
     "target_id": "PO4^3-",
     "reagent_formula": "AgNO3",
-    "observation_facets": ["precipitate:Ag3PO4"]
+    "observation_facets": ["obs:precipitate_ag3po4"]
   },
   {
     "target_id": "NH4+",
     "reagent_formula": "NaOH",
     "reaction_id": "rx_gas_03_nh4cl_naoh",
-    "observation_facets": ["gas_evolution:NH3"]
+    "observation_facets": ["obs:gas_nh3"]
   },
   {
     "target_id": "Cu^2+",
     "reagent_formula": "NaOH",
     "reaction_id": "rx_precip_03_cuoh2",
-    "observation_facets": ["precipitate:Cu(OH)2"]
+    "observation_facets": ["obs:precipitate_cu_oh_2"]
   },
   {
     "target_id": "Fe^3+",
     "reagent_formula": "NaOH",
     "reaction_id": "rx_precip_04_feoh3",
-    "observation_facets": ["precipitate:Fe(OH)3"]
+    "observation_facets": ["obs:precipitate_fe_oh_3"]
   },
   {
     "target_id": "Fe^2+",
     "reagent_formula": "NaOH",
-    "observation_facets": ["precipitate:Fe(OH)2"]
+    "observation_facets": ["obs:precipitate_fe_oh_2"]
   },
   {
     "target_id": "CO2",
     "reagent_formula": "Ca(OH)2",
     "reaction_id": "rx_exchange_02_caoh2_co2",
-    "observation_facets": ["precipitate:CaCO3"]
+    "observation_facets": ["obs:precipitate_caco3"]
   },
   {
     "target_id": "NH3",
     "reagent_formula": "litmus",
-    "observation_facets": ["indicator:litmus_blue"]
+    "observation_facets": ["obs:indicator_change:ind:litmus:medium:alkaline"]
   },
   {
     "target_id": "H2S",
     "reagent_formula": "Pb(NO3)2",
-    "observation_facets": ["precipitate:PbS"]
+    "observation_facets": ["obs:precipitate_pbs"]
   }
 ]

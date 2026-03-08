@@ -25,14 +25,5 @@
   "reagent:acid": "kwasów",
   "reagent:alkali": "zasad",
   "substance:H2SO4_conc_acids": "H₂SO₄ i HNO₃",
-  "substance:HNO3_conc": "HNO₃",
-  "precipitate:AgCl": "biały serowaty osad AgCl",
-  "precipitate:BaSO4": "biały osad BaSO₄",
-  "precipitate:Ag3PO4": "żółty osad Ag₃PO₄",
-  "precipitate:Cu(OH)2": "niebieski osad Cu(OH)₂",
-  "precipitate:Fe(OH)3": "brunatny osad Fe(OH)₃",
-  "precipitate:Fe(OH)2": "biały osad Fe(OH)₂",
-  "precipitate:PbS": "czarny osad PbS",
-  "precipitate:CaCO3": "biały osad CaCO₃",
-  "indicator:litmus_blue": "lakmus zmienia kolor na niebieski"
+  "substance:HNO3_conc": "HNO₃"
 }

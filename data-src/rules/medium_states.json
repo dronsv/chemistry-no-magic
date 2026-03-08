@@ -1,0 +1,5 @@
+[
+  { "id": "medium:acidic", "kind": "medium_state", "category": "acid_base_character" },
+  { "id": "medium:neutral", "kind": "medium_state", "category": "acid_base_character" },
+  { "id": "medium:alkaline", "kind": "medium_state", "category": "acid_base_character" }
+]

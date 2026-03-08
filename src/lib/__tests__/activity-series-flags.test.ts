@@ -1,23 +1,31 @@
 import { describe, it, expect } from 'vitest';
 import activitySeriesData from '../../../data-src/rules/activity_series.json';
 import qualitativeReactionsData from '../../../data-src/rules/qualitative_reactions.json';
+import reactionObservationsData from '../../../data-src/rules/reaction_observations.json';
+import substancePropertiesData from '../../../data-src/substances/substance_properties.json';
 import templatesData from '../../../data-src/templates/rule_summary_templates.json';
-import ruVocab from '../../../data-src/translations/ru/rule_terms.json';
-import enVocab from '../../../data-src/translations/en/rule_terms.json';
-import plVocab from '../../../data-src/translations/pl/rule_terms.json';
-import esVocab from '../../../data-src/translations/es/rule_terms.json';
+import ruColorTerms from '../../../data-src/translations/ru/color_terms.json';
+import enColorTerms from '../../../data-src/translations/en/color_terms.json';
+import plColorTerms from '../../../data-src/translations/pl/color_terms.json';
+import esColorTerms from '../../../data-src/translations/es/color_terms.json';
+import ruIndicator from '../../../data-src/translations/ru/indicator_response_rules.json';
+import enIndicator from '../../../data-src/translations/en/indicator_response_rules.json';
+import plIndicator from '../../../data-src/translations/pl/indicator_response_rules.json';
+import esIndicator from '../../../data-src/translations/es/indicator_response_rules.json';
 import { generateActivityTexts, generateQualitativeTexts } from '../../../scripts/lib/generate-rule-texts.mjs';
 import type { ActivitySeriesEntry } from '../../types/rules';
 
 const series = activitySeriesData as unknown as ActivitySeriesEntry[];
 const templates = templatesData as Record<string, Record<string, string>>;
 
-// Merge locale packs into vocab format expected by generator
-const vocab: Record<string, Record<string, string>> = {};
-for (const [key, text] of Object.entries(ruVocab)) { if (!vocab[key]) vocab[key] = {}; vocab[key].ru = text; }
-for (const [key, text] of Object.entries(enVocab)) { if (!vocab[key]) vocab[key] = {}; vocab[key].en = text; }
-for (const [key, text] of Object.entries(plVocab)) { if (!vocab[key]) vocab[key] = {}; vocab[key].pl = text; }
-for (const [key, text] of Object.entries(esVocab)) { if (!vocab[key]) vocab[key] = {}; vocab[key].es = text; }
+// Merge color_terms locale packs
+const colorTerms: Record<string, Record<string, string>> = {};
+for (const [k, v] of Object.entries(ruColorTerms)) { if (!colorTerms[k]) colorTerms[k] = {}; colorTerms[k].ru = v; }
+for (const [k, v] of Object.entries(enColorTerms)) { if (!colorTerms[k]) colorTerms[k] = {}; colorTerms[k].en = v; }
+for (const [k, v] of Object.entries(plColorTerms)) { if (!colorTerms[k]) colorTerms[k] = {}; colorTerms[k].pl = v; }
+for (const [k, v] of Object.entries(esColorTerms)) { if (!colorTerms[k]) colorTerms[k] = {}; colorTerms[k].es = v; }
+
+const indicatorResponseLocale = { ru: ruIndicator, en: enIndicator, pl: plIndicator, es: esIndicator };
 
 describe('activity_series.json — machine flags', () => {
   it('Li, K, Ba, Ca, Na have reduces_H_from_water: true', () => {
@@ -91,48 +99,72 @@ describe('generateActivityTexts', () => {
   });
 });
 
-describe('generateQualitativeTexts', () => {
-  const qualReactions = qualitativeReactionsData as Array<{ target_id: string; reagent_formula: string; reaction_id?: string; observation_facets?: string[] }>;
-  const texts = generateQualitativeTexts(qualReactions, vocab, templates);
+describe('generateQualitativeTexts (observation ontology)', () => {
+  type QualReaction = { target_id: string; reagent_formula: string; reaction_id?: string; observation_facets?: string[] };
+  const qualReactions = qualitativeReactionsData as QualReaction[];
+  const reactionObs = reactionObservationsData as object[];
+  const substanceProps = substancePropertiesData as object[];
+
+  const texts = generateQualitativeTexts(
+    qualReactions, reactionObs, substanceProps, colorTerms, indicatorResponseLocale, templates,
+  );
 
   it('generates one entry per qualitative reaction with observation_facets', () => {
     const withFacets = qualReactions.filter(r => r.observation_facets?.length);
     expect(texts).toHaveLength(withFacets.length);
   });
 
-  it('Cl- → precipitate:AgCl template', () => {
-    const entry = texts.find(t => t.target_id === 'Cl-');
-    expect(entry?.template_id).toBe('observation_summary:qualitative.precipitate');
-    expect(entry?.primary_facet).toBe('precipitate:AgCl');
+  it('Cl- → observation_summary:qualitative.precipitate template', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'Cl-');
+    expect((entry as { template_id: string })?.template_id).toBe('observation_summary:qualitative.precipitate');
+    expect((entry as { observation_id: string })?.observation_id).toBe('obs:precipitate_agcl');
   });
 
-  it('CO3^2- → gas_evolution:CO2 template', () => {
-    const entry = texts.find(t => t.target_id === 'CO3^2-');
-    expect(entry?.template_id).toBe('observation_summary:qualitative.gas_evolution');
-    expect(entry?.primary_facet).toBe('gas_evolution:CO2');
+  it('CO3^2- → observation_summary:qualitative.gas_evolution template', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'CO3^2-');
+    expect((entry as { template_id: string })?.template_id).toBe('observation_summary:qualitative.gas_evolution');
+    expect((entry as { observation_id: string })?.observation_id).toBe('obs:gas_co2');
   });
 
-  it('NH3 → indicator:litmus_blue template', () => {
-    const entry = texts.find(t => t.target_id === 'NH3');
-    expect(entry?.template_id).toBe('observation_summary:qualitative.indicator');
-    expect(entry?.primary_facet).toBe('indicator:litmus_blue');
+  it('NH3 → indicator_change template from rule-based model', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'NH3');
+    expect((entry as { template_id: string })?.template_id).toBe('observation_summary:qualitative.indicator_change');
+    expect((entry as { observation_id: string })?.observation_id).toBe('obs:indicator_change:ind:litmus:medium:alkaline');
   });
 
   it('all entries have observation_summary in 4 locales', () => {
     for (const entry of texts) {
-      expect(entry.text_origin).toBe('generated');
-      expect(entry.generation_kind).toBe('observation_summary');
-      expect(entry.slots.observation_summary?.ru, `${entry.target_id} ru`).toBeTruthy();
-      expect(entry.slots.observation_summary?.en, `${entry.target_id} en`).toBeTruthy();
-      expect(entry.slots.observation_summary?.pl, `${entry.target_id} pl`).toBeTruthy();
-      expect(entry.slots.observation_summary?.es, `${entry.target_id} es`).toBeTruthy();
+      const e = entry as { target_id: string; text_origin: string; generation_kind: string; slots: { observation_summary?: Record<string, string> } };
+      expect(e.text_origin).toBe('generated');
+      expect(e.generation_kind).toBe('observation_summary');
+      expect(e.slots.observation_summary?.ru, `${e.target_id} ru`).toBeTruthy();
+      expect(e.slots.observation_summary?.en, `${e.target_id} en`).toBeTruthy();
+      expect(e.slots.observation_summary?.pl, `${e.target_id} pl`).toBeTruthy();
+      expect(e.slots.observation_summary?.es, `${e.target_id} es`).toBeTruthy();
     }
   });
 
-  it('Cl- ru text mentions белый and AgCl', () => {
-    const entry = texts.find(t => t.target_id === 'Cl-');
+  it('Cl- (AgCl) ru: белый творожистый осадок AgCl derived from ontology', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'Cl-') as { slots: { observation_summary?: Record<string, string> } };
     const ru = entry?.slots.observation_summary?.ru ?? '';
     expect(ru).toContain('белый');
+    expect(ru).toContain('творожистый');
     expect(ru).toContain('AgCl');
+  });
+
+  it('Fe^3+ (Fe(OH)₃) ru: бурый осадок — chemistry-specific color term', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'Fe^3+') as { slots: { observation_summary?: Record<string, string> } };
+    expect(entry?.slots.observation_summary?.ru).toContain('бурый');
+  });
+
+  it('NH3 ru: посинение лакмуса — idiom from short_statement_override', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'NH3') as { slots: { observation_summary?: Record<string, string> } };
+    expect(entry?.slots.observation_summary?.ru).toBe('посинение лакмуса');
+    expect(entry?.slots.observation_summary?.en).toBe('litmus turns blue');
+  });
+
+  it('CO3^2- gas: CO₂ formula in text', () => {
+    const entry = texts.find((t: { target_id: string }) => t.target_id === 'CO3^2-') as { slots: { observation_summary?: Record<string, string> } };
+    expect(entry?.slots.observation_summary?.ru).toContain('CO₂');
   });
 });
