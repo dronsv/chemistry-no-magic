@@ -230,8 +230,8 @@ const contextBackLabels = {
 
   <ContextBackLink client:idle labels={contextBackLabels} />
   <article class="substance-page">
-    <h1>{substance.formula}</h1>
-    {substance.name && <p class="substance-name">{substance.name}</p>}
+    <h1>{displayName}</h1>
+    {substance.name && <p class="substance-name">{substance.formula}</p>}
 
     <dl class="substance-props">
       <dt>{m.subst_detail_class_label()}</dt>
