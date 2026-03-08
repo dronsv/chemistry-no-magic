@@ -68,6 +68,13 @@ function ClassificationRuleCard({ rule, substanceMap, locale }: {
   );
 }
 
+function humanizeNamingTemplate(tpl: string): string {
+  return tpl
+    .replace('{metal_genitive}', `[${m.subst_detail_placeholder_metal()}]`)
+    .replace('{nonmetal_genitive}', `[${m.subst_detail_placeholder_nonmetal()}]`)
+    .replace('{roman_numeral}', `[${m.subst_detail_placeholder_ox_state()}]`);
+}
+
 function NamingRuleCard({ rule, substanceMap, locale }: {
   rule: NamingRule;
   substanceMap: Map<string, SubstanceIndexEntry>;
@@ -76,7 +83,7 @@ function NamingRuleCard({ rule, substanceMap, locale }: {
   return (
     <div className="subst-theory__rule">
       <div className="subst-theory__rule-header">
-        {rule.template}
+        {rule.template ? humanizeNamingTemplate(rule.template) : null}
       </div>
       <div className="subst-theory__naming-examples">
         {rule.examples.map((ex, i) => {

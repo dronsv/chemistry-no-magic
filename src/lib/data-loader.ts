@@ -547,10 +547,10 @@ export async function loadOxidationRules(locale?: SupportedLocale): Promise<OxRu
   if (!locale) return data;
   const overlay = await loadTranslationOverlay(locale, 'oxidation_rules');
   if (!overlay) return data;
-  const o = overlay as unknown as Partial<Record<string, unknown>>;
+  const rulesOverlay = (overlay as unknown as Record<string, unknown>)['rules'] as Record<string, Record<string, unknown>> | null ?? null;
   return {
     ...data,
-    rules: mergeArrayOverlay(data.rules, o['rules'], r => r.id),
+    rules: applyOverlay(data.rules, rulesOverlay, r => r.id),
   };
 }
 
