@@ -37,7 +37,7 @@ import type { ReactionRole, ReactionParticipant } from '../types/reaction-partic
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
 import type { Topic, TopicPagesMap } from '../types/topic';
-import type { GeneratedRuleText, GeneratedActivityText } from '../types/rule-text';
+import type { GeneratedRuleText, GeneratedActivityText, GeneratedQualitativeText } from '../types/rule-text';
 
 /** Module-level cache: stores the in-flight or resolved manifest promise. */
 let manifestPromise: Promise<Manifest> | null = null;
@@ -1037,6 +1037,11 @@ export async function loadRuleTexts(): Promise<GeneratedRuleText[]> {
 /** Load generated activity series texts (build-time activity_summary per metal × locale). */
 export async function loadActivityTexts(): Promise<GeneratedActivityText[]> {
   return loadDataFile<GeneratedActivityText[]>('rules/activity_texts.json');
+}
+
+/** Load generated qualitative reaction observation texts (build-time observation_summary per target × locale). */
+export async function loadQualitativeTexts(): Promise<GeneratedQualitativeText[]> {
+  return loadDataFile<GeneratedQualitativeText[]>('rules/qualitative_texts.json');
 }
 
 /** Load instance_of classification triples generated at build time from substance class/subclass fields. */

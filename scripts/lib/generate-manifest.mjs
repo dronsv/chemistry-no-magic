@@ -51,6 +51,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         solubility_rules_full: 'rules/solubility_rules_full.json',
         rule_texts: 'rules/rule_texts.json',
         activity_texts: 'rules/activity_texts.json',
+        qualitative_texts: 'rules/qualitative_texts.json',
         kinetics: 'rules/kinetics.json',
       },
       templates: {

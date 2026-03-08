@@ -53,7 +53,7 @@ import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
 import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
-import { generateRuleTexts, generateActivityTexts } from './lib/generate-rule-texts.mjs';
+import { generateRuleTexts, generateActivityTexts, generateQualitativeTexts } from './lib/generate-rule-texts.mjs';
 import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
 import { generateInstanceOf } from './lib/generate-classification-triples.mjs';
 
@@ -206,8 +206,15 @@ async function main() {
   const topics = await loadJson(join(DATA_SRC, 'topics.json'));
   const topicPages = await loadJson(join(DATA_SRC, 'topic_pages.json'));
 
-  // Load Phase B1: rule vocab and summary templates
-  const ruleVocab = await loadJson(join(DATA_SRC, 'vocab', 'rule_terms.json')).catch(() => ({}));
+  // Load Phase B1: rule vocab (merged from per-locale packs) and summary templates
+  const ruleVocab = {};
+  for (const locale of TRANSLATION_LOCALES) {
+    const pack = await loadJson(join(DATA_SRC, 'translations', locale, 'rule_terms.json')).catch(() => ({}));
+    for (const [key, text] of Object.entries(pack)) {
+      if (!ruleVocab[key]) ruleVocab[key] = {};
+      ruleVocab[key][locale] = text;
+    }
+  }
   const ruleSummaryTemplates = await loadJson(join(DATA_SRC, 'templates', 'rule_summary_templates.json')).catch(() => ({}));
 
   // Load theory modules early for validation (optional directory)
@@ -402,6 +409,8 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'rule_texts.json'), JSON.stringify(ruleTexts));
   const activityTexts = generateActivityTexts(activitySeries, ruleSummaryTemplates);
   await writeFile(join(bundleDir, 'rules', 'activity_texts.json'), JSON.stringify(activityTexts));
+  const qualitativeTexts = generateQualitativeTexts(qualitativeReactions, ruleVocab, ruleSummaryTemplates);
+  await writeFile(join(bundleDir, 'rules', 'qualitative_texts.json'), JSON.stringify(qualitativeTexts));
   await writeFile(join(bundleDir, 'rules', 'bkt_params.json'), JSON.stringify(bktParams));
   await writeFile(join(bundleDir, 'rules', 'competencies.json'), JSON.stringify(competencies));
 

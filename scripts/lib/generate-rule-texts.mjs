@@ -156,6 +156,63 @@ export function generateRuleTexts(rules, vocab, templates) {
   return rules.map(rule => generateRuleText(rule, vocab, templates));
 }
 
+// Maps facet namespace to the slot name used in the observation template
+const FACET_SLOT_MAP = {
+  precipitate: 'precipitate',
+  gas_evolution: 'gas_product',
+  indicator: 'indicator',
+};
+
+// Maps facet namespace to vocab namespace prefix for slot resolution
+const FACET_VOCAB_NS_MAP = {
+  precipitate: 'precipitate',
+  gas_evolution: 'substance',
+  indicator: 'indicator',
+};
+
+/**
+ * Generate observation_summary texts for qualitative reactions.
+ * Each entry must have observation_facets (e.g. ["precipitate:AgCl"]).
+ *
+ * @param {Array<object>} qualitativeReactions - qualitative_reactions.json entries
+ * @param {Record<string, Record<string, string>>} vocab - merged rule_terms vocab
+ * @param {Record<string, Record<string, string>>} templates - rule_summary_templates
+ * @returns {Array<object>} GeneratedQualitativeText[]
+ */
+export function generateQualitativeTexts(qualitativeReactions, vocab, templates) {
+  return qualitativeReactions
+    .filter(entry => entry.observation_facets?.length > 0)
+    .map(entry => {
+      const facet = entry.observation_facets[0]; // primary facet
+      const [kind, id] = facet.split(':');
+      const templateId = `observation_summary:qualitative.${kind}`;
+      const tmpl = templates[templateId];
+
+      const slots = {};
+      if (tmpl) {
+        const slotName = FACET_SLOT_MAP[kind] ?? kind;
+        const vocabNs = FACET_VOCAB_NS_MAP[kind] ?? kind;
+        const vocabKey = `${vocabNs}:${id}`;
+        slots.observation_summary = {};
+        for (const locale of LOCALES) {
+          if (!tmpl[locale]) continue;
+          const facetText = (vocab[vocabKey] && vocab[vocabKey][locale]) ?? id;
+          const text = tmpl[locale].replace(`{${slotName}}`, facetText);
+          slots.observation_summary[locale] = text.charAt(0).toUpperCase() + text.slice(1);
+        }
+      }
+
+      return {
+        target_id: entry.target_id,
+        primary_facet: facet,
+        text_origin: 'generated',
+        generation_kind: 'observation_summary',
+        template_id: templateId,
+        slots,
+      };
+    });
+}
+
 /**
  * Determine activity_summary template key from machine flags.
  *

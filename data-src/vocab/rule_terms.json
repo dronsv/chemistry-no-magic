@@ -1,164 +1,38 @@
-{
-  "condition:heating": {
-    "ru": "при нагревании",
-    "en": "when heated",
-    "pl": "po podgrzaniu",
-    "es": "al calentar"
-  },
-  "product:precipitate": {
-    "ru": "осадок",
-    "en": "precipitate",
-    "pl": "osad",
-    "es": "precipitado"
-  },
-  "product:gas": {
-    "ru": "газ",
-    "en": "gas",
-    "pl": "gaz",
-    "es": "gas"
-  },
-  "product:water": {
-    "ru": "вода",
-    "en": "water",
-    "pl": "woda",
-    "es": "agua"
-  },
-  "product:weak_electrolyte": {
-    "ru": "слабый электролит",
-    "en": "weak electrolyte",
-    "pl": "słaby elektrolit",
-    "es": "electrólito débil"
-  },
-  "product:metal_oxide": {
-    "ru": "оксид металла",
-    "en": "metal oxide",
-    "pl": "tlenek metalu",
-    "es": "óxido metálico"
-  },
-  "class:metal_hydroxide.insoluble": {
-    "ru": "нерастворимые гидроксиды металлов",
-    "en": "insoluble metal hydroxides",
-    "pl": "nierozpuszczalne wodorotlenki metali",
-    "es": "hidróxidos metálicos insolubles"
-  },
-  "class:alkali_hydroxides": {
-    "ru": "щёлочи",
-    "en": "alkali hydroxides",
-    "pl": "zasady",
-    "es": "hidróxidos alcalinos"
-  },
-  "class:noble_metals": {
-    "ru": "благородные металлы",
-    "en": "noble metals",
-    "pl": "metale szlachetne",
-    "es": "metales nobles"
-  },
-  "class:carbonate": {
-    "ru": "карбонаты и гидрокарбонаты",
-    "en": "carbonates and bicarbonates",
-    "pl": "węglany i wodorowęglany",
-    "es": "carbonatos y bicarbonatos"
-  },
-  "class:sulfite": {
-    "ru": "сульфиты",
-    "en": "sulfites",
-    "pl": "siarczyny",
-    "es": "sulfitos"
-  },
-  "class:soluble_sulfide": {
-    "ru": "растворимые сульфиды",
-    "en": "soluble sulfides",
-    "pl": "rozpuszczalne siarczki",
-    "es": "sulfuros solubles"
-  },
-  "class:ammonium_salt": {
-    "ru": "соли аммония",
-    "en": "ammonium salts",
-    "pl": "sole amonowe",
-    "es": "sales de amonio"
-  },
-  "class:amphoteric_hydroxides_oxides": {
-    "ru": "амфотерные оксиды и гидроксиды",
-    "en": "amphoteric oxides and hydroxides",
-    "pl": "amfoteryczne tlenki i wodorotlenki",
-    "es": "óxidos e hidróxidos anfóteros"
-  },
-  "class:alkali_alkaline_earth_metals": {
-    "ru": "щелочные и щёлочноземельные металлы",
-    "en": "alkali and alkaline earth metals",
-    "pl": "metale alkaliczne i ziem alkalicznych",
-    "es": "metales alcalinos y alcalinotérreos"
-  },
-  "substance:H2SO4_conc": {
-    "ru": "H₂SO₄ (конц.)",
-    "en": "H₂SO₄ (conc.)",
-    "pl": "H₂SO₄ (stęż.)",
-    "es": "H₂SO₄ (conc.)"
-  },
-  "substance:HNO3": {
-    "ru": "HNO₃",
-    "en": "HNO₃",
-    "pl": "HNO₃",
-    "es": "HNO₃"
-  },
-  "substance:CO2": {
-    "ru": "CO₂",
-    "en": "CO₂",
-    "pl": "CO₂",
-    "es": "CO₂"
-  },
-  "substance:SO2": {
-    "ru": "SO₂",
-    "en": "SO₂",
-    "pl": "SO₂",
-    "es": "SO₂"
-  },
-  "substance:H2S": {
-    "ru": "H₂S",
-    "en": "H₂S",
-    "pl": "H₂S",
-    "es": "H₂S"
-  },
-  "substance:NH3": {
-    "ru": "NH₃",
-    "en": "NH₃",
-    "pl": "NH₃",
-    "es": "NH₃"
-  },
-  "substance:SiO2": {
-    "ru": "SiO₂",
-    "en": "SiO₂",
-    "pl": "SiO₂",
-    "es": "SiO₂"
-  },
-  "metal_group:passivation": {
-    "ru": "Fe, Al, Cr",
-    "en": "Fe, Al, Cr",
-    "pl": "Fe, Al, Cr",
-    "es": "Fe, Al, Cr"
-  },
-  "reagent:acid": {
-    "ru": "кислот",
-    "en": "acids",
-    "pl": "kwasów",
-    "es": "ácidos"
-  },
-  "reagent:alkali": {
-    "ru": "щелочей",
-    "en": "alkalis",
-    "pl": "zasad",
-    "es": "álcalis"
-  },
-  "substance:H2SO4_conc_acids": {
-    "ru": "H₂SO₄ и HNO₃",
-    "en": "H₂SO₄ and HNO₃",
-    "pl": "H₂SO₄ i HNO₃",
-    "es": "H₂SO₄ y HNO₃"
-  },
-  "substance:HNO3_conc": {
-    "ru": "HNO₃",
-    "en": "HNO₃",
-    "pl": "HNO₃",
-    "es": "HNO₃"
-  }
-}
+[
+  "condition:heating",
+  "product:precipitate",
+  "product:gas",
+  "product:water",
+  "product:weak_electrolyte",
+  "product:metal_oxide",
+  "class:metal_hydroxide.insoluble",
+  "class:alkali_hydroxides",
+  "class:noble_metals",
+  "class:carbonate",
+  "class:sulfite",
+  "class:soluble_sulfide",
+  "class:ammonium_salt",
+  "class:amphoteric_hydroxides_oxides",
+  "class:alkali_alkaline_earth_metals",
+  "substance:H2SO4_conc",
+  "substance:HNO3",
+  "substance:CO2",
+  "substance:SO2",
+  "substance:H2S",
+  "substance:NH3",
+  "substance:SiO2",
+  "metal_group:passivation",
+  "reagent:acid",
+  "reagent:alkali",
+  "substance:H2SO4_conc_acids",
+  "substance:HNO3_conc",
+  "precipitate:AgCl",
+  "precipitate:BaSO4",
+  "precipitate:Ag3PO4",
+  "precipitate:Cu(OH)2",
+  "precipitate:Fe(OH)3",
+  "precipitate:Fe(OH)2",
+  "precipitate:PbS",
+  "precipitate:CaCO3",
+  "indicator:litmus_blue"
+]

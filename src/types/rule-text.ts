@@ -31,3 +31,16 @@ export interface GeneratedActivityText {
 }
 
 export type ActivityTextsData = GeneratedActivityText[];
+
+export interface GeneratedQualitativeText {
+  target_id: string;
+  primary_facet: string;
+  text_origin: 'generated';
+  generation_kind: 'observation_summary';
+  template_id: string;
+  slots: {
+    observation_summary?: Record<string, string>;
+  };
+}
+
+export type QualitativeTextsData = GeneratedQualitativeText[];
