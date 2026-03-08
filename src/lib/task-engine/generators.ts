@@ -821,18 +821,16 @@ function genPickAcidAnionFromGraph(_params: Record<string, unknown>, data: Ontol
   }
 
   const pair = pickRandom(pairs);
-  const acidSubId = pair.acidId.replace(/^sub:/, '');
-  const anionIonId = pair.anionId.replace(/^ion:/, '');
 
   // Find substance data for acid (name, formula)
-  const substanceEntry = data.data.substances?.find(s => s.id === acidSubId);
-  const acid_formula = substanceEntry?.formula ?? acidSubId;
-  const acid_name = substanceEntry?.name ?? acidSubId;
+  const substanceEntry = data.data.substances?.find(s => s.id === pair.acidId);
+  const acid_formula = substanceEntry?.formula ?? pair.acidId;
+  const acid_name = substanceEntry?.name ?? pair.acidId;
 
   // Find ion data for anion (name, formula)
-  const ion = data.core.ions.find(i => i.id === anionIonId);
-  const anion_formula = ion?.formula ?? anionIonId;
-  const anion_name = ion?.name ?? anionIonId;
+  const ion = data.core.ions.find(i => i.id === pair.anionId);
+  const anion_formula = ion?.formula ?? pair.anionId;
+  const anion_name = ion?.name ?? pair.anionId;
 
   return {
     acid_id: pair.acidId,
