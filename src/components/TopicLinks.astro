@@ -21,20 +21,18 @@ const sectionTopics = topics.filter(t => t.section === section);
 if (sectionTopics.length === 0) return;
 
 let overlay: TopicLocaleOverlay | null = null;
-if (locale !== 'ru') {
-  try {
-    overlay = cachedReadJsonSync<TopicLocaleOverlay>(
-      join(process.cwd(), 'data-src', 'translations', locale, 'topics.json'),
-    );
-  } catch { /* no overlay */ }
-}
+try {
+  overlay = cachedReadJsonSync<TopicLocaleOverlay>(
+    join(process.cwd(), 'data-src', 'translations', locale, 'topics.json'),
+  );
+} catch { /* no overlay */ }
 
 const sectionUrl = localizeUrl(`/${section}/`, locale);
 const items = sectionTopics.map(topic => {
   const lf = overlay?.[topic.id];
   return {
     href: `${sectionUrl}${lf?.slug ?? topic.slug}/`,
-    title: lf?.title ?? topic.title_ru,
+    title: lf?.title ?? (topic as { title?: string }).title ?? topic.id,
   };
 });
 
