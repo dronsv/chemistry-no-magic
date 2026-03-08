@@ -479,7 +479,7 @@ export async function loadSubstancesIndex(locale?: SupportedLocale): Promise<Sub
   const substances = (data as { substances: SubstanceIndexEntry[] }).substances;
   if (!locale) return substances;
   const overlay = await loadTranslationOverlay(locale, 'substances');
-  return applyOverlay(substances, overlay, s => s.id);
+  return applyOverlay(substances, overlay, s => s.id.replace(/^sub:/, ''));
 }
 
 /** Load solubility rules (unwraps v2 object format). */
