@@ -216,6 +216,8 @@
   "subst_detail_density": "Density",
   "subst_detail_density_unit": "g/cm³",
   "subst_detail_description": "{name} ({formula}) — properties, classification, reactions.",
+  "subst_detail_title": "{name} ({formula}) — properties, synthesis, reactions",
+  "subst_detail_title_formula": "{formula} — properties, synthesis, reactions",
   "subst_detail_facts": "Interesting Facts",
   "subst_detail_hazards": "Hazards and Storage",
   "subst_detail_ions_label": "Ions",

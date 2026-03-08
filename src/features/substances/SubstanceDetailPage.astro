@@ -25,6 +25,9 @@ if (substancesOverlay && substancesOverlay[substance.id]) {
 }
 
 const displayName = substance.name ?? substance.formula;
+const pageTitle = substance.name
+  ? m.subst_detail_title({ name: substance.name, formula: substance.formula })
+  : m.subst_detail_title_formula({ formula: substance.formula });
 
 // Apply classification rules overlay
 const classOverlay = await loadBuildOverlay(locale, 'classification_rules');
@@ -211,7 +214,7 @@ const contextBackLabels = {
 ---
 
 <BaseLayout
-  title={displayName}
+  title={pageTitle}
   description={m.subst_detail_description({ name: displayName, formula: substance.formula })}
 >
   <Fragment slot="head">
