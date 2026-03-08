@@ -15,96 +15,22 @@
         {
           "t": "concept_card",
           "conceptId": "cls:oxide_basic",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:acid",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", водой (щелочные и щелочноземельные), "
-            },
-            {
-              "t": "ref",
-              "id": "cls:oxide_acidic",
-              "form": "ins_pl"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:oxide_acidic",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:base",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", водой (большинство), "
-            },
-            {
-              "t": "ref",
-              "id": "cls:oxide_basic",
-              "form": "ins_pl"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:oxide_amphoteric",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют и с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:acid",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", и с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:base",
-              "form": "ins_pl"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:oxide_indifferent",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Не образуют солей. Примеры: CO, NO, N₂O"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         }
       ]
     },
@@ -115,37 +41,12 @@
         {
           "t": "concept_card",
           "conceptId": "cls:acid_oxygen",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Образуются при взаимодействии "
-            },
-            {
-              "t": "ref",
-              "id": "cls:oxide_acidic",
-              "form": "gen_pl"
-            },
-            {
-              "t": "text",
-              "v": " с водой"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:acid_oxygenfree",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Образуются при растворении газов-неметаллов (HCl, H₂S, HF) в воде"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         }
       ]
     },
@@ -156,91 +57,17 @@
         {
           "t": "concept_card",
           "conceptId": "cls:base_alkali",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:acid",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", "
-            },
-            {
-              "t": "ref",
-              "id": "cls:oxide_acidic",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", "
-            },
-            {
-              "t": "ref",
-              "id": "cls:salt",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": " (если образуется осадок)"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:base_insoluble",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:acid",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ". При нагревании разлагаются на оксид и воду"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:base_amphoteric",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Реагируют и с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:acid",
-              "form": "ins_pl"
-            },
-            {
-              "t": "text",
-              "v": ", и с "
-            },
-            {
-              "t": "ref",
-              "id": "cls:base_alkali",
-              "form": "ins_pl"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         }
       ]
     },
@@ -251,41 +78,17 @@
         {
           "t": "concept_card",
           "conceptId": "cls:salt_normal",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Продукт полной нейтрализации кислоты основанием"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:salt_acidic",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Продукт неполной нейтрализации многоосновной кислоты. Содержат H в кислотном остатке"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         },
         {
           "t": "concept_card",
           "conceptId": "cls:salt_basic",
-          "reactivity_rules": [
-            {
-              "t": "text",
-              "v": "Продукт неполной нейтрализации многокислотного основания. Содержат OH⁻ группы"
-            }
-          ],
-          "examples": {
-            "mode": "filter"
-          }
+          "examples": { "mode": "filter" }
         }
       ]
     }
