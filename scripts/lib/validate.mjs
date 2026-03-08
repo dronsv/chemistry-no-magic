@@ -578,11 +578,9 @@ export function validateRelationIdIntegrity(allRelations, { ionIds, substanceIds
       const val = r[field];
       if (!val || typeof val !== 'string') continue;
       if (val.startsWith('ion:')) {
-        const id = val.slice(4);
-        if (!ionIds.has(id)) errors.push(`Relation integrity: unknown ion ID "${val}" in ${field}`);
+        if (!ionIds.has(val)) errors.push(`Relation integrity: unknown ion ID "${val}" in ${field}`);
       } else if (val.startsWith('sub:')) {
-        const id = val.slice(4);
-        if (!substanceIds.has(id)) errors.push(`Relation integrity: unknown substance ID "${val}" in ${field}`);
+        if (!substanceIds.has(val)) errors.push(`Relation integrity: unknown substance ID "${val}" in ${field}`);
       } else if (val.startsWith('el:')) {
         const sym = val.slice(3);
         if (!elementSymbols.has(sym)) errors.push(`Relation integrity: unknown element "${val}" in ${field}`);
