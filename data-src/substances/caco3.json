@@ -1,11 +1,11 @@
 {
-  "id": "caco3",
+  "id": "sub:caco3",
   "formula": "CaCO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "CO3_2minus"
+    "ion:Ca_2plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "insoluble"

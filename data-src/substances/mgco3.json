@@ -1,11 +1,11 @@
 {
-  "id": "mgco3",
+  "id": "sub:mgco3",
   "formula": "MgCO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Mg_2plus",
-    "CO3_2minus"
+    "ion:Mg_2plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "insoluble"

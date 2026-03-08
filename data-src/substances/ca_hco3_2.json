@@ -1,11 +1,11 @@
 {
-  "id": "ca_hco3_2",
+  "id": "sub:ca_hco3_2",
   "formula": "Ca(HCO₃)₂",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Ca_2plus",
-    "HCO3_minus"
+    "ion:Ca_2plus",
+    "ion:HCO3_minus"
   ],
   "tags": [
     "soluble",

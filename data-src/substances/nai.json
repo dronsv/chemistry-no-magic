@@ -1,11 +1,11 @@
 {
-  "id": "nai",
+  "id": "sub:nai",
   "formula": "NaI",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "I_minus"
+    "ion:Na_plus",
+    "ion:I_minus"
   ],
   "tags": [
     "soluble"

@@ -1,11 +1,11 @@
 {
-  "id": "h2sio3",
+  "id": "sub:h2sio3",
   "formula": "H₂SiO₃",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "SiO3_2minus"
+    "ion:H_plus",
+    "ion:SiO3_2minus"
   ],
   "tags": [
     "insoluble",

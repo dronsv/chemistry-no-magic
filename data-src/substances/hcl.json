@@ -1,11 +1,11 @@
 {
-  "id": "hcl",
+  "id": "sub:hcl",
   "formula": "HCl",
   "class": "acid",
   "subclass": "oxygen_free",
   "ions": [
-    "H_plus",
-    "Cl_minus"
+    "ion:H_plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble",

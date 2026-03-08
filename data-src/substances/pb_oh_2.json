@@ -1,11 +1,11 @@
 {
-  "id": "pb_oh_2",
+  "id": "sub:pb_oh_2",
   "formula": "Pb(OH)₂",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Pb_2plus",
-    "OH_minus"
+    "ion:Pb_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

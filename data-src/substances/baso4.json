@@ -1,11 +1,11 @@
 {
-  "id": "baso4",
+  "id": "sub:baso4",
   "formula": "BaSO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ba_2plus",
-    "SO4_2minus"
+    "ion:Ba_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "insoluble"

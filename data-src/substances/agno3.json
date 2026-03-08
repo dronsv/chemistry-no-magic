@@ -1,11 +1,11 @@
 {
-  "id": "agno3",
+  "id": "sub:agno3",
   "formula": "AgNO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ag_plus",
-    "NO3_minus"
+    "ion:Ag_plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

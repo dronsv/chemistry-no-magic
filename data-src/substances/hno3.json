@@ -1,11 +1,11 @@
 {
-  "id": "hno3",
+  "id": "sub:hno3",
   "formula": "HNO₃",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "NO3_minus"
+    "ion:H_plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble",

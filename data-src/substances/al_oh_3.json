@@ -1,11 +1,11 @@
 {
-  "id": "al_oh_3",
+  "id": "sub:al_oh_3",
   "formula": "Al(OH)₃",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Al_3plus",
-    "OH_minus"
+    "ion:Al_3plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

@@ -1,11 +1,11 @@
 {
-  "id": "kmno4",
+  "id": "sub:kmno4",
   "formula": "KMnO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "MnO4_minus"
+    "ion:K_plus",
+    "ion:MnO4_minus"
   ],
   "tags": [
     "soluble",

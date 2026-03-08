@@ -1,11 +1,11 @@
 {
-  "id": "alpo4",
+  "id": "sub:alpo4",
   "formula": "AlPO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Al_3plus",
-    "PO4_3minus"
+    "ion:Al_3plus",
+    "ion:PO4_3minus"
   ],
   "tags": [
     "insoluble"

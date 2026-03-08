@@ -1,11 +1,11 @@
 {
-  "id": "lioh",
+  "id": "sub:lioh",
   "formula": "LiOH",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Li_plus",
-    "OH_minus"
+    "ion:Li_plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",

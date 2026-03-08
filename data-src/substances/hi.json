@@ -1,11 +1,11 @@
 {
-  "id": "hi",
+  "id": "sub:hi",
   "formula": "HI",
   "class": "acid",
   "subclass": "oxygen_free",
   "ions": [
-    "H_plus",
-    "I_minus"
+    "ion:H_plus",
+    "ion:I_minus"
   ],
   "tags": [
     "soluble",

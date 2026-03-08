@@ -1,11 +1,11 @@
 {
-  "id": "h2cr2o7",
+  "id": "sub:h2cr2o7",
   "formula": "H₂Cr₂O₇",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "Cr2O7_2minus"
+    "ion:H_plus",
+    "ion:Cr2O7_2minus"
   ],
   "tags": [
     "soluble",

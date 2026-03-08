@@ -1,11 +1,11 @@
 {
-  "id": "naf",
+  "id": "sub:naf",
   "formula": "NaF",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "F_minus"
+    "ion:Na_plus",
+    "ion:F_minus"
   ],
   "tags": [
     "soluble"

@@ -1,11 +1,11 @@
 {
-  "id": "ki",
+  "id": "sub:ki",
   "formula": "KI",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "I_minus"
+    "ion:K_plus",
+    "ion:I_minus"
   ],
   "tags": [
     "soluble"

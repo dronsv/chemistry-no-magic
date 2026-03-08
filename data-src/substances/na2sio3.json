@@ -1,11 +1,11 @@
 {
-  "id": "na2sio3",
+  "id": "sub:na2sio3",
   "formula": "Na₂SiO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "SiO3_2minus"
+    "ion:Na_plus",
+    "ion:SiO3_2minus"
   ],
   "tags": [
     "soluble"

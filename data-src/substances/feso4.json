@@ -1,11 +1,11 @@
 {
-  "id": "feso4",
+  "id": "sub:feso4",
   "formula": "FeSO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Fe_2plus",
-    "SO4_2minus"
+    "ion:Fe_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble"

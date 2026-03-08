@@ -1,11 +1,11 @@
 {
-  "id": "nahco3",
+  "id": "sub:nahco3",
   "formula": "NaHCO₃",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Na_plus",
-    "HCO3_minus"
+    "ion:Na_plus",
+    "ion:HCO3_minus"
   ],
   "tags": [
     "soluble"

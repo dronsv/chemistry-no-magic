@@ -1,11 +1,11 @@
 {
-  "id": "_ch3coo_2cu",
+  "id": "sub:_ch3coo_2cu",
   "formula": "(CH₃COO)₂Cu",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "CH3COO_minus"
+    "ion:Cu_2plus",
+    "ion:CH3COO_minus"
   ],
   "tags": [
     "soluble"

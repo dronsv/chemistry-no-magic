@@ -3,113 +3,545 @@
   "format": "pairs",
   "version": 2,
   "pairs": [
-    { "cation": "Na_plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "CO3_2minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "PO4_3minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "OH_minus", "solubility": "soluble" },
-    { "cation": "Na_plus", "anion": "SiO3_2minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "CO3_2minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "PO4_3minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "OH_minus", "solubility": "soluble" },
-    { "cation": "K_plus", "anion": "SiO3_2minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "CO3_2minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "PO4_3minus", "solubility": "soluble" },
-    { "cation": "NH4_plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "Ba_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Ba_2plus", "anion": "SO4_2minus", "solubility": "insoluble" },
-    { "cation": "Ba_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Ba_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Ba_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Ba_2plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "Ba_2plus", "anion": "OH_minus", "solubility": "soluble" },
-    { "cation": "Ba_2plus", "anion": "SiO3_2minus", "solubility": "insoluble" },
-    { "cation": "Ca_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Ca_2plus", "anion": "SO4_2minus", "solubility": "slightly_soluble" },
-    { "cation": "Ca_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Ca_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Ca_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Ca_2plus", "anion": "S_2minus", "solubility": "slightly_soluble" },
-    { "cation": "Ca_2plus", "anion": "OH_minus", "solubility": "slightly_soluble" },
-    { "cation": "Ca_2plus", "anion": "SiO3_2minus", "solubility": "insoluble" },
-    { "cation": "Mg_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Mg_2plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Mg_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Mg_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Mg_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Mg_2plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "Mg_2plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Mg_2plus", "anion": "SiO3_2minus", "solubility": "insoluble" },
-    { "cation": "Al_3plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Al_3plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Al_3plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Al_3plus", "anion": "CO3_2minus", "solubility": "decomposes" },
-    { "cation": "Al_3plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Al_3plus", "anion": "S_2minus", "solubility": "decomposes" },
-    { "cation": "Al_3plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Al_3plus", "anion": "SiO3_2minus", "solubility": "insoluble" },
-    { "cation": "Fe_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Fe_2plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Fe_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Fe_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Fe_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Fe_2plus", "anion": "S_2minus", "solubility": "insoluble" },
-    { "cation": "Fe_2plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Fe_3plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Fe_3plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Fe_3plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Fe_3plus", "anion": "CO3_2minus", "solubility": "decomposes" },
-    { "cation": "Fe_3plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Fe_3plus", "anion": "S_2minus", "solubility": "decomposes" },
-    { "cation": "Fe_3plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Cu_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Cu_2plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Cu_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Cu_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Cu_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Cu_2plus", "anion": "S_2minus", "solubility": "insoluble" },
-    { "cation": "Cu_2plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Zn_2plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "Zn_2plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "Zn_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Zn_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Zn_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Zn_2plus", "anion": "S_2minus", "solubility": "insoluble" },
-    { "cation": "Zn_2plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "Cl_minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "SO4_2minus", "solubility": "slightly_soluble" },
-    { "cation": "Ag_plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Ag_plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "S_2minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "Br_minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "I_minus", "solubility": "insoluble" },
-    { "cation": "Ag_plus", "anion": "F_minus", "solubility": "soluble" },
-    { "cation": "Pb_2plus", "anion": "Cl_minus", "solubility": "slightly_soluble" },
-    { "cation": "Pb_2plus", "anion": "SO4_2minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "Pb_2plus", "anion": "CO3_2minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "PO4_3minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "S_2minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "OH_minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "I_minus", "solubility": "insoluble" },
-    { "cation": "Pb_2plus", "anion": "Br_minus", "solubility": "slightly_soluble" },
-    { "cation": "H_plus", "anion": "Cl_minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "SO4_2minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "NO3_minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "CO3_2minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "PO4_3minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "S_2minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "F_minus", "solubility": "soluble" },
-    { "cation": "H_plus", "anion": "SiO3_2minus", "solubility": "insoluble" }
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:OH_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Na_plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:OH_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:K_plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:NH4_plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ba_2plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:Ca_2plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Mg_2plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "decomposes"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:S_2minus",
+      "solubility": "decomposes"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Al_3plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "decomposes"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:S_2minus",
+      "solubility": "decomposes"
+    },
+    {
+      "cation": "ion:Fe_3plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Cu_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Zn_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:S_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:Br_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:I_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Ag_plus",
+      "anion": "ion:F_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:S_2minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:OH_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:I_minus",
+      "solubility": "insoluble"
+    },
+    {
+      "cation": "ion:Pb_2plus",
+      "anion": "ion:Br_minus",
+      "solubility": "slightly_soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:Cl_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:SO4_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:NO3_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:CO3_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:PO4_3minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:S_2minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:F_minus",
+      "solubility": "soluble"
+    },
+    {
+      "cation": "ion:H_plus",
+      "anion": "ion:SiO3_2minus",
+      "solubility": "insoluble"
+    }
   ]
 }

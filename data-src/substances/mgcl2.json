@@ -1,11 +1,11 @@
 {
-  "id": "mgcl2",
+  "id": "sub:mgcl2",
   "formula": "MgCl₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Mg_2plus",
-    "Cl_minus"
+    "ion:Mg_2plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble",

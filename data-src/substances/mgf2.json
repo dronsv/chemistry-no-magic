@@ -1,11 +1,11 @@
 {
-  "id": "mgf2",
+  "id": "sub:mgf2",
   "formula": "MgF₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Mg_2plus",
-    "F_minus"
+    "ion:Mg_2plus",
+    "ion:F_minus"
   ],
   "tags": [
     "insoluble"

@@ -1,12 +1,12 @@
 {
-  "id": "_cuoh_2co3",
+  "id": "sub:_cuoh_2co3",
   "formula": "(CuOH)₂CO₃",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Cu_2plus",
-    "OH_minus",
-    "CO3_2minus"
+    "ion:Cu_2plus",
+    "ion:OH_minus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "insoluble"

@@ -1,11 +1,11 @@
 {
-  "id": "h2co3",
+  "id": "sub:h2co3",
   "formula": "H₂CO₃",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "CO3_2minus"
+    "ion:H_plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "unstable",

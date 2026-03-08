@@ -1,11 +1,11 @@
 {
-  "id": "koh",
+  "id": "sub:koh",
   "formula": "KOH",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "K_plus",
-    "OH_minus"
+    "ion:K_plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",

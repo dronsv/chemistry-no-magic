@@ -1,11 +1,11 @@
 {
-  "id": "h2o",
+  "id": "sub:h2o",
   "formula": "H₂O",
   "class": "oxide",
   "subclass": "amphoteric",
   "ions": [
-    "H_plus",
-    "OH_minus"
+    "ion:H_plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",

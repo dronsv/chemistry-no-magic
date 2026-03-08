@@ -1,11 +1,11 @@
 {
-  "id": "kno2",
+  "id": "sub:kno2",
   "formula": "KNO₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "NO2_minus"
+    "ion:K_plus",
+    "ion:NO2_minus"
   ],
   "tags": [
     "soluble"

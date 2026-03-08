@@ -1,11 +1,11 @@
 {
-  "id": "pb_no3_2",
+  "id": "sub:pb_no3_2",
   "formula": "Pb(NO₃)₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Pb_2plus",
-    "NO3_minus"
+    "ion:Pb_2plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

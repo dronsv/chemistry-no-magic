@@ -1,11 +1,11 @@
 {
-  "id": "pbs",
+  "id": "sub:pbs",
   "formula": "PbS",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Pb_2plus",
-    "S_2minus"
+    "ion:Pb_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"

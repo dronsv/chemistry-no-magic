@@ -1,11 +1,11 @@
 {
-  "id": "cahpo4",
+  "id": "sub:cahpo4",
   "formula": "CaHPO₄",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Ca_2plus",
-    "HPO4_2minus"
+    "ion:Ca_2plus",
+    "ion:HPO4_2minus"
   ],
   "tags": [
     "insoluble"

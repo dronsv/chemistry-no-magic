@@ -1,11 +1,11 @@
 {
-  "id": "zn_oh_2",
+  "id": "sub:zn_oh_2",
   "formula": "Zn(OH)₂",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Zn_2plus",
-    "OH_minus"
+    "ion:Zn_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

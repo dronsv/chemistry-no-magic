@@ -1,6 +1,6 @@
 [
   {
-    "id": "H_plus",
+    "id": "ion:H_plus",
     "formula": "H⁺",
     "charge": 1,
     "type": "cation",
@@ -9,7 +9,7 @@
     ]
   },
   {
-    "id": "Na_plus",
+    "id": "ion:Na_plus",
     "formula": "Na⁺",
     "charge": 1,
     "type": "cation",
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "id": "K_plus",
+    "id": "ion:K_plus",
     "formula": "K⁺",
     "charge": 1,
     "type": "cation",
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "id": "NH4_plus",
+    "id": "ion:NH4_plus",
     "formula": "NH₄⁺",
     "charge": 1,
     "type": "cation",
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "id": "Ca_2plus",
+    "id": "ion:Ca_2plus",
     "formula": "Ca²⁺",
     "charge": 2,
     "type": "cation",
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "id": "Mg_2plus",
+    "id": "ion:Mg_2plus",
     "formula": "Mg²⁺",
     "charge": 2,
     "type": "cation",
@@ -54,7 +54,7 @@
     ]
   },
   {
-    "id": "Ba_2plus",
+    "id": "ion:Ba_2plus",
     "formula": "Ba²⁺",
     "charge": 2,
     "type": "cation",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "id": "Al_3plus",
+    "id": "ion:Al_3plus",
     "formula": "Al³⁺",
     "charge": 3,
     "type": "cation",
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "id": "Fe_2plus",
+    "id": "ion:Fe_2plus",
     "formula": "Fe²⁺",
     "charge": 2,
     "type": "cation",
@@ -82,7 +82,7 @@
     ]
   },
   {
-    "id": "Fe_3plus",
+    "id": "ion:Fe_3plus",
     "formula": "Fe³⁺",
     "charge": 3,
     "type": "cation",
@@ -92,7 +92,7 @@
     ]
   },
   {
-    "id": "Cu_2plus",
+    "id": "ion:Cu_2plus",
     "formula": "Cu²⁺",
     "charge": 2,
     "type": "cation",
@@ -102,7 +102,7 @@
     ]
   },
   {
-    "id": "Zn_2plus",
+    "id": "ion:Zn_2plus",
     "formula": "Zn²⁺",
     "charge": 2,
     "type": "cation",
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "id": "Ag_plus",
+    "id": "ion:Ag_plus",
     "formula": "Ag⁺",
     "charge": 1,
     "type": "cation",
@@ -122,7 +122,7 @@
     ]
   },
   {
-    "id": "Pb_2plus",
+    "id": "ion:Pb_2plus",
     "formula": "Pb²⁺",
     "charge": 2,
     "type": "cation",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "id": "Li_plus",
+    "id": "ion:Li_plus",
     "formula": "Li⁺",
     "charge": 1,
     "type": "cation",
@@ -141,7 +141,7 @@
     ]
   },
   {
-    "id": "Sr_2plus",
+    "id": "ion:Sr_2plus",
     "formula": "Sr²⁺",
     "charge": 2,
     "type": "cation",
@@ -150,7 +150,7 @@
     ]
   },
   {
-    "id": "Mn_2plus",
+    "id": "ion:Mn_2plus",
     "formula": "Mn²⁺",
     "charge": 2,
     "type": "cation",
@@ -159,7 +159,7 @@
     ]
   },
   {
-    "id": "Ni_2plus",
+    "id": "ion:Ni_2plus",
     "formula": "Ni²⁺",
     "charge": 2,
     "type": "cation",
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "id": "Co_2plus",
+    "id": "ion:Co_2plus",
     "formula": "Co²⁺",
     "charge": 2,
     "type": "cation",
@@ -177,7 +177,7 @@
     ]
   },
   {
-    "id": "Cd_2plus",
+    "id": "ion:Cd_2plus",
     "formula": "Cd²⁺",
     "charge": 2,
     "type": "cation",
@@ -187,7 +187,7 @@
     ]
   },
   {
-    "id": "Hg_2plus",
+    "id": "ion:Hg_2plus",
     "formula": "Hg²⁺",
     "charge": 2,
     "type": "cation",
@@ -197,7 +197,7 @@
     ]
   },
   {
-    "id": "Hg2_2plus",
+    "id": "ion:Hg2_2plus",
     "formula": "Hg₂²⁺",
     "charge": 2,
     "type": "cation",
@@ -207,7 +207,7 @@
     ]
   },
   {
-    "id": "Sn_2plus",
+    "id": "ion:Sn_2plus",
     "formula": "Sn²⁺",
     "charge": 2,
     "type": "cation",
@@ -216,7 +216,7 @@
     ]
   },
   {
-    "id": "Cr_3plus",
+    "id": "ion:Cr_3plus",
     "formula": "Cr³⁺",
     "charge": 3,
     "type": "cation",
@@ -226,7 +226,7 @@
     ]
   },
   {
-    "id": "OH_minus",
+    "id": "ion:OH_minus",
     "formula": "OH⁻",
     "charge": -1,
     "type": "anion",
@@ -235,7 +235,7 @@
     ]
   },
   {
-    "id": "F_minus",
+    "id": "ion:F_minus",
     "formula": "F⁻",
     "charge": -1,
     "type": "anion",
@@ -249,7 +249,7 @@
     ]
   },
   {
-    "id": "Cl_minus",
+    "id": "ion:Cl_minus",
     "formula": "Cl⁻",
     "charge": -1,
     "type": "anion",
@@ -263,7 +263,7 @@
     ]
   },
   {
-    "id": "Br_minus",
+    "id": "ion:Br_minus",
     "formula": "Br⁻",
     "charge": -1,
     "type": "anion",
@@ -277,7 +277,7 @@
     ]
   },
   {
-    "id": "I_minus",
+    "id": "ion:I_minus",
     "formula": "I⁻",
     "charge": -1,
     "type": "anion",
@@ -291,7 +291,7 @@
     ]
   },
   {
-    "id": "S_2minus",
+    "id": "ion:S_2minus",
     "formula": "S²⁻",
     "charge": -2,
     "type": "anion",
@@ -304,7 +304,7 @@
     ]
   },
   {
-    "id": "SO4_2minus",
+    "id": "ion:SO4_2minus",
     "formula": "SO₄²⁻",
     "charge": -2,
     "type": "anion",
@@ -318,7 +318,7 @@
     ]
   },
   {
-    "id": "SO3_2minus",
+    "id": "ion:SO3_2minus",
     "formula": "SO₃²⁻",
     "charge": -2,
     "type": "anion",
@@ -333,7 +333,7 @@
     ]
   },
   {
-    "id": "NO3_minus",
+    "id": "ion:NO3_minus",
     "formula": "NO₃⁻",
     "charge": -1,
     "type": "anion",
@@ -347,7 +347,7 @@
     ]
   },
   {
-    "id": "NO2_minus",
+    "id": "ion:NO2_minus",
     "formula": "NO₂⁻",
     "charge": -1,
     "type": "anion",
@@ -361,7 +361,7 @@
     ]
   },
   {
-    "id": "CO3_2minus",
+    "id": "ion:CO3_2minus",
     "formula": "CO₃²⁻",
     "charge": -2,
     "type": "anion",
@@ -375,7 +375,7 @@
     ]
   },
   {
-    "id": "SiO3_2minus",
+    "id": "ion:SiO3_2minus",
     "formula": "SiO₃²⁻",
     "charge": -2,
     "type": "anion",
@@ -388,7 +388,7 @@
     ]
   },
   {
-    "id": "PO4_3minus",
+    "id": "ion:PO4_3minus",
     "formula": "PO₄³⁻",
     "charge": -3,
     "type": "anion",
@@ -401,7 +401,7 @@
     ]
   },
   {
-    "id": "CH3COO_minus",
+    "id": "ion:CH3COO_minus",
     "formula": "CH₃COO⁻",
     "charge": -1,
     "type": "anion",
@@ -415,7 +415,7 @@
     ]
   },
   {
-    "id": "MnO4_minus",
+    "id": "ion:MnO4_minus",
     "formula": "MnO₄⁻",
     "charge": -1,
     "type": "anion",
@@ -429,7 +429,7 @@
     ]
   },
   {
-    "id": "CrO4_2minus",
+    "id": "ion:CrO4_2minus",
     "formula": "CrO₄²⁻",
     "charge": -2,
     "type": "anion",
@@ -443,7 +443,7 @@
     ]
   },
   {
-    "id": "Cr2O7_2minus",
+    "id": "ion:Cr2O7_2minus",
     "formula": "Cr₂O₇²⁻",
     "charge": -2,
     "type": "anion",
@@ -458,7 +458,7 @@
     ]
   },
   {
-    "id": "Be_2plus",
+    "id": "ion:Be_2plus",
     "formula": "Be²⁺",
     "charge": 2,
     "type": "cation",
@@ -468,7 +468,7 @@
     ]
   },
   {
-    "id": "Cu_plus",
+    "id": "ion:Cu_plus",
     "formula": "Cu⁺",
     "charge": 1,
     "type": "cation",
@@ -478,7 +478,7 @@
     ]
   },
   {
-    "id": "HCO3_minus",
+    "id": "ion:HCO3_minus",
     "formula": "HCO₃⁻",
     "charge": -1,
     "type": "anion",
@@ -492,7 +492,7 @@
     ]
   },
   {
-    "id": "HSO4_minus",
+    "id": "ion:HSO4_minus",
     "formula": "HSO₄⁻",
     "charge": -1,
     "type": "anion",
@@ -505,7 +505,7 @@
     ]
   },
   {
-    "id": "HSO3_minus",
+    "id": "ion:HSO3_minus",
     "formula": "HSO₃⁻",
     "charge": -1,
     "type": "anion",
@@ -518,7 +518,7 @@
     ]
   },
   {
-    "id": "HPO4_2minus",
+    "id": "ion:HPO4_2minus",
     "formula": "HPO₄²⁻",
     "charge": -2,
     "type": "anion",
@@ -531,7 +531,7 @@
     ]
   },
   {
-    "id": "H2PO4_minus",
+    "id": "ion:H2PO4_minus",
     "formula": "H₂PO₄⁻",
     "charge": -1,
     "type": "anion",

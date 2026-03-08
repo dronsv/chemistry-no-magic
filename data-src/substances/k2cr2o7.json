@@ -1,11 +1,11 @@
 {
-  "id": "k2cr2o7",
+  "id": "sub:k2cr2o7",
   "formula": "K₂Cr₂O₇",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "Cr2O7_2minus"
+    "ion:K_plus",
+    "ion:Cr2O7_2minus"
   ],
   "tags": [
     "soluble"

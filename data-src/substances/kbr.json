@@ -1,11 +1,11 @@
 {
-  "id": "kbr",
+  "id": "sub:kbr",
   "formula": "KBr",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "Br_minus"
+    "ion:K_plus",
+    "ion:Br_minus"
   ],
   "tags": [
     "soluble"

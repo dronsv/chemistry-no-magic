@@ -1,11 +1,11 @@
 {
-  "id": "ba_oh_2",
+  "id": "sub:ba_oh_2",
   "formula": "Ba(OH)₂",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Ba_2plus",
-    "OH_minus"
+    "ion:Ba_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",

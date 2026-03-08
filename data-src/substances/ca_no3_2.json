@@ -1,11 +1,11 @@
 {
-  "id": "ca_no3_2",
+  "id": "sub:ca_no3_2",
   "formula": "Ca(NO₃)₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "NO3_minus"
+    "ion:Ca_2plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

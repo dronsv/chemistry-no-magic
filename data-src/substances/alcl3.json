@@ -1,11 +1,11 @@
 {
-  "id": "alcl3",
+  "id": "sub:alcl3",
   "formula": "AlCl₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Al_3plus",
-    "Cl_minus"
+    "ion:Al_3plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble",

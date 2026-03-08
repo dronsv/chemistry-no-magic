@@ -1,11 +1,11 @@
 {
-  "id": "ch3coona",
+  "id": "sub:ch3coona",
   "formula": "CH₃COONa",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "CH3COO_minus"
+    "ion:Na_plus",
+    "ion:CH3COO_minus"
   ],
   "tags": [
     "soluble"

@@ -1,12 +1,12 @@
 {
-  "id": "cuohcl",
+  "id": "sub:cuohcl",
   "formula": "CuOHCl",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Cu_2plus",
-    "OH_minus",
-    "Cl_minus"
+    "ion:Cu_2plus",
+    "ion:OH_minus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "insoluble"

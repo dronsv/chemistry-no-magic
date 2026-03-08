@@ -1,11 +1,11 @@
 {
-  "id": "h3po4",
+  "id": "sub:h3po4",
   "formula": "H₃PO₄",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "PO4_3minus"
+    "ion:H_plus",
+    "ion:PO4_3minus"
   ],
   "tags": [
     "soluble",

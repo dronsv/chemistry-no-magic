@@ -1,11 +1,11 @@
 {
-  "id": "cus",
+  "id": "sub:cus",
   "formula": "CuS",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "S_2minus"
+    "ion:Cu_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"

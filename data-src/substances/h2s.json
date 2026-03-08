@@ -1,11 +1,11 @@
 {
-  "id": "h2s",
+  "id": "sub:h2s",
   "formula": "H₂S",
   "class": "acid",
   "subclass": "oxygen_free",
   "ions": [
-    "H_plus",
-    "S_2minus"
+    "ion:H_plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "gas",

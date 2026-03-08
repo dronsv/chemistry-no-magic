@@ -1,11 +1,11 @@
 {
-  "id": "na3po4",
+  "id": "sub:na3po4",
   "formula": "Na₃PO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "PO4_3minus"
+    "ion:Na_plus",
+    "ion:PO4_3minus"
   ],
   "tags": [
     "soluble"

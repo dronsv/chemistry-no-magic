@@ -1,11 +1,11 @@
 {
-  "id": "fe_oh_3",
+  "id": "sub:fe_oh_3",
   "formula": "Fe(OH)₃",
   "class": "base",
   "subclass": "insoluble",
   "ions": [
-    "Fe_3plus",
-    "OH_minus"
+    "ion:Fe_3plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

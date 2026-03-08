@@ -1,11 +1,11 @@
 {
-  "id": "hmno4",
+  "id": "sub:hmno4",
   "formula": "HMnO₄",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "MnO4_minus"
+    "ion:H_plus",
+    "ion:MnO4_minus"
   ],
   "tags": [
     "soluble",

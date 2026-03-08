@@ -1,11 +1,11 @@
 {
-  "id": "caso4",
+  "id": "sub:caso4",
   "formula": "CaSO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "SO4_2minus"
+    "ion:Ca_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "insoluble"

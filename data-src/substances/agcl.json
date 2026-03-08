@@ -1,11 +1,11 @@
 {
-  "id": "agcl",
+  "id": "sub:agcl",
   "formula": "AgCl",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ag_plus",
-    "Cl_minus"
+    "ion:Ag_plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "insoluble"

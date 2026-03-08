@@ -1,11 +1,11 @@
 {
-  "id": "pbi2",
+  "id": "sub:pbi2",
   "formula": "PbI₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Pb_2plus",
-    "I_minus"
+    "ion:Pb_2plus",
+    "ion:I_minus"
   ],
   "tags": [
     "insoluble"

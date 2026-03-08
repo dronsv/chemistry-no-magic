@@ -1,11 +1,11 @@
 {
-  "id": "cuso4",
+  "id": "sub:cuso4",
   "formula": "CuSO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "SO4_2minus"
+    "ion:Cu_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble"

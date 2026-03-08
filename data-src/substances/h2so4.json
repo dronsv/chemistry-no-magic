@@ -1,11 +1,11 @@
 {
-  "id": "h2so4",
+  "id": "sub:h2so4",
   "formula": "H₂SO₄",
   "class": "acid",
   "subclass": "oxygen_containing",
   "ions": [
-    "H_plus",
-    "SO4_2minus"
+    "ion:H_plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble",

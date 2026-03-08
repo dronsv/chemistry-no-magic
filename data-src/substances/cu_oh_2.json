@@ -1,11 +1,11 @@
 {
-  "id": "cu_oh_2",
+  "id": "sub:cu_oh_2",
   "formula": "Cu(OH)₂",
   "class": "base",
   "subclass": "insoluble",
   "ions": [
-    "Cu_2plus",
-    "OH_minus"
+    "ion:Cu_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

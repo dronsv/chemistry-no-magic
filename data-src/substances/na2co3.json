@@ -1,11 +1,11 @@
 {
-  "id": "na2co3",
+  "id": "sub:na2co3",
   "formula": "Na₂CO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "CO3_2minus"
+    "ion:Na_plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "soluble"

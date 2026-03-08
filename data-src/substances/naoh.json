@@ -1,11 +1,11 @@
 {
-  "id": "naoh",
+  "id": "sub:naoh",
   "formula": "NaOH",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Na_plus",
-    "OH_minus"
+    "ion:Na_plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "soluble",

@@ -1,11 +1,11 @@
 {
-  "id": "znso4",
+  "id": "sub:znso4",
   "formula": "ZnSO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Zn_2plus",
-    "SO4_2minus"
+    "ion:Zn_2plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble"

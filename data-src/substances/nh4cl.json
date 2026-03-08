@@ -1,11 +1,11 @@
 {
-  "id": "nh4cl",
+  "id": "sub:nh4cl",
   "formula": "NH₄Cl",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "NH4_plus",
-    "Cl_minus"
+    "ion:NH4_plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble",

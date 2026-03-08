@@ -1,11 +1,11 @@
 {
-  "id": "fe2_so4_3",
+  "id": "sub:fe2_so4_3",
   "formula": "Fe₂(SO₄)₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Fe_3plus",
-    "SO4_2minus"
+    "ion:Fe_3plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble"

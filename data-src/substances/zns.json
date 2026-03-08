@@ -1,11 +1,11 @@
 {
-  "id": "zns",
+  "id": "sub:zns",
   "formula": "ZnS",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Zn_2plus",
-    "S_2minus"
+    "ion:Zn_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"

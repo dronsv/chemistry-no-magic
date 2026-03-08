@@ -1,11 +1,11 @@
 {
-  "id": "k2co3",
+  "id": "sub:k2co3",
   "formula": "K₂CO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "CO3_2minus"
+    "ion:K_plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "soluble"

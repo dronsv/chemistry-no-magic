@@ -1,11 +1,11 @@
 {
-  "id": "cr_oh_3",
+  "id": "sub:cr_oh_3",
   "formula": "Cr(OH)₃",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Cr_3plus",
-    "OH_minus"
+    "ion:Cr_3plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

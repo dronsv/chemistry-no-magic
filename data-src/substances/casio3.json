@@ -1,11 +1,11 @@
 {
-  "id": "casio3",
+  "id": "sub:casio3",
   "formula": "CaSiO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "SiO3_2minus"
+    "ion:Ca_2plus",
+    "ion:SiO3_2minus"
   ],
   "tags": [
     "insoluble"

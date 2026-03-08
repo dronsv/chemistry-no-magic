@@ -1,11 +1,11 @@
 {
-  "id": "baco3",
+  "id": "sub:baco3",
   "formula": "BaCO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ba_2plus",
-    "CO3_2minus"
+    "ion:Ba_2plus",
+    "ion:CO3_2minus"
   ],
   "tags": [
     "insoluble"

@@ -1,11 +1,11 @@
 {
-  "id": "nacl",
+  "id": "sub:nacl",
   "formula": "NaCl",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "Cl_minus"
+    "ion:Na_plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble"

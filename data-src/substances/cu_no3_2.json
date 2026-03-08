@@ -1,11 +1,11 @@
 {
-  "id": "cu_no3_2",
+  "id": "sub:cu_no3_2",
   "formula": "Cu(NO₃)₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Cu_2plus",
-    "NO3_minus"
+    "ion:Cu_2plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

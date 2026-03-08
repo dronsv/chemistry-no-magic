@@ -1,11 +1,11 @@
 {
-  "id": "ca_h2po4_2",
+  "id": "sub:ca_h2po4_2",
   "formula": "Ca(H₂PO₄)₂",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Ca_2plus",
-    "H2PO4_minus"
+    "ion:Ca_2plus",
+    "ion:H2PO4_minus"
   ],
   "tags": [
     "soluble"

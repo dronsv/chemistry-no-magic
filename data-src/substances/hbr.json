@@ -1,11 +1,11 @@
 {
-  "id": "hbr",
+  "id": "sub:hbr",
   "formula": "HBr",
   "class": "acid",
   "subclass": "oxygen_free",
   "ions": [
-    "H_plus",
-    "Br_minus"
+    "ion:H_plus",
+    "ion:Br_minus"
   ],
   "tags": [
     "soluble",

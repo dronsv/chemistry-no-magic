@@ -1,11 +1,11 @@
 {
-  "id": "zncl2",
+  "id": "sub:zncl2",
   "formula": "ZnCl₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Zn_2plus",
-    "Cl_minus"
+    "ion:Zn_2plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble"

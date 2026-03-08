@@ -1,12 +1,12 @@
 {
-  "id": "aloh_no3_2",
+  "id": "sub:aloh_no3_2",
   "formula": "AlOH(NO₃)₂",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Al_3plus",
-    "OH_minus",
-    "NO3_minus"
+    "ion:Al_3plus",
+    "ion:OH_minus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

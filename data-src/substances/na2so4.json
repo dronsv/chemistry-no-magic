@@ -1,11 +1,11 @@
 {
-  "id": "na2so4",
+  "id": "sub:na2so4",
   "formula": "Na₂SO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "SO4_2minus"
+    "ion:Na_plus",
+    "ion:SO4_2minus"
   ],
   "tags": [
     "soluble"

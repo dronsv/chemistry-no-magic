@@ -1,11 +1,11 @@
 {
-  "id": "bacl2",
+  "id": "sub:bacl2",
   "formula": "BaCl₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ba_2plus",
-    "Cl_minus"
+    "ion:Ba_2plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble"

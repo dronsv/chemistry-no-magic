@@ -1,11 +1,11 @@
 {
-  "id": "be_oh_2",
+  "id": "sub:be_oh_2",
   "formula": "Be(OH)₂",
   "class": "base",
   "subclass": "amphoteric",
   "ions": [
-    "Be_2plus",
-    "OH_minus"
+    "ion:Be_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "insoluble",

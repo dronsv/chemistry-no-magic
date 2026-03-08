@@ -1,11 +1,11 @@
 {
-  "id": "kcl",
+  "id": "sub:kcl",
   "formula": "KCl",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "Cl_minus"
+    "ion:K_plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble"

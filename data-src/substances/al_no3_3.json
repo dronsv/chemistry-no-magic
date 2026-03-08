@@ -1,11 +1,11 @@
 {
-  "id": "al_no3_3",
+  "id": "sub:al_no3_3",
   "formula": "Al(NO₃)₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Al_3plus",
-    "NO3_minus"
+    "ion:Al_3plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

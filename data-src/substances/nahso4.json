@@ -1,11 +1,11 @@
 {
-  "id": "nahso4",
+  "id": "sub:nahso4",
   "formula": "NaHSO₄",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Na_plus",
-    "HSO4_minus"
+    "ion:Na_plus",
+    "ion:HSO4_minus"
   ],
   "tags": [
     "soluble"

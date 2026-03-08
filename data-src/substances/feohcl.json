@@ -1,12 +1,12 @@
 {
-  "id": "feohcl",
+  "id": "sub:feohcl",
   "formula": "FeOHCl",
   "class": "salt",
   "subclass": "basic",
   "ions": [
-    "Fe_2plus",
-    "OH_minus",
-    "Cl_minus"
+    "ion:Fe_2plus",
+    "ion:OH_minus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "insoluble"

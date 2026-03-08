@@ -1,11 +1,11 @@
 {
-  "id": "ca_oh_2",
+  "id": "sub:ca_oh_2",
   "formula": "Ca(OH)₂",
   "class": "base",
   "subclass": "soluble",
   "ions": [
-    "Ca_2plus",
-    "OH_minus"
+    "ion:Ca_2plus",
+    "ion:OH_minus"
   ],
   "tags": [
     "slightly_soluble",

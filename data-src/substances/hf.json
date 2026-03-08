@@ -1,11 +1,11 @@
 {
-  "id": "hf",
+  "id": "sub:hf",
   "formula": "HF",
   "class": "acid",
   "subclass": "oxygen_free",
   "ions": [
-    "H_plus",
-    "F_minus"
+    "ion:H_plus",
+    "ion:F_minus"
   ],
   "tags": [
     "soluble",

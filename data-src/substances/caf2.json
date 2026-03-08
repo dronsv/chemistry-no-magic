@@ -1,11 +1,11 @@
 {
-  "id": "caf2",
+  "id": "sub:caf2",
   "formula": "CaF₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "F_minus"
+    "ion:Ca_2plus",
+    "ion:F_minus"
   ],
   "tags": [
     "insoluble"

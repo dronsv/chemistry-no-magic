@@ -1,11 +1,11 @@
 {
-  "id": "nano3",
+  "id": "sub:nano3",
   "formula": "NaNO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "NO3_minus"
+    "ion:Na_plus",
+    "ion:NO3_minus"
   ],
   "tags": [
     "soluble"

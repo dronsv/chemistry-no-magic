@@ -1,11 +1,11 @@
 {
-  "id": "ca3_po4_2",
+  "id": "sub:ca3_po4_2",
   "formula": "Ca₃(PO₄)₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Ca_2plus",
-    "PO4_3minus"
+    "ion:Ca_2plus",
+    "ion:PO4_3minus"
   ],
   "tags": [
     "insoluble"

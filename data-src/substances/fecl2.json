@@ -1,11 +1,11 @@
 {
-  "id": "fecl2",
+  "id": "sub:fecl2",
   "formula": "FeCl₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Fe_2plus",
-    "Cl_minus"
+    "ion:Fe_2plus",
+    "ion:Cl_minus"
   ],
   "tags": [
     "soluble",

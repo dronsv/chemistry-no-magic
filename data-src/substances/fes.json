@@ -1,11 +1,11 @@
 {
-  "id": "fes",
+  "id": "sub:fes",
   "formula": "FeS",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Fe_2plus",
-    "S_2minus"
+    "ion:Fe_2plus",
+    "ion:S_2minus"
   ],
   "tags": [
     "insoluble"

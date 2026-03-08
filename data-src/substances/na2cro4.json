@@ -1,11 +1,11 @@
 {
-  "id": "na2cro4",
+  "id": "sub:na2cro4",
   "formula": "Na₂CrO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "CrO4_2minus"
+    "ion:Na_plus",
+    "ion:CrO4_2minus"
   ],
   "tags": [
     "soluble"

@@ -1,11 +1,11 @@
 {
-  "id": "k2so3",
+  "id": "sub:k2so3",
   "formula": "K₂SO₃",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "SO3_2minus"
+    "ion:K_plus",
+    "ion:SO3_2minus"
   ],
   "tags": [
     "soluble"

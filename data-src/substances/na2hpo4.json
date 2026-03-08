@@ -1,11 +1,11 @@
 {
-  "id": "na2hpo4",
+  "id": "sub:na2hpo4",
   "formula": "Na₂HPO₄",
   "class": "salt",
   "subclass": "acidic",
   "ions": [
-    "Na_plus",
-    "HPO4_2minus"
+    "ion:Na_plus",
+    "ion:HPO4_2minus"
   ],
   "tags": [
     "soluble"

@@ -1,11 +1,11 @@
 {
-  "id": "k2cro4",
+  "id": "sub:k2cro4",
   "formula": "K₂CrO₄",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "K_plus",
-    "CrO4_2minus"
+    "ion:K_plus",
+    "ion:CrO4_2minus"
   ],
   "tags": [
     "soluble"

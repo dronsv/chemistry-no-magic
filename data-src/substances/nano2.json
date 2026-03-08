@@ -1,11 +1,11 @@
 {
-  "id": "nano2",
+  "id": "sub:nano2",
   "formula": "NaNO₂",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "NO2_minus"
+    "ion:Na_plus",
+    "ion:NO2_minus"
   ],
   "tags": [
     "soluble"

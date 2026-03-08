@@ -1,11 +1,11 @@
 {
-  "id": "nabr",
+  "id": "sub:nabr",
   "formula": "NaBr",
   "class": "salt",
   "subclass": "normal",
   "ions": [
-    "Na_plus",
-    "Br_minus"
+    "ion:Na_plus",
+    "ion:Br_minus"
   ],
   "tags": [
     "soluble"
