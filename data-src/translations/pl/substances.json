@@ -1011,5 +1011,230 @@
       "Znajduje się w maści cynkowej — antyseptycznym środku do pielęgnacji skóry",
       "Żółknie pod wpływem ogrzewania i bieleeje po ostudzeniu — efekt termochromowy"
     ]
+  },
+  "be_oh_2": {
+    "name": "Wodorotlenek berylu"
+  },
+  "ca3_po4_2": {
+    "name": "Fosforan(V) wapnia"
+  },
+  "ca_h2po4_2": {
+    "name": "Diwodorofosforan(V) wapnia"
+  },
+  "ca_hco3_2": {
+    "name": "Wodorowęglan wapnia"
+  },
+  "ca_hso4_2": {
+    "name": "Wodorosiarczan(VI) wapnia"
+  },
+  "ca_no3_2": {
+    "name": "Azotan(V) wapnia"
+  },
+  "cacl2": {
+    "name": "Chlorek wapnia"
+  },
+  "caf2": {
+    "name": "Fluorek wapnia"
+  },
+  "cahpo4": {
+    "name": "Wodorofosforan(V) wapnia"
+  },
+  "casio3": {
+    "name": "Krzemian wapnia"
+  },
+  "caso4": {
+    "name": "Siarczan(VI) wapnia"
+  },
+  "cr_oh_3": {
+    "name": "Wodorotlenek chromu(III)"
+  },
+  "cu_no3_2": {
+    "name": "Azotan(V) miedzi(II)"
+  },
+  "cucl2": {
+    "name": "Chlorek miedzi(II)"
+  },
+  "cus": {
+    "name": "Siarczek miedzi(II)"
+  },
+  "fe2_so4_3": {
+    "name": "Siarczan(VI) żelaza(III)"
+  },
+  "fe_oh_2": {
+    "name": "Wodorotlenek żelaza(II)"
+  },
+  "fes": {
+    "name": "Siarczek żelaza(II)"
+  },
+  "k2co3": {
+    "name": "Węglan potasu"
+  },
+  "k2cr2o7": {
+    "name": "Dichromian(VI) potasu"
+  },
+  "k2cro4": {
+    "name": "Chromian(VI) potasu"
+  },
+  "k2so3": {
+    "name": "Siarczan(IV) potasu"
+  },
+  "khso4": {
+    "name": "Wodorosiarczan(VI) potasu"
+  },
+  "ki": {
+    "name": "Jodek potasu"
+  },
+  "kno2": {
+    "name": "Azotan(III) potasu"
+  },
+  "lioh": {
+    "name": "Wodorotlenek litu"
+  },
+  "mgco3": {
+    "name": "Węglan magnezu"
+  },
+  "mgf2": {
+    "name": "Fluorek magnezu"
+  },
+  "na2cro4": {
+    "name": "Chromian(VI) sodu"
+  },
+  "na2hpo4": {
+    "name": "Wodorofosforan(V) sodu"
+  },
+  "na2s": {
+    "name": "Siarczek sodu"
+  },
+  "na2sio3": {
+    "name": "Krzemian sodu"
+  },
+  "na2so3": {
+    "name": "Siarczan(IV) sodu"
+  },
+  "na3po4": {
+    "name": "Fosforan(V) sodu"
+  },
+  "nabr": {
+    "name": "Bromek sodu"
+  },
+  "naf": {
+    "name": "Fluorek sodu"
+  },
+  "nah2po4": {
+    "name": "Diwodorofosforan(V) sodu"
+  },
+  "nahco3": {
+    "name": "Wodorowęglan sodu"
+  },
+  "nahso4": {
+    "name": "Wodorosiarczan(VI) sodu"
+  },
+  "nai": {
+    "name": "Jodek sodu"
+  },
+  "nano2": {
+    "name": "Azotan(III) sodu"
+  },
+  "nano3": {
+    "name": "Azotan(V) sodu"
+  },
+  "pb_oh_2": {
+    "name": "Wodorotlenek ołowiu(II)"
+  },
+  "pbi2": {
+    "name": "Jodek ołowiu(II)"
+  },
+  "pbs": {
+    "name": "Siarczek ołowiu(II)"
+  },
+  "zn_oh_2": {
+    "name": "Wodorotlenek cynku"
+  },
+  "zncl2": {
+    "name": "Chlorek cynku"
+  },
+  "zns": {
+    "name": "Siarczek cynku"
+  },
+  "znso4": {
+    "name": "Siarczan(VI) cynku"
+  },
+  "beo": {
+    "name": "Tlenek berylu"
+  },
+  "co": {
+    "name": "Tlenek węgla(II)"
+  },
+  "cr2o3": {
+    "name": "Tlenek chromu(III)"
+  },
+  "cro3": {
+    "name": "Tlenek chromu(VI)"
+  },
+  "cu2o": {
+    "name": "Tlenek miedzi(I)"
+  },
+  "k2o": {
+    "name": "Tlenek potasu"
+  },
+  "li2o": {
+    "name": "Tlenek litu"
+  },
+  "mn2o7": {
+    "name": "Tlenek manganu(VII)"
+  },
+  "n2o": {
+    "name": "Tlenek azotu(I)"
+  },
+  "n2o5": {
+    "name": "Tlenek azotu(V)"
+  },
+  "no": {
+    "name": "Tlenek azotu(II)"
+  },
+  "p2o5": {
+    "name": "Tlenek fosforu(V)"
+  },
+  "pbo": {
+    "name": "Tlenek ołowiu(II)"
+  },
+  "sno": {
+    "name": "Tlenek cyny(II)"
+  },
+  "nah": {
+    "name": "Wodorek sodu"
+  },
+  "h2cr2o7": {
+    "name": "Kwas dichromowy(VI)"
+  },
+  "h2cro4": {
+    "name": "Kwas chromowy(VI)"
+  },
+  "h2sio3": {
+    "name": "Kwas krzemowy(IV)"
+  },
+  "h2so3": {
+    "name": "Kwas siarkowy(IV)"
+  },
+  "hbr": {
+    "name": "Kwas bromowodorowy"
+  },
+  "hf": {
+    "name": "Kwas fluorowodorowy"
+  },
+  "hi": {
+    "name": "Kwas jodowodorowy"
+  },
+  "hmno4": {
+    "name": "Kwas manganowy(VII)"
+  },
+  "hno2": {
+    "name": "Kwas azotowy(III)"
+  },
+  "cuohcl": {
+    "name": "Zasadowy chlorek miedzi(II)"
+  },
+  "feohcl": {
+    "name": "Zasadowy chlorek żelaza(II)"
   }
 }

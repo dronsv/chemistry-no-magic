@@ -984,5 +984,257 @@
       "Found in zinc ointment — an antiseptic skin treatment",
       "Turns yellow when heated and white again when cooled — a thermochromic effect"
     ]
+  },
+  "_ch3coo_2cu": {
+    "name": "Copper(II) acetate"
+  },
+  "agcl": {
+    "name": "Silver chloride"
+  },
+  "al_no3_3": {
+    "name": "Aluminium nitrate"
+  },
+  "alpo4": {
+    "name": "Aluminium phosphate"
+  },
+  "ba_oh_2": {
+    "name": "Barium hydroxide"
+  },
+  "baco3": {
+    "name": "Barium carbonate"
+  },
+  "be_oh_2": {
+    "name": "Beryllium hydroxide"
+  },
+  "ca3_po4_2": {
+    "name": "Calcium phosphate"
+  },
+  "ca_h2po4_2": {
+    "name": "Calcium dihydrogen phosphate"
+  },
+  "ca_hco3_2": {
+    "name": "Calcium hydrogen carbonate"
+  },
+  "ca_hso4_2": {
+    "name": "Calcium hydrogen sulfate"
+  },
+  "ca_no3_2": {
+    "name": "Calcium nitrate"
+  },
+  "cacl2": {
+    "name": "Calcium chloride"
+  },
+  "caf2": {
+    "name": "Calcium fluoride"
+  },
+  "cahpo4": {
+    "name": "Calcium hydrogen phosphate"
+  },
+  "casio3": {
+    "name": "Calcium silicate"
+  },
+  "caso4": {
+    "name": "Calcium sulfate"
+  },
+  "cr_oh_3": {
+    "name": "Chromium(III) hydroxide"
+  },
+  "cu_no3_2": {
+    "name": "Copper(II) nitrate"
+  },
+  "cucl2": {
+    "name": "Copper(II) chloride"
+  },
+  "cus": {
+    "name": "Copper(II) sulfide"
+  },
+  "fe2_so4_3": {
+    "name": "Iron(III) sulfate"
+  },
+  "fe_oh_2": {
+    "name": "Iron(II) hydroxide"
+  },
+  "fes": {
+    "name": "Iron(II) sulfide"
+  },
+  "k2co3": {
+    "name": "Potassium carbonate"
+  },
+  "k2cr2o7": {
+    "name": "Potassium dichromate"
+  },
+  "k2cro4": {
+    "name": "Potassium chromate"
+  },
+  "k2so3": {
+    "name": "Potassium sulfite"
+  },
+  "khso4": {
+    "name": "Potassium hydrogen sulfate"
+  },
+  "ki": {
+    "name": "Potassium iodide"
+  },
+  "kno2": {
+    "name": "Potassium nitrite"
+  },
+  "lioh": {
+    "name": "Lithium hydroxide"
+  },
+  "mgco3": {
+    "name": "Magnesium carbonate"
+  },
+  "mgf2": {
+    "name": "Magnesium fluoride"
+  },
+  "na2cro4": {
+    "name": "Sodium chromate"
+  },
+  "na2hpo4": {
+    "name": "Sodium hydrogen phosphate"
+  },
+  "na2s": {
+    "name": "Sodium sulfide"
+  },
+  "na2sio3": {
+    "name": "Sodium silicate"
+  },
+  "na2so3": {
+    "name": "Sodium sulfite"
+  },
+  "na3po4": {
+    "name": "Sodium phosphate"
+  },
+  "nabr": {
+    "name": "Sodium bromide"
+  },
+  "naf": {
+    "name": "Sodium fluoride"
+  },
+  "nah2po4": {
+    "name": "Sodium dihydrogen phosphate"
+  },
+  "nahco3": {
+    "name": "Sodium hydrogen carbonate"
+  },
+  "nahso4": {
+    "name": "Sodium hydrogen sulfate"
+  },
+  "nai": {
+    "name": "Sodium iodide"
+  },
+  "nano2": {
+    "name": "Sodium nitrite"
+  },
+  "nano3": {
+    "name": "Sodium nitrate"
+  },
+  "pb_oh_2": {
+    "name": "Lead(II) hydroxide"
+  },
+  "pbi2": {
+    "name": "Lead(II) iodide"
+  },
+  "pbs": {
+    "name": "Lead(II) sulfide"
+  },
+  "zn_oh_2": {
+    "name": "Zinc hydroxide"
+  },
+  "zncl2": {
+    "name": "Zinc chloride"
+  },
+  "zns": {
+    "name": "Zinc sulfide"
+  },
+  "znso4": {
+    "name": "Zinc sulfate"
+  },
+  "bao": {
+    "name": "Barium oxide"
+  },
+  "beo": {
+    "name": "Beryllium oxide"
+  },
+  "co": {
+    "name": "Carbon monoxide"
+  },
+  "cr2o3": {
+    "name": "Chromium(III) oxide"
+  },
+  "cro3": {
+    "name": "Chromium(VI) oxide"
+  },
+  "cu2o": {
+    "name": "Copper(I) oxide"
+  },
+  "k2o": {
+    "name": "Potassium oxide"
+  },
+  "li2o": {
+    "name": "Lithium oxide"
+  },
+  "mn2o7": {
+    "name": "Manganese(VII) oxide"
+  },
+  "n2o": {
+    "name": "Dinitrogen monoxide"
+  },
+  "n2o5": {
+    "name": "Dinitrogen pentoxide"
+  },
+  "no": {
+    "name": "Nitrogen monoxide"
+  },
+  "p2o5": {
+    "name": "Phosphorus(V) oxide"
+  },
+  "pbo": {
+    "name": "Lead(II) oxide"
+  },
+  "sno": {
+    "name": "Tin(II) oxide"
+  },
+  "nah": {
+    "name": "Sodium hydride"
+  },
+  "h2cr2o7": {
+    "name": "Dichromic acid"
+  },
+  "h2cro4": {
+    "name": "Chromic acid"
+  },
+  "h2sio3": {
+    "name": "Silicic acid"
+  },
+  "h2so3": {
+    "name": "Sulfurous acid"
+  },
+  "hbr": {
+    "name": "Hydrobromic acid"
+  },
+  "hf": {
+    "name": "Hydrofluoric acid"
+  },
+  "hi": {
+    "name": "Hydroiodic acid"
+  },
+  "hmno4": {
+    "name": "Permanganic acid"
+  },
+  "hno2": {
+    "name": "Nitrous acid"
+  },
+  "_cuoh_2co3": {
+    "name": "Basic copper(II) carbonate"
+  },
+  "aloh_no3_2": {
+    "name": "Aluminum hydroxynitrate"
+  },
+  "cuohcl": {
+    "name": "Copper(II) hydroxychloride"
+  },
+  "feohcl": {
+    "name": "Iron(II) hydroxychloride"
   }
 }

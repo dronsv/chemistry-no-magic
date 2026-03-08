@@ -34,9 +34,15 @@ const elementIds = (elementsData as Array<{ symbol: string }>).map(e => e.symbol
 const ionIds = (ionsData as Array<{ id: string }>).map(i => i.id);
 
 const substancesDir = join(import.meta.dirname, '../../../data-src/substances');
+// Filter out meta-files (arrays like substance_properties.json) — keep only files with a top-level `id`
+import { readFileSync } from 'node:fs';
 const substanceIds = readdirSync(substancesDir)
   .filter(f => extname(f) === '.json')
-  .map(f => basename(f, '.json'));
+  .map(f => basename(f, '.json'))
+  .filter(id => {
+    const data = JSON.parse(readFileSync(join(substancesDir, `${id}.json`), 'utf-8'));
+    return !Array.isArray(data) && typeof data.id === 'string';
+  });
 
 const elementOverlays: Record<Locale, Record<string, Record<string, unknown>>> = {
   ru: ruElements as Record<string, Record<string, unknown>>,
@@ -59,12 +65,12 @@ const substanceOverlays: Record<Locale, Record<string, Record<string, unknown>>>
   es: esSubstances as Record<string, Record<string, unknown>>,
 };
 
-// Current gap — reduce this as we add missing translations
+// All substances now have names in all locales
 const MISSING_SUBSTANCE_NAMES_MAX: Record<Locale, number> = {
-  ru: 2,   // only substance_properties pseudo-entry + buffer
-  en: 86,  // tracked gap
-  pl: 77,  // tracked gap (after recent additions)
-  es: 86,  // tracked gap
+  ru: 0,
+  en: 0,
+  pl: 0,
+  es: 0,
 };
 
 describe('Locale coverage — elements', () => {

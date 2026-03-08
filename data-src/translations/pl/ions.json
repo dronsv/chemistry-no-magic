@@ -1,146 +1,242 @@
 {
   "H_plus": {
-    "name": "Jon wodorowy"
+    "name": "Jon wodorowy",
+    "name_genitive": "wodoru",
+    "gender": "m"
   },
   "Na_plus": {
-    "name": "Jon sodowy"
+    "name": "Jon sodowy",
+    "name_genitive": "sodu",
+    "gender": "m"
   },
   "K_plus": {
-    "name": "Jon potasowy"
+    "name": "Jon potasowy",
+    "name_genitive": "potasu",
+    "gender": "m"
   },
   "NH4_plus": {
-    "name": "Jon amonowy"
+    "name": "Jon amonowy",
+    "name_genitive": "amonu",
+    "gender": "m"
   },
   "Ca_2plus": {
-    "name": "Jon wapniowy"
+    "name": "Jon wapniowy",
+    "name_genitive": "wapnia",
+    "gender": "n"
   },
   "Mg_2plus": {
-    "name": "Jon magnezowy"
+    "name": "Jon magnezowy",
+    "name_genitive": "magnezu",
+    "gender": "m"
   },
   "Ba_2plus": {
-    "name": "Jon barowy"
+    "name": "Jon barowy",
+    "name_genitive": "baru",
+    "gender": "m"
   },
   "Al_3plus": {
-    "name": "Jon glinowy"
+    "name": "Jon glinowy",
+    "name_genitive": "glinu",
+    "gender": "m"
   },
   "Fe_2plus": {
-    "name": "Jon żelazawy"
+    "name": "Jon żelazawy",
+    "name_genitive": "żelaza(II)",
+    "gender": "n"
   },
   "Fe_3plus": {
-    "name": "Jon żelazowy"
+    "name": "Jon żelazowy",
+    "name_genitive": "żelaza(III)",
+    "gender": "n"
   },
   "Cu_2plus": {
-    "name": "Jon miedziowy"
+    "name": "Jon miedziowy",
+    "name_genitive": "miedzi(II)",
+    "gender": "f"
   },
   "Zn_2plus": {
-    "name": "Jon cynkowy"
+    "name": "Jon cynkowy",
+    "name_genitive": "cynku",
+    "gender": "m"
   },
   "Ag_plus": {
-    "name": "Jon srebrowy"
+    "name": "Jon srebrowy",
+    "name_genitive": "srebra",
+    "gender": "n"
   },
   "Pb_2plus": {
-    "name": "Jon ołowiowy"
+    "name": "Jon ołowiowy",
+    "name_genitive": "ołowiu(II)",
+    "gender": "n"
   },
   "Li_plus": {
-    "name": "Jon litowy"
+    "name": "Jon litowy",
+    "name_genitive": "litu",
+    "gender": "m"
   },
   "Sr_2plus": {
-    "name": "Jon strontowy"
+    "name": "Jon strontowy",
+    "name_genitive": "strontu",
+    "gender": "m"
   },
   "Mn_2plus": {
-    "name": "Jon manganowy"
+    "name": "Jon manganowy",
+    "name_genitive": "manganu(II)",
+    "gender": "m"
   },
   "Ni_2plus": {
-    "name": "Jon niklowy"
+    "name": "Jon niklowy",
+    "name_genitive": "niklu(II)",
+    "gender": "m"
   },
   "Co_2plus": {
-    "name": "Jon kobaltowy"
+    "name": "Jon kobaltowy",
+    "name_genitive": "kobaltu(II)",
+    "gender": "m"
   },
   "Cd_2plus": {
-    "name": "Jon kadmowy"
+    "name": "Jon kadmowy",
+    "name_genitive": "kadmu",
+    "gender": "m"
   },
   "Hg_2plus": {
-    "name": "Jon rtęciowy(II)"
+    "name": "Jon rtęciowy(II)",
+    "name_genitive": "rtęci(II)",
+    "gender": "f"
   },
   "Hg2_2plus": {
-    "name": "Jon rtęciowy(I)"
+    "name": "Jon rtęciowy(I)",
+    "name_genitive": "rtęci(I)",
+    "gender": "f"
   },
   "Sn_2plus": {
-    "name": "Jon cynowy"
+    "name": "Jon cynowy",
+    "name_genitive": "cyny(II)",
+    "gender": "f"
   },
   "Cr_3plus": {
-    "name": "Jon chromowy(III)"
+    "name": "Jon chromowy(III)",
+    "name_genitive": "chromu(III)",
+    "gender": "m"
   },
   "OH_minus": {
-    "name": "Jon wodorotlenkowy"
+    "name": "Jon wodorotlenkowy",
+    "salt_anion": "Wodorotlenek",
+    "gender": "m"
   },
   "F_minus": {
-    "name": "Jon fluorkowy"
+    "name": "Jon fluorkowy",
+    "salt_anion": "Fluorek",
+    "gender": "m"
   },
   "Cl_minus": {
-    "name": "Jon chlorkowy"
+    "name": "Jon chlorkowy",
+    "salt_anion": "Chlorek",
+    "gender": "m"
   },
   "Br_minus": {
-    "name": "Jon bromkowy"
+    "name": "Jon bromkowy",
+    "salt_anion": "Bromek",
+    "gender": "m"
   },
   "I_minus": {
-    "name": "Jon jodkowy"
+    "name": "Jon jodkowy",
+    "salt_anion": "Jodek",
+    "gender": "m"
   },
   "S_2minus": {
-    "name": "Jon siarczkowy"
+    "name": "Jon siarczkowy",
+    "salt_anion": "Siarczek",
+    "gender": "m"
   },
   "SO4_2minus": {
-    "name": "Jon siarczanowy"
+    "name": "Jon siarczanowy",
+    "salt_anion": "Siarczan(VI)",
+    "gender": "m"
   },
   "SO3_2minus": {
-    "name": "Jon siarczanowy(IV)"
+    "name": "Jon siarczanowy(IV)",
+    "salt_anion": "Siarczan(IV)",
+    "gender": "m"
   },
   "NO3_minus": {
-    "name": "Jon azotanowy(V)"
+    "name": "Jon azotanowy(V)",
+    "salt_anion": "Azotan(V)",
+    "gender": "m"
   },
   "NO2_minus": {
-    "name": "Jon azotanowy(III)"
+    "name": "Jon azotanowy(III)",
+    "salt_anion": "Azotan(III)",
+    "gender": "m"
   },
   "CO3_2minus": {
-    "name": "Jon węglanowy"
+    "name": "Jon węglanowy",
+    "salt_anion": "Węglan",
+    "gender": "m"
   },
   "SiO3_2minus": {
-    "name": "Jon krzemianowy"
+    "name": "Jon krzemianowy",
+    "salt_anion": "Krzemian",
+    "gender": "m"
   },
   "PO4_3minus": {
-    "name": "Jon fosforanowy(V)"
+    "name": "Jon fosforanowy(V)",
+    "salt_anion": "Fosforan(V)",
+    "gender": "m"
   },
   "CH3COO_minus": {
-    "name": "Jon octanowy"
+    "name": "Jon octanowy",
+    "salt_anion": "Octan",
+    "gender": "m"
   },
   "MnO4_minus": {
-    "name": "Jon manganianowy(VII)"
+    "name": "Jon manganianowy(VII)",
+    "salt_anion": "Manganian(VII)",
+    "gender": "m"
   },
   "CrO4_2minus": {
-    "name": "Jon chromianowy(VI)"
+    "name": "Jon chromianowy(VI)",
+    "salt_anion": "Chromian(VI)",
+    "gender": "m"
   },
   "Cr2O7_2minus": {
-    "name": "Jon dichromianowy(VI)"
+    "name": "Jon dichromianowy(VI)",
+    "salt_anion": "Dichromian(VI)",
+    "gender": "m"
   },
   "Be_2plus": {
-    "name": "Jon berylowy"
+    "name": "Jon berylowy",
+    "name_genitive": "berylu",
+    "gender": "n"
   },
   "Cu_plus": {
-    "name": "Jon miedzi(I)"
+    "name": "Jon miedzi(I)",
+    "name_genitive": "miedzi(I)",
+    "gender": "f"
   },
   "HCO3_minus": {
-    "name": "Jon wodorowęglanowy"
+    "name": "Jon wodorowęglanowy",
+    "salt_anion": "Wodorowęglan",
+    "gender": "m"
   },
   "HSO4_minus": {
-    "name": "Jon wodorosiarczanowy(VI)"
+    "name": "Jon wodorosiarczanowy(VI)",
+    "salt_anion": "Wodorosiarczan(VI)",
+    "gender": "m"
   },
   "HSO3_minus": {
-    "name": "Jon wodorosiarczanowy(IV)"
+    "name": "Jon wodorosiarczanowy(IV)",
+    "salt_anion": "Wodorosiarczan(IV)",
+    "gender": "m"
   },
   "HPO4_2minus": {
-    "name": "Jon wodorofosforanowy(V)"
+    "name": "Jon wodorofosforanowy(V)",
+    "salt_anion": "Wodorofosforan(V)",
+    "gender": "m"
   },
   "H2PO4_minus": {
-    "name": "Jon diwodorofosforanowy(V)"
+    "name": "Jon diwodorofosforanowy(V)",
+    "salt_anion": "Diwodorofosforan(V)",
+    "gender": "m"
   }
 }

@@ -984,5 +984,257 @@
       "Se encuentra en la pomada de zinc, un tratamiento antiséptico para la piel",
       "Se vuelve amarillo al calentarse y blanco de nuevo al enfriarse: un efecto termocrómico"
     ]
+  },
+  "_ch3coo_2cu": {
+    "name": "Acetato de cobre(II)"
+  },
+  "agcl": {
+    "name": "Cloruro de plata"
+  },
+  "al_no3_3": {
+    "name": "Nitrato de aluminio"
+  },
+  "alpo4": {
+    "name": "Fosfato de aluminio"
+  },
+  "ba_oh_2": {
+    "name": "Hidróxido de bario"
+  },
+  "baco3": {
+    "name": "Carbonato de bario"
+  },
+  "be_oh_2": {
+    "name": "Hidróxido de berilio"
+  },
+  "ca3_po4_2": {
+    "name": "Fosfato de calcio"
+  },
+  "ca_h2po4_2": {
+    "name": "Dihidrogenofosfato de calcio"
+  },
+  "ca_hco3_2": {
+    "name": "Bicarbonato de calcio"
+  },
+  "ca_hso4_2": {
+    "name": "Bisulfato de calcio"
+  },
+  "ca_no3_2": {
+    "name": "Nitrato de calcio"
+  },
+  "cacl2": {
+    "name": "Cloruro de calcio"
+  },
+  "caf2": {
+    "name": "Fluoruro de calcio"
+  },
+  "cahpo4": {
+    "name": "Hidrogenofosfato de calcio"
+  },
+  "casio3": {
+    "name": "Silicato de calcio"
+  },
+  "caso4": {
+    "name": "Sulfato de calcio"
+  },
+  "cr_oh_3": {
+    "name": "Hidróxido de cromo(III)"
+  },
+  "cu_no3_2": {
+    "name": "Nitrato de cobre(II)"
+  },
+  "cucl2": {
+    "name": "Cloruro de cobre(II)"
+  },
+  "cus": {
+    "name": "Sulfuro de cobre(II)"
+  },
+  "fe2_so4_3": {
+    "name": "Sulfato de hierro(III)"
+  },
+  "fe_oh_2": {
+    "name": "Hidróxido de hierro(II)"
+  },
+  "fes": {
+    "name": "Sulfuro de hierro(II)"
+  },
+  "k2co3": {
+    "name": "Carbonato de potasio"
+  },
+  "k2cr2o7": {
+    "name": "Dicromato de potasio"
+  },
+  "k2cro4": {
+    "name": "Cromato de potasio"
+  },
+  "k2so3": {
+    "name": "Sulfito de potasio"
+  },
+  "khso4": {
+    "name": "Bisulfato de potasio"
+  },
+  "ki": {
+    "name": "Yoduro de potasio"
+  },
+  "kno2": {
+    "name": "Nitrito de potasio"
+  },
+  "lioh": {
+    "name": "Hidróxido de litio"
+  },
+  "mgco3": {
+    "name": "Carbonato de magnesio"
+  },
+  "mgf2": {
+    "name": "Fluoruro de magnesio"
+  },
+  "na2cro4": {
+    "name": "Cromato de sodio"
+  },
+  "na2hpo4": {
+    "name": "Hidrogenofosfato de sodio"
+  },
+  "na2s": {
+    "name": "Sulfuro de sodio"
+  },
+  "na2sio3": {
+    "name": "Silicato de sodio"
+  },
+  "na2so3": {
+    "name": "Sulfito de sodio"
+  },
+  "na3po4": {
+    "name": "Fosfato de sodio"
+  },
+  "nabr": {
+    "name": "Bromuro de sodio"
+  },
+  "naf": {
+    "name": "Fluoruro de sodio"
+  },
+  "nah2po4": {
+    "name": "Dihidrogenofosfato de sodio"
+  },
+  "nahco3": {
+    "name": "Bicarbonato de sodio"
+  },
+  "nahso4": {
+    "name": "Bisulfato de sodio"
+  },
+  "nai": {
+    "name": "Yoduro de sodio"
+  },
+  "nano2": {
+    "name": "Nitrito de sodio"
+  },
+  "nano3": {
+    "name": "Nitrato de sodio"
+  },
+  "pb_oh_2": {
+    "name": "Hidróxido de plomo(II)"
+  },
+  "pbi2": {
+    "name": "Yoduro de plomo(II)"
+  },
+  "pbs": {
+    "name": "Sulfuro de plomo(II)"
+  },
+  "zn_oh_2": {
+    "name": "Hidróxido de zinc"
+  },
+  "zncl2": {
+    "name": "Cloruro de zinc"
+  },
+  "zns": {
+    "name": "Sulfuro de zinc"
+  },
+  "znso4": {
+    "name": "Sulfato de zinc"
+  },
+  "bao": {
+    "name": "Óxido de bario"
+  },
+  "beo": {
+    "name": "Óxido de berilio"
+  },
+  "co": {
+    "name": "Monóxido de carbono"
+  },
+  "cr2o3": {
+    "name": "Óxido de cromo(III)"
+  },
+  "cro3": {
+    "name": "Óxido de cromo(VI)"
+  },
+  "cu2o": {
+    "name": "Óxido de cobre(I)"
+  },
+  "k2o": {
+    "name": "Óxido de potasio"
+  },
+  "li2o": {
+    "name": "Óxido de litio"
+  },
+  "mn2o7": {
+    "name": "Óxido de manganeso(VII)"
+  },
+  "n2o": {
+    "name": "Óxido de nitrógeno(I)"
+  },
+  "n2o5": {
+    "name": "Óxido de nitrógeno(V)"
+  },
+  "no": {
+    "name": "Óxido de nitrógeno(II)"
+  },
+  "p2o5": {
+    "name": "Óxido de fósforo(V)"
+  },
+  "pbo": {
+    "name": "Óxido de plomo(II)"
+  },
+  "sno": {
+    "name": "Óxido de estaño(II)"
+  },
+  "nah": {
+    "name": "Hidruro de sodio"
+  },
+  "h2cr2o7": {
+    "name": "Ácido dicromo"
+  },
+  "h2cro4": {
+    "name": "Ácido crómico"
+  },
+  "h2sio3": {
+    "name": "Ácido silícico"
+  },
+  "h2so3": {
+    "name": "Ácido sulfuroso"
+  },
+  "hbr": {
+    "name": "Ácido bromhídrico"
+  },
+  "hf": {
+    "name": "Ácido fluorhídrico"
+  },
+  "hi": {
+    "name": "Ácido yodhídrico"
+  },
+  "hmno4": {
+    "name": "Ácido permangánico"
+  },
+  "hno2": {
+    "name": "Ácido nitroso"
+  },
+  "_cuoh_2co3": {
+    "name": "Carbonato básico de cobre(II)"
+  },
+  "aloh_no3_2": {
+    "name": "Nitrato básico de aluminio"
+  },
+  "cuohcl": {
+    "name": "Cloruro básico de cobre(II)"
+  },
+  "feohcl": {
+    "name": "Cloruro básico de hierro(II)"
   }
 }
