@@ -138,8 +138,9 @@ export default function FormulaChip({
   if (oxidationStates && oxidationStates.length > 0) titleParts.push(formatOxLine(oxidationStates));
   const titleText = titleParts.length > 0 ? titleParts.join(' · ') : undefined;
 
-  const substanceUrl = substanceId
-    ? localizeUrl(`/substances/${substanceId}/`, locale ?? 'ru')
+  const substanceSlug = substanceId?.replace(/^sub:/, '') ?? '';
+  const substanceUrl = substanceSlug
+    ? localizeUrl(`/substances/${substanceSlug}/`, locale ?? 'ru')
     : undefined;
 
   const elementUrl = elementId
