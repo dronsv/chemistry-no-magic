@@ -19,9 +19,10 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 
 // Apply locale overlays
 const substance = { ...baseSubstance };
+const substanceSlug = substance.id.replace(/^sub:/, '');
 const substancesOverlay = await loadBuildOverlay(locale, 'substances');
-if (substancesOverlay && substancesOverlay[substance.id]) {
-  Object.assign(substance, substancesOverlay[substance.id]);
+if (substancesOverlay && substancesOverlay[substanceSlug]) {
+  Object.assign(substance, substancesOverlay[substanceSlug]);
 }
 
 const displayName = substance.name ?? substance.formula;
@@ -65,8 +66,9 @@ const substanceReactions = baseReactions.map(r => {
 const ionsOverlay = await loadBuildOverlay(locale, 'ions');
 const ions: Record<string, typeof baseIons[string]> = {};
 for (const [id, ion] of Object.entries(baseIons)) {
-  if (ionsOverlay && ionsOverlay[id]?.name) {
-    ions[id] = { ...ion, name: ionsOverlay[id].name as string };
+  const ionSlug = id.replace(/^ion:/, '');
+  if (ionsOverlay && ionsOverlay[ionSlug]?.name) {
+    ions[id] = { ...ion, name: ionsOverlay[ionSlug].name as string };
   } else {
     ions[id] = ion;
   }
@@ -74,8 +76,9 @@ for (const [id, ion] of Object.entries(baseIons)) {
 
 // Apply substances overlay to allSubstances (for related substances names)
 const allSubstances = baseAllSubstances.map(s => {
-  if (substancesOverlay && substancesOverlay[s.id]?.name) {
-    return { ...s, name: substancesOverlay[s.id].name as string };
+  const sSlug = s.id.replace(/^sub:/, '');
+  if (substancesOverlay && substancesOverlay[sSlug]?.name) {
+    return { ...s, name: substancesOverlay[sSlug].name as string };
   }
   return s;
 });
@@ -177,7 +180,7 @@ const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] 
 let structure = null;
 try {
   structure = await cachedReadJson(
-    join(process.cwd(), 'data-src', 'structures', `${substance.id}.json`)
+    join(process.cwd(), 'data-src', 'structures', `${substanceSlug}.json`)
   );
 } catch { /* no structure for this substance */ }
 
@@ -196,7 +199,7 @@ let bondEnergyResult: BondEnergyResult | null = null;
 try {
   const beIndex = await cachedReadDerived<Record<string, BondEnergyResult>>(['derived', 'bond_energy']);
   if (beIndex) {
-    bondEnergyResult = beIndex[substance.id] ?? null;
+    bondEnergyResult = beIndex[substanceSlug] ?? null;
   }
 } catch { /* bond energy data not available */ }
 

@@ -92,7 +92,7 @@ export default function SubstanceCatalog({ locale = 'ru' as SupportedLocale, fil
 
       <div className="subst-catalog__grid">
         {filtered.map(s => (
-          <a key={s.id} href={localizeUrl(`/substances/${s.id}/`, locale)} className="subst-card">
+          <a key={s.id} href={localizeUrl(`/substances/${s.id.replace(/^sub:/, '')}/`, locale)} className="subst-card">
             <span className="subst-card__formula">{s.formula}</span>
             {s.name && <span className="subst-card__name">{s.name}</span>}
             <span className={`subst-card__badge subst-card__badge--${s.class}`}>

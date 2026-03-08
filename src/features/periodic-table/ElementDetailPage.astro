@@ -44,8 +44,9 @@ const localizedReactions = elementReactions.map(r => {
 // Apply ions overlay for names
 const ionsOverlay = await loadBuildOverlay(locale, 'ions');
 const localizedIons = elementIons.map(ion => {
-  if (ionsOverlay && ionsOverlay[ion.id]?.name) {
-    return { ...ion, name: ionsOverlay[ion.id].name as string };
+  const ionSlug = ion.id.replace(/^ion:/, '');
+  if (ionsOverlay && ionsOverlay[ionSlug]?.name) {
+    return { ...ion, name: ionsOverlay[ionSlug].name as string };
   }
   return ion;
 });
@@ -53,8 +54,9 @@ const localizedIons = elementIons.map(ion => {
 // Apply substances overlay for names
 const substancesOverlay = await loadBuildOverlay(locale, 'substances');
 const localizedSubstances = relatedSubstances.map(s => {
-  if (substancesOverlay && substancesOverlay[s.id]?.name) {
-    return { ...s, name: substancesOverlay[s.id].name as string };
+  const sSlug = s.id.replace(/^sub:/, '');
+  if (substancesOverlay && substancesOverlay[sSlug]?.name) {
+    return { ...s, name: substancesOverlay[sSlug].name as string };
   }
   return s;
 });
