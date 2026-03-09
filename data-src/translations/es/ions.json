@@ -1,146 +1,146 @@
 {
-  "H_plus": {
+  "ion:H_plus": {
     "name": "Ion hidrógeno"
   },
-  "Na_plus": {
+  "ion:Na_plus": {
     "name": "Ion sodio"
   },
-  "K_plus": {
+  "ion:K_plus": {
     "name": "Ion potasio"
   },
-  "NH4_plus": {
+  "ion:NH4_plus": {
     "name": "Ion amonio"
   },
-  "Ca_2plus": {
+  "ion:Ca_2plus": {
     "name": "Ion calcio"
   },
-  "Mg_2plus": {
+  "ion:Mg_2plus": {
     "name": "Ion magnesio"
   },
-  "Ba_2plus": {
+  "ion:Ba_2plus": {
     "name": "Ion bario"
   },
-  "Al_3plus": {
+  "ion:Al_3plus": {
     "name": "Ion aluminio"
   },
-  "Fe_2plus": {
+  "ion:Fe_2plus": {
     "name": "Ion hierro(II)"
   },
-  "Fe_3plus": {
+  "ion:Fe_3plus": {
     "name": "Ion hierro(III)"
   },
-  "Cu_2plus": {
+  "ion:Cu_2plus": {
     "name": "Ion cobre(II)"
   },
-  "Zn_2plus": {
+  "ion:Zn_2plus": {
     "name": "Ion zinc"
   },
-  "Ag_plus": {
+  "ion:Ag_plus": {
     "name": "Ion plata"
   },
-  "Pb_2plus": {
+  "ion:Pb_2plus": {
     "name": "Ion plomo(II)"
   },
-  "Li_plus": {
+  "ion:Li_plus": {
     "name": "Ion litio"
   },
-  "Sr_2plus": {
+  "ion:Sr_2plus": {
     "name": "Ion estroncio"
   },
-  "Mn_2plus": {
+  "ion:Mn_2plus": {
     "name": "Ion manganeso(II)"
   },
-  "Ni_2plus": {
+  "ion:Ni_2plus": {
     "name": "Ion níquel(II)"
   },
-  "Co_2plus": {
+  "ion:Co_2plus": {
     "name": "Ion cobalto(II)"
   },
-  "Cd_2plus": {
+  "ion:Cd_2plus": {
     "name": "Ion cadmio"
   },
-  "Hg_2plus": {
+  "ion:Hg_2plus": {
     "name": "Ion mercurio(II)"
   },
-  "Hg2_2plus": {
+  "ion:Hg2_2plus": {
     "name": "Ion mercurio(I)"
   },
-  "Sn_2plus": {
+  "ion:Sn_2plus": {
     "name": "Ion estaño(II)"
   },
-  "Cr_3plus": {
+  "ion:Cr_3plus": {
     "name": "Ion cromo(III)"
   },
-  "OH_minus": {
+  "ion:OH_minus": {
     "name": "Ion hidróxido"
   },
-  "F_minus": {
+  "ion:F_minus": {
     "name": "Ion fluoruro"
   },
-  "Cl_minus": {
+  "ion:Cl_minus": {
     "name": "Ion cloruro"
   },
-  "Br_minus": {
+  "ion:Br_minus": {
     "name": "Ion bromuro"
   },
-  "I_minus": {
+  "ion:I_minus": {
     "name": "Ion yoduro"
   },
-  "S_2minus": {
+  "ion:S_2minus": {
     "name": "Ion sulfuro"
   },
-  "SO4_2minus": {
+  "ion:SO4_2minus": {
     "name": "Ion sulfato"
   },
-  "SO3_2minus": {
+  "ion:SO3_2minus": {
     "name": "Ion sulfito"
   },
-  "NO3_minus": {
+  "ion:NO3_minus": {
     "name": "Ion nitrato"
   },
-  "NO2_minus": {
+  "ion:NO2_minus": {
     "name": "Ion nitrito"
   },
-  "CO3_2minus": {
+  "ion:CO3_2minus": {
     "name": "Ion carbonato"
   },
-  "SiO3_2minus": {
+  "ion:SiO3_2minus": {
     "name": "Ion silicato"
   },
-  "PO4_3minus": {
+  "ion:PO4_3minus": {
     "name": "Ion fosfato"
   },
-  "CH3COO_minus": {
+  "ion:CH3COO_minus": {
     "name": "Ion acetato"
   },
-  "MnO4_minus": {
+  "ion:MnO4_minus": {
     "name": "Ion permanganato"
   },
-  "CrO4_2minus": {
+  "ion:CrO4_2minus": {
     "name": "Ion cromato"
   },
-  "Cr2O7_2minus": {
+  "ion:Cr2O7_2minus": {
     "name": "Ion dicromato"
   },
-  "Be_2plus": {
+  "ion:Be_2plus": {
     "name": "Ion berilio"
   },
-  "Cu_plus": {
+  "ion:Cu_plus": {
     "name": "Ion cobre(I)"
   },
-  "HCO3_minus": {
+  "ion:HCO3_minus": {
     "name": "Ion bicarbonato"
   },
-  "HSO4_minus": {
+  "ion:HSO4_minus": {
     "name": "Ion bisulfato"
   },
-  "HSO3_minus": {
+  "ion:HSO3_minus": {
     "name": "Ion bisulfito"
   },
-  "HPO4_2minus": {
+  "ion:HPO4_2minus": {
     "name": "Ion hidrogenofosfato"
   },
-  "H2PO4_minus": {
+  "ion:H2PO4_minus": {
     "name": "Ion dihidrogenofosfato"
   }
 }
