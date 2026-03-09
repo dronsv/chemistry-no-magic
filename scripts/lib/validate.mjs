@@ -589,3 +589,44 @@ export function validateRelationIdIntegrity(allRelations, { ionIds, substanceIds
   }
   return errors;
 }
+
+// Field names that must never appear in locale-neutral catalog source files (ADR-003)
+const _LOCALE_SUFFIXES = ['_ru', '_en', '_pl', '_es'];
+const _PROSE_FIELDS = new Set([
+  'name', 'description', 'reason', 'condition', 'note', 'explanation',
+  'text', 'title', 'label', 'summary',
+]);
+
+/**
+ * Validate that an explanatory catalog array contains no locale-specific or
+ * prose fields (ADR-003: locale-neutral catalog entries).
+ *
+ * Applies to: physical_concepts, math_concepts, mechanisms, bridge_explanations.
+ * Locale text belongs in data-src/frames/ and data-src/translations/{locale}/frames/.
+ *
+ * @param {any[]} entries
+ * @param {string} filename
+ * @returns {string[]} errors
+ */
+export function validateExplanatoryCatalogLocaleNeutral(entries, filename) {
+  const errors = [];
+  if (!Array.isArray(entries)) return [`${filename}: must be an array`];
+  for (const entry of entries) {
+    if (!entry.id) {
+      errors.push(`${filename}: entry missing 'id' field`);
+      continue;
+    }
+    const prefix = `${filename}[${entry.id}]`;
+    for (const key of Object.keys(entry)) {
+      for (const suffix of _LOCALE_SUFFIXES) {
+        if (key.endsWith(suffix)) {
+          errors.push(`${prefix}: locale field '${key}' not allowed in core catalog (ADR-003)`);
+        }
+      }
+      if (_PROSE_FIELDS.has(key)) {
+        errors.push(`${prefix}: prose field '${key}' not allowed in core catalog (ADR-003) — use frames`);
+      }
+    }
+  }
+  return errors;
+}

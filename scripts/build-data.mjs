@@ -34,6 +34,7 @@ import {
   validateEngineTaskTemplates,
   validateRelations,
   validateRelationIdIntegrity,
+  validateExplanatoryCatalogLocaleNeutral,
 } from './lib/validate.mjs';
 import { checkIntegrity } from './lib/integrity.mjs';
 import {
@@ -196,6 +197,14 @@ async function main() {
   const reasonVocab = await loadJson(join(DATA_SRC, 'rules', 'reason_vocab.json'));
   const kineticsRules = await loadJson(join(DATA_SRC, 'rules', 'kinetics.json'));
   const electronExceptionFrames = await loadJson(join(DATA_SRC, 'rules', 'electron_exception_frames.json'));
+
+  // G.1 physical foundations catalogs — optional (created in G.1 pilot; validated when present)
+  const FOUNDATIONS_DIR = join(DATA_SRC, 'foundations');
+  const physicalConcepts = await loadJsonOptional(join(FOUNDATIONS_DIR, 'physical_concepts.json'));
+  const mathConcepts = await loadJsonOptional(join(FOUNDATIONS_DIR, 'math_concepts.json'));
+  const mechanisms = await loadJsonOptional(join(FOUNDATIONS_DIR, 'mechanisms.json'));
+  const bridgeExplanations = await loadJsonOptional(join(FOUNDATIONS_DIR, 'bridge_explanations.json'));
+
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
   const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
   const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
@@ -341,6 +350,11 @@ async function main() {
     ...validateOxidationExamples(oxidationExamples),
     ...validateEngineTaskTemplates(engineTaskTemplates),
     ...relationEntries.flatMap(({ data, filename }) => validateRelations(data, filename)),
+    // G.0: ADR-003 locale-neutral gate for physical foundations catalogs (when present)
+    ...(physicalConcepts ? validateExplanatoryCatalogLocaleNeutral(physicalConcepts, 'foundations/physical_concepts.json') : []),
+    ...(mathConcepts ? validateExplanatoryCatalogLocaleNeutral(mathConcepts, 'foundations/math_concepts.json') : []),
+    ...(mechanisms ? validateExplanatoryCatalogLocaleNeutral(mechanisms, 'foundations/mechanisms.json') : []),
+    ...(bridgeExplanations ? validateExplanatoryCatalogLocaleNeutral(bridgeExplanations, 'foundations/bridge_explanations.json') : []),
   ];
 
   // 2a. Relation ID integrity check
