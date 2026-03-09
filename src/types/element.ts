@@ -34,6 +34,8 @@ export interface ElectronExceptionStabilization {
   family: ElectronExceptionFamily;
   target_subshell: string;
   target_pattern: 'half_filled' | 'full_filled' | 'high_exchange' | 'proximity';
+  mechanism_ids?: string[];
+  bridge_id?: string;
 }
 
 export interface ElectronException {

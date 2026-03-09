@@ -198,6 +198,7 @@
   "elem_valence_config_text": "Valence electron configuration: {config}. Total of {count} valence electrons that can participate in chemical bonding.",
   "elem_more_details": "More about {symbol} →",
   "elem_exception_note": "⚠ Electron exception: {reason}",
+  "elem_exception_deep_link": "Why? (deeper explanation)",
   "trend_electronegativity_right": "Electronegativity →",
   "trend_metallicity_left": "← Metallicity",
   "trend_metallicity_right": "Metallicity →",

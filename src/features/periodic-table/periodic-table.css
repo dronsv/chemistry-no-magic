@@ -586,6 +586,15 @@
   line-height: 1.4;
 }
 
+.pt-details__exception-link {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: #b45309;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ========================================
    Group legend — structured categories inside d-block empty space
    ======================================== */

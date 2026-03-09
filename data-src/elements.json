@@ -568,7 +568,11 @@
       "stabilization": {
         "family": "half_filled_stability",
         "target_subshell": "3d",
-        "target_pattern": "half_filled"
+        "target_pattern": "half_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ],
+        "bridge_id": "why_half_filled_d_is_stable"
       }
     }
   },
@@ -709,7 +713,10 @@
       "stabilization": {
         "family": "full_filled_stability",
         "target_subshell": "3d",
-        "target_pattern": "full_filled"
+        "target_pattern": "full_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1005,7 +1012,10 @@
       "stabilization": {
         "family": "exchange_energy",
         "target_subshell": "4d",
-        "target_pattern": "high_exchange"
+        "target_pattern": "high_exchange",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1062,7 +1072,11 @@
       "stabilization": {
         "family": "half_filled_stability",
         "target_subshell": "4d",
-        "target_pattern": "half_filled"
+        "target_pattern": "half_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ],
+        "bridge_id": "why_half_filled_d_is_stable"
       }
     }
   },
@@ -1142,7 +1156,10 @@
       "stabilization": {
         "family": "exchange_energy",
         "target_subshell": "4d",
-        "target_pattern": "high_exchange"
+        "target_pattern": "high_exchange",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1198,7 +1215,10 @@
       "stabilization": {
         "family": "exchange_energy",
         "target_subshell": "4d",
-        "target_pattern": "high_exchange"
+        "target_pattern": "high_exchange",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1255,7 +1275,10 @@
       "stabilization": {
         "family": "full_filled_stability",
         "target_subshell": "4d",
-        "target_pattern": "full_filled"
+        "target_pattern": "full_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1308,7 +1331,10 @@
       "stabilization": {
         "family": "full_filled_stability",
         "target_subshell": "4d",
-        "target_pattern": "full_filled"
+        "target_pattern": "full_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -1781,7 +1807,11 @@
       "stabilization": {
         "family": "half_filled_stability",
         "target_subshell": "4f",
-        "target_pattern": "half_filled"
+        "target_pattern": "half_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ],
+        "bridge_id": "why_half_filled_d_is_stable"
       }
     }
   },
@@ -2121,7 +2151,10 @@
       "stabilization": {
         "family": "exchange_energy",
         "target_subshell": "5d",
-        "target_pattern": "high_exchange"
+        "target_pattern": "high_exchange",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -2180,7 +2213,10 @@
       "stabilization": {
         "family": "full_filled_stability",
         "target_subshell": "5d",
-        "target_pattern": "full_filled"
+        "target_pattern": "full_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ]
       }
     }
   },
@@ -2760,7 +2796,11 @@
       "stabilization": {
         "family": "half_filled_stability",
         "target_subshell": "5f",
-        "target_pattern": "half_filled"
+        "target_pattern": "half_filled",
+        "mechanism_ids": [
+          "exchange_stabilization"
+        ],
+        "bridge_id": "why_half_filled_d_is_stable"
       }
     }
   },

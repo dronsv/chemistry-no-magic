@@ -198,6 +198,7 @@
   "elem_valence_config_text": "Konfiguracja elektronów walencyjnych: {config}. Łącznie {count} elektronów walencyjnych, które mogą uczestniczyć w tworzeniu wiązań chemicznych.",
   "elem_more_details": "Więcej o {symbol} →",
   "elem_exception_note": "⚠ Wyjątek elektronowy: {reason}",
+  "elem_exception_deep_link": "Dlaczego? (głębsze wyjaśnienie)",
   "trend_electronegativity_right": "Elektroujemność →",
   "trend_metallicity_left": "← Metaliczność",
   "trend_metallicity_right": "Metaliczność →",

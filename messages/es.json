@@ -198,6 +198,7 @@
   "elem_valence_config_text": "Configuración de electrones de valencia: {config}. Total de {count} electrones de valencia que pueden participar en la formación de enlaces químicos.",
   "elem_more_details": "Más sobre {symbol} →",
   "elem_exception_note": "⚠ Excepción electrónica: {reason}",
+  "elem_exception_deep_link": "¿Por qué? (explicación profunda)",
   "trend_electronegativity_right": "Electronegatividad →",
   "trend_metallicity_left": "← Metalicidad",
   "trend_metallicity_right": "Metalicidad →",

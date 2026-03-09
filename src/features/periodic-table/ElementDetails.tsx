@@ -57,6 +57,14 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
       {exc?.reason && (
         <p className="pt-details__exception-note">
           {m.elem_exception_note({ reason: exc.reason })}
+          {exc.stabilization?.bridge_id && (
+            <a
+              href={`/physical-foundations/#${exc.stabilization.bridge_id}`}
+              className="pt-details__exception-link"
+            >
+              {m.elem_exception_deep_link()}
+            </a>
+          )}
         </p>
       )}
     </div>

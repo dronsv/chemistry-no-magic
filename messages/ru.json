@@ -198,6 +198,7 @@
   "elem_valence_config_text": "Конфигурация валентных электронов: {config}. Всего {count} валентных электронов, которые могут участвовать в образовании химических связей.",
   "elem_more_details": "Подробнее о {symbol} →",
   "elem_exception_note": "⚠ Провал электрона: {reason}",
+  "elem_exception_deep_link": "Глубже: почему?",
   "trend_electronegativity_right": "Электроотрицательность →",
   "trend_metallicity_left": "← Металличность",
   "trend_metallicity_right": "Металличность →",
