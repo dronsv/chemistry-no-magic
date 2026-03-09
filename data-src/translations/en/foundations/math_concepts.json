@@ -10,5 +10,25 @@
   "graph_reading": {
     "name": "Reading a graph",
     "summary": "Finding the value of one quantity from a known value of another using a curve on a graph."
+  },
+  "greater_less": {
+    "name": "Greater / less than",
+    "summary": "Comparing two quantities: determining which is greater, lesser, or equal to the other."
+  },
+  "probability_basic": {
+    "name": "Probability (basic)",
+    "summary": "The fraction of favourable outcomes among all possible outcomes. Ranges from 0 (impossible) to 1 (certain)."
+  },
+  "proportion": {
+    "name": "Proportion",
+    "summary": "Equality of two ratios: a/b = c/d. Allows finding an unknown term from three known ones."
+  },
+  "inverse_dependence": {
+    "name": "Inverse dependence",
+    "summary": "A relationship of the form y = k/x: if x increases n times, y decreases n times."
+  },
+  "difference": {
+    "name": "Difference",
+    "summary": "The result of subtracting one quantity from another; shows by how much one exceeds the other."
   }
 }

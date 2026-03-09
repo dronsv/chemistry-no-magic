@@ -10,5 +10,25 @@
   "graph_reading": {
     "name": "Odczytywanie wykresu",
     "summary": "Wyznaczanie wartości jednej wielkości na podstawie znanej wartości drugiej za pomocą krzywej na wykresie."
+  },
+  "greater_less": {
+    "name": "Większy / mniejszy",
+    "summary": "Porównanie dwóch wielkości: ustalenie, która jest większa, mniejsza lub równa drugiej."
+  },
+  "probability_basic": {
+    "name": "Prawdopodobieństwo (podstawy)",
+    "summary": "Udział korzystnych wyników wśród wszystkich możliwych. Wartość od 0 (niemożliwe) do 1 (pewne)."
+  },
+  "proportion": {
+    "name": "Proporcja",
+    "summary": "Równość dwóch stosunków: a/b = c/d. Pozwala wyznaczyć niewiadomy człon z trzech znanych."
+  },
+  "inverse_dependence": {
+    "name": "Zależność odwrotna",
+    "summary": "Zależność postaci y = k/x: jeśli x rośnie n razy, y maleje n razy."
+  },
+  "difference": {
+    "name": "Różnica",
+    "summary": "Wynik odejmowania jednej wielkości od drugiej; pokazuje, o ile jedna przewyższa drugą."
   }
 }

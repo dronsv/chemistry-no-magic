@@ -41,5 +41,47 @@
     "math_concepts": [],
     "stabilization_family": "half_filled_stability",
     "applies_to": ["transition_metal_electron_config"]
+  },
+  {
+    "id": "higher_speed_increases_collision_rate",
+    "kind": "mechanism",
+    "cause": "higher_average_speed",
+    "effect": "more_frequent_collisions",
+    "direction": "positive",
+    "physics_concepts": ["thermal_motion", "collision"],
+    "math_concepts": ["direct_proportionality"],
+    "applies_to": ["reaction_rate"],
+    "depends_on": ["temperature_increases_average_kinetic_energy"]
+  },
+  {
+    "id": "absorption_causes_upward_transition",
+    "kind": "mechanism",
+    "cause": "energy_input",
+    "effect": "electron_jumps_to_higher_level",
+    "direction": "upward",
+    "physics_concepts": ["electronic_energy_level", "ground_state", "excited_state", "photon"],
+    "math_concepts": ["difference"],
+    "applies_to": ["atom", "ion"]
+  },
+  {
+    "id": "downward_transition_emits_energy",
+    "kind": "mechanism",
+    "cause": "spontaneous_relaxation",
+    "effect": "photon_emitted_at_specific_wavelength",
+    "direction": "downward",
+    "physics_concepts": ["electronic_energy_level", "excited_state", "ground_state", "photon"],
+    "math_concepts": ["difference"],
+    "applies_to": ["atom", "ion"],
+    "depends_on": ["absorption_causes_upward_transition"]
+  },
+  {
+    "id": "ground_state_is_lowest_energy",
+    "kind": "mechanism",
+    "cause": "aufbau_filling",
+    "effect": "minimum_total_energy_configuration",
+    "direction": "negative",
+    "physics_concepts": ["ground_state", "electronic_energy_level", "energy"],
+    "math_concepts": ["greater_less"],
+    "applies_to": ["atom", "ion"]
   }
 ]

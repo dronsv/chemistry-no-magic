@@ -14,5 +14,21 @@
   "exchange_stabilization": {
     "name": "Exchange stabilisation → lower total energy of the atom",
     "school": "Electrons with parallel spins 'meet' in the same region of space less often due to the Pauli exclusion principle. This reduces their electrostatic repulsion — the total energy of the atom decreases. The effect is greatest when the subshell is completely or half filled (all spins parallel)."
+  },
+  "higher_speed_increases_collision_rate": {
+    "name": "Higher average speed → more collisions per unit time",
+    "school": "The faster particles move, the more often they collide: the number of collisions per unit volume per unit time is proportional to the average particle speed."
+  },
+  "absorption_causes_upward_transition": {
+    "name": "Energy absorption → electron jumps to a higher level",
+    "school": "An electron absorbs a quantum of energy (photon or heat) exactly equal to the difference between two energy levels and instantly jumps to the upper level — the atom enters an excited state."
+  },
+  "downward_transition_emits_energy": {
+    "name": "Downward electron transition → photon emitted at a specific wavelength",
+    "school": "The excited state is unstable: the electron spontaneously drops to a lower level and emits a photon with energy exactly equal to the level difference. Each transition produces a strictly defined wavelength, which is why atomic spectra are line spectra."
+  },
+  "ground_state_is_lowest_energy": {
+    "name": "Ground state = configuration with minimum total energy",
+    "school": "Electrons fill orbitals in order of increasing energy (Aufbau principle) until they reach the configuration with the lowest total energy. This is the atom's ground state — its stable 'lowest point'."
   }
 }

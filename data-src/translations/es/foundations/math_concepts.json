@@ -10,5 +10,25 @@
   "graph_reading": {
     "name": "Lectura de gráficas",
     "summary": "Determinación del valor de una magnitud a partir del valor conocido de otra mediante una curva en una gráfica."
+  },
+  "greater_less": {
+    "name": "Mayor / menor",
+    "summary": "Comparación de dos magnitudes: determinar cuál es mayor, menor o igual a la otra."
+  },
+  "probability_basic": {
+    "name": "Probabilidad (básica)",
+    "summary": "Fracción de resultados favorables entre todos los posibles. Varía de 0 (imposible) a 1 (seguro)."
+  },
+  "proportion": {
+    "name": "Proporción",
+    "summary": "Igualdad de dos razones: a/b = c/d. Permite hallar el término desconocido a partir de los tres conocidos."
+  },
+  "inverse_dependence": {
+    "name": "Dependencia inversa",
+    "summary": "Relación de la forma y = k/x: si x aumenta n veces, y disminuye n veces."
+  },
+  "difference": {
+    "name": "Diferencia",
+    "summary": "Resultado de restar una magnitud de otra; indica en cuánto una supera a la otra."
   }
 }

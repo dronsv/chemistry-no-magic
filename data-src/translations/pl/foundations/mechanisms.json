@@ -14,5 +14,21 @@
   "exchange_stabilization": {
     "name": "Stabilizacja wymienna → obniżenie całkowitej energii atomu",
     "school": "Elektrony o równoległych spinach rzadziej 'spotykają się' w tym samym obszarze przestrzeni ze względu na zakaz Pauliego. Zmniejsza to ich odpychanie elektrostatyczne — całkowita energia atomu maleje. Efekt jest największy przy całkowicie lub w połowie zapełnionej podpowłoce (wszystkie spiny równoległe)."
+  },
+  "higher_speed_increases_collision_rate": {
+    "name": "Większa średnia prędkość → więcej zderzeń w jednostce czasu",
+    "school": "Im szybciej poruszają się cząstki, tym częściej zderzają się: liczba zderzeń na jednostkę objętości w jednostce czasu jest proporcjonalna do średniej prędkości cząstek."
+  },
+  "absorption_causes_upward_transition": {
+    "name": "Pochłonięcie energii → przejście elektronu na wyższy poziom",
+    "school": "Elektron pochłania porcję energii (foton lub ciepło) dokładnie równą różnicy energii dwóch poziomów i natychmiast przechodzi na wyższy poziom — atom przechodzi w stan wzbudzony."
+  },
+  "downward_transition_emits_energy": {
+    "name": "Przejście elektronu w dół → emisja fotonu o ściśle określonej długości fali",
+    "school": "Stan wzbudzony jest nietrwały: elektron samorzutnie opada na niższy poziom i emituje foton o energii dokładnie równej różnicy poziomów. Każde przejście odpowiada ściśle określonej długości fali, dlatego widmo atomowe jest liniowe."
+  },
+  "ground_state_is_lowest_energy": {
+    "name": "Stan podstawowy = konfiguracja o minimalnej całkowitej energii",
+    "school": "Elektrony wypełniają orbitale w kolejności rosnącej energii (zasada Aufbau), aż osiągną konfigurację o najniższej energii całkowitej. To właśnie jest stan podstawowy atomu — stabilny 'punkt minimalny'."
   }
 }

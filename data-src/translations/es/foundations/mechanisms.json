@@ -14,5 +14,21 @@
   "exchange_stabilization": {
     "name": "Estabilización de intercambio → reducción de la energía total del átomo",
     "school": "Los electrones con espines paralelos se 'encuentran' menos frecuentemente en la misma región del espacio debido al principio de exclusión de Pauli. Esto reduce su repulsión electrostática y disminuye la energía total del átomo. El efecto es máximo cuando el subnivel está completamente o a la mitad lleno (todos los espines paralelos)."
+  },
+  "higher_speed_increases_collision_rate": {
+    "name": "Mayor velocidad media → más choques por unidad de tiempo",
+    "school": "Cuanto más rápido se mueven las partículas, más frecuentemente chocan: el número de choques por unidad de volumen por unidad de tiempo es proporcional a la velocidad media de las partículas."
+  },
+  "absorption_causes_upward_transition": {
+    "name": "Absorción de energía → el electrón salta a un nivel superior",
+    "school": "Un electrón absorbe una porción de energía (fotón o calor) exactamente igual a la diferencia entre dos niveles de energía y salta instantáneamente al nivel superior — el átomo pasa al estado excitado."
+  },
+  "downward_transition_emits_energy": {
+    "name": "Transición descendente del electrón → emisión de fotón a longitud de onda específica",
+    "school": "El estado excitado es inestable: el electrón cae espontáneamente a un nivel inferior y emite un fotón con energía exactamente igual a la diferencia de niveles. Cada transición produce una longitud de onda estrictamente definida, por lo que el espectro atómico es un espectro de líneas."
+  },
+  "ground_state_is_lowest_energy": {
+    "name": "Estado fundamental = configuración con energía total mínima",
+    "school": "Los electrones llenan los orbitales en orden creciente de energía (principio de Aufbau) hasta alcanzar la configuración con la menor energía total. Ese es el estado fundamental del átomo: su 'punto mínimo' estable."
   }
 }

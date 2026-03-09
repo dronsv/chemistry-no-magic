@@ -24,5 +24,43 @@
     "axes": ["x_axis", "y_axis"],
     "curve_types": ["linear", "exponential", "distribution"],
     "related_concepts": ["direct_proportionality"]
+  },
+  {
+    "id": "greater_less",
+    "kind": "math_concept",
+    "operation": "comparison",
+    "result_type": "boolean_or_ordering",
+    "difficulty_level": 1,
+    "related_concepts": ["difference"]
+  },
+  {
+    "id": "probability_basic",
+    "kind": "math_concept",
+    "operation": "fraction_of_total",
+    "range": [0, 1],
+    "difficulty_level": 2,
+    "related_concepts": ["average", "greater_less"]
+  },
+  {
+    "id": "proportion",
+    "kind": "math_concept",
+    "relation": "y_divided_by_x_equals_constant",
+    "difficulty_level": 1,
+    "related_concepts": ["direct_proportionality", "graph_reading"]
+  },
+  {
+    "id": "inverse_dependence",
+    "kind": "math_concept",
+    "relation": "y_equals_k_over_x",
+    "difficulty_level": 2,
+    "related_concepts": ["proportion", "graph_reading"]
+  },
+  {
+    "id": "difference",
+    "kind": "math_concept",
+    "operation": "subtraction",
+    "interpretation": "gap_between_two_values",
+    "difficulty_level": 1,
+    "related_concepts": ["greater_less"]
   }
 ]
