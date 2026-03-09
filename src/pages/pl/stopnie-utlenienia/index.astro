@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HubLead from '../../../components/HubLead.astro';
 import TopicLinks from '../../../components/TopicLinks.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
@@ -48,6 +49,7 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       ]
     })} />
   </Fragment>
+  <HubLead section="oxidation-states" locale={locale} />
   <TopicLinks section="oxidation-states" locale={locale} />
   <OxidationStatesPage locale={locale} client:idle />
 </BaseLayout>

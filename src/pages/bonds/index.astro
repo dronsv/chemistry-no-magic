@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HubLead from '../../components/HubLead.astro';
 import BondsPage from '../../features/bonds/BondsPage';
 import TopicLinks from '../../components/TopicLinks.astro';
 import type { SupportedLocale } from '../../types/i18n';
@@ -59,6 +60,7 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       ]
     })} />
   </Fragment>
+  <HubLead section="bonds" locale={locale} />
   <TopicLinks section="bonds" locale={locale} />
   <BondsPage locale={locale} client:idle />
 </BaseLayout>

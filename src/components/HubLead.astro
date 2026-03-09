@@ -1,0 +1,225 @@
+---
+/**
+ * Static SSR lead block for level-1 hub pages.
+ * Renders H1, definition, scope sentence, and optional facet chips.
+ * All content is static and crawler-visible — no JS required.
+ */
+import type { SupportedLocale } from '../types/i18n';
+
+interface Props {
+  section: 'reactions' | 'substances' | 'bonds' | 'oxidation-states' | 'calculations' | 'periodic-table';
+  locale: SupportedLocale;
+}
+
+const { section, locale } = Astro.props;
+
+type HubContent = {
+  h1: string;
+  def: string;
+  scope: string;
+  facets?: string[];
+};
+
+const HUB_DATA: Record<typeof section, Record<SupportedLocale, HubContent>> = {
+  reactions: {
+    ru: {
+      h1: 'Химические реакции',
+      def: 'Химическая реакция — это превращение одних веществ в другие.',
+      scope: 'В этом разделе собраны типы реакций, признаки, условия протекания и примеры уравнений.',
+      facets: ['Соединение', 'Разложение', 'Замещение', 'Обмен', 'ОВР', 'Качественные реакции'],
+    },
+    en: {
+      h1: 'Chemical Reactions',
+      def: 'A chemical reaction is the transformation of one substance into another.',
+      scope: 'This section covers reaction types, signs, conditions, and example equations.',
+      facets: ['Combination', 'Decomposition', 'Substitution', 'Exchange', 'Redox', 'Qualitative reactions'],
+    },
+    pl: {
+      h1: 'Reakcje chemiczne',
+      def: 'Reakcja chemiczna to przemiana jednych substancji w inne.',
+      scope: 'W tej sekcji zebrano typy reakcji, ich oznaki, warunki zachodzenia i przykłady równań.',
+      facets: ['Łączenie', 'Rozkład', 'Podstawianie', 'Wymiana', 'Redoks', 'Reakcje jakościowe'],
+    },
+    es: {
+      h1: 'Reacciones químicas',
+      def: 'Una reacción química es la transformación de unas sustancias en otras.',
+      scope: 'Esta sección reúne tipos de reacciones, sus indicios, condiciones y ejemplos de ecuaciones.',
+      facets: ['Combinación', 'Descomposición', 'Sustitución', 'Intercambio', 'Redox', 'Reacciones cualitativas'],
+    },
+  },
+  substances: {
+    ru: {
+      h1: 'Вещества',
+      def: 'Вещества — это то, из чего состоят тела и что участвует в химических реакциях.',
+      scope: 'В этом разделе собраны классы веществ, формулы, свойства и связи с реакциями.',
+      facets: ['Оксиды', 'Кислоты', 'Основания', 'Соли', 'Простые вещества'],
+    },
+    en: {
+      h1: 'Substances',
+      def: 'Substances are what bodies are made of and what takes part in chemical reactions.',
+      scope: 'This section covers substance classes, formulas, properties, and links to reactions.',
+      facets: ['Oxides', 'Acids', 'Bases', 'Salts', 'Simple substances'],
+    },
+    pl: {
+      h1: 'Substancje',
+      def: 'Substancje to to, z czego zbudowane są ciała i co uczestniczy w reakcjach chemicznych.',
+      scope: 'W tej sekcji zebrano klasy substancji, wzory, właściwości i powiązania z reakcjami.',
+      facets: ['Tlenki', 'Kwasy', 'Zasady', 'Sole', 'Substancje proste'],
+    },
+    es: {
+      h1: 'Sustancias',
+      def: 'Las sustancias son aquello de lo que están hechos los cuerpos y lo que participa en las reacciones químicas.',
+      scope: 'Esta sección reúne clases de sustancias, fórmulas, propiedades y vínculos con reacciones.',
+      facets: ['Óxidos', 'Ácidos', 'Bases', 'Sales', 'Sustancias simples'],
+    },
+  },
+  bonds: {
+    ru: {
+      h1: 'Химическая связь',
+      def: 'Химическая связь — это взаимодействие атомов, удерживающее их вместе в веществе.',
+      scope: 'Здесь можно изучить типы связи и научиться определять их по формуле и свойствам вещества.',
+    },
+    en: {
+      h1: 'Chemical Bonds',
+      def: 'A chemical bond is the interaction between atoms that holds them together in a substance.',
+      scope: 'Here you can learn bond types and determine them from a formula or substance properties.',
+    },
+    pl: {
+      h1: 'Wiązania chemiczne',
+      def: 'Wiązanie chemiczne to oddziaływanie między atomami, które utrzymuje je razem w substancji.',
+      scope: 'Tutaj możesz poznać typy wiązań i nauczyć się je określać na podstawie wzoru i właściwości substancji.',
+    },
+    es: {
+      h1: 'Enlace químico',
+      def: 'El enlace químico es la interacción entre átomos que los mantiene unidos en una sustancia.',
+      scope: 'Aquí puedes aprender los tipos de enlace y determinarlos a partir de la fórmula o las propiedades de la sustancia.',
+    },
+  },
+  'oxidation-states': {
+    ru: {
+      h1: 'Степени окисления',
+      def: 'Степень окисления — это условный заряд атома в соединении, если считать все связи ионными.',
+      scope: 'В этом разделе собраны правила определения степеней окисления, примеры и задачи.',
+    },
+    en: {
+      h1: 'Oxidation States',
+      def: 'An oxidation state is the hypothetical charge of an atom in a compound if all bonds were ionic.',
+      scope: 'This section covers rules for determining oxidation states, examples, and practice problems.',
+    },
+    pl: {
+      h1: 'Stopnie utlenienia',
+      def: 'Stopień utlenienia to umowny ładunek atomu w związku, jeśli przyjmiemy, że wszystkie wiązania są jonowe.',
+      scope: 'W tej sekcji zebrano zasady wyznaczania stopni utlenienia, przykłady i zadania.',
+    },
+    es: {
+      h1: 'Estados de oxidación',
+      def: 'El estado de oxidación es la carga hipotética de un átomo en un compuesto si todos los enlaces fueran iónicos.',
+      scope: 'Esta sección reúne las reglas para determinar estados de oxidación, ejemplos y ejercicios.',
+    },
+  },
+  calculations: {
+    ru: {
+      h1: 'Химические расчёты',
+      def: 'Химические расчёты помогают находить массу, количество вещества, объём газа и массовую долю.',
+      scope: 'В этом разделе собраны формулы, примеры и задачи по основным типам расчётов.',
+    },
+    en: {
+      h1: 'Chemical Calculations',
+      def: 'Chemical calculations help find mass, amount of substance, gas volume, and mass fraction.',
+      scope: 'This section covers formulas, examples, and practice problems for the main calculation types.',
+    },
+    pl: {
+      h1: 'Obliczenia chemiczne',
+      def: 'Obliczenia chemiczne pozwalają wyznaczyć masę, ilość substancji, objętość gazu i ułamek masowy.',
+      scope: 'W tej sekcji zebrano wzory, przykłady i zadania dotyczące głównych typów obliczeń.',
+    },
+    es: {
+      h1: 'Cálculos químicos',
+      def: 'Los cálculos químicos permiten hallar masa, cantidad de sustancia, volumen de gas y fracción másica.',
+      scope: 'Esta sección reúne fórmulas, ejemplos y ejercicios sobre los principales tipos de cálculos.',
+    },
+  },
+  'periodic-table': {
+    ru: {
+      h1: 'Периодическая таблица',
+      def: 'Периодическая таблица — это система химических элементов, расположенных по возрастанию атомного номера.',
+      scope: 'Здесь можно найти элементы, их свойства, группы, периоды и важные закономерности.',
+    },
+    en: {
+      h1: 'Periodic Table',
+      def: 'The periodic table is a system of chemical elements arranged by increasing atomic number.',
+      scope: 'Here you can find elements, their properties, groups, periods, and key periodic trends.',
+    },
+    pl: {
+      h1: 'Tablica okresowa',
+      def: 'Tablica okresowa to układ pierwiastków chemicznych ułożonych według rosnącego numeru atomowego.',
+      scope: 'Tutaj możesz znaleźć pierwiastki, ich właściwości, grupy, okresy i ważne prawidłowości.',
+    },
+    es: {
+      h1: 'Tabla periódica',
+      def: 'La tabla periódica es un sistema de elementos químicos ordenados por número atómico creciente.',
+      scope: 'Aquí puedes encontrar elementos, sus propiedades, grupos, periodos y tendencias importantes.',
+    },
+  },
+};
+
+const content = HUB_DATA[section][locale];
+---
+
+<header class="hub-lead">
+  <h1 class="hub-lead__h1">{content.h1}</h1>
+  <p class="hub-lead__def">{content.def}</p>
+  <p class="hub-lead__scope">{content.scope}</p>
+  {content.facets && content.facets.length > 0 && (
+    <div class="hub-facets">
+      {content.facets.map(f => (
+        <span class="hub-facet">{f}</span>
+      ))}
+    </div>
+  )}
+</header>
+
+<style>
+  .hub-lead {
+    padding: 1.5rem 0 1rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+  }
+  .hub-lead__h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    color: var(--color-text);
+  }
+  .hub-lead__def {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0 0 0.25rem;
+    font-weight: 500;
+  }
+  .hub-lead__scope {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .hub-facets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+  }
+  .hub-facet {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .hub-lead__h1 { font-size: 1.35rem; }
+  }
+</style>

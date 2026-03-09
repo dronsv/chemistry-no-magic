@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HubLead from '../../components/HubLead.astro';
 import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../types/i18n';
 
@@ -34,6 +35,7 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       "license": "https://creativecommons.org/licenses/by/4.0/",
     })} />
   </Fragment>
+  <HubLead section="periodic-table" locale={locale} />
   <!-- Static element links for search engine crawling (before React island) -->
   <nav class="pt-quicklinks" aria-label="Популярные элементы">
     <p class="pt-quicklinks__label">Популярные элементы:</p>

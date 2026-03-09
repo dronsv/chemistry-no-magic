@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HubLead from '../../../components/HubLead.astro';
 import SubstancesPage from '../../../features/substances/SubstancesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
 ---
 
 <BaseLayout title="Substances" description="Substance classification: oxides, acids, bases, salts. Properties, nomenclature, and practice.">
+  <HubLead section="substances" locale={locale} />
   <SubstancesPage locale={locale} client:idle />
 </BaseLayout>

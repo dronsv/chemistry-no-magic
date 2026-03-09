@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HubLead from '../../components/HubLead.astro';
 import ReactionsPage from '../../features/reactions/ReactionsPage';
 import type { SupportedLocale } from '../../types/i18n';
 
@@ -23,5 +24,6 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       },
     })} />
   </Fragment>
+  <HubLead section="reactions" locale={locale} />
   <ReactionsPage locale={locale} client:idle />
 </BaseLayout>
