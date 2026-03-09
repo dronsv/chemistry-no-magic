@@ -42,5 +42,18 @@
     "school_grade_range": [10, 11],
     "prerequisite_concepts": ["electronic_energy_level", "energy"],
     "page_slugs": ["periodic-table"]
+  },
+  {
+    "id": "why_flame_tests_have_color",
+    "kind": "bridge_explanation",
+    "chemistry_phenomenon": "flame_test_characteristic_color",
+    "mechanism_ids": [
+      "temperature_increases_average_kinetic_energy",
+      "transition_energy_matches_photon_energy"
+    ],
+    "target_rule_ids": [],
+    "school_grade_range": [8, 11],
+    "prerequisite_concepts": ["electronic_energy_level", "energy", "ground_state", "excited_state", "photon"],
+    "page_slugs": ["reactions", "periodic-table"]
   }
 ]

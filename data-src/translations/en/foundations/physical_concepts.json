@@ -18,5 +18,30 @@
     "name": "Electron energy level",
     "summary": "A permitted energy value for an electron in an atom; it can only take discrete (quantised) values.",
     "intuition": "An electron in an atom can only occupy 'allowed steps' — like a staircase, not a ramp."
+  },
+  "ground_state": {
+    "name": "Ground state",
+    "summary": "The state of an atom with the lowest possible total electron energy. Electrons fill the lowest available orbitals according to the Aufbau principle.",
+    "intuition": "A ball resting at the bottom of a pit. Energy must be added to raise it higher."
+  },
+  "excited_state": {
+    "name": "Excited state",
+    "summary": "A temporary state of an atom in which one or more electrons occupy a higher energy level than in the ground state. Unstable — the atom quickly returns to the ground state.",
+    "intuition": "A ball pushed up a slope will roll back down. An excited atom likewise quickly returns to the ground state, emitting a photon."
+  },
+  "photon": {
+    "name": "Photon",
+    "summary": "A quantum of electromagnetic radiation. A photon's energy E = hν is proportional to its frequency ν. Each colour of visible light corresponds to a precisely defined photon energy.",
+    "intuition": "A photon is a 'packet' of light. Blue light carries more energetic photons than red light."
+  },
+  "collision": {
+    "name": "Particle collision",
+    "summary": "An encounter between two particles (molecules, atoms, ions) close enough to interact. The collision rate depends on temperature and concentration.",
+    "intuition": "The more balls on a billiard table and the faster they move, the more often they collide."
+  },
+  "effective_collision": {
+    "name": "Effective collision",
+    "summary": "A collision in which the energy of the encounter exceeds the activation energy of the reaction. Only such collisions lead to a chemical reaction.",
+    "intuition": "Not every hammer blow drives a nail — you need a sufficiently strong strike. Similarly, only sufficiently energetic collisions lead to a reaction."
   }
 }

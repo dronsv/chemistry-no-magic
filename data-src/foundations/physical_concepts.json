@@ -38,5 +38,54 @@
     "scale": "intensive",
     "discreteness": "quantized",
     "related_concepts": ["energy"]
+  },
+  {
+    "id": "ground_state",
+    "kind": "physical_concept",
+    "quantity": "electron_lowest_energy_configuration",
+    "unit": null,
+    "scale": "intensive",
+    "discreteness": "quantized",
+    "stability": "stable",
+    "related_concepts": ["electronic_energy_level", "energy", "excited_state"]
+  },
+  {
+    "id": "excited_state",
+    "kind": "physical_concept",
+    "quantity": "electron_elevated_energy_configuration",
+    "unit": null,
+    "scale": "intensive",
+    "discreteness": "quantized",
+    "stability": "unstable",
+    "lifetime_order": "nanoseconds",
+    "related_concepts": ["electronic_energy_level", "energy", "ground_state"]
+  },
+  {
+    "id": "photon",
+    "kind": "physical_concept",
+    "quantity": "quantum_of_electromagnetic_radiation",
+    "unit": "eV",
+    "si_unit": "J",
+    "scale": "discrete",
+    "relation_to_frequency": "E_equals_h_nu",
+    "related_concepts": ["energy", "electronic_energy_level"]
+  },
+  {
+    "id": "collision",
+    "kind": "physical_concept",
+    "quantity": "particle_encounter_rate",
+    "unit": "per_second",
+    "scale": "intensive",
+    "particle_types": ["atom", "molecule", "ion"],
+    "related_concepts": ["thermal_motion", "temperature", "effective_collision"]
+  },
+  {
+    "id": "effective_collision",
+    "kind": "physical_concept",
+    "quantity": "collision_with_sufficient_energy",
+    "unit": "per_second",
+    "scale": "intensive",
+    "threshold": "activation_energy",
+    "related_concepts": ["collision", "energy", "temperature"]
   }
 ]

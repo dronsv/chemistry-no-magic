@@ -18,5 +18,30 @@
     "name": "Nivel de energía electrónico",
     "summary": "Valor permitido de energía de un electrón en un átomo; solo puede tomar valores discretos (cuantizados).",
     "intuition": "Un electrón en un átomo solo puede ocupar 'peldaños permitidos', como en una escalera, no en una rampa."
+  },
+  "ground_state": {
+    "name": "Estado fundamental",
+    "summary": "Estado del átomo con la menor energía total posible de los electrones. Los electrones ocupan los orbitales de menor energía disponibles según el principio de Aufbau.",
+    "intuition": "Una bola en el fondo de un hoyo. Para elevarla hay que aportarle energía."
+  },
+  "excited_state": {
+    "name": "Estado excitado",
+    "summary": "Estado temporal del átomo en el que uno o más electrones ocupan un nivel de energía superior al del estado fundamental. Inestable — el átomo regresa rápidamente al estado fundamental.",
+    "intuition": "Una bola empujada cuesta arriba rodará de vuelta. El átomo excitado también regresa rápidamente al estado fundamental emitiendo un fotón."
+  },
+  "photon": {
+    "name": "Fotón",
+    "summary": "Cuanto de radiación electromagnética. La energía del fotón E = hν es proporcional a su frecuencia ν. Cada color de la luz visible corresponde a una energía de fotón exactamente definida.",
+    "intuition": "Un fotón es un 'paquete' de luz. La luz azul lleva fotones más energéticos que la luz roja."
+  },
+  "collision": {
+    "name": "Choque de partículas",
+    "summary": "Encuentro de dos partículas (moléculas, átomos, iones) suficientemente cercano para interactuar. La frecuencia de choques depende de la temperatura y la concentración.",
+    "intuition": "Cuantas más bolas hay en una mesa de billar y más rápido se mueven, más a menudo chocan."
+  },
+  "effective_collision": {
+    "name": "Choque eficaz",
+    "summary": "Choque en el que la energía del encuentro supera la energía de activación de la reacción. Solo estos choques conducen a una reacción química.",
+    "intuition": "No cada golpe clava un clavo — se necesita un golpe suficientemente fuerte. Del mismo modo, solo los choques suficientemente energéticos conducen a una reacción."
   }
 }

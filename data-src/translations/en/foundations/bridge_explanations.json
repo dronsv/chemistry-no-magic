@@ -18,5 +18,10 @@
     "title": "Why is a half-filled d subshell stable?",
     "hint": "Exchange interaction between electrons with parallel spins lowers the total energy of the atom when the subshell is symmetrically filled.",
     "school_explanation": "Chromium ([Ar] 3d⁵4s¹ instead of the expected 3d⁴4s²) and other transition metals violate the Aufbau principle. The reason: with a half-filled 3d⁵ all five electrons have parallel spins. This maximises the exchange interaction, which additionally lowers the total energy of the atom. The energy gain exceeds the 'cost' of moving an electron from 4s to 3d."
+  },
+  "why_flame_tests_have_color": {
+    "title": "Why do substances colour a flame?",
+    "hint": "Metal atoms absorb heat → electrons jump to an excited state → on returning they emit a photon of a precisely defined wavelength perceived as colour.",
+    "school_explanation": "When a salt is placed in a flame, metal atoms receive thermal energy. Electrons move to higher energy levels — the atom becomes excited. The excited state is unstable: electrons return to the ground state and emit photons with energy exactly equal to the difference between the levels. Because each element has a unique set of energy levels, the colours are unique: Na — yellow (589 nm), K — violet, Cu — green, Li — red."
   }
 }

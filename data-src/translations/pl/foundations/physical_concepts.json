@@ -18,5 +18,30 @@
     "name": "Poziom energetyczny elektronu",
     "summary": "Dozwolona wartość energii elektronu w atomie; przyjmuje wyłącznie dyskretne (skwantowane) wartości.",
     "intuition": "Elektron w atomie może zajmować tylko 'dozwolone stopnie' — jak na schodach, a nie na pochylni."
+  },
+  "ground_state": {
+    "name": "Stan podstawowy",
+    "summary": "Stan atomu o najniższej możliwej całkowitej energii elektronów. Elektrony zajmują najniższe dostępne orbitale zgodnie z zasadą Aufbau.",
+    "intuition": "Kulka leżąca na dnie zagłębienia. Aby ją podnieść wyżej, trzeba dostarczyć energię."
+  },
+  "excited_state": {
+    "name": "Stan wzbudzony",
+    "summary": "Przejściowy stan atomu, w którym jeden lub więcej elektronów zajmuje wyższy poziom energetyczny niż w stanie podstawowym. Nietrwały — atom szybko wraca do stanu podstawowego.",
+    "intuition": "Kulka popchnięta pod górę stoczy się z powrotem. Wzbudzony atom podobnie szybko wraca do stanu podstawowego, emitując foton."
+  },
+  "photon": {
+    "name": "Foton",
+    "summary": "Kwant promieniowania elektromagnetycznego. Energia fotonu E = hν jest proporcjonalna do częstotliwości ν. Każdy kolor światła widzialnego odpowiada ściśle określonej energii fotonów.",
+    "intuition": "Foton to 'porcja' światła. Niebieskie światło niesie bardziej energetyczne fotony niż czerwone."
+  },
+  "collision": {
+    "name": "Zderzenie cząstek",
+    "summary": "Spotkanie dwóch cząstek (cząsteczek, atomów, jonów) wystarczająco blisko, by mogły oddziaływać. Częstość zderzeń zależy od temperatury i stężenia.",
+    "intuition": "Im więcej bil na stole bilardowym i im szybciej się poruszają, tym częściej się zderzają."
+  },
+  "effective_collision": {
+    "name": "Zderzenie efektywne",
+    "summary": "Zderzenie, w którym energia spotkania przekracza energię aktywacji reakcji. Tylko takie zderzenia prowadzą do reakcji chemicznej.",
+    "intuition": "Nie każdy udos wbija gwóźdź — potrzebny jest uderzenie odpowiedniej siły. Podobnie tylko dostatecznie energetyczne zderzenia prowadzą do reakcji."
   }
 }

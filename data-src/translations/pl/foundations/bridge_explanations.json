@@ -18,5 +18,10 @@
     "title": "Dlaczego półzapełniona podpowłoka d jest stabilna?",
     "hint": "Oddziaływanie wymienne między elektronami o równoległych spinach obniża całkowitą energię atomu przy symetrycznym zapełnieniu podpowłoki.",
     "school_explanation": "Chrom ([Ar] 3d⁵4s¹ zamiast oczekiwanego 3d⁴4s²) i inne metale przejściowe naruszają zasadę Aufbau. Przyczyna: przy półzapełnionym 3d⁵ wszystkie pięć elektronów ma równoległe spiny. Maksymalizuje to oddziaływanie wymienne, które dodatkowo obniża całkowitą energię atomu. Zysk energetyczny przewyższa 'koszt' przeniesienia elektronu z 4s na 3d."
+  },
+  "why_flame_tests_have_color": {
+    "title": "Dlaczego substancje barwią płomień na różne kolory?",
+    "hint": "Atomy metalu pochłaniają ciepło → elektrony przechodzą do stanu wzbudzonego → przy powrocie emitują foton o ściśle określonej długości fali postrzeganej jako kolor.",
+    "school_explanation": "Po wprowadzeniu soli do płomienia atomy metalu otrzymują energię cieplną. Elektrony przechodzą na wyższe poziomy energetyczne — atom się wzbudza. Stan wzbudzony jest nietrwały: elektrony wracają do stanu podstawowego i emitują fotony o energii dokładnie równej różnicy poziomów. Każdy pierwiastek ma unikatowy zestaw poziomów energetycznych, dlatego kolory są unikatowe: Na — żółty (589 nm), K — fioletowy, Cu — zielony, Li — czerwony."
   }
 }

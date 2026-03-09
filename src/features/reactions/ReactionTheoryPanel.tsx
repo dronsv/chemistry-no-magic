@@ -238,6 +238,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                         ))}
                       </tbody>
                     </table>
+                    <PhysFoundationHint bridgeId="why_flame_tests_have_color" locale={locale} />
                   </div>
                 </CollapsibleSection>
               )}
