@@ -1145,3 +1145,33 @@ export async function loadKineticsData(locale?: SupportedLocale): Promise<Kineti
   const directionLabels = (overlay?.['_direction_labels'] ?? {}) as Record<string, string>;
   return { rules, propNames, directionLabels };
 }
+
+// G.1 Physical Foundations loaders
+
+export async function loadPhysicalConcepts(): Promise<import('../types/foundations').PhysicalConcept[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.physical_concepts;
+  if (!path) return [];
+  return loadDataFile(path);
+}
+
+export async function loadMathConcepts(): Promise<import('../types/foundations').MathConcept[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.math_concepts;
+  if (!path) return [];
+  return loadDataFile(path);
+}
+
+export async function loadMechanisms(): Promise<import('../types/foundations').Mechanism[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.mechanisms;
+  if (!path) return [];
+  return loadDataFile(path);
+}
+
+export async function loadBridgeExplanations(): Promise<import('../types/foundations').BridgeExplanation[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.bridge_explanations;
+  if (!path) return [];
+  return loadDataFile(path);
+}

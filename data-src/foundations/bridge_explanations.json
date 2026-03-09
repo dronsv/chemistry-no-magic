@@ -1,0 +1,42 @@
+[
+  {
+    "id": "why_heating_speeds_reactions",
+    "kind": "bridge_explanation",
+    "chemistry_phenomenon": "reaction_rate_temperature_dependence",
+    "mechanism_ids": [
+      "temperature_increases_average_kinetic_energy",
+      "temperature_increases_effective_collision_fraction"
+    ],
+    "target_rule_ids": ["kinetics"],
+    "school_grade_range": [8, 11],
+    "prerequisite_concepts": ["temperature", "energy", "thermal_motion"]
+  },
+  {
+    "id": "why_atoms_emit_light",
+    "kind": "bridge_explanation",
+    "chemistry_phenomenon": "atomic_emission_spectra",
+    "mechanism_ids": ["transition_energy_matches_photon_energy"],
+    "target_rule_ids": [],
+    "school_grade_range": [9, 11],
+    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+  },
+  {
+    "id": "difference_between_excitation_and_configuration_exception",
+    "kind": "bridge_explanation",
+    "chemistry_phenomenon": "electron_configuration_exceptions_vs_excitation",
+    "mechanism_ids": ["exchange_stabilization", "transition_energy_matches_photon_energy"],
+    "target_rule_ids": [],
+    "school_grade_range": [10, 11],
+    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+  },
+  {
+    "id": "why_half_filled_d_is_stable",
+    "kind": "bridge_explanation",
+    "chemistry_phenomenon": "electron_exception_half_filled_d",
+    "mechanism_ids": ["exchange_stabilization"],
+    "target_rule_ids": [],
+    "exception_element_ids": ["Cr", "Mo"],
+    "school_grade_range": [10, 11],
+    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+  }
+]

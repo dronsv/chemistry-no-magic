@@ -50,6 +50,12 @@ export interface ManifestEntrypoints {
   topics?: string;
   topic_pages?: string;
   relations?: Record<string, string>;
+  foundations?: {
+    physical_concepts?: string;
+    math_concepts?: string;
+    mechanisms?: string;
+    bridge_explanations?: string;
+  };
 }
 
 export interface ManifestStats {

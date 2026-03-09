@@ -1,0 +1,42 @@
+[
+  {
+    "id": "temperature",
+    "kind": "physical_concept",
+    "quantity": "avg_kinetic_energy",
+    "unit": "K",
+    "si_unit": "K",
+    "scale": "intensive",
+    "observable": "thermometer_reading",
+    "related_concepts": ["energy", "thermal_motion"]
+  },
+  {
+    "id": "energy",
+    "kind": "physical_concept",
+    "quantity": "capacity_to_do_work",
+    "unit": "J",
+    "si_unit": "J",
+    "scale": "extensive",
+    "forms": ["kinetic", "potential", "thermal", "electronic"],
+    "related_concepts": ["temperature", "thermal_motion", "electronic_energy_level"]
+  },
+  {
+    "id": "thermal_motion",
+    "kind": "physical_concept",
+    "quantity": "particle_velocity_distribution",
+    "unit": null,
+    "scale": "intensive",
+    "particle_types": ["atom", "molecule", "ion"],
+    "distribution": "maxwell_boltzmann",
+    "related_concepts": ["temperature", "energy"]
+  },
+  {
+    "id": "electronic_energy_level",
+    "kind": "physical_concept",
+    "quantity": "quantized_electron_energy",
+    "unit": "eV",
+    "si_unit": "J",
+    "scale": "intensive",
+    "discreteness": "quantized",
+    "related_concepts": ["energy"]
+  }
+]

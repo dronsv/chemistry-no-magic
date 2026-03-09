@@ -508,6 +508,15 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'electron_exception_frames.json'), JSON.stringify(electronExceptionFrames));
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
+  // G.1 physical foundations catalogs (written when present)
+  if (physicalConcepts || mathConcepts || mechanisms || bridgeExplanations) {
+    await mkdir(join(bundleDir, 'foundations'), { recursive: true });
+    if (physicalConcepts) await writeFile(join(bundleDir, 'foundations', 'physical_concepts.json'), JSON.stringify(physicalConcepts));
+    if (mathConcepts) await writeFile(join(bundleDir, 'foundations', 'math_concepts.json'), JSON.stringify(mathConcepts));
+    if (mechanisms) await writeFile(join(bundleDir, 'foundations', 'mechanisms.json'), JSON.stringify(mechanisms));
+    if (bridgeExplanations) await writeFile(join(bundleDir, 'foundations', 'bridge_explanations.json'), JSON.stringify(bridgeExplanations));
+  }
+
   await mkdir(join(bundleDir, 'engine'), { recursive: true });
   await writeFile(join(bundleDir, 'engine', 'task_templates.json'), JSON.stringify(engineTaskTemplates));
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.ru.json'), JSON.stringify(promptTemplatesRu));
@@ -820,6 +829,12 @@ async function main() {
     theoryModules: theoryModuleFiles,
     courses: courseFiles,
     relations: relationFiles,
+    foundations: {
+      physical_concepts: !!physicalConcepts,
+      math_concepts: !!mathConcepts,
+      mechanisms: !!mechanisms,
+      bridge_explanations: !!bridgeExplanations,
+    },
   });
 
   console.log(`\nBuild complete! Bundle: public/data/${bundleHash}/`);

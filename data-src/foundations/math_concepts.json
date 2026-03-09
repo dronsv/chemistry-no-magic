@@ -1,0 +1,28 @@
+[
+  {
+    "id": "average",
+    "kind": "math_concept",
+    "operation": "arithmetic_mean",
+    "input_type": "numeric_set",
+    "output_type": "scalar",
+    "monotone": true,
+    "related_concepts": ["direct_proportionality"]
+  },
+  {
+    "id": "direct_proportionality",
+    "kind": "math_concept",
+    "relation": "y_equals_kx",
+    "parameter": "k",
+    "parameter_role": "slope",
+    "monotone": true,
+    "related_concepts": ["average", "graph_reading"]
+  },
+  {
+    "id": "graph_reading",
+    "kind": "math_concept",
+    "operation": "extract_value_from_curve",
+    "axes": ["x_axis", "y_axis"],
+    "curve_types": ["linear", "exponential", "distribution"],
+    "related_concepts": ["direct_proportionality"]
+  }
+]

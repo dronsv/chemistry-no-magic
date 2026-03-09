@@ -1,0 +1,45 @@
+[
+  {
+    "id": "temperature_increases_average_kinetic_energy",
+    "kind": "mechanism",
+    "cause": "temperature",
+    "effect": "avg_kinetic_energy_increase",
+    "direction": "positive",
+    "physics_concepts": ["temperature", "thermal_motion", "energy"],
+    "math_concepts": ["average", "direct_proportionality"],
+    "applies_to": ["gas", "liquid", "solid"]
+  },
+  {
+    "id": "temperature_increases_effective_collision_fraction",
+    "kind": "mechanism",
+    "cause": "temperature",
+    "effect": "fraction_above_activation_energy_increase",
+    "direction": "positive",
+    "physics_concepts": ["temperature", "thermal_motion", "energy"],
+    "math_concepts": ["average", "graph_reading"],
+    "applies_to": ["reaction_rate"],
+    "depends_on": ["temperature_increases_average_kinetic_energy"]
+  },
+  {
+    "id": "transition_energy_matches_photon_energy",
+    "kind": "mechanism",
+    "cause": "photon_absorption",
+    "effect": "electron_excitation",
+    "direction": "discrete",
+    "physics_concepts": ["electronic_energy_level", "energy"],
+    "math_concepts": [],
+    "activation_condition": "photon_energy_equals_delta_E",
+    "applies_to": ["atom", "ion"]
+  },
+  {
+    "id": "exchange_stabilization",
+    "kind": "mechanism",
+    "cause": "electron_redistribution",
+    "effect": "lower_total_energy",
+    "direction": "negative",
+    "physics_concepts": ["electronic_energy_level", "energy"],
+    "math_concepts": [],
+    "stabilization_family": "half_filled_stability",
+    "applies_to": ["transition_metal_electron_config"]
+  }
+]

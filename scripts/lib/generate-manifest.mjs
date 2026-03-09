@@ -13,8 +13,9 @@ import { join } from 'node:path';
  * @param {string[]} [opts.examSystemIds] - IDs of available exam systems
  * @param {Record<string, string>} [opts.theoryModules] - { key: "theory_modules/key.json" }
  * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
+ * @param {object} [opts.foundations] - { physical_concepts, math_concepts, mechanisms, bridge_explanations } presence flags
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations, foundations }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -113,6 +114,12 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       topics: 'topics.json',
       topic_pages: 'topic_pages.json',
       relations: relations && Object.keys(relations).length > 0 ? relations : undefined,
+      foundations: foundations && Object.values(foundations).some(Boolean) ? {
+        ...(foundations.physical_concepts ? { physical_concepts: 'foundations/physical_concepts.json' } : {}),
+        ...(foundations.math_concepts ? { math_concepts: 'foundations/math_concepts.json' } : {}),
+        ...(foundations.mechanisms ? { mechanisms: 'foundations/mechanisms.json' } : {}),
+        ...(foundations.bridge_explanations ? { bridge_explanations: 'foundations/bridge_explanations.json' } : {}),
+      } : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',
       },
