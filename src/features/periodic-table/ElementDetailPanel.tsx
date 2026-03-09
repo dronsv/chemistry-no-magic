@@ -7,6 +7,8 @@ import * as m from '../../paraglide/messages.js';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
 import EnergyLevelDiagram from './EnergyLevelDiagram';
+import PhysFoundationHint from '../../components/PhysFoundationHint';
+import '../../components/phys-hint.css';
 
 interface Props {
   element: Element;
@@ -82,6 +84,13 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
             <span>{m.elem_actual()} <b>{exc.actual_formula}</b></span>
           </div>
           <p className="detail-panel__exception-reason">{exc.reason}</p>
+          <PhysFoundationHint
+            bridgeId="difference_between_excitation_and_configuration_exception"
+            locale={locale}
+          />
+          {exc.stabilization?.bridge_id && (
+            <PhysFoundationHint bridgeId={exc.stabilization.bridge_id} locale={locale} />
+          )}
         </div>
       )}
 

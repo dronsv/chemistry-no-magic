@@ -19,6 +19,8 @@ import { buildRuleSummaryProjection, type RuleSummaryProjection } from '../../li
 import SolubilityTable from './SolubilityTable';
 import ActivitySeriesBar from './ActivitySeriesBar';
 import CollapsibleSection, { useTheoryPanelState } from '../../components/CollapsibleSection';
+import PhysFoundationHint from '../../components/PhysFoundationHint';
+import '../../components/phys-hint.css';
 import * as m from '../../paraglide/messages.js';
 
 const TYPE_LABELS: Record<string, () => string> = {
@@ -283,6 +285,7 @@ export default function ReactionTheoryPanel({ facets, locale = 'ru' as Supported
                         </div>
                       ))}
                     </div>
+                    <PhysFoundationHint bridgeId="why_heating_speeds_reactions" locale={locale} />
 
                     <h4 className="rxn-theory__type-title">{m.rxn_theory_exo_endo()}</h4>
                     <div className="rxn-theory__definitions">
