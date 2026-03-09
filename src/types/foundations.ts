@@ -1,4 +1,4 @@
-/** G.1 Physical Foundations Pilot — locale-neutral catalog types */
+/** G.1 Physical Foundations Pilot — locale-neutral catalog types + overlay fields */
 
 export interface PhysicalConcept {
   id: string;
@@ -12,6 +12,10 @@ export interface PhysicalConcept {
   distribution?: string;
   discreteness?: string;
   related_concepts?: string[];
+  // Overlay fields (populated by loadPhysicalConcepts(locale))
+  name?: string;
+  summary?: string;
+  intuition?: string;
 }
 
 export interface MathConcept {
@@ -27,6 +31,9 @@ export interface MathConcept {
   curve_types?: string[];
   monotone?: boolean;
   related_concepts?: string[];
+  // Overlay fields
+  name?: string;
+  summary?: string;
 }
 
 export interface Mechanism {
@@ -41,6 +48,9 @@ export interface Mechanism {
   stabilization_family?: string;
   applies_to: string[];
   depends_on?: string[];
+  // Overlay fields
+  name?: string;
+  school?: string;
 }
 
 export interface BridgeExplanation {
@@ -52,4 +62,8 @@ export interface BridgeExplanation {
   school_grade_range: [number, number];
   prerequisite_concepts: string[];
   exception_element_ids?: string[];
+  // Overlay fields
+  title?: string;
+  hint?: string;
+  school_explanation?: string;
 }

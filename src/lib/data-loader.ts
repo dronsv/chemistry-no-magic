@@ -1146,32 +1146,52 @@ export async function loadKineticsData(locale?: SupportedLocale): Promise<Kineti
   return { rules, propNames, directionLabels };
 }
 
-// G.1 Physical Foundations loaders
+// G.1/G.2 Physical Foundations loaders
 
-export async function loadPhysicalConcepts(): Promise<import('../types/foundations').PhysicalConcept[]> {
+export async function loadPhysicalConcepts(
+  locale?: SupportedLocale,
+): Promise<import('../types/foundations').PhysicalConcept[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.foundations?.physical_concepts;
   if (!path) return [];
-  return loadDataFile(path);
+  const data = await loadDataFile<import('../types/foundations').PhysicalConcept[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/physical_concepts');
+  return applyOverlay(data, overlay, c => c.id);
 }
 
-export async function loadMathConcepts(): Promise<import('../types/foundations').MathConcept[]> {
+export async function loadMathConcepts(
+  locale?: SupportedLocale,
+): Promise<import('../types/foundations').MathConcept[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.foundations?.math_concepts;
   if (!path) return [];
-  return loadDataFile(path);
+  const data = await loadDataFile<import('../types/foundations').MathConcept[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/math_concepts');
+  return applyOverlay(data, overlay, c => c.id);
 }
 
-export async function loadMechanisms(): Promise<import('../types/foundations').Mechanism[]> {
+export async function loadMechanisms(
+  locale?: SupportedLocale,
+): Promise<import('../types/foundations').Mechanism[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.foundations?.mechanisms;
   if (!path) return [];
-  return loadDataFile(path);
+  const data = await loadDataFile<import('../types/foundations').Mechanism[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/mechanisms');
+  return applyOverlay(data, overlay, m => m.id);
 }
 
-export async function loadBridgeExplanations(): Promise<import('../types/foundations').BridgeExplanation[]> {
+export async function loadBridgeExplanations(
+  locale?: SupportedLocale,
+): Promise<import('../types/foundations').BridgeExplanation[]> {
   const manifest = await getManifest();
   const path = manifest.entrypoints.foundations?.bridge_explanations;
   if (!path) return [];
-  return loadDataFile(path);
+  const data = await loadDataFile<import('../types/foundations').BridgeExplanation[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/bridge_explanations');
+  return applyOverlay(data, overlay, b => b.id);
 }
