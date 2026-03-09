@@ -84,6 +84,12 @@ const SLUG_MAP: Record<string, Record<SupportedLocale, string>> = {
     pl: '/pl/kompetencje/',
     es: '/es/competencias/',
   },
+  '/physical-foundations/': {
+    ru: '/physical-foundations/',
+    en: '/en/physical-foundations/',
+    pl: '/pl/physical-foundations/',
+    es: '/es/physical-foundations/',
+  },
   '/processes/': {
     ru: '/processes/',
     en: '/en/processes/',

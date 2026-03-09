@@ -21,6 +21,7 @@ const SLUG_MAP = {
   '/ions/': { ru: '/ions/', en: '/en/ions/', pl: '/pl/jony/', es: '/es/iones/' },
   '/competency/': { ru: '/competency/', en: '/en/competency/', pl: '/pl/kompetencja/', es: '/es/competencia/' },
   '/competencies/': { ru: '/competencies/', en: '/en/competencies/', pl: '/pl/kompetencje/', es: '/es/competencias/' },
+  '/physical-foundations/': { ru: '/physical-foundations/', en: '/en/physical-foundations/', pl: '/pl/physical-foundations/', es: '/es/physical-foundations/' },
   '/processes/': { ru: '/processes/', en: '/en/processes/', pl: '/pl/procesy/', es: '/es/procesos/' },
   '/settings/': { ru: '/settings/', en: '/en/settings/', pl: '/pl/ustawienia/', es: '/es/ajustes/' },
   '/about/': { ru: '/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },

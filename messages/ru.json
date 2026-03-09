@@ -915,6 +915,7 @@
   "comp_ref_calc_yield_excess": "Избыток/недостаток: сравнить мольные отношения реагентов с коэффициентами уравнения.",
   "nav_competencies": "Компетенции",
   "nav_processes": "Процессы",
+  "nav_physical_foundations": "Физические основы",
   "comp_graph_title": "Карта компетенций",
   "comp_graph_desc": "Граф зависимостей навыков: от простого к сложному",
   "comp_graph_mastery": "Освоение",
