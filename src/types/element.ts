@@ -58,6 +58,7 @@ export interface Element {
   metal_type: MetalType;
   element_group: ElementGroup;
   amphoteric?: boolean;
+  flame_test?: boolean;
   atomic_mass: number;
   typical_oxidation_states: number[];
   electronegativity: number | null;

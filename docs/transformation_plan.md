@@ -301,7 +301,7 @@
 - [x] `src/components/phys-hint.css` — purple theme
 - [x] Wire `difference_between_excitation_and_configuration_exception` + `bridge_id` → `ElementDetailPanel.tsx`
 - [x] Wire `why_heating_speeds_reactions` → `ReactionTheoryPanel` (speed section)
-- [ ] Wire `why_atoms_emit_light` → element detail (для flame test elements) — **TODO**
+- [x] Wire `why_atoms_emit_light` → element detail (для flame test elements) — `flame_test: true` on 9 elements
 
 ---
 

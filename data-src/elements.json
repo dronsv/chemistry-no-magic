@@ -63,7 +63,8 @@
     },
     "storage_profiles": [
       "storage:alkali_metal_basic"
-    ]
+    ],
+    "flame_test": true
   },
   {
     "Z": 4,
@@ -242,7 +243,8 @@
     },
     "storage_profiles": [
       "storage:alkali_metal_basic"
-    ]
+    ],
+    "flame_test": true
   },
   {
     "Z": 12,
@@ -422,7 +424,8 @@
     },
     "storage_profiles": [
       "storage:alkali_metal_basic"
-    ]
+    ],
+    "flame_test": true
   },
   {
     "Z": 20,
@@ -443,7 +446,8 @@
     "density_g_cm3": 1.55,
     "discovery": {
       "year": 1808
-    }
+    },
+    "flame_test": true
   },
   {
     "Z": 21,
@@ -718,7 +722,8 @@
           "exchange_stabilization"
         ]
       }
-    }
+    },
+    "flame_test": true
   },
   {
     "Z": 30,
@@ -894,7 +899,8 @@
     },
     "storage_profiles": [
       "storage:alkali_metal_heavy"
-    ]
+    ],
+    "flame_test": true
   },
   {
     "Z": 38,
@@ -915,7 +921,8 @@
     "density_g_cm3": 2.64,
     "discovery": {
       "year": 1790
-    }
+    },
+    "flame_test": true
   },
   {
     "Z": 39,
@@ -1512,7 +1519,8 @@
     },
     "storage_profiles": [
       "storage:alkali_metal_heavy"
-    ]
+    ],
+    "flame_test": true
   },
   {
     "Z": 56,
@@ -1533,7 +1541,8 @@
     "density_g_cm3": 3.62,
     "discovery": {
       "year": 1808
-    }
+    },
+    "flame_test": true
   },
   {
     "Z": 57,

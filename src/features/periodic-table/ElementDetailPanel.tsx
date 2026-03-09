@@ -94,6 +94,14 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
         </div>
       )}
 
+      {/* Flame test — atomic emission hint */}
+      {element.flame_test && (
+        <PhysFoundationHint
+          bridgeId="why_atoms_emit_light"
+          locale={locale}
+        />
+      )}
+
       {/* Why these oxidation states */}
       {element.typical_oxidation_states.length > 0 && (
         <div className="detail-panel__why">
