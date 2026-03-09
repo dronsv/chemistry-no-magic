@@ -54,7 +54,7 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
         <dd>{element.electronegativity ?? '—'}</dd>
       </dl>
 
-      {exc && (
+      {exc?.reason && (
         <p className="pt-details__exception-note">
           {m.elem_exception_note({ reason: exc.reason })}
         </p>
