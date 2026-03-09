@@ -50,6 +50,7 @@ import { generateIndices } from './lib/generate-indices.mjs';
 import { generateManifest } from './lib/generate-manifest.mjs';
 import { generateSearchIndex } from './lib/generate-search-index.mjs';
 import { generateFormulaLookup } from './lib/generate-formula-lookup.mjs';
+import { generatePhysicalIndices } from './lib/generate-physical-indices.mjs';
 import { generateNameIndex } from './lib/generate-name-index.mjs';
 import { TRANSLATION_LOCALES } from './lib/i18n.mjs';
 import { generateReactionParticipants } from './lib/generate-reaction-participants.mjs';
@@ -515,6 +516,16 @@ async function main() {
     if (mathConcepts) await writeFile(join(bundleDir, 'foundations', 'math_concepts.json'), JSON.stringify(mathConcepts));
     if (mechanisms) await writeFile(join(bundleDir, 'foundations', 'mechanisms.json'), JSON.stringify(mechanisms));
     if (bridgeExplanations) await writeFile(join(bundleDir, 'foundations', 'bridge_explanations.json'), JSON.stringify(bridgeExplanations));
+    // WP5 — build-time reverse indices
+    if (bridgeExplanations) {
+      const physicalIndices = generatePhysicalIndices(
+        bridgeExplanations,
+        mechanisms ?? [],
+        physicalConcepts ?? [],
+        mathConcepts ?? [],
+      );
+      await writeFile(join(bundleDir, 'foundations', 'indices.json'), JSON.stringify(physicalIndices));
+    }
   }
 
   await mkdir(join(bundleDir, 'engine'), { recursive: true });
@@ -834,6 +845,7 @@ async function main() {
       math_concepts: !!mathConcepts,
       mechanisms: !!mechanisms,
       bridge_explanations: !!bridgeExplanations,
+      indices: !!bridgeExplanations,
     },
   });
 

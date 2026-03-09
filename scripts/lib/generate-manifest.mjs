@@ -119,6 +119,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         ...(foundations.math_concepts ? { math_concepts: 'foundations/math_concepts.json' } : {}),
         ...(foundations.mechanisms ? { mechanisms: 'foundations/mechanisms.json' } : {}),
         ...(foundations.bridge_explanations ? { bridge_explanations: 'foundations/bridge_explanations.json' } : {}),
+        ...(foundations.indices ? { indices: 'foundations/indices.json' } : {}),
       } : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',

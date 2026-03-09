@@ -1,5 +1,17 @@
 /** G.1 Physical Foundations Pilot — locale-neutral catalog types + overlay fields */
 
+export interface PhysicalIndices {
+  /** concept_id → bridge_ids that require it */
+  concept_to_bridges: Record<string, string[]>;
+  /** mechanism_id → bridge_ids that contain it */
+  mechanism_to_bridges: Record<string, string[]>;
+  /** bridge_id → page slugs where it's wired */
+  bridge_to_pages: Record<string, string[]>;
+  /** bridge_id → mechanism_ids in causal order */
+  mechanism_order: Record<string, string[]>;
+}
+
+
 export interface PhysicalConcept {
   id: string;
   kind: 'physical_concept';
@@ -62,6 +74,7 @@ export interface BridgeExplanation {
   school_grade_range: [number, number];
   prerequisite_concepts: string[];
   exception_element_ids?: string[];
+  page_slugs?: string[];
   // Overlay fields
   title?: string;
   hint?: string;

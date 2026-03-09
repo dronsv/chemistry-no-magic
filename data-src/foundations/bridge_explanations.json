@@ -9,7 +9,8 @@
     ],
     "target_rule_ids": ["kinetics"],
     "school_grade_range": [8, 11],
-    "prerequisite_concepts": ["temperature", "energy", "thermal_motion"]
+    "prerequisite_concepts": ["temperature", "energy", "thermal_motion"],
+    "page_slugs": ["reactions"]
   },
   {
     "id": "why_atoms_emit_light",
@@ -18,7 +19,8 @@
     "mechanism_ids": ["transition_energy_matches_photon_energy"],
     "target_rule_ids": [],
     "school_grade_range": [9, 11],
-    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+    "prerequisite_concepts": ["electronic_energy_level", "energy"],
+    "page_slugs": ["periodic-table"]
   },
   {
     "id": "difference_between_excitation_and_configuration_exception",
@@ -27,7 +29,8 @@
     "mechanism_ids": ["exchange_stabilization", "transition_energy_matches_photon_energy"],
     "target_rule_ids": [],
     "school_grade_range": [10, 11],
-    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+    "prerequisite_concepts": ["electronic_energy_level", "energy"],
+    "page_slugs": ["periodic-table"]
   },
   {
     "id": "why_half_filled_d_is_stable",
@@ -37,6 +40,7 @@
     "target_rule_ids": [],
     "exception_element_ids": ["Cr", "Mo"],
     "school_grade_range": [10, 11],
-    "prerequisite_concepts": ["electronic_energy_level", "energy"]
+    "prerequisite_concepts": ["electronic_energy_level", "energy"],
+    "page_slugs": ["periodic-table"]
   }
 ]

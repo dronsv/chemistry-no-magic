@@ -137,3 +137,27 @@
   font-size: 0.75rem;
   margin-left: 0.25rem;
 }
+
+/* Used-on-pages backlinks */
+.pf-bridge__pages {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.pf-bridge__pages-label {
+  font-weight: 600;
+}
+
+.pf-bridge__page-link {
+  display: inline-block;
+  margin-left: 0.25rem;
+  color: #7c3aed;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.pf-bridge__page-link:hover {
+  text-decoration: underline;
+}

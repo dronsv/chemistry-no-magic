@@ -1195,3 +1195,10 @@ export async function loadBridgeExplanations(
   const overlay = await loadTranslationOverlay(locale, 'foundations/bridge_explanations');
   return applyOverlay(data, overlay, b => b.id);
 }
+
+export async function loadPhysicalIndices(): Promise<import('../types/foundations').PhysicalIndices | null> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.indices;
+  if (!path) return null;
+  return loadDataFile<import('../types/foundations').PhysicalIndices>(path);
+}

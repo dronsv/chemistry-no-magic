@@ -55,6 +55,7 @@ export interface ManifestEntrypoints {
     math_concepts?: string;
     mechanisms?: string;
     bridge_explanations?: string;
+    indices?: string;
   };
 }
 
