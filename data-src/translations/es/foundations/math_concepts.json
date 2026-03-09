@@ -1,0 +1,14 @@
+{
+  "average": {
+    "name": "Valor medio",
+    "summary": "Cociente entre la suma de los valores numéricos y su cantidad."
+  },
+  "direct_proportionality": {
+    "name": "Proporcionalidad directa",
+    "summary": "Relación de la forma y = kx: si x aumenta n veces, y también aumenta n veces."
+  },
+  "graph_reading": {
+    "name": "Lectura de gráficas",
+    "summary": "Determinación del valor de una magnitud a partir del valor conocido de otra mediante una curva en una gráfica."
+  }
+}

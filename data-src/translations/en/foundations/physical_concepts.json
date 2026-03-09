@@ -1,0 +1,22 @@
+{
+  "temperature": {
+    "name": "Temperature",
+    "summary": "A measure of the average kinetic energy of randomly moving particles in a substance.",
+    "intuition": "The hotter a body, the faster its particles move."
+  },
+  "energy": {
+    "name": "Energy",
+    "summary": "A physical quantity that characterises the ability of a system to do work.",
+    "intuition": "Energy can change from one form to another but never disappears."
+  },
+  "thermal_motion": {
+    "name": "Thermal motion",
+    "summary": "The continuous random motion of atoms, molecules, and ions in a substance.",
+    "intuition": "Particles of any substance are never at rest — even at low temperatures."
+  },
+  "electronic_energy_level": {
+    "name": "Electron energy level",
+    "summary": "A permitted energy value for an electron in an atom; it can only take discrete (quantised) values.",
+    "intuition": "An electron in an atom can only occupy 'allowed steps' — like a staircase, not a ramp."
+  }
+}

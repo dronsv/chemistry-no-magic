@@ -1,0 +1,22 @@
+{
+  "why_heating_speeds_reactions": {
+    "title": "Dlaczego ogrzewanie przyspiesza reakcje?",
+    "hint": "Temperatura → średnia energia kinetyczna cząstek → udział zderzeń przekraczających energię aktywacji.",
+    "school_explanation": "Po podgrzaniu cząstki poruszają się szybciej: ich średnia energia kinetyczna rośnie. Większy udział zderzeń przekracza energię aktywacji — reakcja przyspiesza. Reguła van't Hoffa: wzrost temperatury o 10 °C zwiększa szybkość reakcji 2–4 razy."
+  },
+  "why_atoms_emit_light": {
+    "title": "Dlaczego atomy emitują światło o określonych długościach fal?",
+    "hint": "Elektron spada z wyższego poziomu na niższy i emituje foton o ściśle określonej energii.",
+    "school_explanation": "Poziomy energetyczne w atomie są dyskretne. Elektron, pochłaniając foton, przechodzi na wyższy poziom (stan wzbudzony). Przy powrocie emituje foton o energii równej różnicy poziomów — co odpowiada ściśle określonej długości fali. Dlatego widmo emisyjne atomu składa się z pojedynczych linii, a nie ciągłego zakresu."
+  },
+  "difference_between_excitation_and_configuration_exception": {
+    "title": "Wzbudzenie a spadek elektronu: jaka jest różnica?",
+    "hint": "Spadek elektronu to stała konfiguracja stanu podstawowego; wzbudzenie to przejściowy stan spowodowany pochłonięciem energii.",
+    "school_explanation": "'Spadek' elektronu (u Cr, Cu i in.) to STAN PODSTAWOWY atomu: konfiguracja 3d⁵4s¹ jest trwalsza niż teoretycznie oczekiwana 3d⁴4s² i stanowi stałą cechę pierwiastka. Wzbudzenie to CHWILOWE pochłonięcie energii z zewnątrz (foton, ciepło), po którym atom szybko wraca do stanu podstawowego. To dwa zupełnie różne zjawiska."
+  },
+  "why_half_filled_d_is_stable": {
+    "title": "Dlaczego półzapełniona podpowłoka d jest stabilna?",
+    "hint": "Oddziaływanie wymienne między elektronami o równoległych spinach obniża całkowitą energię atomu przy symetrycznym zapełnieniu podpowłoki.",
+    "school_explanation": "Chrom ([Ar] 3d⁵4s¹ zamiast oczekiwanego 3d⁴4s²) i inne metale przejściowe naruszają zasadę Aufbau. Przyczyna: przy półzapełnionym 3d⁵ wszystkie pięć elektronów ma równoległe spiny. Maksymalizuje to oddziaływanie wymienne, które dodatkowo obniża całkowitą energię atomu. Zysk energetyczny przewyższa 'koszt' przeniesienia elektronu z 4s na 3d."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "average": {
+    "name": "Wartość średnia",
+    "summary": "Iloraz sumy wartości liczbowych przez ich liczbę."
+  },
+  "direct_proportionality": {
+    "name": "Proporcjonalność prosta",
+    "summary": "Zależność postaci y = kx: jeśli x rośnie n razy, y również rośnie n razy."
+  },
+  "graph_reading": {
+    "name": "Odczytywanie wykresu",
+    "summary": "Wyznaczanie wartości jednej wielkości na podstawie znanej wartości drugiej za pomocą krzywej na wykresie."
+  }
+}

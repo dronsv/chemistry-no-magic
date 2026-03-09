@@ -1,0 +1,18 @@
+{
+  "temperature_increases_average_kinetic_energy": {
+    "name": "Temperature rise → higher average kinetic energy",
+    "school": "When heated, particles of a substance move faster: their average kinetic energy grows proportionally to the absolute temperature (E ~ T)."
+  },
+  "temperature_increases_effective_collision_fraction": {
+    "name": "Higher average kinetic energy → larger fraction of effective collisions",
+    "school": "At higher average energy a greater fraction of collisions exceeds the activation energy — the reaction speeds up. Hence the Van't Hoff rule: raising the temperature by 10 °C accelerates the reaction 2–4 times."
+  },
+  "transition_energy_matches_photon_energy": {
+    "name": "Photon absorption → electron transition to a higher level",
+    "school": "An electron absorbs a photon whose energy exactly equals the difference between two energy levels and instantly jumps to the upper level (excited state)."
+  },
+  "exchange_stabilization": {
+    "name": "Exchange stabilisation → lower total energy of the atom",
+    "school": "Electrons with parallel spins 'meet' in the same region of space less often due to the Pauli exclusion principle. This reduces their electrostatic repulsion — the total energy of the atom decreases. The effect is greatest when the subshell is completely or half filled (all spins parallel)."
+  }
+}

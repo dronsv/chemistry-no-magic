@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PhysicalFoundationsPage from '../../../features/physical-foundations/PhysicalFoundationsPage';
+import type { SupportedLocale } from '../../../types/i18n';
+const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+---
+
+<BaseLayout
+  title="Podstawy fizyczne chemii"
+  description="Wyjaśnienia kluczowych pojęć fizycznych, mechanizmów i powiązań między fizyką a chemią: temperatura, ruch cieplny, poziomy energetyczne, stabilizacja wymienna."
+  lang="pl"
+>
+  <PhysicalFoundationsPage locale={locale} client:idle />
+</BaseLayout>

@@ -1,0 +1,22 @@
+{
+  "why_heating_speeds_reactions": {
+    "title": "Why does heating speed up reactions?",
+    "hint": "Temperature → average kinetic energy of particles → fraction of collisions above the activation energy.",
+    "school_explanation": "When heated, particles move faster: their average kinetic energy increases. A greater fraction of collisions exceeds the activation energy — the reaction speeds up. Van't Hoff rule: raising the temperature by 10 °C increases the reaction rate 2–4 times."
+  },
+  "why_atoms_emit_light": {
+    "title": "Why do atoms emit light of specific wavelengths?",
+    "hint": "An electron drops from a higher level to a lower one and emits a photon of precisely defined energy.",
+    "school_explanation": "Energy levels in an atom are discrete. An electron that absorbs a photon jumps to a higher level (excited state). On the way back it emits a photon whose energy equals the difference between the levels — a strictly defined wavelength. That is why an atom's emission spectrum consists of individual lines rather than a continuous range."
+  },
+  "difference_between_excitation_and_configuration_exception": {
+    "title": "Excitation vs electron drop: what is the difference?",
+    "hint": "An electron drop is a permanent ground-state configuration; excitation is a temporary transition caused by energy absorption.",
+    "school_explanation": "The electron 'drop' (in Cr, Cu, etc.) is the GROUND state of the atom: the configuration 3d⁵4s¹ is more stable than the theoretically expected 3d⁴4s² and is a permanent characteristic of the element. Excitation is a TEMPORARY absorption of external energy (photon, heat), after which the atom quickly returns to the ground state. These are two entirely different phenomena."
+  },
+  "why_half_filled_d_is_stable": {
+    "title": "Why is a half-filled d subshell stable?",
+    "hint": "Exchange interaction between electrons with parallel spins lowers the total energy of the atom when the subshell is symmetrically filled.",
+    "school_explanation": "Chromium ([Ar] 3d⁵4s¹ instead of the expected 3d⁴4s²) and other transition metals violate the Aufbau principle. The reason: with a half-filled 3d⁵ all five electrons have parallel spins. This maximises the exchange interaction, which additionally lowers the total energy of the atom. The energy gain exceeds the 'cost' of moving an electron from 4s to 3d."
+  }
+}

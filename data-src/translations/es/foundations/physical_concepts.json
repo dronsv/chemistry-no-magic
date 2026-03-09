@@ -1,0 +1,22 @@
+{
+  "temperature": {
+    "name": "Temperatura",
+    "summary": "Medida de la energía cinética media de las partículas que se mueven aleatoriamente en una sustancia.",
+    "intuition": "Cuanto más caliente está un cuerpo, más rápido se mueven sus partículas."
+  },
+  "energy": {
+    "name": "Energía",
+    "summary": "Magnitud física que caracteriza la capacidad de un sistema para realizar trabajo.",
+    "intuition": "La energía puede transformarse de una forma en otra, pero nunca desaparece."
+  },
+  "thermal_motion": {
+    "name": "Movimiento térmico",
+    "summary": "Movimiento aleatorio continuo de átomos, moléculas e iones en una sustancia.",
+    "intuition": "Las partículas de cualquier sustancia nunca están en reposo, ni siquiera a bajas temperaturas."
+  },
+  "electronic_energy_level": {
+    "name": "Nivel de energía electrónico",
+    "summary": "Valor permitido de energía de un electrón en un átomo; solo puede tomar valores discretos (cuantizados).",
+    "intuition": "Un electrón en un átomo solo puede ocupar 'peldaños permitidos', como en una escalera, no en una rampa."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "why_heating_speeds_reactions": {
+    "title": "¿Por qué el calentamiento acelera las reacciones?",
+    "hint": "Temperatura → energía cinética media de las partículas → fracción de choques que superan la energía de activación.",
+    "school_explanation": "Al calentar, las partículas se mueven más rápido: su energía cinética media aumenta. Una mayor fracción de choques supera la energía de activación y la reacción se acelera. Regla de van't Hoff: elevar la temperatura 10 °C multiplica la velocidad de reacción por 2–4."
+  },
+  "why_atoms_emit_light": {
+    "title": "¿Por qué los átomos emiten luz de longitudes de onda específicas?",
+    "hint": "Un electrón cae de un nivel superior a uno inferior y emite un fotón de energía exactamente definida.",
+    "school_explanation": "Los niveles de energía del átomo son discretos. Un electrón que absorbe un fotón salta a un nivel superior (estado excitado). Al regresar emite un fotón con energía igual a la diferencia entre los niveles — una longitud de onda estrictamente definida. Por eso el espectro de emisión del átomo está formado por líneas individuales y no por un rango continuo."
+  },
+  "difference_between_excitation_and_configuration_exception": {
+    "title": "Excitación vs caída del electrón: ¿cuál es la diferencia?",
+    "hint": "La caída es una configuración permanente del estado fundamental; la excitación es una transición temporal causada por la absorción de energía.",
+    "school_explanation": "La 'caída' del electrón (en Cr, Cu, etc.) es el ESTADO FUNDAMENTAL del átomo: la configuración 3d⁵4s¹ es más estable que la teóricamente esperada 3d⁴4s² y es una característica permanente del elemento. La excitación es una absorción TEMPORAL de energía externa (fotón, calor), tras la cual el átomo regresa rápidamente al estado fundamental. Son dos fenómenos completamente distintos."
+  },
+  "why_half_filled_d_is_stable": {
+    "title": "¿Por qué el subnivel d semilleno es estable?",
+    "hint": "La interacción de intercambio entre electrones con espines paralelos reduce la energía total del átomo cuando el subnivel está simétricamente lleno.",
+    "school_explanation": "El cromo ([Ar] 3d⁵4s¹ en lugar del esperado 3d⁴4s²) y otros metales de transición violan el principio de Aufbau. La razón: con el 3d⁵ semilleno, los cinco electrones tienen espines paralelos. Esto maximiza la interacción de intercambio, que reduce adicionalmente la energía total del átomo. La ganancia supera el 'coste' de trasladar un electrón de 4s a 3d."
+  }
+}

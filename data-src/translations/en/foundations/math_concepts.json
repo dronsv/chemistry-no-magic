@@ -1,0 +1,14 @@
+{
+  "average": {
+    "name": "Average value",
+    "summary": "The sum of a set of numbers divided by their count."
+  },
+  "direct_proportionality": {
+    "name": "Direct proportionality",
+    "summary": "A relationship of the form y = kx: if x increases n times, y also increases n times."
+  },
+  "graph_reading": {
+    "name": "Reading a graph",
+    "summary": "Finding the value of one quantity from a known value of another using a curve on a graph."
+  }
+}

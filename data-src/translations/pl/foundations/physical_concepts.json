@@ -1,0 +1,22 @@
+{
+  "temperature": {
+    "name": "Temperatura",
+    "summary": "Miara średniej energii kinetycznej chaotycznie poruszających się cząstek substancji.",
+    "intuition": "Im cieplejsze ciało, tym szybciej poruszają się jego cząstki."
+  },
+  "energy": {
+    "name": "Energia",
+    "summary": "Wielkość fizyczna charakteryzująca zdolność układu do wykonania pracy.",
+    "intuition": "Energia może przemieniać się z jednej formy w drugą, ale nigdy nie znika."
+  },
+  "thermal_motion": {
+    "name": "Ruch cieplny",
+    "summary": "Ciągły chaotyczny ruch atomów, cząsteczek i jonów w substancji.",
+    "intuition": "Cząstki każdej substancji nigdy nie stoją w miejscu — nawet w niskich temperaturach."
+  },
+  "electronic_energy_level": {
+    "name": "Poziom energetyczny elektronu",
+    "summary": "Dozwolona wartość energii elektronu w atomie; przyjmuje wyłącznie dyskretne (skwantowane) wartości.",
+    "intuition": "Elektron w atomie może zajmować tylko 'dozwolone stopnie' — jak na schodach, a nie na pochylni."
+  }
+}

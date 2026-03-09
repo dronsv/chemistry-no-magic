@@ -1,0 +1,18 @@
+{
+  "temperature_increases_average_kinetic_energy": {
+    "name": "Wzrost temperatury → wzrost średniej energii kinetycznej",
+    "school": "Po podgrzaniu cząstki substancji poruszają się szybciej: ich średnia energia kinetyczna rośnie proporcjonalnie do temperatury bezwzględnej (E ~ T)."
+  },
+  "temperature_increases_effective_collision_fraction": {
+    "name": "Wyższa średnia energia kinetyczna → większy udział efektywnych zderzeń",
+    "school": "Przy wyższej średniej energii większy udział zderzeń przekracza energię aktywacji — reakcja przyspiesza. Stąd reguła van't Hoffa: wzrost temperatury o 10 °C przyspiesza reakcję 2–4 razy."
+  },
+  "transition_energy_matches_photon_energy": {
+    "name": "Pochłonięcie fotonu → przejście elektronu na wyższy poziom",
+    "school": "Elektron pochłania foton o energii dokładnie równej różnicy energii dwóch poziomów i natychmiast przechodzi na wyższy poziom (stan wzbudzony)."
+  },
+  "exchange_stabilization": {
+    "name": "Stabilizacja wymienna → obniżenie całkowitej energii atomu",
+    "school": "Elektrony o równoległych spinach rzadziej 'spotykają się' w tym samym obszarze przestrzeni ze względu na zakaz Pauliego. Zmniejsza to ich odpychanie elektrostatyczne — całkowita energia atomu maleje. Efekt jest największy przy całkowicie lub w połowie zapełnionej podpowłoce (wszystkie spiny równoległe)."
+  }
+}

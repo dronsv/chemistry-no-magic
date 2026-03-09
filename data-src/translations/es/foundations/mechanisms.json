@@ -1,0 +1,18 @@
+{
+  "temperature_increases_average_kinetic_energy": {
+    "name": "Aumento de temperatura → aumento de la energía cinética media",
+    "school": "Al calentar, las partículas de la sustancia se mueven más rápido: su energía cinética media crece proporcionalmente a la temperatura absoluta (E ~ T)."
+  },
+  "temperature_increases_effective_collision_fraction": {
+    "name": "Mayor energía cinética media → mayor fracción de choques eficaces",
+    "school": "Con mayor energía media, una fracción mayor de choques supera la energía de activación y la reacción se acelera. De ahí la regla de van't Hoff: un aumento de temperatura de 10 °C acelera la reacción 2–4 veces."
+  },
+  "transition_energy_matches_photon_energy": {
+    "name": "Absorción de fotón → transición del electrón a un nivel superior",
+    "school": "Un electrón absorbe un fotón cuya energía es exactamente igual a la diferencia entre dos niveles de energía y salta instantáneamente al nivel superior (estado excitado)."
+  },
+  "exchange_stabilization": {
+    "name": "Estabilización de intercambio → reducción de la energía total del átomo",
+    "school": "Los electrones con espines paralelos se 'encuentran' menos frecuentemente en la misma región del espacio debido al principio de exclusión de Pauli. Esto reduce su repulsión electrostática y disminuye la energía total del átomo. El efecto es máximo cuando el subnivel está completamente o a la mitad lleno (todos los espines paralelos)."
+  }
+}
