@@ -18,14 +18,15 @@
 | **L** | Localization Foundation (EN/PL/ES overlays + morphology + generated texts) | ✅ Done | `feature/localization-foundation` c02dcef |
 | **D** | Student Materials → Theory Layer | ✅ Done | `feature/localization-foundation` 896c2d2 |
 | **C** | ADR-002 ID Migration (`sub:` everywhere) | ✅ Done | `feature/localization-foundation` |
-| **F** | Electron Exception Ontologization | 🔄 In Progress | `master` |
-| **G.0** | ADR-003 + Explanatory Catalog Validator | 📋 Planned | — |
-| **G.1** | Physical Foundations — Core Catalogs (WP1 pilot) | 📋 Planned | — |
-| **G.2** | Physical Foundations — RU Locale Frames (WP6) | 📋 Planned | — |
-| **F+** | D+ — mechanism_refs on electron_exception.stabilization | 📋 Planned | — |
-| **G.3** | Physical Foundations — Page + Deep Links (WP2+WP3) | 📋 Planned | — |
-| **G.4** | Physical Foundations — Inline Hints (WP4) | 📋 Planned | — |
-| **G.5** | Physical Foundations — Reverse Indices (WP5) | 📋 Planned | — |
+| **F** | Electron Exception Ontologization | ✅ Done | `master` 42c65a8 |
+| **G.0** | ADR-003 + Explanatory Catalog Validator | ✅ Done | `master` c6f3b00 |
+| **G.1** | Physical Foundations — Core Catalogs (WP1 pilot) | ✅ Done | `master` f0fa95c |
+| **G.2** | Physical Foundations — RU Locale Frames (WP6) | ✅ Done | `master` 31d92c2 |
+| **F+** | D+ — mechanism_refs on electron_exception.stabilization | ✅ Done | `master` 8d37cf7 |
+| **G.3** | Physical Foundations — Page + Deep Links (WP2+WP3) | ✅ Done | `master` a1dffc2 |
+| **G.4** | Physical Foundations — Inline Hints (WP4) | ✅ Done | `master` c2ddd36 |
+| **G.5** | Physical Foundations — Reverse Indices (WP5) | ✅ Done | `master` 53b1dcf |
+| **Wave 2** | EN/PL/ES foundation overlays + PL/ES pages | ✅ Done | `master` 874c470 |
 
 ---
 
@@ -213,138 +214,105 @@
 
 ---
 
-## Phase F — Electron Exception Ontologization 🔄
+## Phase F — Electron Exception Ontologization ✅
 
 **Spec**: `docs/physical_foundations_ontology_package.zip` Epic D + `docs/adr-003-locale-neutral-catalogs.md`
-**Branch**: `master`
+**Branch**: `master` 42c65a8
 
-Перевести `electron_exception` с free-text `reason` на структурные поля + frame-based generation.
-Закрывает баг: `undefined` reason на ES/EN/PL периодической таблице.
-
-### Шаги
-
-- [ ] **D1: Data** — добавить `moves` + `stabilization` ко всем 19 элементам в `data-src/elements.json`
-  - `moves: [{from: [n, subshell], to: [n, subshell], count: N}]`
-  - `stabilization: {family, target_subshell, target_pattern}`
-  - Покрываемые случаи: `half_filled_stability`, `full_filled_stability`, `exchange_energy`, `energy_proximity`
-
-- [ ] **D2: Frames** — создать `data-src/rules/electron_exception_frames.json`
-  - 4 rule kinds × 4 locales (ru/en/pl/es)
-  - Слоты: `{from}`, `{to}`, `{result}`, `{count}`
-  - `{result}` — состояние целевого подуровня из `stabilization.target_subshell` + `config_override`
-
-- [ ] **D3: Types** — обновить `src/types/element.ts`
-  - Добавить `ElectronExceptionMove` interface
-  - Добавить `ElectronExceptionStabilization` interface
-  - Сделать `moves?` и `stabilization?` optional в `ElectronException`
-  - `reason?: string` остаётся как runtime-generated field (не в JSON source)
-
-- [ ] **D4: Loader** — обновить `loadElements(locale)` в `src/lib/data-loader.ts`
-  - Добавить `loadElectronExceptionFrames(locale)` loader
-  - После overlay применить: `generateExceptionReason(exc, frames, locale)` для каждого элемента с exception
-  - Функция: `{from}` = `moves[0].from[0] + moves[0].from[1]`, `{to}` = аналогично, `{result}` = из config_override по target_subshell
-
-- [ ] **D5: Cleanup** — убрать `electron_exception.reason` из `data-src/translations/ru/elements.json`
-  - Все 19 записей — удалить поле `reason`, оставить только `name` и другие нужные поля
-  - Это также исправляет баг: overlay больше не уничтожает `config_override` при shallow merge
-
-- [ ] **D6: Build pipeline** — зарегистрировать `electron_exception_frames.json` в manifest
-  - `scripts/lib/generate-manifest.mjs`: добавить в `entrypoints.rules`
-  - `src/types/manifest.ts`: тип уже `Record<string, string>` — без изменений
-
-- [ ] **Verify**: `npm run validate:data` — нет ошибок
-- [ ] **Verify**: `npm test` — 769+ тестов ✓ (добавить тест на reason generation для Cr/Cu/Pd)
-- [ ] **Verify**: EN/PL/ES периодическая таблица — исключения показывают корректный текст
-
-### Побочные эффекты (фикс)
-
-Текущий баг: `applyOverlay` делает shallow merge, поэтому overlay с `{ "Cr": { "electron_exception": { "reason": "..." } } }` уничтожает `config_override`. После Phase F overlay для элементов больше не содержит `electron_exception` — баг устранён структурно.
+- [x] **D1: Data** — `moves` + `stabilization` на всех 19 элементах в `data-src/elements.json`
+- [x] **D2: Frames** — `data-src/rules/electron_exception_frames.json` (4 rule kinds × 4 locales)
+- [x] **D3: Types** — `ElectronExceptionMove` + `ElectronExceptionStabilization` в `src/types/element.ts`
+- [x] **D4: Loader** — `generateExceptionReason(exc, frames, locale)` в `loadElements()`
+- [x] **D5: Cleanup** — `electron_exception` удалён из `data-src/translations/ru/elements.json`
+- [x] **D6: Build pipeline** — `electron_exception_frames.json` зарегистрирован в manifest
 
 ---
 
-## Phase G.0 — ADR-003 + Validator ✅ (docs done)
+## Phase G.0 — ADR-003 + Validator ✅
 
 **Spec**: `docs/adr-003-locale-neutral-catalogs.md` ← создан 2026-03-09
-**Branch**: `master`
+**Branch**: `master` c6f3b00
 
 - [x] ADR-003 документ создан
-- [ ] `validateExplanatoryCatalogLocaleNeutral()` в `scripts/lib/validate.mjs`
-- [ ] Регистрация для `physical_concepts`, `mechanisms`, `bridge_explanations` в `validateAll()`
-- [ ] Тест: `npm run validate:data` — проходит без ошибок
+- [x] `validateExplanatoryCatalogLocaleNeutral()` в `scripts/lib/validate.mjs`
+- [x] Регистрация для `physical_concepts`, `mechanisms`, `bridge_explanations` в `validateAll()`
+- [x] Тест: `npm run validate:data` — проходит без ошибок
 
 ---
 
-## Phase G.1 — Physical Foundations Core Catalogs (WP1 pilot)
+## Phase G.1 — Physical Foundations Core Catalogs (WP1 pilot) ✅
 
 **Spec**: `docs/physical-foundations-spec.md`
-**Prerequisites**: G.0
+**Branch**: `master` f0fa95c
 
-- [ ] `data-src/physical_concepts.json` — 9 concepts (ADR-003 compliant)
-- [ ] `data-src/math_concepts.json` — 8 concepts
-- [ ] `data-src/mechanisms.json` — 7 mechanisms
-- [ ] `data-src/bridge_explanations.json` — 5 bridges
-- [ ] Types: `src/types/physical-foundations.ts`
-- [ ] Build pipeline + manifest registration (section `entrypoints.physical`)
-- [ ] `npm run validate:data` — WP0 validator проверяет locale-neutral compliance
-- [ ] `npm run build` — чистая сборка
-
----
-
-## Phase G.2 — Physical Foundations RU Locale Frames (WP6)
-
-**Prerequisites**: G.1
-
-- [ ] `data-src/frames/physical_concepts_frames.json` — 9 concepts × 4 variants
-- [ ] `data-src/frames/mechanisms_frames.json` — 7 mechanisms × 3 variants
-- [ ] `data-src/frames/bridge_explanations_frames.json` — 5 bridges × 3 variants
-- [ ] `data-src/translations/ru/frames/physical_concepts.json` — RU locale overlay
-- [ ] `data-src/translations/ru/frames/mechanisms.json`
-- [ ] `data-src/translations/ru/frames/bridge_explanations.json`
-- [ ] `loadPhysicalFrames(locale)` + `loadBridgeFrames(locale)` в `data-loader.ts`
-- [ ] Wave 2 (EN/PL/ES): после проверки RU quality
+- [x] `data-src/foundations/physical_concepts.json` — 4 concepts (ADR-003 compliant)
+- [x] `data-src/foundations/math_concepts.json` — 3 concepts
+- [x] `data-src/foundations/mechanisms.json` — 4 mechanisms
+- [x] `data-src/foundations/bridge_explanations.json` — 4 bridges
+- [x] Types: `src/types/foundations.ts`
+- [x] Build pipeline + manifest registration (`entrypoints.foundations`)
+- [x] `npm run validate:data` — WP0 validator проверяет locale-neutral compliance
+- [x] `npm run build` — 514 pages ✓
 
 ---
 
-## Phase F+ — D+ Mechanism Refs on Stabilization
+## Phase G.2 — Physical Foundations RU Locale Translations (WP6) ✅
 
-**Prerequisites**: G.1 + G.2 (bridge:why_half_filled_is_stable доступен)
+**Branch**: `master` 31d92c2
 
-- [ ] `electron_exception_frames.json` — добавить `mechanism_ids[]` + `bridge_id` + `deep_link` на каждый stabilization family
-- [ ] `src/features/periodic-table/ElementDetails.tsx` — рендерить "learn more" CTA
-- [ ] `src/types/element.ts` — расширить `ElectronExceptionStabilization` полями refs
-
----
-
-## Phase G.3 — Physical Foundations Page + Deep Links (WP2+WP3)
-
-**Prerequisites**: G.2
-
-- [ ] `src/pages/physical-foundations/index.astro` — RU page со всеми anchor sections
-- [ ] `src/pages/en/physical-foundations/index.astro` — EN page
-- [ ] Добавить в nav (`Nav.astro`)
-- [ ] `npm run build` — проверить новые страницы в dist
-- [ ] Anchors: `#temperature`, `#effective-collisions`, `#energy-levels`, `#excitation`, `#emission`, `#exchange-stabilization`, etc.
+- [x] `data-src/translations/ru/foundations/physical_concepts.json` — RU overlay
+- [x] `data-src/translations/ru/foundations/mechanisms.json`
+- [x] `data-src/translations/ru/foundations/bridge_explanations.json`
+- [x] `data-src/translations/ru/foundations/math_concepts.json`
+- [x] Loaders: `loadPhysicalConcepts(locale)`, `loadMechanisms(locale)`, `loadBridgeExplanations(locale)`, `loadMathConcepts(locale)` в `data-loader.ts`
+- [x] Wave 2 (EN/PL/ES): `874c470` — 12 overlay files + PL/ES pages
 
 ---
 
-## Phase G.4 — Inline Hints (WP4)
+## Phase F+ — D+ Mechanism Refs on Stabilization ✅
 
-**Prerequisites**: G.2 + G.3
+**Branch**: `master` 8d37cf7
 
-- [ ] `PhysFoundationHint.tsx` компонент (spec: `docs/visualization-components.md`)
-- [ ] Wire `bridge:excitation_vs_configuration_exception` → `ElementDetails.tsx`
-- [ ] Wire `bridge:why_heating_speeds_reactions` → `ReactionTheoryPanel`
-- [ ] Wire `bridge:why_atoms_emit_light` → element detail (для flame test elements)
+- [x] `data-src/elements.json` — `mechanism_ids[]` + `bridge_id` на stabilization (half_filled_stability, exchange_energy families)
+- [x] `src/features/periodic-table/ElementDetails.tsx` — "Глубже: почему?" CTA link
+- [x] `src/types/element.ts` — `ElectronExceptionStabilization` расширен `mechanism_ids?` + `bridge_id?`
 
 ---
 
-## Phase G.5 — Reverse Indices (WP5)
+## Phase G.3 — Physical Foundations Page + Deep Links (WP2+WP3) ✅
 
-**Prerequisites**: G.1
+**Branch**: `master` a1dffc2
 
-- [ ] `scripts/lib/generate-physical-indices.mjs` — build-time reverse index generator
-- [ ] Outputs: `bridge_to_topics.json`, `concept_to_topics.json`, `topic_to_prereqs.json`
-- [ ] Register in manifest + add loaders
+- [x] `src/pages/physical-foundations/index.astro` — RU page
+- [x] `src/pages/en/physical-foundations/index.astro` — EN page
+- [x] `src/pages/pl/physical-foundations/index.astro` — PL page (Wave 2)
+- [x] `src/pages/es/physical-foundations/index.astro` — ES page (Wave 2)
+- [x] `src/features/physical-foundations/PhysicalFoundationsPage.tsx` — React island
+- [x] Добавлен в nav (`Nav.astro`) — Chemistry group
+- [x] Anchor IDs = bridge IDs (deep-linkable from PhysFoundationHint)
+
+---
+
+## Phase G.4 — Inline Hints (WP4) ✅
+
+**Branch**: `master` c2ddd36
+
+- [x] `src/components/PhysFoundationHint.tsx` — self-loading collapsible component
+- [x] `src/components/phys-hint.css` — purple theme
+- [x] Wire `difference_between_excitation_and_configuration_exception` + `bridge_id` → `ElementDetailPanel.tsx`
+- [x] Wire `why_heating_speeds_reactions` → `ReactionTheoryPanel` (speed section)
+- [ ] Wire `why_atoms_emit_light` → element detail (для flame test elements) — **TODO**
+
+---
+
+## Phase G.5 — Reverse Indices (WP5) ✅
+
+**Branch**: `master` 53b1dcf
+
+- [x] `scripts/lib/generate-physical-indices.mjs` — build-time reverse index generator
+- [x] `foundations/indices.json`: `concept_to_bridges`, `mechanism_to_bridges`, `bridge_to_pages`, `mechanism_order`
+- [x] `loadPhysicalIndices()` loader; PhysicalFoundationsPage shows "Used on:" backlinks
+- [x] `page_slugs` added to bridge_explanations.json
 
 ---
 
