@@ -1,6 +1,6 @@
 import type { Manifest } from '../types/manifest';
 import type { ContextsData, ChemContext, SubstanceVariant, ChemTerm, TermBinding } from '../types/matter';
-import type { Element } from '../types/element';
+import type { Element, ElectronException } from '../types/element';
 import type { Ion } from '../types/ion';
 import type { Substance } from '../types/substance';
 import type { BktParams } from '../types/bkt';
@@ -175,16 +175,83 @@ function mergeArrayOverlay<T>(
 }
 
 // ---------------------------------------------------------------------------
+// Electron exception reason generation
+// ---------------------------------------------------------------------------
+
+type ExcFrameVariant = Record<string, string>; // locale → text
+type ExcFrameKind = { school: ExcFrameVariant; strict: ExcFrameVariant };
+type ElectronExceptionFrames = Record<string, ExcFrameKind>;
+
+const SUPERSCRIPTS: Record<number, string> = {
+  0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵',
+  6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹', 10: '¹⁰', 11: '¹¹',
+  12: '¹²', 13: '¹³', 14: '¹⁴',
+};
+
+function deriveResultNotation(
+  configOverride: [number, string, number][],
+  targetSubshell: string,
+): string {
+  const n = parseInt(targetSubshell.slice(0, -1), 10);
+  const sub = targetSubshell.slice(-1);
+  const entry = configOverride.find(([en, es]) => en === n && es === sub);
+  if (!entry) return targetSubshell;
+  return `${targetSubshell}${SUPERSCRIPTS[entry[2]] ?? `^${entry[2]}`}`;
+}
+
+function generateExceptionReason(
+  exc: ElectronException,
+  frames: ElectronExceptionFrames,
+  locale: SupportedLocale,
+): string {
+  const { moves, stabilization, config_override } = exc;
+  if (!moves?.length || !stabilization) return '';
+  const frameKind = frames[stabilization.family];
+  if (!frameKind) return '';
+  const template = frameKind.school[locale] ?? frameKind.school['ru'] ?? '';
+  if (!template) return '';
+  const move = moves[0];
+  const from_subshell = `${move.from[0]}${move.from[1]}`;
+  const to_subshell = `${move.to[0]}${move.to[1]}`;
+  const result = deriveResultNotation(config_override, stabilization.target_subshell);
+  return template
+    .replace(/\{from_subshell\}/g, from_subshell)
+    .replace(/\{to_subshell\}/g, to_subshell)
+    .replace(/\{result\}/g, result);
+}
+
+// ---------------------------------------------------------------------------
 // Data loaders
 // ---------------------------------------------------------------------------
 
 /** Load the full elements list. */
 export async function loadElements(locale?: SupportedLocale): Promise<Element[]> {
   const manifest = await getManifest();
-  const elements = await loadDataFile<Element[]>(manifest.entrypoints.elements);
+  const [elements, frames] = await Promise.all([
+    loadDataFile<Element[]>(manifest.entrypoints.elements),
+    loadDataFile<ElectronExceptionFrames>(manifest.entrypoints.rules.electron_exception_frames),
+  ]);
   if (!locale) return elements;
-  const overlay = await loadTranslationOverlay(locale, 'elements');
-  return applyOverlay(elements, overlay, el => el.symbol);
+
+  // Strip electron_exception from overlay to prevent shallow-merge destroying
+  // config_override/moves/stabilization (overlay only has reason, which we now generate).
+  const rawOverlay = await loadTranslationOverlay(locale, 'elements');
+  const overlay = rawOverlay
+    ? Object.fromEntries(
+        Object.entries(rawOverlay).map(([k, v]) => {
+          const { electron_exception: _ee, ...rest } = v as Record<string, unknown>;
+          return [k, rest];
+        }),
+      )
+    : null;
+
+  const overlaid = applyOverlay(elements, overlay, el => el.symbol);
+
+  return overlaid.map(el => {
+    if (!el.electron_exception?.stabilization) return el;
+    const reason = generateExceptionReason(el.electron_exception, frames, locale);
+    return { ...el, electron_exception: { ...el.electron_exception, reason } };
+  });
 }
 
 /** Load the full ions list. */

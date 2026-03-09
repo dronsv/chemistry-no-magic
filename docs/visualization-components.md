@@ -2,7 +2,7 @@
 
 > Каталог UI-компонентов, отображающих химические данные из онтологии.
 > Дополнение к [Ontology Map](./ontology-map.md).
-> Обновлено: 2026-03-04
+> Обновлено: 2026-03-09
 
 ---
 
@@ -40,6 +40,12 @@ graph TD
         GSE[GuidedSelectionExercise]
     end
 
+    subgraph "Physical Foundations — Phase G"
+        PFH[PhysFoundationHint]
+        BEC[BridgeExplanationCard]
+        DLC[DeepLinkCTA]
+    end
+
     subgraph "Utilities"
         FR[formula-render.ts]
         FP[formula-parser.ts]
@@ -69,6 +75,9 @@ graph TD
     MV --> BI
     BI --> BC
     BET -.-> |CalcTrace| MV
+
+    PFH --> DLC
+    BEC --> DLC
 ```
 
 ### Поток данных
@@ -367,6 +376,69 @@ Concept-kind colored link with description tooltip (renamed from the original `O
 
 ---
 
+## 5.5 Physical Foundations Components (Phase G)
+
+Новый слой UI для отображения explanatory layer — физических концепций, механизмов и bridge explanations. **Статус: запланировано (WP4)**. Данные: `data-src/physical_concepts.json`, `data-src/bridge_explanations.json`, frame catalogs `data-src/frames/`.
+
+### PhysFoundationHint — инлайн-подсказка
+
+| | |
+|---|---|
+| **Файл** | `src/components/PhysFoundationHint.tsx` (плановый) |
+| **Экспорт** | `PhysFoundationHint` (default) |
+| **Props** | `bridgeId: string`, `locale?: SupportedLocale`, `anchorId?: string` |
+| **Данные** | `loadBridgeForAnchor(anchorId, locale)` → `{ hint_text: string, deep_link: string }` |
+| **Рендер** | Однострочный (`hint_frame_id`) инлайн-текст + `DeepLinkCTA`. Разворачивается до `BridgeExplanationCard` при клике. Коллапсируемый. |
+| **CSS** | `.phys-hint`, `.phys-hint__text`, `.phys-hint__cta` — лёгкий bordered-left стиль |
+| **Где используется** | `ElementDetails.tsx` (under exception note для `bridge:excitation_vs_configuration_exception`), `ReactionTheoryPanel` (кинетика), страницы периодической таблицы (flame tests) |
+| **Связь с онтологией** | `bridge_explanation.hint_frame_id` → локализованный текст из `data-src/frames/bridge_explanations_frames.json` |
+| **Paraglide** | `phys_hint_learn_more`, `phys_hint_collapse` (новые ключи) |
+
+**Состояния**:
+```
+collapsed (default):  [ℹ️ Почему нагревание ускоряет реакции?] [Подробнее →]
+expanded:             [ℹ️ Почему нагревание ускоряет реакции?] [Свернуть ↑]
+                      Текст из hint_frame_id (1-2 предложения).
+                      [→ Энергия и столкновения]
+```
+
+### BridgeExplanationCard — раскрываемая карточка объяснения
+
+| | |
+|---|---|
+| **Файл** | `src/components/BridgeExplanationCard.tsx` (плановый) |
+| **Экспорт** | `BridgeExplanationCard` (default) |
+| **Props** | `bridge: BridgeExplanation`, `frames: BridgeExplanationFrames`, `variant: 'school' \| 'strict'`, `locale: SupportedLocale` |
+| **Рендер** | Карточка с заголовком (label), механизм-цепочкой (mechanism_sequence → нумерованный список из `school_frame_id`/`strict_frame_id`), footer с `DeepLinkCTA` |
+| **CSS** | `.bridge-card`, `.bridge-card__mechanism-step`, `.bridge-card__footer` |
+| **Переключатель** | Кнопка school/strict (аналогично `variant` в ConceptRef) |
+| **Где используется** | `/physical-foundations/` page (WP2) — отображение всех bridge explanations; `PhysFoundationHint` — расширенный вид |
+| **Типы** | `BridgeExplanation` из `src/types/physical-foundations.ts` |
+
+**Рендер mechanism_sequence**:
+```
+Bridge: "Почему нагревание ускоряет реакции?"
+[School] [Strict]
+1. Рост температуры → рост средней кинетической энергии частиц.
+2. Более высокие скорости → больше столкновений в единицу времени.
+3. Больше энергии → выше доля эффективных столкновений.
+[→ Подробнее: /physical-foundations#temperature-and-collisions]
+```
+
+### DeepLinkCTA — кнопка "Подробнее"
+
+| | |
+|---|---|
+| **Файл** | `src/components/DeepLinkCTA.tsx` (плановый) |
+| **Экспорт** | `DeepLinkCTA` (default) |
+| **Props** | `href: string`, `label?: string`, `locale?: SupportedLocale` |
+| **Рендер** | `<a>` ссылка с иконкой → `/{locale}/physical-foundations#{anchor}`. Локализует prefix через `localizeUrl()`. |
+| **CSS** | `.deep-link-cta` — inline anchor-стиль, стрелка-иконка после текста |
+| **Paraglide** | Использует `label` prop или дефолт `phys_learn_more` |
+| **Где используется** | `PhysFoundationHint`, `BridgeExplanationCard`, `ElementDetails` (D+ phase: CTA для `stabilization.deep_link`) |
+
+---
+
 ## 6. Utility Libraries
 
 | Модуль | Файл | Строк | Экспорт | Назначение |
@@ -403,6 +475,9 @@ Concept-kind colored link with description tooltip (renamed from the original `O
 | **SVG** | BondDiagramCovalent | Diagram | 108 | Bond theory (Δχ → covalent) |
 | **SVG** | BondDiagramMetallic | Diagram | 113 | Bond theory (metallic) |
 | **SVG** | GuidedSelectionExercise | Exercise | 69 | Genetic chains (5) |
+| **Phys G** | PhysFoundationHint | Hint | ~60 | BridgeExplanation (hint_frame_id) → locale frames |
+| **Phys G** | BridgeExplanationCard | Card | ~80 | BridgeExplanation + MechanismFrames (school/strict) |
+| **Phys G** | DeepLinkCTA | Link | ~20 | `/physical-foundations#anchor` → localizeUrl() |
 | **Utility** | formula-render.ts | Parser | 128 | — (чистый парсинг) |
 | **Utility** | formula-parser.ts | Parser | 55 | — (чистый парсинг) |
 | **Utility** | bond-calculator.ts | Logic | 189 | Elements (electronegativity, metal_type) |
@@ -436,6 +511,20 @@ OxidationStatesPage, PeriodicTablePage, CalculationsPage):
 │  ├─ ClassificationTheoryPanel  → FormulaChip (substanceClass/substanceId из substances index)
 │  ├─ ReactionTheoryPanel
 │  └─ ...
+
+Phase G — Physical Foundations (WP4, planned):
+ElementDetails (PeriodicTablePage island):
+├─ PhysFoundationHint  bridge:excitation_vs_configuration_exception
+│  └─ BridgeExplanationCard  (expanded view)
+│     └─ DeepLinkCTA  → /physical-foundations#excitation-vs-configuration-exception
+
+ReactionTheoryPanel:
+├─ PhysFoundationHint  bridge:why_heating_speeds_reactions
+│  └─ DeepLinkCTA  → /physical-foundations#temperature-and-collisions
+
+ElementDetails (flame-test elements):
+├─ PhysFoundationHint  bridge:why_atoms_emit_light
+│  └─ DeepLinkCTA  → /physical-foundations#emission
 ```
 
 ---

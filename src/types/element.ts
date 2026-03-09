@@ -18,12 +18,32 @@ export interface ElementDiscovery {
   country?: string;
 }
 
+export interface ElectronExceptionMove {
+  from: [number, string];
+  to: [number, string];
+  count: number;
+}
+
+export type ElectronExceptionFamily =
+  | 'half_filled_stability'
+  | 'full_filled_stability'
+  | 'exchange_energy'
+  | 'energy_proximity';
+
+export interface ElectronExceptionStabilization {
+  family: ElectronExceptionFamily;
+  target_subshell: string;
+  target_pattern: 'half_filled' | 'full_filled' | 'high_exchange' | 'proximity';
+}
+
 export interface ElectronException {
   config_override: [number, string, number][];
   expected_formula: string;
   actual_formula: string;
   rule: string;
-  reason: string;
+  reason?: string;
+  moves?: ElectronExceptionMove[];
+  stabilization?: ElectronExceptionStabilization;
 }
 
 export interface Element {

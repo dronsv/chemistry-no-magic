@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "purpose": "Frame templates for generating electron_exception.reason at load time.",
+    "slots": {
+      "from_subshell": "source subshell notation, e.g. '4s', '4f'",
+      "to_subshell": "destination subshell notation, e.g. '3d', '5d'",
+      "result": "final notation of target_subshell from config_override, e.g. '3d\u2075', '4f\u2077'"
+    },
+    "slot_derivation": {
+      "from_subshell": "moves[0].from[0] + moves[0].from[1]",
+      "to_subshell": "moves[0].to[0] + moves[0].to[1]",
+      "result": "target_subshell prefix + superscript(config_override entry for target_subshell)"
+    },
+    "adr": "ADR-003 — this file is a frames catalog; prose is allowed here"
+  },
+  "half_filled_stability": {
+    "school": {
+      "ru": "Электрон переходит с {from_subshell} на {to_subshell}: образуется устойчивая полузаполненная конфигурация {result}.",
+      "en": "An electron shifts from {from_subshell} to {to_subshell}: the stable half-filled configuration {result} is achieved.",
+      "pl": "Elektron przechodzi z {from_subshell} na {to_subshell}: tworzy się stabilna półzapełniona konfiguracja {result}.",
+      "es": "Un electrón pasa de {from_subshell} a {to_subshell}: se logra la configuración semillena estable {result}."
+    },
+    "strict": {
+      "ru": "Максимальная обменная энергия полузаполненной конфигурации {result} превышает выигрыш от полного заполнения {from_subshell}²: электрон перемещается с {from_subshell} на {to_subshell}.",
+      "en": "The exchange energy of the half-filled {result} configuration exceeds the energy gain of completing {from_subshell}²: the electron moves from {from_subshell} to {to_subshell}.",
+      "pl": "Energia wymiany półzapełnionej konfiguracji {result} przewyższa zysk energetyczny z zapełnienia {from_subshell}²: elektron przemieszcza się z {from_subshell} na {to_subshell}.",
+      "es": "La energía de intercambio de la configuración semillena {result} supera la ganancia energética de completar {from_subshell}²: el electrón se desplaza de {from_subshell} a {to_subshell}."
+    }
+  },
+  "full_filled_stability": {
+    "school": {
+      "ru": "Электрон переходит с {from_subshell} на {to_subshell}: образуется устойчивая полностью заполненная конфигурация {result}.",
+      "en": "An electron shifts from {from_subshell} to {to_subshell}: the stable fully filled configuration {result} is achieved.",
+      "pl": "Elektron przechodzi z {from_subshell} na {to_subshell}: tworzy się stabilna, całkowicie zapełniona konfiguracja {result}.",
+      "es": "Un electrón pasa de {from_subshell} a {to_subshell}: se obtiene la configuración completamente llena y estable {result}."
+    },
+    "strict": {
+      "ru": "Симметричная полностью заполненная конфигурация {result} обладает усиленной стабилизацией за счёт обменного взаимодействия: электрон перемещается с {from_subshell} на {to_subshell}.",
+      "en": "The symmetric fully filled {result} configuration has enhanced stabilisation through exchange interactions: the electron moves from {from_subshell} to {to_subshell}.",
+      "pl": "Symetryczna, całkowicie zapełniona konfiguracja {result} ma wzmocnioną stabilizację dzięki oddziaływaniom wymiennym: elektron przemieszcza się z {from_subshell} na {to_subshell}.",
+      "es": "La configuración simétrica completamente llena {result} posee mayor estabilización por interacciones de intercambio: el electrón se desplaza de {from_subshell} a {to_subshell}."
+    }
+  },
+  "exchange_energy": {
+    "school": {
+      "ru": "Электрон переходит с {from_subshell} на {to_subshell}: конфигурация {result} максимизирует обменную энергию параллельных спинов.",
+      "en": "An electron shifts from {from_subshell} to {to_subshell}: configuration {result} maximises the exchange energy of parallel spins.",
+      "pl": "Elektron przechodzi z {from_subshell} na {to_subshell}: konfiguracja {result} maksymalizuje energię wymiany równoległych spinów.",
+      "es": "Un electrón pasa de {from_subshell} a {to_subshell}: la configuración {result} maximiza la energía de intercambio de espines paralelos."
+    },
+    "strict": {
+      "ru": "Энергия обменного взаимодействия при конфигурации {result} превышает выигрыш от заполнения {from_subshell}²: электрон перемещается с {from_subshell} на {to_subshell}.",
+      "en": "Exchange energy for the {result} configuration exceeds the energy gained by filling {from_subshell}²: the electron moves from {from_subshell} to {to_subshell}.",
+      "pl": "Energia wymiany dla konfiguracji {result} przewyższa zysk z zapełnienia {from_subshell}²: elektron przemieszcza się z {from_subshell} na {to_subshell}.",
+      "es": "La energía de intercambio para la configuración {result} supera la ganancia de llenar {from_subshell}²: el electrón se desplaza de {from_subshell} a {to_subshell}."
+    }
+  },
+  "energy_proximity": {
+    "school": {
+      "ru": "Подоболочки {from_subshell} и {to_subshell} близки по энергии; электрон занимает {result} вместо ожидаемой конфигурации.",
+      "en": "The {from_subshell} and {to_subshell} subshells are close in energy; the electron occupies {result} instead of the expected configuration.",
+      "pl": "Podpowłoki {from_subshell} i {to_subshell} mają zbliżone energie; elektron zajmuje {result} zamiast oczekiwanej konfiguracji.",
+      "es": "Las subcapas {from_subshell} y {to_subshell} tienen energías cercanas; el electrón ocupa {result} en lugar de la configuración esperada."
+    },
+    "strict": {
+      "ru": "Малая разница энергий {from_subshell} и {to_subshell} приводит к заселению {to_subshell}: конфигурация {result} оказывается стабильнее предсказанной по правилу Клечковского.",
+      "en": "The small energy gap between {from_subshell} and {to_subshell} leads to {to_subshell} occupation: configuration {result} is more stable than the Aufbau prediction.",
+      "pl": "Mała różnica energii między {from_subshell} i {to_subshell} prowadzi do obsadzenia {to_subshell}: konfiguracja {result} jest bardziej stabilna niż przewiduje reguła Klechkowskiego.",
+      "es": "La pequeña diferencia de energía entre {from_subshell} y {to_subshell} lleva a ocupar {to_subshell}: la configuración {result} es más estable que la predicción de la regla de Aufbau."
+    }
+  }
+}

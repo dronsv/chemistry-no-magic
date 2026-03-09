@@ -55,8 +55,16 @@
 | **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
 | **Theory Modules** | `data-src/theory_modules/*.json` | 3 | bonds_and_crystals, oxidation_states, calculations | Active |
 | **Relations Graph** | `data-src/relations/*.json` | 2 | acid_base_relations (40 triples), ion_roles (26 triples) | Active |
-| **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | ~50-100 typed terms for rule text generation | Planned (B1) |
-| **Rule Templates** | `data-src/templates/rule_summary_templates.json` | 1 | Templates per rule_kind × locale | Planned (B1) |
+| **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | ~50-100 typed terms for rule text generation | Active |
+| **Rule Templates** | `data-src/templates/rule_summary_templates.json` | 1 | Templates per rule_kind × locale | Active |
+| **Electron Exception Frames** | `data-src/rules/electron_exception_frames.json` | 1 | 4 rule kinds × 4 locales; `{from}`, `{to}`, `{result}` slots | Planned (Phase F) |
+| **Physical Concepts** | `data-src/physical_concepts.json` | 1 | 9 pilot: temperature, thermal_motion, collision, electronic_energy_level, … | Planned (Phase G.1) |
+| **Math Concepts** | `data-src/math_concepts.json` | 1 | 8 pilot: average_value, graph_reading, proportion, … | Planned (Phase G.1) |
+| **Mechanisms** | `data-src/mechanisms.json` | 1 | 7 pilot: temperature→kinetic_energy, absorption→excited_state, … | Planned (Phase G.1) |
+| **Bridge Explanations** | `data-src/bridge_explanations.json` | 1 | 5 pilot: why_heating_speeds_reactions, why_atoms_emit_light, … | Planned (Phase G.1) |
+| **Physical Concept Frames** | `data-src/frames/physical_concepts_frames.json` | 1 | 9 concepts × 4 frame variants × 4 locales | Planned (Phase G.2) |
+| **Mechanism Frames** | `data-src/frames/mechanisms_frames.json` | 1 | 7 mechanisms × 3 variants (statement, school, strict) | Planned (Phase G.2) |
+| **Bridge Frames** | `data-src/frames/bridge_explanations_frames.json` | 1 | 5 bridges × 3 variants (hint, school, strict) | Planned (Phase G.2) |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
 
 **Totals**: ~270 source JSON files (incl. locale packs), 4 locales, 5 exam systems. 480 built files.
@@ -810,7 +818,92 @@ graph TB
 
 ---
 
-## 11. Proposed Layers (Not Yet Integrated)
+## 11. Explanatory Layers (Phase F + G)
+
+Architecture review 2026-03-09. Spec: `docs/physical-foundations-spec.md`. ADR: `docs/adr-003-locale-neutral-catalogs.md`.
+
+### Layer Taxonomy
+
+```
+Layer A — Domain facts (existing)
+  elements, ions, substances, rules, relations, electron_exception
+
+Layer B — Explanatory primitives (Phase G.1)
+  physical_concepts, math_concepts, mechanisms
+
+Layer C — Bridge models (Phase G.1)
+  bridge_explanations → each references: required_physical_concepts[], mechanism_sequence[], target_anchors[]
+
+Layer D — Locale rendering (Phase G.2, extends Phase B1 pipeline)
+  data-src/frames/physical_concepts_frames.json   — definition_frame_id, summary_frame_id, etc.
+  data-src/frames/mechanisms_frames.json          — statement_frame_id, school_frame_id, strict_frame_id
+  data-src/frames/bridge_explanations_frames.json — hint_frame_id, school_frame_id, strict_frame_id
+  + locale overlays: translations/{ru,en,pl,es}/frames/*.json
+
+Layer E — Product surfaces (Phase G.3–G.4)
+  /physical-foundations/ page with anchor sections
+  PhysFoundationHint component (inline hint + deep link)
+  BridgeExplanationCard component (expandable chain)
+```
+
+### Phase F — Electron Exception Ontologization
+
+**Status**: In Progress. **Spec**: `docs/transformation_plan.md#phase-f`.
+
+Adds to `electron_exception`:
+- `moves: [{from: [n, subshell], to: [n, subshell], count: N}]` — machine-readable electron transfer
+- `stabilization: {family, target_subshell, target_pattern}` — stabilization mechanism
+- `reason` generated at load time from `electron_exception_frames.json` + `moves` + `config_override`
+- Removes `reason` from RU locale overlay — fixes shallow-merge bug destroying `config_override`
+
+**19 elements** with 4 rule kinds:
+- `half_filled_stability`: Cr, Mo (s→d), Gd, Cm (f→d); target: d⁵/f⁷ patterns
+- `full_filled_stability`: Cu, Ag, Au (s→d), Pd (2 e⁻ s→d); target: d¹⁰ pattern
+- `exchange_energy`: Nb, Ru, Rh, Pt (s→d); maximizes exchange energy
+- `energy_proximity`: La, Ce (f→d), Ac, Th (f→d, all), Pa, U, Np, Cm (partial f→d)
+
+**Key design**: `{result}` slot derived from `stabilization.target_subshell` + `config_override` entry, not from `moves.to`. This correctly handles Gd/Cm where f-subshell is stabilized but electron moves to d.
+
+### Phase G — Physical Foundations Layer
+
+**Status**: Planned. **Spec**: `docs/physical-foundations-spec.md`.
+
+**WP1 Pilot catalog** (ADR-003 compliant, no inline prose):
+
+| File | Entities | Status |
+|------|----------|--------|
+| `data-src/physical_concepts.json` | 9 concepts (temperature, thermal_motion, collision, effective_collision, electronic_energy_level, ground_state, excited_state, photon, electrostatic_attraction) | Planned G.1 |
+| `data-src/math_concepts.json` | 8 concepts (average_value, graph_reading, proportion, probability_basic, inverse_dependence, difference, greater_less, percent) | Planned G.1 |
+| `data-src/mechanisms.json` | 7 mechanisms (temp→kinetic_energy, speed→collision_rate, energy→effective_fraction, absorption→excited_state, downward_transition→photon, ground_state_lowest_energy, exchange_stabilization_lowers_energy) | Planned G.1 |
+| `data-src/bridge_explanations.json` | 5 bridges (why_heating_speeds_reactions, why_atoms_emit_light, why_flame_tests_have_color, excitation_vs_configuration_exception, why_half_filled_is_stable) | Planned G.1 |
+
+**Namespace**: `phys:`, `math:`, `mech:`, `bridge:` (extending existing `sub:`, `ion:`, `el:`, `obs:` etc.)
+
+**ID examples**:
+- `phys:temperature`, `phys:electronic_energy_level`, `phys:photon`
+- `mech:absorption_causes_upward_transition`, `mech:exchange_stabilization_lowers_energy`
+- `bridge:why_heating_speeds_reactions`, `bridge:why_half_filled_is_stable`
+
+### Phase F+ (D+) — Mechanism Refs on Stabilization
+
+After G.1 + G.2 are complete:
+
+```json
+// In electron_exception_frames.json — stabilization family → mechanism mapping
+{
+  "exchange_stabilization": {
+    "mechanism_ids": ["mech:exchange_stabilization_lowers_energy"],
+    "bridge_id": "bridge:why_half_filled_is_stable",
+    "deep_link": "/physical-foundations#exchange-stabilization"
+  }
+}
+```
+
+ElementDetails.tsx gains "learn more" CTA pointing to `/physical-foundations#exchange-stabilization`.
+
+---
+
+## 11a. Proposed Layers (Not Yet Integrated)
 
 ### Relations Graph (`predicates.v1.json`)
 

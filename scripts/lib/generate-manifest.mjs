@@ -57,6 +57,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         indicator_entities: 'rules/indicator_entities.json',
         medium_states: 'rules/medium_states.json',
         kinetics: 'rules/kinetics.json',
+        electron_exception_frames: 'rules/electron_exception_frames.json',
       },
       templates: {
         reaction_templates: 'templates/reaction_templates.json',

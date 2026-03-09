@@ -16,7 +16,7 @@
     "electronegativity": 2.2,
     "melting_point_C": -259.16,
     "boiling_point_C": -252.87,
-    "density_g_cm3": 0.00008988,
+    "density_g_cm3": 8.988e-05,
     "discovery": {
       "year": 1766
     }
@@ -551,7 +551,25 @@
       ],
       "expected_formula": "[Ar] 3d⁴4s²",
       "actual_formula": "[Ar] 3d⁵4s¹",
-      "rule": "half_filled_stability"
+      "rule": "half_filled_stability",
+      "moves": [
+        {
+          "from": [
+            4,
+            "s"
+          ],
+          "to": [
+            3,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "half_filled_stability",
+        "target_subshell": "3d",
+        "target_pattern": "half_filled"
+      }
     }
   },
   {
@@ -674,7 +692,25 @@
       ],
       "expected_formula": "[Ar] 3d⁹ 4s²",
       "actual_formula": "[Ar] 3d¹⁰4s¹",
-      "rule": "full_filled_stability"
+      "rule": "full_filled_stability",
+      "moves": [
+        {
+          "from": [
+            4,
+            "s"
+          ],
+          "to": [
+            3,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "full_filled_stability",
+        "target_subshell": "3d",
+        "target_pattern": "full_filled"
+      }
     }
   },
   {
@@ -952,7 +988,25 @@
       ],
       "expected_formula": "[Kr] 4d³5s²",
       "actual_formula": "[Kr] 4d⁴5s¹",
-      "rule": "exchange_energy"
+      "rule": "exchange_energy",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "exchange_energy",
+        "target_subshell": "4d",
+        "target_pattern": "high_exchange"
+      }
     }
   },
   {
@@ -991,7 +1045,25 @@
       ],
       "expected_formula": "[Kr] 4d⁴5s²",
       "actual_formula": "[Kr] 4d⁵5s¹",
-      "rule": "half_filled_stability"
+      "rule": "half_filled_stability",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "half_filled_stability",
+        "target_subshell": "4d",
+        "target_pattern": "half_filled"
+      }
     }
   },
   {
@@ -1053,7 +1125,25 @@
       ],
       "expected_formula": "[Kr] 4d⁶ 5s²",
       "actual_formula": "[Kr] 4d⁷ 5s¹",
-      "rule": "exchange_energy"
+      "rule": "exchange_energy",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "exchange_energy",
+        "target_subshell": "4d",
+        "target_pattern": "high_exchange"
+      }
     }
   },
   {
@@ -1091,7 +1181,25 @@
       ],
       "expected_formula": "[Kr] 4d⁷ 5s²",
       "actual_formula": "[Kr] 4d⁸ 5s¹",
-      "rule": "exchange_energy"
+      "rule": "exchange_energy",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "exchange_energy",
+        "target_subshell": "4d",
+        "target_pattern": "high_exchange"
+      }
     }
   },
   {
@@ -1130,7 +1238,25 @@
       ],
       "expected_formula": "[Kr] 4d⁸ 5s²",
       "actual_formula": "[Kr] 4d¹⁰5s⁰",
-      "rule": "full_filled_stability"
+      "rule": "full_filled_stability",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 2
+        }
+      ],
+      "stabilization": {
+        "family": "full_filled_stability",
+        "target_subshell": "4d",
+        "target_pattern": "full_filled"
+      }
     }
   },
   {
@@ -1165,7 +1291,25 @@
       ],
       "expected_formula": "[Kr] 4d⁹ 5s²",
       "actual_formula": "[Kr] 4d¹⁰5s¹",
-      "rule": "full_filled_stability"
+      "rule": "full_filled_stability",
+      "moves": [
+        {
+          "from": [
+            5,
+            "s"
+          ],
+          "to": [
+            4,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "full_filled_stability",
+        "target_subshell": "4d",
+        "target_pattern": "full_filled"
+      }
     }
   },
   {
@@ -1400,7 +1544,25 @@
       ],
       "expected_formula": "[Xe] 4f¹6s²",
       "actual_formula": "[Xe] 5d¹6s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            4,
+            "f"
+          ],
+          "to": [
+            5,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "5d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -1439,7 +1601,25 @@
       ],
       "expected_formula": "[Xe] 4f²6s²",
       "actual_formula": "[Xe] 4f¹5d¹6s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            4,
+            "f"
+          ],
+          "to": [
+            5,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "5d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -1584,7 +1764,25 @@
       ],
       "expected_formula": "[Xe] 4f⁸6s²",
       "actual_formula": "[Xe] 4f⁷5d¹6s²",
-      "rule": "half_filled_stability"
+      "rule": "half_filled_stability",
+      "moves": [
+        {
+          "from": [
+            4,
+            "f"
+          ],
+          "to": [
+            5,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "half_filled_stability",
+        "target_subshell": "4f",
+        "target_pattern": "half_filled"
+      }
     }
   },
   {
@@ -1906,7 +2104,25 @@
       ],
       "expected_formula": "[Xe] 4f¹⁴5d⁸ 6s²",
       "actual_formula": "[Xe] 4f¹⁴5d⁹ 6s¹",
-      "rule": "exchange_energy"
+      "rule": "exchange_energy",
+      "moves": [
+        {
+          "from": [
+            6,
+            "s"
+          ],
+          "to": [
+            5,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "exchange_energy",
+        "target_subshell": "5d",
+        "target_pattern": "high_exchange"
+      }
     }
   },
   {
@@ -1947,7 +2163,25 @@
       ],
       "expected_formula": "[Xe] 4f¹⁴5d⁹ 6s²",
       "actual_formula": "[Xe] 4f¹⁴5d¹⁰6s¹",
-      "rule": "full_filled_stability"
+      "rule": "full_filled_stability",
+      "moves": [
+        {
+          "from": [
+            6,
+            "s"
+          ],
+          "to": [
+            5,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "full_filled_stability",
+        "target_subshell": "5d",
+        "target_pattern": "full_filled"
+      }
     }
   },
   {
@@ -2178,7 +2412,25 @@
       ],
       "expected_formula": "[Rn] 5f¹7s²",
       "actual_formula": "[Rn] 6d¹7s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "6d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -2216,7 +2468,25 @@
       ],
       "expected_formula": "[Rn] 5f²7s²",
       "actual_formula": "[Rn] 6d²7s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 2
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "6d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -2255,7 +2525,25 @@
       ],
       "expected_formula": "[Rn] 5f³7s²",
       "actual_formula": "[Rn] 5f²6d¹7s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "6d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -2296,7 +2584,25 @@
       ],
       "expected_formula": "[Rn] 5f⁴7s²",
       "actual_formula": "[Rn] 5f³6d¹7s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "6d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -2336,7 +2642,25 @@
       ],
       "expected_formula": "[Rn] 5f⁵7s²",
       "actual_formula": "[Rn] 5f⁴6d¹7s²",
-      "rule": "energy_proximity"
+      "rule": "energy_proximity",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "energy_proximity",
+        "target_subshell": "6d",
+        "target_pattern": "proximity"
+      }
     }
   },
   {
@@ -2419,7 +2743,25 @@
       ],
       "expected_formula": "[Rn] 5f⁸7s²",
       "actual_formula": "[Rn] 5f⁷6d¹7s²",
-      "rule": "half_filled_stability"
+      "rule": "half_filled_stability",
+      "moves": [
+        {
+          "from": [
+            5,
+            "f"
+          ],
+          "to": [
+            6,
+            "d"
+          ],
+          "count": 1
+        }
+      ],
+      "stabilization": {
+        "family": "half_filled_stability",
+        "target_subshell": "5f",
+        "target_pattern": "half_filled"
+      }
     }
   },
   {
