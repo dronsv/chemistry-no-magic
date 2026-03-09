@@ -217,7 +217,7 @@ const searchUrl = localizeUrl('/search/', locale);
     <slot name="head" />
   </head>
   <body>
-    <LanguageBanner client:idle currentLocale={locale} />
+    {locale === 'ru' && <LanguageBanner client:idle currentLocale={locale} />}
     <Nav locale={locale} />
     <main class="container">
       <slot />
