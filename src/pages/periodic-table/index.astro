@@ -5,6 +5,7 @@ import PeriodicTablePage from '../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../types/i18n';
 
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Периодическая таблица" description="Интерактивная периодическая таблица Менделеева: электронные конфигурации, орбитальные диаграммы, энергетические уровни и практика.">
@@ -28,8 +29,8 @@ const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
       "@type": "Dataset",
       "name": "Таблица Менделеева — данные о 118 химических элементах",
       "description": "Машиночитаемые данные о 118 химических элементах: свойства, электронные конфигурации, степени окисления, электроотрицательность",
-      "url": "https://chemistry.svistunov.online/periodic-table/",
-      "creator": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+      "url": `${siteUrl}/periodic-table/`,
+      "creator": { "@type": "Organization", "name": "Химия без магии", "url": siteUrl },
       "inLanguage": ["ru", "en", "pl", "es"],
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",

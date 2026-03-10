@@ -11,7 +11,7 @@ interface Props {
 const DISMISS_KEY = 'lang_banner_dismissed';
 
 const LANG_NAME_KEYS: Record<SupportedLocale, (opts?: { locale?: SupportedLocale }) => string> = {
-  ru: (opts) => m.lang({}, opts),
+  ru: (opts) => m.lang_ru({}, opts),
   en: (opts) => m.lang_en({}, opts),
   pl: (opts) => m.lang_pl({}, opts),
   es: (opts) => m.lang_es({}, opts),

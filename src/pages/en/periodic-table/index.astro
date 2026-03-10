@@ -4,6 +4,7 @@ import HubLead from '../../../components/HubLead.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Periodic Table" description="Interactive periodic table: electron configurations, orbital diagrams, energy levels, and practice.">
@@ -13,8 +14,8 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "@type": "Dataset",
       "name": "Periodic Table — data on 118 chemical elements",
       "description": "Machine-readable data on 118 chemical elements: properties, electron configurations, oxidation states, electronegativity",
-      "url": "https://chemistry.svistunov.online/en/periodic-table/",
-      "creator": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "url": `${siteUrl}/en/periodic-table/`,
+      "creator": { "@type": "Organization", "name": "Chemistry Without Magic", "url": siteUrl },
       "inLanguage": ["ru", "en", "pl", "es"],
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",

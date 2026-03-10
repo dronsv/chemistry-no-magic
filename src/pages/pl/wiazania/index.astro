@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import BondsPage from '../../../features/bonds/BondsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Wiązania chemiczne" description="Określanie typów wiązań chemicznych i sieci krystalicznych. Kalkulator, teoria i ćwiczenia.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "@type": "Course",
       "name": "Wiązania chemiczne i sieci krystaliczne",
       "description": "Określanie typów wiązań chemicznych i sieci krystalicznych na podstawie wzoru substancji. Kalkulator, teoria i ćwiczenia.",
-      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": siteUrl },
       "educationalLevel": "Klasa 9–11",
       "inLanguage": "pl",
       "teaches": ["wiązanie kowalencyjne", "wiązanie jonowe", "wiązanie metaliczne", "wiązanie wodorowe", "sieci krystaliczne"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/pl/wiazania/",
+      "url": `${siteUrl}/pl/wiazania/`,
       "isAccessibleForFree": true,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({

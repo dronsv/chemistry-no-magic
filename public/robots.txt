@@ -26,6 +26,6 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-Sitemap: https://chemistry.svistunov.online/sitemap.xml
+Sitemap: https://ru.chemistry.online/sitemap.xml
 
-Host: chemistry.svistunov.online
+Host: ru.chemistry.online

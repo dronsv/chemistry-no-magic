@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import BondsPage from '../../../features/bonds/BondsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Enlaces químicos" description="Determinación de tipos de enlaces químicos y redes cristalinas. Calculadora, teoría y práctica.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
       "@type": "Course",
       "name": "Enlaces químicos y redes cristalinas",
       "description": "Determinación de tipos de enlaces químicos y redes cristalinas a partir de la fórmula de la sustancia. Calculadora, teoría y práctica.",
-      "provider": { "@type": "Organization", "name": "Química sin magia", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Química sin magia", "url": siteUrl },
       "educationalLevel": "Curso 9–11",
       "inLanguage": "es",
       "teaches": ["enlace covalente", "enlace iónico", "enlace metálico", "enlace de hidrógeno", "redes cristalinas"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/es/enlaces/",
+      "url": `${siteUrl}/es/enlaces/`,
       "isAccessibleForFree": true,
     })} />
   </Fragment>

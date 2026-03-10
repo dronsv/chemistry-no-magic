@@ -51,7 +51,7 @@ const FALLBACK = new Date('2026-01-01');
 
 /** Map a sitemap URL to its real last-modified date. */
 function lastmod(url) {
-  const p = url.replace('https://chemistry.svistunov.online', '');
+  const p = url.replace(SITE_URL, '');
   // Element detail pages (any locale)
   if (
     (p.includes('/periodic-table/') || p.includes('/tablica-okresowa/') || p.includes('/tabla-periodica/')) &&
@@ -84,7 +84,7 @@ function lastmod(url) {
 
 /** Assign crawl priority based on page type. */
 function priority(url) {
-  const p = url.replace('https://chemistry.svistunov.online', '');
+  const p = url.replace(SITE_URL, '');
   if (p === '/') return 1.0;
 
   // Main section pages (any locale)
@@ -118,8 +118,10 @@ function priority(url) {
 }
 
 // https://astro.build/config
+const SITE_URL = process.env.SITE_URL || 'https://ru.chemistry.online';
+
 export default defineConfig({
-  site: 'https://chemistry.svistunov.online',
+  site: SITE_URL,
   i18n: {
     defaultLocale: 'ru',
     locales: ['ru', 'en', 'pl', 'es'],

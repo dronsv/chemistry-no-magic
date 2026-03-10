@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT = join(ROOT, 'public', 'llms-full.txt');
-const SITE = 'https://chemistry.svistunov.online';
+const SITE = process.env.SITE_URL || 'https://ru.chemistry.online';
 
 function read(relPath) {
   return JSON.parse(readFileSync(join(ROOT, relPath), 'utf8'));
@@ -24,7 +24,7 @@ const section = (title) => { emit(); emit('## ', title); emit(); };
 
 emit('# Химия без магии — Полный справочник для AI-агентов');
 emit();
-emit('> Машиночитаемый справочник химических данных сайта chemistry.svistunov.online.');
+emit(`> Машиночитаемый справочник химических данных сайта ${SITE.replace('https://', '')}.`);
 emit('> Все данные актуальны на момент сборки. Сайт: ', SITE);
 emit('> Справочник на английском: ', SITE, '/en/');
 emit();

@@ -5,7 +5,7 @@ import LanguageBanner from '../components/LanguageBanner';
 import '../styles/global.css';
 import * as m from '../paraglide/messages.js';
 import type { SupportedLocale } from '../types/i18n';
-import { OG_LOCALE_MAP, SITE_NAME, getCanonicalPath, getAlternateUrls, SUPPORTED_LOCALES, localizeUrl } from '../lib/i18n';
+import { OG_LOCALE_MAP, HREFLANG_MAP, SITE_NAME, getCanonicalPath, getAlternateUrls, SUPPORTED_LOCALES, localizeUrl } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -76,7 +76,7 @@ const searchUrl = localizeUrl('/search/', locale);
 
     <!-- hreflang alternate links -->
     {SUPPORTED_LOCALES.map((loc) => (
-      <link rel="alternate" hreflang={loc} href={`${siteUrl}${alternateUrls[loc]}`} />
+      <link rel="alternate" hreflang={HREFLANG_MAP[loc]} href={`${siteUrl}${alternateUrls[loc]}`} />
     ))}
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}${alternateUrls['ru']}`} />
 
@@ -203,6 +203,13 @@ const searchUrl = localizeUrl('/search/', locale);
     <!-- Set Paraglide locale for client-side React islands -->
     <script is:inline define:vars={{ locale }}>
       document.cookie = 'PARAGLIDE_LOCALE=' + locale + ';path=/;max-age=34560000;SameSite=Lax';
+    </script>
+
+    <!-- Redirect from old domain to new domain -->
+    <script is:inline>
+      if (location.hostname === 'chemistry.svistunov.online') {
+        location.replace('https://ru.chemistry.online' + location.pathname + location.search + location.hash);
+      }
     </script>
 
     <!-- Service Worker registration -->

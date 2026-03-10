@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Stopnie utlenienia" description="Określanie stopni utlenienia w związkach chemicznych. Reguły, kalkulator i ćwiczenia.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "@type": "Course",
       "name": "Stopnie utlenienia pierwiastków",
       "description": "Określanie stopni utlenienia w związkach chemicznych krok po kroku. Reguły, kalkulator i ćwiczenia egzaminacyjne.",
-      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": siteUrl },
       "educationalLevel": "Klasa 9–11",
       "inLanguage": "pl",
       "teaches": ["stopień utlenienia", "reguły ustalania SO", "elektroujemność", "utleniacz", "reduktor"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/pl/stopnie-utlenienia/",
+      "url": `${siteUrl}/pl/stopnie-utlenienia/`,
       "isAccessibleForFree": true,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({

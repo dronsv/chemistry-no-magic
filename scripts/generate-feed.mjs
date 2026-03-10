@@ -18,7 +18,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT = join(ROOT, 'public', 'feed.xml');
 
-const SITE = 'https://chemistry.svistunov.online';
+const SITE = process.env.SITE_URL || 'https://ru.chemistry.online';
 const SITE_NAME = 'Химия без магии';
 const FEED_DESCRIPTION = 'Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.';
 const MAX_ITEMS = 50;

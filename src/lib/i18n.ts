@@ -225,6 +225,14 @@ export const OG_LOCALE_MAP: Record<SupportedLocale, string> = {
   es: 'es_ES',
 };
 
+/** hreflang codes — ru-RU targets Russia specifically (vs ru for global Russian) */
+export const HREFLANG_MAP: Record<SupportedLocale, string> = {
+  ru: 'ru-RU',
+  en: 'en',
+  pl: 'pl',
+  es: 'es',
+};
+
 /** Localized site name */
 export const SITE_NAME: Record<SupportedLocale, string> = {
   ru: 'Химия без магии',

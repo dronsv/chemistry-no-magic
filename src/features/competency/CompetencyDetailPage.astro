@@ -19,6 +19,7 @@ import type { Props } from './competency-detail-paths';
 const { competency: baseCompetency, prereqs: basePrereqs, unlocks: baseUnlocks, contentProps } = Astro.props as Props;
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 const siteName = SITE_NAME[locale];
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 
 // Apply locale overlays for competency data
 const compOverlay = await loadBuildOverlay(locale, 'competencies');
@@ -48,10 +49,10 @@ const cid = competency.id;
       "isPartOf": {
         "@type": "Course",
         "name": siteName,
-        "url": "https://chemistry.svistunov.online",
-        "provider": { "@type": "Organization", "name": "Химия без магии", "url": "https://chemistry.svistunov.online" },
+        "url": siteUrl,
+        "provider": { "@type": "Organization", "name": "Химия без магии", "url": siteUrl },
       },
-      ...(competency.link ? { "url": `https://chemistry.svistunov.online${localizeUrl(competency.link, locale)}` } : {}),
+      ...(competency.link ? { "url": `${siteUrl}${localizeUrl(competency.link, locale)}` } : {}),
       ...(competency.oge_task_types?.length ? { "teaches": competency.oge_task_types.map((t: string) => `Задание ОГЭ ${t}`) } : {}),
     })} />
   </Fragment>

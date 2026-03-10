@@ -2,378 +2,378 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Химия без магии</title>
-    <link>https://chemistry.svistunov.online/</link>
+    <link>https://ru.chemistry.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Mon, 09 Mar 2026 22:37:27 GMT</lastBuildDate>
-    <atom:link href="https://chemistry.svistunov.online/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Mar 2026 06:55:02 GMT</lastBuildDate>
+    <atom:link href="https://ru.chemistry.online/feed.xml" rel="self" type="application/rss+xml" />
 
   <item>
+    <title>Главная — Химия без магии</title>
+    <link>https://ru.chemistry.online/</link>
+    <description>Адаптивная платформа подготовки к ОГЭ по химии.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/</guid>
+    <pubDate>Tue, 10 Mar 2026 06:55:02 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Chemistry Without Magic</title>
+    <link>https://ru.chemistry.online/en/</link>
+    <description>Adaptive chemistry learning platform.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/</guid>
+    <pubDate>Tue, 10 Mar 2026 06:55:02 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Chemia bez magii</title>
+    <link>https://ru.chemistry.online/pl/</link>
+    <description>Platforma do adaptacyjnej nauki chemii.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/</guid>
+    <pubDate>Tue, 10 Mar 2026 06:55:02 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Química sin magia</title>
+    <link>https://ru.chemistry.online/es/</link>
+    <description>Plataforma de aprendizaje adaptativo de química.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/</guid>
+    <pubDate>Tue, 10 Mar 2026 06:55:02 GMT</pubDate>
+    <language>es</language>
+  </item>
+  <item>
     <title>Периодическая таблица Менделеева</title>
-    <link>https://chemistry.svistunov.online/periodic-table/</link>
+    <link>https://ru.chemistry.online/periodic-table/</link>
     <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Химическая связь</title>
-    <link>https://chemistry.svistunov.online/bonds/</link>
+    <link>https://ru.chemistry.online/bonds/</link>
     <description>Определение типа химической связи и кристаллической решётки.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/bonds/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/bonds/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Степени окисления</title>
-    <link>https://chemistry.svistunov.online/oxidation-states/</link>
+    <link>https://ru.chemistry.online/oxidation-states/</link>
     <description>Пошаговое определение степеней окисления в соединениях.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/oxidation-states/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/oxidation-states/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Расчёты по химии</title>
-    <link>https://chemistry.svistunov.online/calculations/</link>
+    <link>https://ru.chemistry.online/calculations/</link>
     <description>Молярная масса, стехиометрия, массовая доля, выход продукта.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/calculations/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/calculations/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Химические реакции</title>
-    <link>https://chemistry.svistunov.online/reactions/</link>
+    <link>https://ru.chemistry.online/reactions/</link>
     <description>Классификация химических реакций. Теория и практика для ОГЭ.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/reactions/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/reactions/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Periodic Table</title>
-    <link>https://chemistry.svistunov.online/en/periodic-table/</link>
+    <link>https://ru.chemistry.online/en/periodic-table/</link>
     <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/periodic-table/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/periodic-table/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Chemical Bonds</title>
-    <link>https://chemistry.svistunov.online/en/bonds/</link>
+    <link>https://ru.chemistry.online/en/bonds/</link>
     <description>Determine bond types and crystal lattices.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/bonds/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/bonds/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Oxidation States</title>
-    <link>https://chemistry.svistunov.online/en/oxidation-states/</link>
+    <link>https://ru.chemistry.online/en/oxidation-states/</link>
     <description>Determine oxidation states step by step.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/oxidation-states/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/oxidation-states/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Chemical Calculations</title>
-    <link>https://chemistry.svistunov.online/en/calculations/</link>
+    <link>https://ru.chemistry.online/en/calculations/</link>
     <description>Molar mass, stoichiometry, mass fraction, reaction yield.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/calculations/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/calculations/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Układ okresowy</title>
-    <link>https://chemistry.svistunov.online/pl/tablica-okresowa/</link>
+    <link>https://ru.chemistry.online/pl/tablica-okresowa/</link>
     <description>Interaktywny układ okresowy pierwiastków.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/tablica-okresowa/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/tablica-okresowa/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Wiązania chemiczne</title>
-    <link>https://chemistry.svistunov.online/pl/wiazania/</link>
+    <link>https://ru.chemistry.online/pl/wiazania/</link>
     <description>Określanie typów wiązań chemicznych i sieci krystalicznych.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/wiazania/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/wiazania/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Stopnie utlenienia</title>
-    <link>https://chemistry.svistunov.online/pl/stopnie-utlenienia/</link>
+    <link>https://ru.chemistry.online/pl/stopnie-utlenienia/</link>
     <description>Określanie stopni utlenienia krok po kroku.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/stopnie-utlenienia/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/stopnie-utlenienia/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Obliczenia chemiczne</title>
-    <link>https://chemistry.svistunov.online/pl/obliczenia/</link>
+    <link>https://ru.chemistry.online/pl/obliczenia/</link>
     <description>Masa molowa, stechiometria, ułamek masowy.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/obliczenia/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/obliczenia/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Tabla periódica</title>
-    <link>https://chemistry.svistunov.online/es/tabla-periodica/</link>
+    <link>https://ru.chemistry.online/es/tabla-periodica/</link>
     <description>Tabla periódica interactiva de elementos.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/tabla-periodica/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/tabla-periodica/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
     <title>Enlaces químicos</title>
-    <link>https://chemistry.svistunov.online/es/enlaces/</link>
+    <link>https://ru.chemistry.online/es/enlaces/</link>
     <description>Determinación de tipos de enlaces y redes cristalinas.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/enlaces/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/enlaces/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
     <title>Estados de oxidación</title>
-    <link>https://chemistry.svistunov.online/es/estados-oxidacion/</link>
+    <link>https://ru.chemistry.online/es/estados-oxidacion/</link>
     <description>Determinación de estados de oxidación paso a paso.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/estados-oxidacion/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/estados-oxidacion/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
     <title>Cálculos químicos</title>
-    <link>https://chemistry.svistunov.online/es/calculos/</link>
+    <link>https://ru.chemistry.online/es/calculos/</link>
     <description>Masa molar, estequiometría, fracción de masa.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/calculos/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/calculos/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
     <title>H — H / H</title>
-    <link>https://chemistry.svistunov.online/periodic-table/H/</link>
+    <link>https://ru.chemistry.online/periodic-table/H/</link>
     <description>Химический элемент H: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/H/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/H/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>O — O / O</title>
-    <link>https://chemistry.svistunov.online/periodic-table/O/</link>
+    <link>https://ru.chemistry.online/periodic-table/O/</link>
     <description>Химический элемент O: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/O/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/O/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>C — C / C</title>
-    <link>https://chemistry.svistunov.online/periodic-table/C/</link>
+    <link>https://ru.chemistry.online/periodic-table/C/</link>
     <description>Химический элемент C: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/C/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/C/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>N — N / N</title>
-    <link>https://chemistry.svistunov.online/periodic-table/N/</link>
+    <link>https://ru.chemistry.online/periodic-table/N/</link>
     <description>Химический элемент N: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/N/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/N/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Na — Na / Na</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Na/</link>
+    <link>https://ru.chemistry.online/periodic-table/Na/</link>
     <description>Химический элемент Na: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Na/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Na/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Cl — Cl / Cl</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Cl/</link>
+    <link>https://ru.chemistry.online/periodic-table/Cl/</link>
     <description>Химический элемент Cl: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Cl/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Cl/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Fe — Fe / Fe</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Fe/</link>
+    <link>https://ru.chemistry.online/periodic-table/Fe/</link>
     <description>Химический элемент Fe: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Fe/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Fe/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Cu — Cu / Cu</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Cu/</link>
+    <link>https://ru.chemistry.online/periodic-table/Cu/</link>
     <description>Химический элемент Cu: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Cu/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Cu/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Au — Au / Au</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Au/</link>
+    <link>https://ru.chemistry.online/periodic-table/Au/</link>
     <description>Химический элемент Au: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Au/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Au/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Ca — Ca / Ca</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Ca/</link>
+    <link>https://ru.chemistry.online/periodic-table/Ca/</link>
     <description>Химический элемент Ca: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Ca/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Ca/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Al — Al / Al</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Al/</link>
+    <link>https://ru.chemistry.online/periodic-table/Al/</link>
     <description>Химический элемент Al: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Al/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Al/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Si — Si / Si</title>
-    <link>https://chemistry.svistunov.online/periodic-table/Si/</link>
+    <link>https://ru.chemistry.online/periodic-table/Si/</link>
     <description>Химический элемент Si: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/Si/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Si/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>P — P / P</title>
-    <link>https://chemistry.svistunov.online/periodic-table/P/</link>
+    <link>https://ru.chemistry.online/periodic-table/P/</link>
     <description>Химический элемент P: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/P/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/P/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>S — S / S</title>
-    <link>https://chemistry.svistunov.online/periodic-table/S/</link>
+    <link>https://ru.chemistry.online/periodic-table/S/</link>
     <description>Химический элемент S: электронная конфигурация, свойства, степени окисления.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/periodic-table/S/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/S/</guid>
     <pubDate>Mon, 09 Mar 2026 19:05:16 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Ионы</title>
-    <link>https://chemistry.svistunov.online/ions/</link>
+    <link>https://ru.chemistry.online/ions/</link>
     <description>Справочник ионов: таблица растворимости, катионы и анионы.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/ions/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/ions/</guid>
     <pubDate>Sun, 08 Mar 2026 17:35:15 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Классификация веществ</title>
-    <link>https://chemistry.svistunov.online/substances/</link>
+    <link>https://ru.chemistry.online/substances/</link>
     <description>Оксиды, кислоты, основания, соли — классификация и номенклатура.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/substances/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/substances/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Диагностика знаний</title>
-    <link>https://chemistry.svistunov.online/diagnostics/</link>
+    <link>https://ru.chemistry.online/diagnostics/</link>
     <description>Адаптивная диагностика: определите пробелы в знаниях по химии.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/diagnostics/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/diagnostics/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Подготовка к ОГЭ</title>
-    <link>https://chemistry.svistunov.online/exam/</link>
+    <link>https://ru.chemistry.online/exam/</link>
     <description>Задания ОГЭ по химии с пошаговыми решениями.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/exam/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/exam/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Компетенции</title>
-    <link>https://chemistry.svistunov.online/competencies/</link>
+    <link>https://ru.chemistry.online/competencies/</link>
     <description>20 учебных модулей платформы с теорией и практикой.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/competencies/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/competencies/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
     <title>Chemistry Diagnostics</title>
-    <link>https://chemistry.svistunov.online/en/diagnostics/</link>
+    <link>https://ru.chemistry.online/en/diagnostics/</link>
     <description>Adaptive knowledge diagnostics for chemistry.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/diagnostics/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/diagnostics/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Exam Practice</title>
-    <link>https://chemistry.svistunov.online/en/exam/</link>
+    <link>https://ru.chemistry.online/en/exam/</link>
     <description>Chemistry exam practice with step-by-step solutions.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/exam/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/exam/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
     <title>Diagnostyka wiedzy</title>
-    <link>https://chemistry.svistunov.online/pl/diagnostyka/</link>
+    <link>https://ru.chemistry.online/pl/diagnostyka/</link>
     <description>Adaptacyjna diagnostyka wiedzy chemicznej.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/diagnostyka/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/diagnostyka/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Przygotowanie do egzaminu</title>
-    <link>https://chemistry.svistunov.online/pl/egzamin/</link>
+    <link>https://ru.chemistry.online/pl/egzamin/</link>
     <description>Zadania egzaminacyjne z chemii z rozwiązaniami.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/egzamin/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/egzamin/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
     <title>Diagnóstico de conocimientos</title>
-    <link>https://chemistry.svistunov.online/es/diagnostico/</link>
+    <link>https://ru.chemistry.online/es/diagnostico/</link>
     <description>Diagnóstico adaptativo de conocimientos químicos.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/diagnostico/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/diagnostico/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
     <title>Práctica de examen</title>
-    <link>https://chemistry.svistunov.online/es/examen/</link>
+    <link>https://ru.chemistry.online/es/examen/</link>
     <description>Ejercicios de examen de química con soluciones.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/examen/</guid>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/examen/</guid>
     <pubDate>Sat, 07 Mar 2026 14:05:12 GMT</pubDate>
-    <language>es</language>
-  </item>
-  <item>
-    <title>Главная — Химия без магии</title>
-    <link>https://chemistry.svistunov.online/</link>
-    <description>Адаптивная платформа подготовки к ОГЭ по химии.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/</guid>
-    <pubDate>Sat, 21 Feb 2026 21:18:14 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Chemistry Without Magic</title>
-    <link>https://chemistry.svistunov.online/en/</link>
-    <description>Adaptive chemistry learning platform.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/en/</guid>
-    <pubDate>Sat, 21 Feb 2026 21:18:14 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Chemia bez magii</title>
-    <link>https://chemistry.svistunov.online/pl/</link>
-    <description>Platforma do adaptacyjnej nauki chemii.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/pl/</guid>
-    <pubDate>Sat, 21 Feb 2026 21:18:14 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Química sin magia</title>
-    <link>https://chemistry.svistunov.online/es/</link>
-    <description>Plataforma de aprendizaje adaptativo de química.</description>
-    <guid isPermaLink="true">https://chemistry.svistunov.online/es/</guid>
-    <pubDate>Sat, 21 Feb 2026 21:18:14 GMT</pubDate>
     <language>es</language>
   </item>
   </channel>

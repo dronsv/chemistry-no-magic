@@ -4,6 +4,7 @@ import HubLead from '../../../components/HubLead.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Układ okresowy" description="Interaktywny układ okresowy: konfiguracje elektronowe, diagramy orbitalne, poziomy energetyczne.">
@@ -13,8 +14,8 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "@type": "Dataset",
       "name": "Układ okresowy — dane o 118 pierwiastkach chemicznych",
       "description": "Dane o 118 pierwiastkach chemicznych: właściwości, konfiguracje elektronowe, stopnie utlenienia, elektroujemność",
-      "url": "https://chemistry.svistunov.online/pl/tablica-okresowa/",
-      "creator": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "url": `${siteUrl}/pl/tablica-okresowa/`,
+      "creator": { "@type": "Organization", "name": "Chemia bez magii", "url": siteUrl },
       "inLanguage": ["ru", "en", "pl", "es"],
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",

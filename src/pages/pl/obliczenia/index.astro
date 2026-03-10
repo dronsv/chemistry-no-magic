@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Obliczenia" description="Obliczenia chemiczne: masa molowa, ułamek masowy, roztwory i wydajność reakcji.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'pl') as SupportedLocale;
       "@type": "Course",
       "name": "Obliczenia chemiczne",
       "description": "Masa molowa, ilość substancji, ułamek masowy, stechiometria, wydajność reakcji. Ćwiczenia do egzaminów chemicznych.",
-      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Chemia bez magii", "url": siteUrl },
       "educationalLevel": "Klasa 9–11",
       "inLanguage": "pl",
       "teaches": ["masa molowa", "stechiometria", "ułamek masowy", "wydajność reakcji", "stężenie roztworów"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/pl/obliczenia/",
+      "url": `${siteUrl}/pl/obliczenia/`,
       "isAccessibleForFree": true,
     })} />
   </Fragment>

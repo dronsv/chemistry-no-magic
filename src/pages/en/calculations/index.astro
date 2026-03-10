@@ -5,6 +5,7 @@ import HubLead from '../../../components/HubLead.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Calculations" description="Chemical calculations: molar mass, mass fraction, solutions, and reaction yield.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "@type": "Course",
       "name": "Chemical Calculations",
       "description": "Molar mass, amount of substance, mass fraction, stoichiometry, reaction yield. Practice for chemistry exams.",
-      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": siteUrl },
       "educationalLevel": "Grade 9–11",
       "inLanguage": "en",
       "teaches": ["molar mass", "stoichiometry", "mass fraction", "reaction yield", "solution concentration"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/en/calculations/",
+      "url": `${siteUrl}/en/calculations/`,
       "isAccessibleForFree": true,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({

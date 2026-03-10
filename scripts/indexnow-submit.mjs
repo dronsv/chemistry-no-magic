@@ -27,7 +27,7 @@ if (!KEY) {
   process.exit(0);
 }
 
-const HOST = 'chemistry.svistunov.online';
+const HOST = process.env.SITE_HOST || 'ru.chemistry.online';
 const BASE = `https://${HOST}`;
 
 const URLS = [

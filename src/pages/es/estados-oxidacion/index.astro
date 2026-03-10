@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Estados de oxidación" description="Determinación de estados de oxidación en compuestos químicos. Reglas, calculadora y práctica.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
       "@type": "Course",
       "name": "Estados de oxidación de los elementos",
       "description": "Determinación de estados de oxidación en compuestos químicos paso a paso. Reglas, calculadora y práctica para exámenes.",
-      "provider": { "@type": "Organization", "name": "Química sin magia", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Química sin magia", "url": siteUrl },
       "educationalLevel": "Curso 9–11",
       "inLanguage": "es",
       "teaches": ["estado de oxidación", "reglas de determinación", "electronegatividad", "agente oxidante", "agente reductor"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/es/estados-oxidacion/",
+      "url": `${siteUrl}/es/estados-oxidacion/`,
       "isAccessibleForFree": true,
     })} />
   </Fragment>

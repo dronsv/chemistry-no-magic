@@ -5,6 +5,7 @@ import HubLead from '../../../components/HubLead.astro';
 import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Oxidation States" description="Determine oxidation states in chemical compounds. Rules, calculator, and practice.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
       "@type": "Course",
       "name": "Oxidation States",
       "description": "Determine oxidation states in chemical compounds step by step. Rules, calculator, and practice for chemistry exams.",
-      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Chemistry Without Magic", "url": siteUrl },
       "educationalLevel": "Grade 9–11",
       "inLanguage": "en",
       "teaches": ["oxidation state", "oxidation rules", "electronegativity", "oxidizing agent", "reducing agent"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/en/oxidation-states/",
+      "url": `${siteUrl}/en/oxidation-states/`,
       "isAccessibleForFree": true,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({

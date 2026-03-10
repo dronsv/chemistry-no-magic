@@ -4,6 +4,7 @@ import HubLead from '../../../components/HubLead.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Tabla periódica" description="Tabla periódica interactiva: configuraciones electrónicas, diagramas orbitales, niveles de energía.">
@@ -13,8 +14,8 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
       "@type": "Dataset",
       "name": "Tabla periódica — datos de 118 elementos químicos",
       "description": "Datos sobre 118 elementos químicos: propiedades, configuraciones electrónicas, estados de oxidación, electronegatividad",
-      "url": "https://chemistry.svistunov.online/es/tabla-periodica/",
-      "creator": { "@type": "Organization", "name": "Química sin magia", "url": "https://chemistry.svistunov.online" },
+      "url": `${siteUrl}/es/tabla-periodica/`,
+      "creator": { "@type": "Organization", "name": "Química sin magia", "url": siteUrl },
       "inLanguage": ["ru", "en", "pl", "es"],
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",

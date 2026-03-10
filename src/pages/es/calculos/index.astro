@@ -5,6 +5,7 @@ import TopicLinks from '../../../components/TopicLinks.astro';
 import CalculationsPage from '../../../features/calculations/CalculationsPage';
 import type { SupportedLocale } from '../../../types/i18n';
 const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
 <BaseLayout title="Cálculos" description="Cálculos químicos: masa molar, fracción de masa, soluciones y rendimiento de reacción.">
@@ -14,12 +15,12 @@ const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
       "@type": "Course",
       "name": "Cálculos químicos",
       "description": "Masa molar, cantidad de sustancia, fracción de masa, estequiometría, rendimiento de reacción. Práctica para exámenes de química.",
-      "provider": { "@type": "Organization", "name": "Química sin magia", "url": "https://chemistry.svistunov.online" },
+      "provider": { "@type": "Organization", "name": "Química sin magia", "url": siteUrl },
       "educationalLevel": "Curso 9–11",
       "inLanguage": "es",
       "teaches": ["masa molar", "estequiometría", "fracción de masa", "rendimiento de reacción", "concentración de soluciones"],
       "availableLanguage": ["ru", "en", "pl", "es"],
-      "url": "https://chemistry.svistunov.online/es/calculos/",
+      "url": `${siteUrl}/es/calculos/`,
       "isAccessibleForFree": true,
     })} />
   </Fragment>
