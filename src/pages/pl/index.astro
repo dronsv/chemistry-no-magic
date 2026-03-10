@@ -51,6 +51,11 @@ const locale = (Astro.currentLocale ?? 'pl') as 'ru' | 'en' | 'pl' | 'es';
 
   <ExamTracks locale={locale} />
 
+  <div class="profile-tip">
+    <p>{m.landing_profile_tip()}</p>
+    <a href={localizeUrl('/profile/', locale)} class="profile-tip__link">{m.landing_profile_tip_link()} &rarr;</a>
+  </div>
+
   <section class="start">
     <h2 class="section-title">{m.landing_section_start()}</h2>
     <div class="start__cards">
@@ -119,5 +124,9 @@ const locale = (Astro.currentLocale ?? 'pl') as 'ru' | 'en' | 'pl' | 'es';
   .how__step { display: flex; align-items: flex-start; gap: var(--space-md); }
   .how__num { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; border: 2px solid var(--color-border); font-size: 0.8125rem; font-weight: 700; color: var(--color-text-muted); flex-shrink: 0; margin-top: 2px; }
   .how__step p { margin: 0; font-size: 0.9375rem; line-height: 1.5; }
+  .profile-tip { max-width: 720px; margin: var(--space-lg) auto 0; padding: var(--space-md) var(--space-lg); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 0.5rem; display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; }
+  .profile-tip p { margin: 0; font-size: 0.875rem; color: var(--color-text); line-height: 1.5; }
+  .profile-tip__link { font-size: 0.875rem; font-weight: 600; color: var(--color-primary); white-space: nowrap; }
+  .profile-tip__link:hover { text-decoration: underline; }
   @media (max-width: 480px) { .hero h1 { font-size: 1.75rem; } .stats { gap: var(--space-lg); } .stat__num { font-size: 1.5rem; } }
 </style>
