@@ -1,0 +1,92 @@
+---
+/**
+ * Locale-specific exam track cards for the home page.
+ * Shows which exams/study paths are relevant per locale.
+ */
+import type { SupportedLocale } from '../types/i18n';
+import * as m from '../paraglide/messages.js';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+
+type ExamTrack = {
+  title: string;
+  scope: string;
+  topics: string[];
+};
+
+const TRACKS: Record<SupportedLocale, ExamTrack[]> = {
+  ru: [
+    { title: 'ОГЭ по химии', scope: 'Россия, 9 класс', topics: ['Вещества', 'Реакции', 'Расчёты', 'Качественные реакции'] },
+    { title: 'ЕГЭ по химии', scope: 'Россия, 11 класс', topics: ['Общая химия', 'Неорганика', 'Органика', 'Расчёты'] },
+    { title: 'Общая химия', scope: 'Базовый курс', topics: ['Строение атома', 'Связь', 'Реакции', 'Расчёты'] },
+  ],
+  en: [
+    { title: 'GCSE Chemistry', scope: 'UK', topics: ['Atomic structure', 'Bonding', 'Reactions', 'Quantitative chemistry'] },
+    { title: 'A-Level Chemistry', scope: 'UK', topics: ['Physical chemistry', 'Inorganic', 'Organic', 'Practical skills'] },
+    { title: 'IB Chemistry', scope: 'International', topics: ['Stoichiometry', 'Bonding', 'Energetics', 'Equilibrium'] },
+    { title: 'General Chemistry', scope: 'University', topics: ['Atoms', 'Reactions', 'Thermodynamics', 'Kinetics'] },
+  ],
+  pl: [
+    { title: 'Matura z chemii', scope: 'Polska', topics: ['Budowa atomu', 'Wiązania', 'Reakcje', 'Obliczenia'] },
+    { title: 'Chemia ogólna', scope: 'Kurs podstawowy', topics: ['Układ okresowy', 'Substancje', 'Reakcje', 'Obliczenia'] },
+  ],
+  es: [
+    { title: 'EBAU Química', scope: 'España', topics: ['Estructura atómica', 'Enlace', 'Reacciones', 'Cálculos'] },
+    { title: 'Química general', scope: 'Curso básico', topics: ['Elementos', 'Sustancias', 'Reacciones', 'Cálculos'] },
+  ],
+};
+
+const tracks = TRACKS[locale];
+---
+
+<section class="exam-tracks" id="exams">
+  <h2 class="section-title">{m.landing_section_exams()}</h2>
+  <div class="tracks-grid">
+    {tracks.map(t => (
+      <div class="track-card">
+        <strong class="track-card__title">{t.title}</strong>
+        <span class="track-card__scope">{t.scope}</span>
+        <p class="track-card__topics">{t.topics.join(' \u2022 ')}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .exam-tracks {
+    padding: var(--space-2xl) 0 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+  }
+  .track-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+  }
+  .track-card__title {
+    font-size: 1.05rem;
+  }
+  .track-card__scope {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+  .track-card__topics {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>

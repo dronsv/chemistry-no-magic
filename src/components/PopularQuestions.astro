@@ -1,0 +1,100 @@
+---
+/**
+ * Locale-specific popular questions / FAQ links for the home page.
+ * Quick entry points into key chemistry topics.
+ */
+import type { SupportedLocale } from '../types/i18n';
+import { localizeUrl } from '../lib/i18n';
+import * as m from '../paraglide/messages.js';
+
+interface Props {
+  locale: SupportedLocale;
+}
+
+const { locale } = Astro.props;
+
+type FaqItem = {
+  question: string;
+  url: string;
+};
+
+const FAQ: Record<SupportedLocale, FaqItem[]> = {
+  ru: [
+    { question: 'Что такое степень окисления?', url: '/oxidation-states/' },
+    { question: 'Как определить тип химической связи?', url: '/bonds/' },
+    { question: 'К какому классу относится вещество?', url: '/substances/' },
+    { question: 'Как рассчитать молярную массу?', url: '/calculations/' },
+    { question: 'Какие бывают типы реакций?', url: '/reactions/' },
+  ],
+  en: [
+    { question: 'What is an oxidation state?', url: '/oxidation-states/' },
+    { question: 'How to determine bond type?', url: '/bonds/' },
+    { question: 'How to identify a substance class?', url: '/substances/' },
+    { question: 'How to calculate molar mass?', url: '/calculations/' },
+    { question: 'What types of reactions are there?', url: '/reactions/' },
+  ],
+  pl: [
+    { question: 'Czym jest stopień utlenienia?', url: '/oxidation-states/' },
+    { question: 'Jak określić typ wiązania chemicznego?', url: '/bonds/' },
+    { question: 'Jak rozpoznać klasę substancji?', url: '/substances/' },
+    { question: 'Jak obliczyć masę molową?', url: '/calculations/' },
+    { question: 'Jakie są typy reakcji chemicznych?', url: '/reactions/' },
+  ],
+  es: [
+    { question: '¿Qué es el estado de oxidación?', url: '/oxidation-states/' },
+    { question: '¿Cómo determinar el tipo de enlace?', url: '/bonds/' },
+    { question: '¿Cómo identificar la clase de una sustancia?', url: '/substances/' },
+    { question: '¿Cómo calcular la masa molar?', url: '/calculations/' },
+    { question: '¿Qué tipos de reacciones existen?', url: '/reactions/' },
+  ],
+};
+
+const questions = FAQ[locale];
+---
+
+<section class="faq">
+  <h2 class="section-title">{m.landing_section_faq()}</h2>
+  <div class="faq-list">
+    {questions.map(q => (
+      <a href={localizeUrl(q.url, locale)} class="faq-link">
+        <span class="faq-link__arrow">&#8594;</span>
+        {q.question}
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: var(--space-2xl) 0 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .faq-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+    transition: border-color 0.15s;
+  }
+  .faq-link:hover {
+    text-decoration: none;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  .faq-link__arrow {
+    color: var(--color-primary);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+</style>

@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExamTracks from '../../components/ExamTracks.astro';
+import PopularQuestions from '../../components/PopularQuestions.astro';
 import * as m from '../../paraglide/messages.js';
 import { localizeUrl } from '../../lib/i18n';
 
-const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
+const locale = (Astro.currentLocale ?? 'es') as 'ru' | 'en' | 'pl' | 'es';
 ---
 
 <BaseLayout title={m.site_name()} description={m.landing_meta_desc()}>
@@ -23,40 +25,19 @@ const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
     <h1 set:html={m.landing_title()} />
     <p class="hero__sub">{m.landing_subtitle()}</p>
     <div class="hero__actions">
-      <a href={localizeUrl('/exam/', locale)} class="btn btn-primary btn-lg">{m.landing_btn_exam()}</a>
-      <a href={localizeUrl('/diagnostics/', locale)} class="btn btn-outline btn-lg">{m.landing_btn_diagnostics()}</a>
+      <a href={localizeUrl('/diagnostics/', locale)} class="btn btn-primary btn-lg">{m.landing_btn_primary()}</a>
+      <a href="#topics" class="btn btn-outline btn-lg">{m.landing_btn_secondary()}</a>
     </div>
   </section>
 
   <section class="stats">
-    <div class="stat"><span class="stat__num">78</span><span class="stat__label">{m.landing_stat_tasks()}</span></div>
-    <div class="stat"><span class="stat__num">19</span><span class="stat__label">{m.landing_stat_numbers()}</span></div>
-    <div class="stat"><span class="stat__num">20</span><span class="stat__label">{m.landing_stat_competencies()}</span></div>
+    <div class="stat"><span class="stat__num">6</span><span class="stat__label">{m.landing_stat_sections()}</span></div>
     <div class="stat"><span class="stat__num">118</span><span class="stat__label">{m.landing_stat_elements()}</span></div>
+    <div class="stat"><span class="stat__num">80</span><span class="stat__label">{m.landing_stat_substances()}</span></div>
+    <div class="stat"><span class="stat__num">20</span><span class="stat__label">{m.landing_stat_competencies()}</span></div>
   </section>
 
-  <section class="start">
-    <h2 class="section-title">{m.landing_section_start()}</h2>
-    <div class="start__cards">
-      <a href={localizeUrl('/diagnostics/', locale)} class="start-card start-card--diag">
-        <span class="start-card__icon">&#9881;</span>
-        <strong>{m.landing_card_diag_title()}</strong>
-        <p>{m.landing_card_diag_desc()}</p>
-      </a>
-      <a href={localizeUrl('/exam/', locale)} class="start-card start-card--exam">
-        <span class="start-card__icon">&#9998;</span>
-        <strong>{m.landing_card_exam_title()}</strong>
-        <p>{m.landing_card_exam_desc()}</p>
-      </a>
-      <a href={localizeUrl('/profile/', locale)} class="start-card start-card--profile">
-        <span class="start-card__icon">&#9733;</span>
-        <strong>{m.landing_card_profile_title()}</strong>
-        <p>{m.landing_card_profile_desc()}</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="modules">
+  <section class="modules" id="topics">
     <h2 class="section-title">{m.landing_section_topics()}</h2>
     <div class="modules__grid">
       <a href={localizeUrl('/periodic-table/', locale)} class="module-card"><span class="module-card__num">1</span><div><strong>{m.landing_topic_periodic()}</strong><p>{m.landing_topic_periodic_desc()}</p></div></a>
@@ -67,6 +48,31 @@ const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
       <a href={localizeUrl('/calculations/', locale)} class="module-card"><span class="module-card__num">6</span><div><strong>{m.landing_topic_calculations()}</strong><p>{m.landing_topic_calculations_desc()}</p></div></a>
     </div>
   </section>
+
+  <ExamTracks locale={locale} />
+
+  <section class="start">
+    <h2 class="section-title">{m.landing_section_start()}</h2>
+    <div class="start__cards">
+      <a href={localizeUrl('/diagnostics/', locale)} class="start-card">
+        <span class="start-card__icon">&#9881;</span>
+        <strong>{m.landing_card_diag_title()}</strong>
+        <p>{m.landing_card_diag_desc()}</p>
+      </a>
+      <a href={localizeUrl('/exam/', locale)} class="start-card">
+        <span class="start-card__icon">&#9998;</span>
+        <strong>{m.landing_card_practice_title()}</strong>
+        <p>{m.landing_card_practice_desc()}</p>
+      </a>
+      <a href={localizeUrl('/profile/', locale)} class="start-card">
+        <span class="start-card__icon">&#9733;</span>
+        <strong>{m.landing_card_profile_title()}</strong>
+        <p>{m.landing_card_profile_desc()}</p>
+      </a>
+    </div>
+  </section>
+
+  <PopularQuestions locale={locale} />
 
   <section class="how">
     <h2 class="section-title">{m.landing_section_how()}</h2>
@@ -101,7 +107,7 @@ const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
   .start-card__icon { font-size: 1.75rem; line-height: 1; }
   .start-card strong { font-size: 1.05rem; }
   .start-card p { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
-  .modules { padding: 0 0 var(--space-2xl); max-width: 720px; margin: 0 auto; }
+  .modules { padding: var(--space-2xl) 0 0; max-width: 720px; margin: 0 auto; }
   .modules__grid { display: flex; flex-direction: column; gap: var(--space-sm); }
   .module-card { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 0.5rem; color: var(--color-text); transition: border-color 0.15s; }
   .module-card:hover { text-decoration: none; border-color: var(--color-primary); }
