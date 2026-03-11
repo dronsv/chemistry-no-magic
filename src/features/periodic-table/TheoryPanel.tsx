@@ -176,11 +176,13 @@ function ExceptionCard({ exc }: { exc: ExceptionConsequence }) {
   return (
     <CollapsibleSection title={`${exc.symbol} (Z=${exc.element_Z})`} icon="⚛">
       <div className="theory-exception">
+        {exc.config_change && (
         <div className="theory-exception__config">
           <s>{exc.config_change.split(' → ')[0]}</s>
           {' → '}
           <strong>{exc.config_change.split(' → ')[1]}</strong>
         </div>
+        )}
         <ul className="theory-exception__list">
           {exc.consequences.map((c, i) => (
             <li key={i}>{c}</li>

@@ -258,27 +258,32 @@
     {
       "id": "cr_consequences",
       "element_Z": 24,
-      "symbol": "Cr"
+      "symbol": "Cr",
+      "config_change": "4s²3d⁴ → 4s¹3d⁵"
     },
     {
       "id": "cu_consequences",
       "element_Z": 29,
-      "symbol": "Cu"
+      "symbol": "Cu",
+      "config_change": "4s²3d⁹ → 4s¹3d¹⁰"
     },
     {
       "id": "pd_consequences",
       "element_Z": 46,
-      "symbol": "Pd"
+      "symbol": "Pd",
+      "config_change": "4d⁸5s² → 4d¹⁰5s⁰"
     },
     {
       "id": "ag_consequences",
       "element_Z": 47,
-      "symbol": "Ag"
+      "symbol": "Ag",
+      "config_change": "4d⁹5s² → 4d¹⁰5s¹"
     },
     {
       "id": "au_consequences",
       "element_Z": 79,
-      "symbol": "Au"
+      "symbol": "Au",
+      "config_change": "5d⁹6s² → 5d¹⁰6s¹"
     }
   ]
 }

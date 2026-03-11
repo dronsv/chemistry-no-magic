@@ -5,9 +5,137 @@
     <link>https://ru.chemistry.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Tue, 10 Mar 2026 06:55:02 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 08:46:40 GMT</lastBuildDate>
     <atom:link href="https://ru.chemistry.online/feed.xml" rel="self" type="application/rss+xml" />
 
+  <item>
+    <title>Периодическая таблица Менделеева</title>
+    <link>https://ru.chemistry.online/periodic-table/</link>
+    <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Химическая связь</title>
+    <link>https://ru.chemistry.online/bonds/</link>
+    <description>Определение типа химической связи и кристаллической решётки.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/bonds/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Степени окисления</title>
+    <link>https://ru.chemistry.online/oxidation-states/</link>
+    <description>Пошаговое определение степеней окисления в соединениях.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/oxidation-states/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Расчёты по химии</title>
+    <link>https://ru.chemistry.online/calculations/</link>
+    <description>Молярная масса, стехиометрия, массовая доля, выход продукта.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/calculations/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Periodic Table</title>
+    <link>https://ru.chemistry.online/en/periodic-table/</link>
+    <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/periodic-table/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Chemical Bonds</title>
+    <link>https://ru.chemistry.online/en/bonds/</link>
+    <description>Determine bond types and crystal lattices.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/bonds/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Oxidation States</title>
+    <link>https://ru.chemistry.online/en/oxidation-states/</link>
+    <description>Determine oxidation states step by step.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/oxidation-states/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Chemical Calculations</title>
+    <link>https://ru.chemistry.online/en/calculations/</link>
+    <description>Molar mass, stoichiometry, mass fraction, reaction yield.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/en/calculations/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>en</language>
+  </item>
+  <item>
+    <title>Układ okresowy</title>
+    <link>https://ru.chemistry.online/pl/tablica-okresowa/</link>
+    <description>Interaktywny układ okresowy pierwiastków.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/tablica-okresowa/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Wiązania chemiczne</title>
+    <link>https://ru.chemistry.online/pl/wiazania/</link>
+    <description>Określanie typów wiązań chemicznych i sieci krystalicznych.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/wiazania/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Stopnie utlenienia</title>
+    <link>https://ru.chemistry.online/pl/stopnie-utlenienia/</link>
+    <description>Określanie stopni utlenienia krok po kroku.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/stopnie-utlenienia/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Obliczenia chemiczne</title>
+    <link>https://ru.chemistry.online/pl/obliczenia/</link>
+    <description>Masa molowa, stechiometria, ułamek masowy.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/pl/obliczenia/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>pl</language>
+  </item>
+  <item>
+    <title>Tabla periódica</title>
+    <link>https://ru.chemistry.online/es/tabla-periodica/</link>
+    <description>Tabla periódica interactiva de elementos.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/tabla-periodica/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>es</language>
+  </item>
+  <item>
+    <title>Enlaces químicos</title>
+    <link>https://ru.chemistry.online/es/enlaces/</link>
+    <description>Determinación de tipos de enlaces y redes cristalinas.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/enlaces/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>es</language>
+  </item>
+  <item>
+    <title>Estados de oxidación</title>
+    <link>https://ru.chemistry.online/es/estados-oxidacion/</link>
+    <description>Determinación de estados de oxidación paso a paso.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/estados-oxidacion/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>es</language>
+  </item>
+  <item>
+    <title>Cálculos químicos</title>
+    <link>https://ru.chemistry.online/es/calculos/</link>
+    <description>Masa molar, estequiometría, fracción de masa.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/es/calculos/</guid>
+    <pubDate>Tue, 10 Mar 2026 08:46:40 GMT</pubDate>
+    <language>es</language>
+  </item>
   <item>
     <title>Главная — Химия без магии</title>
     <link>https://ru.chemistry.online/</link>
@@ -41,140 +169,12 @@
     <language>es</language>
   </item>
   <item>
-    <title>Периодическая таблица Менделеева</title>
-    <link>https://ru.chemistry.online/periodic-table/</link>
-    <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Химическая связь</title>
-    <link>https://ru.chemistry.online/bonds/</link>
-    <description>Определение типа химической связи и кристаллической решётки.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/bonds/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Степени окисления</title>
-    <link>https://ru.chemistry.online/oxidation-states/</link>
-    <description>Пошаговое определение степеней окисления в соединениях.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/oxidation-states/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Расчёты по химии</title>
-    <link>https://ru.chemistry.online/calculations/</link>
-    <description>Молярная масса, стехиометрия, массовая доля, выход продукта.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/calculations/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
     <title>Химические реакции</title>
     <link>https://ru.chemistry.online/reactions/</link>
     <description>Классификация химических реакций. Теория и практика для ОГЭ.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/reactions/</guid>
     <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
     <language>ru</language>
-  </item>
-  <item>
-    <title>Periodic Table</title>
-    <link>https://ru.chemistry.online/en/periodic-table/</link>
-    <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/en/periodic-table/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Chemical Bonds</title>
-    <link>https://ru.chemistry.online/en/bonds/</link>
-    <description>Determine bond types and crystal lattices.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/en/bonds/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Oxidation States</title>
-    <link>https://ru.chemistry.online/en/oxidation-states/</link>
-    <description>Determine oxidation states step by step.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/en/oxidation-states/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Chemical Calculations</title>
-    <link>https://ru.chemistry.online/en/calculations/</link>
-    <description>Molar mass, stoichiometry, mass fraction, reaction yield.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/en/calculations/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>en</language>
-  </item>
-  <item>
-    <title>Układ okresowy</title>
-    <link>https://ru.chemistry.online/pl/tablica-okresowa/</link>
-    <description>Interaktywny układ okresowy pierwiastków.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/pl/tablica-okresowa/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Wiązania chemiczne</title>
-    <link>https://ru.chemistry.online/pl/wiazania/</link>
-    <description>Określanie typów wiązań chemicznych i sieci krystalicznych.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/pl/wiazania/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Stopnie utlenienia</title>
-    <link>https://ru.chemistry.online/pl/stopnie-utlenienia/</link>
-    <description>Określanie stopni utlenienia krok po kroku.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/pl/stopnie-utlenienia/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Obliczenia chemiczne</title>
-    <link>https://ru.chemistry.online/pl/obliczenia/</link>
-    <description>Masa molowa, stechiometria, ułamek masowy.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/pl/obliczenia/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>pl</language>
-  </item>
-  <item>
-    <title>Tabla periódica</title>
-    <link>https://ru.chemistry.online/es/tabla-periodica/</link>
-    <description>Tabla periódica interactiva de elementos.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/es/tabla-periodica/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>es</language>
-  </item>
-  <item>
-    <title>Enlaces químicos</title>
-    <link>https://ru.chemistry.online/es/enlaces/</link>
-    <description>Determinación de tipos de enlaces y redes cristalinas.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/es/enlaces/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>es</language>
-  </item>
-  <item>
-    <title>Estados de oxidación</title>
-    <link>https://ru.chemistry.online/es/estados-oxidacion/</link>
-    <description>Determinación de estados de oxidación paso a paso.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/es/estados-oxidacion/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>es</language>
-  </item>
-  <item>
-    <title>Cálculos químicos</title>
-    <link>https://ru.chemistry.online/es/calculos/</link>
-    <description>Masa molar, estequiometría, fracción de masa.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/es/calculos/</guid>
-    <pubDate>Mon, 09 Mar 2026 22:37:27 GMT</pubDate>
-    <language>es</language>
   </item>
   <item>
     <title>H — H / H</title>
