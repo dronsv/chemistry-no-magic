@@ -13,11 +13,17 @@ interface Props {
 
 const { section, locale } = Astro.props;
 
+type FacetLink = { label: string; href: string };
+
+type DetailBlock = { term: string; def: string };
+
 type HubContent = {
   h1: string;
   def: string;
   scope: string;
-  facets?: string[];
+  facets?: (string | FacetLink)[];
+  properties?: { label: string; items: string[] }[];
+  details?: { heading: string; items: DetailBlock[]; mnemonic?: string }[];
 };
 
 const HUB_DATA: Record<typeof section, Record<SupportedLocale, HubContent>> = {
@@ -26,51 +32,163 @@ const HUB_DATA: Record<typeof section, Record<SupportedLocale, HubContent>> = {
       h1: 'Химические реакции',
       def: 'Химическая реакция — это превращение одних веществ в другие.',
       scope: 'В этом разделе собраны типы реакций, признаки, условия протекания и примеры уравнений.',
-      facets: ['Соединение', 'Разложение', 'Замещение', 'Обмен', 'ОВР', 'Качественные реакции'],
+      facets: [
+        { label: 'Соединение', href: '/ru/reactions/по-числу-веществ/соединение/' },
+        { label: 'Разложение', href: '/ru/reactions/по-числу-веществ/разложение/' },
+        { label: 'Замещение', href: '/ru/reactions/по-числу-веществ/замещение/' },
+        { label: 'Обмен', href: '/ru/reactions/по-числу-веществ/обмен/' },
+        { label: 'ОВР', href: '/ru/reactions/по-окислению/овр/' },
+        'Качественные реакции',
+      ],
     },
     en: {
       h1: 'Chemical Reactions',
       def: 'A chemical reaction is the transformation of one substance into another.',
       scope: 'This section covers reaction types, signs, conditions, and example equations.',
-      facets: ['Combination', 'Decomposition', 'Substitution', 'Exchange', 'Redox', 'Qualitative reactions'],
+      facets: [
+        { label: 'Combination', href: '/en/reactions/by-count/combination/' },
+        { label: 'Decomposition', href: '/en/reactions/by-count/decomposition/' },
+        { label: 'Substitution', href: '/en/reactions/by-count/single-displacement/' },
+        { label: 'Exchange', href: '/en/reactions/by-count/double-displacement/' },
+        { label: 'Redox', href: '/en/reactions/by-redox/redox/' },
+        'Qualitative reactions',
+      ],
     },
     pl: {
       h1: 'Reakcje chemiczne',
       def: 'Reakcja chemiczna to przemiana jednych substancji w inne.',
       scope: 'W tej sekcji zebrano typy reakcji, ich oznaki, warunki zachodzenia i przykłady równań.',
-      facets: ['Łączenie', 'Rozkład', 'Podstawianie', 'Wymiana', 'Redoks', 'Reakcje jakościowe'],
+      facets: [
+        { label: 'Synteza', href: '/pl/reakcje/wg-liczby-substancji/synteza/' },
+        { label: 'Rozkład', href: '/pl/reakcje/wg-liczby-substancji/rozklad/' },
+        { label: 'Wymiana pojedyncza', href: '/pl/reakcje/wg-liczby-substancji/wymiana-pojedyncza/' },
+        { label: 'Wymiana', href: '/pl/reakcje/wg-liczby-substancji/wymiana/' },
+        { label: 'Redoks', href: '/pl/reakcje/wg-utlenienia/redoks/' },
+        'Reakcje jakościowe',
+      ],
     },
     es: {
       h1: 'Reacciones químicas',
       def: 'Una reacción química es la transformación de unas sustancias en otras.',
       scope: 'Esta sección reúne tipos de reacciones, sus indicios, condiciones y ejemplos de ecuaciones.',
-      facets: ['Combinación', 'Descomposición', 'Sustitución', 'Intercambio', 'Redox', 'Reacciones cualitativas'],
+      facets: [
+        { label: 'Síntesis', href: '/es/reacciones/por-numero/sintesis/' },
+        { label: 'Descomposición', href: '/es/reacciones/por-numero/descomposicion/' },
+        { label: 'Sustitución simple', href: '/es/reacciones/por-numero/sustitucion-simple/' },
+        { label: 'Doble desplazamiento', href: '/es/reacciones/por-numero/doble-desplazamiento/' },
+        { label: 'Redox', href: '/es/reacciones/por-oxidacion/redox/' },
+        'Reacciones cualitativas',
+      ],
     },
   },
   substances: {
     ru: {
       h1: 'Вещества',
-      def: 'Вещества — это то, из чего состоят тела и что участвует в химических реакциях.',
-      scope: 'В этом разделе собраны классы веществ, формулы, свойства и связи с реакциями.',
-      facets: ['Оксиды', 'Кислоты', 'Основания', 'Соли', 'Простые вещества'],
+      def: 'Вещество\u00a0— вид материи, состоящий из атомов, <a href="/ru/ions/">ионов</a> или молекул, образованных атомами <a href="/ru/periodic-table/">химических элементов</a>.',
+      scope: 'Частицы вещества связаны и расположены определённым образом, а его состав, тип <a href="/ru/bonds/">химических связей</a> и строение (<a href="/ru/bonds/">кристаллическая решётка</a>) определяют физические и химические свойства.',
+      facets: [
+        { label: 'Оксиды', href: '/ru/substances/оксиды/' },
+        { label: 'Кислоты', href: '/ru/substances/кислоты/' },
+        { label: 'Основания', href: '/ru/substances/основания/' },
+        { label: 'Соли', href: '/ru/substances/соли/' },
+        'Простые вещества',
+      ],
+      properties: [
+        {
+          label: 'Физические свойства',
+          items: ['агрегатное состояние', 'цвет', 'запах', 'плотность', 'растворимость', 'температуры плавления и кипения'],
+        },
+        {
+          label: 'Химические свойства',
+          items: [
+            '<a href="/ru/reactions/">реакции</a> с кислотами (<a class="formula-chip formula-chip--acid formula-chip--link" href="/ru/substances/hcl/">HCl</a>), основаниями (<a class="formula-chip formula-chip--base formula-chip--link" href="/ru/substances/naoh/">NaOH</a>), водой (<a class="formula-chip formula-chip--oxide formula-chip--link" href="/ru/substances/h2o/">H<sub>2</sub>O</a>)',
+            '<a href="/ru/oxidation-states/">окислительно-восстановительная активность</a>',
+            'термическая устойчивость',
+            'горючесть',
+          ],
+        },
+      ],
     },
     en: {
       h1: 'Substances',
-      def: 'Substances are what bodies are made of and what takes part in chemical reactions.',
-      scope: 'This section covers substance classes, formulas, properties, and links to reactions.',
-      facets: ['Oxides', 'Acids', 'Bases', 'Salts', 'Simple substances'],
+      def: 'A substance is a form of matter consisting of atoms, <a href="/en/ions/">ions</a>, or molecules formed by atoms of <a href="/en/periodic-table/">chemical elements</a>.',
+      scope: 'The particles of a substance are bonded and arranged in a specific way; its composition, type of <a href="/en/bonds/">chemical bonds</a>, and structure (<a href="/en/bonds/">crystal lattice</a>) determine its physical and chemical properties.',
+      facets: [
+        { label: 'Oxides', href: '/en/substances/oxides/' },
+        { label: 'Acids', href: '/en/substances/acids/' },
+        { label: 'Bases', href: '/en/substances/bases/' },
+        { label: 'Salts', href: '/en/substances/salts/' },
+        'Simple substances',
+      ],
+      properties: [
+        {
+          label: 'Physical properties',
+          items: ['state of matter', 'color', 'odor', 'density', 'solubility', 'melting and boiling points'],
+        },
+        {
+          label: 'Chemical properties',
+          items: [
+            '<a href="/en/reactions/">reactions</a> with acids (<a class="formula-chip formula-chip--acid formula-chip--link" href="/en/substances/hcl/">HCl</a>), bases (<a class="formula-chip formula-chip--base formula-chip--link" href="/en/substances/naoh/">NaOH</a>), water (<a class="formula-chip formula-chip--oxide formula-chip--link" href="/en/substances/h2o/">H<sub>2</sub>O</a>)',
+            '<a href="/en/oxidation-states/">redox activity</a>',
+            'thermal stability',
+            'flammability',
+          ],
+        },
+      ],
     },
     pl: {
       h1: 'Substancje',
-      def: 'Substancje to to, z czego zbudowane są ciała i co uczestniczy w reakcjach chemicznych.',
-      scope: 'W tej sekcji zebrano klasy substancji, wzory, właściwości i powiązania z reakcjami.',
-      facets: ['Tlenki', 'Kwasy', 'Zasady', 'Sole', 'Substancje proste'],
+      def: 'Substancja\u00a0— rodzaj materii składający się z atomów, <a href="/pl/jony/">jonów</a> lub cząsteczek, utworzonych z atomów <a href="/pl/tablica-okresowa/">pierwiastków chemicznych</a>.',
+      scope: 'Cząstki substancji są ze sobą związane i ułożone w określony sposób; jej skład, typ <a href="/pl/wiazania/">wiązań chemicznych</a> i budowa (<a href="/pl/wiazania/">sieć krystaliczna</a>) określają właściwości fizyczne i chemiczne.',
+      facets: [
+        { label: 'Tlenki', href: '/pl/substancje/tlenki/' },
+        { label: 'Kwasy', href: '/pl/substancje/kwasy/' },
+        { label: 'Zasady', href: '/pl/substancje/zasady/' },
+        { label: 'Sole', href: '/pl/substancje/sole/' },
+        'Substancje proste',
+      ],
+      properties: [
+        {
+          label: 'Właściwości fizyczne',
+          items: ['stan skupienia', 'barwa', 'zapach', 'gęstość', 'rozpuszczalność', 'temperatury topnienia i wrzenia'],
+        },
+        {
+          label: 'Właściwości chemiczne',
+          items: [
+            '<a href="/pl/reakcje/">reakcje</a> z kwasami (<a class="formula-chip formula-chip--acid formula-chip--link" href="/pl/substancje/hcl/">HCl</a>), zasadami (<a class="formula-chip formula-chip--base formula-chip--link" href="/pl/substancje/naoh/">NaOH</a>), wodą (<a class="formula-chip formula-chip--oxide formula-chip--link" href="/pl/substancje/h2o/">H<sub>2</sub>O</a>)',
+            '<a href="/pl/stopnie-utlenienia/">aktywność redoks</a>',
+            'stabilność termiczna',
+            'palność',
+          ],
+        },
+      ],
     },
     es: {
       h1: 'Sustancias',
-      def: 'Las sustancias son aquello de lo que están hechos los cuerpos y lo que participa en las reacciones químicas.',
-      scope: 'Esta sección reúne clases de sustancias, fórmulas, propiedades y vínculos con reacciones.',
-      facets: ['Óxidos', 'Ácidos', 'Bases', 'Sales', 'Sustancias simples'],
+      def: 'Una sustancia es un tipo de materia compuesta por átomos, <a href="/es/iones/">iones</a> o moléculas, formados por átomos de <a href="/es/tabla-periodica/">elementos químicos</a>.',
+      scope: 'Las partículas de una sustancia están unidas y dispuestas de una manera determinada; su composición, el tipo de <a href="/es/enlaces/">enlaces químicos</a> y su estructura (<a href="/es/enlaces/">red cristalina</a>) determinan sus propiedades físicas y químicas.',
+      facets: [
+        { label: 'Óxidos', href: '/es/sustancias/oxidos/' },
+        { label: 'Ácidos', href: '/es/sustancias/acidos/' },
+        { label: 'Bases', href: '/es/sustancias/bases/' },
+        { label: 'Sales', href: '/es/sustancias/sales/' },
+        'Sustancias simples',
+      ],
+      properties: [
+        {
+          label: 'Propiedades físicas',
+          items: ['estado de la materia', 'color', 'olor', 'densidad', 'solubilidad', 'puntos de fusión y ebullición'],
+        },
+        {
+          label: 'Propiedades químicas',
+          items: [
+            '<a href="/es/reacciones/">reacciones</a> con ácidos (<a class="formula-chip formula-chip--acid formula-chip--link" href="/es/sustancias/hcl/">HCl</a>), bases (<a class="formula-chip formula-chip--base formula-chip--link" href="/es/sustancias/naoh/">NaOH</a>), agua (<a class="formula-chip formula-chip--oxide formula-chip--link" href="/es/sustancias/h2o/">H<sub>2</sub>O</a>)',
+            '<a href="/es/estados-oxidacion/">actividad redox</a>',
+            'estabilidad térmica',
+            'inflamabilidad',
+          ],
+        },
+      ],
     },
   },
   bonds: {
@@ -100,21 +218,53 @@ const HUB_DATA: Record<typeof section, Record<SupportedLocale, HubContent>> = {
       h1: 'Степени окисления',
       def: 'Степень окисления — это условный заряд атома в соединении, если считать все связи ионными.',
       scope: 'В этом разделе собраны правила определения степеней окисления, примеры и задачи.',
+      details: [{
+        heading: 'Окислитель и восстановитель',
+        items: [
+          { term: 'Окислитель', def: 'атом (элемент), который <strong>принимает</strong> электроны. Его СО <strong>понижается</strong>\u00a0— он <em>восстанавливается</em>.' },
+          { term: 'Восстановитель', def: 'атом (элемент), который <strong>отдаёт</strong> электроны. Его СО <strong>повышается</strong>\u00a0— он <em>окисляется</em>.' },
+        ],
+        mnemonic: '<strong>О</strong>кислитель <strong>В</strong>осстанавливается (принимает e⁻, СО↓), <strong>В</strong>осстановитель <strong>О</strong>кисляется (отдаёт e⁻, СО↑).',
+      }],
     },
     en: {
       h1: 'Oxidation States',
       def: 'An oxidation state is the hypothetical charge of an atom in a compound if all bonds were ionic.',
       scope: 'This section covers rules for determining oxidation states, examples, and practice problems.',
+      details: [{
+        heading: 'Oxidizing and reducing agents',
+        items: [
+          { term: 'Oxidizing agent', def: 'an atom (element) that <strong>accepts</strong> electrons. Its oxidation state <strong>decreases</strong>\u00a0— it is <em>reduced</em>.' },
+          { term: 'Reducing agent', def: 'an atom (element) that <strong>donates</strong> electrons. Its oxidation state <strong>increases</strong>\u00a0— it is <em>oxidized</em>.' },
+        ],
+        mnemonic: 'OIL RIG\u00a0— <strong>O</strong>xidation <strong>I</strong>s <strong>L</strong>oss, <strong>R</strong>eduction <strong>I</strong>s <strong>G</strong>ain (of electrons).',
+      }],
     },
     pl: {
       h1: 'Stopnie utlenienia',
       def: 'Stopień utlenienia to umowny ładunek atomu w związku, jeśli przyjmiemy, że wszystkie wiązania są jonowe.',
       scope: 'W tej sekcji zebrano zasady wyznaczania stopni utlenienia, przykłady i zadania.',
+      details: [{
+        heading: 'Utleniacz i reduktor',
+        items: [
+          { term: 'Utleniacz', def: 'atom (pierwiastek), który <strong>przyjmuje</strong> elektrony. Jego stopień utlenienia <strong>maleje</strong>\u00a0— ulega <em>redukcji</em>.' },
+          { term: 'Reduktor', def: 'atom (pierwiastek), który <strong>oddaje</strong> elektrony. Jego stopień utlenienia <strong>rośnie</strong>\u00a0— ulega <em>utlenieniu</em>.' },
+        ],
+        mnemonic: '<strong>U</strong>tleniacz ulega <strong>R</strong>edukcji (przyjmuje e⁻, s.u.↓), <strong>R</strong>eduktor ulega <strong>U</strong>tlenieniu (oddaje e⁻, s.u.↑).',
+      }],
     },
     es: {
       h1: 'Estados de oxidación',
       def: 'El estado de oxidación es la carga hipotética de un átomo en un compuesto si todos los enlaces fueran iónicos.',
       scope: 'Esta sección reúne las reglas para determinar estados de oxidación, ejemplos y ejercicios.',
+      details: [{
+        heading: 'Agente oxidante y reductor',
+        items: [
+          { term: 'Oxidante', def: 'átomo (elemento) que <strong>acepta</strong> electrones. Su estado de oxidación <strong>disminuye</strong>\u00a0— se <em>reduce</em>.' },
+          { term: 'Reductor', def: 'átomo (elemento) que <strong>dona</strong> electrones. Su estado de oxidación <strong>aumenta</strong>\u00a0— se <em>oxida</em>.' },
+        ],
+        mnemonic: 'El <strong>O</strong>xidante se <strong>R</strong>educe (acepta e⁻, e.o.↓), el <strong>R</strong>eductor se <strong>O</strong>xida (dona e⁻, e.o.↑).',
+      }],
     },
   },
   calculations: {
@@ -168,13 +318,45 @@ const content = HUB_DATA[section][locale];
 
 <header class="hub-lead">
   <h1 class="hub-lead__h1">{content.h1}</h1>
-  <p class="hub-lead__def">{content.def}</p>
-  <p class="hub-lead__scope">{content.scope}</p>
+  <p class="hub-lead__def" set:html={content.def} />
+  <p class="hub-lead__scope" set:html={content.scope} />
+  {content.properties && content.properties.length > 0 && (
+    <div class="hub-props">
+      {content.properties.map(group => (
+        <div class="hub-props__group">
+          <span class="hub-props__label">{group.label}:</span>
+          <span class="hub-props__items" set:html={group.items.join(' · ')} />
+        </div>
+      ))}
+    </div>
+  )}
+  {content.details && content.details.length > 0 && (
+    <div class="hub-details">
+      {content.details.map(block => (
+        <div class="hub-details__block">
+          <h2 class="hub-details__heading">{block.heading}</h2>
+          <dl class="hub-details__dl">
+            {block.items.map(item => (
+              <>
+                <dt class="hub-details__term">{item.term}</dt>
+                <dd class="hub-details__def" set:html={item.def} />
+              </>
+            ))}
+          </dl>
+          {block.mnemonic && (
+            <p class="hub-details__mnemonic" set:html={block.mnemonic} />
+          )}
+        </div>
+      ))}
+    </div>
+  )}
   {content.facets && content.facets.length > 0 && (
     <div class="hub-facets">
-      {content.facets.map(f => (
-        <span class="hub-facet">{f}</span>
-      ))}
+      {content.facets.map(f =>
+        typeof f === 'string'
+          ? <span class="hub-facet">{f}</span>
+          : <a class="hub-facet hub-facet--link" href={f.href}>{f.label}</a>
+      )}
     </div>
   )}
 </header>
@@ -193,15 +375,103 @@ const content = HUB_DATA[section][locale];
     color: var(--color-text);
   }
   .hub-lead__def {
-    font-size: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
     color: var(--color-text);
-    margin: 0 0 0.25rem;
+    margin: 0 0 0.375rem;
     font-weight: 500;
   }
   .hub-lead__scope {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--color-text-muted);
     margin: 0;
+  }
+  .hub-lead__def :global(a),
+  .hub-lead__scope :global(a),
+  .hub-props :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s;
+  }
+  .hub-lead__def :global(a:hover),
+  .hub-lead__scope :global(a:hover),
+  .hub-props :global(a:hover) {
+    text-decoration-color: var(--color-primary);
+  }
+  .hub-props {
+    margin-top: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .hub-props__group {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .hub-props__label {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .hub-props__items {
+    color: var(--color-text-muted);
+  }
+  .hub-details {
+    margin-top: 0.75rem;
+  }
+  .hub-details__heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.375rem;
+    line-height: 1.4;
+  }
+  .hub-details__dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.125rem 0.5rem;
+  }
+  .hub-details__term {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  .hub-details__term::after {
+    content: '\00a0—';
+    font-weight: 400;
+  }
+  .hub-details__def {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .hub-details__def :global(strong) {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  .hub-details__def :global(em) {
+    font-style: italic;
+    color: var(--color-text);
+  }
+  .hub-details__mnemonic {
+    margin: 0.5rem 0 0;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 0.375rem 0.375rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .hub-details__mnemonic :global(strong) {
+    color: var(--color-primary);
+    font-weight: 700;
   }
   .hub-facets {
     display: flex;
@@ -215,9 +485,46 @@ const content = HUB_DATA[section][locale];
     background: var(--color-bg-alt);
     border: 1px solid var(--color-border);
     border-radius: 1rem;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
     white-space: nowrap;
+  }
+  .hub-facet--link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .hub-facet--link:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg, #eff6ff);
+    color: var(--color-primary);
+  }
+  /* Inline formula chips (static mirror of FormulaChip styles) */
+  .hub-props :global(.formula-chip) {
+    display: inline;
+    padding: 0.125rem 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .hub-props :global(.formula-chip--link) {
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+  .hub-props :global(.formula-chip--link:hover) {
+    filter: brightness(0.92);
+  }
+  .hub-props :global(.formula-chip--acid) {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  .hub-props :global(.formula-chip--base) {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+  .hub-props :global(.formula-chip--oxide) {
+    background: #fef3c7;
+    color: #92400e;
   }
   @media (max-width: 600px) {
     .hub-lead__h1 { font-size: 1.35rem; }
