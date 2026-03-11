@@ -51,6 +51,9 @@ export interface ConceptOverlayEntry {
   slug: string;
   description?: string;
   surface_forms?: string[];
+  /** Declension class for rule-based form generation (e.g. "m:hard", "f:-сть") */
+  decl?: string;
+  /** Explicit grammatical forms — overrides for irregular cases or multi-word phrases */
   forms?: GramForms;
 }
 

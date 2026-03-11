@@ -67,8 +67,8 @@ describe('richTextToPlainString', () => {
 });
 
 describe('element URL building (via localizeUrl)', () => {
-  it('builds Russian element URL (no prefix)', () => {
-    expect(localizeUrl('/periodic-table/Na/', 'ru')).toBe('/periodic-table/Na/');
+  it('builds Russian element URL (with /ru/ prefix)', () => {
+    expect(localizeUrl('/periodic-table/Na/', 'ru')).toBe('/ru/periodic-table/Na/');
   });
   it('builds English element URL', () => {
     expect(localizeUrl('/periodic-table/Na/', 'en')).toBe('/en/periodic-table/Na/');

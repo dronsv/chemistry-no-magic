@@ -93,13 +93,15 @@ export interface PropertyDef {
 // ── Morphology (from translations/ru/morphology.json) ──────────
 export interface MorphEntry {
   nom: string;
-  gen: string;
+  gen?: string;
   dat?: string;
   acc?: string;
   inst?: string;
   loc?: string;
   voc?: string;
   gender?: string;
+  /** Declension class for rule-based form generation (e.g. "m:hard", "f:-сть") */
+  decl?: string;
   animate?: boolean;
   article_sg?: string;
 }

@@ -1,4 +1,5 @@
 import type { PromptTemplate, PropertyDef, MorphologyData } from './types';
+import { decline } from '../decline';
 
 export interface SlotResolverContext {
   properties: PropertyDef[];
@@ -62,8 +63,20 @@ function resolveMorph(
   const entry = (domainData as Record<string, Record<string, string>>)[key];
   if (!entry) return key;
 
-  // If the requested case/field is absent, fall back to nom first, then symbol
-  return entry[field] ?? entry['nom'] ?? key;
+  // 1. Explicit form from morphology data
+  if (entry[field]) return entry[field];
+
+  // 2. Rule-based declension fallback (if nom is available)
+  if (entry['nom'] && field) {
+    const decl = entry['decl'] ?? null;
+    const declined = decline(entry['nom'], decl);
+    if (declined && field in declined) {
+      return (declined as Record<string, string>)[field];
+    }
+  }
+
+  // 3. Fallback to nom, then symbol
+  return entry['nom'] ?? key;
 }
 
 export function resolveSlots(

@@ -7,6 +7,7 @@ import './ontology-ref.css';
 
 import { isDslFilter } from '../lib/filter-to-richtext';
 import type { ConceptFilter, FilterExpr } from '../types/filter-dsl';
+import { resolveForm } from '../lib/decline';
 
 /** Extract the substance class name from a filter (works with both legacy and DSL formats) */
 function extractClassFromFilter(filters: ConceptFilter | Record<string, string | string[]>): string | undefined {
@@ -84,12 +85,12 @@ export default function ConceptRef({ id, form, surface, locale, variant = 'chip'
     return <span>{surface ?? id}</span>;
   }
 
-  // Resolve display label: surface -> forms[form] -> name
+  // Resolve display label: surface -> forms[form] -> decline() -> name
   let label = ov.name;
   if (surface) {
     label = surface;
-  } else if (form && ov.forms?.[form]) {
-    label = ov.forms[form];
+  } else if (form) {
+    label = resolveForm(ov.name, form, ov.decl, ov.forms);
   }
 
   const href = buildConceptUrl(id, ctx, locale);
