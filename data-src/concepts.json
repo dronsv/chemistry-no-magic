@@ -301,6 +301,146 @@
     "filters": {},
     "examples": []
   },
+  "prop:state_of_matter": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 7,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2o" }
+    ]
+  },
+  "prop:color": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 8,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "cu_oh_2" },
+      { "kind": "substance", "id": "fe_oh_3" },
+      { "kind": "substance", "id": "kmno4" }
+    ]
+  },
+  "prop:odor": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 9,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2s" },
+      { "kind": "substance", "id": "nh3" },
+      { "kind": "substance", "id": "hcl" }
+    ]
+  },
+  "prop:density": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 10,
+    "filters": {},
+    "examples": []
+  },
+  "prop:melting_point": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 11,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "h2o" }
+    ]
+  },
+  "prop:boiling_point": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 12,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2o" }
+    ]
+  },
+  "prop:thermal_stability": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 13,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "caco3" }
+    ]
+  },
+  "prop:flammability": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 14,
+    "filters": {},
+    "examples": []
+  },
+  "prop:atom": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 15,
+    "filters": {},
+    "examples": [
+      { "kind": "element", "id": "H" },
+      { "kind": "element", "id": "O" },
+      { "kind": "element", "id": "Na" }
+    ]
+  },
+  "prop:molecule": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 16,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2o" },
+      { "kind": "substance", "id": "co2" },
+      { "kind": "substance", "id": "h2" }
+    ]
+  },
+  "prop:ion": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 17,
+    "filters": {},
+    "examples": []
+  },
+  "prop:crystal_lattice": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 18,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "sio2" }
+    ]
+  },
+  "prop:oxidizer": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 19,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "sub:o2" },
+      { "kind": "element", "id": "F" },
+      { "kind": "substance", "id": "sub:cl2" },
+      { "kind": "substance", "id": "sub:kmno4" },
+      { "kind": "substance", "id": "sub:h2so4" },
+      { "kind": "substance", "id": "sub:hno3" }
+    ]
+  },
+  "prop:reducer": {
+    "kind": "property",
+    "parent_id": null,
+    "order": 20,
+    "filters": {},
+    "examples": [
+      { "kind": "element", "id": "Na" },
+      { "kind": "element", "id": "Fe" },
+      { "kind": "element", "id": "Zn" },
+      { "kind": "substance", "id": "sub:h2" },
+      { "kind": "element", "id": "C" },
+      { "kind": "substance", "id": "sub:co" }
+    ]
+  },
   "rxfacet:by_count": {
     "kind": "reaction_facet",
     "parent_id": null,

@@ -356,6 +356,90 @@
       "elektroujemność"
     ]
   },
+  "prop:state_of_matter": {
+    "name": "Stan skupienia",
+    "slug": "stan-skupienia",
+    "description": "Forma istnienia substancji, określona przez ruch i oddziaływanie jej cząstek: ciało stałe, ciecz, gaz, plazma. Woda — klasyczny przykład: lód (ciało stałe), ciekła woda, para wodna (gaz).",
+    "surface_forms": ["stan skupienia", "stany skupienia"]
+  },
+  "prop:color": {
+    "name": "Barwa",
+    "slug": "barwa",
+    "description": "Właściwość substancji określana przez długości fal fotonów, które substancja odbija lub emituje. Zależy od budowy elektronowej: Cu(OH)₂ — niebieska, Fe(OH)₃ — brunatna, KMnO₄ — fioletowy.",
+    "surface_forms": ["barwa", "kolor"]
+  },
+  "prop:odor": {
+    "name": "Zapach",
+    "slug": "zapach",
+    "description": "Właściwość substancji postrzegana przez zmysł węchu. Określana przez lotne cząsteczki oddziałujące z receptorami węchowymi. H₂S pachnie zgniłymi jajkami, NH₃ — ostro.",
+    "surface_forms": ["zapach"]
+  },
+  "prop:density": {
+    "name": "Gęstość",
+    "slug": "gestosc",
+    "description": "Masa jednostki objętości substancji (g/cm³ lub kg/m³). Określa, czy substancja tonie, czy pływa, i zależy od masy cząstek i gęstości ich upakowania.",
+    "surface_forms": ["gęstość"]
+  },
+  "prop:melting_point": {
+    "name": "Temperatura topnienia",
+    "slug": "temperatura-topnienia",
+    "description": "Temperatura, w której substancja przechodzi ze stanu stałego w ciekły przy danym ciśnieniu. Zależy od typu sieci krystalicznej i siły wiązań między cząstkami.",
+    "surface_forms": ["temperatura topnienia", "t. top."]
+  },
+  "prop:boiling_point": {
+    "name": "Temperatura wrzenia",
+    "slug": "temperatura-wrzenia",
+    "description": "Temperatura, w której ciśnienie pary substancji równa się ciśnieniu zewnętrznemu i substancja przechodzi w stan gazowy. Woda wrze w 100 °C (przy 1 atm).",
+    "surface_forms": ["temperatura wrzenia", "t. wrz."]
+  },
+  "prop:thermal_stability": {
+    "name": "Stabilność termiczna",
+    "slug": "stabilnosc-termiczna",
+    "description": "Zdolność substancji do zachowania składu chemicznego i budowy podczas ogrzewania. Nierozpuszczalne zasady i niektóre sole (CaCO₃) rozkładają się po podgrzaniu; wodorotlenki alkaliczne są stabilne termicznie.",
+    "surface_forms": ["stabilność termiczna"]
+  },
+  "prop:flammability": {
+    "name": "Palność",
+    "slug": "palnosc",
+    "description": "Zdolność substancji do egzotermicznej reakcji utleniania z wydzieleniem ciepła i światła (spalanie). Zależy od natury substancji, temperatury zapłonu i dostępu utleniacza.",
+    "surface_forms": ["palność"]
+  },
+  "prop:atom": {
+    "name": "Atom",
+    "slug": "atom",
+    "description": "Najmniejsza cząstka pierwiastka chemicznego zachowująca jego właściwości chemiczne. Składa się z dodatnio naładowanego jądra (protony + neutrony) i powłoki elektronowej. Rozmiar rzędu 10⁻¹⁰ m.",
+    "surface_forms": ["atom", "atomy"]
+  },
+  "prop:molecule": {
+    "name": "Cząsteczka",
+    "slug": "czasteczka",
+    "description": "Elektrycznie obojętna cząstka utworzona z dwóch lub więcej atomów połączonych wiązaniami kowalencyjnymi. Najmniejsza cząstka substancji zachowująca jej właściwości chemiczne. H₂O, CO₂, O₂ — cząsteczki.",
+    "surface_forms": ["cząsteczka", "cząsteczki"]
+  },
+  "prop:ion": {
+    "name": "Jon",
+    "slug": "jon",
+    "description": "Atom lub grupa atomów posiadające ładunek elektryczny w wyniku utraty lub przyłączenia elektronów. Kation (+) — utrata elektronów, anion (−) — przyłączenie.",
+    "surface_forms": ["jon", "jony", "kation", "anion"]
+  },
+  "prop:crystal_lattice": {
+    "name": "Sieć krystaliczna",
+    "slug": "siec-krystaliczna",
+    "description": "Uporządkowane trójwymiarowe rozmieszczenie cząstek (atomów, cząsteczek lub jonów) w ciele stałym. Typ sieci (jonowa, atomowa, cząsteczkowa, metaliczna) determinuje właściwości fizyczne: temperaturę topnienia, twardość, kruchość.",
+    "surface_forms": ["sieć krystaliczna", "sieci krystaliczne"]
+  },
+  "prop:oxidizer": {
+    "name": "Utleniacz",
+    "slug": "utleniacz",
+    "description": "Atom, cząsteczka lub jon, który przyjmuje elektrony w reakcji redoks. Stopień utlenienia utleniacza maleje (ulega redukcji).",
+    "surface_forms": ["utleniacz", "utleniacze"]
+  },
+  "prop:reducer": {
+    "name": "Reduktor",
+    "slug": "reduktor",
+    "description": "Atom, cząsteczka lub jon, który oddaje elektrony w reakcji redoks. Stopień utlenienia reduktora rośnie (ulega utlenieniu).",
+    "surface_forms": ["reduktor", "reduktory"]
+  },
   "rxfacet:by_count": {
     "name": "Według liczby substratów i produktów",
     "slug": "wg-liczby-substancji",

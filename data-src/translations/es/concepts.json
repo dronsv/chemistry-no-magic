@@ -145,6 +145,90 @@
     "slug": "electronegatividad",
     "surface_forms": ["electronegatividad"]
   },
+  "prop:state_of_matter": {
+    "name": "Estado de la materia",
+    "slug": "estado-materia",
+    "description": "Forma en que existe una sustancia, determinada por el movimiento e interacción de sus partículas: sólido, líquido, gas, plasma. El agua es un ejemplo clásico: hielo (sólido), agua líquida, vapor (gas).",
+    "surface_forms": ["estado de la materia", "estados de la materia", "fase"]
+  },
+  "prop:color": {
+    "name": "Color",
+    "slug": "color",
+    "description": "Propiedad determinada por las longitudes de onda de los fotones que una sustancia refleja o emite. Depende de la estructura electrónica: Cu(OH)₂ es azul, Fe(OH)₃ es marrón, KMnO₄ es violeta.",
+    "surface_forms": ["color"]
+  },
+  "prop:odor": {
+    "name": "Olor",
+    "slug": "olor",
+    "description": "Propiedad percibida por el sentido del olfato, determinada por moléculas volátiles que interactúan con los receptores olfativos. El H₂S huele a huevos podridos; el NH₃ tiene un olor fuerte y penetrante.",
+    "surface_forms": ["olor"]
+  },
+  "prop:density": {
+    "name": "Densidad",
+    "slug": "densidad",
+    "description": "Masa por unidad de volumen de una sustancia (g/cm³ o kg/m³). Determina si una sustancia se hunde o flota, y depende de la masa de las partículas y la eficiencia de su empaquetamiento.",
+    "surface_forms": ["densidad"]
+  },
+  "prop:melting_point": {
+    "name": "Punto de fusión",
+    "slug": "punto-fusion",
+    "description": "Temperatura a la cual una sustancia pasa de estado sólido a líquido a una presión dada. Depende del tipo de red cristalina y la fuerza de los enlaces entre partículas.",
+    "surface_forms": ["punto de fusión", "p.f."]
+  },
+  "prop:boiling_point": {
+    "name": "Punto de ebullición",
+    "slug": "punto-ebullicion",
+    "description": "Temperatura a la cual la presión de vapor de una sustancia iguala la presión externa y pasa al estado gaseoso. El agua hierve a 100 °C (a 1 atm).",
+    "surface_forms": ["punto de ebullición", "p.eb."]
+  },
+  "prop:thermal_stability": {
+    "name": "Estabilidad térmica",
+    "slug": "estabilidad-termica",
+    "description": "Capacidad de una sustancia para mantener su composición química y estructura al calentarla. Las bases insolubles y algunas sales (CaCO₃) se descomponen al calentar; los hidróxidos alcalinos son termoestables.",
+    "surface_forms": ["estabilidad térmica"]
+  },
+  "prop:flammability": {
+    "name": "Inflamabilidad",
+    "slug": "inflamabilidad",
+    "description": "Capacidad de una sustancia para sufrir oxidación exotérmica con liberación de calor y luz (combustión). Depende de la naturaleza de la sustancia, la temperatura de ignición y la disponibilidad de oxidante.",
+    "surface_forms": ["inflamabilidad", "combustibilidad"]
+  },
+  "prop:atom": {
+    "name": "Átomo",
+    "slug": "atomo",
+    "description": "La partícula más pequeña de un elemento químico que conserva sus propiedades químicas. Consiste en un núcleo con carga positiva (protones + neutrones) y una corteza electrónica. Tamaño del orden de 10⁻¹⁰ m.",
+    "surface_forms": ["átomo", "átomos"]
+  },
+  "prop:molecule": {
+    "name": "Molécula",
+    "slug": "molecula",
+    "description": "Partícula eléctricamente neutra formada por dos o más átomos unidos por enlaces covalentes. La partícula más pequeña de una sustancia que conserva sus propiedades químicas. H₂O, CO₂, O₂ son moléculas.",
+    "surface_forms": ["molécula", "moléculas"]
+  },
+  "prop:ion": {
+    "name": "Ion",
+    "slug": "ion",
+    "description": "Átomo o grupo de átomos con carga eléctrica como resultado de perder o ganar electrones. Catión (+) — pérdida de electrones; anión (−) — ganancia de electrones.",
+    "surface_forms": ["ion", "iones", "catión", "anión"]
+  },
+  "prop:crystal_lattice": {
+    "name": "Red cristalina",
+    "slug": "red-cristalina",
+    "description": "Disposición tridimensional ordenada de partículas (átomos, moléculas o iones) en un sólido. El tipo de red (iónica, atómica, molecular, metálica) determina las propiedades físicas: punto de fusión, dureza, fragilidad.",
+    "surface_forms": ["red cristalina", "estructura cristalina"]
+  },
+  "prop:oxidizer": {
+    "name": "Agente oxidante",
+    "slug": "agente-oxidante",
+    "description": "Un átomo, molécula o ion que acepta electrones en una reacción redox. El estado de oxidación del oxidante disminuye (se reduce).",
+    "surface_forms": ["agente oxidante", "oxidante"]
+  },
+  "prop:reducer": {
+    "name": "Agente reductor",
+    "slug": "agente-reductor",
+    "description": "Un átomo, molécula o ion que dona electrones en una reacción redox. El estado de oxidación del reductor aumenta (se oxida).",
+    "surface_forms": ["agente reductor", "reductor"]
+  },
   "rxfacet:by_count": {
     "name": "Por número de sustancias",
     "slug": "por-numero",

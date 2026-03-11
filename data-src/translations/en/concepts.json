@@ -145,6 +145,90 @@
     "slug": "electronegativity",
     "surface_forms": ["electronegativity"]
   },
+  "prop:state_of_matter": {
+    "name": "State of matter",
+    "slug": "state-of-matter",
+    "description": "The form in which a substance exists, determined by the motion and interaction of its particles: solid, liquid, gas, plasma. Water is a classic example: ice (solid), liquid water, steam (gas).",
+    "surface_forms": ["state of matter", "states of matter", "phase"]
+  },
+  "prop:color": {
+    "name": "Color",
+    "slug": "color",
+    "description": "A property determined by the wavelengths of photons a substance reflects or emits. Depends on electronic structure: Cu(OH)₂ is blue, Fe(OH)₃ is brown, KMnO₄ is purple.",
+    "surface_forms": ["color", "colour"]
+  },
+  "prop:odor": {
+    "name": "Odor",
+    "slug": "odor",
+    "description": "A property perceived by the sense of smell, determined by volatile molecules interacting with olfactory receptors. H₂S smells of rotten eggs; NH₃ has a sharp, pungent smell.",
+    "surface_forms": ["odor", "odour", "smell"]
+  },
+  "prop:density": {
+    "name": "Density",
+    "slug": "density",
+    "description": "Mass per unit volume of a substance (g/cm³ or kg/m³). Determines whether a substance sinks or floats, and depends on particle mass and packing efficiency.",
+    "surface_forms": ["density"]
+  },
+  "prop:melting_point": {
+    "name": "Melting point",
+    "slug": "melting-point",
+    "description": "The temperature at which a substance transitions from solid to liquid at a given pressure. Depends on crystal lattice type and strength of interparticle bonds.",
+    "surface_forms": ["melting point", "m.p."]
+  },
+  "prop:boiling_point": {
+    "name": "Boiling point",
+    "slug": "boiling-point",
+    "description": "The temperature at which a substance's vapor pressure equals the external pressure and it transitions to a gaseous state. Water boils at 100 °C (at 1 atm).",
+    "surface_forms": ["boiling point", "b.p."]
+  },
+  "prop:thermal_stability": {
+    "name": "Thermal stability",
+    "slug": "thermal-stability",
+    "description": "The ability of a substance to maintain its chemical composition and structure when heated. Insoluble bases and some salts (CaCO₃) decompose on heating; alkali hydroxides are thermally stable.",
+    "surface_forms": ["thermal stability"]
+  },
+  "prop:flammability": {
+    "name": "Flammability",
+    "slug": "flammability",
+    "description": "The ability of a substance to undergo exothermic oxidation releasing heat and light (combustion). Depends on substance nature, ignition temperature, and oxidizer availability.",
+    "surface_forms": ["flammability", "combustibility"]
+  },
+  "prop:atom": {
+    "name": "Atom",
+    "slug": "atom",
+    "description": "The smallest particle of a chemical element that retains its chemical properties. Consists of a positively charged nucleus (protons + neutrons) and an electron shell. Size is on the order of 10⁻¹⁰ m.",
+    "surface_forms": ["atom", "atoms"]
+  },
+  "prop:molecule": {
+    "name": "Molecule",
+    "slug": "molecule",
+    "description": "An electrically neutral particle formed by two or more atoms joined by covalent bonds. The smallest particle of a substance that retains its chemical properties. H₂O, CO₂, O₂ are molecules.",
+    "surface_forms": ["molecule", "molecules"]
+  },
+  "prop:ion": {
+    "name": "Ion",
+    "slug": "ion",
+    "description": "An atom or group of atoms carrying an electric charge as a result of losing or gaining electrons. Cation (+) — loss of electrons; anion (−) — gain of electrons.",
+    "surface_forms": ["ion", "ions", "cation", "anion"]
+  },
+  "prop:crystal_lattice": {
+    "name": "Crystal lattice",
+    "slug": "crystal-lattice",
+    "description": "An ordered three-dimensional arrangement of particles (atoms, molecules, or ions) in a solid. The lattice type (ionic, atomic, molecular, metallic) determines physical properties: melting point, hardness, brittleness.",
+    "surface_forms": ["crystal lattice", "crystal structure", "lattice"]
+  },
+  "prop:oxidizer": {
+    "name": "Oxidizing agent",
+    "slug": "oxidizing-agent",
+    "description": "An atom, molecule, or ion that accepts electrons in a redox reaction. The oxidation state of the oxidizing agent decreases (it is reduced).",
+    "surface_forms": ["oxidizing agent", "oxidizer", "oxidant"]
+  },
+  "prop:reducer": {
+    "name": "Reducing agent",
+    "slug": "reducing-agent",
+    "description": "An atom, molecule, or ion that donates electrons in a redox reaction. The oxidation state of the reducing agent increases (it is oxidized).",
+    "surface_forms": ["reducing agent", "reducer", "reductant"]
+  },
   "rxfacet:by_count": {
     "name": "By number of substances",
     "slug": "by-count",
