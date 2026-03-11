@@ -205,6 +205,10 @@ async function main() {
   const mathConcepts = await loadJsonOptional(join(FOUNDATIONS_DIR, 'math_concepts.json'));
   const mechanisms = await loadJsonOptional(join(FOUNDATIONS_DIR, 'mechanisms.json'));
   const bridgeExplanations = await loadJsonOptional(join(FOUNDATIONS_DIR, 'bridge_explanations.json'));
+  const foundationConstants = await loadJsonOptional(join(FOUNDATIONS_DIR, 'constants.json'));
+  const foundationFormulas = await loadJsonOptional(join(FOUNDATIONS_DIR, 'formulas.json'));
+  const qualitativeRelations = await loadJsonOptional(join(FOUNDATIONS_DIR, 'qualitative_relations.json'));
+  const trendRules = await loadJsonOptional(join(FOUNDATIONS_DIR, 'trend_rules.json'));
 
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
   const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
@@ -356,6 +360,10 @@ async function main() {
     ...(mathConcepts ? validateExplanatoryCatalogLocaleNeutral(mathConcepts, 'foundations/math_concepts.json') : []),
     ...(mechanisms ? validateExplanatoryCatalogLocaleNeutral(mechanisms, 'foundations/mechanisms.json') : []),
     ...(bridgeExplanations ? validateExplanatoryCatalogLocaleNeutral(bridgeExplanations, 'foundations/bridge_explanations.json') : []),
+    ...(foundationConstants ? validateExplanatoryCatalogLocaleNeutral(foundationConstants, 'foundations/constants.json') : []),
+    ...(foundationFormulas ? validateExplanatoryCatalogLocaleNeutral(foundationFormulas, 'foundations/formulas.json') : []),
+    ...(qualitativeRelations ? validateExplanatoryCatalogLocaleNeutral(qualitativeRelations, 'foundations/qualitative_relations.json') : []),
+    ...(trendRules ? validateExplanatoryCatalogLocaleNeutral(trendRules, 'foundations/trend_rules.json') : []),
   ];
 
   // 2a. Relation ID integrity check
@@ -510,12 +518,16 @@ async function main() {
   await writeFile(join(bundleDir, 'exercises', 'oxidation-exercises.json'), JSON.stringify(oxidationExercises));
 
   // G.1 physical foundations catalogs (written when present)
-  if (physicalConcepts || mathConcepts || mechanisms || bridgeExplanations) {
+  if (physicalConcepts || mathConcepts || mechanisms || bridgeExplanations || foundationConstants || foundationFormulas || qualitativeRelations || trendRules) {
     await mkdir(join(bundleDir, 'foundations'), { recursive: true });
     if (physicalConcepts) await writeFile(join(bundleDir, 'foundations', 'physical_concepts.json'), JSON.stringify(physicalConcepts));
     if (mathConcepts) await writeFile(join(bundleDir, 'foundations', 'math_concepts.json'), JSON.stringify(mathConcepts));
     if (mechanisms) await writeFile(join(bundleDir, 'foundations', 'mechanisms.json'), JSON.stringify(mechanisms));
     if (bridgeExplanations) await writeFile(join(bundleDir, 'foundations', 'bridge_explanations.json'), JSON.stringify(bridgeExplanations));
+    if (foundationConstants) await writeFile(join(bundleDir, 'foundations', 'constants.json'), JSON.stringify(foundationConstants));
+    if (foundationFormulas) await writeFile(join(bundleDir, 'foundations', 'formulas.json'), JSON.stringify(foundationFormulas));
+    if (qualitativeRelations) await writeFile(join(bundleDir, 'foundations', 'qualitative_relations.json'), JSON.stringify(qualitativeRelations));
+    if (trendRules) await writeFile(join(bundleDir, 'foundations', 'trend_rules.json'), JSON.stringify(trendRules));
     // WP5 — build-time reverse indices
     if (bridgeExplanations) {
       const physicalIndices = generatePhysicalIndices(
@@ -846,6 +858,10 @@ async function main() {
       mechanisms: !!mechanisms,
       bridge_explanations: !!bridgeExplanations,
       indices: !!bridgeExplanations,
+      constants: !!foundationConstants,
+      formulas: !!foundationFormulas,
+      qualitative_relations: !!qualitativeRelations,
+      trend_rules: !!trendRules,
     },
   });
 

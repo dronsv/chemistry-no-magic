@@ -1,0 +1,86 @@
+[
+  {
+    "id": "qrel:coulomb_attraction",
+    "kind": "qualitative_relation",
+    "domain": "atomic_structure",
+    "statement": "F ~ Z_eff / r^2",
+    "factors": [
+      { "variable": "Z_eff", "position": "numerator", "effect_on_result": "direct" },
+      { "variable": "r", "position": "denominator", "power": 2, "effect_on_result": "inverse" }
+    ],
+    "result_variable": "F",
+    "grounded_in": null,
+    "predictions": [
+      { "if_change": "Z_eff", "direction": "increase", "then": "F", "direction_result": "increase" },
+      { "if_change": "r", "direction": "increase", "then": "F", "direction_result": "decrease" }
+    ],
+    "school_grade": [8, 11]
+  },
+  {
+    "id": "qrel:ionization_energy_factors",
+    "kind": "qualitative_relation",
+    "domain": "atomic_structure",
+    "statement": "IE ~ Z_eff / r",
+    "factors": [
+      { "variable": "Z_eff", "position": "numerator", "effect_on_result": "direct" },
+      { "variable": "r", "position": "denominator", "effect_on_result": "inverse" }
+    ],
+    "result_variable": "IE",
+    "grounded_in": "qrel:coulomb_attraction",
+    "predictions": [
+      { "if_change": "Z_eff", "direction": "increase", "then": "IE", "direction_result": "increase" },
+      { "if_change": "r", "direction": "increase", "then": "IE", "direction_result": "decrease" }
+    ],
+    "school_grade": [8, 11]
+  },
+  {
+    "id": "qrel:electronegativity_factors",
+    "kind": "qualitative_relation",
+    "domain": "atomic_structure",
+    "statement": "EN ~ Z_eff / r",
+    "factors": [
+      { "variable": "Z_eff", "position": "numerator", "effect_on_result": "direct" },
+      { "variable": "r", "position": "denominator", "effect_on_result": "inverse" }
+    ],
+    "result_variable": "EN",
+    "grounded_in": "qrel:coulomb_attraction",
+    "predictions": [
+      { "if_change": "Z_eff", "direction": "increase", "then": "EN", "direction_result": "increase" },
+      { "if_change": "r", "direction": "increase", "then": "EN", "direction_result": "decrease" }
+    ],
+    "school_grade": [8, 11]
+  },
+  {
+    "id": "qrel:atomic_radius_factors",
+    "kind": "qualitative_relation",
+    "domain": "atomic_structure",
+    "statement": "r ~ n^2 / Z_eff",
+    "factors": [
+      { "variable": "n_level", "position": "numerator", "power": 2, "effect_on_result": "direct" },
+      { "variable": "Z_eff", "position": "denominator", "effect_on_result": "inverse" }
+    ],
+    "result_variable": "r",
+    "grounded_in": null,
+    "predictions": [
+      { "if_change": "n_level", "direction": "increase", "then": "r", "direction_result": "increase" },
+      { "if_change": "Z_eff", "direction": "increase", "then": "r", "direction_result": "decrease" }
+    ],
+    "school_grade": [8, 11]
+  },
+  {
+    "id": "qrel:zeff_in_period",
+    "kind": "qualitative_relation",
+    "domain": "atomic_structure",
+    "statement": "Z_eff = Z - sigma; in period sigma ~ const, Z increases => Z_eff increases",
+    "factors": [
+      { "variable": "Z", "position": "numerator", "effect_on_result": "direct" },
+      { "variable": "sigma", "position": "numerator", "effect_on_result": "inverse" }
+    ],
+    "result_variable": "Z_eff",
+    "grounded_in": "formula:effective_nuclear_charge",
+    "predictions": [
+      { "if_change": "Z", "direction": "increase", "then": "Z_eff", "direction_result": "increase" }
+    ],
+    "school_grade": [8, 11]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "const:N_A",
+    "symbol": "N_A",
+    "value": 6.022e23,
+    "unit": "unit:per_mol",
+    "quantity": "q:amount",
+    "labels_key": "const.avogadro"
+  },
+  {
+    "id": "const:V_m_stp",
+    "symbol": "V_m",
+    "value": 22.4,
+    "unit": "unit:L_per_mol",
+    "quantity": "q:molar_volume",
+    "condition_key": "const.stp_condition",
+    "labels_key": "const.molar_volume_stp"
+  },
+  {
+    "id": "const:k_coulomb",
+    "symbol": "k",
+    "value": 8.988e9,
+    "unit": "unit:N_m2_per_C2",
+    "labels_key": "const.coulomb_constant"
+  },
+  {
+    "id": "const:h_planck",
+    "symbol": "h",
+    "value": 6.626e-34,
+    "unit": "unit:J_s",
+    "labels_key": "const.planck"
+  },
+  {
+    "id": "const:R",
+    "symbol": "R",
+    "value": 8.314,
+    "unit": "unit:J_per_mol_K",
+    "labels_key": "const.gas_constant"
+  }
+]

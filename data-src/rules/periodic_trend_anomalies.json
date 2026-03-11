@@ -1,37 +1,47 @@
 [
   {
+    "id": "exc:ie_be_b",
     "property": "ionization_energy",
     "from": "Be",
     "to": "B",
     "reason": "filled_s_subshell",
-    "direction": "period"
+    "direction": "period",
+    "overrides_trend": "trend:ie_across_period"
   },
   {
+    "id": "exc:ie_n_o",
     "property": "ionization_energy",
     "from": "N",
     "to": "O",
     "reason": "half_filled_p_subshell",
-    "direction": "period"
+    "direction": "period",
+    "overrides_trend": "trend:ie_across_period"
   },
   {
+    "id": "exc:ea_n_o",
     "property": "electron_affinity",
     "from": "N",
     "to": "O",
     "reason": "half_filled_p_subshell",
-    "direction": "period"
+    "direction": "period",
+    "overrides_trend": "trend:ea_across_period"
   },
   {
+    "id": "exc:ea_be_b",
     "property": "electron_affinity",
     "from": "Be",
     "to": "B",
     "reason": "filled_s_subshell",
-    "direction": "period"
+    "direction": "period",
+    "overrides_trend": "trend:ea_across_period"
   },
   {
+    "id": "exc:ea_f_cl",
     "property": "electron_affinity",
     "from": "F",
     "to": "Cl",
     "reason": "small_atomic_radius_repulsion",
-    "direction": "group"
+    "direction": "group",
+    "overrides_trend": "trend:ea_down_group"
   }
 ]

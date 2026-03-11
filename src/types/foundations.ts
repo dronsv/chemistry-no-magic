@@ -60,6 +60,7 @@ export interface Mechanism {
   stabilization_family?: string;
   applies_to: string[];
   depends_on?: string[];
+  grounded_in_relation?: string; // ref to qrel:* or formula:*
   // Overlay fields
   name?: string;
   school?: string;

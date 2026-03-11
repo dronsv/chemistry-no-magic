@@ -414,7 +414,24 @@ export async function loadDiagnosticQuestions(locale?: SupportedLocale): Promise
   const questions = await loadDataFile<DiagnosticQuestion[]>(path);
   if (!locale) return questions;
   const overlay = await loadTranslationOverlay(locale, 'diagnostic_questions');
-  return applyOverlay(questions, overlay, q => q.id);
+  if (!overlay) return questions;
+
+  return questions.map(q => {
+    const o = overlay[q.id] as Record<string, unknown> | undefined;
+    if (!o) return q;
+    const { options: optOverlay, ...rest } = o;
+    const merged = { ...q, ...rest } as DiagnosticQuestion;
+    // Overlay stores options as { "a": { text }, "b": { text } } object,
+    // but base data has options as array — merge by option id
+    if (optOverlay && typeof optOverlay === 'object' && !Array.isArray(optOverlay)) {
+      const optMap = optOverlay as Record<string, Record<string, unknown>>;
+      merged.options = q.options.map(opt => {
+        const oo = optMap[opt.id];
+        return oo ? { ...opt, ...oo } : opt;
+      });
+    }
+    return merged;
+  });
 }
 
 /** Load element groups dictionary. */
@@ -1201,4 +1218,52 @@ export async function loadPhysicalIndices(): Promise<import('../types/foundation
   const path = manifest.entrypoints.foundations?.indices;
   if (!path) return null;
   return loadDataFile<import('../types/foundations').PhysicalIndices>(path);
+}
+
+export async function loadConstants(
+  locale?: SupportedLocale,
+): Promise<import('../types/formula').PhysicalConstant[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.constants;
+  if (!path) return [];
+  const data = await loadDataFile<import('../types/formula').PhysicalConstant[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/constants');
+  return applyOverlay(data, overlay, c => c.id);
+}
+
+export async function loadFormulas(
+  locale?: SupportedLocale,
+): Promise<import('../types/formula').ComputableFormula[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.formulas;
+  if (!path) return [];
+  const data = await loadDataFile<import('../types/formula').ComputableFormula[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/formulas');
+  return applyOverlay(data, overlay, f => f.id);
+}
+
+export async function loadQualitativeRelations(
+  locale?: SupportedLocale,
+): Promise<import('../types/qualitative-relation').QualitativeRelation[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.qualitative_relations;
+  if (!path) return [];
+  const data = await loadDataFile<import('../types/qualitative-relation').QualitativeRelation[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/qualitative_relations');
+  return applyOverlay(data, overlay, r => r.id);
+}
+
+export async function loadTrendRules(
+  locale?: SupportedLocale,
+): Promise<import('../types/trend-rule').TrendRule[]> {
+  const manifest = await getManifest();
+  const path = manifest.entrypoints.foundations?.trend_rules;
+  if (!path) return [];
+  const data = await loadDataFile<import('../types/trend-rule').TrendRule[]>(path);
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'foundations/trend_rules');
+  return applyOverlay(data, overlay, t => t.id);
 }

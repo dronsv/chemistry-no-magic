@@ -56,6 +56,10 @@ export interface ManifestEntrypoints {
     mechanisms?: string;
     bridge_explanations?: string;
     indices?: string;
+    constants?: string;
+    formulas?: string;
+    qualitative_relations?: string;
+    trend_rules?: string;
   };
 }
 

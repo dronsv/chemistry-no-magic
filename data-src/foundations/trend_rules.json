@@ -1,0 +1,134 @@
+[
+  {
+    "id": "trend:ie_across_period",
+    "kind": "trend_rule",
+    "property": "ionization_energy",
+    "direction": "increases",
+    "context": "across_period",
+    "applicability": { "scope": "main_group_elements", "same": "period", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:zeff_in_period", "conclusion": "Z_eff_increases" },
+      { "step": 2, "relation": "qrel:atomic_radius_factors", "conclusion": "r_decreases" },
+      { "step": 3, "relation": "qrel:ionization_energy_factors", "conclusion": "IE_increases" }
+    ],
+    "exception_rule_ids": ["exc:ie_be_b", "exc:ie_n_o"]
+  },
+  {
+    "id": "trend:ie_down_group",
+    "kind": "trend_rule",
+    "property": "ionization_energy",
+    "direction": "decreases",
+    "context": "down_group",
+    "applicability": { "scope": "main_group_elements", "same": "group", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:atomic_radius_factors", "conclusion": "r_increases_with_n" },
+      { "step": 2, "relation": "qrel:ionization_energy_factors", "conclusion": "IE_decreases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:en_across_period",
+    "kind": "trend_rule",
+    "property": "electronegativity",
+    "direction": "increases",
+    "context": "across_period",
+    "applicability": { "scope": "main_group_elements", "same": "period", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:zeff_in_period", "conclusion": "Z_eff_increases" },
+      { "step": 2, "relation": "qrel:atomic_radius_factors", "conclusion": "r_decreases" },
+      { "step": 3, "relation": "qrel:electronegativity_factors", "conclusion": "EN_increases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:en_down_group",
+    "kind": "trend_rule",
+    "property": "electronegativity",
+    "direction": "decreases",
+    "context": "down_group",
+    "applicability": { "scope": "main_group_elements", "same": "group", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:atomic_radius_factors", "conclusion": "r_increases_with_n" },
+      { "step": 2, "relation": "qrel:electronegativity_factors", "conclusion": "EN_decreases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:radius_across_period",
+    "kind": "trend_rule",
+    "property": "atomic_radius",
+    "direction": "decreases",
+    "context": "across_period",
+    "applicability": { "scope": "main_group_elements", "same": "period", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:zeff_in_period", "conclusion": "Z_eff_increases" },
+      { "step": 2, "relation": "qrel:atomic_radius_factors", "conclusion": "r_decreases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:radius_down_group",
+    "kind": "trend_rule",
+    "property": "atomic_radius",
+    "direction": "increases",
+    "context": "down_group",
+    "applicability": { "scope": "main_group_elements", "same": "group", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:atomic_radius_factors", "conclusion": "r_increases_with_n" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:metallic_across_period",
+    "kind": "trend_rule",
+    "property": "metallic_character",
+    "direction": "decreases",
+    "context": "across_period",
+    "applicability": { "scope": "main_group_elements", "same": "period", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:zeff_in_period", "conclusion": "Z_eff_increases" },
+      { "step": 2, "relation": "qrel:ionization_energy_factors", "conclusion": "IE_increases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:metallic_down_group",
+    "kind": "trend_rule",
+    "property": "metallic_character",
+    "direction": "increases",
+    "context": "down_group",
+    "applicability": { "scope": "main_group_elements", "same": "group", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:atomic_radius_factors", "conclusion": "r_increases_with_n" },
+      { "step": 2, "relation": "qrel:ionization_energy_factors", "conclusion": "IE_decreases" }
+    ],
+    "exception_rule_ids": []
+  },
+  {
+    "id": "trend:ea_across_period",
+    "kind": "trend_rule",
+    "property": "electron_affinity",
+    "direction": "increases",
+    "context": "across_period",
+    "applicability": { "scope": "main_group_elements", "same": "period", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:zeff_in_period", "conclusion": "Z_eff_increases" },
+      { "step": 2, "relation": "qrel:atomic_radius_factors", "conclusion": "r_decreases" },
+      { "step": 3, "relation": "qrel:coulomb_attraction", "conclusion": "attraction_increases" }
+    ],
+    "exception_rule_ids": ["exc:ea_be_b", "exc:ea_n_o"]
+  },
+  {
+    "id": "trend:ea_down_group",
+    "kind": "trend_rule",
+    "property": "electron_affinity",
+    "direction": "decreases",
+    "context": "down_group",
+    "applicability": { "scope": "main_group_elements", "same": "group", "exclude": ["lanthanide", "actinide"] },
+    "reasoning_chain": [
+      { "step": 1, "relation": "qrel:atomic_radius_factors", "conclusion": "r_increases_with_n" },
+      { "step": 2, "relation": "qrel:coulomb_attraction", "conclusion": "attraction_decreases" }
+    ],
+    "exception_rule_ids": ["exc:ea_f_cl"]
+  }
+]

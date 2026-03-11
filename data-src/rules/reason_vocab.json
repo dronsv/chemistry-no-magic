@@ -1,6 +1,9 @@
 [
   {
     "id": "filled_s_subshell",
+    "mechanism_ref": "exchange_stabilization",
+    "subshell": "s",
+    "fill_state": "full",
     "labels": {
       "ru": "заполненный s-подуровень особенно стабилен",
       "en": "filled s subshell is particularly stable",
@@ -10,6 +13,9 @@
   },
   {
     "id": "half_filled_p_subshell",
+    "mechanism_ref": "exchange_stabilization",
+    "subshell": "p",
+    "fill_state": "half",
     "labels": {
       "ru": "полузаполненный p-подуровень особенно стабилен",
       "en": "half-filled p subshell is particularly stable",
@@ -19,6 +25,8 @@
   },
   {
     "id": "small_atomic_radius_repulsion",
+    "mechanism_ref": null,
+    "factor": "electron_repulsion",
     "labels": {
       "ru": "малый радиус атома → сильное отталкивание электронов",
       "en": "small atomic radius causes strong electron-electron repulsion",

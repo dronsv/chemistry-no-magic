@@ -120,6 +120,10 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         ...(foundations.mechanisms ? { mechanisms: 'foundations/mechanisms.json' } : {}),
         ...(foundations.bridge_explanations ? { bridge_explanations: 'foundations/bridge_explanations.json' } : {}),
         ...(foundations.indices ? { indices: 'foundations/indices.json' } : {}),
+        ...(foundations.constants ? { constants: 'foundations/constants.json' } : {}),
+        ...(foundations.formulas ? { formulas: 'foundations/formulas.json' } : {}),
+        ...(foundations.qualitative_relations ? { qualitative_relations: 'foundations/qualitative_relations.json' } : {}),
+        ...(foundations.trend_rules ? { trend_rules: 'foundations/trend_rules.json' } : {}),
       } : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',
