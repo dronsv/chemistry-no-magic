@@ -72,3 +72,26 @@
   color: var(--color-text-muted);
   margin-left: var(--space-xs);
 }
+
+.settings-section--danger {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-lg);
+}
+
+.settings-reset-btn {
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid #ef4444;
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  color: #ef4444;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.settings-reset-btn:hover {
+  background: #ef4444;
+  color: #fff;
+}

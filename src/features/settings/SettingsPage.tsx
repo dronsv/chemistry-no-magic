@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { SupportedLocale } from '../../types/i18n';
 import { loadSettings, saveSetting, getDefaultExamSystem } from '../../lib/settings';
 import { localizeUrl, SUPPORTED_LOCALES } from '../../lib/i18n';
+import { saveLocale } from '../../lib/locale-detect';
 import * as m from '../../paraglide/messages.js';
 import './settings-page.css';
 
@@ -49,8 +50,18 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
   }
 
   function handleLocaleChange(newLocale: string) {
+    saveLocale(newLocale as SupportedLocale);
     const settingsPath = localizeUrl('/settings/', newLocale as SupportedLocale);
     window.location.href = settingsPath;
+  }
+
+  function handleReset() {
+    if (!window.confirm(m.settings_reset_confirm())) return;
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+    } catch { /* ignore */ }
+    window.location.href = '/';
   }
 
   if (!initialized) return null;
@@ -118,6 +129,18 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
             <span className="settings-option__hint">23 × 11</span>
           </button>
         </div>
+      </section>
+
+      <section className="settings-section settings-section--danger">
+        <h2 className="settings-section__title">{m.settings_reset_section()}</h2>
+        <p className="settings-section__desc">{m.settings_reset_description()}</p>
+        <button
+          type="button"
+          className="settings-reset-btn"
+          onClick={handleReset}
+        >
+          {m.settings_reset_button()}
+        </button>
       </section>
     </div>
   );
