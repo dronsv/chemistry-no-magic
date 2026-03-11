@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
-import LanguageBanner from '../components/LanguageBanner';
 import '../styles/global.css';
 import * as m from '../paraglide/messages.js';
 import type { SupportedLocale } from '../types/i18n';
@@ -224,7 +223,6 @@ const searchUrl = localizeUrl('/search/', locale);
     <slot name="head" />
   </head>
   <body>
-    {locale === 'ru' && <LanguageBanner client:idle currentLocale={locale} />}
     <Nav locale={locale} />
     <main class="container">
       <slot />

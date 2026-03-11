@@ -126,7 +126,7 @@ export default defineConfig({
     defaultLocale: 'ru',
     locales: ['ru', 'en', 'pl', 'es'],
     routing: {
-      prefixDefaultLocale: false,
+      prefixDefaultLocale: true,
       redirectToDefaultLocale: false,
     },
   },

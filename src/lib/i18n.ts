@@ -5,111 +5,111 @@ export const DEFAULT_LOCALE: SupportedLocale = 'ru';
 
 /** Map of canonical paths → localized slugs per locale */
 const SLUG_MAP: Record<string, Record<SupportedLocale, string>> = {
-  '/': { ru: '/', en: '/en/', pl: '/pl/', es: '/es/' },
+  '/': { ru: '/ru/', en: '/en/', pl: '/pl/', es: '/es/' },
   '/diagnostics/': {
-    ru: '/diagnostics/',
+    ru: '/ru/diagnostics/',
     en: '/en/diagnostics/',
     pl: '/pl/diagnostyka/',
     es: '/es/diagnostico/',
   },
   '/periodic-table/': {
-    ru: '/periodic-table/',
+    ru: '/ru/periodic-table/',
     en: '/en/periodic-table/',
     pl: '/pl/tablica-okresowa/',
     es: '/es/tabla-periodica/',
   },
   '/substances/': {
-    ru: '/substances/',
+    ru: '/ru/substances/',
     en: '/en/substances/',
     pl: '/pl/substancje/',
     es: '/es/sustancias/',
   },
   '/bonds/': {
-    ru: '/bonds/',
+    ru: '/ru/bonds/',
     en: '/en/bonds/',
     pl: '/pl/wiazania/',
     es: '/es/enlaces/',
   },
   '/oxidation-states/': {
-    ru: '/oxidation-states/',
+    ru: '/ru/oxidation-states/',
     en: '/en/oxidation-states/',
     pl: '/pl/stopnie-utlenienia/',
     es: '/es/estados-oxidacion/',
   },
   '/reactions/': {
-    ru: '/reactions/',
+    ru: '/ru/reactions/',
     en: '/en/reactions/',
     pl: '/pl/reakcje/',
     es: '/es/reacciones/',
   },
   '/calculations/': {
-    ru: '/calculations/',
+    ru: '/ru/calculations/',
     en: '/en/calculations/',
     pl: '/pl/obliczenia/',
     es: '/es/calculos/',
   },
   '/exam/': {
-    ru: '/exam/',
+    ru: '/ru/exam/',
     en: '/en/exam/',
     pl: '/pl/egzamin/',
     es: '/es/examen/',
   },
   '/profile/': {
-    ru: '/profile/',
+    ru: '/ru/profile/',
     en: '/en/profile/',
     pl: '/pl/profil/',
     es: '/es/perfil/',
   },
   '/search/': {
-    ru: '/search/',
+    ru: '/ru/search/',
     en: '/en/search/',
     pl: '/pl/szukaj/',
     es: '/es/buscar/',
   },
   '/ions/': {
-    ru: '/ions/',
+    ru: '/ru/ions/',
     en: '/en/ions/',
     pl: '/pl/jony/',
     es: '/es/iones/',
   },
   '/competency/': {
-    ru: '/competency/',
+    ru: '/ru/competency/',
     en: '/en/competency/',
     pl: '/pl/kompetencja/',
     es: '/es/competencia/',
   },
   '/competencies/': {
-    ru: '/competencies/',
+    ru: '/ru/competencies/',
     en: '/en/competencies/',
     pl: '/pl/kompetencje/',
     es: '/es/competencias/',
   },
   '/physical-foundations/': {
-    ru: '/physical-foundations/',
+    ru: '/ru/physical-foundations/',
     en: '/en/physical-foundations/',
     pl: '/pl/physical-foundations/',
     es: '/es/physical-foundations/',
   },
   '/processes/': {
-    ru: '/processes/',
+    ru: '/ru/processes/',
     en: '/en/processes/',
     pl: '/pl/procesy/',
     es: '/es/procesos/',
   },
   '/settings/': {
-    ru: '/settings/',
+    ru: '/ru/settings/',
     en: '/en/settings/',
     pl: '/pl/ustawienia/',
     es: '/es/ajustes/',
   },
   '/about/': {
-    ru: '/about/',
+    ru: '/ru/about/',
     en: '/en/about/',
     pl: '/pl/o-projekcie/',
     es: '/es/acerca/',
   },
   '/exam/compare/': {
-    ru: '/exam/compare/',
+    ru: '/ru/exam/compare/',
     en: '/en/exam/compare/',
     pl: '/pl/egzamin/porownanie/',
     es: '/es/examen/comparar/',
@@ -131,16 +131,11 @@ for (const [canonical, localized] of Object.entries(SLUG_MAP)) {
  * (e.g. `/periodic-table/H/` → `/en/periodic-table/H/`).
  */
 export function localizeUrl(path: string, locale: SupportedLocale): string {
-  // Default locale uses unprefixed URLs
-  if (locale === DEFAULT_LOCALE) return path;
-
   // Exact match in slug map
   const slugged = SLUG_MAP[path];
   if (slugged) return slugged[locale];
 
   // Dynamic routes: find the parent static route and replace prefix
-  // e.g. /periodic-table/H/ → parent is /periodic-table/
-  // e.g. /substances/nacl/ → parent is /substances/
   for (const [canonical, localized] of Object.entries(SLUG_MAP)) {
     if (canonical !== '/' && path.startsWith(canonical)) {
       const suffix = path.slice(canonical.length);
@@ -148,25 +143,23 @@ export function localizeUrl(path: string, locale: SupportedLocale): string {
     }
   }
 
-  // Fallback: just prefix with locale
+  // Fallback: prefix with locale
   return `/${locale}${path}`;
 }
 
 /**
- * Extract the canonical (ru) path from any localized URL.
+ * Extract the canonical path from any localized URL.
  * Returns the canonical path and detected locale.
  */
 export function getCanonicalPath(pathname: string): { canonical: string; locale: SupportedLocale } {
   // Check exact match in reverse map
   if (REVERSE_SLUG_MAP[pathname]) {
-    // Determine locale from pathname
     const locale = detectLocaleFromPath(pathname);
     return { canonical: REVERSE_SLUG_MAP[pathname], locale };
   }
 
-  // Check if pathname starts with a locale prefix
+  // Check if pathname starts with a locale prefix (all locales including ru)
   for (const locale of SUPPORTED_LOCALES) {
-    if (locale === DEFAULT_LOCALE) continue;
     const prefix = `/${locale}/`;
     if (pathname.startsWith(prefix)) {
       // Find which canonical route this belongs to
@@ -182,13 +175,12 @@ export function getCanonicalPath(pathname: string): { canonical: string; locale:
     }
   }
 
-  // No locale prefix — default locale
+  // No locale prefix — international page
   return { canonical: pathname, locale: DEFAULT_LOCALE };
 }
 
 function detectLocaleFromPath(pathname: string): SupportedLocale {
   for (const locale of SUPPORTED_LOCALES) {
-    if (locale === DEFAULT_LOCALE) continue;
     if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
       return locale;
     }

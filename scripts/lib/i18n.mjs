@@ -7,24 +7,25 @@ export const SUPPORTED_LOCALES = ['ru', 'en', 'pl', 'es'];
 export const TRANSLATION_LOCALES = ['en', 'pl', 'es']; // non-default locales
 
 const SLUG_MAP = {
-  '/': { ru: '/', en: '/en/', pl: '/pl/', es: '/es/' },
-  '/diagnostics/': { ru: '/diagnostics/', en: '/en/diagnostics/', pl: '/pl/diagnostyka/', es: '/es/diagnostico/' },
-  '/periodic-table/': { ru: '/periodic-table/', en: '/en/periodic-table/', pl: '/pl/tablica-okresowa/', es: '/es/tabla-periodica/' },
-  '/substances/': { ru: '/substances/', en: '/en/substances/', pl: '/pl/substancje/', es: '/es/sustancias/' },
-  '/bonds/': { ru: '/bonds/', en: '/en/bonds/', pl: '/pl/wiazania/', es: '/es/enlaces/' },
-  '/oxidation-states/': { ru: '/oxidation-states/', en: '/en/oxidation-states/', pl: '/pl/stopnie-utlenienia/', es: '/es/estados-oxidacion/' },
-  '/reactions/': { ru: '/reactions/', en: '/en/reactions/', pl: '/pl/reakcje/', es: '/es/reacciones/' },
-  '/calculations/': { ru: '/calculations/', en: '/en/calculations/', pl: '/pl/obliczenia/', es: '/es/calculos/' },
-  '/exam/': { ru: '/exam/', en: '/en/exam/', pl: '/pl/egzamin/', es: '/es/examen/' },
-  '/profile/': { ru: '/profile/', en: '/en/profile/', pl: '/pl/profil/', es: '/es/perfil/' },
-  '/search/': { ru: '/search/', en: '/en/search/', pl: '/pl/szukaj/', es: '/es/buscar/' },
-  '/ions/': { ru: '/ions/', en: '/en/ions/', pl: '/pl/jony/', es: '/es/iones/' },
-  '/competency/': { ru: '/competency/', en: '/en/competency/', pl: '/pl/kompetencja/', es: '/es/competencia/' },
-  '/competencies/': { ru: '/competencies/', en: '/en/competencies/', pl: '/pl/kompetencje/', es: '/es/competencias/' },
-  '/physical-foundations/': { ru: '/physical-foundations/', en: '/en/physical-foundations/', pl: '/pl/physical-foundations/', es: '/es/physical-foundations/' },
-  '/processes/': { ru: '/processes/', en: '/en/processes/', pl: '/pl/procesy/', es: '/es/procesos/' },
-  '/settings/': { ru: '/settings/', en: '/en/settings/', pl: '/pl/ustawienia/', es: '/es/ajustes/' },
-  '/about/': { ru: '/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
+  '/': { ru: '/ru/', en: '/en/', pl: '/pl/', es: '/es/' },
+  '/diagnostics/': { ru: '/ru/diagnostics/', en: '/en/diagnostics/', pl: '/pl/diagnostyka/', es: '/es/diagnostico/' },
+  '/periodic-table/': { ru: '/ru/periodic-table/', en: '/en/periodic-table/', pl: '/pl/tablica-okresowa/', es: '/es/tabla-periodica/' },
+  '/substances/': { ru: '/ru/substances/', en: '/en/substances/', pl: '/pl/substancje/', es: '/es/sustancias/' },
+  '/bonds/': { ru: '/ru/bonds/', en: '/en/bonds/', pl: '/pl/wiazania/', es: '/es/enlaces/' },
+  '/oxidation-states/': { ru: '/ru/oxidation-states/', en: '/en/oxidation-states/', pl: '/pl/stopnie-utlenienia/', es: '/es/estados-oxidacion/' },
+  '/reactions/': { ru: '/ru/reactions/', en: '/en/reactions/', pl: '/pl/reakcje/', es: '/es/reacciones/' },
+  '/calculations/': { ru: '/ru/calculations/', en: '/en/calculations/', pl: '/pl/obliczenia/', es: '/es/calculos/' },
+  '/exam/': { ru: '/ru/exam/', en: '/en/exam/', pl: '/pl/egzamin/', es: '/es/examen/' },
+  '/profile/': { ru: '/ru/profile/', en: '/en/profile/', pl: '/pl/profil/', es: '/es/perfil/' },
+  '/search/': { ru: '/ru/search/', en: '/en/search/', pl: '/pl/szukaj/', es: '/es/buscar/' },
+  '/ions/': { ru: '/ru/ions/', en: '/en/ions/', pl: '/pl/jony/', es: '/es/iones/' },
+  '/competency/': { ru: '/ru/competency/', en: '/en/competency/', pl: '/pl/kompetencja/', es: '/es/competencia/' },
+  '/competencies/': { ru: '/ru/competencies/', en: '/en/competencies/', pl: '/pl/kompetencje/', es: '/es/competencias/' },
+  '/physical-foundations/': { ru: '/ru/physical-foundations/', en: '/en/physical-foundations/', pl: '/pl/physical-foundations/', es: '/es/physical-foundations/' },
+  '/processes/': { ru: '/ru/processes/', en: '/en/processes/', pl: '/pl/procesy/', es: '/es/procesos/' },
+  '/settings/': { ru: '/ru/settings/', en: '/en/settings/', pl: '/pl/ustawienia/', es: '/es/ajustes/' },
+  '/about/': { ru: '/ru/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
+  '/exam/compare/': { ru: '/ru/exam/compare/', en: '/en/exam/compare/', pl: '/pl/egzamin/porownanie/', es: '/es/examen/comparar/' },
 };
 
 /**
@@ -34,8 +35,6 @@ const SLUG_MAP = {
  * @returns {string}
  */
 export function localizeUrl(path, locale) {
-  if (locale === 'ru') return path;
-
   const slugged = SLUG_MAP[path];
   if (slugged) return slugged[locale];
 
