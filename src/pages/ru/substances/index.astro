@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HubLead from '../../../components/HubLead.astro';
+import SubstancesPage from '../../../features/substances/SubstancesPage';
+import type { SupportedLocale } from '../../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+---
+
+<BaseLayout title="Каталог веществ" description="Справочник химических веществ: оксиды, кислоты, основания, соли. Классификация, номенклатура, практика для подготовки к ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Каталог химических веществ",
+      "description": "Справочник неорганических веществ: оксиды, кислоты, основания, соли. Классификация и номенклатура.",
+      "inLanguage": "ru",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Химия без магии",
+        "url": Astro.site?.toString(),
+      },
+    })} />
+  </Fragment>
+  <HubLead section="substances" locale={locale} />
+  <SubstancesPage locale={locale} client:idle />
+</BaseLayout>

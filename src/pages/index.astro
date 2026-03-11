@@ -1,400 +1,323 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ExamTracks from '../components/ExamTracks.astro';
-import PopularQuestions from '../components/PopularQuestions.astro';
-import * as m from '../paraglide/messages.js';
-import { localizeUrl } from '../lib/i18n';
-
-const locale = (Astro.currentLocale ?? 'ru') as 'ru' | 'en' | 'pl' | 'es';
+/**
+ * International landing page — language selection with formula carousels.
+ * No BaseLayout (no nav, no footer) — standalone page.
+ */
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 ---
 
-<BaseLayout title={m.site_name()} description={m.landing_meta_desc()}>
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": m.site_name(),
-      "description": m.landing_meta_desc(),
-      "url": Astro.site?.toString() ?? Astro.url.origin,
-      "inLanguage": "ru",
-    })} />
-  </Fragment>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chemistry Without Magic — Interactive Chemistry Learning Platform</title>
+  <meta name="description" content="Free interactive chemistry platform: periodic table, substances, reactions, calculations, and exam preparation. Available in Russian, English, Polish, Spanish.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="robots" content="index, follow">
 
-  <section class="hero">
-    <p class="hero__badge">{m.landing_badge()}</p>
-    <h1 set:html={m.landing_title()} />
-    <p class="hero__sub">{m.landing_subtitle()}</p>
-    <div class="hero__actions">
-      <a href={localizeUrl('/diagnostics/', locale)} class="btn btn-primary btn-lg">{m.landing_btn_primary()}</a>
-      <a href="#topics" class="btn btn-outline btn-lg">{m.landing_btn_secondary()}</a>
-    </div>
-  </section>
+  <link rel="canonical" href={`${siteUrl}/`}>
 
-  <section class="stats">
-    <div class="stat">
-      <span class="stat__num">6</span>
-      <span class="stat__label">{m.landing_stat_sections()}</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">118</span>
-      <span class="stat__label">{m.landing_stat_elements()}</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">80</span>
-      <span class="stat__label">{m.landing_stat_substances()}</span>
-    </div>
-    <div class="stat">
-      <span class="stat__num">20</span>
-      <span class="stat__label">{m.landing_stat_competencies()}</span>
-    </div>
-  </section>
+  <link rel="alternate" hreflang="ru-RU" href={`${siteUrl}/ru/`}>
+  <link rel="alternate" hreflang="en" href={`${siteUrl}/en/`}>
+  <link rel="alternate" hreflang="pl" href={`${siteUrl}/pl/`}>
+  <link rel="alternate" hreflang="es" href={`${siteUrl}/es/`}>
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`}>
 
-  <section class="modules" id="topics">
-    <h2 class="section-title">{m.landing_section_topics()}</h2>
-    <div class="modules__grid">
-      <a href={localizeUrl('/periodic-table/', locale)} class="module-card">
-        <span class="module-card__num">1</span>
-        <div>
-          <strong>{m.landing_topic_periodic()}</strong>
-          <p>{m.landing_topic_periodic_desc()}</p>
-        </div>
-      </a>
-      <a href={localizeUrl('/substances/', locale)} class="module-card">
-        <span class="module-card__num">2</span>
-        <div>
-          <strong>{m.landing_topic_substances()}</strong>
-          <p>{m.landing_topic_substances_desc()}</p>
-        </div>
-      </a>
-      <a href={localizeUrl('/bonds/', locale)} class="module-card">
-        <span class="module-card__num">3</span>
-        <div>
-          <strong>{m.landing_topic_bonds()}</strong>
-          <p>{m.landing_topic_bonds_desc()}</p>
-        </div>
-      </a>
-      <a href={localizeUrl('/oxidation-states/', locale)} class="module-card">
-        <span class="module-card__num">4</span>
-        <div>
-          <strong>{m.landing_topic_oxidation()}</strong>
-          <p>{m.landing_topic_oxidation_desc()}</p>
-        </div>
-      </a>
-      <a href={localizeUrl('/reactions/', locale)} class="module-card">
-        <span class="module-card__num">5</span>
-        <div>
-          <strong>{m.landing_topic_reactions()}</strong>
-          <p>{m.landing_topic_reactions_desc()}</p>
-        </div>
-      </a>
-      <a href={localizeUrl('/calculations/', locale)} class="module-card">
-        <span class="module-card__num">6</span>
-        <div>
-          <strong>{m.landing_topic_calculations()}</strong>
-          <p>{m.landing_topic_calculations_desc()}</p>
-        </div>
-      </a>
-    </div>
-  </section>
+  <meta property="og:title" content="Chemistry Without Magic — Interactive Chemistry Learning Platform">
+  <meta property="og:description" content="Free interactive chemistry platform with 118 elements, 5 exam systems, and 4 languages.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={`${siteUrl}/`}>
+  <meta property="og:image" content={`${siteUrl}/og-default.png`}>
 
-  <ExamTracks locale={locale} />
+  <script is:inline>
+    // Early redirect: if user has a saved language preference, go straight there
+    (function() {
+      try {
+        var loc = localStorage.getItem('preferred_locale');
+        if (loc && /^(ru|en|pl|es)$/.test(loc)) {
+          location.replace('/' + loc + '/');
+        }
+      } catch(e) {}
+    })();
+  </script>
 
-  <div class="profile-tip">
-    <p>{m.landing_profile_tip()}</p>
-    <a href={localizeUrl('/profile/', locale)} class="profile-tip__link">{m.landing_profile_tip_link()} &rarr;</a>
+  <script is:inline>
+    if (location.hostname === 'chemistry.svistunov.online') {
+      location.replace('https://ru.chemistry.online' + location.pathname + location.search + location.hash);
+    }
+  </script>
+</head>
+<body>
+
+  <div class="intl-hero">
+    <div class="intl-hero__flask" aria-hidden="true">&#9883;</div>
+    <h1>Chemistry explained clearly</h1>
+    <p class="intl-hero__sub">Elements, substances, reactions, calculations, and exam preparation</p>
   </div>
 
-  <section class="start">
-    <h2 class="section-title">{m.landing_section_start()}</h2>
-    <div class="start__cards">
-      <a href={localizeUrl('/diagnostics/', locale)} class="start-card start-card--diag">
-        <span class="start-card__icon">&#9881;</span>
-        <strong>{m.landing_card_diag_title()}</strong>
-        <p>{m.landing_card_diag_desc()}</p>
-      </a>
-      <a href={localizeUrl('/exam/', locale)} class="start-card start-card--exam">
-        <span class="start-card__icon">&#9998;</span>
-        <strong>{m.landing_card_practice_title()}</strong>
-        <p>{m.landing_card_practice_desc()}</p>
-      </a>
-      <a href={localizeUrl('/profile/', locale)} class="start-card start-card--profile">
-        <span class="start-card__icon">&#9733;</span>
-        <strong>{m.landing_card_profile_title()}</strong>
-        <p>{m.landing_card_profile_desc()}</p>
-      </a>
+  <div class="intl-stats">
+    <div class="intl-stat">
+      <span class="intl-stat__num">118</span>
+      <span class="intl-stat__label">elements</span>
     </div>
-  </section>
+    <div class="intl-stat">
+      <span class="intl-stat__num">6</span>
+      <span class="intl-stat__label">modules</span>
+    </div>
+    <div class="intl-stat">
+      <span class="intl-stat__num">5</span>
+      <span class="intl-stat__label">exam systems</span>
+    </div>
+    <div class="intl-stat">
+      <span class="intl-stat__num">4</span>
+      <span class="intl-stat__label">languages</span>
+    </div>
+  </div>
 
-  <PopularQuestions locale={locale} />
+  <div class="intl-langs">
 
-  <section class="how">
-    <h2 class="section-title">{m.landing_section_how()}</h2>
-    <div class="how__steps">
-      <div class="how__step">
-        <span class="how__num">1</span>
-        <p set:html={m.landing_how_step1()} />
+    <a href="/ru/" class="lang-card" data-locale="ru">
+      <p class="lang-card__name">Русский</p>
+      <p class="lang-card__topics">Элементы · вещества · реакции · расчёты</p>
+      <p class="lang-card__exams">ОГЭ · ЕГЭ</p>
+      <div class="formula-strip" aria-hidden="true">
+        <div class="formula-track">
+          <span class="f-chip f-chip--acid">H₂SO₄</span>
+          <span class="f-chip f-chip--base">NaOH</span>
+          <span class="f-chip f-chip--salt">NaCl</span>
+          <span class="f-chip f-chip--oxide">Fe₂O₃</span>
+          <span class="f-chip f-chip--acid">HNO₃</span>
+          <span class="f-chip f-chip--base">Ca(OH)₂</span>
+          <span class="f-chip f-chip--salt">CaCO₃</span>
+          <span class="f-chip f-chip--oxide">CuO</span>
+          <span class="f-chip f-chip--simple">O₂</span>
+          <span class="f-chip f-chip--acid">HCl</span>
+          <span class="f-chip f-chip--salt">KMnO₄</span>
+          <span class="f-chip f-chip--base">KOH</span>
+          <span class="f-chip f-chip--acid">H₂SO₄</span>
+          <span class="f-chip f-chip--base">NaOH</span>
+          <span class="f-chip f-chip--salt">NaCl</span>
+          <span class="f-chip f-chip--oxide">Fe₂O₃</span>
+          <span class="f-chip f-chip--acid">HNO₃</span>
+          <span class="f-chip f-chip--base">Ca(OH)₂</span>
+          <span class="f-chip f-chip--salt">CaCO₃</span>
+          <span class="f-chip f-chip--oxide">CuO</span>
+          <span class="f-chip f-chip--simple">O₂</span>
+          <span class="f-chip f-chip--acid">HCl</span>
+          <span class="f-chip f-chip--salt">KMnO₄</span>
+          <span class="f-chip f-chip--base">KOH</span>
+        </div>
       </div>
-      <div class="how__step">
-        <span class="how__num">2</span>
-        <p set:html={m.landing_how_step2()} />
+    </a>
+
+    <a href="/en/" class="lang-card" data-locale="en">
+      <p class="lang-card__name">English</p>
+      <p class="lang-card__topics">Elements · substances · reactions · calculations</p>
+      <p class="lang-card__exams">GCSE · A-Level</p>
+      <div class="formula-strip" aria-hidden="true">
+        <div class="formula-track" data-speed="slow">
+          <span class="f-chip f-chip--oxide">CO₂</span>
+          <span class="f-chip f-chip--acid">H₃PO₄</span>
+          <span class="f-chip f-chip--salt">AgNO₃</span>
+          <span class="f-chip f-chip--base">Al(OH)₃</span>
+          <span class="f-chip f-chip--simple">N₂</span>
+          <span class="f-chip f-chip--oxide">SiO₂</span>
+          <span class="f-chip f-chip--acid">H₂CO₃</span>
+          <span class="f-chip f-chip--salt">BaSO₄</span>
+          <span class="f-chip f-chip--base">Mg(OH)₂</span>
+          <span class="f-chip f-chip--salt">CuSO₄</span>
+          <span class="f-chip f-chip--simple">Cl₂</span>
+          <span class="f-chip f-chip--oxide">Al₂O₃</span>
+          <span class="f-chip f-chip--oxide">CO₂</span>
+          <span class="f-chip f-chip--acid">H₃PO₄</span>
+          <span class="f-chip f-chip--salt">AgNO₃</span>
+          <span class="f-chip f-chip--base">Al(OH)₃</span>
+          <span class="f-chip f-chip--simple">N₂</span>
+          <span class="f-chip f-chip--oxide">SiO₂</span>
+          <span class="f-chip f-chip--acid">H₂CO₃</span>
+          <span class="f-chip f-chip--salt">BaSO₄</span>
+          <span class="f-chip f-chip--base">Mg(OH)₂</span>
+          <span class="f-chip f-chip--salt">CuSO₄</span>
+          <span class="f-chip f-chip--simple">Cl₂</span>
+          <span class="f-chip f-chip--oxide">Al₂O₃</span>
+        </div>
       </div>
-      <div class="how__step">
-        <span class="how__num">3</span>
-        <p set:html={m.landing_how_step3()} />
+    </a>
+
+    <a href="/pl/" class="lang-card" data-locale="pl">
+      <p class="lang-card__name">Polski</p>
+      <p class="lang-card__topics">Pierwiastki · substancje · reakcje · obliczenia</p>
+      <p class="lang-card__exams">Matura</p>
+      <div class="formula-strip" aria-hidden="true">
+        <div class="formula-track" data-speed="fast">
+          <span class="f-chip f-chip--acid">HCl</span>
+          <span class="f-chip f-chip--oxide">MgO</span>
+          <span class="f-chip f-chip--salt">Na₂CO₃</span>
+          <span class="f-chip f-chip--base">Ba(OH)₂</span>
+          <span class="f-chip f-chip--simple">H₂</span>
+          <span class="f-chip f-chip--acid">H₂SO₃</span>
+          <span class="f-chip f-chip--salt">FeCl₃</span>
+          <span class="f-chip f-chip--oxide">P₂O₅</span>
+          <span class="f-chip f-chip--base">LiOH</span>
+          <span class="f-chip f-chip--salt">ZnSO₄</span>
+          <span class="f-chip f-chip--acid">HCl</span>
+          <span class="f-chip f-chip--oxide">MgO</span>
+          <span class="f-chip f-chip--salt">Na₂CO₃</span>
+          <span class="f-chip f-chip--base">Ba(OH)₂</span>
+          <span class="f-chip f-chip--simple">H₂</span>
+          <span class="f-chip f-chip--acid">H₂SO₃</span>
+          <span class="f-chip f-chip--salt">FeCl₃</span>
+          <span class="f-chip f-chip--oxide">P₂O₅</span>
+          <span class="f-chip f-chip--base">LiOH</span>
+          <span class="f-chip f-chip--salt">ZnSO₄</span>
+        </div>
       </div>
-      <div class="how__step">
-        <span class="how__num">4</span>
-        <p set:html={m.landing_how_step4()} />
+    </a>
+
+    <a href="/es/" class="lang-card" data-locale="es">
+      <p class="lang-card__name">Español</p>
+      <p class="lang-card__topics">Elementos · sustancias · reacciones · cálculos</p>
+      <p class="lang-card__exams">EBAU · Selectividad</p>
+      <div class="formula-strip" aria-hidden="true">
+        <div class="formula-track">
+          <span class="f-chip f-chip--salt">K₂Cr₂O₇</span>
+          <span class="f-chip f-chip--acid">HF</span>
+          <span class="f-chip f-chip--oxide">SO₃</span>
+          <span class="f-chip f-chip--base">Fe(OH)₃</span>
+          <span class="f-chip f-chip--simple">CH₄</span>
+          <span class="f-chip f-chip--salt">Pb(NO₃)₂</span>
+          <span class="f-chip f-chip--acid">H₂S</span>
+          <span class="f-chip f-chip--oxide">CaO</span>
+          <span class="f-chip f-chip--base">Cu(OH)₂</span>
+          <span class="f-chip f-chip--salt">Na₂SO₄</span>
+          <span class="f-chip f-chip--salt">K₂Cr₂O₇</span>
+          <span class="f-chip f-chip--acid">HF</span>
+          <span class="f-chip f-chip--oxide">SO₃</span>
+          <span class="f-chip f-chip--base">Fe(OH)₃</span>
+          <span class="f-chip f-chip--simple">CH₄</span>
+          <span class="f-chip f-chip--salt">Pb(NO₃)₂</span>
+          <span class="f-chip f-chip--acid">H₂S</span>
+          <span class="f-chip f-chip--oxide">CaO</span>
+          <span class="f-chip f-chip--base">Cu(OH)₂</span>
+          <span class="f-chip f-chip--salt">Na₂SO₄</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="intl-footer">
+    <p>Free &amp; open source &middot; <a href="https://github.com/dronsv/chemistry-no-magic">GitHub</a></p>
+  </div>
+
+  <noscript>
+    <div class="noscript-box">
+      <p>This site requires JavaScript for interactive features.</p>
+      <div class="noscript-links">
+        <a href="/ru/">Русский</a>
+        <a href="/en/">English</a>
+        <a href="/pl/">Polski</a>
+        <a href="/es/">Español</a>
       </div>
     </div>
-  </section>
+  </noscript>
 
-</BaseLayout>
+  <script is:inline>
+    (function() {
+      var langs = navigator.languages || [navigator.language || ''];
+      var map = { ru: 'ru', en: 'en', pl: 'pl', es: 'es' };
+      var detected = null;
+      for (var i = 0; i < langs.length; i++) {
+        var code = langs[i].toLowerCase().split('-')[0];
+        if (map[code]) { detected = map[code]; break; }
+      }
+      if (detected) {
+        var card = document.querySelector('.lang-card[data-locale="' + detected + '"]');
+        if (card) card.classList.add('lang-card--detected');
+      }
+      var cards = document.querySelectorAll('.lang-card');
+      for (var j = 0; j < cards.length; j++) {
+        cards[j].addEventListener('click', function() {
+          try { localStorage.setItem('preferred_locale', this.getAttribute('data-locale')); } catch(e) {}
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
 
 <style>
-  /* Hero */
-  .hero {
-    text-align: center;
-    padding: var(--space-2xl) 0 var(--space-xl);
-    max-width: 640px;
-    margin: 0 auto;
+  :root {
+    --color-primary: #2563eb;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f8f9fa;
+    --color-text: #1a1a2e;
+    --color-text-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --color-acid: #fca5a5;
+    --color-base: #93c5fd;
+    --color-salt: #86efac;
+    --color-oxide: #fde68a;
+    --color-simple: #c4b5fd;
   }
-  .hero__badge {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: #dbeafe;
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    border-radius: 1rem;
-    margin: 0 0 var(--space-lg);
-  }
-  .hero h1 {
-    font-size: 2.25rem;
-    line-height: 1.2;
-    margin: 0 0 var(--space-md);
-  }
-  .hero__sub {
-    font-size: 1.05rem;
-    color: var(--color-text-muted);
-    margin: 0 0 var(--space-xl);
-    line-height: 1.6;
-  }
-  .hero__actions {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { font-family: var(--font-sans); line-height: 1.6; color: var(--color-text); }
+  body { margin: 0; background: var(--color-bg); }
+  a { color: var(--color-primary); text-decoration: none; }
 
-  .btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.05rem;
-  }
-  .btn-outline {
-    background: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-  }
-  .btn-outline:hover {
-    background: #dbeafe;
-    text-decoration: none;
-  }
+  .intl-hero { text-align: center; padding: 3rem 1rem 2rem; max-width: 700px; margin: 0 auto; }
+  .intl-hero__flask { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .intl-hero h1 { font-size: 2rem; font-weight: 700; margin: 0 0 0.75rem; line-height: 1.2; }
+  .intl-hero__sub { font-size: 1.05rem; color: var(--color-text-muted); margin: 0; }
 
-  /* Stats */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-xl);
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-    flex-wrap: wrap;
-  }
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-  }
-  .stat__num {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-  .stat__label {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-  }
+  .intl-stats { display: flex; justify-content: center; gap: 2rem; padding: 1.25rem 1rem; flex-wrap: wrap; }
+  .intl-stat { display: flex; flex-direction: column; align-items: center; gap: 0.125rem; }
+  .intl-stat__num { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+  .intl-stat__label { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
 
-  /* Section title */
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-lg);
-    text-align: center;
-  }
+  .intl-langs { max-width: 900px; margin: 1.5rem auto 0; padding: 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-  /* Start cards */
-  .start {
-    padding: var(--space-2xl) 0;
-    max-width: 900px;
-    margin: 0 auto;
+  .lang-card {
+    display: block; background: var(--color-bg-alt); border: 2px solid var(--color-border);
+    border-radius: 0.75rem; padding: 1.25rem 1.5rem; color: var(--color-text);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; overflow: hidden;
   }
-  .start__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-md);
-  }
-  .start-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    color: var(--color-text);
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .start-card:hover {
-    text-decoration: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
-  }
-  .start-card__icon {
-    font-size: 1.75rem;
-    line-height: 1;
-  }
-  .start-card strong {
-    font-size: 1.05rem;
-  }
-  .start-card p {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin: 0;
-    line-height: 1.5;
-  }
+  .lang-card:hover { text-decoration: none; border-color: var(--color-primary); box-shadow: 0 4px 16px rgba(37,99,235,0.12); transform: translateY(-2px); }
+  .lang-card--detected { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
 
-  /* Modules */
-  .modules {
-    padding: var(--space-2xl) 0 0;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .modules__grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-  .module-card {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md) var(--space-lg);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    color: var(--color-text);
-    transition: border-color 0.15s;
-  }
-  .module-card:hover {
-    text-decoration: none;
-    border-color: var(--color-primary);
-  }
-  .module-card__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: var(--color-primary);
-    color: #fff;
-    font-size: 0.875rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .module-card strong {
-    display: block;
-    font-size: 0.9375rem;
-    margin-bottom: 2px;
-  }
-  .module-card p {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    margin: 0;
-  }
+  .lang-card__name { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.25rem; }
+  .lang-card__topics { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0 0 0.5rem; }
+  .lang-card__exams { font-size: 0.75rem; color: var(--color-primary); font-weight: 600; margin: 0 0 0.75rem; }
 
-  /* How it works */
-  .how {
-    padding: 0 0 var(--space-2xl);
-    max-width: 600px;
-    margin: 0 auto;
+  .formula-strip {
+    display: flex; gap: 0.5rem; overflow: hidden; margin: 0 -1.5rem; padding: 0.375rem 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
-  .how__steps {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-  .how__step {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-  }
-  .how__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    border: 2px solid var(--color-border);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .how__step p {
-    margin: 0;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
+  .formula-track { display: flex; gap: 0.5rem; animation: scroll-formulas 25s linear infinite; flex-shrink: 0; }
+  .formula-track[data-speed="slow"] { animation-duration: 35s; }
+  .formula-track[data-speed="fast"] { animation-duration: 20s; }
+  @keyframes scroll-formulas { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* Profile tip */
-  .profile-tip {
-    max-width: 720px;
-    margin: var(--space-lg) auto 0;
-    padding: var(--space-md) var(--space-lg);
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-  }
-  .profile-tip p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--color-text);
-    line-height: 1.5;
-  }
-  .profile-tip__link {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    white-space: nowrap;
-  }
-  .profile-tip__link:hover {
-    text-decoration: underline;
-  }
+  .f-chip { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 0.35rem; font-size: 0.75rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+  .f-chip--acid { background: var(--color-acid); color: #991b1b; }
+  .f-chip--base { background: var(--color-base); color: #1e40af; }
+  .f-chip--salt { background: var(--color-salt); color: #166534; }
+  .f-chip--oxide { background: var(--color-oxide); color: #92400e; }
+  .f-chip--simple { background: var(--color-simple); color: #5b21b6; }
 
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 1.75rem; }
-    .stats { gap: var(--space-lg); }
-    .stat__num { font-size: 1.5rem; }
-  }
+  .intl-footer { text-align: center; padding: 2.5rem 1rem 2rem; font-size: 0.8125rem; color: var(--color-text-muted); }
+  .intl-footer a { color: var(--color-primary); }
+
+  .noscript-box { max-width: 600px; margin: 2rem auto; padding: 1rem 1.5rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 0.5rem; text-align: center; font-size: 0.9rem; }
+  .noscript-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .noscript-links a { font-weight: 600; font-size: 1rem; }
+
+  @media (max-width: 600px) { .intl-hero h1 { font-size: 1.5rem; } .intl-langs { grid-template-columns: 1fr; } .intl-stats { gap: 1.25rem; } }
+  @media (prefers-reduced-motion: reduce) { .formula-track { animation: none; } }
 </style>

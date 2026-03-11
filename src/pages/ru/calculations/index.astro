@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HubLead from '../../../components/HubLead.astro';
+import CalculationsPage from '../../../features/calculations/CalculationsPage';
+import TopicLinks from '../../../components/TopicLinks.astro';
+import type { SupportedLocale } from '../../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+---
+
+<BaseLayout title="Расчёты" description="Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций, выход продукта. Практика для подготовки к ОГЭ по химии.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Расчёты по химии",
+      "description": "Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "teaches": ["молярная масса", "количество вещества", "массовая доля", "расчёты по уравнениям", "выход продукта"],
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Расчёты по химии",
+      "description": "Молярная масса, количество вещества, массовая доля, расчёты по уравнениям реакций, выход продукта. Практика для ОГЭ.",
+      "provider": { "@type": "Organization", "name": "Химия без магии", "url": siteUrl },
+      "educationalLevel": "9–11 класс",
+      "inLanguage": "ru",
+      "teaches": ["молярная масса", "стехиометрия", "массовая доля", "выход продукта", "концентрация растворов"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": `${siteUrl}/calculations/`,
+      "isAccessibleForFree": true,
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как рассчитать молярную массу вещества?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Молярная масса (г/моль) = сумма атомных масс всех атомов в формуле. Например, H₂SO₄: 2×1 + 32 + 4×16 = 98 г/моль. Атомные массы берут из таблицы Менделеева (округляют до целых для расчётов ОГЭ)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Как пользоваться калькулятором химических расчётов?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Выберите тип задачи (молярная масса, расчёт по уравнению, массовая доля и др.), введите известные данные. Калькулятор автоматически определит формулы, подставит значения и покажет пошаговое решение с пояснениями." }
+        },
+        {
+          "@type": "Question",
+          "name": "Как решить задачу по уравнению химической реакции?",
+          "acceptedAnswer": { "@type": "Answer", "text": "1) Запишите уравнение и расставьте коэффициенты. 2) Найдите количество вещества данного реагента: n = m/M. 3) По коэффициентам найдите n продукта. 4) Вычислите массу: m = n × M. Метод называется стехиометрия." }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое массовая доля вещества и как её найти?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Массовая доля (ω) — отношение массы компонента к общей массе смеси или раствора: ω = m(в-ва) / m(раствора). Выражают в долях (0–1) или процентах (0–100%). Для элемента в соединении: ω(X) = n × Ar(X) / Mr(соединения)." }
+        }
+      ]
+    })} />
+  </Fragment>
+  <HubLead section="calculations" locale={locale} />
+  <TopicLinks section="calculations" locale={locale} />
+  <CalculationsPage locale={locale} client:idle />
+</BaseLayout>

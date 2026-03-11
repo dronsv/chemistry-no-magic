@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HubLead from '../../../components/HubLead.astro';
+import OxidationStatesPage from '../../../features/oxidation-states/OxidationStatesPage';
+import TopicLinks from '../../../components/TopicLinks.astro';
+import type { SupportedLocale } from '../../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+---
+
+<BaseLayout title="Степени окисления" description="Определение степеней окисления элементов в химических соединениях. Калькулятор с пошаговым решением, теория и практика для ОГЭ.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Степени окисления",
+      "description": "Определение степеней окисления элементов в химических соединениях",
+      "educationalLevel": "9 класс",
+      "inLanguage": "ru",
+      "teaches": ["степень окисления", "электроотрицательность", "окислительно-восстановительные реакции", "электронный баланс"],
+      "isPartOf": { "@type": "WebSite", "name": "Химия без магии", "url": Astro.site?.toString() ?? Astro.url.origin },
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Степени окисления элементов",
+      "description": "Определение степеней окисления элементов в химических соединениях. Калькулятор с пошаговым решением, теория и практика для ОГЭ.",
+      "provider": { "@type": "Organization", "name": "Химия без магии", "url": siteUrl },
+      "educationalLevel": "9–11 класс",
+      "inLanguage": "ru",
+      "teaches": ["степень окисления", "правила определения СО", "электроотрицательность", "окислитель и восстановитель"],
+      "availableLanguage": ["ru", "en", "pl", "es"],
+      "url": `${siteUrl}/oxidation-states/`,
+      "isAccessibleForFree": true,
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как найти степень окисления элемента в соединении?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Используйте правила: фтор всегда −1; кислород −2 (кроме пероксидов и OF₂); водород +1 (кроме гидридов металлов); щелочные металлы +1, щелочноземельные +2. Сумма степеней окисления в нейтральном соединении равна 0, в ионе — заряду иона." }
+        },
+        {
+          "@type": "Question",
+          "name": "Как пользоваться калькулятором степеней окисления?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Введите химическую формулу (например, H₂SO₄ или K₂Cr₂O₇) в поле ввода. Калькулятор применит все правила по порядку и покажет степень окисления каждого элемента с подробным пошаговым объяснением." }
+        },
+        {
+          "@type": "Question",
+          "name": "У каких элементов степень окисления всегда постоянная?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Постоянная степень окисления: F (−1), O (−2, исключения редки), H (+1 в кислотах и основаниях, −1 в гидридах), Na (+1), K (+1), Ca (+2), Mg (+2), Al (+3). Эти значения не меняются в большинстве соединений." }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое окислитель и восстановитель?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Окислитель — вещество, принимающее электроны (его СО понижается). Восстановитель — вещество, отдающее электроны (его СО повышается). Типичные окислители: O₂, Cl₂, KMnO₄, K₂Cr₂O₇. Типичные восстановители: H₂, C, CO, металлы." }
+        }
+      ]
+    })} />
+  </Fragment>
+  <HubLead section="oxidation-states" locale={locale} />
+  <TopicLinks section="oxidation-states" locale={locale} />
+  <OxidationStatesPage locale={locale} client:idle />
+</BaseLayout>
