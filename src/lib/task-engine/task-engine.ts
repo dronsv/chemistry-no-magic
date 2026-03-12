@@ -2,6 +2,7 @@ import type {
   TaskTemplate,
   OntologyData,
   GeneratedTask,
+  PinnedInstance,
   SlotValues,
   SolverResult,
 } from './types';
@@ -37,6 +38,8 @@ export interface TaskEngine {
   generateRandom(): GeneratedTask;
   /** Generate a task for a specific competency, or null if none match. */
   generateForCompetency(competencyId: string): GeneratedTask | null;
+  /** Generate a task from a pinned instance (fixed slots, optional locked distractors). */
+  generateFromPinned(instance: PinnedInstance): GeneratedTask;
   /** Convert a GeneratedTask into a UI-ready Exercise (shuffled options). */
   toExercise(task: GeneratedTask): Exercise;
 }
@@ -197,10 +200,88 @@ export function createTaskEngine(
     }
   }
 
-  return { generate, generateRandom, generateForCompetency, toExercise };
+  function generateFromPinned(instance: PinnedInstance): GeneratedTask {
+    const template = registry.getById(instance.template_id);
+    if (!template) throw new Error(`Unknown template: ${instance.template_id}`);
+    return executePinnedTemplate(template, ontology, instance);
+  }
+
+  return { generate, generateRandom, generateForCompetency, generateFromPinned, toExercise };
 }
 
 // ── Internal pipeline ────────────────────────────────────────────
+
+function executePinnedTemplate(
+  template: TaskTemplate,
+  ontology: OntologyData,
+  instance: PinnedInstance,
+): GeneratedTask {
+  // 1. Generator: fill slots, then override with pinned values
+  const gen = template.pipeline.generator;
+  const baseSlots: SlotValues = runGenerator(gen.id, gen.params, ontology);
+  const slots: SlotValues = { ...baseSlots, ...instance.slot_overrides };
+
+  // 2. Solvers: compute answer from overridden slots
+  let solverResult: SolverResult = { answer: '' };
+  for (const solver of template.pipeline.solvers) {
+    solverResult = runSolver(solver.id, solver.params, slots, ontology);
+  }
+
+  // 3. Render prompt
+  const renderCtx: RenderContext = {
+    promptTemplates: ontology.i18n.promptTemplates,
+    properties: ontology.core.properties,
+    morphology: ontology.i18n.morphology,
+  };
+  const question = renderPrompt(template.prompt_template_id, slots, renderCtx);
+
+  // 4. Render explanation
+  let explanation = '';
+  if (template.explanation_template_id) {
+    try {
+      const explSlots: SlotValues = {
+        ...slots,
+        ...(solverResult.explanation_slots ?? {}),
+        correct_answer: String(solverResult.answer ?? ''),
+      };
+      explanation = renderPrompt(template.explanation_template_id, explSlots, renderCtx);
+    } catch {
+      explanation = '';
+    }
+  }
+
+  const resolvedAnswer: string | number | string[] = solverResult.answer ?? '';
+
+  // 5. Distractors: use locked if provided, else generate
+  const distractors = instance.locked_distractors
+    ? instance.locked_distractors.filter(d => String(d) !== String(resolvedAnswer))
+    : generateDistractors(
+        resolvedAnswer, slots, template.meta.interaction, ontology, 3, template.meta.answer_kind,
+      );
+
+  // 6. Difficulty
+  const [lo, hi] = template.difficulty_model.target_band;
+  const difficulty = (lo + hi) / 2;
+
+  // 7. Competency map
+  const competency_map: Record<string, 'P' | 'S'> = template.competency_hint ?? {};
+
+  return {
+    template_id: template.template_id,
+    interaction: template.meta.interaction,
+    answer_kind: template.meta.answer_kind,
+    question,
+    correct_answer: resolvedAnswer,
+    distractors,
+    explanation,
+    competency_map,
+    difficulty,
+    exam_tags: template.exam_tags ?? [],
+    slots,
+    source_ref: instance.source_ref,
+    pinned_id: instance.id,
+  };
+}
 
 function executeTemplate(
   template: TaskTemplate,

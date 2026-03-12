@@ -2108,3 +2108,116 @@ describe('toExercise format routing', () => {
     expect(ex.options.find(o => o.id === 'correct')!.text).toBe('CaO');
   });
 });
+
+// ── Pinned Instances ─────────────────────────────────────────────
+
+describe('TaskEngine — Pinned Instances', () => {
+  const allTemplates = loadAllTemplates();
+  const ontology = buildPhase2Ontology();
+  const engine = createTaskEngine(allTemplates, ontology);
+
+  const pinnedInstances: import('../types').PinnedInstance[] = JSON.parse(
+    readFileSync(resolve(__dirname, '../../../../data-src/engine/pinned_instances.json'), 'utf-8'),
+  );
+
+  it('loads all 6 pinned instances from JSON', () => {
+    expect(pinnedInstances).toHaveLength(6);
+  });
+
+  it('all pinned instances reference existing templates', () => {
+    const templateIds = new Set(allTemplates.map(t => t.template_id));
+    for (const pin of pinnedInstances) {
+      expect(templateIds.has(pin.template_id)).toBe(true);
+    }
+  });
+
+  it('generateFromPinned produces a valid task with slot overrides', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2025_demo_02a')!;
+    const task = engine.generateFromPinned(pin);
+
+    expect(task.template_id).toBe('tmpl.pt.find_period.v1');
+    expect(task.slots.element).toBe('Cl');
+    expect(task.slots.period).toBe(3);
+    expect(task.correct_answer).toBe(3);
+  });
+
+  it('generateFromPinned propagates source_ref', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2025_demo_02a')!;
+    const task = engine.generateFromPinned(pin);
+
+    expect(task.source_ref).toEqual({
+      exam: 'oge', year: 2025, variant: 'demo', task_number: 2,
+    });
+  });
+
+  it('generateFromPinned sets pinned_id', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2025_demo_02b')!;
+    const task = engine.generateFromPinned(pin);
+    expect(task.pinned_id).toBe('pin.oge_2025_demo_02b');
+  });
+
+  it('locked_distractors are used when provided', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2024_demo_04')!;
+    expect(pin.locked_distractors).toBeDefined();
+
+    const task = engine.generateFromPinned(pin);
+    // locked_distractors: ["+4", "+2", "-2"], answer should be +6
+    expect(task.distractors).toEqual(['+4', '+2', '-2']);
+    expect(task.correct_answer).toBe(6);
+  });
+
+  it('locked_distractors exclude the correct answer if accidentally included', () => {
+    const pin: import('../types').PinnedInstance = {
+      id: 'pin.test_locked_filter',
+      template_id: 'tmpl.pt.find_period.v1',
+      slot_overrides: { element: 'Cl', period: 3, group: 17, max_oxidation_state: 7, min_oxidation_state: -1 },
+      locked_distractors: ['3', '2', '4', '5'],
+    };
+    const task = engine.generateFromPinned(pin);
+    // Correct answer is 3 (period of Cl), so "3" should be filtered out
+    expect(task.distractors).not.toContain('3');
+    expect(task.distractors).toEqual(['2', '4', '5']);
+  });
+
+  it('distractors are generated normally when no locked_distractors', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2025_demo_02a')!;
+    expect(pin.locked_distractors).toBeUndefined();
+
+    const task = engine.generateFromPinned(pin);
+    expect(task.distractors.length).toBeGreaterThan(0);
+    expect(task.distractors).not.toContain(String(task.correct_answer));
+  });
+
+  it('generateFromPinned works for all 6 showcase instances', () => {
+    for (const pin of pinnedInstances) {
+      const task = engine.generateFromPinned(pin);
+      expect(task.template_id).toBe(pin.template_id);
+      expect(task.question).toBeTruthy();
+      expect(task.correct_answer).toBeDefined();
+      if (pin.source_ref) {
+        expect(task.source_ref).toEqual(pin.source_ref);
+      }
+      expect(task.pinned_id).toBe(pin.id);
+    }
+  });
+
+  it('toExercise works on pinned task output', () => {
+    const pin = pinnedInstances.find(p => p.id === 'pin.oge_2025_demo_02a')!;
+    const task = engine.generateFromPinned(pin);
+    const exercise = engine.toExercise(task);
+
+    expect(exercise.format).toBe('multiple_choice');
+    expect(exercise.options.length).toBeGreaterThan(1);
+    expect(exercise.correctId).toBe('correct');
+    expect(exercise.options.find(o => o.id === 'correct')!.text).toBe('3');
+  });
+
+  it('throws for unknown template_id in pinned instance', () => {
+    const badPin: import('../types').PinnedInstance = {
+      id: 'pin.bad',
+      template_id: 'tmpl.nonexistent',
+      slot_overrides: {},
+    };
+    expect(() => engine.generateFromPinned(badPin)).toThrow('Unknown template');
+  });
+});

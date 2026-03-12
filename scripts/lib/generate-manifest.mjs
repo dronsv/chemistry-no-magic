@@ -66,6 +66,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       },
       engine: {
         task_templates: 'engine/task_templates.json',
+        pinned_instances: 'engine/pinned_instances.json',
         prompt_templates_ru: 'engine/prompt_templates.ru.json',
         prompt_templates_en: 'engine/prompt_templates.en.json',
         prompt_templates_pl: 'engine/prompt_templates.pl.json',

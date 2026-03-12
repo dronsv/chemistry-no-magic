@@ -7,6 +7,8 @@ export type {
   TaskTemplate,
   GeneratedTask,
   AnswerKind,
+  PinnedInstance,
+  SourceRef,
   OntologyData,
   OntologyCore,
   OntologyRules,

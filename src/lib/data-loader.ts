@@ -32,7 +32,7 @@ import type { IonNomenclatureRules } from '../types/ion-nomenclature';
 import type { SupportedLocale } from '../types/i18n';
 import type { NameIndex } from '../types/name-index';
 import type { ConceptRegistry, ConceptOverlay, ConceptLookup } from '../types/ontology-ref';
-import type { PromptTemplateMap, PropertyDef, MorphologyData } from './task-engine/types';
+import type { PromptTemplateMap, PropertyDef, MorphologyData, PinnedInstance } from './task-engine/types';
 import type { ReactionRole, ReactionParticipant } from '../types/reaction-participant';
 import type { OxRulesData, OxRule } from '../types/oxidation-rules';
 import type { StorageRequirement, StorageProfile, TrendAnomaly, AnomalyReason } from '../types/storage';
@@ -363,6 +363,16 @@ export async function loadTaskTemplates(): Promise<TaskTemplate[]> {
   }
 
   return loadDataFile<TaskTemplate[]>(path);
+}
+
+/** Load pinned instances (exam tasks with fixed slots). */
+export async function loadPinnedInstances(): Promise<PinnedInstance[]> {
+  const manifest = await getManifest();
+  const engine = manifest.entrypoints.engine;
+  if (!engine) throw new Error('Engine section not found in manifest');
+  const path = engine['pinned_instances' as keyof typeof engine];
+  if (!path) return [];
+  return loadDataFile<PinnedInstance[]>(path);
 }
 
 const PROMPT_LOCALE_MAP: Record<string, string> = {

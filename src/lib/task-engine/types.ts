@@ -137,6 +137,24 @@ export interface SolverResult {
   error?: string;
 }
 
+// ── Source reference (exam provenance for pinned instances) ────
+export interface SourceRef {
+  exam: string;         // "oge", "ege", "gcse", "matura", "ebau"
+  year: number;
+  variant: string;      // "demo", "real", "reserve"
+  task_number: number;
+}
+
+// ── Pinned instance (fixed task with predetermined slots) ─────
+export interface PinnedInstance {
+  id: string;                              // e.g., "pin.oge_2025_demo_01"
+  template_id: string;                     // links to TaskTemplate
+  slot_overrides: SlotValues;              // fixed slot values (merged on top of generator output)
+  source_ref?: SourceRef;                  // exam provenance
+  canonical_text?: string;                 // original question text (for reference only)
+  locked_distractors?: string[];           // if set, skip distractor generation
+}
+
 // ── Generated task (output of the engine) ──────────────────────
 export interface GeneratedTask {
   template_id: string;
@@ -150,6 +168,8 @@ export interface GeneratedTask {
   difficulty: number;
   exam_tags: string[];
   slots: SlotValues;
+  source_ref?: SourceRef;                  // present when generated from a pinned instance
+  pinned_id?: string;                      // ID of the pinned instance used
 }
 
 // ── Ontology data bundle (passed to generators/solvers) ────────

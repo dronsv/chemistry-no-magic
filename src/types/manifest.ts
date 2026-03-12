@@ -25,6 +25,7 @@ export interface ManifestEntrypoints {
   quantities_units?: string;
   engine?: {
     task_templates: string;
+    pinned_instances: string;
     prompt_templates_ru: string;
     prompt_templates_en: string;
     prompt_templates_pl: string;

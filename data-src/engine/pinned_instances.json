@@ -1,0 +1,103 @@
+[
+  {
+    "id": "pin.oge_2025_demo_02a",
+    "template_id": "tmpl.pt.find_period.v1",
+    "slot_overrides": {
+      "element": "Cl",
+      "period": 3,
+      "group": 17,
+      "max_oxidation_state": 7,
+      "min_oxidation_state": -1
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2025,
+      "variant": "demo",
+      "task_number": 2
+    },
+    "canonical_text": "В каком периоде находится элемент хлор?"
+  },
+  {
+    "id": "pin.oge_2025_demo_02b",
+    "template_id": "tmpl.pt.find_group.v1",
+    "slot_overrides": {
+      "element": "Cl",
+      "period": 3,
+      "group": 17,
+      "max_oxidation_state": 7,
+      "min_oxidation_state": -1
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2025,
+      "variant": "demo",
+      "task_number": 2
+    },
+    "canonical_text": "В какой группе находится элемент хлор?"
+  },
+  {
+    "id": "pin.oge_2025_demo_03",
+    "template_id": "tmpl.pt.compare_property.v1",
+    "slot_overrides": {
+      "elementA": "Na",
+      "elementB": "Cl",
+      "property": "electronegativity"
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2025,
+      "variant": "demo",
+      "task_number": 3
+    },
+    "canonical_text": "Какой из элементов имеет большее значение электроотрицательности: Na или Cl?"
+  },
+  {
+    "id": "pin.oge_2024_demo_04",
+    "template_id": "tmpl.ox.determine_state.v1",
+    "slot_overrides": {
+      "formula": "H₂SO₄",
+      "element": "S",
+      "expected_state": 6
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2024,
+      "variant": "demo",
+      "task_number": 4
+    },
+    "canonical_text": "Определите степень окисления серы в H₂SO₄.",
+    "locked_distractors": ["+4", "+2", "-2"]
+  },
+  {
+    "id": "pin.oge_2024_demo_05",
+    "template_id": "tmpl.bond.identify_type.v1",
+    "slot_overrides": {
+      "formula": "NaCl",
+      "bond_type": "ionic",
+      "crystal_type": "ionic"
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2024,
+      "variant": "demo",
+      "task_number": 5
+    },
+    "canonical_text": "Определите тип химической связи в NaCl."
+  },
+  {
+    "id": "pin.oge_2024_demo_06",
+    "template_id": "tmpl.class.classify.v1",
+    "slot_overrides": {
+      "formula": "CaO",
+      "name": "оксид кальция",
+      "substance_class": "oxide"
+    },
+    "source_ref": {
+      "exam": "oge",
+      "year": 2024,
+      "variant": "demo",
+      "task_number": 6
+    },
+    "canonical_text": "Определите класс вещества CaO."
+  }
+]

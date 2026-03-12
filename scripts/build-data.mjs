@@ -211,6 +211,7 @@ async function main() {
   const trendRules = await loadJsonOptional(join(FOUNDATIONS_DIR, 'trend_rules.json'));
 
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
+  const pinnedInstances = await loadJson(join(DATA_SRC, 'engine', 'pinned_instances.json'));
   const promptTemplatesRu = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.ru.json'));
   const promptTemplatesEn = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.en.json'));
   const promptTemplatesPl = await loadJson(join(DATA_SRC, 'engine', 'prompt_templates.pl.json'));
@@ -542,6 +543,7 @@ async function main() {
 
   await mkdir(join(bundleDir, 'engine'), { recursive: true });
   await writeFile(join(bundleDir, 'engine', 'task_templates.json'), JSON.stringify(engineTaskTemplates));
+  await writeFile(join(bundleDir, 'engine', 'pinned_instances.json'), JSON.stringify(pinnedInstances));
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.ru.json'), JSON.stringify(promptTemplatesRu));
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.en.json'), JSON.stringify(promptTemplatesEn));
   await writeFile(join(bundleDir, 'engine', 'prompt_templates.pl.json'), JSON.stringify(promptTemplatesPl));
