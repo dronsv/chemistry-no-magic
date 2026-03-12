@@ -625,6 +625,22 @@ describe('generateDistractors', () => {
       }
     });
 
+    it('uses multipliers for numeric_input with calculation slots (bug 4.4 fix)', () => {
+      const distractors = generateDistractors(
+        18,
+        { M: 18, mass: 36, formula: 'H\u2082O' },
+        'numeric_input',
+        MOCK_DATA,
+        4,
+      );
+      expect(distractors.length).toBe(4);
+      expect(distractors).not.toContain('18');
+      const nums = distractors.map(Number);
+      // Multiplier-based: should include values like 9 (×0.5) and 36 (×2), not just ±1/±2
+      expect(nums.some(n => n > 20)).toBe(true); // e.g. 36, 21.6, 27
+      expect(nums.some(n => n < 15)).toBe(true); // e.g. 9, 14.4
+    });
+
     it('falls back to generic numeric for numeric_input without calculation slots', () => {
       const distractors = generateDistractors(
         6,

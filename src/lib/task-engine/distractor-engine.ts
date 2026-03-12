@@ -11,7 +11,7 @@ import type { OntologyData, InteractionType, AnswerKind, SlotValues } from './ty
  *  3.  domain enum (answer matches a known domain like bond_type, crystal_type, etc.)
  *  4.  solubility (answer is "soluble"/"insoluble"): opposite + "slightly soluble" variants
  *  5.  activity series response (answer is 'yes'/'no' with metalA/metalB slots)
- *  6.  calculation multiplier (choice_single + numeric answer + M/composition slots)
+ *  6.  calculation multiplier (numeric answer + M/composition slots)
  *  7.  numeric_input or numeric answer: nearby values (±1, ±2, ×2, ×0.5)
  *  8.  formula (slots have cation_id): swap subscripts, other anions from ontology
  *  9.  substance formula (slots have bond_type or substance_class): formulas from same data source
@@ -66,9 +66,8 @@ export function generateDistractors(
   ) {
     candidates = generateActivityDistractors(correctAnswer);
   }
-  // 6. Calculation multiplier context (choice_single + numeric + M/composition slots)
+  // 6. Calculation multiplier context (numeric answer + M/composition slots)
   else if (
-    interaction === 'choice_single' &&
     (typeof correctAnswer === 'number' || isNumericString(correctAnswer)) &&
     hasCalculationSlots(slots)
   ) {
