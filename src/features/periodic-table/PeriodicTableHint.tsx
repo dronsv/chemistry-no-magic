@@ -357,6 +357,7 @@ export default function PeriodicTableHint({ locale = 'ru' as SupportedLocale }: 
             <ElementDetails
               element={selectedElement}
               groups={groups}
+              locale={locale}
               onClose={handleCloseDetails}
             />
           )}

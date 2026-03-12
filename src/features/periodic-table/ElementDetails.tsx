@@ -1,14 +1,17 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
+import type { SupportedLocale } from '../../types/i18n';
+import { localizeUrl } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
 
 interface ElementDetailsProps {
   element: Element;
   groups: ElementGroupDict;
+  locale?: SupportedLocale;
   onClose: () => void;
 }
 
-export default function ElementDetails({ element, groups, onClose }: ElementDetailsProps) {
+export default function ElementDetails({ element, groups, locale = 'ru', onClose }: ElementDetailsProps) {
   const oxStates = element.typical_oxidation_states
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
@@ -27,12 +30,11 @@ export default function ElementDetails({ element, groups, onClose }: ElementDeta
         &times;
       </button>
 
-      <div className="pt-details__header">
+      <a href={localizeUrl(`/periodic-table/${element.symbol}/`, locale)} className="pt-details__header pt-details__header--link">
         <span className="pt-details__z">{element.Z}</span>
         <span className="pt-details__symbol">{element.symbol}</span>
-      </div>
-
-      <h3 className="pt-details__name">{element.name}</h3>
+        <span className="pt-details__name">{element.name}</span>
+      </a>
 
       <dl className="pt-details__props">
         <dt>{m.elem_atomic_mass()}</dt>
