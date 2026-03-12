@@ -1143,6 +1143,16 @@ export async function loadInstanceOf(): Promise<import('../types/relation').Rela
   return loadRelations<import('../types/relation').Relation>('instance_of');
 }
 
+/** Load all relation files and merge into a single array. */
+export async function loadAllRelations(): Promise<import('../types/relation').Relation[]> {
+  const manifest = await getManifest();
+  const keys = Object.keys(manifest.entrypoints.relations ?? {});
+  const arrays = await Promise.all(
+    keys.map(k => loadRelations<import('../types/relation').Relation>(k)),
+  );
+  return arrays.flat();
+}
+
 /** Load kinetics theory rules. Applies locale overlay (name, short_statement, explanation) when locale is provided. */
 export async function loadKineticsRules(locale?: SupportedLocale): Promise<import('../types/kinetics').KineticsRule[]> {
   const data = await loadRule('kinetics') as import('../types/kinetics').KineticsRule[];

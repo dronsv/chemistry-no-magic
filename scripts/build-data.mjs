@@ -58,6 +58,10 @@ import { generateConceptLookups } from './lib/generate-concept-lookup.mjs';
 import { generateRuleTexts, generateActivityTexts, generateQualitativeTexts } from './lib/generate-rule-texts.mjs';
 import { generateFormsSaltWith } from './lib/generate-forms-salt-with.mjs';
 import { generateInstanceOf } from './lib/generate-classification-triples.mjs';
+import { generateParticipatesIn } from './lib/generate-participates-in.mjs';
+import { generateReactsWithClass } from './lib/generate-reacts-with-class.mjs';
+import { generateDetectedBy } from './lib/generate-detected-by.mjs';
+import { generateCausesEffect } from './lib/generate-causes-effect.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -707,6 +711,26 @@ async function main() {
   await writeFile(join(bundleDir, 'relations', 'instance_of.json'), JSON.stringify(instanceOf));
   relationFiles['instance_of'] = 'relations/instance_of.json';
   console.log(`  ${instanceOf.length} instance_of triples`);
+
+  const participatesIn = generateParticipatesIn(reactions, substances.map(s => s.data));
+  await writeFile(join(bundleDir, 'relations', 'participates_in.json'), JSON.stringify(participatesIn));
+  relationFiles['participates_in'] = 'relations/participates_in.json';
+  console.log(`  ${participatesIn.length} participates_in triples`);
+
+  const reactsWithClass = generateReactsWithClass(applicabilityRules);
+  await writeFile(join(bundleDir, 'relations', 'reacts_with_class.json'), JSON.stringify(reactsWithClass));
+  relationFiles['reacts_with_class'] = 'relations/reacts_with_class.json';
+  console.log(`  ${reactsWithClass.length} reacts_with_class triples`);
+
+  const detectedBy = generateDetectedBy(qualitativeReactions, substances.map(s => s.data));
+  await writeFile(join(bundleDir, 'relations', 'detected_by.json'), JSON.stringify(detectedBy));
+  relationFiles['detected_by'] = 'relations/detected_by.json';
+  console.log(`  ${detectedBy.length} detected_by triples`);
+
+  const causesEffect = generateCausesEffect(processVocab);
+  await writeFile(join(bundleDir, 'relations', 'causes_effect.json'), JSON.stringify(causesEffect));
+  relationFiles['causes_effect'] = 'relations/causes_effect.json';
+  console.log(`  ${causesEffect.length} causes_effect triples`);
 
   // 6b. Generate reaction participants from reactions data
   console.log('Generating reaction participants...');

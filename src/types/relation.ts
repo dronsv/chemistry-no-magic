@@ -14,6 +14,8 @@ export interface Relation {
   knowledge_level?: 'strict_chemistry' | 'school_convention' | 'pedagogical';
   /** Source provenance (e.g. "IUPAC", "school_textbook_ru", "derived"). */
   source_kind?: string;
+  /** Guard condition for this edge (e.g. "cold", "heating", "when:endothermic"). */
+  condition?: string;
 }
 
 export type RelationGraph = Relation[];

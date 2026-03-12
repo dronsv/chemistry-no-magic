@@ -12,7 +12,8 @@
       "step":            { "type": "number", "description": "Step index for multi-step chains (e.g. proton dissociation)" },
       "solubility":      { "type": "string", "enum": ["soluble", "slightly_soluble", "decomposes"], "description": "Solubility for forms_salt_with triples" },
       "knowledge_level": { "type": "string", "enum": ["strict_chemistry", "school_convention", "pedagogical"], "description": "Epistemic status of this relation" },
-      "source_kind":     { "type": "string", "description": "Source provenance (e.g. IUPAC, school_textbook_ru, derived)" }
+      "source_kind":     { "type": "string", "description": "Source provenance (e.g. IUPAC, school_textbook_ru, derived)" },
+      "condition":       { "type": "string", "description": "Guard condition for this edge (e.g. cold, heating, when:endothermic)" }
     },
     "additionalProperties": false
   }

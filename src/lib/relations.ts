@@ -83,3 +83,57 @@ export function getAtStep(
     .filter(r => r.subject === entityId && r.predicate === predicate && r.step === step)
     .map(r => r.object);
 }
+
+/**
+ * Returns all triples where entityId appears as subject or object.
+ * Optionally filter by predicate.
+ */
+export function getRelationsForEntity(
+  relations: Relation[],
+  entityId: string,
+  predicate?: string,
+): Relation[] {
+  return relations.filter(r =>
+    (r.subject === entityId || r.object === entityId) &&
+    (predicate === undefined || r.predicate === predicate),
+  );
+}
+
+/**
+ * Merges multiple relation arrays into a single flat array.
+ */
+export function getAllRelations(files: Record<string, Relation[]>): Relation[] {
+  const result: Relation[] = [];
+  for (const rels of Object.values(files)) {
+    result.push(...rels);
+  }
+  return result;
+}
+
+/**
+ * Follows a chain of predicates from startId.
+ * E.g. traversePath(rels, 'sub:hcl', ['instance_of', 'reacts_with_class'])
+ * returns all IDs reachable after following both hops in order.
+ */
+export function traversePath(
+  relations: Relation[],
+  startId: string,
+  predicates: string[],
+): string[] {
+  let current = [startId];
+  for (const pred of predicates) {
+    const next: string[] = [];
+    const seen = new Set<string>();
+    for (const id of current) {
+      for (const r of relations) {
+        if (r.subject === id && r.predicate === pred && !seen.has(r.object)) {
+          seen.add(r.object);
+          next.push(r.object);
+        }
+      }
+    }
+    current = next;
+    if (current.length === 0) break;
+  }
+  return current;
+}
