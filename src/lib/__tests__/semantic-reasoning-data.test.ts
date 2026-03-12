@@ -109,6 +109,29 @@ describe('formulas.json', () => {
       }
     }
   });
+
+  it('collision formulas have valid semantic_role on collision variables', () => {
+    const VALID_ROLES = ['actual', 'theoretical', 'solute', 'solution', 'reactant', 'product', 'initial', 'final'];
+    const COLLISION_FORMULAS = [
+      'formula:yield', 'formula:stoichiometry_ratio', 'formula:mass_fraction_solution',
+      'formula:vant_hoff_rule', 'formula:hess_law',
+    ];
+    for (const f of data) {
+      if (!COLLISION_FORMULAS.includes(f.id as string)) continue;
+      const vars = f.variables as Array<{ symbol: string; quantity: string; semantic_role?: string }>;
+      // Find quantities that appear more than once
+      const qCounts = new Map<string, number>();
+      for (const v of vars) {
+        qCounts.set(v.quantity, (qCounts.get(v.quantity) ?? 0) + 1);
+      }
+      for (const v of vars) {
+        if ((qCounts.get(v.quantity) ?? 0) > 1) {
+          expect(v.semantic_role).toBeDefined();
+          expect(VALID_ROLES).toContain(v.semantic_role);
+        }
+      }
+    }
+  });
 });
 
 describe('qualitative_relations.json', () => {

@@ -6,6 +6,11 @@ import type { CalcReaction } from '../../types/calculations';
 import { getElectronConfig, setConfigOverrides, toSuperscript } from '../electron-config';
 import { determineBondType } from '../bond-calculator';
 import { evaluateFormula, solveFor as formulaSolveFor } from '../formula-evaluator';
+import { buildDerivationRules, buildQuantityIndex } from '../derivation/derivation-graph';
+import { planDerivation } from '../derivation/derivation-planner';
+import { executePlan } from '../derivation/derivation-executor';
+import { qrefKey } from '../derivation/qref';
+import type { QRef } from '../../types/derivation';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -598,6 +603,39 @@ function solveHeatOfReaction(
   return { answer: reaction.delta_H_kJmol };
 }
 
+function solveDerivationPlanner(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+  data: OntologyData,
+): SolverResult {
+  const { formulas, constantsDict } = getFoundations(data);
+  const rules = buildDerivationRules(formulas);
+  const index = buildQuantityIndex(rules);
+
+  const targetQuantity = String(params.target_quantity);
+  const targetRole = params.target_role as QRef['role'] | undefined;
+  const target: QRef = { quantity: targetQuantity, role: targetRole };
+
+  // Build knowns from params.knowns_mapping: { slotName: { quantity, role? } }
+  const knownsMapping = params.knowns_mapping as Record<string, { quantity: string; role?: string }>;
+  const knowns: QRef[] = [];
+  const values: Record<string, number> = {};
+
+  for (const [slotName, qdef] of Object.entries(knownsMapping)) {
+    const qref: QRef = { quantity: qdef.quantity, role: qdef.role as QRef['role'] };
+    knowns.push(qref);
+    values[qrefKey(qref)] = Number(slots[slotName]);
+  }
+
+  const plan = planDerivation(target, knowns, rules, index, {
+    availableIndexSets: params.available_index_sets as string[] | undefined,
+  });
+  if (!plan) return { error: `No derivation path found for ${targetQuantity}` };
+
+  const result = executePlan(plan, { formulas, constants: constantsDict, values });
+  return { answer: result.result };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -630,6 +668,7 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.stoichiometry': solveStoichiometry,
   'solver.reaction_yield': solveReactionYield,
   'solver.heat_of_reaction': (params, slots) => solveHeatOfReaction(params, slots),
+  'solver.derivation_planner': solveDerivationPlanner,
 };
 
 export function runSolver(

@@ -7,11 +7,23 @@ export type ExprNode =
   | { op: 'literal'; value: number }
   | { op: 'const'; ref: string };
 
+/** Closed set of semantic roles for quantity disambiguation within formulas. */
+export type SemanticRole =
+  | 'actual'
+  | 'theoretical'
+  | 'solute'
+  | 'solution'
+  | 'reactant'
+  | 'product'
+  | 'initial'
+  | 'final';
+
 export interface Variable {
   symbol: string;
   quantity: string;        // ref to q:* in quantities_units_ontology
   unit: string;            // ref to unit:*
   role: 'result' | 'input' | 'constant' | 'index';
+  semantic_role?: SemanticRole;  // disambiguates same quantity in different contexts
 }
 
 /** Approximation metadata for formulas that compute proxy/heuristic values. */
