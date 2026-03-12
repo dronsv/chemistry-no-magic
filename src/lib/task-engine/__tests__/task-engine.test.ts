@@ -2021,6 +2021,31 @@ describe('toExercise format routing', () => {
     expect(ex.options).toEqual([]);
   });
 
+  it('order_dragdrop → order_items with shuffled items and correctOrder', () => {
+    const orderTask: GeneratedTask = {
+      template_id: 'test.order',
+      interaction: 'order_dragdrop',
+      question: 'Order by electronegativity',
+      correct_answer: ['Na', 'Mg', 'Al', 'Si'],
+      distractors: [],
+      explanation: '',
+      competency_map: {},
+      difficulty: 0.5,
+      exam_tags: [],
+      slots: {},
+    };
+    const ex = engine.toExercise(orderTask);
+
+    expect(ex.format).toBe('order_items');
+    expect(ex.correctOrder).toEqual(['Na', 'Mg', 'Al', 'Si']);
+    expect(ex.items).toBeDefined();
+    expect(ex.items!.length).toBe(4);
+    // Items must be a permutation of correctOrder
+    expect(new Set(ex.items!)).toEqual(new Set(['Na', 'Mg', 'Al', 'Si']));
+    expect(ex.options).toEqual([]);
+    expect(ex.correctId).toBe('');
+  });
+
   it('guided_selection → guided_selection with context and options', () => {
     const guidedTask: GeneratedTask = {
       template_id: 'test.guided',

@@ -119,7 +119,28 @@ export function generateDistractors(
   ) {
     candidates = generateKineticsDirectionDistractors(slots);
   }
-  // 14. Fallback
+  // 14. Order dragdrop (array answer): permutation-based distractors
+  else if (
+    Array.isArray(correctAnswer) &&
+    interaction === 'order_dragdrop'
+  ) {
+    candidates = generateOrderPermutationDistractors(correctAnswer);
+  }
+  // 15. Choice multi (array answer): individual wrong items from domain enums
+  else if (
+    Array.isArray(correctAnswer) &&
+    interaction === 'choice_multi'
+  ) {
+    candidates = generateChoiceMultiDistractors(correctAnswer, slots);
+  }
+  // 16. Match pairs net ionic context
+  else if (
+    slots.net_ionic !== undefined &&
+    typeof correctAnswer === 'string'
+  ) {
+    candidates = generateNetIonicDistractors(correctAnswer, data);
+  }
+  // 17. Fallback
   else {
     candidates = generateFallbackDistractors(correctAnswer, data);
   }
@@ -500,8 +521,6 @@ function generateChainSubstanceDistractors(
   return candidates;
 }
 
-// ── Strategy: fallback ───────────────────────────────────────────
-
 // ── Strategy: kinetics direction ────────────────────────────────
 
 function generateKineticsDirectionDistractors(slots: SlotValues): string[] {
@@ -511,15 +530,91 @@ function generateKineticsDirectionDistractors(slots: SlotValues): string[] {
   return candidates;
 }
 
+// ── Strategy: order permutation ──────────────────────────────────
+
+function generateOrderPermutationDistractors(correctAnswer: string[]): string[] {
+  const candidates: string[] = [];
+  const n = correctAnswer.length;
+
+  // Reverse
+  if (n >= 2) {
+    candidates.push([...correctAnswer].reverse().join(','));
+  }
+
+  // Swap last two
+  if (n >= 2) {
+    const swapped = [...correctAnswer];
+    [swapped[n - 2], swapped[n - 1]] = [swapped[n - 1], swapped[n - 2]];
+    candidates.push(swapped.join(','));
+  }
+
+  // Swap middle pair (or first two if length < 4)
+  if (n >= 3) {
+    const swapped = [...correctAnswer];
+    const mid = Math.floor(n / 2);
+    [swapped[mid - 1], swapped[mid]] = [swapped[mid], swapped[mid - 1]];
+    candidates.push(swapped.join(','));
+  }
+
+  // Deduplicate against correct
+  const correctStr = correctAnswer.join(',');
+  return candidates.filter(c => c !== correctStr);
+}
+
+// ── Strategy: choice_multi individual items ─────────────────────
+
+function generateChoiceMultiDistractors(
+  correctAnswer: string[],
+  slots: SlotValues,
+): string[] {
+  const correctSet = new Set(correctAnswer.map(String));
+
+  // Try domain enums matching slot context
+  for (const [domain, values] of Object.entries(DOMAIN_ENUMS)) {
+    if (slots[domain] !== undefined || correctAnswer.some(a => values.includes(a))) {
+      return values.filter(v => !correctSet.has(v));
+    }
+  }
+
+  return [];
+}
+
+// ── Strategy: net ionic (match_pairs context) ───────────────────
+// TODO(P1): deeper data model fix — solver should return string[] of "left:right" pairs
+
+function generateNetIonicDistractors(
+  correctAnswer: string,
+  data: OntologyData,
+): string[] {
+  const candidates: string[] = [];
+
+  if (data.data.reactions) {
+    for (const r of data.data.reactions) {
+      if (r.ionic?.net && r.ionic.net !== correctAnswer) {
+        candidates.push(r.ionic.net);
+      }
+    }
+  }
+
+  // Shuffle (Fisher-Yates)
+  for (let i = candidates.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+  }
+
+  return candidates;
+}
+
 // ── Strategy: fallback ───────────────────────────────────────────
 
 function generateFallbackDistractors(
   correctAnswer: string | number | string[],
   data: OntologyData,
 ): string[] {
-  const correctStr = Array.isArray(correctAnswer)
-    ? correctAnswer.join(',')
-    : String(correctAnswer);
+  // Array answers must not go through scalar fallback — fail closed
+  if (Array.isArray(correctAnswer)) return [];
+
+  const correctStr = String(correctAnswer);
 
   // Pick element symbols that are not the correct answer
   const candidates: string[] = [];

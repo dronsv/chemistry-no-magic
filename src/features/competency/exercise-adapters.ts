@@ -8,13 +8,16 @@ export interface ExerciseOption {
 export interface Exercise {
   type: string;
   question: string;
-  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection';
+  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection' | 'order_items';
   options: ExerciseOption[];
   correctId: string;
   correctIds?: string[];
   pairs?: Array<{ left: string; right: string }>;
   targetZ?: number;
   context?: { chain: string[]; gapIndex: number };
+  /** Items to reorder (order_items format). Presented shuffled; correctOrder has the answer. */
+  items?: string[];
+  correctOrder?: string[];
   explanation: string;
   competencyMap: Record<string, 'P' | 'S'>;
 }

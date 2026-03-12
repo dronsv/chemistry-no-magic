@@ -16,13 +16,16 @@ import { generateDistractors } from './distractor-engine';
 export interface Exercise {
   type: string;
   question: string;
-  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection';
+  format: 'multiple_choice' | 'multiple_choice_multi' | 'match_pairs' | 'interactive_orbital' | 'guided_selection' | 'order_items';
   options: Array<{ id: string; text: string }>;
   correctId: string;
   correctIds?: string[];
   pairs?: Array<{ left: string; right: string }>;
   targetZ?: number;
   context?: { chain: string[]; gapIndex: number };
+  /** Items to reorder (order_items format). Presented shuffled; correctOrder has the answer. */
+  items?: string[];
+  correctOrder?: string[];
   explanation: string;
   competencyMap: Record<string, 'P' | 'S'>;
 }
@@ -155,8 +158,28 @@ export function createTaskEngine(
         };
       }
 
+      case 'order_dragdrop': {
+        const correctArr = Array.isArray(task.correct_answer)
+          ? task.correct_answer.map(String)
+          : [String(task.correct_answer)];
+        // Shuffle items for presentation; correctOrder holds the answer
+        const items = [...correctArr];
+        for (let i = items.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [items[i], items[j]] = [items[j], items[i]];
+        }
+        return {
+          ...base,
+          format: 'order_items',
+          options: [],
+          correctId: '',
+          items,
+          correctOrder: correctArr,
+        };
+      }
+
       default: {
-        // choice_single, numeric_input, order_dragdrop — default behavior
+        // choice_single, numeric_input — default behavior
         const options: Array<{ id: string; text: string }> = [
           { id: 'correct', text: String(task.correct_answer) },
         ];

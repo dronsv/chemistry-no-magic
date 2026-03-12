@@ -6,6 +6,7 @@ import type { BondExamplesData } from '../../../types/bond';
 import type { SubstanceIndexEntry } from '../../../types/classification';
 import type { Ion } from '../../../types/ion';
 import type { QualitativeTest } from '../../../types/qualitative';
+import type { Reaction } from '../../../types/reaction';
 
 // ── Minimal mock ontology ────────────────────────────────────────
 
@@ -93,6 +94,13 @@ const MOCK_QUALITATIVE_TESTS: QualitativeTest[] = [
   },
 ];
 
+const MOCK_REACTIONS: Partial<Reaction>[] = [
+  { reaction_id: 'r1', ionic: { net: 'Ag⁺ + Cl⁻ → AgCl↓' } },
+  { reaction_id: 'r2', ionic: { net: 'Ba²⁺ + SO₄²⁻ → BaSO₄↓' } },
+  { reaction_id: 'r3', ionic: { net: 'H⁺ + OH⁻ → H₂O' } },
+  { reaction_id: 'r4', ionic: { net: undefined } },
+];
+
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
   rules: {
@@ -101,7 +109,7 @@ const MOCK_DATA: OntologyData = {
     bondExamples: MOCK_BOND_EXAMPLES,
     qualitativeTests: MOCK_QUALITATIVE_TESTS,
   },
-  data: { substances: MOCK_SUBSTANCE_INDEX },
+  data: { substances: MOCK_SUBSTANCE_INDEX, reactions: MOCK_REACTIONS as Reaction[] },
   i18n: { morphology: null, promptTemplates: {} },
 };
 
@@ -660,6 +668,159 @@ describe('generateDistractors', () => {
       expect(distractors).not.toContain('something');
       for (const d of distractors) {
         expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(true);
+      }
+    });
+  });
+
+  describe('order_dragdrop permutation distractors', () => {
+    it('generates permutations for array answer', () => {
+      const distractors = generateDistractors(
+        ['A', 'B', 'C', 'D'],
+        {},
+        'order_dragdrop',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(2);
+      // Each distractor is a comma-joined permutation
+      for (const d of distractors) {
+        expect(d).not.toBe('A,B,C,D');
+        const items = d.split(',');
+        expect(new Set(items)).toEqual(new Set(['A', 'B', 'C', 'D']));
+      }
+    });
+
+    it('includes reverse permutation', () => {
+      const distractors = generateDistractors(
+        ['A', 'B', 'C'],
+        {},
+        'order_dragdrop',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toContain('C,B,A');
+    });
+
+    it('includes swap-last-two permutation', () => {
+      const distractors = generateDistractors(
+        ['A', 'B', 'C', 'D'],
+        {},
+        'order_dragdrop',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toContain('A,B,D,C');
+    });
+
+    it('handles 2-element array (reverse = swap last two, deduplicates)', () => {
+      const distractors = generateDistractors(
+        ['X', 'Y'],
+        {},
+        'order_dragdrop',
+        MOCK_DATA,
+        3,
+      );
+      // Reverse and swap-last-two produce same result for 2 items
+      expect(distractors.length).toBeGreaterThanOrEqual(1);
+      expect(distractors).toContain('Y,X');
+    });
+  });
+
+  describe('choice_multi individual item distractors', () => {
+    it('returns individual wrong items from matching domain', () => {
+      const distractors = generateDistractors(
+        ['ionic', 'metallic'],
+        { bond_type: 'ionic' },
+        'choice_multi',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors.length).toBe(2);
+      expect(distractors).toContain('covalent_polar');
+      expect(distractors).toContain('covalent_nonpolar');
+      expect(distractors).not.toContain('ionic');
+      expect(distractors).not.toContain('metallic');
+    });
+
+    it('detects domain from answer values without explicit slot', () => {
+      const distractors = generateDistractors(
+        ['oxide', 'salt'],
+        {},
+        'choice_multi',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors).toContain('acid');
+      expect(distractors).toContain('base');
+    });
+
+    it('returns empty array when no domain matches', () => {
+      const distractors = generateDistractors(
+        ['foo', 'bar'],
+        {},
+        'choice_multi',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toEqual([]);
+    });
+  });
+
+  describe('net ionic (match_pairs) distractors', () => {
+    it('returns other net ionic equations from reactions pool', () => {
+      const distractors = generateDistractors(
+        'Ag⁺ + Cl⁻ → AgCl↓',
+        { net_ionic: 'Ag⁺ + Cl⁻ → AgCl↓', reaction_id: 'r1' },
+        'match_pairs',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors.length).toBe(2);
+      expect(distractors).not.toContain('Ag⁺ + Cl⁻ → AgCl↓');
+      // Should contain other net ionic equations
+      for (const d of distractors) {
+        expect(MOCK_REACTIONS.some(r => r.ionic?.net === d)).toBe(true);
+      }
+    });
+
+    it('skips reactions with undefined net ionic', () => {
+      const distractors = generateDistractors(
+        'H⁺ + OH⁻ → H₂O',
+        { net_ionic: 'H⁺ + OH⁻ → H₂O' },
+        'match_pairs',
+        MOCK_DATA,
+        3,
+      );
+      for (const d of distractors) {
+        expect(d).not.toBe('undefined');
+        expect(d).toBeTruthy();
+      }
+    });
+  });
+
+  describe('fallback safety for array answers', () => {
+    it('returns empty array for unmatched array answer', () => {
+      const distractors = generateDistractors(
+        ['unknown_a', 'unknown_b'],
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      // Array falls to fallback → should return [] not random element symbols
+      expect(distractors).toEqual([]);
+    });
+
+    it('does not return element symbols for array answers', () => {
+      const distractors = generateDistractors(
+        ['x', 'y', 'z'],
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      for (const d of distractors) {
+        expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(false);
       }
     });
   });
