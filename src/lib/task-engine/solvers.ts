@@ -1,8 +1,11 @@
 import type { Element } from '../../types/element';
+import type { ComputableFormula } from '../../types/formula';
+import type { ConstantsDict } from '../../types/eval-trace';
 import type { OntologyData, PropertyDef, SlotValues, SolverResult } from './types';
 import type { CalcReaction } from '../../types/calculations';
 import { getElectronConfig, setConfigOverrides, toSuperscript } from '../electron-config';
 import { determineBondType } from '../bond-calculator';
+import { evaluateFormula, solveFor as formulaSolveFor } from '../formula-evaluator';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -75,6 +78,20 @@ function findElement(symbol: string, data: OntologyData): Element {
   const el = data.core.elements.find(e => e.symbol === symbol);
   if (!el) throw new Error(`Unknown element: ${symbol}`);
   return el;
+}
+
+/** Get foundations (formulas + constants) from OntologyData. */
+function getFoundations(data: OntologyData): { formulas: ComputableFormula[]; constantsDict: ConstantsDict } {
+  const f = data.data.foundations;
+  if (!f) throw new Error('Foundations data (formulas/constants) not loaded');
+  return f;
+}
+
+/** Find a formula by ID. */
+function findFormulaById(formulas: ComputableFormula[], id: string): ComputableFormula {
+  const f = formulas.find(fm => fm.id === id);
+  if (!f) throw new Error(`Formula not found: ${id}`);
+  return f;
 }
 
 // ── Solver implementations ───────────────────────────────────────
@@ -380,7 +397,7 @@ function solveDrivingForce(
 
   for (const [slotKey, label] of checks) {
     const val = slots[slotKey];
-    if (val === true || val === 'true' || val === 1) {
+    if (val === 'true' || val === 1) {
       return { answer: label };
     }
   }
@@ -419,23 +436,26 @@ function solveMolarMass(
   data: OntologyData,
 ): SolverResult {
   void params;
+  const { formulas, constantsDict } = getFoundations(data);
+  const formula = findFormulaById(formulas, 'formula:molar_mass_from_composition');
+
   const compositionRaw = slots.composition;
   let composition: Record<string, number>;
-
   if (typeof compositionRaw === 'string') {
     composition = JSON.parse(compositionRaw) as Record<string, number>;
   } else {
     throw new Error('composition slot must be a JSON string');
   }
 
-  let totalMass = 0;
-  for (const [symbol, count] of Object.entries(composition)) {
-    const el = findElement(symbol, data);
-    totalMass += el.atomic_mass * count;
-  }
+  const indexed = {
+    composition_elements: Object.entries(composition).map(([symbol, count]) => {
+      const el = findElement(symbol, data);
+      return { Ar_i: el.atomic_mass, count_i: count };
+    }),
+  };
 
-  const rounded = Math.round(totalMass * 100) / 100;
-  return { answer: rounded };
+  const trace = evaluateFormula(formula, {}, constantsDict, indexed);
+  return { answer: Math.round(trace.result * 100) / 100 };
 }
 
 function solveMassFraction(
@@ -443,13 +463,14 @@ function solveMassFraction(
   slots: SlotValues,
   data: OntologyData,
 ): SolverResult {
-  // Read target_element from params or fall back to slots.element
+  const { formulas, constantsDict } = getFoundations(data);
+  const formula = findFormulaById(formulas, 'formula:mass_fraction_element');
+
   const rawTarget = params.target_element ?? slots.element;
   const targetElement = String(rawTarget);
   const M = Number(slots.M);
   const compositionRaw = slots.composition;
   let composition: Record<string, number>;
-
   if (typeof compositionRaw === 'string') {
     composition = JSON.parse(compositionRaw) as Record<string, number>;
   } else {
@@ -462,28 +483,25 @@ function solveMassFraction(
   }
 
   const el = findElement(targetElement, data);
-  const fraction = (el.atomic_mass * count / M) * 100;
-  const rounded = Math.round(fraction * 10) / 10;
-
-  return { answer: rounded };
+  const trace = evaluateFormula(formula, { Ar: el.atomic_mass, n_atom: count, M }, constantsDict);
+  return { answer: Math.round(trace.result * 10) / 10 };
 }
 
 function solveAmountCalc(
   params: Record<string, unknown>,
   slots: SlotValues,
+  data: OntologyData,
 ): SolverResult {
+  const { formulas, constantsDict } = getFoundations(data);
+  const formula = findFormulaById(formulas, 'formula:amount_from_mass');
   const mode = String(params.mode ?? 'n');
 
   if (mode === 'n') {
-    const mass = Number(slots.mass);
-    const M = Number(slots.M);
-    const n = mass / M;
-    return { answer: Math.round(n * 1000) / 1000 };
+    const trace = evaluateFormula(formula, { m: Number(slots.mass), M: Number(slots.M) }, constantsDict);
+    return { answer: Math.round(trace.result * 1000) / 1000 };
   } else if (mode === 'm') {
-    const amount = Number(slots.amount);
-    const M = Number(slots.M);
-    const m = amount * M;
-    return { answer: Math.round(m * 100) / 100 };
+    const trace = formulaSolveFor(formula, 'm', { n: Number(slots.amount), M: Number(slots.M) }, constantsDict);
+    return { answer: Math.round(trace.result * 100) / 100 };
   }
 
   throw new Error(`Unknown amount_calc mode: ${mode}`);
@@ -492,25 +510,29 @@ function solveAmountCalc(
 function solveConcentration(
   params: Record<string, unknown>,
   slots: SlotValues,
+  data: OntologyData,
 ): SolverResult {
   const mode = String(params.mode ?? 'omega');
 
   if (mode === 'omega') {
-    const mSolute = Number(slots.m_solute);
-    const mSolution = Number(slots.m_solution);
-    const omega = (mSolute / mSolution) * 100;
-    return { answer: Math.round(omega * 10) / 10 };
+    const { formulas, constantsDict } = getFoundations(data);
+    const formula = findFormulaById(formulas, 'formula:mass_fraction_solution');
+    const trace = evaluateFormula(
+      formula, { m_solute: Number(slots.m_solute), m_solution: Number(slots.m_solution) }, constantsDict,
+    );
+    return { answer: Math.round(trace.result * 100 * 10) / 10 };
   } else if (mode === 'inverse') {
-    const omega = Number(slots.omega);
-    const mSolution = Number(slots.m_solution);
-    const mSolute = omega * mSolution / 100;
-    return { answer: Math.round(mSolute * 10) / 10 };
+    const { formulas, constantsDict } = getFoundations(data);
+    const formula = findFormulaById(formulas, 'formula:mass_fraction_solution');
+    const trace = formulaSolveFor(
+      formula, 'm_solute', { w: Number(slots.omega) / 100, m_solution: Number(slots.m_solution) }, constantsDict,
+    );
+    return { answer: Math.round(trace.result * 10) / 10 };
   } else if (mode === 'dilution') {
     const omega1 = Number(slots.omega1);
     const m1 = Number(slots.m1);
     const omega2 = Number(slots.omega2);
-    const m2 = omega1 * m1 / omega2;
-    return { answer: Math.round(m2 * 10) / 10 };
+    return { answer: Math.round(omega1 * m1 / omega2 * 10) / 10 };
   }
 
   throw new Error(`Unknown concentration mode: ${mode}`);
@@ -519,17 +541,22 @@ function solveConcentration(
 function solveStoichiometry(
   params: Record<string, unknown>,
   slots: SlotValues,
+  data: OntologyData,
 ): SolverResult {
   void params;
+  const { formulas, constantsDict } = getFoundations(data);
+  const fAmount = findFormulaById(formulas, 'formula:amount_from_mass');
+  const fStoich = findFormulaById(formulas, 'formula:stoichiometry_ratio');
+
   const givenMass = Number(slots.given_mass);
   const givenCoeff = Number(slots.given_coeff);
   const givenM = Number(slots.given_M);
   const findCoeff = Number(slots.find_coeff);
   const findM = Number(slots.find_M);
 
-  const nGiven = givenMass / givenM;
-  const nFind = nGiven * (findCoeff / givenCoeff);
-  const mFind = nFind * findM;
+  const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constantsDict).result;
+  const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constantsDict).result;
+  const mFind = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constantsDict).result;
 
   return { answer: Math.round(mFind * 100) / 100 };
 }
@@ -537,8 +564,14 @@ function solveStoichiometry(
 function solveReactionYield(
   params: Record<string, unknown>,
   slots: SlotValues,
+  data: OntologyData,
 ): SolverResult {
   void params;
+  const { formulas, constantsDict } = getFoundations(data);
+  const fAmount = findFormulaById(formulas, 'formula:amount_from_mass');
+  const fStoich = findFormulaById(formulas, 'formula:stoichiometry_ratio');
+  const fYield = findFormulaById(formulas, 'formula:yield');
+
   const givenMass = Number(slots.given_mass);
   const givenCoeff = Number(slots.given_coeff);
   const givenM = Number(slots.given_M);
@@ -546,12 +579,12 @@ function solveReactionYield(
   const findM = Number(slots.find_M);
   const yieldPercent = Number(slots.yield_percent);
 
-  const nGiven = givenMass / givenM;
-  const nFind = nGiven * (findCoeff / givenCoeff);
-  const mTheoretical = nFind * findM;
-  const mPractical = mTheoretical * yieldPercent / 100;
+  const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constantsDict).result;
+  const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constantsDict).result;
+  const mTheoretical = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constantsDict).result;
+  const mActual = formulaSolveFor(fYield, 'm_actual', { eta: yieldPercent, m_theoretical: mTheoretical }, constantsDict).result;
 
-  return { answer: Math.round(mPractical * 100) / 100 };
+  return { answer: Math.round(mActual * 100) / 100 };
 }
 
 function solveHeatOfReaction(
@@ -592,10 +625,10 @@ const SOLVERS: Record<string, SolverFn> = {
   // Phase 3: Calculations
   'solver.molar_mass': solveMolarMass,
   'solver.mass_fraction': solveMassFraction,
-  'solver.amount_calc': (params, slots) => solveAmountCalc(params, slots),
-  'solver.concentration': (params, slots) => solveConcentration(params, slots),
-  'solver.stoichiometry': (params, slots) => solveStoichiometry(params, slots),
-  'solver.reaction_yield': (params, slots) => solveReactionYield(params, slots),
+  'solver.amount_calc': solveAmountCalc,
+  'solver.concentration': solveConcentration,
+  'solver.stoichiometry': solveStoichiometry,
+  'solver.reaction_yield': solveReactionYield,
   'solver.heat_of_reaction': (params, slots) => solveHeatOfReaction(params, slots),
 };
 

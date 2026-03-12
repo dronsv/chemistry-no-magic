@@ -1,8 +1,12 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { runSolver } from '../solvers';
 import type { OntologyData, PropertyDef } from '../types';
 import type { Element } from '../../../types/element';
 import type { Ion } from '../../../types/ion';
+import type { ComputableFormula, PhysicalConstant } from '../../../types/formula';
+import { toConstantsDict } from '../../formula-evaluator';
 
 // ── Mock data ────────────────────────────────────────────────────
 
@@ -69,10 +73,16 @@ const MOCK_SOLUBILITY_PAIRS = [
   { cation: 'Ca_2plus', anion: 'PO4_3minus', solubility: 'insoluble' },
 ];
 
+const FOUNDATIONS_DIR = join(import.meta.dirname, '../../../../data-src/foundations');
+const TEST_FORMULAS: ComputableFormula[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'formulas.json'), 'utf8'));
+const TEST_CONSTANTS: PhysicalConstant[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'constants.json'), 'utf8'));
+
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
   rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: [] },
-  data: {},
+  data: {
+    foundations: { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) },
+  },
   i18n: { morphology: null, promptTemplates: {} },
 };
 
@@ -392,35 +402,35 @@ describe('solver.delta_chi', () => {
 describe('solver.driving_force', () => {
   it('precipitate takes priority', () => {
     const result = runSolver('solver.driving_force', {}, {
-      has_precipitate: true, has_gas: true, has_water: false, has_weak_electrolyte: false,
+      has_precipitate: 'true', has_gas: 'true', has_water: 'false', has_weak_electrolyte: 'false',
     }, MOCK_DATA);
     expect(result.answer).toBe('precipitate');
   });
 
   it('gas when no precipitate', () => {
     const result = runSolver('solver.driving_force', {}, {
-      has_precipitate: false, has_gas: true, has_water: false, has_weak_electrolyte: false,
+      has_precipitate: 'false', has_gas: 'true', has_water: 'false', has_weak_electrolyte: 'false',
     }, MOCK_DATA);
     expect(result.answer).toBe('gas');
   });
 
   it('water as driving force', () => {
     const result = runSolver('solver.driving_force', {}, {
-      has_precipitate: false, has_gas: false, has_water: 'true', has_weak_electrolyte: false,
+      has_precipitate: 'false', has_gas: 'false', has_water: 'true', has_weak_electrolyte: 'false',
     }, MOCK_DATA);
     expect(result.answer).toBe('water');
   });
 
   it('weak_electrolyte as driving force', () => {
     const result = runSolver('solver.driving_force', {}, {
-      has_precipitate: false, has_gas: false, has_water: false, has_weak_electrolyte: 1,
+      has_precipitate: 'false', has_gas: 'false', has_water: 'false', has_weak_electrolyte: 1,
     }, MOCK_DATA);
     expect(result.answer).toBe('weak_electrolyte');
   });
 
   it('none when no driving force', () => {
     const result = runSolver('solver.driving_force', {}, {
-      has_precipitate: false, has_gas: false, has_water: false, has_weak_electrolyte: false,
+      has_precipitate: 'false', has_gas: 'false', has_water: 'false', has_weak_electrolyte: 'false',
     }, MOCK_DATA);
     expect(result.answer).toBe('none');
   });

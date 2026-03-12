@@ -1,4 +1,6 @@
 import { beforeAll, describe, it, expect } from 'vitest';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { runSolver } from '../solvers';
 import {
   getElectronConfig,
@@ -6,8 +8,10 @@ import {
   toSuperscript,
 } from '../../electron-config';
 import { determineBondType } from '../../bond-calculator';
+import { toConstantsDict } from '../../formula-evaluator';
 import type { OntologyData } from '../types';
 import type { Element } from '../../../types/element';
+import type { ComputableFormula, PhysicalConstant } from '../../../types/formula';
 
 // ── Shared test elements ──────────────────────────────────────────
 
@@ -21,13 +25,19 @@ const TEST_ELEMENTS: Element[] = [
   { Z: 29, symbol: 'Cu', name: 'Медь', name_latin: 'Cuprum', group: 11, period: 4, metal_type: 'metal', element_group: 'transition_metal', atomic_mass: 63.546, typical_oxidation_states: [1, 2], electronegativity: 1.90, electron_exception: { config_override: [[4, 's', 1], [3, 'd', 10]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁹', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d¹⁰', rule: 'filled d', reason: 'Провал электрона: полностью заполненная 3d-оболочка' } },
 ];
 
+const FOUNDATIONS_DIR = join(import.meta.dirname, '../../../../data-src/foundations');
+const TEST_FORMULAS: ComputableFormula[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'formulas.json'), 'utf8'));
+const TEST_CONSTANTS: PhysicalConstant[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'constants.json'), 'utf8'));
+
 function buildMinimalOntology(elements: Element[]): OntologyData {
   return {
     core: { elements, ions: [], properties: [] },
     rules: {
       solubilityPairs: [], oxidationExamples: [],
     },
-    data: {},
+    data: {
+      foundations: { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) },
+    },
     i18n: { morphology: null, promptTemplates: {} },
   } as unknown as OntologyData;
 }

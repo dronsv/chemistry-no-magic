@@ -168,6 +168,10 @@ export interface OntologyDataSources {
   geneticChains?: import('../../types/genetic-chain').GeneticChain[];
   calculations?: import('../../types/calculations').CalculationsData;
   reactionParticipants?: import('../../types/reaction-participant').ReactionParticipant[];
+  foundations?: {
+    formulas: import('../../types/formula').ComputableFormula[];
+    constantsDict: import('../../types/eval-trace').ConstantsDict;
+  };
 }
 
 export interface OntologyI18n {

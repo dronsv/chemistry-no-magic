@@ -116,9 +116,10 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
 
 /** Load all data and create a task engine instance. */
 export async function buildEngine(locale?: SupportedLocale) {
-  const [{ createTaskEngine }, dl] = await Promise.all([
+  const [{ createTaskEngine }, dl, { toConstantsDict }] = await Promise.all([
     import('../../lib/task-engine'),
     import('../../lib/data-loader'),
+    import('../../lib/formula-evaluator'),
   ]);
 
   const [
@@ -126,7 +127,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     promptTemplates, morphology, templates, bondExamples, substanceIndex, reactions,
     activitySeries, classificationRules, namingRules, qualitativeTests,
     energyCatalystTheory, geneticChains, calculationsData, ionNomenclature,
-    acidBaseRelations, kineticsData,
+    acidBaseRelations, kineticsData, foundationFormulas, foundationConstants,
   ] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
@@ -149,6 +150,8 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadIonNomenclature(locale).catch(() => null),
     dl.loadRelations('acid_base_relations').catch(() => []),
     dl.loadKineticsData(locale).catch(() => null),
+    dl.loadFormulas().catch(() => []),
+    dl.loadConstants().catch(() => []),
   ]);
 
   const ontology = {
@@ -165,6 +168,9 @@ export async function buildEngine(locale?: SupportedLocale) {
     data: {
       substances: substanceIndex, reactions, geneticChains,
       calculations: calculationsData ?? undefined,
+      foundations: foundationFormulas.length > 0
+        ? { formulas: foundationFormulas, constantsDict: toConstantsDict(foundationConstants) }
+        : undefined,
     },
     i18n: { morphology, promptTemplates },
   };

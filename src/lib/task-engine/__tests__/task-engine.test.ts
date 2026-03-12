@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { resolve, join } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { createTaskEngine } from '../task-engine';
+import { toConstantsDict } from '../../formula-evaluator';
 import type { OntologyData, PropertyDef, TaskTemplate, PromptTemplateMap, GeneratedTask } from '../types';
 import type { Element } from '../../../types/element';
 import type { Ion } from '../../../types/ion';
@@ -13,6 +14,7 @@ import type { ActivitySeriesEntry } from '../../../types/rules';
 import type { QualitativeTest } from '../../../types/qualitative';
 import type { GeneticChain } from '../../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../../types/energy-catalyst';
+import type { ComputableFormula, PhysicalConstant } from '../../../types/formula';
 import type { CalculationsData } from '../../../types/calculations';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
@@ -108,10 +110,15 @@ const MOCK_PROMPTS: PromptTemplateMap = {
   },
 };
 
+const FOUNDATIONS_DIR = join(import.meta.dirname, '../../../../data-src/foundations');
+const TEST_FORMULAS: ComputableFormula[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'formulas.json'), 'utf8'));
+const TEST_CONSTANTS: PhysicalConstant[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'constants.json'), 'utf8'));
+const TEST_FOUNDATIONS = { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) };
+
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
   rules: { solubilityPairs: [], oxidationExamples: MOCK_OXIDATION_EXAMPLES },
-  data: {},
+  data: { foundations: TEST_FOUNDATIONS },
   i18n: { morphology: null, promptTemplates: MOCK_PROMPTS },
 };
 
@@ -913,6 +920,7 @@ function buildPhase2Ontology(): OntologyData {
       reactions: PHASE2_REACTIONS_EXTENDED,
       geneticChains: MOCK_GENETIC_CHAINS,
       calculations: MOCK_CALCULATIONS,
+      foundations: TEST_FOUNDATIONS,
     },
     i18n: { ...MOCK_DATA.i18n, promptTemplates: PHASE2_PROMPTS },
   };
