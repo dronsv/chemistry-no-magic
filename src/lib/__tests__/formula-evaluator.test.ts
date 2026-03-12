@@ -99,9 +99,38 @@ describe('evaluateExpr', () => {
   });
 
   describe('power', () => {
-    it('computes base^exp', () => {
+    it('computes base^exp with numeric exponent', () => {
       const node: ExprNode = { op: 'power', operands: ['x', 3] };
       expect(evaluateExpr(node, B, C)).toBe(125);
+    });
+
+    it('computes base^exp with expression exponent', () => {
+      // 2^(10/5) = 2^2 = 4
+      const node: ExprNode = {
+        op: 'power',
+        operands: [2, { op: 'divide', operands: [10, 5] }],
+      };
+      expect(evaluateExpr(node, B, C)).toBe(4);
+    });
+  });
+
+  describe('exp', () => {
+    it('computes e^x', () => {
+      const node: ExprNode = { op: 'exp', operand: 0 };
+      expect(evaluateExpr(node, B, C)).toBe(1); // e^0 = 1
+    });
+
+    it('computes e^1', () => {
+      const node: ExprNode = { op: 'exp', operand: { op: 'literal', value: 1 } };
+      expect(evaluateExpr(node, B, C)).toBeCloseTo(Math.E, 10);
+    });
+
+    it('computes e^(-x) for negative exponent', () => {
+      const node: ExprNode = {
+        op: 'exp',
+        operand: { op: 'multiply', operands: [{ op: 'literal', value: -1 }, 'x'] },
+      };
+      expect(evaluateExpr(node, B, C)).toBeCloseTo(Math.exp(-5), 10); // x=5
     });
   });
 
@@ -265,6 +294,61 @@ describe('evaluateFormula — all 14 formulas', () => {
       system_components: [{ m_i: 100, c_i: 4.18 }],
     });
     expect(trace.result).toBeCloseTo(10, 2);
+  });
+
+  // ── New formulas: proxies + kinetics ──
+
+  it('formula:radius_proxy — n²/Z_eff (Na: n=3, Z_eff=2.2)', () => {
+    const f = findFormula('formula:radius_proxy');
+    // Na: n=3, Z_eff=2.2 → r_proxy = 9/2.2 ≈ 4.09
+    const trace = evaluateFormula(f, { n: 3, Z_eff: 2.2 }, CONSTS);
+    expect(trace.result).toBeCloseTo(9 / 2.2, 2);
+    expect(trace.is_approximate).toBe(true);
+    expect(trace.proxy_for).toBe('q:atomic_radius');
+  });
+
+  it('formula:ie_proxy — Z_eff²/n² (Na: Z_eff=2.2, n=3)', () => {
+    const f = findFormula('formula:ie_proxy');
+    // Na: Z_eff=2.2, n=3 → IE_proxy = 4.84/9 ≈ 0.538
+    const trace = evaluateFormula(f, { Z_eff: 2.2, n: 3 }, CONSTS);
+    expect(trace.result).toBeCloseTo(2.2 ** 2 / 3 ** 2, 3);
+    expect(trace.is_approximate).toBe(true);
+    expect(trace.proxy_for).toBe('q:ionization_energy');
+  });
+
+  it('formula:vant_hoff_rule — v₁·γ^((T₂−T₁)/10)', () => {
+    const f = findFormula('formula:vant_hoff_rule');
+    // v₁=1, γ=2, T₁=20, T₂=40 → v₂ = 1 × 2^((40-20)/10) = 2^2 = 4
+    const trace = evaluateFormula(f, { v_1: 1, gamma: 2, T_1: 20, T_2: 40 }, CONSTS);
+    expect(trace.result).toBeCloseTo(4, 4);
+    expect(trace.is_approximate).toBe(true);
+    expect(trace.proxy_for).toBe('q:reaction_rate');
+  });
+
+  it('formula:vant_hoff_rule — γ=3, ΔT=30 → 27×', () => {
+    const f = findFormula('formula:vant_hoff_rule');
+    // v₁=1, γ=3, T₁=10, T₂=40 → v₂ = 1 × 3^((40-10)/10) = 3^3 = 27
+    const trace = evaluateFormula(f, { v_1: 1, gamma: 3, T_1: 10, T_2: 40 }, CONSTS);
+    expect(trace.result).toBeCloseTo(27, 4);
+  });
+
+  it('formula:arrhenius — k = A·exp(−Ea/(RT))', () => {
+    const f = findFormula('formula:arrhenius');
+    // A=1e13, Ea=75000 J/mol, T=300 K, R=8.314
+    // k = 1e13 × exp(-75000 / (8.314 × 300))
+    // = 1e13 × exp(-30.07) ≈ 1e13 × 8.63e-14 ≈ 0.863
+    const trace = evaluateFormula(f, { A: 1e13, Ea: 75000, T: 300 }, CONSTS);
+    const expected = 1e13 * Math.exp(-75000 / (8.314 * 300));
+    expect(trace.result).toBeCloseTo(expected, 3);
+    expect(trace.is_approximate).toBeUndefined(); // Arrhenius is exact
+  });
+
+  it('formula:arrhenius — temperature sensitivity', () => {
+    const f = findFormula('formula:arrhenius');
+    // Higher T → higher k
+    const k300 = evaluateFormula(f, { A: 1e13, Ea: 75000, T: 300 }, CONSTS).result;
+    const k310 = evaluateFormula(f, { A: 1e13, Ea: 75000, T: 310 }, CONSTS).result;
+    expect(k310).toBeGreaterThan(k300);
   });
 });
 
@@ -435,6 +519,23 @@ describe('EvalTrace structure', () => {
     const trace = solveFor(f, 'm', { rho: 2, V: 50 }, CONSTS);
     expect(trace.steps[0].expr).toContain('m');
     expect(trace.steps[0].expr).toContain('=');
+  });
+
+  it('exact formula has no approximation fields', () => {
+    const f = findFormula('formula:density');
+    const trace = evaluateFormula(f, { m: 100, V: 50 }, CONSTS);
+    expect(trace.is_approximate).toBeUndefined();
+    expect(trace.proxy_for).toBeUndefined();
+    expect(trace.limitations).toBeUndefined();
+  });
+
+  it('approximate formula populates approximation fields', () => {
+    const f = findFormula('formula:radius_proxy');
+    const trace = evaluateFormula(f, { n: 3, Z_eff: 2.2 }, CONSTS);
+    expect(trace.is_approximate).toBe(true);
+    expect(trace.proxy_for).toBe('q:atomic_radius');
+    expect(trace.limitations).toContain('simplified_shielding_model');
+    expect(trace.limitations).toContain('less_reliable_for_d_block');
   });
 });
 

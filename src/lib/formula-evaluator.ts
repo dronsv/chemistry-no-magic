@@ -64,9 +64,15 @@ export function evaluateExpr(
     }
 
     case 'power': {
-      const [base, exp] = expr.operands;
-      return Math.pow(evaluateExpr(base, bindings, constants, indexed), exp);
+      const [base, exponent] = expr.operands;
+      return Math.pow(
+        evaluateExpr(base, bindings, constants, indexed),
+        evaluateExpr(exponent, bindings, constants, indexed),
+      );
     }
+
+    case 'exp':
+      return Math.exp(evaluateExpr(expr.operand, bindings, constants, indexed));
 
     case 'sum': {
       const items = indexed?.[expr.index_set];
@@ -98,7 +104,8 @@ function exprToString(expr: ExprNode | string | number): string {
     case 'subtract': return expr.operands.map(exprToString).join(' − ');
     case 'multiply': return expr.operands.map(exprToString).join(' × ');
     case 'divide': return `${exprToString(expr.operands[0])} / ${exprToString(expr.operands[1])}`;
-    case 'power': return `${exprToString(expr.operands[0])}^${expr.operands[1]}`;
+    case 'power': return `${exprToString(expr.operands[0])}^${exprToString(expr.operands[1])}`;
+    case 'exp': return `exp(${exprToString(expr.operand)})`;
     case 'sum': return `Σ(${exprToString(expr.term)})`;
     default: return '?';
   }
@@ -131,12 +138,20 @@ export function evaluateFormula(
     substitutions: Object.keys(relevantBindings).length > 0 ? relevantBindings : undefined,
   });
 
-  return {
+  const trace: EvalTrace = {
     formulaId: formula.id,
     solvedFor: formula.result_variable,
     steps,
     result,
   };
+
+  if (formula.approximation?.kind === 'approximate') {
+    trace.is_approximate = true;
+    trace.proxy_for = formula.approximation.proxy_for;
+    trace.limitations = formula.approximation.limitations;
+  }
+
+  return trace;
 }
 
 /**
@@ -173,10 +188,18 @@ export function solveFor(
     value: result,
   }];
 
-  return {
+  const trace: EvalTrace = {
     formulaId: formula.id,
     solvedFor: target,
     steps,
     result,
   };
+
+  if (formula.approximation?.kind === 'approximate') {
+    trace.is_approximate = true;
+    trace.proxy_for = formula.approximation.proxy_for;
+    trace.limitations = formula.approximation.limitations;
+  }
+
+  return trace;
 }

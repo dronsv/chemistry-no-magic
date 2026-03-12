@@ -41,12 +41,23 @@ export function renderFormulaExplanation(
     });
   }
 
-  // Step 3: result
+  // Step 3: result (use ≈ for approximate formulas)
+  const eq = trace.is_approximate ? '≈' : '=';
   steps.push({
     type: 'result',
     key: 'result',
-    text: `${resultVar} = ${fmt(trace.result)}`,
+    text: `${resultVar} ${eq} ${fmt(trace.result)}`,
   });
+
+  // Step 4: approximation note (if proxy formula)
+  if (trace.is_approximate && formula.approximation) {
+    steps.push({
+      type: 'approximation_note',
+      key: 'approximation',
+      text: formula.approximation.usage_note
+        ?? `Approximate: proxy for ${formula.approximation.proxy_for ?? 'unknown'}`,
+    });
+  }
 
   return { source_id: formula.id, steps };
 }

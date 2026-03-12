@@ -26,4 +26,10 @@ export interface EvalTrace {
   solvedFor: string;
   steps: EvalStep[];
   result: number;
+  /** True when the formula is an approximate proxy, not an exact physical law. */
+  is_approximate?: boolean;
+  /** What physical quantity this proxy approximates (ref to q:*). */
+  proxy_for?: string;
+  /** Known limitations of the approximate model. */
+  limitations?: string[];
 }

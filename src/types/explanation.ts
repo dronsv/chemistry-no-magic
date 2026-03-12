@@ -1,7 +1,7 @@
 /** A single step in a rendered explanation. */
 export interface ExplanationStep {
   /** Step type for styling/rendering. */
-  type: 'formula' | 'substitution' | 'result' | 'trend' | 'exception';
+  type: 'formula' | 'substitution' | 'result' | 'trend' | 'exception' | 'approximation_note';
   /** Machine-readable expression or key (e.g. "n = m / M", "trend:ie_across_period"). */
   key: string;
   /** Human-readable text for this step (locale-dependent). */

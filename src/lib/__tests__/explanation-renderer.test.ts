@@ -93,6 +93,56 @@ describe('renderFormulaExplanation', () => {
 
     expect(expl.steps[2].text).toBe('rho = 2');
   });
+
+  it('approximate formula: result uses ≈ instead of =', () => {
+    const f = findFormula('formula:radius_proxy');
+    const trace = evaluateFormula(f, { n: 3, Z_eff: 2.2 }, CONSTS);
+    const expl = renderFormulaExplanation(trace, f);
+
+    const resultStep = expl.steps.find(s => s.type === 'result');
+    expect(resultStep!.text).toContain('≈');
+    expect(resultStep!.text).not.toContain('=');
+  });
+
+  it('approximate formula: includes approximation_note step', () => {
+    const f = findFormula('formula:radius_proxy');
+    const trace = evaluateFormula(f, { n: 3, Z_eff: 2.2 }, CONSTS);
+    const expl = renderFormulaExplanation(trace, f);
+
+    const noteStep = expl.steps.find(s => s.type === 'approximation_note');
+    expect(noteStep).toBeDefined();
+    expect(noteStep!.key).toBe('approximation');
+  });
+
+  it('exact formula: no approximation_note step', () => {
+    const f = findFormula('formula:density');
+    const trace = evaluateFormula(f, { m: 100, V: 50 }, CONSTS);
+    const expl = renderFormulaExplanation(trace, f);
+
+    const noteStep = expl.steps.find(s => s.type === 'approximation_note');
+    expect(noteStep).toBeUndefined();
+  });
+
+  it('arrhenius (exact kinetics): uses = not ≈', () => {
+    const f = findFormula('formula:arrhenius');
+    const trace = evaluateFormula(f, { A: 1e13, Ea: 75000, T: 300 }, CONSTS);
+    const expl = renderFormulaExplanation(trace, f);
+
+    const resultStep = expl.steps.find(s => s.type === 'result');
+    expect(resultStep!.text).toContain('=');
+    expect(resultStep!.text).not.toContain('≈');
+  });
+
+  it('vant_hoff (approximate): uses ≈ and has note', () => {
+    const f = findFormula('formula:vant_hoff_rule');
+    const trace = evaluateFormula(f, { v_1: 1, gamma: 2, T_1: 20, T_2: 40 }, CONSTS);
+    const expl = renderFormulaExplanation(trace, f);
+
+    const resultStep = expl.steps.find(s => s.type === 'result');
+    expect(resultStep!.text).toContain('≈');
+    const noteStep = expl.steps.find(s => s.type === 'approximation_note');
+    expect(noteStep).toBeDefined();
+  });
 });
 
 // ── renderTrendExplanation ──────────────────────────────────────

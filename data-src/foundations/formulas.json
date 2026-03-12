@@ -328,5 +328,132 @@
     "constants_used": [],
     "prerequisite_formulas": ["formula:hess_law"],
     "used_by_solvers": []
+  },
+  {
+    "id": "formula:radius_proxy",
+    "kind": "law",
+    "domain": "atomic_structure",
+    "school_grade": [10, 11],
+    "variables": [
+      { "symbol": "r_proxy", "quantity": "q:atomic_radius_proxy", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" }
+    ],
+    "expression": { "op": "divide", "operands": [{ "op": "power", "operands": ["n", 2] }, "Z_eff"] },
+    "result_variable": "r_proxy",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": ["formula:effective_nuclear_charge"],
+    "used_by_solvers": [],
+    "approximation": {
+      "kind": "approximate",
+      "proxy_for": "q:atomic_radius",
+      "limitations": ["simplified_shielding_model", "less_reliable_for_d_block", "not_exact_physical_radius"],
+      "usage_note": "approx.radius_proxy"
+    }
+  },
+  {
+    "id": "formula:ie_proxy",
+    "kind": "law",
+    "domain": "atomic_structure",
+    "school_grade": [10, 11],
+    "variables": [
+      { "symbol": "IE_proxy", "quantity": "q:ionization_energy_proxy", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        { "op": "power", "operands": ["Z_eff", 2] },
+        { "op": "power", "operands": ["n", 2] }
+      ]
+    },
+    "result_variable": "IE_proxy",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": ["formula:effective_nuclear_charge"],
+    "used_by_solvers": [],
+    "approximation": {
+      "kind": "approximate",
+      "proxy_for": "q:ionization_energy",
+      "limitations": ["hydrogen_like_model", "less_reliable_for_d_block", "ignores_electron_correlation"],
+      "usage_note": "approx.ie_proxy"
+    }
+  },
+  {
+    "id": "formula:vant_hoff_rule",
+    "kind": "law",
+    "domain": "kinetics",
+    "school_grade": [9, 10, 11],
+    "variables": [
+      { "symbol": "v_2", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "result" },
+      { "symbol": "v_1", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "input" },
+      { "symbol": "gamma", "quantity": "q:temperature_coefficient", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "T_2", "quantity": "q:temperature", "unit": "unit:C", "role": "input" },
+      { "symbol": "T_1", "quantity": "q:temperature", "unit": "unit:C", "role": "input" }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        "v_1",
+        {
+          "op": "power",
+          "operands": [
+            "gamma",
+            { "op": "divide", "operands": [{ "op": "subtract", "operands": ["T_2", "T_1"] }, { "op": "literal", "value": 10 }] }
+          ]
+        }
+      ]
+    },
+    "result_variable": "v_2",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": [],
+    "used_by_solvers": [],
+    "approximation": {
+      "kind": "approximate",
+      "proxy_for": "q:reaction_rate",
+      "limitations": ["gamma_range_2_to_4", "limited_temperature_range", "not_all_reactions"],
+      "usage_note": "approx.vant_hoff"
+    }
+  },
+  {
+    "id": "formula:arrhenius",
+    "kind": "law",
+    "domain": "kinetics",
+    "school_grade": [10, 11],
+    "variables": [
+      { "symbol": "k", "quantity": "q:rate_constant", "unit": "unit:per_s", "role": "result" },
+      { "symbol": "A", "quantity": "q:pre_exponential_factor", "unit": "unit:per_s", "role": "input" },
+      { "symbol": "Ea", "quantity": "q:activation_energy", "unit": "unit:J_per_mol", "role": "input" },
+      { "symbol": "T", "quantity": "q:temperature", "unit": "unit:K", "role": "input" },
+      { "symbol": "R", "quantity": "q:gas_constant", "unit": "unit:J_per_mol_K", "role": "constant" }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        "A",
+        {
+          "op": "exp",
+          "operand": {
+            "op": "divide",
+            "operands": [
+              { "op": "multiply", "operands": [{ "op": "literal", "value": -1 }, "Ea"] },
+              { "op": "multiply", "operands": [{ "op": "const", "ref": "const:R" }, "T"] }
+            ]
+          }
+        }
+      ]
+    },
+    "result_variable": "k",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": ["const:R"],
+    "prerequisite_formulas": [],
+    "used_by_solvers": []
   }
 ]
