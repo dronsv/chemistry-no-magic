@@ -288,7 +288,7 @@
     "slots": {}
   },
   "explain.calc_heat_of_reaction": {
-    "template": "Efecto térmico de la reacción: ΔH = {delta_H} kJ.",
+    "question": "Efecto térmico de la reacción: ΔH = {delta_H} kJ.",
     "slots": {}
   },
   "prompt.acid_residue_graph": {
@@ -296,7 +296,7 @@
     "slots": {}
   },
   "explain.acid_residue_graph": {
-    "template": "El ácido {acid_formula} se disocia formando el anión {anion_formula} ({anion_name}) — ese es su residuo ácido.",
+    "question": "El ácido {acid_formula} se disocia formando el anión {anion_formula} ({anion_name}) — ese es su residuo ácido.",
     "slots": {}
   },
   "prompt.kinetics_direction": {
@@ -304,7 +304,304 @@
     "slots": {}
   },
   "explain.kinetics_direction": {
-    "template": "Al aumentar {source_name}, {target_name} {direction_label}.",
+    "question": "Al aumentar {source_name}, {target_name} {direction_label}.",
+    "slots": {}
+  },
+
+  "explain.compare_property": {
+    "question": "El elemento {winner} tiene mayor {property} ({valA}) que {loser} ({valB}).",
+    "slots": { "property": "lookup:properties.{property}.i18n.es.name" }
+  },
+  "explain.order_by_property": {
+    "question": "Elementos en orden {order} de {property}: {correct_answer}.",
+    "slots": {
+      "order": { "ascending": "creciente", "descending": "decreciente" },
+      "property": "lookup:properties.{property}.i18n.es.name"
+    }
+  },
+  "explain.find_period": {
+    "question": "El elemento {element} está en el período {correct_answer}.",
+    "slots": {}
+  },
+  "explain.find_group": {
+    "question": "El elemento {element} está en el grupo {correct_answer}.",
+    "slots": {}
+  },
+  "explain.select_electron_config": {
+    "question": "Configuración electrónica de {element} (Z = {Z}): {correct_answer}.",
+    "slots": {}
+  },
+  "explain.count_valence": {
+    "question": "{element} (grupo {group}) tiene {correct_answer} electrones de valencia.",
+    "slots": {}
+  },
+  "explain.element_from_config": {
+    "question": "La configuración {config} corresponde al elemento {correct_answer}.",
+    "slots": {}
+  },
+  "explain.fill_orbital": {
+    "question": "El diagrama orbital de {element} (Z = {Z}) se construye con la configuración {config}.",
+    "slots": {}
+  },
+
+  "explain.determine_oxidation_state": {
+    "question": "El estado de oxidación de {element} en {formula} es {correct_answer}.",
+    "slots": {}
+  },
+  "explain.max_oxidation_state": {
+    "question": "Estado de oxidación máximo de {element}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.min_oxidation_state": {
+    "question": "Estado de oxidación mínimo de {element}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.select_compound_by_state": {
+    "question": "En {correct_answer}, el elemento {element} tiene estado de oxidación {expected_state}.",
+    "slots": {}
+  },
+
+  "explain.identify_bond_type": {
+    "question": "En {formula} hay enlace {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_crystal_type": {
+    "question": "{formula} tiene estructura cristalina {correct_answer}.",
+    "slots": {}
+  },
+  "explain.compare_melting_points": {
+    "question": "{winner} (red {crystal_winner}) tiene punto de fusión más alto que {loser} (red {crystal_loser}).",
+    "slots": {}
+  },
+  "explain.select_by_bond_type": {
+    "question": "{correct_answer} tiene enlace {bond_type}.",
+    "slots": {
+      "bond_type": {
+        "ionic": "iónico",
+        "covalent_polar": "covalente polar",
+        "covalent_nonpolar": "covalente apolar",
+        "metallic": "metálico"
+      }
+    }
+  },
+  "explain.predict_crystal_property": {
+    "question": "Las sustancias con red cristalina {crystal_type} se caracterizan por: {correct_answer}.",
+    "slots": {
+      "crystal_type": {
+        "ionic": "iónica",
+        "molecular": "molecular",
+        "atomic": "atómica",
+        "metallic": "metálica"
+      }
+    }
+  },
+  "explain.bond_from_delta_chi": {
+    "question": "Δχ = |{chiA} − {chiB}| = {delta}. Tipo de enlace: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.classify_substance": {
+    "question": "{formula} es un {correct_answer}.",
+    "slots": {}
+  },
+  "explain.classify_subclass": {
+    "question": "Subclase de {formula}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.select_by_class": {
+    "question": "{correct_answer} es un {substance_class}.",
+    "slots": {
+      "substance_class": {
+        "oxide": "óxido",
+        "acid": "ácido",
+        "base": "base",
+        "salt": "sal"
+      }
+    }
+  },
+  "explain.identify_class_by_desc": {
+    "question": "La descripción corresponde a la clase: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_amphoteric": {
+    "question": "{correct_answer} es anfótero: reacciona tanto con ácidos como con bases.",
+    "slots": {}
+  },
+
+  "explain.formula_to_name": {
+    "question": "La sustancia {formula} se llama \"{correct_answer}\".",
+    "slots": {}
+  },
+  "explain.name_to_formula": {
+    "question": "La fórmula de \"{name}\": {correct_answer}.",
+    "slots": {}
+  },
+  "explain.amphoteric_reaction_partner": {
+    "question": "{formula} es anfótero. Reacciona con: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.naming_rule_template": {
+    "question": "La regla de nomenclatura para {formula}: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.compose_salt": {
+    "question": "Los iones {cation} y {anion} forman la sal {correct_answer}.",
+    "slots": {}
+  },
+  "explain.solubility_of_salt": {
+    "question": "Solubilidad de {salt_formula}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_formula_to_name": {
+    "question": "El ion {ionA_formula} es {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_name_to_formula": {
+    "question": "La fórmula del ion \"{ionA_name}\": {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_suffix_rule": {
+    "question": "El ion {ionA_formula} usa el sufijo \"{correct_answer}\".",
+    "slots": {}
+  },
+  "explain.acid_to_anion": {
+    "question": "El ácido {acid_formula} ({acid_name}) forma el anión {correct_answer}.",
+    "slots": {}
+  },
+  "explain.anion_to_acid": {
+    "question": "El anión {anion_formula} proviene del ácido {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ate_ite_pair": {
+    "question": "El ion {ionB_formula} tiene el sufijo \"{correct_answer}\".",
+    "slots": {}
+  },
+  "explain.ox_state_to_suffix": {
+    "question": "Para la condición \"{condition}\", el sufijo es \"{correct_answer}\".",
+    "slots": {}
+  },
+  "explain.classify_suffix_type": {
+    "question": "El sufijo \"{suffix}\" se aplica cuando: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.identify_reaction_type": {
+    "question": "La reacción {equation} es de tipo: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.predict_exchange_products": {
+    "question": "Productos de la reacción de intercambio: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_driving_force": {
+    "question": "Fuerza motriz de la reacción: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.will_reaction_occur": {
+    "question": "Reacción {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.activity_series_compare": {
+    "question": "{metalA} (posición {positionA}) y {metalB} (posición {positionB}) en la serie de actividad. Respuesta: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.will_metal_react": {
+    "question": "{metalA} está {correct_answer} del hidrógeno en la serie de actividad.",
+    "slots": {
+      "correct_answer": { "1": "antes", "0": "después" }
+    }
+  },
+  "explain.match_ionic_equation": {
+    "question": "Ecuación iónica neta: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_spectator_ions": {
+    "question": "Iones espectadores: {correct_answer}. No participan en la reacción.",
+    "slots": {}
+  },
+  "explain.identify_oxidizer_reducer": {
+    "question": "El agente oxidante en la reacción: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.predict_substitution": {
+    "question": "Productos de la reacción de sustitución: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.identify_reagent_for_ion": {
+    "question": "El reactivo para detectar el ion {target_name}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_ion_by_obs": {
+    "question": "La observación \"{observation}\" indica el ion {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.complete_chain_step": {
+    "question": "La sustancia faltante en la cadena: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.choose_reagent_for_step": {
+    "question": "El reactivo para transformar {substance}: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.factors_affecting_rate": {
+    "question": "Factor que afecta la velocidad: {correct_answer}. {factor_effect}.",
+    "slots": {}
+  },
+  "explain.exo_endo_classify": {
+    "question": "Reacción {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.equilibrium_shift": {
+    "question": "Al cambiar {eq_factor}, el equilibrio se desplaza: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.catalyst_properties": {
+    "question": "El catalizador de esta reacción: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_catalyst": {
+    "question": "Catalizador de la reacción: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.calc_molar_mass": {
+    "question": "Masa molar de {formula}: M = {correct_answer} g/mol.",
+    "slots": {}
+  },
+  "explain.calc_mass_fraction": {
+    "question": "Fracción masiva de {element} en {formula}: ω = {correct_answer}%.",
+    "slots": {}
+  },
+  "explain.calc_amount": {
+    "question": "n = m/M = {mass}/{M} = {correct_answer} mol.",
+    "slots": {}
+  },
+  "explain.calc_mass_from_moles": {
+    "question": "m = n·M = {amount}·{M} = {correct_answer} g.",
+    "slots": {}
+  },
+  "explain.calc_concentration": {
+    "question": "ω = m(soluto)/m(solución) = {m_solute}/{m_solution} = {correct_answer}.",
+    "slots": {}
+  },
+  "explain.calc_solute_mass": {
+    "question": "m(soluto) = ω·m(solución) = {omega}%·{m_solution} g = {correct_answer} g.",
+    "slots": {}
+  },
+  "explain.calc_dilution": {
+    "question": "Diluyendo solución {omega}% a {omega_target}%: masa de solución = {correct_answer} g.",
+    "slots": {}
+  },
+  "explain.calc_by_equation": {
+    "question": "Según la ecuación {equation}: de {given_mass} g de {given_formula} se obtienen {correct_answer} g de {find_formula}.",
+    "slots": {}
+  },
+  "explain.calc_yield": {
+    "question": "Con rendimiento {yield_percent}%, de {given_mass} g de {given_formula} se obtienen {correct_answer} g de {find_formula}.",
     "slots": {}
   }
 }

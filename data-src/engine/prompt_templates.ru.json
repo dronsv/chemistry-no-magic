@@ -288,7 +288,7 @@
     "slots": {}
   },
   "explain.calc_heat_of_reaction": {
-    "template": "Тепловой эффект реакции: ΔH = {delta_H} кДж.",
+    "question": "Тепловой эффект реакции: ΔH = {delta_H} кДж.",
     "slots": {}
   },
   "prompt.acid_residue_graph": {
@@ -296,7 +296,7 @@
     "slots": {}
   },
   "explain.acid_residue_graph": {
-    "template": "Кислота {acid_formula} диссоциирует с образованием аниона {anion_formula} ({anion_name}) — это её кислотный остаток.",
+    "question": "Кислота {acid_formula} диссоциирует с образованием аниона {anion_formula} ({anion_name}) — это её кислотный остаток.",
     "slots": {}
   },
   "prompt.kinetics_direction": {
@@ -304,7 +304,304 @@
     "slots": {}
   },
   "explain.kinetics_direction": {
-    "template": "При увеличении {source_name} {target_name} {direction_label}.",
+    "question": "При увеличении {source_name} {target_name} {direction_label}.",
+    "slots": {}
+  },
+
+  "explain.compare_property": {
+    "question": "У элемента {winner} значение {property_gen} больше ({valA}), чем у {loser} ({valB}).",
+    "slots": { "property_gen": "lookup:properties.{property}.i18n.ru.gen" }
+  },
+  "explain.order_by_property": {
+    "question": "Элементы расположены в порядке {order} {property_gen}: {correct_answer}.",
+    "slots": {
+      "order": { "ascending": "возрастания", "descending": "убывания" },
+      "property_gen": "lookup:properties.{property}.i18n.ru.gen"
+    }
+  },
+  "explain.find_period": {
+    "question": "Элемент {element} находится в {correct_answer}-м периоде.",
+    "slots": {}
+  },
+  "explain.find_group": {
+    "question": "Элемент {element} находится в {correct_answer}-й группе.",
+    "slots": {}
+  },
+  "explain.select_electron_config": {
+    "question": "Электронная конфигурация атома {element} (Z = {Z}): {correct_answer}.",
+    "slots": {}
+  },
+  "explain.count_valence": {
+    "question": "Элемент {element} ({group}-я группа) имеет {correct_answer} валентных электронов.",
+    "slots": {}
+  },
+  "explain.element_from_config": {
+    "question": "Конфигурация {config} соответствует элементу {correct_answer}.",
+    "slots": {}
+  },
+  "explain.fill_orbital": {
+    "question": "Орбитальная диаграмма атома {element} (Z = {Z}) строится по конфигурации {config}.",
+    "slots": {}
+  },
+
+  "explain.determine_oxidation_state": {
+    "question": "В соединении {formula} степень окисления элемента {element} равна {correct_answer}.",
+    "slots": {}
+  },
+  "explain.max_oxidation_state": {
+    "question": "Максимальная степень окисления элемента {element}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.min_oxidation_state": {
+    "question": "Минимальная степень окисления элемента {element}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.select_compound_by_state": {
+    "question": "В соединении {correct_answer} элемент {element} имеет степень окисления {expected_state}.",
+    "slots": {}
+  },
+
+  "explain.identify_bond_type": {
+    "question": "В веществе {formula} — {correct_answer} связь.",
+    "slots": {}
+  },
+  "explain.identify_crystal_type": {
+    "question": "Вещество {formula} имеет {correct_answer} кристаллическую решётку.",
+    "slots": {}
+  },
+  "explain.compare_melting_points": {
+    "question": "{winner} ({crystal_winner} решётка) имеет более высокую температуру плавления, чем {loser} ({crystal_loser} решётка).",
+    "slots": {}
+  },
+  "explain.select_by_bond_type": {
+    "question": "Вещество {correct_answer} имеет {bond_type} связь.",
+    "slots": {
+      "bond_type": {
+        "ionic": "ионную",
+        "covalent_polar": "ковалентную полярную",
+        "covalent_nonpolar": "ковалентную неполярную",
+        "metallic": "металлическую"
+      }
+    }
+  },
+  "explain.predict_crystal_property": {
+    "question": "Для веществ с {crystal_type} кристаллической решёткой характерны: {correct_answer}.",
+    "slots": {
+      "crystal_type": {
+        "ionic": "ионной",
+        "molecular": "молекулярной",
+        "atomic": "атомной",
+        "metallic": "металлической"
+      }
+    }
+  },
+  "explain.bond_from_delta_chi": {
+    "question": "Δχ = |{chiA} − {chiB}| = {delta}. Тип связи: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.classify_substance": {
+    "question": "{formula} — {correct_answer}.",
+    "slots": {}
+  },
+  "explain.classify_subclass": {
+    "question": "Подкласс вещества {formula}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.select_by_class": {
+    "question": "Вещество {correct_answer} является {substance_class}.",
+    "slots": {
+      "substance_class": {
+        "oxide": "оксидом",
+        "acid": "кислотой",
+        "base": "основанием",
+        "salt": "солью"
+      }
+    }
+  },
+  "explain.identify_class_by_desc": {
+    "question": "Описанию соответствует класс: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_amphoteric": {
+    "question": "{correct_answer} — амфотерное вещество: реагирует и с кислотами, и с основаниями.",
+    "slots": {}
+  },
+
+  "explain.formula_to_name": {
+    "question": "Вещество {formula} называется «{correct_answer}».",
+    "slots": {}
+  },
+  "explain.name_to_formula": {
+    "question": "Формула вещества «{name}»: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.amphoteric_reaction_partner": {
+    "question": "{formula} — амфотерное вещество. Реагирует с: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.naming_rule_template": {
+    "question": "К веществу {formula} применяется правило: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.compose_salt": {
+    "question": "Из ионов {cation} и {anion} образуется соль {correct_answer}.",
+    "slots": {}
+  },
+  "explain.solubility_of_salt": {
+    "question": "Растворимость {salt_formula}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_formula_to_name": {
+    "question": "Ион {ionA_formula} — это {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_name_to_formula": {
+    "question": "Формула иона «{ionA_name}»: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ion_suffix_rule": {
+    "question": "Ион {ionA_formula} использует суффикс «{correct_answer}».",
+    "slots": {}
+  },
+  "explain.acid_to_anion": {
+    "question": "Кислота {acid_formula} ({acid_name}) образует анион {correct_answer}.",
+    "slots": {}
+  },
+  "explain.anion_to_acid": {
+    "question": "Анион {anion_formula} образуется из кислоты {correct_answer}.",
+    "slots": {}
+  },
+  "explain.ate_ite_pair": {
+    "question": "Ион {ionB_formula} имеет суффикс «{correct_answer}».",
+    "slots": {}
+  },
+  "explain.ox_state_to_suffix": {
+    "question": "При условии «{condition}» используется суффикс «{correct_answer}».",
+    "slots": {}
+  },
+  "explain.classify_suffix_type": {
+    "question": "Суффикс «{suffix}» применяется при условии: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.identify_reaction_type": {
+    "question": "Реакция {equation} относится к типу: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.predict_exchange_products": {
+    "question": "Продукты реакции обмена: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_driving_force": {
+    "question": "Движущая сила реакции: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.will_reaction_occur": {
+    "question": "Реакция {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.activity_series_compare": {
+    "question": "{metalA} (позиция {positionA}) и {metalB} (позиция {positionB}) в ряду активности. Ответ: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.will_metal_react": {
+    "question": "{metalA} в ряду активности находится {correct_answer} водорода.",
+    "slots": {
+      "correct_answer": { "1": "левее", "0": "правее" }
+    }
+  },
+  "explain.match_ionic_equation": {
+    "question": "Сокращённое ионное уравнение: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_spectator_ions": {
+    "question": "Ионы-наблюдатели: {correct_answer}. Они не участвуют в реакции.",
+    "slots": {}
+  },
+  "explain.identify_oxidizer_reducer": {
+    "question": "Окислитель в реакции: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.predict_substitution": {
+    "question": "Продукты реакции замещения: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.identify_reagent_for_ion": {
+    "question": "Для обнаружения иона {target_name} используют реактив {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_ion_by_obs": {
+    "question": "По наблюдению «{observation}» определяется ион {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.complete_chain_step": {
+    "question": "Пропущенное вещество в цепочке: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.choose_reagent_for_step": {
+    "question": "Для превращения {substance} необходим реагент: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.factors_affecting_rate": {
+    "question": "Фактор, влияющий на скорость: {correct_answer}. {factor_effect}.",
+    "slots": {}
+  },
+  "explain.exo_endo_classify": {
+    "question": "Реакция {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.equilibrium_shift": {
+    "question": "При изменении {eq_factor} равновесие смещается: {correct_answer}.",
+    "slots": {}
+  },
+  "explain.catalyst_properties": {
+    "question": "В данной реакции катализатор — {correct_answer}.",
+    "slots": {}
+  },
+  "explain.identify_catalyst": {
+    "question": "Катализатор реакции: {correct_answer}.",
+    "slots": {}
+  },
+
+  "explain.calc_molar_mass": {
+    "question": "Молярная масса {formula}: M = {correct_answer} г/моль.",
+    "slots": {}
+  },
+  "explain.calc_mass_fraction": {
+    "question": "Массовая доля {element} в {formula}: ω = {correct_answer}%.",
+    "slots": {}
+  },
+  "explain.calc_amount": {
+    "question": "n = m/M = {mass}/{M} = {correct_answer} моль.",
+    "slots": {}
+  },
+  "explain.calc_mass_from_moles": {
+    "question": "m = n·M = {amount}·{M} = {correct_answer} г.",
+    "slots": {}
+  },
+  "explain.calc_concentration": {
+    "question": "ω = m(в-ва)/m(р-ра) = {m_solute}/{m_solution} = {correct_answer}.",
+    "slots": {}
+  },
+  "explain.calc_solute_mass": {
+    "question": "m(в-ва) = ω·m(р-ра) = {omega}%·{m_solution} г = {correct_answer} г.",
+    "slots": {}
+  },
+  "explain.calc_dilution": {
+    "question": "При разбавлении {omega}%-го раствора до {omega_target}%: масса раствора = {correct_answer} г.",
+    "slots": {}
+  },
+  "explain.calc_by_equation": {
+    "question": "По уравнению {equation}: из {given_mass} г {given_formula} получается {correct_answer} г {find_formula}.",
+    "slots": {}
+  },
+  "explain.calc_yield": {
+    "question": "При выходе {yield_percent}% из {given_mass} г {given_formula} получается {correct_answer} г {find_formula}.",
     "slots": {}
   }
 }

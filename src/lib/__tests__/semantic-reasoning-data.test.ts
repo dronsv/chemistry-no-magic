@@ -250,6 +250,38 @@ describe('periodic_trend_anomalies.json (extended)', () => {
   });
 });
 
+describe('prompt_templates (explanation coverage)', () => {
+  const ENGINE = join(import.meta.dirname, '../../../data-src/engine');
+  const templates = loadJson<Array<{ template_id: string; explanation_template_id?: string }>>(
+    join(ENGINE, 'task_templates.json'),
+  );
+  const LOCALES = ['ru', 'en', 'pl', 'es'] as const;
+
+  for (const locale of LOCALES) {
+    const prompts = loadJson<Record<string, { question?: string; slots: Record<string, unknown> }>>(
+      join(ENGINE, `prompt_templates.${locale}.json`),
+    );
+
+    it(`${locale}: every explanation_template_id has a matching entry`, () => {
+      for (const t of templates) {
+        if (t.explanation_template_id) {
+          expect(prompts).toHaveProperty(t.explanation_template_id);
+        }
+      }
+    });
+
+    it(`${locale}: all explain.* entries use "question" key (not "template")`, () => {
+      for (const [key, val] of Object.entries(prompts)) {
+        if (key.startsWith('explain.')) {
+          expect(val.question).toBeDefined();
+          expect(typeof val.question).toBe('string');
+          expect(val.question!.length).toBeGreaterThan(0);
+        }
+      }
+    });
+  }
+});
+
 describe('reason_vocab.json (extended)', () => {
   const data = loadJson<Array<Record<string, unknown>>>(join(RULES, 'reason_vocab.json'));
 
