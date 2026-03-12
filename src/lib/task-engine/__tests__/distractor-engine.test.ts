@@ -429,6 +429,74 @@ describe('generateDistractors', () => {
     });
   });
 
+  describe('expanded domain enums', () => {
+    it('heat_effect returns other heat effects', () => {
+      const distractors = generateDistractors(
+        'exo',
+        { heat_effect: 'exo', reaction_id: 'rx1' },
+        'choice_single',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors).toContain('endo');
+      expect(distractors).toContain('unknown');
+      expect(distractors).not.toContain('exo');
+    });
+
+    it('driving_force returns other driving forces', () => {
+      const distractors = generateDistractors(
+        'precipitate',
+        { driving_force: 'precipitate' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(3);
+      expect(distractors).toContain('gas');
+      expect(distractors).toContain('water');
+      expect(distractors).not.toContain('precipitate');
+    });
+
+    it('heat_effect detected by answer value even without slot', () => {
+      const distractors = generateDistractors(
+        'endo',
+        { reaction_id: 'rx3' },
+        'choice_single',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors).toContain('exo');
+      expect(distractors).toContain('unknown');
+    });
+  });
+
+  describe('will_occur yes/no distractors', () => {
+    it('returns yes/no distractors when will_occur slot is present', () => {
+      const distractors = generateDistractors(
+        'yes',
+        { will_occur: 'yes', reaction_id: 'rx1' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      expect(distractors).toContain('no');
+      expect(distractors).not.toContain('yes');
+    });
+
+    it('does not fall back to element symbols for will_occur', () => {
+      const distractors = generateDistractors(
+        'no',
+        { will_occur: 'no', reaction_id: 'rx1' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+      );
+      for (const d of distractors) {
+        expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(false);
+      }
+    });
+  });
+
   describe('activity series distractors', () => {
     it('returns "no" when answer is "yes"', () => {
       const distractors = generateDistractors(
@@ -639,6 +707,22 @@ describe('generateDistractors', () => {
       // Multiplier-based: should include values like 9 (×0.5) and 36 (×2), not just ±1/±2
       expect(nums.some(n => n > 20)).toBe(true); // e.g. 36, 21.6, 27
       expect(nums.some(n => n < 15)).toBe(true); // e.g. 9, 14.4
+    });
+
+    it('uses multipliers for stoichiometry context with given_M/find_M slots', () => {
+      const distractors = generateDistractors(
+        136.89,
+        { given_M: 58.44, find_M: 40, given_mass: 100, nu_given: 1, nu_find: 2 },
+        'numeric_input',
+        MOCK_DATA,
+        4,
+      );
+      expect(distractors.length).toBe(4);
+      expect(distractors).not.toContain('136.89');
+      const nums = distractors.map(Number);
+      // Multiplier-based: should include values outside ±2 of correct
+      expect(nums.some(n => n > 140)).toBe(true); // e.g. 273.78 (×2)
+      expect(nums.some(n => n < 100)).toBe(true); // e.g. 68.445 (×0.5)
     });
 
     it('falls back to generic numeric for numeric_input without calculation slots', () => {

@@ -62,11 +62,11 @@ export function generateDistractors(
   ) {
     candidates = generateSolubilityDistractors(correctAnswer);
   }
-  // 5. Activity series response context (yes/no with metal pair)
+  // 5. Yes/no response context (activity series with metal pair, or will_occur slot)
   else if (
     typeof correctAnswer === 'string' &&
     (correctAnswer === 'yes' || correctAnswer === 'no') &&
-    slots.metalA !== undefined && slots.metalB !== undefined
+    (slots.metalA !== undefined || slots.will_occur !== undefined)
   ) {
     candidates = generateActivityDistractors(correctAnswer);
   }
@@ -183,9 +183,12 @@ function isNumericString(answer: string | number | string[]): boolean {
   return !isNaN(Number(answer)) && answer.trim() !== '';
 }
 
-/** Check if slots contain calculation-related fields (M, mass, or composition). */
+/** Check if slots contain calculation-related fields (M, mass, composition, or stoichiometry). */
 function hasCalculationSlots(slots: SlotValues): boolean {
-  return slots.M !== undefined || slots.composition !== undefined;
+  return slots.M !== undefined
+    || slots.composition !== undefined
+    || slots.given_M !== undefined
+    || slots.find_M !== undefined;
 }
 
 /** Check if answer looks like an electron configuration string. */
@@ -228,6 +231,8 @@ const DOMAIN_ENUMS: Record<string, string[]> = {
   crystal_type: ['ionic', 'molecular', 'atomic', 'metallic'],
   substance_class: ['oxide', 'acid', 'base', 'salt'],
   reaction_type: ['exchange', 'substitution', 'decomposition', 'redox'],
+  heat_effect: ['exo', 'endo', 'unknown'],
+  driving_force: ['precipitate', 'gas', 'water', 'weak_electrolyte', 'none'],
 };
 
 function generateDomainEnumDistractors(correctAnswer: string, slots?: SlotValues): string[] | null {
