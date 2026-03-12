@@ -1,4 +1,4 @@
-import type { OntologyData, InteractionType, SlotValues } from './types';
+import type { OntologyData, InteractionType, AnswerKind, SlotValues } from './types';
 
 /**
  * Generate plausible wrong answer options (distractors) for a task.
@@ -28,6 +28,7 @@ export function generateDistractors(
   interaction: InteractionType,
   data: OntologyData,
   count: number,
+  answerKind?: AnswerKind,
 ): string[] {
   const correctStr = Array.isArray(correctAnswer)
     ? correctAnswer.join(',')
@@ -119,26 +120,31 @@ export function generateDistractors(
   ) {
     candidates = generateKineticsDirectionDistractors(slots);
   }
-  // 14. Order dragdrop (array answer): permutation-based distractors
+  // 14. Ordered sequence (answer_kind or heuristic): permutation-based distractors
   else if (
-    Array.isArray(correctAnswer) &&
-    interaction === 'order_dragdrop'
+    answerKind === 'ordered_sequence' ||
+    (Array.isArray(correctAnswer) && interaction === 'order_dragdrop')
   ) {
-    candidates = generateOrderPermutationDistractors(correctAnswer);
+    candidates = generateOrderPermutationDistractors(
+      Array.isArray(correctAnswer) ? correctAnswer : [String(correctAnswer)],
+    );
   }
-  // 15. Choice multi (array answer): individual wrong items from domain enums
+  // 15. Enum multi (answer_kind or heuristic): individual wrong items from domain enums
   else if (
-    Array.isArray(correctAnswer) &&
-    interaction === 'choice_multi'
+    answerKind === 'enum_multi' ||
+    (Array.isArray(correctAnswer) && interaction === 'choice_multi')
   ) {
-    candidates = generateChoiceMultiDistractors(correctAnswer, slots);
+    candidates = generateChoiceMultiDistractors(
+      Array.isArray(correctAnswer) ? correctAnswer : [String(correctAnswer)],
+      slots,
+    );
   }
-  // 16. Match pairs net ionic context
+  // 16. Pair mapping / net ionic context
   else if (
-    slots.net_ionic !== undefined &&
-    typeof correctAnswer === 'string'
+    answerKind === 'pair_mapping' ||
+    (slots.net_ionic !== undefined && typeof correctAnswer === 'string')
   ) {
-    candidates = generateNetIonicDistractors(correctAnswer, data);
+    candidates = generateNetIonicDistractors(String(correctAnswer), data);
   }
   // 17. Fallback
   else {

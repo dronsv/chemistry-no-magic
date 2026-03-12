@@ -250,6 +250,7 @@ function executeTemplate(
     template.meta.interaction,
     ontology,
     3,
+    template.meta.answer_kind,
   );
 
   // 6. Difficulty estimate (midpoint of target band)
@@ -262,6 +263,7 @@ function executeTemplate(
   return {
     template_id: template.template_id,
     interaction: template.meta.interaction,
+    answer_kind: template.meta.answer_kind,
     question,
     correct_answer: resolvedAnswer,
     distractors,

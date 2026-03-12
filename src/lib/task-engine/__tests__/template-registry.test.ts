@@ -7,6 +7,7 @@ const MOCK_TEMPLATES: TaskTemplate[] = [
     template_id: 'tmpl.pt.compare_property.v1',
     meta: {
       interaction: 'choice_single',
+      answer_kind: 'scalar_text',
       objects: ['element', 'property'],
       reasoning: ['ordering_by_trend'],
       evaluation: { mode: 'exact' },
@@ -27,6 +28,7 @@ const MOCK_TEMPLATES: TaskTemplate[] = [
     template_id: 'tmpl.ox.determine_state.v1',
     meta: {
       interaction: 'numeric_input',
+      answer_kind: 'scalar_number',
       objects: ['substance', 'element'],
       reasoning: ['constraint_satisfaction'],
       evaluation: { mode: 'exact' },

@@ -128,6 +128,7 @@ const COMPARE_TEMPLATE: TaskTemplate = {
   template_id: 'compare_property',
   meta: {
     interaction: 'choice_single',
+    answer_kind: 'scalar_text',
     objects: ['element'],
     reasoning: ['property_lookup'],
     evaluation: { mode: 'exact' },
@@ -157,6 +158,7 @@ const OXIDATION_TEMPLATE: TaskTemplate = {
   template_id: 'determine_state',
   meta: {
     interaction: 'numeric_input',
+    answer_kind: 'scalar_number',
     objects: ['element'],
     reasoning: ['constraint_satisfaction'],
     evaluation: { mode: 'exact' },
@@ -932,6 +934,34 @@ describe('TaskEngine — Phase 2 integration', () => {
 
   it('loads all 68 task templates from JSON', () => {
     expect(allTemplates.length).toBe(68);
+  });
+
+  it('all templates have a valid answer_kind', () => {
+    const VALID_KINDS = [
+      'scalar_text', 'scalar_number', 'enum_single', 'enum_multi',
+      'ordered_sequence', 'pair_mapping', 'interactive_state',
+    ];
+    for (const t of allTemplates) {
+      expect(VALID_KINDS).toContain(t.meta.answer_kind);
+    }
+  });
+
+  it('answer_kind is consistent with interaction type', () => {
+    for (const t of allTemplates) {
+      // Structured interaction types must have matching answer_kind
+      if (t.meta.interaction === 'order_dragdrop') {
+        expect(t.meta.answer_kind).toBe('ordered_sequence');
+      }
+      if (t.meta.interaction === 'match_pairs') {
+        expect(t.meta.answer_kind).toBe('pair_mapping');
+      }
+      if (t.meta.interaction === 'interactive_orbital') {
+        expect(t.meta.answer_kind).toBe('interactive_state');
+      }
+      if (t.meta.interaction === 'numeric_input') {
+        expect(t.meta.answer_kind).toBe('scalar_number');
+      }
+    }
   });
 
   describe('bond templates', () => {
@@ -1957,6 +1987,7 @@ describe('toExercise format routing', () => {
     const multiTask: GeneratedTask = {
       template_id: 'test.multi',
       interaction: 'choice_multi',
+      answer_kind: 'enum_multi',
       question: 'Select all acids',
       correct_answer: ['HCl', 'H₂SO₄'],
       distractors: ['NaOH', 'NaCl'],
@@ -1982,6 +2013,7 @@ describe('toExercise format routing', () => {
     const matchTask: GeneratedTask = {
       template_id: 'test.match',
       interaction: 'match_pairs',
+      answer_kind: 'pair_mapping',
       question: 'Match ions to reagents',
       correct_answer: ['Cl⁻:AgNO₃', 'SO₄²⁻:BaCl₂'],
       distractors: [],
@@ -2005,6 +2037,7 @@ describe('toExercise format routing', () => {
     const orbitalTask: GeneratedTask = {
       template_id: 'test.orbital',
       interaction: 'interactive_orbital',
+      answer_kind: 'interactive_state',
       question: 'Fill orbital for Na',
       correct_answer: '1s² 2s² 2p⁶ 3s¹',
       distractors: [],
@@ -2025,6 +2058,7 @@ describe('toExercise format routing', () => {
     const orderTask: GeneratedTask = {
       template_id: 'test.order',
       interaction: 'order_dragdrop',
+      answer_kind: 'ordered_sequence',
       question: 'Order by electronegativity',
       correct_answer: ['Na', 'Mg', 'Al', 'Si'],
       distractors: [],
@@ -2050,6 +2084,7 @@ describe('toExercise format routing', () => {
     const guidedTask: GeneratedTask = {
       template_id: 'test.guided',
       interaction: 'guided_selection',
+      answer_kind: 'scalar_text',
       question: 'Complete the chain step',
       correct_answer: 'CaO',
       distractors: ['NaCl', 'HCl'],

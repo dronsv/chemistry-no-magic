@@ -8,6 +8,17 @@ export type InteractionType =
   | 'interactive_orbital'
   | 'guided_selection';
 
+// ── Answer kinds ──────────────────────────────────────────────
+/** Logical shape of the correct answer, independent of UI interaction. */
+export type AnswerKind =
+  | 'scalar_text'         // free-form string: formula, element symbol, name
+  | 'scalar_number'       // numeric value: oxidation state, molar mass
+  | 'enum_single'         // one value from a known domain set: bond_type, yes/no
+  | 'enum_multi'          // multiple values from a domain set (unordered)
+  | 'ordered_sequence'    // ordered string array: property ordering
+  | 'pair_mapping'        // array of "left:right" encoded pairs
+  | 'interactive_state';  // opaque state interpreted by a dedicated UI widget
+
 // ── Object types ───────────────────────────────────────────────
 export type ObjectType = 'element' | 'ion' | 'substance' | 'property' | 'reaction';
 
@@ -43,6 +54,7 @@ export interface Pipeline {
 // ── Task template (loaded from JSON) ───────────────────────────
 export interface TaskTemplateMeta {
   interaction: InteractionType;
+  answer_kind: AnswerKind;
   objects: ObjectType[];
   reasoning: ReasoningType[];
   evaluation: EvaluationSpec;
@@ -129,6 +141,7 @@ export interface SolverResult {
 export interface GeneratedTask {
   template_id: string;
   interaction: InteractionType;
+  answer_kind: AnswerKind;
   question: string;
   correct_answer: string | number | string[];
   distractors: string[];

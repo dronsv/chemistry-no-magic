@@ -825,6 +825,49 @@ describe('generateDistractors', () => {
     });
   });
 
+  describe('answer_kind dispatch', () => {
+    it('ordered_sequence dispatches to permutation strategy via answerKind', () => {
+      const distractors = generateDistractors(
+        ['A', 'B', 'C'],
+        {},
+        'choice_single', // interaction does NOT match order_dragdrop
+        MOCK_DATA,
+        3,
+        'ordered_sequence', // but answerKind takes precedence
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(2);
+      expect(distractors).toContain('C,B,A');
+    });
+
+    it('enum_multi dispatches to choice_multi strategy via answerKind', () => {
+      const distractors = generateDistractors(
+        ['oxide', 'salt'],
+        {},
+        'choice_single', // interaction does NOT match choice_multi
+        MOCK_DATA,
+        2,
+        'enum_multi', // answerKind drives dispatch
+      );
+      expect(distractors).toContain('acid');
+      expect(distractors).toContain('base');
+    });
+
+    it('pair_mapping dispatches to net ionic strategy via answerKind', () => {
+      const distractors = generateDistractors(
+        'Ag⁺ + Cl⁻ → AgCl↓',
+        {}, // no net_ionic slot needed when answerKind is explicit
+        'choice_single',
+        MOCK_DATA,
+        2,
+        'pair_mapping',
+      );
+      expect(distractors.length).toBe(2);
+      for (const d of distractors) {
+        expect(MOCK_REACTIONS.some(r => r.ionic?.net === d)).toBe(true);
+      }
+    });
+  });
+
   describe('deduplication', () => {
     it('returns unique distractors', () => {
       const distractors = generateDistractors(

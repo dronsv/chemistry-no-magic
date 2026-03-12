@@ -12,7 +12,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -75,7 +76,8 @@
       "evaluation": {
         "mode": "partial_credit",
         "partial_credit": true
-      }
+      },
+      "answer_kind": "ordered_sequence"
     },
     "pipeline": {
       "generator": {
@@ -140,7 +142,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -204,7 +207,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -274,7 +278,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -333,7 +338,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -388,7 +394,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -443,7 +450,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -497,7 +505,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -552,7 +561,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -607,7 +617,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -664,7 +675,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -721,7 +733,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -776,7 +789,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -831,7 +845,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -886,7 +901,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -940,7 +956,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -998,7 +1015,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1054,7 +1072,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "interactive_state"
     },
     "pipeline": {
       "generator": {
@@ -1109,7 +1128,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1165,7 +1185,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1222,7 +1243,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1277,7 +1299,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1332,7 +1355,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1387,7 +1411,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1442,7 +1467,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1498,7 +1524,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1554,7 +1581,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1612,7 +1640,8 @@
       ],
       "evaluation": {
         "mode": "set_equivalence"
-      }
+      },
+      "answer_kind": "enum_multi"
     },
     "pipeline": {
       "generator": {
@@ -1667,7 +1696,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1722,7 +1752,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -1779,7 +1810,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1835,7 +1867,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1891,7 +1924,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -1944,7 +1978,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2000,7 +2035,8 @@
       "evaluation": {
         "mode": "partial_credit",
         "partial_credit": true
-      }
+      },
+      "answer_kind": "pair_mapping"
     },
     "pipeline": {
       "generator": {
@@ -2056,7 +2092,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2112,7 +2149,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2167,7 +2205,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2223,7 +2262,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2279,7 +2319,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2334,7 +2375,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2391,7 +2433,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -2449,7 +2492,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2506,7 +2550,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2561,7 +2606,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2619,7 +2665,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2677,7 +2724,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -2735,7 +2783,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.1
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -2789,7 +2838,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.1
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -2843,7 +2893,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.1
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -2899,7 +2950,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.5
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -2955,7 +3007,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.1
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3007,7 +3060,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.1
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3061,7 +3115,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.5
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3115,7 +3170,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.5
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3169,7 +3225,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 0.5
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3222,7 +3279,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -3281,7 +3339,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -3340,7 +3399,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -3398,7 +3458,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -3459,7 +3520,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -3519,7 +3581,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -3576,7 +3639,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -3633,7 +3697,8 @@
       ],
       "evaluation": {
         "mode": "exact"
-      }
+      },
+      "answer_kind": "enum_single"
     },
     "pipeline": {
       "generator": {
@@ -3691,7 +3756,8 @@
       "evaluation": {
         "mode": "tolerance",
         "tolerance": 5
-      }
+      },
+      "answer_kind": "scalar_number"
     },
     "pipeline": {
       "generator": {
@@ -3736,9 +3802,17 @@
     "template_id": "tmpl.ion.acid_residue_graph.v1",
     "meta": {
       "interaction": "choice_single",
-      "objects": ["ion", "substance"],
-      "reasoning": ["property_lookup"],
-      "evaluation": { "mode": "exact" }
+      "objects": [
+        "ion",
+        "substance"
+      ],
+      "reasoning": [
+        "property_lookup"
+      ],
+      "evaluation": {
+        "mode": "exact"
+      },
+      "answer_kind": "scalar_text"
     },
     "pipeline": {
       "generator": {
@@ -3748,24 +3822,37 @@
       "solvers": [
         {
           "id": "solver.slot_lookup",
-          "params": { "answer_field": "anion_formula" }
+          "params": {
+            "answer_field": "anion_formula"
+          }
         }
       ],
       "renderers": [
         {
           "id": "view.choice_single",
-          "params": { "option_count": 4 }
+          "params": {
+            "option_count": 4
+          }
         }
       ]
     },
     "prompt_template_id": "prompt.acid_residue_graph",
     "explanation_template_id": "explain.acid_residue_graph",
-    "evidence_rules": ["acid_anion_relationship"],
+    "evidence_rules": [
+      "acid_anion_relationship"
+    ],
     "difficulty_model": {
-      "features": { "oxyacid": "auto" },
-      "target_band": [0.2, 0.5]
+      "features": {
+        "oxyacid": "auto"
+      },
+      "target_band": [
+        0.2,
+        0.5
+      ]
     },
-    "exam_tags": ["oge"],
+    "exam_tags": [
+      "oge"
+    ],
     "competency_hint": {
       "naming": "P"
     }
@@ -3775,7 +3862,17 @@
     "meta": {
       "interaction": "choice_single",
       "domain": "chemical_kinetics",
-      "kind": "directional_influence"
+      "kind": "directional_influence",
+      "answer_kind": "enum_single",
+      "objects": [
+        "reaction"
+      ],
+      "reasoning": [
+        "property_lookup"
+      ],
+      "evaluation": {
+        "mode": "exact"
+      }
     },
     "pipeline": {
       "generator": {
@@ -3785,24 +3882,35 @@
       "solvers": [
         {
           "id": "solver.slot_lookup",
-          "params": { "answer_field": "direction_label" }
+          "params": {
+            "answer_field": "direction_label"
+          }
         }
       ],
       "renderers": [
         {
           "id": "view.choice_single",
-          "params": { "option_count": 3 }
+          "params": {
+            "option_count": 3
+          }
         }
       ]
     },
     "prompt_template_id": "prompt.kinetics_direction",
     "explanation_template_id": "explain.kinetics_direction",
-    "evidence_rules": ["chemical_kinetics"],
+    "evidence_rules": [
+      "chemical_kinetics"
+    ],
     "difficulty_model": {
       "features": {},
-      "target_band": [0.3, 0.6]
+      "target_band": [
+        0.3,
+        0.6
+      ]
     },
-    "exam_tags": ["oge"],
+    "exam_tags": [
+      "oge"
+    ],
     "competency_hint": {
       "reaction_energy_profile": "P"
     }

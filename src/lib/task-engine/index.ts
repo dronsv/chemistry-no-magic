@@ -6,6 +6,7 @@ export type { TaskEngine, Exercise } from './task-engine';
 export type {
   TaskTemplate,
   GeneratedTask,
+  AnswerKind,
   OntologyData,
   OntologyCore,
   OntologyRules,
