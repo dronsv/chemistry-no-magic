@@ -18,7 +18,11 @@ import type { OntologyData, InteractionType, AnswerKind, SlotValues } from './ty
  *  10. electron config (answer contains orbital notation + Z slot)
  *  11. observation (slots have observation + target_ion, qualitative test context)
  *  12. chain substance (guided_selection + chain_substances slot)
- *  13. fallback: generic "wrong" options from ontology elements
+ *  13. kinetics direction (direction_wrong_1 slot)
+ *  14. ordered_sequence: permutations of correct order
+ *  15. enum_multi: individual wrong items from domains or ontology substances
+ *  16. pair_mapping: wrong net-ionic equations from reactions pool
+ *  17. fallback: generic "wrong" options from ontology elements (scalar only)
  *
  * Returned distractors never include the correct answer and are unique.
  */
@@ -128,7 +132,7 @@ export function generateDistractors(
       Array.isArray(correctAnswer) ? correctAnswer : [String(correctAnswer)],
     );
   }
-  // 15. Enum multi (answer_kind or heuristic): individual wrong items from domain enums
+  // 15. Enum multi (answer_kind or heuristic): individual wrong items from domain enums or ontology
   else if (
     answerKind === 'enum_multi' ||
     (Array.isArray(correctAnswer) && interaction === 'choice_multi')
@@ -136,6 +140,7 @@ export function generateDistractors(
     candidates = generateChoiceMultiDistractors(
       Array.isArray(correctAnswer) ? correctAnswer : [String(correctAnswer)],
       slots,
+      data,
     );
   }
   // 16. Pair mapping / net ionic context
@@ -143,11 +148,11 @@ export function generateDistractors(
     answerKind === 'pair_mapping' ||
     (slots.net_ionic !== undefined && typeof correctAnswer === 'string')
   ) {
-    candidates = generateNetIonicDistractors(String(correctAnswer), data);
+    candidates = generateMatchPairsDistractors(correctAnswer, data);
   }
-  // 17. Fallback
+  // 17. Fallback — structured answer kinds must never get scalar fallback
   else {
-    candidates = generateFallbackDistractors(correctAnswer, data);
+    candidates = generateFallbackDistractors(correctAnswer, answerKind, data);
   }
 
   // Deduplicate and remove correct answer
@@ -571,6 +576,7 @@ function generateOrderPermutationDistractors(correctAnswer: string[]): string[] 
 function generateChoiceMultiDistractors(
   correctAnswer: string[],
   slots: SlotValues,
+  data: OntologyData,
 ): string[] {
   const correctSet = new Set(correctAnswer.map(String));
 
@@ -581,21 +587,41 @@ function generateChoiceMultiDistractors(
     }
   }
 
+  // Ontology substances: return formulas from substances not in correct set
+  if (data.data.substances) {
+    const candidates: string[] = [];
+    for (const s of data.data.substances) {
+      if (!correctSet.has(s.formula) && !correctSet.has(s.id) && !correctSet.has(s.name)) {
+        candidates.push(s.formula);
+      }
+    }
+    // Shuffle (Fisher-Yates)
+    for (let i = candidates.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+    }
+    return candidates;
+  }
+
   return [];
 }
 
-// ── Strategy: net ionic (match_pairs context) ───────────────────
+// ── Strategy: match_pairs ────────────────────────────────────────
+// Produces wrong net-ionic equations from the reactions pool.
 // TODO(P1): deeper data model fix — solver should return string[] of "left:right" pairs
 
-function generateNetIonicDistractors(
-  correctAnswer: string,
+function generateMatchPairsDistractors(
+  correctAnswer: string | string[],
   data: OntologyData,
 ): string[] {
+  const correctStr = Array.isArray(correctAnswer)
+    ? correctAnswer.join(',')
+    : String(correctAnswer);
   const candidates: string[] = [];
 
   if (data.data.reactions) {
     for (const r of data.data.reactions) {
-      if (r.ionic?.net && r.ionic.net !== correctAnswer) {
+      if (r.ionic?.net && r.ionic.net !== correctStr) {
         candidates.push(r.ionic.net);
       }
     }
@@ -610,14 +636,24 @@ function generateNetIonicDistractors(
   return candidates;
 }
 
+// ── Structured answer kinds that must never get scalar fallback ──
+
+const STRUCTURED_ANSWER_KINDS = new Set<string>([
+  'ordered_sequence', 'enum_multi', 'pair_mapping', 'interactive_state',
+]);
+
 // ── Strategy: fallback ───────────────────────────────────────────
 
 function generateFallbackDistractors(
   correctAnswer: string | number | string[],
+  answerKind: AnswerKind | undefined,
   data: OntologyData,
 ): string[] {
   // Array answers must not go through scalar fallback — fail closed
   if (Array.isArray(correctAnswer)) return [];
+
+  // Structured answer kinds must not get random element symbols
+  if (answerKind && STRUCTURED_ANSWER_KINDS.has(answerKind)) return [];
 
   const correctStr = String(correctAnswer);
 

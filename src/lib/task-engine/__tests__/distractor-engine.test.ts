@@ -770,12 +770,31 @@ describe('generateDistractors', () => {
       expect(distractors).toContain('base');
     });
 
-    it('returns empty array when no domain matches', () => {
+    it('falls back to substance formulas when no domain matches', () => {
       const distractors = generateDistractors(
         ['foo', 'bar'],
         {},
         'choice_multi',
         MOCK_DATA,
+        3,
+      );
+      expect(distractors.length).toBe(3);
+      // Should contain formulas from the substance index
+      for (const d of distractors) {
+        expect(MOCK_SUBSTANCE_INDEX.some(s => s.formula === d)).toBe(true);
+      }
+    });
+
+    it('returns empty array when no domain matches and no substances', () => {
+      const dataNoSubstances: OntologyData = {
+        ...MOCK_DATA,
+        data: { ...MOCK_DATA.data, substances: undefined },
+      };
+      const distractors = generateDistractors(
+        ['foo', 'bar'],
+        {},
+        'choice_multi',
+        dataNoSubstances,
         3,
       );
       expect(distractors).toEqual([]);
@@ -881,6 +900,90 @@ describe('generateDistractors', () => {
       for (const d of distractors) {
         expect(MOCK_REACTIONS.some(r => r.ionic?.net === d)).toBe(true);
       }
+    });
+  });
+
+  describe('P0 fallback safety for structured answer_kinds', () => {
+    it('ordered_sequence answer_kind never gets element symbol fallback', () => {
+      const distractors = generateDistractors(
+        'some_scalar_value',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        'ordered_sequence',
+      );
+      // Structured answer_kind with scalar value: no match → should return []
+      expect(distractors).toEqual([]);
+    });
+
+    it('pair_mapping answer_kind never gets element symbol fallback', () => {
+      const distractors = generateDistractors(
+        'not_a_net_ionic_eq',
+        {},
+        'choice_single',
+        { ...MOCK_DATA, data: { ...MOCK_DATA.data, reactions: [] as Reaction[] } },
+        3,
+        'pair_mapping',
+      );
+      expect(distractors).toEqual([]);
+    });
+
+    it('enum_multi answer_kind with substance formulas returns substance distractors', () => {
+      const distractors = generateDistractors(
+        ['HCl', 'NaOH'],
+        {},
+        'choice_multi',
+        MOCK_DATA,
+        3,
+        'enum_multi',
+      );
+      expect(distractors.length).toBeGreaterThan(0);
+      // Must NOT contain element symbols
+      for (const d of distractors) {
+        expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(false);
+      }
+    });
+
+    it('interactive_state answer_kind returns empty, not element symbols', () => {
+      const distractors = generateDistractors(
+        'some_state',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        'interactive_state',
+      );
+      expect(distractors).toEqual([]);
+    });
+  });
+
+  describe('match_pairs distractor improvements', () => {
+    it('returns wrong net ionic equations for pair_mapping', () => {
+      const distractors = generateDistractors(
+        'Ag⁺ + Cl⁻ → AgCl↓',
+        { net_ionic: 'Ag⁺ + Cl⁻ → AgCl↓', reaction_id: 'r1' },
+        'match_pairs',
+        MOCK_DATA,
+        2,
+      );
+      expect(distractors.length).toBe(2);
+      expect(distractors).not.toContain('Ag⁺ + Cl⁻ → AgCl↓');
+      for (const d of distractors) {
+        expect(MOCK_REACTIONS.some(r => r.ionic?.net === d)).toBe(true);
+      }
+    });
+
+    it('handles array correct_answer for pair_mapping', () => {
+      const distractors = generateDistractors(
+        ['Ag⁺ + Cl⁻ → AgCl↓'],
+        {},
+        'match_pairs',
+        MOCK_DATA,
+        2,
+        'pair_mapping',
+      );
+      expect(distractors.length).toBe(2);
     });
   });
 
