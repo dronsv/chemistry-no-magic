@@ -256,7 +256,8 @@ function executePinnedTemplate(
   const distractors = instance.locked_distractors
     ? instance.locked_distractors.filter(d => String(d) !== String(resolvedAnswer))
     : generateDistractors(
-        resolvedAnswer, slots, template.meta.interaction, ontology, 3, template.meta.answer_kind,
+        resolvedAnswer, slots, template.meta.interaction, ontology, 3,
+        template.meta.answer_kind, template.meta.distractor_strategy,
       );
 
   // 6. Difficulty
@@ -332,6 +333,7 @@ function executeTemplate(
     ontology,
     3,
     template.meta.answer_kind,
+    template.meta.distractor_strategy,
   );
 
   // 6. Difficulty estimate (midpoint of target band)

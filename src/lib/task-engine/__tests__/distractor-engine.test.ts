@@ -1071,6 +1071,257 @@ describe('generateDistractors', () => {
     });
   });
 
+  describe('distractor_strategy: other_formulas', () => {
+    it('returns substance formulas from substances source', () => {
+      const distractors = generateDistractors(
+        'CaO',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_formulas', params: { source: 'substances' } },
+      );
+      expect(distractors.length).toBe(3);
+      expect(distractors).not.toContain('CaO');
+      for (const d of distractors) {
+        expect(MOCK_SUBSTANCE_INDEX.some(s => s.formula === d)).toBe(true);
+      }
+    });
+
+    it('returns anion formulas (charge stripped) from anions source', () => {
+      const distractors = generateDistractors(
+        'SO\u2084',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_formulas', params: { source: 'anions' } },
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(1);
+      // All distractors should be stripped anion formulas, not raw formulas with charge
+      for (const d of distractors) {
+        // Should not contain superscript charge chars
+        expect(d).not.toMatch(/[\u207a\u207b]/);
+      }
+    });
+
+    it('returns qualitative reagent formulas from qualitative_reagents source', () => {
+      const distractors = generateDistractors(
+        'AgNO\u2083',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_formulas', params: { source: 'qualitative_reagents' } },
+      );
+      expect(distractors.length).toBeGreaterThanOrEqual(2);
+      expect(distractors).not.toContain('AgNO\u2083');
+      for (const d of distractors) {
+        expect(MOCK_QUALITATIVE_TESTS.some(t => t.reagent_formula === d)).toBe(true);
+      }
+    });
+
+    it('returns empty array for unknown source', () => {
+      const distractors = generateDistractors(
+        'X',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_formulas', params: { source: 'nonexistent' } },
+      );
+      expect(distractors).toEqual([]);
+    });
+  });
+
+  describe('distractor_strategy: other_names', () => {
+    it('returns substance names from substances source', () => {
+      const distractors = generateDistractors(
+        'Оксид кальция',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'substances' } },
+      );
+      expect(distractors.length).toBe(3);
+      expect(distractors).not.toContain('Оксид кальция');
+      for (const d of distractors) {
+        expect(MOCK_SUBSTANCE_INDEX.some(s => s.name === d)).toBe(true);
+      }
+    });
+
+    it('returns ion names from ions source', () => {
+      const distractors = generateDistractors(
+        'Хлорид-ион',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'ions' } },
+      );
+      expect(distractors.length).toBe(3);
+      expect(distractors).not.toContain('Хлорид-ион');
+      for (const d of distractors) {
+        expect(MOCK_IONS.some(i => i.name === d)).toBe(true);
+      }
+    });
+
+    it('returns anion names only from anions source', () => {
+      const distractors = generateDistractors(
+        'Хлорид-ион',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'anions' } },
+      );
+      // Only 3 anions in mock: Cl_minus, SO4_2minus, PO4_3minus
+      expect(distractors.length).toBe(2);
+      expect(distractors).not.toContain('Хлорид-ион');
+      // Should not include cation names
+      expect(distractors).not.toContain('Ион натрия');
+    });
+
+    it('returns qualitative target names from qualitative_targets source', () => {
+      const distractors = generateDistractors(
+        'Хлорид-ион',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'qualitative_targets' } },
+      );
+      expect(distractors.length).toBe(3);
+      expect(distractors).not.toContain('Хлорид-ион');
+      for (const d of distractors) {
+        expect(MOCK_QUALITATIVE_TESTS.some(t => t.target_name === d)).toBe(true);
+      }
+    });
+
+    it('returns acid names from acids source', () => {
+      const distractors = generateDistractors(
+        'Соляная кислота',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'acids' } },
+      );
+      // Only 1 acid in mock: HCl
+      expect(distractors).toEqual([]);
+    });
+  });
+
+  describe('distractor_strategy: same_pool', () => {
+    it('returns element symbols from element_symbols pool', () => {
+      const distractors = generateDistractors(
+        'Na',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'same_pool', params: { pool_id: 'element_symbols' } },
+      );
+      expect(distractors.length).toBe(2); // only 3 elements in mock, minus correct
+      expect(distractors).not.toContain('Na');
+      for (const d of distractors) {
+        expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(true);
+      }
+    });
+
+    it('returns empty for unknown pool_id', () => {
+      const distractors = generateDistractors(
+        'X',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'same_pool', params: { pool_id: 'nonexistent' } },
+      );
+      expect(distractors).toEqual([]);
+    });
+
+    it('returns empty when pool data is not available', () => {
+      const dataNoRules: OntologyData = {
+        ...MOCK_DATA,
+        rules: { ...MOCK_DATA.rules, energyCatalyst: undefined, ionNomenclature: undefined },
+      };
+      const distractors = generateDistractors(
+        'X',
+        {},
+        'choice_single',
+        dataNoRules,
+        3,
+        undefined,
+        { id: 'same_pool', params: { pool_id: 'rate_factors' } },
+      );
+      expect(distractors).toEqual([]);
+    });
+  });
+
+  describe('distractor_strategy dispatch order', () => {
+    it('strategy is not used when earlier branches match', () => {
+      // element compare branch fires before strategy can be used
+      const distractors = generateDistractors(
+        'Cl',
+        { elementA: 'Na', elementB: 'Cl', property: 'electronegativity' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_formulas', params: { source: 'substances' } },
+      );
+      // Should get element compare distractors, not substance formulas
+      expect(distractors).toContain('Na');
+      expect(distractors).toContain('одинаково');
+    });
+
+    it('strategy fires when no earlier branch matches', () => {
+      // No matching slots for any branch 1-16
+      const distractors = generateDistractors(
+        'some_name',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'substances' } },
+      );
+      expect(distractors.length).toBeGreaterThan(0);
+      // Should NOT be element symbol fallback
+      for (const d of distractors) {
+        expect(MOCK_SUBSTANCE_INDEX.some(s => s.name === d)).toBe(true);
+      }
+    });
+
+    it('fallback still works when no strategy is set', () => {
+      const distractors = generateDistractors(
+        'some_unknown_text',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        // no answerKind, no strategy
+      );
+      expect(distractors.length).toBe(3);
+      for (const d of distractors) {
+        expect(MOCK_ELEMENTS.some(el => el.symbol === d)).toBe(true);
+      }
+    });
+  });
+
   describe('deduplication', () => {
     it('returns unique distractors', () => {
       const distractors = generateDistractors(

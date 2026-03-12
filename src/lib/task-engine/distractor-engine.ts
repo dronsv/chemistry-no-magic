@@ -1,4 +1,4 @@
-import type { OntologyData, InteractionType, AnswerKind, SlotValues } from './types';
+import type { OntologyData, InteractionType, AnswerKind, SlotValues, DistractorStrategy } from './types';
 
 /**
  * Generate plausible wrong answer options (distractors) for a task.
@@ -22,7 +22,8 @@ import type { OntologyData, InteractionType, AnswerKind, SlotValues } from './ty
  *  14. ordered_sequence: permutations of correct order
  *  15. enum_multi: individual wrong items from domains or ontology substances
  *  16. pair_mapping: wrong net-ionic equations from reactions pool
- *  17. fallback: generic "wrong" options from ontology elements (scalar only)
+ *  17. distractor_strategy: explicit strategy from template metadata (other_formulas, other_names, same_pool)
+ *  18. fallback: generic "wrong" options from ontology elements (scalar only)
  *
  * Returned distractors never include the correct answer and are unique.
  */
@@ -33,6 +34,7 @@ export function generateDistractors(
   data: OntologyData,
   count: number,
   answerKind?: AnswerKind,
+  distractorStrategy?: DistractorStrategy,
 ): string[] {
   const correctStr = Array.isArray(correctAnswer)
     ? correctAnswer.join(',')
@@ -150,7 +152,11 @@ export function generateDistractors(
   ) {
     candidates = generateMatchPairsDistractors(correctAnswer, data);
   }
-  // 17. Fallback — structured answer kinds must never get scalar fallback
+  // 17. Explicit distractor_strategy from template metadata
+  else if (distractorStrategy) {
+    candidates = applyDistractorStrategy(correctAnswer, distractorStrategy, data);
+  }
+  // 18. Fallback — structured answer kinds must never get scalar fallback
   else {
     candidates = generateFallbackDistractors(correctAnswer, answerKind, data);
   }
@@ -596,7 +602,7 @@ function generateChoiceMultiDistractors(
   if (data.data.substances) {
     const candidates: string[] = [];
     for (const s of data.data.substances) {
-      if (!correctSet.has(s.formula) && !correctSet.has(s.id) && !correctSet.has(s.name)) {
+      if (!correctSet.has(s.formula) && !correctSet.has(s.id) && !(s.name && correctSet.has(s.name))) {
         candidates.push(s.formula);
       }
     }
@@ -639,6 +645,152 @@ function generateMatchPairsDistractors(
   }
 
   return candidates;
+}
+
+// ── Strategy dispatch ────────────────────────────────────────────
+
+function applyDistractorStrategy(
+  correctAnswer: string | number | string[],
+  strategy: DistractorStrategy,
+  data: OntologyData,
+): string[] {
+  switch (strategy.id) {
+    case 'other_formulas':
+      return resolveOtherFormulas(correctAnswer, strategy.params, data);
+    case 'other_names':
+      return resolveOtherNames(correctAnswer, strategy.params, data);
+    case 'same_pool':
+      return resolveSamePool(correctAnswer, strategy.params, data);
+    default:
+      return [];
+  }
+}
+
+// ── Strategy: other_formulas ─────────────────────────────────────
+// Picks formulas from a data source. params.source selects the pool.
+
+function resolveOtherFormulas(
+  correctAnswer: string | number | string[],
+  params: Record<string, unknown> | undefined,
+  data: OntologyData,
+): string[] {
+  const correctStr = String(correctAnswer);
+  const source = String(params?.source ?? 'substances');
+  let pool: string[];
+
+  switch (source) {
+    case 'substances':
+      pool = (data.data.substances ?? []).map(s => s.formula);
+      break;
+    case 'ions':
+      pool = data.core.ions.map(i => stripCharge(i.formula));
+      break;
+    case 'anions':
+      pool = data.core.ions.filter(i => i.type === 'anion').map(i => stripCharge(i.formula));
+      break;
+    case 'qualitative_reagents':
+      pool = (data.rules.qualitativeTests ?? []).map(t => t.reagent_formula);
+      break;
+    case 'oxidation_examples':
+      pool = (data.rules.oxidationExamples ?? []).map(e => e.formula);
+      break;
+    default:
+      pool = [];
+  }
+
+  const candidates = [...new Set(pool)].filter(f => f !== correctStr);
+  return shuffle(candidates);
+}
+
+// ── Strategy: other_names ────────────────────────────────────────
+// Picks locale-specific names from a data source. params.source selects the pool.
+
+function resolveOtherNames(
+  correctAnswer: string | number | string[],
+  params: Record<string, unknown> | undefined,
+  data: OntologyData,
+): string[] {
+  const correctStr = String(correctAnswer);
+  const source = String(params?.source ?? 'substances');
+  let pool: string[];
+
+  switch (source) {
+    case 'substances':
+      pool = (data.data.substances ?? []).map(s => s.name).filter((n): n is string => !!n);
+      break;
+    case 'ions':
+      pool = data.core.ions.map(i => i.name);
+      break;
+    case 'anions':
+      pool = data.core.ions.filter(i => i.type === 'anion').map(i => i.name);
+      break;
+    case 'qualitative_targets':
+      pool = (data.rules.qualitativeTests ?? []).map(t => t.target_name);
+      break;
+    case 'acids':
+      pool = (data.data.substances ?? []).filter(s => s.class === 'acid').map(s => s.name).filter((n): n is string => !!n);
+      break;
+    default:
+      pool = [];
+  }
+
+  const candidates = [...new Set(pool)].filter(n => n !== correctStr);
+  return shuffle(candidates);
+}
+
+// ── Strategy: same_pool ──────────────────────────────────────────
+// Resolves a named pool from the ontology. params.pool_id + optional params.field.
+
+type PoolResolver = (data: OntologyData, field?: string) => string[];
+
+const POOL_RESOLVERS: Record<string, PoolResolver> = {
+  rate_factors: (d) =>
+    d.rules.energyCatalyst?.rate_factors?.map(f => f.name) ?? [],
+  equilibrium_shifts: (d) =>
+    d.rules.energyCatalyst?.equilibrium_shifts?.map(s => s.shift) ?? [],
+  catalysts: (d, field) => {
+    const cats = d.rules.energyCatalyst?.common_catalysts;
+    if (!cats) return [];
+    // field defaults to 'name'; supports 'catalyst' for formulas
+    if (field === 'catalyst') return cats.map(c => c.catalyst);
+    return cats.map(c => c.name);
+  },
+  suffix_rules: (d, field) => {
+    const rules = d.rules.ionNomenclature?.suffix_rules;
+    if (!rules) return [];
+    if (field === 'condition') return rules.map(r => r.condition);
+    return rules.map(r => r.suffix);
+  },
+  ion_suffixes: (d) => {
+    const withNaming = d.core.ions.filter(i => i.naming);
+    return [...new Set(withNaming.map(i => i.naming!.suffix))];
+  },
+  element_symbols: (d) => d.core.elements.map(e => e.symbol),
+};
+
+function resolveSamePool(
+  correctAnswer: string | number | string[],
+  params: Record<string, unknown> | undefined,
+  data: OntologyData,
+): string[] {
+  const poolId = String(params?.pool_id ?? '');
+  const field = params?.field != null ? String(params.field) : undefined;
+  const resolver = POOL_RESOLVERS[poolId];
+  if (!resolver) return [];
+
+  const correctStr = String(correctAnswer);
+  const pool = resolver(data, field);
+  return shuffle(pool.filter(v => v !== correctStr));
+}
+
+// ── Shared shuffle helper ────────────────────────────────────────
+
+function shuffle(arr: string[]): string[] {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 // ── Structured answer kinds that must never get scalar fallback ──

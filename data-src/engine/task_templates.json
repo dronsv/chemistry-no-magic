@@ -1016,7 +1016,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "element_symbols"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -1244,7 +1250,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "oxidation_examples"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -1468,7 +1480,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": {
+          "source": "substances"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2150,7 +2168,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "qualitative_reagents"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2206,7 +2230,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": {
+          "source": "qualitative_targets"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2320,7 +2350,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "substances"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2376,7 +2412,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "substances"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2493,7 +2535,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "rate_factors"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2607,7 +2655,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "equilibrium_shifts"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2666,7 +2720,14 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "catalysts",
+          "field": "name"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -2725,7 +2786,14 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "catalysts",
+          "field": "catalyst"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3280,7 +3348,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": {
+          "source": "ions"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3340,7 +3414,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "ions"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3400,7 +3480,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "ion_suffixes"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3459,7 +3545,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": {
+          "source": "anions"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3521,7 +3613,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": {
+          "source": "acids"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3582,7 +3680,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "ion_suffixes"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3640,7 +3744,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "suffix_rules"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3698,7 +3808,14 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "enum_single"
+      "answer_kind": "enum_single",
+      "distractor_strategy": {
+        "id": "same_pool",
+        "params": {
+          "pool_id": "suffix_rules",
+          "field": "condition"
+        }
+      }
     },
     "pipeline": {
       "generator": {
@@ -3812,7 +3929,13 @@
       "evaluation": {
         "mode": "exact"
       },
-      "answer_kind": "scalar_text"
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": {
+          "source": "anions"
+        }
+      }
     },
     "pipeline": {
       "generator": {

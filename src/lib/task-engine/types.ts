@@ -51,6 +51,13 @@ export interface Pipeline {
   renderers: PipelineStep[];
 }
 
+// ── Distractor strategy ─────────────────────────────────────────
+/** Explicit distractor generation strategy declared on a template. */
+export interface DistractorStrategy {
+  id: 'other_formulas' | 'other_names' | 'same_pool';
+  params?: Record<string, unknown>;
+}
+
 // ── Task template (loaded from JSON) ───────────────────────────
 export interface TaskTemplateMeta {
   interaction: InteractionType;
@@ -58,6 +65,7 @@ export interface TaskTemplateMeta {
   objects: ObjectType[];
   reasoning: ReasoningType[];
   evaluation: EvaluationSpec;
+  distractor_strategy?: DistractorStrategy;
 }
 
 export interface DifficultyModel {

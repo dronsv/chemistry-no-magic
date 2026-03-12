@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 const FOUNDATIONS = join(import.meta.dirname, '../../../data-src/foundations');
+const ENGINE = join(import.meta.dirname, '../../../data-src/engine');
 const RULES = join(import.meta.dirname, '../../../data-src/rules');
 
 function loadJson<T>(filename: string): T {
@@ -305,6 +306,74 @@ describe('reason_vocab.json (extended)', () => {
     for (const r of data) {
       if (r.mechanism_ref !== null) {
         expect(mechIds.has(r.mechanism_ref as string)).toBe(true);
+      }
+    }
+  });
+});
+
+// ── task_templates.json: distractor_strategy validation ──────────
+
+describe('task_templates.json distractor_strategy', () => {
+  const templates = loadJson<Array<{
+    template_id: string;
+    meta: {
+      distractor_strategy?: {
+        id: string;
+        params?: Record<string, unknown>;
+      };
+    };
+  }>>(join(ENGINE, 'task_templates.json'));
+
+  const VALID_STRATEGY_IDS = new Set(['other_formulas', 'other_names', 'same_pool']);
+
+  const VALID_FORMULA_SOURCES = new Set([
+    'substances', 'ions', 'anions', 'qualitative_reagents', 'oxidation_examples',
+  ]);
+
+  const VALID_NAME_SOURCES = new Set([
+    'substances', 'ions', 'anions', 'qualitative_targets', 'acids',
+  ]);
+
+  const VALID_POOL_IDS = new Set([
+    'rate_factors', 'equilibrium_shifts', 'catalysts', 'suffix_rules',
+    'ion_suffixes', 'element_symbols',
+  ]);
+
+  const withStrategy = templates.filter(t => t.meta.distractor_strategy);
+
+  it('has at least 15 templates with distractor_strategy', () => {
+    expect(withStrategy.length).toBeGreaterThanOrEqual(15);
+  });
+
+  it('all strategy IDs are valid', () => {
+    for (const t of withStrategy) {
+      expect(VALID_STRATEGY_IDS).toContain(t.meta.distractor_strategy!.id);
+    }
+  });
+
+  it('other_formulas strategies have valid source', () => {
+    for (const t of withStrategy) {
+      const ds = t.meta.distractor_strategy!;
+      if (ds.id === 'other_formulas') {
+        expect(VALID_FORMULA_SOURCES).toContain(ds.params?.source);
+      }
+    }
+  });
+
+  it('other_names strategies have valid source', () => {
+    for (const t of withStrategy) {
+      const ds = t.meta.distractor_strategy!;
+      if (ds.id === 'other_names') {
+        expect(VALID_NAME_SOURCES).toContain(ds.params?.source);
+      }
+    }
+  });
+
+  it('same_pool strategies have valid pool_id', () => {
+    for (const t of withStrategy) {
+      const ds = t.meta.distractor_strategy!;
+      if (ds.id === 'same_pool') {
+        expect(VALID_POOL_IDS).toContain(ds.params?.pool_id);
       }
     }
   });
