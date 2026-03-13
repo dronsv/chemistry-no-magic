@@ -111,10 +111,12 @@ export async function getStaticPaths() {
   for (const file of files) {
     if (!file.endsWith('.json')) continue;
     const id = file.replace('.json', '');
-    if (!isRouteAllowed(substancePolicy, id)) continue;
-    const substance: SubstanceData = await cachedReadJson(join(substancesDir, file));
+    const substance = await cachedReadJson<SubstanceData>(join(substancesDir, file));
+    // Skip non-substance files (e.g. substance_properties.json which is an array)
+    if (!substance || Array.isArray(substance) || !substance.id) continue;
     allSubstances.push(substance);
-    paths.push({ params: { id }, props: { substance, classificationRules, namingRules } });
+    const isFull = isRouteAllowed(substancePolicy, id);
+    paths.push({ params: { id }, props: { substance, classificationRules, namingRules }, isFull });
   }
 
   // Convert ionMap to plain object for serialization
@@ -141,13 +143,14 @@ export async function getStaticPaths() {
   }
 
   // Add allSubstances, ions and reactions to each path
+  // Full (allowlisted) substances get cross-references; stubs get empty arrays
   return paths.map(p => ({
-    ...p,
+    params: p.params,
     props: {
       ...p.props,
-      allSubstances,
+      allSubstances: p.isFull ? allSubstances : [],
       ions: ionRecord,
-      substanceReactions: findReactions(p.props.substance.formula),
+      substanceReactions: p.isFull ? findReactions(p.props.substance.formula) : [],
     },
   }));
 }

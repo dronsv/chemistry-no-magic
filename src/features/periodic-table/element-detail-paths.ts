@@ -97,7 +97,9 @@ export interface Props {
 export async function getStaticPaths() {
   const allElements: ElementData[] = await cachedReadDataSrc('elements.json');
   const policy = await loadRoutePolicy();
-  const elements = allElements.filter(el => isRouteAllowed(policy.elements, el.symbol));
+  const fullSet = new Set(
+    allElements.filter(el => isRouteAllowed(policy.elements, el.symbol)).map(el => el.symbol),
+  );
 
   // Load element groups for display names
   const groupsDict: Record<string, ElementGroupInfo> = await cachedReadDataSrc('element-groups.json');
@@ -132,40 +134,45 @@ export async function getStaticPaths() {
     }
   } catch { /* optional */ }
 
-  return elements.map(el => {
-    // Find reactions involving this element's symbol in reactant/product formulas
-    const elementReactions = reactions.filter(r => {
-      const allFormulas = [
-        ...r.molecular.reactants.map(x => x.formula),
-        ...r.molecular.products.map(x => x.formula),
-      ];
-      const re = new RegExp(`(^|[a-z\\d₂₃₄₅₆₇₈₉)])${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
-      const reStart = new RegExp(`^${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
-      return allFormulas.some(f => reStart.test(f) || re.test(f));
-    });
+  return allElements.map(el => {
+    const isFull = fullSet.has(el.symbol);
 
-    // Find related substances (those containing this element)
-    const relatedSubstances = substances.filter(s => {
-      const re = new RegExp(`(^|[a-z\\d₂₃₄₅₆₇₈₉)])${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
-      const reStart = new RegExp(`^${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
-      return reStart.test(s.formula) || re.test(s.formula);
-    });
+    // Cross-references only for allowlisted (full) elements; stubs get empty arrays
+    let elementReactions: ReactionData[] = [];
+    let relatedSubstances: SubstanceEntry[] = [];
+    let elementIons: IonData[] = [];
+    let elQualTests: QualitativeTestData[] = [];
+
+    if (isFull) {
+      elementReactions = reactions.filter(r => {
+        const allFormulas = [
+          ...r.molecular.reactants.map(x => x.formula),
+          ...r.molecular.products.map(x => x.formula),
+        ];
+        const re = new RegExp(`(^|[a-z\\d₂₃₄₅₆₇₈₉)])${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
+        const reStart = new RegExp(`^${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
+        return allFormulas.some(f => reStart.test(f) || re.test(f));
+      });
+
+      relatedSubstances = substances.filter(s => {
+        const re = new RegExp(`(^|[a-z\\d₂₃₄₅₆₇₈₉)])${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
+        const reStart = new RegExp(`^${el.symbol}([A-Z₂₃₄₅₆₇₈₉\\d(]|$)`);
+        return reStart.test(s.formula) || re.test(s.formula);
+      });
+
+      elementIons = allIons.filter(ion => {
+        const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
+        return re.test(ion.formula);
+      });
+
+      elQualTests = qualitativeTests.filter(qt => {
+        const targetFormula = qt.target_id;
+        const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
+        return re.test(targetFormula);
+      });
+    }
 
     const groupLabel = groupsDict[el.element_group]?.name_singular ?? el.element_group;
-
-    // Find ions that contain this element's symbol
-    const elementIons = allIons.filter(ion => {
-      const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
-      return re.test(ion.formula);
-    });
-
-    // Find qualitative tests whose target ion formula contains this element's symbol
-    const elQualTests = qualitativeTests.filter(qt => {
-      // Extract formula from target_name (last word) or target_id
-      const targetFormula = qt.target_id;
-      const re = new RegExp(`(^|[^A-Za-z])${el.symbol}([^a-z]|$)`);
-      return re.test(targetFormula);
-    });
 
     return {
       params: { symbol: el.symbol },
