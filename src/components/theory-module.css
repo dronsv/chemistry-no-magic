@@ -218,86 +218,72 @@
   margin: var(--space-sm) 0;
 }
 
-.molar-mass-calc__label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-xs);
+.molar-mass-calc__selector {
+  margin-bottom: var(--space-sm);
 }
 
-.molar-mass-calc__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-
-.molar-mass-calc__chip {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 0.8125rem;
+.molar-mass-calc__select {
   font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
   border-radius: 0.375rem;
   background: var(--color-bg);
   color: var(--color-text);
-  cursor: pointer;
-  transition: background 0.1s, border-color 0.1s;
+  max-width: 100%;
 }
 
-.molar-mass-calc__chip:hover {
-  background: var(--color-bg-alt);
-  border-color: var(--color-primary);
-}
-
-.molar-mass-calc__chip--active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-
-.molar-mass-calc__result {
-  margin-top: var(--space-sm);
-}
-
-.molar-mass-calc__composition {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-  margin-bottom: var(--space-sm);
-}
-
-.molar-mass-calc__composition th {
-  background: var(--color-bg-alt);
-  font-weight: 600;
-  text-align: left;
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--color-border);
-  white-space: nowrap;
-}
-
-.molar-mass-calc__composition td {
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--color-border);
-  text-align: center;
-}
-
-.molar-mass-calc__composition td:first-child {
-  text-align: left;
-  font-weight: 600;
-}
-
-.molar-mass-calc__steps {
+.molar-mass-calc__formula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em;
   background: var(--color-bg-alt);
   border-left: 3px solid var(--color-primary);
   padding: var(--space-xs) var(--space-sm);
   border-radius: 0.25rem;
-  font-family: monospace;
   font-size: 0.9375rem;
-  line-height: 1.8;
+  line-height: 2;
 }
 
-.molar-mass-calc__step--result {
+.molar-mass-calc__lhs {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.molar-mass-calc__eq {
+  margin: 0 0.25em;
+  font-weight: 600;
+}
+
+.molar-mass-calc__term {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.molar-mass-calc__ar {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.molar-mass-calc__val {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+}
+
+.molar-mass-calc__mul {
+  margin-left: 0.15em;
+}
+
+.molar-mass-calc__plus {
+  margin: 0 0.15em;
+}
+
+.molar-mass-calc__result {
   font-weight: 700;
   color: var(--color-primary);
 }
