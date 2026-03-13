@@ -20,6 +20,7 @@ export type SemanticRole =
 
 export interface Variable {
   symbol: string;
+  display_symbol?: string; // canonical scientific notation (e.g. "ω", "Aᵣ", "η")
   quantity: string;        // ref to q:* in quantities_units_ontology
   unit: string;            // ref to unit:*
   role: 'result' | 'input' | 'constant' | 'index';
@@ -57,6 +58,7 @@ export interface ComputableFormula {
 export interface PhysicalConstant {
   id: string;              // namespace const:
   symbol: string;
+  display_symbol?: string; // canonical scientific notation (e.g. "Nₐ", "Vₘ")
   value: number;
   unit: string;            // ref to unit:*
   quantity?: string;       // optional ref to q:*

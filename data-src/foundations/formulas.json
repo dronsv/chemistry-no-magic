@@ -6,8 +6,8 @@
     "school_grade": [8],
     "variables": [
       { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "result" },
-      { "symbol": "Ar_i", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "count_i", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "index" }
+      { "symbol": "Ar_i", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "count_i", "display_symbol": "n", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "index" }
     ],
     "expression": {
       "op": "sum",
@@ -51,7 +51,7 @@
     "variables": [
       { "symbol": "N", "quantity": "q:particle_count", "unit": "unit:dimensionless", "role": "result" },
       { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "input" },
-      { "symbol": "N_A", "quantity": "q:amount", "unit": "unit:per_mol", "role": "constant" }
+      { "symbol": "N_A", "display_symbol": "Nₐ", "quantity": "q:amount", "unit": "unit:per_mol", "role": "constant" }
     ],
     "expression": { "op": "multiply", "operands": ["n", { "op": "const", "ref": "const:N_A" }] },
     "result_variable": "N",
@@ -71,7 +71,7 @@
     "variables": [
       { "symbol": "V", "quantity": "q:volume", "unit": "unit:L", "role": "result" },
       { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "input" },
-      { "symbol": "V_m", "quantity": "q:molar_volume", "unit": "unit:L_per_mol", "role": "constant" }
+      { "symbol": "V_m", "display_symbol": "Vₘ", "quantity": "q:molar_volume", "unit": "unit:L_per_mol", "role": "constant" }
     ],
     "expression": { "op": "multiply", "operands": ["n", { "op": "const", "ref": "const:V_m_stp" }] },
     "result_variable": "V",
@@ -89,9 +89,9 @@
     "domain": "stoichiometry",
     "school_grade": [8, 9],
     "variables": [
-      { "symbol": "omega", "quantity": "q:mass_fraction", "unit": "unit:percent", "role": "result" },
-      { "symbol": "Ar", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "n_atom", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "omega", "display_symbol": "ω", "quantity": "q:mass_fraction", "unit": "unit:percent", "role": "result" },
+      { "symbol": "Ar", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "n_atom", "display_symbol": "n", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "input" },
       { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "input" }
     ],
     "expression": {
@@ -118,7 +118,7 @@
     "domain": "stoichiometry",
     "school_grade": [8],
     "variables": [
-      { "symbol": "rho", "quantity": "q:density", "unit": "unit:g_per_mL", "role": "result" },
+      { "symbol": "rho", "display_symbol": "ρ", "quantity": "q:density", "unit": "unit:g_per_mL", "role": "result" },
       { "symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input" },
       { "symbol": "V", "quantity": "q:volume", "unit": "unit:mL", "role": "input" }
     ],
@@ -139,9 +139,9 @@
     "domain": "stoichiometry",
     "school_grade": [9],
     "variables": [
-      { "symbol": "eta", "quantity": "q:yield", "unit": "unit:percent", "role": "result" },
-      { "symbol": "m_actual", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "actual" },
-      { "symbol": "m_theoretical", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "theoretical" }
+      { "symbol": "eta", "display_symbol": "η", "quantity": "q:yield", "unit": "unit:percent", "role": "result" },
+      { "symbol": "m_actual", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "actual" },
+      { "symbol": "m_theoretical", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "theoretical" }
     ],
     "expression": {
       "op": "multiply",
@@ -166,10 +166,10 @@
     "domain": "stoichiometry",
     "school_grade": [8, 9],
     "variables": [
-      { "symbol": "n_1", "quantity": "q:amount", "unit": "unit:mol", "role": "input", "semantic_role": "reactant" },
-      { "symbol": "nu_1", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "reactant" },
-      { "symbol": "n_2", "quantity": "q:amount", "unit": "unit:mol", "role": "result", "semantic_role": "product" },
-      { "symbol": "nu_2", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "product" }
+      { "symbol": "n_1", "display_symbol": "n₁", "quantity": "q:amount", "unit": "unit:mol", "role": "input", "semantic_role": "reactant" },
+      { "symbol": "nu_1", "display_symbol": "ν₁", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "reactant" },
+      { "symbol": "n_2", "display_symbol": "n₂", "quantity": "q:amount", "unit": "unit:mol", "role": "result", "semantic_role": "product" },
+      { "symbol": "nu_2", "display_symbol": "ν₂", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "product" }
     ],
     "expression": {
       "op": "multiply",
@@ -193,9 +193,9 @@
     "domain": "solutions",
     "school_grade": [8, 9],
     "variables": [
-      { "symbol": "w", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "m_solute", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solute" },
-      { "symbol": "m_solution", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solution" }
+      { "symbol": "w", "display_symbol": "ω", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "m_solute", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solute" },
+      { "symbol": "m_solution", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solution" }
     ],
     "expression": { "op": "divide", "operands": ["m_solute", "m_solution"] },
     "result_variable": "w",
@@ -235,11 +235,11 @@
     "domain": "thermochemistry",
     "school_grade": [10, 11],
     "variables": [
-      { "symbol": "delta_H", "quantity": "q:enthalpy_change", "unit": "unit:kJ_per_mol", "role": "result" },
-      { "symbol": "nu_j", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "product" },
-      { "symbol": "deltaHf_j", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "product" },
-      { "symbol": "nu_i", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "reactant" },
-      { "symbol": "deltaHf_i", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "reactant" }
+      { "symbol": "delta_H", "display_symbol": "ΔH", "quantity": "q:enthalpy_change", "unit": "unit:kJ_per_mol", "role": "result" },
+      { "symbol": "nu_j", "display_symbol": "ν", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "product" },
+      { "symbol": "deltaHf_j", "display_symbol": "ΔH°f", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "product" },
+      { "symbol": "nu_i", "display_symbol": "ν", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "reactant" },
+      { "symbol": "deltaHf_i", "display_symbol": "ΔH°f", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "reactant" }
     ],
     "expression": {
       "op": "subtract",
@@ -261,9 +261,9 @@
     "domain": "atomic_structure",
     "school_grade": [10, 11],
     "variables": [
-      { "symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "result" },
       { "symbol": "Z", "quantity": "q:atomic_number", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "sigma", "quantity": "q:shielding_constant", "unit": "unit:dimensionless", "role": "input" }
+      { "symbol": "sigma", "display_symbol": "σ", "quantity": "q:shielding_constant", "unit": "unit:dimensionless", "role": "input" }
     ],
     "expression": { "op": "subtract", "operands": ["Z", "sigma"] },
     "result_variable": "Z_eff",
@@ -284,7 +284,7 @@
     "variables": [
       { "symbol": "E", "quantity": "q:energy", "unit": "unit:J", "role": "result" },
       { "symbol": "h", "quantity": "q:planck_constant", "unit": "unit:J_s", "role": "constant" },
-      { "symbol": "nu", "quantity": "q:frequency", "unit": "unit:Hz", "role": "input" }
+      { "symbol": "nu", "display_symbol": "ν", "quantity": "q:frequency", "unit": "unit:Hz", "role": "input" }
     ],
     "expression": { "op": "multiply", "operands": [{ "op": "const", "ref": "const:h_planck" }, "nu"] },
     "result_variable": "E",
@@ -302,10 +302,10 @@
     "domain": "thermochemistry",
     "school_grade": [10, 11],
     "variables": [
-      { "symbol": "delta_T", "quantity": "q:temperature_change", "unit": "unit:K", "role": "result" },
-      { "symbol": "Q_total", "quantity": "q:heat", "unit": "unit:J", "role": "input" },
-      { "symbol": "m_i", "quantity": "q:mass", "unit": "unit:g", "role": "index" },
-      { "symbol": "c_i", "quantity": "q:specific_heat_capacity", "unit": "unit:J_per_gK", "role": "index" }
+      { "symbol": "delta_T", "display_symbol": "ΔT", "quantity": "q:temperature_change", "unit": "unit:K", "role": "result" },
+      { "symbol": "Q_total", "display_symbol": "Q", "quantity": "q:heat", "unit": "unit:J", "role": "input" },
+      { "symbol": "m_i", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "index" },
+      { "symbol": "c_i", "display_symbol": "c", "quantity": "q:specific_heat_capacity", "unit": "unit:J_per_gK", "role": "index" }
     ],
     "expression": {
       "op": "divide",
@@ -335,9 +335,9 @@
     "domain": "atomic_structure",
     "school_grade": [10, 11],
     "variables": [
-      { "symbol": "r_proxy", "quantity": "q:atomic_radius_proxy", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "r_proxy", "display_symbol": "r", "quantity": "q:atomic_radius_proxy", "unit": "unit:dimensionless", "role": "result" },
       { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" }
+      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" }
     ],
     "expression": { "op": "divide", "operands": [{ "op": "power", "operands": ["n", 2] }, "Z_eff"] },
     "result_variable": "r_proxy",
@@ -359,8 +359,8 @@
     "domain": "atomic_structure",
     "school_grade": [10, 11],
     "variables": [
-      { "symbol": "IE_proxy", "quantity": "q:ionization_energy_proxy", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "IE_proxy", "display_symbol": "IE", "quantity": "q:ionization_energy_proxy", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" },
       { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" }
     ],
     "expression": {
@@ -389,11 +389,11 @@
     "domain": "kinetics",
     "school_grade": [9, 10, 11],
     "variables": [
-      { "symbol": "v_2", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "result", "semantic_role": "final" },
-      { "symbol": "v_1", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "input", "semantic_role": "initial" },
-      { "symbol": "gamma", "quantity": "q:temperature_coefficient", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "T_2", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "final" },
-      { "symbol": "T_1", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "initial" }
+      { "symbol": "v_2", "display_symbol": "v₂", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "result", "semantic_role": "final" },
+      { "symbol": "v_1", "display_symbol": "v₁", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "input", "semantic_role": "initial" },
+      { "symbol": "gamma", "display_symbol": "γ", "quantity": "q:temperature_coefficient", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "T_2", "display_symbol": "T₂", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "final" },
+      { "symbol": "T_1", "display_symbol": "T₁", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "initial" }
     ],
     "expression": {
       "op": "multiply",
@@ -429,7 +429,7 @@
     "variables": [
       { "symbol": "k", "quantity": "q:rate_constant", "unit": "unit:per_s", "role": "result" },
       { "symbol": "A", "quantity": "q:pre_exponential_factor", "unit": "unit:per_s", "role": "input" },
-      { "symbol": "Ea", "quantity": "q:activation_energy", "unit": "unit:J_per_mol", "role": "input" },
+      { "symbol": "Ea", "display_symbol": "Eₐ", "quantity": "q:activation_energy", "unit": "unit:J_per_mol", "role": "input" },
       { "symbol": "T", "quantity": "q:temperature", "unit": "unit:K", "role": "input" },
       { "symbol": "R", "quantity": "q:gas_constant", "unit": "unit:J_per_mol_K", "role": "constant" }
     ],

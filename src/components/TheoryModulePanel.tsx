@@ -4,9 +4,9 @@ import type { ReactNode } from 'react';
 import type { TheoryModule, TheorySection, TheoryBlock } from '../types/theory-module';
 import type { OxRule, OxRulesData } from '../types/oxidation-rules';
 import type { SupportedLocale } from '../types/i18n';
-import { loadTheoryModule, loadTheoryModuleOverlay, loadOxidationRules, loadFormulas } from '../lib/data-loader';
-import type { ComputableFormula } from '../types/formula';
-import { exprToString } from '../lib/formula-evaluator';
+import { loadTheoryModule, loadTheoryModuleOverlay, loadOxidationRules, loadFormulas, loadConstants } from '../lib/data-loader';
+import type { ComputableFormula, PhysicalConstant } from '../types/formula';
+import { formulaToDisplayString } from '../lib/formula-evaluator';
 import CollapsibleSection, { useTheoryPanelState } from './CollapsibleSection';
 import FormulaChip from './FormulaChip';
 import ChemText from './ChemText';
@@ -71,19 +71,10 @@ function kindLabel(kind: OxRule['kind']): string {
 /** Map of formula.id → ComputableFormula for equation resolution. */
 type FormulaMap = Record<string, ComputableFormula>;
 
-function formulaDisplay(
-  formulaId: string,
-  inversionFor: string | undefined,
-  formulaMap: FormulaMap,
-): string | null {
-  const f = formulaMap[formulaId];
-  if (!f) return null;
-  if (inversionFor) {
-    const invExpr = f.inversions[inversionFor];
-    if (!invExpr) return null;
-    return `${inversionFor} = ${exprToString(invExpr)}`;
-  }
-  return `${f.result_variable} = ${exprToString(f.expression)}`;
+/** Resolved formula data for display. */
+interface FormulaData {
+  formulas: FormulaMap;
+  constants: PhysicalConstant[];
 }
 
 // ---------------------------------------------------------------------------
@@ -94,7 +85,7 @@ function renderBlock(
   block: TheoryBlock,
   locale: SupportedLocale,
   rulesById: Record<string, OxRule> | null,
-  formulaMap: FormulaMap,
+  formulaData: FormulaData,
 ): ReactNode {
   switch (block.t) {
     case 'heading':
@@ -115,8 +106,9 @@ function renderBlock(
       );
 
     case 'equation': {
-      const eqText = block.formula_id
-        ? formulaDisplay(block.formula_id, block.inversion_for, formulaMap)
+      const f = block.formula_id ? formulaData.formulas[block.formula_id] : undefined;
+      const eqText = f
+        ? formulaToDisplayString(f, block.inversion_for, formulaData.constants)
         : block.text;
       const note = block.note;
       return (
@@ -257,7 +249,7 @@ function renderSection(
   forceSectionId: string | undefined,
   locale: SupportedLocale,
   rulesById: Record<string, OxRule> | null,
-  formulaMap: FormulaMap,
+  formulaData: FormulaData,
 ): ReactNode {
   const title = section.title ?? section.id;
   const forceOpen = forceSectionId === section.id;
@@ -271,7 +263,7 @@ function renderSection(
       forceOpen={forceOpen}
     >
       {section.blocks.map((block, i) => (
-        <div key={i}>{renderBlock(block, locale, rulesById, formulaMap)}</div>
+        <div key={i}>{renderBlock(block, locale, rulesById, formulaData)}</div>
       ))}
     </CollapsibleSection>
   );
@@ -380,7 +372,7 @@ export default function TheoryModulePanel({
 }: TheoryModulePanelProps) {
   const [module, setModule] = useState<TheoryModule | null>(null);
   const [rulesById, setRulesById] = useState<Record<string, OxRule> | null>(null);
-  const [formulaMap, setFormulaMap] = useState<FormulaMap>({});
+  const [formulaData, setFormulaData] = useState<FormulaData>({ formulas: {}, constants: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [open, toggleOpen] = useTheoryPanelState(pageKey);
@@ -399,15 +391,15 @@ export default function TheoryModulePanel({
       .then(async ([mod, overlay, oxRules]) => {
         const finalMod = applyTheoryModuleOverlay(mod, overlay);
 
-        // Load formulas if any equation block references a formula_id
+        // Load formulas + constants if any equation block references a formula_id
         const needsFormulas = finalMod.sections.some(s =>
           s.blocks.some(b => b.t === 'equation' && 'formula_id' in b && b.formula_id),
         );
         if (needsFormulas) {
-          const formulas = await loadFormulas();
+          const [formulas, constants] = await Promise.all([loadFormulas(), loadConstants()]);
           const map: FormulaMap = {};
           for (const f of formulas) map[f.id] = f;
-          setFormulaMap(map);
+          setFormulaData({ formulas: map, constants });
         }
 
         setModule(finalMod);
@@ -441,7 +433,7 @@ export default function TheoryModulePanel({
           {error && <div className="theory-panel__error">{error}</div>}
 
           {module && module.sections.map(section =>
-            renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaMap),
+            renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaData),
           )}
         </div>
       )}

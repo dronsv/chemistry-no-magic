@@ -111,6 +111,120 @@ export function exprToString(expr: ExprNode | string | number): string {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Display symbol mapping — Layer B (canonical notation)
+// ---------------------------------------------------------------------------
+
+/** Symbol → display_symbol map for semantic formula rendering. */
+export type DisplaySymbolMap = Record<string, string>;
+
+/** Standard international abbreviations for semantic roles (Layer B, locale-free). */
+const ROLE_QUALIFIER: Record<string, string> = {
+  actual: 'act.',
+  theoretical: 'theor.',
+  solute: 'sol.',
+  solution: 'soln.',
+};
+
+/**
+ * Build a display symbol map from a formula's variables and constants.
+ * - Variables with `display_symbol` are mapped.
+ * - When multiple variables share the same display symbol, semantic_role
+ *   is appended as a parenthesized qualifier (e.g. m → m(act.)).
+ * - Constants are resolved by their full ref (e.g. "const:N_A" → "Nₐ").
+ */
+export function buildDisplayMap(
+  formula: ComputableFormula,
+  constants?: PhysicalConstant[],
+): DisplaySymbolMap {
+  const map: DisplaySymbolMap = {};
+
+  // First pass: assign display symbols
+  for (const v of formula.variables) {
+    map[v.symbol] = v.display_symbol ?? v.symbol;
+  }
+
+  // Second pass: detect display collisions and qualify with semantic_role
+  const displayCounts = new Map<string, number>();
+  for (const v of formula.variables) {
+    const d = map[v.symbol];
+    displayCounts.set(d, (displayCounts.get(d) ?? 0) + 1);
+  }
+  for (const v of formula.variables) {
+    const d = v.display_symbol ?? v.symbol;
+    if ((displayCounts.get(d) ?? 0) > 1 && v.semantic_role) {
+      const q = ROLE_QUALIFIER[v.semantic_role] ?? v.semantic_role;
+      map[v.symbol] = `${d}(${q})`;
+    }
+  }
+
+  // Constants: map by full ref (e.g. "const:N_A")
+  if (constants) {
+    for (const c of constants) {
+      if (c.display_symbol) {
+        map[c.id] = c.display_symbol;
+      }
+    }
+  }
+  return map;
+}
+
+/**
+ * Convert an ExprNode to a display string using canonical notation.
+ * Resolves variable symbols and constant refs through the display map.
+ */
+export function exprToDisplayString(
+  expr: ExprNode | string | number,
+  displayMap: DisplaySymbolMap,
+): string {
+  if (typeof expr === 'string') return displayMap[expr] ?? expr;
+  if (typeof expr === 'number') return String(expr);
+
+  switch (expr.op) {
+    case 'literal': return String(expr.value);
+    case 'const': {
+      // Check full ref first (e.g. "const:N_A"), then strip prefix
+      if (displayMap[expr.ref]) return displayMap[expr.ref];
+      return expr.ref.replace('const:', '');
+    }
+    case 'add':
+      return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' + ');
+    case 'subtract':
+      return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' − ');
+    case 'multiply':
+      return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' × ');
+    case 'divide':
+      return `${exprToDisplayString(expr.operands[0], displayMap)} / ${exprToDisplayString(expr.operands[1], displayMap)}`;
+    case 'power':
+      return `${exprToDisplayString(expr.operands[0], displayMap)}^${exprToDisplayString(expr.operands[1], displayMap)}`;
+    case 'exp':
+      return `exp(${exprToDisplayString(expr.operand, displayMap)})`;
+    case 'sum':
+      return `Σ(${exprToDisplayString(expr.term, displayMap)})`;
+    default: return '?';
+  }
+}
+
+/**
+ * Produce a complete formula display string (e.g. "ω = Aᵣ × n / M × 100").
+ * Uses display_symbol from variables and constants.
+ */
+export function formulaToDisplayString(
+  formula: ComputableFormula,
+  inversionFor?: string,
+  constants?: PhysicalConstant[],
+): string {
+  const displayMap = buildDisplayMap(formula, constants);
+  if (inversionFor) {
+    const invExpr = formula.inversions[inversionFor];
+    if (!invExpr) return '';
+    const targetDisplay = displayMap[inversionFor] ?? inversionFor;
+    return `${targetDisplay} = ${exprToDisplayString(invExpr, displayMap)}`;
+  }
+  const resultDisplay = displayMap[formula.result_variable] ?? formula.result_variable;
+  return `${resultDisplay} = ${exprToDisplayString(formula.expression, displayMap)}`;
+}
+
 /**
  * Evaluate a ComputableFormula's forward expression.
  * Returns the result value + an EvalTrace.
