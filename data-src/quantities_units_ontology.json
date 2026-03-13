@@ -13,6 +13,7 @@
   "quantities": [
     {
       "id": "q:mass",
+      "display_symbol": "m",
       "dimension": "M",
       "recommended_units": [
         "unit:g",
@@ -21,6 +22,7 @@
     },
     {
       "id": "q:amount",
+      "display_symbol": "n",
       "dimension": "N",
       "recommended_units": [
         "unit:mol"
@@ -28,6 +30,7 @@
     },
     {
       "id": "q:volume",
+      "display_symbol": "V",
       "dimension": "L3",
       "recommended_units": [
         "unit:L",
@@ -36,6 +39,7 @@
     },
     {
       "id": "q:concentration",
+      "display_symbol": "c",
       "dimension": "N/L3",
       "recommended_units": [
         "unit:mol_per_L",
@@ -44,14 +48,17 @@
     },
     {
       "id": "q:temperature",
+      "display_symbol": "T",
       "dimension": "Theta",
       "recommended_units": [
         "unit:K",
-        "unit:degC"
+        "unit:degC",
+        "unit:degF"
       ]
     },
     {
       "id": "q:pressure",
+      "display_symbol": "P",
       "dimension": "P",
       "recommended_units": [
         "unit:Pa",
@@ -61,6 +68,7 @@
     },
     {
       "id": "q:energy",
+      "display_symbol": "E",
       "dimension": "E",
       "recommended_units": [
         "unit:J",
@@ -69,6 +77,7 @@
     },
     {
       "id": "q:density",
+      "display_symbol": "ρ",
       "dimension": "M/L3",
       "recommended_units": [
         "unit:g_per_mL",
@@ -77,72 +86,119 @@
       "optional": true
     },
     {
+      "id": "q:relative_atomic_mass",
+      "display_symbol": "Aᵣ",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:charge",
+      "display_symbol": "Q",
+      "dimension": "Q",
+      "recommended_units": [
+        "unit:C",
+        "unit:elementary_charge"
+      ]
+    },
+    {
+      "id": "q:atom_count",
+      "display_symbol": "n",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
       "id": "q:molar_mass",
+      "display_symbol": "M",
       "dimension": "M/N",
       "recommended_units": [
         "unit:g_per_mol",
         "unit:kg_per_mol"
-      ],
-      "notes": "Обычно вычисляется из состава, но удобно иметь как quantity-type для задач и кэша."
+      ]
     },
     {
       "id": "q:mass_fraction",
+      "display_symbol": "ω",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
         "unit:percent"
-      ],
-      "notes": "ω = m(компонента) / m(смеси). Безразмерная (0..1) или в процентах. Используется для растворов и элементного состава."
+      ]
     },
     {
       "id": "q:volume_fraction",
+      "display_symbol": "φ",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
         "unit:percent"
-      ],
-      "notes": "φ = V(компонента) / V(смеси). Безразмерная. Используется для газовых смесей."
+      ]
     },
     {
       "id": "q:molar_volume",
+      "display_symbol": "Vₘ",
       "dimension": "L3/N",
       "recommended_units": [
         "unit:L_per_mol"
-      ],
-      "notes": "Vm = V / n. При н.у. (0°C, 1 атм) = 22.4 л/моль. Ключевая величина для задач на газы."
+      ]
     },
     {
       "id": "q:solubility",
+      "display_symbol": "s",
       "dimension": "M/M",
       "recommended_units": [
         "unit:g_per_100g"
-      ],
-      "notes": "Масса вещества, растворяющегося в 100 г растворителя при данной температуре."
+      ]
     },
     {
       "id": "q:yield",
+      "display_symbol": "η",
       "dimension": "1",
       "recommended_units": [
         "unit:fraction",
         "unit:percent"
-      ],
-      "notes": "η = m(практ.) / m(теор.). Безразмерная (0..1) или в процентах."
+      ]
     },
     {
       "id": "q:enthalpy",
+      "display_symbol": "ΔH",
       "dimension": "E/N",
       "recommended_units": [
         "unit:kJ_per_mol"
-      ],
-      "notes": "ΔH реакции в кДж/моль. Отрицательная — экзотермическая, положительная — эндотермическая."
+      ]
     },
     {
       "id": "q:condition",
       "dimension": "enum",
       "recommended_units": [
         "unit:enum"
-      ],
-      "notes": "Для заданий вида 'в избытке', 'н.у.' и т.п."
+      ]
+    },
+    {
+      "id": "q:atom_count_in_composition",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:component_molar_mass_contribution",
+      "dimension": "M/N",
+      "recommended_units": [
+        "unit:g_per_mol"
+      ]
+    },
+    {
+      "id": "q:component_mass_fraction",
+      "display_symbol": "ω",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:fraction",
+        "unit:percent"
+      ]
     }
   ],
   "units": [
@@ -217,8 +273,16 @@
         "unit": "K",
         "offset": 273.15,
         "factor": 1
-      },
-      "notes": "K = °C + 273.15"
+      }
+    },
+    {
+      "id": "unit:degF",
+      "quantity": "q:temperature",
+      "to_SI": {
+        "unit": "K",
+        "offset": 255.372,
+        "factor": 0.5556
+      }
     },
     {
       "id": "unit:Pa",
@@ -365,6 +429,27 @@
       "id": "unit:enum",
       "quantity": "q:condition",
       "to_SI": null
+    },
+    {
+      "id": "unit:dimensionless",
+      "quantity": "q:relative_atomic_mass",
+      "to_SI": null
+    },
+    {
+      "id": "unit:C",
+      "quantity": "q:charge",
+      "to_SI": {
+        "unit": "C",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:elementary_charge",
+      "quantity": "q:charge",
+      "to_SI": {
+        "unit": "C",
+        "factor": 1.602176634e-19
+      }
     }
   ],
   "structures": {
