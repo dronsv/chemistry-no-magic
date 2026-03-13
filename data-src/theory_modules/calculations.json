@@ -21,6 +21,11 @@
         },
         {
           "t": "example_block"
+        },
+        {
+          "t": "component_slot",
+          "component": "MolarMassCalculator",
+          "props": {}
         }
       ]
     },

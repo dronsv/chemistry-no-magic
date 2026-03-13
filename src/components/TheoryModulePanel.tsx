@@ -22,6 +22,9 @@ const SolubilityTable = lazy(() =>
 const ActivitySeriesBar = lazy(() =>
   import('../features/reactions/ActivitySeriesBar'),
 );
+const MolarMassCalculator = lazy(() =>
+  import('../features/calculations/MolarMassCalculator'),
+);
 
 const COMPONENT_SLOTS: Record<string, ReactNode> = {};
 
@@ -43,6 +46,12 @@ function renderComponentSlot(
       return (
         <Suspense fallback={<div className="theory-loading">{m.loading()}</div>}>
           <ActivitySeriesBar locale={locale} />
+        </Suspense>
+      );
+    case 'MolarMassCalculator':
+      return (
+        <Suspense fallback={<div className="theory-loading">{m.loading()}</div>}>
+          <MolarMassCalculator locale={locale} />
         </Suspense>
       );
     default:
