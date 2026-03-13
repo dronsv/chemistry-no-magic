@@ -455,5 +455,47 @@
     "constants_used": ["const:R"],
     "prerequisite_formulas": [],
     "used_by_solvers": []
+  },
+  {
+    "id": "formula:component_molar_mass_contribution",
+    "kind": "definition",
+    "domain": "stoichiometry",
+    "school_grade": [8, 9],
+    "variables": [
+      { "symbol": "M_part", "quantity": "q:component_molar_mass_contribution", "unit": "unit:g_per_mol", "role": "result" },
+      { "symbol": "Ar", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
+      { "symbol": "count", "quantity": "q:atom_count_in_composition", "unit": "unit:dimensionless", "role": "input" }
+    ],
+    "expression": { "op": "multiply", "operands": ["Ar", "count"] },
+    "result_variable": "M_part",
+    "invertible_for": ["Ar", "count"],
+    "inversions": {
+      "Ar": { "op": "divide", "operands": ["M_part", "count"] },
+      "count": { "op": "divide", "operands": ["M_part", "Ar"] }
+    },
+    "constants_used": [],
+    "prerequisite_formulas": [],
+    "used_by_solvers": ["solver.mass_fraction"]
+  },
+  {
+    "id": "formula:component_mass_fraction",
+    "kind": "definition",
+    "domain": "stoichiometry",
+    "school_grade": [8, 9],
+    "variables": [
+      { "symbol": "omega", "display_symbol": "ω", "quantity": "q:component_mass_fraction", "unit": "unit:fraction", "role": "result" },
+      { "symbol": "M_part", "quantity": "q:component_molar_mass_contribution", "unit": "unit:g_per_mol", "role": "input" },
+      { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "input" }
+    ],
+    "expression": { "op": "divide", "operands": ["M_part", "M"] },
+    "result_variable": "omega",
+    "invertible_for": ["M_part", "M"],
+    "inversions": {
+      "M_part": { "op": "multiply", "operands": ["omega", "M"] },
+      "M": { "op": "divide", "operands": ["M_part", "omega"] }
+    },
+    "constants_used": [],
+    "prerequisite_formulas": ["formula:component_molar_mass_contribution", "formula:molar_mass_from_composition"],
+    "used_by_solvers": ["solver.mass_fraction"]
   }
 ]
