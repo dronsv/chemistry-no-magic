@@ -16,7 +16,7 @@
         { "text": "La cantidad de sustancia (n) es el número de moles; relaciona la masa con la masa molar." },
         {},
         {},
-        {},
+        { "note": "para gases, Vm = 22,4 L/mol en CNPT" },
         {},
         { "label": "Ejemplo:", "content": "¿Cuántos moles hay en 49 g de H₂SO₄? → n = 49/98 = 0,5 mol" },
         { "label": "Ejemplo:", "content": "¿Masa de 3 mol de NaCl? → m = 3 × 58,5 = 175,5 g" }
@@ -37,7 +37,7 @@
       "blocks": [
         { "text": "La fracción másica del soluto (ω) es la relación entre la masa del soluto y la masa de la solución." },
         {},
-        {},
+        { "text": "m(solución) = m(soluto) + m(agua)" },
         {},
         { "text": "Al diluir: la masa del soluto no cambia, pero la masa de la solución aumenta." },
         { "label": "Ejemplo:", "content": "20 g de sal en 200 g de solución → ω = 20/200 × 100% = 10%" },

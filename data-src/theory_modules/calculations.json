@@ -10,7 +10,8 @@
           "t": "paragraph"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:molar_mass_from_composition"
         },
         {
           "t": "paragraph"
@@ -30,16 +31,21 @@
           "t": "paragraph"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:amount_from_mass"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:amount_from_mass",
+          "inversion_for": "m"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:gas_volume_stp"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:particle_count"
         },
         {
           "t": "example_block"
@@ -56,7 +62,8 @@
           "t": "paragraph"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:mass_fraction_element"
         },
         {
           "t": "paragraph"
@@ -76,13 +83,16 @@
           "t": "paragraph"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:mass_fraction_solution"
         },
         {
           "t": "equation"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:mass_fraction_solution",
+          "inversion_for": "m_solute"
         },
         {
           "t": "paragraph"
@@ -116,10 +126,13 @@
           "t": "paragraph"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:yield"
         },
         {
-          "t": "equation"
+          "t": "equation",
+          "formula_id": "formula:yield",
+          "inversion_for": "m_actual"
         },
         {
           "t": "paragraph"

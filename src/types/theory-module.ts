@@ -32,7 +32,7 @@ export type TheoryBlock =
   | { t: 'heading'; level: 2 | 3 | 4; text: string }
   | { t: 'paragraph'; text: string }
   | { t: 'ordered_list'; items: string[] }
-  | { t: 'equation'; text: string }
+  | { t: 'equation'; text?: string; formula_id?: string; inversion_for?: string; note?: string }
   // Formula display
   | { t: 'formula_list'; formulas: string[] }
   // Structured cards

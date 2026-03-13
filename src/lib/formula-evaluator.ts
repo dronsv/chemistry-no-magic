@@ -92,8 +92,8 @@ export function evaluateExpr(
   }
 }
 
-/** Convert an ExprNode to a human-readable string for traces. */
-function exprToString(expr: ExprNode | string | number): string {
+/** Convert an ExprNode to a human-readable string for traces/display. */
+export function exprToString(expr: ExprNode | string | number): string {
   if (typeof expr === 'string') return expr;
   if (typeof expr === 'number') return String(expr);
 

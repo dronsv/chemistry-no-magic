@@ -16,7 +16,7 @@
         { "text": "Ilość substancji (n) to liczba moli; łączy masę z masą molarną." },
         {},
         {},
-        {},
+        { "note": "dla gazów, Vm = 22,4 l/mol w warunkach normalnych" },
         {},
         { "label": "Przykład:", "content": "Ile moli w 49 g H₂SO₄? → n = 49/98 = 0,5 mol" },
         { "label": "Przykład:", "content": "Masa 3 mol NaCl? → m = 3 × 58,5 = 175,5 g" }
@@ -37,7 +37,7 @@
       "blocks": [
         { "text": "Udział masowy substancji rozpuszczonej (ω) to stosunek masy rozpuszczonego do masy roztworu." },
         {},
-        {},
+        { "text": "m(roztworu) = m(subst. rozp.) + m(wody)" },
         {},
         { "text": "Przy rozcieńczaniu: masa substancji rozpuszczonej nie zmienia się, a masa roztworu rośnie." },
         { "label": "Przykład:", "content": "20 g soli w 200 g roztworu → ω = 20/200 × 100% = 10%" },

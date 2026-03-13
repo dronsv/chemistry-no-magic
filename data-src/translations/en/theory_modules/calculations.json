@@ -16,7 +16,7 @@
         { "text": "Amount of substance (n) is the number of moles; it relates mass to molar mass." },
         {},
         {},
-        {},
+        { "note": "for gases, Vm = 22.4 L/mol at STP" },
         {},
         { "label": "Example:", "content": "How many moles in 49 g of H₂SO₄? → n = 49/98 = 0.5 mol" },
         { "label": "Example:", "content": "Mass of 3 mol of NaCl? → m = 3 × 58.5 = 175.5 g" }
@@ -37,7 +37,7 @@
       "blocks": [
         { "text": "Mass fraction of dissolved substance (ω) is the ratio of the solute mass to the solution mass." },
         {},
-        {},
+        { "text": "m(solution) = m(solute) + m(water)" },
         {},
         { "text": "On dilution: the mass of dissolved substance does not change, but the solution mass increases." },
         { "label": "Example:", "content": "20 g of salt in 200 g of solution → ω = 20/200 × 100% = 10%" },
