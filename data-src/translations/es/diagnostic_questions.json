@@ -1,0 +1,98 @@
+{
+  "diag_1": {
+    "question": "El elemento con número atómico 17 se encuentra en...",
+    "explanation": "Z = 17 es cloro (Cl). Su configuración electrónica es 2-8-7, lo que significa periodo 3, con 7 electrones en la capa externa → grupo VIIA.",
+    "options": {
+      "a": { "text": "Periodo 3, grupo VIIA" },
+      "b": { "text": "Periodo 3, grupo IIIA" },
+      "c": { "text": "Periodo 2, grupo VIIA" },
+      "d": { "text": "Periodo 4, grupo VIA" }
+    }
+  },
+  "diag_2": {
+    "question": "¿Cuántos electrones hay en el nivel de energía externo del átomo de oxígeno (Z = 8)?",
+    "explanation": "Oxígeno: 1s² 2s² 2p⁴. En el nivel externo (segundo): 2 + 4 = 6 electrones."
+  },
+  "diag_3": {
+    "question": "¿Cuál es el estado de oxidación del azufre en H₂SO₄?",
+    "explanation": "En H₂SO₄: hidrógeno es +1 (×2 = +2), oxígeno es −2 (×4 = −8). La suma es 0, por lo tanto S = 0 − 2 − (−8) = +6."
+  },
+  "diag_4": {
+    "question": "¿A qué clase de compuestos inorgánicos pertenece Na₂CO₃?",
+    "explanation": "Na₂CO₃ es carbonato de sodio. Consiste en un catión metálico (Na⁺) y un anión de residuo ácido (CO₃²⁻), lo que lo convierte en una sal.",
+    "options": {
+      "a": { "text": "Sal" },
+      "b": { "text": "Óxido" },
+      "c": { "text": "Base" },
+      "d": { "text": "Ácido" }
+    }
+  },
+  "diag_5": {
+    "question": "¿Cómo se llama el compuesto con fórmula CuSO₄?",
+    "explanation": "SO₄²⁻ es el ion sulfato. El cobre tiene estado de oxidación +2. El nombre es sulfato de cobre(II).",
+    "options": {
+      "a": { "text": "Sulfato de cobre(II)" },
+      "b": { "text": "Sulfito de cobre(II)" },
+      "c": { "text": "Sulfuro de cobre(II)" },
+      "d": { "text": "Cloruro de cobre(II)" }
+    }
+  },
+  "diag_6": {
+    "question": "¿Qué productos se forman al mezclar soluciones de cloruro de bario BaCl₂ y sulfato de sodio Na₂SO₄?",
+    "explanation": "Reacción de doble sustitución: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. El sulfato de bario es un precipitado insoluble, por lo que la reacción se completa.",
+    "options": {
+      "a": { "text": "BaSO₄↓ y NaCl" },
+      "b": { "text": "BaNa₂ y ClSO₄" },
+      "c": { "text": "Ba(OH)₂ y NaCl" },
+      "d": { "text": "No hay reacción" }
+    }
+  },
+  "diag_7": {
+    "question": "¿La reacción de intercambio iónico entre las soluciones de NaNO₃ y KCl se completa?",
+    "explanation": "NaNO₃ + KCl → NaCl + KNO₃. Todos los productos son solubles; no se forma gas ni agua. La reacción no se completa.",
+    "options": {
+      "a": { "text": "No, no hay precipitado, gas ni agua" },
+      "b": { "text": "Sí, se forma precipitado de KNO₃" },
+      "c": { "text": "Sí, se libera un gas" },
+      "d": { "text": "Sí, se forma agua" }
+    }
+  },
+  "diag_8": {
+    "question": "En la reacción Zn + CuSO₄ → ZnSO₄ + Cu, el agente oxidante es:",
+    "explanation": "Cu²⁺ acepta 2 electrones y se reduce a Cu⁰. Aceptar electrones significa reducirse, por lo que Cu²⁺ es el agente oxidante.",
+    "options": {
+      "a": { "text": "Cu²⁺ (ion cobre)" },
+      "b": { "text": "Zn (zinc)" },
+      "c": { "text": "SO₄²⁻ (ion sulfato)" },
+      "d": { "text": "Zn²⁺ (ion zinc)" }
+    }
+  },
+  "diag_9": {
+    "question": "¿Qué factor NO afecta la velocidad de una reacción química?",
+    "explanation": "El color de una sustancia no afecta la velocidad de reacción. La velocidad depende de la temperatura, la concentración, el área de superficie, la naturaleza de las sustancias y la presencia de un catalizador.",
+    "options": {
+      "a": { "text": "Color de los reactivos" },
+      "b": { "text": "Temperatura" },
+      "c": { "text": "Concentración de los reactivos" },
+      "d": { "text": "Área de superficie de contacto" }
+    }
+  },
+  "diag_10": {
+    "question": "¿Cuál afirmación sobre un catalizador es correcta?",
+    "explanation": "Un catalizador acelera la reacción reduciendo la energía de activación y no se consume en el proceso. No desplaza el equilibrio ni afecta el rendimiento del producto.",
+    "options": {
+      "a": { "text": "Acelera la reacción pero no se consume" },
+      "b": { "text": "Desplaza el equilibrio químico" },
+      "c": { "text": "Aumenta el rendimiento del producto" },
+      "d": { "text": "Siempre es un metal" }
+    }
+  },
+  "diag_11": {
+    "question": "¿Cuál es la fracción másica de oxígeno en agua H₂O? (M(H)=1, M(O)=16)",
+    "explanation": "M(H₂O) = 2×1 + 16 = 18 g/mol. ω(O) = 16/18 ≈ 0,889 = 88,9%."
+  },
+  "diag_12": {
+    "question": "Se disuelven 50 g de sal en 200 g de agua. ¿Cuál es la fracción másica de sal en la solución?",
+    "explanation": "Masa de la solución = 200 + 50 = 250 g. ω = 50/250 = 0,20 = 20%."
+  }
+}

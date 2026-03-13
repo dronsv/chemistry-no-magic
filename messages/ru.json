@@ -1025,5 +1025,14 @@
   "back_to_exam": "Вернуться к экзамену",
   "back_to_practice": "Вернуться к практике",
   "back_to_diagnostics": "Вернуться к диагностике",
-  "back_to_previous": "Вернуться назад"
+  "back_to_previous": "Вернуться назад",
+  "dist_equal": "одинаково",
+  "dist_cannot_determine": "нельзя определить",
+  "dist_only_with_heating": "только при нагревании",
+  "dist_depends_on_concentration": "зависит от концентрации",
+  "dist_obs_white_precipitate": "белый осадок",
+  "dist_obs_blue_precipitate": "голубой осадок",
+  "dist_obs_yellow_precipitate": "жёлтый осадок",
+  "dist_obs_gas_evolution": "выделение газа",
+  "dist_obs_color_change": "изменение цвета"
 }

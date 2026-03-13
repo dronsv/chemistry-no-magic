@@ -1,0 +1,98 @@
+{
+  "diag_1": {
+    "question": "Pierwiastek o liczbie atomowej 17 znajduje się w...",
+    "explanation": "Z = 17 to chlor (Cl). Konfiguracja elektronowa 2-8-7, czyli okres 3, 7 elektronów na powłoce zewnętrznej → grupa VIIA.",
+    "options": {
+      "a": { "text": "Okresie 3, grupie VIIA" },
+      "b": { "text": "Okresie 3, grupie IIIA" },
+      "c": { "text": "Okresie 2, grupie VIIA" },
+      "d": { "text": "Okresie 4, grupie VIA" }
+    }
+  },
+  "diag_2": {
+    "question": "Ile elektronów znajduje się na zewnętrznym poziomie energetycznym atomu tlenu (Z = 8)?",
+    "explanation": "Tlen: 1s² 2s² 2p⁴. Na zewnętrznym (drugim) poziomie: 2 + 4 = 6 elektronów."
+  },
+  "diag_3": {
+    "question": "Jaki jest stopień utlenienia siarki w H₂SO₄?",
+    "explanation": "W H₂SO₄: wodór +1 (×2 = +2), tlen −2 (×4 = −8). Suma = 0, więc S = 0 − 2 − (−8) = +6."
+  },
+  "diag_4": {
+    "question": "Do jakiej klasy związków nieorganicznych należy Na₂CO₃?",
+    "explanation": "Na₂CO₃ to węglan sodu. Składa się z kationu metalu (Na⁺) i anionu reszty kwasowej (CO₃²⁻), więc jest to sól.",
+    "options": {
+      "a": { "text": "Sól" },
+      "b": { "text": "Tlenek" },
+      "c": { "text": "Zasada" },
+      "d": { "text": "Kwas" }
+    }
+  },
+  "diag_5": {
+    "question": "Jak nazywa się związek o wzorze CuSO₄?",
+    "explanation": "SO₄²⁻ to jon siarczanowy. Miedź ma stopień utlenienia +2. Nazwa: siarczan(VI) miedzi(II).",
+    "options": {
+      "a": { "text": "Siarczan(VI) miedzi(II)" },
+      "b": { "text": "Siarczan(IV) miedzi(II)" },
+      "c": { "text": "Siarczek miedzi(II)" },
+      "d": { "text": "Chlorek miedzi(II)" }
+    }
+  },
+  "diag_6": {
+    "question": "Jakie produkty powstają po zmieszaniu roztworów chlorku baru BaCl₂ i siarczanu sodu Na₂SO₄?",
+    "explanation": "Reakcja wymiany podwójnej: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Siarczan baru jest nierozpuszczalnym osadem, więc reakcja zachodzi.",
+    "options": {
+      "a": { "text": "BaSO₄↓ i NaCl" },
+      "b": { "text": "BaNa₂ i ClSO₄" },
+      "c": { "text": "Ba(OH)₂ i NaCl" },
+      "d": { "text": "Reakcja nie zachodzi" }
+    }
+  },
+  "diag_7": {
+    "question": "Czy reakcja wymiany jonowej między roztworami NaNO₃ i KCl zachodzi do końca?",
+    "explanation": "NaNO₃ + KCl → NaCl + KNO₃. Wszystkie produkty są rozpuszczalne; nie powstaje gaz ani woda. Reakcja nie zachodzi do końca.",
+    "options": {
+      "a": { "text": "Nie, brak osadu, gazu lub wody" },
+      "b": { "text": "Tak, powstaje osad KNO₃" },
+      "c": { "text": "Tak, wydziela się gaz" },
+      "d": { "text": "Tak, powstaje woda" }
+    }
+  },
+  "diag_8": {
+    "question": "W reakcji Zn + CuSO₄ → ZnSO₄ + Cu utleniaczem jest:",
+    "explanation": "Cu²⁺ przyjmuje 2 elektrony i ulega redukcji do Cu⁰. Przyjmowanie elektronów to redukcja, więc Cu²⁺ jest utleniaczem.",
+    "options": {
+      "a": { "text": "Cu²⁺ (jon miedzi)" },
+      "b": { "text": "Zn (cynk)" },
+      "c": { "text": "SO₄²⁻ (jon siarczanowy)" },
+      "d": { "text": "Zn²⁺ (jon cynku)" }
+    }
+  },
+  "diag_9": {
+    "question": "Który czynnik NIE wpływa na szybkość reakcji chemicznej?",
+    "explanation": "Kolor substancji nie wpływa na szybkość reakcji. Szybkość zależy od temperatury, stężenia, powierzchni kontaktu, natury substancji i obecności katalizatora.",
+    "options": {
+      "a": { "text": "Kolor reagentów" },
+      "b": { "text": "Temperatura" },
+      "c": { "text": "Stężenie reagentów" },
+      "d": { "text": "Powierzchnia kontaktu" }
+    }
+  },
+  "diag_10": {
+    "question": "Które stwierdzenie o katalizatorze jest prawdziwe?",
+    "explanation": "Katalizator przyspiesza reakcję, obniżając energię aktywacji, i nie jest zużywany w procesie. Nie przesuwa równowagi i nie wpływa na wydajność produktu.",
+    "options": {
+      "a": { "text": "Przyspiesza reakcję, ale nie jest zużywany" },
+      "b": { "text": "Przesuwa równowagę chemiczną" },
+      "c": { "text": "Zwiększa wydajność produktu" },
+      "d": { "text": "Zawsze jest metalem" }
+    }
+  },
+  "diag_11": {
+    "question": "Jaki jest udział masowy tlenu w wodzie H₂O? (M(H)=1, M(O)=16)",
+    "explanation": "M(H₂O) = 2×1 + 16 = 18 g/mol. ω(O) = 16/18 ≈ 0,889 = 88,9%."
+  },
+  "diag_12": {
+    "question": "50 g soli rozpuszczono w 200 g wody. Jaki jest udział masowy soli w roztworze?",
+    "explanation": "Masa roztworu = 200 + 50 = 250 g. ω = 50/250 = 0,20 = 20%."
+  }
+}

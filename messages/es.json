@@ -1025,5 +1025,14 @@
   "back_to_exam": "Volver al examen",
   "back_to_practice": "Volver a la práctica",
   "back_to_diagnostics": "Volver al diagnóstico",
-  "back_to_previous": "Volver"
+  "back_to_previous": "Volver",
+  "dist_equal": "igual",
+  "dist_cannot_determine": "no se puede determinar",
+  "dist_only_with_heating": "solo con calentamiento",
+  "dist_depends_on_concentration": "depende de la concentración",
+  "dist_obs_white_precipitate": "precipitado blanco",
+  "dist_obs_blue_precipitate": "precipitado azul",
+  "dist_obs_yellow_precipitate": "precipitado amarillo",
+  "dist_obs_gas_evolution": "desprendimiento de gas",
+  "dist_obs_color_change": "cambio de color"
 }

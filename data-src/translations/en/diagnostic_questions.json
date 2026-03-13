@@ -1,7 +1,13 @@
 {
   "diag_1": {
     "question": "The element with atomic number 17 is located in...",
-    "explanation": "Z = 17 is chlorine (Cl). Its electron configuration is 2-8-7, which means period 3, with 7 electrons in the outer shell → group VIIA."
+    "explanation": "Z = 17 is chlorine (Cl). Its electron configuration is 2-8-7, which means period 3, with 7 electrons in the outer shell → group VIIA.",
+    "options": {
+      "a": { "text": "Period 3, group VIIA" },
+      "b": { "text": "Period 3, group IIIA" },
+      "c": { "text": "Period 2, group VIIA" },
+      "d": { "text": "Period 4, group VIA" }
+    }
   },
   "diag_2": {
     "question": "How many electrons are in the outer energy level of an oxygen atom (Z = 8)?",
@@ -13,31 +19,73 @@
   },
   "diag_4": {
     "question": "Which class of inorganic compounds does Na₂CO₃ belong to?",
-    "explanation": "Na₂CO₃ is sodium carbonate. It consists of a metal cation (Na⁺) and an acid residue anion (CO₃²⁻), making it a salt."
+    "explanation": "Na₂CO₃ is sodium carbonate. It consists of a metal cation (Na⁺) and an acid residue anion (CO₃²⁻), making it a salt.",
+    "options": {
+      "a": { "text": "Salt" },
+      "b": { "text": "Oxide" },
+      "c": { "text": "Base" },
+      "d": { "text": "Acid" }
+    }
   },
   "diag_5": {
     "question": "What is the name of the compound with the formula CuSO₄?",
-    "explanation": "SO₄²⁻ is the sulfate ion. Copper has an oxidation state of +2. The name is copper(II) sulfate."
+    "explanation": "SO₄²⁻ is the sulfate ion. Copper has an oxidation state of +2. The name is copper(II) sulfate.",
+    "options": {
+      "a": { "text": "Copper(II) sulfate" },
+      "b": { "text": "Copper(II) sulfite" },
+      "c": { "text": "Copper(II) sulfide" },
+      "d": { "text": "Copper(II) chloride" }
+    }
   },
   "diag_6": {
     "question": "What products form when solutions of barium chloride BaCl₂ and sodium sulfate Na₂SO₄ are mixed?",
-    "explanation": "Double replacement reaction: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Barium sulfate is an insoluble precipitate, so the reaction proceeds to completion."
+    "explanation": "Double replacement reaction: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Barium sulfate is an insoluble precipitate, so the reaction proceeds to completion.",
+    "options": {
+      "a": { "text": "BaSO₄↓ and NaCl" },
+      "b": { "text": "BaNa₂ and ClSO₄" },
+      "c": { "text": "Ba(OH)₂ and NaCl" },
+      "d": { "text": "No reaction occurs" }
+    }
   },
   "diag_7": {
     "question": "Does the ion exchange reaction between NaNO₃ and KCl solutions go to completion?",
-    "explanation": "NaNO₃ + KCl → NaCl + KNO₃. All products are soluble; no gas or water is formed. The reaction does not go to completion."
+    "explanation": "NaNO₃ + KCl → NaCl + KNO₃. All products are soluble; no gas or water is formed. The reaction does not go to completion.",
+    "options": {
+      "a": { "text": "No, there is no precipitate, gas, or water" },
+      "b": { "text": "Yes, KNO₃ precipitate forms" },
+      "c": { "text": "Yes, a gas is released" },
+      "d": { "text": "Yes, water is formed" }
+    }
   },
   "diag_8": {
     "question": "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, the oxidizing agent is:",
-    "explanation": "Cu²⁺ accepts 2 electrons and is reduced to Cu⁰. Accepting electrons means being reduced, so Cu²⁺ is the oxidizing agent."
+    "explanation": "Cu²⁺ accepts 2 electrons and is reduced to Cu⁰. Accepting electrons means being reduced, so Cu²⁺ is the oxidizing agent.",
+    "options": {
+      "a": { "text": "Cu²⁺ (copper ion)" },
+      "b": { "text": "Zn (zinc)" },
+      "c": { "text": "SO₄²⁻ (sulfate ion)" },
+      "d": { "text": "Zn²⁺ (zinc ion)" }
+    }
   },
   "diag_9": {
     "question": "Which factor does NOT affect the rate of a chemical reaction?",
-    "explanation": "The color of a substance does not affect the reaction rate. The rate depends on temperature, concentration, surface area, the nature of the substances, and the presence of a catalyst."
+    "explanation": "The color of a substance does not affect the reaction rate. The rate depends on temperature, concentration, surface area, the nature of the substances, and the presence of a catalyst.",
+    "options": {
+      "a": { "text": "Color of reagents" },
+      "b": { "text": "Temperature" },
+      "c": { "text": "Concentration of reagents" },
+      "d": { "text": "Contact surface area" }
+    }
   },
   "diag_10": {
     "question": "Which statement about a catalyst is correct?",
-    "explanation": "A catalyst speeds up a reaction by lowering the activation energy and is not consumed in the process. It does not shift equilibrium and does not affect the product yield."
+    "explanation": "A catalyst speeds up a reaction by lowering the activation energy and is not consumed in the process. It does not shift equilibrium and does not affect the product yield.",
+    "options": {
+      "a": { "text": "Speeds up the reaction but is not consumed" },
+      "b": { "text": "Shifts chemical equilibrium" },
+      "c": { "text": "Increases product yield" },
+      "d": { "text": "Is always a metal" }
+    }
   },
   "diag_11": {
     "question": "What is the mass fraction of oxygen in water H₂O? (M(H)=1, M(O)=16)",

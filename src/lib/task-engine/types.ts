@@ -215,9 +215,19 @@ export interface OntologyDataSources {
   };
 }
 
+/** Locale-specific labels for distractor generation and solver output. */
+export interface DistractorLabels {
+  equal: string;             // "одинаково" / "equal" / "igual"
+  cannotDetermine: string;   // "нельзя определить" / "cannot determine"
+  onlyWithHeating: string;   // "only with heating"
+  dependsOnConcentration: string; // "depends on concentration"
+  genericObservations: string[];  // fallback observations for qualitative tests
+}
+
 export interface OntologyI18n {
   morphology: MorphologyData | null;
   promptTemplates: PromptTemplateMap;
+  labels?: DistractorLabels;
 }
 
 export interface OntologyData {

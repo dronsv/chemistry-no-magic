@@ -1025,5 +1025,14 @@
   "back_to_exam": "Wróć do egzaminu",
   "back_to_practice": "Wróć do ćwiczeń",
   "back_to_diagnostics": "Wróć do diagnostyki",
-  "back_to_previous": "Wróć"
+  "back_to_previous": "Wróć",
+  "dist_equal": "równe",
+  "dist_cannot_determine": "nie można określić",
+  "dist_only_with_heating": "tylko przy ogrzewaniu",
+  "dist_depends_on_concentration": "zależy od stężenia",
+  "dist_obs_white_precipitate": "biały osad",
+  "dist_obs_blue_precipitate": "niebieski osad",
+  "dist_obs_yellow_precipitate": "żółty osad",
+  "dist_obs_gas_evolution": "wydzielanie gazu",
+  "dist_obs_color_change": "zmiana koloru"
 }

@@ -1,4 +1,6 @@
 import type { SupportedLocale } from '../../types/i18n';
+import type { DistractorLabels } from '../../lib/task-engine/types';
+import * as m from '../../paraglide/messages.js';
 
 export interface ExerciseOption {
   id: string;
@@ -117,6 +119,22 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   reaction_yield_logic: ['tmpl.calc.by_equation.v1', 'tmpl.calc.yield.v1'],
 };
 
+function buildDistractorLabels(): DistractorLabels {
+  return {
+    equal: m.dist_equal(),
+    cannotDetermine: m.dist_cannot_determine(),
+    onlyWithHeating: m.dist_only_with_heating(),
+    dependsOnConcentration: m.dist_depends_on_concentration(),
+    genericObservations: [
+      m.dist_obs_white_precipitate(),
+      m.dist_obs_blue_precipitate(),
+      m.dist_obs_yellow_precipitate(),
+      m.dist_obs_gas_evolution(),
+      m.dist_obs_color_change(),
+    ],
+  };
+}
+
 /** Load all data and create a task engine instance. */
 export async function buildEngine(locale?: SupportedLocale) {
   const [{ createTaskEngine }, dl, { toConstantsDict }] = await Promise.all([
@@ -175,7 +193,11 @@ export async function buildEngine(locale?: SupportedLocale) {
         ? { formulas: foundationFormulas, constantsDict: toConstantsDict(foundationConstants) }
         : undefined,
     },
-    i18n: { morphology, promptTemplates },
+    i18n: {
+      morphology,
+      promptTemplates,
+      labels: buildDistractorLabels(),
+    },
   };
 
   return createTaskEngine(templates, ontology);

@@ -44,14 +44,14 @@ export function generateDistractors(
 
   // 1. Element comparison context
   if (slots.elementA && slots.elementB && typeof correctAnswer === 'string') {
-    candidates = generateElementCompareDistractors(correctAnswer, slots);
+    candidates = generateElementCompareDistractors(correctAnswer, slots, data);
   }
   // 2. Melting point comparison context
   else if (
     slots.formulaA && slots.formulaB && slots.crystal_typeA &&
     typeof correctAnswer === 'string'
   ) {
-    candidates = generateMeltingCompareDistractors(correctAnswer, slots);
+    candidates = generateMeltingCompareDistractors(correctAnswer, slots, data);
   }
   // 3. Domain enum context
   else if (typeof correctAnswer === 'string' && generateDomainEnumDistractors(correctAnswer, slots) !== null) {
@@ -70,7 +70,7 @@ export function generateDistractors(
     (correctAnswer === 'yes' || correctAnswer === 'no') &&
     (slots.metalA !== undefined || slots.will_occur !== undefined)
   ) {
-    candidates = generateActivityDistractors(correctAnswer);
+    candidates = generateActivityDistractors(correctAnswer, data);
   }
   // 6. Calculation multiplier context (numeric answer + M/composition slots)
   else if (
@@ -211,11 +211,13 @@ function isElectronConfigAnswer(answer: string): boolean {
 function generateElementCompareDistractors(
   correctAnswer: string,
   slots: SlotValues,
+  data: OntologyData,
 ): string[] {
   const a = String(slots.elementA);
   const b = String(slots.elementB);
   const other = correctAnswer === a ? b : a;
-  return [other, 'одинаково', 'нельзя определить'];
+  const labels = data.i18n.labels;
+  return [other, labels?.equal ?? 'одинаково', labels?.cannotDetermine ?? 'нельзя определить'];
 }
 
 // ── Strategy: melting point comparison ────────────────────────────
@@ -223,11 +225,13 @@ function generateElementCompareDistractors(
 function generateMeltingCompareDistractors(
   correctAnswer: string,
   slots: SlotValues,
+  data: OntologyData,
 ): string[] {
   const a = String(slots.formulaA);
   const b = String(slots.formulaB);
   const other = correctAnswer === a ? b : a;
-  return [other, 'одинаково', 'нельзя определить'];
+  const labels = data.i18n.labels;
+  return [other, labels?.equal ?? 'одинаково', labels?.cannotDetermine ?? 'нельзя определить'];
 }
 
 // ── Strategy: domain enum ────────────────────────────────────────
@@ -269,15 +273,16 @@ function generateSolubilityDistractors(correctAnswer: string): string[] {
 
 // ── Strategy: activity series response ───────────────────────────
 
-function generateActivityDistractors(correctAnswer: string): string[] {
+function generateActivityDistractors(correctAnswer: string, data: OntologyData): string[] {
   const candidates: string[] = [];
   if (correctAnswer === 'yes') {
     candidates.push('no');
   } else {
     candidates.push('yes');
   }
-  candidates.push('only with heating');
-  candidates.push('depends on concentration');
+  const labels = data.i18n.labels;
+  candidates.push(labels?.onlyWithHeating ?? 'only with heating');
+  candidates.push(labels?.dependsOnConcentration ?? 'depends on concentration');
   return candidates;
 }
 
@@ -491,12 +496,9 @@ function generateObservationDistractors(
 
   // If no qualitative tests available, provide generic observation options
   if (candidates.length === 0) {
-    const genericObservations = [
-      'белый осадок',
-      'голубой осадок',
-      'жёлтый осадок',
-      'выделение газа',
-      'изменение цвета',
+    const genericObservations = data.i18n.labels?.genericObservations ?? [
+      'белый осадок', 'голубой осадок', 'жёлтый осадок',
+      'выделение газа', 'изменение цвета',
     ];
     for (const obs of genericObservations) {
       if (obs !== correctAnswer) {
