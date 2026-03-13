@@ -41,8 +41,8 @@ describe('constants.json', () => {
 describe('formulas.json', () => {
   const data = loadJson<Array<Record<string, unknown>>>(join(FOUNDATIONS, 'formulas.json'));
 
-  it('has 18 formulas', () => {
-    expect(data.length).toBe(18);
+  it('has 20 formulas', () => {
+    expect(data.length).toBe(20);
   });
 
   it('all IDs use formula: namespace', () => {
