@@ -40,12 +40,52 @@
     ]
   },
   "common_catalysts": {
-    "name": "platyna",
-    "reaction": "Utlenianie amoniaku: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+    "MnO₂": {
+      "name": "tlenek manganu(IV)",
+      "reaction": "Rozkład nadtlenku wodoru: 2H₂O₂ → 2H₂O + O₂↑"
+    },
+    "V₂O₅": {
+      "name": "tlenek wanadu(V)",
+      "reaction": "Utlenianie SO₂: 2SO₂ + O₂ → 2SO₃ (metoda kontaktowa)"
+    },
+    "Fe": {
+      "name": "żelazo (gąbczaste)",
+      "reaction": "Synteza amoniaku: N₂ + 3H₂ → 2NH₃ (proces Habera)"
+    },
+    "Pt": {
+      "name": "platyna",
+      "reaction": "Utlenianie amoniaku: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+    }
   },
   "equilibrium_shifts": {
-    "shift": "Nie przesuwa równowagi",
-    "explanation": "Katalizator w jednakowym stopniu przyspiesza reakcję w kierunku prostym i odwrotnym"
+    "temperature_increase": {
+      "shift": "W stronę reakcji endotermicznej",
+      "explanation": "Układ pochłania nadmiar ciepła (zasada Le Chateliera)"
+    },
+    "temperature_decrease": {
+      "shift": "W stronę reakcji egzotermicznej",
+      "explanation": "Układ dąży do wydzielenia ciepła w celu kompensacji"
+    },
+    "pressure_increase": {
+      "shift": "W stronę mniejszej liczby moli gazu",
+      "explanation": "Układ dąży do obniżenia ciśnienia"
+    },
+    "pressure_decrease": {
+      "shift": "W stronę większej liczby moli gazu",
+      "explanation": "Układ dąży do zwiększenia ciśnienia"
+    },
+    "concentration_reactant_increase": {
+      "shift": "W stronę produktów (w prawo)",
+      "explanation": "Układ zużywa nadmiar substratu"
+    },
+    "concentration_product_increase": {
+      "shift": "W stronę substratów (w lewo)",
+      "explanation": "Układ zużywa nadmiar produktu"
+    },
+    "catalyst_added": {
+      "shift": "Nie przesuwa równowagi",
+      "explanation": "Katalizator w jednakowym stopniu przyspiesza reakcję w kierunku prostym i odwrotnym"
+    }
   },
   "heat_classification": {
     "exothermic": "Reakcja egzotermiczna — przebiega z wydzielaniem ciepła (ΔH < 0)",

@@ -1,36 +1,31 @@
 {
-  "rate_factors": [
-    {
-      "factor_id": "temperature",
+  "rate_factors": {
+    "temperature": {
       "name": "Temperatura",
       "effect": "El aumento de temperatura aumenta la velocidad de reacción",
       "detail": "Regla de Van't Hoff: por cada aumento de 10 °C, la velocidad se incrementa de 2 a 4 veces. Las partículas se mueven más rápido y colisionan con mayor frecuencia con energía suficiente."
     },
-    {
-      "factor_id": "concentration",
+    "concentration": {
       "name": "Concentración de los reactivos",
       "effect": "El aumento de concentración aumenta la velocidad de reacción",
       "detail": "Más partículas por unidad de volumen significan más colisiones. Para gases: el aumento de presión incrementa la concentración."
     },
-    {
-      "factor_id": "surface_area",
+    "surface_area": {
       "name": "Área de superficie",
       "effect": "La trituración del sólido aumenta la velocidad",
       "detail": "Más puntos de contacto entre los reactivos. Ejemplo: el polvo de hierro reacciona más rápido que un trozo sólido."
     },
-    {
-      "factor_id": "catalyst",
+    "catalyst": {
       "name": "Catalizador",
       "effect": "Reduce la energía de activación, acelera la reacción",
       "detail": "El catalizador ofrece una vía de reacción alternativa con menor energía de activación. No se consume en el proceso."
     },
-    {
-      "factor_id": "nature_of_reagents",
+    "nature_of_reagents": {
       "name": "Naturaleza de los reactivos",
       "effect": "Diferentes sustancias reaccionan a diferentes velocidades",
       "detail": "Las reacciones iónicas en solución son prácticamente instantáneas. Las reacciones que involucran ruptura de enlaces covalentes son más lentas."
     }
-  ],
+  },
   "catalyst_properties": {
     "changes": [
       "Velocidad de reacción (la aumenta)",
@@ -44,65 +39,54 @@
       "Cantidad de productos en reacción completa"
     ]
   },
-  "common_catalysts": [
-    {
-      "catalyst": "MnO₂",
+  "common_catalysts": {
+    "MnO₂": {
       "name": "óxido de manganeso(IV)",
       "reaction": "Descomposición del peróxido de hidrógeno: 2H₂O₂ → 2H₂O + O₂↑"
     },
-    {
-      "catalyst": "V₂O₅",
+    "V₂O₅": {
       "name": "óxido de vanadio(V)",
-      "reaction": "Oxidación de SO₂: 2SO₂ + O₂ → 2SO₃ (método de contacto)"
+      "reaction": "Oxidación de SO₂: 2SO₂ + O₂ → 2SO₃ (proceso de contacto)"
     },
-    {
-      "catalyst": "Fe",
+    "Fe": {
       "name": "hierro (esponjoso)",
-      "reaction": "Síntesis de amoníaco: N₂ + 3H₂ → 2NH₃ (proceso de Haber)"
+      "reaction": "Síntesis de amoníaco: N₂ + 3H₂ → 2NH₃ (proceso Haber)"
     },
-    {
-      "catalyst": "Pt",
+    "Pt": {
       "name": "platino",
       "reaction": "Oxidación del amoníaco: 4NH₃ + 5O₂ → 4NO + 6H₂O"
     }
-  ],
-  "equilibrium_shifts": [
-    {
-      "factor": "temperature_increase",
+  },
+  "equilibrium_shifts": {
+    "temperature_increase": {
       "shift": "Hacia la reacción endotérmica",
-      "explanation": "El sistema absorbe el calor excesivo (principio de Le Chatelier)"
+      "explanation": "El sistema absorbe el calor excedente (principio de Le Chatelier)"
     },
-    {
-      "factor": "temperature_decrease",
+    "temperature_decrease": {
       "shift": "Hacia la reacción exotérmica",
-      "explanation": "El sistema tiende a liberar calor para compensar"
+      "explanation": "El sistema libera calor para compensar"
     },
-    {
-      "factor": "pressure_increase",
-      "shift": "Hacia el menor número de moles de gas",
+    "pressure_increase": {
+      "shift": "Hacia menor número de moles de gas",
       "explanation": "El sistema tiende a disminuir la presión"
     },
-    {
-      "factor": "pressure_decrease",
-      "shift": "Hacia el mayor número de moles de gas",
+    "pressure_decrease": {
+      "shift": "Hacia mayor número de moles de gas",
       "explanation": "El sistema tiende a aumentar la presión"
     },
-    {
-      "factor": "concentration_reactant_increase",
-      "shift": "Hacia los productos (a la derecha)",
+    "concentration_reactant_increase": {
+      "shift": "Hacia los productos (derecha)",
       "explanation": "El sistema consume el exceso de reactivo"
     },
-    {
-      "factor": "concentration_product_increase",
-      "shift": "Hacia los reactivos (a la izquierda)",
+    "concentration_product_increase": {
+      "shift": "Hacia los reactivos (izquierda)",
       "explanation": "El sistema consume el exceso de producto"
     },
-    {
-      "factor": "catalyst_added",
+    "catalyst_added": {
       "shift": "No desplaza el equilibrio",
-      "explanation": "El catalizador acelera igualmente la reacción directa e inversa"
+      "explanation": "Un catalizador acelera por igual la reacción directa e inversa"
     }
-  ],
+  },
   "heat_classification": {
     "exothermic": "Reacción exotérmica: transcurre con liberación de calor (ΔH < 0)",
     "endothermic": "Reacción endotérmica: transcurre con absorción de calor (ΔH > 0)",

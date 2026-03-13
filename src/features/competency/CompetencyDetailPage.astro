@@ -13,6 +13,7 @@ import SolubilityTable from '../../features/reactions/SolubilityTable';
 import type { SupportedLocale } from '../../types/i18n';
 import { localizeUrl, SITE_NAME } from '../../lib/i18n';
 import { loadBuildOverlay } from '../../lib/build-overlay';
+import { cachedReadDerived } from '../../lib/build-data-cache';
 import * as m from '../../paraglide/messages.js';
 import type { Props } from './competency-detail-paths';
 
@@ -31,6 +32,131 @@ const competency = applyCompOverlay(baseCompetency, baseCompetency.id);
 const prereqs = basePrereqs.map(p => applyCompOverlay(p, p.id));
 const unlocks = baseUnlocks.map(u => applyCompOverlay(u, u.id));
 const cid = competency.id;
+
+// ── Apply locale overlays to content data ────────────────────────
+/** Shallow-merge overlay fields into each array item, keyed by `keyField`. */
+function applyArrayOverlay<T extends Record<string, unknown>>(
+  items: T[],
+  overlay: Record<string, Record<string, unknown>> | null,
+  keyField: string,
+): T[] {
+  if (!overlay) return items;
+  return items.map(item => {
+    const key = item[keyField] as string;
+    const patch = overlay[key];
+    return patch ? { ...item, ...patch } as T : item;
+  });
+}
+
+/** Deep-merge energy_catalyst_theory overlay. */
+function applyEnergyOverlay(
+  theory: Record<string, unknown>,
+  overlay: Record<string, Record<string, unknown>> | null,
+): Record<string, unknown> {
+  if (!overlay) return theory;
+  const result = { ...theory };
+  // rate_factors: array of {factor_id, name, effect, detail, ...}
+  if (overlay.rate_factors && Array.isArray(result.rate_factors)) {
+    const rfOverlay = overlay.rate_factors as unknown as Record<string, Record<string, unknown>>;
+    result.rate_factors = (result.rate_factors as Record<string, unknown>[]).map(f => {
+      const patch = rfOverlay[f.factor_id as string];
+      return patch ? { ...f, ...patch } : f;
+    });
+  }
+  // catalyst_properties: {changes: string[], does_not_change: string[]}
+  if (overlay.catalyst_properties) {
+    result.catalyst_properties = { ...(result.catalyst_properties as object), ...overlay.catalyst_properties };
+  }
+  // common_catalysts: array of {catalyst, name, reaction}, overlay keyed by catalyst
+  if (overlay.common_catalysts && Array.isArray(result.common_catalysts)) {
+    const ccOverlay = overlay.common_catalysts as unknown as Record<string, Record<string, unknown>>;
+    result.common_catalysts = (result.common_catalysts as Record<string, unknown>[]).map(c => {
+      const patch = ccOverlay[c.catalyst as string];
+      return patch ? { ...c, ...patch } : c;
+    });
+  }
+  // equilibrium_shifts: array of {factor, shift, explanation}, overlay keyed by factor
+  if (overlay.equilibrium_shifts && Array.isArray(result.equilibrium_shifts)) {
+    const esOverlay = overlay.equilibrium_shifts as unknown as Record<string, Record<string, unknown>>;
+    result.equilibrium_shifts = (result.equilibrium_shifts as Record<string, unknown>[]).map(s => {
+      const patch = esOverlay[s.factor as string];
+      return patch ? { ...s, ...patch } : s;
+    });
+  }
+  // heat_classification: {exothermic, endothermic, examples_exo, examples_endo}
+  if (overlay.heat_classification) {
+    result.heat_classification = { ...(result.heat_classification as object), ...overlay.heat_classification };
+  }
+  return result;
+}
+
+// Load overlays per content type and apply
+const cp = { ...contentProps };
+if (cp.type === 'exchange') {
+  const [tmplOverlay, ruleTexts] = await Promise.all([
+    loadBuildOverlay(locale, 'reaction_templates'),
+    cachedReadDerived<Array<{ rule_id: string; slots: { canonical_summary?: Record<string, string> } }>>(
+      ['rules', 'rule_texts'],
+    ),
+  ]);
+  cp.templates = applyArrayOverlay(cp.templates as Record<string, unknown>[], tmplOverlay, 'id');
+  // Build localized driving force entries from rule_texts.
+  // Only include exchange-relevant rule types; deduplicate by text.
+  const DRIVING_FORCE_TYPES = new Set([
+    'exchange_reaction_condition', 'gas_forming_condition',
+  ]);
+  if (ruleTexts) {
+    const baseRules = cp.rules as Record<string, unknown>[];
+    const typeById = new Map(baseRules.map(r => [r.id as string, r.type as string]));
+    const seen = new Set<string>();
+    cp.rules = ruleTexts
+      .filter(rt => DRIVING_FORCE_TYPES.has(typeById.get(rt.rule_id) ?? ''))
+      .map(rt => ({
+        id: rt.rule_id,
+        text: rt.slots.canonical_summary?.[locale] ?? rt.slots.canonical_summary?.ru ?? '',
+      }))
+      .filter(r => {
+        if (!r.text || seen.has(r.text)) return false;
+        seen.add(r.text);
+        return true;
+      });
+  }
+} else if (cp.type === 'rate' || cp.type === 'catalyst') {
+  const ecOverlay = await loadBuildOverlay(locale, 'energy_catalyst_theory');
+  if (cp.type === 'rate') {
+    cp.theory = applyEnergyOverlay(cp.theory as Record<string, unknown>, ecOverlay);
+  } else {
+    const patched = applyEnergyOverlay(
+      { catalyst_properties: cp.catalystProperties, common_catalysts: cp.commonCatalysts } as Record<string, unknown>,
+      ecOverlay,
+    );
+    cp.catalystProperties = patched.catalyst_properties;
+    cp.commonCatalysts = patched.common_catalysts;
+  }
+} else if (cp.type === 'classRules') {
+  const crOverlay = await loadBuildOverlay(locale, 'classification_rules');
+  cp.rules = applyArrayOverlay(cp.rules as Record<string, unknown>[], crOverlay, 'id');
+} else if (cp.type === 'naming') {
+  const nrOverlay = await loadBuildOverlay(locale, 'naming_rules');
+  if (nrOverlay) {
+    cp.rules = (cp.rules as Record<string, unknown>[]).map(rule => {
+      const patch = nrOverlay[rule.id as string];
+      if (!patch) return rule;
+      const merged = { ...rule, ...patch };
+      // Deep-merge examples array if present
+      if (patch.examples && Array.isArray(patch.examples)) {
+        merged.examples = patch.examples;
+      }
+      return merged;
+    });
+  }
+} else if (cp.type === 'qualTests') {
+  const qtOverlay = await loadBuildOverlay(locale, 'qualitative_reactions');
+  cp.tests = applyArrayOverlay(cp.tests as Record<string, unknown>[], qtOverlay, 'target_id');
+} else if (cp.type === 'chains') {
+  const gcOverlay = await loadBuildOverlay(locale, 'genetic_chains');
+  cp.chains = applyArrayOverlay(cp.chains as Record<string, unknown>[], gcOverlay, 'chain_id');
+}
 ---
 
 <BaseLayout
@@ -234,13 +360,13 @@ const cid = competency.id;
         </div>
       )}
 
-      {contentProps.type === 'chains' && <ChainsContent chains={contentProps.chains as any} />}
-      {contentProps.type === 'qualTests' && <QualTestsContent tests={contentProps.tests as any} />}
-      {contentProps.type === 'rate' && <RateContent theory={contentProps.theory as any} />}
-      {contentProps.type === 'catalyst' && <CatalystContent catalystProperties={contentProps.catalystProperties as any} commonCatalysts={contentProps.commonCatalysts as any} />}
-      {contentProps.type === 'exchange' && <ExchangeContent templates={contentProps.templates as any} rules={contentProps.rules as any} />}
-      {contentProps.type === 'classRules' && <ClassRulesContent rules={contentProps.rules as any} />}
-      {contentProps.type === 'naming' && <NamingContent rules={contentProps.rules as any} />}
+      {cp.type === 'chains' && <ChainsContent chains={cp.chains as any} />}
+      {cp.type === 'qualTests' && <QualTestsContent tests={cp.tests as any} />}
+      {cp.type === 'rate' && <RateContent theory={cp.theory as any} />}
+      {cp.type === 'catalyst' && <CatalystContent catalystProperties={cp.catalystProperties as any} commonCatalysts={cp.commonCatalysts as any} />}
+      {cp.type === 'exchange' && <ExchangeContent templates={cp.templates as any} rules={cp.rules as any} />}
+      {cp.type === 'classRules' && <ClassRulesContent rules={cp.rules as any} />}
+      {cp.type === 'naming' && <NamingContent rules={cp.rules as any} />}
     </section>
 
     <section class="comp-page__section">

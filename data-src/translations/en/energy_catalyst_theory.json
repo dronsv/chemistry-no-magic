@@ -40,12 +40,52 @@
     ]
   },
   "common_catalysts": {
-    "name": "platinum",
-    "reaction": "Oxidation of ammonia: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+    "MnO₂": {
+      "name": "manganese(IV) oxide",
+      "reaction": "Decomposition of hydrogen peroxide: 2H₂O₂ → 2H₂O + O₂↑"
+    },
+    "V₂O₅": {
+      "name": "vanadium(V) oxide",
+      "reaction": "Oxidation of SO₂: 2SO₂ + O₂ → 2SO₃ (contact process)"
+    },
+    "Fe": {
+      "name": "iron (sponge)",
+      "reaction": "Ammonia synthesis: N₂ + 3H₂ → 2NH₃ (Haber process)"
+    },
+    "Pt": {
+      "name": "platinum",
+      "reaction": "Oxidation of ammonia: 4NH₃ + 5O₂ → 4NO + 6H₂O"
+    }
   },
   "equilibrium_shifts": {
-    "shift": "Does not shift equilibrium",
-    "explanation": "A catalyst speeds up both the forward and reverse reactions equally"
+    "temperature_increase": {
+      "shift": "Toward the endothermic reaction",
+      "explanation": "The system absorbs excess heat (Le Chatelier's principle)"
+    },
+    "temperature_decrease": {
+      "shift": "Toward the exothermic reaction",
+      "explanation": "The system releases heat to compensate"
+    },
+    "pressure_increase": {
+      "shift": "Toward fewer moles of gas",
+      "explanation": "The system tends to decrease pressure"
+    },
+    "pressure_decrease": {
+      "shift": "Toward more moles of gas",
+      "explanation": "The system tends to increase pressure"
+    },
+    "concentration_reactant_increase": {
+      "shift": "Toward products (right)",
+      "explanation": "The system consumes excess reactant"
+    },
+    "concentration_product_increase": {
+      "shift": "Toward reactants (left)",
+      "explanation": "The system consumes excess product"
+    },
+    "catalyst_added": {
+      "shift": "Does not shift equilibrium",
+      "explanation": "A catalyst speeds up both the forward and reverse reactions equally"
+    }
   },
   "heat_classification": {
     "exothermic": "Exothermic reaction — proceeds with release of heat (ΔH < 0)",

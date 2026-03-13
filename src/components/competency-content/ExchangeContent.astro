@@ -11,16 +11,14 @@ interface ReactionTemplate {
   examples: { reactants: string[]; products: string[] }[];
 }
 
-interface ApplicabilityRule {
+interface DrivingForce {
   id: string;
-  type: string;
-  condition: string;
-  description: string;
+  text: string;
 }
 
 interface Props {
   templates: ReactionTemplate[];
-  rules: ApplicabilityRule[];
+  rules: DrivingForce[];
 }
 
 const { templates, rules } = Astro.props;
@@ -31,8 +29,8 @@ const exchangeTemplates = templates.filter(t => t.type === 'exchange');
 <table class="comp-content__table">
   <thead>
     <tr>
-      <th>Шаблон</th>
-      <th>Примеры</th>
+      <th>{m.comp_content_th_pattern()}</th>
+      <th>{m.rxn_theory_examples()}</th>
     </tr>
   </thead>
   <tbody>
@@ -59,7 +57,7 @@ const exchangeTemplates = templates.filter(t => t.type === 'exchange');
     <p class="comp-content__subtitle">{m.rxn_theory_forces()}</p>
     <ul class="comp-content__list">
       {rules.map(r => (
-        <li><strong>{r.condition}</strong> — {r.description}</li>
+        <li>{r.text}</li>
       ))}
     </ul>
   </>

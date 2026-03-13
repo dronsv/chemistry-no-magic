@@ -1,4 +1,6 @@
 ---
+import * as m from '../../paraglide/messages.js';
+
 interface NamingExample {
   formula: string;
   name: string;
@@ -17,11 +19,11 @@ interface Props {
 
 const { rules } = Astro.props;
 
-const classLabels: Record<string, string> = {
-  oxide: 'Оксиды',
-  acid: 'Кислоты',
-  base: 'Основания',
-  salt: 'Соли',
+const classLabels: Record<string, () => string> = {
+  oxide: m.comp_class_oxide,
+  acid: m.comp_class_acid,
+  base: m.comp_class_base,
+  salt: m.comp_class_salt,
 };
 
 const grouped = new Map<string, NamingRule[]>();
@@ -34,7 +36,7 @@ for (const r of rules) {
 
 {[...grouped.entries()].map(([cls, items]) => (
   <div style="margin-bottom: var(--space-md);">
-    <p class="comp-content__subtitle">{classLabels[cls] ?? cls}</p>
+    <p class="comp-content__subtitle">{classLabels[cls] ? classLabels[cls]() : cls}</p>
     {items.map(rule => (
       <div class="comp-content__chain">
         <div class="comp-content__chain-title">{rule.template}</div>

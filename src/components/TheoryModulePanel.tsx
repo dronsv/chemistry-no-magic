@@ -280,7 +280,7 @@ export function applyTheoryModuleOverlay(
         const bo = blockOverlays[overlayIdx++];
         if (!bo) return block;
 
-        if (block.t === 'paragraph' && bo.text) {
+        if ((block.t === 'paragraph' || block.t === 'equation') && bo.text) {
           return { ...block, text: bo.text as string };
         }
         if (block.t === 'rule_card') {
