@@ -24,6 +24,15 @@
     "q:density": {
       "name": "плотность"
     },
+    "q:relative_atomic_mass": {
+      "name": "относительная атомная масса"
+    },
+    "q:charge": {
+      "name": "электрический заряд"
+    },
+    "q:atom_count": {
+      "name": "число атомов"
+    },
     "q:molar_mass": {
       "name": "молярная масса"
     },
@@ -47,6 +56,15 @@
     },
     "q:condition": {
       "name": "качественное условие"
+    },
+    "q:atom_count_in_composition": {
+      "name": "число атомов в составе"
+    },
+    "q:component_molar_mass_contribution": {
+      "name": "вклад компонента в молярную массу"
+    },
+    "q:component_mass_fraction": {
+      "name": "массовая доля компонента"
     }
   },
   "units": {
@@ -133,6 +151,18 @@
     },
     "unit:enum": {
       "name": "enum"
+    },
+    "unit:degF": {
+      "name": "°F"
+    },
+    "unit:dimensionless": {
+      "name": "безразмерная"
+    },
+    "unit:C": {
+      "name": "Кл"
+    },
+    "unit:elementary_charge": {
+      "name": "e"
     }
   }
 }
