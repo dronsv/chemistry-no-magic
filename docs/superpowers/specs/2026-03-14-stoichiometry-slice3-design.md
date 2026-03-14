@@ -87,7 +87,7 @@ When `M` is not in knowns but `entity_ref` is on the QRef context, M is auto-der
 
 ### Role binding rules
 
-- `q:molar_mass` — always role-less. M is a property of the substance, not of its participation role.
+- `q:molar_mass` — semantically, M is a property of the substance, not of its participation role. Distinguished by `context.entity_ref`. However, in stoichiometry orchestration context, M knowns also carry `role: 'reactant'`/`'product'` for non-fragile matching (avoids positional or cross-referencing logic). This pragmatic addition is specific to the stoichiometry chain; in other contexts M remains role-less.
 - `q:amount`, `q:mass` — carry participant role (`reactant`/`product`) in stoichiometry context.
 - `q:yield` — carries no participant role. The `actual`/`theoretical` distinction for mass values is not expressed through `QRef.role`; it is handled internally by helpers and recorded as trace-level semantics.
 - Stoichiometric coefficients (`ν`) — passed as plain knowns with quantity `q:stoich_coeff` and role `reactant`/`product`. These are context inputs, not ontology quantities.
@@ -170,14 +170,14 @@ const findEntityRef = 'substance:' + String(slots.find_formula);
 const knowns = [
   { qref: { quantity: 'q:mass', role: 'reactant' as SemanticRole }, value: Number(slots.given_mass) },
   { qref: { quantity: 'q:stoich_coeff', role: 'reactant' as SemanticRole }, value: Number(slots.given_coeff) },
-  { qref: { quantity: 'q:molar_mass', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: Number(slots.given_M) },
+  { qref: { quantity: 'q:molar_mass', role: 'reactant' as SemanticRole, context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: Number(slots.given_M) },
   { qref: { quantity: 'q:stoich_coeff', role: 'product' as SemanticRole }, value: Number(slots.find_coeff) },
-  { qref: { quantity: 'q:molar_mass', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: Number(slots.find_M) },
+  { qref: { quantity: 'q:molar_mass', role: 'product' as SemanticRole, context: { system_type: 'substance', entity_ref: findEntityRef } }, value: Number(slots.find_M) },
 ];
 const target: QRef = { quantity: 'q:mass', role: 'product' as SemanticRole };
 ```
 
-The two `q:molar_mass` knowns are distinguished by `context.entity_ref` — without it, `qrefKey()` would produce identical keys and one value would overwrite the other. M remains role-less; the context identifies which substance, not which participant role.
+The two `q:molar_mass` knowns are distinguished by both `role` and `context.entity_ref`. The `role` enables the stoichiometry orchestrator to match M to the correct participant side without fragile positional logic. The `context.entity_ref` provides substance identity for auto-derivation and provenance. In non-stoichiometry contexts, M remains role-less.
 
 When M is NOT in slots (future scenario), the knowns omit the molar mass entries entirely and the helpers auto-derive M from the `entity_ref` via `deriveMolarMass()`.
 
