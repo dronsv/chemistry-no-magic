@@ -16,6 +16,8 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.webmanifest">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href={`${siteUrl}/`}>
@@ -245,6 +247,14 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
         });
       }
     })();
+  </script>
+
+  <script is:inline>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
   </script>
 
 </body>
