@@ -4,12 +4,14 @@ import type { ReactNode } from 'react';
 import type { TheoryModule, TheorySection, TheoryBlock } from '../types/theory-module';
 import type { OxRule, OxRulesData } from '../types/oxidation-rules';
 import type { SupportedLocale } from '../types/i18n';
-import { loadTheoryModule, loadTheoryModuleOverlay, loadOxidationRules, loadFormulas, loadConstants } from '../lib/data-loader';
+import { loadTheoryModule, loadTheoryModuleOverlay, loadOxidationRules, loadFormulas, loadConstants, loadQuantityNames } from '../lib/data-loader';
 import type { ComputableFormula, PhysicalConstant } from '../types/formula';
 import { formulaToDisplayString } from '../lib/formula-evaluator';
 import CollapsibleSection, { useTheoryPanelState } from './CollapsibleSection';
 import FormulaChip from './FormulaChip';
 import ChemText from './ChemText';
+import RichTextRenderer from './RichTextRenderer';
+import { QuantityLookupProvider, type QuantityLookup } from './OntologyRef';
 import * as m from '../paraglide/messages.js';
 
 // ---------------------------------------------------------------------------
@@ -226,8 +228,8 @@ function renderBlock(
       return renderComponentSlot(block.component, block.props, locale);
 
     case 'text_block':
-      // Legacy: just render the RichText inline — import lazily to avoid circular
-      return null; // handled by ConceptModuleIsland; not used in new modules
+      if (!block.content || block.content.length === 0) return null;
+      return <p className="theory-module__p"><RichTextRenderer segments={block.content} locale={locale} /></p>;
 
     case 'concept_card':
       // concept_card is used by ConceptModuleIsland; TheoryModulePanel shows a stub
@@ -351,6 +353,9 @@ export function applyTheoryModuleOverlay(
             ...(bo.content ? { content: bo.content as string } : {}),
           };
         }
+        if (block.t === 'text_block' && bo.content) {
+          return { ...block, content: bo.content as import('../types/ontology-ref').RichText };
+        }
         return block;
       });
 
@@ -382,6 +387,7 @@ export default function TheoryModulePanel({
   const [module, setModule] = useState<TheoryModule | null>(null);
   const [rulesById, setRulesById] = useState<Record<string, OxRule> | null>(null);
   const [formulaData, setFormulaData] = useState<FormulaData>({ formulas: {}, constants: [] });
+  const [quantityNames, setQuantityNames] = useState<QuantityLookup | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [open, toggleOpen] = useTheoryPanelState(pageKey);
@@ -404,12 +410,29 @@ export default function TheoryModulePanel({
         const needsFormulas = finalMod.sections.some(s =>
           s.blocks.some(b => b.t === 'equation' && 'formula_id' in b && b.formula_id),
         );
+        // Load quantity names if any text_block has ref segments (for OntologyRef tooltips)
+        const needsQuantityNames = finalMod.sections.some(s =>
+          s.blocks.some(b => b.t === 'text_block' && b.content?.some(
+            seg => seg.t === 'ref' && (seg.id.startsWith('q:') || seg.id.startsWith('unit:')),
+          )),
+        );
+
+        const promises: Promise<unknown>[] = [];
         if (needsFormulas) {
-          const [formulas, constants] = await Promise.all([loadFormulas(), loadConstants()]);
-          const map: FormulaMap = {};
-          for (const f of formulas) map[f.id] = f;
-          setFormulaData({ formulas: map, constants });
+          promises.push(
+            Promise.all([loadFormulas(), loadConstants()]).then(([formulas, constants]) => {
+              const map: FormulaMap = {};
+              for (const f of formulas) map[f.id] = f;
+              setFormulaData({ formulas: map, constants });
+            }),
+          );
         }
+        if (needsQuantityNames) {
+          promises.push(
+            loadQuantityNames(locale).then(names => setQuantityNames(names)),
+          );
+        }
+        await Promise.all(promises);
 
         setModule(finalMod);
         if (oxRules) {
@@ -437,14 +460,16 @@ export default function TheoryModulePanel({
       </button>
 
       {open && (
-        <div className="theory-panel__content">
-          {loading && <div className="theory-panel__loading">{m.loading()}</div>}
-          {error && <div className="theory-panel__error">{error}</div>}
+        <QuantityLookupProvider value={quantityNames}>
+          <div className="theory-panel__content">
+            {loading && <div className="theory-panel__loading">{m.loading()}</div>}
+            {error && <div className="theory-panel__error">{error}</div>}
 
-          {module && module.sections.map(section =>
-            renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaData),
-          )}
-        </div>
+            {module && module.sections.map(section =>
+              renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaData),
+            )}
+          </div>
+        </QuantityLookupProvider>
       )}
     </div>
   );

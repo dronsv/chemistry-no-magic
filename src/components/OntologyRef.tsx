@@ -1,4 +1,5 @@
-import { useMemo } from 'react';
+import { createContext, useContext, useMemo } from 'react';
+import type { ReactNode } from 'react';
 import type { SupportedLocale } from '../types/i18n';
 import type { OntRef } from '../types/ontology-ref';
 import { toOntRefStr } from '../lib/ontology-ref';
@@ -8,6 +9,33 @@ import FormulaChip from './FormulaChip';
 import ConceptRef from './ConceptRef';
 import type { FormulaLookup } from '../types/formula-lookup';
 import './ontology-ref.css';
+
+// ---------------------------------------------------------------------------
+// Quantity/unit name lookup context
+// ---------------------------------------------------------------------------
+
+/** Maps full IDs ("q:molar_mass", "unit:g_per_mol") to localized names. */
+export type QuantityLookup = Record<string, string>;
+
+const QuantityLookupCtx = createContext<QuantityLookup | null>(null);
+
+export function QuantityLookupProvider({
+  value,
+  children,
+}: {
+  value: QuantityLookup | null;
+  children: ReactNode;
+}) {
+  return (
+    <QuantityLookupCtx.Provider value={value}>
+      {children}
+    </QuantityLookupCtx.Provider>
+  );
+}
+
+export function useQuantityLookup(): QuantityLookup | null {
+  return useContext(QuantityLookupCtx);
+}
 
 /** Build reverse map: `type:id` → display formula string */
 function buildReverseMap(lookup: FormulaLookup | null): Map<string, string> {
@@ -29,6 +57,7 @@ interface OntologyRefProps {
 
 export default function OntologyRef({ ontRef, variant = 'chip', form, surface, locale }: OntologyRefProps) {
   const formulaLookup = useFormulaLookup();
+  const quantityLookup = useQuantityLookup();
 
   const reverseMap = useMemo(() => buildReverseMap(formulaLookup), [formulaLookup]);
 
@@ -97,6 +126,21 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
       <a className="ont-ref ont-ref--reaction" href={href}>
         {label}
       </a>
+    );
+  }
+
+  // Quantity / Unit: styled inline reference with ontology name tooltip
+  if (kind === 'quantity' || kind === 'unit') {
+    const label = surface ?? id;
+    const fullId = kind === 'quantity' ? `q:${id}` : `unit:${id}`;
+    const name = quantityLookup?.[fullId];
+    return (
+      <span className={`ont-ref ont-ref--${kind}`} style={name ? { position: 'relative' } : undefined}>
+        {label}
+        {name && (
+          <span className="ont-ref__tooltip">{name}</span>
+        )}
+      </span>
     );
   }
 

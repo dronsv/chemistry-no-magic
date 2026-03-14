@@ -957,6 +957,28 @@ export async function loadQuantitiesUnits(): Promise<QuantitiesUnitsOntology> {
   return loadDataFile<QuantitiesUnitsOntology>(path);
 }
 
+/** Load localized quantity/unit names: maps full IDs (e.g. "q:molar_mass") to translated names. */
+export async function loadQuantityNames(
+  locale: SupportedLocale,
+): Promise<Record<string, string>> {
+  const overlay = await loadTranslationOverlay(locale, 'quantities_units_ontology');
+  const result: Record<string, string> = {};
+  if (!overlay) return result;
+  const quantities = overlay.quantities as Record<string, { name?: string }> | undefined;
+  const units = overlay.units as Record<string, { name?: string }> | undefined;
+  if (quantities) {
+    for (const [id, entry] of Object.entries(quantities)) {
+      if (entry.name) result[id] = entry.name;
+    }
+  }
+  if (units) {
+    for (const [id, entry] of Object.entries(units)) {
+      if (entry.name) result[id] = entry.name;
+    }
+  }
+  return result;
+}
+
 /** Load a molecule structure by substance ID. */
 export async function loadStructure(id: string): Promise<MoleculeStructure> {
   const manifest = await getManifest();

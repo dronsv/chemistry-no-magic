@@ -39,6 +39,14 @@
 .ont-ref--substance { background: #f1f5f9; color: #475569; }
 .ont-ref--ion { background: #f1f5f9; color: #475569; }
 
+/* Quantity (physical quantities: mass, molar mass, Ar, charge...) */
+.ont-ref--quantity { background: #fef9c3; color: #854d0e; cursor: default; }
+.ont-ref--quantity:hover { text-decoration: none; }
+
+/* Unit (measurement units: g, mol, °C, J...) */
+.ont-ref--unit { background: #f0fdf4; color: #166534; cursor: default; }
+.ont-ref--unit:hover { text-decoration: none; }
+
 /* Tooltip (same pattern as FormulaChip) */
 .ont-ref__tooltip {
   position: absolute;

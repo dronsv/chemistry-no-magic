@@ -10,6 +10,8 @@ export type OntRefKind =
   | 'reaction_facet'
   | 'process'
   | 'property'
+  | 'quantity'
+  | 'unit'
   | 'context';
 
 /** Typed entity reference */

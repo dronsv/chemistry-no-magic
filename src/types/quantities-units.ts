@@ -1,6 +1,7 @@
 export interface QuantityDef {
   id: string;
   name: string;
+  display_symbol?: string;
   dimension: string;
   recommended_units: string[];
   optional?: boolean;
