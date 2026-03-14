@@ -40,10 +40,8 @@ scripts/deploy.sh
 Docs/
 docs/plans/
 
-# screenshots
-*.png
-!public/og-default.png
-!public/favicon-32.png
+# screenshots (saved to /tmp by convention; block root-level strays)
+/*.png
 
 # playwright
 .playwright-mcp/
