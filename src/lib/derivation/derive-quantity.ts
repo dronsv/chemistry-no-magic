@@ -9,6 +9,7 @@ import { executePlan } from './derivation-executor';
 import { qrefKey } from './qref';
 import { evaluateFormula } from '../formula-evaluator';
 import { deriveMolarMass } from './molar-mass-resolver';
+import { hasStoichiometricKnowns, deriveStoichiometryChain } from './stoichiometry-helpers';
 
 export interface DeriveQuantityArgs {
   target: QRef;
@@ -74,6 +75,14 @@ export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
     const value = deriveMassFractionOfComponent(entityRef, parentRef, formulas, constants, ontology, trace);
     trace.push({ type: 'conclusion', target, value });
     return { value, trace, isApproximate: false };
+  }
+
+  // Stoichiometry/yield: detected by presence of stoichiometric coefficient knowns.
+  // Must be checked BEFORE the single-substance q:mass/q:amount branch because
+  // stoichiometry targets have role but no context, while single-substance targets
+  // have context.system_type === 'substance'.
+  if (hasStoichiometricKnowns(knowns)) {
+    return deriveStoichiometryChain(target, knowns, formulas, constants, ontology, trace);
   }
 
   // Mass/amount of substance: derive M first, then formula chain

@@ -7,6 +7,7 @@ import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
 import type { Element } from '../../types/element';
 import type { QRef, ReasonStep } from '../../types/derivation';
 import type { OntologyAccess } from '../derivation/resolvers';
+import { deriveQuantity } from '../derivation/derive-quantity';
 
 // ── Data setup (same pattern as derive-quantity.test.ts) ─────────
 
@@ -210,5 +211,147 @@ describe('stoichiometry helper units', () => {
       expect(result.qref.quantity).toBe('q:yield');
       expect(result.qref.role).toBeUndefined();
     });
+  });
+});
+
+// ── Integration tests via deriveQuantity() ───────────────────────
+
+describe('deriveQuantity stoichiometry', () => {
+  // H₂SO₄ + BaCl₂ → BaSO₄ + 2HCl  (coefficients: 1,1,1,2)
+  // M(H2SO4) ≈ 98.08, M(BaSO4) ≈ 233.39
+
+  function stoichKnowns(overrides?: Record<string, unknown>) {
+    const givenEntityRef = 'substance:H2SO4';
+    const findEntityRef = 'substance:BaSO4';
+    const defaults: Array<{ qref: QRef; value: number }> = [
+      { qref: { quantity: 'q:mass', role: 'reactant' }, value: 9.8 },
+      { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: 1 },
+      { qref: { quantity: 'q:molar_mass', role: 'reactant', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: 98.08 },
+      { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: 1 },
+      { qref: { quantity: 'q:molar_mass', role: 'product', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: 233.39 },
+    ];
+    return defaults;
+  }
+
+  it('S1: mass→mass (reactant → product)', () => {
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: stoichKnowns(),
+      formulas, constants, ontology,
+    });
+    // n = 9.8/98.08 ≈ 0.0999, m = 0.0999 * 233.39 ≈ 23.32
+    expect(result.value).toBeCloseTo(23.32, 0);
+  });
+
+  it('S1 reverse: mass→mass (product → reactant)', () => {
+    const findEntityRef = 'substance:BaSO4';
+    const givenEntityRef = 'substance:H2SO4';
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'reactant' },
+      knowns: [
+        { qref: { quantity: 'q:mass', role: 'product' }, value: 23.34 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: 1 },
+        { qref: { quantity: 'q:molar_mass', role: 'product', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: 233.39 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: 1 },
+        { qref: { quantity: 'q:molar_mass', role: 'reactant', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: 98.08 },
+      ],
+      formulas, constants, ontology,
+    });
+    // n_product = 23.34/233.39 ≈ 0.1, n_reactant = 0.1, m = 0.1 * 98.08 ≈ 9.8
+    expect(result.value).toBeCloseTo(9.8, 0);
+  });
+
+  it('S2: amount→mass', () => {
+    const findEntityRef = 'substance:BaSO4';
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: [
+        { qref: { quantity: 'q:amount', role: 'reactant' }, value: 0.1 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: 1 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: 1 },
+        { qref: { quantity: 'q:molar_mass', role: 'product', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: 233.39 },
+      ],
+      formulas, constants, ontology,
+    });
+    expect(result.value).toBeCloseTo(23.34, 0);
+  });
+
+  it('S2r: mass→amount', () => {
+    const givenEntityRef = 'substance:H2SO4';
+    const result = deriveQuantity({
+      target: { quantity: 'q:amount', role: 'product' },
+      knowns: [
+        { qref: { quantity: 'q:mass', role: 'reactant' }, value: 9.8 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: 1 },
+        { qref: { quantity: 'q:molar_mass', role: 'reactant', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: 98.08 },
+        { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: 1 },
+      ],
+      formulas, constants, ontology,
+    });
+    // n = 9.8/98.08 * 1/1 ≈ 0.0999
+    expect(result.value).toBeCloseTo(0.1, 1);
+  });
+
+  it('S3: mass→mass with yield', () => {
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: [
+        ...stoichKnowns(),
+        { qref: { quantity: 'q:yield' }, value: 85 },
+      ],
+      formulas, constants, ontology,
+    });
+    // theoretical ≈ 23.32, actual = 23.32 * 85/100 ≈ 19.82
+    expect(result.value).toBeCloseTo(19.82, 0);
+  });
+
+  it('S3r: find yield (uses generic planner, not stoichiometry chain)', () => {
+    // S3r has no stoich coefficients — hasStoichiometricKnowns returns false.
+    // It falls through to the generic planner fallback, which handles formula:yield
+    // via semantic_role: 'actual'/'theoretical' on the formula variables.
+    // The 'actual'/'theoretical' roles here are formula-derived, not participant roles.
+    const result = deriveQuantity({
+      target: { quantity: 'q:yield' },
+      knowns: [
+        { qref: { quantity: 'q:mass', role: 'actual' }, value: 19.82 },
+        { qref: { quantity: 'q:mass', role: 'theoretical' }, value: 23.32 },
+      ],
+      formulas, constants, ontology,
+    });
+    expect(result.value).toBeCloseTo(85, 0);
+  });
+
+  it('trace for S1 contains expected step types', () => {
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: stoichKnowns(),
+      formulas, constants, ontology,
+    });
+    const types = result.trace.map(s => s.type);
+    // given steps first, then formula chains, then conclusion
+    expect(types).toContain('given');
+    expect(types).toContain('formula_select');
+    expect(types).toContain('substitution');
+    expect(types).toContain('compute');
+    expect(types).toContain('conclusion');
+    // Should reference both amount_from_mass and stoichiometry_ratio
+    const selects = traceStepsOfType(result.trace, 'formula_select');
+    const formulaIds = selects.map(s => s.formulaId);
+    expect(formulaIds).toContain('formula:amount_from_mass');
+    expect(formulaIds).toContain('formula:stoichiometry_ratio');
+  });
+
+  it('throws on incomplete stoichiometric signature', () => {
+    expect(() =>
+      deriveQuantity({
+        target: { quantity: 'q:mass', role: 'product' },
+        knowns: [
+          // Only one coefficient — not enough
+          { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: 1 },
+          { qref: { quantity: 'q:mass', role: 'reactant' }, value: 9.8 },
+        ],
+        formulas, constants, ontology,
+      }),
+    ).toThrow();
   });
 });
