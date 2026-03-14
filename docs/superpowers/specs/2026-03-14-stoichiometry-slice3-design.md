@@ -26,7 +26,7 @@ Extend `deriveQuantity()` to support single-source stoichiometry and reaction yi
 - Limiting reagent (multiple source reactants)
 - Excess reagent calculation
 - Post-reaction mixture composition
-- New formula definitions (all formulas already exist)
+- New formula or quantity definitions
 - Changes to planner, executor, evaluator, or trace types
 - Renderer changes for new trace patterns
 
@@ -39,7 +39,7 @@ Extend `deriveQuantity()` to support single-source stoichiometry and reaction yi
 1. **Neutral API.** Helper units take `fromRole`/`toRole` parameters — not hardwired reactant→product. Enables reverse derivations (product mass → reactant mass).
 2. **Typed results.** Every helper returns `{ qref: QRef; value: number }`, not bare numbers. Enables composition without losing provenance.
 3. **Signature-based branching.** `deriveQuantity()` selects the stoichiometry/yield branch by checking the presence of stoichiometric knowns (ν coefficients + source mass/amount), not just by target quantity name.
-4. **Separate role axes.** `reactant`/`product` = participant role (on `QRef.role`). `actual`/`theoretical` = derivation stage (on `QRef.role` for yield formula only). These are never mixed on the same axis.
+4. **Role = participant only.** `QRef.role` carries only participant roles: `reactant`/`product`. The `actual`/`theoretical` distinction is a derivation stage, not a participant role — it lives in trace semantics and helper-internal logic, never on `QRef.role`. Both theoretical and actual product mass have `role: 'product'`; the yield step in the trace explicitly marks the transition from theoretical to actual.
 5. **Transitional orchestration.** All new helper units are explicitly transitional — they manually chain formulas because the planner doesn't yet handle cross-role bridging. The planner and executor remain untouched.
 
 ### Helper unit decomposition
@@ -62,8 +62,9 @@ deriveMassForRole(role, n, M, ontology, trace)
   Auto-derives M from substance composition if not provided.
 
 applyYield(m_theoretical, eta, trace)
-  → { qref: QRef{q:mass, role: 'actual'}, value: number }
+  → { qref: QRef{q:mass, role: 'product'}, value: number }
   Uses: formula:yield solved for m_actual (eta in percent, matching formula convention)
+  Output keeps role: 'product' — the yield step in trace marks the theoretical→actual transition.
 
 deriveYield(m_actual, m_theoretical, trace)
   → { qref: QRef{q:yield}, value: number }
@@ -79,8 +80,8 @@ Branch selection in `deriveQuantity()` is by signature — checking which knowns
 | S1: mass→mass | m\|fromRole, M\|fromRole (or entity_ref), ν_from, ν_to, M\|toRole (or entity_ref) | q:mass\|toRole | m→n→n₂→m₂ |
 | S2: amount→mass | n\|fromRole, ν_from, ν_to, M\|toRole (or entity_ref) | q:mass\|toRole | n→n₂→m₂ |
 | S2r: mass→amount | m\|fromRole, M\|fromRole (or entity_ref), ν_from, ν_to | q:amount\|toRole | m→n→n₂ |
-| S3: with yield | S1 or S2 knowns + q:yield | q:mass\|actual | chain + yield |
-| S3r: find yield | m\|actual, m\|theoretical (or S1 chain) | q:yield | chain + η |
+| S3: with yield | S1 or S2 knowns + q:yield | q:mass\|product | chain + yield (trace marks theoretical→actual) |
+| S3r: find yield | m_actual + m_theoretical (or S1 chain) | q:yield | chain + η |
 
 When `M` is not in knowns but `entity_ref` is on the QRef context, M is auto-derived via the existing `deriveMolarMass()` function (currently private in `derive-quantity.ts` — must be exported in Step 1).
 
@@ -88,7 +89,7 @@ When `M` is not in knowns but `entity_ref` is on the QRef context, M is auto-der
 
 - `q:molar_mass` — always role-less. M is a property of the substance, not of its participation role.
 - `q:amount`, `q:mass` — carry participant role (`reactant`/`product`) in stoichiometry context.
-- `q:yield` — carries no participant role; operates on `actual`/`theoretical` mass values.
+- `q:yield` — carries no participant role. The `actual`/`theoretical` distinction for mass values is not expressed through `QRef.role`; it is handled internally by helpers and recorded as trace-level semantics.
 - Stoichiometric coefficients (`ν`) — passed as plain knowns with quantity `q:stoich_coeff` and role `reactant`/`product`. These are context inputs, not ontology quantities.
 
 ### Target QRef convention
@@ -96,6 +97,8 @@ When `M` is not in knowns but `entity_ref` is on the QRef context, M is auto-der
 The stoichiometry branch's **target QRef carries `quantity` + `role` only — no `context`**. Example: `{ quantity: 'q:mass', role: 'product' }`. This distinguishes it from the existing single-substance branch which checks `target.context?.system_type === 'substance'`.
 
 Intermediate QRefs in the trace _may_ carry `context.entity_ref` for rendering (e.g., to show which substance the M derivation refers to), but the entry-point target does not.
+
+**Limitation:** In Slice 3, target identity is resolved from the known signature and solver-provided metadata; target QRef itself remains context-free to avoid colliding with the existing single-substance branch. This means only one meaningful product target per `deriveQuantity()` call — sufficient for single-source stoichiometry.
 
 ### `deriveQuantity()` branch addition
 
@@ -108,7 +111,13 @@ if (hasStoichiometricKnowns(knowns)) {
 }
 ```
 
-`hasStoichiometricKnowns()` checks for at least two `q:stoich_coeff` knowns (one per role). This is the signature detection — it doesn't rely on target quantity name alone.
+`hasStoichiometricKnowns()` requires all three conditions:
+
+1. Two `q:stoich_coeff` knowns with different roles (one `reactant`, one `product`)
+2. At least one source-side quantity: `q:mass|fromRole` or `q:amount|fromRole`
+3. Enough target-side info to complete the chain: either `q:molar_mass` with matching `entity_ref` for the target substance, or an `entity_ref` context that enables auto-derivation
+
+This prevents the branch from activating on incomplete signatures where the fallback branch would be more appropriate.
 
 `deriveStoichiometryChain()` orchestrates the helper units in sequence based on which signature matches.
 
@@ -135,14 +144,14 @@ For reverse direction (product → reactant), `deriveStoichiometricAmount` calls
 
 ### Existing quantity IDs (no changes)
 
-- `q:mass` (g) — with role: reactant/product/actual/theoretical
+- `q:mass` (g) — with role: reactant/product (no actual/theoretical on role axis)
 - `q:amount` (mol) — with role: reactant/product
 - `q:molar_mass` (g/mol) — role-less
 - `q:yield` (percent) — role-less
 
-### New quantity usage
+### Known ontology inconsistency: `q:stoich_coeff`
 
-- `q:stoich_coeff` — NOT a new quantity in the ontology (it does not exist in `quantities_units_ontology.json`). Note: `formula:stoichiometry_ratio` references `q:stoich_coeff` in its variable definitions, which is an existing inconsistency — the formula references a quantity ID that the ontology doesn't define. This is acceptable because the planner won't discover stoichiometry formulas automatically (the helpers bypass the planner), and adding `q:stoich_coeff` to the ontology is deferred until the planner becomes context-aware. Stoichiometric coefficients are passed as pre-resolved knowns with `quantity: 'q:stoich_coeff'` and `role: 'reactant'`/`'product'`.
+Slice 3 requires no new ontology edits, but continues to rely on an existing inconsistency: `formula:stoichiometry_ratio` references `q:stoich_coeff` in its variable definitions, which is not defined in `quantities_units_ontology.json`. This is acceptable because the new helpers bypass planner discovery for stoichiometry — they call `evaluateFormula`/`formulaSolveFor` directly. Adding `q:stoich_coeff` to the ontology is deferred until the planner becomes context-aware. Stoichiometric coefficients are passed as pre-resolved knowns with `quantity: 'q:stoich_coeff'` and `role: 'reactant'`/`'product'`.
 
 ### Yield normalization
 
@@ -161,14 +170,16 @@ const findEntityRef = 'substance:' + String(slots.find_formula);
 const knowns = [
   { qref: { quantity: 'q:mass', role: 'reactant' as SemanticRole }, value: Number(slots.given_mass) },
   { qref: { quantity: 'q:stoich_coeff', role: 'reactant' as SemanticRole }, value: Number(slots.given_coeff) },
-  { qref: { quantity: 'q:molar_mass' }, value: Number(slots.given_M) },  // role-less, M already resolved
+  { qref: { quantity: 'q:molar_mass', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: Number(slots.given_M) },
   { qref: { quantity: 'q:stoich_coeff', role: 'product' as SemanticRole }, value: Number(slots.find_coeff) },
-  { qref: { quantity: 'q:molar_mass' }, value: Number(slots.find_M) },    // role-less, M already resolved
+  { qref: { quantity: 'q:molar_mass', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: Number(slots.find_M) },
 ];
 const target: QRef = { quantity: 'q:mass', role: 'product' as SemanticRole };
 ```
 
-When M is NOT in slots (future scenario), the knowns omit the molar mass entries and instead the helper auto-derives M from the entity_ref. In this case, entity_ref would be passed via context on a different known or as metadata in the args.
+The two `q:molar_mass` knowns are distinguished by `context.entity_ref` — without it, `qrefKey()` would produce identical keys and one value would overwrite the other. M remains role-less; the context identifies which substance, not which participant role.
+
+When M is NOT in slots (future scenario), the knowns omit the molar mass entries entirely and the helpers auto-derive M from the `entity_ref` via `deriveMolarMass()`.
 
 ### What the migration replaces
 
@@ -204,12 +215,12 @@ conclusion:     m(product) = 11.67 g
 
 ### S3 extension (with yield)
 
-After the S1 chain:
+After the S1 chain, the yield step explicitly marks the theoretical→actual transition:
 ```
 formula_select: formula:yield
 substitution:   m_theoretical=11.67, η=85
-compute:        m_actual(product) = 9.92
-conclusion:     m_actual(product) = 9.92 g
+compute:        m(product) = 9.92              (yield applied; trace marks this as actual)
+conclusion:     m(product) = 9.92 g
 ```
 
 ### Trace invariants
@@ -217,7 +228,7 @@ conclusion:     m_actual(product) = 9.92 g
 - Each helper unit appends its own steps to the shared `trace` array.
 - QRefs in trace carry `context.entity_ref` — renderer can show which substance.
 - Role appears on QRef (`role: 'reactant'`), not as a step type.
-- `actual`/`theoretical` appears on QRef role for yield-related values. The yield chain's output QRef uses `role: 'actual'`, NOT `role: 'product'` — even though the substance is a product. The role tracks the derivation stage (actual vs theoretical), not the reaction participant.
+- `actual`/`theoretical` is NOT expressed through `QRef.role`. Both theoretical and actual product mass carry `role: 'product'`. The yield step in trace (`formula_select: formula:yield`) explicitly marks the theoretical→actual transition. Helpers track this distinction internally.
 - M derivation steps (decompose/lookup/compute) are included only when M is auto-derived, not when M is a pre-resolved known.
 
 ---
