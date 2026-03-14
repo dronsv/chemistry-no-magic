@@ -1044,5 +1044,9 @@
   "dist_obs_blue_precipitate": "голубой осадок",
   "dist_obs_yellow_precipitate": "жёлтый осадок",
   "dist_obs_gas_evolution": "выделение газа",
-  "dist_obs_color_change": "изменение цвета"
+  "dist_obs_color_change": "изменение цвета",
+  "concept_show_criteria": "Показать критерии",
+  "concept_hide_criteria": "Скрыть критерии",
+  "concept_substances_heading": "Вещества ({count})",
+  "concept_reactions_heading": "Реакции ({count})"
 }

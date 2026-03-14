@@ -1044,5 +1044,9 @@
   "dist_obs_blue_precipitate": "precipitado azul",
   "dist_obs_yellow_precipitate": "precipitado amarillo",
   "dist_obs_gas_evolution": "desprendimiento de gas",
-  "dist_obs_color_change": "cambio de color"
+  "dist_obs_color_change": "cambio de color",
+  "concept_show_criteria": "Mostrar criterios",
+  "concept_hide_criteria": "Ocultar criterios",
+  "concept_substances_heading": "Sustancias ({count})",
+  "concept_reactions_heading": "Reacciones ({count})"
 }

@@ -35,14 +35,78 @@ const alternateUrls = alternateUrlsOverride ?? getAlternateUrls(canonicalPath);
 
 // Breadcrumb segments from URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+// Strip locale prefix from breadcrumb segments
+const contentSegments = (SUPPORTED_LOCALES as readonly string[]).includes(pathSegments[0])
+  ? pathSegments.slice(1)
+  : pathSegments;
+
+// Map canonical route slugs to localized nav labels
+const ROUTE_LABELS: Record<string, string> = {
+  'diagnostics': m.nav_diagnostics(),
+  'diagnostyka': m.nav_diagnostics(),
+  'diagnostico': m.nav_diagnostics(),
+  'periodic-table': m.nav_elements(),
+  'tablica-okresowa': m.nav_elements(),
+  'tabla-periodica': m.nav_elements(),
+  'substances': m.nav_substances(),
+  'substancje': m.nav_substances(),
+  'sustancias': m.nav_substances(),
+  'bonds': m.nav_bonds(),
+  'wiazania': m.nav_bonds(),
+  'enlaces': m.nav_bonds(),
+  'oxidation-states': m.nav_oxidation_states(),
+  'stopnie-utlenienia': m.nav_oxidation_states(),
+  'estados-oxidacion': m.nav_oxidation_states(),
+  'reactions': m.nav_reactions(),
+  'reakcje': m.nav_reactions(),
+  'reacciones': m.nav_reactions(),
+  'calculations': m.nav_calculations(),
+  'obliczenia': m.nav_calculations(),
+  'calculos': m.nav_calculations(),
+  'exam': m.nav_exam(),
+  'egzamin': m.nav_exam(),
+  'examen': m.nav_exam(),
+  'profile': m.nav_profile(),
+  'profil': m.nav_profile(),
+  'perfil': m.nav_profile(),
+  'search': m.nav_search(),
+  'szukaj': m.nav_search(),
+  'buscar': m.nav_search(),
+  'ions': m.nav_ions(),
+  'jony': m.nav_ions(),
+  'iones': m.nav_ions(),
+  'competencies': m.nav_competencies(),
+  'kompetencje': m.nav_competencies(),
+  'competencias': m.nav_competencies(),
+  'processes': m.nav_processes(),
+  'procesy': m.nav_processes(),
+  'procesos': m.nav_processes(),
+  'physical-foundations': m.nav_physical_foundations(),
+  'settings': m.nav_settings(),
+  'ustawienia': m.nav_settings(),
+  'ajustes': m.nav_settings(),
+};
+
+function breadcrumbName(seg: string, isLast: boolean): string {
+  if (isLast) return title;
+  if (ROUTE_LABELS[seg]) return ROUTE_LABELS[seg];
+  // Prettify: decode URI, replace hyphens with spaces, capitalize first letter
+  const decoded = decodeURIComponent(seg);
+  const pretty = decoded.replace(/-/g, ' ');
+  return pretty.charAt(0).toUpperCase() + pretty.slice(1);
+}
+
+// Build URL segments preserving locale prefix
+const localePrefix = (SUPPORTED_LOCALES as readonly string[]).includes(pathSegments[0])
+  ? `/${pathSegments[0]}` : '';
 const breadcrumbItems = [
   { name: m.breadcrumb_home(), url: `${siteUrl}/` },
-  ...pathSegments.map((seg, i) => ({
-    name: seg,
-    url: `${siteUrl}/${pathSegments.slice(0, i + 1).join('/')}/`,
+  ...contentSegments.map((seg, i) => ({
+    name: breadcrumbName(seg, i === contentSegments.length - 1),
+    url: `${siteUrl}${localePrefix}/${contentSegments.slice(0, i + 1).join('/')}/`,
   })),
 ];
-const breadcrumbLd = pathSegments.length > 0 ? {
+const breadcrumbLd = contentSegments.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": breadcrumbItems.map((item, i) => ({
@@ -89,15 +153,17 @@ const searchUrl = localizeUrl('/search/', locale);
       <meta property="og:locale:alternate" content={OG_LOCALE_MAP[l]} />
     ))}
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:image" content={ogImage ?? `${siteUrl}/og-default.png`} />
+    <meta property="og:image" content={ogImage ?? `${siteUrl}/og-default.webp`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={fullTitle} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage ?? `${siteUrl}/og-default.png`} />
+    <meta name="twitter:image" content={ogImage ?? `${siteUrl}/og-default.webp`} />
+    <meta name="twitter:image:alt" content={fullTitle} />
 
     <!-- Organization structured data (global) -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -166,17 +232,20 @@ const searchUrl = localizeUrl('/search/', locale);
         }
       });
       // Defer GA loading until browser is idle
+      // ru.chemistry.online → G-79E3NBFSM0, chemistry.online → G-HM75CEBJL9
       (function(){
         function loadGA() {
+          var host = location.hostname;
+          var gaId = host === 'ru.chemistry.online' ? 'G-79E3NBFSM0' : 'G-HM75CEBJL9';
           var s = document.createElement('script');
           s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9C5E41FJ81';
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
           document.head.appendChild(s);
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', 'G-9C5E41FJ81');
+          gtag('config', gaId);
         }
         if ('requestIdleCallback' in window) {
           requestIdleCallback(loadGA, { timeout: 3000 });
@@ -223,7 +292,7 @@ const searchUrl = localizeUrl('/search/', locale);
     <slot name="head" />
   </head>
   <body>
-    <Nav locale={locale} />
+    <Nav locale={locale} alternateUrls={alternateUrls} />
     <main class="container">
       <slot />
     </main>

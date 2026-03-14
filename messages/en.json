@@ -1044,5 +1044,9 @@
   "dist_obs_blue_precipitate": "blue precipitate",
   "dist_obs_yellow_precipitate": "yellow precipitate",
   "dist_obs_gas_evolution": "gas evolution",
-  "dist_obs_color_change": "color change"
+  "dist_obs_color_change": "color change",
+  "concept_show_criteria": "Show criteria",
+  "concept_hide_criteria": "Hide criteria",
+  "concept_substances_heading": "Substances ({count})",
+  "concept_reactions_heading": "Reactions ({count})"
 }

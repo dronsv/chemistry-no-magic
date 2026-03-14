@@ -4,11 +4,12 @@ import { SUPPORTED_LOCALES, getCanonicalPath, getAlternateUrls } from '../lib/i1
 
 interface Props {
   locale?: SupportedLocale;
+  alternateUrls?: Record<SupportedLocale, string>;
 }
 
 const locale = Astro.props.locale ?? (Astro.currentLocale as SupportedLocale) ?? 'ru';
 const { canonical } = getCanonicalPath(Astro.url.pathname);
-const alternateUrls = getAlternateUrls(canonical);
+const alternateUrls = Astro.props.alternateUrls ?? getAlternateUrls(canonical);
 
 const LOCALE_LABELS: Record<SupportedLocale, string> = {
   ru: 'RU',

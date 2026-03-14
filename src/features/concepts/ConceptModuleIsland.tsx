@@ -11,6 +11,7 @@ import RichTextRenderer from '../../components/RichTextRenderer';
 import FormulaChip from '../../components/FormulaChip';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../../lib/i18n';
+import * as m from '../../paraglide/messages.js';
 import './concept-module-island.css';
 
 interface Props {
@@ -204,7 +205,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
   }, [conceptId, locale, loc]);
 
   if (loading) {
-    return <div className="concept-island concept-island--loading">Загрузка...</div>;
+    return <div className="concept-island concept-island--loading">Loading...</div>;
   }
   if (error) {
     return <div className="concept-island concept-island--error">{error}</div>;
@@ -269,7 +270,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                 onClick={() => setShowCriteria(!showCriteria)}
                 aria-expanded={showCriteria}
               >
-                {showCriteria ? '▾ Скрыть критерии' : '▸ Показать критерии'}
+                {showCriteria ? `▾ ${m.concept_hide_criteria()}` : `▸ ${m.concept_show_criteria()}`}
               </button>
               {showCriteria && (
                 <div className="concept-criteria__content">
@@ -303,7 +304,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
           {/* Matching substances */}
           {matchingSubstances.length > 0 && (
             <section className="concept-entities">
-              <h2>Вещества ({matchingSubstances.length})</h2>
+              <h2>{m.concept_substances_heading({ count: String(matchingSubstances.length) })}</h2>
               <div className="concept-entities__grid">
                 {matchingSubstances.map(s => (
                   <FormulaChip
@@ -322,7 +323,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
           {/* Matching reactions */}
           {matchingReactions.length > 0 && (
             <section className="concept-entities">
-              <h2>Реакции ({matchingReactions.length})</h2>
+              <h2>{m.concept_reactions_heading({ count: String(matchingReactions.length) })}</h2>
               <div className="concept-reactions__list">
                 {matchingReactions.map(r => (
                   <div key={r.reaction_id} className="concept-reaction-card">

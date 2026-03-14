@@ -1044,5 +1044,9 @@
   "dist_obs_blue_precipitate": "niebieski osad",
   "dist_obs_yellow_precipitate": "żółty osad",
   "dist_obs_gas_evolution": "wydzielanie gazu",
-  "dist_obs_color_change": "zmiana koloru"
+  "dist_obs_color_change": "zmiana koloru",
+  "concept_show_criteria": "Pokaż kryteria",
+  "concept_hide_criteria": "Ukryj kryteria",
+  "concept_substances_heading": "Substancje ({count})",
+  "concept_reactions_heading": "Reakcje ({count})"
 }

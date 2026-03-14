@@ -8,9 +8,11 @@ import { localizeUrl } from '../lib/i18n';
 
 interface Props {
   locale?: SupportedLocale;
+  alternateUrls?: Record<SupportedLocale, string>;
 }
 
 const locale = Astro.props.locale ?? (Astro.currentLocale as SupportedLocale) ?? 'ru';
+const { alternateUrls } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const groups = [
@@ -100,7 +102,7 @@ const homeUrl = localizeUrl('/', locale);
           <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       </a>
-      <LanguageSwitcher locale={locale} />
+      <LanguageSwitcher locale={locale} alternateUrls={alternateUrls} />
     </div>
   </div>
 </nav>

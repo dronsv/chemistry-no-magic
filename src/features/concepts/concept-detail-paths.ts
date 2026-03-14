@@ -2,6 +2,8 @@ import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { cachedReadJsonSync, cachedReadDataSrcSync } from '../../lib/build-data-cache';
 import type { ConceptEntry, ConceptRegistry, ConceptOverlayEntry } from '../../types/ontology-ref';
+import type { SupportedLocale } from '../../types/i18n';
+import { SUPPORTED_LOCALES, CONCEPT_KIND_ROUTES, localizeUrl } from '../../lib/i18n';
 
 const DATA_SRC = join(process.cwd(), 'data-src');
 
@@ -22,6 +24,8 @@ export interface ConceptPageProps {
   children: Array<{ id: string; name: string; slug: string }>;
   /** Substance info keyed by substance ID, for rendering substance examples */
   substanceIndex: Record<string, SubstanceInfo>;
+  /** Cross-locale alternate URLs for language switcher */
+  alternateUrls: Record<SupportedLocale, string>;
 }
 
 interface ConceptPagePath {
@@ -65,8 +69,46 @@ function buildSlugPath(
   return slugs;
 }
 
+/** Load concept overlays for all locales (cached) */
+function loadAllOverlays(): Record<SupportedLocale, Record<string, ConceptOverlayEntry>> {
+  const result = {} as Record<SupportedLocale, Record<string, ConceptOverlayEntry>>;
+  for (const loc of SUPPORTED_LOCALES) {
+    try {
+      result[loc] = cachedReadJsonSync(join(DATA_SRC, 'translations', loc, 'concepts.json'));
+    } catch {
+      result[loc] = {};
+    }
+  }
+  return result;
+}
+
+/** Build alternate URLs for a concept across all locales */
+function buildAlternateUrls(
+  conceptId: string,
+  kind: string,
+  registry: ConceptRegistry,
+  allOverlays: Record<SupportedLocale, Record<string, ConceptOverlayEntry>>,
+): Record<SupportedLocale, string> {
+  const baseRoute = CONCEPT_KIND_ROUTES[kind] ?? '/';
+  const result = {} as Record<SupportedLocale, string>;
+  for (const loc of SUPPORTED_LOCALES) {
+    const ov = allOverlays[loc];
+    if (ov[conceptId]) {
+      const slugPath = buildSlugPath(conceptId, registry, ov);
+      result[loc] = localizeUrl(baseRoute, loc) + slugPath.join('/') + '/';
+    } else {
+      // Fallback: use the base route if overlay missing for this locale
+      result[loc] = localizeUrl(baseRoute, loc);
+    }
+  }
+  return result;
+}
+
 export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
   const registry = cachedReadDataSrcSync<ConceptRegistry>('concepts.json');
+
+  // Load overlays for all locales (for cross-locale URL mapping)
+  const allOverlays = loadAllOverlays();
 
   let overlay: Record<string, ConceptOverlayEntry>;
   try {
@@ -137,6 +179,9 @@ export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
       }
     }
 
+    // Build cross-locale alternate URLs for language switcher
+    const alternateUrls = buildAlternateUrls(conceptId, entry.kind, registry, allOverlays);
+
     paths.push({
       params: { conceptSlug },
       props: {
@@ -147,6 +192,7 @@ export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
         breadcrumbs,
         children,
         substanceIndex: relevantSubstances,
+        alternateUrls,
       },
     });
   }
