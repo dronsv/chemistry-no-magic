@@ -11,6 +11,8 @@ import { planDerivation } from '../derivation/derivation-planner';
 import { executePlan } from '../derivation/derivation-executor';
 import { qrefKey } from '../derivation/qref';
 import type { QRef } from '../../types/derivation';
+import { deriveQuantity } from '../derivation/derive-quantity';
+import type { SemanticRole } from '../../types/formula';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -550,20 +552,28 @@ function solveStoichiometry(
 ): SolverResult {
   void params;
   const { formulas, constantsDict } = getFoundations(data);
-  const fAmount = findFormulaById(formulas, 'formula:amount_from_mass');
-  const fStoich = findFormulaById(formulas, 'formula:stoichiometry_ratio');
 
-  const givenMass = Number(slots.given_mass);
-  const givenCoeff = Number(slots.given_coeff);
-  const givenM = Number(slots.given_M);
-  const findCoeff = Number(slots.find_coeff);
-  const findM = Number(slots.find_M);
+  const givenEntityRef = 'substance:' + String(slots.given_formula);
+  const findEntityRef = 'substance:' + String(slots.find_formula);
 
-  const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constantsDict).result;
-  const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constantsDict).result;
-  const mFind = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constantsDict).result;
+  // Minimal ontology — M is always pre-resolved, so entityFormulas is only for provenance
+  const ontology = { elements: data.core.elements ?? [], parseFormula: () => { throw new Error('M must be pre-resolved in solver context'); }, entityFormulas: new Map<string, string>() };
 
-  return { answer: Math.round(mFind * 100) / 100 };
+  const result = deriveQuantity({
+    target: { quantity: 'q:mass', role: 'product' as SemanticRole },
+    knowns: [
+      { qref: { quantity: 'q:mass', role: 'reactant' as SemanticRole }, value: Number(slots.given_mass) },
+      { qref: { quantity: 'q:stoich_coeff', role: 'reactant' as SemanticRole }, value: Number(slots.given_coeff) },
+      { qref: { quantity: 'q:molar_mass', role: 'reactant' as SemanticRole, context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: Number(slots.given_M) },
+      { qref: { quantity: 'q:stoich_coeff', role: 'product' as SemanticRole }, value: Number(slots.find_coeff) },
+      { qref: { quantity: 'q:molar_mass', role: 'product' as SemanticRole, context: { system_type: 'substance', entity_ref: findEntityRef } }, value: Number(slots.find_M) },
+    ],
+    formulas,
+    constants: constantsDict,
+    ontology,
+  });
+
+  return { answer: Math.round(result.value * 100) / 100 };
 }
 
 function solveReactionYield(
@@ -573,23 +583,28 @@ function solveReactionYield(
 ): SolverResult {
   void params;
   const { formulas, constantsDict } = getFoundations(data);
-  const fAmount = findFormulaById(formulas, 'formula:amount_from_mass');
-  const fStoich = findFormulaById(formulas, 'formula:stoichiometry_ratio');
-  const fYield = findFormulaById(formulas, 'formula:yield');
 
-  const givenMass = Number(slots.given_mass);
-  const givenCoeff = Number(slots.given_coeff);
-  const givenM = Number(slots.given_M);
-  const findCoeff = Number(slots.find_coeff);
-  const findM = Number(slots.find_M);
-  const yieldPercent = Number(slots.yield_percent);
+  const givenEntityRef = 'substance:' + String(slots.given_formula);
+  const findEntityRef = 'substance:' + String(slots.find_formula);
 
-  const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constantsDict).result;
-  const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constantsDict).result;
-  const mTheoretical = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constantsDict).result;
-  const mActual = formulaSolveFor(fYield, 'm_actual', { eta: yieldPercent, m_theoretical: mTheoretical }, constantsDict).result;
+  const ontology = { elements: data.core.elements ?? [], parseFormula: () => { throw new Error('M must be pre-resolved in solver context'); }, entityFormulas: new Map<string, string>() };
 
-  return { answer: Math.round(mActual * 100) / 100 };
+  const result = deriveQuantity({
+    target: { quantity: 'q:mass', role: 'product' as SemanticRole },
+    knowns: [
+      { qref: { quantity: 'q:mass', role: 'reactant' as SemanticRole }, value: Number(slots.given_mass) },
+      { qref: { quantity: 'q:stoich_coeff', role: 'reactant' as SemanticRole }, value: Number(slots.given_coeff) },
+      { qref: { quantity: 'q:molar_mass', role: 'reactant' as SemanticRole, context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: Number(slots.given_M) },
+      { qref: { quantity: 'q:stoich_coeff', role: 'product' as SemanticRole }, value: Number(slots.find_coeff) },
+      { qref: { quantity: 'q:molar_mass', role: 'product' as SemanticRole, context: { system_type: 'substance', entity_ref: findEntityRef } }, value: Number(slots.find_M) },
+      { qref: { quantity: 'q:yield' }, value: Number(slots.yield_percent) },
+    ],
+    formulas,
+    constants: constantsDict,
+    ontology,
+  });
+
+  return { answer: Math.round(result.value * 100) / 100 };
 }
 
 function solveHeatOfReaction(

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { toConstantsDict } from '../formula-evaluator';
+import { toConstantsDict, evaluateFormula, solveFor as formulaSolveFor } from '../formula-evaluator';
 import { parseFormula } from '../formula-parser';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
 import type { Element } from '../../types/element';
@@ -353,5 +353,119 @@ describe('deriveQuantity stoichiometry', () => {
         formulas, constants, ontology,
       }),
     ).toThrow();
+  });
+});
+
+// ── Parity tests: old solver output vs deriveQuantity ────────────
+
+describe('solver migration parity', () => {
+  // Reproduce exact old solver logic for comparison
+  function oldSolveStoichiometry(
+    givenMass: number, givenCoeff: number, givenM: number,
+    findCoeff: number, findM: number,
+  ): number {
+    const fAmount = formulas.find(f => f.id === 'formula:amount_from_mass')!;
+    const fStoich = formulas.find(f => f.id === 'formula:stoichiometry_ratio')!;
+    const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constants).result;
+    const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constants).result;
+    const mFind = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constants).result;
+    return Math.round(mFind * 100) / 100;
+  }
+
+  function oldSolveReactionYield(
+    givenMass: number, givenCoeff: number, givenM: number,
+    findCoeff: number, findM: number, yieldPercent: number,
+  ): number {
+    const fAmount = formulas.find(f => f.id === 'formula:amount_from_mass')!;
+    const fStoich = formulas.find(f => f.id === 'formula:stoichiometry_ratio')!;
+    const fYield = formulas.find(f => f.id === 'formula:yield')!;
+    const nGiven = evaluateFormula(fAmount, { m: givenMass, M: givenM }, constants).result;
+    const nFind = evaluateFormula(fStoich, { n_1: nGiven, nu_1: givenCoeff, nu_2: findCoeff }, constants).result;
+    const mTheoretical = formulaSolveFor(fAmount, 'm', { n: nFind, M: findM }, constants).result;
+    const mActual = formulaSolveFor(fYield, 'm_actual', { eta: yieldPercent, m_theoretical: mTheoretical }, constants).result;
+    return Math.round(mActual * 100) / 100;
+  }
+
+  function newSolveStoichiometry(
+    givenMass: number, givenCoeff: number, givenM: number,
+    findCoeff: number, findM: number,
+    givenFormula: string, findFormula: string,
+  ): number {
+    const givenEntityRef = 'substance:' + givenFormula;
+    const findEntityRef = 'substance:' + findFormula;
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: [
+        { qref: { quantity: 'q:mass', role: 'reactant' }, value: givenMass },
+        { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: givenCoeff },
+        { qref: { quantity: 'q:molar_mass', role: 'reactant', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: givenM },
+        { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: findCoeff },
+        { qref: { quantity: 'q:molar_mass', role: 'product', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: findM },
+      ],
+      formulas, constants, ontology,
+    });
+    return Math.round(result.value * 100) / 100;
+  }
+
+  function newSolveReactionYield(
+    givenMass: number, givenCoeff: number, givenM: number,
+    findCoeff: number, findM: number, yieldPercent: number,
+    givenFormula: string, findFormula: string,
+  ): number {
+    const givenEntityRef = 'substance:' + givenFormula;
+    const findEntityRef = 'substance:' + findFormula;
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'product' },
+      knowns: [
+        { qref: { quantity: 'q:mass', role: 'reactant' }, value: givenMass },
+        { qref: { quantity: 'q:stoich_coeff', role: 'reactant' }, value: givenCoeff },
+        { qref: { quantity: 'q:molar_mass', role: 'reactant', context: { system_type: 'substance', entity_ref: givenEntityRef } }, value: givenM },
+        { qref: { quantity: 'q:stoich_coeff', role: 'product' }, value: findCoeff },
+        { qref: { quantity: 'q:molar_mass', role: 'product', context: { system_type: 'substance', entity_ref: findEntityRef } }, value: findM },
+        { qref: { quantity: 'q:yield' }, value: yieldPercent },
+      ],
+      formulas, constants, ontology,
+    });
+    return Math.round(result.value * 100) / 100;
+  }
+
+  // Test cases from representative reactions in calc_reactions
+  // H₂SO₄ + BaCl₂ → BaSO₄↓ + 2HCl: coeffs 1,1; M(H2SO4)=98.08, M(BaSO4)=233.39
+
+  it('stoichiometry parity: H2SO4→BaSO4 with 49g', () => {
+    const old = oldSolveStoichiometry(49, 1, 98.08, 1, 233.39);
+    const now = newSolveStoichiometry(49, 1, 98.08, 1, 233.39, 'H2SO4', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
+  });
+
+  it('stoichiometry parity: H2SO4→BaSO4 with 19.6g', () => {
+    const old = oldSolveStoichiometry(19.6, 1, 98.08, 1, 233.39);
+    const now = newSolveStoichiometry(19.6, 1, 98.08, 1, 233.39, 'H2SO4', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
+  });
+
+  it('stoichiometry parity: 2:1 coefficient ratio', () => {
+    // 2HCl + ... → ... (using arbitrary M values)
+    const old = oldSolveStoichiometry(36.5, 2, 36.46, 1, 233.39);
+    const now = newSolveStoichiometry(36.5, 2, 36.46, 1, 233.39, 'HCl', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
+  });
+
+  it('yield parity: H2SO4→BaSO4 with 80% yield', () => {
+    const old = oldSolveReactionYield(49, 1, 98.08, 1, 233.39, 80);
+    const now = newSolveReactionYield(49, 1, 98.08, 1, 233.39, 80, 'H2SO4', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
+  });
+
+  it('yield parity: H2SO4→BaSO4 with 65% yield', () => {
+    const old = oldSolveReactionYield(49, 1, 98.08, 1, 233.39, 65);
+    const now = newSolveReactionYield(49, 1, 98.08, 1, 233.39, 65, 'H2SO4', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
+  });
+
+  it('yield parity: 2:1 coefficient ratio with 90% yield', () => {
+    const old = oldSolveReactionYield(36.5, 2, 36.46, 1, 233.39, 90);
+    const now = newSolveReactionYield(36.5, 2, 36.46, 1, 233.39, 90, 'HCl', 'BaSO4');
+    expect(now).toBeCloseTo(old, 2);
   });
 });
