@@ -1,273 +1,143 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-
-const sourcesRaw = await readFile(join(process.cwd(), 'data-src', 'sources_list.json'), 'utf-8');
-const sourcesData = JSON.parse(sourcesRaw);
-const sources = sourcesData.sources as {
-  source_id: string;
-  title: string;
-  org: string;
-  description: string;
-  link: string;
-  ui: { cta: string; target: string; rel: string };
-}[];
 ---
 
-<BaseLayout title="About the Project" description="About the Chemistry Without Magic project: methodology, principles, and resources.">
+<BaseLayout title="About the Project" description="How Chemistry Without Magic works: history, principles, methodology, and the engineering approach behind the platform.">
   <section class="about">
-    <h1 class="about__title">О проекте</h1>
+    <h1 class="about__title">About the Project</h1>
 
     <div class="about__section">
-      <h2>Как всё началось</h2>
+      <h2>How it started</h2>
       <p>
-        Этот проект появился не как бизнес-идея, а как практическое решение конкретной задачи —
-        быстро и точно понять, в чём именно есть пробелы по химии у моей дочери,
-        и закрыть их максимально эффективно.
+        This project didn't start as a business idea. It was a practical solution to a specific
+        problem — quickly and precisely identify my daughter's gaps in chemistry, and close them
+        as efficiently as possible.
       </p>
       <p>
-        Дочь учится в 9 классе. Значит ориентир понятен — школьная программа и ОГЭ по химии.
+        She was in 9th grade, preparing for the Russian state chemistry exam (OGE).
+        The goal was clear — school curriculum and exam readiness.
       </p>
-      <p>Материалов вокруг много. Но возникли проблемы:</p>
+      <p>There are plenty of materials out there. But I ran into problems:</p>
       <ul>
-        <li>курсы подаются линейно и одинаково для всех,</li>
-        <li>почти нет формального измерения понимания,</li>
-        <li>объяснения иногда выглядят как «магия»,</li>
-        <li>структура знаний размыта.</li>
+        <li>courses are presented linearly and identically for everyone,</li>
+        <li>there's almost no formal measurement of understanding,</li>
+        <li>explanations sometimes look like "magic",</li>
+        <li>the knowledge structure is blurry.</li>
       </ul>
       <p class="about__accent">
-        А химия — не магия.<br/>
-        Это строгая модель частиц, энергии и структуры вещества.
+        But chemistry is not magic.<br/>
+        It is a rigorous model of particles, energy, and the structure of matter.
       </p>
     </div>
 
     <div class="about__section">
-      <h2>Что не устроило в классическом формате</h2>
+      <h2>What didn't work in the traditional format</h2>
       <ul>
-        <li>Прогресс оценивается по баллам, а не по структуре навыков.</li>
-        <li>Нет карты зависимостей между темами.</li>
-        <li>Не видно, какая ошибка — фундаментальная, а какая — локальная.</li>
-        <li>Мало внимания причинности: почему именно так идёт реакция?</li>
+        <li>Progress is measured by scores, not by skill structure.</li>
+        <li>There's no dependency map between topics.</li>
+        <li>You can't tell which mistake is fundamental and which is superficial.</li>
+        <li>Little attention is paid to causality: why does a reaction proceed this way?</li>
       </ul>
-      <p>В какой-то момент стало понятно: нужен инструмент, а не просто курс.</p>
+      <p>At some point it became clear: I needed a tool, not just a course.</p>
     </div>
 
     <div class="about__section">
-      <h2>Поэтому я сделал свой</h2>
+      <h2>So I built my own</h2>
       <p>
-        Я не являюсь химиком по образованию — я инженер.
-        И привык мыслить через системы, модели и зависимости.
+        I'm not a chemist by training — I'm an engineer.
+        I'm used to thinking in systems, models, and dependencies.
       </p>
-      <p>Этот сайт — попытка:</p>
+      <p>This site is an attempt to:</p>
       <ul>
-        <li>разложить химию 9 класса на компетенции,</li>
-        <li>связать их зависимостями,</li>
-        <li>измерять понимание через вероятностную модель (BKT),</li>
-        <li>подбирать задания адаптивно,</li>
-        <li>использовать задания ОГЭ как формальный стандарт проверки.</li>
+        <li>decompose school chemistry into competencies,</li>
+        <li>connect them with dependencies,</li>
+        <li>measure understanding via a probabilistic model (BKT),</li>
+        <li>select exercises adaptively,</li>
+        <li>use standardised exam tasks as a formal verification benchmark.</li>
       </ul>
       <p>
-        Контент и объяснения генерируются нейронными сетями по моим запросам.
-        Это значит: возможны неточности, ошибки и упрощения.
-        Если вы их заметили — используйте баг-репорты.
+        Content and explanations are generated with the help of AI models.
+        This means inaccuracies, errors, and oversimplifications are possible.
+        If you spot any — <a href="https://github.com/dronsv/chemistry-no-magic/issues" target="_blank" rel="noopener noreferrer">report them on GitHub</a>.
       </p>
     </div>
 
     <div class="about__section">
-      <h2>Методологические принципы</h2>
+      <h2>How the project grew</h2>
+      <p>
+        While building a simple practice tool, I got carried away and started constructing
+        a full chemistry ontology: substances, ions, reactions, properties,
+        classifications — all connected in a single knowledge graph.
+      </p>
+      <p>
+        On top of the ontology, an automatic task generation engine emerged:
+        instead of hand-crafting exercises, the system generates tasks from templates,
+        selects distractors, builds explanations, and solves problems through
+        derivation chains from formulas.
+      </p>
+      <p>
+        Then came the question: could this work beyond the Russian curriculum?
+        That's how multilingual support was born — the platform now works in
+        four languages (Russian, English, Polish, Spanish) and supports
+        five exam systems (OGE, EGE, GCSE, Matura, EBAU).
+      </p>
+      <p>
+        What started as help for one child turned into an attempt to build
+        an open, structured, and adaptive chemistry learning platform —
+        no magic, just an engineering approach.
+      </p>
+    </div>
+
+    <div class="about__section">
+      <h2>Methodological principles</h2>
       <div class="principles">
         <div class="principle">
-          <strong>1. Химия — это система</strong>
-          <span>Мы работаем не с темами, а с картой компетенций и их зависимостей.</span>
+          <strong>1. Chemistry is a system</strong>
+          <span>We work with a competency map and its dependencies, not isolated topics.</span>
         </div>
         <div class="principle">
-          <strong>2. Понимание измеряется</strong>
-          <span>Используется вероятностная модель освоения навыков, а не просто «решил / не решил».</span>
+          <strong>2. Understanding is measured</strong>
+          <span>A probabilistic skill mastery model is used, not just "solved / didn't solve".</span>
         </div>
         <div class="principle">
-          <strong>3. ОГЭ — инструмент калибровки</strong>
-          <span>Задания ОГЭ отражают структуру 9 класса и позволяют формально проверять готовность.</span>
+          <strong>3. Exams are calibration tools</strong>
+          <span>Standardised exam tasks reflect the curriculum and formally verify readiness.</span>
         </div>
         <div class="principle">
-          <strong>4. Никакой магии</strong>
-          <span>Если есть правило — есть объяснение: через электронные конфигурации, электроотрицательность, строение вещества, энергетику процессов.</span>
+          <strong>4. No magic</strong>
+          <span>Every rule has an explanation: through electron configurations, electronegativity, structure of matter, and process energetics.</span>
         </div>
         <div class="principle">
-          <strong>5. Минимум воды — максимум структуры</strong>
-          <span>Модель &rarr; примеры &rarr; вариации &rarr; закрепление.</span>
+          <strong>5. Minimum fluff — maximum structure</strong>
+          <span>Model &rarr; examples &rarr; variations &rarr; reinforcement.</span>
         </div>
-      </div>
-    </div>
-
-    <div class="about__section">
-      <h2>Полезные ресурсы</h2>
-      <p class="about__muted">
-        Ресурсы, которые можно использовать параллельно для проверки и расширения материала.
-      </p>
-      <div class="sources">
-        {sources.map((s) => (
-          <div class="source-card">
-            <div class="source-card__header">
-              <span class="source-card__org">{s.org}</span>
-              <strong class="source-card__title">{s.title}</strong>
-            </div>
-            <p class="source-card__desc">{s.description}</p>
-            <a
-              href={s.link}
-              class="source-card__link"
-              target={s.ui.target}
-              rel={s.ui.rel}
-            >{s.ui.cta}</a>
-          </div>
-        ))}
       </div>
     </div>
 
     <div class="about__section about__disclaimer">
       <p>
-        Этот проект не заменяет школьную программу и не конкурирует с крупными образовательными платформами.
-        Это попытка построить структурированный, адаптивный инструмент диагностики и обучения,
-        который можно использовать вместе с официальными и проверенными источниками.
+        This project does not replace school curricula and does not compete with major
+        educational platforms. It is an attempt to build a structured, adaptive
+        diagnostic and learning tool that can be used alongside official and
+        verified resources.
       </p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .about {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: var(--space-xl) 0 var(--space-2xl);
-  }
-
-  .about__title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-xl);
-  }
-
-  .about__section {
-    margin-bottom: var(--space-xl);
-  }
-
-  .about__section h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0 var(--space-sm);
-  }
-
-  .about__section p {
-    color: var(--color-text);
-    line-height: 1.7;
-    margin: 0 0 var(--space-sm);
-  }
-
-  .about__section ul {
-    margin: 0 0 var(--space-sm);
-    padding-left: 1.5rem;
-    color: var(--color-text);
-    line-height: 1.7;
-  }
-
-  .about__section li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .about__accent {
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: var(--space-md);
-    background: var(--color-bg-alt);
-    border-left: 3px solid var(--color-primary);
-    border-radius: 0.25rem;
-    margin-top: var(--space-md);
-  }
-
-  .about__muted {
-    color: var(--color-text-muted);
-  }
-
-  /* Principles */
-  .principles {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .principle {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
-    background: var(--color-bg-alt);
-    border-radius: 0.375rem;
-  }
-
+  .about { max-width: 720px; margin: 0 auto; padding: var(--space-xl) 0 var(--space-2xl); }
+  .about__title { font-size: 2rem; font-weight: 700; margin: 0 0 var(--space-xl); }
+  .about__section { margin-bottom: var(--space-xl); }
+  .about__section h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 var(--space-sm); }
+  .about__section p { color: var(--color-text); line-height: 1.7; margin: 0 0 var(--space-sm); }
+  .about__section ul { margin: 0 0 var(--space-sm); padding-left: 1.5rem; color: var(--color-text); line-height: 1.7; }
+  .about__section li { margin-bottom: var(--space-xs); }
+  .about__accent { font-weight: 600; font-size: 1.05rem; padding: var(--space-md); background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); border-radius: 0.25rem; margin-top: var(--space-md); }
+  .principles { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .principle { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); background: var(--color-bg-alt); border-radius: 0.375rem; }
   .principle strong { font-size: 0.9375rem; }
   .principle span { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5; }
-
-  /* Sources */
-  .sources {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-  }
-
-  .source-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-md);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-  }
-
-  .source-card__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
-  }
-
-  .source-card__org {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  .source-card__title { font-size: 0.9375rem; line-height: 1.4; }
-
-  .source-card__desc {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    margin: 0 0 var(--space-sm);
-    flex: 1;
-  }
-
-  .source-card__link {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-  .source-card__link:hover { text-decoration: underline; }
-
-  /* Disclaimer */
-  .about__disclaimer {
-    padding: var(--space-md);
-    background: var(--color-bg-alt);
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
-  }
-
-  .about__disclaimer p {
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-    margin: 0;
-  }
+  .about__disclaimer { padding: var(--space-md); background: var(--color-bg-alt); border-radius: 0.5rem; border: 1px solid var(--color-border); }
+  .about__disclaimer p { color: var(--color-text-muted); font-size: 0.875rem; margin: 0; }
 </style>
