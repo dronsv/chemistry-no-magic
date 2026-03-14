@@ -3,9 +3,21 @@
     "molar_mass": {
       "title": "Masa molarna",
       "blocks": [
-        { "text": "Masa molarna (M) to masa jednego mola substancji, wyrażona w g/mol." },
+        {
+          "content": [
+            { "t": "text", "v": "Masa molarna (" },
+            { "t": "ref", "id": "q:molar_mass", "surface": "M" },
+            { "t": "text", "v": ") to masa jednego mola substancji, wyrażona w g/mol." }
+          ]
+        },
         {},
-        { "text": "Gdzie Ar to względna masa atomowa pierwiastka (z układu okresowego)." },
+        {
+          "content": [
+            { "t": "text", "v": "Gdzie " },
+            { "t": "ref", "id": "q:relative_atomic_mass", "surface": "Aᵣ" },
+            { "t": "text", "v": " to względna masa atomowa pierwiastka (z układu okresowego)." }
+          ]
+        },
         { "label": "Przykład:", "content": "M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol" },
         { "label": "Przykład:", "content": "M(Ca(OH)₂) = 40 + 2×(16+1) = 74 g/mol" }
       ]
@@ -13,7 +25,15 @@
     "amount": {
       "title": "Ilość substancji",
       "blocks": [
-        { "text": "Ilość substancji (n) to liczba moli; łączy masę z masą molarną." },
+        {
+          "content": [
+            { "t": "text", "v": "Ilość substancji (" },
+            { "t": "ref", "id": "q:amount", "surface": "n" },
+            { "t": "text", "v": ") to liczba moli; łączy masę z masą molarną (" },
+            { "t": "ref", "id": "q:molar_mass", "surface": "M" },
+            { "t": "text", "v": ")." }
+          ]
+        },
         {},
         {},
         { "note": "dla gazów, Vm = 22,4 l/mol w warunkach normalnych" },
@@ -25,9 +45,21 @@
     "mass_fraction_element": {
       "title": "Udział masowy pierwiastka",
       "blocks": [
-        { "text": "Udział masowy pierwiastka (ω) to stosunek masy pierwiastka do całkowitej masy substancji." },
+        {
+          "content": [
+            { "t": "text", "v": "Udział masowy pierwiastka (" },
+            { "t": "ref", "id": "q:component_mass_fraction", "surface": "ω" },
+            { "t": "text", "v": ") to stosunek masy pierwiastka do całkowitej masy substancji." }
+          ]
+        },
         {},
-        { "text": "Gdzie n to liczba atomów pierwiastka w formule." },
+        {
+          "content": [
+            { "t": "text", "v": "Gdzie " },
+            { "t": "ref", "id": "q:atom_count_in_composition", "surface": "nᵢ" },
+            { "t": "text", "v": " to liczba atomów pierwiastka w formule." }
+          ]
+        },
         { "label": "Przykład:", "content": "ω(O) w H₂O = 16/18 × 100% = 88,9%" },
         { "label": "Przykład:", "content": "ω(N) w NH₃ = 14/17 × 100% = 82,4%" }
       ]
@@ -35,7 +67,13 @@
     "solution_fraction": {
       "title": "Udział masowy substancji rozpuszczonej",
       "blocks": [
-        { "text": "Udział masowy substancji rozpuszczonej (ω) to stosunek masy rozpuszczonego do masy roztworu." },
+        {
+          "content": [
+            { "t": "text", "v": "Udział masowy substancji rozpuszczonej (" },
+            { "t": "ref", "id": "q:mass_fraction", "surface": "ω" },
+            { "t": "text", "v": ") to stosunek masy rozpuszczonego do masy roztworu." }
+          ]
+        },
         {},
         { "text": "m(roztworu) = m(subst. rozp.) + m(wody)" },
         {},
@@ -60,10 +98,22 @@
     "yield": {
       "title": "Wydajność reakcji",
       "blocks": [
-        { "text": "Wydajność reakcji (η) to stosunek rzeczywiście otrzymanej masy produktu do masy teoretycznie możliwej." },
+        {
+          "content": [
+            { "t": "text", "v": "Wydajność reakcji (" },
+            { "t": "ref", "id": "q:yield", "surface": "η" },
+            { "t": "text", "v": ") to stosunek rzeczywiście otrzymanej masy produktu do masy teoretycznie możliwej." }
+          ]
+        },
         {},
         {},
-        { "text": "Masa teoretyczna jest obliczona na podstawie równania reakcji (η = 100%). W praktyce wydajność jest zawsze mniejsza niż 100% z powodu strat i reakcji ubocznych." },
+        {
+          "content": [
+            { "t": "text", "v": "Masa teoretyczna jest obliczona na podstawie równania reakcji (" },
+            { "t": "ref", "id": "q:yield", "surface": "η" },
+            { "t": "text", "v": " = 100%). W praktyce wydajność jest zawsze mniejsza niż 100% z powodu strat i reakcji ubocznych." }
+          ]
+        },
         { "label": "Przykład:", "content": "Obliczona masa: 112 g CaO; uzyskano: 89,6 g → η = 89,6/112 × 100% = 80%" }
       ]
     }

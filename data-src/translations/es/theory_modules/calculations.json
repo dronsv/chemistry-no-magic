@@ -3,9 +3,21 @@
     "molar_mass": {
       "title": "Masa molar",
       "blocks": [
-        { "text": "La masa molar (M) es la masa de un mol de sustancia, expresada en g/mol." },
+        {
+          "content": [
+            { "t": "text", "v": "La masa molar (" },
+            { "t": "ref", "id": "q:molar_mass", "surface": "M" },
+            { "t": "text", "v": ") es la masa de un mol de sustancia, expresada en g/mol." }
+          ]
+        },
         {},
-        { "text": "Donde Ar es la masa atómica relativa del elemento (de la tabla periódica)." },
+        {
+          "content": [
+            { "t": "text", "v": "Donde " },
+            { "t": "ref", "id": "q:relative_atomic_mass", "surface": "Aᵣ" },
+            { "t": "text", "v": " es la masa atómica relativa del elemento (de la tabla periódica)." }
+          ]
+        },
         { "label": "Ejemplo:", "content": "M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g/mol" },
         { "label": "Ejemplo:", "content": "M(Ca(OH)₂) = 40 + 2×(16+1) = 74 g/mol" }
       ]
@@ -13,7 +25,15 @@
     "amount": {
       "title": "Cantidad de sustancia",
       "blocks": [
-        { "text": "La cantidad de sustancia (n) es el número de moles; relaciona la masa con la masa molar." },
+        {
+          "content": [
+            { "t": "text", "v": "La cantidad de sustancia (" },
+            { "t": "ref", "id": "q:amount", "surface": "n" },
+            { "t": "text", "v": ") es el número de moles; relaciona la masa con la masa molar (" },
+            { "t": "ref", "id": "q:molar_mass", "surface": "M" },
+            { "t": "text", "v": ")." }
+          ]
+        },
         {},
         {},
         { "note": "para gases, Vm = 22,4 L/mol en CNPT" },
@@ -25,9 +45,21 @@
     "mass_fraction_element": {
       "title": "Fracción másica de un elemento",
       "blocks": [
-        { "text": "La fracción másica de un elemento (ω) es la relación entre la masa del elemento y la masa total de la sustancia." },
+        {
+          "content": [
+            { "t": "text", "v": "La fracción másica de un elemento (" },
+            { "t": "ref", "id": "q:component_mass_fraction", "surface": "ω" },
+            { "t": "text", "v": ") es la relación entre la masa del elemento y la masa total de la sustancia." }
+          ]
+        },
         {},
-        { "text": "Donde n es el número de átomos del elemento en la fórmula." },
+        {
+          "content": [
+            { "t": "text", "v": "Donde " },
+            { "t": "ref", "id": "q:atom_count_in_composition", "surface": "nᵢ" },
+            { "t": "text", "v": " es el número de átomos del elemento en la fórmula." }
+          ]
+        },
         { "label": "Ejemplo:", "content": "ω(O) en H₂O = 16/18 × 100% = 88,9%" },
         { "label": "Ejemplo:", "content": "ω(N) en NH₃ = 14/17 × 100% = 82,4%" }
       ]
@@ -35,7 +67,13 @@
     "solution_fraction": {
       "title": "Fracción másica del soluto",
       "blocks": [
-        { "text": "La fracción másica del soluto (ω) es la relación entre la masa del soluto y la masa de la solución." },
+        {
+          "content": [
+            { "t": "text", "v": "La fracción másica del soluto (" },
+            { "t": "ref", "id": "q:mass_fraction", "surface": "ω" },
+            { "t": "text", "v": ") es la relación entre la masa del soluto y la masa de la solución." }
+          ]
+        },
         {},
         { "text": "m(solución) = m(soluto) + m(agua)" },
         {},
@@ -60,10 +98,22 @@
     "yield": {
       "title": "Rendimiento de la reacción",
       "blocks": [
-        { "text": "El rendimiento de la reacción (η) es la relación entre la masa real obtenida del producto y la masa teóricamente posible." },
+        {
+          "content": [
+            { "t": "text", "v": "El rendimiento de la reacción (" },
+            { "t": "ref", "id": "q:yield", "surface": "η" },
+            { "t": "text", "v": ") es la relación entre la masa real obtenida del producto y la masa teóricamente posible." }
+          ]
+        },
         {},
         {},
-        { "text": "La masa teórica se calcula a partir de la ecuación de reacción (η = 100%). En la práctica el rendimiento es siempre menor del 100% por pérdidas y reacciones secundarias." },
+        {
+          "content": [
+            { "t": "text", "v": "La masa teórica se calcula a partir de la ecuación de reacción (" },
+            { "t": "ref", "id": "q:yield", "surface": "η" },
+            { "t": "text", "v": " = 100%). En la práctica el rendimiento es siempre menor del 100% por pérdidas y reacciones secundarias." }
+          ]
+        },
         { "label": "Ejemplo:", "content": "Calculado: 112 g de CaO; obtenido: 89,6 g → η = 89,6/112 × 100% = 80%" }
       ]
     }

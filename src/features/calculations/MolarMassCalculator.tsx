@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadSubstancesIndex, loadIons, loadElements } from '../../lib/data-loader';
-import { parseFormula } from '../../lib/formula-parser';
+import type { ReasonStep } from '../../types/derivation';
+import { loadSubstancesIndex, loadIons, loadElements, loadFormulas, loadConstants } from '../../lib/data-loader';
+import { parseFormula, unicodeToAscii, stripIonCharge } from '../../lib/formula-parser';
+import { toConstantsDict } from '../../lib/formula-evaluator';
+import { deriveQuantity } from '../../lib/derivation/derive-quantity';
+import type { OntologyAccess } from '../../lib/derivation/resolvers';
 import FormulaChip from '../../components/FormulaChip';
 import * as m from '../../paraglide/messages.js';
 
@@ -23,49 +27,60 @@ interface MolarMassItem {
 }
 
 // ---------------------------------------------------------------------------
-// Unicode subscript → ASCII for parseFormula
-// ---------------------------------------------------------------------------
-
-function unicodeToAscii(formula: string): string {
-  return formula.replace(/[\u2080-\u2089]/g, ch =>
-    String(ch.charCodeAt(0) - 0x2080),
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Strip ion charge from display formula: SO₄²⁻ → SO₄
-// ---------------------------------------------------------------------------
-
-const SUPERSCRIPT_RE = /[\u2070\u00B9\u00B2\u00B3\u2074-\u2079\u207A\u207B]+$/;
-
-function stripCharge(formula: string): string {
-  return formula.replace(SUPERSCRIPT_RE, '');
-}
-
-// ---------------------------------------------------------------------------
-// Build molar mass item from formula + element Ar map
+// Build molar mass item via deriveQuantity
 // ---------------------------------------------------------------------------
 
 function buildItem(
+  entityRef: string,
   displayFormula: string,
-  arMap: Map<string, number>,
+  ontology: OntologyAccess,
+  formulas: import('../../types/formula').ComputableFormula[],
+  constants: import('../../types/eval-trace').ConstantsDict,
   name?: string,
 ): MolarMassItem | null {
-  const ascii = unicodeToAscii(displayFormula);
-  const counts = parseFormula(ascii);
-  const composition: CompositionEntry[] = [];
-  let M = 0;
+  try {
+    const result = deriveQuantity({
+      target: {
+        quantity: 'q:molar_mass',
+        context: { system_type: 'substance', entity_ref: entityRef },
+      },
+      knowns: [],
+      formulas,
+      constants,
+      ontology,
+    });
 
-  for (const [el, count] of Object.entries(counts)) {
-    const Ar = arMap.get(el);
-    if (Ar === undefined) return null;
-    composition.push({ element: el, Ar, count });
-    M += Ar * count;
+    // Extract composition from decompose + lookup steps in trace
+    const decompStep = result.trace.find(
+      (s): s is ReasonStep & { type: 'decompose' } => s.type === 'decompose',
+    );
+    const lookupSteps = result.trace.filter(
+      (s): s is ReasonStep & { type: 'lookup' } => s.type === 'lookup',
+    );
+
+    if (!decompStep) return null;
+
+    // Match lookup Ar values to decompose components
+    const composition: CompositionEntry[] = decompStep.components.map(c => {
+      const lookup = lookupSteps.find(
+        l => l.source === `element:${c.element}`,
+      );
+      return {
+        element: c.element,
+        count: c.count,
+        Ar: Math.round(lookup?.value ?? 0),
+      };
+    });
+
+    return {
+      formula: displayFormula,
+      composition,
+      M: Math.round(result.value * 100) / 100,
+      name,
+    };
+  } catch {
+    return null;
   }
-
-  if (composition.length === 0) return null;
-  M = Math.round(M * 100) / 100;
-  return { formula: displayFormula, composition, M, name };
 }
 
 // ---------------------------------------------------------------------------
@@ -82,18 +97,32 @@ export default function MolarMassCalculator({ locale }: { locale?: SupportedLoca
       loadSubstancesIndex(locale),
       loadIons(locale),
       loadElements(),
-    ]).then(([substances, ions, elements]) => {
-      const arMap = new Map<string, number>();
-      for (const el of elements) {
-        arMap.set(el.symbol, Math.round(el.atomic_mass));
+      loadFormulas(),
+      loadConstants(),
+    ]).then(([substances, ions, elements, formulas, rawConstants]) => {
+      const constants = toConstantsDict(rawConstants);
+
+      // Build ontology access adapter
+      const entityFormulas = new Map<string, string>();
+      for (const s of substances) {
+        const ascii = unicodeToAscii(s.formula);
+        entityFormulas.set(`substance:${ascii}`, ascii);
       }
+      for (const ion of ions) {
+        const stripped = stripIonCharge(ion.formula);
+        const ascii = unicodeToAscii(stripped);
+        entityFormulas.set(`ion:${ascii}`, ascii);
+      }
+
+      const ontology: OntologyAccess = { elements, parseFormula, entityFormulas };
 
       const seen = new Set<string>();
       const result: MolarMassItem[] = [];
 
       for (const s of substances) {
         if (seen.has(s.formula)) continue;
-        const item = buildItem(s.formula, arMap, s.name);
+        const ascii = unicodeToAscii(s.formula);
+        const item = buildItem(`substance:${ascii}`, s.formula, ontology, formulas, constants, s.name);
         if (item) {
           seen.add(s.formula);
           result.push(item);
@@ -101,9 +130,10 @@ export default function MolarMassCalculator({ locale }: { locale?: SupportedLoca
       }
 
       for (const ion of ions) {
-        const stripped = stripCharge(ion.formula);
+        const stripped = stripIonCharge(ion.formula);
         if (seen.has(stripped)) continue;
-        const item = buildItem(stripped, arMap, ion.name);
+        const ascii = unicodeToAscii(stripped);
+        const item = buildItem(`ion:${ascii}`, stripped, ontology, formulas, constants, ion.name);
         if (item) {
           seen.add(stripped);
           result.push(item);

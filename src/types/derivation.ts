@@ -1,5 +1,13 @@
 import type { SemanticRole } from './formula';
 
+/** Context binding for ontology-aware quantity references. */
+export interface BoundContext {
+  system_type: string;                       // 'substance' | 'element' | 'substance_component'
+  entity_ref?: string;                       // 'substance:H2SO4' | 'element:O'
+  parent_ref?: string;                       // component's parent: 'substance:CO2'
+  bindings?: Record<string, string>;         // e.g., { component: 'element:O' }
+}
+
 /**
  * Qualified quantity reference with explicit semantic role.
  *
@@ -7,11 +15,13 @@ import type { SemanticRole } from './formula';
  * - `role` = domain semantic identity (actual, theoretical, solute...). Affects derivation matching.
  * - `phase` = procedural status (given, find, intermediate). Does NOT affect derivation identity.
  *   Used only by UI/task-state layer, excluded from planner keys.
+ * - `context` = ontology binding (substance, element). Affects derivation identity when present.
  */
 export interface QRef {
   quantity: string;                          // e.g., 'q:mass'
   role?: SemanticRole;                       // e.g., 'actual', 'solute'
   phase?: 'given' | 'find' | 'intermediate'; // procedural only, NOT part of derivation identity
+  context?: BoundContext;                    // ontology binding
 }
 
 /** Input descriptor for a derivation rule. */
@@ -60,6 +70,8 @@ export interface DerivationPlan {
 /** Structured reason trace — no baked text, structured data only. */
 export type ReasonStep =
   | { type: 'given'; qref: QRef; value: number }
+  | { type: 'lookup'; qref: QRef; value: number; source: string }
+  | { type: 'decompose'; sourceRef: string; components: Array<{ element: string; count: number }> }
   | { type: 'formula_select'; formulaId: string; target: QRef }
   | { type: 'substitution'; formulaId: string; bindings: Record<string, number> }
   | { type: 'compute'; formulaId: string; result: number; approximate?: boolean }

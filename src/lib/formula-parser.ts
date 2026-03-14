@@ -3,6 +3,22 @@
  * Handles: NaCl, H2O, Fe2O3, Ca(OH)2, Mg3(PO4)2
  */
 
+// ── Formula normalization helpers ────────────────────────────────
+
+/** Convert Unicode subscript digits (₀–₉) to ASCII digits. */
+export function unicodeToAscii(formula: string): string {
+  return formula.replace(/[\u2080-\u2089]/g, ch =>
+    String(ch.charCodeAt(0) - 0x2080),
+  );
+}
+
+/** Strip trailing superscript charge notation from ion formulas: SO₄²⁻ → SO₄ */
+export function stripIonCharge(formula: string): string {
+  return formula.replace(/[\u2070\u00B9\u00B2\u00B3\u2074-\u2079\u207A\u207B]+$/, '');
+}
+
+// ── Parsing ──────────────────────────────────────────────────────
+
 /** Parse "KMnO4" → { K: 1, Mn: 1, O: 4 } */
 export function parseFormula(formula: string): Record<string, number> {
   const result: Record<string, number> = {};

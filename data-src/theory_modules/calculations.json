@@ -7,14 +7,16 @@
       "id": "molar_mass",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "equation",
           "formula_id": "formula:molar_mass_from_composition"
         },
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "example_block"
@@ -33,7 +35,8 @@
       "id": "amount",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "equation",
@@ -64,14 +67,16 @@
       "id": "mass_fraction_element",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "equation",
           "formula_id": "formula:mass_fraction_element"
         },
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "example_block"
@@ -85,7 +90,8 @@
       "id": "solution_fraction",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "equation",
@@ -128,7 +134,8 @@
       "id": "yield",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "equation",
@@ -140,7 +147,8 @@
           "inversion_for": "m_actual"
         },
         {
-          "t": "paragraph"
+          "t": "text_block",
+          "content": []
         },
         {
           "t": "example_block"

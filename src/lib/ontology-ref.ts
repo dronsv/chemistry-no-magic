@@ -11,6 +11,8 @@ const PREFIX_TO_KIND: Record<string, OntRefKind> = {
   rxfacet: 'reaction_facet',
   proc: 'process',
   prop: 'property',
+  q: 'quantity',
+  unit: 'unit',
   ctx: 'context',
 };
 

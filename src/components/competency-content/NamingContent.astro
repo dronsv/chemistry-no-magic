@@ -1,5 +1,6 @@
 ---
 import * as m from '../../paraglide/messages.js';
+import FormulaChip from '../FormulaChip';
 
 interface NamingExample {
   formula: string;
@@ -43,7 +44,7 @@ for (const r of rules) {
         <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
           {rule.examples.slice(0, 4).map((ex, i) => (
             <span>
-              {ex.formula} — {ex.name}{i < Math.min(rule.examples.length, 4) - 1 ? '; ' : ''}
+              <FormulaChip formula={ex.formula} /> — {ex.name}{i < Math.min(rule.examples.length, 4) - 1 ? '; ' : ''}
             </span>
           ))}
         </div>

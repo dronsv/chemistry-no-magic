@@ -1,12 +1,26 @@
-import type { QRef } from '../../types/derivation';
+import type { QRef, BoundContext } from '../../types/derivation';
 
 /**
  * Semantic identity key for derivation planner.
- * Uses quantity + role only. Phase is EXCLUDED — it is procedural, not identity.
+ * Uses quantity + role + context. Phase is EXCLUDED — it is procedural, not identity.
+ * When context is absent, output is identical to the pre-context version.
  */
 export function qrefKey(qref: QRef): string {
-  if (qref.role) return `${qref.quantity}|${qref.role}`;
-  return qref.quantity;
+  let key = qref.quantity;
+  if (qref.role) key += `|${qref.role}`;
+  if (qref.context) key += `@${contextKey(qref.context)}`;
+  return key;
+}
+
+function contextKey(ctx: BoundContext): string {
+  let key = ctx.system_type;
+  if (ctx.entity_ref) key += ':' + ctx.entity_ref;
+  if (ctx.parent_ref) key += '^' + ctx.parent_ref;
+  if (ctx.bindings) {
+    const entries = Object.entries(ctx.bindings).sort(([a], [b]) => a.localeCompare(b));
+    key += '{' + entries.map(([k, v]) => `${k}=${v}`).join(',') + '}';
+  }
+  return key;
 }
 
 /**
