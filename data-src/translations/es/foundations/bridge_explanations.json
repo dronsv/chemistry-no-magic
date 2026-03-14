@@ -12,16 +12,39 @@
   "difference_between_excitation_and_configuration_exception": {
     "title": "Excitación vs caída del electrón: ¿cuál es la diferencia?",
     "hint": "La caída es una configuración permanente del estado fundamental; la excitación es una transición temporal causada por la absorción de energía.",
-    "school_explanation": "La 'caída' del electrón (en Cr, Cu, etc.) es el ESTADO FUNDAMENTAL del átomo: la configuración 3d⁵4s¹ es más estable que la teóricamente esperada 3d⁴4s² y es una característica permanente del elemento. La excitación es una absorción TEMPORAL de energía externa (fotón, calor), tras la cual el átomo regresa rápidamente al estado fundamental. Son dos fenómenos completamente distintos."
+    "school_explanation": "La 'caída' del electrón (en Cr, Cu, etc.) es el ESTADO FUNDAMENTAL del átomo: la configuración 3d⁵4s¹ es más estable que la teóricamente esperada 3d⁴4s² y es una característica permanente del elemento. La excitación es una absorción TEMPORAL de energía externa (fotón, calor), tras la cual el átomo regresa rápidamente al estado fundamental. Son dos fenómenos completamente distintos.",
+    "school_explanation_content": [
+      {"t": "text", "v": "La 'caída' del electrón (en "},
+      {"t": "formula", "kind": "element", "id": "Cr", "formula": "Cr"},
+      {"t": "text", "v": ", "},
+      {"t": "formula", "kind": "element", "id": "Cu", "formula": "Cu"},
+      {"t": "text", "v": ", etc.) es el ESTADO FUNDAMENTAL del átomo: la configuración 3d⁵4s¹ es más estable que la teóricamente esperada 3d⁴4s² y es una característica permanente del elemento. La excitación es una absorción TEMPORAL de energía externa (fotón, calor), tras la cual el átomo regresa rápidamente al estado fundamental. Son dos fenómenos completamente distintos."}
+    ]
   },
   "why_half_filled_d_is_stable": {
     "title": "¿Por qué el subnivel d semilleno es estable?",
     "hint": "La interacción de intercambio entre electrones con espines paralelos reduce la energía total del átomo cuando el subnivel está simétricamente lleno.",
-    "school_explanation": "El cromo ([Ar] 3d⁵4s¹ en lugar del esperado 3d⁴4s²) y otros metales de transición violan el principio de Aufbau. La razón: con el 3d⁵ semilleno, los cinco electrones tienen espines paralelos. Esto maximiza la interacción de intercambio, que reduce adicionalmente la energía total del átomo. La ganancia supera el 'coste' de trasladar un electrón de 4s a 3d."
+    "school_explanation": "El cromo ([Ar] 3d⁵4s¹ en lugar del esperado 3d⁴4s²) y otros metales de transición violan el principio de Aufbau. La razón: con el 3d⁵ semilleno, los cinco electrones tienen espines paralelos. Esto maximiza la interacción de intercambio, que reduce adicionalmente la energía total del átomo. La ganancia supera el 'coste' de trasladar un electrón de 4s a 3d.",
+    "school_explanation_content": [
+      {"t": "text", "v": "El cromo ("},
+      {"t": "formula", "kind": "element", "id": "Cr", "formula": "Cr"},
+      {"t": "text", "v": ", [Ar] 3d⁵4s¹ en lugar del esperado 3d⁴4s²) y otros metales de transición violan el principio de Aufbau. La razón: con el 3d⁵ semilleno, los cinco electrones tienen espines paralelos. Esto maximiza la interacción de intercambio, que reduce adicionalmente la energía total del átomo. La ganancia supera el 'coste' de trasladar un electrón de 4s a 3d."}
+    ]
   },
   "why_flame_tests_have_color": {
     "title": "¿Por qué las sustancias colorean la llama?",
     "hint": "Los átomos del metal absorben calor → los electrones saltan al estado excitado → al regresar emiten un fotón de longitud de onda exactamente definida que se percibe como color.",
-    "school_explanation": "Al introducir una sal en la llama, los átomos del metal reciben energía térmica. Los electrones pasan a niveles de energía superiores — el átomo se excita. El estado excitado es inestable: los electrones regresan al estado fundamental y emiten fotones con energía exactamente igual a la diferencia entre los niveles. Como cada elemento tiene un conjunto único de niveles energéticos, los colores son únicos: Na — amarillo (589 nm), K — violeta, Cu — verde, Li — rojo."
+    "school_explanation": "Al introducir una sal en la llama, los átomos del metal reciben energía térmica. Los electrones pasan a niveles de energía superiores — el átomo se excita. El estado excitado es inestable: los electrones regresan al estado fundamental y emiten fotones con energía exactamente igual a la diferencia entre los niveles. Como cada elemento tiene un conjunto único de niveles energéticos, los colores son únicos: Na — amarillo (589 nm), K — violeta, Cu — verde, Li — rojo.",
+    "school_explanation_content": [
+      {"t": "text", "v": "Al introducir una sal en la llama, los átomos del metal reciben energía térmica. Los electrones pasan a niveles de energía superiores — el átomo se excita. El estado excitado es inestable: los electrones regresan al estado fundamental y emiten fotones con energía exactamente igual a la diferencia entre los niveles. Como cada elemento tiene un conjunto único de niveles energéticos, los colores son únicos: "},
+      {"t": "formula", "kind": "element", "id": "Na", "formula": "Na"},
+      {"t": "text", "v": " — amarillo (589 nm), "},
+      {"t": "formula", "kind": "element", "id": "K", "formula": "K"},
+      {"t": "text", "v": " — violeta, "},
+      {"t": "formula", "kind": "element", "id": "Cu", "formula": "Cu"},
+      {"t": "text", "v": " — verde, "},
+      {"t": "formula", "kind": "element", "id": "Li", "formula": "Li"},
+      {"t": "text", "v": " — rojo."}
+    ]
   }
 }

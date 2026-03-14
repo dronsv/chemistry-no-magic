@@ -1,4 +1,5 @@
 /** G.1 Physical Foundations Pilot — locale-neutral catalog types + overlay fields */
+import type { RichText } from './ontology-ref';
 
 export interface PhysicalIndices {
   /** concept_id → bridge_ids that require it */
@@ -80,4 +81,5 @@ export interface BridgeExplanation {
   title?: string;
   hint?: string;
   school_explanation?: string;
+  school_explanation_content?: RichText;
 }

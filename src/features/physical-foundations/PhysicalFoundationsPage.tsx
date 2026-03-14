@@ -4,9 +4,15 @@ import {
   loadMechanisms,
   loadPhysicalConcepts,
   loadPhysicalIndices,
+  loadFormulaLookup,
 } from '../../lib/data-loader';
 import type { BridgeExplanation, Mechanism, PhysicalConcept, PhysicalIndices } from '../../types/foundations';
+import type { FormulaLookup } from '../../types/formula-lookup';
 import type { SupportedLocale } from '../../types/i18n';
+import { localizeUrl } from '../../lib/i18n';
+import { FormulaLookupProvider } from '../../components/ChemText';
+import RichTextRenderer from '../../components/RichTextRenderer';
+import FormulaChip from '../../components/FormulaChip';
 import './physical-foundations.css';
 
 interface Props {
@@ -18,6 +24,7 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
   const [mechanisms, setMechanisms] = useState<Mechanism[]>([]);
   const [concepts, setConcepts] = useState<PhysicalConcept[]>([]);
   const [indices, setIndices] = useState<PhysicalIndices | null>(null);
+  const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -25,11 +32,13 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
       loadMechanisms(locale),
       loadPhysicalConcepts(locale),
       loadPhysicalIndices(),
-    ]).then(([b, m, c, idx]) => {
+      loadFormulaLookup(),
+    ]).then(([b, m, c, idx, fl]) => {
       setBridges(b);
       setMechanisms(m);
       setConcepts(c);
       setIndices(idx);
+      setFormulaLookup(fl);
     });
   }, [locale]);
 
@@ -41,8 +50,9 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
   }
 
   return (
-    <div className="pf-page">
-      <header className="pf-page__header">
+    <FormulaLookupProvider value={formulaLookup}>
+      <div className="pf-page">
+        <header className="pf-page__header">
         <h1 className="pf-page__title">
           {locale === 'ru' ? 'Физические основы химии' : 'Physical Foundations of Chemistry'}
         </h1>
@@ -70,9 +80,28 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
                 <p className="pf-bridge__hint">{bridge.hint}</p>
               )}
 
-              {bridge.school_explanation && (
+              {(bridge.school_explanation_content || bridge.school_explanation) && (
                 <div className="pf-bridge__explanation">
-                  {bridge.school_explanation}
+                  {bridge.school_explanation_content
+                    ? <RichTextRenderer segments={bridge.school_explanation_content} locale={locale} />
+                    : bridge.school_explanation}
+                </div>
+              )}
+
+              {bridge.exception_element_ids && bridge.exception_element_ids.length > 0 && (
+                <div className="pf-bridge__elements">
+                  <span className="pf-bridge__prereqs-label">
+                    {locale === 'ru' ? 'Элементы: ' : 'Elements: '}
+                  </span>
+                  {bridge.exception_element_ids.map(symbol => (
+                    <FormulaChip
+                      key={symbol}
+                      formula={symbol}
+                      substanceClass="simple"
+                      elementId={symbol}
+                      locale={locale}
+                    />
+                  ))}
                 </div>
               )}
 
@@ -119,7 +148,7 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
                     {locale === 'ru' ? 'Используется на: ' : 'Used on: '}
                   </span>
                   {pageLinks.map(slug => (
-                    <a key={slug} href={`/${slug}/`} className="pf-bridge__page-link">
+                    <a key={slug} href={localizeUrl(`/${slug}/`, locale)} className="pf-bridge__page-link">
                       {slug}
                     </a>
                   ))}
@@ -130,5 +159,6 @@ export default function PhysicalFoundationsPage({ locale }: Props) {
         })}
       </div>
     </div>
+    </FormulaLookupProvider>
   );
 }

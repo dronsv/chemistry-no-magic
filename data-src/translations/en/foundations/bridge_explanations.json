@@ -12,16 +12,39 @@
   "difference_between_excitation_and_configuration_exception": {
     "title": "Excitation vs electron drop: what is the difference?",
     "hint": "An electron drop is a permanent ground-state configuration; excitation is a temporary transition caused by energy absorption.",
-    "school_explanation": "The electron 'drop' (in Cr, Cu, etc.) is the GROUND state of the atom: the configuration 3d⁵4s¹ is more stable than the theoretically expected 3d⁴4s² and is a permanent characteristic of the element. Excitation is a TEMPORARY absorption of external energy (photon, heat), after which the atom quickly returns to the ground state. These are two entirely different phenomena."
+    "school_explanation": "The electron 'drop' (in Cr, Cu, etc.) is the GROUND state of the atom: the configuration 3d⁵4s¹ is more stable than the theoretically expected 3d⁴4s² and is a permanent characteristic of the element. Excitation is a TEMPORARY absorption of external energy (photon, heat), after which the atom quickly returns to the ground state. These are two entirely different phenomena.",
+    "school_explanation_content": [
+      {"t": "text", "v": "The electron 'drop' (in "},
+      {"t": "formula", "kind": "element", "id": "Cr", "formula": "Cr"},
+      {"t": "text", "v": ", "},
+      {"t": "formula", "kind": "element", "id": "Cu", "formula": "Cu"},
+      {"t": "text", "v": ", etc.) is the GROUND state of the atom: the configuration 3d⁵4s¹ is more stable than the theoretically expected 3d⁴4s² and is a permanent characteristic of the element. Excitation is a TEMPORARY absorption of external energy (photon, heat), after which the atom quickly returns to the ground state. These are two entirely different phenomena."}
+    ]
   },
   "why_half_filled_d_is_stable": {
     "title": "Why is a half-filled d subshell stable?",
     "hint": "Exchange interaction between electrons with parallel spins lowers the total energy of the atom when the subshell is symmetrically filled.",
-    "school_explanation": "Chromium ([Ar] 3d⁵4s¹ instead of the expected 3d⁴4s²) and other transition metals violate the Aufbau principle. The reason: with a half-filled 3d⁵ all five electrons have parallel spins. This maximises the exchange interaction, which additionally lowers the total energy of the atom. The energy gain exceeds the 'cost' of moving an electron from 4s to 3d."
+    "school_explanation": "Chromium ([Ar] 3d⁵4s¹ instead of the expected 3d⁴4s²) and other transition metals violate the Aufbau principle. The reason: with a half-filled 3d⁵ all five electrons have parallel spins. This maximises the exchange interaction, which additionally lowers the total energy of the atom. The energy gain exceeds the 'cost' of moving an electron from 4s to 3d.",
+    "school_explanation_content": [
+      {"t": "text", "v": "Chromium ("},
+      {"t": "formula", "kind": "element", "id": "Cr", "formula": "Cr"},
+      {"t": "text", "v": ", [Ar] 3d⁵4s¹ instead of the expected 3d⁴4s²) and other transition metals violate the Aufbau principle. The reason: with a half-filled 3d⁵ all five electrons have parallel spins. This maximises the exchange interaction, which additionally lowers the total energy of the atom. The energy gain exceeds the 'cost' of moving an electron from 4s to 3d."}
+    ]
   },
   "why_flame_tests_have_color": {
     "title": "Why do substances colour a flame?",
     "hint": "Metal atoms absorb heat → electrons jump to an excited state → on returning they emit a photon of a precisely defined wavelength perceived as colour.",
-    "school_explanation": "When a salt is placed in a flame, metal atoms receive thermal energy. Electrons move to higher energy levels — the atom becomes excited. The excited state is unstable: electrons return to the ground state and emit photons with energy exactly equal to the difference between the levels. Because each element has a unique set of energy levels, the colours are unique: Na — yellow (589 nm), K — violet, Cu — green, Li — red."
+    "school_explanation": "When a salt is placed in a flame, metal atoms receive thermal energy. Electrons move to higher energy levels — the atom becomes excited. The excited state is unstable: electrons return to the ground state and emit photons with energy exactly equal to the difference between the levels. Because each element has a unique set of energy levels, the colours are unique: Na — yellow (589 nm), K — violet, Cu — green, Li — red.",
+    "school_explanation_content": [
+      {"t": "text", "v": "When a salt is placed in a flame, metal atoms receive thermal energy. Electrons move to higher energy levels — the atom becomes excited. The excited state is unstable: electrons return to the ground state and emit photons with energy exactly equal to the difference between the levels. Because each element has a unique set of energy levels, the colours are unique: "},
+      {"t": "formula", "kind": "element", "id": "Na", "formula": "Na"},
+      {"t": "text", "v": " — yellow (589 nm), "},
+      {"t": "formula", "kind": "element", "id": "K", "formula": "K"},
+      {"t": "text", "v": " — violet, "},
+      {"t": "formula", "kind": "element", "id": "Cu", "formula": "Cu"},
+      {"t": "text", "v": " — green, "},
+      {"t": "formula", "kind": "element", "id": "Li", "formula": "Li"},
+      {"t": "text", "v": " — red."}
+    ]
   }
 }
