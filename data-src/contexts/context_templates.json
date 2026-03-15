@@ -1,0 +1,8 @@
+[
+  {
+    "id": "ctxtmpl:H2SO4_conc",
+    "base_ref": "sub:H2SO4",
+    "modifiers": ["concentrated"],
+    "semantic_type": "context_template"
+  }
+]

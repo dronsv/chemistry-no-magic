@@ -21,7 +21,30 @@
     "q:condition": { "name": "condición cualitativa" },
     "q:atom_count_in_composition": { "name": "número de átomos en composición" },
     "q:component_molar_mass_contribution": { "name": "contribución del componente a la masa molar" },
-    "q:component_mass_fraction": { "name": "fracción másica del componente" }
+    "q:component_mass_fraction": { "name": "fracción másica del componente" },
+    "q:atomic_number": { "name": "número atómico" },
+    "q:effective_nuclear_charge": { "name": "carga nuclear efectiva" },
+    "q:shielding_constant": { "name": "constante de apantallamiento" },
+    "q:principal_quantum_number": { "name": "número cuántico principal" },
+    "q:atomic_radius_proxy": { "name": "radio atómico aproximado" },
+    "q:ionization_energy": { "name": "energía de ionización" },
+    "q:ionization_energy_proxy": { "name": "energía de ionización aproximada" },
+    "q:particle_count": { "name": "número de partículas" },
+    "q:molar_concentration": { "name": "concentración molar" },
+    "q:stoich_coeff": { "name": "coeficiente estequiométrico" },
+    "q:enthalpy_change": { "name": "cambio de entalpía" },
+    "q:standard_enthalpy_formation": { "name": "entalpía estándar de formación" },
+    "q:heat": { "name": "calor" },
+    "q:temperature_change": { "name": "cambio de temperatura" },
+    "q:specific_heat_capacity": { "name": "calor específico" },
+    "q:frequency": { "name": "frecuencia" },
+    "q:planck_constant": { "name": "constante de Planck" },
+    "q:gas_constant": { "name": "constante universal de los gases" },
+    "q:reaction_rate": { "name": "velocidad de reacción" },
+    "q:temperature_coefficient": { "name": "coeficiente de temperatura" },
+    "q:rate_constant": { "name": "constante de velocidad" },
+    "q:activation_energy": { "name": "energía de activación" },
+    "q:pre_exponential_factor": { "name": "factor preexponencial" }
   },
   "units": {
     "unit:g": { "name": "g" },
@@ -55,6 +78,14 @@
     "unit:enum": { "name": "enum" },
     "unit:dimensionless": { "name": "adimensional" },
     "unit:C": { "name": "C" },
-    "unit:elementary_charge": { "name": "e" }
+    "unit:elementary_charge": { "name": "e" },
+    "unit:per_mol": { "name": "mol⁻¹" },
+    "unit:per_s": { "name": "s⁻¹" },
+    "unit:J_s": { "name": "J·s" },
+    "unit:Hz": { "name": "Hz" },
+    "unit:N_m2_per_C2": { "name": "N·m²/C²" },
+    "unit:J_per_gK": { "name": "J/(g·K)" },
+    "unit:mol_per_L_s": { "name": "mol/(L·s)" },
+    "unit:J_per_mol_K": { "name": "J/(mol·K)" }
   }
 }

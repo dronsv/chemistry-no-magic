@@ -1236,5 +1236,11 @@
   },
   "feohcl": {
     "name": "Iron(II) hydroxychloride"
+  },
+  "c": {
+    "name": "Carbon (simple substance)"
+  },
+  "p": {
+    "name": "Phosphorus (simple substance)"
   }
 }

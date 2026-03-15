@@ -1236,5 +1236,11 @@
   },
   "feohcl": {
     "name": "Cloruro básico de hierro(II)"
+  },
+  "c": {
+    "name": "Carbono (sustancia simple)"
+  },
+  "p": {
+    "name": "Fósforo (sustancia simple)"
   }
 }

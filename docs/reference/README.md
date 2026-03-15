@@ -23,4 +23,4 @@ All three packages converge on the same conclusion:
 2. Full 5-layer framework as immediate plan — **defer**
 3. Incremental improvement via `decline()` + Phase B1 + morph directives — **do now**
 
-Active implementation plans → `docs/plans/`
+Active implementation plans → `docs/superpowers/plans/`

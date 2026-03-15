@@ -199,6 +199,198 @@
         "unit:fraction",
         "unit:percent"
       ]
+    },
+    {
+      "id": "q:atomic_number",
+      "display_symbol": "Z",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:effective_nuclear_charge",
+      "display_symbol": "Z_eff",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:shielding_constant",
+      "display_symbol": "σ",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:principal_quantum_number",
+      "display_symbol": "n",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:atomic_radius_proxy",
+      "display_symbol": "r",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:ionization_energy",
+      "display_symbol": "IE",
+      "dimension": "M*L^2/(T^2*N)",
+      "recommended_units": [
+        "unit:kJ_per_mol",
+        "unit:J_per_mol"
+      ]
+    },
+    {
+      "id": "q:ionization_energy_proxy",
+      "display_symbol": "IE",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:particle_count",
+      "display_symbol": "N",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:molar_concentration",
+      "display_symbol": "C",
+      "dimension": "N/L^3",
+      "recommended_units": [
+        "unit:mol_per_L",
+        "unit:mol_per_m3"
+      ]
+    },
+    {
+      "id": "q:stoich_coeff",
+      "display_symbol": "ν",
+      "dimension": "1",
+      "contextual": true,
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:enthalpy_change",
+      "display_symbol": "ΔH",
+      "dimension": "M*L^2/(T^2*N)",
+      "recommended_units": [
+        "unit:kJ_per_mol",
+        "unit:J_per_mol"
+      ]
+    },
+    {
+      "id": "q:standard_enthalpy_formation",
+      "display_symbol": "ΔH°f",
+      "dimension": "M*L^2/(T^2*N)",
+      "recommended_units": [
+        "unit:kJ_per_mol",
+        "unit:J_per_mol"
+      ]
+    },
+    {
+      "id": "q:heat",
+      "display_symbol": "Q",
+      "dimension": "M*L^2/T^2",
+      "recommended_units": [
+        "unit:J",
+        "unit:kJ"
+      ]
+    },
+    {
+      "id": "q:temperature_change",
+      "display_symbol": "ΔT",
+      "dimension": "Theta",
+      "recommended_units": [
+        "unit:K",
+        "unit:degC"
+      ]
+    },
+    {
+      "id": "q:specific_heat_capacity",
+      "display_symbol": "c",
+      "dimension": "L^2/(T^2*Theta)",
+      "recommended_units": [
+        "unit:J_per_gK"
+      ]
+    },
+    {
+      "id": "q:frequency",
+      "display_symbol": "ν",
+      "dimension": "1/T",
+      "recommended_units": [
+        "unit:Hz"
+      ]
+    },
+    {
+      "id": "q:planck_constant",
+      "display_symbol": "h",
+      "dimension": "M*L^2/T",
+      "recommended_units": [
+        "unit:J_s"
+      ]
+    },
+    {
+      "id": "q:gas_constant",
+      "display_symbol": "R",
+      "dimension": "M*L^2/(T^2*N*Theta)",
+      "recommended_units": [
+        "unit:J_per_mol_K"
+      ]
+    },
+    {
+      "id": "q:reaction_rate",
+      "display_symbol": "v",
+      "dimension": "N/(L^3*T)",
+      "recommended_units": [
+        "unit:mol_per_L_s"
+      ]
+    },
+    {
+      "id": "q:temperature_coefficient",
+      "display_symbol": "γ",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
+    },
+    {
+      "id": "q:rate_constant",
+      "display_symbol": "k",
+      "dimension": "1/T",
+      "recommended_units": [
+        "unit:per_s"
+      ]
+    },
+    {
+      "id": "q:activation_energy",
+      "display_symbol": "Eₐ",
+      "dimension": "M*L^2/(T^2*N)",
+      "recommended_units": [
+        "unit:kJ_per_mol",
+        "unit:J_per_mol"
+      ]
+    },
+    {
+      "id": "q:pre_exponential_factor",
+      "display_symbol": "A",
+      "dimension": "1/T",
+      "recommended_units": [
+        "unit:per_s"
+      ]
     }
   ],
   "units": [
@@ -449,6 +641,86 @@
       "to_SI": {
         "unit": "C",
         "factor": 1.602176634e-19
+      }
+    },
+    {
+      "id": "unit:per_mol",
+      "symbol": "mol⁻¹",
+      "quantity": "q:particle_count",
+      "dimension": "1/N",
+      "to_SI": {
+        "unit": "per_mol",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:per_s",
+      "symbol": "s⁻¹",
+      "quantity": "q:rate_constant",
+      "dimension": "1/T",
+      "to_SI": {
+        "unit": "per_s",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:J_s",
+      "symbol": "J·s",
+      "quantity": "q:planck_constant",
+      "dimension": "M*L^2/T",
+      "to_SI": {
+        "unit": "J_s",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:Hz",
+      "symbol": "Hz",
+      "quantity": "q:frequency",
+      "dimension": "1/T",
+      "to_SI": {
+        "unit": "Hz",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:N_m2_per_C2",
+      "symbol": "N·m²/C²",
+      "quantity": "q:energy",
+      "dimension": "M*L^3/(T^4*I^2)",
+      "to_SI": {
+        "unit": "N_m2_per_C2",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:J_per_gK",
+      "symbol": "J/(g·K)",
+      "quantity": "q:specific_heat_capacity",
+      "dimension": "L^2/(T^2*Theta)",
+      "to_SI": {
+        "unit": "J_per_kgK",
+        "factor": 1000
+      }
+    },
+    {
+      "id": "unit:mol_per_L_s",
+      "symbol": "mol/(L·s)",
+      "quantity": "q:reaction_rate",
+      "dimension": "N/(L^3*T)",
+      "to_SI": {
+        "unit": "mol_per_m3_s",
+        "factor": 1000
+      }
+    },
+    {
+      "id": "unit:J_per_mol_K",
+      "symbol": "J/(mol·K)",
+      "quantity": "q:gas_constant",
+      "dimension": "M*L^2/(T^2*N*Theta)",
+      "to_SI": {
+        "unit": "J_per_mol_K",
+        "factor": 1
       }
     }
   ],

@@ -65,6 +65,75 @@
     },
     "q:component_mass_fraction": {
       "name": "массовая доля компонента"
+    },
+    "q:atomic_number": {
+      "name": "атомный номер"
+    },
+    "q:effective_nuclear_charge": {
+      "name": "эффективный заряд ядра"
+    },
+    "q:shielding_constant": {
+      "name": "константа экранирования"
+    },
+    "q:principal_quantum_number": {
+      "name": "главное квантовое число"
+    },
+    "q:atomic_radius_proxy": {
+      "name": "приближённый атомный радиус"
+    },
+    "q:ionization_energy": {
+      "name": "энергия ионизации"
+    },
+    "q:ionization_energy_proxy": {
+      "name": "приближённая энергия ионизации"
+    },
+    "q:particle_count": {
+      "name": "число частиц"
+    },
+    "q:molar_concentration": {
+      "name": "молярная концентрация"
+    },
+    "q:stoich_coeff": {
+      "name": "стехиометрический коэффициент"
+    },
+    "q:enthalpy_change": {
+      "name": "изменение энтальпии"
+    },
+    "q:standard_enthalpy_formation": {
+      "name": "стандартная энтальпия образования"
+    },
+    "q:heat": {
+      "name": "теплота"
+    },
+    "q:temperature_change": {
+      "name": "изменение температуры"
+    },
+    "q:specific_heat_capacity": {
+      "name": "удельная теплоёмкость"
+    },
+    "q:frequency": {
+      "name": "частота"
+    },
+    "q:planck_constant": {
+      "name": "постоянная Планка"
+    },
+    "q:gas_constant": {
+      "name": "универсальная газовая постоянная"
+    },
+    "q:reaction_rate": {
+      "name": "скорость реакции"
+    },
+    "q:temperature_coefficient": {
+      "name": "температурный коэффициент"
+    },
+    "q:rate_constant": {
+      "name": "константа скорости"
+    },
+    "q:activation_energy": {
+      "name": "энергия активации"
+    },
+    "q:pre_exponential_factor": {
+      "name": "предэкспоненциальный множитель"
     }
   },
   "units": {
@@ -163,6 +232,30 @@
     },
     "unit:elementary_charge": {
       "name": "e"
+    },
+    "unit:per_mol": {
+      "name": "моль⁻¹"
+    },
+    "unit:per_s": {
+      "name": "с⁻¹"
+    },
+    "unit:J_s": {
+      "name": "Дж·с"
+    },
+    "unit:Hz": {
+      "name": "Гц"
+    },
+    "unit:N_m2_per_C2": {
+      "name": "Н·м²/Кл²"
+    },
+    "unit:J_per_gK": {
+      "name": "Дж/(г·К)"
+    },
+    "unit:mol_per_L_s": {
+      "name": "моль/(л·с)"
+    },
+    "unit:J_per_mol_K": {
+      "name": "Дж/(моль·К)"
     }
   }
 }

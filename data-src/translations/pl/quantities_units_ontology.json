@@ -21,7 +21,30 @@
     "q:condition": { "name": "warunek jakościowy" },
     "q:atom_count_in_composition": { "name": "liczba atomów w składzie" },
     "q:component_molar_mass_contribution": { "name": "wkład składnika w masę molarną" },
-    "q:component_mass_fraction": { "name": "udział masowy składnika" }
+    "q:component_mass_fraction": { "name": "udział masowy składnika" },
+    "q:atomic_number": { "name": "liczba atomowa" },
+    "q:effective_nuclear_charge": { "name": "efektywny ładunek jądra" },
+    "q:shielding_constant": { "name": "stała ekranowania" },
+    "q:principal_quantum_number": { "name": "główna liczba kwantowa" },
+    "q:atomic_radius_proxy": { "name": "przybliżony promień atomowy" },
+    "q:ionization_energy": { "name": "energia jonizacji" },
+    "q:ionization_energy_proxy": { "name": "przybliżona energia jonizacji" },
+    "q:particle_count": { "name": "liczba cząstek" },
+    "q:molar_concentration": { "name": "stężenie molowe" },
+    "q:stoich_coeff": { "name": "współczynnik stechiometryczny" },
+    "q:enthalpy_change": { "name": "zmiana entalpii" },
+    "q:standard_enthalpy_formation": { "name": "standardowa entalpia tworzenia" },
+    "q:heat": { "name": "ciepło" },
+    "q:temperature_change": { "name": "zmiana temperatury" },
+    "q:specific_heat_capacity": { "name": "ciepło właściwe" },
+    "q:frequency": { "name": "częstotliwość" },
+    "q:planck_constant": { "name": "stała Plancka" },
+    "q:gas_constant": { "name": "uniwersalna stała gazowa" },
+    "q:reaction_rate": { "name": "szybkość reakcji" },
+    "q:temperature_coefficient": { "name": "współczynnik temperaturowy" },
+    "q:rate_constant": { "name": "stała szybkości" },
+    "q:activation_energy": { "name": "energia aktywacji" },
+    "q:pre_exponential_factor": { "name": "czynnik przedeksponencjalny" }
   },
   "units": {
     "unit:g": { "name": "g" },
@@ -55,6 +78,14 @@
     "unit:enum": { "name": "enum" },
     "unit:dimensionless": { "name": "bezwymiarowa" },
     "unit:C": { "name": "C" },
-    "unit:elementary_charge": { "name": "e" }
+    "unit:elementary_charge": { "name": "e" },
+    "unit:per_mol": { "name": "mol⁻¹" },
+    "unit:per_s": { "name": "s⁻¹" },
+    "unit:J_s": { "name": "J·s" },
+    "unit:Hz": { "name": "Hz" },
+    "unit:N_m2_per_C2": { "name": "N·m²/C²" },
+    "unit:J_per_gK": { "name": "J/(g·K)" },
+    "unit:mol_per_L_s": { "name": "mol/(L·s)" },
+    "unit:J_per_mol_K": { "name": "J/(mol·K)" }
   }
 }

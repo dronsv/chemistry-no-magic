@@ -1,0 +1,15 @@
+{
+  "id": "sub:P",
+  "formula": "P",
+  "class": "other",
+  "subclass": "simple_substance",
+  "ions": [],
+  "tags": [
+    "solid",
+    "allotropes"
+  ],
+  "phase_standard": "s",
+  "melting_point_C": 44.15,
+  "boiling_point_C": 280.5,
+  "density_g_cm3": 1.82
+}
