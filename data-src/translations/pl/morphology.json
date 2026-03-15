@@ -1,34 +1,746 @@
 {
   "elements": {
-    "H": { "nom": "wodór", "gen": "wodoru", "dat": "wodorowi", "acc": "wodór", "inst": "wodorem", "loc": "wodorze", "voc": "wodorze", "gender": "m" },
-    "O": { "nom": "tlen", "gen": "tlenu", "dat": "tlenowi", "acc": "tlen", "inst": "tlenem", "loc": "tlenie", "voc": "tlenie", "gender": "m" },
-    "Na": { "nom": "sód", "gen": "sodu", "dat": "sodowi", "acc": "sód", "inst": "sodem", "loc": "sodzie", "voc": "sodzie", "gender": "m" },
-    "S": { "nom": "siarka", "gen": "siarki", "dat": "siarce", "acc": "siarkę", "inst": "siarką", "loc": "siarce", "voc": "siarko", "gender": "f" }
+    "H": {
+      "nom": "wodór",
+      "gen": "wodoru",
+      "gender": "m"
+    },
+    "He": {
+      "nom": "hel",
+      "gen": "helu",
+      "gender": "m"
+    },
+    "Li": {
+      "nom": "lit",
+      "gen": "litu",
+      "gender": "m"
+    },
+    "Be": {
+      "nom": "beryl",
+      "gen": "berylu",
+      "gender": "m"
+    },
+    "B": {
+      "nom": "bor",
+      "gen": "boru",
+      "gender": "m"
+    },
+    "C": {
+      "nom": "węgiel",
+      "gen": "węgla",
+      "gender": "m"
+    },
+    "N": {
+      "nom": "azot",
+      "gen": "azotu",
+      "gender": "m"
+    },
+    "O": {
+      "nom": "tlen",
+      "gen": "tlenu",
+      "gender": "m"
+    },
+    "F": {
+      "nom": "fluor",
+      "gen": "fluoru",
+      "gender": "m"
+    },
+    "Ne": {
+      "nom": "neon",
+      "gen": "neonu",
+      "gender": "m"
+    },
+    "Na": {
+      "nom": "sód",
+      "gen": "sodu",
+      "gender": "m"
+    },
+    "Mg": {
+      "nom": "magnez",
+      "gen": "magnezu",
+      "gender": "m"
+    },
+    "Al": {
+      "nom": "glin",
+      "gen": "glinu",
+      "gender": "m"
+    },
+    "Si": {
+      "nom": "krzem",
+      "gen": "krzemu",
+      "gender": "m"
+    },
+    "P": {
+      "nom": "fosfor",
+      "gen": "fosforu",
+      "gender": "m"
+    },
+    "S": {
+      "nom": "siarka",
+      "gen": "siarki",
+      "gender": "f"
+    },
+    "Cl": {
+      "nom": "chlor",
+      "gen": "chloru",
+      "gender": "m"
+    },
+    "Ar": {
+      "nom": "argon",
+      "gen": "argonu",
+      "gender": "m"
+    },
+    "K": {
+      "nom": "potas",
+      "gen": "potasu",
+      "gender": "m"
+    },
+    "Ca": {
+      "nom": "wapń",
+      "gen": "wapnia",
+      "gender": "m"
+    },
+    "Sc": {
+      "nom": "skand",
+      "gen": "skandu",
+      "gender": "m"
+    },
+    "Ti": {
+      "nom": "tytan",
+      "gen": "tytanu",
+      "gender": "m"
+    },
+    "V": {
+      "nom": "wanad",
+      "gen": "wanadu",
+      "gender": "m"
+    },
+    "Cr": {
+      "nom": "chrom",
+      "gen": "chromu",
+      "gender": "m"
+    },
+    "Mn": {
+      "nom": "mangan",
+      "gen": "manganu",
+      "gender": "m"
+    },
+    "Fe": {
+      "nom": "żelazo",
+      "gen": "żelaza",
+      "gender": "n"
+    },
+    "Co": {
+      "nom": "kobalt",
+      "gen": "kobaltu",
+      "gender": "m"
+    },
+    "Ni": {
+      "nom": "nikiel",
+      "gen": "niklu",
+      "gender": "m"
+    },
+    "Cu": {
+      "nom": "miedź",
+      "gen": "miedzi",
+      "gender": "f"
+    },
+    "Zn": {
+      "nom": "cynk",
+      "gen": "cynku",
+      "gender": "m"
+    },
+    "Ga": {
+      "nom": "gal",
+      "gen": "galu",
+      "gender": "m"
+    },
+    "Ge": {
+      "nom": "german",
+      "gen": "germanu",
+      "gender": "m"
+    },
+    "As": {
+      "nom": "arsen",
+      "gen": "arsenu",
+      "gender": "m"
+    },
+    "Se": {
+      "nom": "selen",
+      "gen": "selenu",
+      "gender": "m"
+    },
+    "Br": {
+      "nom": "brom",
+      "gen": "bromu",
+      "gender": "m"
+    },
+    "Kr": {
+      "nom": "krypton",
+      "gen": "kryptonu",
+      "gender": "m"
+    },
+    "Rb": {
+      "nom": "rubid",
+      "gen": "rubidu",
+      "gender": "m"
+    },
+    "Sr": {
+      "nom": "stront",
+      "gen": "strontu",
+      "gender": "m"
+    },
+    "Y": {
+      "nom": "itr",
+      "gen": "itru",
+      "gender": "m"
+    },
+    "Zr": {
+      "nom": "cyrkon",
+      "gen": "cyrkonu",
+      "gender": "m"
+    },
+    "Nb": {
+      "nom": "niob",
+      "gen": "niobu",
+      "gender": "m"
+    },
+    "Mo": {
+      "nom": "molibden",
+      "gen": "molibdenu",
+      "gender": "m"
+    },
+    "Tc": {
+      "nom": "technet",
+      "gen": "technetu",
+      "gender": "m"
+    },
+    "Ru": {
+      "nom": "ruten",
+      "gen": "rutenu",
+      "gender": "m"
+    },
+    "Rh": {
+      "nom": "rod",
+      "gen": "rodu",
+      "gender": "m"
+    },
+    "Pd": {
+      "nom": "pallad",
+      "gen": "palladu",
+      "gender": "m"
+    },
+    "Ag": {
+      "nom": "srebro",
+      "gen": "srebra",
+      "gender": "n"
+    },
+    "Cd": {
+      "nom": "kadm",
+      "gen": "kadmu",
+      "gender": "m"
+    },
+    "In": {
+      "nom": "ind",
+      "gen": "indu",
+      "gender": "m"
+    },
+    "Sn": {
+      "nom": "cyna",
+      "gen": "cyny",
+      "gender": "f"
+    },
+    "Sb": {
+      "nom": "antymon",
+      "gen": "antymonu",
+      "gender": "m"
+    },
+    "Te": {
+      "nom": "tellur",
+      "gen": "telluru",
+      "gender": "m"
+    },
+    "I": {
+      "nom": "jod",
+      "gen": "jodu",
+      "gender": "m"
+    },
+    "Xe": {
+      "nom": "ksenon",
+      "gen": "ksenonu",
+      "gender": "m"
+    },
+    "Cs": {
+      "nom": "cez",
+      "gen": "cezu",
+      "gender": "m"
+    },
+    "Ba": {
+      "nom": "bar",
+      "gen": "baru",
+      "gender": "m"
+    },
+    "La": {
+      "nom": "lantan",
+      "gen": "lantanu",
+      "gender": "m"
+    },
+    "Ce": {
+      "nom": "cer",
+      "gen": "ceru",
+      "gender": "m"
+    },
+    "Pr": {
+      "nom": "prazeodym",
+      "gen": "prazeodymu",
+      "gender": "m"
+    },
+    "Nd": {
+      "nom": "neodym",
+      "gen": "neodymu",
+      "gender": "m"
+    },
+    "Pm": {
+      "nom": "promet",
+      "gen": "prometu",
+      "gender": "m"
+    },
+    "Sm": {
+      "nom": "samar",
+      "gen": "samaru",
+      "gender": "m"
+    },
+    "Eu": {
+      "nom": "europ",
+      "gen": "europu",
+      "gender": "m"
+    },
+    "Gd": {
+      "nom": "gadolin",
+      "gen": "gadolinu",
+      "gender": "m"
+    },
+    "Tb": {
+      "nom": "terb",
+      "gen": "terbu",
+      "gender": "m"
+    },
+    "Dy": {
+      "nom": "dysproz",
+      "gen": "dysprozu",
+      "gender": "m"
+    },
+    "Ho": {
+      "nom": "holm",
+      "gen": "holmu",
+      "gender": "m"
+    },
+    "Er": {
+      "nom": "erb",
+      "gen": "erbu",
+      "gender": "m"
+    },
+    "Tm": {
+      "nom": "tul",
+      "gen": "tulu",
+      "gender": "m"
+    },
+    "Yb": {
+      "nom": "iterb",
+      "gen": "iterbu",
+      "gender": "m"
+    },
+    "Lu": {
+      "nom": "lutet",
+      "gen": "lutetu",
+      "gender": "m"
+    },
+    "Hf": {
+      "nom": "hafn",
+      "gen": "hafnu",
+      "gender": "m"
+    },
+    "Ta": {
+      "nom": "tantal",
+      "gen": "tantalu",
+      "gender": "m"
+    },
+    "W": {
+      "nom": "wolfram",
+      "gen": "wolframu",
+      "gender": "m"
+    },
+    "Re": {
+      "nom": "ren",
+      "gen": "renu",
+      "gender": "m"
+    },
+    "Os": {
+      "nom": "osm",
+      "gen": "osmu",
+      "gender": "m"
+    },
+    "Ir": {
+      "nom": "iryd",
+      "gen": "irydu",
+      "gender": "m"
+    },
+    "Pt": {
+      "nom": "platyna",
+      "gen": "platyny",
+      "gender": "f"
+    },
+    "Au": {
+      "nom": "złoto",
+      "gen": "złota",
+      "gender": "n"
+    },
+    "Hg": {
+      "nom": "rtęć",
+      "gen": "rtęci",
+      "gender": "f"
+    },
+    "Tl": {
+      "nom": "tal",
+      "gen": "talu",
+      "gender": "m"
+    },
+    "Pb": {
+      "nom": "ołów",
+      "gen": "ołowiu",
+      "gender": "m"
+    },
+    "Bi": {
+      "nom": "bizmut",
+      "gen": "bizmutu",
+      "gender": "m"
+    },
+    "Po": {
+      "nom": "polon",
+      "gen": "polonu",
+      "gender": "m"
+    },
+    "At": {
+      "nom": "astat",
+      "gen": "astatu",
+      "gender": "m"
+    },
+    "Rn": {
+      "nom": "radon",
+      "gen": "radonu",
+      "gender": "m"
+    },
+    "Fr": {
+      "nom": "frans",
+      "gen": "fransu",
+      "gender": "m"
+    },
+    "Ra": {
+      "nom": "rad",
+      "gen": "radu",
+      "gender": "m"
+    },
+    "Ac": {
+      "nom": "aktyn",
+      "gen": "aktynu",
+      "gender": "m"
+    },
+    "Th": {
+      "nom": "tor",
+      "gen": "toru",
+      "gender": "m"
+    },
+    "Pa": {
+      "nom": "protaktyn",
+      "gen": "protaktynu",
+      "gender": "m"
+    },
+    "U": {
+      "nom": "uran",
+      "gen": "uranu",
+      "gender": "m"
+    },
+    "Np": {
+      "nom": "neptun",
+      "gen": "neptunu",
+      "gender": "m"
+    },
+    "Pu": {
+      "nom": "pluton",
+      "gen": "plutonu",
+      "gender": "m"
+    },
+    "Am": {
+      "nom": "ameryk",
+      "gen": "ameryku",
+      "gender": "m"
+    },
+    "Cm": {
+      "nom": "kiur",
+      "gen": "kiuru",
+      "gender": "m"
+    },
+    "Bk": {
+      "nom": "berkel",
+      "gen": "berkelu",
+      "gender": "m"
+    },
+    "Cf": {
+      "nom": "kaliforn",
+      "gen": "kalifornu",
+      "gender": "m"
+    },
+    "Es": {
+      "nom": "einstein",
+      "gen": "einsteinu",
+      "gender": "m"
+    },
+    "Fm": {
+      "nom": "ferm",
+      "gen": "fermu",
+      "gender": "m"
+    },
+    "Md": {
+      "nom": "mendelew",
+      "gen": "mendelewu",
+      "gender": "m"
+    },
+    "No": {
+      "nom": "nobel",
+      "gen": "noblu",
+      "gender": "m"
+    },
+    "Lr": {
+      "nom": "lorens",
+      "gen": "lorensu",
+      "gender": "m"
+    },
+    "Rf": {
+      "nom": "rutherford",
+      "gen": "rutherfordu",
+      "gender": "m"
+    },
+    "Db": {
+      "nom": "dubn",
+      "gen": "dubnu",
+      "gender": "m"
+    },
+    "Sg": {
+      "nom": "seaborg",
+      "gen": "seaborgu",
+      "gender": "m"
+    },
+    "Bh": {
+      "nom": "bohr",
+      "gen": "bohru",
+      "gender": "m"
+    },
+    "Hs": {
+      "nom": "has",
+      "gen": "hasu",
+      "gender": "m"
+    },
+    "Mt": {
+      "nom": "meitner",
+      "gen": "meitneru",
+      "gender": "m"
+    },
+    "Ds": {
+      "nom": "darmsztadt",
+      "gen": "darmsztadtu",
+      "gender": "m"
+    },
+    "Rg": {
+      "nom": "roentgen",
+      "gen": "roentgenu",
+      "gender": "m"
+    },
+    "Cn": {
+      "nom": "kopernik",
+      "gen": "koperniku",
+      "gender": "m"
+    },
+    "Nh": {
+      "nom": "nihon",
+      "gen": "nihonu",
+      "gender": "m"
+    },
+    "Fl": {
+      "nom": "flerow",
+      "gen": "flerowu",
+      "gender": "m"
+    },
+    "Mc": {
+      "nom": "moskow",
+      "gen": "moskowu",
+      "gender": "m"
+    },
+    "Lv": {
+      "nom": "liwermor",
+      "gen": "liwermoru",
+      "gender": "m"
+    },
+    "Ts": {
+      "nom": "tenes",
+      "gen": "tenesu",
+      "gender": "m"
+    },
+    "Og": {
+      "nom": "oganeson",
+      "gen": "oganesonu",
+      "gender": "m"
+    }
   },
   "properties": {
-    "electronegativity": { "nom": "elektroujemność", "gen": "elektroujemności", "dat": "elektroujemności", "acc": "elektroujemność", "inst": "elektroujemnością", "loc": "elektroujemności", "gender": "f" },
-    "atomic_radius": { "nom": "promień atomowy", "gen": "promienia atomowego", "dat": "promieniowi atomowemu", "acc": "promień atomowy", "inst": "promieniem atomowym", "loc": "promieniu atomowym", "gender": "m" },
-    "ionization_energy": { "nom": "energia jonizacji", "gen": "energii jonizacji", "dat": "energii jonizacji", "acc": "energię jonizacji", "inst": "energią jonizacji", "loc": "energii jonizacji", "gender": "f" }
+    "electronegativity": {
+      "nom": "elektroujemność",
+      "gen": "elektroujemności",
+      "dat": "elektroujemności",
+      "acc": "elektroujemność",
+      "inst": "elektroujemnością",
+      "loc": "elektroujemności",
+      "gender": "f"
+    },
+    "atomic_radius": {
+      "nom": "promień atomowy",
+      "gen": "promienia atomowego",
+      "dat": "promieniowi atomowemu",
+      "acc": "promień atomowy",
+      "inst": "promieniem atomowym",
+      "loc": "promieniu atomowym",
+      "gender": "m"
+    },
+    "ionization_energy": {
+      "nom": "energia jonizacji",
+      "gen": "energii jonizacji",
+      "dat": "energii jonizacji",
+      "acc": "energię jonizacji",
+      "inst": "energią jonizacji",
+      "loc": "energii jonizacji",
+      "gender": "f"
+    }
   },
   "directions": {
-    "ascending": { "nom": "rosnący", "gen": "rosnącego", "dat": "rosnącemu", "acc": "rosnący", "inst": "rosnącym", "loc": "rosnącym" },
-    "descending": { "nom": "malejący", "gen": "malejącego", "dat": "malejącemu", "acc": "malejący", "inst": "malejącym", "loc": "malejącym" }
+    "ascending": {
+      "nom": "rosnący",
+      "gen": "rosnącego",
+      "dat": "rosnącemu",
+      "acc": "rosnący",
+      "inst": "rosnącym",
+      "loc": "rosnącym"
+    },
+    "descending": {
+      "nom": "malejący",
+      "gen": "malejącego",
+      "dat": "malejącemu",
+      "acc": "malejący",
+      "inst": "malejącym",
+      "loc": "malejącym"
+    }
   },
   "substance_classes": {
-    "acid": { "nom": "kwas", "gen": "kwasu", "dat": "kwasowi", "acc": "kwas", "inst": "kwasem", "loc": "kwasie", "gender": "m" },
-    "base": { "nom": "zasada", "gen": "zasady", "dat": "zasadzie", "acc": "zasadę", "inst": "zasadą", "loc": "zasadzie", "gender": "f" },
-    "salt": { "nom": "sól", "gen": "soli", "dat": "soli", "acc": "sól", "inst": "solą", "loc": "soli", "gender": "f" },
-    "oxide": { "nom": "tlenek", "gen": "tlenku", "dat": "tlenkowi", "acc": "tlenek", "inst": "tlenkiem", "loc": "tlenku", "gender": "m" }
+    "acid": {
+      "nom": "kwas",
+      "gen": "kwasu",
+      "dat": "kwasowi",
+      "acc": "kwas",
+      "inst": "kwasem",
+      "loc": "kwasie",
+      "gender": "m"
+    },
+    "base": {
+      "nom": "zasada",
+      "gen": "zasady",
+      "dat": "zasadzie",
+      "acc": "zasadę",
+      "inst": "zasadą",
+      "loc": "zasadzie",
+      "gender": "f"
+    },
+    "salt": {
+      "nom": "sól",
+      "gen": "soli",
+      "dat": "soli",
+      "acc": "sól",
+      "inst": "solą",
+      "loc": "soli",
+      "gender": "f"
+    },
+    "oxide": {
+      "nom": "tlenek",
+      "gen": "tlenku",
+      "dat": "tlenkowi",
+      "acc": "tlenek",
+      "inst": "tlenkiem",
+      "loc": "tlenku",
+      "gender": "m"
+    }
   },
   "process_vocab": {
-    "chemical_reaction": { "nom": "reakcja chemiczna", "gen": "reakcji chemicznej", "dat": "reakcji chemicznej", "acc": "reakcję chemiczną", "inst": "reakcją chemiczną", "loc": "reakcji chemicznej", "gender": "f" },
-    "neutralization": { "nom": "zobojętnianie", "gen": "zobojętniania", "dat": "zobojętnianiu", "acc": "zobojętnianie", "inst": "zobojętnianiem", "loc": "zobojętnianiu", "gender": "n" },
-    "precipitation": { "nom": "strącanie", "gen": "strącania", "dat": "strącaniu", "acc": "strącanie", "inst": "strącaniem", "loc": "strącaniu", "gender": "n" },
-    "gas_evolution": { "nom": "wydzielanie gazu", "gen": "wydzielania gazu", "dat": "wydzielaniu gazu", "acc": "wydzielanie gazu", "inst": "wydzielaniem gazu", "loc": "wydzielaniu gazu", "gender": "n" }
+    "chemical_reaction": {
+      "nom": "reakcja chemiczna",
+      "gen": "reakcji chemicznej",
+      "dat": "reakcji chemicznej",
+      "acc": "reakcję chemiczną",
+      "inst": "reakcją chemiczną",
+      "loc": "reakcji chemicznej",
+      "gender": "f"
+    },
+    "neutralization": {
+      "nom": "zobojętnianie",
+      "gen": "zobojętniania",
+      "dat": "zobojętnianiu",
+      "acc": "zobojętnianie",
+      "inst": "zobojętnianiem",
+      "loc": "zobojętnianiu",
+      "gender": "n"
+    },
+    "precipitation": {
+      "nom": "strącanie",
+      "gen": "strącania",
+      "dat": "strącaniu",
+      "acc": "strącanie",
+      "inst": "strącaniem",
+      "loc": "strącaniu",
+      "gender": "n"
+    },
+    "gas_evolution": {
+      "nom": "wydzielanie gazu",
+      "gen": "wydzielania gazu",
+      "dat": "wydzielaniu gazu",
+      "acc": "wydzielanie gazu",
+      "inst": "wydzielaniem gazu",
+      "loc": "wydzielaniu gazu",
+      "gender": "n"
+    }
   },
   "element_groups": {
-    "alkali_metal": { "nom": "metal alkaliczny", "gen": "metalu alkalicznego", "dat": "metalowi alkalicznemu", "acc": "metal alkaliczny", "inst": "metalem alkalicznym", "loc": "metalu alkalicznym", "gender": "m" },
-    "halogen": { "nom": "halogen", "gen": "halogenu", "dat": "halogenowi", "acc": "halogen", "inst": "halogenem", "loc": "halogenie", "gender": "m" },
-    "noble_gas": { "nom": "gaz szlachetny", "gen": "gazu szlachetnego", "dat": "gazowi szlachetnemu", "acc": "gaz szlachetny", "inst": "gazem szlachetnym", "loc": "gazie szlachetnym", "gender": "m" }
+    "alkali_metal": {
+      "nom": "metal alkaliczny",
+      "gen": "metalu alkalicznego",
+      "dat": "metalowi alkalicznemu",
+      "acc": "metal alkaliczny",
+      "inst": "metalem alkalicznym",
+      "loc": "metalu alkalicznym",
+      "gender": "m"
+    },
+    "halogen": {
+      "nom": "halogen",
+      "gen": "halogenu",
+      "dat": "halogenowi",
+      "acc": "halogen",
+      "inst": "halogenem",
+      "loc": "halogenie",
+      "gender": "m"
+    },
+    "noble_gas": {
+      "nom": "gaz szlachetny",
+      "gen": "gazu szlachetnego",
+      "dat": "gazowi szlachetnemu",
+      "acc": "gaz szlachetny",
+      "inst": "gazem szlachetnym",
+      "loc": "gazie szlachetnym",
+      "gender": "m"
+    }
   }
 }

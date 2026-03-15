@@ -1,34 +1,814 @@
 {
   "elements": {
-    "H": { "nom": "hidrógeno", "gen": "hidrógeno", "gender": "m", "article_sg": "el" },
-    "O": { "nom": "oxígeno", "gen": "oxígeno", "gender": "m", "article_sg": "el" },
-    "Na": { "nom": "sodio", "gen": "sodio", "gender": "m", "article_sg": "el" },
-    "S": { "nom": "azufre", "gen": "azufre", "gender": "m", "article_sg": "el" }
+    "H": {
+      "nom": "hidrógeno",
+      "gen": "hidrógeno",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "He": {
+      "nom": "helio",
+      "gen": "helio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Li": {
+      "nom": "litio",
+      "gen": "litio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Be": {
+      "nom": "berilio",
+      "gen": "berilio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "B": {
+      "nom": "boro",
+      "gen": "boro",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "C": {
+      "nom": "carbono",
+      "gen": "carbono",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "N": {
+      "nom": "nitrógeno",
+      "gen": "nitrógeno",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "O": {
+      "nom": "oxígeno",
+      "gen": "oxígeno",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "F": {
+      "nom": "flúor",
+      "gen": "flúor",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ne": {
+      "nom": "neón",
+      "gen": "neón",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Na": {
+      "nom": "sodio",
+      "gen": "sodio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Mg": {
+      "nom": "magnesio",
+      "gen": "magnesio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Al": {
+      "nom": "aluminio",
+      "gen": "aluminio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Si": {
+      "nom": "silicio",
+      "gen": "silicio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "P": {
+      "nom": "fósforo",
+      "gen": "fósforo",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "S": {
+      "nom": "azufre",
+      "gen": "azufre",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cl": {
+      "nom": "cloro",
+      "gen": "cloro",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ar": {
+      "nom": "argón",
+      "gen": "argón",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "K": {
+      "nom": "potasio",
+      "gen": "potasio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ca": {
+      "nom": "calcio",
+      "gen": "calcio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sc": {
+      "nom": "escandio",
+      "gen": "escandio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ti": {
+      "nom": "titanio",
+      "gen": "titanio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "V": {
+      "nom": "vanadio",
+      "gen": "vanadio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cr": {
+      "nom": "cromo",
+      "gen": "cromo",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Mn": {
+      "nom": "manganeso",
+      "gen": "manganeso",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Fe": {
+      "nom": "hierro",
+      "gen": "hierro",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Co": {
+      "nom": "cobalto",
+      "gen": "cobalto",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ni": {
+      "nom": "níquel",
+      "gen": "níquel",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cu": {
+      "nom": "cobre",
+      "gen": "cobre",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Zn": {
+      "nom": "cinc",
+      "gen": "cinc",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ga": {
+      "nom": "galio",
+      "gen": "galio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ge": {
+      "nom": "germanio",
+      "gen": "germanio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "As": {
+      "nom": "arsénico",
+      "gen": "arsénico",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Se": {
+      "nom": "selenio",
+      "gen": "selenio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Br": {
+      "nom": "bromo",
+      "gen": "bromo",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Kr": {
+      "nom": "kriptón",
+      "gen": "kriptón",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Rb": {
+      "nom": "rubidio",
+      "gen": "rubidio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sr": {
+      "nom": "estroncio",
+      "gen": "estroncio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Y": {
+      "nom": "itrio",
+      "gen": "itrio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Zr": {
+      "nom": "circonio",
+      "gen": "circonio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Nb": {
+      "nom": "niobio",
+      "gen": "niobio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Mo": {
+      "nom": "molibdeno",
+      "gen": "molibdeno",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Tc": {
+      "nom": "tecnecio",
+      "gen": "tecnecio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ru": {
+      "nom": "rutenio",
+      "gen": "rutenio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Rh": {
+      "nom": "rodio",
+      "gen": "rodio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pd": {
+      "nom": "paladio",
+      "gen": "paladio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ag": {
+      "nom": "plata",
+      "gen": "plata",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cd": {
+      "nom": "cadmio",
+      "gen": "cadmio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "In": {
+      "nom": "indio",
+      "gen": "indio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sn": {
+      "nom": "estaño",
+      "gen": "estaño",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sb": {
+      "nom": "antimonio",
+      "gen": "antimonio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Te": {
+      "nom": "telurio",
+      "gen": "telurio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "I": {
+      "nom": "yodo",
+      "gen": "yodo",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Xe": {
+      "nom": "xenón",
+      "gen": "xenón",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cs": {
+      "nom": "cesio",
+      "gen": "cesio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ba": {
+      "nom": "bario",
+      "gen": "bario",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "La": {
+      "nom": "lantano",
+      "gen": "lantano",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ce": {
+      "nom": "cerio",
+      "gen": "cerio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pr": {
+      "nom": "praseodimio",
+      "gen": "praseodimio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Nd": {
+      "nom": "neodimio",
+      "gen": "neodimio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pm": {
+      "nom": "prometio",
+      "gen": "prometio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sm": {
+      "nom": "samario",
+      "gen": "samario",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Eu": {
+      "nom": "europio",
+      "gen": "europio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Gd": {
+      "nom": "gadolinio",
+      "gen": "gadolinio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Tb": {
+      "nom": "terbio",
+      "gen": "terbio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Dy": {
+      "nom": "disprosio",
+      "gen": "disprosio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ho": {
+      "nom": "holmio",
+      "gen": "holmio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Er": {
+      "nom": "erbio",
+      "gen": "erbio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Tm": {
+      "nom": "tulio",
+      "gen": "tulio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Yb": {
+      "nom": "iterbio",
+      "gen": "iterbio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Lu": {
+      "nom": "lutecio",
+      "gen": "lutecio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Hf": {
+      "nom": "hafnio",
+      "gen": "hafnio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ta": {
+      "nom": "tantalio",
+      "gen": "tantalio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "W": {
+      "nom": "wolframio",
+      "gen": "wolframio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Re": {
+      "nom": "renio",
+      "gen": "renio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Os": {
+      "nom": "osmio",
+      "gen": "osmio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ir": {
+      "nom": "iridio",
+      "gen": "iridio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pt": {
+      "nom": "platino",
+      "gen": "platino",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Au": {
+      "nom": "oro",
+      "gen": "oro",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Hg": {
+      "nom": "mercurio",
+      "gen": "mercurio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Tl": {
+      "nom": "talio",
+      "gen": "talio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pb": {
+      "nom": "plomo",
+      "gen": "plomo",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Bi": {
+      "nom": "bismuto",
+      "gen": "bismuto",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Po": {
+      "nom": "polonio",
+      "gen": "polonio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "At": {
+      "nom": "astato",
+      "gen": "astato",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Rn": {
+      "nom": "radón",
+      "gen": "radón",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Fr": {
+      "nom": "francio",
+      "gen": "francio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ra": {
+      "nom": "radio",
+      "gen": "radio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ac": {
+      "nom": "actinio",
+      "gen": "actinio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Th": {
+      "nom": "torio",
+      "gen": "torio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pa": {
+      "nom": "protactinio",
+      "gen": "protactinio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "U": {
+      "nom": "uranio",
+      "gen": "uranio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Np": {
+      "nom": "neptunio",
+      "gen": "neptunio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Pu": {
+      "nom": "plutonio",
+      "gen": "plutonio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Am": {
+      "nom": "americio",
+      "gen": "americio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cm": {
+      "nom": "curio",
+      "gen": "curio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Bk": {
+      "nom": "berkelio",
+      "gen": "berkelio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cf": {
+      "nom": "californio",
+      "gen": "californio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Es": {
+      "nom": "einstenio",
+      "gen": "einstenio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Fm": {
+      "nom": "fermio",
+      "gen": "fermio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Md": {
+      "nom": "mendelevio",
+      "gen": "mendelevio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "No": {
+      "nom": "nobelio",
+      "gen": "nobelio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Lr": {
+      "nom": "laurencio",
+      "gen": "laurencio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Rf": {
+      "nom": "rutherfordio",
+      "gen": "rutherfordio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Db": {
+      "nom": "dubnio",
+      "gen": "dubnio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Sg": {
+      "nom": "seaborgio",
+      "gen": "seaborgio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Bh": {
+      "nom": "bohrio",
+      "gen": "bohrio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Hs": {
+      "nom": "hasio",
+      "gen": "hasio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Mt": {
+      "nom": "meitnerio",
+      "gen": "meitnerio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ds": {
+      "nom": "darmstatio",
+      "gen": "darmstatio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Rg": {
+      "nom": "roentgenio",
+      "gen": "roentgenio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Cn": {
+      "nom": "copernicio",
+      "gen": "copernicio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Nh": {
+      "nom": "nihonio",
+      "gen": "nihonio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Fl": {
+      "nom": "flerovio",
+      "gen": "flerovio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Mc": {
+      "nom": "moscovio",
+      "gen": "moscovio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Lv": {
+      "nom": "livermorio",
+      "gen": "livermorio",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Ts": {
+      "nom": "teneso",
+      "gen": "teneso",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "Og": {
+      "nom": "oganesón",
+      "gen": "oganesón",
+      "gender": "m",
+      "article_sg": "el"
+    }
   },
   "properties": {
-    "electronegativity": { "nom": "electronegatividad", "gen": "electronegatividad", "gender": "f", "article_sg": "la" },
-    "atomic_radius": { "nom": "radio atómico", "gen": "radio atómico", "gender": "m", "article_sg": "el" },
-    "ionization_energy": { "nom": "energía de ionización", "gen": "energía de ionización", "gender": "f", "article_sg": "la" }
+    "electronegativity": {
+      "nom": "electronegatividad",
+      "gen": "electronegatividad",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "atomic_radius": {
+      "nom": "radio atómico",
+      "gen": "radio atómico",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "ionization_energy": {
+      "nom": "energía de ionización",
+      "gen": "energía de ionización",
+      "gender": "f",
+      "article_sg": "la"
+    }
   },
   "directions": {
-    "ascending": { "nom": "creciente", "gen": "creciente" },
-    "descending": { "nom": "decreciente", "gen": "decreciente" }
+    "ascending": {
+      "nom": "creciente",
+      "gen": "creciente"
+    },
+    "descending": {
+      "nom": "decreciente",
+      "gen": "decreciente"
+    }
   },
   "substance_classes": {
-    "acid": { "nom": "ácido", "gen": "ácido", "gender": "m", "article_sg": "el" },
-    "base": { "nom": "base", "gen": "base", "gender": "f", "article_sg": "la" },
-    "salt": { "nom": "sal", "gen": "sal", "gender": "f", "article_sg": "la" },
-    "oxide": { "nom": "óxido", "gen": "óxido", "gender": "m", "article_sg": "el" }
+    "acid": {
+      "nom": "ácido",
+      "gen": "ácido",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "base": {
+      "nom": "base",
+      "gen": "base",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "salt": {
+      "nom": "sal",
+      "gen": "sal",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "oxide": {
+      "nom": "óxido",
+      "gen": "óxido",
+      "gender": "m",
+      "article_sg": "el"
+    }
   },
   "process_vocab": {
-    "chemical_reaction": { "nom": "reacción química", "gen": "reacción química", "gender": "f", "article_sg": "la" },
-    "neutralization": { "nom": "neutralización", "gen": "neutralización", "gender": "f", "article_sg": "la" },
-    "precipitation": { "nom": "precipitación", "gen": "precipitación", "gender": "f", "article_sg": "la" },
-    "gas_evolution": { "nom": "evolución de gas", "gen": "evolución de gas", "gender": "f", "article_sg": "la" }
+    "chemical_reaction": {
+      "nom": "reacción química",
+      "gen": "reacción química",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "neutralization": {
+      "nom": "neutralización",
+      "gen": "neutralización",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "precipitation": {
+      "nom": "precipitación",
+      "gen": "precipitación",
+      "gender": "f",
+      "article_sg": "la"
+    },
+    "gas_evolution": {
+      "nom": "evolución de gas",
+      "gen": "evolución de gas",
+      "gender": "f",
+      "article_sg": "la"
+    }
   },
   "element_groups": {
-    "alkali_metal": { "nom": "metal alcalino", "gen": "metal alcalino", "gender": "m", "article_sg": "el" },
-    "halogen": { "nom": "halógeno", "gen": "halógeno", "gender": "m", "article_sg": "el" },
-    "noble_gas": { "nom": "gas noble", "gen": "gas noble", "gender": "m", "article_sg": "el" }
+    "alkali_metal": {
+      "nom": "metal alcalino",
+      "gen": "metal alcalino",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "halogen": {
+      "nom": "halógeno",
+      "gen": "halógeno",
+      "gender": "m",
+      "article_sg": "el"
+    },
+    "noble_gas": {
+      "nom": "gas noble",
+      "gen": "gas noble",
+      "gender": "m",
+      "article_sg": "el"
+    }
   }
 }
