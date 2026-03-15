@@ -441,6 +441,7 @@ console.log('\n=== E. Coverage Reports ===\n');
     for (const f of substanceFiles) {
       try {
         const sub = JSON.parse(fs.readFileSync(path.join(substDir, f), 'utf8'));
+        if (!sub.id || !sub.id.startsWith('sub:')) continue; // skip meta-files
         if (sub.phase_standard) withPhase++;
         else withoutPhase++;
       } catch {
