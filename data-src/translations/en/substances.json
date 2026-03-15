@@ -1,4 +1,13 @@
 {
+  "_ch3coo_2cu": {
+    "name": "Copper(II) acetate"
+  },
+  "_cuoh_2co3": {
+    "name": "Basic copper(II) carbonate"
+  },
+  "agcl": {
+    "name": "Silver chloride"
+  },
   "agno3": {
     "name": "Silver nitrate",
     "appearance": "Colorless crystals that darken when exposed to light",
@@ -13,16 +22,6 @@
     "fun_facts": [
       "Lunar caustic (silver nitrate) is used in medicine for cauterizing wounds",
       "Leaves permanent black stains on skin due to reduction to metallic silver"
-    ]
-  },
-  "al_oh_3": {
-    "name": "Aluminium hydroxide",
-    "appearance": "White gelatinous substance",
-    "industrial": "Aluminium production, antacid medications, adsorbents",
-    "production": "Precipitation from aluminium salt solutions using alkali",
-    "fun_facts": [
-      "Found in many antacid medications (heartburn remedies)",
-      "Decomposes into Al₂O₃ and water when heated"
     ]
   },
   "al2_so4_3": {
@@ -45,6 +44,19 @@
       "One of the hardest oxides — 9 on the Mohs scale"
     ]
   },
+  "al_no3_3": {
+    "name": "Aluminium nitrate"
+  },
+  "al_oh_3": {
+    "name": "Aluminium hydroxide",
+    "appearance": "White gelatinous substance",
+    "industrial": "Aluminium production, antacid medications, adsorbents",
+    "production": "Precipitation from aluminium salt solutions using alkali",
+    "fun_facts": [
+      "Found in many antacid medications (heartburn remedies)",
+      "Decomposes into Al₂O₃ and water when heated"
+    ]
+  },
   "alcl3": {
     "name": "Aluminium chloride",
     "appearance": "White or yellowish powder",
@@ -58,6 +70,15 @@
       "Anhydrous AlCl₃ is a key catalyst in organic synthesis (Friedel-Crafts reaction)",
       "Its boiling point is lower than its melting point — it sublimes at atmospheric pressure"
     ]
+  },
+  "aloh_no3_2": {
+    "name": "Aluminum hydroxynitrate"
+  },
+  "alpo4": {
+    "name": "Aluminium phosphate"
+  },
+  "ba_oh_2": {
+    "name": "Barium hydroxide"
   },
   "bacl2": {
     "name": "Barium chloride",
@@ -73,6 +94,12 @@
       "A qualitative reagent for sulfate ions — produces a white precipitate of BaSO₄"
     ]
   },
+  "baco3": {
+    "name": "Barium carbonate"
+  },
+  "bao": {
+    "name": "Barium oxide"
+  },
   "baso4": {
     "name": "Barium sulfate",
     "appearance": "White crystalline powder",
@@ -82,6 +109,15 @@
       "Used as a 'barium meal' for stomach X-rays — insoluble and non-toxic",
       "The mineral barite (BaSO₄) is the main industrial source of barium"
     ]
+  },
+  "be_oh_2": {
+    "name": "Beryllium hydroxide"
+  },
+  "beo": {
+    "name": "Beryllium oxide"
+  },
+  "c": {
+    "name": "Carbon (simple substance)"
   },
   "c2h2": {
     "name": "Acetylene",
@@ -250,6 +286,21 @@
       "The term 'octane number' in gasoline is derived from octane"
     ]
   },
+  "ca3_po4_2": {
+    "name": "Calcium phosphate"
+  },
+  "ca_h2po4_2": {
+    "name": "Calcium dihydrogen phosphate"
+  },
+  "ca_hco3_2": {
+    "name": "Calcium hydrogen carbonate"
+  },
+  "ca_hso4_2": {
+    "name": "Calcium hydrogen sulfate"
+  },
+  "ca_no3_2": {
+    "name": "Calcium nitrate"
+  },
   "ca_oh_2": {
     "name": "Calcium hydroxide",
     "appearance": "White powder",
@@ -264,6 +315,9 @@
       "Slaked lime has been used in construction for over 5,000 years"
     ]
   },
+  "cacl2": {
+    "name": "Calcium chloride"
+  },
   "caco3": {
     "name": "Calcium carbonate",
     "appearance": "White powder or crystals",
@@ -273,6 +327,12 @@
       "Chalk, marble, limestone, seashells, and eggshells are all CaCO₃",
       "Decomposes into CaO and CO₂ when heated — the basis of lime production"
     ]
+  },
+  "caf2": {
+    "name": "Calcium fluoride"
+  },
+  "cahpo4": {
+    "name": "Calcium hydrogen phosphate"
   },
   "cao": {
     "name": "Calcium oxide",
@@ -288,6 +348,15 @@
       "Quicklime heats up intensely on contact with water — the reaction is highly exothermic",
       "One of the oldest binding materials used in construction"
     ]
+  },
+  "casio3": {
+    "name": "Calcium silicate"
+  },
+  "caso4": {
+    "name": "Calcium sulfate"
+  },
+  "caso4_2h2o": {
+    "name": "Gypsum (calcium sulfate dihydrate)"
   },
   "ch3cho": {
     "name": "Acetaldehyde",
@@ -398,6 +467,9 @@
       "Used to purify 98% of the world's drinking water"
     ]
   },
+  "co": {
+    "name": "Carbon monoxide"
+  },
   "co2": {
     "name": "Carbon dioxide",
     "appearance": "Colorless, odorless gas",
@@ -407,6 +479,21 @@
       "Dry ice is solid CO₂; it sublimes at −78.5 °C, bypassing the liquid phase",
       "CO₂ makes up about 0.04% of Earth's atmosphere, yet it is a key greenhouse gas"
     ]
+  },
+  "cr2o3": {
+    "name": "Chromium(III) oxide"
+  },
+  "cr_oh_3": {
+    "name": "Chromium(III) hydroxide"
+  },
+  "cro3": {
+    "name": "Chromium(VI) oxide"
+  },
+  "cu2o": {
+    "name": "Copper(I) oxide"
+  },
+  "cu_no3_2": {
+    "name": "Copper(II) nitrate"
   },
   "cu_oh_2": {
     "name": "Copper(II) hydroxide",
@@ -418,6 +505,9 @@
       "Dissolves in ammonia to form a bright blue solution (Schweizer's reagent)"
     ]
   },
+  "cucl2": {
+    "name": "Copper(II) chloride"
+  },
   "cuo": {
     "name": "Copper(II) oxide",
     "appearance": "Black powder",
@@ -426,6 +516,12 @@
     "fun_facts": [
       "Easily reduced by hydrogen to metallic copper — a classic school chemistry experiment"
     ]
+  },
+  "cuohcl": {
+    "name": "Copper(II) hydroxychloride"
+  },
+  "cus": {
+    "name": "Copper(II) sulfide"
   },
   "cuso4": {
     "name": "Copper(II) sulfate",
@@ -441,15 +537,11 @@
       "Anhydrous CuSO₄ is used as a moisture indicator — it turns blue on contact with water"
     ]
   },
-  "fe_oh_3": {
-    "name": "Iron(III) hydroxide",
-    "appearance": "Brown gelatinous precipitate",
-    "industrial": "Water purification (coagulant), pigments",
-    "production": "Precipitation from iron(III) salt solutions using alkali",
-    "fun_facts": [
-      "Has no melting point — decomposes into Fe₂O₃ and water when heated",
-      "Rust is a mixture of hydrated iron oxides with a composition close to Fe(OH)₃"
-    ]
+  "cuso4_5h2o": {
+    "name": "Blue vitriol (copper sulfate pentahydrate)"
+  },
+  "fe2_so4_3": {
+    "name": "Iron(III) sulfate"
   },
   "fe2o3": {
     "name": "Iron(III) oxide",
@@ -459,6 +551,19 @@
     "fun_facts": [
       "The mineral hematite (Fe₂O₃) is the main iron ore on Earth",
       "The red color of Martian soil is caused by the presence of Fe₂O₃"
+    ]
+  },
+  "fe_oh_2": {
+    "name": "Iron(II) hydroxide"
+  },
+  "fe_oh_3": {
+    "name": "Iron(III) hydroxide",
+    "appearance": "Brown gelatinous precipitate",
+    "industrial": "Water purification (coagulant), pigments",
+    "production": "Precipitation from iron(III) salt solutions using alkali",
+    "fun_facts": [
+      "Has no melting point — decomposes into Fe₂O₃ and water when heated",
+      "Rust is a mixture of hydrated iron oxides with a composition close to Fe(OH)₃"
     ]
   },
   "fecl2": {
@@ -493,6 +598,12 @@
       "Used as a black pigment in ceramics"
     ]
   },
+  "feohcl": {
+    "name": "Iron(II) hydroxychloride"
+  },
+  "fes": {
+    "name": "Iron(II) sulfide"
+  },
   "feso4": {
     "name": "Iron(II) sulfate",
     "appearance": "Greenish-blue crystals (heptahydrate)",
@@ -504,6 +615,9 @@
     "fun_facts": [
       "The heptahydrate FeSO₄·7H₂O is known as green vitriol — one of the oldest known chemical compounds"
     ]
+  },
+  "feso4_7h2o": {
+    "name": "Green vitriol (iron sulfate heptahydrate)"
   },
   "h2": {
     "name": "Hydrogen",
@@ -528,6 +642,12 @@
       "One of the most unstable acids — decomposes into water and CO₂ almost instantly",
       "The fizzing of carbonated drinks is CO₂ being released as carbonic acid decomposes"
     ]
+  },
+  "h2cr2o7": {
+    "name": "Dichromic acid"
+  },
+  "h2cro4": {
+    "name": "Chromic acid"
   },
   "h2o": {
     "name": "Water",
@@ -567,6 +687,12 @@
       "At high concentrations it paralyzes the sense of smell — the odor can no longer be detected"
     ]
   },
+  "h2sio3": {
+    "name": "Silicic acid"
+  },
+  "h2so3": {
+    "name": "Sulfurous acid"
+  },
   "h2so4": {
     "name": "Sulfuric acid",
     "appearance": "Colorless, oily liquid",
@@ -595,6 +721,9 @@
       "Found in Coca-Cola and other soft drinks as an acidity regulator (E338)",
       "Phosphoric acid is triprotic — it can form three series of salts"
     ]
+  },
+  "hbr": {
+    "name": "Hydrobromic acid"
   },
   "hcl": {
     "name": "Hydrochloric acid",
@@ -654,6 +783,18 @@
       "Ammonium perchlorate NH₄ClO₄ is the main component of solid rocket fuel"
     ]
   },
+  "hf": {
+    "name": "Hydrofluoric acid"
+  },
+  "hi": {
+    "name": "Hydroiodic acid"
+  },
+  "hmno4": {
+    "name": "Permanganic acid"
+  },
+  "hno2": {
+    "name": "Nitrous acid"
+  },
   "hno3": {
     "name": "Nitric acid",
     "appearance": "Colorless liquid with a pungent odor; fumes in air",
@@ -670,6 +811,21 @@
       "Nitric acid turns skin yellow (xanthoproteic reaction with proteins)"
     ]
   },
+  "k2co3": {
+    "name": "Potassium carbonate"
+  },
+  "k2cr2o7": {
+    "name": "Potassium dichromate"
+  },
+  "k2cro4": {
+    "name": "Potassium chromate"
+  },
+  "k2o": {
+    "name": "Potassium oxide"
+  },
+  "k2so3": {
+    "name": "Potassium sulfite"
+  },
   "k2so4": {
     "name": "Potassium sulfate",
     "appearance": "Colorless crystals",
@@ -681,14 +837,7 @@
     ]
   },
   "kbr": {
-    "name": "Potassium bromide",
-    "appearance": "Colorless cubic crystals",
-    "industrial": "Photography (light-sensitive materials), medicine (sedative)",
-    "production": "Reaction of KOH with bromine or HBr",
-    "fun_facts": [
-      "Widely used as a sedative in the 19th century",
-      "KBr crystals are transparent to infrared radiation — used in IR spectroscopy"
-    ]
+    "name": "potassium bromide"
   },
   "kcl": {
     "name": "Potassium chloride",
@@ -699,6 +848,12 @@
       "The mineral sylvite (KCl) is the primary source of potash fertilizers",
       "Used as a table salt substitute in dietary nutrition"
     ]
+  },
+  "khso4": {
+    "name": "Potassium hydrogen sulfate"
+  },
+  "ki": {
+    "name": "Potassium iodide"
   },
   "kmno4": {
     "name": "Potassium permanganate",
@@ -713,6 +868,9 @@
       "Known colloquially in Russia as 'margantsovka'",
       "Its aqueous solution turns a vivid purple even at very low concentrations"
     ]
+  },
+  "kno2": {
+    "name": "Potassium nitrite"
   },
   "kno3": {
     "name": "Potassium nitrate",
@@ -742,6 +900,12 @@
       "Absorbs CO₂ from the air, converting to potassium carbonate"
     ]
   },
+  "li2o": {
+    "name": "Lithium oxide"
+  },
+  "lioh": {
+    "name": "Lithium hydroxide"
+  },
   "mg_oh_2": {
     "name": "Magnesium hydroxide",
     "appearance": "White amorphous powder",
@@ -762,6 +926,12 @@
       "Used as a de-icing agent instead of NaCl"
     ]
   },
+  "mgco3": {
+    "name": "Magnesium carbonate"
+  },
+  "mgf2": {
+    "name": "Magnesium fluoride"
+  },
   "mgo": {
     "name": "Magnesium oxide",
     "appearance": "White powder",
@@ -771,6 +941,9 @@
       "The melting point of MgO (2852°C) is one of the highest among oxides",
       "Calcined magnesia is used by athletes to dry their hands"
     ]
+  },
+  "mn2o7": {
+    "name": "Manganese(VII) oxide"
   },
   "mncl2": {
     "name": "Manganese(II) chloride",
@@ -801,6 +974,12 @@
       "The triple bond N≡N is one of the strongest chemical bonds"
     ]
   },
+  "n2o": {
+    "name": "Dinitrogen monoxide"
+  },
+  "n2o5": {
+    "name": "Dinitrogen pentoxide"
+  },
   "na2co3": {
     "name": "Sodium carbonate",
     "appearance": "White powder",
@@ -810,6 +989,12 @@
       "Soda ash (Na₂CO₃) is one of the most important products of the chemical industry",
       "The decahydrate Na₂CO₃·10H₂O is known as 'washing soda'"
     ]
+  },
+  "na2cro4": {
+    "name": "Sodium chromate"
+  },
+  "na2hpo4": {
+    "name": "Sodium hydrogen phosphate"
   },
   "na2o": {
     "name": "Sodium oxide",
@@ -825,6 +1010,15 @@
       "Rapidly absorbs moisture and CO₂ from air, converting to Na₂CO₃"
     ]
   },
+  "na2s": {
+    "name": "Sodium sulfide"
+  },
+  "na2sio3": {
+    "name": "Sodium silicate"
+  },
+  "na2so3": {
+    "name": "Sodium sulfite"
+  },
   "na2so4": {
     "name": "Sodium sulfate",
     "appearance": "Colorless crystals",
@@ -833,6 +1027,9 @@
     "fun_facts": [
       "The decahydrate Na₂SO₄·10H₂O (Glauber's salt) was discovered by Glauber in 1625 and was used as a laxative"
     ]
+  },
+  "na3po4": {
+    "name": "Sodium phosphate"
   },
   "naalo2": {
     "name": "Sodium aluminate",
@@ -844,6 +1041,9 @@
       "Used in construction as a concrete setting accelerator"
     ]
   },
+  "nabr": {
+    "name": "Sodium bromide"
+  },
   "nacl": {
     "name": "Sodium chloride",
     "appearance": "Colorless cubic crystals",
@@ -854,6 +1054,30 @@
       "In Ancient Rome, soldiers were sometimes paid in salt — hence the word 'salary'",
       "NaCl crystals have a cubic shape, visible even in ordinary table salt"
     ]
+  },
+  "naf": {
+    "name": "Sodium fluoride"
+  },
+  "nah": {
+    "name": "Sodium hydride"
+  },
+  "nah2po4": {
+    "name": "Sodium dihydrogen phosphate"
+  },
+  "nahco3": {
+    "name": "Sodium hydrogen carbonate"
+  },
+  "nahso4": {
+    "name": "Sodium hydrogen sulfate"
+  },
+  "nai": {
+    "name": "Sodium iodide"
+  },
+  "nano2": {
+    "name": "Sodium nitrite"
+  },
+  "nano3": {
+    "name": "Sodium nitrate"
   },
   "naoh": {
     "name": "Sodium hydroxide",
@@ -886,6 +1110,9 @@
       "Ammonia is one of the most widely produced chemicals in the world (over 150 million tonnes/year)"
     ]
   },
+  "nh3_h2o": {
+    "name": "Ammonia water (ammonium hydroxide)"
+  },
   "nh4cl": {
     "name": "Ammonium chloride",
     "appearance": "Colorless crystals",
@@ -896,6 +1123,9 @@
       "Sublimes when heated, bypassing the liquid phase"
     ]
   },
+  "no": {
+    "name": "Nitrogen monoxide"
+  },
   "o2": {
     "name": "Oxygen",
     "appearance": "Colorless odorless gas",
@@ -905,6 +1135,15 @@
       "Makes up 21% of Earth's atmosphere",
       "Liquid oxygen is blue in color and is attracted by magnets"
     ]
+  },
+  "oleum": {
+    "name": "Oleum (disulfuric acid)"
+  },
+  "p": {
+    "name": "Phosphorus (simple substance)"
+  },
+  "p2o5": {
+    "name": "Phosphorus(V) oxide"
   },
   "pb_no3_2": {
     "name": "Lead(II) nitrate",
@@ -922,6 +1161,18 @@
       "Decomposes when heated, releasing brown NO₂ gas"
     ]
   },
+  "pb_oh_2": {
+    "name": "Lead(II) hydroxide"
+  },
+  "pbi2": {
+    "name": "Lead(II) iodide"
+  },
+  "pbo": {
+    "name": "Lead(II) oxide"
+  },
+  "pbs": {
+    "name": "Lead(II) sulfide"
+  },
   "sio2": {
     "name": "Silicon dioxide",
     "appearance": "Colorless crystals or white powder",
@@ -932,6 +1183,9 @@
       "SiO₂ is the basis of silicon chips that power all modern electronics",
       "The most abundant mineral in the Earth's crust"
     ]
+  },
+  "sno": {
+    "name": "Tin(II) oxide"
   },
   "so2": {
     "name": "Sulfur dioxide",
@@ -975,6 +1229,12 @@
       "The most important industrial catalyst — sulfuric acid production via the contact process is impossible without it"
     ]
   },
+  "zn_oh_2": {
+    "name": "Zinc hydroxide"
+  },
+  "zncl2": {
+    "name": "Zinc chloride"
+  },
   "zno": {
     "name": "Zinc oxide",
     "appearance": "White powder; turns yellow when heated",
@@ -985,277 +1245,10 @@
       "Turns yellow when heated and white again when cooled — a thermochromic effect"
     ]
   },
-  "_ch3coo_2cu": {
-    "name": "Copper(II) acetate"
-  },
-  "agcl": {
-    "name": "Silver chloride"
-  },
-  "al_no3_3": {
-    "name": "Aluminium nitrate"
-  },
-  "alpo4": {
-    "name": "Aluminium phosphate"
-  },
-  "ba_oh_2": {
-    "name": "Barium hydroxide"
-  },
-  "baco3": {
-    "name": "Barium carbonate"
-  },
-  "be_oh_2": {
-    "name": "Beryllium hydroxide"
-  },
-  "ca3_po4_2": {
-    "name": "Calcium phosphate"
-  },
-  "ca_h2po4_2": {
-    "name": "Calcium dihydrogen phosphate"
-  },
-  "ca_hco3_2": {
-    "name": "Calcium hydrogen carbonate"
-  },
-  "ca_hso4_2": {
-    "name": "Calcium hydrogen sulfate"
-  },
-  "ca_no3_2": {
-    "name": "Calcium nitrate"
-  },
-  "cacl2": {
-    "name": "Calcium chloride"
-  },
-  "caf2": {
-    "name": "Calcium fluoride"
-  },
-  "cahpo4": {
-    "name": "Calcium hydrogen phosphate"
-  },
-  "casio3": {
-    "name": "Calcium silicate"
-  },
-  "caso4": {
-    "name": "Calcium sulfate"
-  },
-  "cr_oh_3": {
-    "name": "Chromium(III) hydroxide"
-  },
-  "cu_no3_2": {
-    "name": "Copper(II) nitrate"
-  },
-  "cucl2": {
-    "name": "Copper(II) chloride"
-  },
-  "cus": {
-    "name": "Copper(II) sulfide"
-  },
-  "fe2_so4_3": {
-    "name": "Iron(III) sulfate"
-  },
-  "fe_oh_2": {
-    "name": "Iron(II) hydroxide"
-  },
-  "fes": {
-    "name": "Iron(II) sulfide"
-  },
-  "k2co3": {
-    "name": "Potassium carbonate"
-  },
-  "k2cr2o7": {
-    "name": "Potassium dichromate"
-  },
-  "k2cro4": {
-    "name": "Potassium chromate"
-  },
-  "k2so3": {
-    "name": "Potassium sulfite"
-  },
-  "khso4": {
-    "name": "Potassium hydrogen sulfate"
-  },
-  "ki": {
-    "name": "Potassium iodide"
-  },
-  "kno2": {
-    "name": "Potassium nitrite"
-  },
-  "lioh": {
-    "name": "Lithium hydroxide"
-  },
-  "mgco3": {
-    "name": "Magnesium carbonate"
-  },
-  "mgf2": {
-    "name": "Magnesium fluoride"
-  },
-  "na2cro4": {
-    "name": "Sodium chromate"
-  },
-  "na2hpo4": {
-    "name": "Sodium hydrogen phosphate"
-  },
-  "na2s": {
-    "name": "Sodium sulfide"
-  },
-  "na2sio3": {
-    "name": "Sodium silicate"
-  },
-  "na2so3": {
-    "name": "Sodium sulfite"
-  },
-  "na3po4": {
-    "name": "Sodium phosphate"
-  },
-  "nabr": {
-    "name": "Sodium bromide"
-  },
-  "naf": {
-    "name": "Sodium fluoride"
-  },
-  "nah2po4": {
-    "name": "Sodium dihydrogen phosphate"
-  },
-  "nahco3": {
-    "name": "Sodium hydrogen carbonate"
-  },
-  "nahso4": {
-    "name": "Sodium hydrogen sulfate"
-  },
-  "nai": {
-    "name": "Sodium iodide"
-  },
-  "nano2": {
-    "name": "Sodium nitrite"
-  },
-  "nano3": {
-    "name": "Sodium nitrate"
-  },
-  "pb_oh_2": {
-    "name": "Lead(II) hydroxide"
-  },
-  "pbi2": {
-    "name": "Lead(II) iodide"
-  },
-  "pbs": {
-    "name": "Lead(II) sulfide"
-  },
-  "zn_oh_2": {
-    "name": "Zinc hydroxide"
-  },
-  "zncl2": {
-    "name": "Zinc chloride"
-  },
   "zns": {
     "name": "Zinc sulfide"
   },
   "znso4": {
     "name": "Zinc sulfate"
-  },
-  "bao": {
-    "name": "Barium oxide"
-  },
-  "beo": {
-    "name": "Beryllium oxide"
-  },
-  "co": {
-    "name": "Carbon monoxide"
-  },
-  "cr2o3": {
-    "name": "Chromium(III) oxide"
-  },
-  "cro3": {
-    "name": "Chromium(VI) oxide"
-  },
-  "cu2o": {
-    "name": "Copper(I) oxide"
-  },
-  "k2o": {
-    "name": "Potassium oxide"
-  },
-  "li2o": {
-    "name": "Lithium oxide"
-  },
-  "mn2o7": {
-    "name": "Manganese(VII) oxide"
-  },
-  "n2o": {
-    "name": "Dinitrogen monoxide"
-  },
-  "n2o5": {
-    "name": "Dinitrogen pentoxide"
-  },
-  "no": {
-    "name": "Nitrogen monoxide"
-  },
-  "p2o5": {
-    "name": "Phosphorus(V) oxide"
-  },
-  "pbo": {
-    "name": "Lead(II) oxide"
-  },
-  "sno": {
-    "name": "Tin(II) oxide"
-  },
-  "nah": {
-    "name": "Sodium hydride"
-  },
-  "h2cr2o7": {
-    "name": "Dichromic acid"
-  },
-  "h2cro4": {
-    "name": "Chromic acid"
-  },
-  "h2sio3": {
-    "name": "Silicic acid"
-  },
-  "h2so3": {
-    "name": "Sulfurous acid"
-  },
-  "hbr": {
-    "name": "Hydrobromic acid"
-  },
-  "hf": {
-    "name": "Hydrofluoric acid"
-  },
-  "hi": {
-    "name": "Hydroiodic acid"
-  },
-  "hmno4": {
-    "name": "Permanganic acid"
-  },
-  "hno2": {
-    "name": "Nitrous acid"
-  },
-  "_cuoh_2co3": {
-    "name": "Basic copper(II) carbonate"
-  },
-  "aloh_no3_2": {
-    "name": "Aluminum hydroxynitrate"
-  },
-  "cuohcl": {
-    "name": "Copper(II) hydroxychloride"
-  },
-  "feohcl": {
-    "name": "Iron(II) hydroxychloride"
-  },
-  "c": {
-    "name": "Carbon (simple substance)"
-  },
-  "p": {
-    "name": "Phosphorus (simple substance)"
-  },
-  "caso4_2h2o": {
-    "name": "Gypsum (calcium sulfate dihydrate)"
-  },
-  "cuso4_5h2o": {
-    "name": "Blue vitriol (copper sulfate pentahydrate)"
-  },
-  "feso4_7h2o": {
-    "name": "Green vitriol (iron sulfate heptahydrate)"
-  },
-  "nh3_h2o": {
-    "name": "Ammonia water (ammonium hydroxide)"
-  },
-  "oleum": {
-    "name": "Oleum (disulfuric acid)"
   }
 }

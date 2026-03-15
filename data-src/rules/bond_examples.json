@@ -1,22 +1,107 @@
 {
   "examples": [
-    { "formula": "NaCl", "bond_type": "ionic", "crystal_type": "ionic" },
-    { "formula": "KBr", "bond_type": "ionic", "crystal_type": "ionic" },
-    { "formula": "CaO", "bond_type": "ionic", "crystal_type": "ionic" },
-    { "formula": "MgF2", "bond_type": "ionic", "crystal_type": "ionic" },
-    { "formula": "H2O", "bond_type": "covalent_polar", "crystal_type": "molecular" },
-    { "formula": "HCl", "bond_type": "covalent_polar", "crystal_type": "molecular" },
-    { "formula": "NH3", "bond_type": "covalent_polar", "crystal_type": "molecular" },
-    { "formula": "CO2", "bond_type": "covalent_polar", "crystal_type": "molecular" },
-    { "formula": "H2", "bond_type": "covalent_nonpolar", "crystal_type": "molecular" },
-    { "formula": "O2", "bond_type": "covalent_nonpolar", "crystal_type": "molecular" },
-    { "formula": "N2", "bond_type": "covalent_nonpolar", "crystal_type": "molecular" },
-    { "formula": "Cl2", "bond_type": "covalent_nonpolar", "crystal_type": "molecular" },
-    { "formula": "Fe", "bond_type": "metallic", "crystal_type": "metallic" },
-    { "formula": "Cu", "bond_type": "metallic", "crystal_type": "metallic" },
-    { "formula": "Na", "bond_type": "metallic", "crystal_type": "metallic" },
-    { "formula": "Al", "bond_type": "metallic", "crystal_type": "metallic" },
-    { "formula": "SiO2", "bond_type": "covalent_polar", "crystal_type": "atomic" }
+    {
+      "formula": "NaCl",
+      "bond_type": "ionic",
+      "crystal_type": "ionic",
+      "entity_ref": "sub:nacl"
+    },
+    {
+      "formula": "KBr",
+      "bond_type": "ionic",
+      "crystal_type": "ionic",
+      "entity_ref": "sub:kbr"
+    },
+    {
+      "formula": "CaO",
+      "bond_type": "ionic",
+      "crystal_type": "ionic",
+      "entity_ref": "sub:cao"
+    },
+    {
+      "formula": "MgF2",
+      "bond_type": "ionic",
+      "crystal_type": "ionic",
+      "entity_ref": "sub:mgf2"
+    },
+    {
+      "formula": "H2O",
+      "bond_type": "covalent_polar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:h2o"
+    },
+    {
+      "formula": "HCl",
+      "bond_type": "covalent_polar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:hcl"
+    },
+    {
+      "formula": "NH3",
+      "bond_type": "covalent_polar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:nh3"
+    },
+    {
+      "formula": "CO2",
+      "bond_type": "covalent_polar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:co2"
+    },
+    {
+      "formula": "H2",
+      "bond_type": "covalent_nonpolar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:h2"
+    },
+    {
+      "formula": "O2",
+      "bond_type": "covalent_nonpolar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:o2"
+    },
+    {
+      "formula": "N2",
+      "bond_type": "covalent_nonpolar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:n2"
+    },
+    {
+      "formula": "Cl2",
+      "bond_type": "covalent_nonpolar",
+      "crystal_type": "molecular",
+      "entity_ref": "sub:cl2"
+    },
+    {
+      "formula": "Fe",
+      "bond_type": "metallic",
+      "crystal_type": "metallic",
+      "entity_ref": "elem:Fe"
+    },
+    {
+      "formula": "Cu",
+      "bond_type": "metallic",
+      "crystal_type": "metallic",
+      "entity_ref": "elem:Cu"
+    },
+    {
+      "formula": "Na",
+      "bond_type": "metallic",
+      "crystal_type": "metallic",
+      "entity_ref": "elem:Na"
+    },
+    {
+      "formula": "Al",
+      "bond_type": "metallic",
+      "crystal_type": "metallic",
+      "entity_ref": "elem:Al"
+    },
+    {
+      "formula": "SiO2",
+      "bond_type": "covalent_polar",
+      "crystal_type": "atomic",
+      "entity_ref": "sub:sio2"
+    }
   ],
   "crystal_melting_rank": {
     "molecular": 1,

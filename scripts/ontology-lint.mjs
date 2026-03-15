@@ -100,6 +100,13 @@ const competencyIds = new Set(competencies.map(c => c.id));
 
 const taskTemplates = readJSON('engine/task_templates.json') || [];
 
+const reactions = readJSON('reactions/reactions.json') || [];
+const reactionTemplates = readJSON('reactions/reaction_templates.json') || [];
+const reactionTemplateIds = new Set(reactionTemplates.map(t => t.id));
+
+const bondExamples = readJSON('rules/bond_examples.json');
+const bondExampleEntries = bondExamples?.examples || [];
+
 // ── state ────────────────────────────────────────────────────────────────────
 
 let errors = 0;
@@ -313,6 +320,54 @@ console.log('\n=== A. Referential Integrity ===\n');
     ok('competency_hint IDs in task templates → all resolve');
   } else {
     fail('competency_hint IDs in task templates');
+    sectionErrors.forEach(e => error(e));
+  }
+}
+
+// A9. template_id in reactions → must exist in reaction_templates.json
+{
+  const sectionErrors = [];
+  for (const r of reactions) {
+    if (r.template_id && !reactionTemplateIds.has(r.template_id)) {
+      sectionErrors.push(`reactions: ${r.reaction_id} → template_id "${r.template_id}" not in reaction_templates.json`);
+    }
+  }
+  if (sectionErrors.length === 0) {
+    ok('template_id refs in reactions → all resolve');
+  } else {
+    fail('template_id refs in reactions');
+    sectionErrors.forEach(e => error(e));
+  }
+}
+
+// A10. entity_ref in bond_examples → must resolve to sub:* or elem:*
+{
+  const sectionErrors = [];
+  for (let i = 0; i < bondExampleEntries.length; i++) {
+    const ex = bondExampleEntries[i];
+    const ref = ex.entity_ref;
+    if (!ref) {
+      sectionErrors.push(`bond_examples[${i}] (${ex.formula}): missing entity_ref`);
+      continue;
+    }
+    if (ref.startsWith('sub:')) {
+      const subKey = ref.slice(4);
+      if (!substanceIds.has(subKey)) {
+        sectionErrors.push(`bond_examples[${i}] (${ex.formula}): ${ref} not found in substances/`);
+      }
+    } else if (ref.startsWith('elem:')) {
+      const symbol = ref.slice(5);
+      if (!elementSymbols.has(symbol)) {
+        sectionErrors.push(`bond_examples[${i}] (${ex.formula}): ${ref} not found in elements.json`);
+      }
+    } else {
+      sectionErrors.push(`bond_examples[${i}] (${ex.formula}): entity_ref "${ref}" has unknown prefix (expected sub:* or elem:*)`);
+    }
+  }
+  if (sectionErrors.length === 0) {
+    ok('entity_ref in bond_examples → all resolve');
+  } else {
+    fail('entity_ref in bond_examples');
     sectionErrors.forEach(e => error(e));
   }
 }

@@ -2,8 +2,6 @@
   {
     "id": "neutralization",
     "type": "exchange",
-    "pattern": "acid + base -> salt + water",
-    "conditions": null,
     "catalyst": null,
     "examples": [
       {
@@ -51,8 +49,6 @@
   {
     "id": "metal_acid",
     "type": "substitution",
-    "pattern": "active metal + dilute acid -> salt + H2",
-    "conditions": "Металл стоит в ряду активности до водорода; кислота разбавленная (не HNO₃)",
     "catalyst": null,
     "examples": [
       {
@@ -68,7 +64,7 @@
       {
         "reactants": [
           "Fe",
-          "H₂SO₄(разб.)"
+          "H₂SO₄(dil.)"
         ],
         "products": [
           "FeSO₄",
@@ -88,7 +84,7 @@
       {
         "reactants": [
           "2Al",
-          "3H₂SO₄(разб.)"
+          "3H₂SO₄(dil.)"
         ],
         "products": [
           "Al₂(SO₄)₃",
@@ -100,8 +96,6 @@
   {
     "id": "carbonate_acid",
     "type": "exchange",
-    "pattern": "carbonate + acid -> salt + H2O + CO2",
-    "conditions": null,
     "catalyst": null,
     "examples": [
       {
@@ -142,8 +136,6 @@
   {
     "id": "metal_displacement",
     "type": "substitution",
-    "pattern": "more active metal + salt solution -> new salt + displaced metal",
-    "conditions": "Более активный металл (не щелочной/щёлочноземельный) + раствор соли менее активного металла",
     "catalyst": null,
     "examples": [
       {
@@ -181,8 +173,6 @@
   {
     "id": "basic_oxide_water",
     "type": "combination",
-    "pattern": "basic oxide of alkali/alkaline earth metal + water -> alkali",
-    "conditions": "Оксид должен быть растворим (Na₂O, K₂O, CaO, BaO)",
     "catalyst": null,
     "examples": [
       {
@@ -226,8 +216,6 @@
   {
     "id": "acidic_oxide_water",
     "type": "combination",
-    "pattern": "acidic oxide + water -> acid",
-    "conditions": "Оксид не должен быть SiO₂ (не реагирует с водой)",
     "catalyst": null,
     "examples": [
       {
@@ -280,8 +268,6 @@
   {
     "id": "base_acidic_oxide",
     "type": "exchange",
-    "pattern": "alkali + acidic oxide -> salt + water",
-    "conditions": null,
     "catalyst": null,
     "examples": [
       {
@@ -329,8 +315,6 @@
   {
     "id": "basic_oxide_acidic_oxide",
     "type": "combination",
-    "pattern": "basic oxide + acidic oxide -> salt",
-    "conditions": null,
     "catalyst": null,
     "examples": [
       {
@@ -374,8 +358,6 @@
   {
     "id": "salt_precipitate_exchange",
     "type": "exchange",
-    "pattern": "salt1 (aq) + salt2 (aq) -> salt3 (precipitate) + salt4 (aq)",
-    "conditions": "Оба исходных вещества растворимы; один из продуктов — нерастворимый осадок",
     "catalyst": null,
     "examples": [
       {
@@ -413,8 +395,6 @@
   {
     "id": "insoluble_base_decomposition",
     "type": "decomposition",
-    "pattern": "insoluble base -> metal oxide + water (upon heating)",
-    "conditions": "Нагревание",
     "catalyst": null,
     "examples": [
       {

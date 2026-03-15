@@ -24,9 +24,6 @@
       "Pozostawia trwałe czarne plamy na skórze w wyniku redukcji do srebra metalicznego"
     ]
   },
-  "al_no3_3": {
-    "name": "Azotan(V) glinu"
-  },
   "al2_so4_3": {
     "name": "Siarczan glinu",
     "appearance": "Białe kryształy lub proszek",
@@ -47,6 +44,9 @@
       "Jeden z najtwardszych tlenków — 9 w skali Mohsa"
     ]
   },
+  "al_no3_3": {
+    "name": "Azotan(V) glinu"
+  },
   "al_oh_3": {
     "name": "Wodorotlenek glinu",
     "appearance": "Biała galaretowata substancja",
@@ -56,12 +56,6 @@
       "Znajduje się w wielu lekach zobojętniających kwas (środkach na zgagę)",
       "Rozkłada się na Al₂O₃ i wodę pod wpływem ogrzewania"
     ]
-  },
-  "aloh_no3_2": {
-    "name": "Zasadowy azotan(V) glinu"
-  },
-  "alpo4": {
-    "name": "Fosforan(V) glinu"
   },
   "alcl3": {
     "name": "Chlorek glinu",
@@ -77,14 +71,14 @@
       "Jego temperatura wrzenia jest niższa od temperatury topnienia — sublimuje pod ciśnieniem atmosferycznym"
     ]
   },
+  "aloh_no3_2": {
+    "name": "Zasadowy azotan(V) glinu"
+  },
+  "alpo4": {
+    "name": "Fosforan(V) glinu"
+  },
   "ba_oh_2": {
     "name": "Wodorotlenek baru"
-  },
-  "baco3": {
-    "name": "Węglan baru"
-  },
-  "bao": {
-    "name": "Tlenek baru"
   },
   "bacl2": {
     "name": "Chlorek baru",
@@ -100,6 +94,12 @@
       "Odczynnik jakościowy na jony siarczanowe — tworzy biały osad BaSO₄"
     ]
   },
+  "baco3": {
+    "name": "Węglan baru"
+  },
+  "bao": {
+    "name": "Tlenek baru"
+  },
   "baso4": {
     "name": "Siarczan baru",
     "appearance": "Biały krystaliczny proszek",
@@ -109,6 +109,15 @@
       "Stosowany jako 'papka barowa' do prześwietleń żołądka — nierozpuszczalny i nietoksyczny",
       "Minerał baryt (BaSO₄) jest głównym przemysłowym źródłem baru"
     ]
+  },
+  "be_oh_2": {
+    "name": "Wodorotlenek berylu"
+  },
+  "beo": {
+    "name": "Tlenek berylu"
+  },
+  "c": {
+    "name": "Węgiel (substancja prosta)"
   },
   "c2h2": {
     "name": "Acetylen",
@@ -277,6 +286,21 @@
       "Termin 'liczba oktanowa' w benzynie pochodzi od oktanu"
     ]
   },
+  "ca3_po4_2": {
+    "name": "Fosforan(V) wapnia"
+  },
+  "ca_h2po4_2": {
+    "name": "Diwodorofosforan(V) wapnia"
+  },
+  "ca_hco3_2": {
+    "name": "Wodorowęglan wapnia"
+  },
+  "ca_hso4_2": {
+    "name": "Wodorosiarczan(VI) wapnia"
+  },
+  "ca_no3_2": {
+    "name": "Azotan(V) wapnia"
+  },
   "ca_oh_2": {
     "name": "Wodorotlenek wapnia",
     "appearance": "Biały proszek",
@@ -291,6 +315,9 @@
       "Wapno gaszone jest stosowane w budownictwie od ponad 5000 lat"
     ]
   },
+  "cacl2": {
+    "name": "Chlorek wapnia"
+  },
   "caco3": {
     "name": "Węglan wapnia",
     "appearance": "Biały proszek lub kryształy",
@@ -300,6 +327,12 @@
       "Kreda, marmur, wapień, muszle i skorupki jaj — to wszystko CaCO₃",
       "Rozkłada się na CaO i CO₂ pod wpływem ogrzewania — podstawa produkcji wapna"
     ]
+  },
+  "caf2": {
+    "name": "Fluorek wapnia"
+  },
+  "cahpo4": {
+    "name": "Wodorofosforan(V) wapnia"
   },
   "cao": {
     "name": "Tlenek wapnia",
@@ -315,6 +348,15 @@
       "Wapno palone intensywnie się nagrzewa w kontakcie z wodą — reakcja jest silnie egzotermiczna",
       "Jeden z najstarszych materiałów wiążących stosowanych w budownictwie"
     ]
+  },
+  "casio3": {
+    "name": "Krzemian wapnia"
+  },
+  "caso4": {
+    "name": "Siarczan(VI) wapnia"
+  },
+  "caso4_2h2o": {
+    "name": "Gips (dwuwodny siarczan wapnia)"
   },
   "ch3cho": {
     "name": "Aldehyd octowy",
@@ -425,6 +467,9 @@
       "Stosowany do oczyszczania 98% wody pitnej na świecie"
     ]
   },
+  "co": {
+    "name": "Tlenek węgla(II)"
+  },
   "co2": {
     "name": "Dwutlenek węgla",
     "appearance": "Bezbarwny, bezwonny gaz",
@@ -434,6 +479,21 @@
       "Suchy lód to stały CO₂; sublimuje w temperaturze −78,5 °C, omijając fazę ciekłą",
       "CO₂ stanowi około 0,04% atmosfery Ziemi, lecz jest kluczowym gazem cieplarnianym"
     ]
+  },
+  "cr2o3": {
+    "name": "Tlenek chromu(III)"
+  },
+  "cr_oh_3": {
+    "name": "Wodorotlenek chromu(III)"
+  },
+  "cro3": {
+    "name": "Tlenek chromu(VI)"
+  },
+  "cu2o": {
+    "name": "Tlenek miedzi(I)"
+  },
+  "cu_no3_2": {
+    "name": "Azotan(V) miedzi(II)"
   },
   "cu_oh_2": {
     "name": "Wodorotlenek miedzi(II)",
@@ -445,6 +505,9 @@
       "Rozpuszcza się w amoniaku, tworząc intensywnie niebieski roztwór (odczynnik Schweizera)"
     ]
   },
+  "cucl2": {
+    "name": "Chlorek miedzi(II)"
+  },
   "cuo": {
     "name": "Tlenek miedzi(II)",
     "appearance": "Czarny proszek",
@@ -453,6 +516,12 @@
     "fun_facts": [
       "Łatwo redukowany wodorem do miedzi metalicznej — klasyczne doświadczenie szkolne z chemii"
     ]
+  },
+  "cuohcl": {
+    "name": "Zasadowy chlorek miedzi(II)"
+  },
+  "cus": {
+    "name": "Siarczek miedzi(II)"
   },
   "cuso4": {
     "name": "Siarczan miedzi(II)",
@@ -468,6 +537,12 @@
       "Bezwodny CuSO₄ służy jako wskaźnik wilgoci — sinieje w kontakcie z wodą"
     ]
   },
+  "cuso4_5h2o": {
+    "name": "Siarczan miedzi(II) pięciowodny"
+  },
+  "fe2_so4_3": {
+    "name": "Siarczan(VI) żelaza(III)"
+  },
   "fe2o3": {
     "name": "Tlenek żelaza(III)",
     "appearance": "Czerwonobrązowy proszek",
@@ -477,6 +552,9 @@
       "Minerał hematyt (Fe₂O₃) jest główną rudą żelaza na Ziemi",
       "Czerwony kolor gleby marsjańskiej jest spowodowany obecnością Fe₂O₃"
     ]
+  },
+  "fe_oh_2": {
+    "name": "Wodorotlenek żelaza(II)"
   },
   "fe_oh_3": {
     "name": "Wodorotlenek żelaza(III)",
@@ -520,6 +598,12 @@
       "Stosowany jako czarny pigment w ceramice"
     ]
   },
+  "feohcl": {
+    "name": "Zasadowy chlorek żelaza(II)"
+  },
+  "fes": {
+    "name": "Siarczek żelaza(II)"
+  },
   "feso4": {
     "name": "Siarczan żelaza(II)",
     "appearance": "Zielonkawoniebieskie kryształy (heptahydrat)",
@@ -531,6 +615,9 @@
     "fun_facts": [
       "Heptahydrat FeSO₄·7H₂O jest znany jako zielony witriol — jeden z najstarszych znanych związków chemicznych"
     ]
+  },
+  "feso4_7h2o": {
+    "name": "Siarczan żelaza(II) siedmiowodny"
   },
   "h2": {
     "name": "Wodór",
@@ -555,6 +642,12 @@
       "Jeden z najbardziej niestabilnych kwasów — rozkłada się na wodę i CO₂ prawie natychmiast",
       "Bąbelki w napojach gazowanych to CO₂ uwalniany podczas rozkładu kwasu węglowego"
     ]
+  },
+  "h2cr2o7": {
+    "name": "Kwas dichromowy(VI)"
+  },
+  "h2cro4": {
+    "name": "Kwas chromowy(VI)"
   },
   "h2o": {
     "name": "Woda",
@@ -594,6 +687,12 @@
       "W wysokich stężeniach paraliżuje zmysł węchu — zapachu nie da się już wykryć"
     ]
   },
+  "h2sio3": {
+    "name": "Kwas krzemowy(IV)"
+  },
+  "h2so3": {
+    "name": "Kwas siarkowy(IV)"
+  },
   "h2so4": {
     "name": "Kwas siarkowy",
     "appearance": "Bezbarwna, oleista ciecz",
@@ -622,6 +721,9 @@
       "Obecny w Coca-Coli i innych napojach gazowanych jako regulator kwasowości (E338)",
       "Kwas fosforowy jest trójprotonowy — może tworzyć trzy serie soli"
     ]
+  },
+  "hbr": {
+    "name": "Kwas bromowodorowy"
   },
   "hcl": {
     "name": "Kwas solny",
@@ -681,6 +783,18 @@
       "Nadchloran amonu NH₄ClO₄ jest głównym składnikiem stałego paliwa rakietowego"
     ]
   },
+  "hf": {
+    "name": "Kwas fluorowodorowy"
+  },
+  "hi": {
+    "name": "Kwas jodowodorowy"
+  },
+  "hmno4": {
+    "name": "Kwas manganowy(VII)"
+  },
+  "hno2": {
+    "name": "Kwas azotowy(III)"
+  },
   "hno3": {
     "name": "Kwas azotowy",
     "appearance": "Bezbarwna ciecz o ostrym zapachu; dymi na powietrzu",
@@ -697,6 +811,21 @@
       "Kwas azotowy barwi skórę na żółto (reakcja ksantoproteinowa z białkami)"
     ]
   },
+  "k2co3": {
+    "name": "Węglan potasu"
+  },
+  "k2cr2o7": {
+    "name": "Dichromian(VI) potasu"
+  },
+  "k2cro4": {
+    "name": "Chromian(VI) potasu"
+  },
+  "k2o": {
+    "name": "Tlenek potasu"
+  },
+  "k2so3": {
+    "name": "Siarczan(IV) potasu"
+  },
   "k2so4": {
     "name": "Siarczan potasu",
     "appearance": "Bezbarwne kryształy",
@@ -708,14 +837,7 @@
     ]
   },
   "kbr": {
-    "name": "Bromek potasu",
-    "appearance": "Bezbarwne kryształy regularne",
-    "industrial": "Fotografia (materiały światłoczułe), medycyna (środek uspokajający)",
-    "production": "Reakcja KOH z bromem lub HBr",
-    "fun_facts": [
-      "Szeroko stosowany jako środek uspokajający w XIX wieku",
-      "Kryształy KBr są przezroczyste dla promieniowania podczerwonego — stosowane w spektroskopii IR"
-    ]
+    "name": "bromek potasu"
   },
   "kcl": {
     "name": "Chlorek potasu",
@@ -726,6 +848,12 @@
       "Minerał sylwin (KCl) jest głównym źródłem nawozów potasowych",
       "Stosowany jako zamiennik soli kuchennej w dietetyce"
     ]
+  },
+  "khso4": {
+    "name": "Wodorosiarczan(VI) potasu"
+  },
+  "ki": {
+    "name": "Jodek potasu"
   },
   "kmno4": {
     "name": "Nadmanganian potasu",
@@ -740,6 +868,9 @@
       "Potocznie znany w Polsce jako 'nadmanganian'",
       "Jego roztwór wodny ma intensywnie fioletowy kolor nawet przy bardzo niskim stężeniu"
     ]
+  },
+  "kno2": {
+    "name": "Azotan(III) potasu"
   },
   "kno3": {
     "name": "Azotan potasu",
@@ -769,6 +900,12 @@
       "Pochłania CO₂ z powietrza, przekształcając się w węglan potasu"
     ]
   },
+  "li2o": {
+    "name": "Tlenek litu"
+  },
+  "lioh": {
+    "name": "Wodorotlenek litu"
+  },
   "mg_oh_2": {
     "name": "Wodorotlenek magnezu",
     "appearance": "Biały bezpostaciowy proszek",
@@ -789,6 +926,12 @@
       "Stosowany jako środek odladzający zamiast NaCl"
     ]
   },
+  "mgco3": {
+    "name": "Węglan magnezu"
+  },
+  "mgf2": {
+    "name": "Fluorek magnezu"
+  },
   "mgo": {
     "name": "Tlenek magnezu",
     "appearance": "Biały proszek",
@@ -798,6 +941,9 @@
       "Temperatura topnienia MgO (2852°C) jest jedną z najwyższych wśród tlenków",
       "Magnezja palona jest stosowana przez sportowców do osuszania rąk"
     ]
+  },
+  "mn2o7": {
+    "name": "Tlenek manganu(VII)"
   },
   "mncl2": {
     "name": "Chlorek manganu(II)",
@@ -828,6 +974,12 @@
       "Potrójne wiązanie N≡N jest jednym z najsilniejszych wiązań chemicznych"
     ]
   },
+  "n2o": {
+    "name": "Tlenek azotu(I)"
+  },
+  "n2o5": {
+    "name": "Tlenek azotu(V)"
+  },
   "na2co3": {
     "name": "Węglan sodu",
     "appearance": "Biały proszek",
@@ -837,6 +989,12 @@
       "Soda kalcynowana (Na₂CO₃) jest jednym z najważniejszych produktów przemysłu chemicznego",
       "Dekahydrat Na₂CO₃·10H₂O jest znany jako 'soda krystaliczna'"
     ]
+  },
+  "na2cro4": {
+    "name": "Chromian(VI) sodu"
+  },
+  "na2hpo4": {
+    "name": "Wodorofosforan(V) sodu"
   },
   "na2o": {
     "name": "Tlenek sodu",
@@ -852,6 +1010,15 @@
       "Szybko pochłania wilgoć i CO₂ z powietrza, przekształcając się w Na₂CO₃"
     ]
   },
+  "na2s": {
+    "name": "Siarczek sodu"
+  },
+  "na2sio3": {
+    "name": "Krzemian sodu"
+  },
+  "na2so3": {
+    "name": "Siarczan(IV) sodu"
+  },
   "na2so4": {
     "name": "Siarczan sodu",
     "appearance": "Bezbarwne kryształy",
@@ -860,6 +1027,9 @@
     "fun_facts": [
       "Dekahydrat Na₂SO₄·10H₂O (sól Glaubera) został odkryty przez Glaubera w 1625 roku i był stosowany jako środek przeczyszczający"
     ]
+  },
+  "na3po4": {
+    "name": "Fosforan(V) sodu"
   },
   "naalo2": {
     "name": "Glinian sodu",
@@ -871,6 +1041,9 @@
       "Stosowany w budownictwie jako przyspieszacz wiązania betonu"
     ]
   },
+  "nabr": {
+    "name": "Bromek sodu"
+  },
   "nacl": {
     "name": "Chlorek sodu",
     "appearance": "Bezbarwne kryształy regularne",
@@ -881,6 +1054,30 @@
       "W starożytnym Rzymie żołnierzom płacono solą — stąd słowo 'salary' (pensja)",
       "Kryształy NaCl mają kształt sześcianu, widoczny nawet w zwykłej soli kuchennej"
     ]
+  },
+  "naf": {
+    "name": "Fluorek sodu"
+  },
+  "nah": {
+    "name": "Wodorek sodu"
+  },
+  "nah2po4": {
+    "name": "Diwodorofosforan(V) sodu"
+  },
+  "nahco3": {
+    "name": "Wodorowęglan sodu"
+  },
+  "nahso4": {
+    "name": "Wodorosiarczan(VI) sodu"
+  },
+  "nai": {
+    "name": "Jodek sodu"
+  },
+  "nano2": {
+    "name": "Azotan(III) sodu"
+  },
+  "nano3": {
+    "name": "Azotan(V) sodu"
   },
   "naoh": {
     "name": "Wodorotlenek sodu",
@@ -913,6 +1110,9 @@
       "Amoniak jest jedną z najczęściej produkowanych substancji chemicznych na świecie (ponad 150 mln ton/rok)"
     ]
   },
+  "nh3_h2o": {
+    "name": "Woda amoniakalna (wodorotlenek amonu)"
+  },
   "nh4cl": {
     "name": "Chlorek amonu",
     "appearance": "Bezbarwne kryształy",
@@ -923,6 +1123,9 @@
       "Sublimuje pod wpływem ogrzewania, omijając fazę ciekłą"
     ]
   },
+  "no": {
+    "name": "Tlenek azotu(II)"
+  },
   "o2": {
     "name": "Tlen",
     "appearance": "Bezbarwny, bezwonny gaz",
@@ -932,6 +1135,15 @@
       "Stanowi 21% atmosfery Ziemi",
       "Ciekły tlen ma niebieski kolor i jest przyciągany przez magnesy"
     ]
+  },
+  "oleum": {
+    "name": "Oleum (kwas disiarczanowy)"
+  },
+  "p": {
+    "name": "Fosfor (substancja prosta)"
+  },
+  "p2o5": {
+    "name": "Tlenek fosforu(V)"
   },
   "pb_no3_2": {
     "name": "Azotan ołowiu(II)",
@@ -949,6 +1161,18 @@
       "Rozkłada się pod wpływem ogrzewania, wydzielając brązowy gaz NO₂"
     ]
   },
+  "pb_oh_2": {
+    "name": "Wodorotlenek ołowiu(II)"
+  },
+  "pbi2": {
+    "name": "Jodek ołowiu(II)"
+  },
+  "pbo": {
+    "name": "Tlenek ołowiu(II)"
+  },
+  "pbs": {
+    "name": "Siarczek ołowiu(II)"
+  },
   "sio2": {
     "name": "Dwutlenek krzemu",
     "appearance": "Bezbarwne kryształy lub biały proszek",
@@ -959,6 +1183,9 @@
       "SiO₂ jest podstawą chipów krzemowych, które napędzają całą nowoczesną elektronikę",
       "Najobficiej występujący minerał w skorupie ziemskiej"
     ]
+  },
+  "sno": {
+    "name": "Tlenek cyny(II)"
   },
   "so2": {
     "name": "Dwutlenek siarki",
@@ -1002,6 +1229,12 @@
       "Najważniejszy katalizator przemysłowy — bez niego produkcja kwasu siarkowego metodą kontaktową byłaby niemożliwa"
     ]
   },
+  "zn_oh_2": {
+    "name": "Wodorotlenek cynku"
+  },
+  "zncl2": {
+    "name": "Chlorek cynku"
+  },
   "zno": {
     "name": "Tlenek cynku",
     "appearance": "Biały proszek; żółknie pod wpływem ogrzewania",
@@ -1012,250 +1245,10 @@
       "Żółknie pod wpływem ogrzewania i bieleeje po ostudzeniu — efekt termochromowy"
     ]
   },
-  "be_oh_2": {
-    "name": "Wodorotlenek berylu"
-  },
-  "ca3_po4_2": {
-    "name": "Fosforan(V) wapnia"
-  },
-  "ca_h2po4_2": {
-    "name": "Diwodorofosforan(V) wapnia"
-  },
-  "ca_hco3_2": {
-    "name": "Wodorowęglan wapnia"
-  },
-  "ca_hso4_2": {
-    "name": "Wodorosiarczan(VI) wapnia"
-  },
-  "ca_no3_2": {
-    "name": "Azotan(V) wapnia"
-  },
-  "cacl2": {
-    "name": "Chlorek wapnia"
-  },
-  "caf2": {
-    "name": "Fluorek wapnia"
-  },
-  "cahpo4": {
-    "name": "Wodorofosforan(V) wapnia"
-  },
-  "casio3": {
-    "name": "Krzemian wapnia"
-  },
-  "caso4": {
-    "name": "Siarczan(VI) wapnia"
-  },
-  "cr_oh_3": {
-    "name": "Wodorotlenek chromu(III)"
-  },
-  "cu_no3_2": {
-    "name": "Azotan(V) miedzi(II)"
-  },
-  "cucl2": {
-    "name": "Chlorek miedzi(II)"
-  },
-  "cus": {
-    "name": "Siarczek miedzi(II)"
-  },
-  "fe2_so4_3": {
-    "name": "Siarczan(VI) żelaza(III)"
-  },
-  "fe_oh_2": {
-    "name": "Wodorotlenek żelaza(II)"
-  },
-  "fes": {
-    "name": "Siarczek żelaza(II)"
-  },
-  "k2co3": {
-    "name": "Węglan potasu"
-  },
-  "k2cr2o7": {
-    "name": "Dichromian(VI) potasu"
-  },
-  "k2cro4": {
-    "name": "Chromian(VI) potasu"
-  },
-  "k2so3": {
-    "name": "Siarczan(IV) potasu"
-  },
-  "khso4": {
-    "name": "Wodorosiarczan(VI) potasu"
-  },
-  "ki": {
-    "name": "Jodek potasu"
-  },
-  "kno2": {
-    "name": "Azotan(III) potasu"
-  },
-  "lioh": {
-    "name": "Wodorotlenek litu"
-  },
-  "mgco3": {
-    "name": "Węglan magnezu"
-  },
-  "mgf2": {
-    "name": "Fluorek magnezu"
-  },
-  "na2cro4": {
-    "name": "Chromian(VI) sodu"
-  },
-  "na2hpo4": {
-    "name": "Wodorofosforan(V) sodu"
-  },
-  "na2s": {
-    "name": "Siarczek sodu"
-  },
-  "na2sio3": {
-    "name": "Krzemian sodu"
-  },
-  "na2so3": {
-    "name": "Siarczan(IV) sodu"
-  },
-  "na3po4": {
-    "name": "Fosforan(V) sodu"
-  },
-  "nabr": {
-    "name": "Bromek sodu"
-  },
-  "naf": {
-    "name": "Fluorek sodu"
-  },
-  "nah2po4": {
-    "name": "Diwodorofosforan(V) sodu"
-  },
-  "nahco3": {
-    "name": "Wodorowęglan sodu"
-  },
-  "nahso4": {
-    "name": "Wodorosiarczan(VI) sodu"
-  },
-  "nai": {
-    "name": "Jodek sodu"
-  },
-  "nano2": {
-    "name": "Azotan(III) sodu"
-  },
-  "nano3": {
-    "name": "Azotan(V) sodu"
-  },
-  "pb_oh_2": {
-    "name": "Wodorotlenek ołowiu(II)"
-  },
-  "pbi2": {
-    "name": "Jodek ołowiu(II)"
-  },
-  "pbs": {
-    "name": "Siarczek ołowiu(II)"
-  },
-  "zn_oh_2": {
-    "name": "Wodorotlenek cynku"
-  },
-  "zncl2": {
-    "name": "Chlorek cynku"
-  },
   "zns": {
     "name": "Siarczek cynku"
   },
   "znso4": {
     "name": "Siarczan(VI) cynku"
-  },
-  "beo": {
-    "name": "Tlenek berylu"
-  },
-  "co": {
-    "name": "Tlenek węgla(II)"
-  },
-  "cr2o3": {
-    "name": "Tlenek chromu(III)"
-  },
-  "cro3": {
-    "name": "Tlenek chromu(VI)"
-  },
-  "cu2o": {
-    "name": "Tlenek miedzi(I)"
-  },
-  "k2o": {
-    "name": "Tlenek potasu"
-  },
-  "li2o": {
-    "name": "Tlenek litu"
-  },
-  "mn2o7": {
-    "name": "Tlenek manganu(VII)"
-  },
-  "n2o": {
-    "name": "Tlenek azotu(I)"
-  },
-  "n2o5": {
-    "name": "Tlenek azotu(V)"
-  },
-  "no": {
-    "name": "Tlenek azotu(II)"
-  },
-  "p2o5": {
-    "name": "Tlenek fosforu(V)"
-  },
-  "pbo": {
-    "name": "Tlenek ołowiu(II)"
-  },
-  "sno": {
-    "name": "Tlenek cyny(II)"
-  },
-  "nah": {
-    "name": "Wodorek sodu"
-  },
-  "h2cr2o7": {
-    "name": "Kwas dichromowy(VI)"
-  },
-  "h2cro4": {
-    "name": "Kwas chromowy(VI)"
-  },
-  "h2sio3": {
-    "name": "Kwas krzemowy(IV)"
-  },
-  "h2so3": {
-    "name": "Kwas siarkowy(IV)"
-  },
-  "hbr": {
-    "name": "Kwas bromowodorowy"
-  },
-  "hf": {
-    "name": "Kwas fluorowodorowy"
-  },
-  "hi": {
-    "name": "Kwas jodowodorowy"
-  },
-  "hmno4": {
-    "name": "Kwas manganowy(VII)"
-  },
-  "hno2": {
-    "name": "Kwas azotowy(III)"
-  },
-  "cuohcl": {
-    "name": "Zasadowy chlorek miedzi(II)"
-  },
-  "feohcl": {
-    "name": "Zasadowy chlorek żelaza(II)"
-  },
-  "c": {
-    "name": "Węgiel (substancja prosta)"
-  },
-  "p": {
-    "name": "Fosfor (substancja prosta)"
-  },
-  "caso4_2h2o": {
-    "name": "Gips (dwuwodny siarczan wapnia)"
-  },
-  "cuso4_5h2o": {
-    "name": "Siarczan miedzi(II) pięciowodny"
-  },
-  "feso4_7h2o": {
-    "name": "Siarczan żelaza(II) siedmiowodny"
-  },
-  "nh3_h2o": {
-    "name": "Woda amoniakalna (wodorotlenek amonu)"
-  },
-  "oleum": {
-    "name": "Oleum (kwas disiarczanowy)"
   }
 }

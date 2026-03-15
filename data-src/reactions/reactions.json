@@ -79,7 +79,8 @@
     "competencies": {
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
-    }
+    },
+    "template_id": "neutralization"
   },
   {
     "reaction_id": "rx_neutral_02_h2so4_koh",
@@ -153,7 +154,8 @@
     },
     "competencies": {
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "neutralization"
   },
   {
     "reaction_id": "rx_carbonate_01_caco3_hcl",
@@ -243,7 +245,8 @@
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
-    }
+    },
+    "template_id": "carbonate_acid"
   },
   {
     "reaction_id": "rx_carbonate_02_na2co3_h2so4",
@@ -324,7 +327,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "carbonate_acid"
   },
   {
     "reaction_id": "rx_acid_oxide_01_naoh_co2",
@@ -407,7 +411,8 @@
       "classification": "S",
       "reactions_exchange": "S",
       "reaction_energy_profile": "S"
-    }
+    },
+    "template_id": "base_acidic_oxide"
   },
   {
     "reaction_id": "rx_acid_oxide_02_koh_so2",
@@ -487,7 +492,8 @@
       "classification": "S",
       "reaction_energy_profile": "S",
       "reactions_exchange": "S"
-    }
+    },
+    "template_id": "base_acidic_oxide"
   },
   {
     "reaction_id": "rx_precip_01_baso4",
@@ -563,7 +569,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "salt_precipitate_exchange"
   },
   {
     "reaction_id": "rx_precip_02_agcl",
@@ -642,7 +649,8 @@
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "qualitative_analysis_logic": "P"
-    }
+    },
+    "template_id": "salt_precipitate_exchange"
   },
   {
     "reaction_id": "rx_precip_03_cuoh2",
@@ -800,7 +808,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "carbonate_acid"
   },
   {
     "reaction_id": "rx_gas_02_na2s_hcl",
@@ -1036,7 +1045,8 @@
     "competencies": {
       "amphoterism_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "neutralization"
   },
   {
     "reaction_id": "rx_amph_02_aloh3_naoh",
@@ -1257,7 +1267,8 @@
     "competencies": {
       "classification": "S",
       "gas_precipitate_logic": "P"
-    }
+    },
+    "template_id": "base_acidic_oxide"
   },
   {
     "reaction_id": "rx_precip_04_feoh3",
@@ -1401,7 +1412,8 @@
     },
     "competencies": {
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "neutralization"
   },
   {
     "reaction_id": "rx_precip_05_caco3_from_salts",
@@ -1470,7 +1482,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "salt_precipitate_exchange"
   },
   {
     "reaction_id": "rx_precip_06_pbi2",
@@ -1540,7 +1553,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "salt_precipitate_exchange"
   },
   {
     "reaction_id": "rx_precip_07_h2so4_bacl2",
@@ -1828,7 +1842,8 @@
     },
     "competencies": {
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "neutralization"
   },
   {
     "reaction_id": "rx_precip_08_caso4",
@@ -1899,7 +1914,8 @@
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "template_id": "salt_precipitate_exchange"
   },
   {
     "reaction_id": "rx_gas_05_caco3_heat",
@@ -2067,7 +2083,8 @@
         "to": 2
       },
       "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_acid"
   },
   {
     "reaction_id": "rx_redox_02_fe_h2so4",
@@ -2161,7 +2178,8 @@
         "to": 2
       },
       "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_acid"
   },
   {
     "reaction_id": "rx_redox_03_mg_hcl",
@@ -2252,7 +2270,8 @@
         "to": 2
       },
       "electron_transfer": "Mg⁰ − 2e⁻ → Mg²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_acid"
   },
   {
     "reaction_id": "rx_redox_04_fe_cuso4",
@@ -2344,7 +2363,8 @@
         "to": 2
       },
       "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_displacement"
   },
   {
     "reaction_id": "rx_redox_05_zn_cuso4",
@@ -2429,7 +2449,8 @@
         "to": 2
       },
       "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_displacement"
   },
   {
     "reaction_id": "rx_redox_06_cu_agno3",
@@ -2517,6 +2538,7 @@
         "to": 2
       },
       "electron_transfer": "Cu⁰ − 2e⁻ → Cu²⁺ (восстановитель)\n2Ag⁺ + 2e⁻ → 2Ag⁰ (окислитель)"
-    }
+    },
+    "template_id": "metal_displacement"
   }
 ]

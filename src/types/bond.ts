@@ -32,6 +32,7 @@ export interface BondExampleEntry {
   formula: string;
   bond_type: string;
   crystal_type: string;
+  entity_ref?: string;
 }
 
 export interface BondExamplesData {

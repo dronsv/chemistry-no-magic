@@ -1,38 +1,38 @@
 {
   "neutralization": {
-    "description": "Neutralization: acid + base = salt + water"
+    "pattern": "acid + base → salt + water"
   },
   "metal_acid": {
-    "description": "Active metal + dilute acid: metal + acid = salt + hydrogen",
-    "conditions": "Metal must be above hydrogen in the activity series; acid must be dilute (not HNO₃)"
+    "pattern": "active metal + dilute acid → salt + H₂",
+    "conditions": "Metal must be above hydrogen in activity series; acid must be dilute (not HNO₃)"
   },
   "carbonate_acid": {
-    "description": "Carbonate + acid = salt + water + carbon dioxide"
+    "pattern": "carbonate + acid → salt + H₂O + CO₂"
   },
   "metal_displacement": {
-    "description": "Displacement of a less active metal from a salt solution by a more active metal",
-    "conditions": "More active metal (not alkali/alkaline earth) + solution of a less active metal salt"
+    "pattern": "more active metal + salt solution → new salt + displaced metal",
+    "conditions": "More active metal (not alkali/alkaline earth) + solution of less active metal salt"
   },
   "basic_oxide_water": {
-    "description": "Basic oxide of alkali or alkaline-earth metal + water = alkali",
+    "pattern": "basic oxide of alkali/alkaline earth metal + water → alkali",
     "conditions": "Oxide must be soluble (Na₂O, K₂O, CaO, BaO)"
   },
   "acidic_oxide_water": {
-    "description": "Acidic oxide + water = acid (except SiO₂)",
+    "pattern": "acidic oxide + water → acid",
     "conditions": "Oxide must not be SiO₂ (does not react with water)"
   },
   "base_acidic_oxide": {
-    "description": "Alkali + acidic oxide = salt + water"
+    "pattern": "alkali + acidic oxide → salt + water"
   },
   "basic_oxide_acidic_oxide": {
-    "description": "Basic oxide + acidic oxide = salt"
+    "pattern": "basic oxide + acidic oxide → salt"
   },
   "salt_precipitate_exchange": {
-    "description": "Exchange between two soluble salts to form an insoluble salt (precipitate)",
-    "conditions": "Both starting substances must be soluble; one product must be an insoluble precipitate"
+    "pattern": "salt₁ (aq) + salt₂ (aq) → salt₃ (precipitate) + salt₄ (aq)",
+    "conditions": "Both starting materials must be soluble; one product must be an insoluble precipitate"
   },
   "insoluble_base_decomposition": {
-    "description": "Decomposition of an insoluble base on heating: insoluble base = metal oxide + water",
+    "pattern": "insoluble base → metal oxide + water (upon heating)",
     "conditions": "Heating"
   }
 }

@@ -1,38 +1,38 @@
 {
   "neutralization": {
-    "description": "Neutralización: ácido + base = sal + agua"
+    "pattern": "ácido + base → sal + agua"
   },
   "metal_acid": {
-    "description": "Reacción de un metal activo con un ácido diluido: metal + ácido = sal + hidrógeno",
-    "conditions": "El metal debe estar por encima del hidrógeno en la serie de actividad; el ácido debe ser diluido (no HNO₃)"
+    "pattern": "metal activo + ácido diluido → sal + H₂",
+    "conditions": "El metal debe estar por encima del hidrógeno en la serie de actividad; ácido diluido (no HNO₃)"
   },
   "carbonate_acid": {
-    "description": "Carbonato + ácido = sal + agua + dióxido de carbono"
+    "pattern": "carbonato + ácido → sal + H₂O + CO₂"
   },
   "metal_displacement": {
-    "description": "Desplazamiento de un metal menos activo de una solución salina por un metal más activo",
-    "conditions": "Metal más activo (no alcalino ni alcalinotérreo) + solución salina de un metal menos activo"
+    "pattern": "metal más activo + solución de sal → nueva sal + metal desplazado",
+    "conditions": "Metal más activo (no alcalino/alcalinotérreo) + solución de sal de metal menos activo"
   },
   "basic_oxide_water": {
-    "description": "Óxido básico de un metal alcalino o alcalinotérreo + agua = álcali",
+    "pattern": "óxido básico de metal alcalino/alcalinotérreo + agua → hidróxido",
     "conditions": "El óxido debe ser soluble (Na₂O, K₂O, CaO, BaO)"
   },
   "acidic_oxide_water": {
-    "description": "Óxido ácido + agua = ácido (excepto SiO₂)",
-    "conditions": "El óxido no debe ser SiO₂ (no reacciona con el agua)"
+    "pattern": "óxido ácido + agua → ácido",
+    "conditions": "El óxido no debe ser SiO₂ (no reacciona con agua)"
   },
   "base_acidic_oxide": {
-    "description": "Álcali + óxido ácido = sal + agua"
+    "pattern": "hidróxido + óxido ácido → sal + agua"
   },
   "basic_oxide_acidic_oxide": {
-    "description": "Óxido básico + óxido ácido = sal"
+    "pattern": "óxido básico + óxido ácido → sal"
   },
   "salt_precipitate_exchange": {
-    "description": "Intercambio entre dos sales solubles con formación de una sal insoluble (precipitado)",
+    "pattern": "sal₁ (aq) + sal₂ (aq) → sal₃ (precipitado) + sal₄ (aq)",
     "conditions": "Ambos reactivos deben ser solubles; uno de los productos debe ser un precipitado insoluble"
   },
   "insoluble_base_decomposition": {
-    "description": "Descomposición de una base insoluble por calentamiento: base insoluble = óxido metálico + agua",
+    "pattern": "base insoluble → óxido metálico + agua (al calentar)",
     "conditions": "Calentamiento"
   }
 }

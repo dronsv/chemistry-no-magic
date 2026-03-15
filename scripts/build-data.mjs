@@ -164,7 +164,7 @@ async function main() {
   const activitySeries = await loadJson(join(DATA_SRC, 'rules', 'activity_series.json'));
   const applicabilityRules = await loadJson(join(DATA_SRC, 'rules', 'applicability_rules.json'));
   const bktParams = await loadJson(join(DATA_SRC, 'rules', 'bkt_params.json'));
-  const reactionTemplates = await loadJson(join(DATA_SRC, 'templates', 'reaction_templates.json'));
+  const reactionTemplates = await loadJson(join(DATA_SRC, 'reactions', 'reaction_templates.json'));
   const taskTemplates = await loadJson(join(DATA_SRC, 'templates', 'task_templates.json'));
   const substances = await loadSubstances();
   const diagnosticQuestions = await loadJson(join(DATA_SRC, 'diagnostic', 'questions.json'));

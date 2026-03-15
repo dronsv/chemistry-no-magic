@@ -1,38 +1,38 @@
 {
   "neutralization": {
-    "description": "Zobojętnianie: kwas + zasada = sól + woda"
+    "pattern": "kwas + zasada → sól + woda"
   },
   "metal_acid": {
-    "description": "Aktywny metal + rozcieńczony kwas: metal + kwas = sól + wodór",
-    "conditions": "Metal musi stać powyżej wodoru w szeregu aktywności; kwas musi być rozcieńczony (nie HNO₃)"
+    "pattern": "aktywny metal + kwas rozcieńczony → sól + H₂",
+    "conditions": "Metal musi być powyżej wodoru w szeregu aktywności; kwas rozcieńczony (nie HNO₃)"
   },
   "carbonate_acid": {
-    "description": "Węglan + kwas = sól + woda + dwutlenek węgla"
+    "pattern": "węglan + kwas → sól + H₂O + CO₂"
   },
   "metal_displacement": {
-    "description": "Wypieranie mniej aktywnego metalu z roztworu soli przez bardziej aktywny metal",
-    "conditions": "Bardziej aktywny metal (nie alkaliczny ani ziem alkalicznych) + roztwór soli mniej aktywnego metalu"
+    "pattern": "bardziej aktywny metal + roztwór soli → nowa sól + wyparty metal",
+    "conditions": "Bardziej aktywny metal (nie alkaliczny/ziem alkalicznych) + roztwór soli mniej aktywnego metalu"
   },
   "basic_oxide_water": {
-    "description": "Tlenek zasadowy metalu alkalicznego lub ziem alkalicznych + woda = zasada",
+    "pattern": "tlenek zasadowy metalu alkalicznego/ziem alkalicznych + woda → wodorotlenek",
     "conditions": "Tlenek musi być rozpuszczalny (Na₂O, K₂O, CaO, BaO)"
   },
   "acidic_oxide_water": {
-    "description": "Tlenek kwasowy + woda = kwas (z wyjątkiem SiO₂)",
+    "pattern": "tlenek kwasowy + woda → kwas",
     "conditions": "Tlenek nie może być SiO₂ (nie reaguje z wodą)"
   },
   "base_acidic_oxide": {
-    "description": "Zasada + tlenek kwasowy = sól + woda"
+    "pattern": "wodorotlenek + tlenek kwasowy → sól + woda"
   },
   "basic_oxide_acidic_oxide": {
-    "description": "Tlenek zasadowy + tlenek kwasowy = sól"
+    "pattern": "tlenek zasadowy + tlenek kwasowy → sól"
   },
   "salt_precipitate_exchange": {
-    "description": "Wymiana między dwiema rozpuszczalnymi solami z wytworzeniem nierozpuszczalnej soli (osadu)",
-    "conditions": "Oba substraty muszą być rozpuszczalne; jeden z produktów musi być nierozpuszczalnym osadem"
+    "pattern": "sól₁ (r-r) + sól₂ (r-r) → sól₃ (osad) + sól₄ (r-r)",
+    "conditions": "Oba substraty muszą być rozpuszczalne; jeden produkt musi być nierozpuszczalnym osadem"
   },
   "insoluble_base_decomposition": {
-    "description": "Rozkład nierozpuszczalnej zasady podczas ogrzewania: nierozpuszczalna zasada = tlenek metalu + woda",
+    "pattern": "nierozpuszczalna zasada → tlenek metalu + woda (przy ogrzewaniu)",
     "conditions": "Ogrzewanie"
   }
 }

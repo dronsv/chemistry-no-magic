@@ -474,6 +474,7 @@ export function validateBondExamples(data) {
     if (!e.formula) errors.push(`${p}: missing formula`);
     if (!e.bond_type) errors.push(`${p}: missing bond_type`);
     if (!e.crystal_type) errors.push(`${p}: missing crystal_type`);
+    if (!e.entity_ref) errors.push(`${p}: missing entity_ref`);
   }
   return errors;
 }

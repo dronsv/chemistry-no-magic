@@ -1,4 +1,13 @@
 {
+  "_ch3coo_2cu": {
+    "name": "Acetato de cobre(II)"
+  },
+  "_cuoh_2co3": {
+    "name": "Carbonato básico de cobre(II)"
+  },
+  "agcl": {
+    "name": "Cloruro de plata"
+  },
   "agno3": {
     "name": "Nitrato de plata",
     "appearance": "Cristales incoloros que se oscurecen al exponerse a la luz",
@@ -35,6 +44,9 @@
       "Uno de los óxidos más duros: 9 en la escala de Mohs"
     ]
   },
+  "al_no3_3": {
+    "name": "Nitrato de aluminio"
+  },
   "al_oh_3": {
     "name": "Hidróxido de aluminio",
     "appearance": "Sustancia gelatinosa blanca",
@@ -59,6 +71,15 @@
       "Su punto de ebullición es inferior a su punto de fusión: sublima a presión atmosférica"
     ]
   },
+  "aloh_no3_2": {
+    "name": "Nitrato básico de aluminio"
+  },
+  "alpo4": {
+    "name": "Fosfato de aluminio"
+  },
+  "ba_oh_2": {
+    "name": "Hidróxido de bario"
+  },
   "bacl2": {
     "name": "Cloruro de bario",
     "appearance": "Cristales incoloros",
@@ -73,6 +94,12 @@
       "Reactivo cualitativo para iones sulfato: produce un precipitado blanco de BaSO₄"
     ]
   },
+  "baco3": {
+    "name": "Carbonato de bario"
+  },
+  "bao": {
+    "name": "Óxido de bario"
+  },
   "baso4": {
     "name": "Sulfato de bario",
     "appearance": "Polvo cristalino blanco",
@@ -82,6 +109,15 @@
       "Se utiliza como «papilla de bario» para radiografías de estómago: es insoluble y no tóxico",
       "El mineral barita (BaSO₄) es la principal fuente industrial de bario"
     ]
+  },
+  "be_oh_2": {
+    "name": "Hidróxido de berilio"
+  },
+  "beo": {
+    "name": "Óxido de berilio"
+  },
+  "c": {
+    "name": "Carbono (sustancia simple)"
   },
   "c2h2": {
     "name": "Acetileno",
@@ -250,6 +286,21 @@
       "El término «número de octano» en la gasolina proviene del octano"
     ]
   },
+  "ca3_po4_2": {
+    "name": "Fosfato de calcio"
+  },
+  "ca_h2po4_2": {
+    "name": "Dihidrogenofosfato de calcio"
+  },
+  "ca_hco3_2": {
+    "name": "Bicarbonato de calcio"
+  },
+  "ca_hso4_2": {
+    "name": "Bisulfato de calcio"
+  },
+  "ca_no3_2": {
+    "name": "Nitrato de calcio"
+  },
   "ca_oh_2": {
     "name": "Hidróxido de calcio",
     "appearance": "Polvo blanco",
@@ -264,6 +315,9 @@
       "La cal apagada se ha utilizado en la construcción durante más de 5000 años"
     ]
   },
+  "cacl2": {
+    "name": "Cloruro de calcio"
+  },
   "caco3": {
     "name": "Carbonato de calcio",
     "appearance": "Polvo o cristales blancos",
@@ -273,6 +327,12 @@
       "La tiza, el mármol, la caliza, las conchas marinas y las cáscaras de huevo son CaCO₃",
       "Se descompone en CaO y CO₂ al calentarse, lo que constituye la base de la producción de cal"
     ]
+  },
+  "caf2": {
+    "name": "Fluoruro de calcio"
+  },
+  "cahpo4": {
+    "name": "Hidrogenofosfato de calcio"
   },
   "cao": {
     "name": "Óxido de calcio",
@@ -288,6 +348,15 @@
       "La cal viva se calienta intensamente en contacto con el agua: la reacción es altamente exotérmica",
       "Uno de los materiales aglomerantes más antiguos utilizados en la construcción"
     ]
+  },
+  "casio3": {
+    "name": "Silicato de calcio"
+  },
+  "caso4": {
+    "name": "Sulfato de calcio"
+  },
+  "caso4_2h2o": {
+    "name": "Yeso (sulfato de calcio dihidratado)"
   },
   "ch3cho": {
     "name": "Acetaldehído",
@@ -398,6 +467,9 @@
       "Se utiliza para purificar el 98 % del agua potable del mundo"
     ]
   },
+  "co": {
+    "name": "Monóxido de carbono"
+  },
   "co2": {
     "name": "Dióxido de carbono",
     "appearance": "Gas incoloro e inodoro",
@@ -407,6 +479,21 @@
       "El hielo seco es CO₂ sólido; sublima a −78,5 °C, sin pasar por la fase líquida",
       "El CO₂ constituye aproximadamente el 0,04 % de la atmósfera terrestre, pero es un gas de efecto invernadero clave"
     ]
+  },
+  "cr2o3": {
+    "name": "Óxido de cromo(III)"
+  },
+  "cr_oh_3": {
+    "name": "Hidróxido de cromo(III)"
+  },
+  "cro3": {
+    "name": "Óxido de cromo(VI)"
+  },
+  "cu2o": {
+    "name": "Óxido de cobre(I)"
+  },
+  "cu_no3_2": {
+    "name": "Nitrato de cobre(II)"
   },
   "cu_oh_2": {
     "name": "Hidróxido de cobre(II)",
@@ -418,6 +505,9 @@
       "Se disuelve en amoníaco formando una solución de color azul intenso (reactivo de Schweizer)"
     ]
   },
+  "cucl2": {
+    "name": "Cloruro de cobre(II)"
+  },
   "cuo": {
     "name": "Óxido de cobre(II)",
     "appearance": "Polvo negro",
@@ -426,6 +516,12 @@
     "fun_facts": [
       "Se reduce fácilmente con hidrógeno a cobre metálico: un experimento clásico de química escolar"
     ]
+  },
+  "cuohcl": {
+    "name": "Cloruro básico de cobre(II)"
+  },
+  "cus": {
+    "name": "Sulfuro de cobre(II)"
   },
   "cuso4": {
     "name": "Sulfato de cobre(II)",
@@ -441,6 +537,12 @@
       "El CuSO₄ anhidro se utiliza como indicador de humedad: se vuelve azul en contacto con el agua"
     ]
   },
+  "cuso4_5h2o": {
+    "name": "Vitriolo azul (sulfato de cobre pentahidratado)"
+  },
+  "fe2_so4_3": {
+    "name": "Sulfato de hierro(III)"
+  },
   "fe2o3": {
     "name": "Óxido de hierro(III)",
     "appearance": "Polvo rojo-marrón",
@@ -450,6 +552,9 @@
       "El mineral hematita (Fe₂O₃) es el principal mineral de hierro en la Tierra",
       "El color rojo del suelo marciano se debe a la presencia de Fe₂O₃"
     ]
+  },
+  "fe_oh_2": {
+    "name": "Hidróxido de hierro(II)"
   },
   "fe_oh_3": {
     "name": "Hidróxido de hierro(III)",
@@ -493,6 +598,12 @@
       "Se utiliza como pigmento negro en cerámica"
     ]
   },
+  "feohcl": {
+    "name": "Cloruro básico de hierro(II)"
+  },
+  "fes": {
+    "name": "Sulfuro de hierro(II)"
+  },
   "feso4": {
     "name": "Sulfato de hierro(II)",
     "appearance": "Cristales verde-azulados (heptahidrato)",
@@ -504,6 +615,9 @@
     "fun_facts": [
       "El heptahidrato FeSO₄·7H₂O se conoce como vitriolo verde, uno de los compuestos químicos más antiguos conocidos"
     ]
+  },
+  "feso4_7h2o": {
+    "name": "Vitriolo verde (sulfato de hierro heptahidratado)"
   },
   "h2": {
     "name": "Hidrógeno",
@@ -528,6 +642,12 @@
       "Uno de los ácidos más inestables: se descompone en agua y CO₂ casi instantáneamente",
       "La efervescencia de las bebidas carbonatadas es CO₂ que se libera al descomponerse el ácido carbónico"
     ]
+  },
+  "h2cr2o7": {
+    "name": "Ácido dicromo"
+  },
+  "h2cro4": {
+    "name": "Ácido crómico"
   },
   "h2o": {
     "name": "Agua",
@@ -567,6 +687,12 @@
       "A altas concentraciones paraliza el sentido del olfato: el olor ya no se puede detectar"
     ]
   },
+  "h2sio3": {
+    "name": "Ácido silícico"
+  },
+  "h2so3": {
+    "name": "Ácido sulfuroso"
+  },
   "h2so4": {
     "name": "Ácido sulfúrico",
     "appearance": "Líquido incoloro y oleoso",
@@ -595,6 +721,9 @@
       "Se encuentra en la Coca-Cola y otros refrescos como regulador de acidez (E338)",
       "El ácido fosfórico es triprótico: puede formar tres series de sales"
     ]
+  },
+  "hbr": {
+    "name": "Ácido bromhídrico"
   },
   "hcl": {
     "name": "Ácido clorhídrico",
@@ -654,6 +783,18 @@
       "El perclorato de amonio NH₄ClO₄ es el componente principal del combustible sólido para cohetes"
     ]
   },
+  "hf": {
+    "name": "Ácido fluorhídrico"
+  },
+  "hi": {
+    "name": "Ácido yodhídrico"
+  },
+  "hmno4": {
+    "name": "Ácido permangánico"
+  },
+  "hno2": {
+    "name": "Ácido nitroso"
+  },
   "hno3": {
     "name": "Ácido nítrico",
     "appearance": "Líquido incoloro con un olor punzante; humea en el aire",
@@ -670,6 +811,21 @@
       "El ácido nítrico tiñe la piel de amarillo (reacción xantoproteica con las proteínas)"
     ]
   },
+  "k2co3": {
+    "name": "Carbonato de potasio"
+  },
+  "k2cr2o7": {
+    "name": "Dicromato de potasio"
+  },
+  "k2cro4": {
+    "name": "Cromato de potasio"
+  },
+  "k2o": {
+    "name": "Óxido de potasio"
+  },
+  "k2so3": {
+    "name": "Sulfito de potasio"
+  },
   "k2so4": {
     "name": "Sulfato de potasio",
     "appearance": "Cristales incoloros",
@@ -681,14 +837,7 @@
     ]
   },
   "kbr": {
-    "name": "Bromuro de potasio",
-    "appearance": "Cristales cúbicos incoloros",
-    "industrial": "Fotografía (materiales fotosensibles), medicina (sedante)",
-    "production": "Reacción de KOH con bromo o HBr",
-    "fun_facts": [
-      "Ampliamente utilizado como sedante en el siglo XIX",
-      "Los cristales de KBr son transparentes a la radiación infrarroja y se utilizan en espectroscopía IR"
-    ]
+    "name": "bromuro de potasio"
   },
   "kcl": {
     "name": "Cloruro de potasio",
@@ -699,6 +848,12 @@
       "El mineral silvita (KCl) es la principal fuente de fertilizantes potásicos",
       "Se utiliza como sustituto de la sal de mesa en la nutrición dietética"
     ]
+  },
+  "khso4": {
+    "name": "Bisulfato de potasio"
+  },
+  "ki": {
+    "name": "Yoduro de potasio"
   },
   "kmno4": {
     "name": "Permanganato de potasio",
@@ -713,6 +868,9 @@
       "Conocido coloquialmente en Rusia como «margantsovka»",
       "Su solución acuosa adquiere un color púrpura intenso incluso a concentraciones muy bajas"
     ]
+  },
+  "kno2": {
+    "name": "Nitrito de potasio"
   },
   "kno3": {
     "name": "Nitrato de potasio",
@@ -742,6 +900,12 @@
       "Absorbe CO₂ del aire, convirtiéndose en carbonato de potasio"
     ]
   },
+  "li2o": {
+    "name": "Óxido de litio"
+  },
+  "lioh": {
+    "name": "Hidróxido de litio"
+  },
   "mg_oh_2": {
     "name": "Hidróxido de magnesio",
     "appearance": "Polvo amorfo blanco",
@@ -762,6 +926,12 @@
       "Se utiliza como agente antihielo en lugar de NaCl"
     ]
   },
+  "mgco3": {
+    "name": "Carbonato de magnesio"
+  },
+  "mgf2": {
+    "name": "Fluoruro de magnesio"
+  },
   "mgo": {
     "name": "Óxido de magnesio",
     "appearance": "Polvo blanco",
@@ -771,6 +941,9 @@
       "El punto de fusión del MgO (2852 °C) es uno de los más altos entre los óxidos",
       "La magnesia calcinada es utilizada por los deportistas para secarse las manos"
     ]
+  },
+  "mn2o7": {
+    "name": "Óxido de manganeso(VII)"
   },
   "mncl2": {
     "name": "Cloruro de manganeso(II)",
@@ -801,6 +974,12 @@
       "El triple enlace N≡N es uno de los enlaces químicos más fuertes"
     ]
   },
+  "n2o": {
+    "name": "Óxido de nitrógeno(I)"
+  },
+  "n2o5": {
+    "name": "Óxido de nitrógeno(V)"
+  },
   "na2co3": {
     "name": "Carbonato de sodio",
     "appearance": "Polvo blanco",
@@ -810,6 +989,12 @@
       "La sosa (Na₂CO₃) es uno de los productos más importantes de la industria química",
       "El decahidrato Na₂CO₃·10H₂O se conoce como «sosa de lavar»"
     ]
+  },
+  "na2cro4": {
+    "name": "Cromato de sodio"
+  },
+  "na2hpo4": {
+    "name": "Hidrogenofosfato de sodio"
   },
   "na2o": {
     "name": "Óxido de sodio",
@@ -825,6 +1010,15 @@
       "Absorbe rápidamente la humedad y el CO₂ del aire, convirtiéndose en Na₂CO₃"
     ]
   },
+  "na2s": {
+    "name": "Sulfuro de sodio"
+  },
+  "na2sio3": {
+    "name": "Silicato de sodio"
+  },
+  "na2so3": {
+    "name": "Sulfito de sodio"
+  },
   "na2so4": {
     "name": "Sulfato de sodio",
     "appearance": "Cristales incoloros",
@@ -833,6 +1027,9 @@
     "fun_facts": [
       "El decahidrato Na₂SO₄·10H₂O (sal de Glauber) fue descubierto por Glauber en 1625 y se utilizaba como laxante"
     ]
+  },
+  "na3po4": {
+    "name": "Fosfato de sodio"
   },
   "naalo2": {
     "name": "Aluminato de sodio",
@@ -844,6 +1041,9 @@
       "Se utiliza en la construcción como acelerante del fraguado del hormigón"
     ]
   },
+  "nabr": {
+    "name": "Bromuro de sodio"
+  },
   "nacl": {
     "name": "Cloruro de sodio",
     "appearance": "Cristales cúbicos incoloros",
@@ -854,6 +1054,30 @@
       "En la Antigua Roma, a veces se pagaba a los soldados con sal, de ahí la palabra «salario»",
       "Los cristales de NaCl tienen forma cúbica, visible incluso en la sal de mesa común"
     ]
+  },
+  "naf": {
+    "name": "Fluoruro de sodio"
+  },
+  "nah": {
+    "name": "Hidruro de sodio"
+  },
+  "nah2po4": {
+    "name": "Dihidrogenofosfato de sodio"
+  },
+  "nahco3": {
+    "name": "Bicarbonato de sodio"
+  },
+  "nahso4": {
+    "name": "Bisulfato de sodio"
+  },
+  "nai": {
+    "name": "Yoduro de sodio"
+  },
+  "nano2": {
+    "name": "Nitrito de sodio"
+  },
+  "nano3": {
+    "name": "Nitrato de sodio"
   },
   "naoh": {
     "name": "Hidróxido de sodio",
@@ -886,6 +1110,9 @@
       "El amoníaco es uno de los productos químicos más producidos en el mundo (más de 150 millones de toneladas al año)"
     ]
   },
+  "nh3_h2o": {
+    "name": "Agua amoniacal (hidróxido de amonio)"
+  },
   "nh4cl": {
     "name": "Cloruro de amonio",
     "appearance": "Cristales incoloros",
@@ -896,6 +1123,9 @@
       "Sublima al calentarse, sin pasar por la fase líquida"
     ]
   },
+  "no": {
+    "name": "Óxido de nitrógeno(II)"
+  },
   "o2": {
     "name": "Oxígeno",
     "appearance": "Gas incoloro e inodoro",
@@ -905,6 +1135,15 @@
       "Constituye el 21 % de la atmósfera terrestre",
       "El oxígeno líquido es de color azul y es atraído por los imanes"
     ]
+  },
+  "oleum": {
+    "name": "Óleum (ácido disulfúrico)"
+  },
+  "p": {
+    "name": "Fósforo (sustancia simple)"
+  },
+  "p2o5": {
+    "name": "Óxido de fósforo(V)"
   },
   "pb_no3_2": {
     "name": "Nitrato de plomo(II)",
@@ -922,6 +1161,18 @@
       "Se descompone al calentarse, liberando gas NO₂ de color marrón"
     ]
   },
+  "pb_oh_2": {
+    "name": "Hidróxido de plomo(II)"
+  },
+  "pbi2": {
+    "name": "Yoduro de plomo(II)"
+  },
+  "pbo": {
+    "name": "Óxido de plomo(II)"
+  },
+  "pbs": {
+    "name": "Sulfuro de plomo(II)"
+  },
   "sio2": {
     "name": "Dióxido de silicio",
     "appearance": "Cristales incoloros o polvo blanco",
@@ -932,6 +1183,9 @@
       "El SiO₂ es la base de los chips de silicio que alimentan toda la electrónica moderna",
       "El mineral más abundante de la corteza terrestre"
     ]
+  },
+  "sno": {
+    "name": "Óxido de estaño(II)"
   },
   "so2": {
     "name": "Dióxido de azufre",
@@ -975,6 +1229,12 @@
       "El catalizador industrial más importante: la producción de ácido sulfúrico mediante el proceso de contacto es imposible sin él"
     ]
   },
+  "zn_oh_2": {
+    "name": "Hidróxido de zinc"
+  },
+  "zncl2": {
+    "name": "Cloruro de zinc"
+  },
   "zno": {
     "name": "Óxido de zinc",
     "appearance": "Polvo blanco; se vuelve amarillo al calentarse",
@@ -985,277 +1245,10 @@
       "Se vuelve amarillo al calentarse y blanco de nuevo al enfriarse: un efecto termocrómico"
     ]
   },
-  "_ch3coo_2cu": {
-    "name": "Acetato de cobre(II)"
-  },
-  "agcl": {
-    "name": "Cloruro de plata"
-  },
-  "al_no3_3": {
-    "name": "Nitrato de aluminio"
-  },
-  "alpo4": {
-    "name": "Fosfato de aluminio"
-  },
-  "ba_oh_2": {
-    "name": "Hidróxido de bario"
-  },
-  "baco3": {
-    "name": "Carbonato de bario"
-  },
-  "be_oh_2": {
-    "name": "Hidróxido de berilio"
-  },
-  "ca3_po4_2": {
-    "name": "Fosfato de calcio"
-  },
-  "ca_h2po4_2": {
-    "name": "Dihidrogenofosfato de calcio"
-  },
-  "ca_hco3_2": {
-    "name": "Bicarbonato de calcio"
-  },
-  "ca_hso4_2": {
-    "name": "Bisulfato de calcio"
-  },
-  "ca_no3_2": {
-    "name": "Nitrato de calcio"
-  },
-  "cacl2": {
-    "name": "Cloruro de calcio"
-  },
-  "caf2": {
-    "name": "Fluoruro de calcio"
-  },
-  "cahpo4": {
-    "name": "Hidrogenofosfato de calcio"
-  },
-  "casio3": {
-    "name": "Silicato de calcio"
-  },
-  "caso4": {
-    "name": "Sulfato de calcio"
-  },
-  "cr_oh_3": {
-    "name": "Hidróxido de cromo(III)"
-  },
-  "cu_no3_2": {
-    "name": "Nitrato de cobre(II)"
-  },
-  "cucl2": {
-    "name": "Cloruro de cobre(II)"
-  },
-  "cus": {
-    "name": "Sulfuro de cobre(II)"
-  },
-  "fe2_so4_3": {
-    "name": "Sulfato de hierro(III)"
-  },
-  "fe_oh_2": {
-    "name": "Hidróxido de hierro(II)"
-  },
-  "fes": {
-    "name": "Sulfuro de hierro(II)"
-  },
-  "k2co3": {
-    "name": "Carbonato de potasio"
-  },
-  "k2cr2o7": {
-    "name": "Dicromato de potasio"
-  },
-  "k2cro4": {
-    "name": "Cromato de potasio"
-  },
-  "k2so3": {
-    "name": "Sulfito de potasio"
-  },
-  "khso4": {
-    "name": "Bisulfato de potasio"
-  },
-  "ki": {
-    "name": "Yoduro de potasio"
-  },
-  "kno2": {
-    "name": "Nitrito de potasio"
-  },
-  "lioh": {
-    "name": "Hidróxido de litio"
-  },
-  "mgco3": {
-    "name": "Carbonato de magnesio"
-  },
-  "mgf2": {
-    "name": "Fluoruro de magnesio"
-  },
-  "na2cro4": {
-    "name": "Cromato de sodio"
-  },
-  "na2hpo4": {
-    "name": "Hidrogenofosfato de sodio"
-  },
-  "na2s": {
-    "name": "Sulfuro de sodio"
-  },
-  "na2sio3": {
-    "name": "Silicato de sodio"
-  },
-  "na2so3": {
-    "name": "Sulfito de sodio"
-  },
-  "na3po4": {
-    "name": "Fosfato de sodio"
-  },
-  "nabr": {
-    "name": "Bromuro de sodio"
-  },
-  "naf": {
-    "name": "Fluoruro de sodio"
-  },
-  "nah2po4": {
-    "name": "Dihidrogenofosfato de sodio"
-  },
-  "nahco3": {
-    "name": "Bicarbonato de sodio"
-  },
-  "nahso4": {
-    "name": "Bisulfato de sodio"
-  },
-  "nai": {
-    "name": "Yoduro de sodio"
-  },
-  "nano2": {
-    "name": "Nitrito de sodio"
-  },
-  "nano3": {
-    "name": "Nitrato de sodio"
-  },
-  "pb_oh_2": {
-    "name": "Hidróxido de plomo(II)"
-  },
-  "pbi2": {
-    "name": "Yoduro de plomo(II)"
-  },
-  "pbs": {
-    "name": "Sulfuro de plomo(II)"
-  },
-  "zn_oh_2": {
-    "name": "Hidróxido de zinc"
-  },
-  "zncl2": {
-    "name": "Cloruro de zinc"
-  },
   "zns": {
     "name": "Sulfuro de zinc"
   },
   "znso4": {
     "name": "Sulfato de zinc"
-  },
-  "bao": {
-    "name": "Óxido de bario"
-  },
-  "beo": {
-    "name": "Óxido de berilio"
-  },
-  "co": {
-    "name": "Monóxido de carbono"
-  },
-  "cr2o3": {
-    "name": "Óxido de cromo(III)"
-  },
-  "cro3": {
-    "name": "Óxido de cromo(VI)"
-  },
-  "cu2o": {
-    "name": "Óxido de cobre(I)"
-  },
-  "k2o": {
-    "name": "Óxido de potasio"
-  },
-  "li2o": {
-    "name": "Óxido de litio"
-  },
-  "mn2o7": {
-    "name": "Óxido de manganeso(VII)"
-  },
-  "n2o": {
-    "name": "Óxido de nitrógeno(I)"
-  },
-  "n2o5": {
-    "name": "Óxido de nitrógeno(V)"
-  },
-  "no": {
-    "name": "Óxido de nitrógeno(II)"
-  },
-  "p2o5": {
-    "name": "Óxido de fósforo(V)"
-  },
-  "pbo": {
-    "name": "Óxido de plomo(II)"
-  },
-  "sno": {
-    "name": "Óxido de estaño(II)"
-  },
-  "nah": {
-    "name": "Hidruro de sodio"
-  },
-  "h2cr2o7": {
-    "name": "Ácido dicromo"
-  },
-  "h2cro4": {
-    "name": "Ácido crómico"
-  },
-  "h2sio3": {
-    "name": "Ácido silícico"
-  },
-  "h2so3": {
-    "name": "Ácido sulfuroso"
-  },
-  "hbr": {
-    "name": "Ácido bromhídrico"
-  },
-  "hf": {
-    "name": "Ácido fluorhídrico"
-  },
-  "hi": {
-    "name": "Ácido yodhídrico"
-  },
-  "hmno4": {
-    "name": "Ácido permangánico"
-  },
-  "hno2": {
-    "name": "Ácido nitroso"
-  },
-  "_cuoh_2co3": {
-    "name": "Carbonato básico de cobre(II)"
-  },
-  "aloh_no3_2": {
-    "name": "Nitrato básico de aluminio"
-  },
-  "cuohcl": {
-    "name": "Cloruro básico de cobre(II)"
-  },
-  "feohcl": {
-    "name": "Cloruro básico de hierro(II)"
-  },
-  "c": {
-    "name": "Carbono (sustancia simple)"
-  },
-  "p": {
-    "name": "Fósforo (sustancia simple)"
-  },
-  "caso4_2h2o": {
-    "name": "Yeso (sulfato de calcio dihidratado)"
-  },
-  "cuso4_5h2o": {
-    "name": "Vitriolo azul (sulfato de cobre pentahidratado)"
-  },
-  "feso4_7h2o": {
-    "name": "Vitriolo verde (sulfato de hierro heptahidratado)"
-  },
-  "nh3_h2o": {
-    "name": "Agua amoniacal (hidróxido de amonio)"
-  },
-  "oleum": {
-    "name": "Óleum (ácido disulfúrico)"
   }
 }
