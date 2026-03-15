@@ -1,0 +1,16 @@
+{
+  "id": "sub:nh3_h2o",
+  "formula": "NH₃·H₂O",
+  "class": "base",
+  "subclass": "weak_base",
+  "ions": [
+    "ion:NH4_plus",
+    "ion:OH_minus"
+  ],
+  "tags": [
+    "soluble",
+    "weak_electrolyte"
+  ],
+  "phase_standard": "aq",
+  "density_g_cm3": 0.91
+}

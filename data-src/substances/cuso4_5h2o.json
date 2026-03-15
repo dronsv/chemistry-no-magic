@@ -1,0 +1,18 @@
+{
+  "id": "sub:cuso4_5h2o",
+  "formula": "CuSO₄·5H₂O",
+  "class": "salt",
+  "subclass": "hydrate",
+  "base_substance": "sub:cuso4",
+  "ions": [
+    "ion:Cu_2plus",
+    "ion:SO4_2minus"
+  ],
+  "tags": [
+    "soluble",
+    "hydrate"
+  ],
+  "phase_standard": "s",
+  "melting_point_C": 110,
+  "density_g_cm3": 2.286
+}

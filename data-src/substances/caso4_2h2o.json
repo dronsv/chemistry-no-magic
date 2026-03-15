@@ -1,0 +1,18 @@
+{
+  "id": "sub:caso4_2h2o",
+  "formula": "CaSO₄·2H₂O",
+  "class": "salt",
+  "subclass": "hydrate",
+  "base_substance": "sub:caso4",
+  "ions": [
+    "ion:Ca_2plus",
+    "ion:SO4_2minus"
+  ],
+  "tags": [
+    "insoluble",
+    "hydrate"
+  ],
+  "phase_standard": "s",
+  "melting_point_C": 128,
+  "density_g_cm3": 2.32
+}

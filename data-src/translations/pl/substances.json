@@ -1242,5 +1242,20 @@
   },
   "p": {
     "name": "Fosfor (substancja prosta)"
+  },
+  "caso4_2h2o": {
+    "name": "Gips (dwuwodny siarczan wapnia)"
+  },
+  "cuso4_5h2o": {
+    "name": "Siarczan miedzi(II) pięciowodny"
+  },
+  "feso4_7h2o": {
+    "name": "Siarczan żelaza(II) siedmiowodny"
+  },
+  "nh3_h2o": {
+    "name": "Woda amoniakalna (wodorotlenek amonu)"
+  },
+  "oleum": {
+    "name": "Oleum (kwas disiarczanowy)"
   }
 }

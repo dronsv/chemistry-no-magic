@@ -1,0 +1,18 @@
+{
+  "id": "sub:feso4_7h2o",
+  "formula": "FeSO₄·7H₂O",
+  "class": "salt",
+  "subclass": "hydrate",
+  "base_substance": "sub:feso4",
+  "ions": [
+    "ion:Fe_2plus",
+    "ion:SO4_2minus"
+  ],
+  "tags": [
+    "soluble",
+    "hydrate"
+  ],
+  "phase_standard": "s",
+  "melting_point_C": 64,
+  "density_g_cm3": 1.898
+}

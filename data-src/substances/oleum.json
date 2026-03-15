@@ -1,0 +1,13 @@
+{
+  "id": "sub:oleum",
+  "formula": "H₂S₂O₇",
+  "class": "acid",
+  "subclass": "mixture",
+  "ions": [],
+  "tags": [
+    "corrosive",
+    "strong_oxidizer"
+  ],
+  "phase_standard": "l",
+  "density_g_cm3": 1.92
+}

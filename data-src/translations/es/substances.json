@@ -1242,5 +1242,20 @@
   },
   "p": {
     "name": "Fósforo (sustancia simple)"
+  },
+  "caso4_2h2o": {
+    "name": "Yeso (sulfato de calcio dihidratado)"
+  },
+  "cuso4_5h2o": {
+    "name": "Vitriolo azul (sulfato de cobre pentahidratado)"
+  },
+  "feso4_7h2o": {
+    "name": "Vitriolo verde (sulfato de hierro heptahidratado)"
+  },
+  "nh3_h2o": {
+    "name": "Agua amoniacal (hidróxido de amonio)"
+  },
+  "oleum": {
+    "name": "Óleum (ácido disulfúrico)"
   }
 }
