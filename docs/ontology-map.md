@@ -1,7 +1,7 @@
 # Ontology Map — Chemistry Without Magic
 
 > Comprehensive reference of all data layers, their relationships, and integration points.
-> Last updated: 2026-03-07
+> Last updated: 2026-03-15
 >
 > See also: [Visualization Components](./visualization-components.md) — UI component catalog (FormulaChip, OntologyRef, ConceptRef, MoleculeView, BondEnergyTrace, etc.)
 
@@ -12,13 +12,13 @@
 | Layer | Source Location | Key Files | Entity Count | Status |
 |-------|----------------|-----------|-------------|--------|
 | **Elements** | `data-src/elements.json` | 1 | 118 | Active |
-| **Ions** | `data-src/ions.json` | 1 | 41 | Active |
-| **Substances** | `data-src/substances/*.json` | 80 | 80 | Active |
+| **Ions** | `data-src/ions.json` | 1 | 48 | Active |
+| **Substances** | `data-src/substances/*.json` | 165 | 165 | Active |
 | **Reactions** | `data-src/reactions/reactions.json` | 1 | 32 (26 exchange + 6 redox) | Active |
-| **Competencies** | `data-src/rules/competencies.json` | 1 | 21 (20 + schema) | Active |
+| **Competencies** | `data-src/rules/competencies.json` | 1 | 21 | Active |
 | **Classification Rules** | `data-src/rules/classification_rules.json` | 1 | 12 | Active |
 | **Naming Rules** | `data-src/rules/naming_rules.json` | 1 | 37 | Active |
-| **Solubility Rules** | `data-src/rules/solubility_rules_*.json` | 2 | 7 full / 4 light | Active |
+| **Solubility Rules** | `data-src/rules/solubility_rules_*.json` | 2 | 8 full (253 pairs) / 108 light pairs | Active |
 | **Activity Series** | `data-src/rules/activity_series.json` | 1 | 18 | Active |
 | **Applicability Rules** | `data-src/rules/applicability_rules.json` | 1 | 15 | Active |
 | **Bond Theory + Examples** | `data-src/rules/bond_theory.json`, `bond_examples.json` | 2 | 17 examples | Active |
@@ -29,7 +29,7 @@
 | **Genetic Chains** | `data-src/rules/genetic_chains.json` | 1 | 5 | Active |
 | **Energy & Catalysis** | `data-src/rules/energy_catalyst_theory.json` | 1 | 5 rate factors + catalysts + equilibrium | Active |
 | **Calculations Data** | `data-src/rules/calculations_data.json` | 1 | 24 substances (14 with ΔHf°/S°) + 10 reactions (5 with ΔH) | Active |
-| **Ion Nomenclature** | `data-src/rules/ion_nomenclature.json` | 1 | 4 suffix rules | Active |
+| **Ion Nomenclature** | `data-src/rules/ion_nomenclature.json` | 1 | 5 suffix rules + 16 acid-anion pairs | Active |
 | **Topic Mapping** | `data-src/rules/topic_mapping.json` | 1 | 8 mappings | Active |
 | **Diagnostic Questions** | `data-src/diagnostic/questions.json` | 1 | 12 | Active |
 | **Exam Systems** | `data-src/exam/systems.json` | 1 | 5 systems | Active |
@@ -37,37 +37,50 @@
 | **Solution Algorithms** | `data-src/exam/oge_solution_algorithms.json` + per-system | 6+ | 54 total | Active |
 | **Process Vocabulary** | `data-src/process_vocab.json` | 1 | 35 processes (5 kinds: chemical, driving_force, physical, operation, constraint) | Active |
 | **Effects Vocabulary** | `data-src/effects_vocab.json` | 1 | 13 effects (4 categories: kinetic, thermodynamic, mass_transfer, phase) | Active |
-| **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 16 quantities + 27 units | Active |
+| **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 22 quantities + 32 units | Active |
 | **Contexts** | `data-src/contexts/contexts.json` | 1 | 5 | Active |
 | **Substance Variants** | `data-src/contexts/substance_variants.json` | 1 | 5 | Active |
 | **Terms** | `data-src/contexts/terms.json` | 1 | 54 | Active |
 | **Term Bindings** | `data-src/contexts/term_bindings.json` | 1 | 54 | Active |
-| **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 66 | Active |
-| **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 66 per locale | Active |
-| **Structures** | `data-src/structures/*.json` | 38 | 38 molecules | Active |
-| **Bond Energy Table** | `data-src/tables/bond_energy_avg_v1.json` | 1 | 27 bond types | Active |
+| **Engine Task Templates** | `data-src/engine/task_templates.json` | 1 | 68 | Active |
+| **Engine Prompt Templates** | `data-src/engine/prompt_templates.{locale}.json` | 4 | 68 per locale (136 keys incl. explanations) | Active |
+| **Structures** | `data-src/structures/*.json` | 36 | 36 molecules | Active |
+| **Bond Energy Table** | `data-src/tables/bond_energy_avg_v1.json` | 1 | 28 bond types | Active |
 | **Calculators** | `data-src/calculators.json` | 1 | 1 (bond_energy_v1) | Active |
 | **Element Groups** | `data-src/element-groups.json` | 1 | 10 | Active |
-| **Sources** | `data-src/sources_list.json` | 1 | 4 references | Active |
-| **Locale Packs (ru)** | `data-src/translations/ru/*.json` | ~45 | Full Russian text pack (names, descriptions, task text, theory) | Active |
-| **Locale Packs (en/pl/es)** | `data-src/translations/{en,pl,es}/*.json` | ~35 | 3 locales × ~12 files | Active |
+| **Sources** | `data-src/sources_list.json` | 1 | 3 references | Active |
+| **Locale Packs (ru)** | `data-src/translations/ru/*.json` | 61 | Full Russian text pack (names, descriptions, task text, theory) | Active |
+| **Locale Packs (en/pl/es)** | `data-src/translations/{en,pl,es}/*.json` | ~143 | en: 48, pl: 45, es: 46 files | Active |
 | **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties (part of ru/ pack) | Active |
 | **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
-| **Theory Modules** | `data-src/theory_modules/*.json` | 3 | bonds_and_crystals, oxidation_states, calculations | Active |
-| **Relations Graph** | `data-src/relations/*.json` | 2 | acid_base_relations (40 triples), ion_roles (26 triples) | Active |
-| **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | ~50-100 typed terms for rule text generation | Active |
+| **Theory Modules** | `data-src/theory_modules/*.json` | 6 | bonds_and_crystals, oxidation_states, calculations, classification_inorganic, ion_nomenclature, reaction_types | Active |
+| **Relations Graph** | `data-src/relations/*.json` | 4 | acid_base_relations (42), ion_roles (27), has_naming_rule (22), relation_schema | Active |
+| **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | 27 typed terms for rule text generation | Active |
 | **Rule Templates** | `data-src/templates/rule_summary_templates.json` | 1 | Templates per rule_kind × locale | Active |
-| **Electron Exception Frames** | `data-src/rules/electron_exception_frames.json` | 1 | 4 rule kinds × 4 locales; `{from}`, `{to}`, `{result}` slots | Planned (Phase F) |
-| **Physical Concepts** | `data-src/physical_concepts.json` | 1 | 9 pilot: temperature, thermal_motion, collision, electronic_energy_level, … | Planned (Phase G.1) |
-| **Math Concepts** | `data-src/math_concepts.json` | 1 | 8 pilot: average_value, graph_reading, proportion, … | Planned (Phase G.1) |
-| **Mechanisms** | `data-src/mechanisms.json` | 1 | 7 pilot: temperature→kinetic_energy, absorption→excited_state, … | Planned (Phase G.1) |
-| **Bridge Explanations** | `data-src/bridge_explanations.json` | 1 | 5 pilot: why_heating_speeds_reactions, why_atoms_emit_light, … | Planned (Phase G.1) |
+| **Electron Exception Frames** | `data-src/rules/electron_exception_frames.json` | 1 | 4 rule kinds (half_filled, full_filled, exchange_energy, energy_proximity) | Active |
+| **Kinetics Rules** | `data-src/rules/kinetics.json` | 1 | 6 rules | Active |
+| **Indicator Entities** | `data-src/rules/indicator_entities.json` | 1 | 3 entities | Active |
+| **Indicator Response Rules** | `data-src/rules/indicator_response_rules.json` | 1 | 3 rules | Active |
+| **Reaction Observations** | `data-src/rules/reaction_observations.json` | 1 | 11 observations | Active |
+| **Medium States** | `data-src/rules/medium_states.json` | 1 | 3 states | Active |
+| **Periodic Trend Anomalies** | `data-src/rules/periodic_trend_anomalies.json` | 1 | 5 anomalies | Active |
+| **Reason Vocab** | `data-src/rules/reason_vocab.json` | 1 | 3 entries | Active |
+| **Concepts** | `data-src/concepts.json` | 1 | 52 (substance class taxonomy) | Active |
+| **Foundations: Formulas** | `data-src/foundations/formulas.json` | 1 | 21 computable formulas | Active |
+| **Foundations: Constants** | `data-src/foundations/constants.json` | 1 | 5 physical constants | Active |
+| **Pinned Instances** | `data-src/engine/pinned_instances.json` | 1 | 6 exam-sourced fixed exercises | Active |
+| **Physical Concepts** | `data-src/foundations/physical_concepts.json` | 1 | 9 pilot | Planned |
+| **Math Concepts** | `data-src/foundations/math_concepts.json` | 1 | 8 pilot | Planned |
+| **Mechanisms** | `data-src/foundations/mechanisms.json` | 1 | 8 mechanisms | Planned |
+| **Bridge Explanations** | `data-src/foundations/bridge_explanations.json` | 1 | 5 pilot | Planned |
 | **Physical Concept Frames** | `data-src/frames/physical_concepts_frames.json` | 1 | 9 concepts × 4 frame variants × 4 locales | Planned (Phase G.2) |
 | **Mechanism Frames** | `data-src/frames/mechanisms_frames.json` | 1 | 7 mechanisms × 3 variants (statement, school, strict) | Planned (Phase G.2) |
 | **Bridge Frames** | `data-src/frames/bridge_explanations_frames.json` | 1 | 5 bridges × 3 variants (hint, school, strict) | Planned (Phase G.2) |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
 
-**Totals**: ~270 source JSON files (incl. locale packs), 4 locales, 5 exam systems. 480 built files.
+**Totals**: ~551 source JSON files (incl. locale packs), 4 locales, 5 exam systems.
+
+> **Companion references**: [task-engine-reference.md](./task-engine-reference.md) — generators, solvers, templates catalog. [derivation-system-reference.md](./derivation-system-reference.md) — formulas, QRef, deriveQuantity branches.
 
 ---
 
