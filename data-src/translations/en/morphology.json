@@ -1,0 +1,392 @@
+{
+  "elements": {
+    "H": {
+      "nom": "hydrogen"
+    },
+    "He": {
+      "nom": "helium"
+    },
+    "Li": {
+      "nom": "lithium"
+    },
+    "Be": {
+      "nom": "beryllium"
+    },
+    "B": {
+      "nom": "boron"
+    },
+    "C": {
+      "nom": "carbon"
+    },
+    "N": {
+      "nom": "nitrogen"
+    },
+    "O": {
+      "nom": "oxygen"
+    },
+    "F": {
+      "nom": "fluorine"
+    },
+    "Ne": {
+      "nom": "neon"
+    },
+    "Na": {
+      "nom": "sodium"
+    },
+    "Mg": {
+      "nom": "magnesium"
+    },
+    "Al": {
+      "nom": "aluminium"
+    },
+    "Si": {
+      "nom": "silicon"
+    },
+    "P": {
+      "nom": "phosphorus"
+    },
+    "S": {
+      "nom": "sulfur"
+    },
+    "Cl": {
+      "nom": "chlorine"
+    },
+    "Ar": {
+      "nom": "argon"
+    },
+    "K": {
+      "nom": "potassium"
+    },
+    "Ca": {
+      "nom": "calcium"
+    },
+    "Sc": {
+      "nom": "scandium"
+    },
+    "Ti": {
+      "nom": "titanium"
+    },
+    "V": {
+      "nom": "vanadium"
+    },
+    "Cr": {
+      "nom": "chromium"
+    },
+    "Mn": {
+      "nom": "manganese"
+    },
+    "Fe": {
+      "nom": "iron"
+    },
+    "Co": {
+      "nom": "cobalt"
+    },
+    "Ni": {
+      "nom": "nickel"
+    },
+    "Cu": {
+      "nom": "copper"
+    },
+    "Zn": {
+      "nom": "zinc"
+    },
+    "Ga": {
+      "nom": "gallium"
+    },
+    "Ge": {
+      "nom": "germanium"
+    },
+    "As": {
+      "nom": "arsenic"
+    },
+    "Se": {
+      "nom": "selenium"
+    },
+    "Br": {
+      "nom": "bromine"
+    },
+    "Kr": {
+      "nom": "krypton"
+    },
+    "Rb": {
+      "nom": "rubidium"
+    },
+    "Sr": {
+      "nom": "strontium"
+    },
+    "Y": {
+      "nom": "yttrium"
+    },
+    "Zr": {
+      "nom": "zirconium"
+    },
+    "Nb": {
+      "nom": "niobium"
+    },
+    "Mo": {
+      "nom": "molybdenum"
+    },
+    "Tc": {
+      "nom": "technetium"
+    },
+    "Ru": {
+      "nom": "ruthenium"
+    },
+    "Rh": {
+      "nom": "rhodium"
+    },
+    "Pd": {
+      "nom": "palladium"
+    },
+    "Ag": {
+      "nom": "silver"
+    },
+    "Cd": {
+      "nom": "cadmium"
+    },
+    "In": {
+      "nom": "indium"
+    },
+    "Sn": {
+      "nom": "tin"
+    },
+    "Sb": {
+      "nom": "antimony"
+    },
+    "Te": {
+      "nom": "tellurium"
+    },
+    "I": {
+      "nom": "iodine"
+    },
+    "Xe": {
+      "nom": "xenon"
+    },
+    "Cs": {
+      "nom": "caesium"
+    },
+    "Ba": {
+      "nom": "barium"
+    },
+    "La": {
+      "nom": "lanthanum"
+    },
+    "Ce": {
+      "nom": "cerium"
+    },
+    "Pr": {
+      "nom": "praseodymium"
+    },
+    "Nd": {
+      "nom": "neodymium"
+    },
+    "Pm": {
+      "nom": "promethium"
+    },
+    "Sm": {
+      "nom": "samarium"
+    },
+    "Eu": {
+      "nom": "europium"
+    },
+    "Gd": {
+      "nom": "gadolinium"
+    },
+    "Tb": {
+      "nom": "terbium"
+    },
+    "Dy": {
+      "nom": "dysprosium"
+    },
+    "Ho": {
+      "nom": "holmium"
+    },
+    "Er": {
+      "nom": "erbium"
+    },
+    "Tm": {
+      "nom": "thulium"
+    },
+    "Yb": {
+      "nom": "ytterbium"
+    },
+    "Lu": {
+      "nom": "lutetium"
+    },
+    "Hf": {
+      "nom": "hafnium"
+    },
+    "Ta": {
+      "nom": "tantalum"
+    },
+    "W": {
+      "nom": "tungsten"
+    },
+    "Re": {
+      "nom": "rhenium"
+    },
+    "Os": {
+      "nom": "osmium"
+    },
+    "Ir": {
+      "nom": "iridium"
+    },
+    "Pt": {
+      "nom": "platinum"
+    },
+    "Au": {
+      "nom": "gold"
+    },
+    "Hg": {
+      "nom": "mercury"
+    },
+    "Tl": {
+      "nom": "thallium"
+    },
+    "Pb": {
+      "nom": "lead"
+    },
+    "Bi": {
+      "nom": "bismuth"
+    },
+    "Po": {
+      "nom": "polonium"
+    },
+    "At": {
+      "nom": "astatine"
+    },
+    "Rn": {
+      "nom": "radon"
+    },
+    "Fr": {
+      "nom": "francium"
+    },
+    "Ra": {
+      "nom": "radium"
+    },
+    "Ac": {
+      "nom": "actinium"
+    },
+    "Th": {
+      "nom": "thorium"
+    },
+    "Pa": {
+      "nom": "protactinium"
+    },
+    "U": {
+      "nom": "uranium"
+    },
+    "Np": {
+      "nom": "neptunium"
+    },
+    "Pu": {
+      "nom": "plutonium"
+    },
+    "Am": {
+      "nom": "americium"
+    },
+    "Cm": {
+      "nom": "curium"
+    },
+    "Bk": {
+      "nom": "berkelium"
+    },
+    "Cf": {
+      "nom": "californium"
+    },
+    "Es": {
+      "nom": "einsteinium"
+    },
+    "Fm": {
+      "nom": "fermium"
+    },
+    "Md": {
+      "nom": "mendelevium"
+    },
+    "No": {
+      "nom": "nobelium"
+    },
+    "Lr": {
+      "nom": "lawrencium"
+    },
+    "Rf": {
+      "nom": "rutherfordium"
+    },
+    "Db": {
+      "nom": "dubnium"
+    },
+    "Sg": {
+      "nom": "seaborgium"
+    },
+    "Bh": {
+      "nom": "bohrium"
+    },
+    "Hs": {
+      "nom": "hassium"
+    },
+    "Mt": {
+      "nom": "meitnerium"
+    },
+    "Ds": {
+      "nom": "darmstadtium"
+    },
+    "Rg": {
+      "nom": "roentgenium"
+    },
+    "Cn": {
+      "nom": "copernicium"
+    },
+    "Nh": {
+      "nom": "nihonium"
+    },
+    "Fl": {
+      "nom": "flerovium"
+    },
+    "Mc": {
+      "nom": "moscovium"
+    },
+    "Lv": {
+      "nom": "livermorium"
+    },
+    "Ts": {
+      "nom": "tennessine"
+    },
+    "Og": {
+      "nom": "oganesson"
+    }
+  },
+  "properties": {
+    "electronegativity": {
+      "nom": "electronegativity"
+    },
+    "atomic_mass": {
+      "nom": "atomic mass"
+    },
+    "melting_point": {
+      "nom": "melting point"
+    },
+    "boiling_point": {
+      "nom": "boiling point"
+    },
+    "density": {
+      "nom": "density"
+    },
+    "atomic_radius": {
+      "nom": "atomic radius"
+    },
+    "ionization_energy": {
+      "nom": "ionization energy"
+    },
+    "oxidation_state": {
+      "nom": "oxidation state"
+    }
+  },
+  "directions": {
+    "ascending": {
+      "nom": "ascending"
+    },
+    "descending": {
+      "nom": "descending"
+    }
+  }
+}
