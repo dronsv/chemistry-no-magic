@@ -74,7 +74,7 @@
 | **Mechanisms** | `data-src/foundations/mechanisms.json` | 1 | 8 mechanisms | Planned |
 | **Bridge Explanations** | `data-src/foundations/bridge_explanations.json` | 1 | 5 pilot | Planned |
 | **Physical Concept Frames** | `data-src/frames/physical_concepts_frames.json` | 1 | 9 concepts × 4 frame variants × 4 locales | Planned (Phase G.2) |
-| **Mechanism Frames** | `data-src/frames/mechanisms_frames.json` | 1 | 7 mechanisms × 3 variants (statement, school, strict) | Planned (Phase G.2) |
+| **Mechanism Frames** | `data-src/frames/mechanisms_frames.json` | 1 | 8 mechanisms × 3 variants (statement, school, strict) | Planned (Phase G.2) |
 | **Bridge Frames** | `data-src/frames/bridge_explanations_frames.json` | 1 | 5 bridges × 3 variants (hint, school, strict) | Planned (Phase G.2) |
 | **Decomposition Drivers** | (proposed) `drivers.v1.json` | — | process + driver + rule | Deferred |
 
@@ -166,8 +166,8 @@ erDiagram
 graph LR
     subgraph Core["Core Entities"]
         EL[elements.json<br/>118 elements]
-        ION[ions.json<br/>41 ions]
-        SUB[substances/*.json<br/>80 substances]
+        ION[ions.json<br/>48 ions]
+        SUB[substances/*.json<br/>165 substances]
         RX[reactions.json<br/>32 reactions]
     end
 
@@ -189,7 +189,7 @@ graph LR
         CALC[calculations_data<br/>24 subs (14 w/ΔHf°) + 10 rxns (5 w/ΔH)]
         ION_N[ion_nomenclature<br/>4 suffix rules]
         BKT[bkt_params<br/>21 entries]
-        COMP[competencies<br/>20 competencies]
+        COMP[competencies<br/>21 competencies]
         TM[topic_mapping<br/>8 mappings]
     end
 
@@ -229,7 +229,7 @@ graph LR
 | `calculations_data` | Substances + Reactions | Molar mass, composition, stoichiometric coefficients; ΔHf°/S° (14 subs), ΔH (5 rxns) |
 | `ion_nomenclature` | Ions | Suffix system: -id/-ite/-ate |
 | `bkt_params` | Competencies | P(L₀), P(T), P(G), P(S) per skill |
-| `competencies` | All entities | 20 learning objectives in A–G blocks |
+| `competencies` | All entities | 21 learning objectives in A–G blocks |
 
 ---
 
@@ -245,16 +245,16 @@ flowchart TB
         I18N["i18n<br/>morphology, promptTemplates"]
     end
 
-    TT["65 Task Templates<br/>(task_templates.json)"]
+    TT["68 Task Templates<br/>(task_templates.json)"]
     REG["Template Registry<br/>O(1) lookup by ID/exam/competency"]
 
     subgraph Pipeline["Engine Pipeline"]
         direction TB
-        GEN["Generator<br/>(22 generators)"]
+        GEN["Generator<br/>(24 generators)"]
         SLOT["Slot Resolver<br/>lookup: + morph: directives"]
-        SOL["Solver<br/>(19 solvers)"]
+        SOL["Solver<br/>(21 solvers)"]
         REND["Prompt Renderer<br/>interpolate slots → question"]
-        DIST["Distractor Engine<br/>(13 strategies)"]
+        DIST["Distractor Engine<br/>(18 strategies)"]
         EVAL["Evaluator<br/>(4 modes)"]
     end
 
@@ -331,17 +331,17 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph Source["data-src/ (~217 files)"]
+    subgraph Source["data-src/ (~551 files)"]
         direction LR
         S_CORE["elements.json<br/>ions.json"]
-        S_SUBS["substances/*.json<br/>(80 files)"]
-        S_RULES["rules/*.json<br/>(20 files)"]
+        S_SUBS["substances/*.json<br/>(165 files)"]
+        S_RULES["rules/*.json<br/>(29 files)"]
         S_RX["reactions/reactions.json"]
         S_EXAM["exam/systems.json<br/>exam/{id}/tasks.json"]
         S_ENGINE["engine/task_templates.json<br/>engine/prompt_templates.*.json"]
         S_CTX["contexts/*.json<br/>(4 files)"]
-        S_STRUCT["structures/*.json<br/>(38 files)"]
-        S_TRANS["translations/{locale}/*.json<br/>(32 files)"]
+        S_STRUCT["structures/*.json<br/>(36 files)"]
+        S_TRANS["translations/{locale}/*.json<br/>(~204 files)"]
         S_OTHER["diagnostic/, exercises/,<br/>element-groups, process_vocab,<br/>quantities_units, sources_list"]
     end
 
@@ -357,7 +357,7 @@ flowchart TB
     subgraph Generators["Build-Time Generators"]
         direction TB
         G_IDX["generateIndices()<br/>→ substance_index.json<br/>→ by-class/ by-ion/ by-competency/"]
-        G_FORM["generateFormulaLookup()<br/>→ formula_lookup.json (239 entries)"]
+        G_FORM["generateFormulaLookup()<br/>→ formula_lookup.json (330 entries)"]
         G_SEARCH["generateSearchIndex()<br/>→ search_index.json (306/locale)"]
         G_NAME["generateNameIndex()<br/>→ name_index.{locale}.json (~298/locale)"]
         G_REV["generateReverseIndex()<br/>→ contexts/reverse_index.json"]
@@ -410,10 +410,10 @@ flowchart LR
 
     subgraph Overlays["Locale Packs (all equal)"]
         direction TB
-        RU["translations/ru/<br/>~45 files (full pack)"]
-        EN["translations/en/<br/>~12 files"]
-        PL["translations/pl/<br/>~12 files"]
-        ES["translations/es/<br/>~12 files"]
+        RU["translations/ru/<br/>~61 files (full pack)"]
+        EN["translations/en/<br/>~48 files"]
+        PL["translations/pl/<br/>~45 files"]
+        ES["translations/es/<br/>~46 files"]
     end
 
     subgraph Generated["Build-Time Generated (Phase B1)"]
@@ -466,15 +466,39 @@ flowchart LR
 | `bond_theory` | ✓ | ✓ | ✓ | ✓ |
 | `process_vocab` | ✓ | ✓ | ✓ | ✓ |
 | `terms` | ✓ | ✓ | ✓ | ✓ |
-| `naming_rules` | ✓ | — | — | — |
-| `applicability_rules` | ✓ | — | — | — |
-| `activity_series` | ✓ | — | — | — |
+| `naming_rules` | ✓ | ✓ | ✓ | ✓ |
+| `applicability_rules` | ✓ | ✓ | ✓ | ✓ |
+| `activity_series` | ✓ | ✓ | ✓ | ✓ |
 | `ion_nomenclature` | ✓ | ✓ | ✓ | ✓ |
 | `oxidation_rules` | ✓ | ✓ | ✓ | ✓ |
-| `diagnostic_questions` | ✓ | ✓ | — | — |
-| `topic_pages` | ✓ | — | — | — |
-| **Prompt templates** | ✓ (65) | ✓ (65) | ✓ (65) | ✓ (65) |
-| **RU Morphology** | ✓ | — | — | — |
+| `diagnostic_questions` | ✓ | ✓ | ✓ | ✓ |
+| `topic_pages` | ✓ | ✓ | ✓ | ✓ |
+| `oxidation_theory` | ✓ | ✓ | ✓ | ✓ |
+| `topics` | ✓ | ✓ | ✓ | ✓ |
+| `topic_mapping` | ✓ | ✓ | ✓ | ✓ |
+| `concepts` | ✓ | ✓ | ✓ | ✓ |
+| `classification_rules` | ✓ | ✓ | ✓ | ✓ |
+| `color_terms` | ✓ | ✓ | ✓ | ✓ |
+| `effects_vocab` | ✓ | ✓ | ✓ | ✓ |
+| `energy_catalyst_theory` | ✓ | ✓ | ✓ | ✓ |
+| `exam_systems` | ✓ | ✓ | ✓ | ✓ |
+| `genetic_chains` | ✓ | ✓ | ✓ | ✓ |
+| `indicator_response_rules` | ✓ | ✓ | ✓ | ✓ |
+| `kinetics` | ✓ | ✓ | ✓ | ✓ |
+| `periodic_table_theory` | ✓ | ✓ | ✓ | ✓ |
+| `qualitative_reactions` | ✓ | ✓ | ✓ | ✓ |
+| `quantities_units_ontology` | ✓ | ✓ | ✓ | ✓ |
+| `reaction_roles` | ✓ | ✓ | ✓ | ✓ |
+| `reaction_templates` | ✓ | ✓ | ✓ | ✓ |
+| `rule_terms` | ✓ | ✓ | ✓ | ✓ |
+| `oge_tasks` / `oge_algorithms` | ✓ | ✓ | ✓ | ✓ |
+| `ege_tasks` / `ege_algorithms` | ✓ | ✓ | ✓ | ✓ |
+| `egzamin_tasks` / `egzamin_algorithms` | ✓ | ✓ | ✓ | ✓ |
+| `ebau_tasks` / `ebau_algorithms` | ✓ | ✓ | — | — |
+| `gcse_tasks` / `gcse_algorithms` | ✓ | — | ✓ | ✓ |
+| `calculations_data` | ✓ | — | — | ✓ |
+| **Prompt templates** | ✓ (68) | ✓ (68) | ✓ (68) | ✓ (68) |
+| **Morphology** | ✓ | — | ✓ | ✓ |
 
 ---
 
@@ -613,7 +637,7 @@ graph TB
         EBAU["EBAU<br/>🇪🇸 Spain Grade 12<br/>6 tasks, 90 min<br/>18 task bank"]
     end
 
-    subgraph Competencies["20 Competencies (A-G Blocks)"]
+    subgraph Competencies["21 Competencies (A-G Blocks)"]
         direction LR
         A["Block A<br/>Atomic Structure<br/>periodic_table<br/>electron_config<br/>periodic_trends<br/>oxidation_states"]
         B["Block B<br/>Chemical Bonding<br/>bond_type<br/>crystal_structure_type"]
@@ -701,7 +725,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph ProcessVocab["Process Vocabulary (36 types)"]
+    subgraph ProcessVocab["Process Vocabulary (35 types)"]
         direction LR
         CHEM["Chemical Processes<br/>chemical_reaction<br/>neutralization<br/>displacement"]
         OPS["Operations (11)<br/>heating, cooling, stirring,<br/>grinding, dilution, evaporation,<br/>filtration, washing, drying,<br/>decantation, distillation"]
@@ -861,7 +885,7 @@ Layer E — Product surfaces (Phase G.3–G.4)
 
 ### Phase F — Electron Exception Ontologization
 
-**Status**: In Progress. **Spec**: `docs/transformation_plan.md#phase-f`.
+**Status**: Active. **Spec**: `docs/transformation_plan.md#phase-f`.
 
 Adds to `electron_exception`:
 - `moves: [{from: [n, subshell], to: [n, subshell], count: N}]` — machine-readable electron transfer
@@ -879,16 +903,16 @@ Adds to `electron_exception`:
 
 ### Phase G — Physical Foundations Layer
 
-**Status**: Planned. **Spec**: `docs/physical-foundations-spec.md`.
+**Status**: Active. **Spec**: `docs/physical-foundations-spec.md`.
 
 **WP1 Pilot catalog** (ADR-003 compliant, no inline prose):
 
 | File | Entities | Status |
 |------|----------|--------|
-| `data-src/physical_concepts.json` | 9 concepts (temperature, thermal_motion, collision, effective_collision, electronic_energy_level, ground_state, excited_state, photon, electrostatic_attraction) | Planned G.1 |
-| `data-src/math_concepts.json` | 8 concepts (average_value, graph_reading, proportion, probability_basic, inverse_dependence, difference, greater_less, percent) | Planned G.1 |
-| `data-src/mechanisms.json` | 7 mechanisms (temp→kinetic_energy, speed→collision_rate, energy→effective_fraction, absorption→excited_state, downward_transition→photon, ground_state_lowest_energy, exchange_stabilization_lowers_energy) | Planned G.1 |
-| `data-src/bridge_explanations.json` | 5 bridges (why_heating_speeds_reactions, why_atoms_emit_light, why_flame_tests_have_color, excitation_vs_configuration_exception, why_half_filled_is_stable) | Planned G.1 |
+| `data-src/foundations/physical_concepts.json` | 9 concepts (temperature, thermal_motion, collision, effective_collision, electronic_energy_level, ground_state, excited_state, photon, electrostatic_attraction) | Active |
+| `data-src/foundations/math_concepts.json` | 8 concepts (average_value, graph_reading, proportion, probability_basic, inverse_dependence, difference, greater_less, percent) | Active |
+| `data-src/foundations/mechanisms.json` | 8 mechanisms (temp→kinetic_energy, temp→effective_fraction, speed→collision_rate, transition_energy→photon_energy, exchange_stabilization, absorption→excited_state, downward_transition→photon, ground_state_lowest_energy) | Active |
+| `data-src/foundations/bridge_explanations.json` | 5 bridges (why_heating_speeds_reactions, why_atoms_emit_light, why_flame_tests_have_color, excitation_vs_configuration_exception, why_half_filled_is_stable) | Active |
 
 **Namespace**: `phys:`, `math:`, `mech:`, `bridge:` (extending existing `sub:`, `ion:`, `el:`, `obs:` etc.)
 
@@ -949,7 +973,7 @@ ElementDetails.tsx gains "learn more" CTA pointing to `/physical-foundations#exc
 
 **Purpose**: Initial seed templates for the generative task engine.
 
-**Status**: Superseded by the current engine (66 templates, 22 generators, 19 solvers vs. the v1 pack's ~5 templates). Kept as historical reference only.
+**Status**: Superseded by the current engine (68 templates, 24 generators, 21 solvers vs. the v1 pack's ~5 templates). Kept as historical reference only.
 
 ---
 
@@ -995,7 +1019,7 @@ ElementDetails.tsx gains "learn more" CTA pointing to `/physical-foundations#exc
 | File | Entries | Purpose |
 |------|---------|---------|
 | `elements.json` | 118 | All chemical elements |
-| `ions.json` | 41 | Chemical ions |
+| `ions.json` | 48 | Chemical ions |
 | `element-groups.json` | 10 | Element group metadata |
 | `periodic-table-content.json` | 3 | Periodic table layout |
 | `process_vocab.json` | 35 | Chemistry process types (5 kinds) |
@@ -1021,7 +1045,7 @@ ElementDetails.tsx gains "learn more" CTA pointing to `/physical-foundations#exc
 | `bond_theory.json` | — | Bond type theory (superseded by theory_modules/bonds_and_crystals.json) |
 | `calculations_data.json` | 24+10 | Calc substances (14 with ΔHf°/S°) + reactions (5 with ΔH) |
 | `classification_rules.json` | 12 | Substance classification |
-| `competencies.json` | 21 | 20 competencies + schema |
+| `competencies.json` | 21 | 21 competencies |
 | `energy_catalyst_theory.json` | — | Rate/equilibrium/catalysis |
 | `genetic_chains.json` | 5 | Transformation chains |
 | `ion_nomenclature.json` | 4 | Ion suffix rules |
@@ -1030,8 +1054,15 @@ ElementDetails.tsx gains "learn more" CTA pointing to `/physical-foundations#exc
 | `oxidation_rules.json` | 11 | Solver rules (10) + `sum_equals_zero` constraint; loaded via `loadOxidationRules(locale?)`; replaces hardcoded `RULE_LABELS` in OxidationCalculator |
 | `oxidation_theory.json` | — | Oxidation state rules (superseded by theory_modules/oxidation_states.json) |
 | `periodic-table-theory.json` | — | Periodic table theory |
+| `indicator_entities.json` | 3 | Indicator entity definitions |
+| `indicator_response_rules.json` | 3 | Indicator response rules |
+| `kinetics.json` | 6 | Kinetics data |
+| `medium_states.json` | 3 | Medium state definitions |
+| `periodic_trend_anomalies.json` | 5 | Periodic trend anomaly exceptions |
 | `properties.json` | 5 | Element property definitions |
 | `qualitative_reactions.json` | 11 | Characteristic test reactions |
+| `reaction_observations.json` | 11 | Reaction observation descriptions |
+| `reason_vocab.json` | 3 | Reason vocabulary |
 | `solubility_rules_full.json` | 7 | Full solubility rules |
 | `solubility_rules_light.json` | 4 | Simplified solubility rules |
 | `topic_mapping.json` | 8 | Topic→competency mapping |
@@ -1059,11 +1090,11 @@ Auto-discovered by build pipeline. Rendered by `TheoryModulePanel` (generic Reac
 
 | File | Entries | Purpose |
 |------|---------|---------|
-| `task_templates.json` | 65 | Generative task definitions |
-| `prompt_templates.ru.json` | 65 | Russian prompt strings |
-| `prompt_templates.en.json` | 65 | English prompt strings |
-| `prompt_templates.pl.json` | 65 | Polish prompt strings |
-| `prompt_templates.es.json` | 65 | Spanish prompt strings |
+| `task_templates.json` | 68 | Generative task definitions |
+| `prompt_templates.ru.json` | 68 | Russian prompt strings |
+| `prompt_templates.en.json` | 68 | English prompt strings |
+| `prompt_templates.pl.json` | 68 | Polish prompt strings |
+| `prompt_templates.es.json` | 68 | Spanish prompt strings |
 
 ### Contexts (`data-src/contexts/`)
 
@@ -1101,26 +1132,26 @@ Auto-discovered by build pipeline. Rendered by `TheoryModulePanel` (generic Reac
 
 | Directory | Files | Purpose |
 |-----------|-------|---------|
-| `substances/` | 80 | Individual substance JSON files |
-| `structures/` | 38 | Molecular structure definitions |
+| `substances/` | 165 | Individual substance JSON files |
+| `structures/` | 36 | Molecular structure definitions |
 | `tables/` | 1 | Bond energy averages table (v1, 27 bond types) |
 | `diagnostic/` | 1 | 12 initial diagnostic questions |
 | `exercises/` | 3 | Legacy exercise sets (bonds, oxidation, periodic table) |
 | `dictionaries/` | 7 | Search synonyms, taxonomy, exam profiles |
-| `translations/en/` | 11 | English overlays |
-| `translations/pl/` | 10 | Polish overlays |
-| `translations/es/` | 10 | Spanish overlays |
+| `translations/en/` | 48 | English overlays |
+| `translations/pl/` | 45 | Polish overlays |
+| `translations/es/` | 46 | Spanish overlays |
 | `translations/ru/` | 1 | Russian morphology seed |
 
 ### Build-Time Generated Files
 
 | Output | Entries | Purpose |
 |--------|---------|---------|
-| `indices/substance_index.json` | 80 | Master substance search index |
+| `indices/substance_index.json` | 165 | Master substance search index |
 | `indices/by_class/*.json` | 5 files | Substances grouped by class |
 | `indices/by_ion/*.json` | 24 files | Substances containing each ion |
 | `indices/by_competency/*.json` | 12 files | Exercises by competency |
-| `formula_lookup.json` | 239 | Formula→entity mappings |
+| `formula_lookup.json` | 330 | Formula→entity mappings |
 | `search_index.json` | 306 | Russian search index |
 | `search_index.{locale}.json` | 306/locale | Per-locale search indices |
 | `name_index.{locale}.json` | ~298/locale | Per-locale name→entity lookup |
@@ -1169,6 +1200,8 @@ Where each chemistry algorithm is implemented. **Canonical** = single source of 
 | `solver.stoichiometry` | Coefficient-ratio calc | Inline | **Duplicated in legacy calcs** |
 | `solver.reaction_yield` | Stoich × yield% | Inline | **Duplicated in legacy calcs** |
 | `solver.heat_of_reaction` | Return `delta_H_kJmol` from CalcReaction slot | Inline (slot read) | New (thermo) |
+| `solver.slot_lookup` | Generic slot value lookup | Inline (slot read) | Data-driven, no dup |
+| `solver.derivation_planner` | Quantity derivation via AND/OR search | `src/lib/derivation/derive-quantity.ts` | Derivation planner |
 
 ### Duplication Status Summary
 
@@ -1221,8 +1254,8 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Artifact | Location | Type | Entries | Validator | Used By (runtime) | Change Impact |
 |----------|----------|------|---------|-----------|-------------------|---------------|
 | Elements | `data-src/elements.json` | source | 118 | `validate.mjs` | `loadElements()` → engine ontology, periodic table, search, ChemText | → formula_lookup, search_index, name_index, substance_index |
-| Ions | `data-src/ions.json` | source | 41 | `validate.mjs` | `loadIons()` → engine ontology, ions page, ChemText | → formula_lookup, search_index, name_index, solubility lookups |
-| Substances | `data-src/substances/*.json` | source | 80 | `validate.mjs` | `loadSubstance()` → substance pages | → substance_index, by_class/, by_ion/, formula_lookup, search_index |
+| Ions | `data-src/ions.json` | source | 48 | `validate.mjs` | `loadIons()` → engine ontology, ions page, ChemText | → formula_lookup, search_index, name_index, solubility lookups |
+| Substances | `data-src/substances/*.json` | source | 165 | `validate.mjs` | `loadSubstance()` → substance pages | → substance_index, by_class/, by_ion/, formula_lookup, search_index |
 | Reactions | `data-src/reactions/reactions.json` | source | 32 | `validate.mjs` | `loadReactions()` → engine ontology, reactions page | → reaction_participants, search_index |
 | Reaction roles | `data-src/reactions/reaction_roles.json` | source | 11 | `validate.mjs` | `loadReactionRoles()` → reactions page | → reaction_participants derivation |
 | Competencies | `data-src/rules/competencies.json` | source | 21 | `validate.mjs` | `loadCompetencies()` → profile, exam, diagnostics | → by_competency/, search_index |
@@ -1245,9 +1278,9 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Exam tasks | `data-src/exam/{system}/*.json` | source | 163 total | `validate.mjs` | `loadOgeTasks()` / `loadExamTasks()` → exam practice | exam practice |
 | Solution algorithms | `data-src/exam/{system}/*.json` | source | 54 total | `validate.mjs` | `loadOgeSolutionAlgorithms()` / `loadExamAlgorithms()` | exam hints |
 | Exam systems | `data-src/exam/systems.json` | source | 5 | — | `loadExamSystems()` → ExamPage | exam system selector |
-| Engine task templates | `data-src/engine/task_templates.json` | source | 65 | `validateEngineTaskTemplates()` | `loadTaskTemplates()` → template registry | all practice exercises |
-| Engine prompt templates | `data-src/engine/prompt_templates.{locale}.json` | source | 65×4 | — | `loadPromptTemplates()` → prompt renderer | rendered question text |
-| Translation overlays | `data-src/translations/{locale}/*.json` | source | 32 files | — | `loadTranslationOverlay()` → per-locale loaders | → search_index.{locale}, name_index.{locale} |
+| Engine task templates | `data-src/engine/task_templates.json` | source | 68 | `validateEngineTaskTemplates()` | `loadTaskTemplates()` → template registry | all practice exercises |
+| Engine prompt templates | `data-src/engine/prompt_templates.{locale}.json` | source | 68×4 | — | `loadPromptTemplates()` → prompt renderer | rendered question text |
+| Translation overlays | `data-src/translations/{locale}/*.json` | source | ~204 files | — | `loadTranslationOverlay()` → per-locale loaders | → search_index.{locale}, name_index.{locale} |
 | RU morphology | `data-src/translations/ru/morphology.json` | source | 43+8 | — | `loadMorphology()` → engine slot resolver | morph: directives |
 | Contexts | `data-src/contexts/contexts.json` | source | 5 | — | `loadContextsData()` → contexts page | → reverse_index |
 | Substance variants | `data-src/contexts/substance_variants.json` | source | 5 | — | `loadContextsData()` → contexts page | copied to bundle |
@@ -1264,7 +1297,7 @@ Source/derived/regenerable status for all data artifacts, build pipeline stages,
 | Exercises (PT) | `data-src/exercises/periodic-table-exercises.json` | source | 10 | — | `loadExercises('periodic-table')` → PT page | copied to bundle |
 | Exercises (bonds) | `data-src/exercises/bonds-exercises.json` | source | — | — | `loadExercises('bonds')` → bonds page | copied to bundle |
 | Exercises (oxidation) | `data-src/exercises/oxidation-exercises.json` | source | — | — | `loadExercises('oxidation')` → oxidation page | copied to bundle |
-| Structures | `data-src/structures/*.json` | source | 38 | — | `loadStructure(id)` → MoleculeView; build-time → bond counts | → structure_bond_counts → bond_energy |
+| Structures | `data-src/structures/*.json` | source | 36 | — | `loadStructure(id)` → MoleculeView; build-time → bond counts | → structure_bond_counts → bond_energy |
 | Bond energy table | `data-src/tables/bond_energy_avg_v1.json` | source | 27 | `validate.mjs` | build-time → bond energy calc | → bond_energy.json |
 | Calculators registry | `data-src/calculators.json` | source | 1 | — | `loadCalculators()` → reference | copied to bundle |
 | Reaction templates | `data-src/templates/reaction_templates.json` | source | 10 | `validateReactionTemplates()` | `loadReactionTemplates()` → reactions page | copied to bundle |
@@ -1298,7 +1331,7 @@ Sequential stages in `scripts/build-data.mjs`:
 
 | # | Stage | Inputs | Outputs | Script/Function |
 |---|-------|--------|---------|-----------------|
-| 1 | **Load source data** | `data-src/**/*.json` (~50 files) | In-memory JS objects | `loadJson()`, `loadSubstances()` |
+| 1 | **Load source data** | `data-src/**/*.json` (~551 files) | In-memory JS objects | `loadJson()`, `loadSubstances()` |
 | 2 | **Validate schemas** | All loaded objects | Error list (or exit 1) | `validate.mjs` (16 validators) |
 | 3 | **Check referential integrity** | elements, ions, substances, bktParams, taskTemplates | Error list (or exit 1) | `integrity.mjs` |
 | 4 | **Compute bundle hash** | `data-src/` directory | 12-char SHA-256 prefix | `hash.mjs` → `computeBundleHash()` |
@@ -1320,7 +1353,7 @@ Generator scripts in `scripts/lib/`:
 | Script | Inputs | Outputs | Invoked At |
 |--------|--------|---------|------------|
 | `generate-indices.mjs` | substances, taskTemplates, bundleDir | 4 index types (substances, by_class, by_ion, by_competency) | Stage 8 |
-| `generate-formula-lookup.mjs` | elements, substances, ions, bundleDir | `formula_lookup.json` (198 entries) | Stage 9 |
+| `generate-formula-lookup.mjs` | elements, substances, ions, bundleDir | `formula_lookup.json` (330 entries) | Stage 9 |
 | `generate-search-index.mjs` | entities, locale?, translations? | `search_index[.locale].json` (~216 entries) | Stages 10, 12 |
 | `generate-name-index.mjs` | elements, ions, substances, terms, bindings | `name_index.{locale}.json` | Stages 11, 12 |
 | `generate-reaction-participants.mjs` | reactions array | `reaction_participants.json` (162 records) | Stage 7 |
@@ -1432,11 +1465,11 @@ Summary of data ↔ component connections:
 | Data Layer | UI Component | Rendering |
 |-----------|-------------|-----------|
 | Elements (118) | `FormulaChip`, `EnergyLevelDiagram`, `OrbitalBoxDiagram` | Formula badge, energy levels SVG, orbital boxes SVG |
-| Ions (41) | `FormulaChip`, `IonDetailsProvider` | Colored badge (cation=blue, anion=red), popup details |
-| Substances (80) | `FormulaChip`, `ChemText` | Clickable formula badge, auto-detection in text |
-| Structures (38) | `MoleculeView` | 2D SVG: bonds, lone pairs, ox states, polarity, bond info |
+| Ions (48) | `FormulaChip`, `IonDetailsProvider` | Colored badge (cation=blue, anion=red), popup details |
+| Substances (165) | `FormulaChip`, `ChemText` | Clickable formula badge, auto-detection in text |
+| Structures (36) | `MoleculeView` | 2D SVG: bonds, lone pairs, ox states, polarity, bond info |
 | Bond Energy (26) | `BondEnergyTrace` | Per-bond energy table with quality badge |
-| FormulaLookup (239) | `ChemText`, `SmartText` | Auto-detect formulas in plain text |
+| FormulaLookup (330) | `ChemText`, `SmartText` | Auto-detect formulas in plain text |
 | Concepts (registry) | `ConceptRef`, `OntologyRef`, `SmartText` | Typed ontology links, auto-detect in text; `OntologyRef` is the unified dispatcher that routes `OntRef { kind, id }` to `FormulaChip` (element/substance/ion), `ConceptRef` (concept kinds), or reaction chip |
 | RichText AST | `RichTextRenderer` | Composite: text + ref + formula + em/strong segments; `ref` segments routed through unified `OntologyRef` via `parseOntRef` |
 | Bond Theory (Δχ) | `BondDiagramIonic`, `BondDiagramCovalent`, `BondDiagramMetallic` | SVG bond type diagrams |
