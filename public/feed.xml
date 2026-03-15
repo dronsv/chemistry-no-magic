@@ -5,7 +5,7 @@
     <link>https://ru.chemistry.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Fri, 13 Mar 2026 15:53:32 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 06:07:00 GMT</lastBuildDate>
     <atom:link href="https://ru.chemistry.online/feed.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -13,7 +13,7 @@
     <link>https://ru.chemistry.online/calculations/</link>
     <description>Молярная масса, стехиометрия, массовая доля, выход продукта.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/calculations/</guid>
-    <pubDate>Fri, 13 Mar 2026 15:53:32 GMT</pubDate>
+    <pubDate>Sun, 15 Mar 2026 06:07:00 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -21,7 +21,7 @@
     <link>https://ru.chemistry.online/en/calculations/</link>
     <description>Molar mass, stoichiometry, mass fraction, reaction yield.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/en/calculations/</guid>
-    <pubDate>Fri, 13 Mar 2026 15:53:32 GMT</pubDate>
+    <pubDate>Sun, 15 Mar 2026 06:07:00 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
@@ -29,7 +29,7 @@
     <link>https://ru.chemistry.online/pl/obliczenia/</link>
     <description>Masa molowa, stechiometria, ułamek masowy.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/pl/obliczenia/</guid>
-    <pubDate>Fri, 13 Mar 2026 15:53:32 GMT</pubDate>
+    <pubDate>Sun, 15 Mar 2026 06:07:00 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
@@ -37,8 +37,16 @@
     <link>https://ru.chemistry.online/es/calculos/</link>
     <description>Masa molar, estequiometría, fracción de masa.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/es/calculos/</guid>
-    <pubDate>Fri, 13 Mar 2026 15:53:32 GMT</pubDate>
+    <pubDate>Sun, 15 Mar 2026 06:07:00 GMT</pubDate>
     <language>es</language>
+  </item>
+  <item>
+    <title>Главная — Химия без магии</title>
+    <link>https://ru.chemistry.online/</link>
+    <description>Адаптивная платформа подготовки к ОГЭ по химии.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/</guid>
+    <pubDate>Sat, 14 Mar 2026 20:35:27 GMT</pubDate>
+    <language>ru</language>
   </item>
   <item>
     <title>Периодическая таблица Менделеева</title>
@@ -71,14 +79,6 @@
     <guid isPermaLink="true">https://ru.chemistry.online/es/tabla-periodica/</guid>
     <pubDate>Wed, 11 Mar 2026 20:48:42 GMT</pubDate>
     <language>es</language>
-  </item>
-  <item>
-    <title>Главная — Химия без магии</title>
-    <link>https://ru.chemistry.online/</link>
-    <description>Адаптивная платформа подготовки к ОГЭ по химии.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/</guid>
-    <pubDate>Wed, 11 Mar 2026 20:48:15 GMT</pubDate>
-    <language>ru</language>
   </item>
   <item>
     <title>Химическая связь</title>
