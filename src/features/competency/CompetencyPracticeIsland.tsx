@@ -15,6 +15,9 @@ import './competency.css';
 const OrbitalFillingExercise = lazy(() =>
   import('../periodic-table/practice/OrbitalFillingExercise'),
 );
+const OrderItemsExercise = lazy(() =>
+  import('../periodic-table/practice/OrderItemsExercise'),
+);
 
 const LEVEL_LABELS: Record<string, () => string> = {
   none: m.level_none,
@@ -129,7 +132,15 @@ export default function CompetencyPracticeIsland({ competencyId, competencyName,
           <div className="comp-practice__counter">
             {m.practice_task_counter({ count: String(count) })}
           </div>
-          {exercise.format === 'interactive_orbital' && exercise.targetZ ? (
+          {exercise.format === 'order_items' ? (
+            <Suspense fallback={null}>
+              <OrderItemsExercise
+                key={count}
+                exercise={exercise}
+                onAnswer={handleAnswer}
+              />
+            </Suspense>
+          ) : exercise.format === 'interactive_orbital' && exercise.targetZ ? (
             <Suspense fallback={null}>
               <OrbitalFillingExercise
                 key={count}

@@ -10,6 +10,7 @@ import type { Adapter, Exercise } from '../../competency/exercise-adapters';
 import * as m from '../../../paraglide/messages.js';
 import MultipleChoiceExercise from './MultipleChoiceExercise';
 import OrbitalFillingExercise from './OrbitalFillingExercise';
+import OrderItemsExercise from './OrderItemsExercise';
 
 const LEVEL_LABELS: Record<string, () => string> = {
   none: m.level_none,
@@ -125,14 +126,20 @@ export default function PracticeSection({ locale }: Props) {
       {exercise && (
         <div className="practice-section__exercise">
           <div className="practice-section__counter">{m.practice_task_counter({ count: String(count) })}</div>
-          {exercise.format === 'multiple_choice' ? (
-            <MultipleChoiceExercise
+          {exercise.format === 'order_items' ? (
+            <OrderItemsExercise
+              key={count}
+              exercise={exercise}
+              onAnswer={handleAnswer}
+            />
+          ) : exercise.format === 'interactive_orbital' ? (
+            <OrbitalFillingExercise
               key={count}
               exercise={exercise}
               onAnswer={handleAnswer}
             />
           ) : (
-            <OrbitalFillingExercise
+            <MultipleChoiceExercise
               key={count}
               exercise={exercise}
               onAnswer={handleAnswer}

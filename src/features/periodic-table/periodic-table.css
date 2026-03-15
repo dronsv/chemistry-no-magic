@@ -1433,6 +1433,79 @@
   margin-top: var(--space-sm);
 }
 
+/* Order items exercise */
+
+.order-slots {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.order-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 5rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px dashed var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  min-height: 2.5rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.order-slot__number {
+  font-weight: 700;
+  color: var(--color-text-muted, #6b7280);
+  font-size: 0.8125rem;
+}
+
+.order-slot__value {
+  font-weight: 600;
+}
+
+.order-slot--correct {
+  border-color: #10b981;
+  border-style: solid;
+  background: #d1fae5;
+}
+
+.order-slot--wrong {
+  border-color: #ef4444;
+  border-style: solid;
+  background: #fee2e2;
+}
+
+.order-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.order-undo {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  color: var(--color-text-muted, #6b7280);
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.order-undo:hover {
+  border-color: var(--color-primary);
+}
+
+.order-correct-answer {
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  background: #dbeafe;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
 /* Orbital filling exercise */
 
 .practice-orbital__question {
