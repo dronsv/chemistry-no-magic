@@ -95,6 +95,11 @@ const substanceVariantIds = new Set(substanceVariants.map(v => v.id));
 
 const termBindings = readJSON('contexts/term_bindings.json') || [];
 
+const competencies = readJSON('rules/competencies.json') || [];
+const competencyIds = new Set(competencies.map(c => c.id));
+
+const taskTemplates = readJSON('engine/task_templates.json') || [];
+
 // ── state ────────────────────────────────────────────────────────────────────
 
 let errors = 0;
@@ -292,8 +297,25 @@ console.log('\n=== A. Referential Integrity ===\n');
   }
 }
 
-// A8. term_bindings kind values → must be in allowed list
-// (Handled in section B below)
+// A8. competency_hint IDs in task templates → must exist in competencies.json
+{
+  const sectionErrors = [];
+  for (const t of taskTemplates) {
+    const hint = t.competency_hint;
+    if (!hint || typeof hint !== 'object') continue;
+    for (const key of Object.keys(hint)) {
+      if (!competencyIds.has(key)) {
+        sectionErrors.push(`task_templates: ${t.template_id} → competency_hint "${key}" not in competencies.json`);
+      }
+    }
+  }
+  if (sectionErrors.length === 0) {
+    ok('competency_hint IDs in task templates → all resolve');
+  } else {
+    fail('competency_hint IDs in task templates');
+    sectionErrors.forEach(e => error(e));
+  }
+}
 
 // ══════════════════════════════════════════════════════════════════════════════
 // B. Allowed Ref Kinds
