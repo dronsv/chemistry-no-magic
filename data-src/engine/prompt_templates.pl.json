@@ -240,11 +240,11 @@
     "slots": {}
   },
   "prompt.calc_dilution": {
-    "question": "Ile roztworu potrzeba, aby rozcie\u0144czy\u0107 {m_solution} g {omega}% roztworu do {omega_target}%?",
+    "question": "Jaka jest masa roztworu otrzymanego przez rozcie\u0144czenie {m_solution} g {omega}% roztworu do st\u0119\u017cenia {omega_target}%?",
     "slots": {}
   },
   "prompt.calc_by_equation": {
-    "question": "Oblicz mas\u0119 {find_formula} z {given_mass} g {given_formula}. R\u00f3wnanie: {equation}",
+    "question": "Na podstawie r\u00f3wnania reakcji {equation} oblicz mas\u0119 {find_formula}, kt\u00f3r\u0105 mo\u017cna otrzyma\u0107 z {given_mass} g {given_formula}.",
     "slots": {}
   },
   "prompt.calc_yield": {

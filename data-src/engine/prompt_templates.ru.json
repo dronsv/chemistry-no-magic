@@ -240,11 +240,11 @@
     "slots": {}
   },
   "prompt.calc_dilution": {
-    "question": "Сколько раствора нужно для разбавления {m_solution} г {omega}% раствора до {omega_target}%?",
+    "question": "Какова масса раствора, полученного при разбавлении {m_solution} г {omega}%-го раствора до концентрации {omega_target}%?",
     "slots": {}
   },
   "prompt.calc_by_equation": {
-    "question": "Вычислите массу {find_formula}, полученного из {given_mass} г {given_formula}. Уравнение: {equation}",
+    "question": "По уравнению реакции {equation} вычислите массу {find_formula}, которую можно получить из {given_mass} г {given_formula}.",
     "slots": {}
   },
   "prompt.calc_yield": {

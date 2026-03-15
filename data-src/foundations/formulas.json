@@ -497,5 +497,28 @@
     "constants_used": [],
     "prerequisite_formulas": ["formula:component_molar_mass_contribution", "formula:molar_mass_from_composition"],
     "used_by_solvers": ["solver.mass_fraction"]
+  },
+  {
+    "id": "formula:dilution_conservation",
+    "kind": "conservation_law",
+    "domain": "solutions",
+    "school_grade": [8, 9],
+    "variables": [
+      { "symbol": "w1", "display_symbol": "ω₁", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "input", "semantic_role": "initial" },
+      { "symbol": "m1", "display_symbol": "m₁", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "initial_solution" },
+      { "symbol": "w2", "display_symbol": "ω₂", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "input", "semantic_role": "final" },
+      { "symbol": "m2", "display_symbol": "m₂", "quantity": "q:mass", "unit": "unit:g", "role": "result", "semantic_role": "final_solution" }
+    ],
+    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["w1", "m1"] }, "w2"] },
+    "result_variable": "m2",
+    "invertible_for": ["w1", "m1", "w2"],
+    "inversions": {
+      "w1": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["m2", "w2"] }, "m1"] },
+      "m1": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["m2", "w2"] }, "w1"] },
+      "w2": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["w1", "m1"] }, "m2"] }
+    },
+    "constants_used": [],
+    "prerequisite_formulas": [],
+    "used_by_solvers": ["solver.concentration"]
   }
 ]

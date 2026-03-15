@@ -536,10 +536,19 @@ function solveConcentration(
     );
     return { answer: Math.round(trace.result * 10) / 10 };
   } else if (mode === 'dilution') {
-    const omega1 = Number(slots.omega1);
-    const m1 = Number(slots.m1);
-    const omega2 = Number(slots.omega2);
-    return { answer: Math.round(omega1 * m1 / omega2 * 10) / 10 };
+    const { formulas, constantsDict } = getFoundations(data);
+    const result = deriveQuantity({
+      target: { quantity: 'q:mass', role: 'final_solution' as SemanticRole },
+      knowns: [
+        { qref: { quantity: 'q:mass_fraction', role: 'initial' as SemanticRole }, value: Number(slots.omega1) / 100 },
+        { qref: { quantity: 'q:mass', role: 'initial_solution' as SemanticRole }, value: Number(slots.m1) },
+        { qref: { quantity: 'q:mass_fraction', role: 'final' as SemanticRole }, value: Number(slots.omega2) / 100 },
+      ],
+      formulas,
+      constants: constantsDict,
+      ontology: { elements: [], parseFormula: () => { throw new Error('not needed for dilution'); }, entityFormulas: new Map() },
+    });
+    return { answer: Math.round(result.value * 10) / 10 };
   }
 
   throw new Error(`Unknown concentration mode: ${mode}`);

@@ -240,11 +240,11 @@
     "slots": {}
   },
   "prompt.calc_dilution": {
-    "question": "How much solution is needed to dilute {m_solution} g of {omega}% solution to {omega_target}%?",
+    "question": "What is the mass of the solution obtained by diluting {m_solution} g of {omega}% solution to {omega_target}%?",
     "slots": {}
   },
   "prompt.calc_by_equation": {
-    "question": "Calculate the mass of {find_formula} from {given_mass} g of {given_formula}. Equation: {equation}",
+    "question": "Given the equation {equation}, calculate the mass of {find_formula} that can be obtained from {given_mass} g of {given_formula}.",
     "slots": {}
   },
   "prompt.calc_yield": {
