@@ -10,6 +10,7 @@
   "tags": [
     "soluble"
   ],
+  "phase_standard": "s",
   "melting_point_C": 110,
   "boiling_point_C": null,
   "density_g_cm3": 3.6

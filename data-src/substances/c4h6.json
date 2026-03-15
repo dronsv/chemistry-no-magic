@@ -8,6 +8,7 @@
     "gas",
     "flammable"
   ],
+  "phase_standard": "g",
   "melting_point_C": -108.9,
   "boiling_point_C": -4.4,
   "density_g_cm3": 0.00243

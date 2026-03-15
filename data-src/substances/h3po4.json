@@ -12,6 +12,7 @@
     "medium_acid",
     "triprotic"
   ],
+  "phase_standard": "s",
   "melting_point_C": 42.35,
   "boiling_point_C": 158,
   "density_g_cm3": 1.88

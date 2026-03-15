@@ -7,6 +7,7 @@
   "tags": [
     "amphoteric"
   ],
+  "phase_standard": "s",
   "melting_point_C": 886,
   "boiling_point_C": 1472,
   "density_g_cm3": 9.53

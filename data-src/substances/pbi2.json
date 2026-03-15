@@ -10,6 +10,7 @@
   "tags": [
     "insoluble"
   ],
+  "phase_standard": "s",
   "melting_point_C": 402,
   "boiling_point_C": 872,
   "density_g_cm3": 6.16

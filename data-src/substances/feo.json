@@ -8,6 +8,7 @@
     "insoluble",
     "black"
   ],
+  "phase_standard": "s",
   "melting_point_C": 1377,
   "boiling_point_C": 3414,
   "density_g_cm3": 5.745

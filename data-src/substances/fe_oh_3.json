@@ -12,6 +12,7 @@
     "red_brown",
     "decomposes_on_heating"
   ],
+  "phase_standard": "s",
   "melting_point_C": null,
   "boiling_point_C": null,
   "density_g_cm3": 3.12

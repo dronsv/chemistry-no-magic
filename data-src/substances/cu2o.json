@@ -5,6 +5,7 @@
   "subclass": "basic",
   "ions": [],
   "tags": [],
+  "phase_standard": "s",
   "melting_point_C": 1235,
   "boiling_point_C": 1800,
   "density_g_cm3": 6

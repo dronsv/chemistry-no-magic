@@ -10,6 +10,7 @@
     "oxidizer",
     "catalyst"
   ],
+  "phase_standard": "s",
   "melting_point_C": 535,
   "boiling_point_C": null,
   "density_g_cm3": 5.026

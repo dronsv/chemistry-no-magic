@@ -9,6 +9,7 @@
     "flammable",
     "fruity_smell"
   ],
+  "phase_standard": "l",
   "melting_point_C": -83.6,
   "boiling_point_C": 77.1,
   "density_g_cm3": 0.902

@@ -10,6 +10,7 @@
     "slightly_soluble",
     "aromatic"
   ],
+  "phase_standard": "s",
   "melting_point_C": 40.5,
   "boiling_point_C": 181.7,
   "density_g_cm3": 1.07

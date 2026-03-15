@@ -9,6 +9,7 @@
     "flammable",
     "volatile"
   ],
+  "phase_standard": "l",
   "melting_point_C": -123.4,
   "boiling_point_C": 20.2,
   "density_g_cm3": 0.788

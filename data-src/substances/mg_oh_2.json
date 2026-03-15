@@ -11,6 +11,7 @@
     "insoluble",
     "white"
   ],
+  "phase_standard": "s",
   "melting_point_C": 350,
   "boiling_point_C": null,
   "density_g_cm3": 2.34

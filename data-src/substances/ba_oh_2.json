@@ -12,6 +12,7 @@
     "strong_electrolyte",
     "alkali"
   ],
+  "phase_standard": "s",
   "melting_point_C": 408,
   "boiling_point_C": 780,
   "density_g_cm3": 4.5

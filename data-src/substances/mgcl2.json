@@ -11,6 +11,7 @@
     "soluble",
     "hygroscopic"
   ],
+  "phase_standard": "s",
   "melting_point_C": 714,
   "boiling_point_C": 1412,
   "density_g_cm3": 2.32

@@ -9,6 +9,7 @@
     "flammable",
     "miscible_with_water"
   ],
+  "phase_standard": "l",
   "melting_point_C": -114.1,
   "boiling_point_C": 78.37,
   "density_g_cm3": 0.789

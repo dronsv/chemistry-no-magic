@@ -8,6 +8,7 @@
     "insoluble",
     "refractory"
   ],
+  "phase_standard": "s",
   "melting_point_C": 2852,
   "boiling_point_C": 3600,
   "density_g_cm3": 3.58

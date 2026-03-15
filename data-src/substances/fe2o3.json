@@ -9,6 +9,7 @@
     "red_brown",
     "amphoteric"
   ],
+  "phase_standard": "s",
   "melting_point_C": 1565,
   "boiling_point_C": null,
   "density_g_cm3": 5.24

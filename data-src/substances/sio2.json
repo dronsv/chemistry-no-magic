@@ -8,6 +8,7 @@
     "insoluble",
     "no_water_reaction"
   ],
+  "phase_standard": "s",
   "melting_point_C": 1713,
   "boiling_point_C": 2950,
   "density_g_cm3": 2.65

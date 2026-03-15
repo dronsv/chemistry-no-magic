@@ -11,6 +11,7 @@
     "insoluble",
     "amphoteric"
   ],
+  "phase_standard": "s",
   "melting_point_C": null,
   "boiling_point_C": null,
   "density_g_cm3": 3.11

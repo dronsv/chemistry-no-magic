@@ -12,6 +12,7 @@
     "blue",
     "decomposes_on_heating"
   ],
+  "phase_standard": "s",
   "melting_point_C": 80,
   "boiling_point_C": null,
   "density_g_cm3": 3.37

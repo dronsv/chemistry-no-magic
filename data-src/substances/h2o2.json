@@ -9,6 +9,7 @@
     "oxidizer",
     "unstable"
   ],
+  "phase_standard": "l",
   "melting_point_C": -0.43,
   "boiling_point_C": 150.2,
   "density_g_cm3": 1.45
