@@ -1981,7 +1981,7 @@
       "oge"
     ],
     "competency_hint": {
-      "activity_series_logic": "P"
+      "reactions_exchange": "P"
     }
   },
   {
@@ -2037,7 +2037,7 @@
       "oge"
     ],
     "competency_hint": {
-      "activity_series_logic": "P"
+      "reactions_exchange": "P"
     }
   },
   {
@@ -2094,7 +2094,7 @@
       "oge"
     ],
     "competency_hint": {
-      "ionic_spectators_logic": "P"
+      "electrolyte_logic": "P"
     }
   },
   {
@@ -2151,7 +2151,7 @@
       "oge"
     ],
     "competency_hint": {
-      "ionic_spectators_logic": "P"
+      "electrolyte_logic": "P"
     }
   },
   {
@@ -2214,7 +2214,7 @@
       "oge"
     ],
     "competency_hint": {
-      "qualitative_reactions": "P"
+      "qualitative_analysis_logic": "P"
     }
   },
   {
@@ -2276,7 +2276,7 @@
       "oge"
     ],
     "competency_hint": {
-      "qualitative_reactions": "P"
+      "qualitative_analysis_logic": "P"
     }
   },
   {
@@ -2518,8 +2518,7 @@
       "oge"
     ],
     "competency_hint": {
-      "activity_series_logic": "P",
-      "reactions_exchange": "S"
+      "reactions_exchange": "P"
     }
   },
   {
@@ -2583,7 +2582,7 @@
       "oge"
     ],
     "competency_hint": {
-      "reaction_rate_factors": "P"
+      "reaction_energy_profile": "P"
     }
   },
   {
@@ -2639,7 +2638,7 @@
       "oge"
     ],
     "competency_hint": {
-      "reaction_rate_factors": "P"
+      "reaction_energy_profile": "P"
     }
   },
   {
@@ -2703,7 +2702,7 @@
       "oge"
     ],
     "competency_hint": {
-      "equilibrium_shift": "P"
+      "reaction_energy_profile": "P"
     }
   },
   {
@@ -2769,7 +2768,7 @@
       "oge"
     ],
     "competency_hint": {
-      "catalysis_concept": "P"
+      "catalyst_role_understanding": "P"
     }
   },
   {
@@ -2835,7 +2834,7 @@
       "oge"
     ],
     "competency_hint": {
-      "catalysis_concept": "P"
+      "catalyst_role_understanding": "P"
     }
   },
   {

@@ -1412,7 +1412,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.activity_compare.v1');
       expect(task.interaction).toBe('choice_single');
       expect(['yes', 'no']).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ activity_series_logic: 'P' });
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
       // Slots should have metalA and metalB
       expect(task.slots.metalA).toBeDefined();
       expect(task.slots.metalB).toBeDefined();
@@ -1424,7 +1424,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.will_metal_react.v1');
       expect(task.interaction).toBe('choice_single');
       expect([0, 1]).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ activity_series_logic: 'P' });
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
     });
   });
 
@@ -1433,14 +1433,14 @@ describe('TaskEngine — Reactions batch integration', () => {
       const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.match_ionic.v1');
       expect(tmpl).toBeDefined();
       expect(tmpl!.meta.interaction).toBe('match_pairs');
-      expect(tmpl!.competency_hint).toEqual({ ionic_spectators_logic: 'P' });
+      expect(tmpl!.competency_hint).toEqual({ electrolyte_logic: 'P' });
     });
 
     it('spectator_ions template exists and loads correctly', () => {
       const tmpl = allTemplates.find(t => t.template_id === 'tmpl.rxn.spectator_ions.v1');
       expect(tmpl).toBeDefined();
       expect(tmpl!.meta.interaction).toBe('choice_single');
-      expect(tmpl!.competency_hint).toEqual({ ionic_spectators_logic: 'P' });
+      expect(tmpl!.competency_hint).toEqual({ electrolyte_logic: 'P' });
     });
 
     it('spectator_ions works with a reaction that has ionic.notes', () => {
@@ -1472,7 +1472,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allReagents = MOCK_QUALITATIVE_TESTS.map(t => t.reagent_formula);
       expect(allReagents).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ qualitative_reactions: 'P' });
+      expect(task.competency_map).toEqual({ qualitative_analysis_logic: 'P' });
       expect(task.slots.target_name).toBeDefined();
     });
 
@@ -1484,7 +1484,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allTargets = MOCK_QUALITATIVE_TESTS.map(t => t.target_name);
       expect(allTargets).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ qualitative_reactions: 'P' });
+      expect(task.competency_map).toEqual({ qualitative_analysis_logic: 'P' });
       expect(task.slots.observation).toBeDefined();
     });
   });
@@ -1543,7 +1543,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.interaction).toBe('choice_single');
       expect(typeof task.correct_answer).toBe('string');
       expect(String(task.correct_answer)).toContain('\u2192');
-      expect(task.competency_map).toEqual({ activity_series_logic: 'P', reactions_exchange: 'S' });
+      expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
     });
   });
 
@@ -1556,7 +1556,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allFactors = MOCK_ENERGY_CATALYST.rate_factors.map(f => f.name);
       expect(allFactors).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ reaction_rate_factors: 'P' });
+      expect(task.competency_map).toEqual({ reaction_energy_profile: 'P' });
     });
 
     it('exo_endo returns heat_effect (exo or endo)', () => {
@@ -1565,7 +1565,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(task.template_id).toBe('tmpl.rxn.exo_endo.v1');
       expect(task.interaction).toBe('choice_single');
       expect(['exo', 'endo', 'negligible', 'unknown']).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ reaction_rate_factors: 'P' });
+      expect(task.competency_map).toEqual({ reaction_energy_profile: 'P' });
     });
 
     it('equilibrium_shift returns a shift description', () => {
@@ -1576,7 +1576,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allShifts = MOCK_ENERGY_CATALYST.equilibrium_shifts.map(s => s.shift);
       expect(allShifts).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ equilibrium_shift: 'P' });
+      expect(task.competency_map).toEqual({ reaction_energy_profile: 'P' });
       expect(task.slots.eq_factor).toBeDefined();
     });
 
@@ -1588,7 +1588,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allNames = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.name);
       expect(allNames).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ catalysis_concept: 'P' });
+      expect(task.competency_map).toEqual({ catalyst_role_understanding: 'P' });
       expect(task.slots.catalyst_reaction).toBeDefined();
     });
 
@@ -1600,7 +1600,7 @@ describe('TaskEngine — Reactions batch integration', () => {
       expect(typeof task.correct_answer).toBe('string');
       const allCatalysts = MOCK_ENERGY_CATALYST.common_catalysts.map(c => c.catalyst);
       expect(allCatalysts).toContain(task.correct_answer);
-      expect(task.competency_map).toEqual({ catalysis_concept: 'P' });
+      expect(task.competency_map).toEqual({ catalyst_role_understanding: 'P' });
     });
   });
 
@@ -1627,19 +1627,19 @@ describe('TaskEngine — Reactions batch integration', () => {
   });
 
   describe('competency routing for new templates', () => {
-    it('generateForCompetency returns activity_series_logic templates', () => {
+    it('generateForCompetency returns reactions_exchange templates', () => {
       for (let i = 0; i < 10; i++) {
-        const task = engine.generateForCompetency('activity_series_logic');
+        const task = engine.generateForCompetency('reactions_exchange');
         expect(task).not.toBeNull();
-        expect(task!.competency_map).toHaveProperty('activity_series_logic');
+        expect(task!.competency_map).toHaveProperty('reactions_exchange');
       }
     });
 
-    it('generateForCompetency returns qualitative_reactions templates', () => {
+    it('generateForCompetency returns qualitative_analysis_logic templates', () => {
       for (let i = 0; i < 10; i++) {
-        const task = engine.generateForCompetency('qualitative_reactions');
+        const task = engine.generateForCompetency('qualitative_analysis_logic');
         expect(task).not.toBeNull();
-        expect(task!.competency_map).toHaveProperty('qualitative_reactions');
+        expect(task!.competency_map).toHaveProperty('qualitative_analysis_logic');
       }
     });
 
@@ -1651,19 +1651,19 @@ describe('TaskEngine — Reactions batch integration', () => {
       }
     });
 
-    it('generateForCompetency returns catalysis_concept templates', () => {
+    it('generateForCompetency returns catalyst_role_understanding templates', () => {
       for (let i = 0; i < 10; i++) {
-        const task = engine.generateForCompetency('catalysis_concept');
+        const task = engine.generateForCompetency('catalyst_role_understanding');
         expect(task).not.toBeNull();
-        expect(task!.competency_map).toHaveProperty('catalysis_concept');
+        expect(task!.competency_map).toHaveProperty('catalyst_role_understanding');
       }
     });
 
-    it('generateForCompetency returns equilibrium_shift templates', () => {
+    it('generateForCompetency returns reaction_energy_profile templates', () => {
       for (let i = 0; i < 10; i++) {
-        const task = engine.generateForCompetency('equilibrium_shift');
+        const task = engine.generateForCompetency('reaction_energy_profile');
         expect(task).not.toBeNull();
-        expect(task!.competency_map).toHaveProperty('equilibrium_shift');
+        expect(task!.competency_map).toHaveProperty('reaction_energy_profile');
       }
     });
   });
