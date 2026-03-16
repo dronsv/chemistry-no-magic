@@ -142,6 +142,7 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) => {
+        if (page.includes('/app-shell')) return false;
         if (page.includes('/profile/') || page.includes('/profil/') || page.includes('/perfil/')) return false;
         // Element detail pages — filter by sitemap policy
         const elMatch = page.match(/\/(periodic-table|tablica-okresowa|tabla-periodica)\/([^/]+)\//);

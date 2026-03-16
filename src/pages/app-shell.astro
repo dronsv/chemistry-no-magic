@@ -1,0 +1,11 @@
+---
+// Offline app-shell page — served by SW when navigating offline to React-island pages.
+// Uses client:load (exception to client:idle convention: this page is only served offline,
+// and the router must execute immediately to render the correct component).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OfflineRouter from '../features/offline/OfflineRouter';
+---
+
+<BaseLayout title="Offline" description="">
+  <OfflineRouter client:load />
+</BaseLayout>
