@@ -268,9 +268,15 @@ const searchUrl = localizeUrl('/search/', locale);
       });
     </script>
 
-    <!-- Set Paraglide locale for client-side React islands -->
-    <script is:inline define:vars={{ locale }}>
-      document.cookie = 'PARAGLIDE_LOCALE=' + locale + ';path=/;max-age=34560000;SameSite=Lax';
+    <!-- Sync Paraglide locale on every navigation (including ViewTransitions) -->
+    <script>
+      import { setLocale, isLocale } from '../paraglide/runtime.js';
+      document.addEventListener('astro:page-load', () => {
+        const lang = document.documentElement.lang;
+        if (isLocale(lang)) {
+          setLocale(lang, { reload: false });
+        }
+      });
     </script>
 
     <!-- Redirect from old domain to new domain -->
@@ -290,7 +296,7 @@ const searchUrl = localizeUrl('/search/', locale);
     <!-- Background precache trigger (connection-aware, SW guards against duplicates) -->
     <script>
       import { initPrecache } from '../lib/offline-precache';
-      const locale = document.cookie.match(/PARAGLIDE_LOCALE=(\w+)/)?.[1] || 'ru';
+      const locale = document.documentElement.lang || 'ru';
       initPrecache(locale);
     </script>
 
