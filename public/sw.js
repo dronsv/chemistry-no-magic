@@ -258,7 +258,10 @@ function precache(activeLocale) {
   _precaching = true;
 
   fetch('/precache-manifest.json').then(function(response) {
-    if (!response.ok) throw new Error('Failed to fetch precache manifest');
+    if (!response.ok) {
+      _precaching = false;
+      return; // Manifest absent in dev mode — skip silently
+    }
     return response.json();
   }).then(function(manifest) {
     var version = manifest.version;
