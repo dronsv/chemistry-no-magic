@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
+import OfflineToast from '../components/OfflineToast';
 import '../styles/global.css';
 import * as m from '../paraglide/messages.js';
 import type { SupportedLocale } from '../types/i18n';
@@ -287,6 +288,13 @@ const searchUrl = localizeUrl('/search/', locale);
       }
     </script>
 
+    <!-- Background precache trigger (connection-aware, SW guards against duplicates) -->
+    <script>
+      import { initPrecache } from '../lib/offline-precache';
+      const locale = document.cookie.match(/PARAGLIDE_LOCALE=(\w+)/)?.[1] || 'ru';
+      initPrecache(locale);
+    </script>
+
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
 
     <slot name="head" />
@@ -302,5 +310,6 @@ const searchUrl = localizeUrl('/search/', locale);
       <span class="site-footer__sep">&middot;</span>
       <a href="https://github.com/dronsv/chemistry-no-magic/issues" target="_blank" rel="noopener noreferrer">{m.footer_bug_report()}</a>
     </footer>
+    <OfflineToast client:idle />
   </body>
 </html>

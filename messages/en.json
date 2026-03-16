@@ -552,6 +552,7 @@
   "rxn_ionic_na": "Ionic equation is not applicable for this reaction.",
   "rxn_ionic_full": "Full ionic:",
   "rxn_ionic_net": "Net ionic:",
+  "rxn_spectator_ions": "Spectator ions",
   "rxn_driving_label": "Driving forces:",
   "rxn_observations_label": "Observations:",
   "rxn_obs_precipitate": "↓ Precipitate: {text}",
@@ -1048,5 +1049,12 @@
   "concept_show_criteria": "Show criteria",
   "concept_hide_criteria": "Hide criteria",
   "concept_substances_heading": "Substances ({count})",
-  "concept_reactions_heading": "Reactions ({count})"
+  "concept_reactions_heading": "Reactions ({count})",
+  "offline_ready": "Available offline",
+  "settings_offline_section": "Offline mode",
+  "settings_offline_description": "Download data for offline use.",
+  "settings_offline_download": "Download for offline use",
+  "settings_offline_status_ready": "Downloaded",
+  "settings_offline_status_not_ready": "Not downloaded",
+  "settings_offline_downloading": "Downloading..."
 }

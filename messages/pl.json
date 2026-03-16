@@ -552,6 +552,7 @@
   "rxn_ionic_na": "Równanie jonowe nie ma zastosowania dla tej reakcji.",
   "rxn_ionic_full": "Pełne jonowe:",
   "rxn_ionic_net": "Skrócone jonowe:",
+  "rxn_spectator_ions": "Jony obserwatorów",
   "rxn_driving_label": "Siły napędowe:",
   "rxn_observations_label": "Obserwacje:",
   "rxn_obs_precipitate": "↓ Osad: {text}",
@@ -1048,5 +1049,12 @@
   "concept_show_criteria": "Pokaż kryteria",
   "concept_hide_criteria": "Ukryj kryteria",
   "concept_substances_heading": "Substancje ({count})",
-  "concept_reactions_heading": "Reakcje ({count})"
+  "concept_reactions_heading": "Reakcje ({count})",
+  "offline_ready": "Dostępne offline",
+  "settings_offline_section": "Tryb offline",
+  "settings_offline_description": "Pobierz dane do pracy bez internetu.",
+  "settings_offline_download": "Pobierz do użytku offline",
+  "settings_offline_status_ready": "Pobrano",
+  "settings_offline_status_not_ready": "Nie pobrano",
+  "settings_offline_downloading": "Pobieranie..."
 }
