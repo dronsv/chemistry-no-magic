@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "node scripts/build-data.mjs && astro dev",
-    "build": "node scripts/build-data.mjs && node scripts/generate-llms-full.mjs && node scripts/generate-feed.mjs && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
+    "build": "node scripts/build-data.mjs && node scripts/generate-llms-full.mjs && node scripts/generate-feed.mjs && astro build && cp dist/sitemap-index.xml dist/sitemap.xml && node scripts/lib/generate-precache-manifest.mjs",
     "build:data": "node scripts/build-data.mjs",
     "validate:data": "node scripts/build-data.mjs --validate-only",
     "preview": "astro preview",
