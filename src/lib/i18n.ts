@@ -217,13 +217,55 @@ export const OG_LOCALE_MAP: Record<SupportedLocale, string> = {
   es: 'es_ES',
 };
 
-/** hreflang codes — ru-RU targets Russia specifically (vs ru for global Russian) */
+/** @deprecated Use buildHreflangCluster() for two-host hreflang */
 export const HREFLANG_MAP: Record<SupportedLocale, string> = {
   ru: 'ru-RU',
   en: 'en',
   pl: 'pl',
   es: 'es',
 };
+
+/* ── Two-host SEO hreflang ──────────────────────────────── */
+
+export const GLOBAL_HOST = 'https://chemistry.online';
+export const RU_HOST = 'https://ru.chemistry.online';
+
+export interface HreflangEntry {
+  hreflang: string;
+  href: string;
+}
+
+/**
+ * Build the full 8+1 hreflang cluster for a canonical page path.
+ *
+ * Global host uses bare language codes (ru, en, es, pl).
+ * RU host uses regional codes (ru-RU, en-RU, es-RU, pl-RU).
+ * x-default → global root.
+ */
+export function buildHreflangCluster(canonicalPath: string): HreflangEntry[] {
+  const entries: HreflangEntry[] = [];
+
+  for (const locale of SUPPORTED_LOCALES) {
+    const localizedPath = localizeUrl(canonicalPath, locale);
+    // Global variant: bare language code
+    entries.push({
+      hreflang: locale,
+      href: `${GLOBAL_HOST}${localizedPath}`,
+    });
+    // RU variant: language-RU regional code
+    entries.push({
+      hreflang: `${locale}-RU`,
+      href: `${RU_HOST}${localizedPath}`,
+    });
+  }
+
+  entries.push({
+    hreflang: 'x-default',
+    href: `${GLOBAL_HOST}/`,
+  });
+
+  return entries;
+}
 
 /** Localized site name */
 export const SITE_NAME: Record<SupportedLocale, string> = {

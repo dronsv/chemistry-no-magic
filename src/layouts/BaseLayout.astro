@@ -5,7 +5,7 @@ import OfflineToast from '../components/OfflineToast';
 import '../styles/global.css';
 import * as m from '../paraglide/messages.js';
 import type { SupportedLocale } from '../types/i18n';
-import { OG_LOCALE_MAP, HREFLANG_MAP, SITE_NAME, getCanonicalPath, getAlternateUrls, SUPPORTED_LOCALES, localizeUrl } from '../lib/i18n';
+import { OG_LOCALE_MAP, SITE_NAME, getCanonicalPath, getAlternateUrls, buildHreflangCluster, SUPPORTED_LOCALES, localizeUrl } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -138,11 +138,10 @@ const searchUrl = localizeUrl('/search/', locale);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- hreflang alternate links -->
-    {SUPPORTED_LOCALES.map((loc) => (
-      <link rel="alternate" hreflang={HREFLANG_MAP[loc]} href={`${siteUrl}${alternateUrls[loc]}`} />
+    <!-- hreflang alternate links (two-host: global + RU) -->
+    {buildHreflangCluster(canonicalPath).map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${alternateUrls['ru']}`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
