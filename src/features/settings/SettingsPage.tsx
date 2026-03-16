@@ -3,6 +3,7 @@ import type { SupportedLocale } from '../../types/i18n';
 import { loadSettings, saveSetting, getDefaultExamSystem } from '../../lib/settings';
 import { localizeUrl, SUPPORTED_LOCALES } from '../../lib/i18n';
 import { saveLocale } from '../../lib/locale-detect';
+import { isPrecacheComplete, triggerPrecache } from '../../lib/offline-precache';
 import * as m from '../../paraglide/messages.js';
 import './settings-page.css';
 
@@ -28,6 +29,8 @@ interface SettingsPageProps {
 export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
   const [settings, setSettings] = useState(() => loadSettings());
   const [initialized, setInitialized] = useState(false);
+  const [offlineReady, setOfflineReady] = useState<boolean | null>(null);
+  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     const current = loadSettings();
@@ -38,6 +41,20 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
     setSettings(current);
     setInitialized(true);
   }, [locale]);
+
+  useEffect(() => {
+    isPrecacheComplete().then(setOfflineReady);
+
+    if (!('serviceWorker' in navigator)) return;
+    function onMessage(event: MessageEvent) {
+      if (event.data?.type === 'PRECACHE_DONE') {
+        setOfflineReady(true);
+        setDownloading(false);
+      }
+    }
+    navigator.serviceWorker.addEventListener('message', onMessage);
+    return () => navigator.serviceWorker.removeEventListener('message', onMessage);
+  }, []);
 
   function handleExamChange(systemId: string) {
     saveSetting('examSystem', systemId);
@@ -53,6 +70,11 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
     saveLocale(newLocale as SupportedLocale);
     const settingsPath = localizeUrl('/settings/', newLocale as SupportedLocale);
     window.location.href = settingsPath;
+  }
+
+  function handleOfflineDownload() {
+    setDownloading(true);
+    triggerPrecache(locale);
   }
 
   function handleReset() {
@@ -128,6 +150,28 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
             <span className="settings-option__label">{m.settings_solubility_full()}</span>
             <span className="settings-option__hint">23 × 11</span>
           </button>
+        </div>
+      </section>
+
+      <section className="settings-section">
+        <h2 className="settings-section__title">{m.settings_offline_section()}</h2>
+        <p className="settings-section__desc">{m.settings_offline_description()}</p>
+        <div className="settings-offline-status">
+          {offlineReady !== null && (
+            <span className={`settings-offline-badge ${offlineReady ? 'settings-offline-badge--ready' : ''}`}>
+              {offlineReady ? m.settings_offline_status_ready() : m.settings_offline_status_not_ready()}
+            </span>
+          )}
+          {!offlineReady && (
+            <button
+              type="button"
+              className="settings-option"
+              disabled={downloading}
+              onClick={handleOfflineDownload}
+            >
+              {downloading ? m.settings_offline_downloading() : m.settings_offline_download()}
+            </button>
+          )}
         </div>
       </section>
 
