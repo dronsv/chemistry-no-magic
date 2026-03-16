@@ -42,5 +42,9 @@
   "electrolyte": {
     "name": "Electrolito",
     "description": "Electrolito en un proceso electroquímico"
+  },
+  "spectator_ion": {
+    "name": "Ion espectador",
+    "description": "Ion presente en la solución que no participa en la reacción: su fórmula aparece sin cambios en ambos lados de la ecuación iónica completa y está ausente de la ecuación iónica neta"
   }
 }

@@ -656,32 +656,32 @@ const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
 
 const PHASE2_REACTIONS: Reaction[] = [
   {
-    reaction_id: 'rx1', title: 'Neutralization', equation: 'HCl + NaOH \u2192 NaCl + H\u2082O',
+    reaction_id: 'rx1', equation: 'HCl + NaOH → NaCl + H₂O',
     type_tags: ['exchange', 'neutralization'], driving_forces: ['water_formation'],
     phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo',
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx2', title: 'Decomposition', equation: 'CaCO\u2083 \u2192 CaO + CO\u2082',
+    reaction_id: 'rx2', equation: 'CaCO₃ → CaO + CO₂',
     type_tags: ['decomposition'], driving_forces: ['gas_evolution'],
     phase: { medium: 's' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'endo',
+    heat_effect: 'endo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx3', title: 'Substitution', equation: 'Fe + CuSO\u2084 \u2192 FeSO\u2084 + Cu',
+    reaction_id: 'rx3', equation: 'Fe + CuSO₄ → FeSO₄ + Cu',
     type_tags: ['substitution'], driving_forces: ['activity_series'],
     phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo',
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx4', title: 'Redox', equation: '2H\u2082 + O\u2082 \u2192 2H\u2082O',
+    reaction_id: 'rx4', equation: '2H₂ + O₂ → 2H₂O',
     type_tags: ['redox'], driving_forces: ['energy_release'],
     phase: { medium: 'g' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo',
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
 ] as Reaction[];
 
@@ -770,46 +770,45 @@ const MOCK_ENERGY_CATALYST: EnergyCatalystTheory = {
 // Extend reactions with redox info for testing
 const PHASE2_REACTIONS_EXTENDED: Reaction[] = [
   {
-    reaction_id: 'rx1', title: 'Neutralization', equation: 'HCl + NaOH → NaCl + H₂O',
+    reaction_id: 'rx1', equation: 'HCl + NaOH → NaCl + H₂O',
     type_tags: ['exchange', 'neutralization'], driving_forces: ['water_formation'],
     phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
-    ionic: { net: 'H⁺ + OH⁻ → H₂O', notes: 'Na⁺, Cl⁻' },
+    ionic: { net: 'H⁺ + OH⁻ → H₂O', spectators: ['ion:Na_plus', 'ion:Cl_minus'] },
     observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo', safety_notes: [], competencies: {},
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx2', title: 'Decomposition', equation: 'CaCO₃ → CaO + CO₂',
+    reaction_id: 'rx2', equation: 'CaCO₃ → CaO + CO₂',
     type_tags: ['decomposition'], driving_forces: ['gas_evolution'],
     phase: { medium: 's' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'endo', safety_notes: [], competencies: {},
+    heat_effect: 'endo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx3', title: 'Substitution', equation: 'Fe + CuSO₄ → FeSO₄ + Cu',
+    reaction_id: 'rx3', equation: 'Fe + CuSO₄ → FeSO₄ + Cu',
     type_tags: ['substitution'], driving_forces: ['activity_series'],
     phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo', safety_notes: [], competencies: {},
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
   {
-    reaction_id: 'rx4', title: 'Combustion of hydrogen', equation: '2H₂ + O₂ → 2H₂O',
+    reaction_id: 'rx4', equation: '2H₂ + O₂ → 2H₂O',
     type_tags: ['redox'], driving_forces: ['energy_release'],
     phase: { medium: 'g' }, molecular: { reactants: [], products: [] },
     ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo', safety_notes: [], competencies: {},
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
     redox: {
       oxidizer: { formula: 'O₂', element: 'O', from: 0, to: -2 },
       reducer: { formula: 'H₂', element: 'H', from: 0, to: 1 },
-      electron_transfer: '2e⁻ per O atom',
     },
   },
   {
-    reaction_id: 'rx5', title: 'Precipitation', equation: 'NaCl + AgNO₃ → AgCl↓ + NaNO₃',
+    reaction_id: 'rx5', equation: 'NaCl + AgNO₃ → AgCl↓ + NaNO₃',
     type_tags: ['exchange'], driving_forces: ['precipitate'],
     phase: { medium: 'aq' }, molecular: { reactants: [], products: [] },
-    ionic: { net: 'Ag⁺ + Cl⁻ → AgCl↓', notes: 'Na⁺, NO₃⁻' },
+    ionic: { net: 'Ag⁺ + Cl⁻ → AgCl↓', spectators: ['ion:Na_plus', 'ion:NO3_minus'] },
     observations: {}, rate_tips: { how_to_speed_up: [] },
-    heat_effect: 'exo', safety_notes: [], competencies: {},
+    heat_effect: 'exo', safety_notes: [], competencies: {}, schema_version: 2,
   },
 ] as Reaction[];
 

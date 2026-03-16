@@ -14,7 +14,7 @@ export function getStaticPaths() {
   const geneticChains = cachedReadDataSrcSync('rules/genetic_chains.json');
   const qualitativeTests = cachedReadDataSrcSync('rules/qualitative_reactions.json');
   const energyCatalystTheory = cachedReadDataSrcSync('rules/energy_catalyst_theory.json');
-  const reactionTemplates = cachedReadDataSrcSync('templates/reaction_templates.json');
+  const reactionTemplates = cachedReadDataSrcSync('reactions/reaction_templates.json');
   const applicabilityRules = cachedReadDataSrcSync('rules/applicability_rules.json');
   const classificationRules = cachedReadDataSrcSync('rules/classification_rules.json');
   const namingRules = cachedReadDataSrcSync('rules/naming_rules.json');

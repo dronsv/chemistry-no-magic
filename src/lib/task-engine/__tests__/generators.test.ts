@@ -255,9 +255,9 @@ const MOCK_SUBSTANCE_INDEX = [
 ];
 
 const MOCK_REACTIONS = [
-  { reaction_id: 'rx1', equation: 'NaOH + HCl → NaCl + H2O', type_tags: ['exchange', 'neutralization'], title: '', phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {} },
-  { reaction_id: 'rx2', equation: 'Zn + CuSO4 → ZnSO4 + Cu', type_tags: ['substitution', 'redox'], title: '', phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {} },
-  { reaction_id: 'rx3', equation: 'CaCO3 → CaO + CO2', type_tags: ['decomposition'], title: '', phase: { medium: 's' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'endo' as const, safety_notes: [], competencies: {} },
+  { reaction_id: 'rx1', equation: 'NaOH + HCl → NaCl + H2O', type_tags: ['exchange', 'neutralization'], phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {}, schema_version: 2 },
+  { reaction_id: 'rx2', equation: 'Zn + CuSO4 → ZnSO4 + Cu', type_tags: ['substitution', 'redox'], phase: { medium: 'aq' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {}, schema_version: 2 },
+  { reaction_id: 'rx3', equation: 'CaCO3 → CaO + CO2', type_tags: ['decomposition'], phase: { medium: 's' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'endo' as const, safety_notes: [], competencies: {}, schema_version: 2 },
 ];
 
 const dataWithBonds: OntologyData = { ...MOCK_DATA, rules: { ...MOCK_DATA.rules, bondExamples: MOCK_BOND_EXAMPLES } };

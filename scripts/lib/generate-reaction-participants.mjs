@@ -66,12 +66,12 @@ export function generateReactionParticipants(reactions) {
       });
     }
 
-    // Precipitate — match products whose formula appears in observations.precipitate text
-    const precipitateTexts = rx.observations?.precipitate ?? [];
-    if (precipitateTexts.length > 0) {
-      const joined = normalizeFormula(precipitateTexts.join(' '));
+    // Precipitate — match products whose formula appears in observations.precipitate
+    const precipitateObs = rx.observations?.precipitate ?? [];
+    if (precipitateObs.length > 0) {
+      const precipFormulas = new Set(precipitateObs.map(p => normalizeFormula(p.formula)));
       for (const p of rx.molecular.products) {
-        if (joined.includes(normalizeFormula(p.formula))) {
+        if (precipFormulas.has(normalizeFormula(p.formula))) {
           participants.push({
             reaction: rid,
             entity: p.formula,
@@ -81,12 +81,12 @@ export function generateReactionParticipants(reactions) {
       }
     }
 
-    // Gas evolved — match products whose formula appears in observations.gas text
-    const gasTexts = rx.observations?.gas ?? [];
-    if (gasTexts.length > 0) {
-      const joined = normalizeFormula(gasTexts.join(' '));
+    // Gas evolved — match products whose formula appears in observations.gas
+    const gasObs = rx.observations?.gas ?? [];
+    if (gasObs.length > 0) {
+      const gasFormulas = new Set(gasObs.filter(g => g.produced).map(g => normalizeFormula(g.formula)));
       for (const p of rx.molecular.products) {
-        if (joined.includes(normalizeFormula(p.formula))) {
+        if (gasFormulas.has(normalizeFormula(p.formula))) {
           participants.push({
             reaction: rid,
             entity: p.formula,

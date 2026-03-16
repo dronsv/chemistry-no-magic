@@ -42,5 +42,9 @@
   "electrolyte": {
     "name": "Electrolyte",
     "description": "Electrolyte in an electrochemical process"
+  },
+  "spectator_ion": {
+    "name": "Spectator ion",
+    "description": "An ion present in solution that does not participate in the reaction: its formula appears unchanged on both sides of the full ionic equation and is absent from the net ionic equation"
   }
 }

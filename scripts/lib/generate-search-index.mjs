@@ -106,7 +106,7 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
   // Reactions
   for (const rx of reactions) {
     const rxOverlay = translations?.reactions?.[rx.reaction_id];
-    const title = rxOverlay?.title ?? rx.title;
+    const title = rxOverlay?.title ?? rx.equation;
     const formulaFields = [];
     if (rx.molecular) {
       for (const r of rx.molecular.reactants || []) {

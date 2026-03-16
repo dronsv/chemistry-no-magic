@@ -665,6 +665,21 @@ export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[
   return applyOverlay(reactions, overlay, r => r.reaction_id);
 }
 
+/** Flat vocab overlay type: "namespace:key" → display string. */
+export type ReactionVocab = Record<string, string>;
+
+/** Load reaction vocabulary overlay (observation/rate/safety display strings). */
+export async function loadReactionVocab(locale: SupportedLocale): Promise<ReactionVocab> {
+  const manifest = await getManifest();
+  const available = manifest.translations?.[locale];
+  if (!available?.includes('reaction_vocab')) return {};
+  try {
+    return await loadDataFile<ReactionVocab>(`translations/${locale}/reaction_vocab.json`);
+  } catch {
+    return {};
+  }
+}
+
 /** Load reaction role definitions. */
 export async function loadReactionRoles(locale?: SupportedLocale): Promise<ReactionRole[]> {
   const manifest = await getManifest();

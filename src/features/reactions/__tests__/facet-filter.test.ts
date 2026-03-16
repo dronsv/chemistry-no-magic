@@ -14,7 +14,6 @@ import {
 function mockReaction(overrides: Partial<Reaction> = {}): Reaction {
   return {
     reaction_id: 'r1',
-    title: 'Test reaction',
     equation: 'A + B → C',
     phase: { medium: 'aq' },
     type_tags: ['exchange'],
@@ -29,6 +28,7 @@ function mockReaction(overrides: Partial<Reaction> = {}): Reaction {
     heat_effect: 'unknown',
     safety_notes: [],
     competencies: { reactions_exchange: 'P' },
+    schema_version: 2,
     ...overrides,
   };
 }
@@ -71,7 +71,7 @@ const rxSubstitution = mockReaction({
   reaction_id: 'rx_sub',
   type_tags: ['substitution'],
   driving_forces: [],
-  redox: { oxidizer: { formula: 'CuSO₄', element: 'Cu', from: 2, to: 0 }, reducer: { formula: 'Fe', element: 'Fe', from: 0, to: 2 }, electron_transfer: '2e' },
+  redox: { oxidizer: { formula: 'CuSO₄', element: 'Cu', from: 2, to: 0 }, reducer: { formula: 'Fe', element: 'Fe', from: 0, to: 2 } },
   competencies: { reactions_redox: 'P' },
   molecular: {
     reactants: [{ formula: 'Fe', coeff: 1 }, { formula: 'CuSO₄', coeff: 1 }],

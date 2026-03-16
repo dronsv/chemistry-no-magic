@@ -408,7 +408,7 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
   // Ionic data (if available)
   if (r.ionic) {
     if (r.ionic.net) slots.net_ionic = r.ionic.net;
-    if (r.ionic.notes) slots.spectator_ions = r.ionic.notes;
+    if (r.ionic.spectators) slots.spectator_ions = r.ionic.spectators.join(', ');
   }
 
   // Redox data (if available)

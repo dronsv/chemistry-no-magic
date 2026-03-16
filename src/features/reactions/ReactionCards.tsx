@@ -3,12 +3,15 @@ import type { Reaction, FacetState } from '../../types/reaction';
 import type { SubstanceIndexEntry } from '../../types/classification';
 import type { MetalType } from '../../types/element';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadReactions, loadSubstancesIndex, loadElements } from '../../lib/data-loader';
+import { loadReactions, loadSubstancesIndex, loadElements, loadReactionVocab } from '../../lib/data-loader';
+import type { ReactionVocab } from '../../lib/data-loader';
 import { parseFormula } from '../../lib/formula-parser';
 import { calcOxidationStates } from '../../lib/oxidation-state';
 import { matchesFacets, isFacetEmpty } from './facet-filter';
 import ReactionFacets from './ReactionFacets';
 import FormulaChip from '../../components/FormulaChip';
+import OntologyRef from '../../components/OntologyRef';
+import { parseOntRef } from '../../lib/ontology-ref';
 import * as m from '../../paraglide/messages.js';
 
 type ElementInfo = { group: number; metal_type: MetalType };
@@ -55,6 +58,11 @@ const HEAT_LABELS: Record<string, { label: () => string; className: string }> = 
   unknown: { label: m.rxn_heat_unknown, className: 'rxn-heat-badge--unknown' },
 };
 
+/** Resolve a vocab key like "hazard:corrosive" → display text, falling back to raw key. */
+function v(vocab: ReactionVocab, key: string): string {
+  return vocab[key] ?? key;
+}
+
 type TabId = 'molecular' | 'ionic' | 'why' | 'speed';
 
 const TABS: { id: TabId; label: () => string }[] = [
@@ -64,20 +72,21 @@ const TABS: { id: TabId; label: () => string }[] = [
   { id: 'speed', label: m.rxn_view_speed },
 ];
 
-function MolecularTab({ reaction, substanceMap, elementMap }: {
+function MolecularTab({ reaction, substanceMap, elementMap, vocab }: {
   reaction: Reaction;
   substanceMap: Map<string, SubstanceIndexEntry>;
   elementMap: Map<string, ElementInfo>;
+  vocab: ReactionVocab;
 }) {
-  const gasSet = new Set(reaction.observations.gas ?? []);
-  const precipSet = new Set(reaction.observations.precipitate ?? []);
+  const gasFormulas = new Set((reaction.observations.gas ?? []).map(g => g.formula));
+  const precipFormulas = new Set((reaction.observations.precipitate ?? []).map(p => p.formula));
 
   const renderItem = (item: { formula: string; name?: string; coeff: number }, i: number, isProduct: boolean) => {
     const sub = substanceMap.get(item.formula);
     const parsed = parseFormula(item.formula);
     const ox = calcOxidationStates(parsed, elementMap, item.formula);
     const marker = isProduct
-      ? gasSet.has(item.formula) ? '↑' : precipSet.has(item.formula) ? '↓' : null
+      ? gasFormulas.has(item.formula) ? '↑' : precipFormulas.has(item.formula) ? '↓' : null
       : null;
 
     return (
@@ -109,13 +118,16 @@ function MolecularTab({ reaction, substanceMap, elementMap }: {
         </div>
       </div>
       <div className="rxn-meta">
-        <span className="rxn-phase-badge">{m.rxn_medium({ medium: reaction.phase.medium + (reaction.phase.notes ? ` (${reaction.phase.notes})` : '') })}</span>
+        <span className="rxn-phase-badge">
+          {m.rxn_medium({ medium: reaction.phase.medium })}
+          {reaction.phase.note_key && ` (${v(vocab, `phase_note:${reaction.phase.note_key}`)})`}
+        </span>
         {reaction.conditions && (
           <span className="rxn-conditions">
             {reaction.conditions.temperature && reaction.conditions.temperature !== 'room' && m.rxn_temperature({ temp: reaction.conditions.temperature })}
             {reaction.conditions.catalyst && ` | ${m.rxn_catalyst({ name: reaction.conditions.catalyst })}`}
             {reaction.conditions.pressure && ` | ${m.rxn_pressure({ value: reaction.conditions.pressure })}`}
-            {reaction.conditions.excess && ` | ${reaction.conditions.excess}`}
+            {reaction.conditions.excess_note_key && ` | ${v(vocab, `excess_note:${reaction.conditions.excess_note_key}`)}`}
           </span>
         )}
       </div>
@@ -142,12 +154,22 @@ function IonicTab({ reaction }: { reaction: Reaction }) {
           <div className="rxn-ionic-net">{ionic.net}</div>
         </div>
       )}
-      {ionic.notes && <p className="rxn-ionic-notes">{ionic.notes}</p>}
+      {ionic.spectators && ionic.spectators.length > 0 && (
+        <div className="rxn-ionic-notes">
+          <span>{m.rxn_spectator_ions()}: </span>
+          {ionic.spectators.map((ref, i) => (
+            <span key={i}>
+              {i > 0 && ', '}
+              <OntologyRef ontRef={parseOntRef(ref)} variant="chip" />
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-function WhyTab({ reaction }: { reaction: Reaction }) {
+function WhyTab({ reaction, vocab }: { reaction: Reaction; vocab: ReactionVocab }) {
   const heat = HEAT_LABELS[reaction.heat_effect];
   const obs = reaction.observations;
   return (
@@ -169,12 +191,39 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
       <div className="rxn-observations">
         <span className="rxn-section-label">{m.rxn_observations_label()}</span>
         <ul className="rxn-observation-list">
-          {obs.precipitate?.map((p, i) => <li key={`p${i}`} className="rxn-observation">{m.rxn_obs_precipitate({ text: p })}</li>)}
-          {obs.gas?.map((g, i) => <li key={`g${i}`} className="rxn-observation">{m.rxn_obs_gas({ text: g })}</li>)}
-          {obs.color_change && <li className="rxn-observation">{m.rxn_obs_color({ text: obs.color_change })}</li>}
-          {obs.smell && <li className="rxn-observation">{m.rxn_obs_smell({ text: obs.smell })}</li>}
-          {obs.heat && <li className="rxn-observation">{m.rxn_obs_heat({ text: obs.heat })}</li>}
-          {obs.other?.map((o, i) => <li key={`o${i}`} className="rxn-observation">{o}</li>)}
+          {obs.precipitate?.map((p, i) => (
+            <li key={`p${i}`} className="rxn-observation">
+              ↓ <OntologyRef ontRef={parseOntRef(p.ref)} variant="chip" />
+              {p.color && ` (${v(vocab, `precip_color:${p.color}`)})`}
+              {p.texture && `, ${v(vocab, `precip_texture:${p.texture}`)}`}
+            </li>
+          ))}
+          {obs.gas?.map((g, i) => (
+            <li key={`g${i}`} className="rxn-observation">
+              {g.produced ? '↑' : '⟶'} <OntologyRef ontRef={parseOntRef(g.ref)} variant="chip" />
+              {g.appearance && ` (${v(vocab, `gas_appearance:${g.appearance}`)})`}
+            </li>
+          ))}
+          {obs.color_change?.map((c, i) => (
+            <li key={`c${i}`} className="rxn-observation">
+              {m.rxn_obs_color({ text: v(vocab, `color_type:${c.type}`) })}
+              {c.ion_ref && <> — <OntologyRef ontRef={parseOntRef(c.ion_ref)} variant="chip" /></>}
+            </li>
+          ))}
+          {obs.smell && (
+            <li className="rxn-observation">
+              {m.rxn_obs_smell({ text: v(vocab, `smell:${obs.smell.kind}`) })}
+              {obs.smell.ref && <> — <OntologyRef ontRef={parseOntRef(obs.smell.ref)} variant="chip" /></>}
+            </li>
+          )}
+          {obs.heat_intensity && (
+            <li className="rxn-observation">
+              {m.rxn_obs_heat({ text: v(vocab, `heat_intensity:${obs.heat_intensity.intensity}`) })}
+            </li>
+          )}
+          {obs.other?.map((o, i) => (
+            <li key={`o${i}`} className="rxn-observation">{v(vocab, `other:${o.facet}`)}</li>
+          ))}
         </ul>
       </div>
       {heat && (
@@ -184,21 +233,28 @@ function WhyTab({ reaction }: { reaction: Reaction }) {
   );
 }
 
-function SpeedTab({ reaction }: { reaction: Reaction }) {
+function SpeedTab({ reaction, vocab }: { reaction: Reaction; vocab: ReactionVocab }) {
   const { rate_tips, safety_notes } = reaction;
   return (
     <div className="rxn-tab-content">
       <div className="rxn-rate-section">
         <span className="rxn-section-label">{m.rxn_speed_up()}</span>
         <ul className="rxn-rate-list">
-          {rate_tips.how_to_speed_up.map((tip, i) => <li key={i}>{tip}</li>)}
+          {rate_tips.how_to_speed_up.map((tip, i) => (
+            <li key={i}>
+              {v(vocab, `speed:${tip.action}`)}
+              {tip.note ? ` (${v(vocab, `speed_note:${tip.note}`)})` : ''}
+            </li>
+          ))}
         </ul>
       </div>
       {rate_tips.what_slows_down && rate_tips.what_slows_down.length > 0 && (
         <div className="rxn-rate-section">
           <span className="rxn-section-label">{m.rxn_slow_down()}</span>
           <ul className="rxn-rate-list">
-            {rate_tips.what_slows_down.map((tip, i) => <li key={i}>{tip}</li>)}
+            {rate_tips.what_slows_down.map((tip, i) => (
+              <li key={i}>{v(vocab, `slow:${tip.factor}`)}</li>
+            ))}
           </ul>
         </div>
       )}
@@ -206,7 +262,12 @@ function SpeedTab({ reaction }: { reaction: Reaction }) {
         <div className="rxn-safety">
           <span className="rxn-safety__label">{m.rxn_safety()}</span>
           <ul className="rxn-safety__list">
-            {safety_notes.map((note, i) => <li key={i}>{note}</li>)}
+            {safety_notes.map((note, i) => (
+              <li key={i}>
+                {v(vocab, `hazard:${note.hazard}`)}
+                {note.ppe ? ` — ${note.ppe.map(p => v(vocab, `ppe:${p}`)).join(', ')}` : ''}
+              </li>
+            ))}
           </ul>
         </div>
       )}
@@ -214,10 +275,11 @@ function SpeedTab({ reaction }: { reaction: Reaction }) {
   );
 }
 
-function ReactionCard({ reaction, substanceMap, elementMap }: {
+function ReactionCard({ reaction, substanceMap, elementMap, vocab }: {
   reaction: Reaction;
   substanceMap: Map<string, SubstanceIndexEntry>;
   elementMap: Map<string, ElementInfo>;
+  vocab: ReactionVocab;
 }) {
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>('molecular');
@@ -234,7 +296,7 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
         <span className={`rxn-card__type-badge rxn-card__type-badge--${badgeTag}`}>
           {TAG_LABELS[badgeTag]?.() ?? badgeTag}
         </span>
-        <span className="rxn-card__title">{reaction.title}</span>
+        <span className="rxn-card__title">{reaction.equation}</span>
         <span className="rxn-card__arrow">{expanded ? '▾' : '▸'}</span>
       </button>
       {expanded && (
@@ -251,10 +313,10 @@ function ReactionCard({ reaction, substanceMap, elementMap }: {
               </button>
             ))}
           </div>
-          {activeTab === 'molecular' && <MolecularTab reaction={reaction} substanceMap={substanceMap} elementMap={elementMap} />}
+          {activeTab === 'molecular' && <MolecularTab reaction={reaction} substanceMap={substanceMap} elementMap={elementMap} vocab={vocab} />}
           {activeTab === 'ionic' && <IonicTab reaction={reaction} />}
-          {activeTab === 'why' && <WhyTab reaction={reaction} />}
-          {activeTab === 'speed' && <SpeedTab reaction={reaction} />}
+          {activeTab === 'why' && <WhyTab reaction={reaction} vocab={vocab} />}
+          {activeTab === 'speed' && <SpeedTab reaction={reaction} vocab={vocab} />}
         </div>
       )}
     </div>
@@ -269,11 +331,17 @@ export default function ReactionCards({ locale = 'ru' as SupportedLocale, facets
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [substanceMap, setSubstanceMap] = useState<Map<string, SubstanceIndexEntry>>(new Map());
   const [elementMap, setElementMap] = useState<Map<string, ElementInfo>>(new Map());
+  const [vocab, setVocab] = useState<ReactionVocab>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([loadReactions(locale), loadSubstancesIndex(locale), loadElements(locale)]).then(
-      ([rxns, subs, elems]) => {
+    Promise.all([
+      loadReactions(locale),
+      loadSubstancesIndex(locale),
+      loadElements(locale),
+      loadReactionVocab(locale),
+    ]).then(
+      ([rxns, subs, elems, voc]) => {
         setReactions(rxns);
         const sMap = new Map<string, SubstanceIndexEntry>();
         for (const s of subs) sMap.set(normalizeFormula(s.formula), s);
@@ -281,6 +349,7 @@ export default function ReactionCards({ locale = 'ru' as SupportedLocale, facets
         const eMap = new Map<string, ElementInfo>();
         for (const e of elems) eMap.set(e.symbol, { group: e.group, metal_type: e.metal_type });
         setElementMap(eMap);
+        setVocab(voc);
         setLoading(false);
       },
     );
@@ -314,7 +383,7 @@ export default function ReactionCards({ locale = 'ru' as SupportedLocale, facets
 
       <div className="rxn-catalog__list">
         {filtered.map(r => (
-          <ReactionCard key={r.reaction_id} reaction={r} substanceMap={substanceMap} elementMap={elementMap} />
+          <ReactionCard key={r.reaction_id} reaction={r} substanceMap={substanceMap} elementMap={elementMap} vocab={vocab} />
         ))}
       </div>
     </section>

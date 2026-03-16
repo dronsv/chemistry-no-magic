@@ -5,8 +5,8 @@ import reactionRoles from '../../../../data-src/reactions/reaction_roles.json';
 import reactions from '../../../../data-src/reactions/reactions.json';
 
 describe('reaction_roles.json', () => {
-  it('has 11 role definitions', () => {
-    expect(reactionRoles).toHaveLength(11);
+  it('has 12 role definitions', () => {
+    expect(reactionRoles).toHaveLength(12);
   });
 
   it('each role has id', () => {
@@ -20,7 +20,7 @@ describe('reaction_roles.json', () => {
     const expected: ReactionRoleId[] = [
       'reactant', 'product', 'catalyst', 'inhibitor', 'solvent',
       'medium', 'oxidizing_agent', 'reducing_agent', 'precipitate',
-      'gas_evolved', 'electrolyte',
+      'gas_evolved', 'electrolyte', 'spectator_ion',
     ];
     for (const e of expected) {
       expect(ids).toContain(e);
@@ -76,7 +76,7 @@ describe('generateReactionParticipants', () => {
 
   it('precipitation reactions have precipitate role', () => {
     const precipIds = reactions
-      .filter((r: { observations: { precipitate?: string[] } }) =>
+      .filter((r: { observations: { precipitate?: unknown[] } }) =>
         (r.observations.precipitate ?? []).length > 0
       )
       .map((r: { reaction_id: string }) => r.reaction_id);

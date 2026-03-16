@@ -42,5 +42,9 @@
   "electrolyte": {
     "name": "Elektrolit",
     "description": "Elektrolit w procesie elektrochemicznym"
+  },
+  "spectator_ion": {
+    "name": "Jon widz",
+    "description": "Jon obecny w roztworze, który nie bierze udziału w reakcji: jego wzór jest taki sam po obu stronach pełnego równania jonowego i nie występuje w skróconym równaniu jonowym"
   }
 }

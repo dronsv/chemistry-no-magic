@@ -1,4 +1,4 @@
-/** One of 11 possible roles a substance can play in a reaction. */
+/** One of 12 possible roles a substance/ion can play in a reaction. */
 export type ReactionRoleId =
   | 'reactant'
   | 'product'
@@ -10,7 +10,8 @@ export type ReactionRoleId =
   | 'reducing_agent'
   | 'precipitate'
   | 'gas_evolved'
-  | 'electrolyte';
+  | 'electrolyte'
+  | 'spectator_ion';
 
 /** A role definition from reaction_roles.json. */
 export interface ReactionRole {

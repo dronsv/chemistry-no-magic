@@ -4,7 +4,7 @@
     "equation": "HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)",
     "phase": {
       "medium": "aq",
-      "notes": "водные растворы"
+      "note_key": "aqueous"
     },
     "conditions": {
       "temperature": "room"
@@ -42,45 +42,76 @@
     "ionic": {
       "full": "H⁺ + Cl⁻ + Na⁺ + OH⁻ → Na⁺ + Cl⁻ + H₂O",
       "net": "H⁺ + OH⁻ → H₂O",
-      "notes": "Na⁺ и Cl⁻ — ионы-наблюдатели."
+      "spectators": [
+        "ion:Na_plus",
+        "ion:Cl_minus"
+      ]
     },
     "observations": {
-      "heat": "обычно выделяется тепло (экзотермично)",
-      "gas": [],
-      "precipitate": [],
+      "heat_intensity": {
+        "intensity": "strong",
+        "rule_id": "heat:exo_strong",
+        "source": "explicit_text"
+      },
       "other": [
-        "pH стремится к 7 при эквимолярных количествах"
+        {
+          "facet": "ph_neutralizes",
+          "rule_id": "other:ph_neutralizes",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Реакция ионная и очень быстрая; ускорение обычно не требуется.",
-        "Перемешивание помогает быстрее выровнять pH."
+        {
+          "action": "already_fast",
+          "note": "ionic_reaction",
+          "rule_id": "speed:ionic_fast",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "note": "equalizes_ph",
+          "rule_id": "speed:stir_ph",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Сильное разбавление уменьшает скорость из‑за снижения концентраций ионов."
+        {
+          "factor": "dilution",
+          "intensity": "strong",
+          "rule_id": "slow:dilution_strong",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Работайте в очках и перчатках: кислоты и щёлочи едкие.",
-      "Кислоту добавляют в воду, а не наоборот (при приготовлении растворов)."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "acid",
+          "base"
+        ],
+        "ppe": [
+          "goggles",
+          "gloves"
+        ],
+        "rule_id": "safety:goggles_gloves",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "acid_dilution_rule",
+        "rule_id": "safety:acid_water_rule",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "кислоты и основания",
-        "ионные уравнения"
-      ],
-      "typical_tasks": [
-        "определить продукты реакции",
-        "сокращённое ионное уравнение"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
     },
-    "template_id": "neutralization"
+    "template_id": "neutralization",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_neutral_02_h2so4_koh",
@@ -126,43 +157,50 @@
       "net": "2H⁺ + 2OH⁻ → 2H₂O"
     },
     "observations": {
-      "heat": "выделяется тепло",
-      "gas": [],
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "strong",
+        "rule_id": "heat:strong",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание. Реакция быстрая."
+        {
+          "action": "stir",
+          "note": "already_fast",
+          "rule_id": "speed:stir_fast",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "H₂SO₄ концентрированная — опасна; в задачах обычно подразумевается раствор."
+      {
+        "hazard": "concentrated_acid",
+        "ref": "sub:h2so4",
+        "rule_id": "safety:h2so4_conc",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "нейтрализация",
-        "коэффициенты"
-      ],
-      "typical_tasks": [
-        "расставить коэффициенты",
-        "составить ионное уравнение"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P"
     },
-    "template_id": "neutralization"
+    "template_id": "neutralization",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_carbonate_01_caco3_hcl",
     "equation": "CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)↑",
     "phase": {
       "medium": "mixed",
-      "notes": "твёрдый карбонат + раствор кислоты"
+      "note_key": "solid_plus_acid_solution"
     },
     "conditions": {
       "temperature": "room"
@@ -204,49 +242,83 @@
     "ionic": {
       "full": "CaCO₃(s) + 2H⁺ + 2Cl⁻ → Ca²⁺ + 2Cl⁻ + H₂O + CO₂↑",
       "net": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑",
-      "notes": "Выделение газа уводит продукт и «толкает» реакцию вправо."
+      "note_key": "gas_drives_forward"
     },
     "observations": {
       "gas": [
-        "CO₂ (пузырьки)"
+        {
+          "ref": "sub:co2",
+          "formula": "CO2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "heat": "часто слабое тепловыделение",
-      "precipitate": [],
+      "heat_intensity": {
+        "intensity": "weak",
+        "rule_id": "heat:weak_frequent",
+        "source": "explicit_text"
+      },
       "other": [
-        "шипение/вспенивание"
+        {
+          "facet": "fizzing",
+          "rule_id": "other:fizzing",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Измельчить CaCO₃ (увеличить площадь поверхности).",
-        "Повысить концентрацию кислоты (умеренно).",
-        "Перемешивать — пузырьки CO₂ снимают с поверхности."
+        {
+          "action": "grind",
+          "target_ref": "sub:caco3",
+          "rule_id": "speed:grind_caco3",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "acid",
+          "intensity": "moderate",
+          "rule_id": "speed:conc_acid_mod",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "note": "removes_bubbles",
+          "rule_id": "speed:stir_bubbles",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Крупные куски карбоната.",
-        "Низкая температура."
+        {
+          "factor": "large_pieces",
+          "rule_id": "slow:large_pieces",
+          "source": "explicit_text"
+        },
+        {
+          "factor": "low_temperature",
+          "rule_id": "slow:low_temp",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "CO₂ в больших количествах может вытеснять кислород в плохо проветриваемом помещении."
+      {
+        "hazard": "asphyxiant",
+        "ref": "sub:co2",
+        "rule_id": "safety:co2_asphyxiant",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "карбонаты",
-        "признаки реакций"
-      ],
-      "typical_tasks": [
-        "определить газ",
-        "составить сокращённое ионное уравнение"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
     },
-    "template_id": "carbonate_acid"
+    "template_id": "carbonate_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_carbonate_02_na2co3_h2so4",
@@ -297,49 +369,71 @@
     },
     "observations": {
       "gas": [
-        "CO₂"
+        {
+          "ref": "sub:co2",
+          "formula": "CO2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "heat": "может выделяться тепло",
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "barely",
+        "rule_id": "heat:maybe",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание.",
-        "Повышение концентрации реагентов."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "reagent",
+          "rule_id": "speed:conc_reagents",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Осторожно с кислотами."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "acid"
+        ],
+        "rule_id": "safety:acid_careful",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "карбонаты",
-        "ионные уравнения"
-      ],
-      "typical_tasks": [
-        "сокращённое ионное уравнение"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "carbonate_acid"
+    "template_id": "carbonate_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_acid_oxide_01_naoh_co2",
     "equation": "2NaOH(aq) + CO₂(g) → Na₂CO₃(aq) + H₂O(l)",
     "phase": {
       "medium": "mixed",
-      "notes": "CO₂ поглощается раствором щёлочи"
+      "note_key": "gas_absorbed_by_base"
     },
     "conditions": {
       "temperature": "room",
-      "pressure": "атм"
+      "pressure": "atm"
     },
     "type_tags": [
       "exchange",
@@ -374,45 +468,74 @@
     },
     "ionic": {
       "net": "CO₂ + 2OH⁻ → CO₃²⁻ + H₂O",
-      "notes": "Рассматривают как кислотный оксид + щёлочь.",
-      "full": "2Na⁺ + 2OH⁻ + CO₂ → 2Na⁺ + CO₃²⁻ + H₂O"
+      "full": "2Na⁺ + 2OH⁻ + CO₂ → 2Na⁺ + CO₃²⁻ + H₂O",
+      "note_key": "acid_oxide_plus_base"
     },
     "observations": {
       "gas": [
-        "CO₂ поглощается"
+        {
+          "ref": "sub:co2",
+          "formula": "CO2",
+          "consumed": true,
+          "appearance": "absorbed",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.reactant_absorbed"
+        }
       ],
-      "heat": "слабое тепловыделение",
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "weak",
+        "rule_id": "heat:weak",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Интенсивно перемешивать/барботировать CO₂.",
-        "Увеличить площадь контакта газ–жидкость.",
-        "Повысить давление CO₂ (если возможно)."
+        {
+          "action": "bubble_gas",
+          "target_ref": "sub:co2",
+          "rule_id": "speed:bubble_co2",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_contact_area",
+          "rule_id": "speed:contact_area",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_pressure",
+          "target_ref": "sub:co2",
+          "rule_id": "speed:pressure_co2",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Плохой массообмен (газ не растворяется/не перемешивается)."
+        {
+          "factor": "poor_mass_transfer",
+          "note": "gas",
+          "rule_id": "slow:poor_mass_gas",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Щёлочь едкая; избегайте попадания на кожу."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "note": "avoid_skin",
+        "rule_id": "safety:base_skin",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "кислотные оксиды",
-        "карбонаты"
-      ],
-      "typical_tasks": [
-        "дополнить уравнение реакции"
-      ]
-    },
     "competencies": {
       "classification": "S",
       "reactions_exchange": "S",
       "reaction_energy_profile": "S"
     },
-    "template_id": "base_acidic_oxide"
+    "template_id": "base_acidic_oxide",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_acid_oxide_02_koh_so2",
@@ -459,41 +582,70 @@
       "full": "2K⁺ + 2OH⁻ + SO₂ → 2K⁺ + SO₃²⁻ + H₂O"
     },
     "observations": {
-      "other": [
-        "SO₂ поглощается раствором щёлочи"
+      "gas": [
+        {
+          "ref": "sub:so2",
+          "formula": "SO2",
+          "consumed": true,
+          "appearance": "absorbed",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.reactant_absorbed"
+        }
       ],
-      "heat": "слабое тепловыделение",
-      "gas": [],
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "weak",
+        "rule_id": "heat:weak",
+        "source": "explicit_text"
+      },
+      "other": [
+        {
+          "facet": "gas_absorbed",
+          "ref": "sub:so2",
+          "rule_id": "other:so2_absorbed",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание/барботирование газа.",
-        "Повышение концентрации щёлочи."
+        {
+          "action": "bubble_gas",
+          "rule_id": "speed:bubble_generic",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "base",
+          "rule_id": "speed:conc_base",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Плохой массообмен газа."
+        {
+          "factor": "poor_mass_transfer",
+          "note": "gas",
+          "rule_id": "slow:poor_mass_gas",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "SO₂ токсичен; учебный пример. В реальности работать только в вытяжке."
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:so2",
+        "note": "fume_hood",
+        "rule_id": "safety:so2_toxic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "кислотные оксиды",
-        "соли"
-      ],
-      "typical_tasks": [
-        "выбрать продукты реакции"
-      ]
-    },
     "competencies": {
       "classification": "S",
       "reaction_energy_profile": "S",
       "reactions_exchange": "S"
     },
-    "template_id": "base_acidic_oxide"
+    "template_id": "base_acidic_oxide",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_01_baso4",
@@ -539,38 +691,66 @@
     },
     "observations": {
       "precipitate": [
-        "BaSO₄ (белый осадок)"
+        {
+          "ref": "sub:baso4",
+          "formula": "BaSO4",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.baso4",
+          "color": "white"
+        }
       ],
-      "gas": [],
-      "heat": "обычно без заметного теплового эффекта"
+      "heat_intensity": {
+        "intensity": "none",
+        "rule_id": "heat:none",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание.",
-        "Достаточные концентрации ионов Ba²⁺ и SO₄²⁻."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        },
+        {
+          "action": "ensure_concentration",
+          "target_ions": [
+            "ion:Ba_2plus",
+            "ion:SO4_2minus"
+          ],
+          "rule_id": "speed:ensure_ions",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Сильное разбавление."
+        {
+          "factor": "dilution",
+          "intensity": "strong",
+          "rule_id": "slow:dilution_strong",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Соли бария токсичны (включая BaCl₂). Это учебный пример."
+      {
+        "hazard": "toxic",
+        "refs": [
+          "sub:bacl2"
+        ],
+        "note": "educational",
+        "rule_id": "safety:ba_salts_edu",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "растворимость",
-        "ионные уравнения"
-      ],
-      "typical_tasks": [
-        "выбрать реакцию, идущую до конца"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "salt_precipitate_exchange"
+    "template_id": "salt_precipitate_exchange",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_02_agcl",
@@ -617,40 +797,59 @@
     },
     "observations": {
       "precipitate": [
-        "AgCl (белый творожистый осадок)"
+        {
+          "ref": "sub:agcl",
+          "formula": "AgCl",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.agcl",
+          "color": "white",
+          "texture": "curdy"
+        }
       ],
       "other": [
-        "на свету темнеет"
-      ],
-      "gas": []
+        {
+          "facet": "darkens_in_light",
+          "rule_id": "other:darkens_light",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Очень разбавленные растворы."
+        {
+          "factor": "dilution",
+          "intensity": "extreme",
+          "rule_id": "slow:dilution_extreme",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "AgNO₃ оставляет тёмные пятна на коже/одежде; работать аккуратно."
+      {
+        "hazard": "stains",
+        "ref": "sub:agno3",
+        "note": "careful",
+        "rule_id": "safety:agno3_stains_c",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "качественные реакции",
-        "растворимость"
-      ],
-      "typical_tasks": [
-        "распознать ион по признаку"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "qualitative_analysis_logic": "P"
     },
-    "template_id": "salt_precipitate_exchange"
+    "template_id": "salt_precipitate_exchange",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_03_cuoh2",
@@ -696,35 +895,50 @@
     },
     "observations": {
       "precipitate": [
-        "Cu(OH)₂ (голубой осадок)"
-      ],
-      "gas": []
+        {
+          "ref": "sub:cu_oh_2",
+          "formula": "Cu(OH)2",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.cu_oh_2",
+          "color": "light_blue"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Соли меди токсичны при попадании внутрь; избегайте контакта."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "copper_salts"
+        ],
+        "note": "avoid_contact",
+        "rule_id": "safety:cu_salts_contact",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "гидроксиды",
-        "качественные реакции"
-      ],
-      "typical_tasks": [
-        "определить осадок по цвету"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_gas_01_nahco3_hcl",
@@ -775,41 +989,64 @@
     },
     "observations": {
       "gas": [
-        "CO₂ (шипение)"
+        {
+          "ref": "sub:co2",
+          "formula": "CO2",
+          "produced": true,
+          "appearance": "fizzing",
+          "source": "ontology_phase+explicit_text",
+          "rule_id": "gas.refine.fizzing"
+        }
       ],
       "other": [
-        "Если пропустить CO₂ через известковую воду — помутнеет (CaCO₃↓)."
-      ],
-      "precipitate": []
+        {
+          "facet": "limewater_test",
+          "ref": "sub:co2",
+          "precipitate_ref": "sub:caco3",
+          "rule_id": "other:limewater_caco3",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание.",
-        "Повышение концентрации кислоты."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "acid",
+          "rule_id": "speed:conc_acid",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Осторожно с кислотой."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "acid"
+        ],
+        "rule_id": "safety:acid_careful_sg",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "карбонаты/гидрокарбонаты",
-        "признаки реакций"
-      ],
-      "typical_tasks": [
-        "определить газ",
-        "сокращённое ионное уравнение"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "carbonate_acid"
+    "template_id": "carbonate_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_gas_02_na2s_hcl",
@@ -856,36 +1093,53 @@
     },
     "observations": {
       "gas": [
-        "H₂S"
+        {
+          "ref": "sub:h2s",
+          "formula": "H2S",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "smell": "запах тухлых яиц",
-      "precipitate": []
+      "smell": {
+        "kind": "rotten_eggs",
+        "ref": "sub:h2s",
+        "rule_id": "smell:rotten_eggs",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "H₂S токсичен. Это учебный пример; в реальности только в вытяжке."
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:h2s",
+        "note": "fume_hood",
+        "rule_id": "safety:h2s_toxic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "сульфиды",
-        "признаки реакций"
-      ],
-      "typical_tasks": [
-        "определить газ по признакам"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_gas_03_nh4cl_naoh",
@@ -895,7 +1149,7 @@
     },
     "conditions": {
       "temperature": "room",
-      "excess": "избыток щёлочи усиливает выделение NH₃"
+      "excess_note_key": "base_excess_enhances_nh3"
     },
     "type_tags": [
       "exchange",
@@ -938,40 +1192,67 @@
     },
     "observations": {
       "gas": [
-        "NH₃"
+        {
+          "ref": "sub:nh3",
+          "formula": "NH3",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "smell": "резкий запах аммиака",
+      "smell": {
+        "kind": "ammonia",
+        "ref": "sub:nh3",
+        "rule_id": "smell:ammonia",
+        "source": "explicit_text"
+      },
       "other": [
-        "влажная красная лакмусовая бумага синеет"
-      ],
-      "precipitate": []
+        {
+          "facet": "litmus_turns_blue",
+          "rule_id": "other:litmus_blue",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Небольшой нагрев (если допускается).",
-        "Избыток щёлочи.",
-        "Перемешивание."
+        {
+          "action": "heat",
+          "intensity": "moderate",
+          "rule_id": "speed:heat_moderate",
+          "source": "explicit_text"
+        },
+        {
+          "action": "add_excess",
+          "target_class": "base",
+          "rule_id": "speed:excess_base",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Аммиак раздражает дыхательные пути; проветривание обязательно."
+      {
+        "hazard": "irritant_gas",
+        "ref": "sub:nh3",
+        "note": "ventilate",
+        "rule_id": "safety:nh3_irritant",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "соли аммония",
-        "качественные реакции"
-      ],
-      "typical_tasks": [
-        "распознать ион NH₄⁺"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "reaction_energy_profile": "S",
       "qualitative_analysis_logic": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_amph_01_aloh3_hcl",
@@ -1019,34 +1300,48 @@
     },
     "observations": {
       "other": [
-        "осадок Al(OH)₃ растворяется в кислоте"
-      ],
-      "gas": [],
-      "precipitate": []
+        {
+          "facet": "precipitate_dissolves_in_acid",
+          "ref": "sub:al_oh_3",
+          "rule_id": "other:al_oh3_dissolves",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Раздробить/взболтать осадок.",
-        "Умеренно повысить концентрацию кислоты."
+        {
+          "action": "grind",
+          "note": "precipitate",
+          "rule_id": "speed:grind_precipitate",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "acid",
+          "intensity": "moderate",
+          "rule_id": "speed:conc_acid_mod2",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Кислоты едкие."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "acid"
+        ],
+        "rule_id": "safety:acid_caustic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "амфотерность"
-      ],
-      "typical_tasks": [
-        "выбрать реагенты для растворения осадка"
-      ]
-    },
     "competencies": {
       "amphoterism_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "neutralization"
+    "template_id": "neutralization",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_amph_02_aloh3_naoh",
@@ -1056,7 +1351,7 @@
     },
     "conditions": {
       "temperature": "room",
-      "excess": "избыток NaOH облегчает растворение"
+      "excess_note_key": "naoh_excess_dissolves"
     },
     "type_tags": [
       "exchange",
@@ -1090,33 +1385,44 @@
     },
     "observations": {
       "other": [
-        "осадок растворяется в избытке щёлочи"
-      ],
-      "gas": [],
-      "precipitate": []
+        {
+          "facet": "precipitate_dissolves_in_excess_base",
+          "rule_id": "other:dissolves_excess_base",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Добавить избыток щёлочи.",
-        "Перемешивание."
+        {
+          "action": "add_excess",
+          "target_class": "base",
+          "rule_id": "speed:add_excess_base",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Щёлочь едкая."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "rule_id": "safety:base_caustic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "амфотерность"
-      ],
-      "typical_tasks": [
-        "объяснить растворение осадка в избытке щёлочи"
-      ]
-    },
     "competencies": {
       "amphoterism_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_exchange_01_cuo_hcl",
@@ -1163,35 +1469,53 @@
     },
     "observations": {
       "other": [
-        "CuO растворяется; раствор может стать голубовато‑зелёным (Cu²⁺)"
-      ],
-      "gas": [],
-      "precipitate": []
+        {
+          "facet": "dissolves_with_color",
+          "ref": "sub:cuo",
+          "ion_ref": "ion:Cu_2plus",
+          "result_color": "blue_green",
+          "rule_id": "other:cuo_dissolves",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Подогрев (если допускается).",
-        "Перемешивание.",
-        "Измельчение оксида."
+        {
+          "action": "heat",
+          "intensity": "moderate",
+          "rule_id": "speed:heat_warm",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        },
+        {
+          "action": "grind",
+          "target_class": "oxide",
+          "rule_id": "speed:grind_oxide",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Соли меди токсичны при попадании внутрь."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "copper_salts"
+        ],
+        "rule_id": "safety:cu_salts_ingest",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "оксиды",
-        "кислоты"
-      ],
-      "typical_tasks": [
-        "дополнить уравнение реакции"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_exchange_02_caoh2_co2",
@@ -1238,37 +1562,56 @@
     },
     "observations": {
       "precipitate": [
-        "CaCO₃ (помутнение)"
+        {
+          "ref": "sub:caco3",
+          "formula": "CaCO3",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.caco3",
+          "texture": "turbidity"
+        }
       ],
       "other": [
-        "признак CO₂ — помутнение известковой воды"
-      ],
-      "gas": []
+        {
+          "facet": "limewater_test",
+          "ref": "sub:co2",
+          "rule_id": "other:limewater_co2",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Барботирование CO₂.",
-        "Перемешивание."
+        {
+          "action": "bubble_gas",
+          "target_ref": "sub:co2",
+          "rule_id": "speed:barbotage_co2",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Известковая вода — щёлочная, избегайте попадания в глаза."
+      {
+        "hazard": "corrosive",
+        "ref": "sub:ca_oh_2",
+        "note": "avoid_eyes",
+        "rule_id": "safety:limewater_eyes",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "качественные реакции",
-        "карбонаты"
-      ],
-      "typical_tasks": [
-        "распознать CO₂"
-      ]
-    },
     "competencies": {
       "classification": "S",
       "gas_precipitate_logic": "P"
     },
-    "template_id": "base_acidic_oxide"
+    "template_id": "base_acidic_oxide",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_04_feoh3",
@@ -1314,34 +1657,49 @@
     },
     "observations": {
       "precipitate": [
-        "Fe(OH)₃ (бурый осадок)"
-      ],
-      "gas": []
+        {
+          "ref": "sub:fe_oh_3",
+          "formula": "Fe(OH)3",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.fe_oh_3",
+          "color": "brown"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Щёлочь едкая."
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "rule_id": "safety:base_caustic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "гидроксиды"
-      ],
-      "typical_tasks": [
-        "определить осадок по цвету"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_neutral_03_ch3cooh_naoh",
@@ -1384,36 +1742,39 @@
     },
     "ionic": {
       "net": "CH₃COOH + OH⁻ → CH₃COO⁻ + H₂O",
-      "notes": "Слабую кислоту часто пишут молекулой.",
-      "full": "CH₃COOH + Na⁺ + OH⁻ → Na⁺ + CH₃COO⁻ + H₂O"
+      "full": "CH₃COOH + Na⁺ + OH⁻ → Na⁺ + CH₃COO⁻ + H₂O",
+      "note_key": "weak_acid_as_molecule"
     },
     "observations": {
-      "heat": "обычно выделяется тепло (слабее, чем для сильной кислоты)",
-      "gas": [],
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "moderate",
+        "rule_id": "heat:moderate_weak",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [],
-    "oge": {
-      "topics": [
-        "слабые электролиты"
-      ],
-      "typical_tasks": [
-        "сокращённое ионное уравнение"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P"
     },
-    "template_id": "neutralization"
+    "template_id": "neutralization",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_05_caco3_from_salts",
@@ -1459,31 +1820,34 @@
     },
     "observations": {
       "precipitate": [
-        "CaCO₃ (белый осадок)"
-      ],
-      "gas": []
+        {
+          "ref": "sub:caco3",
+          "formula": "CaCO3",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.caco3",
+          "color": "white"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [],
-    "oge": {
-      "topics": [
-        "карбонаты",
-        "растворимость"
-      ],
-      "typical_tasks": [
-        "идёт ли реакция до конца"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "salt_precipitate_exchange"
+    "template_id": "salt_precipitate_exchange",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_06_pbi2",
@@ -1529,32 +1893,44 @@
     },
     "observations": {
       "precipitate": [
-        "PbI₂ (жёлтый осадок)"
-      ],
-      "gas": []
+        {
+          "ref": "sub:pbi2",
+          "formula": "PbI2",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.pbi2",
+          "color": "yellow"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Соединения свинца токсичны. Это учебный пример."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "lead_compounds"
+        ],
+        "note": "educational",
+        "rule_id": "safety:pb_compounds",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "растворимость"
-      ],
-      "typical_tasks": [
-        "признак реакции"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "salt_precipitate_exchange"
+    "template_id": "salt_precipitate_exchange",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_07_h2so4_bacl2",
@@ -1600,33 +1976,54 @@
       "full": "2H⁺ + SO₄²⁻ + Ba²⁺ + 2Cl⁻ → BaSO₄↓ + 2H⁺ + 2Cl⁻"
     },
     "observations": {
-      "precipitate": [
-        "BaSO₄ (белый осадок)"
+      "gas": [
+        {
+          "ref": "sub:hcl",
+          "formula": "HCl",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "gas": []
+      "precipitate": [
+        {
+          "ref": "sub:baso4",
+          "formula": "BaSO4",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.baso4",
+          "color": "white"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "Соли бария токсичны."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "barium_salts"
+        ],
+        "rule_id": "safety:ba_salts",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "качественные реакции"
-      ],
-      "typical_tasks": [
-        "распознать сульфат‑ион"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P",
       "qualitative_analysis_logic": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_gas_04_na2so3_hcl",
@@ -1677,32 +2074,46 @@
     },
     "observations": {
       "gas": [
-        "SO₂"
+        {
+          "ref": "sub:so2",
+          "formula": "SO2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "smell": "резкий удушливый запах",
-      "precipitate": []
+      "smell": {
+        "kind": "suffocating",
+        "ref": "sub:so2",
+        "rule_id": "smell:suffocating",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [
-      "SO₂ токсичен; учебный пример. В реальности только в вытяжке."
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:so2",
+        "note": "fume_hood",
+        "rule_id": "safety:so2_toxic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "соли сернистой кислоты"
-      ],
-      "typical_tasks": [
-        "определить газ по уравнению"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_exchange_03_cao_hcl",
@@ -1748,32 +2159,40 @@
       "full": "CaO(s) + 2H⁺ + 2Cl⁻ → Ca²⁺ + 2Cl⁻ + H₂O"
     },
     "observations": {
-      "heat": "может сопровождаться тепловыделением",
-      "gas": [],
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "barely",
+        "rule_id": "heat:accompany",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Измельчение CaO.",
-        "Перемешивание."
+        {
+          "action": "grind",
+          "target_ref": "sub:cao",
+          "rule_id": "speed:grind_cao",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "CaO реагирует с водой с выделением тепла; осторожно."
+      {
+        "hazard": "exothermic",
+        "ref": "sub:cao",
+        "rule_id": "safety:cao_exo",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "оксиды",
-        "кислоты"
-      ],
-      "typical_tasks": [
-        "дополнить уравнение реакции"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_neutral_04_hno3_caoh2",
@@ -1819,31 +2238,35 @@
       "full": "2H⁺ + 2NO₃⁻ + Ca²⁺ + 2OH⁻ → Ca²⁺ + 2NO₃⁻ + 2H₂O"
     },
     "observations": {
-      "heat": "выделяется тепло",
-      "gas": [],
-      "precipitate": []
+      "heat_intensity": {
+        "intensity": "strong",
+        "rule_id": "heat:strong",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Азотная кислота — сильная кислота, едкая."
+      {
+        "hazard": "corrosive",
+        "ref": "sub:hno3",
+        "rule_id": "safety:hno3_caustic",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "нейтрализация"
-      ],
-      "typical_tasks": [
-        "расставить коэффициенты"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P"
     },
-    "template_id": "neutralization"
+    "template_id": "neutralization",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_precip_08_caso4",
@@ -1889,33 +2312,43 @@
     },
     "observations": {
       "precipitate": [
-        "CaSO₄ (белый осадок/помутнение)"
-      ],
-      "gas": []
+        {
+          "ref": "sub:caso4",
+          "formula": "CaSO4",
+          "formed": true,
+          "solubility": "slightly_soluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.caso4",
+          "color": "white",
+          "texture": "turbidity"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Перемешивание."
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление (может не выпадать заметно)."
+        {
+          "factor": "dilution",
+          "note": "may_prevent_precipitation",
+          "rule_id": "slow:dilution_precip",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "unknown",
     "safety_notes": [],
-    "oge": {
-      "topics": [
-        "растворимость"
-      ],
-      "typical_tasks": [
-        "определить, выпадет ли осадок"
-      ]
-    },
     "competencies": {
       "gas_precipitate_logic": "P",
       "reactions_exchange": "P"
     },
-    "template_id": "salt_precipitate_exchange"
+    "template_id": "salt_precipitate_exchange",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_gas_05_caco3_heat",
@@ -1952,48 +2385,67 @@
       ]
     },
     "ionic": {
-      "notes": "Не ионная реакция; протекает при нагревании."
+      "note_key": "not_ionic_heating"
     },
     "observations": {
       "gas": [
-        "CO₂"
+        {
+          "ref": "sub:co2",
+          "formula": "CO2",
+          "produced": true,
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
       "other": [
-        "масса твёрдого остатка уменьшается"
-      ],
-      "precipitate": []
+        {
+          "facet": "solid_mass_decreases",
+          "rule_id": "other:solid_mass_decreases",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Сильный нагрев.",
-        "Измельчение вещества.",
-        "Удаление CO₂ смещает равновесие вправо."
+        {
+          "action": "heat",
+          "intensity": "strong",
+          "rule_id": "speed:heat_strong",
+          "source": "explicit_text"
+        },
+        {
+          "action": "grind",
+          "rule_id": "speed:grind_substance",
+          "source": "explicit_text"
+        },
+        {
+          "action": "remove_product",
+          "target_ref": "sub:co2",
+          "rule_id": "speed:remove_co2",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "endo",
     "safety_notes": [
-      "Работа с нагреванием требует соблюдения техники безопасности."
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "разложение",
-        "карбонаты"
-      ],
-      "typical_tasks": [
-        "определить продукты разложения"
-      ]
-    },
     "competencies": {
       "reactions_exchange": "P",
       "reaction_energy_profile": "S"
-    }
+    },
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_01_zn_hcl",
     "equation": "Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g)↑",
     "phase": {
       "medium": "mixed",
-      "notes": "металл + раствор кислоты"
+      "note_key": "metal_plus_acid_solution"
     },
     "conditions": {
       "temperature": "room"
@@ -2034,37 +2486,64 @@
     },
     "observations": {
       "gas": [
-        "H₂ (пузырьки)"
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "precipitate": [],
       "other": [
-        "цинк растворяется"
+        {
+          "facet": "metal_dissolves",
+          "ref": "elem:Zn",
+          "rule_id": "other:zn_dissolves",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Измельчить цинк (увеличить площадь поверхности).",
-        "Повысить концентрацию кислоты.",
-        "Небольшой нагрев."
+        {
+          "action": "grind",
+          "target_ref": "elem:Zn",
+          "rule_id": "speed:grind_zn",
+          "source": "explicit_text"
+        },
+        {
+          "action": "increase_concentration",
+          "target_class": "acid",
+          "rule_id": "speed:conc_acid",
+          "source": "explicit_text"
+        },
+        {
+          "action": "heat",
+          "intensity": "moderate",
+          "rule_id": "speed:heat_moderate",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление кислоты."
+        {
+          "factor": "dilution",
+          "target_class": "acid",
+          "rule_id": "slow:dilution_acid",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "H₂ горюч; не подносить открытое пламя."
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "note": "no_flame",
+        "rule_id": "safety:h2_flame",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ОВР",
-        "ряд активности"
-      ],
-      "typical_tasks": [
-        "определить окислитель и восстановитель"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P",
       "oxidation_states": "S"
@@ -2081,10 +2560,10 @@
         "element": "Zn",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_acid"
+    "template_id": "metal_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_02_fe_h2so4",
@@ -2131,35 +2610,55 @@
     },
     "observations": {
       "gas": [
-        "H₂ (пузырьки)"
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
       ],
-      "precipitate": [],
       "other": [
-        "железо растворяется"
+        {
+          "facet": "metal_dissolves",
+          "ref": "elem:Fe",
+          "rule_id": "other:fe_dissolves",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Измельчить железо.",
-        "Нагреть."
+        {
+          "action": "grind",
+          "target_ref": "elem:Fe",
+          "rule_id": "speed:grind_fe",
+          "source": "explicit_text"
+        },
+        {
+          "action": "heat",
+          "rule_id": "speed:heat",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление."
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "H₂ горюч."
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "rule_id": "safety:h2_plain",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ОВР"
-      ],
-      "typical_tasks": [
-        "составить электронный баланс"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P",
       "oxidation_states": "S"
@@ -2176,10 +2675,10 @@
         "element": "Fe",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_acid"
+    "template_id": "metal_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_03_mg_hcl",
@@ -2226,32 +2725,48 @@
     },
     "observations": {
       "gas": [
-        "H₂ (бурное выделение)"
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "vigorous",
+          "source": "ontology_phase+explicit_text",
+          "rule_id": "gas.refine.vigorous"
+        }
       ],
-      "precipitate": [],
-      "heat": "заметное тепловыделение"
+      "heat_intensity": {
+        "intensity": "strong",
+        "rule_id": "heat:notable",
+        "source": "explicit_text"
+      }
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Магний очень активен; реакция идёт быстро."
+        {
+          "action": "already_fast",
+          "note": "active_metal",
+          "ref": "elem:Mg",
+          "rule_id": "speed:mg_active",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Разбавление кислоты."
+        {
+          "factor": "dilution",
+          "target_class": "acid",
+          "rule_id": "slow:dilution_acid",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Бурная реакция; добавлять кислоту осторожно."
+      {
+        "hazard": "vigorous_reaction",
+        "rule_id": "safety:vigorous",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ОВР"
-      ],
-      "typical_tasks": [
-        "определить тип реакции"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P",
       "oxidation_states": "S"
@@ -2268,17 +2783,17 @@
         "element": "Mg",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Mg⁰ − 2e⁻ → Mg²⁺ (восстановитель)\n2H⁺ + 2e⁻ → H₂⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_acid"
+    "template_id": "metal_acid",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_04_fe_cuso4",
     "equation": "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)↓",
     "phase": {
       "medium": "mixed",
-      "notes": "металл + раствор соли"
+      "note_key": "metal_plus_salt_solution"
     },
     "conditions": {
       "temperature": "room"
@@ -2317,35 +2832,63 @@
       "net": "Fe(s) + Cu²⁺ → Fe²⁺ + Cu(s)"
     },
     "observations": {
-      "precipitate": [],
-      "gas": [],
-      "color_change": "раствор бледнеет (Cu²⁺ исчезает), на железе — красноватый налёт меди",
+      "color_change": [
+        {
+          "type": "solution_fades",
+          "ion_ref": "ion:Cu_2plus",
+          "deposit": {
+            "ref": "elem:Cu",
+            "color": "reddish",
+            "surface_ref": "elem:Fe"
+          },
+          "rule_id": "color:fe_cu_deposition",
+          "source": "explicit_text"
+        }
+      ],
       "other": [
-        "на поверхности железа выделяется медь"
+        {
+          "facet": "metal_deposits",
+          "surface_ref": "elem:Fe",
+          "deposit_ref": "elem:Cu",
+          "rule_id": "other:fe_cu_deposits",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Зачистить поверхность железа.",
-        "Перемешивание."
+        {
+          "action": "clean_surface",
+          "target_ref": "elem:Fe",
+          "rule_id": "speed:clean_fe",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ],
       "what_slows_down": [
-        "Оксидная плёнка на железе."
+        {
+          "factor": "oxide_film",
+          "ref": "elem:Fe",
+          "rule_id": "slow:oxide_film",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Соли меди токсичны при попадании внутрь."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "copper_salts"
+        ],
+        "rule_id": "safety:cu_salts_ingest",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ряд активности"
-      ],
-      "typical_tasks": [
-        "предсказать, пойдёт ли реакция"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P"
     },
@@ -2361,10 +2904,10 @@
         "element": "Fe",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Fe⁰ − 2e⁻ → Fe²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_displacement"
+    "template_id": "metal_displacement",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_05_zn_cuso4",
@@ -2409,29 +2952,45 @@
       "net": "Zn(s) + Cu²⁺ → Zn²⁺ + Cu(s)"
     },
     "observations": {
-      "precipitate": [],
-      "gas": [],
-      "color_change": "раствор обесцвечивается, на цинке — красноватый налёт меди"
+      "color_change": [
+        {
+          "type": "solution_decolorizes",
+          "deposit": {
+            "ref": "elem:Cu",
+            "color": "reddish",
+            "surface_ref": "elem:Zn"
+          },
+          "rule_id": "color:zn_cu_deposition",
+          "source": "explicit_text"
+        }
+      ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Зачистить поверхность цинка.",
-        "Перемешивание."
+        {
+          "action": "clean_surface",
+          "target_ref": "elem:Zn",
+          "rule_id": "speed:clean_zn",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "Соли меди токсичны."
+      {
+        "hazard": "toxic",
+        "agents": [
+          "copper_salts"
+        ],
+        "rule_id": "safety:cu_salts_plain",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ОВР"
-      ],
-      "typical_tasks": [
-        "предсказать продукты"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P"
     },
@@ -2447,10 +3006,10 @@
         "element": "Zn",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Zn⁰ − 2e⁻ → Zn²⁺ (восстановитель)\nCu²⁺ + 2e⁻ → Cu⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_displacement"
+    "template_id": "metal_displacement",
+    "schema_version": 2
   },
   {
     "reaction_id": "rx_redox_06_cu_agno3",
@@ -2495,32 +3054,53 @@
       "net": "Cu(s) + 2Ag⁺ → Cu²⁺ + 2Ag(s)"
     },
     "observations": {
-      "precipitate": [],
-      "gas": [],
-      "color_change": "раствор становится голубым (Cu²⁺), на меди — серебристые кристаллы",
+      "color_change": [
+        {
+          "type": "solution_turns_blue",
+          "ion_ref": "ion:Cu_2plus",
+          "deposit": {
+            "ref": "elem:Ag",
+            "color": "silvery",
+            "surface_ref": "elem:Cu"
+          },
+          "rule_id": "color:cu_ag_deposition",
+          "source": "explicit_text"
+        }
+      ],
       "other": [
-        "«серебряное дерево» на поверхности меди"
+        {
+          "facet": "metal_deposits",
+          "surface_ref": "elem:Cu",
+          "deposit_ref": "elem:Ag",
+          "rule_id": "other:cu_ag_deposits",
+          "source": "explicit_text"
+        }
       ]
     },
     "rate_tips": {
       "how_to_speed_up": [
-        "Зачистить медь.",
-        "Перемешивание."
+        {
+          "action": "clean_surface",
+          "target_ref": "elem:Cu",
+          "rule_id": "speed:clean_cu",
+          "source": "explicit_text"
+        },
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
       ]
     },
     "heat_effect": "exo",
     "safety_notes": [
-      "AgNO₃ оставляет тёмные пятна."
+      {
+        "hazard": "stains",
+        "ref": "sub:agno3",
+        "rule_id": "safety:agno3_stains",
+        "source": "explicit_text"
+      }
     ],
-    "oge": {
-      "topics": [
-        "замещение",
-        "ряд активности"
-      ],
-      "typical_tasks": [
-        "определить, пойдёт ли реакция"
-      ]
-    },
     "competencies": {
       "reactions_redox": "P"
     },
@@ -2536,9 +3116,9 @@
         "element": "Cu",
         "from": 0,
         "to": 2
-      },
-      "electron_transfer": "Cu⁰ − 2e⁻ → Cu²⁺ (восстановитель)\n2Ag⁺ + 2e⁻ → 2Ag⁰ (окислитель)"
+      }
     },
-    "template_id": "metal_displacement"
+    "template_id": "metal_displacement",
+    "schema_version": 2
   }
 ]
