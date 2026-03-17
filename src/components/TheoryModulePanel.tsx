@@ -356,6 +356,9 @@ export function applyTheoryModuleOverlay(
         if (block.t === 'text_block' && bo.content) {
           return { ...block, content: bo.content as import('../types/ontology-ref').RichText };
         }
+        if (block.t === 'heading' && bo.text) {
+          return { ...block, text: bo.text as string };
+        }
         return block;
       });
 
