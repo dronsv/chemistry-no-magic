@@ -6,6 +6,7 @@
     "unit": null,
     "trend_hint": { "period": "increases", "group": "decreases" },
     "filter": { "min_Z": 1, "max_Z": 86, "exclude_groups": [18] },
+    "concept_ref": "concept:electronegativity",
     "i18n": {
       "ru": { "nom": "электроотрицательность", "gen": "электроотрицательности" },
       "en": { "name": "electronegativity" },
@@ -20,6 +21,7 @@
     "unit": "u",
     "trend_hint": null,
     "filter": null,
+    "concept_ref": "concept:atomic_mass",
     "i18n": {
       "ru": { "nom": "атомная масса", "gen": "атомной массы" },
       "en": { "name": "atomic mass" },
@@ -34,6 +36,7 @@
     "unit": "°C",
     "trend_hint": null,
     "filter": null,
+    "concept_ref": "concept:melting_point",
     "i18n": {
       "ru": { "nom": "температура плавления", "gen": "температуры плавления" },
       "en": { "name": "melting point" },
@@ -48,6 +51,7 @@
     "unit": "°C",
     "trend_hint": null,
     "filter": null,
+    "concept_ref": "concept:boiling_point",
     "i18n": {
       "ru": { "nom": "температура кипения", "gen": "температуры кипения" },
       "en": { "name": "boiling point" },
@@ -62,11 +66,105 @@
     "unit": "g/cm³",
     "trend_hint": null,
     "filter": null,
+    "concept_ref": "concept:density",
     "i18n": {
       "ru": { "nom": "плотность", "gen": "плотности" },
       "en": { "name": "density" },
       "pl": { "name": "gęstość" },
       "es": { "name": "densidad" }
+    }
+  },
+  {
+    "id": "pKa",
+    "value_field": null,
+    "object": "substance",
+    "unit": null,
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:pKa",
+    "explanation_concept_ref": "concept:acid_dissociation_constant",
+    "conditions_schema": ["dissociation_step", "solvent", "temperature_C"],
+    "i18n": {
+      "ru": { "nom": "pKa", "gen": "pKa" },
+      "en": { "name": "pKa" },
+      "pl": { "name": "pKa" },
+      "es": { "name": "pKa" }
+    }
+  },
+  {
+    "id": "Ka",
+    "value_field": null,
+    "object": "substance",
+    "unit": null,
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:acid_dissociation_constant",
+    "conditions_schema": ["dissociation_step", "solvent", "temperature_C"],
+    "i18n": {
+      "ru": { "nom": "Ka", "gen": "Ka" },
+      "en": { "name": "Ka" },
+      "pl": { "name": "Ka" },
+      "es": { "name": "Ka" }
+    }
+  },
+  {
+    "id": "molar_mass",
+    "value_field": null,
+    "object": "substance",
+    "unit": "g/mol",
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:molar_mass",
+    "i18n": {
+      "ru": { "nom": "молярная масса", "gen": "молярной массы" },
+      "en": { "name": "molar mass" },
+      "pl": { "name": "masa molowa" },
+      "es": { "name": "masa molar" }
+    }
+  },
+  {
+    "id": "enthalpy_of_formation",
+    "value_field": null,
+    "object": "substance",
+    "unit": "kJ/mol",
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:enthalpy_of_formation",
+    "i18n": {
+      "ru": { "nom": "энтальпия образования", "gen": "энтальпии образования" },
+      "en": { "name": "enthalpy of formation" },
+      "pl": { "name": "entalpia tworzenia" },
+      "es": { "name": "entalpía de formación" }
+    }
+  },
+  {
+    "id": "standard_entropy",
+    "value_field": null,
+    "object": "substance",
+    "unit": "J/(mol·K)",
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:standard_entropy",
+    "i18n": {
+      "ru": { "nom": "стандартная энтропия", "gen": "стандартной энтропии" },
+      "en": { "name": "standard entropy" },
+      "pl": { "name": "entropia standardowa" },
+      "es": { "name": "entropía estándar" }
+    }
+  },
+  {
+    "id": "ion_charge",
+    "value_field": null,
+    "object": "ion",
+    "unit": "e",
+    "trend_hint": null,
+    "filter": null,
+    "concept_ref": "concept:ion_charge",
+    "i18n": {
+      "ru": { "nom": "заряд иона", "gen": "заряда иона" },
+      "en": { "name": "ion charge" },
+      "pl": { "name": "ładunek jonu" },
+      "es": { "name": "carga iónica" }
     }
   }
 ]

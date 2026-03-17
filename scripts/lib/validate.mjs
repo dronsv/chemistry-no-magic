@@ -455,7 +455,7 @@ export function validateProperties(entries) {
     if (!e.id) errors.push(`${p}: missing id`);
     if (ids.has(e.id)) errors.push(`${p}: duplicate id "${e.id}"`);
     ids.add(e.id);
-    if (!e.value_field) errors.push(`${p}: missing value_field`);
+    if (e.value_field === undefined) errors.push(`${p}: missing value_field`);
     if (!e.i18n?.ru) errors.push(`${p}: missing i18n.ru`);
   }
   return errors;
