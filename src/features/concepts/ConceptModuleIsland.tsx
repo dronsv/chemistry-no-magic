@@ -9,9 +9,11 @@ import { filtersToRichText, isDslFilter } from '../../lib/filter-to-richtext';
 import { ConceptProvider } from '../../components/ConceptProvider';
 import RichTextRenderer from '../../components/RichTextRenderer';
 import FormulaChip from '../../components/FormulaChip';
-import { FormulaLookupProvider } from '../../components/ChemText';
+import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
+import { applyTheoryModuleOverlay } from '../../components/TheoryModulePanel';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
+import '../../components/theory-module.css';
 import './concept-module-island.css';
 
 interface Props {
@@ -83,6 +85,48 @@ function getLocalizedReactivityRules(
   return cardData.reactivity_rules as RichText;
 }
 
+function renderSimpleBlock(block: TheoryBlock): React.ReactNode {
+  switch (block.t) {
+    case 'heading':
+      if (block.level === 2) return <h2 className="theory-module__h2">{block.text}</h2>;
+      if (block.level === 3) return <h3 className="theory-module__h3">{block.text}</h3>;
+      return <h4 className="theory-module__h4">{block.text}</h4>;
+    case 'paragraph':
+      return <p className="theory-module__p"><ChemText text={block.text} /></p>;
+    case 'rule_card':
+      return (
+        <div className="theory-module__rule-card">
+          <div className="theory-module__rule-title">{block.title}</div>
+          <p className="theory-module__rule-text">{block.rule}</p>
+          {block.description && (
+            <p className="theory-module__rule-desc"><ChemText text={block.description} /></p>
+          )}
+        </div>
+      );
+    case 'table':
+      return (
+        <div className="theory-module__table-wrapper">
+          <table className="theory-module__table">
+            <thead>
+              <tr>
+                {block.columns.map((col, i) => <th key={i}>{col}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, ri) => (
+                <tr key={ri}>
+                  {row.cells.map((cell, ci) => <td key={ci}>{cell}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
 export default function ConceptModuleIsland({ conceptId, locale }: Props) {
   const loc = locale as SupportedLocale;
   const [loading, setLoading] = useState(true);
@@ -95,6 +139,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
   const [reactivityRules, setReactivityRules] = useState<RichText | null>(null);
   const [matchingSubstances, setMatchingSubstances] = useState<SubstanceInfo[]>([]);
   const [matchingReactions, setMatchingReactions] = useState<ReactionInfo[]>([]);
+  const [extraBlocks, setExtraBlocks] = useState<TheoryBlock[]>([]);
   const [showCriteria, setShowCriteria] = useState(false);
 
   useEffect(() => {
@@ -173,13 +218,14 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
 
           const applicableModule = findApplicableModule(conceptId, reg, modules);
           if (applicableModule) {
+            const moduleKey = applicableModule.id.includes('classification')
+              ? 'classification_inorganic'
+              : 'reaction_types';
+            const moduleOverlay = await loadTheoryModuleOverlay(moduleKey, loc);
+
+            // Reactivity rules for this concept's card
             const card = findConceptCard(conceptId, applicableModule);
             if (card?.reactivity_rules) {
-              // Try to get localized version
-              const moduleKey = applicableModule.id.includes('classification')
-                ? 'classification_inorganic'
-                : 'reaction_types';
-              const moduleOverlay = await loadTheoryModuleOverlay(moduleKey, loc);
               const section = applicableModule.sections.find(s =>
                 s.blocks.some(b => b.t === 'concept_card' && b.conceptId === conceptId)
               );
@@ -187,6 +233,16 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                 ? getLocalizedReactivityRules(conceptId, section, moduleOverlay, card.reactivity_rules)
                 : card.reactivity_rules;
               if (!cancelled && rules) setReactivityRules(rules);
+            }
+
+            // Extra theory blocks from the section
+            const localizedModule = applyTheoryModuleOverlay(applicableModule, moduleOverlay);
+            const theorySection = localizedModule.sections.find(s =>
+              s.blocks.some(b => b.t === 'concept_card' && b.conceptId === conceptId)
+            );
+            if (theorySection && !cancelled) {
+              const extras = theorySection.blocks.filter(b => b.t !== 'concept_card');
+              setExtraBlocks(extras);
             }
           }
         } catch { /* theory modules optional */ }
@@ -317,6 +373,15 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                   />
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* Extra theory blocks from theory module section */}
+          {extraBlocks.length > 0 && (
+            <section className="concept-theory-blocks">
+              {extraBlocks.map((block, i) => (
+                <div key={i}>{renderSimpleBlock(block)}</div>
+              ))}
             </section>
           )}
 
