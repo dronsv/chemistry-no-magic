@@ -1,4 +1,5 @@
 import type { Element } from '../../types/element';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import type { ComputableFormula } from '../../types/formula';
 import type { ConstantsDict } from '../../types/eval-trace';
 import type { OntologyData, PropertyDef, SlotValues, SolverResult } from './types';
@@ -13,6 +14,7 @@ import { qrefKey } from '../derivation/qref';
 import type { QRef } from '../../types/derivation';
 import { deriveQuantity } from '../derivation/derive-quantity';
 import type { SemanticRole } from '../../types/formula';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../characteristics-utils';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -65,9 +67,53 @@ function lcm(a: number, b: number): number {
   return (a * b) / gcd(a, b);
 }
 
-/** Get the value of a property field from an element. */
-function getElementValue(el: Element, valueField: string): number | null {
-  const val = (el as unknown as Record<string, unknown>)[valueField];
+/**
+ * Build a characteristics index from OntologyData.
+ * Returns an empty Map when characteristics are not loaded (backward compat).
+ */
+function buildCharsBySubject(data: OntologyData): Map<string, TypedCharacteristic[]> {
+  return indexCharacteristicsBySubject(data.rules.characteristics ?? []);
+}
+
+/**
+ * Get the value of a property from an element.
+ * Prefers characteristics layer (via concept_ref); falls back to flat field for backward compatibility.
+ */
+function getElementValue(
+  el: Element,
+  prop: PropertyDef,
+  charsBySubject: Map<string, TypedCharacteristic[]>,
+): number | null {
+  // 1. Try characteristics layer if concept_ref is present
+  if (prop.concept_ref) {
+    const subjectId = 'el:' + el.symbol;
+    const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
+    if (charVal !== undefined && typeof charVal === 'number') return charVal;
+  }
+  // 2. Fall back to flat field
+  if (!prop.value_field) return null;
+  const val = (el as unknown as Record<string, unknown>)[prop.value_field];
+  if (val === undefined || val === null) return null;
+  if (typeof val === 'number') return val;
+  return null;
+}
+
+/**
+ * Get a single numeric characteristic value for an element by concept ID.
+ * Falls back to the flat field if not found in characteristics.
+ */
+function getElementCharacteristic(
+  el: Element,
+  conceptId: string,
+  flatField: string,
+  charsBySubject: Map<string, TypedCharacteristic[]>,
+): number | null {
+  // 1. Try characteristics layer
+  const subjectId = 'el:' + el.symbol;
+  const charVal = getCharacteristicValue(charsBySubject.get(subjectId), conceptId);
+  if (charVal !== undefined && typeof charVal === 'number') return charVal;
+  // 2. Fall back to flat field
+  const val = (el as unknown as Record<string, unknown>)[flatField];
   if (val === undefined || val === null) return null;
   if (typeof val === 'number') return val;
   return null;
@@ -117,8 +163,9 @@ function solveCompareProperty(
   const elA = findElement(symbolA, data);
   const elB = findElement(symbolB, data);
 
-  const valA = getElementValue(elA, prop.value_field);
-  const valB = getElementValue(elB, prop.value_field);
+  const charsBySubject = buildCharsBySubject(data);
+  const valA = getElementValue(elA, prop, charsBySubject);
+  const valB = getElementValue(elB, prop, charsBySubject);
 
   if (valA === null || valB === null) {
     throw new Error(`Cannot compare: missing property value for ${symbolA} or ${symbolB}`);
@@ -159,11 +206,12 @@ function solvePeriodicTrendOrder(
   const propertyId = String(slots.property);
   const order = String(slots.order);
   const prop = findProperty(propertyId, data);
+  const charsBySubject = buildCharsBySubject(data);
 
   // Look up values
   const withValues = symbols.map(sym => {
     const el = findElement(sym, data);
-    const val = getElementValue(el, prop.value_field);
+    const val = getElementValue(el, prop, charsBySubject);
     if (val === null) throw new Error(`Missing property value for ${sym}`);
     return { symbol: sym, value: val };
   });
@@ -372,8 +420,9 @@ function solveDeltaChi(
   // Delegate bond classification to canonical implementation
   const bondType = determineBondType(elA, elB);
 
-  const chiA = elA.electronegativity;
-  const chiB = elB.electronegativity;
+  const charsBySubject = buildCharsBySubject(data);
+  const chiA = getElementCharacteristic(elA, 'concept:electronegativity', 'electronegativity', charsBySubject);
+  const chiB = getElementCharacteristic(elB, 'concept:electronegativity', 'electronegativity', charsBySubject);
   const delta = (chiA != null && chiB != null) ? Math.abs(chiA - chiB) : null;
   const rounded = delta != null ? Math.round(delta * 100) / 100 : 0;
 
@@ -454,10 +503,12 @@ function solveMolarMass(
     throw new Error('composition slot must be a JSON string');
   }
 
+  const charsBySubject = buildCharsBySubject(data);
   const indexed = {
     composition_elements: Object.entries(composition).map(([symbol, count]) => {
       const el = findElement(symbol, data);
-      return { Ar_i: el.atomic_mass, count_i: count };
+      const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', 'atomic_mass', charsBySubject) ?? el.atomic_mass;
+      return { Ar_i: atomicMass, count_i: count };
     }),
   };
 
@@ -490,7 +541,9 @@ function solveMassFraction(
   }
 
   const el = findElement(targetElement, data);
-  const trace = evaluateFormula(formula, { Ar: el.atomic_mass, n_atom: count, M }, constantsDict);
+  const charsBySubject = buildCharsBySubject(data);
+  const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', 'atomic_mass', charsBySubject) ?? el.atomic_mass;
+  const trace = evaluateFormula(formula, { Ar: atomicMass, n_atom: count, M }, constantsDict);
   return { answer: Math.round(trace.result * 10) / 10 };
 }
 

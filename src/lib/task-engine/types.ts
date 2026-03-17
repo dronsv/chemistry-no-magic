@@ -102,11 +102,12 @@ export interface PropertyFilter {
 
 export interface PropertyDef {
   id: string;
-  value_field: string;
+  value_field: string | null;
   object: string;
   unit: string | null;
   trend_hint: { period: string | null; group: string | null } | null;
   filter: PropertyFilter | null;
+  concept_ref?: string;
   i18n: Record<string, Record<string, string>>;
 }
 

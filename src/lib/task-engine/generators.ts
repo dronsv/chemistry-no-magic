@@ -3,6 +3,7 @@ import type { BondExampleEntry } from '../../types/bond';
 import type { CalcReaction, CalcSubstance } from '../../types/calculations';
 import type { ClassificationRule } from '../../types/classification';
 import type { Element } from '../../types/element';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import type { CommonCatalyst, EquilibriumShift, RateFactor } from '../../types/energy-catalyst';
 import type { ChainStep, GeneticChain } from '../../types/genetic-chain';
 import type { Ion } from '../../types/ion';
@@ -12,6 +13,7 @@ import type { QualitativeTest } from '../../types/qualitative';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
 import { terminalConjugateBase } from '../relations';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../characteristics-utils';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -55,9 +57,24 @@ function resolveParam(
   return pickRandom(data.core.properties).id;
 }
 
-/** Get the value of a property field from an element. */
-function getElementValue(el: Element, valueField: string): number | null {
-  const val = (el as unknown as Record<string, unknown>)[valueField];
+/**
+ * Get the value of a property from an element.
+ * Prefers characteristics layer (via prop.concept_ref); falls back to flat field for backward compatibility.
+ */
+function getElementValue(
+  el: Element,
+  prop: PropertyDef,
+  charsBySubject: Map<string, TypedCharacteristic[]>,
+): number | null {
+  // 1. Try characteristics layer if concept_ref is present
+  if (prop.concept_ref) {
+    const subjectId = 'el:' + el.symbol;
+    const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
+    if (charVal !== undefined && typeof charVal === 'number') return charVal;
+  }
+  // 2. Fall back to flat field
+  if (!prop.value_field) return null;
+  const val = (el as unknown as Record<string, unknown>)[prop.value_field];
   if (val === undefined || val === null) return null;
   if (typeof val === 'number') return val;
   return null;
@@ -105,8 +122,9 @@ function genPickElementPair(params: Record<string, unknown>, data: OntologyData)
   // Apply property-level filter
   candidates = applyPropertyFilter(candidates, prop);
 
-  // Keep only elements with non-null value for the property field
-  candidates = candidates.filter(el => getElementValue(el, prop.value_field) !== null);
+  // Keep only elements with non-null value for the property (via characteristics or flat field)
+  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
+  candidates = candidates.filter(el => getElementValue(el, prop, charsBySubject) !== null);
 
   // Pick 2 distinct elements
   const [a, b] = pickK(candidates, 2);
@@ -130,8 +148,9 @@ function genPickElementsSamePeriod(params: Record<string, unknown>, data: Ontolo
   // Apply property-level filter
   candidates = applyPropertyFilter(candidates, prop);
 
-  // Keep only elements with non-null value
-  candidates = candidates.filter(el => getElementValue(el, prop.value_field) !== null);
+  // Keep only elements with non-null value (via characteristics or flat field)
+  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
+  candidates = candidates.filter(el => getElementValue(el, prop, charsBySubject) !== null);
 
   // Group by period
   const byPeriod = new Map<number, Element[]>();
