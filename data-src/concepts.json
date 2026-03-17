@@ -77,7 +77,7 @@
       { "kind": "substance", "id": "hcl" },
       { "kind": "substance", "id": "h2so4" }
     ],
-    "children_order": ["cls:acid_oxygen", "cls:acid_oxygenfree"]
+    "children_order": ["cls:acid_oxygen", "cls:acid_oxygenfree", "cls:acid_strong", "cls:acid_weak"]
   },
   "cls:acid_oxygen": {
     "kind": "substance_class",
@@ -542,5 +542,48 @@
     "order": 2,
     "filters": { "pred": { "field": "heat_effect", "eq": "endo" } },
     "examples": []
+  },
+  "concept:atomic_mass": { "kind": "domain_concept", "parent_id": null, "order": 100, "filters": {}, "examples": [] },
+  "concept:electronegativity": { "kind": "domain_concept", "parent_id": null, "order": 101, "filters": {}, "examples": [] },
+  "concept:melting_point": { "kind": "domain_concept", "parent_id": null, "order": 102, "filters": {}, "examples": [] },
+  "concept:boiling_point": { "kind": "domain_concept", "parent_id": null, "order": 103, "filters": {}, "examples": [] },
+  "concept:density": { "kind": "domain_concept", "parent_id": null, "order": 104, "filters": {}, "examples": [] },
+  "concept:ion_charge": { "kind": "domain_concept", "parent_id": null, "order": 105, "filters": {}, "examples": [] },
+  "concept:molar_mass": { "kind": "domain_concept", "parent_id": null, "order": 106, "filters": {}, "examples": [] },
+  "concept:enthalpy_of_formation": { "kind": "domain_concept", "parent_id": null, "order": 107, "filters": {}, "examples": [] },
+  "concept:standard_entropy": { "kind": "domain_concept", "parent_id": null, "order": 108, "filters": {}, "examples": [] },
+  "concept:pKa": { "kind": "domain_concept", "parent_id": null, "order": 110, "filters": {}, "examples": [] },
+  "concept:acid_dissociation_constant": { "kind": "domain_concept", "parent_id": null, "order": 111, "filters": {}, "examples": [] },
+  "concept:acid_strength": { "kind": "domain_concept", "parent_id": null, "order": 112, "filters": {}, "examples": [] },
+  "concept:acid_basicity": { "kind": "domain_concept", "parent_id": null, "order": 113, "filters": {}, "examples": [] },
+  "concept:acid_dissociation": { "kind": "domain_concept", "parent_id": null, "order": 114, "filters": {}, "examples": [] },
+  "concept:conjugate_base": { "kind": "domain_concept", "parent_id": null, "order": 115, "filters": {}, "examples": [] },
+  "concept:acid_residue": { "kind": "domain_concept", "parent_id": null, "order": 116, "filters": {}, "examples": [] },
+  "concept:indicator": { "kind": "domain_concept", "parent_id": null, "order": 117, "filters": {}, "examples": [] },
+  "concept:bond_strength": { "kind": "domain_concept", "parent_id": null, "order": 118, "filters": {}, "examples": [] },
+  "cls:acid_strong": {
+    "kind": "substance_class", "parent_id": "cls:acid", "order": 3,
+    "filters": { "all": [{ "pred": { "field": "class", "eq": "acid" } }, { "pred": { "field": "tags", "has": "strong_acid" } }] },
+    "examples": [{ "kind": "substance", "id": "hcl" }, { "kind": "substance", "id": "h2so4" }, { "kind": "substance", "id": "hno3" }]
+  },
+  "cls:acid_weak": {
+    "kind": "substance_class", "parent_id": "cls:acid", "order": 4,
+    "filters": { "all": [{ "pred": { "field": "class", "eq": "acid" } }, { "pred": { "field": "tags", "has": "weak_acid" } }] },
+    "examples": [{ "kind": "substance", "id": "hf" }, { "kind": "substance", "id": "h2co3" }, { "kind": "substance", "id": "ch3cooh" }]
+  },
+  "rxtype:acid_metal": {
+    "kind": "reaction_type", "parent_id": null, "order": 20,
+    "filters": { "pred": { "field": "type_tags", "has": "acid_metal" } },
+    "examples": [{ "kind": "reaction", "id": "rx_redox_01_zn_hcl" }]
+  },
+  "rxtype:acid_base_oxide": {
+    "kind": "reaction_type", "parent_id": null, "order": 21,
+    "filters": { "pred": { "field": "type_tags", "has": "acid_base_oxide" } },
+    "examples": [{ "kind": "reaction", "id": "rx_exchange_03_cao_hcl" }]
+  },
+  "rxtype:acid_carbonate": {
+    "kind": "reaction_type", "parent_id": null, "order": 22,
+    "filters": { "pred": { "field": "type_tags", "has": "acid_carbonate" } },
+    "examples": [{ "kind": "reaction", "id": "rx_carbonate_01_caco3_hcl" }]
   }
 }

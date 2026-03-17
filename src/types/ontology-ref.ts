@@ -27,7 +27,8 @@ export type ConceptKind =
   | 'reaction_type'
   | 'reaction_facet'
   | 'process'
-  | 'property';
+  | 'property'
+  | 'domain_concept';
 
 import type { ConceptFilter } from './filter-dsl';
 

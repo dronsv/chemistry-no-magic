@@ -207,7 +207,8 @@
     },
     "type_tags": [
       "exchange",
-      "gas_evolution"
+      "gas_evolution",
+      "acid_carbonate"
     ],
     "driving_forces": [
       "gas_evolution",
@@ -331,7 +332,8 @@
     },
     "type_tags": [
       "exchange",
-      "gas_evolution"
+      "gas_evolution",
+      "acid_carbonate"
     ],
     "driving_forces": [
       "gas_evolution",
@@ -1435,7 +1437,8 @@
     },
     "type_tags": [
       "exchange",
-      "neutralization"
+      "neutralization",
+      "acid_base_oxide"
     ],
     "driving_forces": [
       "water_formation",
@@ -2126,7 +2129,8 @@
     },
     "type_tags": [
       "exchange",
-      "neutralization"
+      "neutralization",
+      "acid_base_oxide"
     ],
     "driving_forces": [
       "water_formation",
@@ -2453,7 +2457,8 @@
     "type_tags": [
       "substitution",
       "redox",
-      "gas_evolution"
+      "gas_evolution",
+      "acid_metal"
     ],
     "driving_forces": [
       "gas_evolution"
@@ -2577,7 +2582,8 @@
     "type_tags": [
       "substitution",
       "redox",
-      "gas_evolution"
+      "gas_evolution",
+      "acid_metal"
     ],
     "driving_forces": [
       "gas_evolution"
@@ -2692,7 +2698,8 @@
     "type_tags": [
       "substitution",
       "redox",
-      "gas_evolution"
+      "gas_evolution",
+      "acid_metal"
     ],
     "driving_forces": [
       "gas_evolution"

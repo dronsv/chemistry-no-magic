@@ -13,6 +13,7 @@ const VALID_KINDS = [
   'reaction_facet',
   'property',
   'process',
+  'domain_concept',
 ];
 
 /**

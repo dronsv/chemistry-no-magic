@@ -538,5 +538,28 @@
       "reakcje endotermiczne",
       "reakcja endotermiczna"
     ]
-  }
+  },
+  "concept:atomic_mass": { "name": "Masa atomowa", "slug": "masa-atomowa", "description": "Masa atomu pierwiastka wyrażona w jednostkach masy atomowej" },
+  "concept:electronegativity": { "name": "Elektroujemność", "slug": "elektroujemnosc", "description": "Zdolność atomu do przyciągania gęstości elektronowej wiązania chemicznego" },
+  "concept:melting_point": { "name": "Temperatura topnienia", "slug": "temperatura-topnienia", "description": "Temperatura, w której substancja przechodzi ze stanu stałego w ciekły" },
+  "concept:boiling_point": { "name": "Temperatura wrzenia", "slug": "temperatura-wrzenia", "description": "Temperatura, w której ciśnienie pary substancji równa się atmosferycznemu" },
+  "concept:density": { "name": "Gęstość", "slug": "gestosc", "description": "Stosunek masy substancji do jej objętości" },
+  "concept:ion_charge": { "name": "Ładunek jonu", "slug": "ladunek-jonu", "description": "Ładunek elektryczny jonu wyrażony w jednostkach ładunku elementarnego" },
+  "concept:molar_mass": { "name": "Masa molowa", "slug": "masa-molowa", "description": "Masa jednego mola substancji" },
+  "concept:enthalpy_of_formation": { "name": "Entalpia tworzenia", "slug": "entalpia-tworzenia", "description": "Standardowa entalpia tworzenia substancji z pierwiastków" },
+  "concept:standard_entropy": { "name": "Entropia standardowa", "slug": "entropia-standardowa", "description": "Miara nieuporządkowania układu w warunkach standardowych" },
+  "concept:pKa": { "name": "pKa", "slug": "pka", "description": "Ujemny logarytm dziesiętny stałej dysocjacji kwasu" },
+  "concept:acid_dissociation_constant": { "name": "Stała dysocjacji kwasu", "slug": "stala-dysocjacji", "description": "Stała równowagi reakcji dysocjacji kwasu w roztworze wodnym" },
+  "concept:acid_strength": { "name": "Moc kwasu", "slug": "moc-kwasu", "description": "Zdolność kwasu do oddawania protonu, określona stałą dysocjacji" },
+  "concept:acid_basicity": { "name": "Zasadowość kwasu", "slug": "zasadowosc-kwasu", "description": "Liczba protonów, które kwas może oddać przy pełnej dysocjacji" },
+  "concept:acid_dissociation": { "name": "Dysocjacja kwasu", "slug": "dysocjacja-kwasu", "description": "Proces rozpadu kwasu na jony w roztworze wodnym" },
+  "concept:conjugate_base": { "name": "Zasada sprzężona", "slug": "zasada-sprzezona", "description": "Cząstka powstająca po oddaniu protonu przez kwas" },
+  "concept:acid_residue": { "name": "Reszta kwasowa", "slug": "reszta-kwasowa", "description": "Anion powstający przy pełnej dysocjacji kwasu" },
+  "concept:indicator": { "name": "Wskaźnik", "slug": "wskaznik", "description": "Substancja zmieniająca barwę w zależności od środowiska roztworu" },
+  "concept:bond_strength": { "name": "Wytrzymałość wiązania", "slug": "wytrzymalosc-wiazania", "description": "Energia potrzebna do zerwania wiązania chemicznego" },
+  "cls:acid_strong": { "name": "Kwasy mocne", "slug": "mocne", "description": "Kwasy całkowicie dysocjujące w roztworze wodnym (pKa < 0)" },
+  "cls:acid_weak": { "name": "Kwasy słabe", "slug": "slabe", "description": "Kwasy częściowo dysocjujące w roztworze wodnym (pKa > 0)" },
+  "rxtype:acid_metal": { "name": "Kwas + metal", "slug": "kwas-metal", "description": "Reakcja kwasu z metalem stojącym przed wodorem w szeregu aktywności" },
+  "rxtype:acid_base_oxide": { "name": "Kwas + tlenek zasadowy", "slug": "kwas-tlenek-zasadowy", "description": "Reakcja kwasu z tlenkiem zasadowym" },
+  "rxtype:acid_carbonate": { "name": "Kwas + węglan", "slug": "kwas-weglan", "description": "Reakcja kwasu z węglanem z wydzieleniem CO₂" }
 }

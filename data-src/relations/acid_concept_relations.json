@@ -1,0 +1,15 @@
+[
+  { "subject": "cls:acid", "predicate": "described_by", "object": "concept:acid_strength" },
+  { "subject": "cls:acid", "predicate": "has_property", "object": "concept:acid_basicity" },
+  { "subject": "cls:acid", "predicate": "participates_in", "object": "concept:acid_dissociation" },
+  { "subject": "concept:acid_dissociation", "predicate": "described_by", "object": "concept:acid_dissociation_constant" },
+  { "subject": "concept:acid_dissociation_constant", "predicate": "related_to", "object": "concept:pKa" },
+  { "subject": "concept:acid_strength", "predicate": "depends_on", "object": "concept:bond_strength" },
+  { "subject": "concept:acid_strength", "predicate": "depends_on", "object": "concept:conjugate_base" },
+  { "subject": "cls:acid", "predicate": "reacts_via", "object": "rxtype:acid_metal" },
+  { "subject": "cls:acid", "predicate": "reacts_via", "object": "rxtype:acid_base_oxide" },
+  { "subject": "cls:acid", "predicate": "reacts_via", "object": "rxtype:acid_carbonate" },
+  { "subject": "cls:acid", "predicate": "reacts_via", "object": "rxtype:neutralization" },
+  { "subject": "cls:acid", "predicate": "forms", "object": "concept:acid_residue" },
+  { "subject": "cls:acid", "predicate": "detected_by", "object": "concept:indicator" }
+]
