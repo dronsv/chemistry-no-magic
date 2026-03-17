@@ -8,6 +8,8 @@ interface PeriodicTableShortProps {
   highlightedGroup: ElementGroup | null;
   searchMatchedZ: Set<number> | null;
   exceptionZSet?: Set<number>;
+  /** Atomic mass per element symbol, from characteristics layer. */
+  atomicMassMap?: Map<string, number>;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
@@ -70,6 +72,7 @@ export default function PeriodicTableShort({
   highlightedGroup,
   searchMatchedZ,
   exceptionZSet,
+  atomicMassMap,
   onSelect,
   onHoverElement,
   onHoverElementEnd,
@@ -112,6 +115,7 @@ export default function PeriodicTableShort({
         dimmed={dimmedByGroup || dimmedBySearch}
         highlighted={highlighted}
         isException={exceptionZSet?.has(el.Z)}
+        atomicMass={atomicMassMap?.get(el.symbol)}
         onSelect={onSelect}
         onHoverElement={onHoverElement}
         onHoverElementEnd={onHoverElementEnd}

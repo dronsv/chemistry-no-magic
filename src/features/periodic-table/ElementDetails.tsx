@@ -19,10 +19,10 @@ export default function ElementDetails({ element, groups, locale = 'ru', charsBy
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
 
-  // Characteristics lookups with flat-field fallback
+  // Look up from characteristics layer
   const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
-  const atomicMass = (getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined) ?? element.atomic_mass;
-  const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? element.electronegativity;
+  const atomicMass = getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined;
+  const electronegativity = getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined;
 
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];

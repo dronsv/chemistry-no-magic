@@ -18,12 +18,7 @@ export interface ElementData {
   period: number;
   metal_type: string;
   element_group: string;
-  atomic_mass: number;
   typical_oxidation_states: number[];
-  electronegativity: number | null;
-  melting_point_C?: number | null;
-  boiling_point_C?: number | null;
-  density_g_cm3?: number | null;
   discovery?: ElementDiscovery;
   hazards?: string[];
   storage?: string;
@@ -72,7 +67,6 @@ export interface IonData {
   id: string;
   formula: string;
   name: string;
-  charge: number;
   type: 'cation' | 'anion';
 }
 

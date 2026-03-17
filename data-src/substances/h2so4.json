@@ -13,8 +13,5 @@
     "strong_acid",
     "diprotic"
   ],
-  "phase_standard": "l",
-  "melting_point_C": 10.31,
-  "boiling_point_C": 337,
-  "density_g_cm3": 1.84
+  "phase_standard": "l"
 }

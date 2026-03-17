@@ -7,10 +7,7 @@ export interface CalcElementComposition {
 export interface CalcSubstance {
   formula: string;
   name: string;
-  M: number;
   composition: CalcElementComposition[];
-  delta_Hf_kJmol?: number;   // standard enthalpy of formation, kJ/mol (IUPAC: negative = exothermic formation)
-  S_JmolK?: number;          // standard molar entropy, J/(mol·K)
 }
 
 export interface CalcReactionSide {

@@ -175,7 +175,6 @@ export function generateSearchIndex({ elements, substances, reactions, competenc
       ]),
       url: localizeUrl('/ions/', loc),
       meta: {
-        charge: String(ion.charge),
         ionType: ion.type,
       },
     });

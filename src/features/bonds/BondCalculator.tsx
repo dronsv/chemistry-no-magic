@@ -58,21 +58,21 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
       const map = new Map<string, ElementLike>();
       for (const el of elems) {
         const subjectChars = charIndex.get(`el:${el.symbol}`);
-        const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? el.electronegativity;
+        const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? null;
         map.set(el.symbol, {
           symbol: el.symbol,
-          electronegativity: electronegativity ?? null,
+          electronegativity,
           metal_type: el.metal_type,
         });
       }
       setElementMap(map);
     }).catch(() => {
-      // Fallback: load elements only
+      // Fallback: load elements without electronegativity (no flat field anymore)
       loadElements(locale).then(elems => {
         setElements(elems);
         const map = new Map<string, ElementLike>();
         for (const el of elems) {
-          map.set(el.symbol, { symbol: el.symbol, electronegativity: el.electronegativity, metal_type: el.metal_type });
+          map.set(el.symbol, { symbol: el.symbol, electronegativity: null, metal_type: el.metal_type });
         }
         setElementMap(map);
       });

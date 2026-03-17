@@ -186,7 +186,7 @@ for (const sym of KEY_ELEMENTS) {
   emit('### ', el.symbol, ' — ', el.name_ru, ' / ', el.name_en);
   emit();
   emit('- **Атомный номер:** ', el.Z);
-  emit('- **Атомная масса:** ', el.atomic_mass);
+  if (el.atomic_mass != null) emit('- **Атомная масса:** ', el.atomic_mass);
   emit('- **Период:** ', el.period, ', **Группа:** ', el.group ?? '—');
   emit('- **Тип:** ', el.metal_type ?? '—', ' (', el.element_group ?? '—', ')');
   if (el.electronegativity != null) emit('- **ЭО (Полинг):** ', el.electronegativity);

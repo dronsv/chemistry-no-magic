@@ -51,8 +51,6 @@ export function validateElements(elements) {
     if (!VALID_METAL_TYPES.includes(el.metal_type)) errors.push(`${prefix}: invalid metal_type "${el.metal_type}"`);
     if (!VALID_ELEMENT_GROUPS.includes(el.element_group)) errors.push(`${prefix}: invalid element_group "${el.element_group}"`);
     if (!Array.isArray(el.typical_oxidation_states)) errors.push(`${prefix}: typical_oxidation_states must be array`);
-    if (typeof el.atomic_mass !== 'number' || el.atomic_mass <= 0) errors.push(`${prefix}: atomic_mass must be positive number`);
-    if (el.electronegativity !== null && typeof el.electronegativity !== 'number') errors.push(`${prefix}: electronegativity must be number or null`);
   }
 
   if (elements.length !== 118) errors.push(`Expected 118 elements, got ${elements.length}`);
@@ -72,7 +70,6 @@ export function validateIons(ions) {
     const prefix = `ions[${i}]`;
     if (typeof ion.id !== 'string' || !ion.id) errors.push(`${prefix}: missing id`);
     if (typeof ion.formula !== 'string' || !ion.formula) errors.push(`${prefix}: missing formula`);
-    if (typeof ion.charge !== 'number') errors.push(`${prefix}: missing charge`);
     if (!VALID_ION_TYPES.includes(ion.type)) errors.push(`${prefix}: invalid type "${ion.type}"`);
     if (!Array.isArray(ion.tags)) errors.push(`${prefix}: tags must be array`);
   }

@@ -2,7 +2,6 @@
   {
     "id": "ion:H_plus",
     "formula": "H⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "hydrogen"
@@ -11,7 +10,6 @@
   {
     "id": "ion:Na_plus",
     "formula": "Na⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "alkali"
@@ -20,7 +18,6 @@
   {
     "id": "ion:K_plus",
     "formula": "K⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "alkali"
@@ -29,7 +26,6 @@
   {
     "id": "ion:NH4_plus",
     "formula": "NH₄⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "ammonium"
@@ -38,7 +34,6 @@
   {
     "id": "ion:Ca_2plus",
     "formula": "Ca²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "alkaline_earth"
@@ -47,7 +42,6 @@
   {
     "id": "ion:Mg_2plus",
     "formula": "Mg²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "alkaline_earth"
@@ -56,7 +50,6 @@
   {
     "id": "ion:Ba_2plus",
     "formula": "Ba²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "alkaline_earth"
@@ -65,7 +58,6 @@
   {
     "id": "ion:Al_3plus",
     "formula": "Al³⁺",
-    "charge": 3,
     "type": "cation",
     "tags": [
       "amphoteric"
@@ -74,7 +66,6 @@
   {
     "id": "ion:Fe_2plus",
     "formula": "Fe²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -84,7 +75,6 @@
   {
     "id": "ion:Fe_3plus",
     "formula": "Fe³⁺",
-    "charge": 3,
     "type": "cation",
     "tags": [
       "transition",
@@ -94,7 +84,6 @@
   {
     "id": "ion:Cu_2plus",
     "formula": "Cu²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -104,7 +93,6 @@
   {
     "id": "ion:Zn_2plus",
     "formula": "Zn²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -114,7 +102,6 @@
   {
     "id": "ion:Ag_plus",
     "formula": "Ag⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "transition",
@@ -124,7 +111,6 @@
   {
     "id": "ion:Pb_2plus",
     "formula": "Pb²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "heavy_metal",
@@ -134,7 +120,6 @@
   {
     "id": "ion:Li_plus",
     "formula": "Li⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "alkali"
@@ -143,7 +128,6 @@
   {
     "id": "ion:Sr_2plus",
     "formula": "Sr²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "alkaline_earth"
@@ -152,7 +136,6 @@
   {
     "id": "ion:Mn_2plus",
     "formula": "Mn²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition"
@@ -161,7 +144,6 @@
   {
     "id": "ion:Ni_2plus",
     "formula": "Ni²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition"
@@ -170,7 +152,6 @@
   {
     "id": "ion:Co_2plus",
     "formula": "Co²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition"
@@ -179,7 +160,6 @@
   {
     "id": "ion:Cd_2plus",
     "formula": "Cd²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -189,7 +169,6 @@
   {
     "id": "ion:Hg_2plus",
     "formula": "Hg²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -199,7 +178,6 @@
   {
     "id": "ion:Hg2_2plus",
     "formula": "Hg₂²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "transition",
@@ -209,7 +187,6 @@
   {
     "id": "ion:Sn_2plus",
     "formula": "Sn²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "heavy_metal"
@@ -218,7 +195,6 @@
   {
     "id": "ion:Cr_3plus",
     "formula": "Cr³⁺",
-    "charge": 3,
     "type": "cation",
     "tags": [
       "transition",
@@ -228,7 +204,6 @@
   {
     "id": "ion:OH_minus",
     "formula": "OH⁻",
-    "charge": -1,
     "type": "anion",
     "tags": [
       "hydroxide"
@@ -237,7 +212,6 @@
   {
     "id": "ion:F_minus",
     "formula": "F⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HF",
     "naming": {
@@ -251,7 +225,6 @@
   {
     "id": "ion:Cl_minus",
     "formula": "Cl⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HCl",
     "naming": {
@@ -265,7 +238,6 @@
   {
     "id": "ion:Br_minus",
     "formula": "Br⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HBr",
     "naming": {
@@ -279,7 +251,6 @@
   {
     "id": "ion:I_minus",
     "formula": "I⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HI",
     "naming": {
@@ -293,7 +264,6 @@
   {
     "id": "ion:S_2minus",
     "formula": "S²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂S",
     "naming": {
@@ -306,7 +276,6 @@
   {
     "id": "ion:SO4_2minus",
     "formula": "SO₄²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂SO₄",
     "naming": {
@@ -320,7 +289,6 @@
   {
     "id": "ion:SO3_2minus",
     "formula": "SO₃²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂SO₃",
     "naming": {
@@ -335,7 +303,6 @@
   {
     "id": "ion:NO3_minus",
     "formula": "NO₃⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HNO₃",
     "naming": {
@@ -349,7 +316,6 @@
   {
     "id": "ion:NO2_minus",
     "formula": "NO₂⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HNO₂",
     "naming": {
@@ -363,7 +329,6 @@
   {
     "id": "ion:CO3_2minus",
     "formula": "CO₃²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂CO₃",
     "naming": {
@@ -377,7 +342,6 @@
   {
     "id": "ion:SiO3_2minus",
     "formula": "SiO₃²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂SiO₃",
     "naming": {
@@ -390,7 +354,6 @@
   {
     "id": "ion:PO4_3minus",
     "formula": "PO₄³⁻",
-    "charge": -3,
     "type": "anion",
     "parent_acid": "H₃PO₄",
     "naming": {
@@ -403,7 +366,6 @@
   {
     "id": "ion:CH3COO_minus",
     "formula": "CH₃COO⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "CH₃COOH",
     "naming": {
@@ -417,7 +379,6 @@
   {
     "id": "ion:MnO4_minus",
     "formula": "MnO₄⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "HMnO₄",
     "naming": {
@@ -431,7 +392,6 @@
   {
     "id": "ion:CrO4_2minus",
     "formula": "CrO₄²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂CrO₄",
     "naming": {
@@ -445,7 +405,6 @@
   {
     "id": "ion:Cr2O7_2minus",
     "formula": "Cr₂O₇²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₂Cr₂O₇",
     "naming": {
@@ -460,7 +419,6 @@
   {
     "id": "ion:Be_2plus",
     "formula": "Be²⁺",
-    "charge": 2,
     "type": "cation",
     "tags": [
       "alkaline_earth",
@@ -470,7 +428,6 @@
   {
     "id": "ion:Cu_plus",
     "formula": "Cu⁺",
-    "charge": 1,
     "type": "cation",
     "tags": [
       "transition",
@@ -480,7 +437,6 @@
   {
     "id": "ion:HCO3_minus",
     "formula": "HCO₃⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "H₂CO₃",
     "naming": {
@@ -494,7 +450,6 @@
   {
     "id": "ion:HSO4_minus",
     "formula": "HSO₄⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "H₂SO₄",
     "naming": {
@@ -507,7 +462,6 @@
   {
     "id": "ion:HSO3_minus",
     "formula": "HSO₃⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "H₂SO₃",
     "naming": {
@@ -520,7 +474,6 @@
   {
     "id": "ion:HPO4_2minus",
     "formula": "HPO₄²⁻",
-    "charge": -2,
     "type": "anion",
     "parent_acid": "H₃PO₄",
     "naming": {
@@ -533,7 +486,6 @@
   {
     "id": "ion:H2PO4_minus",
     "formula": "H₂PO₄⁻",
-    "charge": -1,
     "type": "anion",
     "parent_acid": "H₃PO₄",
     "naming": {

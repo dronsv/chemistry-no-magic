@@ -13,8 +13,5 @@
     "rotten_egg_smell",
     "weak_acid"
   ],
-  "phase_standard": "g",
-  "melting_point_C": -85.5,
-  "boiling_point_C": -60.3,
-  "density_g_cm3": 0.001539
+  "phase_standard": "g"
 }

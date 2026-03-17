@@ -2,7 +2,6 @@
   "calc_substances": [
     {
       "formula": "H₂O",
-      "M": 18,
       "composition": [
         {
           "element": "H",
@@ -14,13 +13,10 @@
           "Ar": 16,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -285.8,
-      "S_JmolK": 69.9
+      ]
     },
     {
       "formula": "NaCl",
-      "M": 58.5,
       "composition": [
         {
           "element": "Na",
@@ -36,7 +32,6 @@
     },
     {
       "formula": "CO₂",
-      "M": 44,
       "composition": [
         {
           "element": "C",
@@ -48,13 +43,10 @@
           "Ar": 16,
           "count": 2
         }
-      ],
-      "delta_Hf_kJmol": -393.5,
-      "S_JmolK": 213.8
+      ]
     },
     {
       "formula": "SO₂",
-      "M": 64,
       "composition": [
         {
           "element": "S",
@@ -66,13 +58,10 @@
           "Ar": 16,
           "count": 2
         }
-      ],
-      "delta_Hf_kJmol": -296.8,
-      "S_JmolK": 248.2
+      ]
     },
     {
       "formula": "HCl",
-      "M": 36.5,
       "composition": [
         {
           "element": "H",
@@ -84,13 +73,10 @@
           "Ar": 35.5,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -92.3,
-      "S_JmolK": 186.9
+      ]
     },
     {
       "formula": "NaOH",
-      "M": 40,
       "composition": [
         {
           "element": "Na",
@@ -107,13 +93,10 @@
           "Ar": 1,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -427.8,
-      "S_JmolK": 64.5
+      ]
     },
     {
       "formula": "CaO",
-      "M": 56,
       "composition": [
         {
           "element": "Ca",
@@ -125,13 +108,10 @@
           "Ar": 16,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -635.1,
-      "S_JmolK": 38.1
+      ]
     },
     {
       "formula": "Fe₂O₃",
-      "M": 160,
       "composition": [
         {
           "element": "Fe",
@@ -143,13 +123,10 @@
           "Ar": 16,
           "count": 3
         }
-      ],
-      "delta_Hf_kJmol": -824.2,
-      "S_JmolK": 87.4
+      ]
     },
     {
       "formula": "H₂SO₄",
-      "M": 98,
       "composition": [
         {
           "element": "H",
@@ -170,7 +147,6 @@
     },
     {
       "formula": "HNO₃",
-      "M": 63,
       "composition": [
         {
           "element": "H",
@@ -187,13 +163,10 @@
           "Ar": 16,
           "count": 3
         }
-      ],
-      "delta_Hf_kJmol": -174.1,
-      "S_JmolK": 155.6
+      ]
     },
     {
       "formula": "Ca(OH)₂",
-      "M": 74,
       "composition": [
         {
           "element": "Ca",
@@ -210,13 +183,10 @@
           "Ar": 1,
           "count": 2
         }
-      ],
-      "delta_Hf_kJmol": -986.1,
-      "S_JmolK": 83.4
+      ]
     },
     {
       "formula": "Na₂CO₃",
-      "M": 106,
       "composition": [
         {
           "element": "Na",
@@ -237,7 +207,6 @@
     },
     {
       "formula": "CaCO₃",
-      "M": 100,
       "composition": [
         {
           "element": "Ca",
@@ -254,13 +223,10 @@
           "Ar": 16,
           "count": 3
         }
-      ],
-      "delta_Hf_kJmol": -1206.9,
-      "S_JmolK": 91.7
+      ]
     },
     {
       "formula": "Al₂O₃",
-      "M": 102,
       "composition": [
         {
           "element": "Al",
@@ -272,13 +238,10 @@
           "Ar": 16,
           "count": 3
         }
-      ],
-      "delta_Hf_kJmol": -1675.7,
-      "S_JmolK": 50.9
+      ]
     },
     {
       "formula": "K₂SO₄",
-      "M": 174,
       "composition": [
         {
           "element": "K",
@@ -299,7 +262,6 @@
     },
     {
       "formula": "Cu(OH)₂",
-      "M": 98,
       "composition": [
         {
           "element": "Cu",
@@ -320,7 +282,6 @@
     },
     {
       "formula": "MgO",
-      "M": 40,
       "composition": [
         {
           "element": "Mg",
@@ -332,13 +293,10 @@
           "Ar": 16,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -601.6,
-      "S_JmolK": 26.9
+      ]
     },
     {
       "formula": "KOH",
-      "M": 56,
       "composition": [
         {
           "element": "K",
@@ -359,7 +317,6 @@
     },
     {
       "formula": "NH₃",
-      "M": 17,
       "composition": [
         {
           "element": "N",
@@ -371,13 +328,10 @@
           "Ar": 1,
           "count": 3
         }
-      ],
-      "delta_Hf_kJmol": -46.1,
-      "S_JmolK": 192.8
+      ]
     },
     {
       "formula": "Na₂SO₄",
-      "M": 142,
       "composition": [
         {
           "element": "Na",
@@ -398,7 +352,6 @@
     },
     {
       "formula": "ZnO",
-      "M": 81,
       "composition": [
         {
           "element": "Zn",
@@ -410,13 +363,10 @@
           "Ar": 16,
           "count": 1
         }
-      ],
-      "delta_Hf_kJmol": -350.5,
-      "S_JmolK": 43.7
+      ]
     },
     {
       "formula": "BaCl₂",
-      "M": 208,
       "composition": [
         {
           "element": "Ba",
@@ -432,7 +382,6 @@
     },
     {
       "formula": "AgNO₃",
-      "M": 170,
       "composition": [
         {
           "element": "Ag",
@@ -453,7 +402,6 @@
     },
     {
       "formula": "P₂O₅",
-      "M": 142,
       "composition": [
         {
           "element": "P",

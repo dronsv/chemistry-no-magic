@@ -14,37 +14,37 @@ const MOCK_ELEMENTS: Element[] = [
   {
     Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium',
     group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
-    atomic_mass: 1.008, typical_oxidation_states: [-1, 1], electronegativity: 2.2,
+    typical_oxidation_states: [-1, 1],
   },
   {
     Z: 6, symbol: 'C', name: 'Углерод', name_latin: 'Carboneum',
     group: 14, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
-    atomic_mass: 12.011, typical_oxidation_states: [-4, 2, 4], electronegativity: 2.55,
+    typical_oxidation_states: [-4, 2, 4],
   },
   {
     Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium',
     group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
-    atomic_mass: 16.0, typical_oxidation_states: [-2], electronegativity: 3.44,
+    typical_oxidation_states: [-2],
   },
   {
     Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
-    atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
+    typical_oxidation_states: [1],
   },
   {
     Z: 12, symbol: 'Mg', name: 'Магний', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
-    atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
+    typical_oxidation_states: [2],
   },
   {
     Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
-    atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
+    typical_oxidation_states: [-1, 1, 3, 5, 7],
   },
   {
     Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum',
     group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal',
-    atomic_mass: 55.845, typical_oxidation_states: [2, 3], electronegativity: 1.83,
+    typical_oxidation_states: [2, 3],
   },
 ];
 
@@ -53,17 +53,45 @@ const MOCK_PROPERTIES: PropertyDef[] = [
     id: 'electronegativity', value_field: 'electronegativity', object: 'element',
     unit: null, trend_hint: { period: 'increases', group: 'decreases' },
     filter: null,
+    concept_ref: 'concept:electronegativity',
     i18n: { ru: { nom: 'электроотрицательность', gen: 'электроотрицательности' } },
   },
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', charge: 2, type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'] },
-  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', charge: 3, type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
-  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', charge: -3, type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'] },
+  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
+  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
+];
+
+// Characteristics for elements and ions (replaces removed flat fields)
+const MOCK_CHARACTERISTICS = [
+  // Electronegativity
+  { id: 'c_H_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:H', value_kind: 'number' as const, value: 2.2, source: { kind: 'asserted' as const } },
+  { id: 'c_C_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:C', value_kind: 'number' as const, value: 2.55, source: { kind: 'asserted' as const } },
+  { id: 'c_O_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:O', value_kind: 'number' as const, value: 3.44, source: { kind: 'asserted' as const } },
+  { id: 'c_Na_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Na', value_kind: 'number' as const, value: 0.93, source: { kind: 'asserted' as const } },
+  { id: 'c_Mg_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Mg', value_kind: 'number' as const, value: 1.31, source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cl', value_kind: 'number' as const, value: 3.16, source: { kind: 'asserted' as const } },
+  { id: 'c_Fe_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Fe', value_kind: 'number' as const, value: 1.83, source: { kind: 'asserted' as const } },
+  // Atomic mass
+  { id: 'c_H_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:H', value_kind: 'number' as const, value: 1.008, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_C_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:C', value_kind: 'number' as const, value: 12.011, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_O_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:O', value_kind: 'number' as const, value: 16.0, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Na_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Na', value_kind: 'number' as const, value: 22.99, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Mg_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Mg', value_kind: 'number' as const, value: 24.305, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Cl', value_kind: 'number' as const, value: 35.45, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Fe_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Fe', value_kind: 'number' as const, value: 55.845, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  // Ion charges
+  { id: 'c_Na_plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Na_plus', value_kind: 'number' as const, value: 1, source: { kind: 'asserted' as const } },
+  { id: 'c_Ca_2plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Ca_2plus', value_kind: 'number' as const, value: 2, source: { kind: 'asserted' as const } },
+  { id: 'c_Al_3plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Al_3plus', value_kind: 'number' as const, value: 3, source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Cl_minus', value_kind: 'number' as const, value: -1, source: { kind: 'asserted' as const } },
+  { id: 'c_SO4_2minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'SO4_2minus', value_kind: 'number' as const, value: -2, source: { kind: 'asserted' as const } },
+  { id: 'c_PO4_3minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'PO4_3minus', value_kind: 'number' as const, value: -3, source: { kind: 'asserted' as const } },
 ];
 
 const MOCK_SOLUBILITY_PAIRS = [
@@ -79,7 +107,7 @@ const TEST_CONSTANTS: PhysicalConstant[] = JSON.parse(readFileSync(join(FOUNDATI
 
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
-  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: [] },
+  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: [], characteristics: MOCK_CHARACTERISTICS },
   data: {
     foundations: { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) },
   },

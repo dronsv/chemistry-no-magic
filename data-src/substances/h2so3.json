@@ -13,8 +13,5 @@
     "diprotic",
     "unstable"
   ],
-  "phase_standard": "aq",
-  "melting_point_C": null,
-  "boiling_point_C": null,
-  "density_g_cm3": 1.03
+  "phase_standard": "aq"
 }

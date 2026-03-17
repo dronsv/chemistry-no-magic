@@ -7,6 +7,8 @@ interface PeriodicTableLongProps {
   highlightedGroup: ElementGroup | null;
   searchMatchedZ: Set<number> | null;
   exceptionZSet?: Set<number>;
+  /** Atomic mass per element symbol, from characteristics layer. */
+  atomicMassMap?: Map<string, number>;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
@@ -33,7 +35,7 @@ function getGridPosition(el: Element): { row: number; col: number } | null {
 }
 
 export default function PeriodicTableLong({
-  elements, highlightedGroup, searchMatchedZ, exceptionZSet, onSelect, onHoverElement, onHoverElementEnd, onHoverGroup, onHoverGroupEnd,
+  elements, highlightedGroup, searchMatchedZ, exceptionZSet, atomicMassMap, onSelect, onHoverElement, onHoverElementEnd, onHoverGroup, onHoverGroupEnd,
 }: PeriodicTableLongProps) {
   const sorted = [...elements].sort((a, b) => a.Z - b.Z);
 
@@ -118,6 +120,7 @@ export default function PeriodicTableLong({
               dimmed={dimmedByGroup || dimmedBySearch}
               highlighted={highlighted}
               isException={exceptionZSet?.has(el.Z)}
+              atomicMass={atomicMassMap?.get(el.symbol)}
               onSelect={onSelect}
               onHoverElement={onHoverElement}
               onHoverElementEnd={onHoverElementEnd}

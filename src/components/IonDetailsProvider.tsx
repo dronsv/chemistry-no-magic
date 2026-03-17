@@ -146,9 +146,11 @@ function IonDetailsPopup({
               <div className="ion-details-popup__meta">
                 <span className="ion-details-popup__meta-label">{m.ion_charge()}:</span>
                 <span>{(() => {
-                  const subjectChars = charsBySubject.get(`ion:${ion.id}`);
-                  const charge = (getCharacteristicValue(subjectChars, 'concept:ion_charge') as number | undefined) ?? ion.charge;
-                  return charge > 0 ? `+${charge}` : charge;
+                  // ion.id is already fully qualified e.g. "ion:H_plus"
+                  const subjectChars = charsBySubject.get(ion.id);
+                  const charge = getCharacteristicValue(subjectChars, 'concept:ion_charge') as number | undefined;
+                  if (charge === undefined) return '—';
+                  return charge > 0 ? `+${charge}` : String(charge);
                 })()}</span>
               </div>
               {ion.parent_acid && (

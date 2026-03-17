@@ -5,8 +5,5 @@
   "subclass": "acidic",
   "ions": [],
   "tags": [],
-  "phase_standard": "l",
-  "melting_point_C": 5.9,
-  "boiling_point_C": null,
-  "density_g_cm3": 2.4
+  "phase_standard": "l"
 }

@@ -30,9 +30,9 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', cha
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
 
-  // Characteristics lookups with flat-field fallback
+  // Look up from characteristics layer
   const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
-  const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? element.electronegativity;
+  const electronegativity = getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined;
 
   return (
     <div className="detail-panel">

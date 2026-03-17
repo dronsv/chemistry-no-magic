@@ -3,7 +3,6 @@
     "Z": 1,
     "symbol": "H",
     "name_latin": "Hydrogenium",
-    "atomic_mass": 1.008,
     "group": 1,
     "period": 1,
     "metal_type": "nonmetal",
@@ -13,10 +12,6 @@
       0,
       1
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": -259.16,
-    "boiling_point_C": -252.87,
-    "density_g_cm3": 8.988e-05,
     "discovery": {
       "year": 1766
     }
@@ -25,7 +20,6 @@
     "Z": 2,
     "symbol": "He",
     "name_latin": "Helium",
-    "atomic_mass": 4.003,
     "group": 18,
     "period": 1,
     "metal_type": "nonmetal",
@@ -33,10 +27,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": -272.2,
-    "boiling_point_C": -268.93,
-    "density_g_cm3": 0.0001786,
     "discovery": {
       "year": 1868
     }
@@ -45,7 +35,6 @@
     "Z": 3,
     "symbol": "Li",
     "name_latin": "Lithium",
-    "atomic_mass": 6.941,
     "group": 1,
     "period": 2,
     "metal_type": "metal",
@@ -54,10 +43,6 @@
       0,
       1
     ],
-    "electronegativity": 0.98,
-    "melting_point_C": 180.54,
-    "boiling_point_C": 1342,
-    "density_g_cm3": 0.534,
     "discovery": {
       "year": 1817
     },
@@ -70,7 +55,6 @@
     "Z": 4,
     "symbol": "Be",
     "name_latin": "Beryllium",
-    "atomic_mass": 9.012,
     "group": 2,
     "period": 2,
     "metal_type": "metal",
@@ -80,10 +64,6 @@
       0,
       2
     ],
-    "electronegativity": 1.57,
-    "melting_point_C": 1287,
-    "boiling_point_C": 2469,
-    "density_g_cm3": 1.85,
     "discovery": {
       "year": 1798
     }
@@ -92,7 +72,6 @@
     "Z": 5,
     "symbol": "B",
     "name_latin": "Borum",
-    "atomic_mass": 10.811,
     "group": 13,
     "period": 2,
     "metal_type": "metalloid",
@@ -101,10 +80,6 @@
       0,
       3
     ],
-    "electronegativity": 2.04,
-    "melting_point_C": 2076,
-    "boiling_point_C": 3927,
-    "density_g_cm3": 2.34,
     "discovery": {
       "year": 1808
     }
@@ -113,7 +88,6 @@
     "Z": 6,
     "symbol": "C",
     "name_latin": "Carboneum",
-    "atomic_mass": 12.011,
     "group": 14,
     "period": 2,
     "metal_type": "nonmetal",
@@ -123,17 +97,12 @@
       0,
       2,
       4
-    ],
-    "electronegativity": 2.55,
-    "melting_point_C": 3550,
-    "boiling_point_C": 4827,
-    "density_g_cm3": 2.267
+    ]
   },
   {
     "Z": 7,
     "symbol": "N",
     "name_latin": "Nitrogenium",
-    "atomic_mass": 14.007,
     "group": 15,
     "period": 2,
     "metal_type": "nonmetal",
@@ -147,10 +116,6 @@
       4,
       5
     ],
-    "electronegativity": 3.04,
-    "melting_point_C": -210,
-    "boiling_point_C": -195.79,
-    "density_g_cm3": 0.001251,
     "discovery": {
       "year": 1772
     }
@@ -159,7 +124,6 @@
     "Z": 8,
     "symbol": "O",
     "name_latin": "Oxygenium",
-    "atomic_mass": 15.999,
     "group": 16,
     "period": 2,
     "metal_type": "nonmetal",
@@ -169,10 +133,6 @@
       -1,
       0
     ],
-    "electronegativity": 3.44,
-    "melting_point_C": -218.79,
-    "boiling_point_C": -182.96,
-    "density_g_cm3": 0.001429,
     "discovery": {
       "year": 1774
     }
@@ -181,7 +141,6 @@
     "Z": 9,
     "symbol": "F",
     "name_latin": "Fluorum",
-    "atomic_mass": 18.998,
     "group": 17,
     "period": 2,
     "metal_type": "nonmetal",
@@ -190,10 +149,6 @@
       -1,
       0
     ],
-    "electronegativity": 3.98,
-    "melting_point_C": -219.67,
-    "boiling_point_C": -188.11,
-    "density_g_cm3": 0.001696,
     "discovery": {
       "year": 1886
     },
@@ -205,7 +160,6 @@
     "Z": 10,
     "symbol": "Ne",
     "name_latin": "Neon",
-    "atomic_mass": 20.18,
     "group": 18,
     "period": 2,
     "metal_type": "nonmetal",
@@ -213,10 +167,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": -248.59,
-    "boiling_point_C": -246.08,
-    "density_g_cm3": 0.0009002,
     "discovery": {
       "year": 1898
     }
@@ -225,7 +175,6 @@
     "Z": 11,
     "symbol": "Na",
     "name_latin": "Natrium",
-    "atomic_mass": 22.99,
     "group": 1,
     "period": 3,
     "metal_type": "metal",
@@ -234,10 +183,6 @@
       0,
       1
     ],
-    "electronegativity": 0.93,
-    "melting_point_C": 97.79,
-    "boiling_point_C": 882.94,
-    "density_g_cm3": 0.968,
     "discovery": {
       "year": 1807
     },
@@ -250,7 +195,6 @@
     "Z": 12,
     "symbol": "Mg",
     "name_latin": "Magnesium",
-    "atomic_mass": 24.305,
     "group": 2,
     "period": 3,
     "metal_type": "metal",
@@ -259,10 +203,6 @@
       0,
       2
     ],
-    "electronegativity": 1.31,
-    "melting_point_C": 650,
-    "boiling_point_C": 1091,
-    "density_g_cm3": 1.738,
     "discovery": {
       "year": 1808
     }
@@ -271,7 +211,6 @@
     "Z": 13,
     "symbol": "Al",
     "name_latin": "Aluminium",
-    "atomic_mass": 26.982,
     "group": 13,
     "period": 3,
     "metal_type": "metal",
@@ -281,10 +220,6 @@
       0,
       3
     ],
-    "electronegativity": 1.61,
-    "melting_point_C": 660.32,
-    "boiling_point_C": 2519,
-    "density_g_cm3": 2.7,
     "discovery": {
       "year": 1825
     }
@@ -293,7 +228,6 @@
     "Z": 14,
     "symbol": "Si",
     "name_latin": "Silicium",
-    "atomic_mass": 28.086,
     "group": 14,
     "period": 3,
     "metal_type": "metalloid",
@@ -303,10 +237,6 @@
       0,
       4
     ],
-    "electronegativity": 1.9,
-    "melting_point_C": 1414,
-    "boiling_point_C": 3265,
-    "density_g_cm3": 2.329,
     "discovery": {
       "year": 1824
     }
@@ -315,7 +245,6 @@
     "Z": 15,
     "symbol": "P",
     "name_latin": "Phosphorus",
-    "atomic_mass": 30.974,
     "group": 15,
     "period": 3,
     "metal_type": "nonmetal",
@@ -326,10 +255,6 @@
       3,
       5
     ],
-    "electronegativity": 2.19,
-    "melting_point_C": 44.15,
-    "boiling_point_C": 280.5,
-    "density_g_cm3": 1.823,
     "discovery": {
       "year": 1669
     },
@@ -341,7 +266,6 @@
     "Z": 16,
     "symbol": "S",
     "name_latin": "Sulphur",
-    "atomic_mass": 32.065,
     "group": 16,
     "period": 3,
     "metal_type": "nonmetal",
@@ -351,17 +275,12 @@
       0,
       4,
       6
-    ],
-    "electronegativity": 2.58,
-    "melting_point_C": 115.21,
-    "boiling_point_C": 444.6,
-    "density_g_cm3": 2.07
+    ]
   },
   {
     "Z": 17,
     "symbol": "Cl",
     "name_latin": "Chlorum",
-    "atomic_mass": 35.453,
     "group": 17,
     "period": 3,
     "metal_type": "nonmetal",
@@ -374,10 +293,6 @@
       5,
       7
     ],
-    "electronegativity": 3.16,
-    "melting_point_C": -101.5,
-    "boiling_point_C": -34.04,
-    "density_g_cm3": 0.003214,
     "discovery": {
       "year": 1774
     }
@@ -386,7 +301,6 @@
     "Z": 18,
     "symbol": "Ar",
     "name_latin": "Argon",
-    "atomic_mass": 39.948,
     "group": 18,
     "period": 3,
     "metal_type": "nonmetal",
@@ -394,10 +308,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": -189.34,
-    "boiling_point_C": -185.85,
-    "density_g_cm3": 0.001784,
     "discovery": {
       "year": 1894
     }
@@ -406,7 +316,6 @@
     "Z": 19,
     "symbol": "K",
     "name_latin": "Kalium",
-    "atomic_mass": 39.098,
     "group": 1,
     "period": 4,
     "metal_type": "metal",
@@ -415,10 +324,6 @@
       0,
       1
     ],
-    "electronegativity": 0.82,
-    "melting_point_C": 63.5,
-    "boiling_point_C": 759,
-    "density_g_cm3": 0.862,
     "discovery": {
       "year": 1807
     },
@@ -431,7 +336,6 @@
     "Z": 20,
     "symbol": "Ca",
     "name_latin": "Calcium",
-    "atomic_mass": 40.078,
     "group": 2,
     "period": 4,
     "metal_type": "metal",
@@ -440,10 +344,6 @@
       0,
       2
     ],
-    "electronegativity": 1,
-    "melting_point_C": 842,
-    "boiling_point_C": 1484,
-    "density_g_cm3": 1.55,
     "discovery": {
       "year": 1808
     },
@@ -453,7 +353,6 @@
     "Z": 21,
     "symbol": "Sc",
     "name_latin": "Scandium",
-    "atomic_mass": 44.956,
     "group": 3,
     "period": 4,
     "metal_type": "metal",
@@ -462,10 +361,6 @@
       0,
       3
     ],
-    "electronegativity": 1.36,
-    "melting_point_C": 1541,
-    "boiling_point_C": 2836,
-    "density_g_cm3": 2.985,
     "discovery": {
       "year": 1879
     }
@@ -474,7 +369,6 @@
     "Z": 22,
     "symbol": "Ti",
     "name_latin": "Titanium",
-    "atomic_mass": 47.867,
     "group": 4,
     "period": 4,
     "metal_type": "metal",
@@ -485,10 +379,6 @@
       3,
       4
     ],
-    "electronegativity": 1.54,
-    "melting_point_C": 1668,
-    "boiling_point_C": 3287,
-    "density_g_cm3": 4.506,
     "discovery": {
       "year": 1791
     }
@@ -497,7 +387,6 @@
     "Z": 23,
     "symbol": "V",
     "name_latin": "Vanadium",
-    "atomic_mass": 50.942,
     "group": 5,
     "period": 4,
     "metal_type": "metal",
@@ -509,10 +398,6 @@
       4,
       5
     ],
-    "electronegativity": 1.63,
-    "melting_point_C": 1910,
-    "boiling_point_C": 3407,
-    "density_g_cm3": 6.11,
     "discovery": {
       "year": 1801
     }
@@ -521,7 +406,6 @@
     "Z": 24,
     "symbol": "Cr",
     "name_latin": "Chromium",
-    "atomic_mass": 51.996,
     "group": 6,
     "period": 4,
     "metal_type": "metal",
@@ -533,10 +417,6 @@
       3,
       6
     ],
-    "electronegativity": 1.66,
-    "melting_point_C": 1907,
-    "boiling_point_C": 2671,
-    "density_g_cm3": 7.15,
     "discovery": {
       "year": 1797
     },
@@ -584,7 +464,6 @@
     "Z": 25,
     "symbol": "Mn",
     "name_latin": "Manganum",
-    "atomic_mass": 54.938,
     "group": 7,
     "period": 4,
     "metal_type": "metal",
@@ -596,10 +475,6 @@
       6,
       7
     ],
-    "electronegativity": 1.55,
-    "melting_point_C": 1246,
-    "boiling_point_C": 2061,
-    "density_g_cm3": 7.21,
     "discovery": {
       "year": 1774
     }
@@ -608,7 +483,6 @@
     "Z": 26,
     "symbol": "Fe",
     "name_latin": "Ferrum",
-    "atomic_mass": 55.845,
     "group": 8,
     "period": 4,
     "metal_type": "metal",
@@ -618,17 +492,12 @@
       0,
       2,
       3
-    ],
-    "electronegativity": 1.83,
-    "melting_point_C": 1538,
-    "boiling_point_C": 2862,
-    "density_g_cm3": 7.874
+    ]
   },
   {
     "Z": 27,
     "symbol": "Co",
     "name_latin": "Cobaltum",
-    "atomic_mass": 58.933,
     "group": 9,
     "period": 4,
     "metal_type": "metal",
@@ -638,10 +507,6 @@
       2,
       3
     ],
-    "electronegativity": 1.88,
-    "melting_point_C": 1495,
-    "boiling_point_C": 2927,
-    "density_g_cm3": 8.9,
     "discovery": {
       "year": 1735
     }
@@ -650,7 +515,6 @@
     "Z": 28,
     "symbol": "Ni",
     "name_latin": "Niccolum",
-    "atomic_mass": 58.693,
     "group": 10,
     "period": 4,
     "metal_type": "metal",
@@ -659,10 +523,6 @@
       0,
       2
     ],
-    "electronegativity": 1.91,
-    "melting_point_C": 1455,
-    "boiling_point_C": 2913,
-    "density_g_cm3": 8.908,
     "discovery": {
       "year": 1751
     }
@@ -671,7 +531,6 @@
     "Z": 29,
     "symbol": "Cu",
     "name_latin": "Cuprum",
-    "atomic_mass": 63.546,
     "group": 11,
     "period": 4,
     "metal_type": "metal",
@@ -681,10 +540,6 @@
       1,
       2
     ],
-    "electronegativity": 1.9,
-    "melting_point_C": 1084.62,
-    "boiling_point_C": 2562,
-    "density_g_cm3": 8.96,
     "electron_exception": {
       "config_override": [
         [
@@ -729,7 +584,6 @@
     "Z": 30,
     "symbol": "Zn",
     "name_latin": "Zincum",
-    "atomic_mass": 65.38,
     "group": 12,
     "period": 4,
     "metal_type": "metal",
@@ -738,17 +592,12 @@
     "typical_oxidation_states": [
       0,
       2
-    ],
-    "electronegativity": 1.65,
-    "melting_point_C": 419.53,
-    "boiling_point_C": 907,
-    "density_g_cm3": 7.134
+    ]
   },
   {
     "Z": 31,
     "symbol": "Ga",
     "name_latin": "Gallium",
-    "atomic_mass": 69.723,
     "group": 13,
     "period": 4,
     "metal_type": "metal",
@@ -757,10 +606,6 @@
       0,
       3
     ],
-    "electronegativity": 1.81,
-    "melting_point_C": 29.76,
-    "boiling_point_C": 2229,
-    "density_g_cm3": 5.907,
     "discovery": {
       "year": 1875
     }
@@ -769,7 +614,6 @@
     "Z": 32,
     "symbol": "Ge",
     "name_latin": "Germanium",
-    "atomic_mass": 72.63,
     "group": 14,
     "period": 4,
     "metal_type": "metalloid",
@@ -779,10 +623,6 @@
       2,
       4
     ],
-    "electronegativity": 2.01,
-    "melting_point_C": 938.25,
-    "boiling_point_C": 2833,
-    "density_g_cm3": 5.323,
     "discovery": {
       "year": 1886
     }
@@ -791,7 +631,6 @@
     "Z": 33,
     "symbol": "As",
     "name_latin": "Arsenicum",
-    "atomic_mass": 74.922,
     "group": 15,
     "period": 4,
     "metal_type": "metalloid",
@@ -802,10 +641,6 @@
       3,
       5
     ],
-    "electronegativity": 2.18,
-    "melting_point_C": 616,
-    "boiling_point_C": null,
-    "density_g_cm3": 5.727,
     "discovery": {
       "year": 1250
     }
@@ -814,7 +649,6 @@
     "Z": 34,
     "symbol": "Se",
     "name_latin": "Selenium",
-    "atomic_mass": 78.971,
     "group": 16,
     "period": 4,
     "metal_type": "nonmetal",
@@ -825,10 +659,6 @@
       4,
       6
     ],
-    "electronegativity": 2.55,
-    "melting_point_C": 221,
-    "boiling_point_C": 685,
-    "density_g_cm3": 4.809,
     "discovery": {
       "year": 1817
     }
@@ -837,7 +667,6 @@
     "Z": 35,
     "symbol": "Br",
     "name_latin": "Bromum",
-    "atomic_mass": 79.904,
     "group": 17,
     "period": 4,
     "metal_type": "nonmetal",
@@ -848,10 +677,6 @@
       1,
       5
     ],
-    "electronegativity": 2.96,
-    "melting_point_C": -7.2,
-    "boiling_point_C": 58.8,
-    "density_g_cm3": 3.1028,
     "discovery": {
       "year": 1826
     }
@@ -860,7 +685,6 @@
     "Z": 36,
     "symbol": "Kr",
     "name_latin": "Krypton",
-    "atomic_mass": 83.798,
     "group": 18,
     "period": 4,
     "metal_type": "nonmetal",
@@ -869,10 +693,6 @@
       0,
       2
     ],
-    "electronegativity": 3,
-    "melting_point_C": -157.37,
-    "boiling_point_C": -153.42,
-    "density_g_cm3": 0.003749,
     "discovery": {
       "year": 1898
     }
@@ -881,7 +701,6 @@
     "Z": 37,
     "symbol": "Rb",
     "name_latin": "Rubidium",
-    "atomic_mass": 85.468,
     "group": 1,
     "period": 5,
     "metal_type": "metal",
@@ -890,10 +709,6 @@
       0,
       1
     ],
-    "electronegativity": 0.82,
-    "melting_point_C": 39.31,
-    "boiling_point_C": 688,
-    "density_g_cm3": 1.532,
     "discovery": {
       "year": 1861
     },
@@ -906,7 +721,6 @@
     "Z": 38,
     "symbol": "Sr",
     "name_latin": "Strontium",
-    "atomic_mass": 87.62,
     "group": 2,
     "period": 5,
     "metal_type": "metal",
@@ -915,10 +729,6 @@
       0,
       2
     ],
-    "electronegativity": 0.95,
-    "melting_point_C": 777,
-    "boiling_point_C": 1382,
-    "density_g_cm3": 2.64,
     "discovery": {
       "year": 1790
     },
@@ -928,7 +738,6 @@
     "Z": 39,
     "symbol": "Y",
     "name_latin": "Yttrium",
-    "atomic_mass": 88.906,
     "group": 3,
     "period": 5,
     "metal_type": "metal",
@@ -937,10 +746,6 @@
       0,
       3
     ],
-    "electronegativity": 1.22,
-    "melting_point_C": 1526,
-    "boiling_point_C": 3336,
-    "density_g_cm3": 4.472,
     "discovery": {
       "year": 1794
     }
@@ -949,7 +754,6 @@
     "Z": 40,
     "symbol": "Zr",
     "name_latin": "Zirconium",
-    "atomic_mass": 91.224,
     "group": 4,
     "period": 5,
     "metal_type": "metal",
@@ -958,10 +762,6 @@
       0,
       4
     ],
-    "electronegativity": 1.33,
-    "melting_point_C": 1855,
-    "boiling_point_C": 4409,
-    "density_g_cm3": 6.506,
     "discovery": {
       "year": 1789
     }
@@ -970,7 +770,6 @@
     "Z": 41,
     "symbol": "Nb",
     "name_latin": "Niobium",
-    "atomic_mass": 92.906,
     "group": 5,
     "period": 5,
     "metal_type": "metal",
@@ -980,10 +779,6 @@
       3,
       5
     ],
-    "electronegativity": 1.6,
-    "melting_point_C": 2477,
-    "boiling_point_C": 4744,
-    "density_g_cm3": 8.57,
     "discovery": {
       "year": 1801
     },
@@ -1030,7 +825,6 @@
     "Z": 42,
     "symbol": "Mo",
     "name_latin": "Molybdaenum",
-    "atomic_mass": 95.95,
     "group": 6,
     "period": 5,
     "metal_type": "metal",
@@ -1040,10 +834,6 @@
       4,
       6
     ],
-    "electronegativity": 2.16,
-    "melting_point_C": 2623,
-    "boiling_point_C": 4639,
-    "density_g_cm3": 10.22,
     "discovery": {
       "year": 1781
     },
@@ -1091,7 +881,6 @@
     "Z": 43,
     "symbol": "Tc",
     "name_latin": "Technetium",
-    "atomic_mass": 98,
     "group": 7,
     "period": 5,
     "metal_type": "metal",
@@ -1101,10 +890,6 @@
       4,
       7
     ],
-    "electronegativity": 1.9,
-    "melting_point_C": 2157,
-    "boiling_point_C": 4265,
-    "density_g_cm3": 11.5,
     "discovery": {
       "year": 1937
     }
@@ -1113,7 +898,6 @@
     "Z": 44,
     "symbol": "Ru",
     "name_latin": "Ruthenium",
-    "atomic_mass": 101.07,
     "group": 8,
     "period": 5,
     "metal_type": "metal",
@@ -1124,10 +908,6 @@
       4,
       8
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": 2334,
-    "boiling_point_C": 4150,
-    "density_g_cm3": 12.37,
     "discovery": {
       "year": 1844
     },
@@ -1174,7 +954,6 @@
     "Z": 45,
     "symbol": "Rh",
     "name_latin": "Rhodium",
-    "atomic_mass": 102.906,
     "group": 9,
     "period": 5,
     "metal_type": "metal",
@@ -1183,10 +962,6 @@
       0,
       3
     ],
-    "electronegativity": 2.28,
-    "melting_point_C": 1964,
-    "boiling_point_C": 3695,
-    "density_g_cm3": 12.41,
     "discovery": {
       "year": 1803
     },
@@ -1233,7 +1008,6 @@
     "Z": 46,
     "symbol": "Pd",
     "name_latin": "Palladium",
-    "atomic_mass": 106.42,
     "group": 10,
     "period": 5,
     "metal_type": "metal",
@@ -1243,10 +1017,6 @@
       2,
       4
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": 1554.9,
-    "boiling_point_C": 2963,
-    "density_g_cm3": 12.023,
     "discovery": {
       "year": 1803
     },
@@ -1293,7 +1063,6 @@
     "Z": 47,
     "symbol": "Ag",
     "name_latin": "Argentum",
-    "atomic_mass": 107.868,
     "group": 11,
     "period": 5,
     "metal_type": "metal",
@@ -1302,10 +1071,6 @@
       0,
       1
     ],
-    "electronegativity": 1.93,
-    "melting_point_C": 961.78,
-    "boiling_point_C": 2162,
-    "density_g_cm3": 10.49,
     "electron_exception": {
       "config_override": [
         [
@@ -1349,7 +1114,6 @@
     "Z": 48,
     "symbol": "Cd",
     "name_latin": "Cadmium",
-    "atomic_mass": 112.414,
     "group": 12,
     "period": 5,
     "metal_type": "metal",
@@ -1358,10 +1122,6 @@
       0,
       2
     ],
-    "electronegativity": 1.69,
-    "melting_point_C": 321.07,
-    "boiling_point_C": 767,
-    "density_g_cm3": 8.65,
     "discovery": {
       "year": 1817
     }
@@ -1370,7 +1130,6 @@
     "Z": 49,
     "symbol": "In",
     "name_latin": "Indium",
-    "atomic_mass": 114.818,
     "group": 13,
     "period": 5,
     "metal_type": "metal",
@@ -1379,10 +1138,6 @@
       0,
       3
     ],
-    "electronegativity": 1.78,
-    "melting_point_C": 156.6,
-    "boiling_point_C": 2072,
-    "density_g_cm3": 7.31,
     "discovery": {
       "year": 1863
     }
@@ -1391,7 +1146,6 @@
     "Z": 50,
     "symbol": "Sn",
     "name_latin": "Stannum",
-    "atomic_mass": 118.71,
     "group": 14,
     "period": 5,
     "metal_type": "metal",
@@ -1401,17 +1155,12 @@
       0,
       2,
       4
-    ],
-    "electronegativity": 1.96,
-    "melting_point_C": 231.93,
-    "boiling_point_C": 2602,
-    "density_g_cm3": 7.265
+    ]
   },
   {
     "Z": 51,
     "symbol": "Sb",
     "name_latin": "Stibium",
-    "atomic_mass": 121.76,
     "group": 15,
     "period": 5,
     "metal_type": "metalloid",
@@ -1421,17 +1170,12 @@
       0,
       3,
       5
-    ],
-    "electronegativity": 2.05,
-    "melting_point_C": 630.63,
-    "boiling_point_C": 1587,
-    "density_g_cm3": 6.697
+    ]
   },
   {
     "Z": 52,
     "symbol": "Te",
     "name_latin": "Tellurium",
-    "atomic_mass": 127.6,
     "group": 16,
     "period": 5,
     "metal_type": "metalloid",
@@ -1442,10 +1186,6 @@
       4,
       6
     ],
-    "electronegativity": 2.1,
-    "melting_point_C": 449.51,
-    "boiling_point_C": 988,
-    "density_g_cm3": 6.232,
     "discovery": {
       "year": 1783
     }
@@ -1454,7 +1194,6 @@
     "Z": 53,
     "symbol": "I",
     "name_latin": "Iodum",
-    "atomic_mass": 126.904,
     "group": 17,
     "period": 5,
     "metal_type": "nonmetal",
@@ -1466,10 +1205,6 @@
       5,
       7
     ],
-    "electronegativity": 2.66,
-    "melting_point_C": 113.7,
-    "boiling_point_C": 184.3,
-    "density_g_cm3": 4.933,
     "discovery": {
       "year": 1811
     }
@@ -1478,7 +1213,6 @@
     "Z": 54,
     "symbol": "Xe",
     "name_latin": "Xenon",
-    "atomic_mass": 131.293,
     "group": 18,
     "period": 5,
     "metal_type": "nonmetal",
@@ -1489,10 +1223,6 @@
       4,
       6
     ],
-    "electronegativity": 2.6,
-    "melting_point_C": -111.75,
-    "boiling_point_C": -108.09,
-    "density_g_cm3": 0.005894,
     "discovery": {
       "year": 1898
     }
@@ -1501,7 +1231,6 @@
     "Z": 55,
     "symbol": "Cs",
     "name_latin": "Caesium",
-    "atomic_mass": 132.905,
     "group": 1,
     "period": 6,
     "metal_type": "metal",
@@ -1510,10 +1239,6 @@
       0,
       1
     ],
-    "electronegativity": 0.79,
-    "melting_point_C": 28.44,
-    "boiling_point_C": 671,
-    "density_g_cm3": 1.873,
     "discovery": {
       "year": 1860
     },
@@ -1526,7 +1251,6 @@
     "Z": 56,
     "symbol": "Ba",
     "name_latin": "Barium",
-    "atomic_mass": 137.327,
     "group": 2,
     "period": 6,
     "metal_type": "metal",
@@ -1535,10 +1259,6 @@
       0,
       2
     ],
-    "electronegativity": 0.89,
-    "melting_point_C": 727,
-    "boiling_point_C": 1845,
-    "density_g_cm3": 3.62,
     "discovery": {
       "year": 1808
     },
@@ -1548,7 +1268,6 @@
     "Z": 57,
     "symbol": "La",
     "name_latin": "Lanthanum",
-    "atomic_mass": 138.905,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1557,10 +1276,6 @@
       0,
       3
     ],
-    "electronegativity": 1.1,
-    "melting_point_C": 920,
-    "boiling_point_C": 3464,
-    "density_g_cm3": 6.162,
     "discovery": {
       "year": 1839
     },
@@ -1604,7 +1319,6 @@
     "Z": 58,
     "symbol": "Ce",
     "name_latin": "Cerium",
-    "atomic_mass": 140.116,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1614,10 +1328,6 @@
       3,
       4
     ],
-    "electronegativity": 1.12,
-    "melting_point_C": 798,
-    "boiling_point_C": 3443,
-    "density_g_cm3": 6.77,
     "discovery": {
       "year": 1803
     },
@@ -1661,7 +1371,6 @@
     "Z": 59,
     "symbol": "Pr",
     "name_latin": "Praseodymium",
-    "atomic_mass": 140.908,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1670,10 +1379,6 @@
       0,
       3
     ],
-    "electronegativity": 1.13,
-    "melting_point_C": 931,
-    "boiling_point_C": 3520,
-    "density_g_cm3": 6.773,
     "discovery": {
       "year": 1885
     }
@@ -1682,7 +1387,6 @@
     "Z": 60,
     "symbol": "Nd",
     "name_latin": "Neodymium",
-    "atomic_mass": 144.242,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1691,10 +1395,6 @@
       0,
       3
     ],
-    "electronegativity": 1.14,
-    "melting_point_C": 1016,
-    "boiling_point_C": 3074,
-    "density_g_cm3": 7.007,
     "discovery": {
       "year": 1885
     }
@@ -1703,7 +1403,6 @@
     "Z": 61,
     "symbol": "Pm",
     "name_latin": "Promethium",
-    "atomic_mass": 145,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1712,10 +1411,6 @@
       0,
       3
     ],
-    "electronegativity": 1.13,
-    "melting_point_C": 1042,
-    "boiling_point_C": 3000,
-    "density_g_cm3": 7.26,
     "discovery": {
       "year": 1945
     }
@@ -1724,7 +1419,6 @@
     "Z": 62,
     "symbol": "Sm",
     "name_latin": "Samarium",
-    "atomic_mass": 150.36,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1734,10 +1428,6 @@
       2,
       3
     ],
-    "electronegativity": 1.17,
-    "melting_point_C": 1072,
-    "boiling_point_C": 1794,
-    "density_g_cm3": 7.52,
     "discovery": {
       "year": 1879
     }
@@ -1746,7 +1436,6 @@
     "Z": 63,
     "symbol": "Eu",
     "name_latin": "Europium",
-    "atomic_mass": 151.964,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1756,10 +1445,6 @@
       2,
       3
     ],
-    "electronegativity": 1.2,
-    "melting_point_C": 822,
-    "boiling_point_C": 1529,
-    "density_g_cm3": 5.243,
     "discovery": {
       "year": 1901
     }
@@ -1768,7 +1453,6 @@
     "Z": 64,
     "symbol": "Gd",
     "name_latin": "Gadolinium",
-    "atomic_mass": 157.25,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1777,10 +1461,6 @@
       0,
       3
     ],
-    "electronegativity": 1.2,
-    "melting_point_C": 1313,
-    "boiling_point_C": 3273,
-    "density_g_cm3": 7.895,
     "discovery": {
       "year": 1880
     },
@@ -1828,7 +1508,6 @@
     "Z": 65,
     "symbol": "Tb",
     "name_latin": "Terbium",
-    "atomic_mass": 158.925,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1837,10 +1516,6 @@
       0,
       3
     ],
-    "electronegativity": 1.2,
-    "melting_point_C": 1356,
-    "boiling_point_C": 3230,
-    "density_g_cm3": 8.229,
     "discovery": {
       "year": 1843
     }
@@ -1849,7 +1524,6 @@
     "Z": 66,
     "symbol": "Dy",
     "name_latin": "Dysprosium",
-    "atomic_mass": 162.5,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1858,10 +1532,6 @@
       0,
       3
     ],
-    "electronegativity": 1.22,
-    "melting_point_C": 1412,
-    "boiling_point_C": 2567,
-    "density_g_cm3": 8.55,
     "discovery": {
       "year": 1886
     }
@@ -1870,7 +1540,6 @@
     "Z": 67,
     "symbol": "Ho",
     "name_latin": "Holmium",
-    "atomic_mass": 164.93,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1879,10 +1548,6 @@
       0,
       3
     ],
-    "electronegativity": 1.23,
-    "melting_point_C": 1474,
-    "boiling_point_C": 2700,
-    "density_g_cm3": 8.795,
     "discovery": {
       "year": 1878
     }
@@ -1891,7 +1556,6 @@
     "Z": 68,
     "symbol": "Er",
     "name_latin": "Erbium",
-    "atomic_mass": 167.259,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1900,10 +1564,6 @@
       0,
       3
     ],
-    "electronegativity": 1.24,
-    "melting_point_C": 1529,
-    "boiling_point_C": 2868,
-    "density_g_cm3": 9.066,
     "discovery": {
       "year": 1843
     }
@@ -1912,7 +1572,6 @@
     "Z": 69,
     "symbol": "Tm",
     "name_latin": "Thulium",
-    "atomic_mass": 168.934,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1921,10 +1580,6 @@
       0,
       3
     ],
-    "electronegativity": 1.25,
-    "melting_point_C": 1545,
-    "boiling_point_C": 1950,
-    "density_g_cm3": 9.321,
     "discovery": {
       "year": 1879
     }
@@ -1933,7 +1588,6 @@
     "Z": 70,
     "symbol": "Yb",
     "name_latin": "Ytterbium",
-    "atomic_mass": 173.045,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1943,10 +1597,6 @@
       2,
       3
     ],
-    "electronegativity": 1.1,
-    "melting_point_C": 824,
-    "boiling_point_C": 1196,
-    "density_g_cm3": 6.965,
     "discovery": {
       "year": 1878
     }
@@ -1955,7 +1605,6 @@
     "Z": 71,
     "symbol": "Lu",
     "name_latin": "Lutetium",
-    "atomic_mass": 174.967,
     "group": 3,
     "period": 6,
     "metal_type": "metal",
@@ -1964,10 +1613,6 @@
       0,
       3
     ],
-    "electronegativity": 1.27,
-    "melting_point_C": 1663,
-    "boiling_point_C": 3402,
-    "density_g_cm3": 9.84,
     "discovery": {
       "year": 1907
     }
@@ -1976,7 +1621,6 @@
     "Z": 72,
     "symbol": "Hf",
     "name_latin": "Hafnium",
-    "atomic_mass": 178.49,
     "group": 4,
     "period": 6,
     "metal_type": "metal",
@@ -1985,10 +1629,6 @@
       0,
       4
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 2233,
-    "boiling_point_C": 4603,
-    "density_g_cm3": 13.31,
     "discovery": {
       "year": 1923
     }
@@ -1997,7 +1637,6 @@
     "Z": 73,
     "symbol": "Ta",
     "name_latin": "Tantalum",
-    "atomic_mass": 180.948,
     "group": 5,
     "period": 6,
     "metal_type": "metal",
@@ -2006,10 +1645,6 @@
       0,
       5
     ],
-    "electronegativity": 1.5,
-    "melting_point_C": 3017,
-    "boiling_point_C": 5458,
-    "density_g_cm3": 16.654,
     "discovery": {
       "year": 1802
     }
@@ -2018,7 +1653,6 @@
     "Z": 74,
     "symbol": "W",
     "name_latin": "Wolframium",
-    "atomic_mass": 183.84,
     "group": 6,
     "period": 6,
     "metal_type": "metal",
@@ -2028,10 +1662,6 @@
       4,
       6
     ],
-    "electronegativity": 2.36,
-    "melting_point_C": 3422,
-    "boiling_point_C": 5555,
-    "density_g_cm3": 19.25,
     "discovery": {
       "year": 1783
     }
@@ -2040,7 +1670,6 @@
     "Z": 75,
     "symbol": "Re",
     "name_latin": "Rhenium",
-    "atomic_mass": 186.207,
     "group": 7,
     "period": 6,
     "metal_type": "metal",
@@ -2050,10 +1679,6 @@
       4,
       7
     ],
-    "electronegativity": 1.9,
-    "melting_point_C": 3186,
-    "boiling_point_C": 5596,
-    "density_g_cm3": 21.02,
     "discovery": {
       "year": 1925
     }
@@ -2062,7 +1687,6 @@
     "Z": 76,
     "symbol": "Os",
     "name_latin": "Osmium",
-    "atomic_mass": 190.23,
     "group": 8,
     "period": 6,
     "metal_type": "metal",
@@ -2072,10 +1696,6 @@
       4,
       8
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": 3033,
-    "boiling_point_C": 5012,
-    "density_g_cm3": 22.587,
     "discovery": {
       "year": 1803
     }
@@ -2084,7 +1704,6 @@
     "Z": 77,
     "symbol": "Ir",
     "name_latin": "Iridium",
-    "atomic_mass": 192.217,
     "group": 9,
     "period": 6,
     "metal_type": "metal",
@@ -2094,10 +1713,6 @@
       3,
       4
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": 2446,
-    "boiling_point_C": 4428,
-    "density_g_cm3": 22.562,
     "discovery": {
       "year": 1803
     }
@@ -2106,7 +1721,6 @@
     "Z": 78,
     "symbol": "Pt",
     "name_latin": "Platinum",
-    "atomic_mass": 195.084,
     "group": 10,
     "period": 6,
     "metal_type": "metal",
@@ -2116,10 +1730,6 @@
       2,
       4
     ],
-    "electronegativity": 2.28,
-    "melting_point_C": 1768.3,
-    "boiling_point_C": 3825,
-    "density_g_cm3": 21.45,
     "discovery": {
       "year": 1735
     },
@@ -2171,7 +1781,6 @@
     "Z": 79,
     "symbol": "Au",
     "name_latin": "Aurum",
-    "atomic_mass": 196.967,
     "group": 11,
     "period": 6,
     "metal_type": "metal",
@@ -2181,10 +1790,6 @@
       1,
       3
     ],
-    "electronegativity": 2.54,
-    "melting_point_C": 1064.18,
-    "boiling_point_C": 2856,
-    "density_g_cm3": 19.3,
     "electron_exception": {
       "config_override": [
         [
@@ -2233,7 +1838,6 @@
     "Z": 80,
     "symbol": "Hg",
     "name_latin": "Hydrargyrum",
-    "atomic_mass": 200.592,
     "group": 12,
     "period": 6,
     "metal_type": "metal",
@@ -2243,10 +1847,6 @@
       1,
       2
     ],
-    "electronegativity": 2,
-    "melting_point_C": -38.83,
-    "boiling_point_C": 356.73,
-    "density_g_cm3": 13.534,
     "storage_profiles": [
       "storage:mercury"
     ]
@@ -2255,7 +1855,6 @@
     "Z": 81,
     "symbol": "Tl",
     "name_latin": "Thallium",
-    "atomic_mass": 204.383,
     "group": 13,
     "period": 6,
     "metal_type": "metal",
@@ -2265,10 +1864,6 @@
       1,
       3
     ],
-    "electronegativity": 1.62,
-    "melting_point_C": 304,
-    "boiling_point_C": 1473,
-    "density_g_cm3": 11.85,
     "discovery": {
       "year": 1861
     }
@@ -2277,7 +1872,6 @@
     "Z": 82,
     "symbol": "Pb",
     "name_latin": "Plumbum",
-    "atomic_mass": 207.2,
     "group": 14,
     "period": 6,
     "metal_type": "metal",
@@ -2287,17 +1881,12 @@
       0,
       2,
       4
-    ],
-    "electronegativity": 2.33,
-    "melting_point_C": 327.46,
-    "boiling_point_C": 1749,
-    "density_g_cm3": 11.34
+    ]
   },
   {
     "Z": 83,
     "symbol": "Bi",
     "name_latin": "Bismuthum",
-    "atomic_mass": 208.98,
     "group": 15,
     "period": 6,
     "metal_type": "metal",
@@ -2307,10 +1896,6 @@
       3,
       5
     ],
-    "electronegativity": 2.02,
-    "melting_point_C": 271.4,
-    "boiling_point_C": 1564,
-    "density_g_cm3": 9.78,
     "discovery": {
       "year": 1753
     }
@@ -2319,7 +1904,6 @@
     "Z": 84,
     "symbol": "Po",
     "name_latin": "Polonium",
-    "atomic_mass": 209,
     "group": 16,
     "period": 6,
     "metal_type": "metalloid",
@@ -2329,10 +1913,6 @@
       2,
       4
     ],
-    "electronegativity": 2,
-    "melting_point_C": 254,
-    "boiling_point_C": 962,
-    "density_g_cm3": 9.196,
     "discovery": {
       "year": 1898
     }
@@ -2341,7 +1921,6 @@
     "Z": 85,
     "symbol": "At",
     "name_latin": "Astatium",
-    "atomic_mass": 210,
     "group": 17,
     "period": 6,
     "metal_type": "nonmetal",
@@ -2351,10 +1930,6 @@
       0,
       1
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": 302,
-    "boiling_point_C": 337,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1940
     }
@@ -2363,7 +1938,6 @@
     "Z": 86,
     "symbol": "Rn",
     "name_latin": "Radon",
-    "atomic_mass": 222,
     "group": 18,
     "period": 6,
     "metal_type": "nonmetal",
@@ -2372,10 +1946,6 @@
       0,
       2
     ],
-    "electronegativity": 2.2,
-    "melting_point_C": -71,
-    "boiling_point_C": -61.7,
-    "density_g_cm3": 0.00973,
     "discovery": {
       "year": 1900
     }
@@ -2384,7 +1954,6 @@
     "Z": 87,
     "symbol": "Fr",
     "name_latin": "Francium",
-    "atomic_mass": 223,
     "group": 1,
     "period": 7,
     "metal_type": "metal",
@@ -2393,10 +1962,6 @@
       0,
       1
     ],
-    "electronegativity": 0.7,
-    "melting_point_C": 27,
-    "boiling_point_C": 677,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1939
     }
@@ -2405,7 +1970,6 @@
     "Z": 88,
     "symbol": "Ra",
     "name_latin": "Radium",
-    "atomic_mass": 226,
     "group": 2,
     "period": 7,
     "metal_type": "metal",
@@ -2414,10 +1978,6 @@
       0,
       2
     ],
-    "electronegativity": 0.9,
-    "melting_point_C": 696,
-    "boiling_point_C": 1737,
-    "density_g_cm3": 5.5,
     "discovery": {
       "year": 1898
     }
@@ -2426,7 +1986,6 @@
     "Z": 89,
     "symbol": "Ac",
     "name_latin": "Actinium",
-    "atomic_mass": 227,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2435,10 +1994,6 @@
       0,
       3
     ],
-    "electronegativity": 1.1,
-    "melting_point_C": 1050,
-    "boiling_point_C": 3200,
-    "density_g_cm3": 10.07,
     "discovery": {
       "year": 1899
     },
@@ -2482,7 +2037,6 @@
     "Z": 90,
     "symbol": "Th",
     "name_latin": "Thorium",
-    "atomic_mass": 232.038,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2491,10 +2045,6 @@
       0,
       4
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 1750,
-    "boiling_point_C": 4788,
-    "density_g_cm3": 11.72,
     "discovery": {
       "year": 1829
     },
@@ -2538,7 +2088,6 @@
     "Z": 91,
     "symbol": "Pa",
     "name_latin": "Protactinium",
-    "atomic_mass": 231.036,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2548,10 +2097,6 @@
       4,
       5
     ],
-    "electronegativity": 1.5,
-    "melting_point_C": 1572,
-    "boiling_point_C": 4000,
-    "density_g_cm3": 15.37,
     "discovery": {
       "year": 1913
     },
@@ -2595,7 +2140,6 @@
     "Z": 92,
     "symbol": "U",
     "name_latin": "Uranium",
-    "atomic_mass": 238.029,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2607,10 +2151,6 @@
       5,
       6
     ],
-    "electronegativity": 1.38,
-    "melting_point_C": 1135,
-    "boiling_point_C": 4131,
-    "density_g_cm3": 19.05,
     "discovery": {
       "year": 1789
     },
@@ -2654,7 +2194,6 @@
     "Z": 93,
     "symbol": "Np",
     "name_latin": "Neptunium",
-    "atomic_mass": 237,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2665,10 +2204,6 @@
       4,
       5
     ],
-    "electronegativity": 1.36,
-    "melting_point_C": 644,
-    "boiling_point_C": 3902,
-    "density_g_cm3": 20.45,
     "discovery": {
       "year": 1940
     },
@@ -2712,7 +2247,6 @@
     "Z": 94,
     "symbol": "Pu",
     "name_latin": "Plutonium",
-    "atomic_mass": 244,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2724,10 +2258,6 @@
       5,
       6
     ],
-    "electronegativity": 1.28,
-    "melting_point_C": 640,
-    "boiling_point_C": 3228,
-    "density_g_cm3": 19.816,
     "discovery": {
       "year": 1940
     }
@@ -2736,7 +2266,6 @@
     "Z": 95,
     "symbol": "Am",
     "name_latin": "Americium",
-    "atomic_mass": 243,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2745,10 +2274,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 1176,
-    "boiling_point_C": 2011,
-    "density_g_cm3": 12,
     "discovery": {
       "year": 1944
     }
@@ -2757,7 +2282,6 @@
     "Z": 96,
     "symbol": "Cm",
     "name_latin": "Curium",
-    "atomic_mass": 247,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2766,10 +2290,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 1345,
-    "boiling_point_C": 3110,
-    "density_g_cm3": 13.51,
     "discovery": {
       "year": 1944
     },
@@ -2817,7 +2337,6 @@
     "Z": 97,
     "symbol": "Bk",
     "name_latin": "Berkelium",
-    "atomic_mass": 247,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2826,10 +2345,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 986,
-    "boiling_point_C": 2627,
-    "density_g_cm3": 14.78,
     "discovery": {
       "year": 1949
     }
@@ -2838,7 +2353,6 @@
     "Z": 98,
     "symbol": "Cf",
     "name_latin": "Californium",
-    "atomic_mass": 251,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2847,10 +2361,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 900,
-    "boiling_point_C": 1470,
-    "density_g_cm3": 15.1,
     "discovery": {
       "year": 1950
     }
@@ -2859,7 +2369,6 @@
     "Z": 99,
     "symbol": "Es",
     "name_latin": "Einsteinium",
-    "atomic_mass": 252,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2868,10 +2377,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 860,
-    "boiling_point_C": null,
-    "density_g_cm3": 8.84,
     "discovery": {
       "year": 1952
     }
@@ -2880,7 +2385,6 @@
     "Z": 100,
     "symbol": "Fm",
     "name_latin": "Fermium",
-    "atomic_mass": 257,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2889,10 +2393,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 1527,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1952
     }
@@ -2901,7 +2401,6 @@
     "Z": 101,
     "symbol": "Md",
     "name_latin": "Mendelevium",
-    "atomic_mass": 258,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2911,10 +2410,6 @@
       2,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 827,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1955
     }
@@ -2923,7 +2418,6 @@
     "Z": 102,
     "symbol": "No",
     "name_latin": "Nobelium",
-    "atomic_mass": 259,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2933,10 +2427,6 @@
       2,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 827,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1966
     }
@@ -2945,7 +2435,6 @@
     "Z": 103,
     "symbol": "Lr",
     "name_latin": "Lawrencium",
-    "atomic_mass": 266,
     "group": 3,
     "period": 7,
     "metal_type": "metal",
@@ -2954,10 +2443,6 @@
       0,
       3
     ],
-    "electronegativity": 1.3,
-    "melting_point_C": 1627,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1961
     }
@@ -2966,7 +2451,6 @@
     "Z": 104,
     "symbol": "Rf",
     "name_latin": "Rutherfordium",
-    "atomic_mass": 267,
     "group": 4,
     "period": 7,
     "metal_type": "metal",
@@ -2975,10 +2459,6 @@
       0,
       4
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1964
     }
@@ -2987,7 +2467,6 @@
     "Z": 105,
     "symbol": "Db",
     "name_latin": "Dubnium",
-    "atomic_mass": 268,
     "group": 5,
     "period": 7,
     "metal_type": "metal",
@@ -2996,10 +2475,6 @@
       0,
       5
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1968
     }
@@ -3008,7 +2483,6 @@
     "Z": 106,
     "symbol": "Sg",
     "name_latin": "Seaborgium",
-    "atomic_mass": 269,
     "group": 6,
     "period": 7,
     "metal_type": "metal",
@@ -3017,10 +2491,6 @@
       0,
       6
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1974
     }
@@ -3029,7 +2499,6 @@
     "Z": 107,
     "symbol": "Bh",
     "name_latin": "Bohrium",
-    "atomic_mass": 270,
     "group": 7,
     "period": 7,
     "metal_type": "metal",
@@ -3038,10 +2507,6 @@
       0,
       7
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1981
     }
@@ -3050,7 +2515,6 @@
     "Z": 108,
     "symbol": "Hs",
     "name_latin": "Hassium",
-    "atomic_mass": 277,
     "group": 8,
     "period": 7,
     "metal_type": "metal",
@@ -3059,10 +2523,6 @@
       0,
       8
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1984
     }
@@ -3071,7 +2531,6 @@
     "Z": 109,
     "symbol": "Mt",
     "name_latin": "Meitnerium",
-    "atomic_mass": 278,
     "group": 9,
     "period": 7,
     "metal_type": "metal",
@@ -3079,10 +2538,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1982
     }
@@ -3091,7 +2546,6 @@
     "Z": 110,
     "symbol": "Ds",
     "name_latin": "Darmstadtium",
-    "atomic_mass": 281,
     "group": 10,
     "period": 7,
     "metal_type": "metal",
@@ -3099,10 +2553,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1994
     }
@@ -3111,7 +2561,6 @@
     "Z": 111,
     "symbol": "Rg",
     "name_latin": "Roentgenium",
-    "atomic_mass": 282,
     "group": 11,
     "period": 7,
     "metal_type": "metal",
@@ -3119,10 +2568,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1994
     }
@@ -3131,7 +2576,6 @@
     "Z": 112,
     "symbol": "Cn",
     "name_latin": "Copernicium",
-    "atomic_mass": 285,
     "group": 12,
     "period": 7,
     "metal_type": "metal",
@@ -3140,10 +2584,6 @@
       0,
       2
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1996
     }
@@ -3152,7 +2592,6 @@
     "Z": 113,
     "symbol": "Nh",
     "name_latin": "Nihonium",
-    "atomic_mass": 286,
     "group": 13,
     "period": 7,
     "metal_type": "metal",
@@ -3160,10 +2599,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 2003
     }
@@ -3172,7 +2607,6 @@
     "Z": 114,
     "symbol": "Fl",
     "name_latin": "Flerovium",
-    "atomic_mass": 289,
     "group": 14,
     "period": 7,
     "metal_type": "metal",
@@ -3181,10 +2615,6 @@
       0,
       2
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 1999
     }
@@ -3193,7 +2623,6 @@
     "Z": 115,
     "symbol": "Mc",
     "name_latin": "Moscovium",
-    "atomic_mass": 290,
     "group": 15,
     "period": 7,
     "metal_type": "metal",
@@ -3201,10 +2630,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 2003
     }
@@ -3213,7 +2638,6 @@
     "Z": 116,
     "symbol": "Lv",
     "name_latin": "Livermorium",
-    "atomic_mass": 293,
     "group": 16,
     "period": 7,
     "metal_type": "metal",
@@ -3221,10 +2645,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 2000
     }
@@ -3233,7 +2653,6 @@
     "Z": 117,
     "symbol": "Ts",
     "name_latin": "Tennessium",
-    "atomic_mass": 294,
     "group": 17,
     "period": 7,
     "metal_type": "nonmetal",
@@ -3241,10 +2660,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 2010
     }
@@ -3253,7 +2668,6 @@
     "Z": 118,
     "symbol": "Og",
     "name_latin": "Oganesson",
-    "atomic_mass": 294,
     "group": 18,
     "period": 7,
     "metal_type": "nonmetal",
@@ -3261,10 +2675,6 @@
     "typical_oxidation_states": [
       0
     ],
-    "electronegativity": null,
-    "melting_point_C": null,
-    "boiling_point_C": null,
-    "density_g_cm3": null,
     "discovery": {
       "year": 2006
     }

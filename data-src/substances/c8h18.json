@@ -8,8 +8,5 @@
     "liquid",
     "flammable"
   ],
-  "phase_standard": "l",
-  "melting_point_C": -56.8,
-  "boiling_point_C": 125.7,
-  "density_g_cm3": 0.703
+  "phase_standard": "l"
 }

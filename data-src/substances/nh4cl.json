@@ -11,8 +11,5 @@
     "soluble",
     "sublimes"
   ],
-  "phase_standard": "s",
-  "melting_point_C": 340,
-  "boiling_point_C": null,
-  "density_g_cm3": 1.527
+  "phase_standard": "s"
 }

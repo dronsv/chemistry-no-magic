@@ -11,6 +11,5 @@
     "soluble",
     "weak_electrolyte"
   ],
-  "phase_standard": "aq",
-  "density_g_cm3": 0.91
+  "phase_standard": "aq"
 }

@@ -8,6 +8,7 @@ import {
   toSuperscript,
 } from '../../electron-config';
 import { determineBondType } from '../../bond-calculator';
+import type { ElementLike } from '../../bond-calculator';
 import { toConstantsDict } from '../../formula-evaluator';
 import type { OntologyData } from '../types';
 import type { Element } from '../../../types/element';
@@ -16,13 +17,39 @@ import type { ComputableFormula, PhysicalConstant } from '../../../types/formula
 // ── Shared test elements ──────────────────────────────────────────
 
 const TEST_ELEMENTS: Element[] = [
-  { Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium', group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal', atomic_mass: 1.008, typical_oxidation_states: [1, -1], electronegativity: 2.2 },
-  { Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium', group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal', atomic_mass: 16.0, typical_oxidation_states: [-2], electronegativity: 3.44 },
-  { Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium', group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal', atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93 },
-  { Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum', group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen', atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16 },
-  { Z: 24, symbol: 'Cr', name: 'Хром', name_latin: 'Chromium', group: 6, period: 4, metal_type: 'metal', element_group: 'transition_metal', atomic_mass: 52.0, typical_oxidation_states: [2, 3, 6], electronegativity: 1.66, electron_exception: { config_override: [[4, 's', 1], [3, 'd', 5]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁴', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d⁵', rule: 'half-filled d', reason: 'Провал электрона: полузаполненная 3d-оболочка' } },
-  { Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum', group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal', atomic_mass: 55.845, typical_oxidation_states: [2, 3], electronegativity: 1.83 },
-  { Z: 29, symbol: 'Cu', name: 'Медь', name_latin: 'Cuprum', group: 11, period: 4, metal_type: 'metal', element_group: 'transition_metal', atomic_mass: 63.546, typical_oxidation_states: [1, 2], electronegativity: 1.90, electron_exception: { config_override: [[4, 's', 1], [3, 'd', 10]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁹', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d¹⁰', rule: 'filled d', reason: 'Провал электрона: полностью заполненная 3d-оболочка' } },
+  { Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium', group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [1, -1] },
+  { Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium', group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [-2] },
+  { Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium', group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal', typical_oxidation_states: [1] },
+  { Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum', group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen', typical_oxidation_states: [-1, 1, 3, 5, 7] },
+  { Z: 24, symbol: 'Cr', name: 'Хром', name_latin: 'Chromium', group: 6, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3, 6], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 5]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁴', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d⁵', rule: 'half-filled d', reason: 'Провал электрона: полузаполненная 3d-оболочка' } },
+  { Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum', group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3] },
+  { Z: 29, symbol: 'Cu', name: 'Медь', name_latin: 'Cuprum', group: 11, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [1, 2], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 10]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁹', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d¹⁰', rule: 'filled d', reason: 'Провал электрона: полностью заполненная 3d-оболочка' } },
+];
+
+// Electronegativity values for bond parity tests (via ElementLike)
+const EN_VALUES: Record<string, number> = {
+  H: 2.2, O: 3.44, Na: 0.93, Cl: 3.16, Cr: 1.66, Fe: 1.83, Cu: 1.90,
+};
+
+function toElementLike(el: Element): ElementLike {
+  return { symbol: el.symbol, electronegativity: EN_VALUES[el.symbol] ?? null, metal_type: el.metal_type };
+}
+
+// Characteristics for solver tests
+const TEST_CHARACTERISTICS = [
+  { id: 'c_H_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:H', value_kind: 'number' as const, value: 2.2, source: { kind: 'asserted' as const } },
+  { id: 'c_O_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:O', value_kind: 'number' as const, value: 3.44, source: { kind: 'asserted' as const } },
+  { id: 'c_Na_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Na', value_kind: 'number' as const, value: 0.93, source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cl', value_kind: 'number' as const, value: 3.16, source: { kind: 'asserted' as const } },
+  { id: 'c_Cr_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cr', value_kind: 'number' as const, value: 1.66, source: { kind: 'asserted' as const } },
+  { id: 'c_Fe_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Fe', value_kind: 'number' as const, value: 1.83, source: { kind: 'asserted' as const } },
+  { id: 'c_Cu_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cu', value_kind: 'number' as const, value: 1.90, source: { kind: 'asserted' as const } },
+  // Atomic masses for molar_mass solver
+  { id: 'c_H_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:H', value_kind: 'number' as const, value: 1.008, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_O_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:O', value_kind: 'number' as const, value: 16.0, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Na_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Na', value_kind: 'number' as const, value: 22.99, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Cl', value_kind: 'number' as const, value: 35.45, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Fe_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Fe', value_kind: 'number' as const, value: 55.845, unit: 'unit:u', source: { kind: 'asserted' as const } },
 ];
 
 const FOUNDATIONS_DIR = join(import.meta.dirname, '../../../../data-src/foundations');
@@ -34,6 +61,7 @@ function buildMinimalOntology(elements: Element[]): OntologyData {
     core: { elements, ions: [], properties: [] },
     rules: {
       solubilityPairs: [], oxidationExamples: [],
+      characteristics: TEST_CHARACTERISTICS,
     },
     data: {
       foundations: { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) },
@@ -96,7 +124,7 @@ describe('Parity: delta_chi solver vs canonical determineBondType', () => {
       const elA = TEST_ELEMENTS.find(e => e.symbol === symA)!;
       const elB = TEST_ELEMENTS.find(e => e.symbol === symB)!;
 
-      const canonicalType = determineBondType(elA, elB);
+      const canonicalType = determineBondType(toElementLike(elA), toElementLike(elB));
 
       const result = runSolver(
         'solver.delta_chi',
@@ -127,7 +155,7 @@ describe('Parity: bonds legacy generator uses canonical bond classification', ()
     it(`${symA}-${symB}: canonical determineBondType matches legacy threshold`, () => {
       const elA = TEST_ELEMENTS.find(e => e.symbol === symA)!;
       const elB = TEST_ELEMENTS.find(e => e.symbol === symB)!;
-      const result = determineBondType(elA, elB);
+      const result = determineBondType(toElementLike(elA), toElementLike(elB));
       expect(result).toBe(expected);
     });
   }

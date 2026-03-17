@@ -4,9 +4,11 @@ import { join } from 'path';
 import { toConstantsDict } from '../formula-evaluator';
 import { parseFormula } from '../formula-parser';
 import { deriveQuantity } from '../derivation/derive-quantity';
+import { indexCharacteristicsBySubject } from '../characteristics-utils';
 import { qrefKey } from '../derivation/qref';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
 import type { Element } from '../../types/element';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import type { QRef, ReasonStep } from '../../types/derivation';
 import type { OntologyAccess } from '../derivation/resolvers';
 
@@ -22,6 +24,10 @@ const constants = toConstantsDict(
 const elements: Element[] = JSON.parse(
   readFileSync(join(DATA_DIR, 'elements.json'), 'utf8'),
 );
+const elementChars: TypedCharacteristic[] = JSON.parse(
+  readFileSync(join(DATA_DIR, 'characteristics/element_properties.json'), 'utf8'),
+);
+const charsBySubject = indexCharacteristicsBySubject(elementChars);
 
 // Build ontology access with a few test substances
 const entityFormulas = new Map<string, string>([
@@ -32,7 +38,7 @@ const entityFormulas = new Map<string, string>([
   ['substance:NH3', 'NH3'],
 ]);
 
-const ontology: OntologyAccess = { elements, parseFormula, entityFormulas };
+const ontology: OntologyAccess = { elements, parseFormula, entityFormulas, charsBySubject };
 
 // ── Helpers ──────────────────────────────────────────────────────
 

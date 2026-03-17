@@ -59,12 +59,7 @@ export interface Element {
   element_group: ElementGroup;
   amphoteric?: boolean;
   flame_test?: boolean;
-  atomic_mass: number;
   typical_oxidation_states: number[];
-  electronegativity: number | null;
-  melting_point_C?: number | null;
-  boiling_point_C?: number | null;
-  density_g_cm3?: number | null;
   discovery?: ElementDiscovery;
   hazards?: string[];
   storage_profiles?: string[];

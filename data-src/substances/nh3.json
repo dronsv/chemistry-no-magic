@@ -9,8 +9,5 @@
     "pungent_odor",
     "reacts_with_water"
   ],
-  "phase_standard": "g",
-  "melting_point_C": -77.73,
-  "boiling_point_C": -33.34,
-  "density_g_cm3": 0.73
+  "phase_standard": "g"
 }

@@ -8,8 +8,5 @@
     "gas",
     "reacts_with_water"
   ],
-  "phase_standard": "g",
-  "melting_point_C": -78.5,
-  "boiling_point_C": null,
-  "density_g_cm3": 1.977
+  "phase_standard": "g"
 }

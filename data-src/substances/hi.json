@@ -12,8 +12,5 @@
     "strong_electrolyte",
     "strong_acid"
   ],
-  "phase_standard": "g",
-  "melting_point_C": -51,
-  "boiling_point_C": -35.4,
-  "density_g_cm3": 1.7
+  "phase_standard": "g"
 }

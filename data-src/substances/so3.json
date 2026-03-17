@@ -7,8 +7,5 @@
   "tags": [
     "reacts_with_water"
   ],
-  "phase_standard": "l",
-  "melting_point_C": 16.9,
-  "boiling_point_C": 45,
-  "density_g_cm3": 1.92
+  "phase_standard": "l"
 }

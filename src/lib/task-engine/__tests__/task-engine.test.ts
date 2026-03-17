@@ -23,39 +23,39 @@ const MOCK_ELEMENTS: Element[] = [
   {
     Z: 11, symbol: 'Na', name: '\u041D\u0430\u0442\u0440\u0438\u0439', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
-    atomic_mass: 22.99, typical_oxidation_states: [1], electronegativity: 0.93,
+    typical_oxidation_states: [1],
   },
   {
     Z: 12, symbol: 'Mg', name: '\u041C\u0430\u0433\u043D\u0438\u0439', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
-    atomic_mass: 24.305, typical_oxidation_states: [2], electronegativity: 1.31,
+    typical_oxidation_states: [2],
   },
   {
     Z: 17, symbol: 'Cl', name: '\u0425\u043B\u043E\u0440', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
-    atomic_mass: 35.45, typical_oxidation_states: [-1, 1, 3, 5, 7], electronegativity: 3.16,
+    typical_oxidation_states: [-1, 1, 3, 5, 7],
   },
   {
     Z: 13, symbol: 'Al', name: '\u0410\u043B\u044E\u043C\u0438\u043D\u0438\u0439', name_latin: 'Aluminium',
     group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition',
-    atomic_mass: 26.98, typical_oxidation_states: [3], electronegativity: 1.61,
+    typical_oxidation_states: [3],
     amphoteric: true,
   } as Element,
   {
     Z: 30, symbol: 'Zn', name: '\u0426\u0438\u043D\u043A', name_latin: 'Zincum',
     group: 12, period: 4, metal_type: 'metal', element_group: 'transition_metal',
-    atomic_mass: 65.38, typical_oxidation_states: [2], electronegativity: 1.65,
+    typical_oxidation_states: [2],
     amphoteric: true,
   } as Element,
   {
     Z: 1, symbol: 'H', name: '\u0412\u043E\u0434\u043E\u0440\u043E\u0434', name_latin: 'Hydrogenium',
     group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
-    atomic_mass: 1.008, typical_oxidation_states: [1, -1], electronegativity: 2.2,
+    typical_oxidation_states: [1, -1],
   },
   {
     Z: 8, symbol: 'O', name: '\u041A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', name_latin: 'Oxygenium',
     group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
-    atomic_mass: 15.999, typical_oxidation_states: [-2], electronegativity: 3.44,
+    typical_oxidation_states: [-2],
   },
 ];
 
@@ -64,19 +64,44 @@ const MOCK_PROPERTIES: PropertyDef[] = [
     id: 'electronegativity', value_field: 'electronegativity', object: 'element',
     unit: null, trend_hint: { period: 'increases', group: 'decreases' },
     filter: null,
+    concept_ref: 'concept:electronegativity',
     i18n: { en: { nom: 'electronegativity', gen: 'electronegativity' } },
   },
 ];
 
+// Characteristics for elements and ions (replaces removed flat fields)
+const MOCK_CHARACTERISTICS = [
+  // Electronegativity
+  { id: 'c_Na_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Na', value_kind: 'number' as const, value: 0.93, source: { kind: 'asserted' as const } },
+  { id: 'c_Mg_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Mg', value_kind: 'number' as const, value: 1.31, source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cl', value_kind: 'number' as const, value: 3.16, source: { kind: 'asserted' as const } },
+  { id: 'c_Al_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Al', value_kind: 'number' as const, value: 1.61, source: { kind: 'asserted' as const } },
+  { id: 'c_Zn_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Zn', value_kind: 'number' as const, value: 1.65, source: { kind: 'asserted' as const } },
+  { id: 'c_H_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:H', value_kind: 'number' as const, value: 2.2, source: { kind: 'asserted' as const } },
+  { id: 'c_O_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:O', value_kind: 'number' as const, value: 3.44, source: { kind: 'asserted' as const } },
+  // Atomic masses
+  { id: 'c_Na_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Na', value_kind: 'number' as const, value: 22.99, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Mg_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Mg', value_kind: 'number' as const, value: 24.305, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Cl', value_kind: 'number' as const, value: 35.45, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Al_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Al', value_kind: 'number' as const, value: 26.98, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_Zn_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Zn', value_kind: 'number' as const, value: 65.38, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_H_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:H', value_kind: 'number' as const, value: 1.008, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  { id: 'c_O_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:O', value_kind: 'number' as const, value: 15.999, unit: 'unit:u', source: { kind: 'asserted' as const } },
+  // Ion charges
+  { id: 'c_Na_plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Na_plus', value_kind: 'number' as const, value: 1, source: { kind: 'asserted' as const } },
+  { id: 'c_Cl_minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Cl_minus', value_kind: 'number' as const, value: -1, source: { kind: 'asserted' as const } },
+  { id: 'c_SO4_2minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'SO4_2minus', value_kind: 'number' as const, value: -2, source: { kind: 'asserted' as const } },
+];
+
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
 ];
 
 const MOCK_IONS_WITH_NAMING: Ion[] = [
-  { id: 'Cl_minus', formula: 'Cl\u207b', charge: -1, type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 } },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', charge: -2, type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 } },
-  { id: 'Na_plus', formula: 'Na\u207a', charge: 1, type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 } },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
 ];
 
 const MOCK_ION_NOMENCLATURE = {
@@ -117,7 +142,7 @@ const TEST_FOUNDATIONS = { formulas: TEST_FORMULAS, constantsDict: toConstantsDi
 
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
-  rules: { solubilityPairs: [], oxidationExamples: MOCK_OXIDATION_EXAMPLES },
+  rules: { solubilityPairs: [], oxidationExamples: MOCK_OXIDATION_EXAMPLES, characteristics: MOCK_CHARACTERISTICS },
   data: { foundations: TEST_FOUNDATIONS },
   i18n: { morphology: null, promptTemplates: MOCK_PROMPTS },
 };
@@ -817,7 +842,6 @@ const MOCK_CALCULATIONS: CalculationsData = {
     {
       formula: 'H₂O',
       name: 'Вода',
-      M: 18.015,
       composition: [
         { element: 'H', Ar: 1.008, count: 2 },
         { element: 'O', Ar: 15.999, count: 1 },
@@ -826,7 +850,6 @@ const MOCK_CALCULATIONS: CalculationsData = {
     {
       formula: 'NaCl',
       name: 'Хлорид натрия',
-      M: 58.44,
       composition: [
         { element: 'Na', Ar: 22.99, count: 1 },
         { element: 'Cl', Ar: 35.45, count: 1 },

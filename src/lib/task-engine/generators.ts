@@ -58,25 +58,32 @@ function resolveParam(
 }
 
 /**
- * Get the value of a property from an element.
- * Prefers characteristics layer (via prop.concept_ref); falls back to flat field for backward compatibility.
+ * Get the value of a property from an element via the characteristics layer.
+ * Uses concept_ref from the property definition.
  */
 function getElementValue(
   el: Element,
   prop: PropertyDef,
   charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
-  // 1. Try characteristics layer if concept_ref is present
   if (prop.concept_ref) {
     const subjectId = 'el:' + el.symbol;
     const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
     if (charVal !== undefined && typeof charVal === 'number') return charVal;
   }
-  // 2. Fall back to flat field
-  if (!prop.value_field) return null;
-  const val = (el as unknown as Record<string, unknown>)[prop.value_field];
-  if (val === undefined || val === null) return null;
-  if (typeof val === 'number') return val;
+  return null;
+}
+
+/**
+ * Get a numeric characteristic value for an ion by concept ID.
+ */
+function getIonCharacteristic(
+  ionId: string,
+  conceptId: string,
+  charsBySubject: Map<string, TypedCharacteristic[]>,
+): number | null {
+  const charVal = getCharacteristicValue(charsBySubject.get(ionId), conceptId);
+  if (charVal !== undefined && typeof charVal === 'number') return charVal;
   return null;
 }
 
@@ -213,24 +220,37 @@ function genPickOxidationExample(params: Record<string, unknown>, data: Ontology
 }
 
 function genPickIonPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
   const cations = data.core.ions.filter(i => i.type === 'cation');
   const anions = data.core.ions.filter(i => i.type === 'anion');
 
   let filteredCations = cations;
   let filteredAnions = anions;
 
-  // Optional charge range filters
+  // Optional charge range filters — look up charge from characteristics
   if (typeof params.min_cation_charge === 'number') {
-    filteredCations = filteredCations.filter(c => c.charge >= (params.min_cation_charge as number));
+    filteredCations = filteredCations.filter(c => {
+      const ch = getIonCharacteristic(c.id, 'concept:ion_charge', charsBySubject);
+      return ch !== null && ch >= (params.min_cation_charge as number);
+    });
   }
   if (typeof params.max_cation_charge === 'number') {
-    filteredCations = filteredCations.filter(c => c.charge <= (params.max_cation_charge as number));
+    filteredCations = filteredCations.filter(c => {
+      const ch = getIonCharacteristic(c.id, 'concept:ion_charge', charsBySubject);
+      return ch !== null && ch <= (params.max_cation_charge as number);
+    });
   }
   if (typeof params.min_anion_charge === 'number') {
-    filteredAnions = filteredAnions.filter(a => Math.abs(a.charge) >= (params.min_anion_charge as number));
+    filteredAnions = filteredAnions.filter(a => {
+      const ch = getIonCharacteristic(a.id, 'concept:ion_charge', charsBySubject);
+      return ch !== null && Math.abs(ch) >= (params.min_anion_charge as number);
+    });
   }
   if (typeof params.max_anion_charge === 'number') {
-    filteredAnions = filteredAnions.filter(a => Math.abs(a.charge) <= (params.max_anion_charge as number));
+    filteredAnions = filteredAnions.filter(a => {
+      const ch = getIonCharacteristic(a.id, 'concept:ion_charge', charsBySubject);
+      return ch !== null && Math.abs(ch) <= (params.max_anion_charge as number);
+    });
   }
 
   if (filteredCations.length === 0 || filteredAnions.length === 0) {
@@ -240,13 +260,16 @@ function genPickIonPair(params: Record<string, unknown>, data: OntologyData): Sl
   const cat = pickRandom(filteredCations);
   const an = pickRandom(filteredAnions);
 
+  const catCharge = getIonCharacteristic(cat.id, 'concept:ion_charge', charsBySubject) ?? 0;
+  const anCharge = getIonCharacteristic(an.id, 'concept:ion_charge', charsBySubject) ?? 0;
+
   return {
     cation: cat.formula,
     anion: an.formula,
     cation_id: cat.id,
     anion_id: an.id,
-    cation_charge: cat.charge,
-    anion_charge: an.charge,
+    cation_charge: catCharge,
+    anion_charge: anCharge,
   };
 }
 
@@ -669,10 +692,13 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
   }
   const sub: CalcSubstance = pickRandom(data.data.calculations.calc_substances);
 
+  // Compute molar mass from composition (Ar × count for each element)
+  const M = Math.round(sub.composition.reduce((sum, c) => sum + c.Ar * c.count, 0) * 100) / 100;
+
   // Generate random mass between 10 and 100 g (rounded to 1 decimal)
   const mass = Math.round((10 + Math.random() * 90) * 10) / 10;
   // amount = mass / M
-  const amount = Math.round((mass / sub.M) * 10000) / 10000;
+  const amount = M > 0 ? Math.round((mass / M) * 10000) / 10000 : 0;
 
   // Pick the first element from composition for mass_fraction tasks
   const element = sub.composition.length > 0 ? sub.composition[0].element : '';
@@ -686,7 +712,7 @@ function genPickCalcSubstance(_params: Record<string, unknown>, data: OntologyDa
   return {
     formula: sub.formula,
     name: sub.name,
-    M: sub.M,
+    M,
     mass,
     amount,
     element,

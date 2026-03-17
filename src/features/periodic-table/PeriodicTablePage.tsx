@@ -5,7 +5,7 @@ import type { SupportedLocale } from '../../types/i18n';
 import type { FormulaLookup } from '../../types/formula-lookup';
 import type { TypedCharacteristic } from '../../types/characteristic';
 import { loadElements, loadElementGroups, loadFormulaLookup, loadCharacteristics } from '../../lib/data-loader';
-import { indexCharacteristicsBySubject } from '../../lib/characteristics-utils';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
 import { setConfigOverrides } from '../../lib/electron-config';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
@@ -26,6 +26,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
   const [error, setError] = useState<string | null>(null);
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
   const [charsBySubject, setCharsBySubject] = useState<Map<string, TypedCharacteristic[]>>(new Map());
+  const [atomicMassMap, setAtomicMassMap] = useState<Map<string, number>>(new Map());
 
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -72,7 +73,17 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
       });
     loadFormulaLookup().then(setFormulaLookup).catch(() => {});
     loadCharacteristics().then(chars => {
-      setCharsBySubject(indexCharacteristicsBySubject(chars));
+      const idx = indexCharacteristicsBySubject(chars);
+      setCharsBySubject(idx);
+      // Build atomic mass map for element cells
+      const massMap = new Map<string, number>();
+      for (const [subjectId, charList] of idx) {
+        if (!subjectId.startsWith('el:')) continue;
+        const symbol = subjectId.slice(3);
+        const mass = getCharacteristicValue(charList, 'concept:atomic_mass');
+        if (typeof mass === 'number') massMap.set(symbol, mass);
+      }
+      setAtomicMassMap(massMap);
     }).catch(() => {});
   }, []);
 
@@ -161,6 +172,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
             highlightedGroup={highlightedGroup ?? hoveredElementGroup}
             searchMatchedZ={searchMatchedZ}
             exceptionZSet={exceptionZSet}
+            atomicMassMap={atomicMassMap}
             onHoverElement={setHoveredElementGroup}
             onHoverElementEnd={() => setHoveredElementGroup(null)}
             onHoverGroup={setHighlightedGroup}

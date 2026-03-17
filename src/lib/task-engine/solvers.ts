@@ -76,46 +76,46 @@ function buildCharsBySubject(data: OntologyData): Map<string, TypedCharacteristi
 }
 
 /**
- * Get the value of a property from an element.
- * Prefers characteristics layer (via concept_ref); falls back to flat field for backward compatibility.
+ * Get the value of a property from an element via the characteristics layer.
+ * Uses concept_ref from the property definition.
  */
 function getElementValue(
   el: Element,
   prop: PropertyDef,
   charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
-  // 1. Try characteristics layer if concept_ref is present
   if (prop.concept_ref) {
     const subjectId = 'el:' + el.symbol;
     const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
     if (charVal !== undefined && typeof charVal === 'number') return charVal;
   }
-  // 2. Fall back to flat field
-  if (!prop.value_field) return null;
-  const val = (el as unknown as Record<string, unknown>)[prop.value_field];
-  if (val === undefined || val === null) return null;
-  if (typeof val === 'number') return val;
   return null;
 }
 
 /**
  * Get a single numeric characteristic value for an element by concept ID.
- * Falls back to the flat field if not found in characteristics.
  */
 function getElementCharacteristic(
   el: Element,
   conceptId: string,
-  flatField: string,
   charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
-  // 1. Try characteristics layer
   const subjectId = 'el:' + el.symbol;
   const charVal = getCharacteristicValue(charsBySubject.get(subjectId), conceptId);
   if (charVal !== undefined && typeof charVal === 'number') return charVal;
-  // 2. Fall back to flat field
-  const val = (el as unknown as Record<string, unknown>)[flatField];
-  if (val === undefined || val === null) return null;
-  if (typeof val === 'number') return val;
+  return null;
+}
+
+/**
+ * Get a numeric characteristic value for an ion by concept ID.
+ */
+function getIonCharacteristic(
+  ionId: string,
+  conceptId: string,
+  charsBySubject: Map<string, TypedCharacteristic[]>,
+): number | null {
+  const charVal = getCharacteristicValue(charsBySubject.get(ionId), conceptId);
+  if (charVal !== undefined && typeof charVal === 'number') return charVal;
   return null;
 }
 
@@ -256,8 +256,16 @@ function solveComposeSaltFormula(
     throw new Error(`Cannot find ions: ${cationId}, ${anionId}`);
   }
 
-  const catCharge = Math.abs(catIon.charge);
-  const anCharge = Math.abs(anIon.charge);
+  const charsBySubject = buildCharsBySubject(data);
+  const catChargeRaw = getIonCharacteristic(catIon.id, 'concept:ion_charge', charsBySubject);
+  const anChargeRaw = getIonCharacteristic(anIon.id, 'concept:ion_charge', charsBySubject);
+
+  if (catChargeRaw === null || anChargeRaw === null) {
+    throw new Error(`Cannot find charge characteristics for ions: ${cationId}, ${anionId}`);
+  }
+
+  const catCharge = Math.abs(catChargeRaw);
+  const anCharge = Math.abs(anChargeRaw);
 
   // Use LCM to find subscripts
   const l = lcm(catCharge, anCharge);
@@ -417,12 +425,16 @@ function solveDeltaChi(
   const elA = findElement(symbolA, data);
   const elB = findElement(symbolB, data);
 
-  // Delegate bond classification to canonical implementation
-  const bondType = determineBondType(elA, elB);
-
   const charsBySubject = buildCharsBySubject(data);
-  const chiA = getElementCharacteristic(elA, 'concept:electronegativity', 'electronegativity', charsBySubject);
-  const chiB = getElementCharacteristic(elB, 'concept:electronegativity', 'electronegativity', charsBySubject);
+  const chiA = getElementCharacteristic(elA, 'concept:electronegativity', charsBySubject);
+  const chiB = getElementCharacteristic(elB, 'concept:electronegativity', charsBySubject);
+
+  // Build ElementLike objects for bond classification (requires electronegativity)
+  const elALike = { symbol: elA.symbol, electronegativity: chiA ?? null, metal_type: elA.metal_type };
+  const elBLike = { symbol: elB.symbol, electronegativity: chiB ?? null, metal_type: elB.metal_type };
+
+  // Delegate bond classification to canonical implementation
+  const bondType = determineBondType(elALike, elBLike);
   const delta = (chiA != null && chiB != null) ? Math.abs(chiA - chiB) : null;
   const rounded = delta != null ? Math.round(delta * 100) / 100 : 0;
 
@@ -507,7 +519,8 @@ function solveMolarMass(
   const indexed = {
     composition_elements: Object.entries(composition).map(([symbol, count]) => {
       const el = findElement(symbol, data);
-      const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', 'atomic_mass', charsBySubject) ?? el.atomic_mass;
+      const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', charsBySubject);
+      if (atomicMass === null) throw new Error(`No atomic mass characteristic for element: ${symbol}`);
       return { Ar_i: atomicMass, count_i: count };
     }),
   };
@@ -542,7 +555,8 @@ function solveMassFraction(
 
   const el = findElement(targetElement, data);
   const charsBySubject = buildCharsBySubject(data);
-  const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', 'atomic_mass', charsBySubject) ?? el.atomic_mass;
+  const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', charsBySubject);
+  if (atomicMass === null) throw new Error(`No atomic mass characteristic for element: ${targetElement}`);
   const trace = evaluateFormula(formula, { Ar: atomicMass, n_atom: count, M }, constantsDict);
   return { answer: Math.round(trace.result * 10) / 10 };
 }

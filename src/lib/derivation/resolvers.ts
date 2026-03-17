@@ -38,9 +38,10 @@ export function resolveLookup(
   const el = ontology.elements.find(e => e.symbol === symbol);
   if (!el) return null;
 
-  // Use characteristics if available, fall back to flat field
+  // Use characteristics layer
   const subjectChars = ontology.charsBySubject?.get(`el:${symbol}`);
-  const atomicMass = (getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined) ?? el.atomic_mass;
+  const atomicMass = getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined;
+  if (atomicMass === undefined) return null;
 
   return {
     qref: target,

@@ -11,8 +11,5 @@
     "soluble",
     "green"
   ],
-  "phase_standard": "s",
-  "melting_point_C": 677,
-  "boiling_point_C": 1023,
-  "density_g_cm3": 3.16
+  "phase_standard": "s"
 }

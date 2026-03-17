@@ -12,9 +12,6 @@ export interface SubstanceData {
   ions?: string[];
   notes?: string;
   tags?: string[];
-  melting_point_C?: number | null;
-  boiling_point_C?: number | null;
-  density_g_cm3?: number | null;
   appearance?: string;
   hazards?: string[];
   storage?: string;
@@ -43,7 +40,6 @@ export interface IonData {
   id: string;
   formula: string;
   name: string;
-  charge: number;
   type: string;
 }
 

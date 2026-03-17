@@ -3,8 +3,10 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { toConstantsDict, evaluateFormula, solveFor as formulaSolveFor } from '../formula-evaluator';
 import { parseFormula } from '../formula-parser';
+import { indexCharacteristicsBySubject } from '../characteristics-utils';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
 import type { Element } from '../../types/element';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import type { QRef, ReasonStep } from '../../types/derivation';
 import type { OntologyAccess } from '../derivation/resolvers';
 import { deriveQuantity } from '../derivation/derive-quantity';
@@ -21,6 +23,10 @@ const constants = toConstantsDict(
 const elements: Element[] = JSON.parse(
   readFileSync(join(DATA_DIR, 'elements.json'), 'utf8'),
 );
+const elementChars: TypedCharacteristic[] = JSON.parse(
+  readFileSync(join(DATA_DIR, 'characteristics/element_properties.json'), 'utf8'),
+);
+const charsBySubject = indexCharacteristicsBySubject(elementChars);
 
 const entityFormulas = new Map<string, string>([
   ['substance:H2SO4', 'H2SO4'],
@@ -31,7 +37,7 @@ const entityFormulas = new Map<string, string>([
   ['substance:HCl', 'HCl'],
 ]);
 
-const ontology: OntologyAccess = { elements, parseFormula, entityFormulas };
+const ontology: OntologyAccess = { elements, parseFormula, entityFormulas, charsBySubject };
 
 function traceStepsOfType<T extends ReasonStep['type']>(
   trace: ReasonStep[],

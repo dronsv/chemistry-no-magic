@@ -19,12 +19,14 @@ interface ElementCellProps {
   dimmed: boolean;
   highlighted?: boolean;
   isException?: boolean;
+  /** Atomic mass from characteristics layer (replaces removed flat field). */
+  atomicMass?: number;
   onSelect: (element: Element) => void;
   onHoverElement: (group: ElementGroup) => void;
   onHoverElementEnd: () => void;
 }
 
-export default function ElementCell({ element, dimmed, highlighted, isException, onSelect, onHoverElement, onHoverElementEnd }: ElementCellProps) {
+export default function ElementCell({ element, dimmed, highlighted, isException, atomicMass, onSelect, onHoverElement, onHoverElementEnd }: ElementCellProps) {
   const bgColor = GROUP_CSS_VAR[element.element_group];
   const cls = [
     'pt-cell',
@@ -45,7 +47,7 @@ export default function ElementCell({ element, dimmed, highlighted, isException,
       <span className="pt-cell__z">{element.Z}</span>
       {isException && <span className="pt-cell__exc" aria-label={m.pt_exception_label()} />}
       <span className="pt-cell__symbol">{element.symbol}</span>
-      <span className="pt-cell__mass">{Math.round(element.atomic_mass)}</span>
+      <span className="pt-cell__mass">{atomicMass !== undefined ? Math.round(atomicMass) : ''}</span>
     </button>
   );
 }

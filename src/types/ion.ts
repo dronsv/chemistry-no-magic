@@ -12,7 +12,6 @@ export interface IonNaming {
 export interface Ion {
   id: string;
   formula: string;
-  charge: number;
   type: IonType;
   name: string;
   name_genitive?: string;

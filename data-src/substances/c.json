@@ -8,8 +8,5 @@
     "solid",
     "allotropes"
   ],
-  "phase_standard": "s",
-  "melting_point_C": 3550,
-  "boiling_point_C": 4027,
-  "density_g_cm3": 2.267
+  "phase_standard": "s"
 }

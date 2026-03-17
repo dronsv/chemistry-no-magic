@@ -9,8 +9,5 @@
     "toxic",
     "pungent_odor"
   ],
-  "phase_standard": "g",
-  "melting_point_C": -75.5,
-  "boiling_point_C": -10,
-  "density_g_cm3": 0.002926
+  "phase_standard": "g"
 }
