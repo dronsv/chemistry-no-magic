@@ -13,7 +13,33 @@
           "Ar": 16,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 100,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 1,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -285.8,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 0,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 18,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 69.9,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "NaCl",
@@ -28,7 +54,25 @@
           "Ar": 35.5,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 1413,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 2.165,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 801,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 58.5,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "CO₂",
@@ -43,7 +87,29 @@
           "Ar": 16,
           "count": 2
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 1.977,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -393.5,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": -78.5,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 44,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 213.8,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "SO₂",
@@ -58,7 +124,33 @@
           "Ar": 16,
           "count": 2
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": -10,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 0.002926,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -296.8,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": -75.5,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 64,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 248.2,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "HCl",
@@ -73,7 +165,42 @@
           "Ar": 35.5,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": -85.1,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 1.19,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -92.3,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": -114.2,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 36.5,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:pKa": {
+          "value": -7,
+          "conditions": {
+            "dissociation_step": 1,
+            "solvent": "water",
+            "temperature_C": 25
+          },
+          "explanation_concept_id": "concept:acid_dissociation_constant"
+        },
+        "concept:standard_entropy": {
+          "value": 186.9,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "NaOH",
@@ -93,7 +220,33 @@
           "Ar": 1,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 1388,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 2.13,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -427.8,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 323,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 40,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 64.5,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "CaO",
@@ -108,7 +261,33 @@
           "Ar": 16,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 2850,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 3.34,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -635.1,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 2613,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 56,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 38.1,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "Fe₂O₃",
@@ -123,7 +302,29 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 5.24,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -824.2,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 1565,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 160,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 87.4,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "H₂SO₄",
@@ -143,7 +344,45 @@
           "Ar": 16,
           "count": 4
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 337,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 1.84,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 10.31,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 98,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:pKa": [
+          {
+            "value": -3,
+            "conditions": {
+              "dissociation_step": 1,
+              "solvent": "water",
+              "temperature_C": 25
+            },
+            "explanation_concept_id": "concept:acid_dissociation_constant"
+          },
+          {
+            "value": 1.99,
+            "conditions": {
+              "dissociation_step": 2,
+              "solvent": "water",
+              "temperature_C": 25
+            },
+            "explanation_concept_id": "concept:acid_dissociation_constant"
+          }
+        ]
+      }
     },
     {
       "formula": "HNO₃",
@@ -163,7 +402,42 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 83,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 1.51,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -174.1,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": -41.6,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 63,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:pKa": {
+          "value": -1.4,
+          "conditions": {
+            "dissociation_step": 1,
+            "solvent": "water",
+            "temperature_C": 25
+          },
+          "explanation_concept_id": "concept:acid_dissociation_constant"
+        },
+        "concept:standard_entropy": {
+          "value": 155.6,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "Ca(OH)₂",
@@ -183,7 +457,29 @@
           "Ar": 1,
           "count": 2
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 2.21,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -986.1,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 580,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 74,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 83.4,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "Na₂CO₃",
@@ -203,7 +499,21 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 2.54,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 851,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 106,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "CaCO₃",
@@ -223,7 +533,29 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 2.71,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -1206.9,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 825,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 100,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 91.7,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "Al₂O₃",
@@ -238,7 +570,33 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 2977,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 3.95,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -1675.7,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 2072,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 102,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 50.9,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "K₂SO₄",
@@ -258,7 +616,25 @@
           "Ar": 16,
           "count": 4
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 1689,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 2.66,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 1069,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 174,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "Cu(OH)₂",
@@ -278,7 +654,21 @@
           "Ar": 1,
           "count": 2
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 3.37,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 80,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 98,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "MgO",
@@ -293,7 +683,33 @@
           "Ar": 16,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 3600,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 3.58,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -601.6,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 2852,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 40,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 26.9,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "KOH",
@@ -313,7 +729,25 @@
           "Ar": 1,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 1327,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 2.12,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 360,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 56,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "NH₃",
@@ -328,7 +762,33 @@
           "Ar": 1,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": -33.34,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 0.73,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -46.1,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": -77.73,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 17,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 192.8,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "Na₂SO₄",
@@ -348,7 +808,21 @@
           "Ar": 16,
           "count": 4
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 2.66,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 884,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 142,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "ZnO",
@@ -363,7 +837,29 @@
           "Ar": 16,
           "count": 1
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:density": {
+          "value": 5.61,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:enthalpy_of_formation": {
+          "value": -350.5,
+          "unit": "unit:kJ_per_mol"
+        },
+        "concept:melting_point": {
+          "value": 1975,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 81,
+          "unit": "unit:g_per_mol"
+        },
+        "concept:standard_entropy": {
+          "value": 43.7,
+          "unit": "unit:J_per_mol_K"
+        }
+      }
     },
     {
       "formula": "BaCl₂",
@@ -378,7 +874,25 @@
           "Ar": 35.5,
           "count": 2
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 1560,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 3.86,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 962,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 208,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "AgNO₃",
@@ -398,7 +912,25 @@
           "Ar": 16,
           "count": 3
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 444,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 4.35,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 212,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 170,
+          "unit": "unit:g_per_mol"
+        }
+      }
     },
     {
       "formula": "P₂O₅",
@@ -413,7 +945,25 @@
           "Ar": 16,
           "count": 5
         }
-      ]
+      ],
+      "characteristics": {
+        "concept:boiling_point": {
+          "value": 360,
+          "unit": "unit:celsius"
+        },
+        "concept:density": {
+          "value": 2.39,
+          "unit": "unit:g_per_cm3"
+        },
+        "concept:melting_point": {
+          "value": 340,
+          "unit": "unit:celsius"
+        },
+        "concept:molar_mass": {
+          "value": 142,
+          "unit": "unit:g_per_mol"
+        }
+      }
     }
   ],
   "calc_reactions": [

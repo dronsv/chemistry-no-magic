@@ -11,5 +11,27 @@
     "slightly_soluble",
     "alkali"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 2.21,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -986.1,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 580,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 74,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 83.4,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

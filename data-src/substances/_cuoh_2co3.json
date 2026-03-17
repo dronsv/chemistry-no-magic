@@ -11,5 +11,11 @@
   "tags": [
     "insoluble"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 4,
+      "unit": "unit:g_per_cm3"
+    }
+  }
 }

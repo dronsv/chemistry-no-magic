@@ -5,5 +5,15 @@
   "subclass": "acidic",
   "ions": [],
   "tags": [],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:density": {
+      "value": 2.4,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 5.9,
+      "unit": "unit:celsius"
+    }
+  }
 }

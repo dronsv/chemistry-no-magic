@@ -9,5 +9,19 @@
     "flammable",
     "fruity_smell"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 77.1,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.902,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -83.6,
+      "unit": "unit:celsius"
+    }
+  }
 }

@@ -10,5 +10,15 @@
     "oxidizer",
     "catalyst"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 5.026,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 535,
+      "unit": "unit:celsius"
+    }
+  }
 }

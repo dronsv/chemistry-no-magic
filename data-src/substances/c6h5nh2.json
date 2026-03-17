@@ -9,5 +9,19 @@
     "toxic",
     "aromatic"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 184,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.022,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -6,
+      "unit": "unit:celsius"
+    }
+  }
 }

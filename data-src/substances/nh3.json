@@ -9,5 +9,31 @@
     "pungent_odor",
     "reacts_with_water"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -33.34,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.73,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -46.1,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -77.73,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 17,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 192.8,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

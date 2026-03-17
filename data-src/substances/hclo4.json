@@ -9,5 +9,28 @@
     "strong_acid",
     "strong_oxidizer"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 203,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.77,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -112,
+      "unit": "unit:celsius"
+    },
+    "concept:pKa": {
+      "value": -10,
+      "conditions": {
+        "dissociation_step": 1,
+        "solvent": "water",
+        "temperature_C": 25
+      },
+      "explanation_concept_id": "concept:acid_dissociation_constant"
+    }
+  }
 }

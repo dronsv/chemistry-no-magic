@@ -9,5 +9,19 @@
     "flammable",
     "volatile"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 20.2,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.788,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -123.4,
+      "unit": "unit:celsius"
+    }
+  }
 }

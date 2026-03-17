@@ -10,5 +10,19 @@
     "yellow_green",
     "pungent_odor"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -34.04,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.003214,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -101.5,
+      "unit": "unit:celsius"
+    }
+  }
 }

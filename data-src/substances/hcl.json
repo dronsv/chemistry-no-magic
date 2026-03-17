@@ -12,5 +12,40 @@
     "strong_electrolyte",
     "strong_acid"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -85.1,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.19,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -92.3,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -114.2,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 36.5,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:pKa": {
+      "value": -7,
+      "conditions": {
+        "dissociation_step": 1,
+        "solvent": "water",
+        "temperature_C": 25
+      },
+      "explanation_concept_id": "concept:acid_dissociation_constant"
+    },
+    "concept:standard_entropy": {
+      "value": 186.9,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

@@ -8,5 +8,11 @@
     "corrosive",
     "strong_oxidizer"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:density": {
+      "value": 1.92,
+      "unit": "unit:g_per_cm3"
+    }
+  }
 }

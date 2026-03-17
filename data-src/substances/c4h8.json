@@ -8,5 +8,19 @@
     "gas",
     "flammable"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -6.3,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.00237,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -185.3,
+      "unit": "unit:celsius"
+    }
+  }
 }

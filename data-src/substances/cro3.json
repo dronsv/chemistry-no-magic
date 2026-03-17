@@ -7,5 +7,19 @@
   "tags": [
     "reacts_with_water"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 250,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.7,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 197,
+      "unit": "unit:celsius"
+    }
+  }
 }

@@ -9,5 +9,31 @@
     "toxic",
     "pungent_odor"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -10,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.002926,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -296.8,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -75.5,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 64,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 248.2,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

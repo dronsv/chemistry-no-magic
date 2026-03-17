@@ -9,5 +9,19 @@
     "flammable",
     "triple_bond"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -84,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.001097,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -80.8,
+      "unit": "unit:celsius"
+    }
+  }
 }

@@ -13,5 +13,40 @@
     "strong_acid",
     "oxidizer"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 83,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.51,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -174.1,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -41.6,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 63,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:pKa": {
+      "value": -1.4,
+      "conditions": {
+        "dissociation_step": 1,
+        "solvent": "water",
+        "temperature_C": 25
+      },
+      "explanation_concept_id": "concept:acid_dissociation_constant"
+    },
+    "concept:standard_entropy": {
+      "value": 155.6,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

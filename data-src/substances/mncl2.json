@@ -8,5 +8,19 @@
     "soluble",
     "pink"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1190,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.977,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 654,
+      "unit": "unit:celsius"
+    }
+  }
 }

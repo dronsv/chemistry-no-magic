@@ -5,7 +5,13 @@
     "type": "cation",
     "tags": [
       "hydrogen"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Na_plus",
@@ -13,7 +19,13 @@
     "type": "cation",
     "tags": [
       "alkali"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:K_plus",
@@ -21,7 +33,13 @@
     "type": "cation",
     "tags": [
       "alkali"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:NH4_plus",
@@ -29,7 +47,13 @@
     "type": "cation",
     "tags": [
       "ammonium"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Ca_2plus",
@@ -37,7 +61,13 @@
     "type": "cation",
     "tags": [
       "alkaline_earth"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Mg_2plus",
@@ -45,7 +75,13 @@
     "type": "cation",
     "tags": [
       "alkaline_earth"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Ba_2plus",
@@ -53,7 +89,13 @@
     "type": "cation",
     "tags": [
       "alkaline_earth"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Al_3plus",
@@ -61,7 +103,13 @@
     "type": "cation",
     "tags": [
       "amphoteric"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 3,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Fe_2plus",
@@ -70,7 +118,13 @@
     "tags": [
       "transition",
       "iron"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Fe_3plus",
@@ -79,7 +133,13 @@
     "tags": [
       "transition",
       "iron"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 3,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cu_2plus",
@@ -88,7 +148,13 @@
     "tags": [
       "transition",
       "copper"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Zn_2plus",
@@ -97,7 +163,13 @@
     "tags": [
       "transition",
       "amphoteric"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Ag_plus",
@@ -106,7 +178,13 @@
     "tags": [
       "transition",
       "silver"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Pb_2plus",
@@ -115,7 +193,13 @@
     "tags": [
       "heavy_metal",
       "lead"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Li_plus",
@@ -123,7 +207,13 @@
     "type": "cation",
     "tags": [
       "alkali"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Sr_2plus",
@@ -131,7 +221,13 @@
     "type": "cation",
     "tags": [
       "alkaline_earth"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Mn_2plus",
@@ -139,7 +235,13 @@
     "type": "cation",
     "tags": [
       "transition"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Ni_2plus",
@@ -147,7 +249,13 @@
     "type": "cation",
     "tags": [
       "transition"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Co_2plus",
@@ -155,7 +263,13 @@
     "type": "cation",
     "tags": [
       "transition"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cd_2plus",
@@ -164,7 +278,13 @@
     "tags": [
       "transition",
       "heavy_metal"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Hg_2plus",
@@ -173,7 +293,13 @@
     "tags": [
       "transition",
       "heavy_metal"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Hg2_2plus",
@@ -182,7 +308,13 @@
     "tags": [
       "transition",
       "heavy_metal"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Sn_2plus",
@@ -190,7 +322,13 @@
     "type": "cation",
     "tags": [
       "heavy_metal"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cr_3plus",
@@ -199,7 +337,13 @@
     "tags": [
       "transition",
       "amphoteric"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 3,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:OH_minus",
@@ -207,7 +351,13 @@
     "type": "anion",
     "tags": [
       "hydroxide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:F_minus",
@@ -220,7 +370,13 @@
     "tags": [
       "fluoride",
       "halide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cl_minus",
@@ -233,7 +389,13 @@
     "tags": [
       "chloride",
       "halide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Br_minus",
@@ -246,7 +408,13 @@
     "tags": [
       "bromide",
       "halide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:I_minus",
@@ -259,7 +427,13 @@
     "tags": [
       "iodide",
       "halide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:S_2minus",
@@ -271,7 +445,13 @@
     },
     "tags": [
       "sulfide"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:SO4_2minus",
@@ -284,7 +464,13 @@
     },
     "tags": [
       "sulfate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:SO3_2minus",
@@ -298,7 +484,13 @@
     "tags": [
       "sulfite",
       "gas_forming"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:NO3_minus",
@@ -311,7 +503,13 @@
     },
     "tags": [
       "nitrate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:NO2_minus",
@@ -324,7 +522,13 @@
     },
     "tags": [
       "nitrite"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:CO3_2minus",
@@ -337,7 +541,13 @@
     "tags": [
       "carbonate",
       "gas_forming"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:SiO3_2minus",
@@ -349,7 +559,13 @@
     },
     "tags": [
       "silicate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:PO4_3minus",
@@ -361,7 +577,13 @@
     },
     "tags": [
       "phosphate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -3,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:CH3COO_minus",
@@ -374,7 +596,13 @@
     "tags": [
       "acetate",
       "organic"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:MnO4_minus",
@@ -387,7 +615,13 @@
     "tags": [
       "permanganate",
       "oxidizer"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:CrO4_2minus",
@@ -400,7 +634,13 @@
     },
     "tags": [
       "chromate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cr2O7_2minus",
@@ -414,7 +654,13 @@
     "tags": [
       "dichromate",
       "oxidizer"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Be_2plus",
@@ -423,7 +669,13 @@
     "tags": [
       "alkaline_earth",
       "amphoteric"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:Cu_plus",
@@ -432,7 +684,13 @@
     "tags": [
       "transition",
       "copper"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": 1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:HCO3_minus",
@@ -445,7 +703,13 @@
     "tags": [
       "bicarbonate",
       "gas_forming"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:HSO4_minus",
@@ -457,7 +721,13 @@
     },
     "tags": [
       "hydrosulfate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:HSO3_minus",
@@ -469,7 +739,13 @@
     },
     "tags": [
       "bisulfite"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:HPO4_2minus",
@@ -481,7 +757,13 @@
     },
     "tags": [
       "hydrogen_phosphate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -2,
+        "unit": "unit:elementary_charge"
+      }
+    }
   },
   {
     "id": "ion:H2PO4_minus",
@@ -493,6 +775,12 @@
     },
     "tags": [
       "dihydrogen_phosphate"
-    ]
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   }
 ]

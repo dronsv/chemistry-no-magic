@@ -9,5 +9,27 @@
     "red_brown",
     "amphoteric"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 5.24,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -824.2,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1565,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 160,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 87.4,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

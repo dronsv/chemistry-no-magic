@@ -12,5 +12,15 @@
     "strong_acid",
     "diprotic"
   ],
-  "phase_standard": "aq"
+  "phase_standard": "aq",
+  "characteristics": {
+    "concept:density": {
+      "value": 1.201,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 197,
+      "unit": "unit:celsius"
+    }
+  }
 }

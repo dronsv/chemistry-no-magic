@@ -8,5 +8,19 @@
     "solid",
     "allotropes"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 280.5,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.82,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 44.15,
+      "unit": "unit:celsius"
+    }
+  }
 }

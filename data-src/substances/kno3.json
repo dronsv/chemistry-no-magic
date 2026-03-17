@@ -11,5 +11,19 @@
     "soluble",
     "oxidizer"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 400,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.109,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 334,
+      "unit": "unit:celsius"
+    }
+  }
 }

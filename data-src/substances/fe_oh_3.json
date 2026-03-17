@@ -12,5 +12,11 @@
     "red_brown",
     "decomposes_on_heating"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 3.12,
+      "unit": "unit:g_per_cm3"
+    }
+  }
 }

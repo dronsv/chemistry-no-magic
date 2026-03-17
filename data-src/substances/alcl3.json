@@ -11,5 +11,19 @@
     "soluble",
     "hygroscopic"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 180,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.48,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 192.4,
+      "unit": "unit:celsius"
+    }
+  }
 }

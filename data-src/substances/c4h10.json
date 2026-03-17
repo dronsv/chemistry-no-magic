@@ -9,5 +9,19 @@
     "flammable",
     "liquefied_gas"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -0.5,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.00248,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -138.3,
+      "unit": "unit:celsius"
+    }
+  }
 }

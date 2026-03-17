@@ -8,5 +8,31 @@
     "insoluble",
     "amphoteric"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 2977,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.95,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -1675.7,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 2072,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 102,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 50.9,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

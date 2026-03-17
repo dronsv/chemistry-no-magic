@@ -9,5 +9,19 @@
     "oxidizer",
     "unstable"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 150.2,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.45,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -0.43,
+      "unit": "unit:celsius"
+    }
+  }
 }

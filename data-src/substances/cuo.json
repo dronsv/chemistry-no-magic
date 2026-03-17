@@ -8,5 +8,15 @@
     "insoluble",
     "black"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 6.31,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 1326,
+      "unit": "unit:celsius"
+    }
+  }
 }

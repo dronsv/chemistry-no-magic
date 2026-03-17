@@ -9,5 +9,19 @@
     "catalyst",
     "orange"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1750,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.357,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 690,
+      "unit": "unit:celsius"
+    }
+  }
 }

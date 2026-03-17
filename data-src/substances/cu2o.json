@@ -5,5 +5,19 @@
   "subclass": "basic",
   "ions": [],
   "tags": [],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1800,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 6,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 1235,
+      "unit": "unit:celsius"
+    }
+  }
 }

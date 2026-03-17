@@ -14,6 +14,27 @@
     ],
     "discovery": {
       "year": 1766
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 1.008,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -252.87,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.00008988,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": -259.16,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -29,6 +50,24 @@
     ],
     "discovery": {
       "year": 1868
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 4.003,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -268.93,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.0001786,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:melting_point": {
+        "value": -272.2,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -49,7 +88,28 @@
     "storage_profiles": [
       "storage:alkali_metal_basic"
     ],
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 6.941,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1342,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.534,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.98
+      },
+      "concept:melting_point": {
+        "value": 180.54,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 4,
@@ -66,6 +126,27 @@
     ],
     "discovery": {
       "year": 1798
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 9.012,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2469,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.85,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.57
+      },
+      "concept:melting_point": {
+        "value": 1287,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -82,6 +163,27 @@
     ],
     "discovery": {
       "year": 1808
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 10.811,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3927,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.34,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.04
+      },
+      "concept:melting_point": {
+        "value": 2076,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -97,7 +199,28 @@
       0,
       2,
       4
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 12.011,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4827,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.267,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.55
+      },
+      "concept:melting_point": {
+        "value": 3550,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 7,
@@ -118,6 +241,27 @@
     ],
     "discovery": {
       "year": 1772
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 14.007,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -195.79,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.001251,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 3.04
+      },
+      "concept:melting_point": {
+        "value": -210,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -135,6 +279,27 @@
     ],
     "discovery": {
       "year": 1774
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 15.999,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -182.96,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.001429,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 3.44
+      },
+      "concept:melting_point": {
+        "value": -218.79,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -154,7 +319,28 @@
     },
     "storage_profiles": [
       "storage:fluorine"
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 18.998,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -188.11,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.001696,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 3.98
+      },
+      "concept:melting_point": {
+        "value": -219.67,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 10,
@@ -169,6 +355,24 @@
     ],
     "discovery": {
       "year": 1898
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 20.18,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -246.08,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.0009002,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:melting_point": {
+        "value": -248.59,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -189,7 +393,28 @@
     "storage_profiles": [
       "storage:alkali_metal_basic"
     ],
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 22.99,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 882.94,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.968,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.93
+      },
+      "concept:melting_point": {
+        "value": 97.79,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 12,
@@ -205,6 +430,27 @@
     ],
     "discovery": {
       "year": 1808
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 24.305,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1091,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.738,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.31
+      },
+      "concept:melting_point": {
+        "value": 650,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -222,6 +468,27 @@
     ],
     "discovery": {
       "year": 1825
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 26.982,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2519,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.7,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.61
+      },
+      "concept:melting_point": {
+        "value": 660.32,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -239,6 +506,27 @@
     ],
     "discovery": {
       "year": 1824
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 28.086,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3265,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.329,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.9
+      },
+      "concept:melting_point": {
+        "value": 1414,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -260,7 +548,28 @@
     },
     "storage_profiles": [
       "storage:phosphorus"
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 30.974,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 280.5,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.823,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.19
+      },
+      "concept:melting_point": {
+        "value": 44.15,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 16,
@@ -275,7 +584,28 @@
       0,
       4,
       6
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 32.065,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 444.6,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.07,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.58
+      },
+      "concept:melting_point": {
+        "value": 115.21,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 17,
@@ -295,6 +625,27 @@
     ],
     "discovery": {
       "year": 1774
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 35.453,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -34.04,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.003214,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 3.16
+      },
+      "concept:melting_point": {
+        "value": -101.5,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -310,6 +661,24 @@
     ],
     "discovery": {
       "year": 1894
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 39.948,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -185.85,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.001784,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:melting_point": {
+        "value": -189.34,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -330,7 +699,28 @@
     "storage_profiles": [
       "storage:alkali_metal_basic"
     ],
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 39.098,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 759,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.862,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.82
+      },
+      "concept:melting_point": {
+        "value": 63.5,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 20,
@@ -347,7 +737,28 @@
     "discovery": {
       "year": 1808
     },
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 40.078,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1484,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.55,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1
+      },
+      "concept:melting_point": {
+        "value": 842,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 21,
@@ -363,6 +774,27 @@
     ],
     "discovery": {
       "year": 1879
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 44.956,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2836,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.985,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.36
+      },
+      "concept:melting_point": {
+        "value": 1541,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -381,6 +813,27 @@
     ],
     "discovery": {
       "year": 1791
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 47.867,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3287,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 4.506,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.54
+      },
+      "concept:melting_point": {
+        "value": 1668,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -400,6 +853,27 @@
     ],
     "discovery": {
       "year": 1801
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 50.942,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3407,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.11,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.63
+      },
+      "concept:melting_point": {
+        "value": 1910,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -458,6 +932,27 @@
         ],
         "bridge_id": "why_half_filled_d_is_stable"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 51.996,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2671,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.15,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.66
+      },
+      "concept:melting_point": {
+        "value": 1907,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -477,6 +972,27 @@
     ],
     "discovery": {
       "year": 1774
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 54.938,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2061,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.21,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.55
+      },
+      "concept:melting_point": {
+        "value": 1246,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -492,7 +1008,28 @@
       0,
       2,
       3
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 55.845,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2862,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.874,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.83
+      },
+      "concept:melting_point": {
+        "value": 1538,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 27,
@@ -509,6 +1046,27 @@
     ],
     "discovery": {
       "year": 1735
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 58.933,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2927,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.9,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.88
+      },
+      "concept:melting_point": {
+        "value": 1495,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -525,6 +1083,27 @@
     ],
     "discovery": {
       "year": 1751
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 58.693,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2913,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.908,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.91
+      },
+      "concept:melting_point": {
+        "value": 1455,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -578,7 +1157,28 @@
         ]
       }
     },
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 63.546,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2562,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.96,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.9
+      },
+      "concept:melting_point": {
+        "value": 1084.62,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 30,
@@ -592,7 +1192,28 @@
     "typical_oxidation_states": [
       0,
       2
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 65.38,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 907,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.134,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.65
+      },
+      "concept:melting_point": {
+        "value": 419.53,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 31,
@@ -608,6 +1229,27 @@
     ],
     "discovery": {
       "year": 1875
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 69.723,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2229,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 5.907,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.81
+      },
+      "concept:melting_point": {
+        "value": 29.76,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -625,6 +1267,27 @@
     ],
     "discovery": {
       "year": 1886
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 72.63,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2833,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 5.323,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.01
+      },
+      "concept:melting_point": {
+        "value": 938.25,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -643,6 +1306,23 @@
     ],
     "discovery": {
       "year": 1250
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 74.922,
+        "unit": "unit:u"
+      },
+      "concept:density": {
+        "value": 5.727,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.18
+      },
+      "concept:melting_point": {
+        "value": 616,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -661,6 +1341,27 @@
     ],
     "discovery": {
       "year": 1817
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 78.971,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 685,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 4.809,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.55
+      },
+      "concept:melting_point": {
+        "value": 221,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -679,6 +1380,27 @@
     ],
     "discovery": {
       "year": 1826
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 79.904,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 58.8,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 3.1028,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.96
+      },
+      "concept:melting_point": {
+        "value": -7.2,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -695,6 +1417,27 @@
     ],
     "discovery": {
       "year": 1898
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 83.798,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -153.42,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.003749,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 3
+      },
+      "concept:melting_point": {
+        "value": -157.37,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -715,7 +1458,28 @@
     "storage_profiles": [
       "storage:alkali_metal_heavy"
     ],
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 85.468,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 688,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.532,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.82
+      },
+      "concept:melting_point": {
+        "value": 39.31,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 38,
@@ -732,7 +1496,28 @@
     "discovery": {
       "year": 1790
     },
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 87.62,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1382,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 2.64,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.95
+      },
+      "concept:melting_point": {
+        "value": 777,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 39,
@@ -748,6 +1533,27 @@
     ],
     "discovery": {
       "year": 1794
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 88.906,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3336,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 4.472,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.22
+      },
+      "concept:melting_point": {
+        "value": 1526,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -764,6 +1570,27 @@
     ],
     "discovery": {
       "year": 1789
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 91.224,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4409,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.506,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.33
+      },
+      "concept:melting_point": {
+        "value": 1855,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -818,6 +1645,27 @@
         "mechanism_ids": [
           "exchange_stabilization"
         ]
+      }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 92.906,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4744,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.57,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.6
+      },
+      "concept:melting_point": {
+        "value": 2477,
+        "unit": "unit:celsius"
       }
     }
   },
@@ -875,6 +1723,27 @@
         ],
         "bridge_id": "why_half_filled_d_is_stable"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 95.95,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4639,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 10.22,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.16
+      },
+      "concept:melting_point": {
+        "value": 2623,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -892,6 +1761,27 @@
     ],
     "discovery": {
       "year": 1937
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 98,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4265,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 11.5,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.9
+      },
+      "concept:melting_point": {
+        "value": 2157,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -948,6 +1838,27 @@
           "exchange_stabilization"
         ]
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 101.07,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4150,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 12.37,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": 2334,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1001,6 +1912,27 @@
         "mechanism_ids": [
           "exchange_stabilization"
         ]
+      }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 102.906,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3695,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 12.41,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.28
+      },
+      "concept:melting_point": {
+        "value": 1964,
+        "unit": "unit:celsius"
       }
     }
   },
@@ -1057,6 +1989,27 @@
           "exchange_stabilization"
         ]
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 106.42,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2963,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 12.023,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": 1554.9,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1108,6 +2061,27 @@
           "exchange_stabilization"
         ]
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 107.868,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2162,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 10.49,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.93
+      },
+      "concept:melting_point": {
+        "value": 961.78,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1124,6 +2098,27 @@
     ],
     "discovery": {
       "year": 1817
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 112.414,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 767,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.65,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.69
+      },
+      "concept:melting_point": {
+        "value": 321.07,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1140,6 +2135,27 @@
     ],
     "discovery": {
       "year": 1863
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 114.818,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2072,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.31,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.78
+      },
+      "concept:melting_point": {
+        "value": 156.6,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1155,7 +2171,28 @@
       0,
       2,
       4
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 118.71,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2602,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.265,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.96
+      },
+      "concept:melting_point": {
+        "value": 231.93,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 51,
@@ -1170,7 +2207,28 @@
       0,
       3,
       5
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 121.76,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1587,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.697,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.05
+      },
+      "concept:melting_point": {
+        "value": 630.63,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 52,
@@ -1188,6 +2246,27 @@
     ],
     "discovery": {
       "year": 1783
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 127.6,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 988,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.232,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.1
+      },
+      "concept:melting_point": {
+        "value": 449.51,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1207,6 +2286,27 @@
     ],
     "discovery": {
       "year": 1811
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 126.904,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 184.3,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 4.933,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.66
+      },
+      "concept:melting_point": {
+        "value": 113.7,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1225,6 +2325,27 @@
     ],
     "discovery": {
       "year": 1898
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 131.293,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -108.09,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.005894,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.6
+      },
+      "concept:melting_point": {
+        "value": -111.75,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1245,7 +2366,28 @@
     "storage_profiles": [
       "storage:alkali_metal_heavy"
     ],
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 132.905,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 671,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 1.873,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.79
+      },
+      "concept:melting_point": {
+        "value": 28.44,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 56,
@@ -1262,7 +2404,28 @@
     "discovery": {
       "year": 1808
     },
-    "flame_test": true
+    "flame_test": true,
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 137.327,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1845,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 3.62,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.89
+      },
+      "concept:melting_point": {
+        "value": 727,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 57,
@@ -1312,6 +2475,27 @@
         "family": "energy_proximity",
         "target_subshell": "5d",
         "target_pattern": "proximity"
+      }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 138.905,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3464,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.162,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.1
+      },
+      "concept:melting_point": {
+        "value": 920,
+        "unit": "unit:celsius"
       }
     }
   },
@@ -1365,6 +2549,27 @@
         "target_subshell": "5d",
         "target_pattern": "proximity"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 140.116,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3443,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.77,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.12
+      },
+      "concept:melting_point": {
+        "value": 798,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1381,6 +2586,27 @@
     ],
     "discovery": {
       "year": 1885
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 140.908,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3520,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.773,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.13
+      },
+      "concept:melting_point": {
+        "value": 931,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1397,6 +2623,27 @@
     ],
     "discovery": {
       "year": 1885
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 144.242,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3074,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.007,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.14
+      },
+      "concept:melting_point": {
+        "value": 1016,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1413,6 +2660,27 @@
     ],
     "discovery": {
       "year": 1945
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 145,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3000,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.26,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.13
+      },
+      "concept:melting_point": {
+        "value": 1042,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1430,6 +2698,27 @@
     ],
     "discovery": {
       "year": 1879
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 150.36,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1794,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.52,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.17
+      },
+      "concept:melting_point": {
+        "value": 1072,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1447,6 +2736,27 @@
     ],
     "discovery": {
       "year": 1901
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 151.964,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1529,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 5.243,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.2
+      },
+      "concept:melting_point": {
+        "value": 822,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1502,6 +2812,27 @@
         ],
         "bridge_id": "why_half_filled_d_is_stable"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 157.25,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3273,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 7.895,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.2
+      },
+      "concept:melting_point": {
+        "value": 1313,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1518,6 +2849,27 @@
     ],
     "discovery": {
       "year": 1843
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 158.925,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3230,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.229,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.2
+      },
+      "concept:melting_point": {
+        "value": 1356,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1534,6 +2886,27 @@
     ],
     "discovery": {
       "year": 1886
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 162.5,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2567,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.55,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.22
+      },
+      "concept:melting_point": {
+        "value": 1412,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1550,6 +2923,27 @@
     ],
     "discovery": {
       "year": 1878
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 164.93,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2700,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 8.795,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.23
+      },
+      "concept:melting_point": {
+        "value": 1474,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1566,6 +2960,27 @@
     ],
     "discovery": {
       "year": 1843
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 167.259,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2868,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 9.066,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.24
+      },
+      "concept:melting_point": {
+        "value": 1529,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1582,6 +2997,27 @@
     ],
     "discovery": {
       "year": 1879
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 168.934,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1950,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 9.321,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.25
+      },
+      "concept:melting_point": {
+        "value": 1545,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1599,6 +3035,27 @@
     ],
     "discovery": {
       "year": 1878
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 173.045,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1196,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 6.965,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.1
+      },
+      "concept:melting_point": {
+        "value": 824,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1615,6 +3072,27 @@
     ],
     "discovery": {
       "year": 1907
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 174.967,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3402,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 9.84,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.27
+      },
+      "concept:melting_point": {
+        "value": 1663,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1631,6 +3109,27 @@
     ],
     "discovery": {
       "year": 1923
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 178.49,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4603,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 13.31,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 2233,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1647,6 +3146,27 @@
     ],
     "discovery": {
       "year": 1802
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 180.948,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 5458,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 16.654,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.5
+      },
+      "concept:melting_point": {
+        "value": 3017,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1664,6 +3184,27 @@
     ],
     "discovery": {
       "year": 1783
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 183.84,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 5555,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 19.25,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.36
+      },
+      "concept:melting_point": {
+        "value": 3422,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1681,6 +3222,27 @@
     ],
     "discovery": {
       "year": 1925
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 186.207,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 5596,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 21.02,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.9
+      },
+      "concept:melting_point": {
+        "value": 3186,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1698,6 +3260,27 @@
     ],
     "discovery": {
       "year": 1803
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 190.23,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 5012,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 22.587,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": 3033,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1715,6 +3298,27 @@
     ],
     "discovery": {
       "year": 1803
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 192.217,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4428,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 22.562,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": 2446,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1775,6 +3379,27 @@
           "exchange_stabilization"
         ]
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 195.084,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3825,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 21.45,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.28
+      },
+      "concept:melting_point": {
+        "value": 1768.3,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1832,6 +3457,27 @@
           "exchange_stabilization"
         ]
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 196.967,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2856,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 19.3,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.54
+      },
+      "concept:melting_point": {
+        "value": 1064.18,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1849,7 +3495,28 @@
     ],
     "storage_profiles": [
       "storage:mercury"
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 200.592,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 356.73,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 13.534,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2
+      },
+      "concept:melting_point": {
+        "value": -38.83,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 81,
@@ -1866,6 +3533,27 @@
     ],
     "discovery": {
       "year": 1861
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 204.383,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1473,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 11.85,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.62
+      },
+      "concept:melting_point": {
+        "value": 304,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1881,7 +3569,28 @@
       0,
       2,
       4
-    ]
+    ],
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 207.2,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1749,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 11.34,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.33
+      },
+      "concept:melting_point": {
+        "value": 327.46,
+        "unit": "unit:celsius"
+      }
+    }
   },
   {
     "Z": 83,
@@ -1898,6 +3607,27 @@
     ],
     "discovery": {
       "year": 1753
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 208.98,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1564,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 9.78,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.02
+      },
+      "concept:melting_point": {
+        "value": 271.4,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1915,6 +3645,27 @@
     ],
     "discovery": {
       "year": 1898
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 209,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 962,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 9.196,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2
+      },
+      "concept:melting_point": {
+        "value": 254,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1932,6 +3683,23 @@
     ],
     "discovery": {
       "year": 1940
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 210,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 337,
+        "unit": "unit:celsius"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": 302,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1948,6 +3716,27 @@
     ],
     "discovery": {
       "year": 1900
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 222,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": -61.7,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 0.00973,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 2.2
+      },
+      "concept:melting_point": {
+        "value": -71,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1964,6 +3753,23 @@
     ],
     "discovery": {
       "year": 1939
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 223,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 677,
+        "unit": "unit:celsius"
+      },
+      "concept:electronegativity": {
+        "value": 0.7
+      },
+      "concept:melting_point": {
+        "value": 27,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -1980,6 +3786,27 @@
     ],
     "discovery": {
       "year": 1898
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 226,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1737,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 5.5,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 0.9
+      },
+      "concept:melting_point": {
+        "value": 696,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2030,6 +3857,27 @@
         "family": "energy_proximity",
         "target_subshell": "6d",
         "target_pattern": "proximity"
+      }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 227,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3200,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 10.07,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.1
+      },
+      "concept:melting_point": {
+        "value": 1050,
+        "unit": "unit:celsius"
       }
     }
   },
@@ -2082,6 +3930,27 @@
         "target_subshell": "6d",
         "target_pattern": "proximity"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 232.038,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4788,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 11.72,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 1750,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2133,6 +4002,27 @@
         "family": "energy_proximity",
         "target_subshell": "6d",
         "target_pattern": "proximity"
+      }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 231.036,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4000,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 15.37,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.5
+      },
+      "concept:melting_point": {
+        "value": 1572,
+        "unit": "unit:celsius"
       }
     }
   },
@@ -2188,6 +4078,27 @@
         "target_subshell": "6d",
         "target_pattern": "proximity"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 238.029,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 4131,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 19.05,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.38
+      },
+      "concept:melting_point": {
+        "value": 1135,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2241,6 +4152,27 @@
         "target_subshell": "6d",
         "target_pattern": "proximity"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 237,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3902,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 20.45,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.36
+      },
+      "concept:melting_point": {
+        "value": 644,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2260,6 +4192,27 @@
     ],
     "discovery": {
       "year": 1940
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 244,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3228,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 19.816,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.28
+      },
+      "concept:melting_point": {
+        "value": 640,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2276,6 +4229,27 @@
     ],
     "discovery": {
       "year": 1944
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 243,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2011,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 12,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 1176,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2331,6 +4305,27 @@
         ],
         "bridge_id": "why_half_filled_d_is_stable"
       }
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 247,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 3110,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 13.51,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 1345,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2347,6 +4342,27 @@
     ],
     "discovery": {
       "year": 1949
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 247,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 2627,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 14.78,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 986,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2363,6 +4379,27 @@
     ],
     "discovery": {
       "year": 1950
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 251,
+        "unit": "unit:u"
+      },
+      "concept:boiling_point": {
+        "value": 1470,
+        "unit": "unit:celsius"
+      },
+      "concept:density": {
+        "value": 15.1,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 900,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2379,6 +4416,23 @@
     ],
     "discovery": {
       "year": 1952
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 252,
+        "unit": "unit:u"
+      },
+      "concept:density": {
+        "value": 8.84,
+        "unit": "unit:g_per_cm3"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 860,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2395,6 +4449,19 @@
     ],
     "discovery": {
       "year": 1952
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 257,
+        "unit": "unit:u"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 1527,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2412,6 +4479,19 @@
     ],
     "discovery": {
       "year": 1955
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 258,
+        "unit": "unit:u"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 827,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2429,6 +4509,19 @@
     ],
     "discovery": {
       "year": 1966
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 259,
+        "unit": "unit:u"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 827,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2445,6 +4538,19 @@
     ],
     "discovery": {
       "year": 1961
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 266,
+        "unit": "unit:u"
+      },
+      "concept:electronegativity": {
+        "value": 1.3
+      },
+      "concept:melting_point": {
+        "value": 1627,
+        "unit": "unit:celsius"
+      }
     }
   },
   {
@@ -2461,6 +4567,12 @@
     ],
     "discovery": {
       "year": 1964
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 267,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2477,6 +4589,12 @@
     ],
     "discovery": {
       "year": 1968
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 268,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2493,6 +4611,12 @@
     ],
     "discovery": {
       "year": 1974
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 269,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2509,6 +4633,12 @@
     ],
     "discovery": {
       "year": 1981
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 270,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2525,6 +4655,12 @@
     ],
     "discovery": {
       "year": 1984
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 277,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2540,6 +4676,12 @@
     ],
     "discovery": {
       "year": 1982
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 278,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2555,6 +4697,12 @@
     ],
     "discovery": {
       "year": 1994
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 281,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2570,6 +4718,12 @@
     ],
     "discovery": {
       "year": 1994
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 282,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2586,6 +4740,12 @@
     ],
     "discovery": {
       "year": 1996
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 285,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2601,6 +4761,12 @@
     ],
     "discovery": {
       "year": 2003
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 286,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2617,6 +4783,12 @@
     ],
     "discovery": {
       "year": 1999
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 289,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2632,6 +4804,12 @@
     ],
     "discovery": {
       "year": 2003
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 290,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2647,6 +4825,12 @@
     ],
     "discovery": {
       "year": 2000
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 293,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2662,6 +4846,12 @@
     ],
     "discovery": {
       "year": 2010
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 294,
+        "unit": "unit:u"
+      }
     }
   },
   {
@@ -2677,6 +4867,12 @@
     ],
     "discovery": {
       "year": 2006
+    },
+    "characteristics": {
+      "concept:atomic_mass": {
+        "value": 294,
+        "unit": "unit:u"
+      }
     }
   }
 ]

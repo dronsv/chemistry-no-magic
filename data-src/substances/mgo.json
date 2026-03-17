@@ -8,5 +8,31 @@
     "insoluble",
     "refractory"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 3600,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.58,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -601.6,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 2852,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 40,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 26.9,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

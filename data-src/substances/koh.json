@@ -12,5 +12,23 @@
     "strong_electrolyte",
     "alkali"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1327,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.12,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 360,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 56,
+      "unit": "unit:g_per_mol"
+    }
+  }
 }

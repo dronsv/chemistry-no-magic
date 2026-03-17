@@ -8,5 +8,19 @@
     "gas",
     "supports_combustion"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -182.96,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.001429,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -218.79,
+      "unit": "unit:celsius"
+    }
+  }
 }

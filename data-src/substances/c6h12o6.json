@@ -9,5 +9,15 @@
     "soluble",
     "sweet"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 1.54,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 146,
+      "unit": "unit:celsius"
+    }
+  }
 }

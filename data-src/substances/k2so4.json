@@ -10,5 +10,23 @@
   "tags": [
     "soluble"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1689,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.66,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 1069,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 174,
+      "unit": "unit:g_per_mol"
+    }
+  }
 }

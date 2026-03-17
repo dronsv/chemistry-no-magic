@@ -10,5 +10,15 @@
   "tags": [
     "soluble"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 2.633,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 33,
+      "unit": "unit:celsius"
+    }
+  }
 }

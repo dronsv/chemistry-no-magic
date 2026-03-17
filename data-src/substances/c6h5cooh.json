@@ -9,5 +9,19 @@
     "slightly_soluble",
     "aromatic"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 249,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.266,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 122.4,
+      "unit": "unit:celsius"
+    }
+  }
 }

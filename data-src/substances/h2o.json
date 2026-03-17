@@ -12,5 +12,31 @@
     "weak_electrolyte",
     "amphoteric"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 100,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -285.8,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 0,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 18,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 69.9,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

@@ -9,5 +9,16 @@
     "unstable",
     "oxidizer"
   ],
-  "phase_standard": "aq"
+  "phase_standard": "aq",
+  "characteristics": {
+    "concept:pKa": {
+      "value": 7.53,
+      "conditions": {
+        "dissociation_step": 1,
+        "solvent": "water",
+        "temperature_C": 25
+      },
+      "explanation_concept_id": "concept:acid_dissociation_constant"
+    }
+  }
 }

@@ -8,5 +8,19 @@
     "liquid",
     "flammable"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 30,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.641,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -165.2,
+      "unit": "unit:celsius"
+    }
+  }
 }

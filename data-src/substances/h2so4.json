@@ -13,5 +13,43 @@
     "strong_acid",
     "diprotic"
   ],
-  "phase_standard": "l"
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 337,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.84,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 10.31,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 98,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:pKa": [
+      {
+        "value": -3,
+        "conditions": {
+          "dissociation_step": 1,
+          "solvent": "water",
+          "temperature_C": 25
+        },
+        "explanation_concept_id": "concept:acid_dissociation_constant"
+      },
+      {
+        "value": 1.99,
+        "conditions": {
+          "dissociation_step": 2,
+          "solvent": "water",
+          "temperature_C": 25
+        },
+        "explanation_concept_id": "concept:acid_dissociation_constant"
+      }
+    ]
+  }
 }

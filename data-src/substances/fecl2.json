@@ -11,5 +11,19 @@
     "soluble",
     "green"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 1023,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.16,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 677,
+      "unit": "unit:celsius"
+    }
+  }
 }

@@ -8,5 +8,19 @@
     "gas",
     "inert"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": -195.79,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.001251,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": -210,
+      "unit": "unit:celsius"
+    }
+  }
 }

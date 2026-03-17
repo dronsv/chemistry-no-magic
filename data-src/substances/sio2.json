@@ -8,5 +8,19 @@
     "insoluble",
     "no_water_reaction"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 2950,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.65,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 1713,
+      "unit": "unit:celsius"
+    }
+  }
 }

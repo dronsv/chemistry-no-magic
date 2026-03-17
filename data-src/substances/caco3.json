@@ -10,5 +10,27 @@
   "tags": [
     "insoluble"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:density": {
+      "value": 2.71,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -1206.9,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 825,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 100,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 91.7,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

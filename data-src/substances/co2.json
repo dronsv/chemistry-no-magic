@@ -8,5 +8,27 @@
     "gas",
     "reacts_with_water"
   ],
-  "phase_standard": "g"
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:density": {
+      "value": 1.977,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:enthalpy_of_formation": {
+      "value": -393.5,
+      "unit": "unit:kJ_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -78.5,
+      "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 44,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:standard_entropy": {
+      "value": 213.8,
+      "unit": "unit:J_per_mol_K"
+    }
+  }
 }

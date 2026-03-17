@@ -7,5 +7,19 @@
   "tags": [
     "amphoteric"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:boiling_point": {
+      "value": 3900,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.01,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 2578,
+      "unit": "unit:celsius"
+    }
+  }
 }
