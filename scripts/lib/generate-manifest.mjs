@@ -45,6 +45,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         oxidation_rules: 'rules/oxidation_rules.json',
         oxidation_examples: 'rules/oxidation_examples.json',
         properties: 'rules/properties.json',
+        characteristics: 'rules/characteristics.json',
         storage_requirements: 'rules/storage_requirements.json',
         storage_profiles: 'rules/storage_profiles.json',
         periodic_trend_anomalies: 'rules/periodic_trend_anomalies.json',

@@ -462,7 +462,7 @@
     "unit": "unit:g_per_cm3"
   },
   {
-    "id": "char:C_melting_point",
+    "id": "char:sub_C_melting_point",
     "characteristic_concept_id": "concept:melting_point",
     "subject_id": "sub:C",
     "value_kind": "number",
@@ -473,7 +473,7 @@
     "unit": "unit:celsius"
   },
   {
-    "id": "char:C_boiling_point",
+    "id": "char:sub_C_boiling_point",
     "characteristic_concept_id": "concept:boiling_point",
     "subject_id": "sub:C",
     "value_kind": "number",
@@ -484,7 +484,7 @@
     "unit": "unit:celsius"
   },
   {
-    "id": "char:C_density",
+    "id": "char:sub_C_density",
     "characteristic_concept_id": "concept:density",
     "subject_id": "sub:C",
     "value_kind": "number",
@@ -3872,7 +3872,7 @@
     "unit": "unit:g_per_cm3"
   },
   {
-    "id": "char:P_melting_point",
+    "id": "char:sub_P_melting_point",
     "characteristic_concept_id": "concept:melting_point",
     "subject_id": "sub:P",
     "value_kind": "number",
@@ -3883,7 +3883,7 @@
     "unit": "unit:celsius"
   },
   {
-    "id": "char:P_boiling_point",
+    "id": "char:sub_P_boiling_point",
     "characteristic_concept_id": "concept:boiling_point",
     "subject_id": "sub:P",
     "value_kind": "number",
@@ -3894,7 +3894,7 @@
     "unit": "unit:celsius"
   },
   {
-    "id": "char:P_density",
+    "id": "char:sub_P_density",
     "characteristic_concept_id": "concept:density",
     "subject_id": "sub:P",
     "value_kind": "number",
