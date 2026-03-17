@@ -201,6 +201,7 @@ export interface OntologyRules {
   acidBaseRelations?: import('../../types/relation').Relation[];
   kineticsRules?: import('../../types/kinetics').KineticsRule[];
   kineticsDirectionLabels?: Record<string, string>;
+  characteristics?: import('../../types/characteristic').TypedCharacteristic[];
 }
 
 export interface OntologyDataSources {

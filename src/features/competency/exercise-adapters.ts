@@ -149,6 +149,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     activitySeries, classificationRules, namingRules, qualitativeTests,
     energyCatalystTheory, geneticChains, calculationsData, ionNomenclature,
     acidBaseRelations, kineticsData, foundationFormulas, foundationConstants,
+    characteristics,
   ] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
@@ -173,6 +174,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadKineticsData(locale).catch(() => null),
     dl.loadFormulas().catch(() => []),
     dl.loadConstants().catch(() => []),
+    dl.loadCharacteristics().catch(() => []),
   ]);
 
   const ontology = {
@@ -185,6 +187,7 @@ export async function buildEngine(locale?: SupportedLocale) {
       acidBaseRelations: acidBaseRelations.length > 0 ? acidBaseRelations as import('../../types/relation').Relation[] : undefined,
       kineticsRules: kineticsData?.rules,
       kineticsDirectionLabels: kineticsData?.directionLabels,
+      characteristics: characteristics.length > 0 ? characteristics : undefined,
     },
     data: {
       substances: substanceIndex, reactions, geneticChains,
