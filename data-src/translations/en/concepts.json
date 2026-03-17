@@ -32,7 +32,7 @@
   "cls:acid": {
     "name": "Acids",
     "slug": "acids",
-    "description": "H⁺ donors in solution. Composed of hydrogen atoms and an acid residue. Change indicator colours, react with metals, bases, and basic oxides",
+    "description": "Compounds composed of hydrogen atoms and an acid residue",
     "surface_forms": ["acids", "acid"]
   },
   "cls:acid_oxygen": {

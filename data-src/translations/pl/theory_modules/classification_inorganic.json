@@ -32,33 +32,6 @@
       }
     },
     "acids": {
-      "blocks": [
-        {},
-        {},
-        { "text": "Czym jest kwas?" },
-        { "text": "Zgodnie z teorią Brønsteda–Lowry'ego kwas to substancja zdolna do oddania protonu (H⁺) innej cząstce. W roztworze wodnym kwasy dysocjują: HA → H⁺ + A⁻. To jony H⁺ (dokładniej H₃O⁺) odpowiadają za kwaśny smak, zdolność korodowania metali i zmianę barwy wskaźników." },
-        { "text": "Moc kwasu" },
-        {
-          "title": "Kwasy mocne i słabe",
-          "rule": "Moc kwasu zależy od łatwości oderwania H⁺ od cząsteczki",
-          "description": "Kwasy mocne (HCl, HNO₃, H₂SO₄) dysocjują całkowicie: każda cząsteczka oddaje H⁺. pH roztworu < 1.\nKwasy słabe (H₂CO₃, H₂S, CH₃COOH) dysocjują częściowo: w roztworze pozostają całe cząsteczki HA obok jonów. pH roztworu 3–6.\nIm łatwiej kwas oddaje H⁺, tym jest mocniejszy."
-        },
-        { "text": "Wskaźniki i pH" },
-        {
-          "columns": ["Wskaźnik", "Środowisko kwaśne", "Obojętne", "Środowisko zasadowe"],
-          "rows": [
-            ["Lakmus", "Czerwony", "Fioletowy", "Niebieski"],
-            ["Fenoloftaleina", "Bezbarwna", "Bezbarwna", "Malinowa"],
-            ["Oranż metylowy", "Czerwony (różowy)", "Pomarańczowy", "Żółty"]
-          ]
-        },
-        { "text": "Właściwości chemiczne kwasów" },
-        {
-          "title": "Ogólne reakcje kwasów",
-          "rule": "Kwasy reagują z metalami, zasadami, tlenkami zasadowymi i solami",
-          "description": "1. Kwas + metal (przed H₂ w szeregu aktywności) → sól + H₂↑\n   Zn + 2HCl → ZnCl₂ + H₂↑\n2. Kwas + zasada → sól + woda (neutralizacja)\n   HCl + NaOH → NaCl + H₂O\n3. Kwas + tlenek zasadowy → sól + woda\n   2HCl + CaO → CaCl₂ + H₂O\n4. Kwas + sól → nowy kwas + nowa sól (jeśli ↑ gaz, ↓ osad lub słaby elektrolit)\n   H₂SO₄ + BaCl₂ → BaSO₄↓ + 2HCl"
-        }
-      ],
       "cls:acid_oxygen": {
         "reactivity_rules": [
           { "t": "text", "v": "Formed by reaction of " },
