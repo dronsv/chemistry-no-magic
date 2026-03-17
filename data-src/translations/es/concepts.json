@@ -32,7 +32,7 @@
   "cls:acid": {
     "name": "Ácidos",
     "slug": "acidos",
-    "description": "Compuestos formados por átomos de hidrógeno y un residuo ácido",
+    "description": "Donadores de H⁺ en solución. Compuestos por átomos de hidrógeno y un residuo ácido. Cambian el color de indicadores, reaccionan con metales, bases y óxidos básicos",
     "surface_forms": ["ácidos", "ácido"]
   },
   "cls:acid_oxygen": {

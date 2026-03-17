@@ -32,6 +32,33 @@
       }
     },
     "acids": {
+      "blocks": [
+        {},
+        {},
+        { "text": "What is an acid?" },
+        { "text": "According to the Brønsted–Lowry theory, an acid is a substance that can donate a proton (H⁺) to another particle. In aqueous solution, acids dissociate: HA → H⁺ + A⁻. The H⁺ ions (more precisely, H₃O⁺) are responsible for the sour taste, the ability to corrode metals, and indicator colour changes." },
+        { "text": "Acid strength" },
+        {
+          "title": "Strong vs. weak acids",
+          "rule": "Acid strength is determined by how easily H⁺ detaches from the molecule",
+          "description": "Strong acids (HCl, HNO₃, H₂SO₄) dissociate completely: every molecule releases H⁺. Solution pH < 1.\nWeak acids (H₂CO₃, H₂S, CH₃COOH) dissociate partially: intact HA molecules coexist with ions in solution. Solution pH 3–6.\nThe easier an acid releases H⁺, the stronger it is."
+        },
+        { "text": "Indicators and pH" },
+        {
+          "columns": ["Indicator", "Acidic", "Neutral", "Alkaline"],
+          "rows": [
+            ["Litmus", "Red", "Violet", "Blue"],
+            ["Phenolphthalein", "Colourless", "Colourless", "Crimson"],
+            ["Methyl orange", "Red (pink)", "Orange", "Yellow"]
+          ]
+        },
+        { "text": "Chemical properties of acids" },
+        {
+          "title": "General acid reactions",
+          "rule": "Acids react with metals, bases, basic oxides, and salts",
+          "description": "1. Acid + metal (before H₂ in the activity series) → salt + H₂↑\n   Zn + 2HCl → ZnCl₂ + H₂↑\n2. Acid + base → salt + water (neutralisation)\n   HCl + NaOH → NaCl + H₂O\n3. Acid + basic oxide → salt + water\n   2HCl + CaO → CaCl₂ + H₂O\n4. Acid + salt → new acid + new salt (if gas↑, precipitate↓, or weak electrolyte forms)\n   H₂SO₄ + BaCl₂ → BaSO₄↓ + 2HCl"
+        }
+      ],
       "cls:acid_oxygen": {
         "reactivity_rules": [
           { "t": "text", "v": "Formed by reaction of " },

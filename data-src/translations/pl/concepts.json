@@ -84,7 +84,7 @@
   "cls:acid": {
     "name": "Kwasy",
     "slug": "kwasy",
-    "description": "Związki złożone z atomów wodoru i reszty kwasowej",
+    "description": "Donory H⁺ w roztworze. Złożone z atomów wodoru i reszty kwasowej. Zmieniają barwę wskaźników, reagują z metalami, zasadami i tlenkami zasadowymi",
     "surface_forms": [
       "kwasy",
       "kwas"

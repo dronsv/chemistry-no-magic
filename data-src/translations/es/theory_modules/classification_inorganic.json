@@ -32,6 +32,33 @@
       }
     },
     "acids": {
+      "blocks": [
+        {},
+        {},
+        { "text": "¿Qué es un ácido?" },
+        { "text": "Según la teoría de Brønsted–Lowry, un ácido es una sustancia capaz de donar un protón (H⁺) a otra partícula. En solución acuosa, los ácidos se disocian: HA → H⁺ + A⁻. Los iones H⁺ (más precisamente, H₃O⁺) son responsables del sabor agrio, la capacidad de corroer metales y los cambios de color de los indicadores." },
+        { "text": "Fuerza de los ácidos" },
+        {
+          "title": "Ácidos fuertes y débiles",
+          "rule": "La fuerza de un ácido depende de la facilidad con que se desprende el H⁺ de la molécula",
+          "description": "Los ácidos fuertes (HCl, HNO₃, H₂SO₄) se disocian completamente: cada molécula libera H⁺. pH de la solución < 1.\nLos ácidos débiles (H₂CO₃, H₂S, CH₃COOH) se disocian parcialmente: en la solución coexisten moléculas intactas de HA junto con iones. pH de la solución 3–6.\nCuanto más fácilmente un ácido libera H⁺, más fuerte es."
+        },
+        { "text": "Indicadores y pH" },
+        {
+          "columns": ["Indicador", "Medio ácido", "Neutro", "Medio alcalino"],
+          "rows": [
+            ["Tornasol", "Rojo", "Violeta", "Azul"],
+            ["Fenolftaleína", "Incolora", "Incolora", "Carmesí"],
+            ["Naranja de metilo", "Rojo (rosado)", "Naranja", "Amarillo"]
+          ]
+        },
+        { "text": "Propiedades químicas de los ácidos" },
+        {
+          "title": "Reacciones generales de los ácidos",
+          "rule": "Los ácidos reaccionan con metales, bases, óxidos básicos y sales",
+          "description": "1. Ácido + metal (antes del H₂ en la serie de actividad) → sal + H₂↑\n   Zn + 2HCl → ZnCl₂ + H₂↑\n2. Ácido + base → sal + agua (neutralización)\n   HCl + NaOH → NaCl + H₂O\n3. Ácido + óxido básico → sal + agua\n   2HCl + CaO → CaCl₂ + H₂O\n4. Ácido + sal → nuevo ácido + nueva sal (si se forma gas↑, precipitado↓ o electrolito débil)\n   H₂SO₄ + BaCl₂ → BaSO₄↓ + 2HCl"
+        }
+      ],
       "cls:acid_oxygen": {
         "reactivity_rules": [
           { "t": "text", "v": "Formed by reaction of " },
