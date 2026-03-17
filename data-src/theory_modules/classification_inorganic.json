@@ -47,6 +47,40 @@
           "t": "concept_card",
           "conceptId": "cls:acid_oxygenfree",
           "examples": { "mode": "filter" }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "cls:acid_strong",
+          "examples": { "mode": "filter" }
+        },
+        {
+          "t": "concept_card",
+          "conceptId": "cls:acid_weak",
+          "examples": { "mode": "filter" }
+        },
+        {
+          "t": "ont_embed",
+          "concept_id": "concept:acid_strength",
+          "mode": "OntBlock",
+          "include": { "characteristics": true, "examples": true }
+        },
+        {
+          "t": "ont_embed",
+          "concept_id": "concept:acid_basicity",
+          "mode": "OntDef",
+          "include": { "examples": true }
+        },
+        {
+          "t": "ont_embed",
+          "concept_id": "concept:indicator",
+          "mode": "OntDef",
+          "include": { "characteristics": true }
+        },
+        {
+          "t": "ont_embed",
+          "concept_id": "concept:acid_dissociation_constant",
+          "mode": "OntBlock",
+          "include": { "characteristics": true, "rabbit_hole": true }
         }
       ]
     },
