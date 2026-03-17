@@ -1,5 +1,7 @@
 import type { Element } from '../../types/element';
 import type { QRef, ReasonStep } from '../../types/derivation';
+import type { TypedCharacteristic } from '../../types/characteristic';
+import { getCharacteristicValue } from '../characteristics-utils';
 
 // ── Ontology access interface ────────────────────────────────────
 
@@ -8,6 +10,8 @@ export interface OntologyAccess {
   parseFormula: (ascii: string) => Record<string, number>;
   /** Entity ref → ASCII formula (substances, ions, any entity with a formula). */
   entityFormulas: Map<string, string>;
+  /** Optional: characteristics indexed by subject_id for property lookups. */
+  charsBySubject?: Map<string, TypedCharacteristic[]>;
 }
 
 // ── Lookup resolver ──────────────────────────────────────────────
@@ -34,10 +38,14 @@ export function resolveLookup(
   const el = ontology.elements.find(e => e.symbol === symbol);
   if (!el) return null;
 
+  // Use characteristics if available, fall back to flat field
+  const subjectChars = ontology.charsBySubject?.get(`el:${symbol}`);
+  const atomicMass = (getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined) ?? el.atomic_mass;
+
   return {
     qref: target,
-    value: el.atomic_mass,
-    step: { type: 'lookup', qref: target, value: el.atomic_mass, source: `element:${symbol}` },
+    value: atomicMass,
+    step: { type: 'lookup', qref: target, value: atomicMass, source: `element:${symbol}` },
   };
 }
 

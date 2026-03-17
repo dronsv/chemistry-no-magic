@@ -1,20 +1,28 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import { localizeUrl } from '../../lib/i18n';
+import { getCharacteristicValue } from '../../lib/characteristics-utils';
 import * as m from '../../paraglide/messages.js';
 
 interface ElementDetailsProps {
   element: Element;
   groups: ElementGroupDict;
   locale?: SupportedLocale;
+  charsBySubject?: Map<string, TypedCharacteristic[]>;
   onClose: () => void;
 }
 
-export default function ElementDetails({ element, groups, locale = 'ru', onClose }: ElementDetailsProps) {
+export default function ElementDetails({ element, groups, locale = 'ru', charsBySubject, onClose }: ElementDetailsProps) {
   const oxStates = element.typical_oxidation_states
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
+
+  // Characteristics lookups with flat-field fallback
+  const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
+  const atomicMass = (getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined) ?? element.atomic_mass;
+  const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? element.electronegativity;
 
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
@@ -38,7 +46,7 @@ export default function ElementDetails({ element, groups, locale = 'ru', onClose
 
       <dl className="pt-details__props">
         <dt>{m.elem_atomic_mass()}</dt>
-        <dd>{element.atomic_mass}</dd>
+        <dd>{atomicMass}</dd>
 
         <dt>{m.elem_group()}</dt>
         <dd>{element.group}</dd>
@@ -53,7 +61,7 @@ export default function ElementDetails({ element, groups, locale = 'ru', onClose
         <dd>{oxStates || '—'}</dd>
 
         <dt>{m.elem_electronegativity()}</dt>
-        <dd>{element.electronegativity ?? '—'}</dd>
+        <dd>{electronegativity ?? '—'}</dd>
       </dl>
 
       {exc?.reason && (

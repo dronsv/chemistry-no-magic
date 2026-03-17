@@ -1,8 +1,10 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import { getValenceElectrons, getShorthandFormula } from '../../lib/electron-config';
 import { localizeUrl } from '../../lib/i18n';
+import { getCharacteristicValue } from '../../lib/characteristics-utils';
 import * as m from '../../paraglide/messages.js';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
@@ -14,10 +16,11 @@ interface Props {
   element: Element;
   groups: ElementGroupDict;
   locale?: SupportedLocale;
+  charsBySubject?: Map<string, TypedCharacteristic[]>;
   onClose: () => void;
 }
 
-export default function ElementDetailPanel({ element, groups, locale = 'ru', onClose }: Props) {
+export default function ElementDetailPanel({ element, groups, locale = 'ru', charsBySubject, onClose }: Props) {
   const Z = element.Z;
   const valence = getValenceElectrons(Z);
   const valenceCount = valence.reduce((s, v) => s + v.electrons, 0);
@@ -26,6 +29,10 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
     .join(', ');
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
+
+  // Characteristics lookups with flat-field fallback
+  const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
+  const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? element.electronegativity;
 
   return (
     <div className="detail-panel">
@@ -71,7 +78,7 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', onC
         </div>
         <div className="detail-panel__prop">
           <span className="detail-panel__prop-label">{m.elem_electronegativity()}</span>
-          <span className="detail-panel__prop-value">{element.electronegativity ?? '—'}</span>
+          <span className="detail-panel__prop-value">{electronegativity ?? '—'}</span>
         </div>
       </div>
 

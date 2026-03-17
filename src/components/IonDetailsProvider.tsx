@@ -1,7 +1,9 @@
 import { createContext, useContext, useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import type { Ion } from '../types/ion';
 import type { SupportedLocale } from '../types/i18n';
-import { loadIons } from '../lib/data-loader';
+import type { TypedCharacteristic } from '../types/characteristic';
+import { loadIons, loadCharacteristics } from '../lib/data-loader';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../lib/characteristics-utils';
 import { parseChemicalFormula } from '../lib/formula-render';
 import * as m from '../paraglide/messages.js';
 import FormulaChip from './FormulaChip';
@@ -41,16 +43,19 @@ function IonDetailsPopup({
   locale: SupportedLocale;
 }) {
   const [ion, setIon] = useState<Ion | null>(null);
+  const [charsBySubject, setCharsBySubject] = useState<Map<string, TypedCharacteristic[]>>(new Map());
   const popupRef = useRef<HTMLDivElement>(null);
   const ionsRef = useRef<Ion[] | null>(null);
 
   useEffect(() => {
     if (!ionId) return;
     const load = async () => {
-      if (!ionsRef.current) {
-        ionsRef.current = await loadIons(locale);
-      }
-      setIon(ionsRef.current.find(i => i.id === ionId) ?? null);
+      const [ions, chars] = await Promise.all([
+        ionsRef.current ? Promise.resolve(ionsRef.current) : loadIons(locale).then(list => { ionsRef.current = list; return list; }),
+        loadCharacteristics(),
+      ]);
+      setIon(ions.find(i => i.id === ionId) ?? null);
+      setCharsBySubject(indexCharacteristicsBySubject(chars));
     };
     load();
   }, [ionId, locale]);
@@ -140,7 +145,11 @@ function IonDetailsPopup({
               </div>
               <div className="ion-details-popup__meta">
                 <span className="ion-details-popup__meta-label">{m.ion_charge()}:</span>
-                <span>{ion.charge > 0 ? `+${ion.charge}` : ion.charge}</span>
+                <span>{(() => {
+                  const subjectChars = charsBySubject.get(`ion:${ion.id}`);
+                  const charge = (getCharacteristicValue(subjectChars, 'concept:ion_charge') as number | undefined) ?? ion.charge;
+                  return charge > 0 ? `+${charge}` : charge;
+                })()}</span>
               </div>
               {ion.parent_acid && (
                 <div className="ion-details-popup__meta">

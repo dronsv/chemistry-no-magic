@@ -1,11 +1,15 @@
 ---
+import { join } from 'node:path';
+import { readdir } from 'node:fs/promises';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormulaChip from '../../components/FormulaChip.tsx';
 import ContextBackLink from '../../components/ContextBackLink.tsx';
 import type { SupportedLocale } from '../../types/i18n';
+import type { TypedCharacteristic } from '../../types/characteristic';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay, applyBuildOverlay } from '../../lib/build-overlay';
-import { cachedReadDataSrc } from '../../lib/build-data-cache';
+import { cachedReadDataSrc, cachedReadJson } from '../../lib/build-data-cache';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
 import type { StorageRequirement, StorageProfile } from '../../types/storage';
 import type { Props } from './element-detail-paths';
 import * as m from '../../paraglide/messages.js';
@@ -74,7 +78,26 @@ const oxStates = el.typical_oxidation_states
   .map(s => (s > 0 ? `+${s}` : String(s)))
   .join(', ');
 
-const hasPhysical = el.melting_point_C != null || el.boiling_point_C != null || el.density_g_cm3 != null;
+// Load characteristics for element property lookups
+let elementCharsBySubject = new Map<string, TypedCharacteristic[]>();
+try {
+  const charDir = join(process.cwd(), 'data-src', 'characteristics');
+  const charFiles = (await readdir(charDir)).filter((f: string) => f.endsWith('.json'));
+  const allChars: TypedCharacteristic[] = [];
+  for (const f of charFiles) {
+    const arr = await cachedReadJson<TypedCharacteristic[]>(join(charDir, f));
+    if (Array.isArray(arr)) allChars.push(...arr);
+  }
+  elementCharsBySubject = indexCharacteristicsBySubject(allChars);
+} catch { /* characteristics dir optional */ }
+
+const elChars = elementCharsBySubject.get(`el:${el.symbol}`);
+const elElectronegativity = (getCharacteristicValue(elChars, 'concept:electronegativity') as number | undefined) ?? el.electronegativity;
+const elMeltingPoint = (getCharacteristicValue(elChars, 'concept:melting_point') as number | undefined) ?? el.melting_point_C;
+const elBoilingPoint = (getCharacteristicValue(elChars, 'concept:boiling_point') as number | undefined) ?? el.boiling_point_C;
+const elDensity = (getCharacteristicValue(elChars, 'concept:density') as number | undefined) ?? el.density_g_cm3;
+
+const hasPhysical = elMeltingPoint != null || elBoilingPoint != null || elDensity != null;
 const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist);
 const hasHazards = el.hazards && el.hazards.length > 0;
 const hasFacts = el.fun_facts && el.fun_facts.length > 0;
@@ -152,7 +175,7 @@ const contextBackLabels = {
 
     <dl class="element-page__props">
       <dt>{m.el_atomic_mass()}</dt>
-      <dd>{el.atomic_mass}</dd>
+      <dd>{(getCharacteristicValue(elChars, 'concept:atomic_mass') as number | undefined) ?? el.atomic_mass}</dd>
 
       <dt>{m.el_group_period()}</dt>
       <dd>{el.group} / {el.period}</dd>
@@ -167,10 +190,10 @@ const contextBackLabels = {
         </>
       )}
 
-      {el.electronegativity != null && (
+      {elElectronegativity != null && (
         <>
           <dt>{m.el_electronegativity()}</dt>
-          <dd>{el.electronegativity} {m.el_pauling()}</dd>
+          <dd>{elElectronegativity} {m.el_pauling()}</dd>
         </>
       )}
     </dl>
@@ -190,22 +213,22 @@ const contextBackLabels = {
       <section class="element-page__section">
         <h2>{m.el_physical_properties()}</h2>
         <dl class="element-page__props">
-          {el.melting_point_C != null && (
+          {elMeltingPoint != null && (
             <>
               <dt>{m.prop_melting()}</dt>
-              <dd>{el.melting_point_C} °C</dd>
+              <dd>{elMeltingPoint} °C</dd>
             </>
           )}
-          {el.boiling_point_C != null && (
+          {elBoilingPoint != null && (
             <>
               <dt>{m.subst_detail_boiling()}</dt>
-              <dd>{el.boiling_point_C} °C</dd>
+              <dd>{elBoilingPoint} °C</dd>
             </>
           )}
-          {el.density_g_cm3 != null && (
+          {elDensity != null && (
             <>
               <dt>{m.el_density()}</dt>
-              <dd>{el.density_g_cm3} {m.el_density_unit()}</dd>
+              <dd>{elDensity} {m.el_density_unit()}</dd>
             </>
           )}
         </dl>

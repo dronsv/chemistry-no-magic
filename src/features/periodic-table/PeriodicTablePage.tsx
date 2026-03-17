@@ -3,7 +3,9 @@ import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
 import type { FormulaLookup } from '../../types/formula-lookup';
-import { loadElements, loadElementGroups, loadFormulaLookup } from '../../lib/data-loader';
+import type { TypedCharacteristic } from '../../types/characteristic';
+import { loadElements, loadElementGroups, loadFormulaLookup, loadCharacteristics } from '../../lib/data-loader';
+import { indexCharacteristicsBySubject } from '../../lib/characteristics-utils';
 import { setConfigOverrides } from '../../lib/electron-config';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
@@ -23,6 +25,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
+  const [charsBySubject, setCharsBySubject] = useState<Map<string, TypedCharacteristic[]>>(new Map());
 
   const [formType, setFormType] = useState<FormType>('long');
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
@@ -68,6 +71,9 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
         setLoading(false);
       });
     loadFormulaLookup().then(setFormulaLookup).catch(() => {});
+    loadCharacteristics().then(chars => {
+      setCharsBySubject(indexCharacteristicsBySubject(chars));
+    }).catch(() => {});
   }, []);
 
   const exceptionZSet = useMemo(
@@ -170,6 +176,7 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
           element={selectedElement}
           groups={groups}
           locale={locale}
+          charsBySubject={charsBySubject}
           onClose={() => setSelectedElement(null)}
         />
       )}

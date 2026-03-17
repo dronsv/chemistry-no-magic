@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { Element } from '../../types/element';
-import type { BondType, CrystalStructure, FormulaAnalysis, BondAnalysis } from '../../lib/bond-calculator';
+import type { BondType, CrystalStructure, FormulaAnalysis, BondAnalysis, ElementLike } from '../../lib/bond-calculator';
 import { analyzeFormula, determineBondType, determineCrystalStructure } from '../../lib/bond-calculator';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadElements } from '../../lib/data-loader';
+import { loadElements, loadCharacteristics } from '../../lib/data-loader';
+import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
 import BondDiagramIonic from './diagrams/BondDiagramIonic';
 import BondDiagramCovalent from './diagrams/BondDiagramCovalent';
 import BondDiagramMetallic from './diagrams/BondDiagramMetallic';
@@ -41,7 +42,7 @@ interface AnalysisResult {
 
 export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [elements, setElements] = useState<Element[]>([]);
-  const [elementMap, setElementMap] = useState<Map<string, Element>>(new Map());
+  const [elementMap, setElementMap] = useState<Map<string, ElementLike>>(new Map());
   const [mode, setMode] = useState<InputMode>('formula');
   const [formulaInput, setFormulaInput] = useState('');
   const [symbolA, setSymbolA] = useState('');
@@ -51,13 +52,30 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    loadElements(locale).then(elems => {
+    Promise.all([loadElements(locale), loadCharacteristics()]).then(([elems, chars]) => {
       setElements(elems);
-      const map = new Map<string, Element>();
+      const charIndex = indexCharacteristicsBySubject(chars);
+      const map = new Map<string, ElementLike>();
       for (const el of elems) {
-        map.set(el.symbol, el);
+        const subjectChars = charIndex.get(`el:${el.symbol}`);
+        const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? el.electronegativity;
+        map.set(el.symbol, {
+          symbol: el.symbol,
+          electronegativity: electronegativity ?? null,
+          metal_type: el.metal_type,
+        });
       }
       setElementMap(map);
+    }).catch(() => {
+      // Fallback: load elements only
+      loadElements(locale).then(elems => {
+        setElements(elems);
+        const map = new Map<string, ElementLike>();
+        for (const el of elems) {
+          map.set(el.symbol, { symbol: el.symbol, electronegativity: el.electronegativity, metal_type: el.metal_type });
+        }
+        setElementMap(map);
+      });
     });
   }, [locale]);
 
