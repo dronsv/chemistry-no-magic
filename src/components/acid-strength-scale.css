@@ -1,0 +1,32 @@
+.acid-scale { margin: var(--space-md) 0; }
+.acid-scale__group { margin-bottom: var(--space-md); }
+.acid-scale__group-title {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-muted);
+}
+.acid-scale__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.acid-scale__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+}
+.acid-scale__pka {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, monospace);
+}
+.acid-scale__divider {
+  border-top: 2px solid var(--color-border);
+  margin: var(--space-sm) 0;
+  padding-top: var(--space-xs);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
