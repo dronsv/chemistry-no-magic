@@ -1324,3 +1324,8 @@ export async function loadTrendRules(
   const overlay = await loadTranslationOverlay(locale, 'foundations/trend_rules');
   return applyOverlay(data, overlay, t => t.id);
 }
+
+/** Load typed characteristics (element/substance properties indexed by subject+concept). */
+export async function loadCharacteristics(): Promise<import('../types/characteristic').TypedCharacteristic[]> {
+  return loadRule('characteristics') as Promise<import('../types/characteristic').TypedCharacteristic[]>;
+}
