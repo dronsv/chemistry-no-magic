@@ -47,7 +47,15 @@
           "t": "concept_card",
           "conceptId": "cls:acid_oxygenfree",
           "examples": { "mode": "filter" }
-        }
+        },
+        { "t": "heading", "level": 3 },
+        { "t": "paragraph" },
+        { "t": "heading", "level": 3 },
+        { "t": "rule_card" },
+        { "t": "heading", "level": 3 },
+        { "t": "table" },
+        { "t": "heading", "level": 3 },
+        { "t": "rule_card" }
       ]
     },
     {
