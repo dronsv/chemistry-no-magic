@@ -23,6 +23,10 @@ Introduce a universal **Typed Characteristics** layer that replaces all flat num
 - **Explainability policy**: Every displayed characteristic must be typed, linked to its concept, and explainable
 - **No mute numbers**: A value without concept ref, unit, and conditions is a build error
 - **Single source of truth**: Characteristic values live only in `data-src/characteristics/`, never as flat fields on entities
+- **Identity vs characteristic**: Structural identifiers (element Z, symbol, group, period, block) stay on the entity. All physical quantities — including ion charge — migrate to characteristics. Charge is a physical quantity measured in elementary charge units (e ≈ 1.602 × 10⁻¹⁹ C).
+- **Sync pre-load**: Task engine and solvers are synchronous. Characteristics are pre-loaded into `OntologyData.characteristics` at task generation init, not fetched per-call.
+- **Atomic deployment**: Renderer code for new block types must ship before or in the same commit as JSON data using those types. `children_order` and translation overlays must be added atomically.
+- **Unit IDs from ontology**: `characteristic.unit` must be an ID from `quantities_units_ontology.json` (e.g., `"unit:celsius"`, `"unit:g_per_cm3"`), not a free-form string. `null` for dimensionless quantities.
 
 ## 1. Domain Concepts
 
@@ -88,12 +92,21 @@ All new concepts get entries in `data-src/translations/{ru,en,pl,es}/concepts.js
 data-src/characteristics/
   element_properties.json       — 118 elements × 5 properties = ~590 records
   substance_properties.json     — 80 substances × 3 properties = ~240 records
-  ion_properties.json           — 31 ions × charge = ~31 records
   thermochemical.json           — 24 calc substances × 3 properties = ~72 records
   acid_dissociation.json        — 17 acids × pKa/Ka × steps = ~30 records
 ```
 
+  ion_properties.json           — 31 ions × charge = ~31 records
+```
+
 Total: ~960 TypedCharacteristic records.
+
+**NOT migrated** (structural identifiers, not physical quantities):
+- `element.Z`, `element.symbol`, `element.group`, `element.period`, `element.block` — structural identity
+- `ion.id`, `ion.formula`, `ion.type` — structural identity
+
+**Migrated with sync pre-load strategy** (used in synchronous code paths):
+- `ion.charge` → `concept:ion_charge`, unit: `unit:elementary_charge`. Pre-loaded into characteristics map at init. `formula-compose.ts` and task engine receive charge from map. Build pipeline reads `ion_properties.json` directly.
 
 ### TypedCharacteristic schema
 
@@ -116,7 +129,7 @@ export interface TypedCharacteristic {
   subject_id: string;                  // → element/substance/ion ID
   value_kind: 'number' | 'string' | 'boolean' | 'enum';
   value: number | string | boolean;
-  unit?: string;                       // → unit from quantities_units_ontology.json
+  unit?: string;                       // → unit ID from quantities_units_ontology.json (e.g., "unit:celsius")
   conditions?: ConditionContext;
   source?: {
     kind: ValueSourceKind;
@@ -174,7 +187,11 @@ After migration, these fields are **removed** from source entities:
 | `data-src/ions.json` | `charge` |
 | `data-src/rules/calculations_data.json` | `M`, `delta_Hf_kJmol`, `S_JmolK` |
 
-Corresponding TypeScript types are updated to remove these fields. All code reading them switches to `loadCharacteristics()`.
+**Kept on entities** (structural identity, not physical quantities):
+- `elements.json` keeps `Z`, `symbol`, `group`, `period`, `block`, `electron_config`
+- `ions.json` keeps `id`, `formula`, `type`
+
+Corresponding TypeScript types are updated to remove migrated fields. All code reading them switches to characteristics (pre-loaded into OntologyData for sync consumers).
 
 ### Subject ID conventions
 
@@ -274,9 +291,18 @@ New entries:
 { "id": "enthalpy_of_formation", "object": "substance", "unit": "kJ/mol",
   "concept_ref": "concept:enthalpy_of_formation" },
 { "id": "standard_entropy", "object": "substance", "unit": "J/(mol·K)",
-  "concept_ref": "concept:standard_entropy" },
-{ "id": "ion_charge", "object": "ion", "unit": null,
+  "concept_ref": "concept:standard_entropy" }
+```
+
+Ion charge entry:
+```json
+{ "id": "ion_charge", "object": "ion", "unit": "unit:elementary_charge",
   "concept_ref": "concept:ion_charge" }
+```
+
+`unit:elementary_charge` (e ≈ 1.602 × 10⁻¹⁹ C) to be added to `quantities_units_ontology.json`.
+
+Existing entries (`electronegativity`, `atomic_mass`, `melting_point`, `boiling_point`, `density`) get `concept_ref` added. Their `value_field` is deprecated — solvers use `concept_ref` to look up values in the characteristics map instead of reading flat entity fields.
 ```
 
 ## 6. Integrity Validation (build-time)
@@ -292,6 +318,9 @@ New entries:
 | Flat numeric field on entity after migration | Legacy field not migrated |
 | `ont_embed.concept_id` not found in concepts.json | Invalid OntEmbed reference |
 | Relation subject/object not found in concepts/substances/ions | Orphan relation |
+| Relation predicate not in `relation_schema.json` | Unknown predicate |
+| `characteristic.unit` non-null but not found in `quantities_units_ontology.json` | Unknown unit ID |
+| `cls:acid_strong` or `cls:acid_weak` filter matches zero substances | Empty concept class |
 
 ### Warnings
 
@@ -370,13 +399,29 @@ Add `characteristics` to `ManifestEntrypoints`.
 
 | Consumer | Current | After |
 |---|---|---|
-| Periodic table (element cards) | reads `element.atomic_mass` | `loadCharacteristics('el:'+symbol)` → find `concept:atomic_mass` |
+| Periodic table (element cards) | reads `element.atomic_mass` | characteristics pre-loaded at island init |
 | Element detail page | reads flat fields | loads characteristics for element |
 | Substance cards | reads `substance.density_g_cm3` etc. | loads characteristics for substance |
 | Calculations page | reads `calcSubstance.M` | loads `concept:molar_mass` from characteristics |
-| Task engine solvers | reads flat fields | loads characteristics |
-| Task engine generators | reads flat fields for comparisons | loads `loadCharacteristicsByConcept()` |
+| Task engine OntologyData | flat fields on elements/substances | `OntologyData.characteristics: Map<string, TypedCharacteristic[]>` pre-loaded at engine init |
+| Task engine solvers | `getElementValue(el, prop.value_field)` | `getCharacteristicValue(subjectId, conceptId)` from pre-loaded map |
+| Task engine generators | reads flat fields for comparisons | reads from pre-loaded characteristics map |
+| `bond-calculator.ts` / `BondCalculator.tsx` | `ElementLike.electronegativity` | receives electronegativity from characteristics (caller patches onto ElementLike) |
+| `derive-quantity.ts` / derivation resolvers | `element.atomic_mass`, `element.electronegativity` | resolvers receive characteristics map |
+| `properties.json` `value_field` | points to flat entity fields | **deprecated** — replaced by `concept_ref`; solvers use concept_ref to look up in characteristics map |
+| `formula-compose.ts` | `ion.charge` directly | receives charge from pre-loaded characteristics map |
+| `IonDetailsProvider.tsx` | renders `ion.charge` | loads from characteristics |
 | BKT/diagnostics | minimal impact | unchanged |
+
+### Sync pre-load strategy
+
+Task engine and solvers are synchronous. Characteristics must be available without async calls during task generation:
+
+1. At engine init (`createTaskEngine()`), load all characteristics files
+2. Build `characteristicsMap: Map<string, TypedCharacteristic[]>` indexed by `subject_id`
+3. Inject into `OntologyData.characteristics`
+4. Solvers/generators read from this map synchronously
+5. Same pattern for `bond-calculator.ts` — caller loads characteristics, extracts electronegativity, passes as `ElementLike`
 
 ## 11. Reference Documents
 
@@ -400,24 +445,44 @@ The following specification packages inform this design:
 - `src/components/AcidStrengthScale.css`
 
 ### Modified files
+
+**Data:**
 - `data-src/concepts.json` — +18 domain concepts, +2 substance classes, +3 reaction types
-- `data-src/translations/{ru,en,pl,es}/concepts.json` — overlays for all new concepts
-- `data-src/elements.json` — remove 5 flat numeric fields
+- `data-src/translations/{ru,en,pl,es}/concepts.json` — overlays for all new concepts (atomic with children_order changes)
+- `data-src/elements.json` — remove 5 flat numeric fields (keep Z, symbol, group, period, block, electron_config)
 - `data-src/substances/*.json` — remove 3 flat numeric fields (80 files)
-- `data-src/ions.json` — remove `charge` field
 - `data-src/rules/calculations_data.json` — remove `M`, `delta_Hf_kJmol`, `S_JmolK`
-- `data-src/rules/properties.json` — add `concept_ref`, new entries
+- `data-src/rules/properties.json` — deprecate `value_field`, add `concept_ref`, new entries
 - `data-src/reactions/reactions.json` — add type_tags to existing reactions
 - `data-src/theory_modules/classification_inorganic.json` — acids section blocks
+- `data-src/relations/relation_schema.json` — add new predicates: `described_by`, `has_property`, `participates_in`, `depends_on`, `reacts_via`, `forms`, `detected_by`
+
+**Types:**
+- `src/types/ontology-ref.ts` — add `'domain_concept'` to `ConceptKind` union and `OntRefKind`
 - `src/types/theory-module.ts` — add `ont_embed` block type
 - `src/types/element.ts` — remove flat numeric fields
 - `src/types/substance.ts` — remove flat numeric fields
-- `src/types/ion.ts` — remove `charge`
 - `src/types/calculations.ts` — remove `M`, thermo fields
 - `src/types/manifest.ts` — add `characteristics` entrypoint
+
+**Components & loaders:**
 - `src/components/TheoryModulePanel.tsx` — render `ont_embed` blocks
 - `src/features/concepts/ConceptModuleIsland.tsx` — render `ont_embed` in extraBlocks
 - `src/lib/data-loader.ts` — add `loadCharacteristics()`, `loadCharacteristicsByConcept()`
+- `src/lib/bond-calculator.ts` — callers pass electronegativity from characteristics (ElementLike interface stays)
+- `src/lib/derive-quantity.ts` — resolvers receive characteristics map
+- `src/lib/task-engine/types.ts` — add `characteristics` to `OntologyData`
+- `src/lib/task-engine/solvers.ts` — replace `getElementValue()` with characteristics lookup
+- `src/lib/task-engine/generators.ts` — replace flat field reads with characteristics map
+- `src/features/periodic-table/` — element cards load from characteristics
+- `src/features/calculations/` — load M and thermo from characteristics
+
+**Build pipeline:**
 - `scripts/build-data.mjs` — characteristics pipeline + integrity validation
 - `scripts/lib/generate-manifest.mjs` — characteristics in manifest
-- All consumers of flat numeric fields (periodic table, element detail, substance cards, calculations, task engine)
+
+**Also modified** (ion charge migration):
+- `data-src/ions.json` — remove `charge`
+- `src/types/ion.ts` — remove `charge`
+- `src/lib/formula-compose.ts` — receive charge from pre-loaded characteristics
+- `src/components/IonDetailsProvider.tsx` — load charge from characteristics
