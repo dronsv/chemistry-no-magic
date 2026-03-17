@@ -1,0 +1,45 @@
+/* OntRef — inline chip */
+.ont-embed-ref {
+  display: inline;
+}
+.ont-embed-ref a {
+  color: var(--color-link, #2563eb);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* OntDef — card */
+.ont-embed-def {
+  background: var(--color-bg-alt, #f1f5f9);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+.ont-embed-def__title {
+  font-weight: 700;
+  margin: 0 0 var(--space-xs);
+  color: var(--color-text);
+}
+.ont-embed-def__description {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* OntBlock — full block */
+.ont-embed-block {
+  border-left: 3px solid var(--color-primary, #2563eb);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+.ont-embed-block__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+.ont-embed-block__description {
+  margin: 0 0 var(--space-sm);
+  line-height: 1.6;
+}

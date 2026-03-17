@@ -11,6 +11,7 @@ import RichTextRenderer from '../../components/RichTextRenderer';
 import FormulaChip from '../../components/FormulaChip';
 import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
 import { applyTheoryModuleOverlay } from '../../components/TheoryModulePanel';
+import OntEmbedBlock from '../../components/OntEmbedBlock';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
 import '../../components/theory-module.css';
@@ -85,7 +86,9 @@ function getLocalizedReactivityRules(
   return cardData.reactivity_rules as RichText;
 }
 
-function renderSimpleBlock(block: TheoryBlock): React.ReactNode {
+type OntEmbedBlockType = TheoryBlock & { t: 'ont_embed' };
+
+function renderSimpleBlock(block: TheoryBlock, locale = 'ru'): React.ReactNode {
   switch (block.t) {
     case 'heading':
       if (block.level === 2) return <h2 className="theory-module__h2">{block.text}</h2>;
@@ -122,6 +125,8 @@ function renderSimpleBlock(block: TheoryBlock): React.ReactNode {
           </table>
         </div>
       );
+    case 'ont_embed':
+      return <OntEmbedBlock block={block as OntEmbedBlockType} locale={locale} />;
     default:
       return null;
   }
@@ -380,7 +385,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
           {extraBlocks.length > 0 && (
             <section className="concept-theory-blocks">
               {extraBlocks.map((block, i) => (
-                <div key={i}>{renderSimpleBlock(block)}</div>
+                <div key={i}>{renderSimpleBlock(block, locale)}</div>
               ))}
             </section>
           )}

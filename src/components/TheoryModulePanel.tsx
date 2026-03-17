@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import './theory-module.css';
+import './ont-embed.css';
 import type { ReactNode } from 'react';
 import type { TheoryModule, TheorySection, TheoryBlock } from '../types/theory-module';
 import type { OxRule, OxRulesData } from '../types/oxidation-rules';
@@ -12,7 +13,10 @@ import FormulaChip from './FormulaChip';
 import ChemText from './ChemText';
 import RichTextRenderer from './RichTextRenderer';
 import { QuantityLookupProvider, type QuantityLookup } from './OntologyRef';
+import OntEmbedBlock from './OntEmbedBlock';
 import * as m from '../paraglide/messages.js';
+
+type OntEmbedBlockType = TheoryBlock & { t: 'ont_embed' };
 
 // ---------------------------------------------------------------------------
 // Lazy-loaded component slots
@@ -245,6 +249,9 @@ function renderBlock(
         </div>
       );
 
+    case 'ont_embed':
+      return <OntEmbedBlock block={block as OntEmbedBlockType} locale={locale} />;
+
     default:
       return null;
   }
@@ -358,6 +365,9 @@ export function applyTheoryModuleOverlay(
         }
         if (block.t === 'heading' && bo.text) {
           return { ...block, text: bo.text as string };
+        }
+        if (block.t === 'ont_embed') {
+          return block;
         }
         return block;
       });

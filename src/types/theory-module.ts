@@ -45,7 +45,11 @@ export type TheoryBlock =
   // Language frame (semantic event → localized sentence)
   | { t: 'frame'; frame_id: string; args: Record<string, FrameArg> }
   // Oxidation rule reference (renders from oxidation_rules.json, localized via its own overlays)
-  | { t: 'ox_rule'; rule_id: string };
+  | { t: 'ox_rule'; rule_id: string }
+  // Embedded ontology concept with presentation mode
+  | { t: 'ont_embed'; concept_id: string; mode: 'OntRef' | 'OntDef' | 'OntBlock';
+      didactic_level?: 'basic' | 'core' | 'advanced';
+      include?: { examples?: boolean; characteristics?: boolean; rabbit_hole?: boolean } };
 
 // ---------------------------------------------------------------------------
 // Section and Module
