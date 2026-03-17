@@ -1,0 +1,5567 @@
+[
+  {
+    "id": "char:H_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:H",
+    "value_kind": "number",
+    "value": 1.008,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:H_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:H",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:H_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:H",
+    "value_kind": "number",
+    "value": -259.16,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:H_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:H",
+    "value_kind": "number",
+    "value": -252.87,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:H_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:H",
+    "value_kind": "number",
+    "value": 0.00008988,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:He_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:He",
+    "value_kind": "number",
+    "value": 4.003,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:He_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:He",
+    "value_kind": "number",
+    "value": -272.2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:He_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:He",
+    "value_kind": "number",
+    "value": -268.93,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:He_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:He",
+    "value_kind": "number",
+    "value": 0.0001786,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Li_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Li",
+    "value_kind": "number",
+    "value": 6.941,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Li_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Li",
+    "value_kind": "number",
+    "value": 0.98,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Li_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Li",
+    "value_kind": "number",
+    "value": 180.54,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Li_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Li",
+    "value_kind": "number",
+    "value": 1342,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Li_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Li",
+    "value_kind": "number",
+    "value": 0.534,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Be_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Be",
+    "value_kind": "number",
+    "value": 9.012,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Be_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Be",
+    "value_kind": "number",
+    "value": 1.57,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Be_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Be",
+    "value_kind": "number",
+    "value": 1287,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Be_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Be",
+    "value_kind": "number",
+    "value": 2469,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Be_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Be",
+    "value_kind": "number",
+    "value": 1.85,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:B_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:B",
+    "value_kind": "number",
+    "value": 10.811,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:B_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:B",
+    "value_kind": "number",
+    "value": 2.04,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:B_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:B",
+    "value_kind": "number",
+    "value": 2076,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:B_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:B",
+    "value_kind": "number",
+    "value": 3927,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:B_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:B",
+    "value_kind": "number",
+    "value": 2.34,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:C_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:C",
+    "value_kind": "number",
+    "value": 12.011,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:C_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:C",
+    "value_kind": "number",
+    "value": 2.55,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:C_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:C",
+    "value_kind": "number",
+    "value": 3550,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:C_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:C",
+    "value_kind": "number",
+    "value": 4827,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:C_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:C",
+    "value_kind": "number",
+    "value": 2.267,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:N_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:N",
+    "value_kind": "number",
+    "value": 14.007,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:N_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:N",
+    "value_kind": "number",
+    "value": 3.04,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:N_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:N",
+    "value_kind": "number",
+    "value": -210,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:N_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:N",
+    "value_kind": "number",
+    "value": -195.79,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:N_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:N",
+    "value_kind": "number",
+    "value": 0.001251,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:O_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:O",
+    "value_kind": "number",
+    "value": 15.999,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:O_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:O",
+    "value_kind": "number",
+    "value": 3.44,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:O_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:O",
+    "value_kind": "number",
+    "value": -218.79,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:O_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:O",
+    "value_kind": "number",
+    "value": -182.96,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:O_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:O",
+    "value_kind": "number",
+    "value": 0.001429,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:F_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:F",
+    "value_kind": "number",
+    "value": 18.998,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:F_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:F",
+    "value_kind": "number",
+    "value": 3.98,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:F_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:F",
+    "value_kind": "number",
+    "value": -219.67,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:F_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:F",
+    "value_kind": "number",
+    "value": -188.11,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:F_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:F",
+    "value_kind": "number",
+    "value": 0.001696,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ne_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ne",
+    "value_kind": "number",
+    "value": 20.18,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ne_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ne",
+    "value_kind": "number",
+    "value": -248.59,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ne_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ne",
+    "value_kind": "number",
+    "value": -246.08,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ne_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ne",
+    "value_kind": "number",
+    "value": 0.0009002,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Na_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Na",
+    "value_kind": "number",
+    "value": 22.99,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Na_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Na",
+    "value_kind": "number",
+    "value": 0.93,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Na_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Na",
+    "value_kind": "number",
+    "value": 97.79,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Na_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Na",
+    "value_kind": "number",
+    "value": 882.94,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Na_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Na",
+    "value_kind": "number",
+    "value": 0.968,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Mg_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Mg",
+    "value_kind": "number",
+    "value": 24.305,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Mg_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Mg",
+    "value_kind": "number",
+    "value": 1.31,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Mg_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Mg",
+    "value_kind": "number",
+    "value": 650,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mg_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Mg",
+    "value_kind": "number",
+    "value": 1091,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mg_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Mg",
+    "value_kind": "number",
+    "value": 1.738,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Al_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Al",
+    "value_kind": "number",
+    "value": 26.982,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Al_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Al",
+    "value_kind": "number",
+    "value": 1.61,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Al_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Al",
+    "value_kind": "number",
+    "value": 660.32,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Al_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Al",
+    "value_kind": "number",
+    "value": 2519,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Al_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Al",
+    "value_kind": "number",
+    "value": 2.7,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Si_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Si",
+    "value_kind": "number",
+    "value": 28.086,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Si_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Si",
+    "value_kind": "number",
+    "value": 1.9,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Si_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Si",
+    "value_kind": "number",
+    "value": 1414,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Si_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Si",
+    "value_kind": "number",
+    "value": 3265,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Si_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Si",
+    "value_kind": "number",
+    "value": 2.329,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:P_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:P",
+    "value_kind": "number",
+    "value": 30.974,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:P_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:P",
+    "value_kind": "number",
+    "value": 2.19,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:P_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:P",
+    "value_kind": "number",
+    "value": 44.15,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:P_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:P",
+    "value_kind": "number",
+    "value": 280.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:P_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:P",
+    "value_kind": "number",
+    "value": 1.823,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:S_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:S",
+    "value_kind": "number",
+    "value": 32.065,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:S_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:S",
+    "value_kind": "number",
+    "value": 2.58,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:S_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:S",
+    "value_kind": "number",
+    "value": 115.21,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:S_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:S",
+    "value_kind": "number",
+    "value": 444.6,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:S_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:S",
+    "value_kind": "number",
+    "value": 2.07,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cl_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cl",
+    "value_kind": "number",
+    "value": 35.453,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cl_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cl",
+    "value_kind": "number",
+    "value": 3.16,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cl_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cl",
+    "value_kind": "number",
+    "value": -101.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cl_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cl",
+    "value_kind": "number",
+    "value": -34.04,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cl_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cl",
+    "value_kind": "number",
+    "value": 0.003214,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ar_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ar",
+    "value_kind": "number",
+    "value": 39.948,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ar_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ar",
+    "value_kind": "number",
+    "value": -189.34,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ar_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ar",
+    "value_kind": "number",
+    "value": -185.85,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ar_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ar",
+    "value_kind": "number",
+    "value": 0.001784,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:K_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:K",
+    "value_kind": "number",
+    "value": 39.098,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:K_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:K",
+    "value_kind": "number",
+    "value": 0.82,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:K_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:K",
+    "value_kind": "number",
+    "value": 63.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:K_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:K",
+    "value_kind": "number",
+    "value": 759,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:K_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:K",
+    "value_kind": "number",
+    "value": 0.862,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ca_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ca",
+    "value_kind": "number",
+    "value": 40.078,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ca_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ca",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ca_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ca",
+    "value_kind": "number",
+    "value": 842,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ca_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ca",
+    "value_kind": "number",
+    "value": 1484,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ca_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ca",
+    "value_kind": "number",
+    "value": 1.55,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Sc_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sc",
+    "value_kind": "number",
+    "value": 44.956,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sc_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Sc",
+    "value_kind": "number",
+    "value": 1.36,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Sc_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Sc",
+    "value_kind": "number",
+    "value": 1541,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sc_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Sc",
+    "value_kind": "number",
+    "value": 2836,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sc_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Sc",
+    "value_kind": "number",
+    "value": 2.985,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ti_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ti",
+    "value_kind": "number",
+    "value": 47.867,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ti_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ti",
+    "value_kind": "number",
+    "value": 1.54,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ti_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ti",
+    "value_kind": "number",
+    "value": 1668,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ti_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ti",
+    "value_kind": "number",
+    "value": 3287,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ti_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ti",
+    "value_kind": "number",
+    "value": 4.506,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:V_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:V",
+    "value_kind": "number",
+    "value": 50.942,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:V_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:V",
+    "value_kind": "number",
+    "value": 1.63,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:V_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:V",
+    "value_kind": "number",
+    "value": 1910,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:V_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:V",
+    "value_kind": "number",
+    "value": 3407,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:V_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:V",
+    "value_kind": "number",
+    "value": 6.11,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cr",
+    "value_kind": "number",
+    "value": 51.996,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cr",
+    "value_kind": "number",
+    "value": 1.66,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cr",
+    "value_kind": "number",
+    "value": 1907,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cr",
+    "value_kind": "number",
+    "value": 2671,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cr_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cr",
+    "value_kind": "number",
+    "value": 7.15,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Mn_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Mn",
+    "value_kind": "number",
+    "value": 54.938,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Mn_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Mn",
+    "value_kind": "number",
+    "value": 1.55,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Mn_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Mn",
+    "value_kind": "number",
+    "value": 1246,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mn_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Mn",
+    "value_kind": "number",
+    "value": 2061,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mn_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Mn",
+    "value_kind": "number",
+    "value": 7.21,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Fe_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Fe",
+    "value_kind": "number",
+    "value": 55.845,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Fe_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Fe",
+    "value_kind": "number",
+    "value": 1.83,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Fe_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Fe",
+    "value_kind": "number",
+    "value": 1538,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Fe_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Fe",
+    "value_kind": "number",
+    "value": 2862,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Fe_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Fe",
+    "value_kind": "number",
+    "value": 7.874,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Co_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Co",
+    "value_kind": "number",
+    "value": 58.933,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Co_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Co",
+    "value_kind": "number",
+    "value": 1.88,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Co_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Co",
+    "value_kind": "number",
+    "value": 1495,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Co_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Co",
+    "value_kind": "number",
+    "value": 2927,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Co_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Co",
+    "value_kind": "number",
+    "value": 8.9,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ni_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ni",
+    "value_kind": "number",
+    "value": 58.693,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ni_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ni",
+    "value_kind": "number",
+    "value": 1.91,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ni_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ni",
+    "value_kind": "number",
+    "value": 1455,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ni_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ni",
+    "value_kind": "number",
+    "value": 2913,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ni_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ni",
+    "value_kind": "number",
+    "value": 8.908,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cu_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cu",
+    "value_kind": "number",
+    "value": 63.546,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cu_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cu",
+    "value_kind": "number",
+    "value": 1.9,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cu_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cu",
+    "value_kind": "number",
+    "value": 1084.62,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cu_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cu",
+    "value_kind": "number",
+    "value": 2562,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cu_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cu",
+    "value_kind": "number",
+    "value": 8.96,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Zn_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Zn",
+    "value_kind": "number",
+    "value": 65.38,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Zn_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Zn",
+    "value_kind": "number",
+    "value": 1.65,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Zn_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Zn",
+    "value_kind": "number",
+    "value": 419.53,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Zn_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Zn",
+    "value_kind": "number",
+    "value": 907,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Zn_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Zn",
+    "value_kind": "number",
+    "value": 7.134,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ga_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ga",
+    "value_kind": "number",
+    "value": 69.723,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ga_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ga",
+    "value_kind": "number",
+    "value": 1.81,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ga_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ga",
+    "value_kind": "number",
+    "value": 29.76,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ga_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ga",
+    "value_kind": "number",
+    "value": 2229,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ga_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ga",
+    "value_kind": "number",
+    "value": 5.907,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ge_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ge",
+    "value_kind": "number",
+    "value": 72.63,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ge_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ge",
+    "value_kind": "number",
+    "value": 2.01,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ge_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ge",
+    "value_kind": "number",
+    "value": 938.25,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ge_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ge",
+    "value_kind": "number",
+    "value": 2833,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ge_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ge",
+    "value_kind": "number",
+    "value": 5.323,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:As_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:As",
+    "value_kind": "number",
+    "value": 74.922,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:As_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:As",
+    "value_kind": "number",
+    "value": 2.18,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:As_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:As",
+    "value_kind": "number",
+    "value": 616,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:As_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:As",
+    "value_kind": "number",
+    "value": 5.727,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Se_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Se",
+    "value_kind": "number",
+    "value": 78.971,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Se_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Se",
+    "value_kind": "number",
+    "value": 2.55,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Se_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Se",
+    "value_kind": "number",
+    "value": 221,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Se_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Se",
+    "value_kind": "number",
+    "value": 685,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Se_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Se",
+    "value_kind": "number",
+    "value": 4.809,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Br_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Br",
+    "value_kind": "number",
+    "value": 79.904,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Br_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Br",
+    "value_kind": "number",
+    "value": 2.96,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Br_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Br",
+    "value_kind": "number",
+    "value": -7.2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Br_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Br",
+    "value_kind": "number",
+    "value": 58.8,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Br_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Br",
+    "value_kind": "number",
+    "value": 3.1028,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Kr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Kr",
+    "value_kind": "number",
+    "value": 83.798,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Kr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Kr",
+    "value_kind": "number",
+    "value": 3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Kr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Kr",
+    "value_kind": "number",
+    "value": -157.37,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Kr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Kr",
+    "value_kind": "number",
+    "value": -153.42,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Kr_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Kr",
+    "value_kind": "number",
+    "value": 0.003749,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Rb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Rb",
+    "value_kind": "number",
+    "value": 85.468,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Rb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Rb",
+    "value_kind": "number",
+    "value": 0.82,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Rb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Rb",
+    "value_kind": "number",
+    "value": 39.31,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Rb",
+    "value_kind": "number",
+    "value": 688,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Rb",
+    "value_kind": "number",
+    "value": 1.532,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Sr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sr",
+    "value_kind": "number",
+    "value": 87.62,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Sr",
+    "value_kind": "number",
+    "value": 0.95,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Sr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Sr",
+    "value_kind": "number",
+    "value": 777,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Sr",
+    "value_kind": "number",
+    "value": 1382,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sr_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Sr",
+    "value_kind": "number",
+    "value": 2.64,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Y_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Y",
+    "value_kind": "number",
+    "value": 88.906,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Y_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Y",
+    "value_kind": "number",
+    "value": 1.22,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Y_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Y",
+    "value_kind": "number",
+    "value": 1526,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Y_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Y",
+    "value_kind": "number",
+    "value": 3336,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Y_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Y",
+    "value_kind": "number",
+    "value": 4.472,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Zr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Zr",
+    "value_kind": "number",
+    "value": 91.224,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Zr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Zr",
+    "value_kind": "number",
+    "value": 1.33,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Zr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Zr",
+    "value_kind": "number",
+    "value": 1855,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Zr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Zr",
+    "value_kind": "number",
+    "value": 4409,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Zr_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Zr",
+    "value_kind": "number",
+    "value": 6.506,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Nb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Nb",
+    "value_kind": "number",
+    "value": 92.906,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Nb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Nb",
+    "value_kind": "number",
+    "value": 1.6,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Nb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Nb",
+    "value_kind": "number",
+    "value": 2477,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Nb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Nb",
+    "value_kind": "number",
+    "value": 4744,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Nb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Nb",
+    "value_kind": "number",
+    "value": 8.57,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Mo_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Mo",
+    "value_kind": "number",
+    "value": 95.95,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Mo_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Mo",
+    "value_kind": "number",
+    "value": 2.16,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Mo_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Mo",
+    "value_kind": "number",
+    "value": 2623,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mo_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Mo",
+    "value_kind": "number",
+    "value": 4639,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Mo_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Mo",
+    "value_kind": "number",
+    "value": 10.22,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Tc_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Tc",
+    "value_kind": "number",
+    "value": 98,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Tc_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Tc",
+    "value_kind": "number",
+    "value": 1.9,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Tc_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Tc",
+    "value_kind": "number",
+    "value": 2157,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tc_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Tc",
+    "value_kind": "number",
+    "value": 4265,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tc_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Tc",
+    "value_kind": "number",
+    "value": 11.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ru_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ru",
+    "value_kind": "number",
+    "value": 101.07,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ru_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ru",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ru_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ru",
+    "value_kind": "number",
+    "value": 2334,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ru_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ru",
+    "value_kind": "number",
+    "value": 4150,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ru_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ru",
+    "value_kind": "number",
+    "value": 12.37,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Rh_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Rh",
+    "value_kind": "number",
+    "value": 102.906,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Rh_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Rh",
+    "value_kind": "number",
+    "value": 2.28,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Rh_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Rh",
+    "value_kind": "number",
+    "value": 1964,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rh_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Rh",
+    "value_kind": "number",
+    "value": 3695,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rh_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Rh",
+    "value_kind": "number",
+    "value": 12.41,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pd_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pd",
+    "value_kind": "number",
+    "value": 106.42,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pd_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pd",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pd_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pd",
+    "value_kind": "number",
+    "value": 1554.9,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pd_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pd",
+    "value_kind": "number",
+    "value": 2963,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pd_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pd",
+    "value_kind": "number",
+    "value": 12.023,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ag_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ag",
+    "value_kind": "number",
+    "value": 107.868,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ag_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ag",
+    "value_kind": "number",
+    "value": 1.93,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ag_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ag",
+    "value_kind": "number",
+    "value": 961.78,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ag_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ag",
+    "value_kind": "number",
+    "value": 2162,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ag_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ag",
+    "value_kind": "number",
+    "value": 10.49,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cd_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cd",
+    "value_kind": "number",
+    "value": 112.414,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cd_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cd",
+    "value_kind": "number",
+    "value": 1.69,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cd_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cd",
+    "value_kind": "number",
+    "value": 321.07,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cd_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cd",
+    "value_kind": "number",
+    "value": 767,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cd_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cd",
+    "value_kind": "number",
+    "value": 8.65,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:In_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:In",
+    "value_kind": "number",
+    "value": 114.818,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:In_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:In",
+    "value_kind": "number",
+    "value": 1.78,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:In_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:In",
+    "value_kind": "number",
+    "value": 156.6,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:In_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:In",
+    "value_kind": "number",
+    "value": 2072,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:In_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:In",
+    "value_kind": "number",
+    "value": 7.31,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Sn_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sn",
+    "value_kind": "number",
+    "value": 118.71,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sn_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Sn",
+    "value_kind": "number",
+    "value": 1.96,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Sn_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Sn",
+    "value_kind": "number",
+    "value": 231.93,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sn_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Sn",
+    "value_kind": "number",
+    "value": 2602,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sn_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Sn",
+    "value_kind": "number",
+    "value": 7.265,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Sb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sb",
+    "value_kind": "number",
+    "value": 121.76,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Sb",
+    "value_kind": "number",
+    "value": 2.05,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Sb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Sb",
+    "value_kind": "number",
+    "value": 630.63,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Sb",
+    "value_kind": "number",
+    "value": 1587,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Sb",
+    "value_kind": "number",
+    "value": 6.697,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Te_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Te",
+    "value_kind": "number",
+    "value": 127.6,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Te_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Te",
+    "value_kind": "number",
+    "value": 2.1,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Te_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Te",
+    "value_kind": "number",
+    "value": 449.51,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Te_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Te",
+    "value_kind": "number",
+    "value": 988,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Te_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Te",
+    "value_kind": "number",
+    "value": 6.232,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:I_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:I",
+    "value_kind": "number",
+    "value": 126.904,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:I_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:I",
+    "value_kind": "number",
+    "value": 2.66,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:I_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:I",
+    "value_kind": "number",
+    "value": 113.7,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:I_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:I",
+    "value_kind": "number",
+    "value": 184.3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:I_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:I",
+    "value_kind": "number",
+    "value": 4.933,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Xe_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Xe",
+    "value_kind": "number",
+    "value": 131.293,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Xe_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Xe",
+    "value_kind": "number",
+    "value": 2.6,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Xe_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Xe",
+    "value_kind": "number",
+    "value": -111.75,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Xe_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Xe",
+    "value_kind": "number",
+    "value": -108.09,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Xe_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Xe",
+    "value_kind": "number",
+    "value": 0.005894,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cs_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cs",
+    "value_kind": "number",
+    "value": 132.905,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cs_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cs",
+    "value_kind": "number",
+    "value": 0.79,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cs_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cs",
+    "value_kind": "number",
+    "value": 28.44,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cs_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cs",
+    "value_kind": "number",
+    "value": 671,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cs_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cs",
+    "value_kind": "number",
+    "value": 1.873,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ba_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ba",
+    "value_kind": "number",
+    "value": 137.327,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ba_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ba",
+    "value_kind": "number",
+    "value": 0.89,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ba_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ba",
+    "value_kind": "number",
+    "value": 727,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ba_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ba",
+    "value_kind": "number",
+    "value": 1845,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ba_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ba",
+    "value_kind": "number",
+    "value": 3.62,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:La_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:La",
+    "value_kind": "number",
+    "value": 138.905,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:La_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:La",
+    "value_kind": "number",
+    "value": 1.1,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:La_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:La",
+    "value_kind": "number",
+    "value": 920,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:La_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:La",
+    "value_kind": "number",
+    "value": 3464,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:La_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:La",
+    "value_kind": "number",
+    "value": 6.162,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ce_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ce",
+    "value_kind": "number",
+    "value": 140.116,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ce_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ce",
+    "value_kind": "number",
+    "value": 1.12,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ce_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ce",
+    "value_kind": "number",
+    "value": 798,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ce_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ce",
+    "value_kind": "number",
+    "value": 3443,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ce_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ce",
+    "value_kind": "number",
+    "value": 6.77,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pr",
+    "value_kind": "number",
+    "value": 140.908,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pr",
+    "value_kind": "number",
+    "value": 1.13,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pr",
+    "value_kind": "number",
+    "value": 931,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pr",
+    "value_kind": "number",
+    "value": 3520,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pr_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pr",
+    "value_kind": "number",
+    "value": 6.773,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Nd_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Nd",
+    "value_kind": "number",
+    "value": 144.242,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Nd_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Nd",
+    "value_kind": "number",
+    "value": 1.14,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Nd_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Nd",
+    "value_kind": "number",
+    "value": 1016,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Nd_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Nd",
+    "value_kind": "number",
+    "value": 3074,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Nd_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Nd",
+    "value_kind": "number",
+    "value": 7.007,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pm_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pm",
+    "value_kind": "number",
+    "value": 145,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pm_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pm",
+    "value_kind": "number",
+    "value": 1.13,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pm_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pm",
+    "value_kind": "number",
+    "value": 1042,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pm_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pm",
+    "value_kind": "number",
+    "value": 3000,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pm_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pm",
+    "value_kind": "number",
+    "value": 7.26,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Sm_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sm",
+    "value_kind": "number",
+    "value": 150.36,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sm_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Sm",
+    "value_kind": "number",
+    "value": 1.17,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Sm_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Sm",
+    "value_kind": "number",
+    "value": 1072,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sm_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Sm",
+    "value_kind": "number",
+    "value": 1794,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Sm_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Sm",
+    "value_kind": "number",
+    "value": 7.52,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Eu_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Eu",
+    "value_kind": "number",
+    "value": 151.964,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Eu_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Eu",
+    "value_kind": "number",
+    "value": 1.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Eu_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Eu",
+    "value_kind": "number",
+    "value": 822,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Eu_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Eu",
+    "value_kind": "number",
+    "value": 1529,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Eu_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Eu",
+    "value_kind": "number",
+    "value": 5.243,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Gd_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Gd",
+    "value_kind": "number",
+    "value": 157.25,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Gd_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Gd",
+    "value_kind": "number",
+    "value": 1.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Gd_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Gd",
+    "value_kind": "number",
+    "value": 1313,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Gd_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Gd",
+    "value_kind": "number",
+    "value": 3273,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Gd_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Gd",
+    "value_kind": "number",
+    "value": 7.895,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Tb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Tb",
+    "value_kind": "number",
+    "value": 158.925,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Tb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Tb",
+    "value_kind": "number",
+    "value": 1.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Tb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Tb",
+    "value_kind": "number",
+    "value": 1356,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Tb",
+    "value_kind": "number",
+    "value": 3230,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Tb",
+    "value_kind": "number",
+    "value": 8.229,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Dy_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Dy",
+    "value_kind": "number",
+    "value": 162.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Dy_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Dy",
+    "value_kind": "number",
+    "value": 1.22,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Dy_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Dy",
+    "value_kind": "number",
+    "value": 1412,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Dy_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Dy",
+    "value_kind": "number",
+    "value": 2567,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Dy_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Dy",
+    "value_kind": "number",
+    "value": 8.55,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ho_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ho",
+    "value_kind": "number",
+    "value": 164.93,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ho_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ho",
+    "value_kind": "number",
+    "value": 1.23,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ho_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ho",
+    "value_kind": "number",
+    "value": 1474,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ho_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ho",
+    "value_kind": "number",
+    "value": 2700,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ho_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ho",
+    "value_kind": "number",
+    "value": 8.795,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Er_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Er",
+    "value_kind": "number",
+    "value": 167.259,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Er_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Er",
+    "value_kind": "number",
+    "value": 1.24,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Er_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Er",
+    "value_kind": "number",
+    "value": 1529,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Er_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Er",
+    "value_kind": "number",
+    "value": 2868,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Er_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Er",
+    "value_kind": "number",
+    "value": 9.066,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Tm_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Tm",
+    "value_kind": "number",
+    "value": 168.934,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Tm_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Tm",
+    "value_kind": "number",
+    "value": 1.25,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Tm_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Tm",
+    "value_kind": "number",
+    "value": 1545,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tm_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Tm",
+    "value_kind": "number",
+    "value": 1950,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tm_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Tm",
+    "value_kind": "number",
+    "value": 9.321,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Yb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Yb",
+    "value_kind": "number",
+    "value": 173.045,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Yb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Yb",
+    "value_kind": "number",
+    "value": 1.1,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Yb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Yb",
+    "value_kind": "number",
+    "value": 824,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Yb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Yb",
+    "value_kind": "number",
+    "value": 1196,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Yb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Yb",
+    "value_kind": "number",
+    "value": 6.965,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Lu_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Lu",
+    "value_kind": "number",
+    "value": 174.967,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Lu_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Lu",
+    "value_kind": "number",
+    "value": 1.27,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Lu_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Lu",
+    "value_kind": "number",
+    "value": 1663,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Lu_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Lu",
+    "value_kind": "number",
+    "value": 3402,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Lu_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Lu",
+    "value_kind": "number",
+    "value": 9.84,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Hf_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Hf",
+    "value_kind": "number",
+    "value": 178.49,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Hf_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Hf",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Hf_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Hf",
+    "value_kind": "number",
+    "value": 2233,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Hf_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Hf",
+    "value_kind": "number",
+    "value": 4603,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Hf_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Hf",
+    "value_kind": "number",
+    "value": 13.31,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ta_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ta",
+    "value_kind": "number",
+    "value": 180.948,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ta_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ta",
+    "value_kind": "number",
+    "value": 1.5,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ta_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ta",
+    "value_kind": "number",
+    "value": 3017,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ta_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ta",
+    "value_kind": "number",
+    "value": 5458,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ta_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ta",
+    "value_kind": "number",
+    "value": 16.654,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:W_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:W",
+    "value_kind": "number",
+    "value": 183.84,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:W_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:W",
+    "value_kind": "number",
+    "value": 2.36,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:W_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:W",
+    "value_kind": "number",
+    "value": 3422,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:W_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:W",
+    "value_kind": "number",
+    "value": 5555,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:W_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:W",
+    "value_kind": "number",
+    "value": 19.25,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Re_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Re",
+    "value_kind": "number",
+    "value": 186.207,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Re_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Re",
+    "value_kind": "number",
+    "value": 1.9,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Re_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Re",
+    "value_kind": "number",
+    "value": 3186,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Re_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Re",
+    "value_kind": "number",
+    "value": 5596,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Re_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Re",
+    "value_kind": "number",
+    "value": 21.02,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Os_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Os",
+    "value_kind": "number",
+    "value": 190.23,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Os_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Os",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Os_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Os",
+    "value_kind": "number",
+    "value": 3033,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Os_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Os",
+    "value_kind": "number",
+    "value": 5012,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Os_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Os",
+    "value_kind": "number",
+    "value": 22.587,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ir_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ir",
+    "value_kind": "number",
+    "value": 192.217,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ir_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ir",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ir_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ir",
+    "value_kind": "number",
+    "value": 2446,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ir_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ir",
+    "value_kind": "number",
+    "value": 4428,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ir_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ir",
+    "value_kind": "number",
+    "value": 22.562,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pt_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pt",
+    "value_kind": "number",
+    "value": 195.084,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pt_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pt",
+    "value_kind": "number",
+    "value": 2.28,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pt_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pt",
+    "value_kind": "number",
+    "value": 1768.3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pt_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pt",
+    "value_kind": "number",
+    "value": 3825,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pt_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pt",
+    "value_kind": "number",
+    "value": 21.45,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Au_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Au",
+    "value_kind": "number",
+    "value": 196.967,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Au_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Au",
+    "value_kind": "number",
+    "value": 2.54,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Au_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Au",
+    "value_kind": "number",
+    "value": 1064.18,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Au_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Au",
+    "value_kind": "number",
+    "value": 2856,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Au_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Au",
+    "value_kind": "number",
+    "value": 19.3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Hg_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Hg",
+    "value_kind": "number",
+    "value": 200.592,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Hg_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Hg",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Hg_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Hg",
+    "value_kind": "number",
+    "value": -38.83,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Hg_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Hg",
+    "value_kind": "number",
+    "value": 356.73,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Hg_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Hg",
+    "value_kind": "number",
+    "value": 13.534,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Tl_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Tl",
+    "value_kind": "number",
+    "value": 204.383,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Tl_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Tl",
+    "value_kind": "number",
+    "value": 1.62,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Tl_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Tl",
+    "value_kind": "number",
+    "value": 304,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tl_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Tl",
+    "value_kind": "number",
+    "value": 1473,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Tl_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Tl",
+    "value_kind": "number",
+    "value": 11.85,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pb_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pb",
+    "value_kind": "number",
+    "value": 207.2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pb_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pb",
+    "value_kind": "number",
+    "value": 2.33,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pb_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pb",
+    "value_kind": "number",
+    "value": 327.46,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pb_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pb",
+    "value_kind": "number",
+    "value": 1749,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pb_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pb",
+    "value_kind": "number",
+    "value": 11.34,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Bi_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Bi",
+    "value_kind": "number",
+    "value": 208.98,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Bi_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Bi",
+    "value_kind": "number",
+    "value": 2.02,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Bi_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Bi",
+    "value_kind": "number",
+    "value": 271.4,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Bi_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Bi",
+    "value_kind": "number",
+    "value": 1564,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Bi_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Bi",
+    "value_kind": "number",
+    "value": 9.78,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Po_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Po",
+    "value_kind": "number",
+    "value": 209,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Po_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Po",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Po_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Po",
+    "value_kind": "number",
+    "value": 254,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Po_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Po",
+    "value_kind": "number",
+    "value": 962,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Po_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Po",
+    "value_kind": "number",
+    "value": 9.196,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:At_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:At",
+    "value_kind": "number",
+    "value": 210,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:At_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:At",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:At_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:At",
+    "value_kind": "number",
+    "value": 302,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:At_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:At",
+    "value_kind": "number",
+    "value": 337,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rn_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Rn",
+    "value_kind": "number",
+    "value": 222,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Rn_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Rn",
+    "value_kind": "number",
+    "value": 2.2,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Rn_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Rn",
+    "value_kind": "number",
+    "value": -71,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rn_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Rn",
+    "value_kind": "number",
+    "value": -61.7,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rn_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Rn",
+    "value_kind": "number",
+    "value": 0.00973,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Fr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Fr",
+    "value_kind": "number",
+    "value": 223,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Fr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Fr",
+    "value_kind": "number",
+    "value": 0.7,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Fr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Fr",
+    "value_kind": "number",
+    "value": 27,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Fr_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Fr",
+    "value_kind": "number",
+    "value": 677,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ra_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ra",
+    "value_kind": "number",
+    "value": 226,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ra_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ra",
+    "value_kind": "number",
+    "value": 0.9,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ra_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ra",
+    "value_kind": "number",
+    "value": 696,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ra_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ra",
+    "value_kind": "number",
+    "value": 1737,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ra_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ra",
+    "value_kind": "number",
+    "value": 5.5,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Ac_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ac",
+    "value_kind": "number",
+    "value": 227,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ac_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Ac",
+    "value_kind": "number",
+    "value": 1.1,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Ac_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Ac",
+    "value_kind": "number",
+    "value": 1050,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ac_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Ac",
+    "value_kind": "number",
+    "value": 3200,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Ac_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Ac",
+    "value_kind": "number",
+    "value": 10.07,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Th_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Th",
+    "value_kind": "number",
+    "value": 232.038,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Th_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Th",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Th_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Th",
+    "value_kind": "number",
+    "value": 1750,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Th_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Th",
+    "value_kind": "number",
+    "value": 4788,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Th_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Th",
+    "value_kind": "number",
+    "value": 11.72,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pa_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pa",
+    "value_kind": "number",
+    "value": 231.036,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pa_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pa",
+    "value_kind": "number",
+    "value": 1.5,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pa_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pa",
+    "value_kind": "number",
+    "value": 1572,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pa_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pa",
+    "value_kind": "number",
+    "value": 4000,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pa_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pa",
+    "value_kind": "number",
+    "value": 15.37,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:U_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:U",
+    "value_kind": "number",
+    "value": 238.029,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:U_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:U",
+    "value_kind": "number",
+    "value": 1.38,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:U_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:U",
+    "value_kind": "number",
+    "value": 1135,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:U_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:U",
+    "value_kind": "number",
+    "value": 4131,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:U_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:U",
+    "value_kind": "number",
+    "value": 19.05,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Np_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Np",
+    "value_kind": "number",
+    "value": 237,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Np_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Np",
+    "value_kind": "number",
+    "value": 1.36,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Np_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Np",
+    "value_kind": "number",
+    "value": 644,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Np_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Np",
+    "value_kind": "number",
+    "value": 3902,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Np_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Np",
+    "value_kind": "number",
+    "value": 20.45,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Pu_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Pu",
+    "value_kind": "number",
+    "value": 244,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Pu_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Pu",
+    "value_kind": "number",
+    "value": 1.28,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Pu_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Pu",
+    "value_kind": "number",
+    "value": 640,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pu_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Pu",
+    "value_kind": "number",
+    "value": 3228,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Pu_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Pu",
+    "value_kind": "number",
+    "value": 19.816,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Am_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Am",
+    "value_kind": "number",
+    "value": 243,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Am_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Am",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Am_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Am",
+    "value_kind": "number",
+    "value": 1176,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Am_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Am",
+    "value_kind": "number",
+    "value": 2011,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Am_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Am",
+    "value_kind": "number",
+    "value": 12,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cm_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cm",
+    "value_kind": "number",
+    "value": 247,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cm_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cm",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cm_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cm",
+    "value_kind": "number",
+    "value": 1345,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cm_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cm",
+    "value_kind": "number",
+    "value": 3110,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cm_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cm",
+    "value_kind": "number",
+    "value": 13.51,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Bk_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Bk",
+    "value_kind": "number",
+    "value": 247,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Bk_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Bk",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Bk_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Bk",
+    "value_kind": "number",
+    "value": 986,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Bk_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Bk",
+    "value_kind": "number",
+    "value": 2627,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Bk_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Bk",
+    "value_kind": "number",
+    "value": 14.78,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Cf_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cf",
+    "value_kind": "number",
+    "value": 251,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cf_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Cf",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Cf_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Cf",
+    "value_kind": "number",
+    "value": 900,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cf_boiling_point",
+    "characteristic_concept_id": "concept:boiling_point",
+    "subject_id": "el:Cf",
+    "value_kind": "number",
+    "value": 1470,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Cf_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Cf",
+    "value_kind": "number",
+    "value": 15.1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Es_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Es",
+    "value_kind": "number",
+    "value": 252,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Es_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Es",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Es_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Es",
+    "value_kind": "number",
+    "value": 860,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Es_density",
+    "characteristic_concept_id": "concept:density",
+    "subject_id": "el:Es",
+    "value_kind": "number",
+    "value": 8.84,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:g_per_cm3"
+  },
+  {
+    "id": "char:Fm_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Fm",
+    "value_kind": "number",
+    "value": 257,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Fm_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Fm",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Fm_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Fm",
+    "value_kind": "number",
+    "value": 1527,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Md_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Md",
+    "value_kind": "number",
+    "value": 258,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Md_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Md",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Md_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Md",
+    "value_kind": "number",
+    "value": 827,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:No_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:No",
+    "value_kind": "number",
+    "value": 259,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:No_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:No",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:No_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:No",
+    "value_kind": "number",
+    "value": 827,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Lr_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Lr",
+    "value_kind": "number",
+    "value": 266,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Lr_electronegativity",
+    "characteristic_concept_id": "concept:electronegativity",
+    "subject_id": "el:Lr",
+    "value_kind": "number",
+    "value": 1.3,
+    "source": {
+      "kind": "asserted"
+    }
+  },
+  {
+    "id": "char:Lr_melting_point",
+    "characteristic_concept_id": "concept:melting_point",
+    "subject_id": "el:Lr",
+    "value_kind": "number",
+    "value": 1627,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:celsius"
+  },
+  {
+    "id": "char:Rf_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Rf",
+    "value_kind": "number",
+    "value": 267,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Db_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Db",
+    "value_kind": "number",
+    "value": 268,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Sg_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Sg",
+    "value_kind": "number",
+    "value": 269,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Bh_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Bh",
+    "value_kind": "number",
+    "value": 270,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Hs_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Hs",
+    "value_kind": "number",
+    "value": 277,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Mt_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Mt",
+    "value_kind": "number",
+    "value": 278,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ds_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ds",
+    "value_kind": "number",
+    "value": 281,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Rg_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Rg",
+    "value_kind": "number",
+    "value": 282,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Cn_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Cn",
+    "value_kind": "number",
+    "value": 285,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Nh_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Nh",
+    "value_kind": "number",
+    "value": 286,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Fl_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Fl",
+    "value_kind": "number",
+    "value": 289,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Mc_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Mc",
+    "value_kind": "number",
+    "value": 290,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Lv_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Lv",
+    "value_kind": "number",
+    "value": 293,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Ts_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Ts",
+    "value_kind": "number",
+    "value": 294,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  },
+  {
+    "id": "char:Og_atomic_mass",
+    "characteristic_concept_id": "concept:atomic_mass",
+    "subject_id": "el:Og",
+    "value_kind": "number",
+    "value": 294,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:u"
+  }
+]

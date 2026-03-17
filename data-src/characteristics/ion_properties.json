@@ -1,0 +1,530 @@
+[
+  {
+    "id": "char:H_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:H_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Na_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Na_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:K_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:K_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:NH4_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:NH4_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Ca_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Ca_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Mg_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Mg_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Ba_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Ba_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Al_3plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Al_3plus",
+    "value_kind": "number",
+    "value": 3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Fe_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Fe_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Fe_3plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Fe_3plus",
+    "value_kind": "number",
+    "value": 3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cu_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cu_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Zn_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Zn_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Ag_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Ag_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Pb_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Pb_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Li_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Li_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Sr_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Sr_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Mn_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Mn_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Ni_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Ni_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Co_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Co_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cd_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cd_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Hg_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Hg_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Hg2_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Hg2_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Sn_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Sn_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cr_3plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cr_3plus",
+    "value_kind": "number",
+    "value": 3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:OH_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:OH_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:F_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:F_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cl_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cl_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Br_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Br_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:I_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:I_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:S_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:S_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:SO4_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:SO4_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:SO3_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:SO3_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:NO3_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:NO3_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:NO2_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:NO2_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:CO3_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:CO3_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:SiO3_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:SiO3_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:PO4_3minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:PO4_3minus",
+    "value_kind": "number",
+    "value": -3,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:CH3COO_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:CH3COO_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:MnO4_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:MnO4_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:CrO4_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:CrO4_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cr2O7_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cr2O7_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Be_2plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Be_2plus",
+    "value_kind": "number",
+    "value": 2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:Cu_plus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:Cu_plus",
+    "value_kind": "number",
+    "value": 1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:HCO3_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:HCO3_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:HSO4_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:HSO4_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:HSO3_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:HSO3_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:HPO4_2minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:HPO4_2minus",
+    "value_kind": "number",
+    "value": -2,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  },
+  {
+    "id": "char:H2PO4_minus_charge",
+    "characteristic_concept_id": "concept:ion_charge",
+    "subject_id": "ion:H2PO4_minus",
+    "value_kind": "number",
+    "value": -1,
+    "source": {
+      "kind": "asserted"
+    },
+    "unit": "unit:elementary_charge"
+  }
+]
