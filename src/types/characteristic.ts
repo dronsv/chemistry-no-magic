@@ -23,3 +23,15 @@ export interface TypedCharacteristic {
   };
   explanation_concept_id?: string;
 }
+
+/** Single characteristic value stored on an entity */
+export interface CharacteristicEntry {
+  value: number | string | boolean;
+  unit?: string | null;
+  conditions?: ConditionContext;
+  source?: { kind: ValueSourceKind; ref?: string; derived_from?: string[] };
+  explanation_concept_id?: string;
+}
+
+/** Characteristics map on an entity: concept_id → entry or array (multi-step) */
+export type EntityCharacteristics = Record<string, CharacteristicEntry | CharacteristicEntry[]>;

@@ -1,3 +1,5 @@
+import type { EntityCharacteristics } from './characteristic';
+
 export interface Substance {
   id: string;
   formula: string;
@@ -14,6 +16,7 @@ export interface Substance {
   industrial?: string;
   production?: string;
   fun_facts?: string[];
+  characteristics?: EntityCharacteristics;
 }
 
 export interface SubstancesIndex {

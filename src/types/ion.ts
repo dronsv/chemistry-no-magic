@@ -1,3 +1,5 @@
+import type { EntityCharacteristics } from './characteristic';
+
 export type IonType = 'cation' | 'anion';
 
 export interface IonNaming {
@@ -18,4 +20,5 @@ export interface Ion {
   parent_acid?: string;
   naming?: IonNaming;
   tags: string[];
+  characteristics?: EntityCharacteristics;
 }

@@ -4,10 +4,13 @@ export interface CalcElementComposition {
   count: number;
 }
 
+import type { EntityCharacteristics } from './characteristic';
+
 export interface CalcSubstance {
   formula: string;
   name: string;
   composition: CalcElementComposition[];
+  characteristics?: EntityCharacteristics;
 }
 
 export interface CalcReactionSide {

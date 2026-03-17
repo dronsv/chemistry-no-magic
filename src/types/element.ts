@@ -48,6 +48,8 @@ export interface ElectronException {
   stabilization?: ElectronExceptionStabilization;
 }
 
+import type { EntityCharacteristics } from './characteristic';
+
 export interface Element {
   Z: number;
   symbol: string;
@@ -68,4 +70,5 @@ export interface Element {
   abundance?: string;
   fun_facts?: string[];
   electron_exception?: ElectronException;
+  characteristics?: EntityCharacteristics;
 }
