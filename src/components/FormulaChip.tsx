@@ -187,8 +187,27 @@ export default function FormulaChip({
   // ionId is intentionally excluded — it opens its own popup via IonDetailsProvider.
   const entityRef = substanceId ?? (elementId ? `el:${elementId}` : undefined);
   if (entityRef && locale) {
+    // Remove native title — OntPreviewCard replaces it
+    const chipSpanNoTitle = (
+      <span
+        className={classNames}
+        onMouseEnter={() => {
+          setHovered(true);
+          const elements = Object.keys(parseFormula(formula));
+          dispatchHighlight(isIon ? { elements, ionId } : { elements, formula });
+        }}
+        onMouseLeave={() => {
+          setHovered(false);
+          dispatchHighlight(null);
+        }}
+        onClick={handleClick}
+        role={isClickable ? 'link' : undefined}
+      >
+        {renderFormulaHtml(formula)}
+      </span>
+    );
     return (
-      <OntInteractiveRef entityRef={entityRef} display={chipSpan} locale={locale} />
+      <OntInteractiveRef entityRef={entityRef} display={chipSpanNoTitle} locale={locale} />
     );
   }
 
