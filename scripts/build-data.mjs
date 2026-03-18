@@ -62,7 +62,7 @@ import { generateParticipatesIn } from './lib/generate-participates-in.mjs';
 import { generateReactsWithClass } from './lib/generate-reacts-with-class.mjs';
 import { generateDetectedBy } from './lib/generate-detected-by.mjs';
 import { generateCausesEffect } from './lib/generate-causes-effect.mjs';
-import { validateCharacteristics } from './lib/validate-characteristics.mjs';
+import { validateEntityCharacteristics } from './lib/validate-characteristics.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -315,16 +315,6 @@ async function main() {
     structureFiles = sFiles.filter(f => f.endsWith('.json'));
   } catch { /* no structures yet */ }
 
-  // Load characteristics (optional directory — merge all JSON files into one array)
-  const characteristicsDir = join(DATA_SRC, 'characteristics');
-  let characteristicsEntries = [];
-  try {
-    const cFiles = (await readdir(characteristicsDir)).filter(f => f.endsWith('.json'));
-    for (const f of cFiles) {
-      const arr = await loadJson(join(characteristicsDir, f));
-      if (Array.isArray(arr)) characteristicsEntries.push(...arr);
-    }
-  } catch { /* characteristics dir optional */ }
 
   console.log(`  ${elements.length} elements, ${ions.length} ions, ${substances.length} substances`);
   if (structureFiles.length > 0) console.log(`  ${structureFiles.length} molecule structures`);
@@ -349,7 +339,6 @@ async function main() {
   console.log(`  ${Object.keys(concepts).length} concepts`);
   if (theoryModuleEntries.length > 0) console.log(`  ${theoryModuleEntries.length} theory modules`);
   if (courseEntries.length > 0) console.log(`  ${courseEntries.length} courses`);
-  if (characteristicsEntries.length > 0) console.log(`  ${characteristicsEntries.length} characteristics`);
   console.log('');
 
   // 2. Validate
@@ -373,7 +362,9 @@ async function main() {
     ...validateOxidationExamples(oxidationExamples),
     ...validateEngineTaskTemplates(engineTaskTemplates),
     ...relationEntries.flatMap(({ data, filename }) => validateRelations(data, filename)),
-    ...(characteristicsEntries.length > 0 ? validateCharacteristics(characteristicsEntries) : []),
+    ...validateEntityCharacteristics(elements, 'element'),
+    ...validateEntityCharacteristics(ions, 'ion'),
+    ...validateEntityCharacteristics(substances.map(s => s.data), 'substance'),
     // G.0: ADR-003 locale-neutral gate for physical foundations catalogs (when present)
     ...(physicalConcepts ? validateExplanatoryCatalogLocaleNeutral(physicalConcepts, 'foundations/physical_concepts.json') : []),
     ...(mathConcepts ? validateExplanatoryCatalogLocaleNeutral(mathConcepts, 'foundations/math_concepts.json') : []),
@@ -528,9 +519,6 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'oxidation_rules.json'), JSON.stringify(oxidationRules));
   await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
   await writeFile(join(bundleDir, 'rules', 'properties.json'), JSON.stringify(properties));
-  if (characteristicsEntries.length > 0) {
-    await writeFile(join(bundleDir, 'rules', 'characteristics.json'), JSON.stringify(characteristicsEntries));
-  }
   await writeFile(join(bundleDir, 'rules', 'storage_requirements.json'), JSON.stringify(storageRequirements));
   await writeFile(join(bundleDir, 'rules', 'storage_profiles.json'), JSON.stringify(storageProfiles));
   await writeFile(join(bundleDir, 'rules', 'periodic_trend_anomalies.json'), JSON.stringify(periodicTrendAnomalies));
