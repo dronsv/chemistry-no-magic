@@ -73,6 +73,8 @@ export function evaluateExpr(
 
     case 'exp':
       return Math.exp(evaluateExpr(expr.operand, bindings, constants, indexed));
+    case 'log10':
+      return Math.log10(evaluateExpr(expr.operand, bindings, constants, indexed));
 
     case 'sum': {
       const items = indexed?.[expr.index_set];
@@ -106,6 +108,7 @@ export function exprToString(expr: ExprNode | string | number): string {
     case 'divide': return `${exprToString(expr.operands[0])} / ${exprToString(expr.operands[1])}`;
     case 'power': return `${exprToString(expr.operands[0])}^${exprToString(expr.operands[1])}`;
     case 'exp': return `exp(${exprToString(expr.operand)})`;
+    case 'log10': return `lg(${exprToString(expr.operand)})`;
     case 'sum': return `Σ(${exprToString(expr.term)})`;
     default: return '?';
   }
@@ -191,14 +194,24 @@ export function exprToDisplayString(
       return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' + ');
     case 'subtract':
       return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' − ');
-    case 'multiply':
+    case 'multiply': {
+      // Handle negation: -1 × X → −X
+      if (expr.operands.length === 2) {
+        const first = expr.operands[0];
+        if (typeof first === 'object' && 'op' in first && first.op === 'literal' && first.value === -1) {
+          return `−${exprToDisplayString(expr.operands[1], displayMap)}`;
+        }
+      }
       return expr.operands.map(o => exprToDisplayString(o, displayMap)).join(' × ');
+    }
     case 'divide':
       return `${exprToDisplayString(expr.operands[0], displayMap)} / ${exprToDisplayString(expr.operands[1], displayMap)}`;
     case 'power':
       return `${exprToDisplayString(expr.operands[0], displayMap)}^${exprToDisplayString(expr.operands[1], displayMap)}`;
     case 'exp':
       return `exp(${exprToDisplayString(expr.operand, displayMap)})`;
+    case 'log10':
+      return `lg(${exprToDisplayString(expr.operand, displayMap)})`;
     case 'sum':
       return `Σ(${exprToDisplayString(expr.term, displayMap)})`;
     default: return '?';

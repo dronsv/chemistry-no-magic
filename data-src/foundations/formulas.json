@@ -3,131 +3,437 @@
     "id": "formula:molar_mass_from_composition",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8],
+    "school_grade": [
+      8
+    ],
     "variables": [
-      { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "result" },
-      { "symbol": "Ar_i", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "count_i", "display_symbol": "n", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "index" }
+      {
+        "symbol": "M",
+        "quantity": "q:molar_mass",
+        "unit": "unit:g_per_mol",
+        "role": "result"
+      },
+      {
+        "symbol": "Ar_i",
+        "display_symbol": "Aᵣ",
+        "quantity": "q:relative_atomic_mass",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "count_i",
+        "display_symbol": "n",
+        "quantity": "q:atom_count",
+        "unit": "unit:dimensionless",
+        "role": "index"
+      }
     ],
     "expression": {
       "op": "sum",
       "over": "i",
       "index_set": "composition_elements",
-      "term": { "op": "multiply", "operands": ["Ar_i", "count_i"] }
+      "term": {
+        "op": "multiply",
+        "operands": [
+          "Ar_i",
+          "count_i"
+        ]
+      }
     },
     "result_variable": "M",
     "invertible_for": [],
     "inversions": {},
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.molar_mass"]
+    "used_by_solvers": [
+      "solver.molar_mass"
+    ]
   },
   {
     "id": "formula:amount_from_mass",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "result" },
-      { "symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input" },
-      { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "input" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "divide", "operands": ["m", "M"] },
+    "variables": [
+      {
+        "symbol": "n",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "result"
+      },
+      {
+        "symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input"
+      },
+      {
+        "symbol": "M",
+        "quantity": "q:molar_mass",
+        "unit": "unit:g_per_mol",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        "m",
+        "M"
+      ]
+    },
     "result_variable": "n",
-    "invertible_for": ["m", "M"],
+    "invertible_for": [
+      "m",
+      "M"
+    ],
     "inversions": {
-      "m": { "op": "multiply", "operands": ["n", "M"] },
-      "M": { "op": "divide", "operands": ["m", "n"] }
+      "m": {
+        "op": "multiply",
+        "operands": [
+          "n",
+          "M"
+        ]
+      },
+      "M": {
+        "op": "divide",
+        "operands": [
+          "m",
+          "n"
+        ]
+      }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:molar_mass_from_composition"],
-    "used_by_solvers": ["solver.amount_calc"]
+    "prerequisite_formulas": [
+      "formula:molar_mass_from_composition"
+    ],
+    "used_by_solvers": [
+      "solver.amount_calc"
+    ]
   },
   {
     "id": "formula:particle_count",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "N", "quantity": "q:particle_count", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "input" },
-      { "symbol": "N_A", "display_symbol": "Nₐ", "quantity": "q:amount", "unit": "unit:per_mol", "role": "constant" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "multiply", "operands": ["n", { "op": "const", "ref": "const:N_A" }] },
-    "result_variable": "N",
-    "invertible_for": ["n"],
-    "inversions": {
-      "n": { "op": "divide", "operands": ["N", { "op": "const", "ref": "const:N_A" }] }
+    "variables": [
+      {
+        "symbol": "N",
+        "quantity": "q:particle_count",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "n",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "input"
+      },
+      {
+        "symbol": "N_A",
+        "display_symbol": "Nₐ",
+        "quantity": "q:amount",
+        "unit": "unit:per_mol",
+        "role": "constant"
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        "n",
+        {
+          "op": "const",
+          "ref": "const:N_A"
+        }
+      ]
     },
-    "constants_used": ["const:N_A"],
-    "prerequisite_formulas": ["formula:amount_from_mass"],
-    "used_by_solvers": ["solver.amount_calc"]
+    "result_variable": "N",
+    "invertible_for": [
+      "n"
+    ],
+    "inversions": {
+      "n": {
+        "op": "divide",
+        "operands": [
+          "N",
+          {
+            "op": "const",
+            "ref": "const:N_A"
+          }
+        ]
+      }
+    },
+    "constants_used": [
+      "const:N_A"
+    ],
+    "prerequisite_formulas": [
+      "formula:amount_from_mass"
+    ],
+    "used_by_solvers": [
+      "solver.amount_calc"
+    ]
   },
   {
     "id": "formula:gas_volume_stp",
     "kind": "law",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "V", "quantity": "q:volume", "unit": "unit:L", "role": "result" },
-      { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "input" },
-      { "symbol": "V_m", "display_symbol": "Vₘ", "quantity": "q:molar_volume", "unit": "unit:L_per_mol", "role": "constant" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "multiply", "operands": ["n", { "op": "const", "ref": "const:V_m_stp" }] },
-    "result_variable": "V",
-    "invertible_for": ["n"],
-    "inversions": {
-      "n": { "op": "divide", "operands": ["V", { "op": "const", "ref": "const:V_m_stp" }] }
+    "variables": [
+      {
+        "symbol": "V",
+        "quantity": "q:volume",
+        "unit": "unit:L",
+        "role": "result"
+      },
+      {
+        "symbol": "n",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "input"
+      },
+      {
+        "symbol": "V_m",
+        "display_symbol": "Vₘ",
+        "quantity": "q:molar_volume",
+        "unit": "unit:L_per_mol",
+        "role": "constant"
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        "n",
+        {
+          "op": "const",
+          "ref": "const:V_m_stp"
+        }
+      ]
     },
-    "constants_used": ["const:V_m_stp"],
-    "prerequisite_formulas": ["formula:amount_from_mass"],
-    "used_by_solvers": ["solver.amount_calc"]
+    "result_variable": "V",
+    "invertible_for": [
+      "n"
+    ],
+    "inversions": {
+      "n": {
+        "op": "divide",
+        "operands": [
+          "V",
+          {
+            "op": "const",
+            "ref": "const:V_m_stp"
+          }
+        ]
+      }
+    },
+    "constants_used": [
+      "const:V_m_stp"
+    ],
+    "prerequisite_formulas": [
+      "formula:amount_from_mass"
+    ],
+    "used_by_solvers": [
+      "solver.amount_calc"
+    ]
   },
   {
     "id": "formula:mass_fraction_element",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
+    "school_grade": [
+      8,
+      9
+    ],
     "variables": [
-      { "symbol": "omega", "display_symbol": "ω", "quantity": "q:mass_fraction", "unit": "unit:percent", "role": "result" },
-      { "symbol": "Ar", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "n_atom", "display_symbol": "n", "quantity": "q:atom_count", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "input" }
+      {
+        "symbol": "omega",
+        "display_symbol": "ω",
+        "quantity": "q:mass_fraction",
+        "unit": "unit:percent",
+        "role": "result"
+      },
+      {
+        "symbol": "Ar",
+        "display_symbol": "Aᵣ",
+        "quantity": "q:relative_atomic_mass",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "n_atom",
+        "display_symbol": "n",
+        "quantity": "q:atom_count",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "M",
+        "quantity": "q:molar_mass",
+        "unit": "unit:g_per_mol",
+        "role": "input"
+      }
     ],
     "expression": {
       "op": "multiply",
       "operands": [
-        { "op": "divide", "operands": [{ "op": "multiply", "operands": ["Ar", "n_atom"] }, "M"] },
-        { "op": "literal", "value": 100 }
+        {
+          "op": "divide",
+          "operands": [
+            {
+              "op": "multiply",
+              "operands": [
+                "Ar",
+                "n_atom"
+              ]
+            },
+            "M"
+          ]
+        },
+        {
+          "op": "literal",
+          "value": 100
+        }
       ]
     },
     "result_variable": "omega",
-    "invertible_for": ["Ar", "n_atom", "M"],
+    "invertible_for": [
+      "Ar",
+      "n_atom",
+      "M"
+    ],
     "inversions": {
-      "Ar": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["omega", "M"] }, { "op": "multiply", "operands": [{ "op": "literal", "value": 100 }, "n_atom"] }] },
-      "n_atom": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["omega", "M"] }, { "op": "multiply", "operands": [{ "op": "literal", "value": 100 }, "Ar"] }] },
-      "M": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["Ar", "n_atom", { "op": "literal", "value": 100 }] }, "omega"] }
+      "Ar": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "omega",
+              "M"
+            ]
+          },
+          {
+            "op": "multiply",
+            "operands": [
+              {
+                "op": "literal",
+                "value": 100
+              },
+              "n_atom"
+            ]
+          }
+        ]
+      },
+      "n_atom": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "omega",
+              "M"
+            ]
+          },
+          {
+            "op": "multiply",
+            "operands": [
+              {
+                "op": "literal",
+                "value": 100
+              },
+              "Ar"
+            ]
+          }
+        ]
+      },
+      "M": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "Ar",
+              "n_atom",
+              {
+                "op": "literal",
+                "value": 100
+              }
+            ]
+          },
+          "omega"
+        ]
+      }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:molar_mass_from_composition"],
-    "used_by_solvers": ["solver.mass_fraction"]
+    "prerequisite_formulas": [
+      "formula:molar_mass_from_composition"
+    ],
+    "used_by_solvers": [
+      "solver.mass_fraction"
+    ]
   },
   {
     "id": "formula:density",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8],
-    "variables": [
-      { "symbol": "rho", "display_symbol": "ρ", "quantity": "q:density", "unit": "unit:g_per_mL", "role": "result" },
-      { "symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input" },
-      { "symbol": "V", "quantity": "q:volume", "unit": "unit:mL", "role": "input" }
+    "school_grade": [
+      8
     ],
-    "expression": { "op": "divide", "operands": ["m", "V"] },
+    "variables": [
+      {
+        "symbol": "rho",
+        "display_symbol": "ρ",
+        "quantity": "q:density",
+        "unit": "unit:g_per_mL",
+        "role": "result"
+      },
+      {
+        "symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input"
+      },
+      {
+        "symbol": "V",
+        "quantity": "q:volume",
+        "unit": "unit:mL",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        "m",
+        "V"
+      ]
+    },
     "result_variable": "rho",
-    "invertible_for": ["m", "V"],
+    "invertible_for": [
+      "m",
+      "V"
+    ],
     "inversions": {
-      "m": { "op": "multiply", "operands": ["rho", "V"] },
-      "V": { "op": "divide", "operands": ["m", "rho"] }
+      "m": {
+        "op": "multiply",
+        "operands": [
+          "rho",
+          "V"
+        ]
+      },
+      "V": {
+        "op": "divide",
+        "operands": [
+          "m",
+          "rho"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
@@ -137,115 +443,384 @@
     "id": "formula:yield",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [9],
+    "school_grade": [
+      9
+    ],
     "variables": [
-      { "symbol": "eta", "display_symbol": "η", "quantity": "q:yield", "unit": "unit:percent", "role": "result" },
-      { "symbol": "m_actual", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "actual" },
-      { "symbol": "m_theoretical", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "theoretical" }
+      {
+        "symbol": "eta",
+        "display_symbol": "η",
+        "quantity": "q:yield",
+        "unit": "unit:percent",
+        "role": "result"
+      },
+      {
+        "symbol": "m_actual",
+        "display_symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input",
+        "semantic_role": "actual"
+      },
+      {
+        "symbol": "m_theoretical",
+        "display_symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input",
+        "semantic_role": "theoretical"
+      }
     ],
     "expression": {
       "op": "multiply",
       "operands": [
-        { "op": "divide", "operands": ["m_actual", "m_theoretical"] },
-        { "op": "literal", "value": 100 }
+        {
+          "op": "divide",
+          "operands": [
+            "m_actual",
+            "m_theoretical"
+          ]
+        },
+        {
+          "op": "literal",
+          "value": 100
+        }
       ]
     },
     "result_variable": "eta",
-    "invertible_for": ["m_actual", "m_theoretical"],
+    "invertible_for": [
+      "m_actual",
+      "m_theoretical"
+    ],
     "inversions": {
-      "m_actual": { "op": "multiply", "operands": [{ "op": "divide", "operands": ["eta", { "op": "literal", "value": 100 }] }, "m_theoretical"] },
-      "m_theoretical": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["m_actual", { "op": "literal", "value": 100 }] }, "eta"] }
+      "m_actual": {
+        "op": "multiply",
+        "operands": [
+          {
+            "op": "divide",
+            "operands": [
+              "eta",
+              {
+                "op": "literal",
+                "value": 100
+              }
+            ]
+          },
+          "m_theoretical"
+        ]
+      },
+      "m_theoretical": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "m_actual",
+              {
+                "op": "literal",
+                "value": 100
+              }
+            ]
+          },
+          "eta"
+        ]
+      }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:amount_from_mass"],
-    "used_by_solvers": ["solver.stoichiometry"]
+    "prerequisite_formulas": [
+      "formula:amount_from_mass"
+    ],
+    "used_by_solvers": [
+      "solver.stoichiometry"
+    ]
   },
   {
     "id": "formula:stoichiometry_ratio",
     "kind": "law",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
+    "school_grade": [
+      8,
+      9
+    ],
     "variables": [
-      { "symbol": "n_1", "display_symbol": "n₁", "quantity": "q:amount", "unit": "unit:mol", "role": "input", "semantic_role": "reactant" },
-      { "symbol": "nu_1", "display_symbol": "ν₁", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "reactant" },
-      { "symbol": "n_2", "display_symbol": "n₂", "quantity": "q:amount", "unit": "unit:mol", "role": "result", "semantic_role": "product" },
-      { "symbol": "nu_2", "display_symbol": "ν₂", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "input", "semantic_role": "product" }
+      {
+        "symbol": "n_1",
+        "display_symbol": "n₁",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "input",
+        "semantic_role": "reactant"
+      },
+      {
+        "symbol": "nu_1",
+        "display_symbol": "ν₁",
+        "quantity": "q:stoich_coeff",
+        "unit": "unit:dimensionless",
+        "role": "input",
+        "semantic_role": "reactant"
+      },
+      {
+        "symbol": "n_2",
+        "display_symbol": "n₂",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "result",
+        "semantic_role": "product"
+      },
+      {
+        "symbol": "nu_2",
+        "display_symbol": "ν₂",
+        "quantity": "q:stoich_coeff",
+        "unit": "unit:dimensionless",
+        "role": "input",
+        "semantic_role": "product"
+      }
     ],
     "expression": {
       "op": "multiply",
       "operands": [
-        { "op": "divide", "operands": ["n_1", "nu_1"] },
+        {
+          "op": "divide",
+          "operands": [
+            "n_1",
+            "nu_1"
+          ]
+        },
         "nu_2"
       ]
     },
     "result_variable": "n_2",
-    "invertible_for": ["n_1"],
+    "invertible_for": [
+      "n_1"
+    ],
     "inversions": {
-      "n_1": { "op": "multiply", "operands": [{ "op": "divide", "operands": ["n_2", "nu_2"] }, "nu_1"] }
+      "n_1": {
+        "op": "multiply",
+        "operands": [
+          {
+            "op": "divide",
+            "operands": [
+              "n_2",
+              "nu_2"
+            ]
+          },
+          "nu_1"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.stoichiometry"]
+    "used_by_solvers": [
+      "solver.stoichiometry"
+    ]
   },
   {
     "id": "formula:mass_fraction_solution",
     "kind": "definition",
     "domain": "solutions",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "w", "display_symbol": "ω", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "m_solute", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solute" },
-      { "symbol": "m_solution", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "solution" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "divide", "operands": ["m_solute", "m_solution"] },
+    "variables": [
+      {
+        "symbol": "w",
+        "display_symbol": "ω",
+        "quantity": "q:mass_fraction",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "m_solute",
+        "display_symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input",
+        "semantic_role": "solute"
+      },
+      {
+        "symbol": "m_solution",
+        "display_symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input",
+        "semantic_role": "solution"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        "m_solute",
+        "m_solution"
+      ]
+    },
     "result_variable": "w",
-    "invertible_for": ["m_solute", "m_solution"],
+    "invertible_for": [
+      "m_solute",
+      "m_solution"
+    ],
     "inversions": {
-      "m_solute": { "op": "multiply", "operands": ["w", "m_solution"] },
-      "m_solution": { "op": "divide", "operands": ["m_solute", "w"] }
+      "m_solute": {
+        "op": "multiply",
+        "operands": [
+          "w",
+          "m_solution"
+        ]
+      },
+      "m_solution": {
+        "op": "divide",
+        "operands": [
+          "m_solute",
+          "w"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.concentration"]
+    "used_by_solvers": [
+      "solver.concentration"
+    ]
   },
   {
     "id": "formula:molar_concentration",
     "kind": "definition",
     "domain": "solutions",
-    "school_grade": [9, 10],
-    "variables": [
-      { "symbol": "C", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "result" },
-      { "symbol": "n", "quantity": "q:amount", "unit": "unit:mol", "role": "input" },
-      { "symbol": "V", "quantity": "q:volume", "unit": "unit:L", "role": "input" }
+    "school_grade": [
+      9,
+      10
     ],
-    "expression": { "op": "divide", "operands": ["n", "V"] },
+    "variables": [
+      {
+        "symbol": "C",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "result"
+      },
+      {
+        "symbol": "n",
+        "quantity": "q:amount",
+        "unit": "unit:mol",
+        "role": "input"
+      },
+      {
+        "symbol": "V",
+        "quantity": "q:volume",
+        "unit": "unit:L",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        "n",
+        "V"
+      ]
+    },
     "result_variable": "C",
-    "invertible_for": ["n", "V"],
+    "invertible_for": [
+      "n",
+      "V"
+    ],
     "inversions": {
-      "n": { "op": "multiply", "operands": ["C", "V"] },
-      "V": { "op": "divide", "operands": ["n", "C"] }
+      "n": {
+        "op": "multiply",
+        "operands": [
+          "C",
+          "V"
+        ]
+      },
+      "V": {
+        "op": "divide",
+        "operands": [
+          "n",
+          "C"
+        ]
+      }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:amount_from_mass"],
-    "used_by_solvers": ["solver.concentration"]
+    "prerequisite_formulas": [
+      "formula:amount_from_mass"
+    ],
+    "used_by_solvers": [
+      "solver.concentration"
+    ]
   },
   {
     "id": "formula:hess_law",
     "kind": "law",
     "domain": "thermochemistry",
-    "school_grade": [10, 11],
+    "school_grade": [
+      10,
+      11
+    ],
     "variables": [
-      { "symbol": "delta_H", "display_symbol": "ΔH", "quantity": "q:enthalpy_change", "unit": "unit:kJ_per_mol", "role": "result" },
-      { "symbol": "nu_j", "display_symbol": "ν", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "product" },
-      { "symbol": "deltaHf_j", "display_symbol": "ΔH°f", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "product" },
-      { "symbol": "nu_i", "display_symbol": "ν", "quantity": "q:stoich_coeff", "unit": "unit:dimensionless", "role": "index", "semantic_role": "reactant" },
-      { "symbol": "deltaHf_i", "display_symbol": "ΔH°f", "quantity": "q:standard_enthalpy_formation", "unit": "unit:kJ_per_mol", "role": "input", "semantic_role": "reactant" }
+      {
+        "symbol": "delta_H",
+        "display_symbol": "ΔH",
+        "quantity": "q:enthalpy_change",
+        "unit": "unit:kJ_per_mol",
+        "role": "result"
+      },
+      {
+        "symbol": "nu_j",
+        "display_symbol": "ν",
+        "quantity": "q:stoich_coeff",
+        "unit": "unit:dimensionless",
+        "role": "index",
+        "semantic_role": "product"
+      },
+      {
+        "symbol": "deltaHf_j",
+        "display_symbol": "ΔH°f",
+        "quantity": "q:standard_enthalpy_formation",
+        "unit": "unit:kJ_per_mol",
+        "role": "input",
+        "semantic_role": "product"
+      },
+      {
+        "symbol": "nu_i",
+        "display_symbol": "ν",
+        "quantity": "q:stoich_coeff",
+        "unit": "unit:dimensionless",
+        "role": "index",
+        "semantic_role": "reactant"
+      },
+      {
+        "symbol": "deltaHf_i",
+        "display_symbol": "ΔH°f",
+        "quantity": "q:standard_enthalpy_formation",
+        "unit": "unit:kJ_per_mol",
+        "role": "input",
+        "semantic_role": "reactant"
+      }
     ],
     "expression": {
       "op": "subtract",
       "operands": [
-        { "op": "sum", "over": "j", "index_set": "products", "term": { "op": "multiply", "operands": ["nu_j", "deltaHf_j"] } },
-        { "op": "sum", "over": "i", "index_set": "reactants", "term": { "op": "multiply", "operands": ["nu_i", "deltaHf_i"] } }
+        {
+          "op": "sum",
+          "over": "j",
+          "index_set": "products",
+          "term": {
+            "op": "multiply",
+            "operands": [
+              "nu_j",
+              "deltaHf_j"
+            ]
+          }
+        },
+        {
+          "op": "sum",
+          "over": "i",
+          "index_set": "reactants",
+          "term": {
+            "op": "multiply",
+            "operands": [
+              "nu_i",
+              "deltaHf_i"
+            ]
+          }
+        }
       ]
     },
     "result_variable": "delta_H",
@@ -253,24 +828,67 @@
     "inversions": {},
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.heat_of_reaction"]
+    "used_by_solvers": [
+      "solver.heat_of_reaction"
+    ]
   },
   {
     "id": "formula:effective_nuclear_charge",
     "kind": "definition",
     "domain": "atomic_structure",
-    "school_grade": [10, 11],
-    "variables": [
-      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "Z", "quantity": "q:atomic_number", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "sigma", "display_symbol": "σ", "quantity": "q:shielding_constant", "unit": "unit:dimensionless", "role": "input" }
+    "school_grade": [
+      10,
+      11
     ],
-    "expression": { "op": "subtract", "operands": ["Z", "sigma"] },
+    "variables": [
+      {
+        "symbol": "Z_eff",
+        "display_symbol": "Z_eff",
+        "quantity": "q:effective_nuclear_charge",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "Z",
+        "quantity": "q:atomic_number",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "sigma",
+        "display_symbol": "σ",
+        "quantity": "q:shielding_constant",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "subtract",
+      "operands": [
+        "Z",
+        "sigma"
+      ]
+    },
     "result_variable": "Z_eff",
-    "invertible_for": ["Z", "sigma"],
+    "invertible_for": [
+      "Z",
+      "sigma"
+    ],
     "inversions": {
-      "Z": { "op": "add", "operands": ["Z_eff", "sigma"] },
-      "sigma": { "op": "subtract", "operands": ["Z", "Z_eff"] }
+      "Z": {
+        "op": "add",
+        "operands": [
+          "Z_eff",
+          "sigma"
+        ]
+      },
+      "sigma": {
+        "op": "subtract",
+        "operands": [
+          "Z",
+          "Z_eff"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
@@ -280,19 +898,60 @@
     "id": "formula:photon_energy",
     "kind": "law",
     "domain": "atomic_structure",
-    "school_grade": [10, 11],
-    "variables": [
-      { "symbol": "E", "quantity": "q:energy", "unit": "unit:J", "role": "result" },
-      { "symbol": "h", "quantity": "q:planck_constant", "unit": "unit:J_s", "role": "constant" },
-      { "symbol": "nu", "display_symbol": "ν", "quantity": "q:frequency", "unit": "unit:Hz", "role": "input" }
+    "school_grade": [
+      10,
+      11
     ],
-    "expression": { "op": "multiply", "operands": [{ "op": "const", "ref": "const:h_planck" }, "nu"] },
-    "result_variable": "E",
-    "invertible_for": ["nu"],
-    "inversions": {
-      "nu": { "op": "divide", "operands": ["E", { "op": "const", "ref": "const:h_planck" }] }
+    "variables": [
+      {
+        "symbol": "E",
+        "quantity": "q:energy",
+        "unit": "unit:J",
+        "role": "result"
+      },
+      {
+        "symbol": "h",
+        "quantity": "q:planck_constant",
+        "unit": "unit:J_s",
+        "role": "constant"
+      },
+      {
+        "symbol": "nu",
+        "display_symbol": "ν",
+        "quantity": "q:frequency",
+        "unit": "unit:Hz",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        {
+          "op": "const",
+          "ref": "const:h_planck"
+        },
+        "nu"
+      ]
     },
-    "constants_used": ["const:h_planck"],
+    "result_variable": "E",
+    "invertible_for": [
+      "nu"
+    ],
+    "inversions": {
+      "nu": {
+        "op": "divide",
+        "operands": [
+          "E",
+          {
+            "op": "const",
+            "ref": "const:h_planck"
+          }
+        ]
+      }
+    },
+    "constants_used": [
+      "const:h_planck"
+    ],
     "prerequisite_formulas": [],
     "used_by_solvers": []
   },
@@ -300,56 +959,147 @@
     "id": "formula:calorimetry_delta_t",
     "kind": "law",
     "domain": "thermochemistry",
-    "school_grade": [10, 11],
+    "school_grade": [
+      10,
+      11
+    ],
     "variables": [
-      { "symbol": "delta_T", "display_symbol": "ΔT", "quantity": "q:temperature_change", "unit": "unit:K", "role": "result" },
-      { "symbol": "Q_total", "display_symbol": "Q", "quantity": "q:heat", "unit": "unit:J", "role": "input" },
-      { "symbol": "m_i", "display_symbol": "m", "quantity": "q:mass", "unit": "unit:g", "role": "index" },
-      { "symbol": "c_i", "display_symbol": "c", "quantity": "q:specific_heat_capacity", "unit": "unit:J_per_gK", "role": "index" }
+      {
+        "symbol": "delta_T",
+        "display_symbol": "ΔT",
+        "quantity": "q:temperature_change",
+        "unit": "unit:K",
+        "role": "result"
+      },
+      {
+        "symbol": "Q_total",
+        "display_symbol": "Q",
+        "quantity": "q:heat",
+        "unit": "unit:J",
+        "role": "input"
+      },
+      {
+        "symbol": "m_i",
+        "display_symbol": "m",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "index"
+      },
+      {
+        "symbol": "c_i",
+        "display_symbol": "c",
+        "quantity": "q:specific_heat_capacity",
+        "unit": "unit:J_per_gK",
+        "role": "index"
+      }
     ],
     "expression": {
       "op": "divide",
       "operands": [
         "Q_total",
-        { "op": "sum", "over": "i", "index_set": "system_components", "term": { "op": "multiply", "operands": ["m_i", "c_i"] } }
+        {
+          "op": "sum",
+          "over": "i",
+          "index_set": "system_components",
+          "term": {
+            "op": "multiply",
+            "operands": [
+              "m_i",
+              "c_i"
+            ]
+          }
+        }
       ]
     },
     "result_variable": "delta_T",
-    "invertible_for": ["Q_total"],
+    "invertible_for": [
+      "Q_total"
+    ],
     "inversions": {
       "Q_total": {
         "op": "multiply",
         "operands": [
           "delta_T",
-          { "op": "sum", "over": "i", "index_set": "system_components", "term": { "op": "multiply", "operands": ["m_i", "c_i"] } }
+          {
+            "op": "sum",
+            "over": "i",
+            "index_set": "system_components",
+            "term": {
+              "op": "multiply",
+              "operands": [
+                "m_i",
+                "c_i"
+              ]
+            }
+          }
         ]
       }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:hess_law"],
+    "prerequisite_formulas": [
+      "formula:hess_law"
+    ],
     "used_by_solvers": []
   },
   {
     "id": "formula:radius_proxy",
     "kind": "law",
     "domain": "atomic_structure",
-    "school_grade": [10, 11],
-    "variables": [
-      { "symbol": "r_proxy", "display_symbol": "r", "quantity": "q:atomic_radius_proxy", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" }
+    "school_grade": [
+      10,
+      11
     ],
-    "expression": { "op": "divide", "operands": [{ "op": "power", "operands": ["n", 2] }, "Z_eff"] },
+    "variables": [
+      {
+        "symbol": "r_proxy",
+        "display_symbol": "r",
+        "quantity": "q:atomic_radius_proxy",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "n",
+        "quantity": "q:principal_quantum_number",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "Z_eff",
+        "display_symbol": "Z_eff",
+        "quantity": "q:effective_nuclear_charge",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        {
+          "op": "power",
+          "operands": [
+            "n",
+            2
+          ]
+        },
+        "Z_eff"
+      ]
+    },
     "result_variable": "r_proxy",
     "invertible_for": [],
     "inversions": {},
     "constants_used": [],
-    "prerequisite_formulas": ["formula:effective_nuclear_charge"],
+    "prerequisite_formulas": [
+      "formula:effective_nuclear_charge"
+    ],
     "used_by_solvers": [],
     "approximation": {
       "kind": "approximate",
       "proxy_for": "q:atomic_radius",
-      "limitations": ["simplified_shielding_model", "less_reliable_for_d_block", "not_exact_physical_radius"],
+      "limitations": [
+        "simplified_shielding_model",
+        "less_reliable_for_d_block",
+        "not_exact_physical_radius"
+      ],
       "usage_note": "approx.radius_proxy"
     }
   },
@@ -357,29 +1107,67 @@
     "id": "formula:ie_proxy",
     "kind": "law",
     "domain": "atomic_structure",
-    "school_grade": [10, 11],
+    "school_grade": [
+      10,
+      11
+    ],
     "variables": [
-      { "symbol": "IE_proxy", "display_symbol": "IE", "quantity": "q:ionization_energy_proxy", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "Z_eff", "display_symbol": "Z_eff", "quantity": "q:effective_nuclear_charge", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "n", "quantity": "q:principal_quantum_number", "unit": "unit:dimensionless", "role": "input" }
+      {
+        "symbol": "IE_proxy",
+        "display_symbol": "IE",
+        "quantity": "q:ionization_energy_proxy",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "Z_eff",
+        "display_symbol": "Z_eff",
+        "quantity": "q:effective_nuclear_charge",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "n",
+        "quantity": "q:principal_quantum_number",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      }
     ],
     "expression": {
       "op": "divide",
       "operands": [
-        { "op": "power", "operands": ["Z_eff", 2] },
-        { "op": "power", "operands": ["n", 2] }
+        {
+          "op": "power",
+          "operands": [
+            "Z_eff",
+            2
+          ]
+        },
+        {
+          "op": "power",
+          "operands": [
+            "n",
+            2
+          ]
+        }
       ]
     },
     "result_variable": "IE_proxy",
     "invertible_for": [],
     "inversions": {},
     "constants_used": [],
-    "prerequisite_formulas": ["formula:effective_nuclear_charge"],
+    "prerequisite_formulas": [
+      "formula:effective_nuclear_charge"
+    ],
     "used_by_solvers": [],
     "approximation": {
       "kind": "approximate",
       "proxy_for": "q:ionization_energy",
-      "limitations": ["hydrogen_like_model", "less_reliable_for_d_block", "ignores_electron_correlation"],
+      "limitations": [
+        "hydrogen_like_model",
+        "less_reliable_for_d_block",
+        "ignores_electron_correlation"
+      ],
       "usage_note": "approx.ie_proxy"
     }
   },
@@ -387,13 +1175,51 @@
     "id": "formula:vant_hoff_rule",
     "kind": "law",
     "domain": "kinetics",
-    "school_grade": [9, 10, 11],
+    "school_grade": [
+      9,
+      10,
+      11
+    ],
     "variables": [
-      { "symbol": "v_2", "display_symbol": "v₂", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "result", "semantic_role": "final" },
-      { "symbol": "v_1", "display_symbol": "v₁", "quantity": "q:reaction_rate", "unit": "unit:mol_per_L_s", "role": "input", "semantic_role": "initial" },
-      { "symbol": "gamma", "display_symbol": "γ", "quantity": "q:temperature_coefficient", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "T_2", "display_symbol": "T₂", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "final" },
-      { "symbol": "T_1", "display_symbol": "T₁", "quantity": "q:temperature", "unit": "unit:C", "role": "input", "semantic_role": "initial" }
+      {
+        "symbol": "v_2",
+        "display_symbol": "v₂",
+        "quantity": "q:reaction_rate",
+        "unit": "unit:mol_per_L_s",
+        "role": "result",
+        "semantic_role": "final"
+      },
+      {
+        "symbol": "v_1",
+        "display_symbol": "v₁",
+        "quantity": "q:reaction_rate",
+        "unit": "unit:mol_per_L_s",
+        "role": "input",
+        "semantic_role": "initial"
+      },
+      {
+        "symbol": "gamma",
+        "display_symbol": "γ",
+        "quantity": "q:temperature_coefficient",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "T_2",
+        "display_symbol": "T₂",
+        "quantity": "q:temperature",
+        "unit": "unit:C",
+        "role": "input",
+        "semantic_role": "final"
+      },
+      {
+        "symbol": "T_1",
+        "display_symbol": "T₁",
+        "quantity": "q:temperature",
+        "unit": "unit:C",
+        "role": "input",
+        "semantic_role": "initial"
+      }
     ],
     "expression": {
       "op": "multiply",
@@ -403,7 +1229,22 @@
           "op": "power",
           "operands": [
             "gamma",
-            { "op": "divide", "operands": [{ "op": "subtract", "operands": ["T_2", "T_1"] }, { "op": "literal", "value": 10 }] }
+            {
+              "op": "divide",
+              "operands": [
+                {
+                  "op": "subtract",
+                  "operands": [
+                    "T_2",
+                    "T_1"
+                  ]
+                },
+                {
+                  "op": "literal",
+                  "value": 10
+                }
+              ]
+            }
           ]
         }
       ]
@@ -417,7 +1258,11 @@
     "approximation": {
       "kind": "approximate",
       "proxy_for": "q:reaction_rate",
-      "limitations": ["gamma_range_2_to_4", "limited_temperature_range", "not_all_reactions"],
+      "limitations": [
+        "gamma_range_2_to_4",
+        "limited_temperature_range",
+        "not_all_reactions"
+      ],
       "usage_note": "approx.vant_hoff"
     }
   },
@@ -425,13 +1270,42 @@
     "id": "formula:arrhenius",
     "kind": "law",
     "domain": "kinetics",
-    "school_grade": [10, 11],
+    "school_grade": [
+      10,
+      11
+    ],
     "variables": [
-      { "symbol": "k", "quantity": "q:rate_constant", "unit": "unit:per_s", "role": "result" },
-      { "symbol": "A", "quantity": "q:pre_exponential_factor", "unit": "unit:per_s", "role": "input" },
-      { "symbol": "Ea", "display_symbol": "Eₐ", "quantity": "q:activation_energy", "unit": "unit:J_per_mol", "role": "input" },
-      { "symbol": "T", "quantity": "q:temperature", "unit": "unit:K", "role": "input" },
-      { "symbol": "R", "quantity": "q:gas_constant", "unit": "unit:J_per_mol_K", "role": "constant" }
+      {
+        "symbol": "k",
+        "quantity": "q:rate_constant",
+        "unit": "unit:per_s",
+        "role": "result"
+      },
+      {
+        "symbol": "A",
+        "quantity": "q:pre_exponential_factor",
+        "unit": "unit:per_s",
+        "role": "input"
+      },
+      {
+        "symbol": "Ea",
+        "display_symbol": "Eₐ",
+        "quantity": "q:activation_energy",
+        "unit": "unit:J_per_mol",
+        "role": "input"
+      },
+      {
+        "symbol": "T",
+        "quantity": "q:temperature",
+        "unit": "unit:K",
+        "role": "input"
+      },
+      {
+        "symbol": "R",
+        "quantity": "q:gas_constant",
+        "unit": "unit:J_per_mol_K",
+        "role": "constant"
+      }
     ],
     "expression": {
       "op": "multiply",
@@ -442,8 +1316,26 @@
           "operand": {
             "op": "divide",
             "operands": [
-              { "op": "multiply", "operands": [{ "op": "literal", "value": -1 }, "Ea"] },
-              { "op": "multiply", "operands": [{ "op": "const", "ref": "const:R" }, "T"] }
+              {
+                "op": "multiply",
+                "operands": [
+                  {
+                    "op": "literal",
+                    "value": -1
+                  },
+                  "Ea"
+                ]
+              },
+              {
+                "op": "multiply",
+                "operands": [
+                  {
+                    "op": "const",
+                    "ref": "const:R"
+                  },
+                  "T"
+                ]
+              }
             ]
           }
         }
@@ -452,7 +1344,9 @@
     "result_variable": "k",
     "invertible_for": [],
     "inversions": {},
-    "constants_used": ["const:R"],
+    "constants_used": [
+      "const:R"
+    ],
     "prerequisite_formulas": [],
     "used_by_solvers": []
   },
@@ -460,90 +1354,324 @@
     "id": "formula:component_molar_mass_contribution",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "M_part", "quantity": "q:component_molar_mass_contribution", "unit": "unit:g_per_mol", "role": "result" },
-      { "symbol": "Ar", "display_symbol": "Aᵣ", "quantity": "q:relative_atomic_mass", "unit": "unit:dimensionless", "role": "input" },
-      { "symbol": "count", "quantity": "q:atom_count_in_composition", "unit": "unit:dimensionless", "role": "input" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "multiply", "operands": ["Ar", "count"] },
+    "variables": [
+      {
+        "symbol": "M_part",
+        "quantity": "q:component_molar_mass_contribution",
+        "unit": "unit:g_per_mol",
+        "role": "result"
+      },
+      {
+        "symbol": "Ar",
+        "display_symbol": "Aᵣ",
+        "quantity": "q:relative_atomic_mass",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      },
+      {
+        "symbol": "count",
+        "quantity": "q:atom_count_in_composition",
+        "unit": "unit:dimensionless",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        "Ar",
+        "count"
+      ]
+    },
     "result_variable": "M_part",
-    "invertible_for": ["Ar", "count"],
+    "invertible_for": [
+      "Ar",
+      "count"
+    ],
     "inversions": {
-      "Ar": { "op": "divide", "operands": ["M_part", "count"] },
-      "count": { "op": "divide", "operands": ["M_part", "Ar"] }
+      "Ar": {
+        "op": "divide",
+        "operands": [
+          "M_part",
+          "count"
+        ]
+      },
+      "count": {
+        "op": "divide",
+        "operands": [
+          "M_part",
+          "Ar"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.mass_fraction"]
+    "used_by_solvers": [
+      "solver.mass_fraction"
+    ]
   },
   {
     "id": "formula:component_mass_fraction",
     "kind": "definition",
     "domain": "stoichiometry",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "omega", "display_symbol": "ω", "quantity": "q:component_mass_fraction", "unit": "unit:fraction", "role": "result" },
-      { "symbol": "M_part", "quantity": "q:component_molar_mass_contribution", "unit": "unit:g_per_mol", "role": "input" },
-      { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "input" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "divide", "operands": ["M_part", "M"] },
+    "variables": [
+      {
+        "symbol": "omega",
+        "display_symbol": "ω",
+        "quantity": "q:component_mass_fraction",
+        "unit": "unit:fraction",
+        "role": "result"
+      },
+      {
+        "symbol": "M_part",
+        "quantity": "q:component_molar_mass_contribution",
+        "unit": "unit:g_per_mol",
+        "role": "input"
+      },
+      {
+        "symbol": "M",
+        "quantity": "q:molar_mass",
+        "unit": "unit:g_per_mol",
+        "role": "input"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        "M_part",
+        "M"
+      ]
+    },
     "result_variable": "omega",
-    "invertible_for": ["M_part", "M"],
+    "invertible_for": [
+      "M_part",
+      "M"
+    ],
     "inversions": {
-      "M_part": { "op": "multiply", "operands": ["omega", "M"] },
-      "M": { "op": "divide", "operands": ["M_part", "omega"] }
+      "M_part": {
+        "op": "multiply",
+        "operands": [
+          "omega",
+          "M"
+        ]
+      },
+      "M": {
+        "op": "divide",
+        "operands": [
+          "M_part",
+          "omega"
+        ]
+      }
     },
     "constants_used": [],
-    "prerequisite_formulas": ["formula:component_molar_mass_contribution", "formula:molar_mass_from_composition"],
-    "used_by_solvers": ["solver.mass_fraction"]
+    "prerequisite_formulas": [
+      "formula:component_molar_mass_contribution",
+      "formula:molar_mass_from_composition"
+    ],
+    "used_by_solvers": [
+      "solver.mass_fraction"
+    ]
   },
   {
     "id": "formula:dilution_conservation",
     "kind": "conservation_law",
     "domain": "solutions",
-    "school_grade": [8, 9],
-    "variables": [
-      { "symbol": "w1", "display_symbol": "ω₁", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "input", "semantic_role": "initial" },
-      { "symbol": "m1", "display_symbol": "m₁", "quantity": "q:mass", "unit": "unit:g", "role": "input", "semantic_role": "initial_solution" },
-      { "symbol": "w2", "display_symbol": "ω₂", "quantity": "q:mass_fraction", "unit": "unit:dimensionless", "role": "input", "semantic_role": "final" },
-      { "symbol": "m2", "display_symbol": "m₂", "quantity": "q:mass", "unit": "unit:g", "role": "result", "semantic_role": "final_solution" }
+    "school_grade": [
+      8,
+      9
     ],
-    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["w1", "m1"] }, "w2"] },
+    "variables": [
+      {
+        "symbol": "w1",
+        "display_symbol": "ω₁",
+        "quantity": "q:mass_fraction",
+        "unit": "unit:dimensionless",
+        "role": "input",
+        "semantic_role": "initial"
+      },
+      {
+        "symbol": "m1",
+        "display_symbol": "m₁",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "input",
+        "semantic_role": "initial_solution"
+      },
+      {
+        "symbol": "w2",
+        "display_symbol": "ω₂",
+        "quantity": "q:mass_fraction",
+        "unit": "unit:dimensionless",
+        "role": "input",
+        "semantic_role": "final"
+      },
+      {
+        "symbol": "m2",
+        "display_symbol": "m₂",
+        "quantity": "q:mass",
+        "unit": "unit:g",
+        "role": "result",
+        "semantic_role": "final_solution"
+      }
+    ],
+    "expression": {
+      "op": "divide",
+      "operands": [
+        {
+          "op": "multiply",
+          "operands": [
+            "w1",
+            "m1"
+          ]
+        },
+        "w2"
+      ]
+    },
     "result_variable": "m2",
-    "invertible_for": ["w1", "m1", "w2"],
+    "invertible_for": [
+      "w1",
+      "m1",
+      "w2"
+    ],
     "inversions": {
-      "w1": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["m2", "w2"] }, "m1"] },
-      "m1": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["m2", "w2"] }, "w1"] },
-      "w2": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["w1", "m1"] }, "m2"] }
+      "w1": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "m2",
+              "w2"
+            ]
+          },
+          "m1"
+        ]
+      },
+      "m1": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "m2",
+              "w2"
+            ]
+          },
+          "w1"
+        ]
+      },
+      "w2": {
+        "op": "divide",
+        "operands": [
+          {
+            "op": "multiply",
+            "operands": [
+              "w1",
+              "m1"
+            ]
+          },
+          "m2"
+        ]
+      }
     },
     "constants_used": [],
     "prerequisite_formulas": [],
-    "used_by_solvers": ["solver.concentration"]
+    "used_by_solvers": [
+      "solver.concentration"
+    ]
   },
   {
     "id": "formula:acid_dissociation_constant",
     "kind": "definition",
     "domain": "acid_base",
-    "school_grade": [9, 10],
-    "concept_refs": ["concept:acid_dissociation_constant", "concept:pKa"],
+    "school_grade": [
+      9,
+      10
+    ],
+    "concept_refs": [
+      "concept:acid_dissociation_constant"
+    ],
     "didactic_scope": "generalized",
     "variables": [
-      { "symbol": "Ka", "display_symbol": "Ka", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" },
-        "explanation_overrides": { "ru": "молярная концентрация ионов водорода", "en": "molar concentration of hydrogen ions", "pl": "stężenie molowe jonów wodorowych", "es": "concentración molar de iones hidrógeno" }
+      {
+        "symbol": "Ka",
+        "display_symbol": "Ka",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "result"
       },
-      { "symbol": "cA", "display_symbol": "[A⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "abstract_class", "ref": "concept:acid_residue" },
-        "explanation_overrides": { "ru": "молярная концентрация кислотного остатка", "en": "molar concentration of the acid residue", "pl": "stężenie molowe reszty kwasowej", "es": "concentración molar del residuo ácido" }
+      {
+        "symbol": "cH",
+        "display_symbol": "[H⁺]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "concrete_entity",
+          "ref": "ion:H_plus"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация ионов водорода",
+          "en": "molar concentration of hydrogen ions",
+          "pl": "stężenie molowe jonów wodorowych",
+          "es": "concentración molar de iones hidrógeno"
+        }
       },
-      { "symbol": "cHA", "display_symbol": "[HA]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "abstract_class", "ref": "cls:acid" },
-        "explanation_overrides": { "ru": "молярная концентрация недиссоциированной кислоты", "en": "molar concentration of undissociated acid", "pl": "stężenie molowe niezdysocjowanego kwasu", "es": "concentración molar del ácido sin disociar" }
+      {
+        "symbol": "cA",
+        "display_symbol": "[A⁻]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "concept:acid_residue"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация кислотного остатка",
+          "en": "molar concentration of the acid residue",
+          "pl": "stężenie molowe reszty kwasowej",
+          "es": "concentración molar del residuo ácido"
+        }
+      },
+      {
+        "symbol": "cHA",
+        "display_symbol": "[HA]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "cls:acid"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация недиссоциированной кислоты",
+          "en": "molar concentration of undissociated acid",
+          "pl": "stężenie molowe niezdysocjowanego kwasu",
+          "es": "concentración molar del ácido sin disociar"
+        }
       }
     ],
-    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cA"] }, "cHA"] },
+    "expression": {
+      "op": "divide",
+      "operands": [
+        {
+          "op": "multiply",
+          "operands": [
+            "cH",
+            "cA"
+          ]
+        },
+        "cHA"
+      ]
+    },
     "result_variable": "Ka",
     "invertible_for": [],
     "inversions": {},
@@ -555,62 +1683,276 @@
     "id": "formula:acid_dissociation_constant_step1",
     "kind": "definition",
     "domain": "acid_base",
-    "school_grade": [10, 11],
-    "concept_refs": ["concept:acid_dissociation_constant"],
+    "school_grade": [
+      10,
+      11
+    ],
+    "concept_refs": [
+      "concept:acid_dissociation_constant"
+    ],
     "didactic_scope": "exact",
     "generalizes": "formula:acid_dissociation_constant",
     "deprotonation_step": 1,
     "variables": [
-      { "symbol": "Ka1", "display_symbol": "Ka₁", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" }
+      {
+        "symbol": "Ka1",
+        "display_symbol": "Ka₁",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "result"
       },
-      { "symbol": "cHA", "display_symbol": "[HA⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 1 },
-        "explanation_overrides": { "ru": "молярная концентрация аниона первой ступени", "en": "molar concentration of the first-step anion", "pl": "stężenie molowe anionu pierwszego stopnia", "es": "concentración molar del anión de primera etapa" }
+      {
+        "symbol": "cH",
+        "display_symbol": "[H⁺]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "concrete_entity",
+          "ref": "ion:H_plus"
+        }
       },
-      { "symbol": "cH2A", "display_symbol": "[H₂A]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "abstract_class", "ref": "cls:acid" },
-        "explanation_overrides": { "ru": "молярная концентрация исходной кислоты", "en": "molar concentration of the original acid", "pl": "stężenie molowe kwasu wyjściowego", "es": "concentración molar del ácido original" }
+      {
+        "symbol": "cHA",
+        "display_symbol": "[HA⁻]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "contextual_role",
+          "ref": "concept:acid_residue",
+          "step": 1
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация аниона первой ступени",
+          "en": "molar concentration of the first-step anion",
+          "pl": "stężenie molowe anionu pierwszego stopnia",
+          "es": "concentración molar del anión de primera etapa"
+        }
+      },
+      {
+        "symbol": "cH2A",
+        "display_symbol": "[H₂A]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "cls:acid"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация исходной кислоты",
+          "en": "molar concentration of the original acid",
+          "pl": "stężenie molowe kwasu wyjściowego",
+          "es": "concentración molar del ácido original"
+        }
       }
     ],
-    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cHA"] }, "cH2A"] },
+    "expression": {
+      "op": "divide",
+      "operands": [
+        {
+          "op": "multiply",
+          "operands": [
+            "cH",
+            "cHA"
+          ]
+        },
+        "cH2A"
+      ]
+    },
     "result_variable": "Ka1",
     "invertible_for": [],
     "inversions": {},
     "constants_used": [],
-    "prerequisite_formulas": ["formula:acid_dissociation_constant"],
+    "prerequisite_formulas": [
+      "formula:acid_dissociation_constant"
+    ],
     "used_by_solvers": []
   },
   {
     "id": "formula:acid_dissociation_constant_step2",
     "kind": "definition",
     "domain": "acid_base",
-    "school_grade": [10, 11],
-    "concept_refs": ["concept:acid_dissociation_constant"],
+    "school_grade": [
+      10,
+      11
+    ],
+    "concept_refs": [
+      "concept:acid_dissociation_constant"
+    ],
     "didactic_scope": "exact",
     "generalizes": "formula:acid_dissociation_constant",
     "deprotonation_step": 2,
     "variables": [
-      { "symbol": "Ka2", "display_symbol": "Ka₂", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
-      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" }
+      {
+        "symbol": "Ka2",
+        "display_symbol": "Ka₂",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "result"
       },
-      { "symbol": "cA2", "display_symbol": "[A²⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 2 },
-        "explanation_overrides": { "ru": "молярная концентрация аниона второй ступени", "en": "molar concentration of the second-step anion", "pl": "stężenie molowe anionu drugiego stopnia", "es": "concentración molar del anión de segunda etapa" }
+      {
+        "symbol": "cH",
+        "display_symbol": "[H⁺]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "concrete_entity",
+          "ref": "ion:H_plus"
+        }
       },
-      { "symbol": "cHA", "display_symbol": "[HA⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
-        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 1 },
-        "explanation_overrides": { "ru": "молярная концентрация аниона первой ступени (промежуточного)", "en": "molar concentration of the first-step anion (intermediate)", "pl": "stężenie molowe anionu pierwszego stopnia (pośredni)", "es": "concentración molar del anión de primera etapa (intermedio)" }
+      {
+        "symbol": "cA2",
+        "display_symbol": "[A²⁻]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "contextual_role",
+          "ref": "concept:acid_residue",
+          "step": 2
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация аниона второй ступени",
+          "en": "molar concentration of the second-step anion",
+          "pl": "stężenie molowe anionu drugiego stopnia",
+          "es": "concentración molar del anión de segunda etapa"
+        }
+      },
+      {
+        "symbol": "cHA",
+        "display_symbol": "[HA⁻]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "contextual_role",
+          "ref": "concept:acid_residue",
+          "step": 1
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация аниона первой ступени (промежуточного)",
+          "en": "molar concentration of the first-step anion (intermediate)",
+          "pl": "stężenie molowe anionu pierwszego stopnia (pośredni)",
+          "es": "concentración molar del anión de primera etapa (intermedio)"
+        }
       }
     ],
-    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cA2"] }, "cHA"] },
+    "expression": {
+      "op": "divide",
+      "operands": [
+        {
+          "op": "multiply",
+          "operands": [
+            "cH",
+            "cA2"
+          ]
+        },
+        "cHA"
+      ]
+    },
     "result_variable": "Ka2",
     "invertible_for": [],
     "inversions": {},
     "constants_used": [],
-    "prerequisite_formulas": ["formula:acid_dissociation_constant", "formula:acid_dissociation_constant_step1"],
+    "prerequisite_formulas": [
+      "formula:acid_dissociation_constant",
+      "formula:acid_dissociation_constant_step1"
+    ],
+    "used_by_solvers": []
+  },
+  {
+    "id": "formula:pka_definition",
+    "kind": "definition",
+    "domain": "acid_base",
+    "school_grade": [
+      9,
+      10
+    ],
+    "concept_refs": [
+      "concept:pKa"
+    ],
+    "didactic_scope": "generalized",
+    "variables": [
+      {
+        "symbol": "pKa",
+        "display_symbol": "pKa",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "result",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "concept:pKa"
+        },
+        "explanation_overrides": {
+          "ru": "показатель кислотности — чем меньше, тем сильнее кислота",
+          "en": "acidity index — the lower, the stronger the acid",
+          "pl": "wskaźnik kwasowości — im niższy, tym mocniejszy kwas",
+          "es": "índice de acidez — cuanto menor, más fuerte es el ácido"
+        }
+      },
+      {
+        "symbol": "Ka",
+        "display_symbol": "Ka",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "concept:acid_dissociation_constant"
+        },
+        "explanation_overrides": {
+          "ru": "константа диссоциации кислоты",
+          "en": "acid dissociation constant",
+          "pl": "stała dysocjacji kwasu",
+          "es": "constante de disociación ácida"
+        }
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        {
+          "op": "literal",
+          "value": -1
+        },
+        {
+          "op": "log10",
+          "operand": "Ka"
+        }
+      ]
+    },
+    "result_variable": "pKa",
+    "invertible_for": [
+      "Ka"
+    ],
+    "inversions": {
+      "Ka": {
+        "op": "power",
+        "operands": [
+          {
+            "op": "literal",
+            "value": 10
+          },
+          {
+            "op": "subtract",
+            "operands": [
+              {
+                "op": "literal",
+                "value": 0
+              },
+              "pKa"
+            ]
+          }
+        ]
+      }
+    },
+    "constants_used": [],
+    "prerequisite_formulas": [
+      "formula:acid_dissociation_constant"
+    ],
     "used_by_solvers": []
   }
 ]

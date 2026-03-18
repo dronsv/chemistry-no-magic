@@ -3,6 +3,7 @@ export type ExprNode =
   | { op: 'add' | 'subtract' | 'multiply' | 'divide'; operands: (string | number | ExprNode)[] }
   | { op: 'power'; operands: [string | number | ExprNode, string | number | ExprNode] }
   | { op: 'exp'; operand: string | number | ExprNode }
+  | { op: 'log10'; operand: string | number | ExprNode }
   | { op: 'sum'; over: string; index_set: string; term: ExprNode }
   | { op: 'literal'; value: number }
   | { op: 'const'; ref: string };
