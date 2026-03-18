@@ -1,5 +1,7 @@
 .ont-preview-card {
-  max-width: 320px;
+  min-width: 240px;
+  max-width: 380px;
+  width: max-content;
   background: var(--color-bg, #fff);
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: 0.5rem;
@@ -80,20 +82,30 @@
 .ont-preview-card__fact {
   display: flex;
   gap: 0.5rem;
-  padding: 0.1rem 0;
+  padding: 0.15rem 0;
+  align-items: baseline;
 }
 
 .ont-preview-card__fact dt {
   color: var(--color-text-muted, #64748b);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   min-width: 0;
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ont-preview-card__fact dt::after {
+  content: ':';
 }
 
 .ont-preview-card__fact dd {
   margin: 0;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
+  font-family: var(--font-mono, monospace);
+  white-space: nowrap;
 }
 
 .ont-preview-card__action {
