@@ -65,9 +65,9 @@ describe('qrefInSet', () => {
 // ── F1: Graph construction ─────────────────────────────────────
 
 describe('buildDerivationRules', () => {
-  it('produces ~40 rules from 18 formulas', () => {
+  it('produces ~40 rules from 24 formulas', () => {
     expect(allRules.length).toBeGreaterThanOrEqual(35);
-    expect(allRules.length).toBeLessThanOrEqual(50);
+    expect(allRules.length).toBeLessThanOrEqual(60);
   });
 
   it('forward rule for amount_from_mass', () => {

@@ -549,7 +549,7 @@
   "concept:enthalpy_of_formation": { "name": "Entalpia tworzenia", "slug": "entalpia-tworzenia", "description": "Standardowa entalpia tworzenia substancji z pierwiastków" },
   "concept:standard_entropy": { "name": "Entropia standardowa", "slug": "entropia-standardowa", "description": "Miara nieuporządkowania układu w warunkach standardowych" },
   "concept:pKa": { "name": "pKa", "slug": "pka", "description": "Ujemny logarytm dziesiętny stałej dysocjacji kwasu" },
-  "concept:acid_dissociation_constant": { "name": "Stała dysocjacji kwasu (Ka)", "slug": "stala-dysocjacji", "description": "Ka = [H⁺]·[A⁻] / [HA]. Im większa Ka, tym mocniejszy kwas. Związana z pKa: pKa = −log Ka" },
+  "concept:acid_dissociation_constant": { "name": "Stała dysocjacji kwasu", "slug": "stala-dysocjacji", "description": "Stała równowagi reakcji dysocjacji kwasu w roztworze wodnym. Im większa Ka, tym mocniejszy kwas" },
   "concept:acid_strength": { "name": "Moc kwasu", "slug": "moc-kwasu", "description": "Zdolność kwasu do oddawania protonu, określona stałą dysocjacji" },
   "concept:acid_basicity": { "name": "Zasadowość kwasu", "slug": "zasadowosc-kwasu", "description": "Liczba protonów, które kwas może oddać przy pełnej dysocjacji" },
   "concept:acid_dissociation": { "name": "Dysocjacja kwasu", "slug": "dysocjacja-kwasu", "description": "Proces rozpadu kwasu na jony w roztworze wodnym" },

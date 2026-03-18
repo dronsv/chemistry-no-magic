@@ -520,5 +520,97 @@
     "constants_used": [],
     "prerequisite_formulas": [],
     "used_by_solvers": ["solver.concentration"]
+  },
+  {
+    "id": "formula:acid_dissociation_constant",
+    "kind": "definition",
+    "domain": "acid_base",
+    "school_grade": [9, 10],
+    "concept_refs": ["concept:acid_dissociation_constant", "concept:pKa"],
+    "didactic_scope": "generalized",
+    "variables": [
+      { "symbol": "Ka", "display_symbol": "Ka", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" },
+        "explanation_overrides": { "ru": "молярная концентрация ионов водорода", "en": "molar concentration of hydrogen ions", "pl": "stężenie molowe jonów wodorowych", "es": "concentración molar de iones hidrógeno" }
+      },
+      { "symbol": "cA", "display_symbol": "[A⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "abstract_class", "ref": "concept:acid_residue" },
+        "explanation_overrides": { "ru": "молярная концентрация кислотного остатка", "en": "molar concentration of the acid residue", "pl": "stężenie molowe reszty kwasowej", "es": "concentración molar del residuo ácido" }
+      },
+      { "symbol": "cHA", "display_symbol": "[HA]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "abstract_class", "ref": "cls:acid" },
+        "explanation_overrides": { "ru": "молярная концентрация недиссоциированной кислоты", "en": "molar concentration of undissociated acid", "pl": "stężenie molowe niezdysocjowanego kwasu", "es": "concentración molar del ácido sin disociar" }
+      }
+    ],
+    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cA"] }, "cHA"] },
+    "result_variable": "Ka",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": [],
+    "used_by_solvers": []
+  },
+  {
+    "id": "formula:acid_dissociation_constant_step1",
+    "kind": "definition",
+    "domain": "acid_base",
+    "school_grade": [10, 11],
+    "concept_refs": ["concept:acid_dissociation_constant"],
+    "didactic_scope": "exact",
+    "generalizes": "formula:acid_dissociation_constant",
+    "deprotonation_step": 1,
+    "variables": [
+      { "symbol": "Ka1", "display_symbol": "Ka₁", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" }
+      },
+      { "symbol": "cHA", "display_symbol": "[HA⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 1 },
+        "explanation_overrides": { "ru": "молярная концентрация аниона первой ступени", "en": "molar concentration of the first-step anion", "pl": "stężenie molowe anionu pierwszego stopnia", "es": "concentración molar del anión de primera etapa" }
+      },
+      { "symbol": "cH2A", "display_symbol": "[H₂A]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "abstract_class", "ref": "cls:acid" },
+        "explanation_overrides": { "ru": "молярная концентрация исходной кислоты", "en": "molar concentration of the original acid", "pl": "stężenie molowe kwasu wyjściowego", "es": "concentración molar del ácido original" }
+      }
+    ],
+    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cHA"] }, "cH2A"] },
+    "result_variable": "Ka1",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": ["formula:acid_dissociation_constant"],
+    "used_by_solvers": []
+  },
+  {
+    "id": "formula:acid_dissociation_constant_step2",
+    "kind": "definition",
+    "domain": "acid_base",
+    "school_grade": [10, 11],
+    "concept_refs": ["concept:acid_dissociation_constant"],
+    "didactic_scope": "exact",
+    "generalizes": "formula:acid_dissociation_constant",
+    "deprotonation_step": 2,
+    "variables": [
+      { "symbol": "Ka2", "display_symbol": "Ka₂", "quantity": "q:equilibrium_constant", "unit": "unit:dimensionless", "role": "result" },
+      { "symbol": "cH", "display_symbol": "[H⁺]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "concrete_entity", "ref": "ion:H_plus" }
+      },
+      { "symbol": "cA2", "display_symbol": "[A²⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 2 },
+        "explanation_overrides": { "ru": "молярная концентрация аниона второй ступени", "en": "molar concentration of the second-step anion", "pl": "stężenie molowe anionu drugiego stopnia", "es": "concentración molar del anión de segunda etapa" }
+      },
+      { "symbol": "cHA", "display_symbol": "[HA⁻]", "quantity": "q:molar_concentration", "unit": "unit:mol_per_L", "role": "input",
+        "binding": { "mode": "contextual_role", "ref": "concept:acid_residue", "step": 1 },
+        "explanation_overrides": { "ru": "молярная концентрация аниона первой ступени (промежуточного)", "en": "molar concentration of the first-step anion (intermediate)", "pl": "stężenie molowe anionu pierwszego stopnia (pośredni)", "es": "concentración molar del anión de primera etapa (intermedio)" }
+      }
+    ],
+    "expression": { "op": "divide", "operands": [{ "op": "multiply", "operands": ["cH", "cA2"] }, "cHA"] },
+    "result_variable": "Ka2",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": ["formula:acid_dissociation_constant", "formula:acid_dissociation_constant_step1"],
+    "used_by_solvers": []
   }
 ]

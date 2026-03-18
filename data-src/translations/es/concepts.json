@@ -299,7 +299,7 @@
   "concept:enthalpy_of_formation": { "name": "Entalpía de formación", "slug": "entalpia-formacion", "description": "Entalpía estándar de formación de una sustancia a partir de sus elementos" },
   "concept:standard_entropy": { "name": "Entropía estándar", "slug": "entropia-estandar", "description": "Medida del desorden de un sistema en condiciones estándar" },
   "concept:pKa": { "name": "pKa", "slug": "pka", "description": "Logaritmo negativo en base 10 de la constante de disociación ácida" },
-  "concept:acid_dissociation_constant": { "name": "Constante de disociación ácida (Ka)", "slug": "constante-disociacion-acida", "description": "Ka = [H⁺]·[A⁻] / [HA]. Cuanto mayor es Ka, más fuerte es el ácido. Relacionada con pKa: pKa = −log Ka" },
+  "concept:acid_dissociation_constant": { "name": "Constante de disociación ácida", "slug": "constante-disociacion-acida", "description": "Constante de equilibrio de la disociación del ácido en solución acuosa. Cuanto mayor es Ka, más fuerte es el ácido" },
   "concept:acid_strength": { "name": "Fuerza del ácido", "slug": "fuerza-acido", "description": "Capacidad de un ácido para donar un protón, determinada por su constante de disociación" },
   "concept:acid_basicity": { "name": "Basicidad del ácido", "slug": "basicidad-acido", "description": "Número de protones que un ácido puede donar en su disociación completa" },
   "concept:acid_dissociation": { "name": "Disociación ácida", "slug": "disociacion-acida", "description": "Proceso de descomposición del ácido en iones en solución acuosa" },
