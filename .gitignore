@@ -52,3 +52,4 @@ test-results/
 
 # git worktrees
 .worktrees/
+packages/ontology-mcp/node_modules
