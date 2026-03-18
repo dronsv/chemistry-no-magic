@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HubLead from '../../../components/HubLead.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
+import ElementQuicklinks from '../../../components/ElementQuicklinks';
 import type { SupportedLocale } from '../../../types/i18n';
 import { localizeUrl } from '../../../lib/i18n';
 
@@ -38,33 +39,11 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
     })} />
   </Fragment>
   <HubLead section="periodic-table" locale={locale} />
-  <!-- Static element links for search engine crawling (before React island) -->
-  <nav class="pt-quicklinks" aria-label="Популярные элементы">
-    <p class="pt-quicklinks__label">Популярные элементы:</p>
-    <div class="pt-quicklinks__links">
-      {[
-        { symbol: 'H',  name: 'Водород' },
-        { symbol: 'O',  name: 'Кислород' },
-        { symbol: 'C',  name: 'Углерод' },
-        { symbol: 'N',  name: 'Азот' },
-        { symbol: 'Na', name: 'Натрий' },
-        { symbol: 'Cl', name: 'Хлор' },
-        { symbol: 'Fe', name: 'Железо' },
-        { symbol: 'Cu', name: 'Медь' },
-        { symbol: 'Ca', name: 'Кальций' },
-        { symbol: 'Al', name: 'Алюминий' },
-        { symbol: 'Au', name: 'Золото' },
-        { symbol: 'Si', name: 'Кремний' },
-        { symbol: 'P',  name: 'Фосфор' },
-        { symbol: 'S',  name: 'Сера' },
-      ].map(({ symbol, name }) => (
-        <a href={localizeUrl(`/periodic-table/${symbol}/`, locale)} class="pt-quicklinks__item" title={name}>
-          <span class="pt-quicklinks__sym">{symbol}</span>
-          <span class="pt-quicklinks__name">{name}</span>
-        </a>
-      ))}
-    </div>
-  </nav>
+  <ElementQuicklinks
+    elements={["el:H", "el:O", "el:C", "el:N", "el:Na", "el:Cl", "el:Fe", "el:Cu", "el:Ca", "el:Al", "el:Au", "el:Si", "el:P", "el:S"]}
+    locale={locale}
+    client:idle
+  />
   <PeriodicTablePage locale={locale} client:idle />
 </BaseLayout>
 
