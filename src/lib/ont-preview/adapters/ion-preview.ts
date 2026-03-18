@@ -20,7 +20,8 @@ export async function resolveIonPreview(
     ions = [];
   }
 
-  const ion = ions.find(i => i.id === id);
+  // Ion IDs use full ref format (e.g., "ion:H_plus")
+  const ion = ions.find(i => i.id === ref || i.id === id || i.id === `ion:${id}`);
 
   if (!ion) {
     return {

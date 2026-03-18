@@ -1,7 +1,8 @@
 // src/lib/ont-preview/adapters/concept-preview.ts
-import type { ResolvedOntPreview, PreviewContext } from '../../../types/ont-preview';
+import type { ResolvedOntPreview, PreviewContext, PreviewFact } from '../../../types/ont-preview';
 import type { SupportedLocale } from '../../../types/i18n';
-import { loadConcepts, loadConceptOverlay } from '../../data-loader';
+import { loadConcepts, loadConceptOverlay, loadFormulas } from '../../data-loader';
+import { formulaToDisplayString } from '../../formula-evaluator';
 import { extractRefId, resolveRefKind } from '../../ont-ref-registry';
 
 const MAX_DESCRIPTION_LEN = 220;
@@ -32,8 +33,9 @@ export async function resolveConceptPreview(
     overlay = null;
   }
 
-  const entry = concepts[id];
-  const overlayEntry = overlay?.[id];
+  // Concept keys use full ref (e.g., "concept:pKa") in both registry and overlay
+  const entry = concepts[ref] ?? concepts[id];
+  const overlayEntry = overlay?.[ref] ?? overlay?.[id];
 
   if (!entry && !overlayEntry) {
     return {
@@ -64,11 +66,26 @@ export async function resolveConceptPreview(
     canonicalHref = undefined;
   }
 
+  // Find formulas that reference this concept
+  const facts: PreviewFact[] = [];
+  try {
+    const formulas = await loadFormulas();
+    const related = formulas.filter(f =>
+      f.concept_refs?.includes(ref) || f.concept_refs?.includes(id)
+    );
+    // Show the generalized formula expression (prefer generalized over exact)
+    const generalized = related.find(f => f.didactic_scope === 'generalized') ?? related[0];
+    if (generalized) {
+      facts.push({ label: 'Formula', value: formulaToDisplayString(generalized) });
+    }
+  } catch { /* formulas optional */ }
+
   return {
     target: { ref, subjectKind: 'entity', canonicalHref },
     data: {
       title,
       description,
+      facts: facts.length > 0 ? facts : undefined,
       chips: chips.length > 0 ? chips : undefined,
     },
   };
