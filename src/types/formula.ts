@@ -18,6 +18,13 @@ export type SemanticRole =
   | 'initial'
   | 'final';
 
+export interface VariableBinding {
+  mode: 'concrete_entity' | 'abstract_class' | 'contextual_role';
+  ref: string;
+  context_ref?: string;
+  step?: number;
+}
+
 export interface Variable {
   symbol: string;
   display_symbol?: string; // canonical scientific notation (e.g. "ω", "Aᵣ", "η")
@@ -25,6 +32,8 @@ export interface Variable {
   unit: string;            // ref to unit:*
   role: 'result' | 'input' | 'constant' | 'index';
   semantic_role?: SemanticRole;  // disambiguates same quantity in different contexts
+  binding?: VariableBinding;
+  explanation_overrides?: Record<string, string>;
 }
 
 /** Approximation metadata for formulas that compute proxy/heuristic values. */
@@ -53,6 +62,10 @@ export interface ComputableFormula {
   used_by_solvers: string[];         // for migration tracking
   /** If absent, formula is exact. Present with kind='approximate' for proxy formulas. */
   approximation?: FormulaApproximation;
+  concept_refs?: string[];
+  didactic_scope?: 'generalized' | 'school_simplified' | 'exact';
+  generalizes?: string;
+  deprotonation_step?: number;
 }
 
 export interface PhysicalConstant {

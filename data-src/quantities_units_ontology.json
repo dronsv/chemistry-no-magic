@@ -391,6 +391,14 @@
       "recommended_units": [
         "unit:per_s"
       ]
+    },
+    {
+      "id": "q:equilibrium_constant",
+      "display_symbol": "K",
+      "dimension": "1",
+      "recommended_units": [
+        "unit:dimensionless"
+      ]
     }
   ],
   "units": [
