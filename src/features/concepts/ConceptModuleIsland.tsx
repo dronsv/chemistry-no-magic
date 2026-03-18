@@ -240,12 +240,12 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
               if (!cancelled && rules) setReactivityRules(rules);
             }
 
-            // Extra theory blocks from the section
+            // Extra theory blocks — only for the section's root concept (title_ref)
             const localizedModule = applyTheoryModuleOverlay(applicableModule, moduleOverlay);
             const theorySection = localizedModule.sections.find(s =>
               s.blocks.some(b => b.t === 'concept_card' && b.conceptId === conceptId)
             );
-            if (theorySection && !cancelled) {
+            if (theorySection && !cancelled && theorySection.title_ref === conceptId) {
               const extras = theorySection.blocks.filter(b => b.t !== 'concept_card');
               setExtraBlocks(extras);
             }
