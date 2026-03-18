@@ -172,3 +172,61 @@ describe('filterEntities', () => {
     expect(result.map(e => e.id)).toEqual(['na2o', 'co2']);
   });
 });
+
+describe('nested field access', () => {
+  const entity = {
+    id: 'sub:hcl',
+    class: 'acid',
+    characteristics: {
+      'concept:pKa': { value: -7 },
+      'concept:density': { value: 1.19, unit: 'unit:g_per_cm3' },
+    },
+  };
+
+  it('resolves nested path', () => {
+    const result = filterEntities(
+      { pred: { field: 'characteristics.concept:pKa.value', lt: 0 } },
+      [entity as unknown as Record<string, unknown>],
+      noResolve,
+    );
+    expect(result).toHaveLength(1);
+  });
+
+  it('resolves top-level path (backward compat)', () => {
+    const result = filterEntities(
+      { pred: { field: 'class', eq: 'acid' } },
+      [entity as unknown as Record<string, unknown>],
+      noResolve,
+    );
+    expect(result).toHaveLength(1);
+  });
+
+  it('returns empty for non-matching nested path', () => {
+    const result = filterEntities(
+      { pred: { field: 'characteristics.concept:pKa.value', gt: 0 } },
+      [entity as unknown as Record<string, unknown>],
+      noResolve,
+    );
+    expect(result).toHaveLength(0);
+  });
+
+  const multiStepEntity = {
+    id: 'sub:h2so4',
+    class: 'acid',
+    characteristics: {
+      'concept:pKa': [
+        { value: -3, conditions: { dissociation_step: 1 } },
+        { value: 1.99, conditions: { dissociation_step: 2 } },
+      ],
+    },
+  };
+
+  it('takes first entry from array characteristics', () => {
+    const result = filterEntities(
+      { pred: { field: 'characteristics.concept:pKa.value', lt: 0 } },
+      [multiStepEntity as unknown as Record<string, unknown>],
+      noResolve,
+    );
+    expect(result).toHaveLength(1);
+  });
+});

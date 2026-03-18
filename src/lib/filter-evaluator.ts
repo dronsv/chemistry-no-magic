@@ -2,8 +2,28 @@ import type { ConceptFilter, FilterExpr, FilterPred } from '../types/filter-dsl'
 
 type ConceptResolver = (conceptId: string) => ConceptFilter | undefined;
 
+function resolveField(entity: Record<string, unknown>, path: string): unknown {
+  const parts = path.split('.');
+  let current: unknown = entity;
+  for (const part of parts) {
+    if (current == null || typeof current !== 'object') return undefined;
+    // If current is an array (e.g., multi-step pKa), take first object entry before continuing
+    if (Array.isArray(current)) {
+      const first = current.find(item => item != null && typeof item === 'object');
+      if (first == null) return undefined;
+      current = first;
+    }
+    current = (current as Record<string, unknown>)[part];
+  }
+  // If final result is an array, take first object entry
+  if (Array.isArray(current) && current.length > 0 && typeof current[0] === 'object') {
+    current = current[0];
+  }
+  return current;
+}
+
 function evaluatePred(pred: FilterPred, entity: Record<string, unknown>): boolean {
-  const val = entity[pred.field];
+  const val = resolveField(entity, pred.field);
 
   if (pred.eq !== undefined) {
     return val === pred.eq;
