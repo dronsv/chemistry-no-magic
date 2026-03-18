@@ -368,12 +368,19 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                   </h3>
                   <div className="concept-children-grid">
                     {facetChildren.map(child => (
-                      <a key={child.id} className="concept-child-card" href={child.href}>
-                        <span className="concept-child-card__name">{child.name}</span>
-                        {child.count !== undefined && (
-                          <span className="concept-child-card__count">{child.count}</span>
-                        )}
-                      </a>
+                      <OntInteractiveRef
+                        key={child.id}
+                        entityRef={child.id}
+                        display={
+                          <a className="concept-child-card" href={child.href}>
+                            <span className="concept-child-card__name">{child.name}</span>
+                            {child.count !== undefined && (
+                              <span className="concept-child-card__count">{child.count}</span>
+                            )}
+                          </a>
+                        }
+                        locale={locale}
+                      />
                     ))}
                   </div>
                 </section>

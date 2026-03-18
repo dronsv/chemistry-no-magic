@@ -39,26 +39,6 @@
       "title_ref": "cls:acid",
       "blocks": [
         {
-          "t": "concept_card",
-          "conceptId": "cls:acid_oxygen",
-          "examples": { "mode": "filter" }
-        },
-        {
-          "t": "concept_card",
-          "conceptId": "cls:acid_oxygenfree",
-          "examples": { "mode": "filter" }
-        },
-        {
-          "t": "concept_card",
-          "conceptId": "cls:acid_strong",
-          "examples": { "mode": "filter" }
-        },
-        {
-          "t": "concept_card",
-          "conceptId": "cls:acid_weak",
-          "examples": { "mode": "filter" }
-        },
-        {
           "t": "ont_embed",
           "concept_id": "concept:acid_strength",
           "mode": "OntBlock",
