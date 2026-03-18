@@ -3,7 +3,6 @@ import type { BondExampleEntry } from '../../types/bond';
 import type { CalcReaction, CalcSubstance } from '../../types/calculations';
 import type { ClassificationRule } from '../../types/classification';
 import type { Element } from '../../types/element';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import type { CommonCatalyst, EquilibriumShift, RateFactor } from '../../types/energy-catalyst';
 import type { ChainStep, GeneticChain } from '../../types/genetic-chain';
 import type { Ion } from '../../types/ion';
@@ -13,7 +12,7 @@ import type { QualitativeTest } from '../../types/qualitative';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
 import { terminalConjugateBase } from '../relations';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../characteristics-utils';
+import { getEntityCharValue } from '../characteristics-utils';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -58,17 +57,15 @@ function resolveParam(
 }
 
 /**
- * Get the value of a property from an element via the characteristics layer.
+ * Get the value of a property from an element via entity characteristics.
  * Uses concept_ref from the property definition.
  */
 function getElementValue(
   el: Element,
   prop: PropertyDef,
-  charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
   if (prop.concept_ref) {
-    const subjectId = 'el:' + el.symbol;
-    const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
+    const charVal = getEntityCharValue(el.characteristics, prop.concept_ref);
     if (charVal !== undefined && typeof charVal === 'number') return charVal;
   }
   return null;
@@ -78,11 +75,10 @@ function getElementValue(
  * Get a numeric characteristic value for an ion by concept ID.
  */
 function getIonCharacteristic(
-  ionId: string,
+  ion: Ion,
   conceptId: string,
-  charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
-  const charVal = getCharacteristicValue(charsBySubject.get(ionId), conceptId);
+  const charVal = getEntityCharValue(ion.characteristics, conceptId);
   if (charVal !== undefined && typeof charVal === 'number') return charVal;
   return null;
 }
@@ -129,9 +125,8 @@ function genPickElementPair(params: Record<string, unknown>, data: OntologyData)
   // Apply property-level filter
   candidates = applyPropertyFilter(candidates, prop);
 
-  // Keep only elements with non-null value for the property (via characteristics or flat field)
-  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
-  candidates = candidates.filter(el => getElementValue(el, prop, charsBySubject) !== null);
+  // Keep only elements with non-null value for the property (via entity characteristics)
+  candidates = candidates.filter(el => getElementValue(el, prop) !== null);
 
   // Pick 2 distinct elements
   const [a, b] = pickK(candidates, 2);
@@ -155,9 +150,8 @@ function genPickElementsSamePeriod(params: Record<string, unknown>, data: Ontolo
   // Apply property-level filter
   candidates = applyPropertyFilter(candidates, prop);
 
-  // Keep only elements with non-null value (via characteristics or flat field)
-  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
-  candidates = candidates.filter(el => getElementValue(el, prop, charsBySubject) !== null);
+  // Keep only elements with non-null value (via entity characteristics)
+  candidates = candidates.filter(el => getElementValue(el, prop) !== null);
 
   // Group by period
   const byPeriod = new Map<number, Element[]>();
@@ -220,35 +214,34 @@ function genPickOxidationExample(params: Record<string, unknown>, data: Ontology
 }
 
 function genPickIonPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
-  const charsBySubject = indexCharacteristicsBySubject(data.rules.characteristics ?? []);
   const cations = data.core.ions.filter(i => i.type === 'cation');
   const anions = data.core.ions.filter(i => i.type === 'anion');
 
   let filteredCations = cations;
   let filteredAnions = anions;
 
-  // Optional charge range filters — look up charge from characteristics
+  // Optional charge range filters — look up charge from entity characteristics
   if (typeof params.min_cation_charge === 'number') {
     filteredCations = filteredCations.filter(c => {
-      const ch = getIonCharacteristic(c.id, 'concept:ion_charge', charsBySubject);
+      const ch = getIonCharacteristic(c, 'concept:ion_charge');
       return ch !== null && ch >= (params.min_cation_charge as number);
     });
   }
   if (typeof params.max_cation_charge === 'number') {
     filteredCations = filteredCations.filter(c => {
-      const ch = getIonCharacteristic(c.id, 'concept:ion_charge', charsBySubject);
+      const ch = getIonCharacteristic(c, 'concept:ion_charge');
       return ch !== null && ch <= (params.max_cation_charge as number);
     });
   }
   if (typeof params.min_anion_charge === 'number') {
     filteredAnions = filteredAnions.filter(a => {
-      const ch = getIonCharacteristic(a.id, 'concept:ion_charge', charsBySubject);
+      const ch = getIonCharacteristic(a, 'concept:ion_charge');
       return ch !== null && Math.abs(ch) >= (params.min_anion_charge as number);
     });
   }
   if (typeof params.max_anion_charge === 'number') {
     filteredAnions = filteredAnions.filter(a => {
-      const ch = getIonCharacteristic(a.id, 'concept:ion_charge', charsBySubject);
+      const ch = getIonCharacteristic(a, 'concept:ion_charge');
       return ch !== null && Math.abs(ch) <= (params.max_anion_charge as number);
     });
   }
@@ -260,8 +253,8 @@ function genPickIonPair(params: Record<string, unknown>, data: OntologyData): Sl
   const cat = pickRandom(filteredCations);
   const an = pickRandom(filteredAnions);
 
-  const catCharge = getIonCharacteristic(cat.id, 'concept:ion_charge', charsBySubject) ?? 0;
-  const anCharge = getIonCharacteristic(an.id, 'concept:ion_charge', charsBySubject) ?? 0;
+  const catCharge = getIonCharacteristic(cat, 'concept:ion_charge') ?? 0;
+  const anCharge = getIonCharacteristic(an, 'concept:ion_charge') ?? 0;
 
   return {
     cation: cat.formula,

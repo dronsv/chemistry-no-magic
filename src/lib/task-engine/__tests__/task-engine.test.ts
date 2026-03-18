@@ -24,38 +24,45 @@ const MOCK_ELEMENTS: Element[] = [
     Z: 11, symbol: 'Na', name: '\u041D\u0430\u0442\u0440\u0438\u0439', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     typical_oxidation_states: [1],
+    characteristics: { 'concept:electronegativity': { value: 0.93 }, 'concept:atomic_mass': { value: 22.99, unit: 'unit:u' } },
   },
   {
     Z: 12, symbol: 'Mg', name: '\u041C\u0430\u0433\u043D\u0438\u0439', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     typical_oxidation_states: [2],
+    characteristics: { 'concept:electronegativity': { value: 1.31 }, 'concept:atomic_mass': { value: 24.305, unit: 'unit:u' } },
   },
   {
     Z: 17, symbol: 'Cl', name: '\u0425\u043B\u043E\u0440', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     typical_oxidation_states: [-1, 1, 3, 5, 7],
+    characteristics: { 'concept:electronegativity': { value: 3.16 }, 'concept:atomic_mass': { value: 35.45, unit: 'unit:u' } },
   },
   {
     Z: 13, symbol: 'Al', name: '\u0410\u043B\u044E\u043C\u0438\u043D\u0438\u0439', name_latin: 'Aluminium',
     group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition',
     typical_oxidation_states: [3],
     amphoteric: true,
+    characteristics: { 'concept:electronegativity': { value: 1.61 }, 'concept:atomic_mass': { value: 26.98, unit: 'unit:u' } },
   } as Element,
   {
     Z: 30, symbol: 'Zn', name: '\u0426\u0438\u043D\u043A', name_latin: 'Zincum',
     group: 12, period: 4, metal_type: 'metal', element_group: 'transition_metal',
     typical_oxidation_states: [2],
     amphoteric: true,
+    characteristics: { 'concept:electronegativity': { value: 1.65 }, 'concept:atomic_mass': { value: 65.38, unit: 'unit:u' } },
   } as Element,
   {
     Z: 1, symbol: 'H', name: '\u0412\u043E\u0434\u043E\u0440\u043E\u0434', name_latin: 'Hydrogenium',
     group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [1, -1],
+    characteristics: { 'concept:electronegativity': { value: 2.2 }, 'concept:atomic_mass': { value: 1.008, unit: 'unit:u' } },
   },
   {
     Z: 8, symbol: 'O', name: '\u041A\u0438\u0441\u043B\u043E\u0440\u043E\u0434', name_latin: 'Oxygenium',
     group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [-2],
+    characteristics: { 'concept:electronegativity': { value: 3.44 }, 'concept:atomic_mass': { value: 15.999, unit: 'unit:u' } },
   },
 ];
 
@@ -94,14 +101,14 @@ const MOCK_CHARACTERISTICS = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'], characteristics: { 'concept:ion_charge': { value: 1 } } },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'], characteristics: { 'concept:ion_charge': { value: -1 } } },
 ];
 
 const MOCK_IONS_WITH_NAMING: Ion[] = [
-  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 } },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 } },
-  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'] },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 }, characteristics: { 'concept:ion_charge': { value: -1 } } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 }, characteristics: { 'concept:ion_charge': { value: -2 } } },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'], characteristics: { 'concept:ion_charge': { value: 1 } } },
 ];
 
 const MOCK_ION_NOMENCLATURE = {

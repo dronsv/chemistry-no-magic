@@ -1,28 +1,25 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import { localizeUrl } from '../../lib/i18n';
-import { getCharacteristicValue } from '../../lib/characteristics-utils';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import * as m from '../../paraglide/messages.js';
 
 interface ElementDetailsProps {
   element: Element;
   groups: ElementGroupDict;
   locale?: SupportedLocale;
-  charsBySubject?: Map<string, TypedCharacteristic[]>;
   onClose: () => void;
 }
 
-export default function ElementDetails({ element, groups, locale = 'ru', charsBySubject, onClose }: ElementDetailsProps) {
+export default function ElementDetails({ element, groups, locale = 'ru', onClose }: ElementDetailsProps) {
   const oxStates = element.typical_oxidation_states
     .map((s) => (s > 0 ? `+${s}` : String(s)))
     .join(', ');
 
-  // Look up from characteristics layer
-  const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
-  const atomicMass = getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined;
-  const electronegativity = getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined;
+  // Look up from entity characteristics
+  const atomicMass = getEntityCharValue(element.characteristics, 'concept:atomic_mass') as number | undefined;
+  const electronegativity = getEntityCharValue(element.characteristics, 'concept:electronegativity') as number | undefined;
 
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];

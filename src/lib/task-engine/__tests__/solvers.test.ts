@@ -15,36 +15,43 @@ const MOCK_ELEMENTS: Element[] = [
     Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium',
     group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [-1, 1],
+    characteristics: { 'concept:electronegativity': { value: 2.2 }, 'concept:atomic_mass': { value: 1.008, unit: 'unit:u' } },
   },
   {
     Z: 6, symbol: 'C', name: 'Углерод', name_latin: 'Carboneum',
     group: 14, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [-4, 2, 4],
+    characteristics: { 'concept:electronegativity': { value: 2.55 }, 'concept:atomic_mass': { value: 12.011, unit: 'unit:u' } },
   },
   {
     Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium',
     group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [-2],
+    characteristics: { 'concept:electronegativity': { value: 3.44 }, 'concept:atomic_mass': { value: 16.0, unit: 'unit:u' } },
   },
   {
     Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     typical_oxidation_states: [1],
+    characteristics: { 'concept:electronegativity': { value: 0.93 }, 'concept:atomic_mass': { value: 22.99, unit: 'unit:u' } },
   },
   {
     Z: 12, symbol: 'Mg', name: 'Магний', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     typical_oxidation_states: [2],
+    characteristics: { 'concept:electronegativity': { value: 1.31 }, 'concept:atomic_mass': { value: 24.305, unit: 'unit:u' } },
   },
   {
     Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum',
     group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen',
     typical_oxidation_states: [-1, 1, 3, 5, 7],
+    characteristics: { 'concept:electronegativity': { value: 3.16 }, 'concept:atomic_mass': { value: 35.45, unit: 'unit:u' } },
   },
   {
     Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum',
     group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal',
     typical_oxidation_states: [2, 3],
+    characteristics: { 'concept:electronegativity': { value: 1.83 }, 'concept:atomic_mass': { value: 55.845, unit: 'unit:u' } },
   },
 ];
 
@@ -59,12 +66,12 @@ const MOCK_PROPERTIES: PropertyDef[] = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'] },
-  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
-  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'], characteristics: { 'concept:ion_charge': { value: 1 } } },
+  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'], characteristics: { 'concept:ion_charge': { value: 2 } } },
+  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'], characteristics: { 'concept:ion_charge': { value: 3 } } },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'], characteristics: { 'concept:ion_charge': { value: -1 } } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'], characteristics: { 'concept:ion_charge': { value: -2 } } },
+  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'], characteristics: { 'concept:ion_charge': { value: -3 } } },
 ];
 
 // Characteristics for elements and ions (replaces removed flat fields)

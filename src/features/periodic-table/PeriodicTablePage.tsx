@@ -3,9 +3,8 @@ import type { Element, ElementGroup } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
 import type { FormulaLookup } from '../../types/formula-lookup';
-import type { TypedCharacteristic } from '../../types/characteristic';
-import { loadElements, loadElementGroups, loadFormulaLookup, loadCharacteristics } from '../../lib/data-loader';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
+import { loadElements, loadElementGroups, loadFormulaLookup } from '../../lib/data-loader';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import { setConfigOverrides } from '../../lib/electron-config';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import * as m from '../../paraglide/messages.js';
@@ -25,7 +24,6 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
-  const [charsBySubject, setCharsBySubject] = useState<Map<string, TypedCharacteristic[]>>(new Map());
   const [atomicMassMap, setAtomicMassMap] = useState<Map<string, number>>(new Map());
 
   const [formType, setFormType] = useState<FormType>('long');
@@ -65,6 +63,13 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
         setConfigOverrides(els);
         setElements(els);
         setGroups(grps);
+        // Build atomic mass map for element cells from entity characteristics
+        const massMap = new Map<string, number>();
+        for (const el of els) {
+          const mass = getEntityCharValue(el.characteristics, 'concept:atomic_mass');
+          if (typeof mass === 'number') massMap.set(el.symbol, mass);
+        }
+        setAtomicMassMap(massMap);
         setLoading(false);
       })
       .catch(err => {
@@ -72,19 +77,6 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
         setLoading(false);
       });
     loadFormulaLookup().then(setFormulaLookup).catch(() => {});
-    loadCharacteristics().then(chars => {
-      const idx = indexCharacteristicsBySubject(chars);
-      setCharsBySubject(idx);
-      // Build atomic mass map for element cells
-      const massMap = new Map<string, number>();
-      for (const [subjectId, charList] of idx) {
-        if (!subjectId.startsWith('el:')) continue;
-        const symbol = subjectId.slice(3);
-        const mass = getCharacteristicValue(charList, 'concept:atomic_mass');
-        if (typeof mass === 'number') massMap.set(symbol, mass);
-      }
-      setAtomicMassMap(massMap);
-    }).catch(() => {});
   }, []);
 
   const exceptionZSet = useMemo(
@@ -188,7 +180,6 @@ export default function PeriodicTablePage({ locale = 'ru' as SupportedLocale }: 
           element={selectedElement}
           groups={groups}
           locale={locale}
-          charsBySubject={charsBySubject}
           onClose={() => setSelectedElement(null)}
         />
       )}

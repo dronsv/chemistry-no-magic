@@ -1,7 +1,7 @@
 import type { Element } from '../../types/element';
 import type { QRef, ReasonStep } from '../../types/derivation';
 import type { TypedCharacteristic } from '../../types/characteristic';
-import { getCharacteristicValue } from '../characteristics-utils';
+import { getCharacteristicValue, getEntityCharValue } from '../characteristics-utils';
 
 // ── Ontology access interface ────────────────────────────────────
 
@@ -10,7 +10,7 @@ export interface OntologyAccess {
   parseFormula: (ascii: string) => Record<string, number>;
   /** Entity ref → ASCII formula (substances, ions, any entity with a formula). */
   entityFormulas: Map<string, string>;
-  /** Optional: characteristics indexed by subject_id for property lookups. */
+  /** Optional: characteristics indexed by subject_id for property lookups (legacy; prefer entity.characteristics). */
   charsBySubject?: Map<string, TypedCharacteristic[]>;
 }
 
@@ -38,9 +38,12 @@ export function resolveLookup(
   const el = ontology.elements.find(e => e.symbol === symbol);
   if (!el) return null;
 
-  // Use characteristics layer
-  const subjectChars = ontology.charsBySubject?.get(`el:${symbol}`);
-  const atomicMass = getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined;
+  // Use entity characteristics (prefer) or fall back to legacy charsBySubject
+  let atomicMass = getEntityCharValue(el.characteristics, 'concept:atomic_mass') as number | undefined;
+  if (atomicMass === undefined && ontology.charsBySubject) {
+    const subjectChars = ontology.charsBySubject.get(`el:${symbol}`);
+    atomicMass = getCharacteristicValue(subjectChars, 'concept:atomic_mass') as number | undefined;
+  }
   if (atomicMass === undefined) return null;
 
   return {

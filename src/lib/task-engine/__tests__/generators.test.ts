@@ -12,26 +12,31 @@ const MOCK_ELEMENTS: Element[] = [
     Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium',
     group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal',
     typical_oxidation_states: [1],
+    characteristics: { 'concept:electronegativity': { value: 0.93 }, 'concept:atomic_mass': { value: 22.99, unit: 'unit:u' } },
   },
   {
     Z: 12, symbol: 'Mg', name: 'Магний', name_latin: 'Magnesium',
     group: 2, period: 3, metal_type: 'metal', element_group: 'alkaline_earth',
     typical_oxidation_states: [2],
+    characteristics: { 'concept:electronegativity': { value: 1.31 }, 'concept:atomic_mass': { value: 24.305, unit: 'unit:u' } },
   },
   {
     Z: 13, symbol: 'Al', name: 'Алюминий', name_latin: 'Aluminium',
     group: 13, period: 3, metal_type: 'metal', element_group: 'post_transition_metal',
     typical_oxidation_states: [3],
+    characteristics: { 'concept:electronegativity': { value: 1.61 }, 'concept:atomic_mass': { value: 26.982, unit: 'unit:u' } },
   },
   {
     Z: 14, symbol: 'Si', name: 'Кремний', name_latin: 'Silicium',
     group: 14, period: 3, metal_type: 'metalloid', element_group: 'metalloid',
     typical_oxidation_states: [-4, 4],
+    characteristics: { 'concept:electronegativity': { value: 1.9 }, 'concept:atomic_mass': { value: 28.086, unit: 'unit:u' } },
   },
   {
     Z: 15, symbol: 'P', name: 'Фосфор', name_latin: 'Phosphorus',
     group: 15, period: 3, metal_type: 'nonmetal', element_group: 'nonmetal',
     typical_oxidation_states: [-3, 3, 5],
+    characteristics: { 'concept:electronegativity': { value: 2.19 }, 'concept:atomic_mass': { value: 30.974, unit: 'unit:u' } },
   },
 ];
 
@@ -52,35 +57,12 @@ const MOCK_PROPERTIES: PropertyDef[] = [
 ];
 
 const MOCK_IONS: Ion[] = [
-  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'] },
-  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'] },
-  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'] },
-  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'] },
-  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'] },
-  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'] },
-];
-
-// Characteristics for elements and ions (replaces removed flat fields)
-const MOCK_CHARACTERISTICS = [
-  // Electronegativity
-  { id: 'c_Na_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Na', value_kind: 'number' as const, value: 0.93, source: { kind: 'asserted' as const } },
-  { id: 'c_Mg_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Mg', value_kind: 'number' as const, value: 1.31, source: { kind: 'asserted' as const } },
-  { id: 'c_Al_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Al', value_kind: 'number' as const, value: 1.61, source: { kind: 'asserted' as const } },
-  { id: 'c_Si_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Si', value_kind: 'number' as const, value: 1.9, source: { kind: 'asserted' as const } },
-  { id: 'c_P_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:P', value_kind: 'number' as const, value: 2.19, source: { kind: 'asserted' as const } },
-  // Atomic masses
-  { id: 'c_Na_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Na', value_kind: 'number' as const, value: 22.99, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Mg_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Mg', value_kind: 'number' as const, value: 24.305, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Al_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Al', value_kind: 'number' as const, value: 26.982, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Si_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Si', value_kind: 'number' as const, value: 28.086, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_P_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:P', value_kind: 'number' as const, value: 30.974, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  // Ion charges
-  { id: 'c_Na_plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Na_plus', value_kind: 'number' as const, value: 1, source: { kind: 'asserted' as const } },
-  { id: 'c_Ca_2plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Ca_2plus', value_kind: 'number' as const, value: 2, source: { kind: 'asserted' as const } },
-  { id: 'c_Al_3plus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Al_3plus', value_kind: 'number' as const, value: 3, source: { kind: 'asserted' as const } },
-  { id: 'c_Cl_minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'Cl_minus', value_kind: 'number' as const, value: -1, source: { kind: 'asserted' as const } },
-  { id: 'c_SO4_2minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'SO4_2minus', value_kind: 'number' as const, value: -2, source: { kind: 'asserted' as const } },
-  { id: 'c_PO4_3minus_chg', characteristic_concept_id: 'concept:ion_charge', subject_id: 'PO4_3minus', value_kind: 'number' as const, value: -3, source: { kind: 'asserted' as const } },
+  { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: 'Ион натрия', tags: ['alkali'], characteristics: { 'concept:ion_charge': { value: 1 } } },
+  { id: 'Ca_2plus', formula: 'Ca\u00b2\u207a', type: 'cation', name: 'Ион кальция', tags: ['alkaline_earth'], characteristics: { 'concept:ion_charge': { value: 2 } } },
+  { id: 'Al_3plus', formula: 'Al\u00b3\u207a', type: 'cation', name: 'Ион алюминия', tags: ['amphoteric'], characteristics: { 'concept:ion_charge': { value: 3 } } },
+  { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: 'Хлорид-ион', tags: ['chloride'], characteristics: { 'concept:ion_charge': { value: -1 } } },
+  { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: 'Сульфат-ион', tags: ['sulfate'], characteristics: { 'concept:ion_charge': { value: -2 } } },
+  { id: 'PO4_3minus', formula: 'PO\u2084\u00b3\u207b', type: 'anion', name: 'Фосфат-ион', tags: ['phosphate'], characteristics: { 'concept:ion_charge': { value: -3 } } },
 ];
 
 const MOCK_SOLUBILITY_PAIRS = [
@@ -97,7 +79,7 @@ const MOCK_OXIDATION_EXAMPLES: OxidationExample[] = [
 
 const MOCK_DATA: OntologyData = {
   core: { elements: MOCK_ELEMENTS, ions: MOCK_IONS, properties: MOCK_PROPERTIES },
-  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: MOCK_OXIDATION_EXAMPLES, characteristics: MOCK_CHARACTERISTICS },
+  rules: { solubilityPairs: MOCK_SOLUBILITY_PAIRS, oxidationExamples: MOCK_OXIDATION_EXAMPLES },
   data: {},
   i18n: { morphology: null, promptTemplates: {} },
 };

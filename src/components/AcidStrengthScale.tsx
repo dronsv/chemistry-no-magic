@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import type { TypedCharacteristic } from '../types/characteristic';
 import type { SubstanceIndexEntry } from '../types/classification';
 import type { SupportedLocale } from '../types/i18n';
-import { loadCharacteristics, loadSubstancesIndex } from '../lib/data-loader';
+import { loadSubstancesIndex } from '../lib/data-loader';
+import { getEntityCharValue } from '../lib/characteristics-utils';
 import FormulaChip from './FormulaChip';
 import './acid-strength-scale.css';
 
@@ -32,36 +32,21 @@ export default function AcidStrengthScale({ locale }: Props) {
   useEffect(() => {
     async function load() {
       try {
-        const [chars, substances] = await Promise.all([
-          loadCharacteristics(),
-          loadSubstancesIndex(locale as SupportedLocale),
-        ]);
+        const substances = await loadSubstancesIndex(locale as SupportedLocale);
 
-        // Build lookup map from substance id → index entry
-        const subMap = new Map<string, SubstanceIndexEntry>();
-        for (const s of substances) {
-          subMap.set(s.id, s);
-        }
-
-        // Filter for pKa step 1 only
-        const pkaStep1: TypedCharacteristic[] = chars.filter(
-          (c) =>
-            c.characteristic_concept_id === 'concept:pKa' &&
-            (c.conditions?.dissociation_step === 1 || c.conditions?.dissociation_step == null),
-        );
-
-        // Build scale items, looking up formula/class from substance index
+        // Filter substances that have pKa characteristic (step 1 or no step)
         const scaleItems: AcidScaleItem[] = [];
-        for (const c of pkaStep1) {
-          const sub = subMap.get(c.subject_id);
-          if (!sub) continue;
-          if (typeof c.value !== 'number') continue;
+        for (const s of substances) {
+          if (!s.characteristics) continue;
+          const pka = getEntityCharValue(s.characteristics, 'concept:pKa', 1)
+            ?? getEntityCharValue(s.characteristics, 'concept:pKa');
+          if (typeof pka !== 'number') continue;
           scaleItems.push({
-            subjectId: c.subject_id,
-            pka: c.value,
-            formula: sub.formula,
-            substanceClass: sub.class,
-            subclass: sub.subclass,
+            subjectId: s.id,
+            pka,
+            formula: s.formula,
+            substanceClass: s.class,
+            subclass: s.subclass,
           });
         }
 

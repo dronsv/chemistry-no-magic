@@ -17,13 +17,13 @@ import type { ComputableFormula, PhysicalConstant } from '../../../types/formula
 // ── Shared test elements ──────────────────────────────────────────
 
 const TEST_ELEMENTS: Element[] = [
-  { Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium', group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [1, -1] },
-  { Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium', group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [-2] },
-  { Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium', group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal', typical_oxidation_states: [1] },
-  { Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum', group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen', typical_oxidation_states: [-1, 1, 3, 5, 7] },
-  { Z: 24, symbol: 'Cr', name: 'Хром', name_latin: 'Chromium', group: 6, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3, 6], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 5]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁴', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d⁵', rule: 'half-filled d', reason: 'Провал электрона: полузаполненная 3d-оболочка' } },
-  { Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum', group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3] },
-  { Z: 29, symbol: 'Cu', name: 'Медь', name_latin: 'Cuprum', group: 11, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [1, 2], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 10]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁹', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d¹⁰', rule: 'filled d', reason: 'Провал электрона: полностью заполненная 3d-оболочка' } },
+  { Z: 1, symbol: 'H', name: 'Водород', name_latin: 'Hydrogenium', group: 1, period: 1, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [1, -1], characteristics: { 'concept:electronegativity': { value: 2.2 }, 'concept:atomic_mass': { value: 1.008, unit: 'unit:u' } } },
+  { Z: 8, symbol: 'O', name: 'Кислород', name_latin: 'Oxygenium', group: 16, period: 2, metal_type: 'nonmetal', element_group: 'nonmetal', typical_oxidation_states: [-2], characteristics: { 'concept:electronegativity': { value: 3.44 }, 'concept:atomic_mass': { value: 16.0, unit: 'unit:u' } } },
+  { Z: 11, symbol: 'Na', name: 'Натрий', name_latin: 'Natrium', group: 1, period: 3, metal_type: 'metal', element_group: 'alkali_metal', typical_oxidation_states: [1], characteristics: { 'concept:electronegativity': { value: 0.93 }, 'concept:atomic_mass': { value: 22.99, unit: 'unit:u' } } },
+  { Z: 17, symbol: 'Cl', name: 'Хлор', name_latin: 'Chlorum', group: 17, period: 3, metal_type: 'nonmetal', element_group: 'halogen', typical_oxidation_states: [-1, 1, 3, 5, 7], characteristics: { 'concept:electronegativity': { value: 3.16 }, 'concept:atomic_mass': { value: 35.45, unit: 'unit:u' } } },
+  { Z: 24, symbol: 'Cr', name: 'Хром', name_latin: 'Chromium', group: 6, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3, 6], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 5]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁴', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d⁵', rule: 'half-filled d', reason: 'Провал электрона: полузаполненная 3d-оболочка' }, characteristics: { 'concept:electronegativity': { value: 1.66 } } },
+  { Z: 26, symbol: 'Fe', name: 'Железо', name_latin: 'Ferrum', group: 8, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [2, 3], characteristics: { 'concept:electronegativity': { value: 1.83 }, 'concept:atomic_mass': { value: 55.845, unit: 'unit:u' } } },
+  { Z: 29, symbol: 'Cu', name: 'Медь', name_latin: 'Cuprum', group: 11, period: 4, metal_type: 'metal', element_group: 'transition_metal', typical_oxidation_states: [1, 2], electron_exception: { config_override: [[4, 's', 1], [3, 'd', 10]], expected_formula: '1s²2s²2p⁶3s²3p⁶4s²3d⁹', actual_formula: '1s²2s²2p⁶3s²3p⁶4s¹3d¹⁰', rule: 'filled d', reason: 'Провал электрона: полностью заполненная 3d-оболочка' }, characteristics: { 'concept:electronegativity': { value: 1.90 } } },
 ];
 
 // Electronegativity values for bond parity tests (via ElementLike)
@@ -35,23 +35,6 @@ function toElementLike(el: Element): ElementLike {
   return { symbol: el.symbol, electronegativity: EN_VALUES[el.symbol] ?? null, metal_type: el.metal_type };
 }
 
-// Characteristics for solver tests
-const TEST_CHARACTERISTICS = [
-  { id: 'c_H_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:H', value_kind: 'number' as const, value: 2.2, source: { kind: 'asserted' as const } },
-  { id: 'c_O_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:O', value_kind: 'number' as const, value: 3.44, source: { kind: 'asserted' as const } },
-  { id: 'c_Na_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Na', value_kind: 'number' as const, value: 0.93, source: { kind: 'asserted' as const } },
-  { id: 'c_Cl_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cl', value_kind: 'number' as const, value: 3.16, source: { kind: 'asserted' as const } },
-  { id: 'c_Cr_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cr', value_kind: 'number' as const, value: 1.66, source: { kind: 'asserted' as const } },
-  { id: 'c_Fe_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Fe', value_kind: 'number' as const, value: 1.83, source: { kind: 'asserted' as const } },
-  { id: 'c_Cu_en', characteristic_concept_id: 'concept:electronegativity', subject_id: 'el:Cu', value_kind: 'number' as const, value: 1.90, source: { kind: 'asserted' as const } },
-  // Atomic masses for molar_mass solver
-  { id: 'c_H_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:H', value_kind: 'number' as const, value: 1.008, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_O_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:O', value_kind: 'number' as const, value: 16.0, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Na_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Na', value_kind: 'number' as const, value: 22.99, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Cl_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Cl', value_kind: 'number' as const, value: 35.45, unit: 'unit:u', source: { kind: 'asserted' as const } },
-  { id: 'c_Fe_am', characteristic_concept_id: 'concept:atomic_mass', subject_id: 'el:Fe', value_kind: 'number' as const, value: 55.845, unit: 'unit:u', source: { kind: 'asserted' as const } },
-];
-
 const FOUNDATIONS_DIR = join(import.meta.dirname, '../../../../data-src/foundations');
 const TEST_FORMULAS: ComputableFormula[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'formulas.json'), 'utf8'));
 const TEST_CONSTANTS: PhysicalConstant[] = JSON.parse(readFileSync(join(FOUNDATIONS_DIR, 'constants.json'), 'utf8'));
@@ -61,7 +44,6 @@ function buildMinimalOntology(elements: Element[]): OntologyData {
     core: { elements, ions: [], properties: [] },
     rules: {
       solubilityPairs: [], oxidationExamples: [],
-      characteristics: TEST_CHARACTERISTICS,
     },
     data: {
       foundations: { formulas: TEST_FORMULAS, constantsDict: toConstantsDict(TEST_CONSTANTS) },

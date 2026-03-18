@@ -3,8 +3,8 @@ import type { Element } from '../../types/element';
 import type { BondType, CrystalStructure, FormulaAnalysis, BondAnalysis, ElementLike } from '../../lib/bond-calculator';
 import { analyzeFormula, determineBondType, determineCrystalStructure } from '../../lib/bond-calculator';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadElements, loadCharacteristics } from '../../lib/data-loader';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
+import { loadElements } from '../../lib/data-loader';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import BondDiagramIonic from './diagrams/BondDiagramIonic';
 import BondDiagramCovalent from './diagrams/BondDiagramCovalent';
 import BondDiagramMetallic from './diagrams/BondDiagramMetallic';
@@ -52,13 +52,11 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    Promise.all([loadElements(locale), loadCharacteristics()]).then(([elems, chars]) => {
+    loadElements(locale).then(elems => {
       setElements(elems);
-      const charIndex = indexCharacteristicsBySubject(chars);
       const map = new Map<string, ElementLike>();
       for (const el of elems) {
-        const subjectChars = charIndex.get(`el:${el.symbol}`);
-        const electronegativity = (getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined) ?? null;
+        const electronegativity = (getEntityCharValue(el.characteristics, 'concept:electronegativity') as number | undefined) ?? null;
         map.set(el.symbol, {
           symbol: el.symbol,
           electronegativity,
@@ -66,17 +64,7 @@ export default function BondCalculator({ locale = 'ru' as SupportedLocale }: { l
         });
       }
       setElementMap(map);
-    }).catch(() => {
-      // Fallback: load elements without electronegativity (no flat field anymore)
-      loadElements(locale).then(elems => {
-        setElements(elems);
-        const map = new Map<string, ElementLike>();
-        for (const el of elems) {
-          map.set(el.symbol, { symbol: el.symbol, electronegativity: null, metal_type: el.metal_type });
-        }
-        setElementMap(map);
-      });
-    });
+    }).catch(() => {});
   }, [locale]);
 
   const analyzeByFormula = useCallback(function analyzeByFormula(formula: string) {

@@ -1,9 +1,8 @@
 import { createContext, useContext, useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import type { Ion } from '../types/ion';
 import type { SupportedLocale } from '../types/i18n';
-import type { TypedCharacteristic } from '../types/characteristic';
-import { loadIons, loadCharacteristics } from '../lib/data-loader';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../lib/characteristics-utils';
+import { loadIons } from '../lib/data-loader';
+import { getEntityCharValue } from '../lib/characteristics-utils';
 import { parseChemicalFormula } from '../lib/formula-render';
 import * as m from '../paraglide/messages.js';
 import FormulaChip from './FormulaChip';
@@ -43,19 +42,16 @@ function IonDetailsPopup({
   locale: SupportedLocale;
 }) {
   const [ion, setIon] = useState<Ion | null>(null);
-  const [charsBySubject, setCharsBySubject] = useState<Map<string, TypedCharacteristic[]>>(new Map());
   const popupRef = useRef<HTMLDivElement>(null);
   const ionsRef = useRef<Ion[] | null>(null);
 
   useEffect(() => {
     if (!ionId) return;
     const load = async () => {
-      const [ions, chars] = await Promise.all([
-        ionsRef.current ? Promise.resolve(ionsRef.current) : loadIons(locale).then(list => { ionsRef.current = list; return list; }),
-        loadCharacteristics(),
-      ]);
+      const ions = ionsRef.current
+        ? ionsRef.current
+        : await loadIons(locale).then(list => { ionsRef.current = list; return list; });
       setIon(ions.find(i => i.id === ionId) ?? null);
-      setCharsBySubject(indexCharacteristicsBySubject(chars));
     };
     load();
   }, [ionId, locale]);
@@ -146,9 +142,7 @@ function IonDetailsPopup({
               <div className="ion-details-popup__meta">
                 <span className="ion-details-popup__meta-label">{m.ion_charge()}:</span>
                 <span>{(() => {
-                  // ion.id is already fully qualified e.g. "ion:H_plus"
-                  const subjectChars = charsBySubject.get(ion.id);
-                  const charge = getCharacteristicValue(subjectChars, 'concept:ion_charge') as number | undefined;
+                  const charge = getEntityCharValue(ion.characteristics, 'concept:ion_charge') as number | undefined;
                   if (charge === undefined) return '—';
                   return charge > 0 ? `+${charge}` : String(charge);
                 })()}</span>

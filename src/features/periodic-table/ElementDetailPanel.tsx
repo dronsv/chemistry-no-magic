@@ -1,10 +1,9 @@
 import type { Element } from '../../types/element';
 import type { ElementGroupDict } from '../../types/element-group';
 import type { SupportedLocale } from '../../types/i18n';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import { getValenceElectrons, getShorthandFormula } from '../../lib/electron-config';
 import { localizeUrl } from '../../lib/i18n';
-import { getCharacteristicValue } from '../../lib/characteristics-utils';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import * as m from '../../paraglide/messages.js';
 import ElectronFormula from './ElectronFormula';
 import OrbitalBoxDiagram from './OrbitalBoxDiagram';
@@ -16,11 +15,10 @@ interface Props {
   element: Element;
   groups: ElementGroupDict;
   locale?: SupportedLocale;
-  charsBySubject?: Map<string, TypedCharacteristic[]>;
   onClose: () => void;
 }
 
-export default function ElementDetailPanel({ element, groups, locale = 'ru', charsBySubject, onClose }: Props) {
+export default function ElementDetailPanel({ element, groups, locale = 'ru', onClose }: Props) {
   const Z = element.Z;
   const valence = getValenceElectrons(Z);
   const valenceCount = valence.reduce((s, v) => s + v.electrons, 0);
@@ -30,9 +28,8 @@ export default function ElementDetailPanel({ element, groups, locale = 'ru', cha
   const exc = element.electron_exception;
   const groupInfo = groups[element.element_group];
 
-  // Look up from characteristics layer
-  const subjectChars = charsBySubject?.get(`el:${element.symbol}`);
-  const electronegativity = getCharacteristicValue(subjectChars, 'concept:electronegativity') as number | undefined;
+  // Look up from entity characteristics
+  const electronegativity = getEntityCharValue(element.characteristics, 'concept:electronegativity') as number | undefined;
 
   return (
     <div className="detail-panel">

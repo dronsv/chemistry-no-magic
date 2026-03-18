@@ -1,7 +1,6 @@
 ---
 import { join } from 'node:path';
-import { readdir } from 'node:fs/promises';
-import { cachedReadJson, cachedReadDataSrc, cachedReadDerived } from '../../lib/build-data-cache';
+import { cachedReadDataSrc, cachedReadDerived } from '../../lib/build-data-cache';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MoleculeView from '../../components/MoleculeView';
 import FormulaChip from '../../components/FormulaChip.tsx';
@@ -10,10 +9,9 @@ import { computeBondInfo } from '../../lib/bond-info';
 import BondEnergyTrace from './BondEnergyTrace';
 import type { BondEnergyResult } from '../../types/calculator';
 import type { SupportedLocale } from '../../types/i18n';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay } from '../../lib/build-overlay';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import type { Props } from './substance-detail-paths';
 import * as m from '../../paraglide/messages.js';
 
@@ -179,23 +177,10 @@ const related = allSubstances
 const classLabel = CLASS_LABELS[substance.class] ?? substance.class;
 const subclassLabel = substance.subclass ? (SUBCLASS_LABELS[substance.subclass] ?? substance.subclass) : null;
 
-// Load characteristics for substance property lookups
-let substanceCharsBySubject = new Map<string, TypedCharacteristic[]>();
-try {
-  const charDir = join(process.cwd(), 'data-src', 'characteristics');
-  const charFiles = (await readdir(charDir)).filter((f: string) => f.endsWith('.json'));
-  const allChars: TypedCharacteristic[] = [];
-  for (const f of charFiles) {
-    const arr = await cachedReadJson<TypedCharacteristic[]>(join(charDir, f));
-    if (Array.isArray(arr)) allChars.push(...arr);
-  }
-  substanceCharsBySubject = indexCharacteristicsBySubject(allChars);
-} catch { /* characteristics dir optional */ }
-
-const substChars = substanceCharsBySubject.get(`sub:${substanceSlug}`);
-const meltingPoint = (getCharacteristicValue(substChars, 'concept:melting_point') as number | undefined) ?? substance.melting_point_C;
-const boilingPoint = (getCharacteristicValue(substChars, 'concept:boiling_point') as number | undefined) ?? substance.boiling_point_C;
-const density = (getCharacteristicValue(substChars, 'concept:density') as number | undefined) ?? substance.density_g_cm3;
+// Read physical properties from entity characteristics
+const meltingPoint = getEntityCharValue(substance.characteristics, 'concept:melting_point') as number | undefined;
+const boilingPoint = getEntityCharValue(substance.characteristics, 'concept:boiling_point') as number | undefined;
+const density = getEntityCharValue(substance.characteristics, 'concept:density') as number | undefined;
 
 // Try to load molecule structure
 let structure = null;
@@ -209,11 +194,10 @@ try {
 let bondInfo: import('../../lib/bond-info').BondInfoEntry[] = [];
 if (structure) {
   try {
-    const elements = await cachedReadDataSrc<Array<{ symbol: string; electronegativity: number | null; metal_type: string }>>('elements.json');
+    const elements = await cachedReadDataSrc<Array<{ symbol: string; metal_type: string; characteristics?: import('../../types/characteristic').EntityCharacteristics }>>('elements.json');
     const elementsMap = new Map(elements.map(el => {
-      const elSubjChars = substanceCharsBySubject.get(`el:${el.symbol}`);
-      const electronegativity = (getCharacteristicValue(elSubjChars, 'concept:electronegativity') as number | undefined) ?? el.electronegativity;
-      return [el.symbol, { symbol: el.symbol, electronegativity: electronegativity ?? null, metal_type: el.metal_type } as import('../../lib/bond-calculator').ElementLike];
+      const electronegativity = getEntityCharValue(el.characteristics, 'concept:electronegativity') as number | undefined ?? null;
+      return [el.symbol, { symbol: el.symbol, electronegativity, metal_type: el.metal_type } as import('../../lib/bond-calculator').ElementLike];
     }));
     bondInfo = computeBondInfo(structure, elementsMap);
   } catch { /* elements not available */ }

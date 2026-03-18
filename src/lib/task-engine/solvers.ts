@@ -1,5 +1,4 @@
 import type { Element } from '../../types/element';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import type { ComputableFormula } from '../../types/formula';
 import type { ConstantsDict } from '../../types/eval-trace';
 import type { OntologyData, PropertyDef, SlotValues, SolverResult } from './types';
@@ -14,7 +13,7 @@ import { qrefKey } from '../derivation/qref';
 import type { QRef } from '../../types/derivation';
 import { deriveQuantity } from '../derivation/derive-quantity';
 import type { SemanticRole } from '../../types/formula';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../characteristics-utils';
+import { getEntityCharValue } from '../characteristics-utils';
 
 // ── Unicode helpers ──────────────────────────────────────────────
 
@@ -68,54 +67,17 @@ function lcm(a: number, b: number): number {
 }
 
 /**
- * Build a characteristics index from OntologyData.
- * Returns an empty Map when characteristics are not loaded (backward compat).
- */
-function buildCharsBySubject(data: OntologyData): Map<string, TypedCharacteristic[]> {
-  return indexCharacteristicsBySubject(data.rules.characteristics ?? []);
-}
-
-/**
- * Get the value of a property from an element via the characteristics layer.
+ * Get the value of a property from an element via entity characteristics.
  * Uses concept_ref from the property definition.
  */
 function getElementValue(
   el: Element,
   prop: PropertyDef,
-  charsBySubject: Map<string, TypedCharacteristic[]>,
 ): number | null {
   if (prop.concept_ref) {
-    const subjectId = 'el:' + el.symbol;
-    const charVal = getCharacteristicValue(charsBySubject.get(subjectId), prop.concept_ref);
+    const charVal = getEntityCharValue(el.characteristics, prop.concept_ref);
     if (charVal !== undefined && typeof charVal === 'number') return charVal;
   }
-  return null;
-}
-
-/**
- * Get a single numeric characteristic value for an element by concept ID.
- */
-function getElementCharacteristic(
-  el: Element,
-  conceptId: string,
-  charsBySubject: Map<string, TypedCharacteristic[]>,
-): number | null {
-  const subjectId = 'el:' + el.symbol;
-  const charVal = getCharacteristicValue(charsBySubject.get(subjectId), conceptId);
-  if (charVal !== undefined && typeof charVal === 'number') return charVal;
-  return null;
-}
-
-/**
- * Get a numeric characteristic value for an ion by concept ID.
- */
-function getIonCharacteristic(
-  ionId: string,
-  conceptId: string,
-  charsBySubject: Map<string, TypedCharacteristic[]>,
-): number | null {
-  const charVal = getCharacteristicValue(charsBySubject.get(ionId), conceptId);
-  if (charVal !== undefined && typeof charVal === 'number') return charVal;
   return null;
 }
 
@@ -163,9 +125,8 @@ function solveCompareProperty(
   const elA = findElement(symbolA, data);
   const elB = findElement(symbolB, data);
 
-  const charsBySubject = buildCharsBySubject(data);
-  const valA = getElementValue(elA, prop, charsBySubject);
-  const valB = getElementValue(elB, prop, charsBySubject);
+  const valA = getElementValue(elA, prop);
+  const valB = getElementValue(elB, prop);
 
   if (valA === null || valB === null) {
     throw new Error(`Cannot compare: missing property value for ${symbolA} or ${symbolB}`);
@@ -206,12 +167,11 @@ function solvePeriodicTrendOrder(
   const propertyId = String(slots.property);
   const order = String(slots.order);
   const prop = findProperty(propertyId, data);
-  const charsBySubject = buildCharsBySubject(data);
 
   // Look up values
   const withValues = symbols.map(sym => {
     const el = findElement(sym, data);
-    const val = getElementValue(el, prop, charsBySubject);
+    const val = getElementValue(el, prop);
     if (val === null) throw new Error(`Missing property value for ${sym}`);
     return { symbol: sym, value: val };
   });
@@ -256,9 +216,8 @@ function solveComposeSaltFormula(
     throw new Error(`Cannot find ions: ${cationId}, ${anionId}`);
   }
 
-  const charsBySubject = buildCharsBySubject(data);
-  const catChargeRaw = getIonCharacteristic(catIon.id, 'concept:ion_charge', charsBySubject);
-  const anChargeRaw = getIonCharacteristic(anIon.id, 'concept:ion_charge', charsBySubject);
+  const catChargeRaw = getEntityCharValue(catIon.characteristics, 'concept:ion_charge') as number | null;
+  const anChargeRaw = getEntityCharValue(anIon.characteristics, 'concept:ion_charge') as number | null;
 
   if (catChargeRaw === null || anChargeRaw === null) {
     throw new Error(`Cannot find charge characteristics for ions: ${cationId}, ${anionId}`);
@@ -425,9 +384,8 @@ function solveDeltaChi(
   const elA = findElement(symbolA, data);
   const elB = findElement(symbolB, data);
 
-  const charsBySubject = buildCharsBySubject(data);
-  const chiA = getElementCharacteristic(elA, 'concept:electronegativity', charsBySubject);
-  const chiB = getElementCharacteristic(elB, 'concept:electronegativity', charsBySubject);
+  const chiA = getEntityCharValue(elA.characteristics, 'concept:electronegativity') as number | null ?? null;
+  const chiB = getEntityCharValue(elB.characteristics, 'concept:electronegativity') as number | null ?? null;
 
   // Build ElementLike objects for bond classification (requires electronegativity)
   const elALike = { symbol: elA.symbol, electronegativity: chiA ?? null, metal_type: elA.metal_type };
@@ -515,12 +473,11 @@ function solveMolarMass(
     throw new Error('composition slot must be a JSON string');
   }
 
-  const charsBySubject = buildCharsBySubject(data);
   const indexed = {
     composition_elements: Object.entries(composition).map(([symbol, count]) => {
       const el = findElement(symbol, data);
-      const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', charsBySubject);
-      if (atomicMass === null) throw new Error(`No atomic mass characteristic for element: ${symbol}`);
+      const atomicMass = getEntityCharValue(el.characteristics, 'concept:atomic_mass') as number | undefined;
+      if (atomicMass == null) throw new Error(`No atomic mass characteristic for element: ${symbol}`);
       return { Ar_i: atomicMass, count_i: count };
     }),
   };
@@ -554,9 +511,8 @@ function solveMassFraction(
   }
 
   const el = findElement(targetElement, data);
-  const charsBySubject = buildCharsBySubject(data);
-  const atomicMass = getElementCharacteristic(el, 'concept:atomic_mass', charsBySubject);
-  if (atomicMass === null) throw new Error(`No atomic mass characteristic for element: ${targetElement}`);
+  const atomicMass = getEntityCharValue(el.characteristics, 'concept:atomic_mass') as number | undefined;
+  if (atomicMass == null) throw new Error(`No atomic mass characteristic for element: ${targetElement}`);
   const trace = evaluateFormula(formula, { Ar: atomicMass, n_atom: count, M }, constantsDict);
   return { answer: Math.round(trace.result * 10) / 10 };
 }

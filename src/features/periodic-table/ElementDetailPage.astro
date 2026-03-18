@@ -1,15 +1,13 @@
 ---
 import { join } from 'node:path';
-import { readdir } from 'node:fs/promises';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormulaChip from '../../components/FormulaChip.tsx';
 import ContextBackLink from '../../components/ContextBackLink.tsx';
 import type { SupportedLocale } from '../../types/i18n';
-import type { TypedCharacteristic } from '../../types/characteristic';
 import { localizeUrl } from '../../lib/i18n';
 import { loadBuildOverlay, applyBuildOverlay } from '../../lib/build-overlay';
-import { cachedReadDataSrc, cachedReadJson } from '../../lib/build-data-cache';
-import { indexCharacteristicsBySubject, getCharacteristicValue } from '../../lib/characteristics-utils';
+import { cachedReadDataSrc } from '../../lib/build-data-cache';
+import { getEntityCharValue } from '../../lib/characteristics-utils';
 import type { StorageRequirement, StorageProfile } from '../../types/storage';
 import type { Props } from './element-detail-paths';
 import * as m from '../../paraglide/messages.js';
@@ -78,24 +76,11 @@ const oxStates = el.typical_oxidation_states
   .map(s => (s > 0 ? `+${s}` : String(s)))
   .join(', ');
 
-// Load characteristics for element property lookups
-let elementCharsBySubject = new Map<string, TypedCharacteristic[]>();
-try {
-  const charDir = join(process.cwd(), 'data-src', 'characteristics');
-  const charFiles = (await readdir(charDir)).filter((f: string) => f.endsWith('.json'));
-  const allChars: TypedCharacteristic[] = [];
-  for (const f of charFiles) {
-    const arr = await cachedReadJson<TypedCharacteristic[]>(join(charDir, f));
-    if (Array.isArray(arr)) allChars.push(...arr);
-  }
-  elementCharsBySubject = indexCharacteristicsBySubject(allChars);
-} catch { /* characteristics dir optional */ }
-
-const elChars = elementCharsBySubject.get(`el:${el.symbol}`);
-const elElectronegativity = (getCharacteristicValue(elChars, 'concept:electronegativity') as number | undefined) ?? el.electronegativity;
-const elMeltingPoint = (getCharacteristicValue(elChars, 'concept:melting_point') as number | undefined) ?? el.melting_point_C;
-const elBoilingPoint = (getCharacteristicValue(elChars, 'concept:boiling_point') as number | undefined) ?? el.boiling_point_C;
-const elDensity = (getCharacteristicValue(elChars, 'concept:density') as number | undefined) ?? el.density_g_cm3;
+// Read physical properties from entity characteristics
+const elElectronegativity = getEntityCharValue(el.characteristics, 'concept:electronegativity') as number | undefined;
+const elMeltingPoint = getEntityCharValue(el.characteristics, 'concept:melting_point') as number | undefined;
+const elBoilingPoint = getEntityCharValue(el.characteristics, 'concept:boiling_point') as number | undefined;
+const elDensity = getEntityCharValue(el.characteristics, 'concept:density') as number | undefined;
 
 const hasPhysical = elMeltingPoint != null || elBoilingPoint != null || elDensity != null;
 const hasDiscovery = el.discovery && (el.discovery.year || el.discovery.scientist);
@@ -175,7 +160,7 @@ const contextBackLabels = {
 
     <dl class="element-page__props">
       <dt>{m.el_atomic_mass()}</dt>
-      <dd>{(getCharacteristicValue(elChars, 'concept:atomic_mass') as number | undefined) ?? el.atomic_mass}</dd>
+      <dd>{getEntityCharValue(el.characteristics, 'concept:atomic_mass') as number | undefined}</dd>
 
       <dt>{m.el_group_period()}</dt>
       <dd>{el.group} / {el.period}</dd>
