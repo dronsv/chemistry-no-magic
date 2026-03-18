@@ -4,6 +4,7 @@ import type { SupportedLocale } from '../types/i18n';
 import { loadSubstancesIndex } from '../lib/data-loader';
 import { getEntityCharValue } from '../lib/characteristics-utils';
 import FormulaChip from './FormulaChip';
+import * as m from '../paraglide/messages.js';
 import './acid-strength-scale.css';
 
 interface AcidScaleItem {
@@ -91,16 +92,16 @@ export default function AcidStrengthScale({ locale }: Props) {
     <div className="acid-scale">
       {strong.length > 0 && (
         <div className="acid-scale__group">
-          <div className="acid-scale__group-title">Сильные кислоты (pKa &lt; 0)</div>
+          <div className="acid-scale__group-title">{m.acid_scale_strong()}</div>
           {renderGroup(strong)}
         </div>
       )}
       {strong.length > 0 && weak.length > 0 && (
-        <div className="acid-scale__divider">pKa = 0 — граница сильных и слабых кислот</div>
+        <div className="acid-scale__divider">{m.acid_scale_boundary()}</div>
       )}
       {weak.length > 0 && (
         <div className="acid-scale__group">
-          <div className="acid-scale__group-title">Слабые кислоты (pKa &gt; 0)</div>
+          <div className="acid-scale__group-title">{m.acid_scale_weak()}</div>
           {renderGroup(weak)}
         </div>
       )}

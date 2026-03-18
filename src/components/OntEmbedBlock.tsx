@@ -4,6 +4,8 @@ import type { ConceptOverlay, ConceptRegistry } from '../types/ontology-ref';
 import { loadConcepts, loadConceptOverlay } from '../lib/data-loader';
 import type { SupportedLocale } from '../types/i18n';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../lib/i18n';
+import FormulaChip from './FormulaChip';
+import AcidStrengthScale from './AcidStrengthScale';
 import './ont-embed.css';
 
 type OntEmbedBlockType = TheoryBlock & { t: 'ont_embed' };
@@ -103,13 +105,32 @@ export default function OntEmbedBlock({ block, locale }: Props) {
   }
 
   // OntBlock mode
+  const showChars = block.include?.characteristics;
+  const showExamples = block.include?.examples;
+
   return (
     <div className="ont-embed-block">
       <h3 className="ont-embed-block__title">{conceptName}</h3>
       {description && (
         <p className="ont-embed-block__description">{description}</p>
       )}
-      {/* Examples and characteristics will be added in later tasks */}
+      {showExamples && entry.examples && entry.examples.length > 0 && (
+        <div className="ont-embed-block__examples">
+          {entry.examples
+            .filter((ex: { kind: string }) => ex.kind === 'substance')
+            .map((ex: { kind: string; id: string }) => (
+              <FormulaChip
+                key={ex.id}
+                formula={ex.id}
+                substanceId={`sub:${ex.id}`}
+                locale={loc}
+              />
+            ))}
+        </div>
+      )}
+      {showChars && block.concept_id === 'concept:acid_strength' && (
+        <AcidStrengthScale locale={locale} />
+      )}
     </div>
   );
 }

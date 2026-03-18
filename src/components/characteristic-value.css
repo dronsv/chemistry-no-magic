@@ -1,0 +1,12 @@
+.char-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.char-value__name { font-weight: 600; color: var(--color-text); }
+.char-value__eq { color: var(--color-text-muted); }
+.char-value__val { font-weight: 500; }
+.char-value__unit { color: var(--color-text-muted); font-size: 0.8125rem; }
+.char-value__conditions { color: var(--color-text-muted); font-size: 0.75rem; }

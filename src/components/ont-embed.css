@@ -43,3 +43,9 @@
   margin: 0 0 var(--space-sm);
   line-height: 1.6;
 }
+.ont-embed-block__examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs, 0.25rem);
+  margin-bottom: var(--space-sm, 0.5rem);
+}
