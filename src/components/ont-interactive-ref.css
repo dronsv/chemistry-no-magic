@@ -1,0 +1,39 @@
+.ont-iref {
+  display: inline;
+  position: relative;
+}
+
+.ont-iref--navigable {
+  cursor: pointer;
+}
+
+.ont-iref--info-only {
+  cursor: default;
+}
+
+.ont-iref__popup {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 100%;
+  margin-top: 0.25rem;
+}
+
+.ont-iref__popup--above {
+  bottom: 100%;
+  top: auto;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+/* On very small screens show as fixed bottom sheet */
+@media (max-width: 480px) {
+  .ont-iref__popup {
+    position: fixed;
+    left: var(--space-sm, 0.5rem);
+    right: var(--space-sm, 0.5rem);
+    bottom: var(--space-sm, 0.5rem);
+    top: auto;
+    margin: 0;
+  }
+}
