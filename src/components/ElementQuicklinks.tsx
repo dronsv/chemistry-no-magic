@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import type { SupportedLocale } from '../types/i18n';
 import { loadElements } from '../lib/data-loader';
-import FormulaChip from './FormulaChip';
+import OntInteractiveRef from './OntInteractiveRef';
 import { extractRefId } from '../lib/ont-ref-registry';
 import * as m from '../paraglide/messages.js';
 
 interface Props {
-  /** List of element ontology refs, e.g. ["el:H", "el:O", "el:Na"] */
   elements: string[];
   locale: string;
 }
@@ -32,13 +31,17 @@ export default function ElementQuicklinks({ elements, locale }: Props) {
       <div className="pt-quicklinks__links">
         {elements.map(ref => {
           const symbol = extractRefId(ref);
+          const name = names[symbol];
           return (
-            <FormulaChip
+            <OntInteractiveRef
               key={ref}
-              formula={symbol}
-              name={names[symbol]}
-              elementId={symbol}
-              locale={locale as SupportedLocale}
+              entityRef={ref}
+              display={
+                <span className="pt-quicklinks__item">
+                  {name ? `${name} (${symbol})` : symbol}
+                </span>
+              }
+              locale={locale}
             />
           );
         })}

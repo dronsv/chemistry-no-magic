@@ -5,7 +5,7 @@
     <link>https://ru.chemistry.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Tue, 17 Mar 2026 19:16:09 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2026 21:24:20 GMT</lastBuildDate>
     <atom:link href="https://ru.chemistry.online/feed.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -13,7 +13,7 @@
     <link>https://ru.chemistry.online/periodic-table/</link>
     <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -21,7 +21,7 @@
     <link>https://ru.chemistry.online/calculations/</link>
     <description>Молярная масса, стехиометрия, массовая доля, выход продукта.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/calculations/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -29,7 +29,7 @@
     <link>https://ru.chemistry.online/ions/</link>
     <description>Справочник ионов: таблица растворимости, катионы и анионы.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/ions/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -37,7 +37,7 @@
     <link>https://ru.chemistry.online/en/periodic-table/</link>
     <description>Interactive periodic table: electron configurations, orbital diagrams.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/en/periodic-table/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
@@ -45,7 +45,7 @@
     <link>https://ru.chemistry.online/en/calculations/</link>
     <description>Molar mass, stoichiometry, mass fraction, reaction yield.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/en/calculations/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>en</language>
   </item>
   <item>
@@ -53,7 +53,7 @@
     <link>https://ru.chemistry.online/pl/tablica-okresowa/</link>
     <description>Interaktywny układ okresowy pierwiastków.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/pl/tablica-okresowa/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
@@ -61,7 +61,7 @@
     <link>https://ru.chemistry.online/pl/obliczenia/</link>
     <description>Masa molowa, stechiometria, ułamek masowy.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/pl/obliczenia/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>pl</language>
   </item>
   <item>
@@ -69,7 +69,7 @@
     <link>https://ru.chemistry.online/es/tabla-periodica/</link>
     <description>Tabla periódica interactiva de elementos.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/es/tabla-periodica/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
@@ -77,7 +77,7 @@
     <link>https://ru.chemistry.online/es/calculos/</link>
     <description>Masa molar, estequiometría, fracción de masa.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/es/calculos/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>es</language>
   </item>
   <item>
@@ -85,7 +85,7 @@
     <link>https://ru.chemistry.online/periodic-table/H/</link>
     <description>Химический элемент H: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/H/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -93,7 +93,7 @@
     <link>https://ru.chemistry.online/periodic-table/O/</link>
     <description>Химический элемент O: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/O/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -101,7 +101,7 @@
     <link>https://ru.chemistry.online/periodic-table/C/</link>
     <description>Химический элемент C: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/C/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -109,7 +109,7 @@
     <link>https://ru.chemistry.online/periodic-table/N/</link>
     <description>Химический элемент N: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/N/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -117,7 +117,7 @@
     <link>https://ru.chemistry.online/periodic-table/Na/</link>
     <description>Химический элемент Na: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Na/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -125,7 +125,7 @@
     <link>https://ru.chemistry.online/periodic-table/Cl/</link>
     <description>Химический элемент Cl: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Cl/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -133,7 +133,7 @@
     <link>https://ru.chemistry.online/periodic-table/Fe/</link>
     <description>Химический элемент Fe: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Fe/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -141,7 +141,7 @@
     <link>https://ru.chemistry.online/periodic-table/Cu/</link>
     <description>Химический элемент Cu: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Cu/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -149,7 +149,7 @@
     <link>https://ru.chemistry.online/periodic-table/Au/</link>
     <description>Химический элемент Au: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Au/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -157,7 +157,7 @@
     <link>https://ru.chemistry.online/periodic-table/Ca/</link>
     <description>Химический элемент Ca: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Ca/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -165,7 +165,7 @@
     <link>https://ru.chemistry.online/periodic-table/Al/</link>
     <description>Химический элемент Al: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Al/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -173,7 +173,7 @@
     <link>https://ru.chemistry.online/periodic-table/Si/</link>
     <description>Химический элемент Si: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/Si/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -181,7 +181,7 @@
     <link>https://ru.chemistry.online/periodic-table/P/</link>
     <description>Химический элемент P: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/P/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
@@ -189,7 +189,7 @@
     <link>https://ru.chemistry.online/periodic-table/S/</link>
     <description>Химический элемент S: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/S/</guid>
-    <pubDate>Tue, 17 Mar 2026 19:16:09 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>
