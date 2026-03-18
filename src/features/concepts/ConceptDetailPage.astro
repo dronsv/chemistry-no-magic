@@ -127,6 +127,15 @@ const seoDescription = overlay.description
     gap: 0.5rem;
     margin-bottom: var(--space-lg, 1.5rem);
   }
+  /* SSG children list is SEO-only; hidden visually since React island renders the interactive version */
+  .concept-children-ssg {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
   .concept-children-ssg li a {
     display: inline-block;
     padding: 0.4rem 0.8rem;
