@@ -12,6 +12,7 @@ import FormulaChip from '../../components/FormulaChip';
 import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
 import { applyTheoryModuleOverlay } from '../../components/TheoryModulePanel';
 import OntEmbedBlock from '../../components/OntEmbedBlock';
+import OntInteractiveRef from '../../components/OntInteractiveRef';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../../lib/i18n';
 import * as m from '../../paraglide/messages.js';
 import '../../components/theory-module.css';
@@ -348,8 +349,37 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
             </section>
           )}
 
-          {/* Children subcategories */}
-          {children.length > 0 && (
+          {/* Children subcategories — grouped by facets or flat */}
+          {children.length > 0 && entry.classification_facets && entry.classification_facets.length > 0 ? (
+            entry.classification_facets.map(facet => {
+              const facetOv = overlay[facet.facet_ref];
+              const facetChildren = facet.children
+                .map(cid => children.find(c => c.id === cid))
+                .filter(Boolean) as typeof children;
+              if (facetChildren.length === 0) return null;
+              return (
+                <section key={facet.facet_ref} className="concept-facet-group">
+                  <h3 className="concept-facet-group__title">
+                    <OntInteractiveRef
+                      entityRef={facet.facet_ref}
+                      display={<span>{facetOv?.name ?? facet.facet_ref}</span>}
+                      locale={locale}
+                    />
+                  </h3>
+                  <div className="concept-children-grid">
+                    {facetChildren.map(child => (
+                      <a key={child.id} className="concept-child-card" href={child.href}>
+                        <span className="concept-child-card__name">{child.name}</span>
+                        {child.count !== undefined && (
+                          <span className="concept-child-card__count">{child.count}</span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              );
+            })
+          ) : children.length > 0 ? (
             <section className="concept-children-grid">
               {children.map(child => (
                 <a key={child.id} className="concept-child-card" href={child.href}>
@@ -360,7 +390,7 @@ export default function ConceptModuleIsland({ conceptId, locale }: Props) {
                 </a>
               ))}
             </section>
-          )}
+          ) : null}
 
           {/* Matching substances */}
           {matchingSubstances.length > 0 && (

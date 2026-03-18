@@ -3,313 +3,586 @@
     "name": "Óxidos",
     "slug": "oxidos",
     "description": "Compuestos binarios de un elemento con oxígeno",
-    "surface_forms": ["óxidos", "óxido"]
+    "surface_forms": [
+      "óxidos",
+      "óxido"
+    ]
   },
   "cls:oxide_basic": {
     "name": "Óxidos básicos",
     "slug": "oxidos-basicos",
     "description": "Óxidos metálicos que reaccionan con ácidos formando sal y agua",
-    "surface_forms": ["óxidos básicos", "óxido básico"]
+    "surface_forms": [
+      "óxidos básicos",
+      "óxido básico"
+    ]
   },
   "cls:oxide_acidic": {
     "name": "Óxidos ácidos",
     "slug": "oxidos-acidos",
     "description": "Óxidos de no metales que reaccionan con bases formando sal y agua",
-    "surface_forms": ["óxidos ácidos", "óxido ácido"]
+    "surface_forms": [
+      "óxidos ácidos",
+      "óxido ácido"
+    ]
   },
   "cls:oxide_amphoteric": {
     "name": "Óxidos anfóteros",
     "slug": "oxidos-anfoteros",
     "description": "Óxidos que presentan propiedades tanto básicas como ácidas",
-    "surface_forms": ["óxidos anfóteros", "óxido anfótero"]
+    "surface_forms": [
+      "óxidos anfóteros",
+      "óxido anfótero"
+    ]
   },
   "cls:oxide_indifferent": {
     "name": "Óxidos indiferentes",
     "slug": "oxidos-indiferentes",
     "description": "Óxidos que no forman sales con ácidos ni bases",
-    "surface_forms": ["óxidos indiferentes", "óxido indiferente", "óxidos neutros"]
+    "surface_forms": [
+      "óxidos indiferentes",
+      "óxido indiferente",
+      "óxidos neutros"
+    ]
   },
   "cls:acid": {
     "name": "Ácidos",
     "slug": "acidos",
     "description": "Compuestos formados por átomos de hidrógeno y un residuo ácido",
-    "surface_forms": ["ácidos", "ácido"]
+    "surface_forms": [
+      "ácidos",
+      "ácido"
+    ]
   },
   "cls:acid_oxygen": {
     "name": "Oxoácidos",
     "slug": "oxoacidos",
     "description": "Ácidos cuyo residuo ácido contiene oxígeno",
-    "surface_forms": ["oxoácidos", "oxoácido", "ácidos oxigenados"]
+    "surface_forms": [
+      "oxoácidos",
+      "oxoácido",
+      "ácidos oxigenados"
+    ]
   },
   "cls:acid_oxygenfree": {
     "name": "Hidrácidos",
     "slug": "hidracidos",
     "description": "Ácidos cuyo residuo ácido no contiene oxígeno",
-    "surface_forms": ["hidrácidos", "hidrácido", "ácidos binarios"]
+    "surface_forms": [
+      "hidrácidos",
+      "hidrácido",
+      "ácidos binarios"
+    ]
   },
   "cls:base": {
     "name": "Bases",
     "slug": "bases",
     "description": "Compuestos formados por un catión metálico y el anión hidróxido OH⁻",
-    "surface_forms": ["bases", "base"]
+    "surface_forms": [
+      "bases",
+      "base"
+    ]
   },
   "cls:base_alkali": {
     "name": "Álcalis",
     "slug": "alcalis",
     "description": "Bases solubles en agua formadas por metales alcalinos y alcalinotérreos",
-    "surface_forms": ["álcalis", "álcali"]
+    "surface_forms": [
+      "álcalis",
+      "álcali"
+    ]
   },
   "cls:base_insoluble": {
     "name": "Bases insolubles",
     "slug": "bases-insolubles",
     "description": "Bases insolubles en agua que se descomponen al calentarlas",
-    "surface_forms": ["bases insolubles", "base insoluble"]
+    "surface_forms": [
+      "bases insolubles",
+      "base insoluble"
+    ]
   },
   "cls:base_amphoteric": {
     "name": "Bases anfóteras",
     "slug": "bases-anfoteras",
     "description": "Bases que presentan propiedades tanto básicas como ácidas",
-    "surface_forms": ["bases anfóteras", "base anfótera", "hidróxidos anfóteros"]
+    "surface_forms": [
+      "bases anfóteras",
+      "base anfótera",
+      "hidróxidos anfóteros"
+    ]
   },
   "cls:salt": {
     "name": "Sales",
     "slug": "sales",
     "description": "Compuestos formados por un catión metálico y un anión de residuo ácido",
-    "surface_forms": ["sales", "sal"]
+    "surface_forms": [
+      "sales",
+      "sal"
+    ]
   },
   "cls:salt_normal": {
     "name": "Sales neutras",
     "slug": "sales-neutras",
     "description": "Sales en las que todos los átomos de hidrógeno del ácido han sido reemplazados por un metal",
-    "surface_forms": ["sales neutras", "sal neutra", "sales normales"]
+    "surface_forms": [
+      "sales neutras",
+      "sal neutra",
+      "sales normales"
+    ]
   },
   "cls:salt_acidic": {
     "name": "Sales ácidas",
     "slug": "sales-acidas",
     "description": "Sales en las que no todos los átomos de hidrógeno del ácido han sido reemplazados por un metal",
-    "surface_forms": ["sales ácidas", "sal ácida"]
+    "surface_forms": [
+      "sales ácidas",
+      "sal ácida"
+    ]
   },
   "cls:salt_basic": {
     "name": "Sales básicas",
     "slug": "sales-basicas",
     "description": "Sales en las que no todos los grupos hidroxilo de la base han sido reemplazados por el residuo ácido",
-    "surface_forms": ["sales básicas", "sal básica"]
+    "surface_forms": [
+      "sales básicas",
+      "sal básica"
+    ]
   },
   "grp:alkali_metals": {
     "name": "Metales alcalinos",
     "slug": "metales-alcalinos",
-    "surface_forms": ["metales alcalinos", "metal alcalino"]
+    "surface_forms": [
+      "metales alcalinos",
+      "metal alcalino"
+    ]
   },
   "grp:halogens": {
     "name": "Halógenos",
     "slug": "halogenos",
-    "surface_forms": ["halógenos", "halógeno"]
+    "surface_forms": [
+      "halógenos",
+      "halógeno"
+    ]
   },
   "grp:noble_gases": {
     "name": "Gases nobles",
     "slug": "gases-nobles",
-    "surface_forms": ["gases nobles", "gas noble", "gases inertes"]
+    "surface_forms": [
+      "gases nobles",
+      "gas noble",
+      "gases inertes"
+    ]
   },
   "grp:alkaline_earth": {
     "name": "Metales alcalinotérreos",
     "slug": "metales-alcalinoterreos",
-    "surface_forms": ["metales alcalinotérreos", "metal alcalinotérreo"]
+    "surface_forms": [
+      "metales alcalinotérreos",
+      "metal alcalinotérreo"
+    ]
   },
   "prop:oxidation_state": {
     "name": "Estado de oxidación",
     "slug": "estado-oxidacion",
-    "surface_forms": ["estado de oxidación", "número de oxidación"]
+    "surface_forms": [
+      "estado de oxidación",
+      "número de oxidación"
+    ]
   },
   "prop:valence": {
     "name": "Valencia",
     "slug": "valencia",
-    "surface_forms": ["valencia"]
+    "surface_forms": [
+      "valencia"
+    ]
   },
   "prop:solubility": {
     "name": "Solubilidad",
     "slug": "solubilidad",
-    "surface_forms": ["solubilidad"]
+    "surface_forms": [
+      "solubilidad"
+    ]
   },
   "prop:amphoteric": {
     "name": "Anfotería",
     "slug": "anfoteria",
-    "surface_forms": ["anfotería", "propiedades anfóteras"]
+    "surface_forms": [
+      "anfotería",
+      "propiedades anfóteras"
+    ]
   },
   "prop:dissociation": {
     "name": "Disociación",
     "slug": "disociacion",
-    "surface_forms": ["disociación", "disociación electrolítica"]
+    "surface_forms": [
+      "disociación",
+      "disociación electrolítica"
+    ]
   },
   "prop:electronegativity": {
     "name": "Electronegatividad",
     "slug": "electronegatividad",
-    "surface_forms": ["electronegatividad"]
+    "surface_forms": [
+      "electronegatividad"
+    ]
   },
   "prop:state_of_matter": {
     "name": "Estado de la materia",
     "slug": "estado-materia",
     "description": "Forma en que existe una sustancia, determinada por el movimiento e interacción de sus partículas: sólido, líquido, gas, plasma. El agua es un ejemplo clásico: hielo (sólido), agua líquida, vapor (gas).",
-    "surface_forms": ["estado de la materia", "estados de la materia", "fase"]
+    "surface_forms": [
+      "estado de la materia",
+      "estados de la materia",
+      "fase"
+    ]
   },
   "prop:color": {
     "name": "Color",
     "slug": "color",
     "description": "Propiedad determinada por las longitudes de onda de los fotones que una sustancia refleja o emite. Depende de la estructura electrónica: Cu(OH)₂ es azul, Fe(OH)₃ es marrón, KMnO₄ es violeta.",
-    "surface_forms": ["color"]
+    "surface_forms": [
+      "color"
+    ]
   },
   "prop:odor": {
     "name": "Olor",
     "slug": "olor",
     "description": "Propiedad percibida por el sentido del olfato, determinada por moléculas volátiles que interactúan con los receptores olfativos. El H₂S huele a huevos podridos; el NH₃ tiene un olor fuerte y penetrante.",
-    "surface_forms": ["olor"]
+    "surface_forms": [
+      "olor"
+    ]
   },
   "prop:density": {
     "name": "Densidad",
     "slug": "densidad",
     "description": "Masa por unidad de volumen de una sustancia (g/cm³ o kg/m³). Determina si una sustancia se hunde o flota, y depende de la masa de las partículas y la eficiencia de su empaquetamiento.",
-    "surface_forms": ["densidad"]
+    "surface_forms": [
+      "densidad"
+    ]
   },
   "prop:melting_point": {
     "name": "Punto de fusión",
     "slug": "punto-fusion",
     "description": "Temperatura a la cual una sustancia pasa de estado sólido a líquido a una presión dada. Depende del tipo de red cristalina y la fuerza de los enlaces entre partículas.",
-    "surface_forms": ["punto de fusión", "p.f."]
+    "surface_forms": [
+      "punto de fusión",
+      "p.f."
+    ]
   },
   "prop:boiling_point": {
     "name": "Punto de ebullición",
     "slug": "punto-ebullicion",
     "description": "Temperatura a la cual la presión de vapor de una sustancia iguala la presión externa y pasa al estado gaseoso. El agua hierve a 100 °C (a 1 atm).",
-    "surface_forms": ["punto de ebullición", "p.eb."]
+    "surface_forms": [
+      "punto de ebullición",
+      "p.eb."
+    ]
   },
   "prop:thermal_stability": {
     "name": "Estabilidad térmica",
     "slug": "estabilidad-termica",
     "description": "Capacidad de una sustancia para mantener su composición química y estructura al calentarla. Las bases insolubles y algunas sales (CaCO₃) se descomponen al calentar; los hidróxidos alcalinos son termoestables.",
-    "surface_forms": ["estabilidad térmica"]
+    "surface_forms": [
+      "estabilidad térmica"
+    ]
   },
   "prop:flammability": {
     "name": "Inflamabilidad",
     "slug": "inflamabilidad",
     "description": "Capacidad de una sustancia para sufrir oxidación exotérmica con liberación de calor y luz (combustión). Depende de la naturaleza de la sustancia, la temperatura de ignición y la disponibilidad de oxidante.",
-    "surface_forms": ["inflamabilidad", "combustibilidad"]
+    "surface_forms": [
+      "inflamabilidad",
+      "combustibilidad"
+    ]
   },
   "prop:atom": {
     "name": "Átomo",
     "slug": "atomo",
     "description": "La partícula más pequeña de un elemento químico que conserva sus propiedades químicas. Consiste en un núcleo con carga positiva (protones + neutrones) y una corteza electrónica. Tamaño del orden de 10⁻¹⁰ m.",
-    "surface_forms": ["átomo", "átomos"]
+    "surface_forms": [
+      "átomo",
+      "átomos"
+    ]
   },
   "prop:molecule": {
     "name": "Molécula",
     "slug": "molecula",
     "description": "Partícula eléctricamente neutra formada por dos o más átomos unidos por enlaces covalentes. La partícula más pequeña de una sustancia que conserva sus propiedades químicas. H₂O, CO₂, O₂ son moléculas.",
-    "surface_forms": ["molécula", "moléculas"]
+    "surface_forms": [
+      "molécula",
+      "moléculas"
+    ]
   },
   "prop:ion": {
     "name": "Ion",
     "slug": "ion",
     "description": "Átomo o grupo de átomos con carga eléctrica como resultado de perder o ganar electrones. Catión (+) — pérdida de electrones; anión (−) — ganancia de electrones.",
-    "surface_forms": ["ion", "iones", "catión", "anión"]
+    "surface_forms": [
+      "ion",
+      "iones",
+      "catión",
+      "anión"
+    ]
   },
   "prop:crystal_lattice": {
     "name": "Red cristalina",
     "slug": "red-cristalina",
     "description": "Disposición tridimensional ordenada de partículas (átomos, moléculas o iones) en un sólido. El tipo de red (iónica, atómica, molecular, metálica) determina las propiedades físicas: punto de fusión, dureza, fragilidad.",
-    "surface_forms": ["red cristalina", "estructura cristalina"]
+    "surface_forms": [
+      "red cristalina",
+      "estructura cristalina"
+    ]
   },
   "prop:oxidizer": {
     "name": "Agente oxidante",
     "slug": "agente-oxidante",
     "description": "Un átomo, molécula o ion que acepta electrones en una reacción redox. El estado de oxidación del oxidante disminuye (se reduce).",
-    "surface_forms": ["agente oxidante", "oxidante"]
+    "surface_forms": [
+      "agente oxidante",
+      "oxidante"
+    ]
   },
   "prop:reducer": {
     "name": "Agente reductor",
     "slug": "agente-reductor",
     "description": "Un átomo, molécula o ion que dona electrones en una reacción redox. El estado de oxidación del reductor aumenta (se oxida).",
-    "surface_forms": ["agente reductor", "reductor"]
+    "surface_forms": [
+      "agente reductor",
+      "reductor"
+    ]
   },
   "rxfacet:by_count": {
     "name": "Por número de sustancias",
     "slug": "por-numero",
-    "surface_forms": ["por número de sustancias"]
+    "surface_forms": [
+      "por número de sustancias"
+    ]
   },
   "rxfacet:by_redox": {
     "name": "Por cambio del estado de oxidación",
     "slug": "por-oxidacion",
-    "surface_forms": ["por cambio del estado de oxidación"]
+    "surface_forms": [
+      "por cambio del estado de oxidación"
+    ]
   },
   "rxfacet:by_thermal": {
     "name": "Por efecto térmico",
     "slug": "por-efecto-termico",
-    "surface_forms": ["por efecto térmico"]
+    "surface_forms": [
+      "por efecto térmico"
+    ]
   },
   "rxtype:combination": {
     "name": "Reacciones de síntesis",
     "slug": "sintesis",
-    "surface_forms": ["reacción de síntesis", "reacciones de síntesis", "combinación"]
+    "surface_forms": [
+      "reacción de síntesis",
+      "reacciones de síntesis",
+      "combinación"
+    ]
   },
   "rxtype:decomposition": {
     "name": "Reacciones de descomposición",
     "slug": "descomposicion",
-    "surface_forms": ["descomposición", "reacción de descomposición", "reacciones de descomposición"]
+    "surface_forms": [
+      "descomposición",
+      "reacción de descomposición",
+      "reacciones de descomposición"
+    ]
   },
   "rxtype:substitution": {
     "name": "Reacciones de sustitución simple",
     "slug": "sustitucion-simple",
-    "surface_forms": ["sustitución simple", "desplazamiento simple"]
+    "surface_forms": [
+      "sustitución simple",
+      "desplazamiento simple"
+    ]
   },
   "rxtype:exchange": {
     "name": "Reacciones de doble desplazamiento",
     "slug": "doble-desplazamiento",
-    "surface_forms": ["doble desplazamiento", "reacción de intercambio", "metátesis"]
+    "surface_forms": [
+      "doble desplazamiento",
+      "reacción de intercambio",
+      "metátesis"
+    ]
   },
   "rxtype:neutralization": {
     "name": "Reacciones de neutralización",
     "slug": "neutralizacion",
-    "surface_forms": ["neutralización", "reacción de neutralización", "reacciones de neutralización"]
+    "surface_forms": [
+      "neutralización",
+      "reacción de neutralización",
+      "reacciones de neutralización"
+    ]
   },
   "rxtype:redox": {
     "name": "Reacciones redox",
     "slug": "redox",
-    "surface_forms": ["redox", "reacción redox", "reacciones redox", "oxidación-reducción"]
+    "surface_forms": [
+      "redox",
+      "reacción redox",
+      "reacciones redox",
+      "oxidación-reducción"
+    ]
   },
   "rxtype:non_redox": {
     "name": "Reacciones no redox",
     "slug": "no-redox",
-    "surface_forms": ["no redox", "reacciones sin cambio de estado de oxidación"]
+    "surface_forms": [
+      "no redox",
+      "reacciones sin cambio de estado de oxidación"
+    ]
   },
   "rxtype:exothermic": {
     "name": "Reacciones exotérmicas",
     "slug": "exotermicas",
-    "surface_forms": ["reacciones exotérmicas", "reacción exotérmica"]
+    "surface_forms": [
+      "reacciones exotérmicas",
+      "reacción exotérmica"
+    ]
   },
   "rxtype:endothermic": {
     "name": "Reacciones endotérmicas",
     "slug": "endotermicas",
-    "surface_forms": ["reacciones endotérmicas", "reacción endotérmica"]
+    "surface_forms": [
+      "reacciones endotérmicas",
+      "reacción endotérmica"
+    ]
   },
-  "concept:atomic_mass": { "name": "Masa atómica", "slug": "masa-atomica", "description": "Masa de un átomo expresada en unidades de masa atómica" },
-  "concept:electronegativity": { "name": "Electronegatividad", "slug": "electronegatividad", "description": "Capacidad de un átomo para atraer la densidad electrónica de un enlace químico" },
-  "concept:melting_point": { "name": "Punto de fusión", "slug": "punto-fusion", "description": "Temperatura a la que una sustancia pasa de estado sólido a líquido" },
-  "concept:boiling_point": { "name": "Punto de ebullición", "slug": "punto-ebullicion", "description": "Temperatura a la que la presión de vapor de una sustancia iguala la atmosférica" },
-  "concept:density": { "name": "Densidad", "slug": "densidad", "description": "Relación entre la masa de una sustancia y su volumen" },
-  "concept:ion_charge": { "name": "Carga iónica", "slug": "carga-ionica", "description": "Carga eléctrica de un ion expresada en unidades de carga elemental" },
-  "concept:molar_mass": { "name": "Masa molar", "slug": "masa-molar", "description": "Masa de un mol de una sustancia" },
-  "concept:enthalpy_of_formation": { "name": "Entalpía de formación", "slug": "entalpia-formacion", "description": "Entalpía estándar de formación de una sustancia a partir de sus elementos" },
-  "concept:standard_entropy": { "name": "Entropía estándar", "slug": "entropia-estandar", "description": "Medida del desorden de un sistema en condiciones estándar" },
-  "concept:pKa": { "name": "pKa", "slug": "pka", "description": "Logaritmo negativo en base 10 de la constante de disociación ácida" },
-  "concept:acid_dissociation_constant": { "name": "Constante de disociación ácida", "slug": "constante-disociacion-acida", "description": "Constante de equilibrio de la disociación del ácido en solución acuosa. Cuanto mayor es Ka, más fuerte es el ácido" },
-  "concept:acid_strength": { "name": "Fuerza del ácido", "slug": "fuerza-acido", "description": "Capacidad de un ácido para donar un protón, determinada por su constante de disociación" },
-  "concept:acid_basicity": { "name": "Basicidad del ácido", "slug": "basicidad-acido", "description": "Número de protones que un ácido puede donar en su disociación completa" },
-  "concept:acid_dissociation": { "name": "Disociación ácida", "slug": "disociacion-acida", "description": "Proceso de descomposición del ácido en iones en solución acuosa" },
-  "concept:conjugate_base": { "name": "Base conjugada", "slug": "base-conjugada", "description": "Partícula que se forma cuando un ácido dona un protón" },
-  "concept:acid_residue": { "name": "Residuo ácido", "slug": "residuo-acido", "description": "Anión que se forma en la disociación completa de un ácido" },
-  "concept:indicator": { "name": "Indicador", "slug": "indicador", "description": "Sustancia que cambia de color según el ambiente de la solución" },
-  "concept:bond_strength": { "name": "Energía de enlace", "slug": "energia-enlace", "description": "Energía necesaria para romper un enlace químico" },
-  "cls:acid_strong": { "name": "Ácidos fuertes", "slug": "fuertes", "description": "Ácidos que se disocian completamente en solución acuosa (pKa < 0)" },
-  "cls:acid_weak": { "name": "Ácidos débiles", "slug": "debiles", "description": "Ácidos que se disocian parcialmente en solución acuosa (pKa > 0)" },
-  "rxtype:acid_metal": { "name": "Ácido + metal", "slug": "acido-metal", "description": "Reacción de un ácido con un metal situado antes del hidrógeno en la serie de actividad" },
-  "rxtype:acid_base_oxide": { "name": "Ácido + óxido básico", "slug": "acido-oxido-basico", "description": "Reacción de un ácido con un óxido básico" },
-  "rxtype:acid_carbonate": { "name": "Ácido + carbonato", "slug": "acido-carbonato", "description": "Reacción de un ácido con un carbonato, con liberación de CO₂" }
+  "concept:atomic_mass": {
+    "name": "Masa atómica",
+    "slug": "masa-atomica",
+    "description": "Masa de un átomo expresada en unidades de masa atómica"
+  },
+  "concept:electronegativity": {
+    "name": "Electronegatividad",
+    "slug": "electronegatividad",
+    "description": "Capacidad de un átomo para atraer la densidad electrónica de un enlace químico"
+  },
+  "concept:melting_point": {
+    "name": "Punto de fusión",
+    "slug": "punto-fusion",
+    "description": "Temperatura a la que una sustancia pasa de estado sólido a líquido"
+  },
+  "concept:boiling_point": {
+    "name": "Punto de ebullición",
+    "slug": "punto-ebullicion",
+    "description": "Temperatura a la que la presión de vapor de una sustancia iguala la atmosférica"
+  },
+  "concept:density": {
+    "name": "Densidad",
+    "slug": "densidad",
+    "description": "Relación entre la masa de una sustancia y su volumen"
+  },
+  "concept:ion_charge": {
+    "name": "Carga iónica",
+    "slug": "carga-ionica",
+    "description": "Carga eléctrica de un ion expresada en unidades de carga elemental"
+  },
+  "concept:molar_mass": {
+    "name": "Masa molar",
+    "slug": "masa-molar",
+    "description": "Masa de un mol de una sustancia"
+  },
+  "concept:enthalpy_of_formation": {
+    "name": "Entalpía de formación",
+    "slug": "entalpia-formacion",
+    "description": "Entalpía estándar de formación de una sustancia a partir de sus elementos"
+  },
+  "concept:standard_entropy": {
+    "name": "Entropía estándar",
+    "slug": "entropia-estandar",
+    "description": "Medida del desorden de un sistema en condiciones estándar"
+  },
+  "concept:pKa": {
+    "name": "pKa",
+    "slug": "pka",
+    "description": "Logaritmo negativo en base 10 de la constante de disociación ácida"
+  },
+  "concept:acid_dissociation_constant": {
+    "name": "Constante de disociación ácida",
+    "slug": "constante-disociacion-acida",
+    "description": "Constante de equilibrio de la disociación del ácido en solución acuosa. Cuanto mayor es Ka, más fuerte es el ácido"
+  },
+  "concept:acid_strength": {
+    "name": "Fuerza del ácido",
+    "slug": "fuerza-acido",
+    "description": "Capacidad de un ácido para donar un protón, determinada por su constante de disociación"
+  },
+  "concept:acid_basicity": {
+    "name": "Basicidad del ácido",
+    "slug": "basicidad-acido",
+    "description": "Número de protones que un ácido puede donar en su disociación completa"
+  },
+  "concept:acid_dissociation": {
+    "name": "Disociación ácida",
+    "slug": "disociacion-acida",
+    "description": "Proceso de descomposición del ácido en iones en solución acuosa"
+  },
+  "concept:conjugate_base": {
+    "name": "Base conjugada",
+    "slug": "base-conjugada",
+    "description": "Partícula que se forma cuando un ácido dona un protón"
+  },
+  "concept:acid_residue": {
+    "name": "Residuo ácido",
+    "slug": "residuo-acido",
+    "description": "Anión que se forma en la disociación completa de un ácido"
+  },
+  "concept:indicator": {
+    "name": "Indicador",
+    "slug": "indicador",
+    "description": "Sustancia que cambia de color según el ambiente de la solución"
+  },
+  "concept:bond_strength": {
+    "name": "Energía de enlace",
+    "slug": "energia-enlace",
+    "description": "Energía necesaria para romper un enlace químico"
+  },
+  "cls:acid_strong": {
+    "name": "Ácidos fuertes",
+    "slug": "fuertes",
+    "description": "Ácidos que se disocian completamente en solución acuosa (pKa < 0)"
+  },
+  "cls:acid_weak": {
+    "name": "Ácidos débiles",
+    "slug": "debiles",
+    "description": "Ácidos que se disocian parcialmente en solución acuosa (pKa > 0)"
+  },
+  "rxtype:acid_metal": {
+    "name": "Ácido + metal",
+    "slug": "acido-metal",
+    "description": "Reacción de un ácido con un metal situado antes del hidrógeno en la serie de actividad"
+  },
+  "rxtype:acid_base_oxide": {
+    "name": "Ácido + óxido básico",
+    "slug": "acido-oxido-basico",
+    "description": "Reacción de un ácido con un óxido básico"
+  },
+  "rxtype:acid_carbonate": {
+    "name": "Ácido + carbonato",
+    "slug": "acido-carbonato",
+    "description": "Reacción de un ácido con un carbonato, con liberación de CO₂"
+  },
+  "concept:acid_composition": {
+    "name": "Por composición",
+    "slug": "por-composicion",
+    "description": "Clasificación de ácidos por la presencia de oxígeno"
+  },
+  "concept:oxide_character": {
+    "name": "Por carácter",
+    "slug": "por-caracter",
+    "description": "Clasificación de óxidos por propiedades ácido-base"
+  },
+  "concept:base_solubility": {
+    "name": "Por solubilidad",
+    "slug": "por-solubilidad",
+    "description": "Clasificación de bases por solubilidad en agua"
+  },
+  "concept:salt_composition": {
+    "name": "Por composición",
+    "slug": "por-composicion",
+    "description": "Clasificación de sales por grado de sustitución de hidrógeno o hidroxilo"
+  }
 }

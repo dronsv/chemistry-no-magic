@@ -33,6 +33,11 @@ export type ConceptKind =
 import type { ConceptFilter } from './filter-dsl';
 
 /** A concept entry from data-src/concepts.json */
+export interface ClassificationFacet {
+  facet_ref: string;       // concept ID for the facet (e.g., "concept:acid_strength")
+  children: string[];      // child concept IDs in this facet group
+}
+
 export interface ConceptEntry {
   kind: ConceptKind;
   parent_id: string | null;
@@ -40,6 +45,7 @@ export interface ConceptEntry {
   filters: ConceptFilter | Record<string, string | string[]>;
   examples: OntRef[];
   children_order?: string[];
+  classification_facets?: ClassificationFacet[];
 }
 
 /** Concept registry: conceptId -> ConceptEntry */

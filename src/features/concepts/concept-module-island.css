@@ -50,6 +50,19 @@
   line-height: 1.6;
 }
 
+/* Facet groups */
+.concept-facet-group {
+  margin-bottom: var(--space-md, 1rem);
+}
+.concept-facet-group__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: var(--space-xs, 0.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 /* Children grid (CSR version with counts) */
 .concept-children-grid {
   display: flex;
