@@ -10,6 +10,30 @@ const FIELD_TO_PREFIX: Record<string, string> = {
   has_property: 'prop',
 };
 
+/**
+ * Map subclass value to concept ID. Subclass alone is ambiguous
+ * (e.g., "basic" could be oxide_basic or base_basic), so we map
+ * known subclass values to their concept IDs directly.
+ */
+const SUBCLASS_TO_CONCEPT: Record<string, string> = {
+  // Oxides
+  basic: 'cls:oxide_basic',
+  acidic: 'cls:oxide_acidic',
+  amphoteric: 'cls:oxide_amphoteric',
+  indifferent: 'cls:oxide_indifferent',
+  // Acids
+  oxygen_containing: 'cls:acid_oxygen',
+  oxygen_free: 'cls:acid_oxygenfree',
+  // Bases
+  soluble: 'cls:base_alkali',
+  insoluble: 'cls:base_insoluble',
+  weak_base: 'cls:base_insoluble',
+  // Salts
+  normal: 'cls:salt_normal',
+  acidic_salt: 'cls:salt_acidic',
+  basic_salt: 'cls:salt_basic',
+};
+
 /** Localized connectors */
 const CONNECTORS: Record<string, { and: string; or: string; except: string; with: string }> = {
   ru: { and: ', ', or: ' или ', except: ' кроме ', with: ' со ' },
@@ -27,6 +51,11 @@ function predToRichText(pred: FilterPred, locale: string): RichText {
   const prefix = FIELD_TO_PREFIX[field];
 
   if (pred.eq !== undefined) {
+    // Subclass → look up known concept mapping
+    if (field === 'subclass') {
+      const conceptId = SUBCLASS_TO_CONCEPT[String(pred.eq)];
+      if (conceptId) return [{ t: 'ref', id: conceptId }];
+    }
     if (prefix) {
       return [{ t: 'ref', id: `${prefix}:${pred.eq}` }];
     }
