@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HubLead from '../../../components/HubLead.astro';
 import PeriodicTablePage from '../../../features/periodic-table/PeriodicTablePage';
 import type { SupportedLocale } from '../../../types/i18n';
+import { localizeUrl } from '../../../lib/i18n';
 
 const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
@@ -57,7 +58,7 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
         { symbol: 'P',  name: 'Фосфор' },
         { symbol: 'S',  name: 'Сера' },
       ].map(({ symbol, name }) => (
-        <a href={`/periodic-table/${symbol}/`} class="pt-quicklinks__item" title={name}>
+        <a href={localizeUrl(`/periodic-table/${symbol}/`, locale)} class="pt-quicklinks__item" title={name}>
           <span class="pt-quicklinks__sym">{symbol}</span>
           <span class="pt-quicklinks__name">{name}</span>
         </a>
