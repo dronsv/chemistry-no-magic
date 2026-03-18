@@ -6,6 +6,7 @@ import { parseFormula } from '../lib/formula-parser';
 import { dispatchHighlight } from '../lib/formula-highlight-events';
 import { localizeUrl } from '../lib/i18n';
 import { useIonDetails } from './IonDetailsProvider';
+import OntInteractiveRef from './OntInteractiveRef';
 import * as m from '../paraglide/messages.js';
 import './formula-chip.css';
 
@@ -160,7 +161,7 @@ export default function FormulaChip({
         ? () => { window.location.href = elementUrl; }
         : undefined;
 
-  return (
+  const chipSpan = (
     <span
       className={classNames}
       onMouseEnter={() => {
@@ -181,4 +182,15 @@ export default function FormulaChip({
       {tooltip}
     </span>
   );
+
+  // Wrap in OntInteractiveRef for hover preview when a navigable entity ref is available.
+  // ionId is intentionally excluded — it opens its own popup via IonDetailsProvider.
+  const entityRef = substanceId ?? (elementId ? `el:${elementId}` : undefined);
+  if (entityRef && locale) {
+    return (
+      <OntInteractiveRef entityRef={entityRef} display={chipSpan} locale={locale} />
+    );
+  }
+
+  return chipSpan;
 }

@@ -3,6 +3,7 @@ import { useConcepts } from './ConceptProvider';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../lib/i18n';
 import type { SupportedLocale } from '../types/i18n';
 import type { ConceptKind } from '../types/ontology-ref';
+import OntInteractiveRef from './OntInteractiveRef';
 import './ontology-ref.css';
 
 import { isDslFilter } from '../lib/filter-to-richtext';
@@ -96,7 +97,7 @@ export default function ConceptRef({ id, form, surface, locale, variant = 'chip'
   const href = buildConceptUrl(id, ctx, locale);
   const cssClass = `ont-ref ${getCssClass(entry.kind, entry.filters)}`;
 
-  return (
+  const linkEl = (
     <a
       className={cssClass}
       href={href}
@@ -115,4 +116,13 @@ export default function ConceptRef({ id, form, surface, locale, variant = 'chip'
       )}
     </a>
   );
+
+  // Wrap in OntInteractiveRef for richer hover preview when locale is available.
+  if (locale) {
+    return (
+      <OntInteractiveRef entityRef={id} display={linkEl} locale={locale} />
+    );
+  }
+
+  return linkEl;
 }

@@ -6,6 +6,7 @@ import type { SupportedLocale } from '../types/i18n';
 import { localizeUrl, CONCEPT_KIND_ROUTES } from '../lib/i18n';
 import FormulaChip from './FormulaChip';
 import AcidStrengthScale from './AcidStrengthScale';
+import OntInteractiveRef from './OntInteractiveRef';
 import './ont-embed.css';
 
 type OntEmbedBlockType = TheoryBlock & { t: 'ont_embed' };
@@ -82,7 +83,7 @@ export default function OntEmbedBlock({ block, locale }: Props) {
       ? buildConceptUrl(block.concept_id, registry, overlay, loc)
       : null;
 
-    return (
+    const refContent = (
       <span className="ont-embed-ref">
         {href ? (
           <a href={href}>{conceptName}</a>
@@ -90,6 +91,14 @@ export default function OntEmbedBlock({ block, locale }: Props) {
           <span>{conceptName}</span>
         )}
       </span>
+    );
+
+    return (
+      <OntInteractiveRef
+        entityRef={block.concept_id}
+        display={refContent}
+        locale={locale}
+      />
     );
   }
 
