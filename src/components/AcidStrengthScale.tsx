@@ -4,6 +4,7 @@ import type { SupportedLocale } from '../types/i18n';
 import { loadSubstancesIndex } from '../lib/data-loader';
 import { getEntityCharValue } from '../lib/characteristics-utils';
 import FormulaChip from './FormulaChip';
+import OntInteractiveRef from './OntInteractiveRef';
 import * as m from '../paraglide/messages.js';
 import './acid-strength-scale.css';
 
@@ -82,7 +83,10 @@ export default function AcidStrengthScale({ locale }: Props) {
             substanceId={it.subjectId}
             locale={locale as SupportedLocale}
           />
-          <span className="acid-scale__pka"><abbr title="concept:pKa" className="acid-scale__pka-label">pKa</abbr> {formatPka(it.pka)}</span>
+          <span className="acid-scale__pka">
+            <OntInteractiveRef entityRef="concept:pKa" display={<span className="acid-scale__pka-label">pKa</span>} locale={locale} />
+            {' '}{formatPka(it.pka)}
+          </span>
         </div>
       ))}
     </div>

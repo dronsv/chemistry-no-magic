@@ -1,7 +1,8 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import type { Variable } from '../types/formula';
 import type { PreviewContext, OntPreviewRequest, ResolvedOntPreview } from '../types/ont-preview';
 import { resolveOntPreview } from '../lib/ont-preview/resolve-ont-preview';
+import { buildCanonicalHref } from '../lib/ont-ref-registry';
 import OntPreviewCard from './OntPreviewCard';
 import './ont-interactive-ref.css';
 
@@ -188,7 +189,12 @@ export default function OntInteractiveRef(props: Props) {
     return () => document.removeEventListener('keydown', handler);
   }, [showPopup]);
 
-  const canonicalHref = preview?.target.canonicalHref;
+  // Pre-compute navigability from props (don't wait for resolver)
+  const immediateHref = useMemo(() => {
+    if (props.entityRef) return buildCanonicalHref(props.entityRef, props.locale);
+    return null;
+  }, [props.entityRef, props.locale]);
+  const canonicalHref = preview?.target.canonicalHref ?? immediateHref;
   const isNavigable = Boolean(canonicalHref);
 
   const wrapperClass = [
