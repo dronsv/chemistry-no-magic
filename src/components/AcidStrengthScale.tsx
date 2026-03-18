@@ -82,7 +82,7 @@ export default function AcidStrengthScale({ locale }: Props) {
             substanceId={it.subjectId}
             locale={locale as SupportedLocale}
           />
-          <span className="acid-scale__pka">pKa {formatPka(it.pka)}</span>
+          <span className="acid-scale__pka"><abbr title="concept:pKa" className="acid-scale__pka-label">pKa</abbr> {formatPka(it.pka)}</span>
         </div>
       ))}
     </div>

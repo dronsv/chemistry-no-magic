@@ -299,7 +299,7 @@
   "concept:enthalpy_of_formation": { "name": "Enthalpy of formation", "slug": "enthalpy-of-formation", "description": "Standard enthalpy of forming a substance from its elements" },
   "concept:standard_entropy": { "name": "Standard entropy", "slug": "standard-entropy", "description": "Measure of a system's disorder under standard conditions" },
   "concept:pKa": { "name": "pKa", "slug": "pka", "description": "Negative base-10 logarithm of the acid dissociation constant" },
-  "concept:acid_dissociation_constant": { "name": "Acid dissociation constant", "slug": "acid-dissociation-constant", "description": "Equilibrium constant for acid dissociation in aqueous solution" },
+  "concept:acid_dissociation_constant": { "name": "Acid dissociation constant (Ka)", "slug": "acid-dissociation-constant", "description": "Ka = [H⁺]·[A⁻] / [HA]. The larger Ka, the stronger the acid. Related to pKa: pKa = −log Ka" },
   "concept:acid_strength": { "name": "Acid strength", "slug": "acid-strength", "description": "Ability of an acid to donate a proton, determined by its dissociation constant" },
   "concept:acid_basicity": { "name": "Acid basicity", "slug": "acid-basicity", "description": "Number of protons an acid can donate upon full dissociation" },
   "concept:acid_dissociation": { "name": "Acid dissociation", "slug": "acid-dissociation", "description": "Process of acid breaking into ions in aqueous solution" },

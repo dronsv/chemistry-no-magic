@@ -23,5 +23,6 @@ export interface SubstanceIndexEntry {
   name?: string;
   class: string;
   subclass?: string;
+  tags?: string[];
   characteristics?: EntityCharacteristics;
 }
