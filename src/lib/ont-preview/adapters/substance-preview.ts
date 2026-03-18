@@ -1,9 +1,21 @@
 // src/lib/ont-preview/adapters/substance-preview.ts
 import type { ResolvedOntPreview, PreviewContext, PreviewFact } from '../../../types/ont-preview';
 import type { SupportedLocale } from '../../../types/i18n';
-import { loadSubstancesIndex } from '../../data-loader';
+import { loadSubstancesIndex, loadConceptOverlay } from '../../data-loader';
 import { buildCanonicalHref, extractRefId } from '../../ont-ref-registry';
 import { getEntityCharValue } from '../../characteristics-utils';
+
+/** Map class+subclass to concept ID for localized display */
+const CLASS_TO_CONCEPT: Record<string, string> = {
+  oxide: 'cls:oxide', acid: 'cls:acid', base: 'cls:base', salt: 'cls:salt',
+};
+const SUBCLASS_TO_CONCEPT: Record<string, string> = {
+  basic: 'cls:oxide_basic', acidic: 'cls:oxide_acidic',
+  amphoteric: 'cls:oxide_amphoteric', indifferent: 'cls:oxide_indifferent',
+  oxygen_containing: 'cls:acid_oxygen', oxygen_free: 'cls:acid_oxygenfree',
+  soluble: 'cls:base_alkali', insoluble: 'cls:base_insoluble',
+  normal: 'cls:salt_normal', acidic_salt: 'cls:salt_acidic', basic_salt: 'cls:salt_basic',
+};
 
 export async function resolveSubstancePreview(
   ref: string,
@@ -51,12 +63,20 @@ export async function resolveSubstancePreview(
     }
   }
 
-  // Class/subclass always shown
+  // Class/subclass — resolve to localized concept names as chips
+  let conceptOverlay;
+  try { conceptOverlay = await loadConceptOverlay(loc); } catch { conceptOverlay = null; }
+
+  const chips: { label: string; variant?: 'default' | 'primary' | 'muted' }[] = [];
   if (entry.class) {
-    facts.push({ label: 'Class', value: entry.class });
+    const classConceptId = CLASS_TO_CONCEPT[entry.class];
+    const className = (classConceptId && conceptOverlay?.[classConceptId]?.name) ?? entry.class;
+    chips.push({ label: className, variant: 'primary' });
   }
   if (entry.subclass) {
-    facts.push({ label: 'Subclass', value: entry.subclass });
+    const subConceptId = SUBCLASS_TO_CONCEPT[entry.subclass];
+    const subName = (subConceptId && conceptOverlay?.[subConceptId]?.name) ?? entry.subclass;
+    chips.push({ label: subName, variant: 'muted' });
   }
 
   return {
@@ -69,6 +89,7 @@ export async function resolveSubstancePreview(
       title,
       subtitle,
       facts: facts.slice(0, 5),
+      chips: chips.length > 0 ? chips.slice(0, 3) : undefined,
     },
   };
 }
