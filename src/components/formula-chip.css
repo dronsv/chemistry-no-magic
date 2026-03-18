@@ -9,6 +9,17 @@
   white-space: nowrap;
 }
 
+/* Clear separation between subscript (atom count) and superscript (charge) */
+.formula-chip sup {
+  margin-left: 0.05em;
+  font-size: 0.7em;
+  vertical-align: super;
+}
+.formula-chip sub {
+  font-size: 0.75em;
+  vertical-align: sub;
+}
+
 .formula-chip--link {
   cursor: pointer;
   text-decoration: none;
