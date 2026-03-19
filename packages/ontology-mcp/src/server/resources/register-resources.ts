@@ -1,6 +1,7 @@
 import { ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { OntologyIndex, OntRefKind } from '../../shared/types.js';
+import { ONTOLOGY_AUTHOR_SYSTEM_PROMPT } from '../prompts/system-prompt.js';
 
 const ONT_REF_KINDS: OntRefKind[] = [
   'element', 'substance', 'ion', 'substance_class', 'element_group',
@@ -87,6 +88,16 @@ export function registerResources(server: McpServer, index: OntologyIndex): void
     contents: [{
       uri: uri.href,
       text: JSON.stringify(ADMISSION_POLICY, null, 2),
+    }],
+  }));
+
+  server.registerResource('system-prompt', 'ontology://agent/system-prompt', {
+    description: 'Full system prompt for the ontology-author agent with project context, admission policy, examples, and workflow',
+    mimeType: 'text/plain',
+  }, async (uri) => ({
+    contents: [{
+      uri: uri.href,
+      text: ONTOLOGY_AUTHOR_SYSTEM_PROMPT,
     }],
   }));
 

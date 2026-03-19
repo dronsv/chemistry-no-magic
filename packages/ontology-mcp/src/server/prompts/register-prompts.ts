@@ -1,7 +1,25 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
+import { ONTOLOGY_AUTHOR_SYSTEM_PROMPT } from './system-prompt.js';
 
 export function registerPrompts(server: McpServer): void {
+  // System prompt for the ontology-author agent — provides full context
+  server.registerPrompt(
+    'ontology_author_system',
+    {
+      description: 'Full system prompt for the ontology-author agent. Call this first to get project context, admission policy, examples, and workflow.',
+    },
+    async () => ({
+      messages: [{
+        role: 'user' as const,
+        content: {
+          type: 'text' as const,
+          text: ONTOLOGY_AUTHOR_SYSTEM_PROMPT,
+        },
+      }],
+    })
+  );
+
   server.registerPrompt(
     'annotate_existing_text',
     {
