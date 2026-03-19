@@ -39,9 +39,85 @@ export interface SearchCandidate {
   matchReason: string;
 }
 
+export interface Relation {
+  subject: string;
+  predicate: string;
+  object: string;
+  step?: number;
+  solubility?: string;
+  knowledge_level?: string;
+  source_kind?: string;
+  condition?: string;
+}
+
+export interface RelationsIndex {
+  bySubject: Map<string, Relation[]>;
+  byObject: Map<string, Relation[]>;
+  byPredicate: Map<string, Relation[]>;
+}
+
 export interface OntologyIndex {
   entitiesByRef: Map<string, OntologyEntity>;
   aliasIndex: Map<string, string[]>;   // normalized text → refs
   formulaIndex: Map<string, string>;   // formula → ref
   symbolIndex: Map<string, string>;    // element symbol → ref
+  relations: RelationsIndex;
+}
+
+export type AdditionType =
+  | 'alias_addition'
+  | 'overlay_addition'
+  | 'relation_addition'
+  | 'entity_extension'
+  | 'new_core_entity';
+
+export interface AdmissionChecks {
+  is_alias_only: boolean;
+  is_overlay_only: boolean;
+  is_reusable: boolean;
+  is_language_independent: boolean;
+  is_non_redundant: boolean;
+  has_structural_value: boolean;
+}
+
+export interface ProposalDraft {
+  proposal_id: string;
+  proposal_type: AdditionType;
+  candidate_text: string;
+  language: string;
+  target_ref?: string;
+  proposed_ref?: string;
+  proposed_label?: string;
+  rationale: string;
+  evidence_spans: Array<{ source_doc_id?: string; text: string; start?: number; end?: number }>;
+  nearest_existing_refs: Array<{ ref: string; reason: string; score: number }>;
+  admission_checks: AdmissionChecks;
+  status: 'draft' | 'review' | 'accepted' | 'rejected';
+}
+
+export interface Annotation {
+  text: string;
+  start: number;
+  end: number;
+  kind: OntRefKind | string;
+  chosen_ref?: string;
+  confidence?: number;
+  candidates: SearchCandidate[];
+}
+
+export interface UnresolvedMention {
+  text: string;
+  start: number;
+  end: number;
+  reason: string;
+}
+
+export interface AnnotationResult {
+  doc_id: string;
+  material_language: string;
+  annotations: Annotation[];
+  unresolved_mentions: UnresolvedMention[];
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
 }

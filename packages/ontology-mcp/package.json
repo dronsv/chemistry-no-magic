@@ -1,11 +1,14 @@
 {
   "name": "@chemistry/ontology-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "src/server/index.ts",
   "scripts": {
     "dev": "npx tsx src/server/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bootstrap": "npx tsx src/server/bootstrap/cli.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
@@ -13,6 +16,7 @@
   },
   "devDependencies": {
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
   }
 }

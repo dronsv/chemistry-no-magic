@@ -1,20 +1,8 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { OntologyEntity, OntologyIndex, OntRefKind } from '../../shared/types.js';
-
-// Resolve the project root: when running from packages/ontology-mcp/, go up two levels
-function resolveDataSrc(): string {
-  const cwd = process.cwd();
-  // If cwd already ends at the project root (contains data-src), use it directly
-  // Otherwise walk up until we find data-src
-  const candidates = [
-    join(cwd, 'data-src'),
-    join(cwd, '..', '..', 'data-src'),
-    join(cwd, '..', 'data-src'),
-  ];
-  // We return the first that is likely correct; readFile will fail loudly if wrong
-  return candidates[0];
-}
+import { findDataSrc } from './find-data-src.js';
+import { loadRelations } from './load-relations.js';
 
 function normalize(text: string): string {
   return text.trim().toLowerCase().replace(/\s+/g, ' ');
@@ -38,25 +26,7 @@ function resolveKind(ref: string): OntRefKind {
 }
 
 export async function buildOntologyIndex(): Promise<OntologyIndex> {
-  // Try multiple candidate paths for data-src
-  let DATA_SRC: string;
-  const cwd = process.cwd();
-  const candidates = [
-    join(cwd, 'data-src'),
-    join(cwd, '..', '..', 'data-src'),
-    join(cwd, '..', 'data-src'),
-  ];
-
-  DATA_SRC = resolveDataSrc(); // default; will be corrected below
-  for (const candidate of candidates) {
-    try {
-      await readFile(join(candidate, 'elements.json'), 'utf-8');
-      DATA_SRC = candidate;
-      break;
-    } catch {
-      // try next
-    }
-  }
+  const DATA_SRC = await findDataSrc();
 
   const entitiesByRef = new Map<string, OntologyEntity>();
   const aliasIndex = new Map<string, string[]>();
@@ -323,10 +293,13 @@ export async function buildOntologyIndex(): Promise<OntologyIndex> {
     }
   }
 
+  // Load relations
+  const relations = await loadRelations();
+
   process.stderr.write(
     `[ontology-mcp] Index built: ${entitiesByRef.size} entities, ${aliasIndex.size} aliases, ` +
     `${formulaIndex.size} formulas, ${symbolIndex.size} symbols\n`
   );
 
-  return { entitiesByRef, aliasIndex, formulaIndex, symbolIndex };
+  return { entitiesByRef, aliasIndex, formulaIndex, symbolIndex, relations };
 }
