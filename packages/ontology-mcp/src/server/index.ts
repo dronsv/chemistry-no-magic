@@ -11,6 +11,7 @@ import { suggestRefsForText } from './tools/suggest-refs-for-text.js';
 import { classifyAddition } from './tools/classify-addition.js';
 import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
+import { listEntities } from './tools/write/list-entities.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -143,6 +144,20 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(bootstrapDocument(indexRef.current, args), null, 2) }],
+  }));
+
+  server.registerTool('list_entities', {
+    description: 'List all ontology entities by kind with pagination. Returns lightweight summaries.',
+    inputSchema: {
+      kind: z.string().describe(
+        'Entity kind to list: element, substance, ion, concept, substance_class, ' +
+        'element_group, reaction_type, reaction_facet, domain_concept, formula, process, property, or "all"'
+      ),
+      limit: z.number().int().min(1).max(500).optional().describe('Max results (default 100)'),
+      offset: z.number().int().min(0).optional().describe('Offset for pagination (default 0)'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(listEntities(indexRef.current, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
