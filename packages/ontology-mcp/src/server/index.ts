@@ -17,6 +17,7 @@ import { addTranslation } from './tools/write/translation.js';
 import { addRelation } from './tools/write/relation.js';
 import { addSubstance, updateSubstance } from './tools/write/substance.js';
 import { addConcept, updateConcept } from './tools/write/concept.js';
+import { addCharacteristic, updateCharacteristic } from './tools/write/characteristic.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -279,6 +280,36 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await updateConcept(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_characteristic', {
+    description: 'Add a typed characteristic to a substance. Fails if the characteristic already exists on the substance.',
+    inputSchema: {
+      substance_id: z.string().describe('Substance short ID without prefix, e.g. "nacl"'),
+      concept_ref: z.string().describe('Concept ref for the property, e.g. "concept:boiling_point"'),
+      value: z.union([z.number(), z.string()]).describe('Characteristic value'),
+      unit: z.string().describe('Unit ref, e.g. "unit:celsius", "unit:kJ_per_mol"'),
+      conditions: z.record(z.unknown()).optional().describe('Measurement conditions'),
+      source: z.string().optional().describe('Data source'),
+      explanation: z.string().optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addCharacteristic(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('update_characteristic', {
+    description: 'Update an existing characteristic on a substance. Fails if characteristic not found.',
+    inputSchema: {
+      substance_id: z.string().describe('Substance short ID'),
+      concept_ref: z.string().describe('Concept ref of the characteristic to update'),
+      value: z.union([z.number(), z.string()]).describe('New value'),
+      unit: z.string().describe('Unit ref'),
+      conditions: z.record(z.unknown()).optional(),
+      source: z.string().optional(),
+      explanation: z.string().optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateCharacteristic(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
