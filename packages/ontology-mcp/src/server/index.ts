@@ -12,6 +12,7 @@ import { classifyAddition } from './tools/classify-addition.js';
 import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
 import { listEntities } from './tools/write/list-entities.js';
+import { coverageReport } from './tools/write/coverage-report.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -158,6 +159,17 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(listEntities(indexRef.current, args), null, 2) }],
+  }));
+
+  server.registerTool('coverage_report', {
+    description: 'Audit ontology coverage: translation completeness, characteristics presence, relation gaps, and structural issues. Returns summary stats and gap list.',
+    inputSchema: {
+      kind: z.string().describe('Entity kind to audit, or "all"'),
+      check: z.enum(['translations', 'characteristics', 'relations', 'all']).describe('What to check'),
+      locales: z.array(z.string()).optional().describe('Locales to check (default: ru, en, pl, es)'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(coverageReport(indexRef.current, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
