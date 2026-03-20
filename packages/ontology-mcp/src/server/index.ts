@@ -14,6 +14,7 @@ import { bootstrapDocument } from './tools/bootstrap-document.js';
 import { listEntities } from './tools/write/list-entities.js';
 import { coverageReport } from './tools/write/coverage-report.js';
 import { addTranslation } from './tools/write/translation.js';
+import { addRelation } from './tools/write/relation.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -183,6 +184,24 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await addTranslation(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_relation', {
+    description: 'Append relation triples to a relation file. Deduplicates by subject+predicate+object. Warns on unknown refs.',
+    inputSchema: {
+      file: z.string().describe('Relation file name: acid_base_relations, ion_roles, has_naming_rule, or new name'),
+      triples: z.array(z.object({
+        subject: z.string().describe('Subject entity ref'),
+        predicate: z.string().describe('Relation predicate'),
+        object: z.string().describe('Object entity ref'),
+        step: z.number().optional().describe('Step number for multi-step relations'),
+        knowledge_level: z.enum(['strict_chemistry', 'school_convention', 'pedagogical']).optional(),
+        source_kind: z.string().optional().describe('Provenance'),
+        condition: z.string().optional().describe('Guard condition'),
+      })).describe('Triples to add'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addRelation(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
