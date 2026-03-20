@@ -4,6 +4,13 @@ import type { OntologyEntity, OntologyIndex, OntRefKind } from '../../shared/typ
 import { findDataSrc } from './find-data-src.js';
 import { loadRelations } from './load-relations.js';
 
+let _dataSrcRoot: string | null = null;
+
+export function getDataSrcRoot(): string {
+  if (!_dataSrcRoot) throw new Error('Index not built yet — call buildOntologyIndex() first');
+  return _dataSrcRoot;
+}
+
 function normalize(text: string): string {
   return text.trim().toLowerCase().replace(/\s+/g, ' ');
 }
@@ -27,6 +34,7 @@ function resolveKind(ref: string): OntRefKind {
 
 export async function buildOntologyIndex(): Promise<OntologyIndex> {
   const DATA_SRC = await findDataSrc();
+  _dataSrcRoot = DATA_SRC;
 
   const entitiesByRef = new Map<string, OntologyEntity>();
   const aliasIndex = new Map<string, string[]>();
