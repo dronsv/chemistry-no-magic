@@ -13,6 +13,7 @@ import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
 import { listEntities } from './tools/write/list-entities.js';
 import { coverageReport } from './tools/write/coverage-report.js';
+import { addTranslation } from './tools/write/translation.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -170,6 +171,18 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(coverageReport(indexRef.current, args), null, 2) }],
+  }));
+
+  server.registerTool('add_translation', {
+    description: 'Add or update a translation overlay entry for any locale and data type. Merges top-level fields into existing entry (shallow merge).',
+    inputSchema: {
+      locale: z.enum(['ru', 'en', 'pl', 'es']).describe('Target locale'),
+      data_key: z.string().describe('Overlay file name: substances, ions, concepts, elements, process_vocab, effects_vocab, etc.'),
+      entity_id: z.string().describe('Key in the overlay file. Conventions: substances use short ID (hcl), ions use full ref (ion:H_plus), concepts use full ref (cls:oxide), elements use symbol (Na)'),
+      fields: z.record(z.unknown()).describe('Translated fields to merge: name, description, surface_forms, forms, etc.'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addTranslation(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
