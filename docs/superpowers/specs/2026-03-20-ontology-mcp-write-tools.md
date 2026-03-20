@@ -260,10 +260,21 @@ Note: Properties have inline `i18n` (unlike most entities which use translation 
 **Concept** (`data-src/concepts.json`)
 
 `add_concept`:
-- Input: `ref` (string, e.g. "cls:oxide_basic" or "concept:electronegativity"), `kind` ("substance_class"|"element_group"|"reaction_type"|"reaction_facet"|"domain_concept"|"process"|"property"), `parent_id?` (string), `order?` (number), `filters?` (object), `examples?` (object[]), `children_order?` (string[]), `classification_facets?` (array of `{ facet_ref, children }`)
+- Input: `ref` (string, e.g. "cls:oxide_basic" or "concept:electronegativity"), `kind` ("substance_class"|"element_group"|"reaction_type"|"reaction_facet"|"domain_concept"|"process"|"property"), `parent_id?` (string), `order?` (number), `filters?` (object), `examples?` (object[]), `children_order?` (string[]), `classification_facets?` (array of `{ facet_ref, children }`), `admission?` (object, see below)
 - Behavior: Reads concepts object, checks key doesn't exist, adds entry, writes back.
 - Validation: `ref` must have valid prefix (`cls:`, `concept:`, `prop:`, `rxtype:`, `rxfacet:`); `parent_id` if provided must exist in concepts.
-- Returns: `{ ref, status: "created" }`
+- **Semantic guards** (medium-risk tool): `admission` block is optional but recommended:
+  ```json
+  {
+    "admission": {
+      "reason": "new reusable domain concept",
+      "nearest_existing_refs": ["concept:acid_dissociation"],
+      "non_redundancy_note": "no existing concept covers proton affinity"
+    }
+  }
+  ```
+  If `admission` is omitted, a warning is returned: `"concept created without admission metadata"`.
+- Returns: `{ ref, status: "created", warnings?: [...] }`
 
 `update_concept`:
 - Input: `ref`, plus any fields (all optional)
@@ -422,6 +433,48 @@ Warnings (non-fatal) are returned alongside success:
 
 Single-user scenario expected. If concurrent tool calls modify the same file, last-write-wins. For safety, each write tool reads the file immediately before modification (no caching). If concurrent writes become an issue, a simple per-file advisory lock can be added later.
 
+## Risk Tiers
+
+Tools are classified by the potential for ontology pollution or structural damage:
+
+| Tier | Tools | Governance |
+|------|-------|------------|
+| **Low risk** | `add_translation`, `add_characteristic`, `update_characteristic`, `list_entities`, `coverage_report` | Direct write, standard validation |
+| **Medium risk** | `add_substance`, `update_substance`, `add_concept`, `update_concept`, `add_ion`, `update_ion`, `add_property`, `update_property`, `add_relation` | Direct write + validation warnings + optional `admission` metadata |
+| **High risk** | `add_reaction`, `update_reaction`, `add_formula`, `update_formula`, `add_process`, `update_process`, `add_effect`, `update_effect`, `add_rule_term`, `update_rule_term` | Direct write + validation warnings; these tools affect solver semantics or have complex schemas |
+
+All tiers write directly — the tier system adds progressively richer validation feedback, not access control. High-risk tools return `requires_review: true` in the response to signal that the enrichment agent should flag the change for human review.
+
+## Phased Rollout
+
+Not all 24 tools ship at once. Implementation proceeds in three phases.
+
+### Phase 1: Core Enrichment Loop (14 tools)
+Infrastructure + the tools that cover the majority of enrichment workflow:
+1. `indexRef` refactor (prerequisite)
+2. Indexer extensions (process/effect entity loading)
+3. `_shared.ts` utilities
+4. `list_entities`
+5. `coverage_report`
+6. `add_translation`
+7. `add_relation`
+8. `add_characteristic`, `update_characteristic`
+9. `add_substance`, `update_substance`
+10. `add_concept`, `update_concept`
+
+### Phase 2: Extended Entity Types (8 tools)
+- `add_ion`, `update_ion`
+- `add_property`, `update_property`
+- `add_process`, `update_process`
+- `add_effect`, `update_effect`
+
+### Phase 3: Complex Schemas (4 tools)
+- `add_reaction`, `update_reaction` (richest nested schema)
+- `add_formula`, `update_formula` (AST expressions)
+- `add_rule_term`, `update_rule_term` (simple but last priority)
+
+Each phase is independently shippable and testable.
+
 ## Testing Strategy
 
 Per-module unit tests in `packages/ontology-mcp/src/__tests__/write/`:
@@ -430,9 +483,11 @@ Per-module unit tests in `packages/ontology-mcp/src/__tests__/write/`:
 - Tests verify index rebuild picks up changes
 - Tests verify validation rejects bad input
 
-## Future Work (Phase 2)
+## Future Work
 
 - `find_similar` — semantic similarity across entity pairs (structural + label + graph signals)
 - `suggest_relations` — propose missing relations based on shared characteristics, common ions, class patterns
 - Batch operations — `add_substances` (plural) for bulk enrichment
 - Migrate property `i18n` inline fields to translation overlays
+- Predicate registry — transition from soft warning to two-mode system (known predicate = safe, new predicate = explicit `register_predicate` call)
+- Audit log — append-only record of write operations for traceability
