@@ -13,6 +13,7 @@ import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
+import type { IndexRef } from '../shared/types.js';
 
 const KINDS_DESC =
   'Filter by entity kinds. Allowed: element, substance, ion, concept, substance_class, ' +
@@ -20,7 +21,7 @@ const KINDS_DESC =
 
 async function main(): Promise<void> {
   process.stderr.write('[ontology-mcp] Starting index build...\n');
-  const index = await buildOntologyIndex();
+  const indexRef: IndexRef = { current: await buildOntologyIndex() };
 
   const server = new McpServer({
     name: 'ontology-mcp',
@@ -37,7 +38,7 @@ async function main(): Promise<void> {
       limit: z.number().int().min(1).max(50).optional().describe('Max results (default 10)'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(searchEntities(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(searchEntities(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('get_entity', {
@@ -46,7 +47,7 @@ async function main(): Promise<void> {
       ref: z.string().describe('Exact ontology ref, e.g. "el:Na", "sub:hcl", "cls:acid", "ion:H_plus"'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(getEntity(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(getEntity(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('get_neighbors', {
@@ -57,7 +58,7 @@ async function main(): Promise<void> {
       limit: z.number().int().min(1).max(100).optional().describe('Max results per direction (default 50)'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(getNeighbors(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(getNeighbors(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('resolve_mention', {
@@ -68,7 +69,7 @@ async function main(): Promise<void> {
       context: z.string().optional().describe('Optional surrounding text for disambiguation'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(resolveMention(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(resolveMention(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('validate_annotation', {
@@ -93,7 +94,7 @@ async function main(): Promise<void> {
       })).describe('Array of annotations to validate'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(validateAnnotation(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(validateAnnotation(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('suggest_refs_for_text', {
@@ -104,7 +105,7 @@ async function main(): Promise<void> {
       mode: z.enum(['didactic', 'definition', 'task', 'explanation']).describe('Content mode'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(suggestRefsForText(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(suggestRefsForText(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('classify_addition', {
@@ -116,7 +117,7 @@ async function main(): Promise<void> {
       nearest_refs: z.array(z.string()).optional().describe('Known nearby refs for context'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(classifyAddition(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(classifyAddition(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('create_proposal_draft', {
@@ -129,7 +130,7 @@ async function main(): Promise<void> {
       source_doc_id: z.string().optional().describe('Source document ID'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(createProposalDraft(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(createProposalDraft(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('bootstrap_document', {
@@ -141,11 +142,11 @@ async function main(): Promise<void> {
       mode: z.enum(['didactic', 'definition', 'task', 'explanation']).describe('Content mode'),
     },
   }, async (args) => ({
-    content: [{ type: 'text' as const, text: JSON.stringify(bootstrapDocument(index, args), null, 2) }],
+    content: [{ type: 'text' as const, text: JSON.stringify(bootstrapDocument(indexRef.current, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
-  registerResources(server, index);
+  registerResources(server, indexRef.current);
   registerPrompts(server);
 
   process.stderr.write('[ontology-mcp] All tools, resources, and prompts registered. Connecting stdio transport...\n');

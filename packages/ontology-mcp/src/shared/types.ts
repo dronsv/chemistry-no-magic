@@ -64,6 +64,10 @@ export interface OntologyIndex {
   relations: RelationsIndex;
 }
 
+export interface IndexRef {
+  current: OntologyIndex;
+}
+
 export type AdditionType =
   | 'alias_addition'
   | 'overlay_addition'
