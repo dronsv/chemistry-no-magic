@@ -16,6 +16,7 @@ import { coverageReport } from './tools/write/coverage-report.js';
 import { addTranslation } from './tools/write/translation.js';
 import { addRelation } from './tools/write/relation.js';
 import { addSubstance, updateSubstance } from './tools/write/substance.js';
+import { addConcept, updateConcept } from './tools/write/concept.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -235,6 +236,49 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await updateSubstance(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_concept', {
+    description: 'Add a new concept to concepts.json. Medium-risk: admission metadata recommended.',
+    inputSchema: {
+      ref: z.string().describe('Concept ref with prefix: cls:, concept:, prop:, rxtype:, rxfacet:'),
+      kind: z.string().describe('substance_class, element_group, reaction_type, reaction_facet, domain_concept, process, property'),
+      parent_id: z.string().nullable().optional().describe('Parent concept ref'),
+      order: z.number().optional().describe('Display order'),
+      filters: z.record(z.unknown()).optional(),
+      examples: z.array(z.object({ kind: z.string(), id: z.string() })).optional(),
+      children_order: z.array(z.string()).optional(),
+      classification_facets: z.array(z.object({
+        facet_ref: z.string(),
+        children: z.array(z.string()),
+      })).optional(),
+      admission: z.object({
+        reason: z.string(),
+        nearest_existing_refs: z.array(z.string()).optional(),
+        non_redundancy_note: z.string().optional(),
+      }).optional().describe('Semantic guard: recommended to justify why this concept is needed'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addConcept(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_concept', {
+    description: 'Update fields on an existing concept in concepts.json.',
+    inputSchema: {
+      ref: z.string().describe('Concept ref'),
+      kind: z.string().optional(),
+      parent_id: z.string().nullable().optional(),
+      order: z.number().optional(),
+      filters: z.record(z.unknown()).optional(),
+      examples: z.array(z.object({ kind: z.string(), id: z.string() })).optional(),
+      children_order: z.array(z.string()).optional(),
+      classification_facets: z.array(z.object({
+        facet_ref: z.string(),
+        children: z.array(z.string()),
+      })).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateConcept(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
