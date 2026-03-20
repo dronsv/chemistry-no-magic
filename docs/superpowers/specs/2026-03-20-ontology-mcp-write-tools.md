@@ -147,7 +147,7 @@ Actual reaction entry format is rich and multi-layered:
 ```
 
 `add_reaction`:
-- Input: `reaction_id` (string), `equation` (string), `type_tags` (string[]), `molecular` (object with `reactants` and `products` arrays of `{ formula, coeff }`), `phase?` (object), `conditions?` (object), `driving_forces?` (string[]), `ionic?` (object), `observations?` (object), `rate_tips?` (object), `heat_effect?` (string), `safety_notes?` (array), `competencies?` (string[]), `template_id?` (string), `schema_version?` (number, default 1)
+- Input: `reaction_id` (string), `equation` (string), `type_tags` (string[]), `molecular` (object with `reactants` and `products` arrays of `{ formula, coeff }`), `phase?` (object), `conditions?` (object), `driving_forces?` (string[]), `ionic?` (object), `observations?` (object), `rate_tips?` (object), `heat_effect?` (string), `safety_notes?` (array), `competencies?` (Record<string, string>, e.g. `{ "reactions_exchange": "P", "reaction_energy_profile": "S" }`), `template_id?` (string), `schema_version?` (number, default 2)
 - Behavior: Reads array, checks no duplicate `reaction_id`, appends, writes back.
 - Validation: `reaction_id` must be unique; `molecular.reactants` and `molecular.products` must each have at least one entry.
 - Returns: `{ reaction_id, status: "created" }`
@@ -179,7 +179,7 @@ Actual formula entries have a rich structure with AST-based expressions:
 ```
 
 `add_formula`:
-- Input: `id` (string, e.g. "formula:ideal_gas"), `kind` (string), `domain` (string), `school_grade` (number[]), `variables` (array of `{ symbol, quantity, unit, role }`), `expression` (object — AST node), `result_variable` (string), `invertible_for?` (string[]), `inversions?` (object), `constants_used?` (string[]), `prerequisite_formulas?` (string[]), `used_by_solvers?` (string[])
+- Input: `id` (string, e.g. "formula:ideal_gas"), `kind` (string), `domain` (string), `school_grade` (number[]), `variables` (array of `{ symbol, display_symbol?, quantity, unit, role }`), `expression` (object — AST node), `result_variable` (string), `invertible_for?` (string[]), `inversions?` (object), `constants_used?` (string[]), `prerequisite_formulas?` (string[]), `used_by_solvers?` (string[])
 - Behavior: Array append, duplicate check by `id`.
 - Returns: `{ ref: "{id}", status: "created" }`
 
