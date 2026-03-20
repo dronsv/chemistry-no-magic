@@ -15,6 +15,7 @@ import { listEntities } from './tools/write/list-entities.js';
 import { coverageReport } from './tools/write/coverage-report.js';
 import { addTranslation } from './tools/write/translation.js';
 import { addRelation } from './tools/write/relation.js';
+import { addSubstance, updateSubstance } from './tools/write/substance.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -202,6 +203,38 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await addRelation(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_substance', {
+    description: 'Create a new substance in data-src/substances/{id}.json. Fails if file already exists.',
+    inputSchema: {
+      id: z.string().describe('Short ID without prefix, e.g. "hcl" (stored as "sub:hcl")'),
+      formula: z.string().describe('Chemical formula with Unicode subscripts/superscripts'),
+      class: z.string().describe('Substance class, e.g. "acid", "salt", "oxide"'),
+      subclass: z.string().optional().describe('Subclass, e.g. "strong_acid", "amphoteric"'),
+      ions: z.array(z.string()).optional().describe('Ion refs, e.g. ["ion:H_plus", "ion:Cl_minus"]'),
+      tags: z.array(z.string()).optional().describe('Free-form tags'),
+      phase_standard: z.enum(['g', 'l', 's', 'aq']).optional().describe('Standard aggregate state'),
+      characteristics: z.record(z.unknown()).optional().describe('Typed characteristics keyed by concept ref'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addSubstance(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_substance', {
+    description: 'Update fields on an existing substance. Shallow-merges provided fields.',
+    inputSchema: {
+      id: z.string().describe('Short ID without prefix, e.g. "hcl"'),
+      formula: z.string().optional(),
+      class: z.string().optional(),
+      subclass: z.string().optional(),
+      ions: z.array(z.string()).optional(),
+      tags: z.array(z.string()).optional(),
+      phase_standard: z.enum(['g', 'l', 's', 'aq']).optional(),
+      characteristics: z.record(z.unknown()).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateSubstance(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
