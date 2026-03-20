@@ -1,7 +1,7 @@
 # Ontology MCP Write Tools
 
 **Date**: 2026-03-20
-**Status**: Draft
+**Status**: Draft (rev 2 — post-review fixes)
 
 ## Problem
 
@@ -55,6 +55,7 @@ readJsonFile(path: string): Promise<unknown>
 writeJsonFile(path: string, data: unknown): Promise<void>
 
 // Validate ref format: "prefix:id" where prefix matches expected kind
+// Valid prefixes: sub:, ion:, el:, cls:, concept:, prop:, rxtype:, rxfacet:, formula:, process:, effect:
 validateRef(ref: string, expectedPrefix: string): { valid: boolean; id: string; error?: string }
 
 // Resolve data-src path for a given kind
@@ -64,9 +65,17 @@ resolveDataPath(dataSrcRoot: string, kind: EntityKind): string
 rebuildIndex(): Promise<OntologyIndex>
 ```
 
-**Index rebuild**: After each write, `buildOntologyIndex()` is called and the reference swapped. All files are local so this is fast. Prevents stale cache bugs.
+**Index rebuild**: The current server stores the index as `const index` in `index.ts`. To support mutable swaps, change to a wrapper: `const indexRef = { current: await buildOntologyIndex() }`. All tool closures receive `indexRef` (stable reference); `rebuildIndex()` replaces `indexRef.current`. Existing read tools change from `index` to `indexRef.current` — a mechanical find-and-replace.
 
 **JSON formatting**: `JSON.stringify(data, null, 2) + '\n'` — matches existing file style.
+
+### Indexer Extensions
+
+The current `build-index.ts` does not load process vocab or effects vocab entries. Before write tools can add these kinds and have them appear in search/coverage:
+
+- Add a step in `buildOntologyIndex()` to load `process_vocab.json` → create `process:{id}` entities
+- Add a step to load `effects_vocab.json` → create `effect:{id}` entities
+- Add `element_group` to KINDS_DESC (currently omitted)
 
 ## Tool Specifications
 
@@ -78,10 +87,12 @@ Each entity kind uses one of three storage strategies.
 
 **Substance** (`data-src/substances/{id}.json`)
 
+Substance IDs in the data include the `sub:` prefix (e.g. `"sub:hcl"`). The file is named by the short ID (e.g. `hcl.json`).
+
 `add_substance`:
-- Input: `id` (string), `formula` (string), `class` (string), `subclass?`, `ions?` (string[]), `tags?` (string[]), `phase_standard?` ("g"|"l"|"s"|"aq"), `characteristics?` (object)
-- Behavior: Creates `substances/{id}.json`. Fails if file already exists.
-- Validation: `id` must be lowercase alphanumeric + underscores; `class` must match a known `cls:*` concept; `ions` refs must exist in index.
+- Input: `id` (string, e.g. "hcl" — without `sub:` prefix), `formula` (string), `class` (string), `subclass?`, `ions?` (string[]), `tags?` (string[]), `phase_standard?` ("g"|"l"|"s"|"aq"), `characteristics?` (object)
+- Behavior: Creates `substances/{id}.json` with `"id": "sub:{id}"`. Fails if file already exists.
+- Validation: `id` must be lowercase alphanumeric + underscores; `class` must match a known `cls:*` concept; `ions` refs must exist in index (warning if not).
 - Returns: `{ ref: "sub:{id}", path: "substances/{id}.json", status: "created" }`
 
 `update_substance`:
@@ -93,68 +104,107 @@ Each entity kind uses one of three storage strategies.
 
 **Ion** (`data-src/ions.json`)
 
+Actual ion entry format: `{ id: "ion:H_plus", formula: "H⁺", type: "cation"|"anion", tags: string[], characteristics: { "concept:ion_charge": { value: number, unit: "unit:elementary_charge" } } }`
+
 `add_ion`:
-- Input: `id` (string, e.g. "Na_plus"), `formula` (string), `charge` (number), `type` ("cation"|"anion"), `elements?` (string[])
+- Input: `id` (string, e.g. "ion:H_plus" — full ref), `formula` (string), `type` ("cation"|"anion"), `tags?` (string[]), `characteristics?` (object, e.g. `{ "concept:ion_charge": { value: 1, unit: "unit:elementary_charge" } }`)
 - Behavior: Reads ions array, checks no duplicate `id`, appends entry, writes back.
-- Validation: `id` must be unique; `charge` must match `type` (positive→cation, negative→anion).
-- Returns: `{ ref: "ion:{id}", index: <position>, status: "created" }`
+- Validation: `id` must start with `ion:`; `id` must be unique in array.
+- Returns: `{ ref: "{id}", index: <position>, status: "created" }`
 
 `update_ion`:
-- Input: `id` (string), plus any fields from add_ion (all optional)
+- Input: `id` (string, full ref), plus any fields from add_ion (all optional)
 - Behavior: Finds entry by `id` in array, merges fields, writes back. Fails if not found.
-- Returns: `{ ref: "ion:{id}", updated_fields: [...], status: "updated" }`
+- Returns: `{ ref: "{id}", updated_fields: [...], status: "updated" }`
 
 **Reaction** (`data-src/reactions/reactions.json`)
 
+Actual reaction entry format is rich and multi-layered:
+```json
+{
+  "reaction_id": "rx_neutral_01_hcl_naoh",
+  "equation": "HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)",
+  "phase": { "medium": "aq", "note_key": "aqueous" },
+  "conditions": { "temperature": "room" },
+  "type_tags": ["exchange", "neutralization"],
+  "driving_forces": ["water_formation", "weak_electrolyte_formation"],
+  "molecular": {
+    "reactants": [{ "formula": "HCl", "coeff": 1 }],
+    "products": [{ "formula": "NaCl", "coeff": 1 }]
+  },
+  "ionic": {
+    "full": "...", "net": "...",
+    "spectators": ["ion:Na_plus", "ion:Cl_minus"]
+  },
+  "observations": { ... },
+  "rate_tips": { ... },
+  "heat_effect": "exo"|"endo"|"neutral",
+  "safety_notes": [...],
+  "competencies": [...],
+  "template_id": "...",
+  "schema_version": 1
+}
+```
+
 `add_reaction`:
-- Input: `id` (string), `equation` (string), `type` ("exchange"|"redox"|"decomposition"|"synthesis"|"combustion"), `reactants` (string[]), `products` (string[]), `conditions?`, `tags?`
-- Behavior: Reads array, checks no duplicate `id`, appends, writes back.
-- Validation: `reactants` and `products` refs should exist in index (warning if not, not hard fail — substance may be added later).
-- Returns: `{ ref: "rxn:{id}", status: "created" }`
+- Input: `reaction_id` (string), `equation` (string), `type_tags` (string[]), `molecular` (object with `reactants` and `products` arrays of `{ formula, coeff }`), `phase?` (object), `conditions?` (object), `driving_forces?` (string[]), `ionic?` (object), `observations?` (object), `rate_tips?` (object), `heat_effect?` (string), `safety_notes?` (array), `competencies?` (string[]), `template_id?` (string), `schema_version?` (number, default 1)
+- Behavior: Reads array, checks no duplicate `reaction_id`, appends, writes back.
+- Validation: `reaction_id` must be unique; `molecular.reactants` and `molecular.products` must each have at least one entry.
+- Returns: `{ reaction_id, status: "created" }`
 
 `update_reaction`:
-- Input: `id`, plus any fields (all optional)
-- Behavior: Find by `id`, merge, write back.
+- Input: `reaction_id`, plus any fields (all optional)
+- Behavior: Find by `reaction_id`, deep-merge, write back. Fails if not found.
 
 **Formula** (`data-src/foundations/formulas.json`)
 
+Actual formula entries have a rich structure with AST-based expressions:
+```json
+{
+  "id": "formula:molar_mass_from_composition",
+  "kind": "definition",
+  "domain": "stoichiometry",
+  "school_grade": [8],
+  "variables": [
+    { "symbol": "M", "quantity": "q:molar_mass", "unit": "unit:g_per_mol", "role": "result" }
+  ],
+  "expression": { "op": "sum", "over": "i", "term": { "op": "multiply", "operands": ["Ar_i", "count_i"] } },
+  "result_variable": "M",
+  "invertible_for": [],
+  "inversions": {},
+  "constants_used": [],
+  "prerequisite_formulas": [],
+  "used_by_solvers": ["solver.molar_mass"]
+}
+```
+
 `add_formula`:
-- Input: `id` (string), `expression` (string), `concept_refs?` (string[]), `variables?` (object[])
+- Input: `id` (string, e.g. "formula:ideal_gas"), `kind` (string), `domain` (string), `school_grade` (number[]), `variables` (array of `{ symbol, quantity, unit, role }`), `expression` (object — AST node), `result_variable` (string), `invertible_for?` (string[]), `inversions?` (object), `constants_used?` (string[]), `prerequisite_formulas?` (string[]), `used_by_solvers?` (string[])
 - Behavior: Array append, duplicate check by `id`.
-- Returns: `{ ref: "formula:{id}", status: "created" }`
+- Returns: `{ ref: "{id}", status: "created" }`
 
 `update_formula`:
 - Input: `id`, plus any fields (all optional)
 
-#### Strategy 3: Object-Based Files
-
-**Concept** (`data-src/concepts.json`)
-
-`add_concept`:
-- Input: `ref` (string, e.g. "cls:oxide_basic" or "concept:electronegativity"), `kind` ("substance_class"|"element_group"|"reaction_type"|"reaction_facet"|"domain_concept"|"process"|"property"), `parent_id?` (string), `order?` (number), `filters?` (object), `examples?` (object[]), `children_order?` (string[])
-- Behavior: Reads concepts object, checks key doesn't exist, adds entry, writes back.
-- Validation: `ref` must have valid prefix; `parent_id` if provided must exist in concepts.
-- Returns: `{ ref, status: "created" }`
-
-`update_concept`:
-- Input: `ref`, plus any fields (all optional)
-- Behavior: Find by key, merge, write back. Fails if not found.
-
 **Process** (`data-src/process_vocab.json`)
 
+This is an **array** file, not an object. Actual format: `{ id, kind, params?, parent?, effects? }`
+
 `add_process`:
-- Input: `id` (string), `kind` ("chemical"|"driving_force"|"physical"|"operation"|"constraint")
-- Behavior: Reads object, checks key doesn't exist, adds entry.
+- Input: `id` (string), `kind` ("chemical"|"driving_force"|"physical"|"operation"|"constraint"), `params?` (string[]), `parent?` (string), `effects?` (array of string or `{ id, when }` objects)
+- Behavior: Reads array, checks no duplicate `id`, appends entry, writes back.
 - Returns: `{ ref: "process:{id}", status: "created" }`
 
 `update_process`:
-- Input: `id`, `kind?`
+- Input: `id`, plus any fields (all optional)
 
 **Effect** (`data-src/effects_vocab.json`)
 
+This is an **array** file. Actual format: `{ id, category }`
+
 `add_effect`:
 - Input: `id` (string), `category` ("kinetic"|"thermodynamic"|"mass_transfer"|"phase")
-- Behavior: Object insert, duplicate check.
+- Behavior: Reads array, checks no duplicate `id`, appends entry, writes back.
 - Returns: `{ ref: "effect:{id}", status: "created" }`
 
 `update_effect`:
@@ -162,32 +212,71 @@ Each entity kind uses one of three storage strategies.
 
 **Rule Term** (`data-src/vocab/rule_terms.json`)
 
+This is a **flat string array** (e.g. `["condition:heating", "product:precipitate", ...]`), not an object or array of objects.
+
 `add_rule_term`:
-- Input: `id` (string), `namespace` (string), `concept_ref?` (string)
-- Behavior: Object insert, duplicate check.
-- Returns: `{ id, status: "created" }`
+- Input: `term` (string, e.g. "condition:cooling" — namespaced string)
+- Behavior: Reads string array, checks for duplicates, appends, writes back sorted.
+- Returns: `{ term, status: "created" }`
 
 `update_rule_term`:
-- Input: `id`, plus any fields (all optional)
+- Input: `old_term` (string), `new_term` (string)
+- Behavior: Finds and replaces the string. Fails if `old_term` not found.
+- Returns: `{ old_term, new_term, status: "updated" }`
 
 **Property** (`data-src/rules/properties.json`)
 
+This is an **array** file. Actual format:
+```json
+{
+  "id": "electronegativity",
+  "value_field": "electronegativity",
+  "object": "element",
+  "unit": null,
+  "trend_hint": { "period": "increases", "group": "decreases" },
+  "filter": { "min_Z": 1, "max_Z": 86, "exclude_groups": [18] },
+  "concept_ref": "concept:electronegativity",
+  "i18n": {
+    "ru": { "nom": "электроотрицательность", "gen": "электроотрицательности" },
+    "en": { "name": "electronegativity" },
+    "pl": { "name": "elektroujemność" },
+    "es": { "name": "electronegatividad" }
+  }
+}
+```
+
+Note: Properties have inline `i18n` (unlike most entities which use translation overlays). This is a legacy pattern that may be migrated later.
+
 `add_property`:
-- Input: `id` (string), `concept_ref` (string), `default_unit` (string), `value_type` ("number"|"string"|"boolean"), `conditions?` (object)
-- Behavior: Object/array insert (depending on file format), duplicate check.
+- Input: `id` (string), `value_field` (string), `object` ("element"|"substance"|"ion"), `unit` (string|null), `concept_ref` (string), `trend_hint?` (object), `filter?` (object), `i18n` (object with per-locale name/forms), `explanation_concept_ref?` (string), `conditions_schema?` (object)
+- Behavior: Reads array, checks no duplicate `id`, appends, writes back.
 - Returns: `{ ref: "prop:{id}", status: "created" }`
 
 `update_property`:
 - Input: `id`, plus any fields (all optional)
+
+#### Strategy 3: Object-Based Files
+
+**Concept** (`data-src/concepts.json`)
+
+`add_concept`:
+- Input: `ref` (string, e.g. "cls:oxide_basic" or "concept:electronegativity"), `kind` ("substance_class"|"element_group"|"reaction_type"|"reaction_facet"|"domain_concept"|"process"|"property"), `parent_id?` (string), `order?` (number), `filters?` (object), `examples?` (object[]), `children_order?` (string[]), `classification_facets?` (array of `{ facet_ref, children }`)
+- Behavior: Reads concepts object, checks key doesn't exist, adds entry, writes back.
+- Validation: `ref` must have valid prefix (`cls:`, `concept:`, `prop:`, `rxtype:`, `rxfacet:`); `parent_id` if provided must exist in concepts.
+- Returns: `{ ref, status: "created" }`
+
+`update_concept`:
+- Input: `ref`, plus any fields (all optional)
+- Behavior: Find by key, merge, write back. Fails if not found.
 
 #### Embedded Kind
 
 **Characteristic** (inside `data-src/substances/{substance_id}.json`)
 
 `add_characteristic`:
-- Input: `substance_id` (string), `concept_ref` (string), `value` (number|string), `unit` (string), `conditions?` (object), `source?` (string), `explanation?` (string)
+- Input: `substance_id` (string, short ID without `sub:` prefix), `concept_ref` (string), `value` (number|string), `unit` (string), `conditions?` (object), `source?` (string), `explanation?` (string)
 - Behavior: Reads substance file, adds to `characteristics[concept_ref]`. Fails if that characteristic already exists on the substance.
-- Validation: substance file must exist; `concept_ref` should be a known property/concept.
+- Validation: substance file must exist; `concept_ref` should be a known property/concept (warning if not).
 - Returns: `{ substance_ref: "sub:{substance_id}", concept_ref, status: "created" }`
 
 `update_characteristic`:
@@ -203,7 +292,11 @@ Writes to `data-src/translations/{locale}/{data_key}.json`.
 Input:
 - `locale`: `"ru"` | `"en"` | `"pl"` | `"es"`
 - `data_key`: overlay file name — `"substances"`, `"ions"`, `"concepts"`, `"elements"`, `"process_vocab"`, `"effects_vocab"`, `"competencies"`, `"rule_terms"`, `"properties"`, etc.
-- `entity_id`: the key within the overlay file (e.g. `"hcl"` for substances, `"ion:H_plus"` for ions, `"cls:oxide"` for concepts)
+- `entity_id`: the key within the overlay file. **Key conventions vary by kind:**
+  - Substances: short ID without prefix (e.g. `"hcl"`)
+  - Ions: full ref (e.g. `"ion:H_plus"`)
+  - Concepts: full ref (e.g. `"cls:oxide"`)
+  - Elements: bare symbol (e.g. `"Na"`)
 - `fields`: object with translated fields (`name`, `description`, `surface_forms?`, `forms?`, etc.)
 
 Behavior:
@@ -244,14 +337,14 @@ Behavior:
 
 Validation:
 - `subject` and `object` refs should exist in the index (warning if not).
-- `predicate` should match known predicates from `relation_schema.json` (warning if new predicate).
+- `predicate` is checked against predicates found in existing relation files (warning if new predicate — not a hard error, since new predicates are valid).
 
 Returns: `{ file, added: <count>, skipped_duplicates: <count>, status: "updated" }`
 
 #### `list_entities`
 
 Input:
-- `kind`: one of the 12 OntRefKind values, or `"all"`
+- `kind`: one of the OntRefKind values (`element`, `substance`, `ion`, `concept`, `substance_class`, `element_group`, `reaction_type`, `reaction_facet`, `domain_concept`, `formula`, `process`, `property`), or `"all"`
 - `limit?`: max results (default 100, max 500)
 - `offset?`: for pagination (default 0)
 
@@ -281,7 +374,8 @@ Returns:
     { type: "missing_conjugate", ref: "sub:hcl", detail: "acid with no conjugate_base relation" },
     { type: "dangling_ion_ref", ref: "sub:nacl", detail: "references ion:Na_plus which is missing" },
     { type: "no_characteristics", ref: "sub:h2o2" },
-    { type: "concept_no_examples", ref: "cls:amphoteric_oxide" }
+    { type: "concept_no_examples", ref: "cls:amphoteric_oxide" },
+    { type: "orphaned_ion", ref: "ion:XY_minus", detail: "not referenced by any substance" }
   ]
 }
 ```
@@ -302,11 +396,13 @@ Tool call received
   → read file from data-src/
   → modify in memory
   → write file back to data-src/
-  → call rebuildIndex()
+  → call rebuildIndex() → replaces indexRef.current
   → return result
 ```
 
-The `rebuildIndex()` call after each write ensures the in-memory `OntologyIndex` stays consistent. All existing read tools (search, get_entity, get_neighbors, etc.) immediately see the new data.
+The `rebuildIndex()` call after each write ensures the in-memory `OntologyIndex` stays consistent. All existing read tools (search, get_entity, get_neighbors, etc.) immediately see the new data via `indexRef.current`.
+
+**Prerequisite**: Refactor `index.ts` from `const index = await buildOntologyIndex()` to `const indexRef = { current: await buildOntologyIndex() }`. All tool closures switch from `index` to `indexRef.current`. This is a mechanical change.
 
 ## Error Handling
 
@@ -322,6 +418,10 @@ Warnings (non-fatal) are returned alongside success:
 { status: "created", warnings: ["ion:XY_plus not found in index — may not exist yet"] }
 ```
 
+## Concurrency
+
+Single-user scenario expected. If concurrent tool calls modify the same file, last-write-wins. For safety, each write tool reads the file immediately before modification (no caching). If concurrent writes become an issue, a simple per-file advisory lock can be added later.
+
 ## Testing Strategy
 
 Per-module unit tests in `packages/ontology-mcp/src/__tests__/write/`:
@@ -335,3 +435,4 @@ Per-module unit tests in `packages/ontology-mcp/src/__tests__/write/`:
 - `find_similar` — semantic similarity across entity pairs (structural + label + graph signals)
 - `suggest_relations` — propose missing relations based on shared characteristics, common ions, class patterns
 - Batch operations — `add_substances` (plural) for bulk enrichment
+- Migrate property `i18n` inline fields to translation overlays
