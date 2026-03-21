@@ -35,6 +35,31 @@ describe('suggestRefsForText', () => {
     expect(r.mentions.some(m => m.candidates.some(c => c.ref === 'cls:acid'))).toBe(true);
   });
 
+  it('detects multi-word concept names (n-gram matching)', () => {
+    const r = suggestRefsForText(index, {
+      text: 'Ионная связь возникает при переносе электронов',
+      material_language: 'ru',
+      mode: 'didactic',
+    });
+    const refs = r.mentions.flatMap(m => m.candidates.map(c => c.ref));
+    expect(refs).toContain('concept:ionic_bond');
+  });
+
+  it('prefers longer n-gram match over single word', () => {
+    const r = suggestRefsForText(index, {
+      text: 'Ковалентная полярная связь образуется между неметаллами',
+      material_language: 'ru',
+      mode: 'didactic',
+    });
+    // Should match "ковалентная полярная связь" as a trigram, not three separate words
+    const ionicRef = r.mentions.find(m =>
+      m.candidates.some(c => c.ref === 'concept:covalent_polar_bond')
+    );
+    expect(ionicRef).toBeDefined();
+    // The matched text should be the full phrase, not a single word
+    expect(ionicRef!.text.split(/\s+/).length).toBeGreaterThanOrEqual(2);
+  });
+
   it('returns mentions sorted by position', () => {
     const r = suggestRefsForText(index, {
       text: 'Na и Cl образуют NaCl',

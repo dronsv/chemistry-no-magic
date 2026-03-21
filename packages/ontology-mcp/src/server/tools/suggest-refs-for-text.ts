@@ -72,17 +72,49 @@ export function suggestRefsForText(
     }
   }
 
-  // Pass 3: Word/phrase matches against alias index
+  // Pass 3: Multi-word n-gram matching (bigrams, trigrams) against alias index.
+  // Surface forms like "ионная связь", "общая электронная пара" are multi-word entries
+  // in the alias index. We must try n-grams before single words (longest match wins).
+  const wordTokens: Array<{ text: string; start: number; end: number }> = [];
   for (const match of text.matchAll(WORD_RE)) {
     if (match.index === undefined) continue;
-    const word = match[0];
-    if (word.length < 2) continue;
-    if (isOverlapping(match.index, match.index + word.length)) continue;
+    if (match[0].length < 2) continue;
+    wordTokens.push({ text: match[0], start: match.index, end: match.index + match[0].length });
+  }
 
-    const result = searchEntities(index, { query: word, limit: 3 });
+  // Try trigrams first, then bigrams — longest match wins
+  for (const n of [3, 2]) {
+    for (let i = 0; i <= wordTokens.length - n; i++) {
+      const span = wordTokens.slice(i, i + n);
+      const startPos = span[0].start;
+      const endPos = span[n - 1].end;
+      if (isOverlapping(startPos, endPos)) continue;
+
+      // Only try if the gap between tokens is reasonable (< 3 chars, i.e. just spaces)
+      let gapOk = true;
+      for (let j = 1; j < span.length; j++) {
+        if (span[j].start - span[j - 1].end > 2) { gapOk = false; break; }
+      }
+      if (!gapOk) continue;
+
+      const phrase = span.map(t => t.text).join(' ');
+      const result = searchEntities(index, { query: phrase, limit: 3 });
+      const strong = result.candidates.filter(c => c.score >= 0.9);
+      if (strong.length > 0) {
+        const originalText = text.slice(startPos, endPos);
+        addMention(originalText, startPos, strong);
+      }
+    }
+  }
+
+  // Pass 4: Single-word matches (only if not already covered by n-gram)
+  for (const token of wordTokens) {
+    if (isOverlapping(token.start, token.end)) continue;
+
+    const result = searchEntities(index, { query: token.text, limit: 3 });
     const strong = result.candidates.filter(c => c.score >= 0.9);
     if (strong.length > 0) {
-      addMention(word, match.index, strong);
+      addMention(token.text, token.start, strong);
     }
   }
 
@@ -90,14 +122,12 @@ export function suggestRefsForText(
 
   // Identify unresolved spans: words with partial matches (0.3 <= score < 0.9)
   const unresolved_spans: Array<{ text: string; start: number; end: number }> = [];
-  for (const match of text.matchAll(WORD_RE)) {
-    if (match.index === undefined) continue;
-    const word = match[0];
-    if (word.length < 3) continue;
-    if (isOverlapping(match.index, match.index + word.length)) continue;
-    const result = searchEntities(index, { query: word, limit: 1 });
+  for (const token of wordTokens) {
+    if (token.text.length < 3) continue;
+    if (isOverlapping(token.start, token.end)) continue;
+    const result = searchEntities(index, { query: token.text, limit: 1 });
     if (result.candidates.length > 0 && result.candidates[0].score >= 0.3 && result.candidates[0].score < 0.9) {
-      unresolved_spans.push({ text: word, start: match.index, end: match.index + word.length });
+      unresolved_spans.push({ text: token.text, start: token.start, end: token.end });
     }
   }
 
