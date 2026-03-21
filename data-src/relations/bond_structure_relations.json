@@ -1,0 +1,117 @@
+[
+  {
+    "subject": "concept:ionic_bond",
+    "predicate": "has_parent",
+    "object": "concept:chemical_bond",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:covalent_bond",
+    "predicate": "has_parent",
+    "object": "concept:chemical_bond",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:covalent_polar_bond",
+    "predicate": "has_parent",
+    "object": "concept:covalent_bond",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:covalent_nonpolar_bond",
+    "predicate": "has_parent",
+    "object": "concept:covalent_bond",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:metallic_bond",
+    "predicate": "has_parent",
+    "object": "concept:chemical_bond",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+
+  {
+    "subject": "concept:ionic_crystal_lattice",
+    "predicate": "applies_to",
+    "object": "concept:solid_phase",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "derived"
+  },
+  {
+    "subject": "concept:molecular_crystal_lattice",
+    "predicate": "applies_to",
+    "object": "concept:solid_phase",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "derived"
+  },
+  {
+    "subject": "concept:atomic_crystal_lattice",
+    "predicate": "applies_to",
+    "object": "concept:solid_phase",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "derived"
+  },
+  {
+    "subject": "concept:metallic_crystal_lattice",
+    "predicate": "applies_to",
+    "object": "concept:solid_phase",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "derived"
+  },
+
+  {
+    "subject": "concept:ionic_bond",
+    "predicate": "associated_lattice",
+    "object": "concept:ionic_crystal_lattice",
+    "knowledge_level": "school_convention",
+    "source_kind": "school_textbook_ru"
+  },
+  {
+    "subject": "concept:covalent_nonpolar_bond",
+    "predicate": "associated_lattice",
+    "object": "concept:atomic_crystal_lattice",
+    "knowledge_level": "school_convention",
+    "source_kind": "school_textbook_ru"
+  },
+  {
+    "subject": "concept:metallic_bond",
+    "predicate": "associated_lattice",
+    "object": "concept:metallic_crystal_lattice",
+    "knowledge_level": "school_convention",
+    "source_kind": "school_textbook_ru"
+  },
+
+  {
+    "subject": "concept:ionic_bond",
+    "predicate": "involves",
+    "object": "concept:electron_transfer",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:covalent_bond",
+    "predicate": "involves",
+    "object": "concept:shared_electron_pair",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:covalent_polar_bond",
+    "predicate": "involves",
+    "object": "concept:partial_charge",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  },
+  {
+    "subject": "concept:metallic_bond",
+    "predicate": "involves",
+    "object": "concept:delocalized_electron",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "IUPAC"
+  }
+]

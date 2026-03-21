@@ -37,7 +37,7 @@
 | **Solution Algorithms** | `data-src/exam/oge_solution_algorithms.json` + per-system | 6+ | 54 total | Active |
 | **Process Vocabulary** | `data-src/process_vocab.json` | 1 | 35 processes (5 kinds: chemical, driving_force, physical, operation, constraint) | Active |
 | **Effects Vocabulary** | `data-src/effects_vocab.json` | 1 | 13 effects (4 categories: kinetic, thermodynamic, mass_transfer, phase) | Active |
-| **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 22 quantities + 32 units | Active |
+| **Quantities & Units** | `data-src/quantities_units_ontology.json` | 1 | 47 quantities + 41 units | Active |
 | **Contexts** | `data-src/contexts/contexts.json` | 1 | 5 | Active |
 | **Substance Variants** | `data-src/contexts/substance_variants.json` | 1 | 5 | Active |
 | **Terms** | `data-src/contexts/terms.json` | 1 | 54 | Active |
@@ -54,7 +54,7 @@
 | **RU Morphology** | `data-src/translations/ru/morphology.json` | 1 | 43 elements + 8 properties (part of ru/ pack) | Active |
 | **Reaction Roles** | `data-src/reactions/reaction_roles.json` | 1 | 11 roles, 162 participants | Active |
 | **Theory Modules** | `data-src/theory_modules/*.json` | 6 | bonds_and_crystals, oxidation_states, calculations, classification_inorganic, ion_nomenclature, reaction_types | Active |
-| **Relations Graph** | `data-src/relations/*.json` | 4 | acid_base_relations (42), ion_roles (27), has_naming_rule (22), relation_schema | Active |
+| **Relations Graph** | `data-src/relations/*.json` | 5 | acid_base_relations (42), ion_roles (27), has_naming_rule (22), bond_structure_relations (16), relation_schema | Active |
 | **Rule Vocab** | `data-src/vocab/rule_terms.json` | 1 | 27 typed terms for rule text generation | Active |
 | **Rule Templates** | `data-src/templates/rule_summary_templates.json` | 1 | Templates per rule_kind × locale | Active |
 | **Electron Exception Frames** | `data-src/rules/electron_exception_frames.json` | 1 | 4 rule kinds (half_filled, full_filled, exchange_energy, energy_proximity) | Active |
@@ -65,7 +65,7 @@
 | **Medium States** | `data-src/rules/medium_states.json` | 1 | 3 states | Active |
 | **Periodic Trend Anomalies** | `data-src/rules/periodic_trend_anomalies.json` | 1 | 5 anomalies | Active |
 | **Reason Vocab** | `data-src/rules/reason_vocab.json` | 1 | 3 entries | Active |
-| **Concepts** | `data-src/concepts.json` | 1 | 52 (substance class taxonomy) | Active |
+| **Concepts** | `data-src/concepts.json` | 1 | 98 (substance classes, element groups, properties, reaction types, domain concepts incl. bond types, crystal lattices, mechanisms, phases) | Active |
 | **Foundations: Formulas** | `data-src/foundations/formulas.json` | 1 | 21 computable formulas | Active |
 | **Foundations: Constants** | `data-src/foundations/constants.json` | 1 | 5 physical constants | Active |
 | **Pinned Instances** | `data-src/engine/pinned_instances.json` | 1 | 6 exam-sourced fixed exercises | Active |
@@ -525,6 +525,7 @@ Knowledge graph triple store introduced in Phase A (commit a8ef33f, 2026-03-07).
 |------|------------|-------|
 | `data-src/relations/acid_base_relations.json` | `has_conjugate_base`, `has_conjugate_acid` | ~40 triples |
 | `data-src/relations/ion_roles.json` | `has_role` | ~26 triples |
+| `data-src/relations/bond_structure_relations.json` | `has_parent`, `applies_to`, `associated_lattice`, `involves` | 16 triples |
 
 ### Implemented Relations (Phase A)
 
@@ -533,6 +534,10 @@ Knowledge graph triple store introduced in Phase A (commit a8ef33f, 2026-03-07).
 | `has_conjugate_base` | acid/ion → ion | Brønsted-Lowry chains with `step` |
 | `has_conjugate_acid` | base/ion → acid | Reverse of above |
 | `has_role` | entity → role | Ampholyte, oxidizing/reducing agent, acid residue |
+| `has_parent` | concept → concept | Bond type hierarchy (e.g. ionic_bond → chemical_bond) |
+| `applies_to` | concept → concept | Crystal lattice types apply only to solid_phase |
+| `associated_lattice` | concept → concept | Bond type → typical crystal lattice type |
+| `involves` | concept → concept | Bond type → mechanism concept (e.g. ionic_bond → electron_transfer) |
 
 ### Planned Relations
 

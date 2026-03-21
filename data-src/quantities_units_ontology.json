@@ -399,6 +399,19 @@
       "recommended_units": [
         "unit:dimensionless"
       ]
+    },
+    {
+      "id": "q:electrical_conductivity",
+      "display_symbol": "σ",
+      "dimension": "I^2*T^3/(M*L^3)",
+      "recommended_units": [
+        "unit:S_per_m"
+      ],
+      "admission": {
+        "source": "guidelines_v1_section_14_21",
+        "reason": "quantity for bond/structure bridge; distinguishes lattice types by conductivity",
+        "added": "2026-03-21"
+      }
     }
   ],
   "units": [
@@ -728,6 +741,16 @@
       "dimension": "M*L^2/(T^2*N*Theta)",
       "to_SI": {
         "unit": "J_per_mol_K",
+        "factor": 1
+      }
+    },
+    {
+      "id": "unit:S_per_m",
+      "symbol": "S/m",
+      "quantity": "q:electrical_conductivity",
+      "dimension": "I^2*T^3/(M*L^3)",
+      "to_SI": {
+        "unit": "S_per_m",
         "factor": 1
       }
     }

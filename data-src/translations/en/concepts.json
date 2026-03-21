@@ -596,5 +596,123 @@
     "name": "By composition",
     "slug": "by-composition",
     "description": "Classification of salts by degree of hydrogen/hydroxide substitution"
+  },
+
+  "concept:chemical_bond": {
+    "name": "Chemical bond",
+    "slug": "chemical-bond",
+    "description": "An interaction between atoms that holds them together in molecules, crystals, and other structures. Types include ionic, covalent, and metallic bonds.",
+    "surface_forms": ["chemical bond", "chemical bonds", "bond"]
+  },
+  "concept:ionic_bond": {
+    "name": "Ionic bond",
+    "slug": "ionic-bond",
+    "description": "A bond formed by the electrostatic attraction between oppositely charged ions, created when electrons are transferred from a metal atom to a nonmetal atom.",
+    "surface_forms": ["ionic bond", "ionic bonds", "ionic bonding"]
+  },
+  "concept:covalent_bond": {
+    "name": "Covalent bond",
+    "slug": "covalent-bond",
+    "description": "A bond formed by the sharing of electron pairs between atoms. Can be polar or nonpolar depending on the electronegativity difference.",
+    "surface_forms": ["covalent bond", "covalent bonds", "covalent bonding"]
+  },
+  "concept:covalent_polar_bond": {
+    "name": "Polar covalent bond",
+    "slug": "polar-covalent-bond",
+    "description": "A covalent bond between atoms of different electronegativities, where the shared electron pair is shifted toward the more electronegative atom.",
+    "surface_forms": ["polar covalent bond", "polar covalent bonds", "polar bond"]
+  },
+  "concept:covalent_nonpolar_bond": {
+    "name": "Nonpolar covalent bond",
+    "slug": "nonpolar-covalent-bond",
+    "description": "A covalent bond between atoms of the same element, where the shared electron pair is distributed symmetrically.",
+    "surface_forms": ["nonpolar covalent bond", "nonpolar covalent bonds", "nonpolar bond"]
+  },
+  "concept:metallic_bond": {
+    "name": "Metallic bond",
+    "slug": "metallic-bond",
+    "description": "A bond in metals and alloys formed by the sharing of valence electrons that move freely among metal cations in a crystal lattice.",
+    "surface_forms": ["metallic bond", "metallic bonds", "metallic bonding"]
+  },
+
+  "concept:ionic_crystal_lattice": {
+    "name": "Ionic crystal lattice",
+    "slug": "ionic-crystal-lattice",
+    "description": "A crystal lattice with alternating cations and anions at lattice points. Typical for salts, bases, and metal oxides. Substances have high melting and boiling points.",
+    "surface_forms": ["ionic crystal lattice", "ionic lattice", "ionic crystal structure"]
+  },
+  "concept:molecular_crystal_lattice": {
+    "name": "Molecular crystal lattice",
+    "slug": "molecular-crystal-lattice",
+    "description": "A crystal lattice with molecules at lattice points, held together by weak intermolecular forces. Substances have low melting points and are volatile.",
+    "surface_forms": ["molecular crystal lattice", "molecular lattice", "molecular crystal structure"]
+  },
+  "concept:atomic_crystal_lattice": {
+    "name": "Atomic crystal lattice",
+    "slug": "atomic-crystal-lattice",
+    "description": "A crystal lattice with atoms at lattice points, connected by strong covalent bonds. Substances (diamond, silicon, SiO2) are very hard, refractory, and insoluble.",
+    "surface_forms": ["atomic crystal lattice", "atomic lattice", "covalent crystal lattice"]
+  },
+  "concept:metallic_crystal_lattice": {
+    "name": "Metallic crystal lattice",
+    "slug": "metallic-crystal-lattice",
+    "description": "A crystal lattice with metal cations at lattice points surrounded by delocalized electrons. Provides electrical and thermal conductivity, malleability, and metallic luster.",
+    "surface_forms": ["metallic crystal lattice", "metallic lattice", "metallic crystal structure"]
+  },
+
+  "concept:shared_electron_pair": {
+    "name": "Shared electron pair",
+    "slug": "shared-electron-pair",
+    "description": "A pair of electrons shared between two atoms, forming a covalent bond.",
+    "surface_forms": ["shared electron pair", "shared electron pairs", "bonding pair"]
+  },
+  "concept:partial_charge": {
+    "name": "Partial charge",
+    "slug": "partial-charge",
+    "description": "A charge (delta+, delta-) that appears on atoms in a polar covalent bond due to uneven distribution of electron density.",
+    "surface_forms": ["partial charge", "partial charges", "delta plus", "delta minus"]
+  },
+  "concept:delocalized_electron": {
+    "name": "Delocalized electron",
+    "slug": "delocalized-electron",
+    "description": "An electron not bound to a specific atom, moving freely throughout the metal crystal lattice. Responsible for the electrical and thermal conductivity of metals.",
+    "surface_forms": ["delocalized electron", "delocalized electrons", "free electrons"]
+  },
+  "concept:electron_transfer": {
+    "name": "Electron transfer",
+    "slug": "electron-transfer",
+    "description": "The process of one or more electrons moving from one atom to another, resulting in ion formation and ionic bonding.",
+    "surface_forms": ["electron transfer", "transfer of electrons"]
+  },
+  "concept:electron_density": {
+    "name": "Electron density",
+    "slug": "electron-density",
+    "description": "The probability distribution of electrons in a molecule. In a polar bond, electron density is shifted toward the more electronegative atom.",
+    "surface_forms": ["electron density", "electron cloud density"]
+  },
+  "concept:bond_polarity": {
+    "name": "Bond polarity",
+    "slug": "bond-polarity",
+    "description": "A property of a covalent bond determined by the electronegativity difference between the bonded atoms. The greater the difference, the more polar the bond.",
+    "surface_forms": ["bond polarity", "polarity of a bond"]
+  },
+
+  "concept:solid_phase": {
+    "name": "Solid phase",
+    "slug": "solid-phase",
+    "description": "A state of matter characterized by an ordered arrangement of particles and the retention of both shape and volume.",
+    "surface_forms": ["solid phase", "solid state", "solid"]
+  },
+  "concept:liquid_phase": {
+    "name": "Liquid phase",
+    "slug": "liquid-phase",
+    "description": "A state of matter that retains volume but lacks a fixed shape. Particles are mobile yet held together by intermolecular forces.",
+    "surface_forms": ["liquid phase", "liquid state", "liquid"]
+  },
+  "concept:gaseous_phase": {
+    "name": "Gaseous phase",
+    "slug": "gaseous-phase",
+    "description": "A state of matter with neither fixed volume nor fixed shape. Particles move randomly and interact very weakly.",
+    "surface_forms": ["gaseous phase", "gas phase", "gaseous state", "gas"]
   }
 }

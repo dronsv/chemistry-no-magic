@@ -584,5 +584,123 @@
     "name": "Por composición",
     "slug": "por-composicion",
     "description": "Clasificación de sales por grado de sustitución de hidrógeno o hidroxilo"
+  },
+
+  "concept:chemical_bond": {
+    "name": "Enlace químico",
+    "slug": "enlace-quimico",
+    "description": "Interacción entre átomos que los mantiene unidos en moléculas, cristales y otras estructuras. Se distinguen enlaces iónicos, covalentes y metálicos.",
+    "surface_forms": ["enlace químico", "enlaces químicos", "enlace"]
+  },
+  "concept:ionic_bond": {
+    "name": "Enlace iónico",
+    "slug": "enlace-ionico",
+    "description": "Enlace formado por la atracción electrostática entre iones de carga opuesta, creados por la transferencia de electrones de un átomo metálico a uno no metálico.",
+    "surface_forms": ["enlace iónico", "enlaces iónicos"]
+  },
+  "concept:covalent_bond": {
+    "name": "Enlace covalente",
+    "slug": "enlace-covalente",
+    "description": "Enlace formado por la compartición de pares de electrones entre átomos. Puede ser polar o no polar según la diferencia de electronegatividad.",
+    "surface_forms": ["enlace covalente", "enlaces covalentes"]
+  },
+  "concept:covalent_polar_bond": {
+    "name": "Enlace covalente polar",
+    "slug": "enlace-covalente-polar",
+    "description": "Enlace covalente entre átomos de distinta electronegatividad: el par de electrones compartido se desplaza hacia el átomo más electronegativo.",
+    "surface_forms": ["enlace covalente polar", "enlaces covalentes polares"]
+  },
+  "concept:covalent_nonpolar_bond": {
+    "name": "Enlace covalente no polar",
+    "slug": "enlace-covalente-no-polar",
+    "description": "Enlace covalente entre átomos del mismo elemento: el par de electrones compartido se distribuye simétricamente.",
+    "surface_forms": ["enlace covalente no polar", "enlace covalente apolar", "enlaces covalentes no polares"]
+  },
+  "concept:metallic_bond": {
+    "name": "Enlace metálico",
+    "slug": "enlace-metalico",
+    "description": "Enlace en metales y aleaciones formado por la compartición de electrones de valencia que se mueven libremente entre los cationes metálicos en la red cristalina.",
+    "surface_forms": ["enlace metálico", "enlaces metálicos"]
+  },
+
+  "concept:ionic_crystal_lattice": {
+    "name": "Red cristalina iónica",
+    "slug": "red-cristalina-ionica",
+    "description": "Red cristalina con cationes y aniones alternados en los nodos. Típica de sales, bases y óxidos metálicos. Las sustancias tienen altos puntos de fusión y ebullición.",
+    "surface_forms": ["red cristalina iónica", "red iónica"]
+  },
+  "concept:molecular_crystal_lattice": {
+    "name": "Red cristalina molecular",
+    "slug": "red-cristalina-molecular",
+    "description": "Red cristalina con moléculas en los nodos, unidas por fuerzas intermoleculares débiles. Las sustancias tienen bajos puntos de fusión y son volátiles.",
+    "surface_forms": ["red cristalina molecular", "red molecular"]
+  },
+  "concept:atomic_crystal_lattice": {
+    "name": "Red cristalina atómica",
+    "slug": "red-cristalina-atomica",
+    "description": "Red cristalina con átomos en los nodos, unidos por fuertes enlaces covalentes. Las sustancias (diamante, silicio, SiO₂) son muy duras, refractarias e insolubles.",
+    "surface_forms": ["red cristalina atómica", "red atómica", "red cristalina covalente"]
+  },
+  "concept:metallic_crystal_lattice": {
+    "name": "Red cristalina metálica",
+    "slug": "red-cristalina-metalica",
+    "description": "Red cristalina con cationes metálicos en los nodos rodeados de electrones deslocalizados. Proporciona conductividad eléctrica y térmica, maleabilidad y brillo metálico.",
+    "surface_forms": ["red cristalina metálica", "red metálica"]
+  },
+
+  "concept:shared_electron_pair": {
+    "name": "Par de electrones compartido",
+    "slug": "par-electrones-compartido",
+    "description": "Par de electrones que pertenece simultáneamente a dos átomos, formando un enlace covalente.",
+    "surface_forms": ["par de electrones compartido", "pares de electrones compartidos", "par enlazante"]
+  },
+  "concept:partial_charge": {
+    "name": "Carga parcial",
+    "slug": "carga-parcial",
+    "description": "Carga (δ+, δ−) que aparece en los átomos de un enlace covalente polar debido a la distribución desigual de la densidad electrónica.",
+    "surface_forms": ["carga parcial", "cargas parciales", "delta más", "delta menos"]
+  },
+  "concept:delocalized_electron": {
+    "name": "Electrón deslocalizado",
+    "slug": "electron-deslocalizado",
+    "description": "Electrón no unido a un átomo específico, que se mueve libremente por la red cristalina del metal. Responsable de la conductividad eléctrica y térmica de los metales.",
+    "surface_forms": ["electrón deslocalizado", "electrones deslocalizados", "electrones libres"]
+  },
+  "concept:electron_transfer": {
+    "name": "Transferencia de electrones",
+    "slug": "transferencia-electrones",
+    "description": "Proceso de paso de uno o más electrones de un átomo a otro, que da lugar a la formación de iones y al enlace iónico.",
+    "surface_forms": ["transferencia de electrones", "transferencia electrónica"]
+  },
+  "concept:electron_density": {
+    "name": "Densidad electrónica",
+    "slug": "densidad-electronica",
+    "description": "Distribución de probabilidad de encontrar electrones en el espacio de una molécula. En un enlace polar, la densidad electrónica se desplaza hacia el átomo más electronegativo.",
+    "surface_forms": ["densidad electrónica", "densidad de electrones"]
+  },
+  "concept:bond_polarity": {
+    "name": "Polaridad del enlace",
+    "slug": "polaridad-enlace",
+    "description": "Propiedad de un enlace covalente determinada por la diferencia de electronegatividad entre los átomos enlazados. Cuanto mayor es la diferencia, más polar es el enlace.",
+    "surface_forms": ["polaridad del enlace", "polaridad de enlace"]
+  },
+
+  "concept:solid_phase": {
+    "name": "Fase sólida",
+    "slug": "fase-solida",
+    "description": "Estado de agregación de la materia caracterizado por una disposición ordenada de las partículas y la conservación de forma y volumen.",
+    "surface_forms": ["fase sólida", "estado sólido", "sólido"]
+  },
+  "concept:liquid_phase": {
+    "name": "Fase líquida",
+    "slug": "fase-liquida",
+    "description": "Estado de agregación de la materia que conserva el volumen pero carece de forma fija. Las partículas son móviles pero están unidas por fuerzas intermoleculares.",
+    "surface_forms": ["fase líquida", "estado líquido", "líquido"]
+  },
+  "concept:gaseous_phase": {
+    "name": "Fase gaseosa",
+    "slug": "fase-gaseosa",
+    "description": "Estado de agregación de la materia sin volumen ni forma fijos. Las partículas se mueven caóticamente e interactúan muy débilmente.",
+    "surface_forms": ["fase gaseosa", "estado gaseoso", "gas"]
   }
 }

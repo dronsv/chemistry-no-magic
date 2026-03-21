@@ -1330,5 +1330,262 @@
     "order": 123,
     "filters": {},
     "examples": []
+  },
+
+  "concept:chemical_bond": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 200,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "parent concept for all bond types; structurally reusable",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:ionic_bond": {
+    "kind": "domain_concept",
+    "parent_id": "concept:chemical_bond",
+    "order": 201,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "cao" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "core bond type; maps to bond_theory.bond_types[ionic]",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:covalent_bond": {
+    "kind": "domain_concept",
+    "parent_id": "concept:chemical_bond",
+    "order": 202,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "parent for polar/nonpolar covalent; structurally reusable",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:covalent_polar_bond": {
+    "kind": "domain_concept",
+    "parent_id": "concept:covalent_bond",
+    "order": 203,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "hcl" },
+      { "kind": "substance", "id": "h2o" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "core bond type; maps to bond_theory.bond_types[covalent_polar]",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:covalent_nonpolar_bond": {
+    "kind": "domain_concept",
+    "parent_id": "concept:covalent_bond",
+    "order": 204,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2" },
+      { "kind": "substance", "id": "o2" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "core bond type; maps to bond_theory.bond_types[covalent_nonpolar]",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:metallic_bond": {
+    "kind": "domain_concept",
+    "parent_id": "concept:chemical_bond",
+    "order": 205,
+    "filters": {},
+    "examples": [
+      { "kind": "element", "id": "Fe" },
+      { "kind": "element", "id": "Cu" },
+      { "kind": "element", "id": "Na" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "core bond type; maps to bond_theory.bond_types[metallic]",
+      "added": "2026-03-21"
+    }
+  },
+
+  "concept:ionic_crystal_lattice": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 300,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "nacl" },
+      { "kind": "substance", "id": "cao" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_4_21",
+      "reason": "crystal lattice type; separate axis from phase (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:molecular_crystal_lattice": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 301,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "h2o" },
+      { "kind": "substance", "id": "co2" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_4_21",
+      "reason": "crystal lattice type; separate axis from phase (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:atomic_crystal_lattice": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 302,
+    "filters": {},
+    "examples": [
+      { "kind": "substance", "id": "sio2" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_4_21",
+      "reason": "crystal lattice type; separate axis from phase (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:metallic_crystal_lattice": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 303,
+    "filters": {},
+    "examples": [
+      { "kind": "element", "id": "Fe" },
+      { "kind": "element", "id": "Cu" },
+      { "kind": "element", "id": "Al" }
+    ],
+    "admission": {
+      "source": "guidelines_v1_section_4_21",
+      "reason": "crystal lattice type; separate axis from phase (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+
+  "concept:shared_electron_pair": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 400,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "key mechanism concept for covalent bond explanation",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:partial_charge": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 401,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "mechanism concept for covalent polar bond explanation",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:delocalized_electron": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 402,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "mechanism concept for metallic bond explanation; preferred over didactic 'electron cloud' (section 13.2)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:electron_transfer": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 403,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "mechanism concept for ionic bond explanation",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:electron_density": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 404,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "mechanism concept linking electronegativity to bond polarity",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:bond_polarity": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 405,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_13_21",
+      "reason": "mechanism concept distinguishing polar from nonpolar covalent bonds",
+      "added": "2026-03-21"
+    }
+  },
+
+  "concept:solid_phase": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 500,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_4",
+      "reason": "phase_of_matter axis; separate from crystal_lattice_type (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:liquid_phase": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 501,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_4",
+      "reason": "phase_of_matter axis; separate from crystal_lattice_type (section 4.1)",
+      "added": "2026-03-21"
+    }
+  },
+  "concept:gaseous_phase": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 502,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "guidelines_v1_section_4",
+      "reason": "phase_of_matter axis; separate from crystal_lattice_type (section 4.1)",
+      "added": "2026-03-21"
+    }
   }
 }
