@@ -43,7 +43,14 @@ Do not perform naive literal translation if proper chemical terminology differs 
 Add morphology-aware or search-aware forms where they materially help lookup and authoring.
 Do not generate huge low-value lists.
 
-### 5. Do not silently reinterpret ontology semantics
+### 5. CRITICAL: surface_forms vs forms
+- `surface_forms`: ARRAY of strings — flat list of searchable text forms for the alias index.
+  Example: `["ионная связь", "ионной связи", "ионных связей"]`
+- `forms`: OBJECT with grammatical cases — morphological declension forms.
+  Example: `{"nom": "ионная связь", "gen": "ионной связи", "dat": "ионной связи"}`
+These are DIFFERENT fields. Never write an object to `surface_forms` or an array to `forms`. The MCP `add_translation` tool will reject incorrect types.
+
+### 6. Do not silently reinterpret ontology semantics
 If the source entity is unclear or its meaning seems underspecified, hand off to architect or enrichment instead of inventing a localized interpretation.
 
 ## Preferred output

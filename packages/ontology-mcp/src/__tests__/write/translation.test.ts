@@ -80,6 +80,74 @@ describe('addTranslation', () => {
     expect(r.code).toBe('VALIDATION_FAILED');
   });
 
+  it('rejects surface_forms as object (must be array)', async () => {
+    const r = await addTranslation(
+      indexRef,
+      {
+        locale: 'en',
+        data_key: 'concepts',
+        entity_id: 'concept:test',
+        fields: { surface_forms: { nom: 'test', gen: 'tests' } },
+      },
+      tmpDir,
+    );
+    expect(r.error).toBe(true);
+    expect(r.code).toBe('VALIDATION_FAILED');
+    expect(r.message).toContain('surface_forms');
+    expect(r.message).toContain('array');
+  });
+
+  it('rejects surface_forms with non-string entries', async () => {
+    const r = await addTranslation(
+      indexRef,
+      {
+        locale: 'en',
+        data_key: 'concepts',
+        entity_id: 'concept:test',
+        fields: { surface_forms: ['valid', 123] },
+      },
+      tmpDir,
+    );
+    expect(r.error).toBe(true);
+    expect(r.code).toBe('VALIDATION_FAILED');
+    expect(r.message).toContain('strings');
+  });
+
+  it('rejects forms as array (must be object)', async () => {
+    const r = await addTranslation(
+      indexRef,
+      {
+        locale: 'en',
+        data_key: 'concepts',
+        entity_id: 'concept:test',
+        fields: { forms: ['nom', 'gen'] },
+      },
+      tmpDir,
+    );
+    expect(r.error).toBe(true);
+    expect(r.code).toBe('VALIDATION_FAILED');
+    expect(r.message).toContain('forms');
+    expect(r.message).toContain('object');
+  });
+
+  it('accepts valid surface_forms array and forms object', async () => {
+    const r = await addTranslation(
+      indexRef,
+      {
+        locale: 'en',
+        data_key: 'concepts',
+        entity_id: 'cls:oxide',
+        fields: {
+          surface_forms: ['oxide', 'oxides'],
+          forms: { nom: 'oxide', gen: 'of oxide' },
+        },
+      },
+      tmpDir,
+    );
+    expect(r.error).toBeUndefined();
+    expect(r.status).toBeDefined();
+  });
+
   it('warns when entity_id is not in index', async () => {
     const r = await addTranslation(
       indexRef,

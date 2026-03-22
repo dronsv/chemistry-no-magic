@@ -69,6 +69,16 @@ If adding a non-trivial package:
 
 But do not force this mechanically in tiny one-off fixes.
 
+### 6. CRITICAL: surface_forms vs forms
+- `surface_forms`: ARRAY of strings — flat list of searchable text forms for the alias index.
+  Example: `["ионная связь", "ионной связи", "ионных связей"]`
+- `forms`: OBJECT with grammatical cases — morphological declension forms.
+  Example: `{"nom": "ионная связь", "gen": "ионной связи", "dat": "ионной связи"}`
+These are DIFFERENT fields. Never write an object to `surface_forms` or an array to `forms`.
+
+### 7. Required-in-practice concept fields
+When using `add_concept`, the tool now defaults `examples: []` and `filters: {}`. But when adding concepts manually (direct file edit), always include these fields — the build pipeline iterates them without null guards.
+
 ## Typical tasks
 - enrich `/ru/bonds/` style theory pages
 - add typed characteristics to substances/materials

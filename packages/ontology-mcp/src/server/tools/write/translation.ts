@@ -34,6 +34,37 @@ export async function addTranslation(
     };
   }
 
+  // Validate known field shapes
+  if (args.fields.surface_forms !== undefined) {
+    if (!Array.isArray(args.fields.surface_forms)) {
+      return {
+        error: true,
+        code: 'VALIDATION_FAILED',
+        message: `surface_forms must be an array of strings, got ${typeof args.fields.surface_forms}. ` +
+          `Did you mean "forms" (object with grammatical cases) instead of "surface_forms" (flat string array)?`,
+      };
+    }
+    for (const form of args.fields.surface_forms) {
+      if (typeof form !== 'string') {
+        return {
+          error: true,
+          code: 'VALIDATION_FAILED',
+          message: `surface_forms entries must be strings, got ${typeof form} at value: ${JSON.stringify(form)}`,
+        };
+      }
+    }
+  }
+
+  if (args.fields.forms !== undefined) {
+    if (typeof args.fields.forms !== 'object' || Array.isArray(args.fields.forms) || args.fields.forms === null) {
+      return {
+        error: true,
+        code: 'VALIDATION_FAILED',
+        message: `forms must be an object with grammatical cases (e.g. {nom, gen, dat}), got ${Array.isArray(args.fields.forms) ? 'array' : typeof args.fields.forms}`,
+      };
+    }
+  }
+
   const dataSrc = dataSrcOverride ?? getDataSrcRoot();
   const filePath = join(dataSrc, 'translations', args.locale, `${args.data_key}.json`);
 

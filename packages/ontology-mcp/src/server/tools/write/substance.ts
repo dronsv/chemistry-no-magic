@@ -72,6 +72,15 @@ export async function addSubstance(
   args: AddSubstanceArgs,
   dataSrcOverride?: string,
 ): Promise<AddSubstanceResult> {
+  // Validate id format
+  if (!/^[a-z][a-z0-9_]*$/.test(args.id)) {
+    return {
+      error: true,
+      code: 'VALIDATION_FAILED',
+      message: `Substance id "${args.id}" must start with a lowercase letter and contain only lowercase alphanumeric characters and underscores`,
+    };
+  }
+
   const dataSrc = dataSrcOverride ?? getDataSrcRoot();
   const filePath = join(dataSrc, 'substances', `${args.id}.json`);
 

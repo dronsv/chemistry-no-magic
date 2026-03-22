@@ -4,6 +4,11 @@ import type { IndexRef } from '../../../shared/types.js';
 
 const VALID_PREFIXES = ['cls', 'concept', 'prop', 'rxtype', 'rxfacet'] as const;
 
+const VALID_KINDS = [
+  'substance_class', 'element_group', 'reaction_type', 'reaction_facet',
+  'domain_concept', 'process', 'property',
+] as const;
+
 interface ConceptExample {
   kind: string;
   id: string;
@@ -133,6 +138,11 @@ export async function addConcept(
     warnings.push('concept created without admission metadata');
   }
 
+  // Warn on unknown kind
+  if (!(VALID_KINDS as readonly string[]).includes(args.kind)) {
+    warnings.push(`Unknown kind "${args.kind}". Expected: ${VALID_KINDS.join(', ')}`);
+  }
+
   if (args.parent_id != null && !Object.prototype.hasOwnProperty.call(concepts, args.parent_id)) {
     warnings.push(`parent_id "${args.parent_id}" not found in concepts.json`);
   }
@@ -144,10 +154,12 @@ export async function addConcept(
 
   if (args.parent_id !== undefined) entry.parent_id = args.parent_id;
   if (args.order !== undefined) entry.order = args.order;
-  if (args.filters !== undefined) entry.filters = args.filters;
-  if (args.examples !== undefined) entry.examples = args.examples;
   if (args.children_order !== undefined) entry.children_order = args.children_order;
   if (args.classification_facets !== undefined) entry.classification_facets = args.classification_facets;
+
+  // Required-in-practice fields: build pipeline and SSG iterate these without null guard
+  entry.filters = args.filters ?? {};
+  entry.examples = args.examples ?? [];
 
   concepts[args.ref] = entry;
 

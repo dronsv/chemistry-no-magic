@@ -54,6 +54,20 @@ describe('addSubstance', () => {
     expect(data.phase_standard).toBe('s');
   });
 
+  it('rejects invalid id format', async () => {
+    tmpDir = await mkdtemp(join(tmpdir(), 'ontology-sub-'));
+    await mkdir(join(tmpDir, 'substances'), { recursive: true });
+
+    const r = await addSubstance(
+      indexRef,
+      { id: 'Bad-ID!', formula: 'X', class: 'test' },
+      tmpDir,
+    );
+    expect(r.error).toBe(true);
+    expect(r.code).toBe('VALIDATION_FAILED');
+    expect(r.message).toContain('lowercase');
+  });
+
   it('fails with ENTITY_EXISTS if substance already exists', async () => {
     tmpDir = await mkdtemp(join(tmpdir(), 'ontology-sub-'));
     await mkdir(join(tmpDir, 'substances'), { recursive: true });

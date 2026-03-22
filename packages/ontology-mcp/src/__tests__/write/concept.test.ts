@@ -114,6 +114,42 @@ describe('addConcept', () => {
     expect(r.message).toContain('sub');
   });
 
+  it('defaults examples and filters when not provided', async () => {
+    tmpDir = await makeTmpWithConcepts();
+
+    await addConcept(
+      indexRef,
+      {
+        ref: 'concept:test_defaults',
+        kind: 'domain_concept',
+        admission: { reason: 'Test defaults' },
+      },
+      tmpDir,
+    );
+
+    const data = (await readJsonFile(join(tmpDir, 'concepts.json'))) as Record<string, any>;
+    const entry = data['concept:test_defaults'];
+    expect(entry.examples).toEqual([]);
+    expect(entry.filters).toEqual({});
+  });
+
+  it('warns on unknown kind', async () => {
+    tmpDir = await makeTmpWithConcepts();
+
+    const r = await addConcept(
+      indexRef,
+      {
+        ref: 'concept:test_bad_kind',
+        kind: 'unknown_kind_xyz',
+        admission: { reason: 'Test' },
+      },
+      tmpDir,
+    );
+
+    expect(r.status).toBe('created');
+    expect(r.warnings?.some(w => w.includes('Unknown kind'))).toBe(true);
+  });
+
   it('warns if parent_id not found in concepts', async () => {
     tmpDir = await makeTmpWithConcepts();
 
