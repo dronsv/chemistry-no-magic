@@ -1869,69 +1869,85 @@
   },
   "concept:electrical_conductivity": {
     "kind": "domain_concept",
-    "order": 700
+    "order": 700,
+    "examples": []
   },
   "concept:thermal_conductivity": {
     "kind": "domain_concept",
-    "order": 701
+    "order": 701,
+    "examples": []
   },
   "concept:hardness": {
     "kind": "domain_concept",
-    "order": 702
+    "order": 702,
+    "examples": []
   },
   "concept:brittleness": {
     "kind": "domain_concept",
-    "order": 703
+    "order": 703,
+    "examples": []
   },
   "concept:plasticity": {
     "kind": "domain_concept",
-    "order": 704
+    "order": 704,
+    "examples": []
   },
   "concept:metallic_luster": {
     "kind": "domain_concept",
-    "order": 705
+    "order": 705,
+    "examples": []
   },
   "concept:force": {
     "kind": "domain_concept",
-    "order": 800
+    "order": 800,
+    "examples": []
   },
   "concept:interaction": {
     "kind": "domain_concept",
-    "order": 801
+    "order": 801,
+    "examples": []
   },
   "concept:particle": {
     "kind": "domain_concept",
-    "order": 802
+    "order": 802,
+    "examples": []
   },
   "concept:charge": {
     "kind": "domain_concept",
-    "order": 803
+    "order": 803,
+    "examples": []
   },
   "concept:field": {
     "kind": "domain_concept",
-    "order": 804
+    "order": 804,
+    "examples": []
   },
   "concept:electric_field": {
     "kind": "domain_concept",
     "parent_id": "concept:field",
-    "order": 805
+    "order": 805,
+    "examples": []
   },
   "concept:electrostatic_interaction": {
     "kind": "domain_concept",
     "parent_id": "concept:interaction",
-    "order": 806
+    "order": 806,
+    "examples": []
   },
   "concept:deformation": {
     "kind": "domain_concept",
-    "order": 807
+    "order": 807,
+    "examples": []
   },
   "concept:plastic_deformation": {
     "kind": "domain_concept",
     "parent_id": "concept:deformation",
-    "order": 808
+    "order": 808,
+    "examples": []
   },
   "concept:fracture": {
     "kind": "domain_concept",
-    "order": 809
+    "order": 809,
+    "examples": []
   }
 }

@@ -789,34 +789,34 @@
   "grp:nonmetal": {
     "name": "No metales",
     "slug": "no-metales",
-    "surface_forms": {
-      "nom": "no metales",
-      "sg_nom": "no metal"
-    }
+    "surface_forms": [
+      "no metales",
+      "no metal"
+    ]
   },
   "grp:lanthanide": {
     "name": "Lantánidos",
     "slug": "lantanidos",
-    "surface_forms": {
-      "nom": "lantánidos",
-      "sg_nom": "lantánido"
-    }
+    "surface_forms": [
+      "lantánidos",
+      "lantánido"
+    ]
   },
   "grp:actinide": {
     "name": "Actínidos",
     "slug": "actinidos",
-    "surface_forms": {
-      "nom": "actínidos",
-      "sg_nom": "actínido"
-    }
+    "surface_forms": [
+      "actínidos",
+      "actínido"
+    ]
   },
   "grp:metalloid": {
     "name": "Metaloides",
     "slug": "metaloides",
-    "surface_forms": {
-      "nom": "metaloides",
-      "sg_nom": "metaloide"
-    }
+    "surface_forms": [
+      "metaloides",
+      "metaloide"
+    ]
   },
   "concept:electrical_conductivity": {
     "name": "Conductividad eléctrica",

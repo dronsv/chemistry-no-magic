@@ -813,26 +813,26 @@
   "grp:nonmetal": {
     "name": "Nonmetals",
     "slug": "nonmetals",
-    "surface_forms": {
-      "nom": "nonmetals",
-      "sg_nom": "nonmetal"
-    }
+    "surface_forms": [
+      "nonmetals",
+      "nonmetal"
+    ]
   },
   "grp:lanthanide": {
     "name": "Lanthanides",
     "slug": "lanthanides",
-    "surface_forms": {
-      "nom": "lanthanides",
-      "sg_nom": "lanthanide"
-    }
+    "surface_forms": [
+      "lanthanides",
+      "lanthanide"
+    ]
   },
   "grp:actinide": {
     "name": "Actinides",
     "slug": "actinides",
-    "surface_forms": {
-      "nom": "actinides",
-      "sg_nom": "actinide"
-    }
+    "surface_forms": [
+      "actinides",
+      "actinide"
+    ]
   },
   "concept:electrical_conductivity": {
     "name": "Electrical conductivity",

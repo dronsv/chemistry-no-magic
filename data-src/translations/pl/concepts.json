@@ -921,32 +921,32 @@
   "grp:nonmetal": {
     "name": "Niemetale",
     "slug": "niemetale",
-    "surface_forms": {
-      "nom": "niemetale",
-      "gen": "niemetali",
-      "sg_nom": "niemetal",
-      "sg_gen": "niemetalu"
-    }
+    "surface_forms": [
+      "niemetale",
+      "niemetali",
+      "niemetal",
+      "niemetalu"
+    ]
   },
   "grp:lanthanide": {
     "name": "Lantanowce",
     "slug": "lantanowce",
-    "surface_forms": {
-      "nom": "lantanowce",
-      "gen": "lantanowców",
-      "sg_nom": "lantanowiec",
-      "sg_gen": "lantanowca"
-    }
+    "surface_forms": [
+      "lantanowce",
+      "lantanowców",
+      "lantanowiec",
+      "lantanowca"
+    ]
   },
   "grp:actinide": {
     "name": "Aktynowce",
     "slug": "aktynowce",
-    "surface_forms": {
-      "nom": "aktynowce",
-      "gen": "aktynowców",
-      "sg_nom": "aktynowiec",
-      "sg_gen": "aktynowca"
-    }
+    "surface_forms": [
+      "aktynowce",
+      "aktynowców",
+      "aktynowiec",
+      "aktynowca"
+    ]
   },
   "concept:electrical_conductivity": {
     "name": "Przewodnictwo elektryczne",
