@@ -1,0 +1,33 @@
+{
+  "proposal_id": "proposal-0001",
+  "proposal_type": "alias_addition",
+  "candidate_text": "распад кислоты на ионы",
+  "language": "ru",
+  "target_ref": "concept:acid_dissociation",
+  "target_kind": "concept",
+  "rationale": "Meaning matches an existing canonical concept and should be stored as a search/author phrase rather than as a new concept.",
+  "evidence_spans": [
+    {
+      "source_doc_id": "lesson-acids-01",
+      "text": "Кислота распадается в растворе на ионы.",
+      "start": 0,
+      "end": 36
+    }
+  ],
+  "nearest_existing_refs": [
+    {
+      "ref": "concept:acid_dissociation",
+      "reason": "semantic and didactic equivalence",
+      "score": 0.96
+    }
+  ],
+  "admission_checks": {
+    "is_alias_only": true,
+    "is_overlay_only": false,
+    "is_reusable": true,
+    "is_language_independent": false,
+    "is_non_redundant": true,
+    "has_structural_value": false
+  },
+  "status": "draft"
+}

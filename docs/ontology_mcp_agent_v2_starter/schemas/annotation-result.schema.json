@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chemistry.online/schemas/annotation-result.schema.json",
+  "title": "AnnotationResult",
+  "type": "object",
+  "required": ["doc_id", "material_language", "annotations", "unresolved_mentions", "valid"],
+  "properties": {
+    "doc_id": { "type": "string" },
+    "material_language": { "type": "string" },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "start", "end", "kind", "candidates"],
+        "properties": {
+          "text": { "type": "string" },
+          "start": { "type": "integer" },
+          "end": { "type": "integer" },
+          "kind": { "type": "string" },
+          "chosen_ref": { "type": "string" },
+          "confidence": { "type": "number" },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["ref", "score", "reason"],
+              "properties": {
+                "ref": { "type": "string" },
+                "score": { "type": "number" },
+                "reason": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_mentions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "start", "end", "reason"],
+        "properties": {
+          "text": { "type": "string" },
+          "start": { "type": "integer" },
+          "end": { "type": "integer" },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "valid": { "type": "boolean" },
+    "errors": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

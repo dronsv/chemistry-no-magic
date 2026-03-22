@@ -507,7 +507,7 @@
   },
   "grp:alkali_metals": {
     "kind": "element_group",
-    "parent_id": null,
+    "parent_id": "concept:metals",
     "order": 1,
     "filters": {
       "pred": {
@@ -532,7 +532,7 @@
   },
   "grp:halogens": {
     "kind": "element_group",
-    "parent_id": null,
+    "parent_id": "concept:nonmetals",
     "order": 2,
     "filters": {
       "pred": {
@@ -557,7 +557,7 @@
   },
   "grp:noble_gases": {
     "kind": "element_group",
-    "parent_id": null,
+    "parent_id": "concept:nonmetals",
     "order": 3,
     "filters": {
       "pred": {
@@ -582,7 +582,7 @@
   },
   "grp:alkaline_earth": {
     "kind": "element_group",
-    "parent_id": null,
+    "parent_id": "concept:metals",
     "order": 4,
     "filters": {
       "pred": {
@@ -1331,7 +1331,6 @@
     "filters": {},
     "examples": []
   },
-
   "concept:chemical_bond": {
     "kind": "domain_concept",
     "parent_id": null,
@@ -1350,8 +1349,14 @@
     "order": 201,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "nacl" },
-      { "kind": "substance", "id": "cao" }
+      {
+        "kind": "substance",
+        "id": "nacl"
+      },
+      {
+        "kind": "substance",
+        "id": "cao"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_13_21",
@@ -1377,8 +1382,14 @@
     "order": 203,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "hcl" },
-      { "kind": "substance", "id": "h2o" }
+      {
+        "kind": "substance",
+        "id": "hcl"
+      },
+      {
+        "kind": "substance",
+        "id": "h2o"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_13_21",
@@ -1392,8 +1403,14 @@
     "order": 204,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "h2" },
-      { "kind": "substance", "id": "o2" }
+      {
+        "kind": "substance",
+        "id": "h2"
+      },
+      {
+        "kind": "substance",
+        "id": "o2"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_13_21",
@@ -1407,9 +1424,18 @@
     "order": 205,
     "filters": {},
     "examples": [
-      { "kind": "element", "id": "Fe" },
-      { "kind": "element", "id": "Cu" },
-      { "kind": "element", "id": "Na" }
+      {
+        "kind": "element",
+        "id": "Fe"
+      },
+      {
+        "kind": "element",
+        "id": "Cu"
+      },
+      {
+        "kind": "element",
+        "id": "Na"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_13_21",
@@ -1417,15 +1443,20 @@
       "added": "2026-03-21"
     }
   },
-
   "concept:ionic_crystal_lattice": {
     "kind": "domain_concept",
     "parent_id": null,
     "order": 300,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "nacl" },
-      { "kind": "substance", "id": "cao" }
+      {
+        "kind": "substance",
+        "id": "nacl"
+      },
+      {
+        "kind": "substance",
+        "id": "cao"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_4_21",
@@ -1439,8 +1470,14 @@
     "order": 301,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "h2o" },
-      { "kind": "substance", "id": "co2" }
+      {
+        "kind": "substance",
+        "id": "h2o"
+      },
+      {
+        "kind": "substance",
+        "id": "co2"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_4_21",
@@ -1454,7 +1491,10 @@
     "order": 302,
     "filters": {},
     "examples": [
-      { "kind": "substance", "id": "sio2" }
+      {
+        "kind": "substance",
+        "id": "sio2"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_4_21",
@@ -1468,9 +1508,18 @@
     "order": 303,
     "filters": {},
     "examples": [
-      { "kind": "element", "id": "Fe" },
-      { "kind": "element", "id": "Cu" },
-      { "kind": "element", "id": "Al" }
+      {
+        "kind": "element",
+        "id": "Fe"
+      },
+      {
+        "kind": "element",
+        "id": "Cu"
+      },
+      {
+        "kind": "element",
+        "id": "Al"
+      }
     ],
     "admission": {
       "source": "guidelines_v1_section_4_21",
@@ -1478,7 +1527,6 @@
       "added": "2026-03-21"
     }
   },
-
   "concept:shared_electron_pair": {
     "kind": "domain_concept",
     "parent_id": null,
@@ -1551,7 +1599,6 @@
       "added": "2026-03-21"
     }
   },
-
   "concept:solid_phase": {
     "kind": "domain_concept",
     "parent_id": null,
@@ -1587,5 +1634,304 @@
       "reason": "phase_of_matter axis; separate from crystal_lattice_type (section 4.1)",
       "added": "2026-03-21"
     }
+  },
+  "concept:nonmetals": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 601,
+    "filters": {},
+    "examples": [
+      {
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "kind": "element",
+        "id": "S"
+      },
+      {
+        "kind": "element",
+        "id": "C"
+      }
+    ],
+    "children_order": [
+      "grp:nonmetal",
+      "grp:halogens",
+      "grp:noble_gases"
+    ]
+  },
+  "concept:metalloids": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 602,
+    "filters": {},
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Si"
+      },
+      {
+        "kind": "element",
+        "id": "B"
+      },
+      {
+        "kind": "element",
+        "id": "Ge"
+      }
+    ],
+    "children_order": [
+      "grp:metalloid"
+    ]
+  },
+  "concept:metals": {
+    "kind": "domain_concept",
+    "order": 600,
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Fe"
+      },
+      {
+        "kind": "element",
+        "id": "Cu"
+      },
+      {
+        "kind": "element",
+        "id": "Na"
+      },
+      {
+        "kind": "element",
+        "id": "Al"
+      }
+    ],
+    "children_order": [
+      "grp:alkali_metals",
+      "grp:alkaline_earth",
+      "grp:transition_metal",
+      "grp:post_transition_metal",
+      "grp:lanthanide",
+      "grp:actinide"
+    ]
+  },
+  "grp:transition_metal": {
+    "kind": "element_group",
+    "parent_id": "concept:metals",
+    "order": 5,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "transition_metal"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Fe"
+      },
+      {
+        "kind": "element",
+        "id": "Cu"
+      },
+      {
+        "kind": "element",
+        "id": "Zn"
+      }
+    ]
+  },
+  "grp:post_transition_metal": {
+    "kind": "element_group",
+    "parent_id": "concept:metals",
+    "order": 6,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "post_transition_metal"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Al"
+      },
+      {
+        "kind": "element",
+        "id": "Sn"
+      },
+      {
+        "kind": "element",
+        "id": "Pb"
+      }
+    ]
+  },
+  "grp:metalloid": {
+    "kind": "element_group",
+    "parent_id": "concept:metalloids",
+    "order": 7,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "metalloid"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Si"
+      },
+      {
+        "kind": "element",
+        "id": "B"
+      },
+      {
+        "kind": "element",
+        "id": "Ge"
+      }
+    ]
+  },
+  "grp:nonmetal": {
+    "kind": "element_group",
+    "parent_id": "concept:nonmetals",
+    "order": 8,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "nonmetal"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "C"
+      },
+      {
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "kind": "element",
+        "id": "O"
+      }
+    ]
+  },
+  "grp:lanthanide": {
+    "kind": "element_group",
+    "parent_id": "concept:metals",
+    "order": 9,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "lanthanide"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "La"
+      },
+      {
+        "kind": "element",
+        "id": "Ce"
+      },
+      {
+        "kind": "element",
+        "id": "Nd"
+      }
+    ]
+  },
+  "grp:actinide": {
+    "kind": "element_group",
+    "parent_id": "concept:metals",
+    "order": 10,
+    "filters": {
+      "pred": {
+        "field": "element_group",
+        "eq": "actinide"
+      }
+    },
+    "examples": [
+      {
+        "kind": "element",
+        "id": "Ac"
+      },
+      {
+        "kind": "element",
+        "id": "U"
+      },
+      {
+        "kind": "element",
+        "id": "Th"
+      }
+    ]
+  },
+  "concept:electrical_conductivity": {
+    "kind": "domain_concept",
+    "order": 700
+  },
+  "concept:thermal_conductivity": {
+    "kind": "domain_concept",
+    "order": 701
+  },
+  "concept:hardness": {
+    "kind": "domain_concept",
+    "order": 702
+  },
+  "concept:brittleness": {
+    "kind": "domain_concept",
+    "order": 703
+  },
+  "concept:plasticity": {
+    "kind": "domain_concept",
+    "order": 704
+  },
+  "concept:metallic_luster": {
+    "kind": "domain_concept",
+    "order": 705
+  },
+  "concept:force": {
+    "kind": "domain_concept",
+    "order": 800
+  },
+  "concept:interaction": {
+    "kind": "domain_concept",
+    "order": 801
+  },
+  "concept:particle": {
+    "kind": "domain_concept",
+    "order": 802
+  },
+  "concept:charge": {
+    "kind": "domain_concept",
+    "order": 803
+  },
+  "concept:field": {
+    "kind": "domain_concept",
+    "order": 804
+  },
+  "concept:electric_field": {
+    "kind": "domain_concept",
+    "parent_id": "concept:field",
+    "order": 805
+  },
+  "concept:electrostatic_interaction": {
+    "kind": "domain_concept",
+    "parent_id": "concept:interaction",
+    "order": 806
+  },
+  "concept:deformation": {
+    "kind": "domain_concept",
+    "order": 807
+  },
+  "concept:plastic_deformation": {
+    "kind": "domain_concept",
+    "parent_id": "concept:deformation",
+    "order": 808
+  },
+  "concept:fracture": {
+    "kind": "domain_concept",
+    "order": 809
   }
 }

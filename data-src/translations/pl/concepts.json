@@ -714,122 +714,382 @@
     "slug": "wedlug-skladu",
     "description": "Klasyfikacja soli według stopnia podstawienia wodoru lub grup hydroksylowych"
   },
-
   "concept:chemical_bond": {
     "name": "Wiązanie chemiczne",
     "slug": "wiazanie-chemiczne",
     "description": "Oddziaływanie między atomami utrzymujące je razem w cząsteczkach, kryształach i innych strukturach. Wyróżniamy wiązania jonowe, kowalencyjne i metaliczne.",
-    "surface_forms": ["wiązanie chemiczne", "wiązania chemiczne"]
+    "surface_forms": [
+      "wiązanie chemiczne",
+      "wiązania chemiczne"
+    ]
   },
   "concept:ionic_bond": {
     "name": "Wiązanie jonowe",
     "slug": "wiazanie-jonowe",
     "description": "Wiązanie powstające w wyniku przyciągania elektrostatycznego przeciwnie naładowanych jonów, utworzonych przez przeniesienie elektronów z atomu metalu na atom niemetalu.",
-    "surface_forms": ["wiązanie jonowe", "wiązania jonowe"]
+    "surface_forms": [
+      "wiązanie jonowe",
+      "wiązania jonowe"
+    ]
   },
   "concept:covalent_bond": {
     "name": "Wiązanie kowalencyjne",
     "slug": "wiazanie-kowalencyjne",
     "description": "Wiązanie powstające przez uwspólnienie par elektronowych między atomami. Może być polarne lub niepolarne.",
-    "surface_forms": ["wiązanie kowalencyjne", "wiązania kowalencyjne"]
+    "surface_forms": [
+      "wiązanie kowalencyjne",
+      "wiązania kowalencyjne"
+    ]
   },
   "concept:covalent_polar_bond": {
     "name": "Wiązanie kowalencyjne polarne",
     "slug": "wiazanie-kowalencyjne-polarne",
     "description": "Wiązanie kowalencyjne między atomami o różnej elektroujemności: wspólna para elektronowa jest przesunięta ku atomowi bardziej elektroujemnemu.",
-    "surface_forms": ["wiązanie kowalencyjne polarne", "polarne wiązanie kowalencyjne"]
+    "surface_forms": [
+      "wiązanie kowalencyjne polarne",
+      "polarne wiązanie kowalencyjne"
+    ]
   },
   "concept:covalent_nonpolar_bond": {
     "name": "Wiązanie kowalencyjne niepolarne",
     "slug": "wiazanie-kowalencyjne-niepolarne",
     "description": "Wiązanie kowalencyjne między atomami tego samego pierwiastka: wspólna para elektronowa jest rozmieszczona symetrycznie.",
-    "surface_forms": ["wiązanie kowalencyjne niepolarne", "niepolarne wiązanie kowalencyjne"]
+    "surface_forms": [
+      "wiązanie kowalencyjne niepolarne",
+      "niepolarne wiązanie kowalencyjne"
+    ]
   },
   "concept:metallic_bond": {
     "name": "Wiązanie metaliczne",
     "slug": "wiazanie-metaliczne",
     "description": "Wiązanie w metalach i stopach, wynikające z uwspólnienia elektronów walencyjnych, które swobodnie przemieszczają się między kationami metali w sieci krystalicznej.",
-    "surface_forms": ["wiązanie metaliczne", "wiązania metaliczne"]
+    "surface_forms": [
+      "wiązanie metaliczne",
+      "wiązania metaliczne"
+    ]
   },
-
   "concept:ionic_crystal_lattice": {
     "name": "Jonowa sieć krystaliczna",
     "slug": "jonowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się naprzemiennie kationy i aniony. Charakterystyczna dla soli, zasad i tlenków metali. Substancje mają wysokie temperatury topnienia i wrzenia.",
-    "surface_forms": ["jonowa sieć krystaliczna", "sieć jonowa"]
+    "surface_forms": [
+      "jonowa sieć krystaliczna",
+      "sieć jonowa"
+    ]
   },
   "concept:molecular_crystal_lattice": {
     "name": "Cząsteczkowa sieć krystaliczna",
     "slug": "czasteczkowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się cząsteczki połączone słabymi siłami międzycząsteczkowymi. Substancje mają niskie temperatury topnienia i są lotne.",
-    "surface_forms": ["cząsteczkowa sieć krystaliczna", "sieć cząsteczkowa", "sieć molekularna"]
+    "surface_forms": [
+      "cząsteczkowa sieć krystaliczna",
+      "sieć cząsteczkowa",
+      "sieć molekularna"
+    ]
   },
   "concept:atomic_crystal_lattice": {
     "name": "Atomowa sieć krystaliczna",
     "slug": "atomowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się atomy połączone silnymi wiązaniami kowalencyjnymi. Substancje (diament, krzem, SiO₂) są bardzo twarde, trudno topliwe i nierozpuszczalne.",
-    "surface_forms": ["atomowa sieć krystaliczna", "sieć atomowa", "sieć kowalencyjna"]
+    "surface_forms": [
+      "atomowa sieć krystaliczna",
+      "sieć atomowa",
+      "sieć kowalencyjna"
+    ]
   },
   "concept:metallic_crystal_lattice": {
     "name": "Metaliczna sieć krystaliczna",
     "slug": "metaliczna-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się kationy metalu otoczone zdelokalizowanymi elektronami. Zapewnia przewodnictwo elektryczne i cieplne, plastyczność oraz metaliczny połysk.",
-    "surface_forms": ["metaliczna sieć krystaliczna", "sieć metaliczna"]
+    "surface_forms": [
+      "metaliczna sieć krystaliczna",
+      "sieć metaliczna"
+    ]
   },
-
   "concept:shared_electron_pair": {
     "name": "Wspólna para elektronowa",
     "slug": "wspolna-para-elektronowa",
     "description": "Para elektronów należąca jednocześnie do dwóch atomów, tworząca wiązanie kowalencyjne.",
-    "surface_forms": ["wspólna para elektronowa", "wspólne pary elektronowe", "para wiążąca"]
+    "surface_forms": [
+      "wspólna para elektronowa",
+      "wspólne pary elektronowe",
+      "para wiążąca"
+    ]
   },
   "concept:partial_charge": {
     "name": "Ładunek cząstkowy",
     "slug": "ladunek-czastkowy",
     "description": "Ładunek (δ+, δ−) pojawiający się na atomach w polarnym wiązaniu kowalencyjnym z powodu nierównomiernego rozkładu gęstości elektronowej.",
-    "surface_forms": ["ładunek cząstkowy", "ładunki cząstkowe", "delta plus", "delta minus"]
+    "surface_forms": [
+      "ładunek cząstkowy",
+      "ładunki cząstkowe",
+      "delta plus",
+      "delta minus"
+    ]
   },
   "concept:delocalized_electron": {
     "name": "Elektron zdelokalizowany",
     "slug": "elektron-zdelokalizowany",
     "description": "Elektron niezwiązany z konkretnym atomem, swobodnie poruszający się po sieci krystalicznej metalu. Odpowiada za przewodnictwo elektryczne i cieplne metali.",
-    "surface_forms": ["elektron zdelokalizowany", "elektrony zdelokalizowane", "elektrony swobodne"]
+    "surface_forms": [
+      "elektron zdelokalizowany",
+      "elektrony zdelokalizowane",
+      "elektrony swobodne"
+    ]
   },
   "concept:electron_transfer": {
     "name": "Przeniesienie elektronów",
     "slug": "przeniesienie-elektronow",
     "description": "Proces przejścia jednego lub kilku elektronów z jednego atomu na drugi, prowadzący do powstania jonów i wiązania jonowego.",
-    "surface_forms": ["przeniesienie elektronów", "transfer elektronów"]
+    "surface_forms": [
+      "przeniesienie elektronów",
+      "transfer elektronów"
+    ]
   },
   "concept:electron_density": {
     "name": "Gęstość elektronowa",
     "slug": "gestosc-elektronowa",
     "description": "Rozkład prawdopodobieństwa znalezienia elektronów w przestrzeni cząsteczki. W wiązaniu polarnym gęstość elektronowa jest przesunięta ku atomowi bardziej elektroujemnemu.",
-    "surface_forms": ["gęstość elektronowa", "gęstość elektronów"]
+    "surface_forms": [
+      "gęstość elektronowa",
+      "gęstość elektronów"
+    ]
   },
   "concept:bond_polarity": {
     "name": "Polarność wiązania",
     "slug": "polarnosc-wiazania",
     "description": "Cecha wiązania kowalencyjnego określana przez różnicę elektroujemności związanych atomów. Im większa różnica, tym bardziej polarne wiązanie.",
-    "surface_forms": ["polarność wiązania", "polarność wiązania chemicznego"]
+    "surface_forms": [
+      "polarność wiązania",
+      "polarność wiązania chemicznego"
+    ]
   },
-
   "concept:solid_phase": {
     "name": "Faza stała",
     "slug": "faza-stala",
     "description": "Stan skupienia materii charakteryzujący się uporządkowanym rozmieszczeniem cząstek oraz zachowaniem kształtu i objętości.",
-    "surface_forms": ["faza stała", "stan stały", "ciało stałe"]
+    "surface_forms": [
+      "faza stała",
+      "stan stały",
+      "ciało stałe"
+    ]
   },
   "concept:liquid_phase": {
     "name": "Faza ciekła",
     "slug": "faza-ciekla",
     "description": "Stan skupienia materii zachowujący objętość, lecz niemający stałego kształtu. Cząstki są ruchome, ale związane siłami międzycząsteczkowymi.",
-    "surface_forms": ["faza ciekła", "stan ciekły", "ciecz"]
+    "surface_forms": [
+      "faza ciekła",
+      "stan ciekły",
+      "ciecz"
+    ]
   },
   "concept:gaseous_phase": {
     "name": "Faza gazowa",
     "slug": "faza-gazowa",
     "description": "Stan skupienia materii niemający stałej objętości ani kształtu. Cząstki poruszają się chaotycznie i praktycznie nie oddziałują ze sobą.",
-    "surface_forms": ["faza gazowa", "stan gazowy", "gaz"]
+    "surface_forms": [
+      "faza gazowa",
+      "stan gazowy",
+      "gaz"
+    ]
+  },
+  "concept:metals": {
+    "name": "Metale",
+    "description": "Klasa substancji prostych charakteryzujących się przewodnictwem elektrycznym, przewodnictwem cieplnym, plastycznością i metalicznym połyskiem."
+  },
+  "concept:nonmetals": {
+    "name": "Niemetale",
+    "description": "Klasa substancji prostych, które z reguły nie przewodzą prądu elektrycznego i są kruche w stanie stałym."
+  },
+  "concept:metalloids": {
+    "name": "Metaloidy",
+    "description": "Klasa substancji prostych o właściwościach pośrednich między metalami a niemetalami; typowe półprzewodniki."
+  },
+  "grp:transition_metal": {
+    "name": "Metale przejściowe",
+    "description": "Pierwiastki bloku d z częściowo wypełnionymi podpowłokami d."
+  },
+  "grp:post_transition_metal": {
+    "name": "Metale bloku p",
+    "description": "Metale bloku p, położone za metalami przejściowymi w układzie okresowym."
+  },
+  "grp:metalloid": {
+    "name": "Metaloidy",
+    "description": "Grupa pierwiastków o właściwościach pośrednich między metalami a niemetalami."
+  },
+  "grp:nonmetal": {
+    "name": "Niemetale",
+    "slug": "niemetale",
+    "surface_forms": {
+      "nom": "niemetale",
+      "gen": "niemetali",
+      "sg_nom": "niemetal",
+      "sg_gen": "niemetalu"
+    }
+  },
+  "grp:lanthanide": {
+    "name": "Lantanowce",
+    "slug": "lantanowce",
+    "surface_forms": {
+      "nom": "lantanowce",
+      "gen": "lantanowców",
+      "sg_nom": "lantanowiec",
+      "sg_gen": "lantanowca"
+    }
+  },
+  "grp:actinide": {
+    "name": "Aktynowce",
+    "slug": "aktynowce",
+    "surface_forms": {
+      "nom": "aktynowce",
+      "gen": "aktynowców",
+      "sg_nom": "aktynowiec",
+      "sg_gen": "aktynowca"
+    }
+  },
+  "concept:electrical_conductivity": {
+    "name": "Przewodnictwo elektryczne",
+    "slug": "przewodnictwo-elektryczne",
+    "surface_forms": [
+      "przewodnictwo elektryczne",
+      "przewodzi prąd"
+    ],
+    "description": "Zdolność substancji do przewodzenia prądu elektrycznego. Zależy od obecności swobodnych cząstek naładowanych — elektronów lub jonów. Metale wykazują wysokie przewodnictwo dzięki zdelokalizowanym elektronom."
+  },
+  "concept:thermal_conductivity": {
+    "name": "Przewodnictwo cieplne",
+    "slug": "przewodnictwo-cieplne",
+    "surface_forms": [
+      "przewodnictwo cieplne"
+    ],
+    "description": "Zdolność substancji do przenoszenia energii cieplnej z obszarów cieplejszych do chłodniejszych. W metalach głównym mechanizmem jest transfer energii przez swobodne elektrony."
+  },
+  "concept:hardness": {
+    "name": "Twardość",
+    "slug": "twardosc",
+    "surface_forms": [
+      "twardość",
+      "twardy",
+      "miękki"
+    ],
+    "description": "Zdolność materiału do opierania się miejscowemu odkształceniu plastycznemu. Twardość zależy od rodzaju wiązania chemicznego i sieci krystalicznej: substancje z siecią atomową są zwykle bardzo twarde."
+  },
+  "concept:brittleness": {
+    "name": "Kruchość",
+    "slug": "kruchosc",
+    "surface_forms": [
+      "kruchość",
+      "kruchy"
+    ],
+    "description": "Skłonność materiału do pęknięcia bez znacznego odkształcenia plastycznego. Substancje z wiązaniem jonowym są często kruche, ponieważ przesunięcie warstw jonów prowadzi do odpychania elektrostatycznego i pęknięcia."
+  },
+  "concept:plasticity": {
+    "name": "Plastyczność",
+    "slug": "plastycznosc",
+    "surface_forms": [
+      "plastyczność",
+      "plastyczny",
+      "ciągliwość"
+    ],
+    "description": "Zdolność materiału do nieodwracalnego odkształcenia bez pęknięcia. Metale są plastyczne dzięki wiązaniu metalicznemu: zdelokalizowane elektrony pozwalają warstwom atomów przesuwać się bez utraty spójności."
+  },
+  "concept:metallic_luster": {
+    "name": "Połysk metaliczny",
+    "slug": "polysk-metaliczny",
+    "surface_forms": [
+      "połysk metaliczny",
+      "metaliczny połysk"
+    ],
+    "description": "Charakterystyczny połysk powierzchni metali spowodowany odbiciem światła przez zdelokalizowane elektrony w metalicznej sieci krystalicznej."
+  },
+  "concept:force": {
+    "name": "Siła",
+    "slug": "sila",
+    "surface_forms": [
+      "siła",
+      "siły",
+      "siłą"
+    ],
+    "description": "Miara oddziaływania ciał; wielkość fizyczna charakteryzująca działanie jednego ciała na drugie, powodująca zmianę prędkości lub odkształcenie."
+  },
+  "concept:interaction": {
+    "name": "Oddziaływanie",
+    "slug": "oddzialywanie",
+    "surface_forms": [
+      "oddziaływanie",
+      "oddziaływania"
+    ],
+    "description": "Wzajemne działanie obiektów, prowadzące do zmiany ich stanu. W chemii kluczową rolę odgrywa oddziaływanie elektrostatyczne naładowanych cząstek."
+  },
+  "concept:particle": {
+    "name": "Cząstka",
+    "slug": "czastka",
+    "surface_forms": [
+      "cząstka",
+      "cząstki"
+    ],
+    "description": "Obiekt małych rozmiarów — atom, cząsteczka, jon lub elektron — którego zachowanie determinuje właściwości substancji na poziomie mikroskopowym."
+  },
+  "concept:charge": {
+    "name": "Ładunek elektryczny",
+    "slug": "ladunek-elektryczny",
+    "surface_forms": [
+      "ładunek elektryczny",
+      "ładunek"
+    ],
+    "description": "Fundamentalna wielkość fizyczna określająca oddziaływanie elektromagnetyczne. Nośniki ładunku — elektrony i jony — zapewniają przewodnictwo elektryczne i tworzenie wiązań chemicznych."
+  },
+  "concept:field": {
+    "name": "Pole",
+    "slug": "pole",
+    "surface_forms": [
+      "pole",
+      "pola"
+    ],
+    "description": "Obiekt fizyczny istniejący we wszystkich punktach przestrzeni, charakteryzujący się określoną wielkością fizyczną w każdym punkcie. Pole elektryczne jest wytwarzane przez ładunki elektryczne."
+  },
+  "concept:electric_field": {
+    "name": "Pole elektryczne",
+    "slug": "pole-elektryczne",
+    "surface_forms": [
+      "pole elektryczne"
+    ],
+    "description": "Pole siłowe wytwarzane przez ładunki elektryczne. Działa na naładowane cząstki siłą proporcjonalną do ich ładunku. Determinuje oddziaływanie elektrostatyczne w wiązaniach jonowych."
+  },
+  "concept:electrostatic_interaction": {
+    "name": "Oddziaływanie elektrostatyczne",
+    "slug": "oddzialywanie-elektrostatyczne",
+    "surface_forms": [
+      "oddziaływanie elektrostatyczne"
+    ],
+    "description": "Oddziaływanie między ładunkami elektrycznymi. W wiązaniu jonowym — przyciąganie między kationami i anionami. Siła oddziaływania zależy od wielkości ładunków i odległości między nimi."
+  },
+  "concept:deformation": {
+    "name": "Odkształcenie",
+    "slug": "odksztalcenie",
+    "surface_forms": [
+      "odkształcenie",
+      "odkształcenia"
+    ],
+    "description": "Zmiana kształtu lub wymiarów ciała pod działaniem sił zewnętrznych. Rozróżnia się odkształcenie sprężyste (odwracalne) i plastyczne (nieodwracalne)."
+  },
+  "concept:plastic_deformation": {
+    "name": "Odkształcenie plastyczne",
+    "slug": "odksztalcenie-plastyczne",
+    "surface_forms": [
+      "odkształcenie plastyczne"
+    ],
+    "description": "Nieodwracalna zmiana kształtu ciała, utrzymująca się po usunięciu obciążenia. Metale łatwo ulegają odkształceniu plastycznemu dzięki wiązaniu metalicznemu."
+  },
+  "concept:fracture": {
+    "name": "Pęknięcie",
+    "slug": "pekniecie",
+    "surface_forms": [
+      "pęknięcie",
+      "pęknięcia",
+      "złamanie"
+    ],
+    "description": "Proces rozdzielenia ciała na części pod działaniem sił zewnętrznych. Pęknięcie kruche następuje bez znacznego odkształcenia plastycznego."
   }
 }

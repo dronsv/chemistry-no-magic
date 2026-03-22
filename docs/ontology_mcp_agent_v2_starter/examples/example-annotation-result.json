@@ -1,0 +1,34 @@
+{
+  "doc_id": "lesson-acids-01",
+  "material_language": "ru",
+  "annotations": [
+    {
+      "text": "кислота",
+      "start": 0,
+      "end": 7,
+      "kind": "substance_class",
+      "chosen_ref": "cls:acid",
+      "confidence": 0.98,
+      "candidates": [
+        {
+          "ref": "cls:acid",
+          "score": 0.98,
+          "reason": "exact label match"
+        }
+      ]
+    }
+  ],
+  "unresolved_mentions": [
+    {
+      "text": "распад на ионы",
+      "start": 10,
+      "end": 24,
+      "reason": "needs concept resolution with more context"
+    }
+  ],
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "One explanatory phrase may require alias addition for concept:acid_dissociation."
+  ]
+}

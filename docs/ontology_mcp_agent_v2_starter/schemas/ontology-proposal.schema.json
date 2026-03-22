@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chemistry.online/schemas/ontology-proposal.schema.json",
+  "title": "OntologyProposal",
+  "type": "object",
+  "required": [
+    "proposal_id",
+    "proposal_type",
+    "candidate_text",
+    "language",
+    "rationale",
+    "nearest_existing_refs",
+    "admission_checks",
+    "status"
+  ],
+  "properties": {
+    "proposal_id": { "type": "string" },
+    "proposal_type": {
+      "type": "string",
+      "enum": [
+        "alias_addition",
+        "overlay_addition",
+        "relation_addition",
+        "entity_extension",
+        "new_core_entity"
+      ]
+    },
+    "candidate_text": { "type": "string" },
+    "language": { "type": "string" },
+    "target_ref": { "type": "string" },
+    "target_kind": { "type": "string" },
+    "proposed_ref": { "type": "string" },
+    "proposed_label": { "type": "string" },
+    "proposed_definition": { "type": "string" },
+    "rationale": { "type": "string" },
+    "evidence_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "source_doc_id": { "type": "string" },
+          "text": { "type": "string" },
+          "start": { "type": "integer" },
+          "end": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "nearest_existing_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref", "reason", "score"],
+        "properties": {
+          "ref": { "type": "string" },
+          "reason": { "type": "string" },
+          "score": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required_relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation", "target_ref"],
+        "properties": {
+          "relation": { "type": "string" },
+          "target_ref": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "admission_checks": {
+      "type": "object",
+      "required": [
+        "is_alias_only",
+        "is_overlay_only",
+        "is_reusable",
+        "is_language_independent",
+        "is_non_redundant",
+        "has_structural_value"
+      ],
+      "properties": {
+        "is_alias_only": { "type": "boolean" },
+        "is_overlay_only": { "type": "boolean" },
+        "is_reusable": { "type": "boolean" },
+        "is_language_independent": { "type": "boolean" },
+        "is_non_redundant": { "type": "boolean" },
+        "has_structural_value": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "accepted", "rejected"]
+    }
+  },
+  "additionalProperties": false
+}

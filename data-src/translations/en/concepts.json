@@ -597,122 +597,389 @@
     "slug": "by-composition",
     "description": "Classification of salts by degree of hydrogen/hydroxide substitution"
   },
-
   "concept:chemical_bond": {
     "name": "Chemical bond",
     "slug": "chemical-bond",
     "description": "An interaction between atoms that holds them together in molecules, crystals, and other structures. Types include ionic, covalent, and metallic bonds.",
-    "surface_forms": ["chemical bond", "chemical bonds", "bond"]
+    "surface_forms": [
+      "chemical bond",
+      "chemical bonds",
+      "bond"
+    ]
   },
   "concept:ionic_bond": {
     "name": "Ionic bond",
     "slug": "ionic-bond",
     "description": "A bond formed by the electrostatic attraction between oppositely charged ions, created when electrons are transferred from a metal atom to a nonmetal atom.",
-    "surface_forms": ["ionic bond", "ionic bonds", "ionic bonding"]
+    "surface_forms": [
+      "ionic bond",
+      "ionic bonds",
+      "ionic bonding"
+    ]
   },
   "concept:covalent_bond": {
     "name": "Covalent bond",
     "slug": "covalent-bond",
     "description": "A bond formed by the sharing of electron pairs between atoms. Can be polar or nonpolar depending on the electronegativity difference.",
-    "surface_forms": ["covalent bond", "covalent bonds", "covalent bonding"]
+    "surface_forms": [
+      "covalent bond",
+      "covalent bonds",
+      "covalent bonding"
+    ]
   },
   "concept:covalent_polar_bond": {
     "name": "Polar covalent bond",
     "slug": "polar-covalent-bond",
     "description": "A covalent bond between atoms of different electronegativities, where the shared electron pair is shifted toward the more electronegative atom.",
-    "surface_forms": ["polar covalent bond", "polar covalent bonds", "polar bond"]
+    "surface_forms": [
+      "polar covalent bond",
+      "polar covalent bonds",
+      "polar bond"
+    ]
   },
   "concept:covalent_nonpolar_bond": {
     "name": "Nonpolar covalent bond",
     "slug": "nonpolar-covalent-bond",
     "description": "A covalent bond between atoms of the same element, where the shared electron pair is distributed symmetrically.",
-    "surface_forms": ["nonpolar covalent bond", "nonpolar covalent bonds", "nonpolar bond"]
+    "surface_forms": [
+      "nonpolar covalent bond",
+      "nonpolar covalent bonds",
+      "nonpolar bond"
+    ]
   },
   "concept:metallic_bond": {
     "name": "Metallic bond",
     "slug": "metallic-bond",
     "description": "A bond in metals and alloys formed by the sharing of valence electrons that move freely among metal cations in a crystal lattice.",
-    "surface_forms": ["metallic bond", "metallic bonds", "metallic bonding"]
+    "surface_forms": [
+      "metallic bond",
+      "metallic bonds",
+      "metallic bonding"
+    ]
   },
-
   "concept:ionic_crystal_lattice": {
     "name": "Ionic crystal lattice",
     "slug": "ionic-crystal-lattice",
     "description": "A crystal lattice with alternating cations and anions at lattice points. Typical for salts, bases, and metal oxides. Substances have high melting and boiling points.",
-    "surface_forms": ["ionic crystal lattice", "ionic lattice", "ionic crystal structure"]
+    "surface_forms": [
+      "ionic crystal lattice",
+      "ionic lattice",
+      "ionic crystal structure"
+    ]
   },
   "concept:molecular_crystal_lattice": {
     "name": "Molecular crystal lattice",
     "slug": "molecular-crystal-lattice",
     "description": "A crystal lattice with molecules at lattice points, held together by weak intermolecular forces. Substances have low melting points and are volatile.",
-    "surface_forms": ["molecular crystal lattice", "molecular lattice", "molecular crystal structure"]
+    "surface_forms": [
+      "molecular crystal lattice",
+      "molecular lattice",
+      "molecular crystal structure"
+    ]
   },
   "concept:atomic_crystal_lattice": {
     "name": "Atomic crystal lattice",
     "slug": "atomic-crystal-lattice",
     "description": "A crystal lattice with atoms at lattice points, connected by strong covalent bonds. Substances (diamond, silicon, SiO2) are very hard, refractory, and insoluble.",
-    "surface_forms": ["atomic crystal lattice", "atomic lattice", "covalent crystal lattice"]
+    "surface_forms": [
+      "atomic crystal lattice",
+      "atomic lattice",
+      "covalent crystal lattice"
+    ]
   },
   "concept:metallic_crystal_lattice": {
     "name": "Metallic crystal lattice",
     "slug": "metallic-crystal-lattice",
     "description": "A crystal lattice with metal cations at lattice points surrounded by delocalized electrons. Provides electrical and thermal conductivity, malleability, and metallic luster.",
-    "surface_forms": ["metallic crystal lattice", "metallic lattice", "metallic crystal structure"]
+    "surface_forms": [
+      "metallic crystal lattice",
+      "metallic lattice",
+      "metallic crystal structure"
+    ]
   },
-
   "concept:shared_electron_pair": {
     "name": "Shared electron pair",
     "slug": "shared-electron-pair",
     "description": "A pair of electrons shared between two atoms, forming a covalent bond.",
-    "surface_forms": ["shared electron pair", "shared electron pairs", "bonding pair"]
+    "surface_forms": [
+      "shared electron pair",
+      "shared electron pairs",
+      "bonding pair"
+    ]
   },
   "concept:partial_charge": {
     "name": "Partial charge",
     "slug": "partial-charge",
     "description": "A charge (delta+, delta-) that appears on atoms in a polar covalent bond due to uneven distribution of electron density.",
-    "surface_forms": ["partial charge", "partial charges", "delta plus", "delta minus"]
+    "surface_forms": [
+      "partial charge",
+      "partial charges",
+      "delta plus",
+      "delta minus"
+    ]
   },
   "concept:delocalized_electron": {
     "name": "Delocalized electron",
     "slug": "delocalized-electron",
     "description": "An electron not bound to a specific atom, moving freely throughout the metal crystal lattice. Responsible for the electrical and thermal conductivity of metals.",
-    "surface_forms": ["delocalized electron", "delocalized electrons", "free electrons"]
+    "surface_forms": [
+      "delocalized electron",
+      "delocalized electrons",
+      "free electrons"
+    ]
   },
   "concept:electron_transfer": {
     "name": "Electron transfer",
     "slug": "electron-transfer",
     "description": "The process of one or more electrons moving from one atom to another, resulting in ion formation and ionic bonding.",
-    "surface_forms": ["electron transfer", "transfer of electrons"]
+    "surface_forms": [
+      "electron transfer",
+      "transfer of electrons"
+    ]
   },
   "concept:electron_density": {
     "name": "Electron density",
     "slug": "electron-density",
     "description": "The probability distribution of electrons in a molecule. In a polar bond, electron density is shifted toward the more electronegative atom.",
-    "surface_forms": ["electron density", "electron cloud density"]
+    "surface_forms": [
+      "electron density",
+      "electron cloud density"
+    ]
   },
   "concept:bond_polarity": {
     "name": "Bond polarity",
     "slug": "bond-polarity",
     "description": "A property of a covalent bond determined by the electronegativity difference between the bonded atoms. The greater the difference, the more polar the bond.",
-    "surface_forms": ["bond polarity", "polarity of a bond"]
+    "surface_forms": [
+      "bond polarity",
+      "polarity of a bond"
+    ]
   },
-
   "concept:solid_phase": {
     "name": "Solid phase",
     "slug": "solid-phase",
     "description": "A state of matter characterized by an ordered arrangement of particles and the retention of both shape and volume.",
-    "surface_forms": ["solid phase", "solid state", "solid"]
+    "surface_forms": [
+      "solid phase",
+      "solid state",
+      "solid"
+    ]
   },
   "concept:liquid_phase": {
     "name": "Liquid phase",
     "slug": "liquid-phase",
     "description": "A state of matter that retains volume but lacks a fixed shape. Particles are mobile yet held together by intermolecular forces.",
-    "surface_forms": ["liquid phase", "liquid state", "liquid"]
+    "surface_forms": [
+      "liquid phase",
+      "liquid state",
+      "liquid"
+    ]
   },
   "concept:gaseous_phase": {
     "name": "Gaseous phase",
     "slug": "gaseous-phase",
     "description": "A state of matter with neither fixed volume nor fixed shape. Particles move randomly and interact very weakly.",
-    "surface_forms": ["gaseous phase", "gas phase", "gaseous state", "gas"]
+    "surface_forms": [
+      "gaseous phase",
+      "gas phase",
+      "gaseous state",
+      "gas"
+    ]
+  },
+  "concept:metals": {
+    "name": "Metals",
+    "description": "Class of simple substances characterized by electrical conductivity, thermal conductivity, malleability/ductility, and metallic luster."
+  },
+  "concept:nonmetals": {
+    "name": "Nonmetals",
+    "description": "Class of simple substances that are typically poor conductors, brittle in solid form."
+  },
+  "concept:metalloids": {
+    "name": "Metalloids",
+    "description": "Class of simple substances with intermediate properties between metals and nonmetals; typical semiconductors."
+  },
+  "grp:transition_metal": {
+    "name": "Transition metals",
+    "description": "d-block elements with partially filled d-subshells."
+  },
+  "grp:post_transition_metal": {
+    "name": "Post-transition metals",
+    "description": "p-block metals located after the transition metals in the periodic table."
+  },
+  "grp:metalloid": {
+    "name": "Metalloids (group)",
+    "description": "Group of elements with intermediate properties between metals and nonmetals."
+  },
+  "grp:nonmetal": {
+    "name": "Nonmetals",
+    "slug": "nonmetals",
+    "surface_forms": {
+      "nom": "nonmetals",
+      "sg_nom": "nonmetal"
+    }
+  },
+  "grp:lanthanide": {
+    "name": "Lanthanides",
+    "slug": "lanthanides",
+    "surface_forms": {
+      "nom": "lanthanides",
+      "sg_nom": "lanthanide"
+    }
+  },
+  "grp:actinide": {
+    "name": "Actinides",
+    "slug": "actinides",
+    "surface_forms": {
+      "nom": "actinides",
+      "sg_nom": "actinide"
+    }
+  },
+  "concept:electrical_conductivity": {
+    "name": "Electrical conductivity",
+    "slug": "electrical-conductivity",
+    "surface_forms": [
+      "electrical conductivity",
+      "conducts electricity",
+      "conductor"
+    ],
+    "description": "The ability of a substance to conduct electric current. Determined by the presence of free charged particles — electrons or ions. Metals exhibit high electrical conductivity due to delocalized electrons."
+  },
+  "concept:thermal_conductivity": {
+    "name": "Thermal conductivity",
+    "slug": "thermal-conductivity",
+    "surface_forms": [
+      "thermal conductivity",
+      "heat conduction"
+    ],
+    "description": "The ability of a substance to transfer thermal energy from hotter regions to cooler ones. In metals, the main mechanism is energy transfer by free electrons."
+  },
+  "concept:hardness": {
+    "name": "Hardness",
+    "slug": "hardness",
+    "surface_forms": [
+      "hardness",
+      "hard",
+      "soft"
+    ],
+    "description": "The ability of a material to resist local plastic deformation under indentation. Hardness depends on the type of chemical bond and crystal lattice: substances with atomic crystal lattices are usually very hard."
+  },
+  "concept:brittleness": {
+    "name": "Brittleness",
+    "slug": "brittleness",
+    "surface_forms": [
+      "brittleness",
+      "brittle"
+    ],
+    "description": "The tendency of a material to fracture without significant plastic deformation. Substances with ionic bonds are often brittle because displacement of ion layers leads to electrostatic repulsion and fracture."
+  },
+  "concept:plasticity": {
+    "name": "Plasticity",
+    "slug": "plasticity",
+    "surface_forms": [
+      "plasticity",
+      "ductility",
+      "ductile",
+      "malleable"
+    ],
+    "description": "The ability of a material to undergo irreversible deformation without fracture. Metals are ductile due to metallic bonding: delocalized electrons allow atomic layers to slide without losing cohesion."
+  },
+  "concept:metallic_luster": {
+    "name": "Metallic luster",
+    "slug": "metallic-luster",
+    "surface_forms": [
+      "metallic luster",
+      "metallic lustre",
+      "shiny"
+    ],
+    "description": "The characteristic shine of metal surfaces caused by the reflection of light by delocalized electrons in the metallic crystal lattice."
+  },
+  "concept:force": {
+    "name": "Force",
+    "slug": "force",
+    "surface_forms": [
+      "force",
+      "forces"
+    ],
+    "description": "A measure of interaction between bodies; a physical quantity characterizing the action of one body on another, causing a change in velocity or deformation."
+  },
+  "concept:interaction": {
+    "name": "Interaction",
+    "slug": "interaction",
+    "surface_forms": [
+      "interaction",
+      "interactions"
+    ],
+    "description": "The mutual action of objects upon each other, leading to changes in their state. In chemistry, electrostatic interaction of charged particles plays a key role."
+  },
+  "concept:particle": {
+    "name": "Particle",
+    "slug": "particle",
+    "surface_forms": [
+      "particle",
+      "particles"
+    ],
+    "description": "A small-scale object — atom, molecule, ion, or electron — whose behavior determines the properties of matter at the microscopic level."
+  },
+  "concept:charge": {
+    "name": "Electric charge",
+    "slug": "electric-charge",
+    "surface_forms": [
+      "electric charge",
+      "charge",
+      "charges"
+    ],
+    "description": "A fundamental physical quantity that determines electromagnetic interaction. Charge carriers — electrons and ions — enable electrical conductivity and chemical bond formation."
+  },
+  "concept:field": {
+    "name": "Field",
+    "slug": "field",
+    "surface_forms": [
+      "field",
+      "fields"
+    ],
+    "description": "A physical entity existing at all points in space, characterized by a specific physical quantity at each point. An electric field is created by electric charges."
+  },
+  "concept:electric_field": {
+    "name": "Electric field",
+    "slug": "electric-field",
+    "surface_forms": [
+      "electric field"
+    ],
+    "description": "A force field created by electric charges. It acts on charged particles with a force proportional to their charge. It determines electrostatic interaction in ionic bonds."
+  },
+  "concept:electrostatic_interaction": {
+    "name": "Electrostatic interaction",
+    "slug": "electrostatic-interaction",
+    "surface_forms": [
+      "electrostatic interaction",
+      "electrostatic attraction",
+      "electrostatic repulsion"
+    ],
+    "description": "Interaction between electric charges. In ionic bonds — attraction between cations and anions. The strength of the interaction is determined by the magnitude of charges and the distance between them."
+  },
+  "concept:deformation": {
+    "name": "Deformation",
+    "slug": "deformation",
+    "surface_forms": [
+      "deformation"
+    ],
+    "description": "A change in the shape or size of a body under the action of external forces. Elastic (reversible) and plastic (irreversible) deformation are distinguished."
+  },
+  "concept:plastic_deformation": {
+    "name": "Plastic deformation",
+    "slug": "plastic-deformation",
+    "surface_forms": [
+      "plastic deformation"
+    ],
+    "description": "Irreversible change in body shape that persists after load removal. Metals readily undergo plastic deformation due to metallic bonding."
+  },
+  "concept:fracture": {
+    "name": "Fracture",
+    "slug": "fracture",
+    "surface_forms": [
+      "fracture",
+      "rupture"
+    ],
+    "description": "The process of a body separating into parts under external forces. Brittle fracture occurs without significant plastic deformation."
   }
 }

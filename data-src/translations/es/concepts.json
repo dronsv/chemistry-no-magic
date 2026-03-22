@@ -585,122 +585,377 @@
     "slug": "por-composicion",
     "description": "Clasificación de sales por grado de sustitución de hidrógeno o hidroxilo"
   },
-
   "concept:chemical_bond": {
     "name": "Enlace químico",
     "slug": "enlace-quimico",
     "description": "Interacción entre átomos que los mantiene unidos en moléculas, cristales y otras estructuras. Se distinguen enlaces iónicos, covalentes y metálicos.",
-    "surface_forms": ["enlace químico", "enlaces químicos", "enlace"]
+    "surface_forms": [
+      "enlace químico",
+      "enlaces químicos",
+      "enlace"
+    ]
   },
   "concept:ionic_bond": {
     "name": "Enlace iónico",
     "slug": "enlace-ionico",
     "description": "Enlace formado por la atracción electrostática entre iones de carga opuesta, creados por la transferencia de electrones de un átomo metálico a uno no metálico.",
-    "surface_forms": ["enlace iónico", "enlaces iónicos"]
+    "surface_forms": [
+      "enlace iónico",
+      "enlaces iónicos"
+    ]
   },
   "concept:covalent_bond": {
     "name": "Enlace covalente",
     "slug": "enlace-covalente",
     "description": "Enlace formado por la compartición de pares de electrones entre átomos. Puede ser polar o no polar según la diferencia de electronegatividad.",
-    "surface_forms": ["enlace covalente", "enlaces covalentes"]
+    "surface_forms": [
+      "enlace covalente",
+      "enlaces covalentes"
+    ]
   },
   "concept:covalent_polar_bond": {
     "name": "Enlace covalente polar",
     "slug": "enlace-covalente-polar",
     "description": "Enlace covalente entre átomos de distinta electronegatividad: el par de electrones compartido se desplaza hacia el átomo más electronegativo.",
-    "surface_forms": ["enlace covalente polar", "enlaces covalentes polares"]
+    "surface_forms": [
+      "enlace covalente polar",
+      "enlaces covalentes polares"
+    ]
   },
   "concept:covalent_nonpolar_bond": {
     "name": "Enlace covalente no polar",
     "slug": "enlace-covalente-no-polar",
     "description": "Enlace covalente entre átomos del mismo elemento: el par de electrones compartido se distribuye simétricamente.",
-    "surface_forms": ["enlace covalente no polar", "enlace covalente apolar", "enlaces covalentes no polares"]
+    "surface_forms": [
+      "enlace covalente no polar",
+      "enlace covalente apolar",
+      "enlaces covalentes no polares"
+    ]
   },
   "concept:metallic_bond": {
     "name": "Enlace metálico",
     "slug": "enlace-metalico",
     "description": "Enlace en metales y aleaciones formado por la compartición de electrones de valencia que se mueven libremente entre los cationes metálicos en la red cristalina.",
-    "surface_forms": ["enlace metálico", "enlaces metálicos"]
+    "surface_forms": [
+      "enlace metálico",
+      "enlaces metálicos"
+    ]
   },
-
   "concept:ionic_crystal_lattice": {
     "name": "Red cristalina iónica",
     "slug": "red-cristalina-ionica",
     "description": "Red cristalina con cationes y aniones alternados en los nodos. Típica de sales, bases y óxidos metálicos. Las sustancias tienen altos puntos de fusión y ebullición.",
-    "surface_forms": ["red cristalina iónica", "red iónica"]
+    "surface_forms": [
+      "red cristalina iónica",
+      "red iónica"
+    ]
   },
   "concept:molecular_crystal_lattice": {
     "name": "Red cristalina molecular",
     "slug": "red-cristalina-molecular",
     "description": "Red cristalina con moléculas en los nodos, unidas por fuerzas intermoleculares débiles. Las sustancias tienen bajos puntos de fusión y son volátiles.",
-    "surface_forms": ["red cristalina molecular", "red molecular"]
+    "surface_forms": [
+      "red cristalina molecular",
+      "red molecular"
+    ]
   },
   "concept:atomic_crystal_lattice": {
     "name": "Red cristalina atómica",
     "slug": "red-cristalina-atomica",
     "description": "Red cristalina con átomos en los nodos, unidos por fuertes enlaces covalentes. Las sustancias (diamante, silicio, SiO₂) son muy duras, refractarias e insolubles.",
-    "surface_forms": ["red cristalina atómica", "red atómica", "red cristalina covalente"]
+    "surface_forms": [
+      "red cristalina atómica",
+      "red atómica",
+      "red cristalina covalente"
+    ]
   },
   "concept:metallic_crystal_lattice": {
     "name": "Red cristalina metálica",
     "slug": "red-cristalina-metalica",
     "description": "Red cristalina con cationes metálicos en los nodos rodeados de electrones deslocalizados. Proporciona conductividad eléctrica y térmica, maleabilidad y brillo metálico.",
-    "surface_forms": ["red cristalina metálica", "red metálica"]
+    "surface_forms": [
+      "red cristalina metálica",
+      "red metálica"
+    ]
   },
-
   "concept:shared_electron_pair": {
     "name": "Par de electrones compartido",
     "slug": "par-electrones-compartido",
     "description": "Par de electrones que pertenece simultáneamente a dos átomos, formando un enlace covalente.",
-    "surface_forms": ["par de electrones compartido", "pares de electrones compartidos", "par enlazante"]
+    "surface_forms": [
+      "par de electrones compartido",
+      "pares de electrones compartidos",
+      "par enlazante"
+    ]
   },
   "concept:partial_charge": {
     "name": "Carga parcial",
     "slug": "carga-parcial",
     "description": "Carga (δ+, δ−) que aparece en los átomos de un enlace covalente polar debido a la distribución desigual de la densidad electrónica.",
-    "surface_forms": ["carga parcial", "cargas parciales", "delta más", "delta menos"]
+    "surface_forms": [
+      "carga parcial",
+      "cargas parciales",
+      "delta más",
+      "delta menos"
+    ]
   },
   "concept:delocalized_electron": {
     "name": "Electrón deslocalizado",
     "slug": "electron-deslocalizado",
     "description": "Electrón no unido a un átomo específico, que se mueve libremente por la red cristalina del metal. Responsable de la conductividad eléctrica y térmica de los metales.",
-    "surface_forms": ["electrón deslocalizado", "electrones deslocalizados", "electrones libres"]
+    "surface_forms": [
+      "electrón deslocalizado",
+      "electrones deslocalizados",
+      "electrones libres"
+    ]
   },
   "concept:electron_transfer": {
     "name": "Transferencia de electrones",
     "slug": "transferencia-electrones",
     "description": "Proceso de paso de uno o más electrones de un átomo a otro, que da lugar a la formación de iones y al enlace iónico.",
-    "surface_forms": ["transferencia de electrones", "transferencia electrónica"]
+    "surface_forms": [
+      "transferencia de electrones",
+      "transferencia electrónica"
+    ]
   },
   "concept:electron_density": {
     "name": "Densidad electrónica",
     "slug": "densidad-electronica",
     "description": "Distribución de probabilidad de encontrar electrones en el espacio de una molécula. En un enlace polar, la densidad electrónica se desplaza hacia el átomo más electronegativo.",
-    "surface_forms": ["densidad electrónica", "densidad de electrones"]
+    "surface_forms": [
+      "densidad electrónica",
+      "densidad de electrones"
+    ]
   },
   "concept:bond_polarity": {
     "name": "Polaridad del enlace",
     "slug": "polaridad-enlace",
     "description": "Propiedad de un enlace covalente determinada por la diferencia de electronegatividad entre los átomos enlazados. Cuanto mayor es la diferencia, más polar es el enlace.",
-    "surface_forms": ["polaridad del enlace", "polaridad de enlace"]
+    "surface_forms": [
+      "polaridad del enlace",
+      "polaridad de enlace"
+    ]
   },
-
   "concept:solid_phase": {
     "name": "Fase sólida",
     "slug": "fase-solida",
     "description": "Estado de agregación de la materia caracterizado por una disposición ordenada de las partículas y la conservación de forma y volumen.",
-    "surface_forms": ["fase sólida", "estado sólido", "sólido"]
+    "surface_forms": [
+      "fase sólida",
+      "estado sólido",
+      "sólido"
+    ]
   },
   "concept:liquid_phase": {
     "name": "Fase líquida",
     "slug": "fase-liquida",
     "description": "Estado de agregación de la materia que conserva el volumen pero carece de forma fija. Las partículas son móviles pero están unidas por fuerzas intermoleculares.",
-    "surface_forms": ["fase líquida", "estado líquido", "líquido"]
+    "surface_forms": [
+      "fase líquida",
+      "estado líquido",
+      "líquido"
+    ]
   },
   "concept:gaseous_phase": {
     "name": "Fase gaseosa",
     "slug": "fase-gaseosa",
     "description": "Estado de agregación de la materia sin volumen ni forma fijos. Las partículas se mueven caóticamente e interactúan muy débilmente.",
-    "surface_forms": ["fase gaseosa", "estado gaseoso", "gas"]
+    "surface_forms": [
+      "fase gaseosa",
+      "estado gaseoso",
+      "gas"
+    ]
+  },
+  "concept:metals": {
+    "name": "Metales",
+    "description": "Clase de sustancias simples que se caracterizan por su conductividad eléctrica, conductividad térmica, maleabilidad/ductilidad y brillo metálico."
+  },
+  "concept:nonmetals": {
+    "name": "No metales",
+    "description": "Clase de sustancias simples que generalmente no conducen la electricidad y son frágiles en estado sólido."
+  },
+  "concept:metalloids": {
+    "name": "Metaloides",
+    "description": "Clase de sustancias simples con propiedades intermedias entre metales y no metales; semiconductores típicos."
+  },
+  "grp:transition_metal": {
+    "name": "Metales de transición",
+    "description": "Elementos del bloque d con subcapas d parcialmente llenas."
+  },
+  "grp:post_transition_metal": {
+    "name": "Metales del bloque p",
+    "description": "Metales del bloque p, ubicados después de los metales de transición en la tabla periódica."
+  },
+  "grp:nonmetal": {
+    "name": "No metales",
+    "slug": "no-metales",
+    "surface_forms": {
+      "nom": "no metales",
+      "sg_nom": "no metal"
+    }
+  },
+  "grp:lanthanide": {
+    "name": "Lantánidos",
+    "slug": "lantanidos",
+    "surface_forms": {
+      "nom": "lantánidos",
+      "sg_nom": "lantánido"
+    }
+  },
+  "grp:actinide": {
+    "name": "Actínidos",
+    "slug": "actinidos",
+    "surface_forms": {
+      "nom": "actínidos",
+      "sg_nom": "actínido"
+    }
+  },
+  "grp:metalloid": {
+    "name": "Metaloides",
+    "slug": "metaloides",
+    "surface_forms": {
+      "nom": "metaloides",
+      "sg_nom": "metaloide"
+    }
+  },
+  "concept:electrical_conductivity": {
+    "name": "Conductividad eléctrica",
+    "slug": "conductividad-electrica",
+    "surface_forms": [
+      "conductividad eléctrica",
+      "conduce electricidad"
+    ],
+    "description": "Capacidad de una sustancia para conducir corriente eléctrica. Depende de la presencia de partículas cargadas libres — electrones o iones. Los metales presentan alta conductividad gracias a los electrones deslocalizados."
+  },
+  "concept:thermal_conductivity": {
+    "name": "Conductividad térmica",
+    "slug": "conductividad-termica",
+    "surface_forms": [
+      "conductividad térmica"
+    ],
+    "description": "Capacidad de una sustancia para transferir energía térmica de regiones más calientes a más frías. En los metales, el mecanismo principal es la transferencia de energía por electrones libres."
+  },
+  "concept:hardness": {
+    "name": "Dureza",
+    "slug": "dureza",
+    "surface_forms": [
+      "dureza",
+      "duro",
+      "blando"
+    ],
+    "description": "Capacidad de un material para resistir la deformación plástica local. La dureza depende del tipo de enlace químico y la red cristalina: las sustancias con red atómica suelen ser muy duras."
+  },
+  "concept:brittleness": {
+    "name": "Fragilidad",
+    "slug": "fragilidad",
+    "surface_forms": [
+      "fragilidad",
+      "frágil"
+    ],
+    "description": "Tendencia de un material a fracturarse sin deformación plástica significativa. Las sustancias con enlace iónico suelen ser frágiles porque el desplazamiento de capas de iones provoca repulsión electrostática y fractura."
+  },
+  "concept:plasticity": {
+    "name": "Plasticidad",
+    "slug": "plasticidad",
+    "surface_forms": [
+      "plasticidad",
+      "dúctil",
+      "maleable"
+    ],
+    "description": "Capacidad de un material para deformarse irreversiblemente sin fracturarse. Los metales son dúctiles gracias al enlace metálico: los electrones deslocalizados permiten que las capas atómicas se deslicen sin perder cohesión."
+  },
+  "concept:metallic_luster": {
+    "name": "Brillo metálico",
+    "slug": "brillo-metalico",
+    "surface_forms": [
+      "brillo metálico"
+    ],
+    "description": "El brillo característico de las superficies metálicas causado por la reflexión de la luz por los electrones deslocalizados en la red cristalina metálica."
+  },
+  "concept:force": {
+    "name": "Fuerza",
+    "slug": "fuerza",
+    "surface_forms": [
+      "fuerza",
+      "fuerzas"
+    ],
+    "description": "Medida de la interacción entre cuerpos; magnitud física que caracteriza la acción de un cuerpo sobre otro, causando cambio de velocidad o deformación."
+  },
+  "concept:interaction": {
+    "name": "Interacción",
+    "slug": "interaccion",
+    "surface_forms": [
+      "interacción",
+      "interacciones"
+    ],
+    "description": "Acción mutua de objetos entre sí que conduce a cambios en su estado. En química, la interacción electrostática de partículas cargadas desempeña un papel clave."
+  },
+  "concept:particle": {
+    "name": "Partícula",
+    "slug": "particula",
+    "surface_forms": [
+      "partícula",
+      "partículas"
+    ],
+    "description": "Objeto de pequeña escala — átomo, molécula, ion o electrón — cuyo comportamiento determina las propiedades de la materia a nivel microscópico."
+  },
+  "concept:charge": {
+    "name": "Carga eléctrica",
+    "slug": "carga-electrica",
+    "surface_forms": [
+      "carga eléctrica",
+      "carga"
+    ],
+    "description": "Magnitud física fundamental que determina la interacción electromagnética. Los portadores de carga — electrones e iones — posibilitan la conductividad eléctrica y la formación de enlaces químicos."
+  },
+  "concept:field": {
+    "name": "Campo",
+    "slug": "campo",
+    "surface_forms": [
+      "campo",
+      "campos"
+    ],
+    "description": "Entidad física que existe en todos los puntos del espacio, caracterizada por una magnitud física específica en cada punto. Un campo eléctrico es creado por cargas eléctricas."
+  },
+  "concept:electric_field": {
+    "name": "Campo eléctrico",
+    "slug": "campo-electrico",
+    "surface_forms": [
+      "campo eléctrico"
+    ],
+    "description": "Campo de fuerza creado por cargas eléctricas. Actúa sobre partículas cargadas con una fuerza proporcional a su carga. Determina la interacción electrostática en los enlaces iónicos."
+  },
+  "concept:electrostatic_interaction": {
+    "name": "Interacción electrostática",
+    "slug": "interaccion-electrostatica",
+    "surface_forms": [
+      "interacción electrostática"
+    ],
+    "description": "Interacción entre cargas eléctricas. En el enlace iónico — atracción entre cationes y aniones. La fuerza de la interacción está determinada por la magnitud de las cargas y la distancia entre ellas."
+  },
+  "concept:deformation": {
+    "name": "Deformación",
+    "slug": "deformacion",
+    "surface_forms": [
+      "deformación"
+    ],
+    "description": "Cambio de forma o tamaño de un cuerpo bajo la acción de fuerzas externas. Se distingue la deformación elástica (reversible) y plástica (irreversible)."
+  },
+  "concept:plastic_deformation": {
+    "name": "Deformación plástica",
+    "slug": "deformacion-plastica",
+    "surface_forms": [
+      "deformación plástica"
+    ],
+    "description": "Cambio irreversible de forma del cuerpo que persiste tras retirar la carga. Los metales se deforman plásticamente con facilidad gracias al enlace metálico."
+  },
+  "concept:fracture": {
+    "name": "Fractura",
+    "slug": "fractura",
+    "surface_forms": [
+      "fractura",
+      "rotura"
+    ],
+    "description": "Proceso de separación de un cuerpo en partes bajo fuerzas externas. La fractura frágil ocurre sin deformación plástica significativa."
   }
 }

@@ -1,0 +1,86 @@
+[
+  {
+    "subject": "grp:alkali_metals",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:alkaline_earth",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:transition_metal",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:post_transition_metal",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:lanthanide",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:actinide",
+    "predicate": "has_parent",
+    "object": "concept:metals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:nonmetal",
+    "predicate": "has_parent",
+    "object": "concept:nonmetals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:halogens",
+    "predicate": "has_parent",
+    "object": "concept:nonmetals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:noble_gases",
+    "predicate": "has_parent",
+    "object": "concept:nonmetals",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "grp:metalloid",
+    "predicate": "has_parent",
+    "object": "concept:metalloids",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "periodic_table_classification"
+  },
+  {
+    "subject": "concept:metals",
+    "predicate": "associated_bond",
+    "object": "concept:metallic_bond",
+    "knowledge_level": "school_convention",
+    "source_kind": "structure_property_relation"
+  },
+  {
+    "subject": "concept:metals",
+    "predicate": "associated_lattice",
+    "object": "concept:metallic_crystal_lattice",
+    "knowledge_level": "school_convention",
+    "source_kind": "structure_property_relation"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chemistry.online/schemas/localization-overlay.schema.json",
+  "title": "LocalizationOverlay",
+  "type": "object",
+  "required": ["ref", "language", "label"],
+  "properties": {
+    "ref": { "type": "string" },
+    "language": { "type": "string" },
+    "label": { "type": "string" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "short_definition": { "type": "string" }
+  },
+  "additionalProperties": false
+}

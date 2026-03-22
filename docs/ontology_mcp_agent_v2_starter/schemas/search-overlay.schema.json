@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chemistry.online/schemas/search-overlay.schema.json",
+  "title": "SearchOverlay",
+  "type": "object",
+  "required": ["ref", "language", "phrases"],
+  "properties": {
+    "ref": { "type": "string" },
+    "language": { "type": "string" },
+    "phrases": { "type": "array", "items": { "type": "string" } },
+    "author_phrases": { "type": "array", "items": { "type": "string" } },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "morphology": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

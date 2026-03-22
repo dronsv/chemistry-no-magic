@@ -1,0 +1,14 @@
+{
+  "name": "ontology-mcp-agent-v2-starter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server/index.js",
+    "bootstrap": "node dist/server/bootstrap/cli.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

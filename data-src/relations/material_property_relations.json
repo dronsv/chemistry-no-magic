@@ -1,0 +1,51 @@
+[
+  {
+    "subject": "concept:brittleness",
+    "predicate": "contrasts_with",
+    "object": "concept:plasticity",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "mechanical_property_contrast"
+  },
+  {
+    "subject": "concept:plasticity",
+    "predicate": "related_to",
+    "object": "concept:plastic_deformation",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "property_mechanism_link"
+  },
+  {
+    "subject": "concept:brittleness",
+    "predicate": "related_to",
+    "object": "concept:fracture",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "property_mechanism_link"
+  },
+  {
+    "subject": "concept:electrical_conductivity",
+    "predicate": "related_to",
+    "object": "concept:metals",
+    "knowledge_level": "school_convention",
+    "source_kind": "structure_property_relation"
+  },
+  {
+    "subject": "concept:electric_field",
+    "predicate": "has_parent",
+    "object": "concept:field",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "concept_hierarchy"
+  },
+  {
+    "subject": "concept:electrostatic_interaction",
+    "predicate": "has_parent",
+    "object": "concept:interaction",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "concept_hierarchy"
+  },
+  {
+    "subject": "concept:plastic_deformation",
+    "predicate": "has_parent",
+    "object": "concept:deformation",
+    "knowledge_level": "strict_chemistry",
+    "source_kind": "concept_hierarchy"
+  }
+]
