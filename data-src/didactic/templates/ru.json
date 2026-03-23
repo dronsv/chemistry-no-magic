@@ -1,0 +1,67 @@
+{
+  "_comment": "Russian language templates for semantic didactic layer. Uses {ref:id|case} for ontology refs and {slot} for value interpolation.",
+
+  "bond_types.section_title": {
+    "question": "Типы химической связи"
+  },
+
+  "ionic.title": {
+    "question": "{ref:concept:ionic_bond|nom}"
+  },
+  "ionic.rule": {
+    "question": "Правило: Δχ ≥ {value} или {ref:concept:metals|nom} + {ref:concept:nonmetals|nom} с высокой разностью {ref:concept:electronegativity|gen}"
+  },
+  "ionic.description": {
+    "question": "Связь между {ref:concept:metals|ins} и {ref:concept:nonmetals|ins} за счёт {ref:concept:electron_transfer|gen}. Образуются ионы: {ref:concept:cation|nom} (+) и {ref:concept:anion|nom} (−).\nСвойства: Высокие температуры плавления, хрупкие, проводят ток в расплаве и растворе"
+  },
+
+  "covalent_polar.title": {
+    "question": "{ref:concept:covalent_polar_bond|nom}"
+  },
+  "covalent_polar.rule": {
+    "question": "Правило: {range_low} < Δχ < {range_high} (оба — {ref:concept:nonmetals|nom})"
+  },
+  "covalent_polar.description": {
+    "question": "Связь между разными {ref:concept:nonmetals|ins} за счёт {ref:concept:shared_electron_pair|gen}. {ref:concept:electron_density|nom} смещена к более электроотрицательному атому ({ref:concept:partial_charge|nom}: δ+, δ−).\nСвойства: Различные т.пл., часто жидкости или газы, не проводят ток"
+  },
+
+  "covalent_nonpolar.title": {
+    "question": "{ref:concept:covalent_nonpolar_bond|nom}"
+  },
+  "covalent_nonpolar.rule": {
+    "question": "Правило: Δχ ≤ {value} (одинаковые или очень близкие {ref:concept:nonmetals|nom})"
+  },
+  "covalent_nonpolar.description": {
+    "question": "Связь между одинаковыми {ref:concept:nonmetals|ins} за счёт {ref:concept:shared_electron_pair|gen}. {ref:concept:electron_density|nom} распределена симметрично.\nСвойства: Низкие т.пл., газы или легкокипящие жидкости, не проводят ток"
+  },
+
+  "metallic.title": {
+    "question": "{ref:concept:metallic_bond|nom}"
+  },
+  "metallic.rule": {
+    "question": "Правило: Простое вещество металла или сплав (оба — {ref:concept:metals|nom})"
+  },
+  "metallic.description": {
+    "question": "Связь в {ref:concept:metals|prep}: атомы отдают валентные электроны в общее «электронное облако» ({ref:concept:delocalized_electron|nom}), которое удерживает положительные ионы в решётке.\nСвойства: Электро- и теплопроводность, пластичность, {ref:concept:metallic_luster|nom}"
+  },
+
+  "crystal_structures.section_title": {
+    "question": "Сравнение кристаллических решёток"
+  },
+
+  "lattice_comparison.columns": {
+    "question": "Тип|В узлах|Т.пл.|Твёрдость|Проводимость|Растворимость|Примеры"
+  },
+  "lattice_comparison.row.concept:ionic_crystal_lattice": {
+    "question": "{ref:concept:ionic_crystal_lattice|short}|{ref:concept:cation|nom} и {ref:concept:anion|nom}|Высокая (800–3000 °C)|Твёрдые, хрупкие|В расплаве и растворе|Часто растворимы в воде|NaCl, KBr, CaO"
+  },
+  "lattice_comparison.row.concept:molecular_crystal_lattice": {
+    "question": "{ref:concept:molecular_crystal_lattice|short}|Молекулы|Низкая (< 300 °C)|Мягкие|Не проводят ток|По-разному|H₂O (лёд), CO₂, I₂"
+  },
+  "lattice_comparison.row.concept:atomic_crystal_lattice": {
+    "question": "{ref:concept:atomic_crystal_lattice|short}|Атомы (ков. связь)|Очень высокая (> 1500 °C)|Очень твёрдые|Не проводят (кроме графита)|Нерастворимы|C (алмаз), Si, SiO₂"
+  },
+  "lattice_comparison.row.concept:metallic_crystal_lattice": {
+    "question": "{ref:concept:metallic_crystal_lattice|short}|Ионы металла + электронный газ|Разная (от −39 °C у Hg до 3422 °C у W)|Разная (Na мягкий, W твёрдый)|Высокая|Нерастворимы|Fe, Cu, Al, Au"
+  }
+}

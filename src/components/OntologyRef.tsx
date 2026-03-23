@@ -112,7 +112,8 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
     kind === 'reaction_type' ||
     kind === 'reaction_facet' ||
     kind === 'process' ||
-    kind === 'property'
+    kind === 'property' ||
+    kind === 'domain_concept'
   ) {
     const conceptId = toOntRefStr(ontRef);
     return <ConceptRef id={conceptId} form={form} surface={surface} locale={locale} variant={variant} />;

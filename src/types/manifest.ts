@@ -47,6 +47,8 @@ export interface ManifestEntrypoints {
   };
   calculators?: string;
   theory_modules?: Record<string, string>;
+  semantic_didactic?: Record<string, string>;
+  didactic_templates?: Record<string, string>;
   courses?: Record<string, string>;
   topics?: string;
   topic_pages?: string;
@@ -80,11 +82,19 @@ export interface ManifestStats {
  */
 export type ManifestTranslations = Record<string, string[]>;
 
+/**
+ * Didactic content availability per locale.
+ * Keys are locale codes, values are arrays of available module keys.
+ */
+export type ManifestDidactic = Record<string, string[]>;
+
 export interface Manifest {
   bundle_hash: string;
   created_at: string;
   schema_version: string;
   entrypoints: ManifestEntrypoints;
   translations: ManifestTranslations;
+  didactic?: ManifestDidactic;
+  didactic_overrides?: ManifestDidactic;
   stats: ManifestStats;
 }

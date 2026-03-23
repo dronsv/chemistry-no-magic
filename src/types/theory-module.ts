@@ -36,10 +36,10 @@ export type TheoryBlock =
   // Formula display
   | { t: 'formula_list'; formulas: string[] }
   // Structured cards
-  | { t: 'rule_card'; title: string; rule: string; description?: string; examples?: string[] }
+  | { t: 'rule_card'; id?: string; concept_ref?: string; title: string; rule: string; description?: string; examples?: string[] }
   | { t: 'example_block'; label: string; content: string }
   // Table
-  | { t: 'table'; columns: string[]; rows: TableRow[] }
+  | { t: 'table'; id?: string; columns: string[]; rows: TableRow[] }
   // Embedded React component (SolubilityTable, ActivitySeriesBar, etc.)
   | { t: 'component_slot'; component: string; props?: Record<string, unknown> }
   // Language frame (semantic event → localized sentence)
@@ -68,6 +68,32 @@ export interface TheoryModule {
   kind: 'theory_module';
   applies_to: string[];
   sections: TheorySection[];
+}
+
+// ---------------------------------------------------------------------------
+// Didactic content layer (locale-specific educational material)
+// ---------------------------------------------------------------------------
+
+export interface DidacticBlockOverlay {
+  title?: RichText;
+  rule?: RichText;
+  description?: RichText;
+  text?: RichText;
+  content?: RichText;
+  label?: RichText;
+  items?: RichText[];
+  columns?: RichText[];
+  rows?: RichText[][];
+}
+
+export interface DidacticSection {
+  title?: RichText;
+  blocks?: Record<string, DidacticBlockOverlay>;
+}
+
+export interface DidacticModule {
+  module_id: string;
+  sections: Record<string, DidacticSection>;
 }
 
 export interface Course {

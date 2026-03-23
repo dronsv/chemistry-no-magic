@@ -44,6 +44,9 @@ import {
   validateFilterStructure,
   validateZeroMatchOverrides,
   checkZeroMatchConcepts,
+  validateDidacticRefs,
+  validateSemanticRefs,
+  validateTemplateRefs,
 } from './lib/validate-ontology.mjs';
 import { generateReport } from './lib/generate-report.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
@@ -283,6 +286,47 @@ async function main() {
     }
   } catch { /* courses dir optional */ }
 
+  // Load semantic didactic modules (optional: data-src/didactic/semantic/*.json)
+  const didacticDir = join(DATA_SRC, 'didactic');
+  const semanticEntries = [];  // [{ data, filename, key }]
+  try {
+    const semanticDir = join(didacticDir, 'semantic');
+    const sFiles = (await readdir(semanticDir)).filter(f => f.endsWith('.json'));
+    for (const f of sFiles) {
+      const key = f.replace('.json', '');
+      semanticEntries.push({ data: await loadJson(join(semanticDir, f)), filename: f, key });
+    }
+  } catch { /* semantic dir optional */ }
+
+  // Load didactic language templates (optional: data-src/didactic/templates/{locale}.json)
+  const templateEntries = {};  // { locale: { data, filename } }
+  try {
+    const templatesDir = join(didacticDir, 'templates');
+    const tFiles = (await readdir(templatesDir)).filter(f => f.endsWith('.json'));
+    for (const f of tFiles) {
+      const locale = f.replace('.json', '');
+      templateEntries[locale] = { data: await loadJson(join(templatesDir, f)), filename: f };
+    }
+  } catch { /* templates dir optional */ }
+
+  // Load didactic overrides (optional: data-src/didactic/overrides/{locale}/*.json)
+  const didacticOverrideEntries = {};  // { locale: [{ data, filename, key }] }
+  try {
+    const overridesDir = join(didacticDir, 'overrides');
+    const overrideLocales = (await readdir(overridesDir, { withFileTypes: true }))
+      .filter(d => d.isDirectory())
+      .map(d => d.name);
+    for (const locale of overrideLocales) {
+      const localeDir = join(overridesDir, locale);
+      const files = (await readdir(localeDir)).filter(f => f.endsWith('.json'));
+      didacticOverrideEntries[locale] = [];
+      for (const f of files) {
+        const key = f.replace('.json', '');
+        didacticOverrideEntries[locale].push({ data: await loadJson(join(localeDir, f)), filename: f, key });
+      }
+    }
+  } catch { /* overrides dir optional */ }
+
   // Load relations (optional directory)
   const relationsDir = join(DATA_SRC, 'relations');
   let relationEntries = [];  // Array of { data, filename }
@@ -339,6 +383,14 @@ async function main() {
   console.log(`  ${Object.keys(concepts).length} concepts`);
   if (theoryModuleEntries.length > 0) console.log(`  ${theoryModuleEntries.length} theory modules`);
   if (courseEntries.length > 0) console.log(`  ${courseEntries.length} courses`);
+  if (semanticEntries.length > 0) console.log(`  ${semanticEntries.length} semantic didactic modules`);
+  const templateLocaleCount = Object.keys(templateEntries).length;
+  if (templateLocaleCount > 0) console.log(`  ${templateLocaleCount} didactic template packs`);
+  const overrideLocaleCount = Object.keys(didacticOverrideEntries).length;
+  if (overrideLocaleCount > 0) {
+    const totalOverrides = Object.values(didacticOverrideEntries).reduce((s, arr) => s + arr.length, 0);
+    console.log(`  ${totalOverrides} didactic overrides across ${overrideLocaleCount} locales`);
+  }
   console.log('');
 
   // 2. Validate
@@ -395,6 +447,9 @@ async function main() {
     ...validateZeroMatchOverrides(concepts),
     ...validateTheoryModuleRefs(theoryModuleEntries.map(m => m.data), concepts),
     ...validateCourseRefs(courseEntries.map(c => c.data), theoryModuleEntries.map(m => m.data)),
+    ...validateSemanticRefs(semanticEntries, concepts),
+    ...validateTemplateRefs(templateEntries, concepts, { ionIds, substanceIds, elementSymbols }),
+    ...validateDidacticRefs(didacticOverrideEntries, concepts, { ionIds, substanceIds, elementSymbols }),
   ];
   allErrors.push(...ontologyErrors);
 
@@ -681,6 +736,42 @@ async function main() {
     console.log(`  ${theoryModuleEntries.length} theory modules`);
   }
 
+  // 6a2b. Copy semantic didactic modules
+  const semanticDidacticFiles = {};  // { key: "didactic/semantic/key.json" }
+  if (semanticEntries.length > 0) {
+    await mkdir(join(bundleDir, 'didactic', 'semantic'), { recursive: true });
+    for (const { data, filename, key } of semanticEntries) {
+      await writeFile(join(bundleDir, 'didactic', 'semantic', filename), JSON.stringify(data));
+      semanticDidacticFiles[key] = `didactic/semantic/${filename}`;
+    }
+    console.log(`  ${semanticEntries.length} semantic didactic modules`);
+  }
+
+  // 6a2c. Copy didactic language templates
+  const didacticTemplateFiles = {};  // { locale: "didactic/templates/locale.json" }
+  if (Object.keys(templateEntries).length > 0) {
+    await mkdir(join(bundleDir, 'didactic', 'templates'), { recursive: true });
+    for (const [locale, { data, filename }] of Object.entries(templateEntries)) {
+      await writeFile(join(bundleDir, 'didactic', 'templates', filename), JSON.stringify(data));
+      didacticTemplateFiles[locale] = `didactic/templates/${filename}`;
+    }
+    console.log(`  ${Object.keys(templateEntries).length} didactic template packs`);
+  }
+
+  // 6a2d. Copy didactic overrides
+  const didacticOverrideManifest = {};  // { locale: [moduleKey, ...] }
+  for (const [locale, entries] of Object.entries(didacticOverrideEntries)) {
+    if (entries.length === 0) continue;
+    const localeDir = join(bundleDir, 'didactic', 'overrides', locale);
+    await mkdir(localeDir, { recursive: true });
+    didacticOverrideManifest[locale] = [];
+    for (const { data, filename, key } of entries) {
+      await writeFile(join(localeDir, filename), JSON.stringify(data));
+      didacticOverrideManifest[locale].push(key);
+    }
+    console.log(`  didactic/overrides/${locale}: ${entries.length} modules`);
+  }
+
   // 6a3. Copy courses (pre-loaded in phase 1)
   const courseFiles = {};
   if (courseEntries.length > 0) {
@@ -883,6 +974,9 @@ async function main() {
     theoryModules: theoryModuleFiles,
     courses: courseFiles,
     relations: relationFiles,
+    semanticDidactic: semanticDidacticFiles,
+    didacticTemplates: didacticTemplateFiles,
+    didacticOverrides: didacticOverrideManifest,
     foundations: {
       physical_concepts: !!physicalConcepts,
       math_concepts: !!mathConcepts,

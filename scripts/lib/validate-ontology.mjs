@@ -370,6 +370,220 @@ export function validateZeroMatchOverrides(concepts) {
   return errors;
 }
 
+// ── Didactic ref validation ─────────────────────────────────────────────
+
+/**
+ * Walk all RichText segments in a didactic module and verify ref IDs exist.
+ * @param {Record<string, Array<{data: object, key: string}>>} didacticEntries - { locale: [{data, key}] }
+ * @param {Record<string, object>} concepts - The concept registry
+ * @param {{ ionIds: Set<string>, substanceIds: Set<string>, elementSymbols: Set<string> }} entityIds
+ * @returns {string[]} errors
+ */
+export function validateDidacticRefs(didacticEntries, concepts, entityIds) {
+  const errors = [];
+  const conceptIds = new Set(Object.keys(concepts));
+
+  for (const [locale, entries] of Object.entries(didacticEntries)) {
+    for (const { data, key } of entries) {
+      const prefix = `didactic/${locale}/${key}`;
+
+      if (!data.sections || typeof data.sections !== 'object') continue;
+
+      for (const [sectionId, section] of Object.entries(data.sections)) {
+        // Validate section title RichText refs
+        if (section.title) {
+          for (const refId of extractRichTextRefs(section.title)) {
+            validateRefId(refId, `${prefix}.sections["${sectionId}"].title`, conceptIds, entityIds, errors);
+          }
+        }
+
+        if (!section.blocks || typeof section.blocks !== 'object') continue;
+
+        for (const [blockId, block] of Object.entries(section.blocks)) {
+          const blockPrefix = `${prefix}.sections["${sectionId}"].blocks["${blockId}"]`;
+
+          // Check all RichText fields in the block overlay
+          for (const field of ['title', 'rule', 'description', 'text', 'content', 'label']) {
+            if (block[field]) {
+              for (const refId of extractRichTextRefs(block[field])) {
+                validateRefId(refId, `${blockPrefix}.${field}`, conceptIds, entityIds, errors);
+              }
+            }
+          }
+
+          // Check items (array of RichText)
+          if (Array.isArray(block.items)) {
+            for (const item of block.items) {
+              for (const refId of extractRichTextRefs(item)) {
+                validateRefId(refId, `${blockPrefix}.items`, conceptIds, entityIds, errors);
+              }
+            }
+          }
+
+          // Check columns (array of RichText)
+          if (Array.isArray(block.columns)) {
+            for (const col of block.columns) {
+              for (const refId of extractRichTextRefs(col)) {
+                validateRefId(refId, `${blockPrefix}.columns`, conceptIds, entityIds, errors);
+              }
+            }
+          }
+
+          // Check rows (array of array of RichText)
+          if (Array.isArray(block.rows)) {
+            for (const row of block.rows) {
+              if (!Array.isArray(row)) continue;
+              for (const cell of row) {
+                for (const refId of extractRichTextRefs(cell)) {
+                  validateRefId(refId, `${blockPrefix}.rows`, conceptIds, entityIds, errors);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Validate a ref ID against known entity registries.
+ * Ref ID format: "concept:X", "substance:X", "ion:X", "element:X", or unprefixed concept ID.
+ */
+function validateRefId(refId, path, conceptIds, entityIds, errors) {
+  if (refId.startsWith('concept:') || refId.startsWith('prop:') || refId.startsWith('process:')) {
+    // These are concept refs — check against concept registry
+    if (!conceptIds.has(refId)) {
+      errors.push(`${path}: ref "${refId}" not found in concepts`);
+    }
+  } else if (refId.startsWith('substance:') || refId.startsWith('sub:')) {
+    const id = refId.replace(/^(substance|sub):/, '');
+    if (!entityIds.substanceIds.has(id)) {
+      errors.push(`${path}: ref "${refId}" — substance not found`);
+    }
+  } else if (refId.startsWith('ion:')) {
+    const id = refId.slice(4);
+    if (!entityIds.ionIds.has(id)) {
+      errors.push(`${path}: ref "${refId}" — ion not found`);
+    }
+  } else if (refId.startsWith('element:')) {
+    const symbol = refId.slice(8);
+    if (!entityIds.elementSymbols.has(symbol)) {
+      errors.push(`${path}: ref "${refId}" — element not found`);
+    }
+  } else if (refId.startsWith('q:') || refId.startsWith('unit:')) {
+    // quantity/unit refs — skip validation for now (validated elsewhere)
+  } else {
+    // Unprefixed — check as concept
+    if (!conceptIds.has(refId)) {
+      errors.push(`${path}: ref "${refId}" not found in concepts`);
+    }
+  }
+}
+
+// ── Semantic didactic ref validation ─────────────────────────────────────
+
+const REF_TOKEN_PATTERN = /\{ref:([^|}]+)(?:\|[^}]+)?\}/g;
+
+/**
+ * Validate all concept/entity refs in semantic didactic modules.
+ * @param {Array<{data: object, key: string}>} semanticEntries
+ * @param {Record<string, object>} concepts
+ * @returns {string[]} errors
+ */
+export function validateSemanticRefs(semanticEntries, concepts) {
+  const errors = [];
+  const conceptIds = new Set(Object.keys(concepts));
+
+  for (const { data, key } of semanticEntries) {
+    const prefix = `semantic/${key}`;
+    if (!Array.isArray(data.sections)) continue;
+
+    for (const section of data.sections) {
+      if (!Array.isArray(section.blocks)) continue;
+
+      for (const block of section.blocks) {
+        const bp = `${prefix}.sections["${section.id}"].blocks["${block.id}"]`;
+
+        if (block.kind === 'bond_rule_card') {
+          for (const ref of [block.concept_ref, block.mechanism_ref, block.lattice_ref]) {
+            if (ref && !conceptIds.has(ref)) {
+              errors.push(`${bp}: ref "${ref}" not found in concepts`);
+            }
+          }
+          if (Array.isArray(block.result_refs)) {
+            for (const ref of block.result_refs) {
+              if (!conceptIds.has(ref)) errors.push(`${bp}: result_ref "${ref}" not found in concepts`);
+            }
+          }
+          if (block.criterion) {
+            if (block.criterion.property_ref && !conceptIds.has(block.criterion.property_ref)) {
+              errors.push(`${bp}: criterion.property_ref "${block.criterion.property_ref}" not found`);
+            }
+            if (Array.isArray(block.criterion.participant_refs)) {
+              for (const ref of block.criterion.participant_refs) {
+                if (!conceptIds.has(ref)) errors.push(`${bp}: participant_ref "${ref}" not found`);
+              }
+            }
+          }
+        } else if (block.kind === 'comparison_table') {
+          if (Array.isArray(block.row_refs)) {
+            for (const ref of block.row_refs) {
+              if (!conceptIds.has(ref)) errors.push(`${bp}: row_ref "${ref}" not found`);
+            }
+          }
+          // Validate column refs (q:* refs validated elsewhere, concept:* here)
+          if (Array.isArray(block.columns)) {
+            for (const col of block.columns) {
+              if (col.ref && col.ref.startsWith('concept:') && !conceptIds.has(col.ref)) {
+                errors.push(`${bp}: column ref "${col.ref}" not found`);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Validate {ref:id|form} tokens inside didactic template question strings.
+ * @param {Record<string, {data: object}>} templateEntries - { locale: {data} }
+ * @param {Record<string, object>} concepts
+ * @param {{ ionIds: Set<string>, substanceIds: Set<string>, elementSymbols: Set<string> }} entityIds
+ * @returns {string[]} errors
+ */
+export function validateTemplateRefs(templateEntries, concepts, entityIds) {
+  const errors = [];
+  const conceptIds = new Set(Object.keys(concepts));
+
+  for (const [locale, { data }] of Object.entries(templateEntries)) {
+    for (const [templateKey, template] of Object.entries(data)) {
+      if (templateKey === '_comment') continue;
+      const question = template.question || template;
+      if (typeof question !== 'string') continue;
+
+      // Extract {ref:id|form} tokens — skip tokens containing {slot} placeholders
+      REF_TOKEN_PATTERN.lastIndex = 0;
+      let match;
+      while ((match = REF_TOKEN_PATTERN.exec(question)) !== null) {
+        const refId = match[1];
+        // Skip template slots like {ref:{concept}|nom} — they contain curly braces
+        if (refId.includes('{')) continue;
+
+        const path = `templates/${locale}["${templateKey}"]`;
+        validateRefId(refId, path, conceptIds, entityIds, errors);
+      }
+    }
+  }
+
+  return errors;
+}
+
 /**
  * Validate course references: module IDs exist.
  * @param {object[]} courses - Array of Course objects

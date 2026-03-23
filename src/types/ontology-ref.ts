@@ -10,6 +10,7 @@ export type OntRefKind =
   | 'reaction_facet'
   | 'process'
   | 'property'
+  | 'domain_concept'
   | 'quantity'
   | 'unit'
   | 'context';
@@ -57,6 +58,8 @@ export type GramForms = Record<string, string>;
 /** Per-concept locale overlay entry */
 export interface ConceptOverlayEntry {
   name: string;
+  /** Short form for tables, chips, compact UI (e.g. "ионная" vs "ионная кристаллическая решётка") */
+  name_short?: string;
   slug: string;
   description?: string;
   surface_forms?: string[];

@@ -770,6 +770,7 @@
   },
   "concept:ionic_crystal_lattice": {
     "name": "Jonowa sieć krystaliczna",
+    "name_short": "Jonowa",
     "slug": "jonowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się naprzemiennie kationy i aniony. Charakterystyczna dla soli, zasad i tlenków metali. Substancje mają wysokie temperatury topnienia i wrzenia.",
     "surface_forms": [
@@ -779,6 +780,7 @@
   },
   "concept:molecular_crystal_lattice": {
     "name": "Cząsteczkowa sieć krystaliczna",
+    "name_short": "Molekularna",
     "slug": "czasteczkowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się cząsteczki połączone słabymi siłami międzycząsteczkowymi. Substancje mają niskie temperatury topnienia i są lotne.",
     "surface_forms": [
@@ -789,6 +791,7 @@
   },
   "concept:atomic_crystal_lattice": {
     "name": "Atomowa sieć krystaliczna",
+    "name_short": "Atomowa",
     "slug": "atomowa-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się atomy połączone silnymi wiązaniami kowalencyjnymi. Substancje (diament, krzem, SiO₂) są bardzo twarde, trudno topliwe i nierozpuszczalne.",
     "surface_forms": [
@@ -799,6 +802,7 @@
   },
   "concept:metallic_crystal_lattice": {
     "name": "Metaliczna sieć krystaliczna",
+    "name_short": "Metaliczna",
     "slug": "metaliczna-siec-krystaliczna",
     "description": "Sieć krystaliczna, w węzłach której znajdują się kationy metalu otoczone zdelokalizowanymi elektronami. Zapewnia przewodnictwo elektryczne i cieplne, plastyczność oraz metaliczny połysk.",
     "surface_forms": [
@@ -1091,5 +1095,25 @@
       "złamanie"
     ],
     "description": "Proces rozdzielenia ciała na części pod działaniem sił zewnętrznych. Pęknięcie kruche następuje bez znacznego odkształcenia plastycznego."
+  },
+  "concept:cation": {
+    "name": "Kation",
+    "slug": "kation",
+    "description": "Jon naładowany dodatnio, powstający w wyniku utraty jednego lub więcej elektronów przez atom.",
+    "surface_forms": [
+      "kation",
+      "kationy",
+      "kationu"
+    ]
+  },
+  "concept:anion": {
+    "name": "Anion",
+    "slug": "anion",
+    "description": "Jon naładowany ujemnie, powstający w wyniku przyłączenia jednego lub więcej elektronów do atomu.",
+    "surface_forms": [
+      "anion",
+      "aniony",
+      "anionu"
+    ]
   }
 }

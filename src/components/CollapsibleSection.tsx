@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 interface CollapsibleSectionProps {
   id: string;
   pageKey: string;
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   defaultOpen?: boolean;
   forceOpen?: boolean;

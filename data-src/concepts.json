@@ -1949,5 +1949,29 @@
     "kind": "domain_concept",
     "order": 809,
     "examples": []
+  },
+  "concept:cation": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 406,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "semantic_didactic_pilot",
+      "reason": "ionic bond result concept; needed for semantic didactic layer",
+      "added": "2026-03-23"
+    }
+  },
+  "concept:anion": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 407,
+    "filters": {},
+    "examples": [],
+    "admission": {
+      "source": "semantic_didactic_pilot",
+      "reason": "ionic bond result concept; needed for semantic didactic layer",
+      "added": "2026-03-23"
+    }
   }
 }

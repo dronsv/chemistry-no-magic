@@ -1,0 +1,67 @@
+{
+  "_comment": "English language templates for semantic didactic layer.",
+
+  "bond_types.section_title": {
+    "question": "Types of chemical bond"
+  },
+
+  "ionic.title": {
+    "question": "{ref:concept:ionic_bond}"
+  },
+  "ionic.rule": {
+    "question": "Rule: Δχ ≥ {value} or {ref:concept:metals} + {ref:concept:nonmetals} with high {ref:concept:electronegativity} difference"
+  },
+  "ionic.description": {
+    "question": "Bond between a {ref:concept:metals} and a {ref:concept:nonmetals} by {ref:concept:electron_transfer}. Ions are formed: {ref:concept:cation} (+) and {ref:concept:anion} (−).\nProperties: High melting points, brittle, conducts electricity in melt and solution"
+  },
+
+  "covalent_polar.title": {
+    "question": "{ref:concept:covalent_polar_bond}"
+  },
+  "covalent_polar.rule": {
+    "question": "Rule: {range_low} < Δχ < {range_high} (both {ref:concept:nonmetals})"
+  },
+  "covalent_polar.description": {
+    "question": "Bond between different {ref:concept:nonmetals} via {ref:concept:shared_electron_pair}. {ref:concept:electron_density} is shifted toward the more electronegative atom ({ref:concept:partial_charge}: δ+, δ−).\nProperties: Various m.p., often liquids or gases, does not conduct electricity"
+  },
+
+  "covalent_nonpolar.title": {
+    "question": "{ref:concept:covalent_nonpolar_bond}"
+  },
+  "covalent_nonpolar.rule": {
+    "question": "Rule: Δχ ≤ {value} (identical or very similar {ref:concept:nonmetals})"
+  },
+  "covalent_nonpolar.description": {
+    "question": "Bond between identical {ref:concept:nonmetals} via {ref:concept:shared_electron_pair}. {ref:concept:electron_density} is distributed symmetrically.\nProperties: Low m.p., gases or low-boiling liquids, does not conduct electricity"
+  },
+
+  "metallic.title": {
+    "question": "{ref:concept:metallic_bond}"
+  },
+  "metallic.rule": {
+    "question": "Rule: Pure metal or alloy (both {ref:concept:metals})"
+  },
+  "metallic.description": {
+    "question": "Bond in {ref:concept:metals}: atoms release valence electrons into a shared \"electron cloud\" ({ref:concept:delocalized_electron}) that holds positive ions in the lattice.\nProperties: Electrical and thermal conductivity, malleability, {ref:concept:metallic_luster}"
+  },
+
+  "crystal_structures.section_title": {
+    "question": "Comparison of crystal lattices"
+  },
+
+  "lattice_comparison.columns": {
+    "question": "Type|Lattice nodes|M.p.|Hardness|Conductivity|Solubility|Examples"
+  },
+  "lattice_comparison.row.concept:ionic_crystal_lattice": {
+    "question": "{ref:concept:ionic_crystal_lattice|short}|{ref:concept:cation} and {ref:concept:anion}|High (800–3000 °C)|Hard, brittle|In melt and solution|Often soluble in water|NaCl, KBr, CaO"
+  },
+  "lattice_comparison.row.concept:molecular_crystal_lattice": {
+    "question": "{ref:concept:molecular_crystal_lattice|short}|Molecules|Low (< 300 °C)|Soft|Does not conduct|Varies|H₂O (ice), CO₂, I₂"
+  },
+  "lattice_comparison.row.concept:atomic_crystal_lattice": {
+    "question": "{ref:concept:atomic_crystal_lattice|short}|Atoms (cov. bond)|Very high (> 1500 °C)|Very hard|Does not conduct (except graphite)|Insoluble|C (diamond), Si, SiO₂"
+  },
+  "lattice_comparison.row.concept:metallic_crystal_lattice": {
+    "question": "{ref:concept:metallic_crystal_lattice|short}|Metal ions + electron gas|Variable (−39 °C for Hg to 3422 °C for W)|Variable (Na soft, W hard)|High|Insoluble|Fe, Cu, Al, Au"
+  }
+}

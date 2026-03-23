@@ -9,6 +9,7 @@
         {
           "t": "rule_card",
           "id": "ionic",
+          "concept_ref": "concept:ionic_bond",
           "examples": [
             "NaCl",
             "KBr",
@@ -19,6 +20,7 @@
         {
           "t": "rule_card",
           "id": "covalent_polar",
+          "concept_ref": "concept:covalent_polar_bond",
           "examples": [
             "HCl",
             "H2O",
@@ -29,6 +31,7 @@
         {
           "t": "rule_card",
           "id": "covalent_nonpolar",
+          "concept_ref": "concept:covalent_nonpolar_bond",
           "examples": [
             "H2",
             "O2",
@@ -40,6 +43,7 @@
         {
           "t": "rule_card",
           "id": "metallic",
+          "concept_ref": "concept:metallic_bond",
           "examples": [
             "Fe",
             "Cu",
@@ -54,52 +58,9 @@
       "blocks": [
         {
           "t": "table",
-          "rows": [
-            {
-              "cells": [
-                "Ионная",
-                "Катионы и анионы",
-                "Высокая (800–3000 °C)",
-                "Твёрдые, хрупкие",
-                "В расплаве и растворе",
-                "Часто растворимы в воде",
-                "NaCl, KBr, CaO"
-              ]
-            },
-            {
-              "cells": [
-                "Молекулярная",
-                "Молекулы",
-                "Низкая (< 300 °C)",
-                "Мягкие",
-                "Не проводят ток",
-                "По-разному",
-                "H2O (лёд), CO2, I2"
-              ]
-            },
-            {
-              "cells": [
-                "Атомная",
-                "Атомы (ков. связь)",
-                "Очень высокая (> 1500 °C)",
-                "Очень твёрдые",
-                "Не проводят (кроме графита)",
-                "Нерастворимы",
-                "C (алмаз), Si, SiO2"
-              ]
-            },
-            {
-              "cells": [
-                "Металлическая",
-                "Ионы металла + электронный газ",
-                "Разная (от −39 °C у Hg до 3422 °C у W)",
-                "Разная (Na мягкий, W твёрдый)",
-                "Высокая",
-                "Нерастворимы",
-                "Fe, Cu, Al, Au"
-              ]
-            }
-          ]
+          "id": "lattice_comparison",
+          "columns": [],
+          "rows": []
         }
       ]
     }

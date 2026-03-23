@@ -2,15 +2,18 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import './theory-module.css';
 import './ont-embed.css';
 import type { ReactNode } from 'react';
+import type { RichText } from '../types/ontology-ref';
 import type { TheoryModule, TheorySection, TheoryBlock } from '../types/theory-module';
 import type { OxRule, OxRulesData } from '../types/oxidation-rules';
 import type { SupportedLocale } from '../types/i18n';
-import { loadTheoryModule, loadTheoryModuleOverlay, loadOxidationRules, loadFormulas, loadConstants, loadQuantityNames } from '../lib/data-loader';
+import { loadTheoryModule, loadTheoryModuleOverlay, loadSemanticModule, loadDidacticTemplates, loadDidacticOverrides, loadOxidationRules, loadFormulas, loadConstants, loadQuantityNames, loadConcepts, loadConceptOverlay, loadConceptLookup } from '../lib/data-loader';
+import { ConceptProvider, type ConceptContextValue } from './ConceptProvider';
+import { applySemanticLayer } from '../lib/semantic-renderer';
 import type { ComputableFormula, PhysicalConstant } from '../types/formula';
 import { formulaToDisplayString } from '../lib/formula-evaluator';
 import CollapsibleSection, { useTheoryPanelState } from './CollapsibleSection';
 import FormulaChip from './FormulaChip';
-import ChemText from './ChemText';
+import ChemText, { useFormulaLookup } from './ChemText';
 import RichTextRenderer from './RichTextRenderer';
 import { QuantityLookupProvider, type QuantityLookup } from './OntologyRef';
 import OntEmbedBlock from './OntEmbedBlock';
@@ -93,6 +96,57 @@ interface FormulaData {
 }
 
 // ---------------------------------------------------------------------------
+// Example formulas with auto-resolved substance class from FormulaLookup
+// ---------------------------------------------------------------------------
+
+function ExampleFormulas({ formulas, locale }: { formulas: string[]; locale: SupportedLocale }) {
+  const lookup = useFormulaLookup();
+  return (
+    <div className="theory-module__rule-examples">
+      {m.theory_examples_label()}{' '}
+      {formulas.map((f, i) => {
+        const entry = lookup?.[f];
+        return (
+          <span key={f}>
+            {i > 0 && ', '}
+            <FormulaChip
+              formula={f}
+              substanceId={entry?.type === 'substance' ? entry.id : undefined}
+              substanceClass={entry?.type === 'substance' ? entry.cls : (entry?.type === 'element' ? 'simple' : undefined)}
+              ionId={entry?.type === 'ion' ? entry.id : undefined}
+              ionType={entry?.type === 'ion' ? entry.ionType : undefined}
+              elementId={entry?.type === 'element' ? entry.id : undefined}
+              locale={locale}
+            />
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// RichText / string hybrid helper
+// ---------------------------------------------------------------------------
+
+/** Helper type for blocks with _didactic* fields injected by semantic renderer */
+type DidacticBlock = TheoryBlock & Record<string, unknown>;
+
+/**
+ * Render a value that can be either a plain string (legacy) or RichText (didactic).
+ * Returns null if value is undefined.
+ */
+function renderMaybeRichText(
+  value: string | RichText | undefined,
+  locale: SupportedLocale,
+): ReactNode {
+  if (value === undefined || value === null) return null;
+  if (typeof value === 'string') return <ChemText text={value} />;
+  if (Array.isArray(value)) return <RichTextRenderer segments={value} locale={locale} />;
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // Block renderers
 // ---------------------------------------------------------------------------
 
@@ -103,22 +157,29 @@ function renderBlock(
   formulaData: FormulaData,
 ): ReactNode {
   switch (block.t) {
-    case 'heading':
-      if (block.level === 2) return <h2 className="theory-module__h2">{block.text}</h2>;
-      if (block.level === 3) return <h3 className="theory-module__h3">{block.text}</h3>;
-      return <h4 className="theory-module__h4">{block.text}</h4>;
+    case 'heading': {
+      const hText = (block as DidacticBlock)._didacticText ?? block.text;
+      const content = renderMaybeRichText(hText as string | RichText, locale);
+      if (block.level === 2) return <h2 className="theory-module__h2">{content}</h2>;
+      if (block.level === 3) return <h3 className="theory-module__h3">{content}</h3>;
+      return <h4 className="theory-module__h4">{content}</h4>;
+    }
 
-    case 'paragraph':
-      return <p className="theory-module__p"><ChemText text={block.text} /></p>;
+    case 'paragraph': {
+      const pText = (block as DidacticBlock)._didacticText ?? block.text;
+      return <p className="theory-module__p">{renderMaybeRichText(pText as string | RichText, locale)}</p>;
+    }
 
-    case 'ordered_list':
+    case 'ordered_list': {
+      const olItems = (block as DidacticBlock)._didacticItems ?? block.items;
       return (
         <ol className="theory-module__ol">
-          {block.items.map((item, i) => (
-            <li key={i}>{item}</li>
+          {(olItems as (string | RichText)[]).map((item, i) => (
+            <li key={i}>{renderMaybeRichText(item as string | RichText, locale)}</li>
           ))}
         </ol>
       );
+    }
 
     case 'equation': {
       const f = block.formula_id ? formulaData.formulas[block.formula_id] : undefined;
@@ -145,59 +206,70 @@ function renderBlock(
         </div>
       );
 
-    case 'rule_card':
+    case 'rule_card': {
+      const db = block as DidacticBlock;
+      const rcTitle = db._didacticTitle ?? block.title;
+      const rcRule = db._didacticRule ?? block.rule;
+      const rcDesc = db._didacticDescription ?? block.description;
       return (
         <div className="theory-module__rule-card">
-          <div className="theory-module__rule-title">{block.title}</div>
-          <p className="theory-module__rule-text">{block.rule}</p>
-          {block.description && (
-            <p className="theory-module__rule-desc"><ChemText text={block.description} /></p>
+          <div className="theory-module__rule-title">{renderMaybeRichText(rcTitle as string | RichText, locale)}</div>
+          <div className="theory-module__rule-text">{renderMaybeRichText(rcRule as string | RichText, locale)}</div>
+          {rcDesc && (
+            <div className="theory-module__rule-desc">{renderMaybeRichText(rcDesc as string | RichText, locale)}</div>
           )}
           {block.examples && block.examples.length > 0 && (
-            <div className="theory-module__rule-examples">
-              {m.theory_examples_label()}{' '}
-              {block.examples.map((f, i) => (
-                <span key={f}>
-                  {i > 0 && ', '}
-                  <FormulaChip formula={f} locale={locale} />
-                </span>
-              ))}
-            </div>
+            <ExampleFormulas formulas={block.examples} locale={locale} />
           )}
         </div>
       );
+    }
 
-    case 'example_block':
+    case 'example_block': {
+      const ebDb = block as DidacticBlock;
+      const ebLabel = ebDb._didacticLabel ?? block.label;
+      const ebContent = ebDb._didacticContent ?? block.content;
       return (
         <div className="theory-module__example">
-          <span className="theory-module__example-label">{block.label}</span>{' '}
-          {block.content}
+          <span className="theory-module__example-label">{renderMaybeRichText(ebLabel as string | RichText, locale)}</span>{' '}
+          {renderMaybeRichText(ebContent as string | RichText, locale)}
         </div>
       );
+    }
 
-    case 'table':
+    case 'table': {
+      const tDb = block as DidacticBlock;
+      const tCols = tDb._didacticColumns ?? block.columns;
+      const tRows = tDb._didacticRows ?? block.rows;
       return (
         <div className="theory-module__table-wrapper">
           <table className="theory-module__table">
             <thead>
               <tr>
-                {block.columns.map((col, i) => (
-                  <th key={i}>{col}</th>
+                {(tCols as (string | RichText)[]).map((col, i) => (
+                  <th key={i}>{renderMaybeRichText(col as string | RichText, locale)}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {block.rows.map((row, ri) => (
-                <tr key={ri}>
-                  {row.cells.map((cell, ci) => (
-                    <td key={ci}>{cell}</td>
-                  ))}
-                </tr>
-              ))}
+              {(tRows as (import('../types/theory-module').TableRow | RichText[])[]).map((row, ri) => {
+                // Support both legacy TableRow format and didactic RichText[][] format
+                const cells = Array.isArray(row) && !('cells' in row)
+                  ? row as RichText[]
+                  : (row as import('../types/theory-module').TableRow).cells.map(c => c as unknown);
+                return (
+                  <tr key={ri}>
+                    {(cells as (string | RichText)[]).map((cell, ci) => (
+                      <td key={ci}>{renderMaybeRichText(cell as string | RichText, locale)}</td>
+                    ))}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
       );
+    }
 
     case 'ox_rule': {
       const rule = rulesById?.[block.rule_id];
@@ -269,6 +341,8 @@ function renderSection(
   rulesById: Record<string, OxRule> | null,
   formulaData: FormulaData,
 ): ReactNode {
+  // Check for didactic RichText title injected by semantic renderer
+  const didacticTitle = (section as TheorySection & { _didacticTitle?: RichText })._didacticTitle;
   const title = section.title ?? section.id;
   const forceOpen = forceSectionId === section.id;
 
@@ -277,7 +351,9 @@ function renderSection(
       key={section.id}
       id={section.id}
       pageKey={pageKey}
-      title={title}
+      title={didacticTitle
+        ? <RichTextRenderer segments={didacticTitle} locale={locale} />
+        : title}
       forceOpen={forceOpen}
     >
       {section.blocks.map((block, i) => (
@@ -401,6 +477,7 @@ export default function TheoryModulePanel({
   const [rulesById, setRulesById] = useState<Record<string, OxRule> | null>(null);
   const [formulaData, setFormulaData] = useState<FormulaData>({ formulas: {}, constants: [] });
   const [quantityNames, setQuantityNames] = useState<QuantityLookup | null>(null);
+  const [conceptCtx, setConceptCtx] = useState<ConceptContextValue | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [open, toggleOpen] = useTheoryPanelState(pageKey);
@@ -410,21 +487,28 @@ export default function TheoryModulePanel({
     setLoading(true);
 
     const overlayPromise = loadTheoryModuleOverlay(moduleKey, locale);
+    const semanticPromise = loadSemanticModule(moduleKey);
+    const templatesPromise = loadDidacticTemplates(locale);
+    const overridesPromise = loadDidacticOverrides(moduleKey, locale);
 
     const oxRulesPromise = moduleKey === 'oxidation_states'
       ? loadOxidationRules(locale)
       : Promise.resolve(null);
 
-    Promise.all([loadTheoryModule(moduleKey), overlayPromise, oxRulesPromise])
-      .then(async ([mod, overlay, oxRules]) => {
-        const finalMod = applyTheoryModuleOverlay(mod, overlay);
+    Promise.all([loadTheoryModule(moduleKey), overlayPromise, semanticPromise, templatesPromise, overridesPromise, oxRulesPromise])
+      .then(async ([mod, overlay, semantic, templates, overrides, oxRules]) => {
+        // Apply legacy overlay first (backward compat), then semantic layer if available
+        let finalMod = applyTheoryModuleOverlay(mod, overlay);
+        if (semantic && templates) {
+          finalMod = applySemanticLayer(finalMod, semantic, templates, overrides);
+        }
 
         // Load formulas + constants if any equation block references a formula_id
         const needsFormulas = finalMod.sections.some(s =>
           s.blocks.some(b => b.t === 'equation' && 'formula_id' in b && b.formula_id),
         );
         // Load quantity names if any text_block has ref segments (for OntologyRef tooltips)
-        const needsQuantityNames = finalMod.sections.some(s =>
+        const needsQuantityNames = !!semantic || finalMod.sections.some(s =>
           s.blocks.some(b => b.t === 'text_block' && b.content?.some(
             seg => seg.t === 'ref' && (seg.id.startsWith('q:') || seg.id.startsWith('unit:')),
           )),
@@ -443,6 +527,20 @@ export default function TheoryModulePanel({
         if (needsQuantityNames) {
           promises.push(
             loadQuantityNames(locale).then(names => setQuantityNames(names)),
+          );
+        }
+        // Load concept data when semantic layer is active (for ConceptRef resolution)
+        if (semantic) {
+          promises.push(
+            Promise.all([
+              loadConcepts(),
+              loadConceptOverlay(locale),
+              loadConceptLookup(locale).catch(() => ({} as Record<string, string>)),
+            ]).then(([registry, overlay, lookup]) => {
+              if (registry && overlay) {
+                setConceptCtx({ registry, overlay, lookup: lookup ?? {} });
+              }
+            }),
           );
         }
         await Promise.all(promises);
@@ -473,16 +571,18 @@ export default function TheoryModulePanel({
       </button>
 
       {open && (
-        <QuantityLookupProvider value={quantityNames}>
-          <div className="theory-panel__content">
-            {loading && <div className="theory-panel__loading">{m.loading()}</div>}
-            {error && <div className="theory-panel__error">{error}</div>}
+        <ConceptProvider value={conceptCtx}>
+          <QuantityLookupProvider value={quantityNames}>
+            <div className="theory-panel__content">
+              {loading && <div className="theory-panel__loading">{m.loading()}</div>}
+              {error && <div className="theory-panel__error">{error}</div>}
 
-            {module && module.sections.map(section =>
-              renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaData),
-            )}
-          </div>
-        </QuantityLookupProvider>
+              {module && module.sections.map(section =>
+                renderSection(section, pageKey, forceSectionId, locale, rulesById, formulaData),
+              )}
+            </div>
+          </QuantityLookupProvider>
+        </ConceptProvider>
       )}
     </div>
   );

@@ -15,7 +15,7 @@ import { join } from 'node:path';
  * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
  * @param {object} [opts.foundations] - { physical_concepts, math_concepts, mechanisms, bridge_explanations } presence flags
  */
-export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations, foundations }) {
+export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations, semanticDidactic, didacticTemplates, didacticOverrides, foundations }) {
   const manifest = {
     bundle_hash: bundleHash,
     created_at: new Date().toISOString(),
@@ -80,6 +80,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         reverse_index: 'contexts/reverse_index.json',
       },
       theory_modules: theoryModules && Object.keys(theoryModules).length > 0 ? theoryModules : undefined,
+      semantic_didactic: semanticDidactic && Object.keys(semanticDidactic).length > 0 ? semanticDidactic : undefined,
+      didactic_templates: didacticTemplates && Object.keys(didacticTemplates).length > 0 ? didacticTemplates : undefined,
       courses: courses && Object.keys(courses).length > 0 ? courses : undefined,
       substances: 'substances',
       substance_properties: 'substances/substance_properties.json',
@@ -131,6 +133,7 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
       },
     },
     translations: translations || {},
+    didactic_overrides: didacticOverrides && Object.keys(didacticOverrides).length > 0 ? didacticOverrides : undefined,
     stats,
   };
 

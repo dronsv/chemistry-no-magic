@@ -1,0 +1,92 @@
+{
+  "id": "bonds_and_crystals",
+  "kind": "semantic_didactic",
+  "sections": [
+    {
+      "id": "bond_types",
+      "title_template": "bond_types.section_title",
+      "blocks": [
+        {
+          "id": "ionic",
+          "kind": "bond_rule_card",
+          "concept_ref": "concept:ionic_bond",
+          "criterion": {
+            "property_ref": "concept:electronegativity",
+            "comparator": "gte",
+            "value": 1.7,
+            "participant_refs": ["concept:metals", "concept:nonmetals"]
+          },
+          "mechanism_ref": "concept:electron_transfer",
+          "result_refs": ["concept:cation", "concept:anion"],
+          "lattice_ref": "concept:ionic_crystal_lattice"
+        },
+        {
+          "id": "covalent_polar",
+          "kind": "bond_rule_card",
+          "concept_ref": "concept:covalent_polar_bond",
+          "criterion": {
+            "property_ref": "concept:electronegativity",
+            "comparator": "between",
+            "range": [0.4, 1.7],
+            "participant_refs": ["concept:nonmetals", "concept:nonmetals"]
+          },
+          "mechanism_ref": "concept:shared_electron_pair",
+          "result_refs": ["concept:partial_charge"],
+          "lattice_ref": "concept:molecular_crystal_lattice"
+        },
+        {
+          "id": "covalent_nonpolar",
+          "kind": "bond_rule_card",
+          "concept_ref": "concept:covalent_nonpolar_bond",
+          "criterion": {
+            "property_ref": "concept:electronegativity",
+            "comparator": "lte",
+            "value": 0.4,
+            "participant_refs": ["concept:nonmetals"]
+          },
+          "mechanism_ref": "concept:shared_electron_pair",
+          "result_refs": [],
+          "lattice_ref": "concept:molecular_crystal_lattice"
+        },
+        {
+          "id": "metallic",
+          "kind": "bond_rule_card",
+          "concept_ref": "concept:metallic_bond",
+          "criterion": {
+            "property_ref": "concept:electronegativity",
+            "comparator": "eq",
+            "participant_refs": ["concept:metals"]
+          },
+          "mechanism_ref": "concept:delocalized_electron",
+          "result_refs": [],
+          "lattice_ref": "concept:metallic_crystal_lattice"
+        }
+      ]
+    },
+    {
+      "id": "crystal_structures",
+      "title_template": "crystal_structures.section_title",
+      "blocks": [
+        {
+          "id": "lattice_comparison",
+          "kind": "comparison_table",
+          "row_refs": [
+            "concept:ionic_crystal_lattice",
+            "concept:molecular_crystal_lattice",
+            "concept:atomic_crystal_lattice",
+            "concept:metallic_crystal_lattice"
+          ],
+          "columns": [
+            { "key": "type" },
+            { "key": "nodes" },
+            { "key": "melting_point", "ref": "concept:melting_point" },
+            { "key": "hardness", "ref": "concept:hardness" },
+            { "key": "conductivity", "ref": "concept:electrical_conductivity" },
+            { "key": "solubility", "ref": "q:solubility" },
+            { "key": "examples" }
+          ]
+        }
+      ]
+    }
+  ]
+}

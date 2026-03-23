@@ -1098,10 +1098,10 @@ export async function loadConceptLookup(locale: SupportedLocale): Promise<Concep
 }
 
 // ---------------------------------------------------------------------------
-// Theory modules & courses
+// Theory modules, didactic content & courses
 // ---------------------------------------------------------------------------
 
-import type { TheoryModule, Course } from '../types/theory-module';
+import type { TheoryModule, DidacticModule, Course } from '../types/theory-module';
 
 /** Load a theory module by its filename key (e.g. 'classification_inorganic'). */
 export async function loadTheoryModule(moduleKey: string): Promise<TheoryModule> {
@@ -1119,6 +1119,76 @@ export async function loadTheoryModuleOverlay(
   locale: SupportedLocale,
 ): Promise<Record<string, unknown> | null> {
   return loadTranslationOverlay(locale, `theory_modules/${moduleKey}`);
+}
+
+// ---------------------------------------------------------------------------
+// Semantic didactic layer
+// ---------------------------------------------------------------------------
+
+import type { SemanticDidacticModule, DidacticTemplatePack } from '../types/semantic-didactic';
+
+const semanticCache = new Map<string, Promise<SemanticDidacticModule | null>>();
+
+/** Load a shared semantic didactic module (locale-free). */
+export async function loadSemanticModule(key: string): Promise<SemanticDidacticModule | null> {
+  const cached = semanticCache.get(key);
+  if (cached !== undefined) return cached;
+
+  const promise = (async () => {
+    const manifest = await getManifest();
+    const path = manifest.entrypoints.semantic_didactic?.[key];
+    if (!path) return null;
+    try { return await loadDataFile<SemanticDidacticModule>(path); }
+    catch { return null; }
+  })();
+
+  semanticCache.set(key, promise);
+  return promise;
+}
+
+const templateCache = new Map<string, Promise<DidacticTemplatePack | null>>();
+
+/** Load didactic language templates for a given locale. */
+export async function loadDidacticTemplates(locale: SupportedLocale): Promise<DidacticTemplatePack | null> {
+  const cached = templateCache.get(locale);
+  if (cached !== undefined) return cached;
+
+  const promise = (async () => {
+    const manifest = await getManifest();
+    const path = manifest.entrypoints.didactic_templates?.[locale];
+    if (!path) return null;
+    try { return await loadDataFile<DidacticTemplatePack>(path); }
+    catch { return null; }
+  })();
+
+  templateCache.set(locale, promise);
+  return promise;
+}
+
+const overrideCache = new Map<string, Promise<DidacticModule | null>>();
+
+/** Load optional locale-specific didactic overrides. */
+export async function loadDidacticOverrides(
+  moduleKey: string,
+  locale: SupportedLocale,
+): Promise<DidacticModule | null> {
+  const cacheKey = `${locale}:${moduleKey}`;
+  const cached = overrideCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+
+  const promise = (async () => {
+    const manifest = await getManifest();
+    const available = manifest.didactic_overrides?.[locale];
+    if (!available?.includes(moduleKey)) return null;
+    try {
+      return await loadDataFile<DidacticModule>(
+        `didactic/overrides/${locale}/${moduleKey}.json`,
+      );
+    } catch { return null; }
+  })();
+
+  overrideCache.set(cacheKey, promise);
+  return promise;
 }
 
 /** Load a course by its filename key. */

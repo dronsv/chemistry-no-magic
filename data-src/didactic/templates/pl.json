@@ -1,0 +1,67 @@
+{
+  "_comment": "Polish language templates for semantic didactic layer.",
+
+  "bond_types.section_title": {
+    "question": "Rodzaje wiązań chemicznych"
+  },
+
+  "ionic.title": {
+    "question": "{ref:concept:ionic_bond}"
+  },
+  "ionic.rule": {
+    "question": "Reguła: Δχ ≥ {value} lub {ref:concept:metals} + {ref:concept:nonmetals} z dużą różnicą {ref:concept:electronegativity}"
+  },
+  "ionic.description": {
+    "question": "Wiązanie między {ref:concept:metals} a {ref:concept:nonmetals} przez {ref:concept:electron_transfer}. Powstają jony: {ref:concept:cation} (+) i {ref:concept:anion} (−).\nWłaściwości: Wysokie temperatury topnienia, kruche, przewodzi prąd w stopie i roztworze"
+  },
+
+  "covalent_polar.title": {
+    "question": "{ref:concept:covalent_polar_bond}"
+  },
+  "covalent_polar.rule": {
+    "question": "Reguła: {range_low} < Δχ < {range_high} (oba {ref:concept:nonmetals})"
+  },
+  "covalent_polar.description": {
+    "question": "Wiązanie między różnymi {ref:concept:nonmetals} przez {ref:concept:shared_electron_pair}. {ref:concept:electron_density} przesuwa się ku bardziej elektroujemnemu atomowi ({ref:concept:partial_charge}: δ+, δ−).\nWłaściwości: Różne t.t., często ciecze lub gazy, nie przewodzi prądu"
+  },
+
+  "covalent_nonpolar.title": {
+    "question": "{ref:concept:covalent_nonpolar_bond}"
+  },
+  "covalent_nonpolar.rule": {
+    "question": "Reguła: Δχ ≤ {value} (identyczne lub bardzo podobne {ref:concept:nonmetals})"
+  },
+  "covalent_nonpolar.description": {
+    "question": "Wiązanie między identycznymi {ref:concept:nonmetals} przez {ref:concept:shared_electron_pair}. {ref:concept:electron_density} rozkłada się symetrycznie.\nWłaściwości: Niskie t.t., gazy lub łatwowrzące ciecze, nie przewodzi prądu"
+  },
+
+  "metallic.title": {
+    "question": "{ref:concept:metallic_bond}"
+  },
+  "metallic.rule": {
+    "question": "Reguła: Czyste metale lub stopy (oba {ref:concept:metals})"
+  },
+  "metallic.description": {
+    "question": "Wiązanie w {ref:concept:metals}: atomy oddają elektrony walencyjne do wspólnej «chmury elektronowej» ({ref:concept:delocalized_electron}), która utrzymuje jony dodatnie w sieci.\nWłaściwości: Przewodnictwo elektryczne i cieplne, plastyczność, {ref:concept:metallic_luster}"
+  },
+
+  "crystal_structures.section_title": {
+    "question": "Porównanie sieci krystalicznych"
+  },
+
+  "lattice_comparison.columns": {
+    "question": "Typ|Węzły sieci|T.t.|Twardość|Przewodnictwo|Rozpuszczalność|Przykłady"
+  },
+  "lattice_comparison.row.concept:ionic_crystal_lattice": {
+    "question": "{ref:concept:ionic_crystal_lattice|short}|{ref:concept:cation} i {ref:concept:anion}|Wysoka (800–3000 °C)|Twarde, kruche|W stopie i roztworze|Często rozpuszczalne w wodzie|NaCl, KBr, CaO"
+  },
+  "lattice_comparison.row.concept:molecular_crystal_lattice": {
+    "question": "{ref:concept:molecular_crystal_lattice|short}|Cząsteczki|Niska (< 300 °C)|Miękkie|Nie przewodzi|Różna|H₂O (lód), CO₂, I₂"
+  },
+  "lattice_comparison.row.concept:atomic_crystal_lattice": {
+    "question": "{ref:concept:atomic_crystal_lattice|short}|Atomy (wiąz. kow.)|Bardzo wysoka (> 1500 °C)|Bardzo twarde|Nie przewodzi (oprócz grafitu)|Nierozpuszczalne|C (diament), Si, SiO₂"
+  },
+  "lattice_comparison.row.concept:metallic_crystal_lattice": {
+    "question": "{ref:concept:metallic_crystal_lattice|short}|Jony metalu + gaz elektronowy|Różna (−39 °C dla Hg do 3422 °C dla W)|Różna (Na miękki, W twardy)|Wysoka|Nierozpuszczalne|Fe, Cu, Al, Au"
+  }
+}

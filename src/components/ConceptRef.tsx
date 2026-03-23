@@ -86,18 +86,30 @@ export default function ConceptRef({ id, form, surface, locale, variant = 'chip'
     return <span>{surface ?? id}</span>;
   }
 
-  // Resolve display label: surface -> forms[form] -> decline() -> name
+  // Resolve display label: surface -> name_short (for 'short' mode) -> forms[form] -> decline() -> name
   let label = ov.name;
   if (surface) {
     label = surface;
+  } else if (form === 'short' && ov.name_short) {
+    label = ov.name_short;
   } else if (form) {
     label = resolveForm(ov.name, form, ov.decl, ov.forms);
   }
 
-  const href = buildConceptUrl(id, ctx, locale);
+  const hasPage = !!CONCEPT_KIND_ROUTES[entry.kind];
+  const href = hasPage ? buildConceptUrl(id, ctx, locale) : undefined;
   const cssClass = `ont-ref ${getCssClass(entry.kind, entry.filters)}`;
 
-  const linkEl = (
+  const tooltip = hovered && (
+    <span className="ont-ref__tooltip">
+      {ov.name}
+      {variant === 'card' && ov.description && (
+        <span className="ont-ref__tooltip-desc">{ov.description}</span>
+      )}
+    </span>
+  );
+
+  const linkEl = href ? (
     <a
       className={cssClass}
       href={href}
@@ -106,15 +118,18 @@ export default function ConceptRef({ id, form, surface, locale, variant = 'chip'
       style={{ position: 'relative' }}
     >
       {label}
-      {hovered && (
-        <span className="ont-ref__tooltip">
-          {ov.name}
-          {variant === 'card' && ov.description && (
-            <span className="ont-ref__tooltip-desc">{ov.description}</span>
-          )}
-        </span>
-      )}
+      {tooltip}
     </a>
+  ) : (
+    <span
+      className={cssClass}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ position: 'relative', cursor: 'help' }}
+    >
+      {label}
+      {tooltip}
+    </span>
   );
 
   // Wrap in OntInteractiveRef for richer hover preview when locale is available.

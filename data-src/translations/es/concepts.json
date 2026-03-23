@@ -643,6 +643,7 @@
   },
   "concept:ionic_crystal_lattice": {
     "name": "Red cristalina iónica",
+    "name_short": "Iónica",
     "slug": "red-cristalina-ionica",
     "description": "Red cristalina con cationes y aniones alternados en los nodos. Típica de sales, bases y óxidos metálicos. Las sustancias tienen altos puntos de fusión y ebullición.",
     "surface_forms": [
@@ -652,6 +653,7 @@
   },
   "concept:molecular_crystal_lattice": {
     "name": "Red cristalina molecular",
+    "name_short": "Molecular",
     "slug": "red-cristalina-molecular",
     "description": "Red cristalina con moléculas en los nodos, unidas por fuerzas intermoleculares débiles. Las sustancias tienen bajos puntos de fusión y son volátiles.",
     "surface_forms": [
@@ -661,6 +663,7 @@
   },
   "concept:atomic_crystal_lattice": {
     "name": "Red cristalina atómica",
+    "name_short": "Atómica",
     "slug": "red-cristalina-atomica",
     "description": "Red cristalina con átomos en los nodos, unidos por fuertes enlaces covalentes. Las sustancias (diamante, silicio, SiO₂) son muy duras, refractarias e insolubles.",
     "surface_forms": [
@@ -671,6 +674,7 @@
   },
   "concept:metallic_crystal_lattice": {
     "name": "Red cristalina metálica",
+    "name_short": "Metálica",
     "slug": "red-cristalina-metalica",
     "description": "Red cristalina con cationes metálicos en los nodos rodeados de electrones deslocalizados. Proporciona conductividad eléctrica y térmica, maleabilidad y brillo metálico.",
     "surface_forms": [
@@ -957,5 +961,23 @@
       "rotura"
     ],
     "description": "Proceso de separación de un cuerpo en partes bajo fuerzas externas. La fractura frágil ocurre sin deformación plástica significativa."
+  },
+  "concept:cation": {
+    "name": "Catión",
+    "slug": "cation",
+    "description": "Ion con carga positiva que se forma cuando un átomo pierde uno o más electrones.",
+    "surface_forms": [
+      "catión",
+      "cationes"
+    ]
+  },
+  "concept:anion": {
+    "name": "Anión",
+    "slug": "anion",
+    "description": "Ion con carga negativa que se forma cuando un átomo gana uno o más electrones.",
+    "surface_forms": [
+      "anión",
+      "aniones"
+    ]
   }
 }

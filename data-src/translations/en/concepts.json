@@ -659,6 +659,7 @@
   },
   "concept:ionic_crystal_lattice": {
     "name": "Ionic crystal lattice",
+    "name_short": "Ionic",
     "slug": "ionic-crystal-lattice",
     "description": "A crystal lattice with alternating cations and anions at lattice points. Typical for salts, bases, and metal oxides. Substances have high melting and boiling points.",
     "surface_forms": [
@@ -669,6 +670,7 @@
   },
   "concept:molecular_crystal_lattice": {
     "name": "Molecular crystal lattice",
+    "name_short": "Molecular",
     "slug": "molecular-crystal-lattice",
     "description": "A crystal lattice with molecules at lattice points, held together by weak intermolecular forces. Substances have low melting points and are volatile.",
     "surface_forms": [
@@ -679,6 +681,7 @@
   },
   "concept:atomic_crystal_lattice": {
     "name": "Atomic crystal lattice",
+    "name_short": "Atomic",
     "slug": "atomic-crystal-lattice",
     "description": "A crystal lattice with atoms at lattice points, connected by strong covalent bonds. Substances (diamond, silicon, SiO2) are very hard, refractory, and insoluble.",
     "surface_forms": [
@@ -689,6 +692,7 @@
   },
   "concept:metallic_crystal_lattice": {
     "name": "Metallic crystal lattice",
+    "name_short": "Metallic",
     "slug": "metallic-crystal-lattice",
     "description": "A crystal lattice with metal cations at lattice points surrounded by delocalized electrons. Provides electrical and thermal conductivity, malleability, and metallic luster.",
     "surface_forms": [
@@ -981,5 +985,23 @@
       "rupture"
     ],
     "description": "The process of a body separating into parts under external forces. Brittle fracture occurs without significant plastic deformation."
+  },
+  "concept:cation": {
+    "name": "Cation",
+    "slug": "cation",
+    "description": "A positively charged ion formed when an atom loses one or more electrons.",
+    "surface_forms": [
+      "cation",
+      "cations"
+    ]
+  },
+  "concept:anion": {
+    "name": "Anion",
+    "slug": "anion",
+    "description": "A negatively charged ion formed when an atom gains one or more electrons.",
+    "surface_forms": [
+      "anion",
+      "anions"
+    ]
   }
 }
