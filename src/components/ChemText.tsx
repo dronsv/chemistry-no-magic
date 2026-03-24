@@ -52,8 +52,8 @@ function buildFormulaRegex(lookup: FormulaLookup): RegExp {
   return new RegExp(`(?:${alt})(?![a-z])`, 'g');
 }
 
-/** Characters that mean "the match is inside a word, skip it". */
-const WORD_CHAR = /[A-Za-z\u0410-\u044F\u0451\u0401]/;
+/** Characters that mean "the match is inside a word, skip it". Includes ° to prevent °C → Carbon. */
+const WORD_CHAR = /[A-Za-z\u0410-\u044F\u0451\u0401\u00B0]/;
 
 // ---------------------------------------------------------------------------
 // ChemText component

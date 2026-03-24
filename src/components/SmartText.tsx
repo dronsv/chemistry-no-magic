@@ -71,10 +71,10 @@ export default function SmartText({ text, locale }: SmartTextProps) {
     const matchedText = match[0];
     const start = match.index;
 
-    // Lookbehind check: skip if preceded by a letter
+    // Lookbehind check: skip if preceded by a letter or degree sign (°C is not Carbon)
     if (start > 0) {
       const prev = text[start - 1];
-      if (/[a-zA-Zа-яёА-ЯЁ]/.test(prev)) continue;
+      if (/[a-zA-Zа-яёА-ЯЁ°]/.test(prev)) continue;
     }
 
     // Add text before match
