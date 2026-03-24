@@ -132,13 +132,13 @@ export default function OntologyRef({ ontRef, variant = 'chip', form, surface, l
 
   // Quantity / Unit: styled inline reference with ontology name tooltip
   if (kind === 'quantity' || kind === 'unit') {
-    const label = surface ?? id;
     const fullId = kind === 'quantity' ? `q:${id}` : `unit:${id}`;
     const name = quantityLookup?.[fullId];
+    const label = surface ?? name ?? id;
     return (
       <span className={`ont-ref ont-ref--${kind}`} style={name ? { position: 'relative' } : undefined}>
         {label}
-        {name && (
+        {name && name !== label && (
           <span className="ont-ref__tooltip">{name}</span>
         )}
       </span>
