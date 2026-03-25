@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
-import type { ProcessVocabEntry, ProcessKind, EffectsVocabEntry, EffectRef } from '../../types/process-vocab';
+import type { ProcessVocabEntry, ProcessKind, EffectsVocabEntry, EffectRef, TypedParam } from '../../types/process-vocab';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadProcessVocab, loadEffectsVocab, loadFormulaLookup, loadConcepts, loadConceptOverlay, loadConceptLookup } from '../../lib/data-loader';
+import { loadProcessVocab, loadEffectsVocab, loadFormulaLookup, loadConcepts, loadConceptOverlay, loadConceptLookup, loadTranslationOverlay } from '../../lib/data-loader';
 import * as m from '../../paraglide/messages.js';
 import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
 import { ConceptProvider, type ConceptContextValue } from '../../components/ConceptProvider';
@@ -44,6 +44,7 @@ export default function ProcessesPage({
   const [openGroups, setOpenGroups] = useState<Set<ProcessKind>>(new Set(KIND_ORDER));
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
   const [conceptCtx, setConceptCtx] = useState<ConceptContextValue | null>(null);
+  const [paramLabels, setParamLabels] = useState<Record<string, string>>({});
 
   useEffect(() => {
     Promise.all([
@@ -61,6 +62,11 @@ export default function ProcessesPage({
         setConceptCtx({ registry, overlay, lookup: lookup ?? {} });
       }
       setLoading(false);
+    });
+    loadTranslationOverlay(locale, 'process_vocab').then(overlay => {
+      if (overlay && (overlay as any).param_labels) {
+        setParamLabels((overlay as any).param_labels as Record<string, string>);
+      }
     });
   }, [locale]);
 
@@ -198,11 +204,19 @@ export default function ProcessesPage({
                         )}
                         {entry.params && entry.params.length > 0 && (
                           <div className="proc-page__params">
-                            {entry.params.map((p, i) => (
-                              <span key={i} className="proc-page__param">
-                                {p}
-                              </span>
-                            ))}
+                            {entry.params.map((p, i) => {
+                              if (typeof p === 'string') {
+                                return <span key={i} className="proc-page__param">{paramLabels[p] || p}</span>;
+                              }
+                              const label = paramLabels[(p as TypedParam).key] || (p as TypedParam).key;
+                              const kindClass = `proc-page__param proc-page__param--${(p as TypedParam).kind}`;
+                              return (
+                                <span key={i} className={kindClass} title={(p as TypedParam).ref || undefined}>
+                                  {label}
+                                  {(p as TypedParam).unit && <span className="proc-page__param-unit">{(p as TypedParam).unit!.replace('unit:', '')}</span>}
+                                </span>
+                              );
+                            })}
                           </div>
                         )}
                       </div>

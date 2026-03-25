@@ -101,7 +101,7 @@ const overlayCache = new Map<string, Promise<Record<string, Record<string, unkno
  * Load a translation overlay file for a given locale and data key.
  * Returns null if overlay is not available or fetch fails.
  */
-async function loadTranslationOverlay(
+export async function loadTranslationOverlay(
   locale: SupportedLocale,
   dataKey: string,
 ): Promise<Record<string, Record<string, unknown>> | null> {

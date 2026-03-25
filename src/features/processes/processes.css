@@ -141,6 +141,38 @@
   color: var(--color-text-muted);
 }
 
+.proc-page__param--substance {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.proc-page__param--quantity {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.proc-page__param--categorical {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.proc-page__param-unit {
+  margin-left: 0.25rem;
+  opacity: 0.6;
+  font-size: 0.65rem;
+}
+
+.proc-page__param-unit::before {
+  content: "[";
+}
+
+.proc-page__param-unit::after {
+  content: "]";
+}
+
 /* Parent link */
 .proc-page__parent {
   color: var(--color-text-muted);
