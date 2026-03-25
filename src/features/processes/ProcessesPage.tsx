@@ -106,14 +106,14 @@ export default function ProcessesPage({
     if (typeof ref === 'string') {
       const eff = effectsMap.get(ref);
       return (
-        <span key={i} className="proc-page__effect">
+        <span key={i} className={`proc-page__effect${eff ? ` proc-page__effect--${eff.category}` : ''}`}>
           {eff?.name ?? ref}
         </span>
       );
     }
     const eff = effectsMap.get(ref.id);
     return (
-      <span key={i} className="proc-page__effect proc-page__effect--conditional">
+      <span key={i} className={`proc-page__effect proc-page__effect--conditional${eff ? ` proc-page__effect--${eff.category}` : ''}`}>
         {eff?.name ?? ref.id}
         <span className="proc-page__effect-when">{ref.when}</span>
       </span>
@@ -181,7 +181,7 @@ export default function ProcessesPage({
                 {isOpen && (
                   <div className="proc-page__entries">
                     {items.map(entry => (
-                      <div key={entry.id} className="proc-page__entry">
+                      <div key={entry.id} className={`proc-page__entry proc-page__entry--${entry.kind}`}>
                         <p className="proc-page__entry-name">{entry.name}</p>
                         <div className="proc-page__entry-desc">
                           {renderDescription(entry.description, locale)}
