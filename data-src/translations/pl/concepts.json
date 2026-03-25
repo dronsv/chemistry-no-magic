@@ -1115,5 +1115,32 @@
       "aniony",
       "anionu"
     ]
+  },
+  "concept:chemical_reaction": {
+    "name": "Reakcja chemiczna",
+    "slug": "reakcja-chemiczna",
+    "description": "Proces przemiany jednych substancji w inne ze zmianą ich składu i budowy.",
+    "surface_forms": [
+      "reakcja chemiczna",
+      "reakcje chemiczne"
+    ]
+  },
+  "concept:dissolution": {
+    "name": "Rozpuszczanie",
+    "slug": "rozpuszczanie",
+    "description": "Proces fizykochemiczny przejścia substancji do roztworu.",
+    "surface_forms": [
+      "rozpuszczanie",
+      "rozpuszczania"
+    ]
+  },
+  "concept:crystallization": {
+    "name": "Krystalizacja",
+    "slug": "krystalizacja",
+    "description": "Proces tworzenia kryształów z roztworu, stopu lub fazy gazowej.",
+    "surface_forms": [
+      "krystalizacja",
+      "krystalizacji"
+    ]
   }
 }

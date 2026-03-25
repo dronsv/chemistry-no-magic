@@ -1973,5 +1973,26 @@
       "reason": "ionic bond result concept; needed for semantic didactic layer",
       "added": "2026-03-23"
     }
+  },
+  "concept:chemical_reaction": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 810,
+    "filters": {},
+    "examples": []
+  },
+  "concept:dissolution": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 811,
+    "filters": {},
+    "examples": []
+  },
+  "concept:crystallization": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 812,
+    "filters": {},
+    "examples": []
   }
 }

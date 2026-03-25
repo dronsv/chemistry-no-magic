@@ -1,7 +1,8 @@
 [
   {
     "id": "chemical_reaction",
-    "kind": "chemical"
+    "kind": "chemical",
+    "concept_ref": "concept:chemical_reaction"
   },
   {
     "id": "neutralization",
@@ -16,6 +17,7 @@
   {
     "id": "displacement",
     "kind": "chemical",
+    "concept_ref": "rxtype:substitution",
     "params": [
       "metal_substance_id",
       "salt_substance_id"
@@ -219,6 +221,7 @@
   {
     "id": "dissolution",
     "kind": "physical",
+    "concept_ref": "concept:dissolution",
     "params": [
       "solvent",
       "T_K",
@@ -230,6 +233,7 @@
   {
     "id": "crystallization",
     "kind": "physical",
+    "concept_ref": "concept:crystallization",
     "params": [
       "substance_id",
       "T_K",
@@ -256,6 +260,7 @@
   {
     "id": "melting",
     "kind": "physical",
+    "concept_ref": "concept:melting_point",
     "params": [
       "substance_id",
       "T_melting_K"
@@ -264,6 +269,7 @@
   {
     "id": "boiling",
     "kind": "physical",
+    "concept_ref": "concept:boiling_point",
     "params": [
       "substance_id",
       "T_boiling_K",
@@ -273,7 +279,7 @@
   {
     "id": "dissociation",
     "kind": "physical",
-    "concept_ref": "concept:acid_dissociation",
+    "concept_ref": "prop:dissociation",
     "params": [
       "medium",
       "strength",

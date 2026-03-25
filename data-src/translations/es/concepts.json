@@ -979,5 +979,32 @@
       "anión",
       "aniones"
     ]
+  },
+  "concept:chemical_reaction": {
+    "name": "Reacción química",
+    "slug": "reaccion-quimica",
+    "description": "Proceso de transformación de unas sustancias en otras con cambio en su composición y estructura.",
+    "surface_forms": [
+      "reacción química",
+      "reacciones químicas"
+    ]
+  },
+  "concept:dissolution": {
+    "name": "Disolución",
+    "slug": "disolucion",
+    "description": "Proceso fisicoquímico de transición de una sustancia a la solución.",
+    "surface_forms": [
+      "disolución",
+      "disoluciones"
+    ]
+  },
+  "concept:crystallization": {
+    "name": "Cristalización",
+    "slug": "cristalizacion",
+    "description": "Proceso de formación de cristales a partir de una solución, fundido o fase gaseosa.",
+    "surface_forms": [
+      "cristalización",
+      "cristalizaciones"
+    ]
   }
 }

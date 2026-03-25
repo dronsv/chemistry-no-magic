@@ -1003,5 +1003,33 @@
       "anion",
       "anions"
     ]
+  },
+  "concept:chemical_reaction": {
+    "name": "Chemical reaction",
+    "slug": "chemical-reaction",
+    "description": "A process of transformation of substances into others with changes in their composition and structure.",
+    "surface_forms": [
+      "chemical reaction",
+      "chemical reactions",
+      "reaction"
+    ]
+  },
+  "concept:dissolution": {
+    "name": "Dissolution",
+    "slug": "dissolution",
+    "description": "A physical-chemical process of a substance transitioning into solution.",
+    "surface_forms": [
+      "dissolution",
+      "dissolving"
+    ]
+  },
+  "concept:crystallization": {
+    "name": "Crystallization",
+    "slug": "crystallization",
+    "description": "The process of crystal formation from a solution, melt, or gas phase. The reverse of dissolution.",
+    "surface_forms": [
+      "crystallization",
+      "crystallisation"
+    ]
   }
 }
