@@ -1,11 +1,28 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { ProcessVocabEntry, ProcessKind, EffectsVocabEntry, EffectRef } from '../../types/process-vocab';
 import type { SupportedLocale } from '../../types/i18n';
-import { loadProcessVocab, loadEffectsVocab } from '../../lib/data-loader';
+import { loadProcessVocab, loadEffectsVocab, loadFormulaLookup, loadConcepts, loadConceptOverlay, loadConceptLookup } from '../../lib/data-loader';
 import * as m from '../../paraglide/messages.js';
+import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
+import { ConceptProvider, type ConceptContextValue } from '../../components/ConceptProvider';
+import RichTextRenderer from '../../components/RichTextRenderer';
+import type { RichText } from '../../types/ontology-ref';
+import type { FormulaLookup } from '../../types/formula-lookup';
 import './processes.css';
 
 const KIND_ORDER: ProcessKind[] = ['chemical', 'driving_force', 'physical', 'operation', 'constraint'];
+
+function searchableText(desc: string | RichText): string {
+  if (typeof desc === 'string') return desc;
+  return desc.filter(s => s.t === 'text').map(s => (s as { t: 'text'; v: string }).v).join('');
+}
+
+function renderDescription(desc: string | RichText, locale: SupportedLocale) {
+  if (Array.isArray(desc)) {
+    return <RichTextRenderer segments={desc} locale={locale} />;
+  }
+  return <ChemText text={desc} />;
+}
 
 const KIND_LABELS: Record<ProcessKind, () => string> = {
   chemical: m.proc_kind_chemical,
@@ -25,24 +42,33 @@ export default function ProcessesPage({
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [openGroups, setOpenGroups] = useState<Set<ProcessKind>>(new Set(KIND_ORDER));
+  const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
+  const [conceptCtx, setConceptCtx] = useState<ConceptContextValue | null>(null);
 
   useEffect(() => {
-    Promise.all([loadProcessVocab(locale), loadEffectsVocab(locale)]).then(
-      ([vocab, effects]) => {
-        setEntries(vocab);
-        setEffectsMap(new Map(effects.map(e => [e.id, e])));
-        setLoading(false);
-      },
-    );
+    Promise.all([
+      loadProcessVocab(locale),
+      loadEffectsVocab(locale),
+      loadFormulaLookup(),
+      loadConcepts(),
+      loadConceptOverlay(locale),
+      loadConceptLookup(locale).catch(() => ({})),
+    ]).then(([vocab, effects, fl, registry, overlay, lookup]) => {
+      setEntries(vocab);
+      setEffectsMap(new Map(effects.map(e => [e.id, e])));
+      setFormulaLookup(fl);
+      if (registry && overlay) {
+        setConceptCtx({ registry, overlay, lookup: lookup ?? {} });
+      }
+      setLoading(false);
+    });
   }, [locale]);
 
   const filtered = useMemo(() => {
     if (!search.trim()) return entries;
     const q = search.trim().toLowerCase();
     return entries.filter(
-      e =>
-        e.name.toLowerCase().includes(q) ||
-        e.description.toLowerCase().includes(q),
+      e => e.name.toLowerCase().includes(q) || searchableText(e.description).toLowerCase().includes(q),
     );
   }, [entries, search]);
 
@@ -99,91 +125,95 @@ export default function ProcessesPage({
   }
 
   return (
-    <div className="proc-page">
-      <h1 className="proc-page__title">{m.proc_title()}</h1>
-      <p className="proc-page__subtitle">{m.proc_desc()}</p>
+    <ConceptProvider value={conceptCtx}>
+      <FormulaLookupProvider value={formulaLookup}>
+        <div className="proc-page">
+          <h1 className="proc-page__title">{m.proc_title()}</h1>
+          <p className="proc-page__subtitle">{m.proc_desc()}</p>
 
-      <div className="proc-page__search">
-        <input
-          type="text"
-          className="proc-page__search-input"
-          placeholder={m.proc_search_placeholder()}
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
-      </div>
-
-      {grouped.length === 0 && (
-        <p className="proc-page__empty">{m.nothing_found()}</p>
-      )}
-
-      {grouped.map(([kind, items]) => {
-        const isOpen = openGroups.has(kind);
-        return (
-          <div key={kind} className="proc-page__group">
-            <div
-              className="proc-page__group-header"
-              onClick={() => toggleGroup(kind)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={e => e.key === 'Enter' && toggleGroup(kind)}
-            >
-              <h2 className="proc-page__group-title">
-                {KIND_LABELS[kind]?.() ?? kind}
-              </h2>
-              <span className="proc-page__group-count">{items.length}</span>
-              <svg
-                className={`proc-page__group-chevron${isOpen ? ' proc-page__group-chevron--open' : ''}`}
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1 1l5 5 5-5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            {isOpen && (
-              <div className="proc-page__entries">
-                {items.map(entry => (
-                  <div key={entry.id} className="proc-page__entry">
-                    <p className="proc-page__entry-name">{entry.name}</p>
-                    <p className="proc-page__entry-desc">
-                      {entry.description}
-                    </p>
-                    {entry.parent && (
-                      <p className="proc-page__parent">
-                        ← {nameById.get(entry.parent) ?? entry.parent}
-                      </p>
-                    )}
-                    {entry.effects && entry.effects.length > 0 && (
-                      <div className="proc-page__effects">
-                        {entry.effects.map((eff, i) => renderEffectRef(eff, i))}
-                      </div>
-                    )}
-                    {entry.params && entry.params.length > 0 && (
-                      <div className="proc-page__params">
-                        {entry.params.map((p, i) => (
-                          <span key={i} className="proc-page__param">
-                            {p}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+          <div className="proc-page__search">
+            <input
+              type="text"
+              className="proc-page__search-input"
+              placeholder={m.proc_search_placeholder()}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
           </div>
-        );
-      })}
-    </div>
+
+          {grouped.length === 0 && (
+            <p className="proc-page__empty">{m.nothing_found()}</p>
+          )}
+
+          {grouped.map(([kind, items]) => {
+            const isOpen = openGroups.has(kind);
+            return (
+              <div key={kind} className="proc-page__group">
+                <div
+                  className="proc-page__group-header"
+                  onClick={() => toggleGroup(kind)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={e => e.key === 'Enter' && toggleGroup(kind)}
+                >
+                  <h2 className="proc-page__group-title">
+                    {KIND_LABELS[kind]?.() ?? kind}
+                  </h2>
+                  <span className="proc-page__group-count">{items.length}</span>
+                  <svg
+                    className={`proc-page__group-chevron${isOpen ? ' proc-page__group-chevron--open' : ''}`}
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 1l5 5 5-5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                {isOpen && (
+                  <div className="proc-page__entries">
+                    {items.map(entry => (
+                      <div key={entry.id} className="proc-page__entry">
+                        <p className="proc-page__entry-name">{entry.name}</p>
+                        <div className="proc-page__entry-desc">
+                          {renderDescription(entry.description, locale)}
+                        </div>
+                        {entry.parent && (
+                          <p className="proc-page__parent">
+                            ← {nameById.get(entry.parent) ?? entry.parent}
+                          </p>
+                        )}
+                        {entry.effects && entry.effects.length > 0 && (
+                          <div className="proc-page__effects">
+                            {entry.effects.map((eff, i) => renderEffectRef(eff, i))}
+                          </div>
+                        )}
+                        {entry.params && entry.params.length > 0 && (
+                          <div className="proc-page__params">
+                            {entry.params.map((p, i) => (
+                              <span key={i} className="proc-page__param">
+                                {p}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </FormulaLookupProvider>
+    </ConceptProvider>
   );
 }
