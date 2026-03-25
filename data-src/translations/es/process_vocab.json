@@ -111,7 +111,12 @@
     "name": "ebullición"
   },
   "dissociation": {
-    "name": "disociación"
+    "name": "disociaci\u00f3n",
+    "description": [
+      { "t": "text", "v": "Descomposici\u00f3n de un " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": " en iones en soluci\u00f3n o fundido. Los electrolitos fuertes se disocian completamente (\u03b1\u22481), los d\u00e9biles parcialmente (\u03b1\u226a1, caracterizado por K_diss)." }
+    ]
   },
   "precipitation": {
     "name": "precipitación"
@@ -141,7 +146,26 @@
     "name": "fotodescomposición"
   },
   "electrolysis": {
-    "name": "electrólisis"
+    "name": "electr\u00f3lisis",
+    "description": [
+      { "t": "text", "v": "Proceso " },
+      { "t": "ref", "id": "rxtype:redox" },
+      { "t": "text", "v": " en " },
+      { "t": "ref", "id": "concept:electrode" },
+      { "t": "text", "v": " cuando " },
+      { "t": "ref", "id": "concept:electric_current" },
+      { "t": "text", "v": " pasa a trav\u00e9s de una soluci\u00f3n o fundido de " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": ". " },
+      { "t": "ref", "id": "concept:cathode" },
+      { "t": "text", "v": " \u2014 " },
+      { "t": "ref", "id": "concept:reduction" },
+      { "t": "text", "v": ", " },
+      { "t": "ref", "id": "concept:anode" },
+      { "t": "text", "v": " \u2014 " },
+      { "t": "ref", "id": "concept:oxidation" },
+      { "t": "text", "v": "." }
+    ]
   },
   "remove_gas": {
     "name": "eliminación de gas"

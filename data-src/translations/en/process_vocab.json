@@ -133,7 +133,11 @@
   },
   "dissociation": {
     "name": "dissociation",
-    "description": "Breakdown of an electrolyte into ions in solution or melt. Strong electrolytes dissociate completely (α≈1), weak ones partially (α≪1, characterized by K_diss)."
+    "description": [
+      { "t": "text", "v": "Breakdown of an " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": " into ions in solution or melt. Strong electrolytes dissociate completely (\u03b1\u22481), weak ones partially (\u03b1\u226a1, characterized by K_diss)." }
+    ]
   },
   "precipitation": {
     "name": "precipitation",
@@ -173,7 +177,24 @@
   },
   "electrolysis": {
     "name": "electrolysis",
-    "description": "Redox process at electrodes when direct current passes through an electrolyte solution or melt. Cathode — reduction, anode — oxidation."
+    "description": [
+      { "t": "ref", "id": "rxtype:redox" },
+      { "t": "text", "v": " process at " },
+      { "t": "ref", "id": "concept:electrode" },
+      { "t": "text", "v": " when " },
+      { "t": "ref", "id": "concept:electric_current" },
+      { "t": "text", "v": " passes through an " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": " solution or melt. " },
+      { "t": "ref", "id": "concept:cathode" },
+      { "t": "text", "v": " — " },
+      { "t": "ref", "id": "concept:reduction" },
+      { "t": "text", "v": ", " },
+      { "t": "ref", "id": "concept:anode" },
+      { "t": "text", "v": " — " },
+      { "t": "ref", "id": "concept:oxidation" },
+      { "t": "text", "v": "." }
+    ]
   },
   "remove_gas": {
     "name": "gas removal",

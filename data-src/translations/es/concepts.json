@@ -1065,5 +1065,64 @@
       "absorción de gas",
       "absorción de gases"
     ]
+  },
+  "concept:oxidation": {
+    "name": "Oxidación",
+    "slug": "oxidacion",
+    "description": "Proceso de pérdida de electrones por un átomo, ion o molécula.",
+    "surface_forms": [
+      "oxidación"
+    ]
+  },
+  "concept:reduction": {
+    "name": "Reducción",
+    "slug": "reduccion",
+    "description": "Proceso de ganancia de electrones por un átomo, ion o molécula.",
+    "surface_forms": [
+      "reducción"
+    ]
+  },
+  "concept:electrode": {
+    "name": "Electrodo",
+    "slug": "electrodo",
+    "description": "Conductor a través del cual la corriente eléctrica entra o sale de un electrolito.",
+    "surface_forms": [
+      "electrodo",
+      "electrodos"
+    ]
+  },
+  "concept:cathode": {
+    "name": "Cátodo",
+    "slug": "catodo",
+    "description": "Electrodo en el que ocurre la reducción.",
+    "surface_forms": [
+      "cátodo"
+    ]
+  },
+  "concept:anode": {
+    "name": "Ánodo",
+    "slug": "anodo",
+    "description": "Electrodo en el que ocurre la oxidación.",
+    "surface_forms": [
+      "ánodo"
+    ]
+  },
+  "concept:electrolyte": {
+    "name": "Electrolito",
+    "slug": "electrolito",
+    "description": "Sustancia que se disocia en iones en solución o fundido.",
+    "surface_forms": [
+      "electrolito",
+      "electrolitos"
+    ]
+  },
+  "concept:electric_current": {
+    "name": "Corriente eléctrica",
+    "slug": "corriente-electrica",
+    "description": "Flujo dirigido de partículas cargadas a través de un conductor.",
+    "surface_forms": [
+      "corriente eléctrica",
+      "corriente continua"
+    ]
   }
 }

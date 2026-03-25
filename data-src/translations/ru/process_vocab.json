@@ -88,9 +88,25 @@
   "electrolysis": {
     "name": "электролиз",
     "description": [
-      { "t": "text", "v": "Окислительно-восстановительный процесс на электродах при прохождении постоянного тока через раствор или расплав электролита. Катод — восстановление, анод — окисление. Требует " },
+      { "t": "text", "v": "Окислительно-восстановительный процесс на " },
+      { "t": "ref", "id": "concept:electrode", "form": "prep" },
+      { "t": "text", "v": " при прохождении " },
+      { "t": "ref", "id": "concept:electric_current", "form": "gen" },
+      { "t": "text", "v": " через раствор или расплав " },
+      { "t": "ref", "id": "concept:electrolyte", "form": "gen" },
+      { "t": "text", "v": ". " },
+      { "t": "ref", "id": "concept:cathode", "form": "nom" },
+      { "t": "text", "v": " — " },
+      { "t": "ref", "id": "concept:reduction", "form": "nom" },
+      { "t": "text", "v": ", " },
+      { "t": "ref", "id": "concept:anode", "form": "nom" },
+      { "t": "text", "v": " — " },
+      { "t": "ref", "id": "concept:oxidation", "form": "nom" },
+      { "t": "text", "v": ". Требует " },
       { "t": "ref", "id": "prop:dissociation", "form": "gen" },
-      { "t": "text", "v": " электролита на ионы." }
+      { "t": "text", "v": " " },
+      { "t": "ref", "id": "concept:electrolyte", "form": "gen" },
+      { "t": "text", "v": " на ионы." }
     ]
   },
   "precipitation": {
@@ -245,7 +261,11 @@
   },
   "dissociation": {
     "name": "диссоциация",
-    "description": "Распад электролита на ионы в растворе или расплаве. Сильные электролиты диссоциируют полностью (α≈1), слабые — частично (α≪1, характеризуется K_diss)."
+    "description": [
+      { "t": "text", "v": "Распад " },
+      { "t": "ref", "id": "concept:electrolyte", "form": "gen" },
+      { "t": "text", "v": " на ионы в растворе или расплаве. Сильные электролиты диссоциируют полностью (α≈1), слабые — частично (α≪1, характеризуется K_diss)." }
+    ]
   },
   "gas_absorption": {
     "name": "поглощение газа",

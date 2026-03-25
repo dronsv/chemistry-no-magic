@@ -1091,5 +1091,65 @@
       "gas absorption",
       "absorption"
     ]
+  },
+  "concept:oxidation": {
+    "name": "Oxidation",
+    "slug": "oxidation",
+    "description": "Process of electron loss by an atom, ion, or molecule. Oxidation state increases.",
+    "surface_forms": [
+      "oxidation"
+    ]
+  },
+  "concept:reduction": {
+    "name": "Reduction",
+    "slug": "reduction",
+    "description": "Process of electron gain by an atom, ion, or molecule. Oxidation state decreases.",
+    "surface_forms": [
+      "reduction"
+    ]
+  },
+  "concept:electrode": {
+    "name": "Electrode",
+    "slug": "electrode",
+    "description": "A conductor through which electric current enters or leaves an electrolyte.",
+    "surface_forms": [
+      "electrode",
+      "electrodes"
+    ]
+  },
+  "concept:cathode": {
+    "name": "Cathode",
+    "slug": "cathode",
+    "description": "Electrode at which reduction occurs. Negative electrode during electrolysis.",
+    "surface_forms": [
+      "cathode"
+    ]
+  },
+  "concept:anode": {
+    "name": "Anode",
+    "slug": "anode",
+    "description": "Electrode at which oxidation occurs. Positive electrode during electrolysis.",
+    "surface_forms": [
+      "anode"
+    ]
+  },
+  "concept:electrolyte": {
+    "name": "Electrolyte",
+    "slug": "electrolyte",
+    "description": "Substance that dissociates into ions in solution or melt, conducting electric current.",
+    "surface_forms": [
+      "electrolyte",
+      "electrolytes"
+    ]
+  },
+  "concept:electric_current": {
+    "name": "Electric current",
+    "slug": "electric-current",
+    "description": "Directed flow of charged particles through a conductor.",
+    "surface_forms": [
+      "electric current",
+      "current",
+      "direct current"
+    ]
   }
 }

@@ -2043,5 +2043,54 @@
     "order": 819,
     "filters": {},
     "examples": []
+  },
+  "concept:oxidation": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 820,
+    "filters": {},
+    "examples": []
+  },
+  "concept:reduction": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 821,
+    "filters": {},
+    "examples": []
+  },
+  "concept:electrode": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 822,
+    "filters": {},
+    "examples": []
+  },
+  "concept:cathode": {
+    "kind": "domain_concept",
+    "parent_id": "concept:electrode",
+    "order": 823,
+    "filters": {},
+    "examples": []
+  },
+  "concept:anode": {
+    "kind": "domain_concept",
+    "parent_id": "concept:electrode",
+    "order": 824,
+    "filters": {},
+    "examples": []
+  },
+  "concept:electrolyte": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 825,
+    "filters": {},
+    "examples": []
+  },
+  "concept:electric_current": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 826,
+    "filters": {},
+    "examples": []
   }
 }

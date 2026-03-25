@@ -1205,5 +1205,64 @@
       "absorpcja gazu",
       "absorpcja gazów"
     ]
+  },
+  "concept:oxidation": {
+    "name": "Utlenianie",
+    "slug": "utlenianie",
+    "description": "Proces oddawania elektronów przez atom, jon lub cząsteczkę.",
+    "surface_forms": [
+      "utlenianie"
+    ]
+  },
+  "concept:reduction": {
+    "name": "Redukcja",
+    "slug": "redukcja",
+    "description": "Proces przyjmowania elektronów przez atom, jon lub cząsteczkę.",
+    "surface_forms": [
+      "redukcja"
+    ]
+  },
+  "concept:electrode": {
+    "name": "Elektroda",
+    "slug": "elektroda",
+    "description": "Przewodnik, przez który prąd elektryczny wpływa do elektrolitu lub z niego wypływa.",
+    "surface_forms": [
+      "elektroda",
+      "elektrody"
+    ]
+  },
+  "concept:cathode": {
+    "name": "Katoda",
+    "slug": "katoda",
+    "description": "Elektroda, na której zachodzi redukcja.",
+    "surface_forms": [
+      "katoda"
+    ]
+  },
+  "concept:anode": {
+    "name": "Anoda",
+    "slug": "anoda",
+    "description": "Elektroda, na której zachodzi utlenianie.",
+    "surface_forms": [
+      "anoda"
+    ]
+  },
+  "concept:electrolyte": {
+    "name": "Elektrolit",
+    "slug": "elektrolit",
+    "description": "Substancja dysocjująca na jony w roztworze lub stopie.",
+    "surface_forms": [
+      "elektrolit",
+      "elektrolity"
+    ]
+  },
+  "concept:electric_current": {
+    "name": "Prąd elektryczny",
+    "slug": "prad-elektryczny",
+    "description": "Uporządkowany ruch cząstek naładowanych w przewodniku.",
+    "surface_forms": [
+      "prąd elektryczny",
+      "prąd stały"
+    ]
   }
 }

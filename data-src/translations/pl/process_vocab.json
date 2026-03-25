@@ -111,7 +111,12 @@
     "name": "wrzenie"
   },
   "dissociation": {
-    "name": "dysocjacja"
+    "name": "dysocjacja",
+    "description": [
+      { "t": "text", "v": "Rozpad " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": " na jony w roztworze lub stopie. Silne elektrolity dysocjuj\u0105 ca\u0142kowicie (\u03b1\u22481), s\u0142abe \u2014 cz\u0119\u015bciowo (\u03b1\u226a1, charakteryzowane przez K_diss)." }
+    ]
   },
   "precipitation": {
     "name": "wytrącanie"
@@ -141,7 +146,26 @@
     "name": "fotodekompozycja"
   },
   "electrolysis": {
-    "name": "elektroliza"
+    "name": "elektroliza",
+    "description": [
+      { "t": "text", "v": "Proces " },
+      { "t": "ref", "id": "rxtype:redox" },
+      { "t": "text", "v": " na " },
+      { "t": "ref", "id": "concept:electrode" },
+      { "t": "text", "v": " pod wp\u0142ywem " },
+      { "t": "ref", "id": "concept:electric_current" },
+      { "t": "text", "v": " przez roztw\u00f3r lub stop " },
+      { "t": "ref", "id": "concept:electrolyte" },
+      { "t": "text", "v": ". " },
+      { "t": "ref", "id": "concept:cathode" },
+      { "t": "text", "v": " \u2014 " },
+      { "t": "ref", "id": "concept:reduction" },
+      { "t": "text", "v": ", " },
+      { "t": "ref", "id": "concept:anode" },
+      { "t": "text", "v": " \u2014 " },
+      { "t": "ref", "id": "concept:oxidation" },
+      { "t": "text", "v": "." }
+    ]
   },
   "remove_gas": {
     "name": "usuwanie gazu"
