@@ -1031,5 +1031,31 @@
       "crystallization",
       "crystallisation"
     ]
+  },
+  "concept:electrolysis": {
+    "name": "Electrolysis",
+    "slug": "electrolysis",
+    "description": "An oxidation-reduction process at electrodes driven by direct electric current through an electrolyte solution or melt.",
+    "surface_forms": [
+      "electrolysis"
+    ]
+  },
+  "concept:complexation": {
+    "name": "Complexation",
+    "slug": "complexation",
+    "description": "Formation of a complex ion from a central atom (metal ion) and ligands.",
+    "surface_forms": [
+      "complexation",
+      "complex formation"
+    ]
+  },
+  "concept:adsorption": {
+    "name": "Adsorption",
+    "slug": "adsorption",
+    "description": "Uptake of a substance from solution or gas phase by the surface layer of a solid (adsorbent).",
+    "surface_forms": [
+      "adsorption",
+      "adsorbent"
+    ]
   }
 }

@@ -1006,5 +1006,30 @@
       "cristalización",
       "cristalizaciones"
     ]
+  },
+  "concept:electrolysis": {
+    "name": "Electrólisis",
+    "slug": "electrolisis",
+    "description": "Proceso de oxidación-reducción en electrodos impulsado por corriente continua a través de una solución o fundido de electrolito.",
+    "surface_forms": [
+      "electrólisis"
+    ]
+  },
+  "concept:complexation": {
+    "name": "Formación de complejos",
+    "slug": "formacion-de-complejos",
+    "description": "Formación de un ion complejo a partir de un átomo central (ion metálico) y ligandos.",
+    "surface_forms": [
+      "formación de complejos",
+      "complejación"
+    ]
+  },
+  "concept:adsorption": {
+    "name": "Adsorción",
+    "slug": "adsorcion",
+    "description": "Captación de una sustancia desde solución o fase gaseosa por la capa superficial de un sólido.",
+    "surface_forms": [
+      "adsorción"
+    ]
   }
 }

@@ -1142,5 +1142,32 @@
       "krystalizacja",
       "krystalizacji"
     ]
+  },
+  "concept:electrolysis": {
+    "name": "Elektroliza",
+    "slug": "elektroliza",
+    "description": "Proces redoks na elektrodach pod wpływem prądu stałego przez roztwór lub stop elektrolitu.",
+    "surface_forms": [
+      "elektroliza",
+      "elektrolizy"
+    ]
+  },
+  "concept:complexation": {
+    "name": "Kompleksowanie",
+    "slug": "kompleksowanie",
+    "description": "Tworzenie jonu kompleksowego z atomu centralnego (jonu metalu) i ligandów.",
+    "surface_forms": [
+      "kompleksowanie",
+      "kompleksowania"
+    ]
+  },
+  "concept:adsorption": {
+    "name": "Adsorpcja",
+    "slug": "adsorpcja",
+    "description": "Pochłanianie substancji z roztworu lub fazy gazowej przez warstwę powierzchniową ciała stałego.",
+    "surface_forms": [
+      "adsorpcja",
+      "adsorpcji"
+    ]
   }
 }

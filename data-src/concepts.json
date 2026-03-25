@@ -1994,5 +1994,26 @@
     "order": 812,
     "filters": {},
     "examples": []
+  },
+  "concept:electrolysis": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 813,
+    "filters": {},
+    "examples": []
+  },
+  "concept:complexation": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 814,
+    "filters": {},
+    "examples": []
+  },
+  "concept:adsorption": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 815,
+    "filters": {},
+    "examples": []
   }
 }
