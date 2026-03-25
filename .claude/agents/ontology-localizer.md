@@ -50,6 +50,20 @@ Do not generate huge low-value lists.
   Example: `{"nom": "ионная связь", "gen": "ионной связи", "dat": "ионной связи"}`
 These are DIFFERENT fields. Never write an object to `surface_forms` or an array to `forms`. The MCP `add_translation` tool will reject incorrect types.
 
+### 6. CRITICAL: forms.prep must NOT include preposition
+Prepositional case forms must contain ONLY the noun/phrase in prepositional case, WITHOUT the preposition (о/об/в/на).
+- WRONG: `"prep": "о металлах"`, `"prep": "об ионной связи"`
+- CORRECT: `"prep": "металлах"`, `"prep": "ионной связи"`
+The preposition belongs in the sentence template, not in the word form. The template chooses the preposition based on context ("в металлах", "о металлах", "на решётке").
+
+### 7. name_short for compact UI contexts
+For entities that appear in tables, chips, or compact UI, add `name_short` to the overlay:
+```json
+{ "name": "Ионная кристаллическая решётка", "name_short": "Ионная" }
+```
+Priority candidates: lattice types, bond types, material characteristics, phase states.
+See `docs/universal_presentation_layer_spec_ru.md` for the full spec.
+
 ### 6. Do not silently reinterpret ontology semantics
 If the source entity is unclear or its meaning seems underspecified, hand off to architect or enrichment instead of inventing a localized interpretation.
 

@@ -76,6 +76,21 @@ But do not force this mechanically in tiny one-off fixes.
   Example: `{"nom": "ионная связь", "gen": "ионной связи", "dat": "ионной связи"}`
 These are DIFFERENT fields. Never write an object to `surface_forms` or an array to `forms`.
 
+### 8. CRITICAL: forms.prep must NOT include preposition
+Prepositional case forms must contain ONLY the noun/phrase in prepositional case, WITHOUT the preposition.
+- WRONG: `"prep": "о металлах"`
+- CORRECT: `"prep": "металлах"`
+The preposition belongs in the sentence template, not in the word form.
+
+### 9. name_short for compact UI contexts
+When enriching entities that appear in tables/chips, add `name_short` to overlays.
+See `docs/universal_presentation_layer_spec_ru.md`.
+
+### 10. OntRef system: concept: prefix → domain_concept kind
+The `concept:` prefix in entity IDs maps to `domain_concept` OntRefKind (not a ConceptKind with pages).
+`domain_concept` entities render as non-clickable styled spans with tooltips.
+Concepts with pages use specific kinds: `cls:` (substance_class), `prop:` (property), `grp:` (element_group), etc.
+
 ### 7. Required-in-practice concept fields
 When using `add_concept`, the tool now defaults `examples: []` and `filters: {}`. But when adding concepts manually (direct file edit), always include these fields — the build pipeline iterates them without null guards.
 

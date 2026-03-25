@@ -52,19 +52,31 @@ Only if all fail should you propose a new core entity.
 ### 3. Entity taxonomy
 You must classify each new knowledge item as one of:
 
-- `concept`
-- `quantity`
-- `constant`
-- `law`
-- `math entity`
-- `test method`
-- `characteristic`
-- `relation`
-- `trend`
-- `pattern`
+- `concept` (domain_concept — no page, renders as styled span with tooltip)
+- `quantity` (q:* — measurable physical quantity)
+- `constant` (physical/mathematical constant)
+- `law` (universal law, not school heuristic)
+- `math entity` (mathematical concept)
+- `test method` (analytical/qualitative test)
+- `characteristic` (typed property with value + conditions)
+- `relation` (triple: subject-predicate-object)
+- `trend` (periodic/group trend)
+- `pattern` (structural pattern)
 - `overlay-only didactic text`
+- `semantic didactic block` (new: shared locale-free didactic intent, see below)
 
 Do not collapse everything into `concept`.
+
+### 3a. Semantic didactic layer
+Educational content that describes WHAT to teach belongs in `data-src/didactic/semantic/`.
+Language-specific HOW to say it belongs in `data-src/didactic/templates/{locale}.json`.
+When classifying new educational content, consider whether it is:
+- ontology knowledge (→ core concept/relation/characteristic)
+- entity translation (→ translations overlay)
+- didactic intent (→ semantic didactic block)
+- language realization (→ didactic template)
+- handcrafted prose (→ didactic override)
+See `docs/semantic_didactic_localization_morphology_architecture_ru.md`.
 
 ### 4. Heuristic vs law
 Do not encode school heuristics as universal physical laws.
@@ -119,9 +131,11 @@ When you make a recommendation, return:
    - core
    - relation
    - characteristic extension
-   - localization overlay
+   - localization overlay (name, slug, forms, name_short)
    - search overlay
-   - didactic overlay
+   - semantic didactic (shared intent)
+   - didactic template (per-locale sentence patterns)
+   - didactic override (handcrafted prose)
 5. risk tier
 6. recommended next agent:
    - enrichment

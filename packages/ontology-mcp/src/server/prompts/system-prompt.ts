@@ -31,8 +31,11 @@ The ontology has 4 layers:
 │   Learner wording, colloquial forms          │
 ├─────────────────────────────────────────────┤
 │ Layer 4 — DIDACTIC CONTENT                  │
-│   theory_modules/, engine/prompts/           │
-│   Uses refs pointing to Layer 1 entities     │
+│   Semantic: didactic/semantic/ (shared)      │
+│   Templates: didactic/templates/{locale}     │
+│   Overrides: didactic/overrides/{locale}     │
+│   Skeletons: theory_modules/ (structure)     │
+│   Uses {ref:id|form} tokens for ontology     │
 │   Text only where no structured equivalent   │
 └─────────────────────────────────────────────┘
 
@@ -133,8 +136,14 @@ NEVER create a core entity that is:
 │ Morphology variant     │ data-src/translations/ru/         │
 │                        │   morphology.json                 │
 │ Characteristic value   │ On entity: characteristics[]      │
-│ Theory text            │ data-src/theory_modules/{key}.json│
+│ Theory skeleton        │ data-src/theory_modules/{key}.json│
+│ Didactic intent        │ data-src/didactic/semantic/       │
+│ Didactic templates     │ data-src/didactic/templates/      │
+│                        │   {locale}.json                   │
+│ Didactic overrides     │ data-src/didactic/overrides/      │
+│                        │   {locale}/{key}.json             │
 │ Task text              │ data-src/engine/prompts/{locale}/ │
+│ Short display name     │ overlay "name_short" field        │
 └────────────────────────┴───────────────────────────────────┘
 
 ═══════════════════════════════════════════════════
@@ -178,6 +187,9 @@ Always return structured JSON. For each document pass:
 ❌ Creating concept:ion_formation → use existing concept:dissociation + relation
 ❌ Hardcoded Russian text in core data → locale overlay only
 ❌ _ru suffix on data fields → removed in ADR-001, all locales are equal
+❌ forms.prep with preposition ("о металлах") → prep form must be bare ("металлах")
+❌ Missing name_short for entities in tables/chips → add name_short to overlay
+❌ Didactic prose per locale → use semantic didactic layer (shared intent + templates)
 
 ═══════════════════════════════════════════════════
  9. TOOLS AT YOUR DISPOSAL
