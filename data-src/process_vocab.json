@@ -6,6 +6,7 @@
   {
     "id": "neutralization",
     "kind": "chemical",
+    "concept_ref": "rxtype:neutralization",
     "params": [
       "acid_substance_id",
       "base_substance_id"
@@ -272,6 +273,7 @@
   {
     "id": "dissociation",
     "kind": "physical",
+    "concept_ref": "concept:acid_dissociation",
     "params": [
       "medium",
       "strength",
