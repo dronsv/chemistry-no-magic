@@ -585,6 +585,38 @@ export function validateTemplateRefs(templateEntries, concepts, entityIds) {
 }
 
 /**
+ * Validate vocab concept_refs and RichText description refs.
+ * @param {object[]} processEntries - Array of process vocab entries
+ * @param {object[]} effectEntries - Array of effects vocab entries
+ * @param {Record<string, object>} concepts - The concept registry
+ * @param {{ ionIds: Set<string>, substanceIds: Set<string>, elementSymbols: Set<string> }} entityIds
+ * @returns {string[]} errors
+ */
+export function validateVocabRefs(processEntries, effectEntries, concepts, entityIds) {
+  const errors = [];
+  const conceptIds = new Set(Object.keys(concepts));
+
+  for (const entry of processEntries) {
+    const prefix = `process_vocab["${entry.id}"]`;
+    if (entry.concept_ref && !conceptIds.has(entry.concept_ref)) {
+      errors.push(`${prefix}: concept_ref "${entry.concept_ref}" not found`);
+    }
+    if (Array.isArray(entry.description)) {
+      for (const refId of extractRichTextRefs(entry.description)) {
+        validateRefId(refId, `${prefix}.description`, conceptIds, entityIds, errors);
+      }
+    }
+  }
+  for (const entry of effectEntries) {
+    const prefix = `effects_vocab["${entry.id}"]`;
+    if (entry.concept_ref && !conceptIds.has(entry.concept_ref)) {
+      errors.push(`${prefix}: concept_ref "${entry.concept_ref}" not found`);
+    }
+  }
+  return errors;
+}
+
+/**
  * Validate course references: module IDs exist.
  * @param {object[]} courses - Array of Course objects
  * @param {object[]} modules - Array of TheoryModule objects

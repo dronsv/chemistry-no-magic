@@ -47,6 +47,7 @@ import {
   validateDidacticRefs,
   validateSemanticRefs,
   validateTemplateRefs,
+  validateVocabRefs,
 } from './lib/validate-ontology.mjs';
 import { generateReport } from './lib/generate-report.mjs';
 import { generateIndices } from './lib/generate-indices.mjs';
@@ -450,6 +451,7 @@ async function main() {
     ...validateSemanticRefs(semanticEntries, concepts),
     ...validateTemplateRefs(templateEntries, concepts, { ionIds, substanceIds, elementSymbols }),
     ...validateDidacticRefs(didacticOverrideEntries, concepts, { ionIds, substanceIds, elementSymbols }),
+    ...validateVocabRefs(processVocab, effectsVocab, concepts, { ionIds, substanceIds, elementSymbols }),
   ];
   allErrors.push(...ontologyErrors);
 
