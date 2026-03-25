@@ -9,8 +9,8 @@
     "kind": "chemical",
     "concept_ref": "rxtype:neutralization",
     "params": [
-      "acid_substance_id",
-      "base_substance_id"
+      { "key": "acid_substance_id", "kind": "substance", "ref": "cls:acid" },
+      { "key": "base_substance_id", "kind": "substance", "ref": "cls:base" }
     ],
     "parent": "chemical_reaction"
   },
@@ -19,8 +19,8 @@
     "kind": "chemical",
     "concept_ref": "rxtype:substitution",
     "params": [
-      "metal_substance_id",
-      "salt_substance_id"
+      { "key": "metal_substance_id", "kind": "substance", "ref": "concept:metals" },
+      { "key": "salt_substance_id", "kind": "substance", "ref": "cls:salt" }
     ],
     "parent": "chemical_reaction"
   },
@@ -29,8 +29,8 @@
     "kind": "chemical",
     "concept_ref": "concept:photodecomposition",
     "params": [
-      "substance_id",
-      "light_wavelength"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "light_wavelength", "kind": "quantity" }
     ],
     "parent": "chemical_reaction"
   },
@@ -39,9 +39,9 @@
     "kind": "chemical",
     "concept_ref": "concept:electrolysis",
     "params": [
-      "electrolyte_substance_id",
-      "medium",
-      "electrode_material"
+      { "key": "electrolyte_substance_id", "kind": "substance", "ref": "concept:electrolysis" },
+      { "key": "medium", "kind": "categorical" },
+      { "key": "electrode_material", "kind": "categorical" }
     ],
     "parent": "chemical_reaction"
   },
@@ -49,10 +49,10 @@
     "id": "precipitation",
     "kind": "driving_force",
     "params": [
-      "solid_substance_id",
-      "color",
-      "Ksp",
-      "T_K"
+      { "key": "solid_substance_id", "kind": "substance", "ref": "concept:solid_phase" },
+      { "key": "color", "kind": "categorical" },
+      { "key": "Ksp", "kind": "quantity", "ref": "q:solubility" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" }
     ],
     "effects": [
       "product_removal"
@@ -62,9 +62,9 @@
     "id": "gas_evolution",
     "kind": "driving_force",
     "params": [
-      "gas_substance_id",
-      "vented",
-      "p_bar"
+      { "key": "gas_substance_id", "kind": "substance", "ref": "concept:gaseous_phase" },
+      { "key": "vented", "kind": "categorical" },
+      { "key": "p_bar", "kind": "quantity", "ref": "q:pressure", "unit": "unit:bar" }
     ],
     "effects": [
       "product_removal"
@@ -75,9 +75,9 @@
     "kind": "driving_force",
     "concept_ref": "concept:complexation",
     "params": [
-      "complex_substance_id",
-      "ligands",
-      "beta"
+      { "key": "complex_substance_id", "kind": "substance", "ref": "concept:complexation" },
+      { "key": "ligands", "kind": "categorical" },
+      { "key": "beta", "kind": "quantity", "ref": "concept:complexation" }
     ]
   },
   {
@@ -89,17 +89,17 @@
     "id": "weak_electrolyte_formation",
     "kind": "driving_force",
     "params": [
-      "product_substance_id"
+      { "key": "product_substance_id", "kind": "substance" }
     ]
   },
   {
     "id": "heating",
     "kind": "operation",
     "params": [
-      "T_target_K",
-      "mode",
-      "duration_s",
-      "Q_input_kJ"
+      { "key": "T_target_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "mode", "kind": "categorical" },
+      { "key": "duration_s", "kind": "quantity" },
+      { "key": "Q_input_kJ", "kind": "quantity", "ref": "q:energy", "unit": "unit:kJ" }
     ],
     "effects": [
       "speed_increase",
@@ -117,8 +117,8 @@
     "id": "cooling",
     "kind": "operation",
     "params": [
-      "T_target_K",
-      "mode"
+      { "key": "T_target_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "mode", "kind": "categorical" }
     ],
     "effects": [
       "speed_decrease",
@@ -132,8 +132,8 @@
     "id": "stirring",
     "kind": "operation",
     "params": [
-      "intensity",
-      "duration_s"
+      { "key": "intensity", "kind": "categorical" },
+      { "key": "duration_s", "kind": "quantity" }
     ],
     "effects": [
       "surface_increase",
@@ -144,7 +144,7 @@
     "id": "grinding",
     "kind": "operation",
     "params": [
-      "particle_size"
+      { "key": "particle_size", "kind": "categorical" }
     ],
     "effects": [
       "surface_increase",
@@ -155,8 +155,8 @@
     "id": "dilution",
     "kind": "operation",
     "params": [
-      "factor",
-      "volume_added_ml"
+      { "key": "factor", "kind": "quantity" },
+      { "key": "volume_added_ml", "kind": "quantity", "ref": "q:volume" }
     ],
     "effects": [
       "concentration_decrease",
@@ -167,8 +167,8 @@
     "id": "catalysis",
     "kind": "operation",
     "params": [
-      "catalyst_substance_id",
-      "type"
+      { "key": "catalyst_substance_id", "kind": "substance" },
+      { "key": "type", "kind": "categorical" }
     ],
     "effects": [
       "activation_energy_decrease",
@@ -179,46 +179,46 @@
     "id": "filtration",
     "kind": "operation",
     "params": [
-      "solid_substance_id"
+      { "key": "solid_substance_id", "kind": "substance", "ref": "concept:solid_phase" }
     ]
   },
   {
     "id": "washing",
     "kind": "operation",
     "params": [
-      "solvent",
-      "cycles"
+      { "key": "solvent", "kind": "categorical" },
+      { "key": "cycles", "kind": "quantity" }
     ]
   },
   {
     "id": "drying",
     "kind": "operation",
     "params": [
-      "mode",
-      "T_K"
+      { "key": "mode", "kind": "categorical" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" }
     ]
   },
   {
     "id": "evaporation",
     "kind": "operation",
     "params": [
-      "T_K",
-      "mode"
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "mode", "kind": "categorical" }
     ]
   },
   {
     "id": "decantation",
     "kind": "operation",
     "params": [
-      "solid_substance_id"
+      { "key": "solid_substance_id", "kind": "substance", "ref": "concept:solid_phase" }
     ]
   },
   {
     "id": "distillation",
     "kind": "operation",
     "params": [
-      "T_boiling_K",
-      "fraction_substance_id"
+      { "key": "T_boiling_K", "kind": "quantity", "ref": "concept:boiling_point", "unit": "unit:K" },
+      { "key": "fraction_substance_id", "kind": "substance" }
     ]
   },
   {
@@ -226,11 +226,11 @@
     "kind": "physical",
     "concept_ref": "concept:dissolution",
     "params": [
-      "solvent",
-      "T_K",
-      "stirring",
-      "particle_size",
-      "deltaH_solution_kJ_mol"
+      { "key": "solvent", "kind": "categorical" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "stirring", "kind": "categorical" },
+      { "key": "particle_size", "kind": "categorical" },
+      { "key": "deltaH_solution_kJ_mol", "kind": "quantity", "ref": "q:enthalpy", "unit": "unit:kJ_per_mol" }
     ]
   },
   {
@@ -238,9 +238,9 @@
     "kind": "physical",
     "concept_ref": "concept:crystallization",
     "params": [
-      "substance_id",
-      "T_K",
-      "mode"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "mode", "kind": "categorical" }
     ]
   },
   {
@@ -248,8 +248,8 @@
     "kind": "physical",
     "concept_ref": "concept:sublimation",
     "params": [
-      "substance_id",
-      "T_K"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" }
     ]
   },
   {
@@ -257,9 +257,9 @@
     "kind": "physical",
     "concept_ref": "concept:condensation",
     "params": [
-      "substance_id",
-      "T_K",
-      "p_bar"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "T_K", "kind": "quantity", "ref": "q:temperature", "unit": "unit:K" },
+      { "key": "p_bar", "kind": "quantity", "ref": "q:pressure", "unit": "unit:bar" }
     ]
   },
   {
@@ -267,8 +267,8 @@
     "kind": "physical",
     "concept_ref": "concept:melting_point",
     "params": [
-      "substance_id",
-      "T_melting_K"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "T_melting_K", "kind": "quantity", "ref": "concept:melting_point", "unit": "unit:K" }
     ]
   },
   {
@@ -276,9 +276,9 @@
     "kind": "physical",
     "concept_ref": "concept:boiling_point",
     "params": [
-      "substance_id",
-      "T_boiling_K",
-      "p_bar"
+      { "key": "substance_id", "kind": "substance" },
+      { "key": "T_boiling_K", "kind": "quantity", "ref": "concept:boiling_point", "unit": "unit:K" },
+      { "key": "p_bar", "kind": "quantity", "ref": "q:pressure", "unit": "unit:bar" }
     ]
   },
   {
@@ -286,9 +286,9 @@
     "kind": "physical",
     "concept_ref": "prop:dissociation",
     "params": [
-      "medium",
-      "strength",
-      "K"
+      { "key": "medium", "kind": "categorical" },
+      { "key": "strength", "kind": "categorical" },
+      { "key": "K", "kind": "quantity", "ref": "prop:dissociation" }
     ]
   },
   {
@@ -296,10 +296,10 @@
     "kind": "physical",
     "concept_ref": "concept:gas_absorption",
     "params": [
-      "gas_substance_id",
-      "liquid_medium",
-      "mass_transfer",
-      "p_bar"
+      { "key": "gas_substance_id", "kind": "substance", "ref": "concept:gaseous_phase" },
+      { "key": "liquid_medium", "kind": "categorical" },
+      { "key": "mass_transfer", "kind": "categorical" },
+      { "key": "p_bar", "kind": "quantity", "ref": "q:pressure", "unit": "unit:bar" }
     ]
   },
   {
@@ -307,17 +307,17 @@
     "kind": "physical",
     "concept_ref": "concept:adsorption",
     "params": [
-      "adsorbent_substance_id",
-      "adsorbate_substance_id"
+      { "key": "adsorbent_substance_id", "kind": "substance", "ref": "concept:adsorption" },
+      { "key": "adsorbate_substance_id", "kind": "substance", "ref": "concept:adsorption" }
     ]
   },
   {
     "id": "excess_reagent",
     "kind": "constraint",
     "params": [
-      "reagent_substance_id",
-      "excess_ratio",
-      "excess_or_deficit"
+      { "key": "reagent_substance_id", "kind": "substance" },
+      { "key": "excess_ratio", "kind": "quantity" },
+      { "key": "excess_or_deficit", "kind": "categorical" }
     ],
     "effects": [
       "concentration_increase",
@@ -328,14 +328,14 @@
     "id": "remove_gas",
     "kind": "constraint",
     "params": [
-      "gas_substance_id"
+      { "key": "gas_substance_id", "kind": "substance", "ref": "concept:gaseous_phase" }
     ]
   },
   {
     "id": "remove_solid",
     "kind": "constraint",
     "params": [
-      "solid_substance_id"
+      { "key": "solid_substance_id", "kind": "substance", "ref": "concept:solid_phase" }
     ]
   },
   {

@@ -334,7 +334,7 @@ export function validateProcessVocab(vocab, effectsVocab) {
     if (typeof v.id !== 'string' || !v.id) errors.push(`${prefix}: missing id`);
     if (!VALID_KINDS.includes(v.kind)) errors.push(`${prefix}: invalid kind "${v.kind}"`);
     if (v.params !== undefined && !Array.isArray(v.params)) errors.push(`${prefix}: params must be array`);
-    if (v.params && !v.params.every(p => typeof p === 'string')) errors.push(`${prefix}: params entries must be strings`);
+    if (v.params && !v.params.every(p => typeof p === 'string' || (typeof p === 'object' && p !== null && typeof p.key === 'string' && typeof p.kind === 'string'))) errors.push(`${prefix}: params entries must be strings or TypedParam objects`);
     if (seen.has(v.id)) errors.push(`${prefix}: duplicate id "${v.id}"`);
     seen.add(v.id);
 

@@ -606,6 +606,14 @@ export function validateVocabRefs(processEntries, effectEntries, concepts, entit
         validateRefId(refId, `${prefix}.description`, conceptIds, entityIds, errors);
       }
     }
+    // Validate TypedParam refs
+    if (Array.isArray(entry.params)) {
+      for (const p of entry.params) {
+        if (typeof p === 'object' && p !== null && p.ref) {
+          validateRefId(p.ref, `${prefix}.params["${p.key}"]`, conceptIds, entityIds, errors);
+        }
+      }
+    }
   }
   for (const entry of effectEntries) {
     const prefix = `effects_vocab["${entry.id}"]`;
