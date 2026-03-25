@@ -2015,5 +2015,33 @@
     "order": 815,
     "filters": {},
     "examples": []
+  },
+  "concept:sublimation": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 816,
+    "filters": {},
+    "examples": []
+  },
+  "concept:condensation": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 817,
+    "filters": {},
+    "examples": []
+  },
+  "concept:photodecomposition": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 818,
+    "filters": {},
+    "examples": []
+  },
+  "concept:gas_absorption": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 819,
+    "filters": {},
+    "examples": []
   }
 }

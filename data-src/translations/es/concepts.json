@@ -1031,5 +1031,39 @@
     "surface_forms": [
       "adsorción"
     ]
+  },
+  "concept:sublimation": {
+    "name": "Sublimación",
+    "slug": "sublimacion",
+    "description": "Transición de fase de sólido directamente a gas, sin pasar por la fase líquida.",
+    "surface_forms": [
+      "sublimación"
+    ]
+  },
+  "concept:condensation": {
+    "name": "Condensación",
+    "slug": "condensacion",
+    "description": "Transición de fase de gas a líquido. Proceso inverso a la evaporación.",
+    "surface_forms": [
+      "condensación"
+    ]
+  },
+  "concept:photodecomposition": {
+    "name": "Fotodescomposición",
+    "slug": "fotodescomposicion",
+    "description": "Descomposición de una sustancia por acción de la luz.",
+    "surface_forms": [
+      "fotodescomposición",
+      "fotólisis"
+    ]
+  },
+  "concept:gas_absorption": {
+    "name": "Absorción de gas",
+    "slug": "absorcion-de-gas",
+    "description": "Proceso fisicoquímico de transición de un gas a la fase líquida (solución).",
+    "surface_forms": [
+      "absorción de gas",
+      "absorción de gases"
+    ]
   }
 }

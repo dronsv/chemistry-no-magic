@@ -27,6 +27,7 @@
   {
     "id": "photodecomposition",
     "kind": "chemical",
+    "concept_ref": "concept:photodecomposition",
     "params": [
       "substance_id",
       "light_wavelength"
@@ -245,6 +246,7 @@
   {
     "id": "sublimation",
     "kind": "physical",
+    "concept_ref": "concept:sublimation",
     "params": [
       "substance_id",
       "T_K"
@@ -253,6 +255,7 @@
   {
     "id": "condensation",
     "kind": "physical",
+    "concept_ref": "concept:condensation",
     "params": [
       "substance_id",
       "T_K",
@@ -291,6 +294,7 @@
   {
     "id": "gas_absorption",
     "kind": "physical",
+    "concept_ref": "concept:gas_absorption",
     "params": [
       "gas_substance_id",
       "liquid_medium",

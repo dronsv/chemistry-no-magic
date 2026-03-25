@@ -1057,5 +1057,39 @@
       "adsorption",
       "adsorbent"
     ]
+  },
+  "concept:sublimation": {
+    "name": "Sublimation",
+    "slug": "sublimation",
+    "description": "Phase transition from solid directly to gas, bypassing the liquid phase.",
+    "surface_forms": [
+      "sublimation"
+    ]
+  },
+  "concept:condensation": {
+    "name": "Condensation",
+    "slug": "condensation",
+    "description": "Phase transition from gas to liquid. The reverse of evaporation.",
+    "surface_forms": [
+      "condensation"
+    ]
+  },
+  "concept:photodecomposition": {
+    "name": "Photodecomposition",
+    "slug": "photodecomposition",
+    "description": "Decomposition of a substance under the action of light.",
+    "surface_forms": [
+      "photodecomposition",
+      "photolysis"
+    ]
+  },
+  "concept:gas_absorption": {
+    "name": "Gas absorption",
+    "slug": "gas-absorption",
+    "description": "Physical-chemical process of gas transitioning into a liquid phase (solution).",
+    "surface_forms": [
+      "gas absorption",
+      "absorption"
+    ]
   }
 }

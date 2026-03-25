@@ -1169,5 +1169,41 @@
       "adsorpcja",
       "adsorpcji"
     ]
+  },
+  "concept:sublimation": {
+    "name": "Sublimacja",
+    "slug": "sublimacja",
+    "description": "Przejście fazowe z ciała stałego bezpośrednio do gazu, z pominięciem fazy ciekłej.",
+    "surface_forms": [
+      "sublimacja",
+      "sublimacji"
+    ]
+  },
+  "concept:condensation": {
+    "name": "Kondensacja",
+    "slug": "kondensacja",
+    "description": "Przejście fazowe z gazu do cieczy. Proces odwrotny do parowania.",
+    "surface_forms": [
+      "kondensacja",
+      "kondensacji"
+    ]
+  },
+  "concept:photodecomposition": {
+    "name": "Fotorozkład",
+    "slug": "fotorozklad",
+    "description": "Rozkład substancji pod wpływem światła.",
+    "surface_forms": [
+      "fotorozkład",
+      "fotoliza"
+    ]
+  },
+  "concept:gas_absorption": {
+    "name": "Absorpcja gazu",
+    "slug": "absorpcja-gazu",
+    "description": "Proces fizykochemiczny przejścia gazu do fazy ciekłej (roztworu).",
+    "surface_forms": [
+      "absorpcja gazu",
+      "absorpcja gazów"
+    ]
   }
 }
