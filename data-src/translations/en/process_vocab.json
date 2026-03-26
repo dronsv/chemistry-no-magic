@@ -153,7 +153,21 @@
   },
   "complexation": {
     "name": "complexation",
-    "description": "Formation of a complex ion from a central atom (metal ion) and ligands. Example: Al(OH)₃ + NaOH(excess) → Na[Al(OH)₄]. Characterized by stability constant β."
+    "description": [
+      { "t": "text", "v": "Formation of a " },
+      { "t": "ref", "id": "concept:complex_ion" },
+      { "t": "text", "v": " from a " },
+      { "t": "ref", "id": "concept:central_atom" },
+      { "t": "text", "v": " (metal ion) and " },
+      { "t": "ref", "id": "concept:ligand" },
+      { "t": "text", "v": "s. Example: " },
+      { "t": "formula", "kind": "substance", "formula": "Al(OH)₃" },
+      { "t": "text", "v": " + " },
+      { "t": "formula", "kind": "substance", "formula": "NaOH" },
+      { "t": "text", "v": "(excess) → " },
+      { "t": "formula", "kind": "substance", "formula": "Na[Al(OH)₄]" },
+      { "t": "text", "v": ". Characterized by stability constant β." }
+    ]
   },
   "water_formation": {
     "name": "water formation",

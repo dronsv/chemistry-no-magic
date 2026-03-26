@@ -1325,5 +1325,31 @@
       "iloczyn rozpuszczalności",
       "Ksp"
     ]
+  },
+  "concept:complex_ion": {
+    "name": "Jon kompleksowy",
+    "slug": "jon-kompleksowy",
+    "description": "Złożony jon składający się z atomu centralnego i otaczających go ligandów.",
+    "surface_forms": [
+      "jon kompleksowy",
+      "jony kompleksowe"
+    ]
+  },
+  "concept:central_atom": {
+    "name": "Atom centralny",
+    "slug": "atom-centralny",
+    "description": "Atom lub jon metalu w centrum jonu kompleksowego.",
+    "surface_forms": [
+      "atom centralny"
+    ]
+  },
+  "concept:ligand": {
+    "name": "Ligand",
+    "slug": "ligand",
+    "description": "Cząsteczka lub jon związany z atomem centralnym w jonie kompleksowym.",
+    "surface_forms": [
+      "ligand",
+      "ligandy"
+    ]
   }
 }

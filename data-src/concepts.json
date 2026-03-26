@@ -2141,5 +2141,26 @@
     "order": 833,
     "filters": {},
     "examples": []
+  },
+  "concept:complex_ion": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 834,
+    "filters": {},
+    "examples": []
+  },
+  "concept:central_atom": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 835,
+    "filters": {},
+    "examples": []
+  },
+  "concept:ligand": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 836,
+    "filters": {},
+    "examples": []
   }
 }

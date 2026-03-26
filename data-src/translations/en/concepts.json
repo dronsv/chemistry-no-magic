@@ -1216,5 +1216,32 @@
       "Ksp",
       "solubility product constant"
     ]
+  },
+  "concept:complex_ion": {
+    "name": "Complex ion",
+    "slug": "complex-ion",
+    "description": "A compound ion consisting of a central atom and surrounding ligands bonded by coordinate bonds.",
+    "surface_forms": [
+      "complex ion",
+      "complex ions"
+    ]
+  },
+  "concept:central_atom": {
+    "name": "Central atom",
+    "slug": "central-atom",
+    "description": "An atom or metal ion at the center of a complex ion that coordinates ligands.",
+    "surface_forms": [
+      "central atom",
+      "central ion"
+    ]
+  },
+  "concept:ligand": {
+    "name": "Ligand",
+    "slug": "ligand",
+    "description": "A molecule or ion bonded to the central atom in a complex ion. An electron pair donor.",
+    "surface_forms": [
+      "ligand",
+      "ligands"
+    ]
   }
 }

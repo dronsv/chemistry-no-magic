@@ -1185,5 +1185,31 @@
       "producto de solubilidad",
       "Ksp"
     ]
+  },
+  "concept:complex_ion": {
+    "name": "Ion complejo",
+    "slug": "ion-complejo",
+    "description": "Un ion compuesto formado por un átomo central y ligandos circundantes.",
+    "surface_forms": [
+      "ion complejo",
+      "iones complejos"
+    ]
+  },
+  "concept:central_atom": {
+    "name": "Átomo central",
+    "slug": "atomo-central",
+    "description": "Átomo o ion metálico en el centro de un ion complejo.",
+    "surface_forms": [
+      "átomo central"
+    ]
+  },
+  "concept:ligand": {
+    "name": "Ligando",
+    "slug": "ligando",
+    "description": "Molécula o ion unido al átomo central en un ion complejo. Donante de pares de electrones.",
+    "surface_forms": [
+      "ligando",
+      "ligandos"
+    ]
   }
 }

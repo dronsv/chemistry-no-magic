@@ -134,7 +134,13 @@
   "complexation": {
     "name": "комплексообразование",
     "description": [
-      { "t": "text", "v": "Образование комплексного иона из центрального атома (иона металла) и лигандов. Пример: " },
+      { "t": "text", "v": "Образование " },
+      { "t": "ref", "id": "concept:complex_ion", "form": "gen" },
+      { "t": "text", "v": " из " },
+      { "t": "ref", "id": "concept:central_atom", "form": "gen" },
+      { "t": "text", "v": " (иона металла) и " },
+      { "t": "ref", "id": "concept:ligand", "form": "gen" },
+      { "t": "text", "v": ". Пример: " },
       { "t": "formula", "kind": "substance", "formula": "Al(OH)₃" },
       { "t": "text", "v": " + " },
       { "t": "formula", "kind": "substance", "formula": "NaOH" },
