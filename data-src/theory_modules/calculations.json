@@ -106,7 +106,8 @@
           "inversion_for": "m_solute"
         },
         {
-          "t": "paragraph"
+          "t": "paragraph",
+          "id": "dilution_note"
         },
         {
           "t": "example_block"
@@ -120,10 +121,12 @@
       "id": "stoichiometry",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "paragraph",
+          "id": "stoich_intro"
         },
         {
-          "t": "ordered_list"
+          "t": "ordered_list",
+          "id": "stoich_steps"
         },
         {
           "t": "example_block"

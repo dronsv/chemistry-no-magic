@@ -76,5 +76,14 @@
   },
   "mnemonic.text": {
     "question": "{ref:prop:oxidizer} ulega {ref:concept:reduction} (przyjmuje e⁻, st. ut.↓). {ref:prop:reducer} ulega {ref:concept:oxidation} (oddaje e⁻, st. ut.↑)."
-  }
+  },
+
+  "molar_mass.section_title": { "question": "{ref:q:molar_mass}" },
+  "amount.section_title": { "question": "{ref:q:amount}" },
+  "mass_fraction_element.section_title": { "question": "{ref:q:component_mass_fraction}" },
+  "solution_fraction.section_title": { "question": "{ref:q:mass_fraction}" },
+  "stoichiometry.section_title": { "question": "Obliczenia z równań {ref:concept:chemical_reaction}" },
+  "yield.section_title": { "question": "{ref:q:yield}" },
+  "stoich_intro.text": { "question": "Algorytm obliczeń z równań {ref:concept:chemical_reaction}:" },
+  "stoich_steps.text": { "question": "Zapisz równanie reakcji i dobierz współczynniki.|Oblicz {ref:q:amount} danej substancji: n = m / {ref:q:molar_mass}.|Na podstawie współczynników wyznacz n szukanej substancji.|Oblicz {ref:q:mass} (lub objętość) szukanej substancji: m = n × {ref:q:molar_mass}." }
 }

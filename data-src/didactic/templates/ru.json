@@ -76,5 +76,30 @@
   },
   "mnemonic.text": {
     "question": "ОВ: {ref:prop:oxidizer|nom} {ref:concept:reduction|nom} (принимает e⁻, СО↓), {ref:prop:reducer|nom} {ref:concept:oxidation|nom} (отдаёт e⁻, СО↑)."
+  },
+
+  "molar_mass.section_title": {
+    "question": "{ref:q:molar_mass}"
+  },
+  "amount.section_title": {
+    "question": "{ref:q:amount}"
+  },
+  "mass_fraction_element.section_title": {
+    "question": "{ref:q:component_mass_fraction}"
+  },
+  "solution_fraction.section_title": {
+    "question": "{ref:q:mass_fraction}"
+  },
+  "stoichiometry.section_title": {
+    "question": "Расчёты по уравнению {ref:concept:chemical_reaction|gen}"
+  },
+  "yield.section_title": {
+    "question": "{ref:q:yield}"
+  },
+  "stoich_intro.text": {
+    "question": "Алгоритм расчёта по уравнению {ref:concept:chemical_reaction|gen}:"
+  },
+  "stoich_steps.text": {
+    "question": "Записать уравнение реакции, расставить коэффициенты.|Найти {ref:q:amount} данного вещества: n = m / {ref:q:molar_mass}.|По коэффициентам уравнения найти n искомого вещества.|Найти {ref:q:mass} (или объём) искомого вещества: m = n × {ref:q:molar_mass}."
   }
 }

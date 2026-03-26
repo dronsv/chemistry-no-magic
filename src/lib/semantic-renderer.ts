@@ -143,8 +143,17 @@ function renderGenericBlock(
   templates: DidacticTemplatePack,
 ): DidacticFields {
   const fields: DidacticFields = {};
-  const text = resolveTemplate(templates, `${block.id}.text`, {});
-  if (text) fields._didacticText = text;
+  const tmpl = templates[`${block.id}.text`];
+  if (!tmpl) return fields;
+
+  // Check if template contains pipe-separated items (for ordered_list blocks)
+  if (tmpl.question.includes('|')) {
+    const items = splitOutsideBraces(tmpl.question);
+    fields._didacticItems = items.map(item => parseRefsToRichText(item.trim()));
+  } else {
+    const text = resolveTemplate(templates, `${block.id}.text`, {});
+    if (text) fields._didacticText = text;
+  }
   return fields;
 }
 

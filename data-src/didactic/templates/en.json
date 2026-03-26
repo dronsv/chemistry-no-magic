@@ -76,5 +76,14 @@
   },
   "mnemonic.text": {
     "question": "OIL RIG: {ref:prop:oxidizer} Is {ref:concept:reduction} (accepts e⁻, OS↓). {ref:prop:reducer} Is {ref:concept:oxidation} (donates e⁻, OS↑)."
-  }
+  },
+
+  "molar_mass.section_title": { "question": "{ref:q:molar_mass}" },
+  "amount.section_title": { "question": "{ref:q:amount}" },
+  "mass_fraction_element.section_title": { "question": "{ref:q:component_mass_fraction}" },
+  "solution_fraction.section_title": { "question": "{ref:q:mass_fraction}" },
+  "stoichiometry.section_title": { "question": "Calculations from {ref:concept:chemical_reaction} equations" },
+  "yield.section_title": { "question": "{ref:q:yield}" },
+  "stoich_intro.text": { "question": "Algorithm for calculations from {ref:concept:chemical_reaction} equations:" },
+  "stoich_steps.text": { "question": "Write the equation and balance coefficients.|Find {ref:q:amount} of the given substance: n = m / {ref:q:molar_mass}.|Use equation coefficients to find n of the target substance.|Find {ref:q:mass} (or volume) of the target substance: m = n × {ref:q:molar_mass}." }
 }

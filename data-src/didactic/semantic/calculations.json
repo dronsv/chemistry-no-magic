@@ -1,0 +1,42 @@
+{
+  "id": "calculations",
+  "kind": "semantic_didactic",
+  "sections": [
+    {
+      "id": "molar_mass",
+      "title_template": "molar_mass.section_title"
+    },
+    {
+      "id": "amount",
+      "title_template": "amount.section_title"
+    },
+    {
+      "id": "mass_fraction_element",
+      "title_template": "mass_fraction_element.section_title"
+    },
+    {
+      "id": "solution_fraction",
+      "title_template": "solution_fraction.section_title"
+    },
+    {
+      "id": "stoichiometry",
+      "title_template": "stoichiometry.section_title",
+      "blocks": [
+        {
+          "id": "stoich_intro",
+          "kind": "concept_definition",
+          "concept_ref": "concept:chemical_reaction"
+        },
+        {
+          "id": "stoich_steps",
+          "kind": "mnemonic_rule",
+          "refs": ["q:amount", "q:molar_mass", "q:mass"]
+        }
+      ]
+    },
+    {
+      "id": "yield",
+      "title_template": "yield.section_title"
+    }
+  ]
+}
