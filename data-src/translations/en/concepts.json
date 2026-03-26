@@ -1151,5 +1151,60 @@
       "current",
       "direct current"
     ]
+  },
+  "concept:chemical_equilibrium": {
+    "name": "Chemical equilibrium",
+    "slug": "chemical-equilibrium",
+    "description": "State of a reversible reaction where forward and reverse reaction rates are equal.",
+    "surface_forms": [
+      "chemical equilibrium",
+      "equilibrium"
+    ]
+  },
+  "concept:reaction_rate": {
+    "name": "Reaction rate",
+    "slug": "reaction-rate",
+    "description": "Change in concentration of reactants or products per unit time.",
+    "surface_forms": [
+      "reaction rate",
+      "rate of reaction"
+    ]
+  },
+  "concept:activation_energy": {
+    "name": "Activation energy",
+    "slug": "activation-energy",
+    "description": "Minimum energy required for reacting particles to undergo a chemical reaction.",
+    "surface_forms": [
+      "activation energy",
+      "Ea"
+    ]
+  },
+  "concept:activity_series": {
+    "name": "Activity series",
+    "slug": "activity-series",
+    "description": "Sequence of metals ordered by decreasing chemical activity (reducing ability).",
+    "surface_forms": [
+      "activity series",
+      "reactivity series",
+      "electrochemical series"
+    ]
+  },
+  "concept:qualitative_reaction": {
+    "name": "Qualitative reaction",
+    "slug": "qualitative-reaction",
+    "description": "A reaction used to detect a specific substance or ion by a characteristic observable effect.",
+    "surface_forms": [
+      "qualitative reaction",
+      "qualitative test"
+    ]
+  },
+  "concept:le_chatelier": {
+    "name": "Le Chatelier's principle",
+    "slug": "le-chateliers-principle",
+    "description": "When a system at equilibrium is disturbed, it shifts to counteract the disturbance.",
+    "surface_forms": [
+      "Le Chatelier's principle",
+      "Le Chatelier"
+    ]
   }
 }

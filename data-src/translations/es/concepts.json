@@ -1124,5 +1124,57 @@
       "corriente eléctrica",
       "corriente continua"
     ]
+  },
+  "concept:chemical_equilibrium": {
+    "name": "Equilibrio químico",
+    "slug": "equilibrio-quimico",
+    "description": "Estado de una reacción reversible donde las velocidades directa e inversa son iguales.",
+    "surface_forms": [
+      "equilibrio químico",
+      "equilibrio"
+    ]
+  },
+  "concept:reaction_rate": {
+    "name": "Velocidad de reacción",
+    "slug": "velocidad-de-reaccion",
+    "description": "Cambio en la concentración de reactivos o productos por unidad de tiempo.",
+    "surface_forms": [
+      "velocidad de reacción"
+    ]
+  },
+  "concept:activation_energy": {
+    "name": "Energía de activación",
+    "slug": "energia-de-activacion",
+    "description": "Energía mínima necesaria para que las partículas reaccionen.",
+    "surface_forms": [
+      "energía de activación",
+      "Ea"
+    ]
+  },
+  "concept:activity_series": {
+    "name": "Serie de actividad",
+    "slug": "serie-de-actividad",
+    "description": "Secuencia de metales ordenados por actividad química decreciente.",
+    "surface_forms": [
+      "serie de actividad",
+      "serie electroquímica"
+    ]
+  },
+  "concept:qualitative_reaction": {
+    "name": "Reacción cualitativa",
+    "slug": "reaccion-cualitativa",
+    "description": "Reacción que permite detectar una sustancia o ion por un efecto observable.",
+    "surface_forms": [
+      "reacción cualitativa"
+    ]
+  },
+  "concept:le_chatelier": {
+    "name": "Principio de Le Chatelier",
+    "slug": "principio-de-le-chatelier",
+    "description": "Cuando un sistema en equilibrio es perturbado, se desplaza para contrarrestar la perturbación.",
+    "surface_forms": [
+      "principio de Le Chatelier",
+      "Le Chatelier"
+    ]
   }
 }

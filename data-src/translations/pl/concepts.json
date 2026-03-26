@@ -1264,5 +1264,57 @@
       "prąd elektryczny",
       "prąd stały"
     ]
+  },
+  "concept:chemical_equilibrium": {
+    "name": "Równowaga chemiczna",
+    "slug": "rownowaga-chemiczna",
+    "description": "Stan reakcji odwracalnej, w którym szybkości reakcji w przód i wstecz są równe.",
+    "surface_forms": [
+      "równowaga chemiczna",
+      "równowaga"
+    ]
+  },
+  "concept:reaction_rate": {
+    "name": "Szybkość reakcji",
+    "slug": "szybkosc-reakcji",
+    "description": "Zmiana stężenia reagentów lub produktów w jednostce czasu.",
+    "surface_forms": [
+      "szybkość reakcji"
+    ]
+  },
+  "concept:activation_energy": {
+    "name": "Energia aktywacji",
+    "slug": "energia-aktywacji",
+    "description": "Minimalna energia potrzebna do zajścia reakcji chemicznej.",
+    "surface_forms": [
+      "energia aktywacji",
+      "Ea"
+    ]
+  },
+  "concept:activity_series": {
+    "name": "Szereg aktywności metali",
+    "slug": "szereg-aktywnosci-metali",
+    "description": "Uporządkowana sekwencja metali według malejącej aktywności chemicznej.",
+    "surface_forms": [
+      "szereg aktywności metali",
+      "szereg aktywności"
+    ]
+  },
+  "concept:qualitative_reaction": {
+    "name": "Reakcja jakościowa",
+    "slug": "reakcja-jakosciowa",
+    "description": "Reakcja pozwalająca wykryć określoną substancję lub jon.",
+    "surface_forms": [
+      "reakcja jakościowa"
+    ]
+  },
+  "concept:le_chatelier": {
+    "name": "Reguła Le Chateliera",
+    "slug": "regula-le-chateliera",
+    "description": "Gdy układ w stanie równowagi zostanie zaburzony, równowaga przesuwa się w kierunku osłabiającym to zaburzenie.",
+    "surface_forms": [
+      "reguła Le Chateliera",
+      "Le Chatelier"
+    ]
   }
 }

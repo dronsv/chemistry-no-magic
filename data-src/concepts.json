@@ -2092,5 +2092,47 @@
     "order": 826,
     "filters": {},
     "examples": []
+  },
+  "concept:chemical_equilibrium": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 827,
+    "filters": {},
+    "examples": []
+  },
+  "concept:reaction_rate": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 828,
+    "filters": {},
+    "examples": []
+  },
+  "concept:activation_energy": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 829,
+    "filters": {},
+    "examples": []
+  },
+  "concept:activity_series": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 830,
+    "filters": {},
+    "examples": []
+  },
+  "concept:le_chatelier": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 831,
+    "filters": {},
+    "examples": []
+  },
+  "concept:qualitative_reaction": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 832,
+    "filters": {},
+    "examples": []
   }
 }
