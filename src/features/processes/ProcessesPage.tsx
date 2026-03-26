@@ -6,6 +6,8 @@ import * as m from '../../paraglide/messages.js';
 import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
 import { ConceptProvider, type ConceptContextValue } from '../../components/ConceptProvider';
 import RichTextRenderer from '../../components/RichTextRenderer';
+import OntologyRef from '../../components/OntologyRef';
+import { parseOntRef } from '../../lib/ontology-ref';
 import type { RichText } from '../../types/ontology-ref';
 import type { FormulaLookup } from '../../types/formula-lookup';
 import './processes.css';
@@ -208,12 +210,27 @@ export default function ProcessesPage({
                               if (typeof p === 'string') {
                                 return <span key={i} className="proc-page__param">{paramLabels[p] || p}</span>;
                               }
-                              const label = paramLabels[(p as TypedParam).key] || (p as TypedParam).key;
-                              const kindClass = `proc-page__param proc-page__param--${(p as TypedParam).kind}`;
+                              const tp = p as TypedParam;
+                              // Params with ontology ref → render as OntologyRef chip
+                              if (tp.ref) {
+                                try {
+                                  const ontRef = parseOntRef(tp.ref);
+                                  return (
+                                    <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
+                                      <OntologyRef ontRef={ontRef} locale={locale} />
+                                      {tp.unit && <span className="proc-page__param-unit">{tp.unit.replace('unit:', '')}</span>}
+                                    </span>
+                                  );
+                                } catch {
+                                  // fallback if ref parsing fails
+                                }
+                              }
+                              // Params without ref → localized label
+                              const label = paramLabels[tp.key] || tp.key;
                               return (
-                                <span key={i} className={kindClass} title={(p as TypedParam).ref || undefined}>
+                                <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
                                   {label}
-                                  {(p as TypedParam).unit && <span className="proc-page__param-unit">{(p as TypedParam).unit!.replace('unit:', '')}</span>}
+                                  {tp.unit && <span className="proc-page__param-unit">{tp.unit.replace('unit:', '')}</span>}
                                 </span>
                               );
                             })}
