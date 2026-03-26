@@ -2039,8 +2039,8 @@
     "expression": {
       "op": "multiply",
       "operands": [
-        { "op": "power", "base": "cCat", "exponent": "a" },
-        { "op": "power", "base": "cAn", "exponent": "b" }
+        { "op": "power", "operands": ["cCat", "a"] },
+        { "op": "power", "operands": ["cAn", "b"] }
       ]
     },
     "result_variable": "Ksp",
