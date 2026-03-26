@@ -22,6 +22,9 @@ import { addIon, updateIon } from './tools/write/ion.js';
 import { addProperty, updateProperty } from './tools/write/property.js';
 import { addProcess, updateProcess } from './tools/write/process.js';
 import { addEffect, updateEffect } from './tools/write/effect.js';
+import { addReaction, updateReaction } from './tools/write/reaction.js';
+import { addFormula, updateFormula } from './tools/write/formula.js';
+import { addRuleTerm, updateRuleTerm } from './tools/write/rule-term.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -458,6 +461,173 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await updateEffect(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_reaction', {
+    description: 'Add a new reaction to reactions.json. High-risk: complex nested schema.',
+    inputSchema: {
+      reaction_id: z.string().describe('Unique reaction ID, e.g. "rx_neutral_01_hcl_naoh"'),
+      equation: z.string().describe('Full balanced equation string'),
+      type_tags: z.array(z.string()).describe('Reaction type tags, e.g. ["exchange", "neutralization"]'),
+      molecular: z.object({
+        reactants: z.array(z.object({
+          formula: z.string(),
+          coeff: z.number(),
+          phase: z.string().optional(),
+        })).describe('Reactant formulas with coefficients'),
+        products: z.array(z.object({
+          formula: z.string(),
+          coeff: z.number(),
+          phase: z.string().optional(),
+        })).describe('Product formulas with coefficients'),
+      }).describe('Molecular equation block'),
+      phase: z.object({
+        medium: z.string().optional(),
+        note_key: z.string().optional(),
+      }).optional().describe('Phase/medium info'),
+      conditions: z.record(z.unknown()).optional().describe('Reaction conditions'),
+      driving_forces: z.array(z.string()).optional().describe('Driving force IDs'),
+      ionic: z.object({
+        full: z.string().optional(),
+        net: z.string().optional(),
+        spectators: z.array(z.string()).optional(),
+      }).optional().describe('Ionic equation forms'),
+      observations: z.record(z.unknown()).optional().describe('Observable effects'),
+      rate_tips: z.record(z.unknown()).optional().describe('Rate/kinetics tips'),
+      heat_effect: z.string().optional().describe('Heat effect label'),
+      safety_notes: z.array(z.string()).optional().describe('Safety notes'),
+      competencies: z.record(z.string()).optional().describe('Competency mappings'),
+      template_id: z.string().optional().describe('Linked template ID'),
+      schema_version: z.number().optional().describe('Schema version number'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addReaction(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_reaction', {
+    description: 'Update fields on an existing reaction. Deep-merges provided fields.',
+    inputSchema: {
+      reaction_id: z.string().describe('Reaction ID to update'),
+      equation: z.string().optional(),
+      type_tags: z.array(z.string()).optional(),
+      molecular: z.object({
+        reactants: z.array(z.object({
+          formula: z.string(),
+          coeff: z.number(),
+          phase: z.string().optional(),
+        })),
+        products: z.array(z.object({
+          formula: z.string(),
+          coeff: z.number(),
+          phase: z.string().optional(),
+        })),
+      }).optional(),
+      phase: z.object({
+        medium: z.string().optional(),
+        note_key: z.string().optional(),
+      }).optional(),
+      conditions: z.record(z.unknown()).optional(),
+      driving_forces: z.array(z.string()).optional(),
+      ionic: z.object({
+        full: z.string().optional(),
+        net: z.string().optional(),
+        spectators: z.array(z.string()).optional(),
+      }).optional(),
+      observations: z.record(z.unknown()).optional(),
+      rate_tips: z.record(z.unknown()).optional(),
+      heat_effect: z.string().optional(),
+      safety_notes: z.array(z.string()).optional(),
+      competencies: z.record(z.string()).optional(),
+      template_id: z.string().optional(),
+      schema_version: z.number().optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateReaction(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('add_formula', {
+    description: 'Add a new formula to foundations/formulas.json. High-risk: AST expression.',
+    inputSchema: {
+      id: z.string().describe('Formula ID with prefix, e.g. "formula:ideal_gas"'),
+      kind: z.string().describe('Formula kind: "definition", "derived", etc.'),
+      domain: z.string().describe('Domain, e.g. "stoichiometry", "thermodynamics"'),
+      school_grade: z.array(z.number()).describe('School grade levels'),
+      concept_refs: z.array(z.string()).optional().describe('Linked concept refs'),
+      didactic_scope: z.string().optional().describe('Didactic scope'),
+      variables: z.array(z.object({
+        symbol: z.string(),
+        display_symbol: z.string().optional(),
+        quantity: z.string(),
+        unit: z.string(),
+        role: z.string(),
+        binding: z.object({
+          mode: z.string(),
+          ref: z.string(),
+        }).optional(),
+        explanation_overrides: z.record(z.string()).optional(),
+      })).describe('Formula variables'),
+      expression: z.record(z.unknown()).describe('AST expression node — passed through as-is'),
+      result_variable: z.string().describe('Result variable symbol'),
+      invertible_for: z.array(z.string()).optional().describe('Variables this formula can be inverted for'),
+      inversions: z.record(z.unknown()).optional().describe('Inversion AST nodes'),
+      constants_used: z.array(z.string()).optional().describe('Constants referenced'),
+      prerequisite_formulas: z.array(z.string()).optional().describe('Prerequisite formula IDs'),
+      used_by_solvers: z.array(z.string()).optional().describe('Solver refs that use this formula'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addFormula(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_formula', {
+    description: 'Update fields on an existing formula.',
+    inputSchema: {
+      id: z.string().describe('Formula ID with prefix, e.g. "formula:ideal_gas"'),
+      kind: z.string().optional(),
+      domain: z.string().optional(),
+      school_grade: z.array(z.number()).optional(),
+      concept_refs: z.array(z.string()).optional(),
+      didactic_scope: z.string().optional(),
+      variables: z.array(z.object({
+        symbol: z.string(),
+        display_symbol: z.string().optional(),
+        quantity: z.string(),
+        unit: z.string(),
+        role: z.string(),
+        binding: z.object({
+          mode: z.string(),
+          ref: z.string(),
+        }).optional(),
+        explanation_overrides: z.record(z.string()).optional(),
+      })).optional(),
+      expression: z.record(z.unknown()).optional(),
+      result_variable: z.string().optional(),
+      invertible_for: z.array(z.string()).optional(),
+      inversions: z.record(z.unknown()).optional(),
+      constants_used: z.array(z.string()).optional(),
+      prerequisite_formulas: z.array(z.string()).optional(),
+      used_by_solvers: z.array(z.string()).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateFormula(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('add_rule_term', {
+    description: 'Add a namespaced rule term to vocab/rule_terms.json.',
+    inputSchema: {
+      term: z.string().describe('Namespaced term string, e.g. "condition:cooling"'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addRuleTerm(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('update_rule_term', {
+    description: 'Replace an existing rule term string.',
+    inputSchema: {
+      old_term: z.string().describe('Existing term to replace'),
+      new_term: z.string().describe('New term value'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateRuleTerm(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
