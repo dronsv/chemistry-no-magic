@@ -18,6 +18,10 @@ import { addRelation } from './tools/write/relation.js';
 import { addSubstance, updateSubstance } from './tools/write/substance.js';
 import { addConcept, updateConcept } from './tools/write/concept.js';
 import { addCharacteristic, updateCharacteristic } from './tools/write/characteristic.js';
+import { addIon, updateIon } from './tools/write/ion.js';
+import { addProperty, updateProperty } from './tools/write/property.js';
+import { addProcess, updateProcess } from './tools/write/process.js';
+import { addEffect, updateEffect } from './tools/write/effect.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
 import type { IndexRef } from '../shared/types.js';
@@ -310,6 +314,150 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await updateCharacteristic(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_ion', {
+    description: 'Add a new ion to ions.json. Fails if id already exists.',
+    inputSchema: {
+      id: z.string().describe('Full ion ref, e.g. "ion:H_plus" (must start with "ion:")'),
+      formula: z.string().describe('Chemical formula with Unicode superscripts, e.g. "H⁺"'),
+      type: z.enum(['cation', 'anion']).describe('Ion type'),
+      tags: z.array(z.string()).optional().describe('Free-form tags'),
+      characteristics: z.record(z.unknown()).optional().describe('Typed characteristics keyed by concept ref'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addIon(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('update_ion', {
+    description: 'Update fields on an existing ion in ions.json. Shallow-merges provided fields.',
+    inputSchema: {
+      id: z.string().describe('Full ion ref, e.g. "ion:H_plus" (must start with "ion:")'),
+      formula: z.string().optional(),
+      type: z.enum(['cation', 'anion']).optional(),
+      tags: z.array(z.string()).optional(),
+      characteristics: z.record(z.unknown()).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateIon(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('add_property', {
+    description: 'Add a new property definition to rules/properties.json. Fails if id already exists.',
+    inputSchema: {
+      id: z.string().describe('Property ID without prefix, e.g. "electronegativity" (ref becomes "prop:{id}")'),
+      value_field: z.string().nullable().describe('Field name on the target object, or null'),
+      object: z.enum(['element', 'substance', 'ion']).describe('What kind of entity this property applies to'),
+      unit: z.string().nullable().describe('Unit string, e.g. "°C", "g/cm³", or null'),
+      concept_ref: z.string().describe('Concept ref, e.g. "concept:electronegativity"'),
+      trend_hint: z.object({
+        period: z.string().nullable(),
+        group: z.string().nullable(),
+      }).optional().describe('Periodic trend hints'),
+      filter: z.record(z.unknown()).nullable().optional().describe('Filter constraints'),
+      i18n: z.record(z.record(z.string())).describe('Localized names: { ru: { nom: "...", gen: "..." }, en: { name: "..." }, ... }'),
+      explanation_concept_ref: z.string().optional(),
+      conditions_schema: z.array(z.string()).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addProperty(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_property', {
+    description: 'Update fields on an existing property in rules/properties.json.',
+    inputSchema: {
+      id: z.string().describe('Property ID without prefix'),
+      value_field: z.string().nullable().optional(),
+      object: z.enum(['element', 'substance', 'ion']).optional(),
+      unit: z.string().nullable().optional(),
+      concept_ref: z.string().optional(),
+      trend_hint: z.object({
+        period: z.string().nullable(),
+        group: z.string().nullable(),
+      }).optional(),
+      filter: z.record(z.unknown()).nullable().optional(),
+      i18n: z.record(z.record(z.string())).optional(),
+      explanation_concept_ref: z.string().optional(),
+      conditions_schema: z.array(z.string()).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateProperty(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('add_process', {
+    description: 'Add a new process to process_vocab.json. Fails if id already exists.',
+    inputSchema: {
+      id: z.string().describe('Process ID, e.g. "neutralization" (ref becomes "process:{id}")'),
+      kind: z.enum(['chemical', 'physical', 'driving_force', 'operation', 'constraint']).describe('Process kind'),
+      params: z.array(z.union([
+        z.string(),
+        z.object({
+          key: z.string(),
+          kind: z.string(),
+          ref: z.string().optional(),
+          unit: z.string().optional(),
+        }),
+      ])).optional().describe('Process parameters'),
+      parent: z.string().optional().describe('Parent process ID'),
+      effects: z.array(z.union([
+        z.string(),
+        z.object({
+          id: z.string(),
+          when: z.string(),
+        }),
+      ])).optional().describe('Effects (string IDs or conditional objects)'),
+      concept_ref: z.string().optional().describe('Linked concept ref'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addProcess(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('update_process', {
+    description: 'Update fields on an existing process in process_vocab.json.',
+    inputSchema: {
+      id: z.string().describe('Process ID'),
+      kind: z.enum(['chemical', 'physical', 'driving_force', 'operation', 'constraint']).optional(),
+      params: z.array(z.union([
+        z.string(),
+        z.object({
+          key: z.string(),
+          kind: z.string(),
+          ref: z.string().optional(),
+          unit: z.string().optional(),
+        }),
+      ])).optional(),
+      parent: z.string().optional(),
+      effects: z.array(z.union([
+        z.string(),
+        z.object({
+          id: z.string(),
+          when: z.string(),
+        }),
+      ])).optional(),
+      concept_ref: z.string().optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateProcess(indexRef, args as any), null, 2) }],
+  }));
+
+  server.registerTool('add_effect', {
+    description: 'Add a new effect to effects_vocab.json. Fails if id already exists.',
+    inputSchema: {
+      id: z.string().describe('Effect ID, e.g. "speed_increase" (ref becomes "effect:{id}")'),
+      category: z.enum(['kinetic', 'thermodynamic', 'mass_transfer', 'phase']).describe('Effect category'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await addEffect(indexRef, args), null, 2) }],
+  }));
+
+  server.registerTool('update_effect', {
+    description: 'Update an existing effect in effects_vocab.json.',
+    inputSchema: {
+      id: z.string().describe('Effect ID'),
+      category: z.enum(['kinetic', 'thermodynamic', 'mass_transfer', 'phase']).optional(),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await updateEffect(indexRef, args), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
