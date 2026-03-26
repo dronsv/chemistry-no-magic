@@ -63,5 +63,18 @@
   },
   "lattice_comparison.row.concept:metallic_crystal_lattice": {
     "question": "{ref:concept:metallic_crystal_lattice|short}|Jony metalu + gaz elektronowy|Różna (−39 °C dla Hg do 3422 °C dla W)|Różna (Na miękki, W twardy)|Wysoka|Nierozpuszczalne|Fe, Cu, Al, Au"
+  },
+
+  "redox_concepts.section_title": {
+    "question": "{ref:prop:oxidizer} i {ref:prop:reducer}"
+  },
+  "oxidizer_def.text": {
+    "question": "{ref:prop:oxidizer} — atom, który przyjmuje elektrony. Jego {ref:prop:oxidation_state} maleje ({ref:concept:reduction})."
+  },
+  "reducer_def.text": {
+    "question": "{ref:prop:reducer} — atom, który oddaje elektrony. Jego {ref:prop:oxidation_state} rośnie ({ref:concept:oxidation})."
+  },
+  "mnemonic.text": {
+    "question": "{ref:prop:oxidizer} ulega {ref:concept:reduction} (przyjmuje e⁻, st. ut.↓). {ref:prop:reducer} ulega {ref:concept:oxidation} (oddaje e⁻, st. ut.↑)."
   }
 }

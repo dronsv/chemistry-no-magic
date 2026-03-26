@@ -63,5 +63,18 @@
   },
   "lattice_comparison.row.concept:metallic_crystal_lattice": {
     "question": "{ref:concept:metallic_crystal_lattice|short}|Ионы металла + электронный газ|Разная (от −39 °C у Hg до 3422 °C у W)|Разная (Na мягкий, W твёрдый)|Высокая|Нерастворимы|Fe, Cu, Al, Au"
+  },
+
+  "redox_concepts.section_title": {
+    "question": "{ref:prop:oxidizer|nom} и {ref:prop:reducer|nom}"
+  },
+  "oxidizer_def.text": {
+    "question": "{ref:prop:oxidizer|nom} — атом (элемент), который принимает электроны. Его {ref:prop:oxidation_state|nom} понижается ({ref:concept:reduction|nom})."
+  },
+  "reducer_def.text": {
+    "question": "{ref:prop:reducer|nom} — атом (элемент), который отдаёт электроны. Его {ref:prop:oxidation_state|nom} повышается ({ref:concept:oxidation|nom})."
+  },
+  "mnemonic.text": {
+    "question": "ОВ: {ref:prop:oxidizer|nom} {ref:concept:reduction|nom} (принимает e⁻, СО↓), {ref:prop:reducer|nom} {ref:concept:oxidation|nom} (отдаёт e⁻, СО↑)."
   }
 }

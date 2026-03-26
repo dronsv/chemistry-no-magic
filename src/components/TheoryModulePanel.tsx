@@ -167,7 +167,7 @@ function renderBlock(
 
     case 'paragraph': {
       const pText = (block as DidacticBlock)._didacticText ?? block.text;
-      return <p className="theory-module__p">{renderMaybeRichText(pText as string | RichText, locale)}</p>;
+      return <div className="theory-module__p">{renderMaybeRichText(pText as string | RichText, locale)}</div>;
     }
 
     case 'ordered_list': {

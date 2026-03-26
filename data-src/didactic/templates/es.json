@@ -63,5 +63,18 @@
   },
   "lattice_comparison.row.concept:metallic_crystal_lattice": {
     "question": "{ref:concept:metallic_crystal_lattice|short}|Iones metálicos + gas electrónico|Variable (−39 °C para Hg a 3422 °C para W)|Variable (Na blando, W duro)|Alta|Insoluble|Fe, Cu, Al, Au"
+  },
+
+  "redox_concepts.section_title": {
+    "question": "{ref:prop:oxidizer} y {ref:prop:reducer}"
+  },
+  "oxidizer_def.text": {
+    "question": "{ref:prop:oxidizer} — átomo que acepta electrones. Su {ref:prop:oxidation_state} disminuye ({ref:concept:reduction})."
+  },
+  "reducer_def.text": {
+    "question": "{ref:prop:reducer} — átomo que dona electrones. Su {ref:prop:oxidation_state} aumenta ({ref:concept:oxidation})."
+  },
+  "mnemonic.text": {
+    "question": "{ref:prop:oxidizer} se {ref:concept:reduction} (acepta e⁻, EO↓). {ref:prop:reducer} se {ref:concept:oxidation} (dona e⁻, EO↑)."
   }
 }

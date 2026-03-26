@@ -37,9 +37,26 @@ export interface SemanticComparisonTable {
   columns: ComparisonColumn[];
 }
 
+export interface SemanticConceptDefinition {
+  id: string;
+  kind: 'concept_definition';
+  concept_ref: string;
+  mechanism_ref?: string;
+  property_ref?: string;
+  direction?: 'increase' | 'decrease';
+}
+
+export interface SemanticMnemonicRule {
+  id: string;
+  kind: 'mnemonic_rule';
+  refs: string[];
+}
+
 export type SemanticBlock =
   | SemanticBondRuleCard
-  | SemanticComparisonTable;
+  | SemanticComparisonTable
+  | SemanticConceptDefinition
+  | SemanticMnemonicRule;
 
 export interface SemanticSection {
   id: string;

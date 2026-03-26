@@ -63,5 +63,18 @@
   },
   "lattice_comparison.row.concept:metallic_crystal_lattice": {
     "question": "{ref:concept:metallic_crystal_lattice|short}|Metal ions + electron gas|Variable (−39 °C for Hg to 3422 °C for W)|Variable (Na soft, W hard)|High|Insoluble|Fe, Cu, Al, Au"
+  },
+
+  "redox_concepts.section_title": {
+    "question": "{ref:prop:oxidizer} and {ref:prop:reducer}"
+  },
+  "oxidizer_def.text": {
+    "question": "An {ref:prop:oxidizer} is the atom that accepts electrons. Its {ref:prop:oxidation_state} decreases ({ref:concept:reduction})."
+  },
+  "reducer_def.text": {
+    "question": "A {ref:prop:reducer} is the atom that donates electrons. Its {ref:prop:oxidation_state} increases ({ref:concept:oxidation})."
+  },
+  "mnemonic.text": {
+    "question": "OIL RIG: {ref:prop:oxidizer} Is {ref:concept:reduction} (accepts e⁻, OS↓). {ref:prop:reducer} Is {ref:concept:oxidation} (donates e⁻, OS↑)."
   }
 }

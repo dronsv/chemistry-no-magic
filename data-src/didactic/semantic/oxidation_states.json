@@ -1,0 +1,33 @@
+{
+  "id": "oxidation_states",
+  "kind": "semantic_didactic",
+  "sections": [
+    {
+      "id": "redox_concepts",
+      "title_template": "redox_concepts.section_title",
+      "blocks": [
+        {
+          "id": "oxidizer_def",
+          "kind": "concept_definition",
+          "concept_ref": "prop:oxidizer",
+          "mechanism_ref": "concept:reduction",
+          "property_ref": "prop:oxidation_state",
+          "direction": "decrease"
+        },
+        {
+          "id": "reducer_def",
+          "kind": "concept_definition",
+          "concept_ref": "prop:reducer",
+          "mechanism_ref": "concept:oxidation",
+          "property_ref": "prop:oxidation_state",
+          "direction": "increase"
+        },
+        {
+          "id": "mnemonic",
+          "kind": "mnemonic_rule",
+          "refs": ["prop:oxidizer", "concept:reduction", "prop:reducer", "concept:oxidation"]
+        }
+      ]
+    }
+  ]
+}

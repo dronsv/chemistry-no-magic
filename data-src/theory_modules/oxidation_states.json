@@ -52,13 +52,16 @@
       "id": "redox_concepts",
       "blocks": [
         {
-          "t": "paragraph"
+          "t": "paragraph",
+          "id": "oxidizer_def"
         },
         {
-          "t": "paragraph"
+          "t": "paragraph",
+          "id": "reducer_def"
         },
         {
-          "t": "paragraph"
+          "t": "paragraph",
+          "id": "mnemonic"
         }
       ]
     }

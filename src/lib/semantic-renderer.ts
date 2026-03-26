@@ -11,6 +11,8 @@ import type {
   SemanticDidacticModule,
   SemanticBondRuleCard,
   SemanticComparisonTable,
+  SemanticConceptDefinition,
+  SemanticMnemonicRule,
   SemanticBlock,
   DidacticTemplatePack,
 } from '../types/semantic-didactic';
@@ -133,6 +135,16 @@ function renderBondRuleCard(
   const desc = resolveTemplate(templates, `${block.id}.description`, slots);
   if (desc) fields._didacticDescription = desc;
 
+  return fields;
+}
+
+function renderGenericBlock(
+  block: SemanticConceptDefinition | SemanticMnemonicRule,
+  templates: DidacticTemplatePack,
+): DidacticFields {
+  const fields: DidacticFields = {};
+  const text = resolveTemplate(templates, `${block.id}.text`, {});
+  if (text) fields._didacticText = text;
   return fields;
 }
 
@@ -266,6 +278,8 @@ export function applySemanticLayer(
           fields = renderBondRuleCard(semBlock, templates);
         } else if (semBlock.kind === 'comparison_table') {
           fields = renderComparisonTable(semBlock, templates);
+        } else if (semBlock.kind === 'concept_definition' || semBlock.kind === 'mnemonic_rule') {
+          fields = renderGenericBlock(semBlock, templates);
         } else {
           return block;
         }
