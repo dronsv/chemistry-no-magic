@@ -1,0 +1,22 @@
+[
+  {
+    "subject": "concept:dissolution",
+    "predicate": "described_by",
+    "object": "concept:solubility_product"
+  },
+  {
+    "subject": "concept:solubility_product",
+    "predicate": "instance_of",
+    "object": "concept:chemical_equilibrium"
+  },
+  {
+    "subject": "concept:solubility_product",
+    "predicate": "related_to",
+    "object": "prop:solubility"
+  },
+  {
+    "subject": "concept:solubility_product",
+    "predicate": "depends_on",
+    "object": "q:temperature"
+  }
+]

@@ -1206,5 +1206,15 @@
       "Le Chatelier's principle",
       "Le Chatelier"
     ]
+  },
+  "concept:solubility_product": {
+    "name": "Solubility product",
+    "slug": "solubility-product",
+    "description": "Equilibrium constant for the dissolution of a sparingly soluble ionic compound. Ksp = [Cat]ᵃ · [An]ᵇ, where [Cat] and [An] are molar concentrations of ions in saturated solution.",
+    "surface_forms": [
+      "solubility product",
+      "Ksp",
+      "solubility product constant"
+    ]
   }
 }

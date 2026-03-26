@@ -1316,5 +1316,14 @@
       "reguła Le Chateliera",
       "Le Chatelier"
     ]
+  },
+  "concept:solubility_product": {
+    "name": "Iloczyn rozpuszczalności",
+    "slug": "iloczyn-rozpuszczalnosci",
+    "description": "Stała równowagi dla procesu rozpuszczania trudno rozpuszczalnego elektrolitu.",
+    "surface_forms": [
+      "iloczyn rozpuszczalności",
+      "Ksp"
+    ]
   }
 }

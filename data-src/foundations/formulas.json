@@ -1954,5 +1954,100 @@
       "formula:acid_dissociation_constant"
     ],
     "used_by_solvers": []
+  },
+  {
+    "id": "formula:solubility_product",
+    "kind": "definition",
+    "domain": "equilibrium",
+    "school_grade": [
+      9,
+      10
+    ],
+    "concept_refs": [
+      "concept:solubility_product"
+    ],
+    "didactic_scope": "generalized",
+    "variables": [
+      {
+        "symbol": "Ksp",
+        "display_symbol": "Ksp",
+        "quantity": "q:equilibrium_constant",
+        "unit": "unit:dimensionless",
+        "role": "result"
+      },
+      {
+        "symbol": "cCat",
+        "display_symbol": "[Cat]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "concept:cation"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация катиона в насыщенном растворе",
+          "en": "molar concentration of cation in saturated solution",
+          "pl": "stężenie molowe kationu w roztworze nasyconym",
+          "es": "concentración molar del catión en solución saturada"
+        }
+      },
+      {
+        "symbol": "cAn",
+        "display_symbol": "[An]",
+        "quantity": "q:molar_concentration",
+        "unit": "unit:mol_per_L",
+        "role": "input",
+        "binding": {
+          "mode": "abstract_class",
+          "ref": "concept:anion"
+        },
+        "explanation_overrides": {
+          "ru": "молярная концентрация аниона в насыщенном растворе",
+          "en": "molar concentration of anion in saturated solution",
+          "pl": "stężenie molowe anionu w roztworze nasyconym",
+          "es": "concentración molar del anión en solución saturada"
+        }
+      },
+      {
+        "symbol": "a",
+        "display_symbol": "a",
+        "quantity": "q:amount",
+        "unit": "unit:dimensionless",
+        "role": "index",
+        "explanation_overrides": {
+          "ru": "стехиометрический коэффициент катиона",
+          "en": "stoichiometric coefficient of cation",
+          "pl": "współczynnik stechiometryczny kationu",
+          "es": "coeficiente estequiométrico del catión"
+        }
+      },
+      {
+        "symbol": "b",
+        "display_symbol": "b",
+        "quantity": "q:amount",
+        "unit": "unit:dimensionless",
+        "role": "index",
+        "explanation_overrides": {
+          "ru": "стехиометрический коэффициент аниона",
+          "en": "stoichiometric coefficient of anion",
+          "pl": "współczynnik stechiometryczny anionu",
+          "es": "coeficiente estequiométrico del anión"
+        }
+      }
+    ],
+    "expression": {
+      "op": "multiply",
+      "operands": [
+        { "op": "power", "base": "cCat", "exponent": "a" },
+        { "op": "power", "base": "cAn", "exponent": "b" }
+      ]
+    },
+    "result_variable": "Ksp",
+    "invertible_for": [],
+    "inversions": {},
+    "constants_used": [],
+    "prerequisite_formulas": [],
+    "used_by_solvers": []
   }
 ]

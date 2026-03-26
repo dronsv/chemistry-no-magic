@@ -1176,5 +1176,14 @@
       "principio de Le Chatelier",
       "Le Chatelier"
     ]
+  },
+  "concept:solubility_product": {
+    "name": "Producto de solubilidad",
+    "slug": "producto-de-solubilidad",
+    "description": "Constante de equilibrio para la disolución de un compuesto iónico poco soluble.",
+    "surface_forms": [
+      "producto de solubilidad",
+      "Ksp"
+    ]
   }
 }

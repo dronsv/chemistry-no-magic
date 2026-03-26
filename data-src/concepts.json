@@ -2134,5 +2134,12 @@
     "order": 832,
     "filters": {},
     "examples": []
+  },
+  "concept:solubility_product": {
+    "kind": "domain_concept",
+    "parent_id": null,
+    "order": 833,
+    "filters": {},
+    "examples": []
   }
 }
