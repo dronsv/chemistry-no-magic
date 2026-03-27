@@ -1250,5 +1250,20 @@
   },
   "znso4": {
     "name": "Sulfato de zinc"
+  },
+  "agbr": {
+    "name": "bromuro de plata"
+  },
+  "agi": {
+    "name": "yoduro de plata"
+  },
+  "ag2s": {
+    "name": "sulfuro de plata"
+  },
+  "pbso4": {
+    "name": "sulfato de plomo(II)"
+  },
+  "pbcl2": {
+    "name": "cloruro de plomo(II)"
   }
 }

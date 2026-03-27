@@ -1,0 +1,33 @@
+{
+  "id": "sub:pbso4",
+  "formula": "PbSO₄",
+  "class": "salt",
+  "ions": [
+    "ion:Pb_2plus",
+    "ion:SO4_2minus"
+  ],
+  "tags": [
+    "insoluble",
+    "sulfate",
+    "lead_compound"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:solubility_product": {
+      "value": "2.53e-8",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
+    },
+    "concept:density": {
+      "value": 6.29,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 1170,
+      "unit": "unit:celsius"
+    }
+  }
+}

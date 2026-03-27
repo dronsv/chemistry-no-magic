@@ -1,0 +1,33 @@
+{
+  "id": "sub:pbcl2",
+  "formula": "PbCl₂",
+  "class": "salt",
+  "ions": [
+    "ion:Pb_2plus",
+    "ion:Cl_minus"
+  ],
+  "tags": [
+    "slightly_soluble",
+    "chloride",
+    "lead_compound"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:solubility_product": {
+      "value": "1.17e-5",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
+    },
+    "concept:density": {
+      "value": 5.85,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 501,
+      "unit": "unit:celsius"
+    }
+  }
+}

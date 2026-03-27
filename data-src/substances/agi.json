@@ -1,0 +1,33 @@
+{
+  "id": "sub:agi",
+  "formula": "AgI",
+  "class": "salt",
+  "ions": [
+    "ion:Ag_plus",
+    "ion:I_minus"
+  ],
+  "tags": [
+    "insoluble",
+    "halide",
+    "photosensitive"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:solubility_product": {
+      "value": "8.52e-17",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
+    },
+    "concept:density": {
+      "value": 5.68,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 558,
+      "unit": "unit:celsius"
+    }
+  }
+}

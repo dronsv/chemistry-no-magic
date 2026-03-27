@@ -1,0 +1,32 @@
+{
+  "id": "sub:ag2s",
+  "formula": "Ag₂S",
+  "class": "salt",
+  "ions": [
+    "ion:Ag_plus",
+    "ion:S_2minus"
+  ],
+  "tags": [
+    "insoluble",
+    "sulfide"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:solubility_product": {
+      "value": "6.0e-51",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
+    },
+    "concept:density": {
+      "value": 7.23,
+      "unit": "unit:g_per_cm3"
+    },
+    "concept:melting_point": {
+      "value": 825,
+      "unit": "unit:celsius"
+    }
+  }
+}

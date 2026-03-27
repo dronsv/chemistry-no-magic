@@ -1250,5 +1250,20 @@
   },
   "znso4": {
     "name": "Siarczan(VI) cynku"
+  },
+  "agbr": {
+    "name": "bromek srebra"
+  },
+  "agi": {
+    "name": "jodek srebra"
+  },
+  "ag2s": {
+    "name": "siarczek srebra"
+  },
+  "pbso4": {
+    "name": "siarczan(VI) ołowiu(II)"
+  },
+  "pbcl2": {
+    "name": "chlorek ołowiu(II)"
   }
 }

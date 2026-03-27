@@ -1250,5 +1250,20 @@
   },
   "znso4": {
     "name": "Zinc sulfate"
+  },
+  "agbr": {
+    "name": "silver bromide"
+  },
+  "agi": {
+    "name": "silver iodide"
+  },
+  "ag2s": {
+    "name": "silver sulfide"
+  },
+  "pbso4": {
+    "name": "lead(II) sulfate"
+  },
+  "pbcl2": {
+    "name": "lead(II) chloride"
   }
 }
