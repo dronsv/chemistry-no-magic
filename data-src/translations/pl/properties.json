@@ -1,0 +1,13 @@
+{
+  "electronegativity": { "name": "elektroujemność" },
+  "atomic_mass": { "name": "masa atomowa" },
+  "melting_point": { "name": "temperatura topnienia" },
+  "boiling_point": { "name": "temperatura wrzenia" },
+  "density": { "name": "gęstość" },
+  "pKa": { "name": "pKa" },
+  "Ka": { "name": "Ka" },
+  "molar_mass": { "name": "masa molowa" },
+  "enthalpy_of_formation": { "name": "entalpia tworzenia" },
+  "standard_entropy": { "name": "entropia standardowa" },
+  "ion_charge": { "name": "ładunek jonu" }
+}

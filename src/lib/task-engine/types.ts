@@ -108,7 +108,7 @@ export interface PropertyDef {
   trend_hint: { period: string | null; group: string | null } | null;
   filter: PropertyFilter | null;
   concept_ref?: string;
-  i18n: Record<string, Record<string, string>>;
+  i18n?: Record<string, Record<string, string>>;
 }
 
 // ── Morphology (from translations/ru/morphology.json) ──────────

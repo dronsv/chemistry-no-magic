@@ -1,0 +1,13 @@
+{
+  "electronegativity": { "name": "electronegatividad" },
+  "atomic_mass": { "name": "masa atómica" },
+  "melting_point": { "name": "punto de fusión" },
+  "boiling_point": { "name": "punto de ebullición" },
+  "density": { "name": "densidad" },
+  "pKa": { "name": "pKa" },
+  "Ka": { "name": "Ka" },
+  "molar_mass": { "name": "masa molar" },
+  "enthalpy_of_formation": { "name": "entalpía de formación" },
+  "standard_entropy": { "name": "entropía estándar" },
+  "ion_charge": { "name": "carga iónica" }
+}

@@ -393,9 +393,35 @@ export async function loadPromptTemplates(locale: SupportedLocale = 'ru'): Promi
   return loadDataFile<PromptTemplateMap>(path);
 }
 
-/** Load property definitions. */
+/** Load property definitions. Merges i18n from translation overlays for backward compat. */
 export async function loadProperties(): Promise<PropertyDef[]> {
-  return loadRule('properties') as Promise<PropertyDef[]>;
+  const props = await loadRule('properties') as PropertyDef[];
+
+  // Merge i18n from all locale overlays so slot-resolver
+  // can access lookup:properties.{id}.i18n.{locale}.{field}
+  const locales = ['ru', 'en', 'pl', 'es'] as const;
+  const overlays: Partial<Record<string, Record<string, Record<string, unknown>>>> = {};
+  await Promise.all(
+    locales.map(async (loc) => {
+      try {
+        const ov = await loadTranslationOverlay(loc as SupportedLocale, 'properties');
+        if (ov) overlays[loc] = ov as Record<string, Record<string, unknown>>;
+      } catch { /* skip missing overlay */ }
+    }),
+  );
+
+  for (const prop of props) {
+    const i18n: Record<string, Record<string, unknown>> = {};
+    for (const [loc, overlay] of Object.entries(overlays)) {
+      if (overlay?.[prop.id]) i18n[loc] = overlay[prop.id];
+    }
+    if (Object.keys(i18n).length > 0) {
+      (prop as PropertyDef & { i18n: Record<string, Record<string, unknown>> }).i18n =
+        i18n as Record<string, Record<string, string>>;
+    }
+  }
+
+  return props;
 }
 
 /** Load morphology data for the given locale. Falls back silently if unavailable. */
