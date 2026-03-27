@@ -58,10 +58,8 @@ async function checkBrokenLinks(page: Page, maxLinks = 30): Promise<string[]> {
   const broken: string[] = [];
   const checked = new Set<string>();
 
-  // Known 404s from SmartText auto-detection linking to concept pages that don't exist
-  // These are pre-existing issues, not regressions from ontology work
-  const KNOWN_404s = new Set([
-    '/ru/properties/',  // property concept pages not implemented yet
+  const KNOWN_404s = new Set<string>([
+    // All known 404 patterns resolved
   ]);
 
   for (const link of links.slice(0, maxLinks)) {
@@ -228,8 +226,8 @@ test.describe('Processes page ontology content', () => {
     expect(body).not.toContain('electrolyte_substance_id');
     expect(body).not.toContain('T_target_K');
 
-    // Should show localized labels
-    expect(body).toContain('кислота');
+    // Should show localized concept names from OntologyRef (e.g., "Кислоты" for cls:acid)
+    expect(body).toContain('Кислоты');
   });
 
   test('params have kind-specific colors', async ({ page }) => {

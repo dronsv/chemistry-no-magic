@@ -303,7 +303,9 @@ const LINK_CHECK_PAGES = [
 ];
 
 // Known 404 patterns (concept property pages not implemented)
-const KNOWN_404_PREFIXES = ['/ru/properties/', '/en/properties/', '/pl/properties/', '/es/properties/'];
+const KNOWN_404_PREFIXES: string[] = [
+  // Property pages now implemented — no known 404 patterns
+];
 
 test.describe('Broken link audit', () => {
   for (const pagePath of LINK_CHECK_PAGES) {

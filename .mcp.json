@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "ontology-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "tsx",
+        "/home/andrey/work/chemistry/packages/ontology-mcp/src/server/index.ts"
+      ],
+      "cwd": "/home/andrey/work/chemistry/packages/ontology-mcp",
+      "env": {}
+    }
+  }
+}
