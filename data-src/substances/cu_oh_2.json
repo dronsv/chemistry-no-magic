@@ -25,6 +25,14 @@
     "concept:molar_mass": {
       "value": 98,
       "unit": "unit:g_per_mol"
+    },
+    "concept:solubility_product": {
+      "value": "2.2e-20",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
     }
   }
 }

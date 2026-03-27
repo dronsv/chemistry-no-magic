@@ -23,6 +23,14 @@
     "concept:melting_point": {
       "value": 1114,
       "unit": "unit:celsius"
+    },
+    "concept:solubility_product": {
+      "value": "9.04e-29",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
     }
   }
 }

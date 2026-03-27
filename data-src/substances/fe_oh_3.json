@@ -17,6 +17,14 @@
     "concept:density": {
       "value": 3.12,
       "unit": "unit:g_per_cm3"
+    },
+    "concept:solubility_product": {
+      "value": "2.79e-39",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
     }
   }
 }

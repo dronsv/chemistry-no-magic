@@ -31,6 +31,14 @@
     "concept:standard_entropy": {
       "value": 91.7,
       "unit": "unit:J_per_mol_K"
+    },
+    "concept:solubility_product": {
+      "value": "3.36e-9",
+      "unit": "unit:dimensionless",
+      "conditions": {
+        "temperature_C": 25
+      },
+      "source": "reference_table"
     }
   }
 }
