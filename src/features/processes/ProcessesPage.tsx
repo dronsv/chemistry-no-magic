@@ -10,20 +10,22 @@ import OntologyRef from '../../components/OntologyRef';
 import { parseOntRef } from '../../lib/ontology-ref';
 import type { RichText } from '../../types/ontology-ref';
 
-/** Human-readable unit labels */
-const UNIT_DISPLAY: Record<string, string> = {
-  K: 'K',
-  bar: 'bar',
-  kJ: 'kJ',
-  kJ_per_mol: 'kJ/mol',
-  mL: 'mL',
-  mol_per_L: 'mol/L',
-  g_per_mol: 'g/mol',
+/** Locale-aware unit labels */
+const UNIT_DISPLAY: Record<string, Record<string, string>> = {
+  K:          { ru: 'К',       en: 'K',       pl: 'K',       es: 'K' },
+  bar:        { ru: 'бар',     en: 'bar',     pl: 'bar',     es: 'bar' },
+  kJ:         { ru: 'кДж',     en: 'kJ',      pl: 'kJ',      es: 'kJ' },
+  kJ_per_mol: { ru: 'кДж/моль', en: 'kJ/mol', pl: 'kJ/mol',  es: 'kJ/mol' },
+  mL:         { ru: 'мл',      en: 'mL',      pl: 'mL',      es: 'mL' },
+  mol_per_L:  { ru: 'моль/л',  en: 'mol/L',   pl: 'mol/L',   es: 'mol/L' },
+  g_per_mol:  { ru: 'г/моль',  en: 'g/mol',   pl: 'g/mol',   es: 'g/mol' },
 };
 
-function formatUnit(unit: string): string {
+function formatUnit(unit: string, locale: SupportedLocale): string {
   const key = unit.replace('unit:', '');
-  return UNIT_DISPLAY[key] || key.replace(/_/g, ' ');
+  const localeMap = UNIT_DISPLAY[key];
+  if (localeMap) return localeMap[locale] || localeMap.en || key;
+  return key.replace(/_/g, ' ');
 }
 import type { FormulaLookup } from '../../types/formula-lookup';
 import './processes.css';
@@ -233,7 +235,7 @@ export default function ProcessesPage({
                                   return (
                                     <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
                                       <OntologyRef ontRef={ontRef} locale={locale} />
-                                      {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit)}</span>}
+                                      {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit, locale)}</span>}
                                     </span>
                                   );
                                 } catch {
@@ -245,7 +247,7 @@ export default function ProcessesPage({
                               return (
                                 <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
                                   {label}
-                                  {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit)}</span>}
+                                  {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit, locale)}</span>}
                                 </span>
                               );
                             })}
