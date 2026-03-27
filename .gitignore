@@ -53,3 +53,6 @@ test-results/
 # git worktrees
 .worktrees/
 packages/ontology-mcp/node_modules
+
+# ontology-mcp audit log (runtime state, not source)
+data-src/.audit-log.jsonl

@@ -45,3 +45,4 @@ export async function rebuildIndex(indexRef: IndexRef): Promise<void> {
 }
 
 export { getDataSrcRoot };
+export { appendAuditLog } from './audit-log.js';

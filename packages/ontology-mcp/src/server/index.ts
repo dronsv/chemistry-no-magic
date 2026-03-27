@@ -27,8 +27,12 @@ import { addEffect, updateEffect } from './tools/write/effect.js';
 import { addReaction, updateReaction } from './tools/write/reaction.js';
 import { addFormula, updateFormula } from './tools/write/formula.js';
 import { addRuleTerm, updateRuleTerm } from './tools/write/rule-term.js';
+import { batchAdd } from './tools/write/batch.js';
+import { listPredicates, validatePredicate } from './tools/predicate-registry.js';
+import { readAuditLog } from './tools/write/audit-log.js';
 import { registerResources } from './resources/register-resources.js';
 import { registerPrompts } from './prompts/register-prompts.js';
+import { getDataSrcRoot } from './tools/write/_shared.js';
 import type { IndexRef } from '../shared/types.js';
 
 const KINDS_DESC =
@@ -651,6 +655,70 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(await updateRuleTerm(indexRef, args), null, 2) }],
+  }));
+
+  // --- Batch, Predicate Registry, Audit Log ---
+
+  const executors: Record<string, (ir: IndexRef, args: any) => Promise<any>> = {
+    add_substance: (ir, a) => addSubstance(ir, a),
+    add_concept: (ir, a) => addConcept(ir, a),
+    add_translation: (ir, a) => addTranslation(ir, a),
+    add_relation: (ir, a) => addRelation(ir, a),
+    add_ion: (ir, a) => addIon(ir, a),
+    add_characteristic: (ir, a) => addCharacteristic(ir, a),
+    add_property: (ir, a) => addProperty(ir, a),
+    add_process: (ir, a) => addProcess(ir, a),
+    add_effect: (ir, a) => addEffect(ir, a),
+    add_reaction: (ir, a) => addReaction(ir, a),
+    add_formula: (ir, a) => addFormula(ir, a),
+    add_rule_term: (ir, a) => addRuleTerm(ir, a),
+    update_substance: (ir, a) => updateSubstance(ir, a),
+    update_concept: (ir, a) => updateConcept(ir, a),
+    update_ion: (ir, a) => updateIon(ir, a),
+    update_characteristic: (ir, a) => updateCharacteristic(ir, a),
+    update_property: (ir, a) => updateProperty(ir, a),
+    update_process: (ir, a) => updateProcess(ir, a),
+    update_effect: (ir, a) => updateEffect(ir, a),
+    update_reaction: (ir, a) => updateReaction(ir, a),
+    update_formula: (ir, a) => updateFormula(ir, a),
+    update_rule_term: (ir, a) => updateRuleTerm(ir, a),
+  };
+
+  server.registerTool('batch_add', {
+    description: 'Execute multiple add operations in sequence. Each operation specifies a tool name and args. Collects results per operation; partial failures do not abort the batch.',
+    inputSchema: {
+      operations: z.array(z.object({
+        tool: z.string().describe('Tool name (add_substance, add_concept, add_translation, add_relation, add_ion, add_characteristic, etc.)'),
+        args: z.record(z.unknown()).describe('Arguments for the tool'),
+      })).describe('Array of operations to execute sequentially'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await batchAdd(indexRef, (args as any).operations, executors), null, 2) }],
+  }));
+
+  server.registerTool('list_predicates', {
+    description: 'List all known relation predicates in the ontology with usage counts, sorted by frequency.',
+    inputSchema: {},
+  }, async (_args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(listPredicates(indexRef.current), null, 2) }],
+  }));
+
+  server.registerTool('validate_predicate', {
+    description: 'Check if a relation predicate is known in the ontology. If unknown, returns similar known predicates.',
+    inputSchema: {
+      predicate: z.string().describe('Predicate string to validate, e.g. "instance_of", "has_property"'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(validatePredicate(indexRef.current, (args as any).predicate), null, 2) }],
+  }));
+
+  server.registerTool('read_audit_log', {
+    description: 'Read recent write operations from the audit log (data-src/.audit-log.jsonl).',
+    inputSchema: {
+      limit: z.number().optional().describe('Max entries to return (default 50, returns most recent)'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(await readAuditLog(getDataSrcRoot(), (args as any).limit ?? 50), null, 2) }],
   }));
 
   // --- Resources & Prompts ---
