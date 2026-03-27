@@ -8,6 +8,7 @@ import { resolveMention } from './tools/resolve-mention.js';
 import { getNeighbors } from './tools/get-neighbors.js';
 import { validateAnnotation } from './tools/validate-annotation.js';
 import { suggestRefsForText } from './tools/suggest-refs-for-text.js';
+import { findSimilar } from './tools/find-similar.js';
 import { classifyAddition } from './tools/classify-addition.js';
 import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
@@ -157,6 +158,17 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(bootstrapDocument(indexRef.current, args), null, 2) }],
+  }));
+
+  server.registerTool('find_similar', {
+    description: 'Find entities most similar to a given entity using structural, label, and graph signals. Useful for duplicate detection and finding related concepts.',
+    inputSchema: {
+      ref: z.string().describe('Entity ref to find similar entities for (e.g. "concept:dissolution")'),
+      limit: z.number().optional().describe('Max results (default 10)'),
+      min_score: z.number().optional().describe('Minimum similarity score 0-1 (default 0.15)'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(findSimilar(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('list_entities', {
