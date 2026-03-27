@@ -9,6 +9,22 @@ import RichTextRenderer from '../../components/RichTextRenderer';
 import OntologyRef from '../../components/OntologyRef';
 import { parseOntRef } from '../../lib/ontology-ref';
 import type { RichText } from '../../types/ontology-ref';
+
+/** Human-readable unit labels */
+const UNIT_DISPLAY: Record<string, string> = {
+  K: 'K',
+  bar: 'bar',
+  kJ: 'kJ',
+  kJ_per_mol: 'kJ/mol',
+  mL: 'mL',
+  mol_per_L: 'mol/L',
+  g_per_mol: 'g/mol',
+};
+
+function formatUnit(unit: string): string {
+  const key = unit.replace('unit:', '');
+  return UNIT_DISPLAY[key] || key.replace(/_/g, ' ');
+}
 import type { FormulaLookup } from '../../types/formula-lookup';
 import './processes.css';
 
@@ -56,19 +72,18 @@ export default function ProcessesPage({
       loadConcepts(),
       loadConceptOverlay(locale),
       loadConceptLookup(locale).catch(() => ({})),
-    ]).then(([vocab, effects, fl, registry, overlay, lookup]) => {
+      loadTranslationOverlay(locale, 'process_vocab').catch(() => null),
+    ]).then(([vocab, effects, fl, registry, overlay, lookup, rawOverlay]) => {
       setEntries(vocab);
       setEffectsMap(new Map(effects.map(e => [e.id, e])));
       setFormulaLookup(fl);
       if (registry && overlay) {
         setConceptCtx({ registry, overlay, lookup: lookup ?? {} });
       }
-      setLoading(false);
-    });
-    loadTranslationOverlay(locale, 'process_vocab').then(overlay => {
-      if (overlay && (overlay as any).param_labels) {
-        setParamLabels((overlay as any).param_labels as Record<string, string>);
+      if (rawOverlay && (rawOverlay as any).param_labels) {
+        setParamLabels((rawOverlay as any).param_labels as Record<string, string>);
       }
+      setLoading(false);
     });
   }, [locale]);
 
@@ -218,7 +233,7 @@ export default function ProcessesPage({
                                   return (
                                     <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
                                       <OntologyRef ontRef={ontRef} locale={locale} />
-                                      {tp.unit && <span className="proc-page__param-unit">{tp.unit.replace('unit:', '')}</span>}
+                                      {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit)}</span>}
                                     </span>
                                   );
                                 } catch {
@@ -230,7 +245,7 @@ export default function ProcessesPage({
                               return (
                                 <span key={i} className={`proc-page__param proc-page__param--${tp.kind}`}>
                                   {label}
-                                  {tp.unit && <span className="proc-page__param-unit">{tp.unit.replace('unit:', '')}</span>}
+                                  {tp.unit && <span className="proc-page__param-unit">{formatUnit(tp.unit)}</span>}
                                 </span>
                               );
                             })}
