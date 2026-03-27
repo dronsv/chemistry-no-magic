@@ -26,6 +26,7 @@ const SLUG_MAP = {
   '/settings/': { ru: '/ru/settings/', en: '/en/settings/', pl: '/pl/ustawienia/', es: '/es/ajustes/' },
   '/about/': { ru: '/ru/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
   '/exam/compare/': { ru: '/ru/exam/compare/', en: '/en/exam/compare/', pl: '/pl/egzamin/porownanie/', es: '/es/examen/comparar/' },
+  '/properties/': { ru: '/ru/properties/', en: '/en/properties/', pl: '/pl/properties/', es: '/es/properties/' },
 };
 
 /**

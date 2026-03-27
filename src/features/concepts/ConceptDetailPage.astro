@@ -19,6 +19,7 @@ const backLabels: Record<string, string> = {
   element_group: m.concept_back_elements(),
   reaction_type: m.concept_back_reactions(),
   reaction_facet: m.concept_back_reactions(),
+  property: m.concept_back_properties(),
 };
 const backLabel = backLabels[entry.kind] ?? m.back();
 
