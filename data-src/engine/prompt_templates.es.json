@@ -603,5 +603,13 @@
   "explain.calc_yield": {
     "question": "Con rendimiento {yield_percent}%, de {given_mass} g de {given_formula} se obtienen {correct_answer} g de {find_formula}.",
     "slots": {}
+  },
+  "prompt.calc_ksp_solubility": {
+    "question": "Calcule la solubilidad molar de {substance_formula} dado Ksp = {ksp_value}. Respuesta en mol/L.",
+    "slots": {}
+  },
+  "explain.calc_ksp_solubility": {
+    "question": "Para la sal {substance_formula}:\nKsp = {ksp_value}, coeficientes: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
+    "slots": {}
   }
 }

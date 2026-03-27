@@ -109,6 +109,7 @@ const MOCK_IONS_WITH_NAMING: Ion[] = [
   { id: 'Cl_minus', formula: 'Cl\u207b', type: 'anion', name: '\u0425\u043b\u043e\u0440\u0438\u0434-\u0438\u043e\u043d', tags: ['chloride'], naming: { root: '\u0445\u043b\u043e\u0440', suffix: '-\u0438\u0434', oxidation_state: -1 }, characteristics: { 'concept:ion_charge': { value: -1 } } },
   { id: 'SO4_2minus', formula: 'SO\u2084\u00b2\u207b', type: 'anion', name: '\u0421\u0443\u043b\u044c\u0444\u0430\u0442-\u0438\u043e\u043d', tags: ['sulfate'], naming: { root: '\u0441\u0443\u043b\u044c\u0444', suffix: '-\u0430\u0442', oxidation_state: 6 }, characteristics: { 'concept:ion_charge': { value: -2 } } },
   { id: 'Na_plus', formula: 'Na\u207a', type: 'cation', name: '\u0418\u043e\u043d \u043d\u0430\u0442\u0440\u0438\u044f', tags: ['alkali'], characteristics: { 'concept:ion_charge': { value: 1 } } },
+  { id: 'Ag_plus', formula: 'Ag\u207a', type: 'cation', name: '\u0418\u043e\u043d \u0441\u0435\u0440\u0435\u0431\u0440\u0430', tags: ['silver'], characteristics: { 'concept:ion_charge': { value: 1 } } },
 ];
 
 const MOCK_ION_NOMENCLATURE = {
@@ -662,6 +663,14 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     template: 'When {source_name} increases, {target_name} {direction_label}.',
     slots: {},
   },
+  'prompt.calc_ksp_solubility': {
+    question: 'Calculate the molar solubility of {substance_formula} given Ksp = {ksp_value}. Answer in mol/L.',
+    slots: {},
+  },
+  'explain.calc_ksp_solubility': {
+    question: 'For salt {substance_formula}: Ksp = {ksp_value}, s = {correct_answer} mol/L.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -684,6 +693,7 @@ const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
   { id: 'cao', formula: 'CaO', name: '\u041E\u043A\u0441\u0438\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
   { id: 'al2o3', formula: 'Al\u2082O\u2083', name: '\u041E\u043A\u0441\u0438\u0434 \u0430\u043B\u044E\u043C\u0438\u043D\u0438\u044F', class: 'oxide', subclass: 'amphoteric_oxide' },
   { id: 'zno', formula: 'ZnO', name: '\u041E\u043A\u0441\u0438\u0434 \u0446\u0438\u043D\u043A\u0430', class: 'oxide', subclass: 'amphoteric_oxide' },
+  { id: 'sub:agcl', formula: 'AgCl', name: '\u0425\u043B\u043E\u0440\u0438\u0434 \u0441\u0435\u0440\u0435\u0431\u0440\u0430', class: 'salt', subclass: 'normal', ions: ['Ag_plus', 'Cl_minus'], tags: ['insoluble'], characteristics: { 'concept:solubility_product': { value: '1.77e-10', unit: 'unit:dimensionless', conditions: { temperature_C: 25 }, source: 'reference_table' } } },
 ];
 
 const PHASE2_REACTIONS: Reaction[] = [
@@ -961,8 +971,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 68 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(68);
+  it('loads all 69 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(69);
   });
 
   it('all templates have a valid answer_kind', () => {

@@ -603,5 +603,13 @@
   "explain.calc_yield": {
     "question": "Przy wydajności {yield_percent}% z {given_mass} g {given_formula} otrzymuje się {correct_answer} g {find_formula}.",
     "slots": {}
+  },
+  "prompt.calc_ksp_solubility": {
+    "question": "Oblicz rozpuszczalność molową {substance_formula}, jeśli iloczyn rozpuszczalności Ksp = {ksp_value}. Odpowiedź w mol/L.",
+    "slots": {}
+  },
+  "explain.calc_ksp_solubility": {
+    "question": "Dla soli {substance_formula}:\nKsp = {ksp_value}, współczynniki: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
+    "slots": {}
   }
 }

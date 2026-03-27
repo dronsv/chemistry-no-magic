@@ -683,6 +683,43 @@ function solveDerivationPlanner(
   return { answer: result.result };
 }
 
+// ── Ksp solver ───────────────────────────────────────────────────
+
+function solveKspToSolubility(
+  _params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  const kspStr = slots.ksp_value;
+  if (typeof kspStr !== 'string') throw new Error('ksp_value slot required');
+  const ksp = parseFloat(kspStr);
+  if (isNaN(ksp) || ksp < 0) throw new Error('Invalid Ksp value');
+
+  const p = Number(slots.coeff_cation ?? 1);
+  const q = Number(slots.coeff_anion ?? 1);
+
+  // General dissolution: A_p B_q → pA + qB
+  // Ksp = (ps)^p * (qs)^q = p^p * q^q * s^(p+q)
+  // s = (Ksp / (p^p * q^q))^(1/(p+q))
+  const divisor = Math.pow(p, p) * Math.pow(q, q);
+  const exponent = 1 / (p + q);
+  const s = Math.pow(ksp / divisor, exponent);
+
+  // Round to 3 significant figures
+  const sigFigs = 3;
+  const magnitude = Math.floor(Math.log10(Math.abs(s)));
+  const factor = Math.pow(10, sigFigs - 1 - magnitude);
+  const rounded = Math.round(s * factor) / factor;
+
+  return {
+    answer: rounded,
+    explanation_slots: {
+      ksp_value: kspStr,
+      coeff_cation: String(p),
+      coeff_anion: String(q),
+    },
+  };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -716,6 +753,7 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.reaction_yield': solveReactionYield,
   'solver.heat_of_reaction': (params, slots) => solveHeatOfReaction(params, slots),
   'solver.derivation_planner': solveDerivationPlanner,
+  'solver.ksp_to_solubility': (params, slots) => solveKspToSolubility(params, slots),
 };
 
 export function runSolver(

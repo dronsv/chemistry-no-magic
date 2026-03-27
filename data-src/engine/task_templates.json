@@ -4036,5 +4036,58 @@
     "competency_hint": {
       "reaction_energy_profile": "P"
     }
+  },
+  {
+    "template_id": "tmpl.calc.ksp_solubility.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": [
+        "substance"
+      ],
+      "reasoning": [
+        "conservation_laws"
+      ],
+      "evaluation": {
+        "mode": "tolerance",
+        "tolerance": 1e-6
+      },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_ksp_substance",
+        "params": {}
+      },
+      "solvers": [
+        {
+          "id": "solver.ksp_to_solubility",
+          "params": {}
+        }
+      ],
+      "renderers": [
+        {
+          "id": "view.numeric_input",
+          "params": {}
+        }
+      ]
+    },
+    "prompt_template_id": "prompt.calc_ksp_solubility",
+    "explanation_template_id": "explain.calc_ksp_solubility",
+    "evidence_rules": [
+      "ksp_calculation"
+    ],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [
+        0.3,
+        0.6
+      ]
+    },
+    "exam_tags": [
+      "oge"
+    ],
+    "competency_hint": {
+      "calculations_basic": "P"
+    }
   }
 ]

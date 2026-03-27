@@ -603,5 +603,13 @@
   "explain.calc_yield": {
     "question": "При выходе {yield_percent}% из {given_mass} г {given_formula} получается {correct_answer} г {find_formula}.",
     "slots": {}
+  },
+  "prompt.calc_ksp_solubility": {
+    "question": "Вычислите молярную растворимость {substance_formula}, если произведение растворимости Ksp = {ksp_value}. Ответ в моль/л.",
+    "slots": {}
+  },
+  "explain.calc_ksp_solubility": {
+    "question": "Для соли {substance_formula}:\nKsp = {ksp_value}, коэффициенты: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} моль/л.",
+    "slots": {}
   }
 }

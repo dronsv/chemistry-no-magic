@@ -83,6 +83,16 @@ function getIonCharacteristic(
   return null;
 }
 
+/** Compute GCD of two positive integers. */
+function gcd(a: number, b: number): number {
+  a = Math.abs(a);
+  b = Math.abs(b);
+  while (b) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+}
+
 /** Apply "main_group" filter: Z<=86, exclude noble gases. */
 function applyMainGroupFilter(elements: Element[]): Element[] {
   return elements.filter(el => el.Z <= 86 && el.element_group !== 'noble_gas');
@@ -880,6 +890,46 @@ function genPickAcidAnionFromGraph(_params: Record<string, unknown>, data: Ontol
   };
 }
 
+function genPickKspSubstance(_params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.data.substances) throw new Error('substanceIndex not available in data');
+
+  // Filter substances that have a Ksp characteristic
+  const subs = data.data.substances.filter(s =>
+    s.characteristics?.['concept:solubility_product'],
+  );
+  if (subs.length === 0) throw new Error('No substances with Ksp found');
+
+  const sub = pickRandom(subs);
+  const kspEntry = sub.characteristics!['concept:solubility_product'];
+  const kspValue = Array.isArray(kspEntry) ? kspEntry[0].value : kspEntry.value;
+
+  // Determine stoichiometric coefficients from ion charges
+  let coeffCation = 1;
+  let coeffAnion = 1;
+  if (sub.ions && sub.ions.length === 2) {
+    const catIon = data.core.ions.find(i => i.id === sub.ions![0]);
+    const anIon = data.core.ions.find(i => i.id === sub.ions![1]);
+    if (catIon && anIon) {
+      const catCharge = Math.abs(getIonCharacteristic(catIon, 'concept:ion_charge') ?? 1);
+      const anCharge = Math.abs(getIonCharacteristic(anIon, 'concept:ion_charge') ?? 1);
+      if (catCharge > 0 && anCharge > 0) {
+        const g = gcd(catCharge, anCharge);
+        const l = (catCharge * anCharge) / g;
+        coeffCation = l / catCharge;
+        coeffAnion = l / anCharge;
+      }
+    }
+  }
+
+  return {
+    substance_id: sub.id,
+    substance_formula: sub.formula,
+    ksp_value: String(kspValue),
+    coeff_cation: coeffCation,
+    coeff_anion: coeffAnion,
+  };
+}
+
 function genPickKineticsDirectional(_params: Record<string, unknown>, data: OntologyData): SlotValues {
   const rules = data.rules.kineticsRules;
   const propNames = data.rules.kineticsDirectionLabels !== undefined
@@ -971,6 +1021,7 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_ion_nomenclature': genPickIonNomenclature,
   'gen.pick_acid_anion_from_graph': genPickAcidAnionFromGraph,
   'gen.pick_kinetics_directional': genPickKineticsDirectional,
+  'gen.pick_ksp_substance': genPickKspSubstance,
 };
 
 export function runGenerator(
