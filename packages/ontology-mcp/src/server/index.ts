@@ -9,6 +9,7 @@ import { getNeighbors } from './tools/get-neighbors.js';
 import { validateAnnotation } from './tools/validate-annotation.js';
 import { suggestRefsForText } from './tools/suggest-refs-for-text.js';
 import { findSimilar } from './tools/find-similar.js';
+import { suggestRelations } from './tools/suggest-relations.js';
 import { classifyAddition } from './tools/classify-addition.js';
 import { createProposalDraft } from './tools/create-proposal-draft.js';
 import { bootstrapDocument } from './tools/bootstrap-document.js';
@@ -169,6 +170,16 @@ async function main(): Promise<void> {
     },
   }, async (args) => ({
     content: [{ type: 'text' as const, text: JSON.stringify(findSimilar(indexRef.current, args), null, 2) }],
+  }));
+
+  server.registerTool('suggest_relations', {
+    description: 'Propose missing relations for an entity based on structural patterns (hierarchy, siblings, symmetric relations, substance-ion links, inverse predicates, conjugate pairs).',
+    inputSchema: {
+      ref: z.string().describe('Entity ref to analyze (e.g. "concept:cathode", "sub:hcl")'),
+      limit: z.number().optional().describe('Max suggestions (default 20)'),
+    },
+  }, async (args) => ({
+    content: [{ type: 'text' as const, text: JSON.stringify(suggestRelations(indexRef.current, args), null, 2) }],
   }));
 
   server.registerTool('list_entities', {
