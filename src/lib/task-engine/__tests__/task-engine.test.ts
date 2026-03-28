@@ -799,6 +799,70 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'The stoichiometric coefficient of {find_formula} in {equation}: {correct_answer}.',
     slots: {},
   },
+  'prompt.order_electronegativity_period': {
+    question: 'Arrange elements {elements} in {order} order of electronegativity.',
+    slots: { order: { ascending: 'ascending', descending: 'descending' } },
+  },
+  'explain.order_electronegativity_period': {
+    question: 'Elements {elements} in {order} order of electronegativity: {correct_answer}.',
+    slots: { order: { ascending: 'ascending', descending: 'descending' } },
+  },
+  'prompt.compare_electronegativity': {
+    question: 'Which element has higher electronegativity: {elementA} or {elementB}?',
+    slots: {},
+  },
+  'explain.compare_electronegativity': {
+    question: '{correct_answer} has greater electronegativity.',
+    slots: {},
+  },
+  'prompt.driving_force_primary': {
+    question: 'What is the driving force of this exchange reaction: {equation}?',
+    slots: {},
+  },
+  'explain.driving_force_primary': {
+    question: 'The driving force of reaction {equation}: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.exchange_will_occur': {
+    question: 'Will an exchange reaction occur between {reactants}?',
+    slots: {},
+  },
+  'explain.exchange_will_occur': {
+    question: 'The reaction {equation} will {correct_answer} occur.',
+    slots: { correct_answer: { yes: 'indeed', no: 'not' } },
+  },
+  'prompt.crystal_type_metallic': {
+    question: 'What type of crystal lattice is characteristic of the metal {formula}?',
+    slots: {},
+  },
+  'explain.crystal_type_metallic': {
+    question: 'The metal {formula} has a {correct_answer} crystal lattice.',
+    slots: {},
+  },
+  'prompt.crystal_type_ionic': {
+    question: 'What type of crystal lattice does the ionic compound {formula} have?',
+    slots: {},
+  },
+  'explain.crystal_type_ionic': {
+    question: 'The ionic compound {formula} has a {correct_answer} crystal lattice.',
+    slots: {},
+  },
+  'prompt.calc_solution_mass': {
+    question: 'Calculate the mass of solution containing {m_solute} g of solute at {omega}% concentration.',
+    slots: {},
+  },
+  'explain.calc_solution_mass': {
+    question: 'At {omega}% concentration with {m_solute} g of solute, the solution mass is {correct_answer} g.',
+    slots: {},
+  },
+  'prompt.calc_diluted_concentration': {
+    question: 'What is the concentration if {m_solution} g of water is added to {m_solution} g of a {omega}% solution?',
+    slots: {},
+  },
+  'explain.calc_diluted_concentration': {
+    question: 'After adding {m_solution} g of water to {m_solution} g of {omega}% solution, the concentration becomes {correct_answer}%.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -1099,8 +1163,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 85 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(85);
+  it('loads all 93 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(93);
   });
 
   it('all templates have a valid answer_kind', () => {

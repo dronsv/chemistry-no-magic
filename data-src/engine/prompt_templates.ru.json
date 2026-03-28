@@ -744,5 +744,77 @@
   "explain.stoich_coefficient": {
     "question": "Стехиометрический коэффициент {find_formula} в уравнении {equation}: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.order_electronegativity_period": {
+    "question": "Расположите элементы {elements} в порядке {order} электроотрицательности.",
+    "slots": { "order": { "ascending": "возрастания", "descending": "убывания" } }
+  },
+  "explain.order_electronegativity_period": {
+    "question": "Электроотрицательность элементов {elements} в порядке {order}: {correct_answer}.",
+    "slots": { "order": { "ascending": "возрастания", "descending": "убывания" } }
+  },
+
+  "prompt.compare_electronegativity": {
+    "question": "У какого из элементов больше электроотрицательность: {elementA} или {elementB}?",
+    "slots": {}
+  },
+  "explain.compare_electronegativity": {
+    "question": "{correct_answer} имеет бо́льшую электроотрицательность.",
+    "slots": {}
+  },
+
+  "prompt.driving_force_primary": {
+    "question": "Какова движущая сила реакции обмена: {equation}?",
+    "slots": {}
+  },
+  "explain.driving_force_primary": {
+    "question": "Движущая сила реакции {equation}: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.exchange_will_occur": {
+    "question": "Будет ли протекать реакция обмена между {reactants}?",
+    "slots": {}
+  },
+  "explain.exchange_will_occur": {
+    "question": "Реакция {equation} {correct_answer} протекать.",
+    "slots": { "correct_answer": { "yes": "будет", "no": "не будет" } }
+  },
+
+  "prompt.crystal_type_metallic": {
+    "question": "Какой тип кристаллической решётки характерен для металла {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_metallic": {
+    "question": "Металл {formula} имеет {correct_answer} кристаллическую решётку.",
+    "slots": {}
+  },
+
+  "prompt.crystal_type_ionic": {
+    "question": "Какой тип кристаллической решётки у ионного соединения {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_ionic": {
+    "question": "Ионное соединение {formula} имеет {correct_answer} кристаллическую решётку.",
+    "slots": {}
+  },
+
+  "prompt.calc_solution_mass": {
+    "question": "Вычислите массу раствора, содержащего {m_solute} г растворённого вещества при концентрации {omega}%.",
+    "slots": {}
+  },
+  "explain.calc_solution_mass": {
+    "question": "При концентрации {omega}% и массе растворённого вещества {m_solute} г масса раствора равна {correct_answer} г.",
+    "slots": {}
+  },
+
+  "prompt.calc_diluted_concentration": {
+    "question": "Какова концентрация раствора, если к {m_solution} г {omega}%-ного раствора добавить ещё {m_solution} г воды?",
+    "slots": {}
+  },
+  "explain.calc_diluted_concentration": {
+    "question": "При добавлении {m_solution} г воды к {m_solution} г {omega}%-ного раствора концентрация станет {correct_answer}%.",
+    "slots": {}
   }
 }

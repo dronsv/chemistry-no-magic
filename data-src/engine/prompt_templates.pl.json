@@ -744,5 +744,77 @@
   "explain.stoich_coefficient": {
     "question": "Współczynnik stechiometryczny {find_formula} w równaniu {equation}: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.order_electronegativity_period": {
+    "question": "Ułóż pierwiastki {elements} w kolejności {order} elektroujemności.",
+    "slots": { "order": { "ascending": "rosnącej", "descending": "malejącej" } }
+  },
+  "explain.order_electronegativity_period": {
+    "question": "Pierwiastki {elements} w kolejności {order} elektroujemności: {correct_answer}.",
+    "slots": { "order": { "ascending": "rosnącej", "descending": "malejącej" } }
+  },
+
+  "prompt.compare_electronegativity": {
+    "question": "Który pierwiastek ma większą elektroujemność: {elementA} czy {elementB}?",
+    "slots": {}
+  },
+  "explain.compare_electronegativity": {
+    "question": "{correct_answer} ma większą elektroujemność.",
+    "slots": {}
+  },
+
+  "prompt.driving_force_primary": {
+    "question": "Jaka jest siła napędowa tej reakcji wymiany: {equation}?",
+    "slots": {}
+  },
+  "explain.driving_force_primary": {
+    "question": "Siłą napędową reakcji {equation} jest: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.exchange_will_occur": {
+    "question": "Czy zajdzie reakcja wymiany między {reactants}?",
+    "slots": {}
+  },
+  "explain.exchange_will_occur": {
+    "question": "Reakcja {equation} {correct_answer} zajść.",
+    "slots": { "correct_answer": { "yes": "może", "no": "nie może" } }
+  },
+
+  "prompt.crystal_type_metallic": {
+    "question": "Jaki typ sieci krystalicznej jest charakterystyczny dla metalu {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_metallic": {
+    "question": "Metal {formula} posiada sieć krystaliczną typu {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.crystal_type_ionic": {
+    "question": "Jaki typ sieci krystalicznej ma związek jonowy {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_ionic": {
+    "question": "Związek jonowy {formula} posiada sieć krystaliczną typu {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.calc_solution_mass": {
+    "question": "Oblicz masę roztworu zawierającego {m_solute} g substancji rozpuszczonej przy stężeniu {omega}%.",
+    "slots": {}
+  },
+  "explain.calc_solution_mass": {
+    "question": "Przy stężeniu {omega}% i masie substancji {m_solute} g masa roztworu wynosi {correct_answer} g.",
+    "slots": {}
+  },
+
+  "prompt.calc_diluted_concentration": {
+    "question": "Jakie będzie stężenie, jeśli do {m_solution} g {omega}%-owego roztworu dodamy {m_solution} g wody?",
+    "slots": {}
+  },
+  "explain.calc_diluted_concentration": {
+    "question": "Po dodaniu {m_solution} g wody do {m_solution} g {omega}%-owego roztworu stężenie wyniesie {correct_answer}%.",
+    "slots": {}
   }
 }

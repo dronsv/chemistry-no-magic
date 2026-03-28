@@ -744,5 +744,77 @@
   "explain.stoich_coefficient": {
     "question": "El coeficiente estequiométrico de {find_formula} en la ecuación {equation}: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.order_electronegativity_period": {
+    "question": "Ordena los elementos {elements} en orden {order} de electronegatividad.",
+    "slots": { "order": { "ascending": "ascendente", "descending": "descendente" } }
+  },
+  "explain.order_electronegativity_period": {
+    "question": "Elementos {elements} en orden {order} de electronegatividad: {correct_answer}.",
+    "slots": { "order": { "ascending": "ascendente", "descending": "descendente" } }
+  },
+
+  "prompt.compare_electronegativity": {
+    "question": "¿Qué elemento tiene mayor electronegatividad: {elementA} o {elementB}?",
+    "slots": {}
+  },
+  "explain.compare_electronegativity": {
+    "question": "{correct_answer} tiene mayor electronegatividad.",
+    "slots": {}
+  },
+
+  "prompt.driving_force_primary": {
+    "question": "¿Cuál es la fuerza impulsora de esta reacción de intercambio: {equation}?",
+    "slots": {}
+  },
+  "explain.driving_force_primary": {
+    "question": "La fuerza impulsora de la reacción {equation}: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.exchange_will_occur": {
+    "question": "¿Ocurrirá una reacción de intercambio entre {reactants}?",
+    "slots": {}
+  },
+  "explain.exchange_will_occur": {
+    "question": "La reacción {equation} {correct_answer} ocurrir.",
+    "slots": { "correct_answer": { "yes": "sí puede", "no": "no puede" } }
+  },
+
+  "prompt.crystal_type_metallic": {
+    "question": "¿Qué tipo de red cristalina es característica del metal {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_metallic": {
+    "question": "El metal {formula} tiene una red cristalina de tipo {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.crystal_type_ionic": {
+    "question": "¿Qué tipo de red cristalina tiene el compuesto iónico {formula}?",
+    "slots": {}
+  },
+  "explain.crystal_type_ionic": {
+    "question": "El compuesto iónico {formula} tiene una red cristalina de tipo {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.calc_solution_mass": {
+    "question": "Calcula la masa de la solución que contiene {m_solute} g de soluto con una concentración del {omega}%.",
+    "slots": {}
+  },
+  "explain.calc_solution_mass": {
+    "question": "Con concentración {omega}% y masa de soluto {m_solute} g, la masa de solución es {correct_answer} g.",
+    "slots": {}
+  },
+
+  "prompt.calc_diluted_concentration": {
+    "question": "¿Cuál será la concentración si se añaden {m_solution} g de agua a {m_solution} g de solución al {omega}%?",
+    "slots": {}
+  },
+  "explain.calc_diluted_concentration": {
+    "question": "Tras añadir {m_solution} g de agua a {m_solution} g de solución al {omega}%, la concentración será {correct_answer}%.",
+    "slots": {}
   }
 }

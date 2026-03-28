@@ -4738,5 +4738,235 @@
     "difficulty_model": { "features": {}, "target_band": [0.2, 0.5] },
     "exam_tags": ["oge"],
     "competency_hint": { "reaction_yield_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.pt.order_electronegativity_period.v1",
+    "meta": {
+      "interaction": "order_dragdrop",
+      "objects": ["element", "property"],
+      "reasoning": ["ordering_by_trend"],
+      "evaluation": { "mode": "partial_credit", "partial_credit": true },
+      "answer_kind": "ordered_sequence"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_elements_same_period",
+        "params": { "k": 3, "require_field": "electronegativity" }
+      },
+      "solvers": [
+        {
+          "id": "solver.periodic_trend_order",
+          "params": { "property": "{property}", "order": "{order}" }
+        }
+      ],
+      "renderers": [{ "id": "view.order_dragdrop", "params": {} }]
+    },
+    "prompt_template_id": "prompt.order_electronegativity_period",
+    "explanation_template_id": "explain.order_electronegativity_period",
+    "evidence_rules": ["use_period_trend:electronegativity", "compare_elements"],
+    "difficulty_model": {
+      "features": { "same_period": "auto" },
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "periodic_trends": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.compare_electronegativity.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["element", "property"],
+      "reasoning": ["ordering_by_trend"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_element_pair",
+        "params": { "filter": "main_group", "require_field": "electronegativity" }
+      },
+      "solvers": [
+        {
+          "id": "solver.compare_property",
+          "params": { "property": "{property}" }
+        }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.compare_electronegativity",
+    "explanation_template_id": "explain.compare_electronegativity",
+    "evidence_rules": ["use_period_trend:electronegativity", "compare_elements"],
+    "difficulty_model": {
+      "features": { "same_period": "auto", "adjacent_groups": "auto" },
+      "target_band": [0.2, 0.5]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "periodic_trends": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.driving_force_primary.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["reaction"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_reaction",
+        "params": { "type_tag": "exchange" }
+      },
+      "solvers": [{ "id": "solver.driving_force", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.driving_force_primary",
+    "explanation_template_id": "explain.driving_force_primary",
+    "evidence_rules": ["identify_driving_force"],
+    "difficulty_model": {
+      "features": { "multiple_forces": "auto" },
+      "target_band": [0.2, 0.5]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "gas_precipitate_logic": "P", "reactions_exchange": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.exchange_will_occur.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["reaction"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_reaction",
+        "params": { "type_tag": "exchange" }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "will_occur" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.exchange_will_occur",
+    "explanation_template_id": "explain.exchange_will_occur",
+    "evidence_rules": ["reaction_feasibility"],
+    "difficulty_model": {
+      "features": { "has_driving_force": "auto" },
+      "target_band": [0.2, 0.5]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "gas_precipitate_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.bond.crystal_type_metallic.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_bond_example",
+        "params": { "bond_type": "metallic" }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "crystal_type" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.crystal_type_metallic",
+    "explanation_template_id": "explain.crystal_type_metallic",
+    "evidence_rules": ["identify_crystal_type"],
+    "difficulty_model": {
+      "features": { "crystal_type": "auto" },
+      "target_band": [0.2, 0.45]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "crystal_structure_type": "P", "bond_type": "S" }
+  },
+  {
+    "template_id": "tmpl.bond.crystal_type_ionic.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_bond_example",
+        "params": { "bond_type": "ionic" }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "crystal_type" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.crystal_type_ionic",
+    "explanation_template_id": "explain.crystal_type_ionic",
+    "evidence_rules": ["identify_crystal_type"],
+    "difficulty_model": {
+      "features": { "crystal_type": "auto" },
+      "target_band": [0.2, 0.45]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "crystal_structure_type": "P", "bond_type": "S" }
+  },
+  {
+    "template_id": "tmpl.calc.solution_mass.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["substance"],
+      "reasoning": ["conservation_laws"],
+      "evaluation": { "mode": "tolerance", "tolerance": 0.5 },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_solution_params", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "m_solution" } }
+      ],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_solution_mass",
+    "explanation_template_id": "explain.calc_solution_mass",
+    "evidence_rules": ["concentration_calculation"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.25, 0.55]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_solutions": "P", "calculations_basic": "S" }
+  },
+  {
+    "template_id": "tmpl.calc.diluted_concentration.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["substance"],
+      "reasoning": ["conservation_laws"],
+      "evaluation": { "mode": "tolerance", "tolerance": 0.5 },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_solution_params", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "omega_target" } }
+      ],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_diluted_concentration",
+    "explanation_template_id": "explain.calc_diluted_concentration",
+    "evidence_rules": ["dilution_calculation"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "calculations_solutions": "P" }
   }
 ]
