@@ -927,6 +927,54 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'The reagent {reagent_formula} is used to detect the ion {correct_answer}.',
     slots: {},
   },
+  'prompt.chain_reactant_class': {
+    question: 'To which class of inorganic substances does {formula} belong?',
+    slots: {},
+  },
+  'explain.chain_reactant_class': {
+    question: 'Substance {formula} belongs to the class: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.chain_reagent_to_product': {
+    question: 'What reagent is required to convert {substance} into {next}?',
+    slots: {},
+  },
+  'explain.chain_reagent_to_product': {
+    question: 'To convert {substance} into {next}, the reagent needed is: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.rxn_heat_effect': {
+    question: 'Is the reaction {equation} exothermic or endothermic?',
+    slots: {},
+  },
+  'explain.rxn_heat_effect': {
+    question: 'The reaction {equation} is: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.rate_factor_name': {
+    question: "Which factor produces the following effect on reaction rate: '{factor_effect}'?",
+    slots: {},
+  },
+  'explain.rate_factor_name': {
+    question: "The factor that produces '{factor_effect}' on reaction rate is: {correct_answer}.",
+    slots: {},
+  },
+  'prompt.calc_given_coeff': {
+    question: 'What is the stoichiometric coefficient of {given_formula} in the reaction equation {equation}?',
+    slots: {},
+  },
+  'explain.calc_given_coeff': {
+    question: 'The stoichiometric coefficient of {given_formula} in the equation {equation}: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.calc_limiting_reagent': {
+    question: '{given_mass} g of {given_formula} is used in reaction {equation}. Which substance is the limiting reagent?',
+    slots: {},
+  },
+  'explain.calc_limiting_reagent': {
+    question: 'With {given_mass} g of {given_formula} in reaction {equation}, the limiting reagent is: {correct_answer}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -1227,8 +1275,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 101 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(101);
+  it('loads all 107 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(107);
   });
 
   it('all templates have a valid answer_kind', () => {

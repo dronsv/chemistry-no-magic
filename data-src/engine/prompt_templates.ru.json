@@ -1,18 +1,25 @@
 {
   "prompt.compare_property": {
     "question": "Какой из элементов имеет большее значение {property_gen}: {elementA} или {elementB}?",
-    "slots": { "property_gen": "lookup:properties.{property}.i18n.ru.gen" }
+    "slots": {
+      "property_gen": "lookup:properties.{property}.i18n.ru.gen"
+    }
   },
   "prompt.order_by_property": {
     "question": "Расположите элементы {elements} в порядке {order} {property_gen}.",
     "slots": {
-      "order": { "ascending": "возрастания", "descending": "убывания" },
+      "order": {
+        "ascending": "возрастания",
+        "descending": "убывания"
+      },
       "property_gen": "lookup:properties.{property}.i18n.ru.gen"
     }
   },
   "prompt.determine_oxidation_state": {
     "question": "Определите степень окисления {element_gen} в {formula}.",
-    "slots": { "element_gen": "morph:elements.{element}.gen" }
+    "slots": {
+      "element_gen": "morph:elements.{element}.gen"
+    }
   },
   "prompt.compose_salt": {
     "question": "Какая формула соли получится из ионов {cation} и {anion}?",
@@ -160,7 +167,7 @@
     "slots": {}
   },
   "prompt.will_metal_react": {
-    "question": "Будет ли {metalA} реагировать с разбавленной кислотой (выделять H\u2082)?",
+    "question": "Будет ли {metalA} реагировать с разбавленной кислотой (выделять H₂)?",
     "slots": {}
   },
   "prompt.match_ionic_equation": {
@@ -184,7 +191,7 @@
     "slots": {}
   },
   "prompt.choose_reagent_for_step": {
-    "question": "Какой реагент нужен для превращения: {substance} \u2192 ?",
+    "question": "Какой реагент нужен для превращения: {substance} → ?",
     "slots": {}
   },
   "prompt.identify_oxidizer_reducer": {
@@ -307,15 +314,19 @@
     "question": "При увеличении {source_name} {target_name} {direction_label}.",
     "slots": {}
   },
-
   "explain.compare_property": {
     "question": "У элемента {winner} значение {property_gen} больше ({valA}), чем у {loser} ({valB}).",
-    "slots": { "property_gen": "lookup:properties.{property}.i18n.ru.gen" }
+    "slots": {
+      "property_gen": "lookup:properties.{property}.i18n.ru.gen"
+    }
   },
   "explain.order_by_property": {
     "question": "Элементы расположены в порядке {order} {property_gen}: {correct_answer}.",
     "slots": {
-      "order": { "ascending": "возрастания", "descending": "убывания" },
+      "order": {
+        "ascending": "возрастания",
+        "descending": "убывания"
+      },
       "property_gen": "lookup:properties.{property}.i18n.ru.gen"
     }
   },
@@ -343,7 +354,6 @@
     "question": "Орбитальная диаграмма атома {element} (Z = {Z}) строится по конфигурации {config}.",
     "slots": {}
   },
-
   "explain.determine_oxidation_state": {
     "question": "В соединении {formula} степень окисления элемента {element} равна {correct_answer}.",
     "slots": {}
@@ -360,7 +370,6 @@
     "question": "В соединении {correct_answer} элемент {element} имеет степень окисления {expected_state}.",
     "slots": {}
   },
-
   "explain.identify_bond_type": {
     "question": "В веществе {formula} — {correct_answer} связь.",
     "slots": {}
@@ -399,7 +408,6 @@
     "question": "Δχ = |{chiA} − {chiB}| = {delta}. Тип связи: {correct_answer}.",
     "slots": {}
   },
-
   "explain.classify_substance": {
     "question": "{formula} — {correct_answer}.",
     "slots": {}
@@ -427,7 +435,6 @@
     "question": "{correct_answer} — амфотерное вещество: реагирует и с кислотами, и с основаниями.",
     "slots": {}
   },
-
   "explain.formula_to_name": {
     "question": "Вещество {formula} называется «{correct_answer}».",
     "slots": {}
@@ -444,7 +451,6 @@
     "question": "К веществу {formula} применяется правило: {correct_answer}.",
     "slots": {}
   },
-
   "explain.compose_salt": {
     "question": "Из ионов {cation} и {anion} образуется соль {correct_answer}.",
     "slots": {}
@@ -485,7 +491,6 @@
     "question": "Суффикс «{suffix}» применяется при условии: {correct_answer}.",
     "slots": {}
   },
-
   "explain.identify_reaction_type": {
     "question": "Реакция {equation} относится к типу: {correct_answer}.",
     "slots": {}
@@ -509,7 +514,10 @@
   "explain.will_metal_react": {
     "question": "{metalA} в ряду активности находится {correct_answer} водорода.",
     "slots": {
-      "correct_answer": { "1": "левее", "0": "правее" }
+      "correct_answer": {
+        "1": "левее",
+        "0": "правее"
+      }
     }
   },
   "explain.match_ionic_equation": {
@@ -528,7 +536,6 @@
     "question": "Продукты реакции замещения: {correct_answer}.",
     "slots": {}
   },
-
   "explain.identify_reagent_for_ion": {
     "question": "Для обнаружения иона {target_name} используют реактив {correct_answer}.",
     "slots": {}
@@ -537,7 +544,6 @@
     "question": "По наблюдению «{observation}» определяется ион {correct_answer}.",
     "slots": {}
   },
-
   "explain.complete_chain_step": {
     "question": "Пропущенное вещество в цепочке: {correct_answer}.",
     "slots": {}
@@ -546,7 +552,6 @@
     "question": "Для превращения {substance} необходим реагент: {correct_answer}.",
     "slots": {}
   },
-
   "explain.factors_affecting_rate": {
     "question": "Фактор, влияющий на скорость: {correct_answer}. {factor_effect}.",
     "slots": {}
@@ -567,7 +572,6 @@
     "question": "Катализатор реакции: {correct_answer}.",
     "slots": {}
   },
-
   "explain.calc_molar_mass": {
     "question": "Молярная масса {formula}: M = {correct_answer} г/моль.",
     "slots": {}
@@ -612,7 +616,6 @@
     "question": "Для соли {substance_formula}:\nKsp = {ksp_value}, коэффициенты: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} моль/л.",
     "slots": {}
   },
-
   "prompt.identify_reducer": {
     "question": "Определите восстановитель в реакции: {equation}",
     "slots": {}
@@ -677,7 +680,6 @@
     "question": "Амфотерное вещество {formula} относится к классу: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.predict_observation": {
     "question": "Какой признак наблюдается при добавлении реактива {reagent_formula} к раствору, содержащему {target_name}?",
     "slots": {}
@@ -694,7 +696,6 @@
     "question": "Наблюдение «{observation}» возникает при добавлении реактива {correct_answer}.",
     "slots": {}
   },
-
   "prompt.chain_identify_product": {
     "question": "Какое вещество образуется при превращении {substance} с помощью реагента {reagent}?",
     "slots": {}
@@ -711,7 +712,6 @@
     "question": "Реакция {substance} → {next} относится к типу: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.rate_factor_effect": {
     "question": "Как влияет увеличение {factor_name} на скорость химической реакции?",
     "slots": {}
@@ -728,7 +728,6 @@
     "question": "Катализатор {catalyst} применяется в реакции: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.identify_product_formula": {
     "question": "По уравнению реакции {equation} — какое вещество является продуктом реакции?",
     "slots": {}
@@ -745,16 +744,24 @@
     "question": "Стехиометрический коэффициент {find_formula} в уравнении {equation}: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.order_electronegativity_period": {
     "question": "Расположите элементы {elements} в порядке {order} электроотрицательности.",
-    "slots": { "order": { "ascending": "возрастания", "descending": "убывания" } }
+    "slots": {
+      "order": {
+        "ascending": "возрастания",
+        "descending": "убывания"
+      }
+    }
   },
   "explain.order_electronegativity_period": {
     "question": "Электроотрицательность элементов {elements} в порядке {order}: {correct_answer}.",
-    "slots": { "order": { "ascending": "возрастания", "descending": "убывания" } }
+    "slots": {
+      "order": {
+        "ascending": "возрастания",
+        "descending": "убывания"
+      }
+    }
   },
-
   "prompt.compare_electronegativity": {
     "question": "У какого из элементов больше электроотрицательность: {elementA} или {elementB}?",
     "slots": {}
@@ -763,7 +770,6 @@
     "question": "{correct_answer} имеет бо́льшую электроотрицательность.",
     "slots": {}
   },
-
   "prompt.driving_force_primary": {
     "question": "Какова движущая сила реакции обмена: {equation}?",
     "slots": {}
@@ -772,16 +778,19 @@
     "question": "Движущая сила реакции {equation}: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.exchange_will_occur": {
     "question": "Будет ли протекать реакция обмена между {reactants}?",
     "slots": {}
   },
   "explain.exchange_will_occur": {
     "question": "Реакция {equation} {correct_answer} протекать.",
-    "slots": { "correct_answer": { "yes": "будет", "no": "не будет" } }
+    "slots": {
+      "correct_answer": {
+        "yes": "будет",
+        "no": "не будет"
+      }
+    }
   },
-
   "prompt.crystal_type_metallic": {
     "question": "Какой тип кристаллической решётки характерен для металла {formula}?",
     "slots": {}
@@ -790,7 +799,6 @@
     "question": "Металл {formula} имеет {correct_answer} кристаллическую решётку.",
     "slots": {}
   },
-
   "prompt.crystal_type_ionic": {
     "question": "Какой тип кристаллической решётки у ионного соединения {formula}?",
     "slots": {}
@@ -799,7 +807,6 @@
     "question": "Ионное соединение {formula} имеет {correct_answer} кристаллическую решётку.",
     "slots": {}
   },
-
   "prompt.calc_solution_mass": {
     "question": "Вычислите массу раствора, содержащего {m_solute} г растворённого вещества при концентрации {omega}%.",
     "slots": {}
@@ -808,7 +815,6 @@
     "question": "При концентрации {omega}% и массе растворённого вещества {m_solute} г масса раствора равна {correct_answer} г.",
     "slots": {}
   },
-
   "prompt.calc_diluted_concentration": {
     "question": "Какова концентрация раствора, если к {m_solution} г {omega}%-ного раствора добавить ещё {m_solution} г воды?",
     "slots": {}
@@ -817,7 +823,6 @@
     "question": "При добавлении {m_solution} г воды к {m_solution} г {omega}%-ного раствора концентрация станет {correct_answer}%.",
     "slots": {}
   },
-
   "prompt.period_from_config": {
     "question": "В каком периоде находится элемент с электронной конфигурацией {config}?",
     "slots": {}
@@ -826,7 +831,6 @@
     "question": "Электронная конфигурация {config} соответствует элементу {element}, который находится в {correct_answer}-м периоде.",
     "slots": {}
   },
-
   "prompt.electron_count": {
     "question": "Сколько электронов содержит атом {element}?",
     "slots": {}
@@ -835,16 +839,19 @@
     "question": "Атом {element} имеет порядковый номер Z = {correct_answer}, следовательно, содержит {correct_answer} электронов.",
     "slots": {}
   },
-
   "prompt.amphoteric_oxide_identify": {
     "question": "Является ли оксид {formula} амфотерным?",
     "slots": {}
   },
   "explain.amphoteric_oxide_identify": {
     "question": "Оксид {formula}: {correct_answer}.",
-    "slots": { "correct_answer": { "yes": "амфотерный", "no": "не амфотерный" } }
+    "slots": {
+      "correct_answer": {
+        "yes": "амфотерный",
+        "no": "не амфотерный"
+      }
+    }
   },
-
   "prompt.amphoteric_subclass": {
     "question": "К какому подклассу относится амфотерное вещество {formula}?",
     "slots": {}
@@ -853,7 +860,6 @@
     "question": "Амфотерное вещество {formula} относится к подклассу: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.electrolyte_strength": {
     "question": "Определите тип электролита: является ли {formula} сильным электролитом, слабым электролитом или неэлектролитом?",
     "slots": {}
@@ -868,7 +874,6 @@
       }
     }
   },
-
   "prompt.dissociation_ion_list": {
     "question": "Какие ионы образуются при растворении {formula} в воде?",
     "slots": {}
@@ -877,7 +882,6 @@
     "question": "При растворении {formula} образуются ионы: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.reagent_name_for_ion": {
     "question": "Как называется реактив для обнаружения иона {target_name}?",
     "slots": {}
@@ -886,13 +890,60 @@
     "question": "Для обнаружения иона {target_name} используют {correct_answer}.",
     "slots": {}
   },
-
   "prompt.target_from_reagent": {
     "question": "Какой ион обнаруживается с помощью реактива {reagent_formula}?",
     "slots": {}
   },
   "explain.target_from_reagent": {
     "question": "Реактив {reagent_formula} используется для обнаружения иона {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reactant_class": {
+    "question": "К какому классу неорганических веществ относится {formula}?",
+    "slots": {}
+  },
+  "explain.chain_reactant_class": {
+    "question": "Вещество {formula} относится к классу: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reagent_to_product": {
+    "question": "Какой реагент необходим для превращения {substance} в {next}?",
+    "slots": {}
+  },
+  "explain.chain_reagent_to_product": {
+    "question": "Для превращения {substance} в {next} необходим реагент: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.rxn_heat_effect": {
+    "question": "Является ли реакция {equation} экзо- или эндотермической?",
+    "slots": {}
+  },
+  "explain.rxn_heat_effect": {
+    "question": "Реакция {equation} является: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.calc_given_coeff": {
+    "question": "Каков стехиометрический коэффициент вещества {given_formula} в уравнении реакции {equation}?",
+    "slots": {}
+  },
+  "explain.calc_given_coeff": {
+    "question": "Стехиометрический коэффициент {given_formula} в уравнении {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.calc_limiting_reagent": {
+    "question": "Взяли {given_mass} г {given_formula} для реакции {equation}. Какое вещество является лимитирующим реагентом?",
+    "slots": {}
+  },
+  "explain.calc_limiting_reagent": {
+    "question": "При {given_mass} г {given_formula} лимитирующий реагент в реакции {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.rate_factor_name": {
+    "question": "Какой фактор оказывает следующее влияние на скорость реакции: «{factor_effect}»?",
+    "slots": {}
+  },
+  "explain.rate_factor_name": {
+    "question": "Следующее влияние на скорость реакции — «{factor_effect}» — оказывает: {correct_answer}.",
     "slots": {}
   }
 }

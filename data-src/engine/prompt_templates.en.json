@@ -1,12 +1,17 @@
 {
   "prompt.compare_property": {
     "question": "Which element has a higher {property}: {elementA} or {elementB}?",
-    "slots": { "property": "lookup:properties.{property}.i18n.en.name" }
+    "slots": {
+      "property": "lookup:properties.{property}.i18n.en.name"
+    }
   },
   "prompt.order_by_property": {
     "question": "Arrange the elements {elements} in {order} order of {property}.",
     "slots": {
-      "order": { "ascending": "ascending", "descending": "descending" },
+      "order": {
+        "ascending": "ascending",
+        "descending": "descending"
+      },
       "property": "lookup:properties.{property}.i18n.en.name"
     }
   },
@@ -160,7 +165,7 @@
     "slots": {}
   },
   "prompt.will_metal_react": {
-    "question": "Will {metalA} react with dilute acid (release H\u2082)?",
+    "question": "Will {metalA} react with dilute acid (release H₂)?",
     "slots": {}
   },
   "prompt.match_ionic_equation": {
@@ -184,7 +189,7 @@
     "slots": {}
   },
   "prompt.choose_reagent_for_step": {
-    "question": "What reagent is needed for the step: {substance} \u2192 ?",
+    "question": "What reagent is needed for the step: {substance} → ?",
     "slots": {}
   },
   "prompt.identify_oxidizer_reducer": {
@@ -307,15 +312,19 @@
     "question": "When {source_name} increases, {target_name} {direction_label}.",
     "slots": {}
   },
-
   "explain.compare_property": {
     "question": "{winner} has a higher {property} ({valA}) than {loser} ({valB}).",
-    "slots": { "property": "lookup:properties.{property}.i18n.en.name" }
+    "slots": {
+      "property": "lookup:properties.{property}.i18n.en.name"
+    }
   },
   "explain.order_by_property": {
     "question": "Elements in {order} order of {property}: {correct_answer}.",
     "slots": {
-      "order": { "ascending": "ascending", "descending": "descending" },
+      "order": {
+        "ascending": "ascending",
+        "descending": "descending"
+      },
       "property": "lookup:properties.{property}.i18n.en.name"
     }
   },
@@ -343,7 +352,6 @@
     "question": "The orbital diagram for {element} (Z = {Z}) is built from configuration {config}.",
     "slots": {}
   },
-
   "explain.determine_oxidation_state": {
     "question": "The oxidation state of {element} in {formula} is {correct_answer}.",
     "slots": {}
@@ -360,7 +368,6 @@
     "question": "In {correct_answer}, element {element} has oxidation state {expected_state}.",
     "slots": {}
   },
-
   "explain.identify_bond_type": {
     "question": "{formula} has a {correct_answer} bond.",
     "slots": {}
@@ -399,7 +406,6 @@
     "question": "Δχ = |{chiA} − {chiB}| = {delta}. Bond type: {correct_answer}.",
     "slots": {}
   },
-
   "explain.classify_substance": {
     "question": "{formula} is a {correct_answer}.",
     "slots": {}
@@ -427,7 +433,6 @@
     "question": "{correct_answer} is amphoteric: it reacts with both acids and bases.",
     "slots": {}
   },
-
   "explain.formula_to_name": {
     "question": "The substance {formula} is called \"{correct_answer}\".",
     "slots": {}
@@ -444,7 +449,6 @@
     "question": "The naming rule for {formula}: {correct_answer}.",
     "slots": {}
   },
-
   "explain.compose_salt": {
     "question": "Ions {cation} and {anion} form the salt {correct_answer}.",
     "slots": {}
@@ -485,7 +489,6 @@
     "question": "The suffix \"{suffix}\" applies when: {correct_answer}.",
     "slots": {}
   },
-
   "explain.identify_reaction_type": {
     "question": "The reaction {equation} is: {correct_answer}.",
     "slots": {}
@@ -509,7 +512,10 @@
   "explain.will_metal_react": {
     "question": "{metalA} is {correct_answer} hydrogen in the activity series.",
     "slots": {
-      "correct_answer": { "1": "above", "0": "below" }
+      "correct_answer": {
+        "1": "above",
+        "0": "below"
+      }
     }
   },
   "explain.match_ionic_equation": {
@@ -528,7 +534,6 @@
     "question": "Products of the substitution reaction: {correct_answer}.",
     "slots": {}
   },
-
   "explain.identify_reagent_for_ion": {
     "question": "The reagent used to detect {target_name}: {correct_answer}.",
     "slots": {}
@@ -537,7 +542,6 @@
     "question": "The observation \"{observation}\" indicates the ion {correct_answer}.",
     "slots": {}
   },
-
   "explain.complete_chain_step": {
     "question": "The missing substance in the chain: {correct_answer}.",
     "slots": {}
@@ -546,7 +550,6 @@
     "question": "The reagent for converting {substance}: {correct_answer}.",
     "slots": {}
   },
-
   "explain.factors_affecting_rate": {
     "question": "Factor affecting the rate: {correct_answer}. {factor_effect}.",
     "slots": {}
@@ -567,7 +570,6 @@
     "question": "Catalyst of the reaction: {correct_answer}.",
     "slots": {}
   },
-
   "explain.calc_molar_mass": {
     "question": "Molar mass of {formula}: M = {correct_answer} g/mol.",
     "slots": {}
@@ -612,7 +614,6 @@
     "question": "For salt {substance_formula}:\nKsp = {ksp_value}, coefficients: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
     "slots": {}
   },
-
   "prompt.identify_reducer": {
     "question": "Identify the reducing agent in the reaction: {equation}",
     "slots": {}
@@ -677,7 +678,6 @@
     "question": "The amphoteric substance {formula} belongs to the class: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.predict_observation": {
     "question": "What observation occurs when reagent {reagent_formula} is added to a solution containing {target_name}?",
     "slots": {}
@@ -694,7 +694,6 @@
     "question": "The observation \"{observation}\" occurs when reagent {correct_answer} is added.",
     "slots": {}
   },
-
   "prompt.chain_identify_product": {
     "question": "What substance forms when {substance} reacts with reagent {reagent}?",
     "slots": {}
@@ -711,7 +710,6 @@
     "question": "The reaction {substance} → {next} is of type: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.rate_factor_effect": {
     "question": "How does increasing {factor_name} affect the rate of a chemical reaction?",
     "slots": {}
@@ -728,7 +726,6 @@
     "question": "The catalyst {catalyst} is used in the reaction: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.identify_product_formula": {
     "question": "According to the reaction equation {equation} — which substance is the product?",
     "slots": {}
@@ -745,16 +742,24 @@
     "question": "The stoichiometric coefficient of {find_formula} in the equation {equation}: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.order_electronegativity_period": {
     "question": "Arrange the elements {elements} in {order} order of electronegativity.",
-    "slots": { "order": { "ascending": "ascending", "descending": "descending" } }
+    "slots": {
+      "order": {
+        "ascending": "ascending",
+        "descending": "descending"
+      }
+    }
   },
   "explain.order_electronegativity_period": {
     "question": "Elements {elements} in {order} order of electronegativity: {correct_answer}.",
-    "slots": { "order": { "ascending": "ascending", "descending": "descending" } }
+    "slots": {
+      "order": {
+        "ascending": "ascending",
+        "descending": "descending"
+      }
+    }
   },
-
   "prompt.compare_electronegativity": {
     "question": "Which element has higher electronegativity: {elementA} or {elementB}?",
     "slots": {}
@@ -763,7 +768,6 @@
     "question": "{correct_answer} has greater electronegativity.",
     "slots": {}
   },
-
   "prompt.driving_force_primary": {
     "question": "What is the driving force of this exchange reaction: {equation}?",
     "slots": {}
@@ -772,16 +776,19 @@
     "question": "The driving force of reaction {equation}: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.exchange_will_occur": {
     "question": "Will an exchange reaction occur between {reactants}?",
     "slots": {}
   },
   "explain.exchange_will_occur": {
     "question": "The reaction {equation} will {correct_answer} occur.",
-    "slots": { "correct_answer": { "yes": "indeed", "no": "not" } }
+    "slots": {
+      "correct_answer": {
+        "yes": "indeed",
+        "no": "not"
+      }
+    }
   },
-
   "prompt.crystal_type_metallic": {
     "question": "What type of crystal lattice is characteristic of the metal {formula}?",
     "slots": {}
@@ -790,7 +797,6 @@
     "question": "The metal {formula} has a {correct_answer} crystal lattice.",
     "slots": {}
   },
-
   "prompt.crystal_type_ionic": {
     "question": "What type of crystal lattice does the ionic compound {formula} have?",
     "slots": {}
@@ -799,7 +805,6 @@
     "question": "The ionic compound {formula} has a {correct_answer} crystal lattice.",
     "slots": {}
   },
-
   "prompt.calc_solution_mass": {
     "question": "Calculate the mass of solution containing {m_solute} g of solute at a concentration of {omega}%.",
     "slots": {}
@@ -808,7 +813,6 @@
     "question": "At {omega}% concentration with {m_solute} g of solute, the solution mass is {correct_answer} g.",
     "slots": {}
   },
-
   "prompt.calc_diluted_concentration": {
     "question": "What is the concentration if {m_solution} g of water is added to {m_solution} g of a {omega}% solution?",
     "slots": {}
@@ -817,7 +821,6 @@
     "question": "After adding {m_solution} g of water to {m_solution} g of {omega}% solution, the concentration becomes {correct_answer}%.",
     "slots": {}
   },
-
   "prompt.period_from_config": {
     "question": "In which period is the element with electron configuration {config}?",
     "slots": {}
@@ -826,7 +829,6 @@
     "question": "Configuration {config} corresponds to element {element}, which is in period {correct_answer}.",
     "slots": {}
   },
-
   "prompt.electron_count": {
     "question": "How many electrons does an atom of {element} contain?",
     "slots": {}
@@ -835,16 +837,19 @@
     "question": "Element {element} has atomic number Z = {correct_answer}, so it contains {correct_answer} electrons.",
     "slots": {}
   },
-
   "prompt.amphoteric_oxide_identify": {
     "question": "Is the oxide {formula} amphoteric?",
     "slots": {}
   },
   "explain.amphoteric_oxide_identify": {
     "question": "The oxide {formula} is {correct_answer}.",
-    "slots": { "correct_answer": { "yes": "amphoteric", "no": "not amphoteric" } }
+    "slots": {
+      "correct_answer": {
+        "yes": "amphoteric",
+        "no": "not amphoteric"
+      }
+    }
   },
-
   "prompt.amphoteric_subclass": {
     "question": "What subclass does the amphoteric substance {formula} belong to?",
     "slots": {}
@@ -853,7 +858,6 @@
     "question": "The amphoteric substance {formula} belongs to the subclass: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.electrolyte_strength": {
     "question": "Classify the electrolyte type: is {formula} a strong electrolyte, weak electrolyte, or non-electrolyte?",
     "slots": {}
@@ -868,7 +872,6 @@
       }
     }
   },
-
   "prompt.dissociation_ion_list": {
     "question": "Which ions are produced when {formula} dissolves in water?",
     "slots": {}
@@ -877,7 +880,6 @@
     "question": "When {formula} dissolves, the ions formed are: {correct_answer}.",
     "slots": {}
   },
-
   "prompt.reagent_name_for_ion": {
     "question": "What is the name of the reagent used to detect the ion {target_name}?",
     "slots": {}
@@ -886,13 +888,60 @@
     "question": "To detect the ion {target_name}, the reagent used is {correct_answer}.",
     "slots": {}
   },
-
   "prompt.target_from_reagent": {
     "question": "Which ion is detected using the reagent {reagent_formula}?",
     "slots": {}
   },
   "explain.target_from_reagent": {
     "question": "The reagent {reagent_formula} is used to detect the ion {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reactant_class": {
+    "question": "To which class of inorganic substances does {formula} belong?",
+    "slots": {}
+  },
+  "explain.chain_reactant_class": {
+    "question": "Substance {formula} belongs to the class: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reagent_to_product": {
+    "question": "What reagent is required to convert {substance} into {next}?",
+    "slots": {}
+  },
+  "explain.chain_reagent_to_product": {
+    "question": "To convert {substance} into {next}, the reagent needed is: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.rxn_heat_effect": {
+    "question": "Is the reaction {equation} exothermic or endothermic?",
+    "slots": {}
+  },
+  "explain.rxn_heat_effect": {
+    "question": "The reaction {equation} is: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.calc_given_coeff": {
+    "question": "What is the stoichiometric coefficient of {given_formula} in the reaction equation {equation}?",
+    "slots": {}
+  },
+  "explain.calc_given_coeff": {
+    "question": "The stoichiometric coefficient of {given_formula} in the equation {equation}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.calc_limiting_reagent": {
+    "question": "{given_mass} g of {given_formula} is used in reaction {equation}. Which substance is the limiting reagent?",
+    "slots": {}
+  },
+  "explain.calc_limiting_reagent": {
+    "question": "With {given_mass} g of {given_formula} in reaction {equation}, the limiting reagent is: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.rate_factor_name": {
+    "question": "Which factor produces the following effect on reaction rate: '{factor_effect}'?",
+    "slots": {}
+  },
+  "explain.rate_factor_name": {
+    "question": "The factor that produces '{factor_effect}' on reaction rate is: {correct_answer}.",
     "slots": {}
   }
 }

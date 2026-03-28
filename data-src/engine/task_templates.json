@@ -5196,5 +5196,139 @@
     },
     "exam_tags": ["oge"],
     "competency_hint": { "qualitative_analysis_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.chain.reactant_class.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_substance_by_class", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "substance_class" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.chain_reactant_class",
+    "explanation_template_id": "explain.chain_reactant_class",
+    "evidence_rules": ["genetic_chains", "substance_classification"],
+    "difficulty_model": { "features": {}, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "genetic_chain_logic": "P", "classification": "S" }
+  },
+  {
+    "template_id": "tmpl.chain.step_reagent_to_product.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance", "reaction"],
+      "reasoning": ["reaction_chain"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": { "source": "substances" }
+      }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_chain_step", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "reagent" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.chain_reagent_to_product",
+    "explanation_template_id": "explain.chain_reagent_to_product",
+    "evidence_rules": ["genetic_chains"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "genetic_chain_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.heat_effect.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["reaction"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "heat_effect" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.rxn_heat_effect",
+    "explanation_template_id": "explain.rxn_heat_effect",
+    "evidence_rules": ["catalyst_role", "heat_effect_classification"],
+    "difficulty_model": { "features": {}, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "catalyst_role_understanding": "P", "reaction_energy_profile": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.rate_factor_name.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["reaction"],
+      "reasoning": ["catalysis"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_energy_catalyst", "params": { "mode": "rate" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "factor_name" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.rate_factor_name",
+    "explanation_template_id": "explain.rate_factor_name",
+    "evidence_rules": ["catalyst_role"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "catalyst_role_understanding": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.given_coeff.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["reaction"],
+      "reasoning": ["conservation_laws"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "given_coeff" } }],
+      "renderers": [{ "id": "view.numeric_input", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_given_coeff",
+    "explanation_template_id": "explain.calc_given_coeff",
+    "evidence_rules": ["stoichiometry_calculation"],
+    "difficulty_model": { "features": {}, "target_band": [0.2, 0.5] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_yield_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.calc.limiting_reagent.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["reaction"],
+      "reasoning": ["conservation_laws"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_formulas",
+        "params": { "source": "substances" }
+      }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_calc_reaction", "params": {} },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "given_formula" } }],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.calc_limiting_reagent",
+    "explanation_template_id": "explain.calc_limiting_reagent",
+    "evidence_rules": ["stoichiometry_calculation", "reaction_yield_calculation"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_yield_logic": "P" }
   }
 ]
