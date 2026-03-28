@@ -816,5 +816,83 @@
   "explain.calc_diluted_concentration": {
     "question": "After adding {m_solution} g of water to {m_solution} g of {omega}% solution, the concentration becomes {correct_answer}%.",
     "slots": {}
+  },
+
+  "prompt.period_from_config": {
+    "question": "In which period is the element with electron configuration {config}?",
+    "slots": {}
+  },
+  "explain.period_from_config": {
+    "question": "Configuration {config} corresponds to element {element}, which is in period {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electron_count": {
+    "question": "How many electrons does an atom of {element} contain?",
+    "slots": {}
+  },
+  "explain.electron_count": {
+    "question": "Element {element} has atomic number Z = {correct_answer}, so it contains {correct_answer} electrons.",
+    "slots": {}
+  },
+
+  "prompt.amphoteric_oxide_identify": {
+    "question": "Is the oxide {formula} amphoteric?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_identify": {
+    "question": "The oxide {formula} is {correct_answer}.",
+    "slots": { "correct_answer": { "yes": "amphoteric", "no": "not amphoteric" } }
+  },
+
+  "prompt.amphoteric_subclass": {
+    "question": "What subclass does the amphoteric substance {formula} belong to?",
+    "slots": {}
+  },
+  "explain.amphoteric_subclass": {
+    "question": "The amphoteric substance {formula} belongs to the subclass: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electrolyte_strength": {
+    "question": "Classify the electrolyte type: is {formula} a strong electrolyte, weak electrolyte, or non-electrolyte?",
+    "slots": {}
+  },
+  "explain.electrolyte_strength": {
+    "question": "{formula} is a {correct_answer}.",
+    "slots": {
+      "correct_answer": {
+        "strong": "strong electrolyte",
+        "weak": "weak electrolyte",
+        "non_electrolyte": "non-electrolyte"
+      }
+    }
+  },
+
+  "prompt.dissociation_ion_list": {
+    "question": "Which ions are produced when {formula} dissolves in water?",
+    "slots": {}
+  },
+  "explain.dissociation_ion_list": {
+    "question": "When {formula} dissolves, the ions formed are: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.reagent_name_for_ion": {
+    "question": "What is the name of the reagent used to detect the ion {target_name}?",
+    "slots": {}
+  },
+  "explain.reagent_name_for_ion": {
+    "question": "To detect the ion {target_name}, the reagent used is {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.target_from_reagent": {
+    "question": "Which ion is detected using the reagent {reagent_formula}?",
+    "slots": {}
+  },
+  "explain.target_from_reagent": {
+    "question": "The reagent {reagent_formula} is used to detect the ion {correct_answer}.",
+    "slots": {}
   }
 }

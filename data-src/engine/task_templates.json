@@ -4968,5 +4968,233 @@
     },
     "exam_tags": ["oge"],
     "competency_hint": { "calculations_solutions": "P" }
+  },
+  {
+    "template_id": "tmpl.pt.period_from_config.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["element"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_for_config", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "period" } }
+      ],
+      "renderers": [{ "id": "view.numeric_input", "params": { "min": 1, "max": 7, "step": 1 } }]
+    },
+    "prompt_template_id": "prompt.period_from_config",
+    "explanation_template_id": "explain.period_from_config",
+    "evidence_rules": ["electron_config"],
+    "difficulty_model": {
+      "features": { "Z_range": "auto" },
+      "target_band": [0.2, 0.5]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electron_config": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.pt.electron_count.v1",
+    "meta": {
+      "interaction": "numeric_input",
+      "objects": ["element"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_number"
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_element_for_config", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "Z" } }
+      ],
+      "renderers": [{ "id": "view.numeric_input", "params": { "min": 1, "max": 36, "step": 1 } }]
+    },
+    "prompt_template_id": "prompt.electron_count",
+    "explanation_template_id": "explain.electron_count",
+    "evidence_rules": ["electron_config"],
+    "difficulty_model": {
+      "features": { "Z_range": "auto" },
+      "target_band": [0.15, 0.45]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electron_config": "P", "periodic_table": "S" }
+  },
+  {
+    "template_id": "tmpl.sub.amphoteric_oxide_identify.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_substance_by_class",
+        "params": { "substance_class": "oxide" }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "is_amphoteric" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.amphoteric_oxide_identify",
+    "explanation_template_id": "explain.amphoteric_oxide_identify",
+    "evidence_rules": ["amphoteric_classification"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "amphoterism_logic": "P", "classification": "S" }
+  },
+  {
+    "template_id": "tmpl.sub.amphoteric_subclass.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_substance_by_class",
+        "params": { "amphoteric": true }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "substance_subclass" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.amphoteric_subclass",
+    "explanation_template_id": "explain.amphoteric_subclass",
+    "evidence_rules": ["amphoteric_classification"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.35, 0.65]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "amphoterism_logic": "P", "classification": "S" }
+  },
+  {
+    "template_id": "tmpl.sub.electrolyte_strength.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "enum_single"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_substance_by_class",
+        "params": { "require_electrolyte": true }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "electrolyte_strength" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.electrolyte_strength",
+    "explanation_template_id": "explain.electrolyte_strength",
+    "evidence_rules": ["electrolyte_classification"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.25, 0.55]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electrolyte_logic": "P", "classification": "S" }
+  },
+  {
+    "template_id": "tmpl.sub.dissociation_ion_list.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["substance", "ion"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text"
+    },
+    "pipeline": {
+      "generator": {
+        "id": "gen.pick_substance_by_class",
+        "params": { "require_ions": true }
+      },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "dissociation_ions" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.dissociation_ion_list",
+    "explanation_template_id": "explain.dissociation_ion_list",
+    "evidence_rules": ["dissociation_products"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "electrolyte_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.qual.reagent_name_lookup.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["ion", "substance"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": { "source": "qualitative_targets" }
+      }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_qualitative_test", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "reagent_name" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.reagent_name_for_ion",
+    "explanation_template_id": "explain.reagent_name_for_ion",
+    "evidence_rules": ["qualitative_analysis"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.25, 0.55]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "qualitative_analysis_logic": "P" }
+  },
+  {
+    "template_id": "tmpl.qual.target_from_reagent.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "objects": ["ion", "substance"],
+      "reasoning": ["property_lookup"],
+      "evaluation": { "mode": "exact" },
+      "answer_kind": "scalar_text",
+      "distractor_strategy": {
+        "id": "other_names",
+        "params": { "source": "qualitative_targets" }
+      }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_qualitative_test", "params": {} },
+      "solvers": [
+        { "id": "solver.slot_lookup", "params": { "answer_field": "target_name" } }
+      ],
+      "renderers": [{ "id": "view.choice_single", "params": {} }]
+    },
+    "prompt_template_id": "prompt.target_from_reagent",
+    "explanation_template_id": "explain.target_from_reagent",
+    "evidence_rules": ["qualitative_analysis"],
+    "difficulty_model": {
+      "features": {},
+      "target_band": [0.3, 0.6]
+    },
+    "exam_tags": ["oge"],
+    "competency_hint": { "qualitative_analysis_logic": "P" }
   }
 ]

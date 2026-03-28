@@ -816,5 +816,83 @@
   "explain.calc_diluted_concentration": {
     "question": "Tras añadir {m_solution} g de agua a {m_solution} g de solución al {omega}%, la concentración será {correct_answer}%.",
     "slots": {}
+  },
+
+  "prompt.period_from_config": {
+    "question": "¿En qué período se encuentra el elemento con configuración electrónica {config}?",
+    "slots": {}
+  },
+  "explain.period_from_config": {
+    "question": "La configuración {config} corresponde al elemento {element}, que se encuentra en el período {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electron_count": {
+    "question": "¿Cuántos electrones contiene un átomo de {element}?",
+    "slots": {}
+  },
+  "explain.electron_count": {
+    "question": "El elemento {element} tiene número atómico Z = {correct_answer}, por lo tanto contiene {correct_answer} electrones.",
+    "slots": {}
+  },
+
+  "prompt.amphoteric_oxide_identify": {
+    "question": "¿Es el óxido {formula} anfótero?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_identify": {
+    "question": "El óxido {formula} es {correct_answer}.",
+    "slots": { "correct_answer": { "yes": "anfótero", "no": "no anfótero" } }
+  },
+
+  "prompt.amphoteric_subclass": {
+    "question": "¿A qué subclase pertenece la sustancia anfótera {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_subclass": {
+    "question": "La sustancia anfótera {formula} pertenece a la subclase: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electrolyte_strength": {
+    "question": "Clasifica el tipo de electrolito: ¿es {formula} un electrolito fuerte, electrolito débil o no electrolito?",
+    "slots": {}
+  },
+  "explain.electrolyte_strength": {
+    "question": "{formula} es {correct_answer}.",
+    "slots": {
+      "correct_answer": {
+        "strong": "un electrolito fuerte",
+        "weak": "un electrolito débil",
+        "non_electrolyte": "un no electrolito"
+      }
+    }
+  },
+
+  "prompt.dissociation_ion_list": {
+    "question": "¿Qué iones se producen cuando {formula} se disuelve en agua?",
+    "slots": {}
+  },
+  "explain.dissociation_ion_list": {
+    "question": "Al disolver {formula}, se forman los iones: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.reagent_name_for_ion": {
+    "question": "¿Cómo se llama el reactivo usado para detectar el ion {target_name}?",
+    "slots": {}
+  },
+  "explain.reagent_name_for_ion": {
+    "question": "Para detectar el ion {target_name} se utiliza el reactivo {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.target_from_reagent": {
+    "question": "¿Qué ion se detecta usando el reactivo {reagent_formula}?",
+    "slots": {}
+  },
+  "explain.target_from_reagent": {
+    "question": "El reactivo {reagent_formula} se utiliza para detectar el ion {correct_answer}.",
+    "slots": {}
   }
 }

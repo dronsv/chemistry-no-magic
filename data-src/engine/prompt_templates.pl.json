@@ -816,5 +816,83 @@
   "explain.calc_diluted_concentration": {
     "question": "Po dodaniu {m_solution} g wody do {m_solution} g {omega}%-owego roztworu stężenie wyniesie {correct_answer}%.",
     "slots": {}
+  },
+
+  "prompt.period_from_config": {
+    "question": "W którym okresie znajduje się pierwiastek o konfiguracji elektronowej {config}?",
+    "slots": {}
+  },
+  "explain.period_from_config": {
+    "question": "Konfiguracja {config} odpowiada pierwiastkowi {element}, który jest w {correct_answer}. okresie.",
+    "slots": {}
+  },
+
+  "prompt.electron_count": {
+    "question": "Ile elektronów zawiera atom {element}?",
+    "slots": {}
+  },
+  "explain.electron_count": {
+    "question": "Pierwiastek {element} ma liczbę atomową Z = {correct_answer}, więc zawiera {correct_answer} elektronów.",
+    "slots": {}
+  },
+
+  "prompt.amphoteric_oxide_identify": {
+    "question": "Czy tlenek {formula} jest amfoteryczny?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_identify": {
+    "question": "Tlenek {formula} jest {correct_answer}.",
+    "slots": { "correct_answer": { "yes": "amfoteryczny", "no": "nieamfoteryczny" } }
+  },
+
+  "prompt.amphoteric_subclass": {
+    "question": "Do jakiej podklasy należy substancja amfoteryczna {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_subclass": {
+    "question": "Substancja amfoteryczna {formula} należy do podklasy: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electrolyte_strength": {
+    "question": "Określ typ elektrolitu: czy {formula} jest mocnym elektrolitem, słabym elektrolitem czy nieelektrolitem?",
+    "slots": {}
+  },
+  "explain.electrolyte_strength": {
+    "question": "{formula} jest {correct_answer}.",
+    "slots": {
+      "correct_answer": {
+        "strong": "mocnym elektrolitem",
+        "weak": "słabym elektrolitem",
+        "non_electrolyte": "nieelektrolitem"
+      }
+    }
+  },
+
+  "prompt.dissociation_ion_list": {
+    "question": "Jakie jony powstają podczas rozpuszczania {formula} w wodzie?",
+    "slots": {}
+  },
+  "explain.dissociation_ion_list": {
+    "question": "Po rozpuszczeniu {formula} powstają jony: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.reagent_name_for_ion": {
+    "question": "Jak nazywa się odczynnik stosowany do wykrywania jonu {target_name}?",
+    "slots": {}
+  },
+  "explain.reagent_name_for_ion": {
+    "question": "Do wykrywania jonu {target_name} używa się odczynnika {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.target_from_reagent": {
+    "question": "Który jon jest wykrywany za pomocą odczynnika {reagent_formula}?",
+    "slots": {}
+  },
+  "explain.target_from_reagent": {
+    "question": "Odczynnik {reagent_formula} służy do wykrywania jonu {correct_answer}.",
+    "slots": {}
   }
 }

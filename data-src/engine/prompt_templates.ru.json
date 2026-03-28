@@ -816,5 +816,83 @@
   "explain.calc_diluted_concentration": {
     "question": "При добавлении {m_solution} г воды к {m_solution} г {omega}%-ного раствора концентрация станет {correct_answer}%.",
     "slots": {}
+  },
+
+  "prompt.period_from_config": {
+    "question": "В каком периоде находится элемент с электронной конфигурацией {config}?",
+    "slots": {}
+  },
+  "explain.period_from_config": {
+    "question": "Электронная конфигурация {config} соответствует элементу {element}, который находится в {correct_answer}-м периоде.",
+    "slots": {}
+  },
+
+  "prompt.electron_count": {
+    "question": "Сколько электронов содержит атом {element}?",
+    "slots": {}
+  },
+  "explain.electron_count": {
+    "question": "Атом {element} имеет порядковый номер Z = {correct_answer}, следовательно, содержит {correct_answer} электронов.",
+    "slots": {}
+  },
+
+  "prompt.amphoteric_oxide_identify": {
+    "question": "Является ли оксид {formula} амфотерным?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_identify": {
+    "question": "Оксид {formula}: {correct_answer}.",
+    "slots": { "correct_answer": { "yes": "амфотерный", "no": "не амфотерный" } }
+  },
+
+  "prompt.amphoteric_subclass": {
+    "question": "К какому подклассу относится амфотерное вещество {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_subclass": {
+    "question": "Амфотерное вещество {formula} относится к подклассу: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.electrolyte_strength": {
+    "question": "Определите тип электролита: является ли {formula} сильным электролитом, слабым электролитом или неэлектролитом?",
+    "slots": {}
+  },
+  "explain.electrolyte_strength": {
+    "question": "{formula} — {correct_answer}.",
+    "slots": {
+      "correct_answer": {
+        "strong": "сильный электролит",
+        "weak": "слабый электролит",
+        "non_electrolyte": "неэлектролит"
+      }
+    }
+  },
+
+  "prompt.dissociation_ion_list": {
+    "question": "Какие ионы образуются при растворении {formula} в воде?",
+    "slots": {}
+  },
+  "explain.dissociation_ion_list": {
+    "question": "При растворении {formula} образуются ионы: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.reagent_name_for_ion": {
+    "question": "Как называется реактив для обнаружения иона {target_name}?",
+    "slots": {}
+  },
+  "explain.reagent_name_for_ion": {
+    "question": "Для обнаружения иона {target_name} используют {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.target_from_reagent": {
+    "question": "Какой ион обнаруживается с помощью реактива {reagent_formula}?",
+    "slots": {}
+  },
+  "explain.target_from_reagent": {
+    "question": "Реактив {reagent_formula} используется для обнаружения иона {correct_answer}.",
+    "slots": {}
   }
 }
