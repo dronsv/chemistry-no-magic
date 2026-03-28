@@ -10,5 +10,11 @@
   "tags": [
     "soluble"
   ],
-  "phase_standard": "s"
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 234,
+      "unit": "unit:g_per_mol"
+    }
+  }
 }

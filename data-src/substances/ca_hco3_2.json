@@ -11,5 +11,11 @@
     "soluble",
     "unstable"
   ],
-  "phase_standard": "aq"
+  "phase_standard": "aq",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 162,
+      "unit": "unit:g_per_mol"
+    }
+  }
 }

@@ -13,5 +13,11 @@
     "diprotic",
     "unstable"
   ],
-  "phase_standard": "aq"
+  "phase_standard": "aq",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 218,
+      "unit": "unit:g_per_mol"
+    }
+  }
 }
