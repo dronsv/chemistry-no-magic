@@ -611,5 +611,70 @@
   "explain.calc_ksp_solubility": {
     "question": "Dla soli {substance_formula}:\nKsp = {ksp_value}, współczynniki: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
     "slots": {}
+  },
+
+  "prompt.identify_reducer": {
+    "question": "Zidentyfikuj reduktor w reakcji: {equation}",
+    "slots": {}
+  },
+  "explain.identify_reducer": {
+    "question": "Reduktor w reakcji: {correct_answer}. Reduktor oddaje elektrony (ulega utlenieniu).",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer": {
+    "question": "Jak zmieniał się stopień utlenienia pierwiastka-utleniacza ({oxidizer_element}) w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer": {
+    "question": "Stopień utlenienia {oxidizer_element} w utleniaczu ({oxidizer}) zmienił się: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_reducer": {
+    "question": "Jak zmieniał się stopień utlenienia pierwiastka-reduktora ({reducer_element}) w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_reducer": {
+    "question": "Stopień utlenienia {reducer_element} w reduktorze ({reducer}) zmienił się: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reducer_process_name": {
+    "question": "Jaki proces zachodzi z reduktorem ({reducer}) w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.reducer_process_name": {
+    "question": "Reduktor ({reducer}) ulega utlenieniu — oddaje elektrony i zwiększa stopień utlenienia.",
+    "slots": {}
+  },
+  "prompt.strong_weak_electrolyte": {
+    "question": "Czy substancja {formula} jest silnym czy słabym elektrolitem?",
+    "slots": {}
+  },
+  "explain.strong_weak_electrolyte": {
+    "question": "{formula} jest {correct_answer} elektrolitem.",
+    "slots": {}
+  },
+  "prompt.dissociation_products": {
+    "question": "Jakie jony powstają podczas dysocjacji {formula}?",
+    "slots": {}
+  },
+  "explain.dissociation_products": {
+    "question": "Podczas dysocjacji {formula} powstają jony: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reacts_acid_and_base": {
+    "question": "Czy substancja {formula} może reagować zarówno z kwasami, jak i z zasadami?",
+    "slots": {}
+  },
+  "explain.reacts_acid_and_base": {
+    "question": "{formula} jest amfoteryczna: reaguje zarówno z kwasami, jak i z zasadami.",
+    "slots": {}
+  },
+  "prompt.amphoteric_oxide_product": {
+    "question": "Do jakiej klasy należy amfoteryczna substancja {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_product": {
+    "question": "Amfoteryczna substancja {formula} należy do klasy: {correct_answer}.",
+    "slots": {}
   }
 }

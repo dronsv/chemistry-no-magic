@@ -611,5 +611,70 @@
   "explain.calc_ksp_solubility": {
     "question": "For salt {substance_formula}:\nKsp = {ksp_value}, coefficients: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
     "slots": {}
+  },
+
+  "prompt.identify_reducer": {
+    "question": "Identify the reducing agent in the reaction: {equation}",
+    "slots": {}
+  },
+  "explain.identify_reducer": {
+    "question": "The reducing agent in the reaction: {correct_answer}. A reducing agent donates electrons (gets oxidized).",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer": {
+    "question": "How did the oxidation state of the oxidizing element ({oxidizer_element}) change in the reaction: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer": {
+    "question": "The oxidation state of {oxidizer_element} in the oxidizer ({oxidizer}) changed: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_reducer": {
+    "question": "How did the oxidation state of the reducing element ({reducer_element}) change in the reaction: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_reducer": {
+    "question": "The oxidation state of {reducer_element} in the reducer ({reducer}) changed: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reducer_process_name": {
+    "question": "What process does the reducing agent ({reducer}) undergo in the reaction: {equation}?",
+    "slots": {}
+  },
+  "explain.reducer_process_name": {
+    "question": "The reducing agent ({reducer}) undergoes oxidation — it donates electrons and increases its oxidation state.",
+    "slots": {}
+  },
+  "prompt.strong_weak_electrolyte": {
+    "question": "Is the substance {formula} a strong or weak electrolyte?",
+    "slots": {}
+  },
+  "explain.strong_weak_electrolyte": {
+    "question": "{formula} is a {correct_answer} electrolyte.",
+    "slots": {}
+  },
+  "prompt.dissociation_products": {
+    "question": "What ions are formed when {formula} dissociates?",
+    "slots": {}
+  },
+  "explain.dissociation_products": {
+    "question": "When {formula} dissociates, the following ions are formed: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reacts_acid_and_base": {
+    "question": "Can the substance {formula} react with both acids and bases?",
+    "slots": {}
+  },
+  "explain.reacts_acid_and_base": {
+    "question": "{formula} is amphoteric: it reacts with both acids and bases.",
+    "slots": {}
+  },
+  "prompt.amphoteric_oxide_product": {
+    "question": "What class does the amphoteric substance {formula} belong to?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_product": {
+    "question": "The amphoteric substance {formula} belongs to the class: {correct_answer}.",
+    "slots": {}
   }
 }

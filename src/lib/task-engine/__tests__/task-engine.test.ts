@@ -671,6 +671,70 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'For salt {substance_formula}: Ksp = {ksp_value}, s = {correct_answer} mol/L.',
     slots: {},
   },
+  'prompt.identify_reducer': {
+    question: 'Identify the reducing agent in the reaction: {equation}',
+    slots: {},
+  },
+  'explain.identify_reducer': {
+    question: 'The reducing agent: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.os_change_oxidizer': {
+    question: 'How did the oxidation state of {oxidizer_element} change in: {equation}?',
+    slots: {},
+  },
+  'explain.os_change_oxidizer': {
+    question: 'Oxidation state of {oxidizer_element} changed: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.os_change_reducer': {
+    question: 'How did the oxidation state of {reducer_element} change in: {equation}?',
+    slots: {},
+  },
+  'explain.os_change_reducer': {
+    question: 'Oxidation state of {reducer_element} changed: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.reducer_process_name': {
+    question: 'What process does the reducer ({reducer}) undergo in: {equation}?',
+    slots: {},
+  },
+  'explain.reducer_process_name': {
+    question: 'The reducer undergoes oxidation.',
+    slots: {},
+  },
+  'prompt.strong_weak_electrolyte': {
+    question: 'Is {formula} a strong or weak electrolyte?',
+    slots: {},
+  },
+  'explain.strong_weak_electrolyte': {
+    question: '{formula} is a {correct_answer} electrolyte.',
+    slots: {},
+  },
+  'prompt.dissociation_products': {
+    question: 'What ions are formed when {formula} dissociates?',
+    slots: {},
+  },
+  'explain.dissociation_products': {
+    question: 'Dissociation of {formula} yields: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.reacts_acid_and_base': {
+    question: 'Can {formula} react with both acids and bases?',
+    slots: {},
+  },
+  'explain.reacts_acid_and_base': {
+    question: '{formula} is amphoteric.',
+    slots: {},
+  },
+  'prompt.amphoteric_oxide_product': {
+    question: 'What class does the amphoteric substance {formula} belong to?',
+    slots: {},
+  },
+  'explain.amphoteric_oxide_product': {
+    question: 'The amphoteric substance {formula} belongs to: {correct_answer}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -685,9 +749,9 @@ const PHASE2_BOND_EXAMPLES: BondExamplesData = {
 };
 
 const PHASE2_SUBSTANCE_INDEX: SubstanceIndexEntry[] = [
-  { id: 'nacl', formula: 'NaCl', name: '\u0425\u043B\u043E\u0440\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'salt', subclass: 'medium_salt' },
-  { id: 'hcl', formula: 'HCl', name: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'non_oxygenated' },
-  { id: 'naoh', formula: 'NaOH', name: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'base', subclass: 'soluble_base' },
+  { id: 'nacl', formula: 'NaCl', name: '\u0425\u043B\u043E\u0440\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'salt', subclass: 'medium_salt', ions: ['ion:Na_plus', 'ion:Cl_minus'], tags: ['strong_electrolyte'] },
+  { id: 'hcl', formula: 'HCl', name: '\u0425\u043B\u043E\u0440\u043E\u0432\u043E\u0434\u043E\u0440\u043E\u0434\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'non_oxygenated', ions: ['ion:H_plus', 'ion:Cl_minus'], tags: ['strong_acid'] },
+  { id: 'naoh', formula: 'NaOH', name: '\u0413\u0438\u0434\u0440\u043E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'base', subclass: 'soluble_base', ions: ['ion:Na_plus', 'ion:OH_minus'], tags: ['strong_base'] },
   { id: 'na2o', formula: 'Na\u2082O', name: '\u041E\u043A\u0441\u0438\u0434 \u043D\u0430\u0442\u0440\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
   { id: 'h2so4', formula: 'H\u2082SO\u2084', name: '\u0421\u0435\u0440\u043D\u0430\u044F \u043A\u0438\u0441\u043B\u043E\u0442\u0430', class: 'acid', subclass: 'oxygenated' },
   { id: 'cao', formula: 'CaO', name: '\u041E\u043A\u0441\u0438\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u044F', class: 'oxide', subclass: 'basic_oxide' },
@@ -971,8 +1035,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 69 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(69);
+  it('loads all 77 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(77);
   });
 
   it('all templates have a valid answer_kind', () => {

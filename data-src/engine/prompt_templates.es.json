@@ -611,5 +611,70 @@
   "explain.calc_ksp_solubility": {
     "question": "Para la sal {substance_formula}:\nKsp = {ksp_value}, coeficientes: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} mol/L.",
     "slots": {}
+  },
+
+  "prompt.identify_reducer": {
+    "question": "Identifica el agente reductor en la reaccion: {equation}",
+    "slots": {}
+  },
+  "explain.identify_reducer": {
+    "question": "El agente reductor en la reaccion: {correct_answer}. El reductor dona electrones (se oxida).",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer": {
+    "question": "Como cambio el estado de oxidacion del elemento oxidante ({oxidizer_element}) en la reaccion: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer": {
+    "question": "El estado de oxidacion de {oxidizer_element} en el oxidante ({oxidizer}) cambio: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_reducer": {
+    "question": "Como cambio el estado de oxidacion del elemento reductor ({reducer_element}) en la reaccion: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_reducer": {
+    "question": "El estado de oxidacion de {reducer_element} en el reductor ({reducer}) cambio: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reducer_process_name": {
+    "question": "Que proceso sufre el agente reductor ({reducer}) en la reaccion: {equation}?",
+    "slots": {}
+  },
+  "explain.reducer_process_name": {
+    "question": "El agente reductor ({reducer}) sufre oxidacion: dona electrones y aumenta su estado de oxidacion.",
+    "slots": {}
+  },
+  "prompt.strong_weak_electrolyte": {
+    "question": "Es la sustancia {formula} un electrolito fuerte o debil?",
+    "slots": {}
+  },
+  "explain.strong_weak_electrolyte": {
+    "question": "{formula} es un electrolito {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.dissociation_products": {
+    "question": "Que iones se forman cuando {formula} se disocia?",
+    "slots": {}
+  },
+  "explain.dissociation_products": {
+    "question": "Cuando {formula} se disocia, se forman los iones: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reacts_acid_and_base": {
+    "question": "Puede la sustancia {formula} reaccionar tanto con acidos como con bases?",
+    "slots": {}
+  },
+  "explain.reacts_acid_and_base": {
+    "question": "{formula} es anfotera: reacciona tanto con acidos como con bases.",
+    "slots": {}
+  },
+  "prompt.amphoteric_oxide_product": {
+    "question": "A que clase pertenece la sustancia anfotera {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_product": {
+    "question": "La sustancia anfotera {formula} pertenece a la clase: {correct_answer}.",
+    "slots": {}
   }
 }

@@ -611,5 +611,70 @@
   "explain.calc_ksp_solubility": {
     "question": "Для соли {substance_formula}:\nKsp = {ksp_value}, коэффициенты: p = {coeff_cation}, q = {coeff_anion}.\ns = (Ksp / (p^p · q^q))^(1/(p+q)) ≈ {correct_answer} моль/л.",
     "slots": {}
+  },
+
+  "prompt.identify_reducer": {
+    "question": "Определите восстановитель в реакции: {equation}",
+    "slots": {}
+  },
+  "explain.identify_reducer": {
+    "question": "Восстановитель в реакции: {correct_answer}. Восстановитель отдаёт электроны (окисляется).",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer": {
+    "question": "Как изменилась степень окисления элемента-окислителя ({oxidizer_element}) в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer": {
+    "question": "Степень окисления {oxidizer_element} в окислителе ({oxidizer}) изменилась: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_reducer": {
+    "question": "Как изменилась степень окисления элемента-восстановителя ({reducer_element}) в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_reducer": {
+    "question": "Степень окисления {reducer_element} в восстановителе ({reducer}) изменилась: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reducer_process_name": {
+    "question": "Какой процесс претерпевает восстановитель ({reducer}) в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.reducer_process_name": {
+    "question": "Восстановитель ({reducer}) претерпевает окисление — отдаёт электроны и повышает степень окисления.",
+    "slots": {}
+  },
+  "prompt.strong_weak_electrolyte": {
+    "question": "Является ли вещество {formula} сильным или слабым электролитом?",
+    "slots": {}
+  },
+  "explain.strong_weak_electrolyte": {
+    "question": "{formula} — {correct_answer} электролит.",
+    "slots": {}
+  },
+  "prompt.dissociation_products": {
+    "question": "Какие ионы образуются при диссоциации вещества {formula}?",
+    "slots": {}
+  },
+  "explain.dissociation_products": {
+    "question": "При диссоциации {formula} образуются ионы: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reacts_acid_and_base": {
+    "question": "Может ли вещество {formula} реагировать и с кислотами, и с основаниями?",
+    "slots": {}
+  },
+  "explain.reacts_acid_and_base": {
+    "question": "{formula} — амфотерное вещество: реагирует и с кислотами, и с основаниями.",
+    "slots": {}
+  },
+  "prompt.amphoteric_oxide_product": {
+    "question": "К какому классу относится амфотерное вещество {formula}?",
+    "slots": {}
+  },
+  "explain.amphoteric_oxide_product": {
+    "question": "Амфотерное вещество {formula} относится к классу: {correct_answer}.",
+    "slots": {}
   }
 }

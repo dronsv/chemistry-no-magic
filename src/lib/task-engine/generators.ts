@@ -387,6 +387,22 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
     );
   }
 
+  // Electrolyte filter: keep only substances with electrolyte-related tags
+  if (params.require_electrolyte) {
+    const electrolyteTagSet = new Set([
+      'strong_electrolyte', 'weak_electrolyte', 'non_electrolyte',
+      'strong_acid', 'weak_acid', 'strong_base', 'weak_base',
+    ]);
+    candidates = candidates.filter(s =>
+      (s.tags ?? []).some(t => electrolyteTagSet.has(t)),
+    );
+  }
+
+  // Dissociation filter: keep only substances with ions
+  if (params.require_ions) {
+    candidates = candidates.filter(s => s.ions && s.ions.length > 0);
+  }
+
   const s = pickRandom(candidates);
 
   const result: SlotValues = {
@@ -396,9 +412,33 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
     substance_subclass: s.subclass ?? '',
   };
 
+  // Determine if substance is amphoteric (check if it contains an amphoteric element)
+  const amphotericSymbols = new Set(
+    data.core.elements
+      .filter(el => (el as unknown as Record<string, unknown>).amphoteric === true)
+      .map(el => el.symbol),
+  );
+  const substanceIsAmphoteric = [...amphotericSymbols].some(sym => s.formula.includes(sym));
+  result.is_amphoteric = substanceIsAmphoteric ? 'yes' : 'no';
+
   // When amphoteric filter is active, also provide reaction_partners
   if (params.amphoteric) {
     result.reaction_partners = ['acid', 'base'];
+  }
+
+  // Electrolyte strength from tags (explicit tags first, then infer from acid/base strength)
+  const tags = s.tags ?? [];
+  if (tags.includes('strong_electrolyte') || tags.includes('strong_acid') || tags.includes('strong_base')) {
+    result.electrolyte_strength = 'strong';
+  } else if (tags.includes('weak_electrolyte') || tags.includes('weak_acid') || tags.includes('weak_base')) {
+    result.electrolyte_strength = 'weak';
+  } else if (tags.includes('non_electrolyte')) {
+    result.electrolyte_strength = 'non_electrolyte';
+  }
+
+  // Dissociation ions (formatted as comma-separated ion IDs)
+  if (s.ions && s.ions.length > 0) {
+    result.dissociation_ions = s.ions.join(', ');
   }
 
   return result;
@@ -460,7 +500,23 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
   if (r.redox) {
     slots.oxidizer = r.redox.oxidizer.formula;
     slots.reducer = r.redox.reducer.formula;
+    slots.oxidizer_element = r.redox.oxidizer.element;
+    slots.reducer_element = r.redox.reducer.element;
+    slots.oxidizer_os_from = r.redox.oxidizer.from;
+    slots.oxidizer_os_to = r.redox.oxidizer.to;
+    slots.reducer_os_from = r.redox.reducer.from;
+    slots.reducer_os_to = r.redox.reducer.to;
+    // Formatted OS change strings: e.g. "+1 → 0"
+    const fmtOS = (n: number) => (n > 0 ? `+${n}` : String(n));
+    slots.oxidizer_os_change = `${fmtOS(r.redox.oxidizer.from)} → ${fmtOS(r.redox.oxidizer.to)}`;
+    slots.reducer_os_change = `${fmtOS(r.redox.reducer.from)} → ${fmtOS(r.redox.reducer.to)}`;
+    // Process names: reducer undergoes oxidation, oxidizer undergoes reduction
+    slots.reducer_process = 'oxidation';
+    slots.oxidizer_process = 'reduction';
   }
+
+  // Whether this reaction is redox (for classification tasks)
+  slots.is_redox = r.type_tags.includes('redox') ? 'yes' : 'no';
 
   return slots;
 }
