@@ -676,5 +676,73 @@
   "explain.amphoteric_oxide_product": {
     "question": "La sustancia anfotera {formula} pertenece a la clase: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.predict_observation": {
+    "question": "¿Qué observación se obtiene al añadir el reactivo {reagent_formula} a una solución que contiene {target_name}?",
+    "slots": {}
+  },
+  "explain.predict_observation": {
+    "question": "Al añadir {reagent_formula} a {target_name}, se observa: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reagent_by_observation": {
+    "question": "Durante una prueba cualitativa se observa {observation}. ¿Qué reactivo fue añadido?",
+    "slots": {}
+  },
+  "explain.reagent_by_observation": {
+    "question": "La observación \"{observation}\" se produce al añadir el reactivo {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.chain_identify_product": {
+    "question": "¿Qué sustancia se forma cuando {substance} reacciona con el reactivo {reagent}?",
+    "slots": {}
+  },
+  "explain.chain_identify_product": {
+    "question": "Cuando {substance} reacciona con {reagent}, se forma {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reaction_type": {
+    "question": "¿A qué tipo pertenece la reacción en la cadena de transformaciones: {substance} → {next}?",
+    "slots": {}
+  },
+  "explain.chain_reaction_type": {
+    "question": "La reacción {substance} → {next} es de tipo: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.rate_factor_effect": {
+    "question": "¿Cómo afecta el aumento de {factor_name} a la velocidad de una reacción química?",
+    "slots": {}
+  },
+  "explain.rate_factor_effect": {
+    "question": "El aumento de {factor_name}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.catalyst_reaction_lookup": {
+    "question": "¿En qué reacción se utiliza el catalizador {catalyst}?",
+    "slots": {}
+  },
+  "explain.catalyst_reaction_lookup": {
+    "question": "El catalizador {catalyst} se utiliza en la reacción: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.identify_product_formula": {
+    "question": "Según la ecuación de reacción {equation} — ¿qué sustancia es el producto?",
+    "slots": {}
+  },
+  "explain.identify_product_formula": {
+    "question": "En la reacción {equation}, el producto es {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.stoich_coefficient": {
+    "question": "Determina el coeficiente estequiométrico de {find_formula} en la ecuación de reacción {equation}.",
+    "slots": {}
+  },
+  "explain.stoich_coefficient": {
+    "question": "El coeficiente estequiométrico de {find_formula} en la ecuación {equation}: {correct_answer}.",
+    "slots": {}
   }
 }

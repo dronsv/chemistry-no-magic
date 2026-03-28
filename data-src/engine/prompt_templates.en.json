@@ -676,5 +676,73 @@
   "explain.amphoteric_oxide_product": {
     "question": "The amphoteric substance {formula} belongs to the class: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.predict_observation": {
+    "question": "What observation occurs when reagent {reagent_formula} is added to a solution containing {target_name}?",
+    "slots": {}
+  },
+  "explain.predict_observation": {
+    "question": "When {reagent_formula} is added to {target_name}, the observation is: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reagent_by_observation": {
+    "question": "When a qualitative test is performed, {observation} is observed. Which reagent was added?",
+    "slots": {}
+  },
+  "explain.reagent_by_observation": {
+    "question": "The observation \"{observation}\" occurs when reagent {correct_answer} is added.",
+    "slots": {}
+  },
+
+  "prompt.chain_identify_product": {
+    "question": "What substance forms when {substance} reacts with reagent {reagent}?",
+    "slots": {}
+  },
+  "explain.chain_identify_product": {
+    "question": "When {substance} reacts with {reagent}, the product is {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reaction_type": {
+    "question": "What type of reaction is this step in the transformation chain: {substance} → {next}?",
+    "slots": {}
+  },
+  "explain.chain_reaction_type": {
+    "question": "The reaction {substance} → {next} is of type: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.rate_factor_effect": {
+    "question": "How does increasing {factor_name} affect the rate of a chemical reaction?",
+    "slots": {}
+  },
+  "explain.rate_factor_effect": {
+    "question": "Increasing {factor_name}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.catalyst_reaction_lookup": {
+    "question": "In which reaction is the catalyst {catalyst} used?",
+    "slots": {}
+  },
+  "explain.catalyst_reaction_lookup": {
+    "question": "The catalyst {catalyst} is used in the reaction: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.identify_product_formula": {
+    "question": "According to the reaction equation {equation} — which substance is the product?",
+    "slots": {}
+  },
+  "explain.identify_product_formula": {
+    "question": "In the reaction {equation}, the product is {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.stoich_coefficient": {
+    "question": "Determine the stoichiometric coefficient of {find_formula} in the reaction equation {equation}.",
+    "slots": {}
+  },
+  "explain.stoich_coefficient": {
+    "question": "The stoichiometric coefficient of {find_formula} in the equation {equation}: {correct_answer}.",
+    "slots": {}
   }
 }

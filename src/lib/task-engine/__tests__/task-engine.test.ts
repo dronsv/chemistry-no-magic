@@ -735,6 +735,70 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
     question: 'The amphoteric substance {formula} belongs to: {correct_answer}.',
     slots: {},
   },
+  'prompt.predict_observation': {
+    question: 'What observation occurs when {reagent_formula} is added to a solution containing {target_name}?',
+    slots: {},
+  },
+  'explain.predict_observation': {
+    question: 'When {reagent_formula} is added to {target_name}, the observation is: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.reagent_by_observation': {
+    question: 'Which reagent was added if {observation} is observed?',
+    slots: {},
+  },
+  'explain.reagent_by_observation': {
+    question: 'The observation "{observation}" occurs when reagent {correct_answer} is added.',
+    slots: {},
+  },
+  'prompt.chain_identify_product': {
+    question: 'What substance forms when {substance} reacts with {reagent}?',
+    slots: {},
+  },
+  'explain.chain_identify_product': {
+    question: 'When {substance} reacts with {reagent}, the product is {correct_answer}.',
+    slots: {},
+  },
+  'prompt.chain_reaction_type': {
+    question: 'What type of reaction is this: {substance} → {next}?',
+    slots: {},
+  },
+  'explain.chain_reaction_type': {
+    question: 'The reaction {substance} → {next} is of type: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.rate_factor_effect': {
+    question: 'How does increasing {factor_name} affect the rate of a chemical reaction?',
+    slots: {},
+  },
+  'explain.rate_factor_effect': {
+    question: 'Increasing {factor_name}: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.catalyst_reaction_lookup': {
+    question: 'In which reaction is the catalyst {catalyst} used?',
+    slots: {},
+  },
+  'explain.catalyst_reaction_lookup': {
+    question: 'The catalyst {catalyst} is used in: {correct_answer}.',
+    slots: {},
+  },
+  'prompt.identify_product_formula': {
+    question: 'In the reaction {equation} — which substance is the product?',
+    slots: {},
+  },
+  'explain.identify_product_formula': {
+    question: 'In the reaction {equation}, the product is {correct_answer}.',
+    slots: {},
+  },
+  'prompt.stoich_coefficient': {
+    question: 'Determine the stoichiometric coefficient of {find_formula} in: {equation}.',
+    slots: {},
+  },
+  'explain.stoich_coefficient': {
+    question: 'The stoichiometric coefficient of {find_formula} in {equation}: {correct_answer}.',
+    slots: {},
+  },
 };
 
 const PHASE2_BOND_EXAMPLES: BondExamplesData = {
@@ -1035,8 +1099,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 77 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(77);
+  it('loads all 85 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(85);
   });
 
   it('all templates have a valid answer_kind', () => {

@@ -676,5 +676,73 @@
   "explain.amphoteric_oxide_product": {
     "question": "Amfoteryczna substancja {formula} należy do klasy: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.predict_observation": {
+    "question": "Jaką obserwację uzyskuje się po dodaniu odczynnika {reagent_formula} do roztworu zawierającego {target_name}?",
+    "slots": {}
+  },
+  "explain.predict_observation": {
+    "question": "Po dodaniu {reagent_formula} do {target_name} obserwuje się: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reagent_by_observation": {
+    "question": "Podczas reakcji jakościowej obserwuje się {observation}. Jaki odczynnik został dodany?",
+    "slots": {}
+  },
+  "explain.reagent_by_observation": {
+    "question": "Obserwacja \"{observation}\" powstaje po dodaniu odczynnika {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.chain_identify_product": {
+    "question": "Jaką substancję otrzymuje się, gdy {substance} reaguje z odczynnikiem {reagent}?",
+    "slots": {}
+  },
+  "explain.chain_identify_product": {
+    "question": "W reakcji {substance} z {reagent} powstaje {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reaction_type": {
+    "question": "Do jakiego typu należy reakcja w łańcuchu przemian: {substance} → {next}?",
+    "slots": {}
+  },
+  "explain.chain_reaction_type": {
+    "question": "Reakcja {substance} → {next} należy do typu: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.rate_factor_effect": {
+    "question": "Jak zwiększenie {factor_name} wpływa na szybkość reakcji chemicznej?",
+    "slots": {}
+  },
+  "explain.rate_factor_effect": {
+    "question": "Zwiększenie {factor_name}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.catalyst_reaction_lookup": {
+    "question": "W jakiej reakcji stosuje się katalizator {catalyst}?",
+    "slots": {}
+  },
+  "explain.catalyst_reaction_lookup": {
+    "question": "Katalizator {catalyst} stosuje się w reakcji: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.identify_product_formula": {
+    "question": "Według równania reakcji {equation} — która substancja jest produktem?",
+    "slots": {}
+  },
+  "explain.identify_product_formula": {
+    "question": "W reakcji {equation} produktem jest {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.stoich_coefficient": {
+    "question": "Wyznacz współczynnik stechiometryczny substancji {find_formula} w równaniu reakcji {equation}.",
+    "slots": {}
+  },
+  "explain.stoich_coefficient": {
+    "question": "Współczynnik stechiometryczny {find_formula} w równaniu {equation}: {correct_answer}.",
+    "slots": {}
   }
 }

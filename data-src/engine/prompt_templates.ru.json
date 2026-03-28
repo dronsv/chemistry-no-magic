@@ -676,5 +676,73 @@
   "explain.amphoteric_oxide_product": {
     "question": "Амфотерное вещество {formula} относится к классу: {correct_answer}.",
     "slots": {}
+  },
+
+  "prompt.predict_observation": {
+    "question": "Какой признак наблюдается при добавлении реактива {reagent_formula} к раствору, содержащему {target_name}?",
+    "slots": {}
+  },
+  "explain.predict_observation": {
+    "question": "При добавлении {reagent_formula} к {target_name} наблюдается: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.reagent_by_observation": {
+    "question": "При проведении качественной реакции наблюдается {observation}. Какой реактив был добавлен?",
+    "slots": {}
+  },
+  "explain.reagent_by_observation": {
+    "question": "Наблюдение «{observation}» возникает при добавлении реактива {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.chain_identify_product": {
+    "question": "Какое вещество образуется при превращении {substance} с помощью реагента {reagent}?",
+    "slots": {}
+  },
+  "explain.chain_identify_product": {
+    "question": "При взаимодействии {substance} с реагентом {reagent} образуется {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.chain_reaction_type": {
+    "question": "К какому типу относится реакция в цепочке превращений: {substance} → {next}?",
+    "slots": {}
+  },
+  "explain.chain_reaction_type": {
+    "question": "Реакция {substance} → {next} относится к типу: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.rate_factor_effect": {
+    "question": "Как влияет увеличение {factor_name} на скорость химической реакции?",
+    "slots": {}
+  },
+  "explain.rate_factor_effect": {
+    "question": "Увеличение {factor_name}: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.catalyst_reaction_lookup": {
+    "question": "В какой реакции используется катализатор {catalyst}?",
+    "slots": {}
+  },
+  "explain.catalyst_reaction_lookup": {
+    "question": "Катализатор {catalyst} применяется в реакции: {correct_answer}.",
+    "slots": {}
+  },
+
+  "prompt.identify_product_formula": {
+    "question": "По уравнению реакции {equation} — какое вещество является продуктом реакции?",
+    "slots": {}
+  },
+  "explain.identify_product_formula": {
+    "question": "В реакции {equation} продуктом является {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.stoich_coefficient": {
+    "question": "Определите стехиометрический коэффициент вещества {find_formula} в уравнении реакции {equation}.",
+    "slots": {}
+  },
+  "explain.stoich_coefficient": {
+    "question": "Стехиометрический коэффициент {find_formula} в уравнении {equation}: {correct_answer}.",
+    "slots": {}
   }
 }
