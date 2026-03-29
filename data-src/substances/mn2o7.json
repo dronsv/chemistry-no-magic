@@ -16,7 +16,7 @@
       "unit": "unit:celsius"
     },
     "concept:molar_mass": {
-      "value": "222",
+      "value": 222,
       "unit": "unit:g_per_mol"
     }
   }

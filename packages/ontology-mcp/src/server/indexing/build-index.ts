@@ -299,6 +299,32 @@ export async function buildOntologyIndex(): Promise<OntologyIndex> {
     } catch {
       // optional
     }
+
+    // Formula overlays (if present)
+    // Formula overlay keys use full ref format: "formula:molar_mass_from_composition" etc.
+    try {
+      const fmOverlay = JSON.parse(
+        await readFile(join(DATA_SRC, 'translations', locale, 'formulas.json'), 'utf-8')
+      ) as Record<string, { name?: string; description?: string; surface_forms?: string[] }>;
+      let fmMerged = 0;
+      for (const [ref, ov] of Object.entries(fmOverlay)) {
+        const entity = entitiesByRef.get(ref);
+        if (!entity) continue;
+        if (ov.name) {
+          entity.labels[locale] = ov.name;
+          addAlias(ov.name, ref);
+        }
+        if (ov.surface_forms) {
+          if (!entity.aliases[locale]) entity.aliases[locale] = [];
+          entity.aliases[locale].push(...ov.surface_forms);
+          for (const sf of ov.surface_forms) addAlias(sf, ref);
+        }
+        fmMerged++;
+      }
+      process.stderr.write(`[ontology-mcp] Merged ${fmMerged} formula overlays for locale=${locale}\n`);
+    } catch {
+      // optional
+    }
   }
 
   // Load relations
