@@ -76,5 +76,89 @@
     "predicate": "computed_by",
     "object": "formula:effective_nuclear_charge",
     "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:particle_count",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:gas_volume_stp",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:mass_fraction_element",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:yield",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:stoichiometry_ratio",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:mass_fraction_solution",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:molar_concentration",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:component_molar_mass_contribution",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:component_mass_fraction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:dilution_conservation",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:electronegativity",
+    "predicate": "computed_by",
+    "object": "formula:radius_proxy",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:electronegativity",
+    "predicate": "computed_by",
+    "object": "formula:ie_proxy",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:activation_energy",
+    "predicate": "computed_by",
+    "object": "formula:photon_energy",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:melting_point",
+    "predicate": "computed_by",
+    "object": "formula:calorimetry_delta_t",
+    "knowledge_level": "school_convention"
   }
 ]
