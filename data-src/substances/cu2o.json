@@ -18,6 +18,10 @@
     "concept:melting_point": {
       "value": 1235,
       "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": "143",
+      "unit": "unit:g_per_mol"
     }
   }
 }

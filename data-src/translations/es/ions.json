@@ -142,5 +142,26 @@
   },
   "ion:H2PO4_minus": {
     "name": "Ion dihidrogenofosfato"
+  },
+  "ion:ClO_minus": {
+    "name": "ion hipoclorito",
+    "surface_forms": [
+      "ClO⁻",
+      "hipoclorito"
+    ]
+  },
+  "ion:ClO3_minus": {
+    "name": "ion clorato",
+    "surface_forms": [
+      "ClO₃⁻",
+      "clorato"
+    ]
+  },
+  "ion:ClO4_minus": {
+    "name": "ion perclorato",
+    "surface_forms": [
+      "ClO₄⁻",
+      "perclorato"
+    ]
   }
 }

@@ -782,5 +782,47 @@
         "unit": "unit:elementary_charge"
       }
     }
+  },
+  {
+    "id": "ion:ClO_minus",
+    "formula": "ClO⁻",
+    "type": "anion",
+    "tags": [
+      "oxoanion"
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
+  },
+  {
+    "id": "ion:ClO3_minus",
+    "formula": "ClO₃⁻",
+    "type": "anion",
+    "tags": [
+      "oxoanion"
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
+  },
+  {
+    "id": "ion:ClO4_minus",
+    "formula": "ClO₄⁻",
+    "type": "anion",
+    "tags": [
+      "oxoanion"
+    ],
+    "characteristics": {
+      "concept:ion_charge": {
+        "value": -1,
+        "unit": "unit:elementary_charge"
+      }
+    }
   }
 ]

@@ -238,5 +238,26 @@
     "name": "Jon diwodorofosforanowy(V)",
     "salt_anion": "Diwodorofosforan(V)",
     "gender": "m"
+  },
+  "ion:ClO_minus": {
+    "name": "jon podchlorynowy",
+    "surface_forms": [
+      "ClO⁻",
+      "podchloryn"
+    ]
+  },
+  "ion:ClO3_minus": {
+    "name": "jon chloranowy",
+    "surface_forms": [
+      "ClO₃⁻",
+      "chloran"
+    ]
+  },
+  "ion:ClO4_minus": {
+    "name": "jon nadchloranowy",
+    "surface_forms": [
+      "ClO₄⁻",
+      "nadchloran"
+    ]
   }
 }

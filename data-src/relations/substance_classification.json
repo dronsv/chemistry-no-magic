@@ -1,0 +1,254 @@
+[
+  {
+    "subject": "sub:na2o",
+    "predicate": "instance_of",
+    "object": "cls:oxide_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:k2o",
+    "predicate": "instance_of",
+    "object": "cls:oxide_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:cao",
+    "predicate": "instance_of",
+    "object": "cls:oxide_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:co2",
+    "predicate": "instance_of",
+    "object": "cls:oxide_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:so2",
+    "predicate": "instance_of",
+    "object": "cls:oxide_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:so3",
+    "predicate": "instance_of",
+    "object": "cls:oxide_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:al2o3",
+    "predicate": "instance_of",
+    "object": "cls:oxide_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:zno",
+    "predicate": "instance_of",
+    "object": "cls:oxide_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:cr2o3",
+    "predicate": "instance_of",
+    "object": "cls:oxide_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:co",
+    "predicate": "instance_of",
+    "object": "cls:oxide_indifferent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:no",
+    "predicate": "instance_of",
+    "object": "cls:oxide_indifferent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:n2o",
+    "predicate": "instance_of",
+    "object": "cls:oxide_indifferent",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hno3",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygen",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h2so4",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygen",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h3po4",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygen",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hcl",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygenfree",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hbr",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygenfree",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h2s",
+    "predicate": "instance_of",
+    "object": "cls:acid_oxygenfree",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:naoh",
+    "predicate": "instance_of",
+    "object": "cls:base_alkali",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:koh",
+    "predicate": "instance_of",
+    "object": "cls:base_alkali",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:ba_oh_2",
+    "predicate": "instance_of",
+    "object": "cls:base_alkali",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:cu_oh_2",
+    "predicate": "instance_of",
+    "object": "cls:base_insoluble",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:fe_oh_3",
+    "predicate": "instance_of",
+    "object": "cls:base_insoluble",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:fe_oh_2",
+    "predicate": "instance_of",
+    "object": "cls:base_insoluble",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:al_oh_3",
+    "predicate": "instance_of",
+    "object": "cls:base_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:zn_oh_2",
+    "predicate": "instance_of",
+    "object": "cls:base_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:be_oh_2",
+    "predicate": "instance_of",
+    "object": "cls:base_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:nacl",
+    "predicate": "instance_of",
+    "object": "cls:salt_normal",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:kno3",
+    "predicate": "instance_of",
+    "object": "cls:salt_normal",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:caco3",
+    "predicate": "instance_of",
+    "object": "cls:salt_normal",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:nahco3",
+    "predicate": "instance_of",
+    "object": "cls:salt_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:khso4",
+    "predicate": "instance_of",
+    "object": "cls:salt_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:nah2po4",
+    "predicate": "instance_of",
+    "object": "cls:salt_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:cuohcl",
+    "predicate": "instance_of",
+    "object": "cls:salt_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:feohcl",
+    "predicate": "instance_of",
+    "object": "cls:salt_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:_cuoh_2co3",
+    "predicate": "instance_of",
+    "object": "cls:salt_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hcl",
+    "predicate": "instance_of",
+    "object": "cls:acid_strong",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hno3",
+    "predicate": "instance_of",
+    "object": "cls:acid_strong",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h2so4",
+    "predicate": "instance_of",
+    "object": "cls:acid_strong",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:hf",
+    "predicate": "instance_of",
+    "object": "cls:acid_weak",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h2co3",
+    "predicate": "instance_of",
+    "object": "cls:acid_weak",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "sub:h2s",
+    "predicate": "instance_of",
+    "object": "cls:acid_weak",
+    "knowledge_level": "school_convention"
+  }
+]

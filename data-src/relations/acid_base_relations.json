@@ -292,5 +292,26 @@
     "object": "sub:h2o",
     "step": 1,
     "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hclo",
+    "predicate": "has_conjugate_base",
+    "object": "ion:ClO_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hclo3",
+    "predicate": "has_conjugate_base",
+    "object": "ion:ClO3_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "sub:hclo4",
+    "predicate": "has_conjugate_base",
+    "object": "ion:ClO4_minus",
+    "step": 1,
+    "knowledge_level": "strict_chemistry"
   }
 ]

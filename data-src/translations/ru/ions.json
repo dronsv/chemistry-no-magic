@@ -301,5 +301,26 @@
       "derivation": "кислая соль → дигидро-...-ат"
     },
     "name_genitive": "дигидрофосфата"
+  },
+  "ion:ClO_minus": {
+    "name": "гипохлорит-ион",
+    "surface_forms": [
+      "ClO⁻",
+      "гипохлорит"
+    ]
+  },
+  "ion:ClO3_minus": {
+    "name": "хлорат-ион",
+    "surface_forms": [
+      "ClO₃⁻",
+      "хлорат"
+    ]
+  },
+  "ion:ClO4_minus": {
+    "name": "перхлорат-ион",
+    "surface_forms": [
+      "ClO₄⁻",
+      "перхлорат"
+    ]
   }
 }

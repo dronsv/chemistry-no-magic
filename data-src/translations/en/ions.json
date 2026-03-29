@@ -206,5 +206,26 @@
     "naming": {
       "suffix": "-ate"
     }
+  },
+  "ion:ClO_minus": {
+    "name": "hypochlorite ion",
+    "surface_forms": [
+      "ClO⁻",
+      "hypochlorite"
+    ]
+  },
+  "ion:ClO3_minus": {
+    "name": "chlorate ion",
+    "surface_forms": [
+      "ClO₃⁻",
+      "chlorate"
+    ]
+  },
+  "ion:ClO4_minus": {
+    "name": "perchlorate ion",
+    "surface_forms": [
+      "ClO₄⁻",
+      "perchlorate"
+    ]
   }
 }
