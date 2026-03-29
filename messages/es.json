@@ -1060,5 +1060,14 @@
   "settings_offline_download": "Descargar para uso sin conexión",
   "settings_offline_status_ready": "Descargado",
   "settings_offline_status_not_ready": "No descargado",
-  "settings_offline_downloading": "Descargando..."
+  "settings_offline_downloading": "Descargando...",
+  "nav_simple_substances": "Sustancias simples",
+  "simple_subst_title": "Sustancias simples",
+  "simple_subst_filter_all": "Todos",
+  "simple_subst_filter_metals": "Metales",
+  "simple_subst_filter_nonmetals": "No metales",
+  "simple_subst_filter_noble_gases": "Gases nobles",
+  "simple_subst_phase_solid": "sólido",
+  "simple_subst_phase_liquid": "líquido",
+  "simple_subst_phase_gas": "gas"
 }

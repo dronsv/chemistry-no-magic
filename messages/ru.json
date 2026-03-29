@@ -1060,5 +1060,14 @@
   "settings_offline_download": "Скачать для офлайн-работы",
   "settings_offline_status_ready": "Загружено",
   "settings_offline_status_not_ready": "Не загружено",
-  "settings_offline_downloading": "Загрузка..."
+  "settings_offline_downloading": "Загрузка...",
+  "nav_simple_substances": "Простые вещества",
+  "simple_subst_title": "Простые вещества",
+  "simple_subst_filter_all": "Все",
+  "simple_subst_filter_metals": "Металлы",
+  "simple_subst_filter_nonmetals": "Неметаллы",
+  "simple_subst_filter_noble_gases": "Благородные газы",
+  "simple_subst_phase_solid": "тв.",
+  "simple_subst_phase_liquid": "ж.",
+  "simple_subst_phase_gas": "газ"
 }

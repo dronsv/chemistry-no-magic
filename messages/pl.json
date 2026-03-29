@@ -1060,5 +1060,14 @@
   "settings_offline_download": "Pobierz do użytku offline",
   "settings_offline_status_ready": "Pobrano",
   "settings_offline_status_not_ready": "Nie pobrano",
-  "settings_offline_downloading": "Pobieranie..."
+  "settings_offline_downloading": "Pobieranie...",
+  "nav_simple_substances": "Substancje proste",
+  "simple_subst_title": "Substancje proste",
+  "simple_subst_filter_all": "Wszystkie",
+  "simple_subst_filter_metals": "Metale",
+  "simple_subst_filter_nonmetals": "Niemetale",
+  "simple_subst_filter_noble_gases": "Gazy szlachetne",
+  "simple_subst_phase_solid": "ciało stałe",
+  "simple_subst_phase_liquid": "ciecz",
+  "simple_subst_phase_gas": "gaz"
 }

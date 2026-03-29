@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SimpleSubstancesPage from '../../features/simple-substances/SimpleSubstancesPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'en') as SupportedLocale;
+---
+
+<BaseLayout title="Simple Substances" description="Catalog of simple substances: metals, non-metals, noble gases. Formulas, molar masses, and states of matter.">
+  <SimpleSubstancesPage locale={locale} client:idle />
+</BaseLayout>
