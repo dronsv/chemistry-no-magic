@@ -1,0 +1,470 @@
+[
+  {
+    "subject": "ion:H_plus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Na_plus",
+    "predicate": "formed_from",
+    "object": "el:Na",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:K_plus",
+    "predicate": "formed_from",
+    "object": "el:K",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NH4_plus",
+    "predicate": "formed_from",
+    "object": "el:N",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NH4_plus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Ca_2plus",
+    "predicate": "formed_from",
+    "object": "el:Ca",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Mg_2plus",
+    "predicate": "formed_from",
+    "object": "el:Mg",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Ba_2plus",
+    "predicate": "formed_from",
+    "object": "el:Ba",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Al_3plus",
+    "predicate": "formed_from",
+    "object": "el:Al",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Fe_2plus",
+    "predicate": "formed_from",
+    "object": "el:Fe",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Fe_3plus",
+    "predicate": "formed_from",
+    "object": "el:Fe",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cu_2plus",
+    "predicate": "formed_from",
+    "object": "el:Cu",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Zn_2plus",
+    "predicate": "formed_from",
+    "object": "el:Zn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Ag_plus",
+    "predicate": "formed_from",
+    "object": "el:Ag",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Pb_2plus",
+    "predicate": "formed_from",
+    "object": "el:Pb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Li_plus",
+    "predicate": "formed_from",
+    "object": "el:Li",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Sr_2plus",
+    "predicate": "formed_from",
+    "object": "el:Sr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Mn_2plus",
+    "predicate": "formed_from",
+    "object": "el:Mn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Ni_2plus",
+    "predicate": "formed_from",
+    "object": "el:Ni",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Co_2plus",
+    "predicate": "formed_from",
+    "object": "el:Co",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cd_2plus",
+    "predicate": "formed_from",
+    "object": "el:Cd",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Hg_2plus",
+    "predicate": "formed_from",
+    "object": "el:Hg",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Hg2_2plus",
+    "predicate": "formed_from",
+    "object": "el:Hg",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Sn_2plus",
+    "predicate": "formed_from",
+    "object": "el:Sn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cr_3plus",
+    "predicate": "formed_from",
+    "object": "el:Cr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:OH_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:OH_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:F_minus",
+    "predicate": "formed_from",
+    "object": "el:F",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cl_minus",
+    "predicate": "formed_from",
+    "object": "el:Cl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Br_minus",
+    "predicate": "formed_from",
+    "object": "el:Br",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:I_minus",
+    "predicate": "formed_from",
+    "object": "el:I",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:S_2minus",
+    "predicate": "formed_from",
+    "object": "el:S",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:S",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:S",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "formed_from",
+    "object": "el:N",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO3_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO2_minus",
+    "predicate": "formed_from",
+    "object": "el:N",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:NO2_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:C",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SiO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:Si",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:SiO3_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:PO4_3minus",
+    "predicate": "formed_from",
+    "object": "el:P",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:PO4_3minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "formed_from",
+    "object": "el:C",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CH3COO_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "formed_from",
+    "object": "el:Mn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:MnO4_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CrO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:Cr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:CrO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "formed_from",
+    "object": "el:Cr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cr2O7_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Be_2plus",
+    "predicate": "formed_from",
+    "object": "el:Be",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:Cu_plus",
+    "predicate": "formed_from",
+    "object": "el:Cu",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "formed_from",
+    "object": "el:C",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HCO3_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "formed_from",
+    "object": "el:S",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO4_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "formed_from",
+    "object": "el:S",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HSO3_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:P",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:HPO4_2minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "formed_from",
+    "object": "el:H",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "formed_from",
+    "object": "el:P",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:H2PO4_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO_minus",
+    "predicate": "formed_from",
+    "object": "el:Cl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO3_minus",
+    "predicate": "formed_from",
+    "object": "el:Cl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO3_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO4_minus",
+    "predicate": "formed_from",
+    "object": "el:Cl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "ion:ClO4_minus",
+    "predicate": "formed_from",
+    "object": "el:O",
+    "knowledge_level": "strict_chemistry"
+  }
+]

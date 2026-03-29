@@ -1,0 +1,80 @@
+[
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:molar_mass_from_composition",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:molar_mass",
+    "predicate": "computed_by",
+    "object": "formula:amount_from_mass",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:density",
+    "predicate": "computed_by",
+    "object": "formula:density",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:enthalpy_of_formation",
+    "predicate": "computed_by",
+    "object": "formula:hess_law",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:acid_dissociation_constant",
+    "predicate": "computed_by",
+    "object": "formula:acid_dissociation_constant",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:acid_dissociation_constant",
+    "predicate": "computed_by",
+    "object": "formula:acid_dissociation_constant_step1",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:acid_dissociation_constant",
+    "predicate": "computed_by",
+    "object": "formula:acid_dissociation_constant_step2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:acid_dissociation_constant",
+    "predicate": "computed_by",
+    "object": "formula:pka_definition",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:solubility_product",
+    "predicate": "computed_by",
+    "object": "formula:solubility_product",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:activation_energy",
+    "predicate": "computed_by",
+    "object": "formula:arrhenius",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:reaction_rate",
+    "predicate": "computed_by",
+    "object": "formula:vant_hoff_rule",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:reaction_rate",
+    "predicate": "computed_by",
+    "object": "formula:arrhenius",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:electronegativity",
+    "predicate": "computed_by",
+    "object": "formula:effective_nuclear_charge",
+    "knowledge_level": "school_convention"
+  }
+]

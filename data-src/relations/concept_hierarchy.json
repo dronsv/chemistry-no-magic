@@ -1,0 +1,248 @@
+[
+  {
+    "subject": "concept:cation",
+    "predicate": "is_a",
+    "object": "concept:charge",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:anion",
+    "predicate": "is_a",
+    "object": "concept:charge",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:oxidation",
+    "predicate": "inverse_of",
+    "object": "concept:reduction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:sublimation",
+    "predicate": "inverse_of",
+    "object": "concept:condensation",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:crystallization",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:electrolysis",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:photodecomposition",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:gas_absorption",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:complexation",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:ligand",
+    "predicate": "part_of",
+    "object": "concept:complex_ion",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:central_atom",
+    "predicate": "part_of",
+    "object": "concept:complex_ion",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:activation_energy",
+    "predicate": "influences",
+    "object": "concept:reaction_rate",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:le_chatelier",
+    "predicate": "governs",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:activity_series",
+    "predicate": "predicts",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:qualitative_reaction",
+    "predicate": "is_a",
+    "object": "concept:chemical_reaction",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:adsorption",
+    "predicate": "related_to",
+    "object": "concept:particle",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:electric_current",
+    "predicate": "enables",
+    "object": "concept:electrolysis",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:electrolyte",
+    "predicate": "enables",
+    "object": "concept:electric_current",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:bond_polarity",
+    "predicate": "related_to",
+    "object": "concept:electron_density",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:metallic_luster",
+    "predicate": "related_to",
+    "object": "concept:electron_density",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:thermal_conductivity",
+    "predicate": "related_to",
+    "object": "concept:metallic_luster",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:hardness",
+    "predicate": "related_to",
+    "object": "concept:melting_point",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:atomic_mass",
+    "predicate": "computed_by",
+    "object": "formula:molar_mass_from_composition",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:ion_charge",
+    "predicate": "related_to",
+    "object": "concept:cation",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:ion_charge",
+    "predicate": "related_to",
+    "object": "concept:anion",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:standard_entropy",
+    "predicate": "computed_by",
+    "object": "formula:hess_law",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:acid_composition",
+    "predicate": "related_to",
+    "object": "cls:acid_oxygen",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:acid_composition",
+    "predicate": "related_to",
+    "object": "cls:acid_oxygenfree",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:oxide_character",
+    "predicate": "related_to",
+    "object": "cls:oxide_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:oxide_character",
+    "predicate": "related_to",
+    "object": "cls:oxide_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:base_solubility",
+    "predicate": "related_to",
+    "object": "cls:base_alkali",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:base_solubility",
+    "predicate": "related_to",
+    "object": "cls:base_insoluble",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:salt_composition",
+    "predicate": "related_to",
+    "object": "cls:salt_normal",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:salt_composition",
+    "predicate": "related_to",
+    "object": "cls:salt_acidic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:salt_composition",
+    "predicate": "related_to",
+    "object": "cls:salt_basic",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "concept:liquid_phase",
+    "predicate": "related_to",
+    "object": "concept:boiling_point",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:gaseous_phase",
+    "predicate": "related_to",
+    "object": "concept:boiling_point",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:force",
+    "predicate": "related_to",
+    "object": "concept:particle",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:particle",
+    "predicate": "is_a_parent_of",
+    "object": "prop:atom",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:particle",
+    "predicate": "is_a_parent_of",
+    "object": "prop:molecule",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "concept:particle",
+    "predicate": "is_a_parent_of",
+    "object": "prop:ion",
+    "knowledge_level": "strict_chemistry"
+  }
+]

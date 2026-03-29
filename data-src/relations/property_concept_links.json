@@ -1,0 +1,122 @@
+[
+  {
+    "subject": "prop:electronegativity",
+    "predicate": "measures",
+    "object": "concept:electronegativity",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:melting_point",
+    "predicate": "measures",
+    "object": "concept:melting_point",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:boiling_point",
+    "predicate": "measures",
+    "object": "concept:boiling_point",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:density",
+    "predicate": "measures",
+    "object": "concept:density",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:oxidation_state",
+    "predicate": "measures",
+    "object": "concept:oxidation",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:valence",
+    "predicate": "related_to",
+    "object": "concept:bond_polarity",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:amphoteric",
+    "predicate": "related_to",
+    "object": "cls:oxide_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:amphoteric",
+    "predicate": "related_to",
+    "object": "cls:base_amphoteric",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:dissociation",
+    "predicate": "related_to",
+    "object": "concept:electrolyte",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:color",
+    "predicate": "related_to",
+    "object": "concept:qualitative_reaction",
+    "knowledge_level": "pedagogical"
+  },
+  {
+    "subject": "prop:crystal_lattice",
+    "predicate": "related_to",
+    "object": "concept:hardness",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:crystal_lattice",
+    "predicate": "related_to",
+    "object": "concept:melting_point",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:oxidizer",
+    "predicate": "related_to",
+    "object": "concept:reduction",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:reducer",
+    "predicate": "related_to",
+    "object": "concept:oxidation",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:thermal_stability",
+    "predicate": "related_to",
+    "object": "concept:melting_point",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:flammability",
+    "predicate": "related_to",
+    "object": "concept:oxidation",
+    "knowledge_level": "school_convention"
+  },
+  {
+    "subject": "prop:state_of_matter",
+    "predicate": "related_to",
+    "object": "concept:liquid_phase",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:state_of_matter",
+    "predicate": "related_to",
+    "object": "concept:gaseous_phase",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:ion",
+    "predicate": "related_to",
+    "object": "concept:cation",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "prop:ion",
+    "predicate": "related_to",
+    "object": "concept:anion",
+    "knowledge_level": "strict_chemistry"
+  }
+]
