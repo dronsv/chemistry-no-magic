@@ -1,0 +1,28 @@
+{
+  "id": "sub:zn",
+  "formula": "Zn",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 65.38,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 419.53,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 907,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 7.134,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

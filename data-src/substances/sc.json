@@ -1,0 +1,28 @@
+{
+  "id": "sub:sc",
+  "formula": "Sc",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 44.96,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1541,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2836,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.985,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

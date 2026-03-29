@@ -10,16 +10,20 @@
   "phase_standard": "g",
   "characteristics": {
     "concept:boiling_point": {
-      "value": -191.5,
+      "value": 2927,
       "unit": "unit:celsius"
     },
     "concept:density": {
-      "value": 1.25,
+      "value": 8.9,
       "unit": "unit:g_per_cm3"
     },
     "concept:melting_point": {
-      "value": -205,
+      "value": 1495,
       "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 58.93,
+      "unit": "unit:g_per_mol"
     }
   }
 }

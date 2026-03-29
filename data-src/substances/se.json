@@ -1,0 +1,28 @@
+{
+  "id": "sub:se",
+  "formula": "Se",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 78.97,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 221,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 685,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 4.809,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

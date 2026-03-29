@@ -1,0 +1,28 @@
+{
+  "id": "sub:pb",
+  "formula": "Pb",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 207.2,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 327.46,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1749,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 11.34,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sub:u",
+  "formula": "U",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 238.03,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1135,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 4131,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 19.05,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

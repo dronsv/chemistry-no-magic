@@ -1,0 +1,28 @@
+{
+  "id": "sub:ta",
+  "formula": "Ta",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 180.95,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 3017,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 5458,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 16.654,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

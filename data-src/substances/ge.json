@@ -1,0 +1,28 @@
+{
+  "id": "sub:ge",
+  "formula": "Ge",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 72.63,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 938.25,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2833,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 5.323,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

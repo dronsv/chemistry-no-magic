@@ -1,0 +1,28 @@
+{
+  "id": "sub:bi",
+  "formula": "Bi",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 208.98,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 271.4,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1564,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 9.78,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

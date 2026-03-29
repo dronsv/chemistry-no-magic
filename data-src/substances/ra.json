@@ -1,0 +1,28 @@
+{
+  "id": "sub:ra",
+  "formula": "Ra",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 226,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 696,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1737,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 5.5,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

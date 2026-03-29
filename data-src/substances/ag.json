@@ -1,0 +1,28 @@
+{
+  "id": "sub:ag",
+  "formula": "Ag",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 107.87,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 961.78,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2162,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 10.49,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

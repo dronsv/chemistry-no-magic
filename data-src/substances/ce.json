@@ -1,0 +1,28 @@
+{
+  "id": "sub:ce",
+  "formula": "Ce",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 140.12,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 798,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 3443,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 6.77,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

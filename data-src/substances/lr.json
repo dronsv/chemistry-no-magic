@@ -1,0 +1,20 @@
+{
+  "id": "sub:lr",
+  "formula": "Lr",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 266,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1627,
+      "unit": "unit:celsius"
+    }
+  }
+}

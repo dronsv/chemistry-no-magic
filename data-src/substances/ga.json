@@ -1,0 +1,28 @@
+{
+  "id": "sub:ga",
+  "formula": "Ga",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 69.72,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 29.76,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2229,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 5.907,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

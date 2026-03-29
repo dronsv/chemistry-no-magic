@@ -1281,5 +1281,659 @@
       "P",
       "fosfor"
     ]
+  },
+  "he": {
+    "name": "Hel",
+    "surface_forms": [
+      "He"
+    ]
+  },
+  "li": {
+    "name": "Lit",
+    "surface_forms": [
+      "Li"
+    ]
+  },
+  "be": {
+    "name": "Beryl",
+    "surface_forms": [
+      "Be"
+    ]
+  },
+  "b": {
+    "name": "Bor",
+    "surface_forms": [
+      "B"
+    ]
+  },
+  "f2": {
+    "name": "Fluor",
+    "surface_forms": [
+      "F₂"
+    ]
+  },
+  "ne": {
+    "name": "Neon",
+    "surface_forms": [
+      "Ne"
+    ]
+  },
+  "na": {
+    "name": "Sód",
+    "surface_forms": [
+      "Na"
+    ]
+  },
+  "mg": {
+    "name": "Magnez",
+    "surface_forms": [
+      "Mg"
+    ]
+  },
+  "al": {
+    "name": "Glin",
+    "surface_forms": [
+      "Al"
+    ]
+  },
+  "si": {
+    "name": "Krzem",
+    "surface_forms": [
+      "Si"
+    ]
+  },
+  "s": {
+    "name": "Siarka",
+    "surface_forms": [
+      "S"
+    ]
+  },
+  "ar": {
+    "name": "Argon",
+    "surface_forms": [
+      "Ar"
+    ]
+  },
+  "k": {
+    "name": "Potas",
+    "surface_forms": [
+      "K"
+    ]
+  },
+  "ca": {
+    "name": "Wapń",
+    "surface_forms": [
+      "Ca"
+    ]
+  },
+  "sc": {
+    "name": "Skand",
+    "surface_forms": [
+      "Sc"
+    ]
+  },
+  "ti": {
+    "name": "Tytan",
+    "surface_forms": [
+      "Ti"
+    ]
+  },
+  "v": {
+    "name": "Wanad",
+    "surface_forms": [
+      "V"
+    ]
+  },
+  "cr": {
+    "name": "Chrom",
+    "surface_forms": [
+      "Cr"
+    ]
+  },
+  "mn": {
+    "name": "Mangan",
+    "surface_forms": [
+      "Mn"
+    ]
+  },
+  "fe": {
+    "name": "Żelazo",
+    "surface_forms": [
+      "Fe"
+    ]
+  },
+  "ni": {
+    "name": "Nikiel",
+    "surface_forms": [
+      "Ni"
+    ]
+  },
+  "cu": {
+    "name": "Miedź",
+    "surface_forms": [
+      "Cu"
+    ]
+  },
+  "zn": {
+    "name": "Cynk",
+    "surface_forms": [
+      "Zn"
+    ]
+  },
+  "ga": {
+    "name": "Gal",
+    "surface_forms": [
+      "Ga"
+    ]
+  },
+  "ge": {
+    "name": "German",
+    "surface_forms": [
+      "Ge"
+    ]
+  },
+  "as": {
+    "name": "Arsen",
+    "surface_forms": [
+      "As"
+    ]
+  },
+  "se": {
+    "name": "Selen",
+    "surface_forms": [
+      "Se"
+    ]
+  },
+  "br2": {
+    "name": "Brom",
+    "surface_forms": [
+      "Br₂"
+    ]
+  },
+  "kr": {
+    "name": "Krypton",
+    "surface_forms": [
+      "Kr"
+    ]
+  },
+  "rb": {
+    "name": "Rubid",
+    "surface_forms": [
+      "Rb"
+    ]
+  },
+  "sr": {
+    "name": "Stront",
+    "surface_forms": [
+      "Sr"
+    ]
+  },
+  "y": {
+    "name": "Itr",
+    "surface_forms": [
+      "Y"
+    ]
+  },
+  "zr": {
+    "name": "Cyrkon",
+    "surface_forms": [
+      "Zr"
+    ]
+  },
+  "nb": {
+    "name": "Niob",
+    "surface_forms": [
+      "Nb"
+    ]
+  },
+  "mo": {
+    "name": "Molibden",
+    "surface_forms": [
+      "Mo"
+    ]
+  },
+  "tc": {
+    "name": "Technet",
+    "surface_forms": [
+      "Tc"
+    ]
+  },
+  "ru": {
+    "name": "Ruten",
+    "surface_forms": [
+      "Ru"
+    ]
+  },
+  "rh": {
+    "name": "Rod",
+    "surface_forms": [
+      "Rh"
+    ]
+  },
+  "pd": {
+    "name": "Pallad",
+    "surface_forms": [
+      "Pd"
+    ]
+  },
+  "ag": {
+    "name": "Srebro",
+    "surface_forms": [
+      "Ag"
+    ]
+  },
+  "cd": {
+    "name": "Kadm",
+    "surface_forms": [
+      "Cd"
+    ]
+  },
+  "in": {
+    "name": "Ind",
+    "surface_forms": [
+      "In"
+    ]
+  },
+  "sn": {
+    "name": "Cyna",
+    "surface_forms": [
+      "Sn"
+    ]
+  },
+  "sb": {
+    "name": "Antymon",
+    "surface_forms": [
+      "Sb"
+    ]
+  },
+  "te": {
+    "name": "Tellur",
+    "surface_forms": [
+      "Te"
+    ]
+  },
+  "i2": {
+    "name": "Jod",
+    "surface_forms": [
+      "I₂"
+    ]
+  },
+  "xe": {
+    "name": "Ksenon",
+    "surface_forms": [
+      "Xe"
+    ]
+  },
+  "cs": {
+    "name": "Cez",
+    "surface_forms": [
+      "Cs"
+    ]
+  },
+  "ba": {
+    "name": "Bar",
+    "surface_forms": [
+      "Ba"
+    ]
+  },
+  "la": {
+    "name": "Lantan",
+    "surface_forms": [
+      "La"
+    ]
+  },
+  "ce": {
+    "name": "Cer",
+    "surface_forms": [
+      "Ce"
+    ]
+  },
+  "pr": {
+    "name": "Prazeodym",
+    "surface_forms": [
+      "Pr"
+    ]
+  },
+  "nd": {
+    "name": "Neodym",
+    "surface_forms": [
+      "Nd"
+    ]
+  },
+  "pm": {
+    "name": "Promet",
+    "surface_forms": [
+      "Pm"
+    ]
+  },
+  "sm": {
+    "name": "Samar",
+    "surface_forms": [
+      "Sm"
+    ]
+  },
+  "eu": {
+    "name": "Europ",
+    "surface_forms": [
+      "Eu"
+    ]
+  },
+  "gd": {
+    "name": "Gadolin",
+    "surface_forms": [
+      "Gd"
+    ]
+  },
+  "tb": {
+    "name": "Terb",
+    "surface_forms": [
+      "Tb"
+    ]
+  },
+  "dy": {
+    "name": "Dysproz",
+    "surface_forms": [
+      "Dy"
+    ]
+  },
+  "ho": {
+    "name": "Holm",
+    "surface_forms": [
+      "Ho"
+    ]
+  },
+  "er": {
+    "name": "Erb",
+    "surface_forms": [
+      "Er"
+    ]
+  },
+  "tm": {
+    "name": "Tul",
+    "surface_forms": [
+      "Tm"
+    ]
+  },
+  "yb": {
+    "name": "Iterb",
+    "surface_forms": [
+      "Yb"
+    ]
+  },
+  "lu": {
+    "name": "Lutet",
+    "surface_forms": [
+      "Lu"
+    ]
+  },
+  "ta": {
+    "name": "Tantal",
+    "surface_forms": [
+      "Ta"
+    ]
+  },
+  "w": {
+    "name": "Wolfram",
+    "surface_forms": [
+      "W"
+    ]
+  },
+  "re": {
+    "name": "Ren",
+    "surface_forms": [
+      "Re"
+    ]
+  },
+  "os": {
+    "name": "Osm",
+    "surface_forms": [
+      "Os"
+    ]
+  },
+  "ir": {
+    "name": "Iryd",
+    "surface_forms": [
+      "Ir"
+    ]
+  },
+  "pt": {
+    "name": "Platyna",
+    "surface_forms": [
+      "Pt"
+    ]
+  },
+  "au": {
+    "name": "Złoto",
+    "surface_forms": [
+      "Au"
+    ]
+  },
+  "hg": {
+    "name": "Rtęć",
+    "surface_forms": [
+      "Hg"
+    ]
+  },
+  "tl": {
+    "name": "Tal",
+    "surface_forms": [
+      "Tl"
+    ]
+  },
+  "pb": {
+    "name": "Ołów",
+    "surface_forms": [
+      "Pb"
+    ]
+  },
+  "bi": {
+    "name": "Bizmut",
+    "surface_forms": [
+      "Bi"
+    ]
+  },
+  "po": {
+    "name": "Polon",
+    "surface_forms": [
+      "Po"
+    ]
+  },
+  "at": {
+    "name": "Astat",
+    "surface_forms": [
+      "At"
+    ]
+  },
+  "rn": {
+    "name": "Radon",
+    "surface_forms": [
+      "Rn"
+    ]
+  },
+  "fr": {
+    "name": "Frans",
+    "surface_forms": [
+      "Fr"
+    ]
+  },
+  "ra": {
+    "name": "Rad",
+    "surface_forms": [
+      "Ra"
+    ]
+  },
+  "ac": {
+    "name": "Aktyn",
+    "surface_forms": [
+      "Ac"
+    ]
+  },
+  "th": {
+    "name": "Tor",
+    "surface_forms": [
+      "Th"
+    ]
+  },
+  "pa": {
+    "name": "Protaktyn",
+    "surface_forms": [
+      "Pa"
+    ]
+  },
+  "u": {
+    "name": "Uran",
+    "surface_forms": [
+      "U"
+    ]
+  },
+  "np": {
+    "name": "Neptun",
+    "surface_forms": [
+      "Np"
+    ]
+  },
+  "pu": {
+    "name": "Pluton",
+    "surface_forms": [
+      "Pu"
+    ]
+  },
+  "am": {
+    "name": "Ameryk",
+    "surface_forms": [
+      "Am"
+    ]
+  },
+  "cm": {
+    "name": "Kiur",
+    "surface_forms": [
+      "Cm"
+    ]
+  },
+  "bk": {
+    "name": "Berkel",
+    "surface_forms": [
+      "Bk"
+    ]
+  },
+  "cf": {
+    "name": "Kaliforn",
+    "surface_forms": [
+      "Cf"
+    ]
+  },
+  "es": {
+    "name": "Einstein",
+    "surface_forms": [
+      "Es"
+    ]
+  },
+  "fm": {
+    "name": "Ferm",
+    "surface_forms": [
+      "Fm"
+    ]
+  },
+  "md": {
+    "name": "Mendelew",
+    "surface_forms": [
+      "Md"
+    ]
+  },
+  "lr": {
+    "name": "Lorens",
+    "surface_forms": [
+      "Lr"
+    ]
+  },
+  "rf": {
+    "name": "Rutherford",
+    "surface_forms": [
+      "Rf"
+    ]
+  },
+  "db": {
+    "name": "Dubn",
+    "surface_forms": [
+      "Db"
+    ]
+  },
+  "sg": {
+    "name": "Seaborg",
+    "surface_forms": [
+      "Sg"
+    ]
+  },
+  "bh": {
+    "name": "Bohr",
+    "surface_forms": [
+      "Bh"
+    ]
+  },
+  "hs": {
+    "name": "Has",
+    "surface_forms": [
+      "Hs"
+    ]
+  },
+  "mt": {
+    "name": "Meitner",
+    "surface_forms": [
+      "Mt"
+    ]
+  },
+  "ds": {
+    "name": "Darmsztadt",
+    "surface_forms": [
+      "Ds"
+    ]
+  },
+  "rg": {
+    "name": "Roentgen",
+    "surface_forms": [
+      "Rg"
+    ]
+  },
+  "cn": {
+    "name": "Kopernik",
+    "surface_forms": [
+      "Cn"
+    ]
+  },
+  "nh": {
+    "name": "Nihon",
+    "surface_forms": [
+      "Nh"
+    ]
+  },
+  "fl": {
+    "name": "Flerow",
+    "surface_forms": [
+      "Fl"
+    ]
+  },
+  "mc": {
+    "name": "Moskow",
+    "surface_forms": [
+      "Mc"
+    ]
+  },
+  "lv": {
+    "name": "Liwermor",
+    "surface_forms": [
+      "Lv"
+    ]
+  },
+  "ts": {
+    "name": "Tenes",
+    "surface_forms": [
+      "Ts"
+    ]
+  },
+  "og": {
+    "name": "Oganeson",
+    "surface_forms": [
+      "Og"
+    ]
   }
 }

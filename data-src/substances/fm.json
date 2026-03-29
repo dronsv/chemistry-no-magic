@@ -1,0 +1,20 @@
+{
+  "id": "sub:fm",
+  "formula": "Fm",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 257,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1527,
+      "unit": "unit:celsius"
+    }
+  }
+}

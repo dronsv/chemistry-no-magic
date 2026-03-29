@@ -1,0 +1,28 @@
+{
+  "id": "sub:br2",
+  "formula": "Br₂",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 159.81,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -7.2,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 58.8,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 3.1028,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sub:nb",
+  "formula": "Nb",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 92.91,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 2477,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 4744,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 8.57,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

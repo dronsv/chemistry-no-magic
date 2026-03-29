@@ -1,0 +1,28 @@
+{
+  "id": "sub:ca",
+  "formula": "Ca",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 40.08,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 842,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1484,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.55,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

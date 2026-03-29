@@ -1,0 +1,28 @@
+{
+  "id": "sub:er",
+  "formula": "Er",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 167.26,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1529,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2868,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 9.066,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

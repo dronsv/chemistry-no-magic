@@ -1,0 +1,16 @@
+{
+  "id": "sub:mt",
+  "formula": "Mt",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 278,
+      "unit": "unit:g_per_mol"
+    }
+  }
+}

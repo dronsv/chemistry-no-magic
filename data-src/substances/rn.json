@@ -1,0 +1,28 @@
+{
+  "id": "sub:rn",
+  "formula": "Rn",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "noble_gas"
+  ],
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 222,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -71,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": -61.7,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.00973,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

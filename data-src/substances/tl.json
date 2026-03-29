@@ -1,0 +1,28 @@
+{
+  "id": "sub:tl",
+  "formula": "Tl",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 204.38,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 304,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1473,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 11.85,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

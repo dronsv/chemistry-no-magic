@@ -1,0 +1,28 @@
+{
+  "id": "sub:kr",
+  "formula": "Kr",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "noble_gas"
+  ],
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 83.8,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -157.37,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": -153.42,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.003749,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

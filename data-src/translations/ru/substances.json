@@ -2052,5 +2052,659 @@
       "P",
       "фосфор"
     ]
+  },
+  "he": {
+    "name": "Гелий",
+    "surface_forms": [
+      "He"
+    ]
+  },
+  "li": {
+    "name": "Литий",
+    "surface_forms": [
+      "Li"
+    ]
+  },
+  "be": {
+    "name": "Бериллий",
+    "surface_forms": [
+      "Be"
+    ]
+  },
+  "b": {
+    "name": "Бор",
+    "surface_forms": [
+      "B"
+    ]
+  },
+  "f2": {
+    "name": "Фтор",
+    "surface_forms": [
+      "F₂"
+    ]
+  },
+  "ne": {
+    "name": "Неон",
+    "surface_forms": [
+      "Ne"
+    ]
+  },
+  "na": {
+    "name": "Натрий",
+    "surface_forms": [
+      "Na"
+    ]
+  },
+  "mg": {
+    "name": "Магний",
+    "surface_forms": [
+      "Mg"
+    ]
+  },
+  "al": {
+    "name": "Алюминий",
+    "surface_forms": [
+      "Al"
+    ]
+  },
+  "si": {
+    "name": "Кремний",
+    "surface_forms": [
+      "Si"
+    ]
+  },
+  "s": {
+    "name": "Сера",
+    "surface_forms": [
+      "S"
+    ]
+  },
+  "ar": {
+    "name": "Аргон",
+    "surface_forms": [
+      "Ar"
+    ]
+  },
+  "k": {
+    "name": "Калий",
+    "surface_forms": [
+      "K"
+    ]
+  },
+  "ca": {
+    "name": "Кальций",
+    "surface_forms": [
+      "Ca"
+    ]
+  },
+  "sc": {
+    "name": "Скандий",
+    "surface_forms": [
+      "Sc"
+    ]
+  },
+  "ti": {
+    "name": "Титан",
+    "surface_forms": [
+      "Ti"
+    ]
+  },
+  "v": {
+    "name": "Ванадий",
+    "surface_forms": [
+      "V"
+    ]
+  },
+  "cr": {
+    "name": "Хром",
+    "surface_forms": [
+      "Cr"
+    ]
+  },
+  "mn": {
+    "name": "Марганец",
+    "surface_forms": [
+      "Mn"
+    ]
+  },
+  "fe": {
+    "name": "Железо",
+    "surface_forms": [
+      "Fe"
+    ]
+  },
+  "ni": {
+    "name": "Никель",
+    "surface_forms": [
+      "Ni"
+    ]
+  },
+  "cu": {
+    "name": "Медь",
+    "surface_forms": [
+      "Cu"
+    ]
+  },
+  "zn": {
+    "name": "Цинк",
+    "surface_forms": [
+      "Zn"
+    ]
+  },
+  "ga": {
+    "name": "Галлий",
+    "surface_forms": [
+      "Ga"
+    ]
+  },
+  "ge": {
+    "name": "Германий",
+    "surface_forms": [
+      "Ge"
+    ]
+  },
+  "as": {
+    "name": "Мышьяк",
+    "surface_forms": [
+      "As"
+    ]
+  },
+  "se": {
+    "name": "Селен",
+    "surface_forms": [
+      "Se"
+    ]
+  },
+  "br2": {
+    "name": "Бром",
+    "surface_forms": [
+      "Br₂"
+    ]
+  },
+  "kr": {
+    "name": "Криптон",
+    "surface_forms": [
+      "Kr"
+    ]
+  },
+  "rb": {
+    "name": "Рубидий",
+    "surface_forms": [
+      "Rb"
+    ]
+  },
+  "sr": {
+    "name": "Стронций",
+    "surface_forms": [
+      "Sr"
+    ]
+  },
+  "y": {
+    "name": "Иттрий",
+    "surface_forms": [
+      "Y"
+    ]
+  },
+  "zr": {
+    "name": "Цирконий",
+    "surface_forms": [
+      "Zr"
+    ]
+  },
+  "nb": {
+    "name": "Ниобий",
+    "surface_forms": [
+      "Nb"
+    ]
+  },
+  "mo": {
+    "name": "Молибден",
+    "surface_forms": [
+      "Mo"
+    ]
+  },
+  "tc": {
+    "name": "Технеций",
+    "surface_forms": [
+      "Tc"
+    ]
+  },
+  "ru": {
+    "name": "Рутений",
+    "surface_forms": [
+      "Ru"
+    ]
+  },
+  "rh": {
+    "name": "Родий",
+    "surface_forms": [
+      "Rh"
+    ]
+  },
+  "pd": {
+    "name": "Палладий",
+    "surface_forms": [
+      "Pd"
+    ]
+  },
+  "ag": {
+    "name": "Серебро",
+    "surface_forms": [
+      "Ag"
+    ]
+  },
+  "cd": {
+    "name": "Кадмий",
+    "surface_forms": [
+      "Cd"
+    ]
+  },
+  "in": {
+    "name": "Индий",
+    "surface_forms": [
+      "In"
+    ]
+  },
+  "sn": {
+    "name": "Олово",
+    "surface_forms": [
+      "Sn"
+    ]
+  },
+  "sb": {
+    "name": "Сурьма",
+    "surface_forms": [
+      "Sb"
+    ]
+  },
+  "te": {
+    "name": "Теллур",
+    "surface_forms": [
+      "Te"
+    ]
+  },
+  "i2": {
+    "name": "Иод",
+    "surface_forms": [
+      "I₂"
+    ]
+  },
+  "xe": {
+    "name": "Ксенон",
+    "surface_forms": [
+      "Xe"
+    ]
+  },
+  "cs": {
+    "name": "Цезий",
+    "surface_forms": [
+      "Cs"
+    ]
+  },
+  "ba": {
+    "name": "Барий",
+    "surface_forms": [
+      "Ba"
+    ]
+  },
+  "la": {
+    "name": "Лантан",
+    "surface_forms": [
+      "La"
+    ]
+  },
+  "ce": {
+    "name": "Церий",
+    "surface_forms": [
+      "Ce"
+    ]
+  },
+  "pr": {
+    "name": "Празеодим",
+    "surface_forms": [
+      "Pr"
+    ]
+  },
+  "nd": {
+    "name": "Неодим",
+    "surface_forms": [
+      "Nd"
+    ]
+  },
+  "pm": {
+    "name": "Прометий",
+    "surface_forms": [
+      "Pm"
+    ]
+  },
+  "sm": {
+    "name": "Самарий",
+    "surface_forms": [
+      "Sm"
+    ]
+  },
+  "eu": {
+    "name": "Европий",
+    "surface_forms": [
+      "Eu"
+    ]
+  },
+  "gd": {
+    "name": "Гадолиний",
+    "surface_forms": [
+      "Gd"
+    ]
+  },
+  "tb": {
+    "name": "Тербий",
+    "surface_forms": [
+      "Tb"
+    ]
+  },
+  "dy": {
+    "name": "Диспрозий",
+    "surface_forms": [
+      "Dy"
+    ]
+  },
+  "ho": {
+    "name": "Гольмий",
+    "surface_forms": [
+      "Ho"
+    ]
+  },
+  "er": {
+    "name": "Эрбий",
+    "surface_forms": [
+      "Er"
+    ]
+  },
+  "tm": {
+    "name": "Тулий",
+    "surface_forms": [
+      "Tm"
+    ]
+  },
+  "yb": {
+    "name": "Иттербий",
+    "surface_forms": [
+      "Yb"
+    ]
+  },
+  "lu": {
+    "name": "Лютеций",
+    "surface_forms": [
+      "Lu"
+    ]
+  },
+  "ta": {
+    "name": "Тантал",
+    "surface_forms": [
+      "Ta"
+    ]
+  },
+  "w": {
+    "name": "Вольфрам",
+    "surface_forms": [
+      "W"
+    ]
+  },
+  "re": {
+    "name": "Рений",
+    "surface_forms": [
+      "Re"
+    ]
+  },
+  "os": {
+    "name": "Осмий",
+    "surface_forms": [
+      "Os"
+    ]
+  },
+  "ir": {
+    "name": "Иридий",
+    "surface_forms": [
+      "Ir"
+    ]
+  },
+  "pt": {
+    "name": "Платина",
+    "surface_forms": [
+      "Pt"
+    ]
+  },
+  "au": {
+    "name": "Золото",
+    "surface_forms": [
+      "Au"
+    ]
+  },
+  "hg": {
+    "name": "Ртуть",
+    "surface_forms": [
+      "Hg"
+    ]
+  },
+  "tl": {
+    "name": "Таллий",
+    "surface_forms": [
+      "Tl"
+    ]
+  },
+  "pb": {
+    "name": "Свинец",
+    "surface_forms": [
+      "Pb"
+    ]
+  },
+  "bi": {
+    "name": "Висмут",
+    "surface_forms": [
+      "Bi"
+    ]
+  },
+  "po": {
+    "name": "Полоний",
+    "surface_forms": [
+      "Po"
+    ]
+  },
+  "at": {
+    "name": "Астат",
+    "surface_forms": [
+      "At"
+    ]
+  },
+  "rn": {
+    "name": "Радон",
+    "surface_forms": [
+      "Rn"
+    ]
+  },
+  "fr": {
+    "name": "Франций",
+    "surface_forms": [
+      "Fr"
+    ]
+  },
+  "ra": {
+    "name": "Радий",
+    "surface_forms": [
+      "Ra"
+    ]
+  },
+  "ac": {
+    "name": "Актиний",
+    "surface_forms": [
+      "Ac"
+    ]
+  },
+  "th": {
+    "name": "Торий",
+    "surface_forms": [
+      "Th"
+    ]
+  },
+  "pa": {
+    "name": "Протактиний",
+    "surface_forms": [
+      "Pa"
+    ]
+  },
+  "u": {
+    "name": "Уран",
+    "surface_forms": [
+      "U"
+    ]
+  },
+  "np": {
+    "name": "Нептуний",
+    "surface_forms": [
+      "Np"
+    ]
+  },
+  "pu": {
+    "name": "Плутоний",
+    "surface_forms": [
+      "Pu"
+    ]
+  },
+  "am": {
+    "name": "Америций",
+    "surface_forms": [
+      "Am"
+    ]
+  },
+  "cm": {
+    "name": "Кюрий",
+    "surface_forms": [
+      "Cm"
+    ]
+  },
+  "bk": {
+    "name": "Берклий",
+    "surface_forms": [
+      "Bk"
+    ]
+  },
+  "cf": {
+    "name": "Калифорний",
+    "surface_forms": [
+      "Cf"
+    ]
+  },
+  "es": {
+    "name": "Эйнштейний",
+    "surface_forms": [
+      "Es"
+    ]
+  },
+  "fm": {
+    "name": "Фермий",
+    "surface_forms": [
+      "Fm"
+    ]
+  },
+  "md": {
+    "name": "Менделевий",
+    "surface_forms": [
+      "Md"
+    ]
+  },
+  "lr": {
+    "name": "Лоуренсий",
+    "surface_forms": [
+      "Lr"
+    ]
+  },
+  "rf": {
+    "name": "Резерфордий",
+    "surface_forms": [
+      "Rf"
+    ]
+  },
+  "db": {
+    "name": "Дубний",
+    "surface_forms": [
+      "Db"
+    ]
+  },
+  "sg": {
+    "name": "Сиборгий",
+    "surface_forms": [
+      "Sg"
+    ]
+  },
+  "bh": {
+    "name": "Борий",
+    "surface_forms": [
+      "Bh"
+    ]
+  },
+  "hs": {
+    "name": "Хассий",
+    "surface_forms": [
+      "Hs"
+    ]
+  },
+  "mt": {
+    "name": "Мейтнерий",
+    "surface_forms": [
+      "Mt"
+    ]
+  },
+  "ds": {
+    "name": "Дармштадтий",
+    "surface_forms": [
+      "Ds"
+    ]
+  },
+  "rg": {
+    "name": "Рентгений",
+    "surface_forms": [
+      "Rg"
+    ]
+  },
+  "cn": {
+    "name": "Коперниций",
+    "surface_forms": [
+      "Cn"
+    ]
+  },
+  "nh": {
+    "name": "Нихоний",
+    "surface_forms": [
+      "Nh"
+    ]
+  },
+  "fl": {
+    "name": "Флеровий",
+    "surface_forms": [
+      "Fl"
+    ]
+  },
+  "mc": {
+    "name": "Московий",
+    "surface_forms": [
+      "Mc"
+    ]
+  },
+  "lv": {
+    "name": "Ливерморий",
+    "surface_forms": [
+      "Lv"
+    ]
+  },
+  "ts": {
+    "name": "Теннессин",
+    "surface_forms": [
+      "Ts"
+    ]
+  },
+  "og": {
+    "name": "Оганесон",
+    "surface_forms": [
+      "Og"
+    ]
   }
 }

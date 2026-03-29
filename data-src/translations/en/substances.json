@@ -1281,5 +1281,659 @@
       "P",
       "phosphorus"
     ]
+  },
+  "he": {
+    "name": "Helium",
+    "surface_forms": [
+      "He"
+    ]
+  },
+  "li": {
+    "name": "Lithium",
+    "surface_forms": [
+      "Li"
+    ]
+  },
+  "be": {
+    "name": "Beryllium",
+    "surface_forms": [
+      "Be"
+    ]
+  },
+  "b": {
+    "name": "Boron",
+    "surface_forms": [
+      "B"
+    ]
+  },
+  "f2": {
+    "name": "Fluorine",
+    "surface_forms": [
+      "F₂"
+    ]
+  },
+  "ne": {
+    "name": "Neon",
+    "surface_forms": [
+      "Ne"
+    ]
+  },
+  "na": {
+    "name": "Sodium",
+    "surface_forms": [
+      "Na"
+    ]
+  },
+  "mg": {
+    "name": "Magnesium",
+    "surface_forms": [
+      "Mg"
+    ]
+  },
+  "al": {
+    "name": "Aluminium",
+    "surface_forms": [
+      "Al"
+    ]
+  },
+  "si": {
+    "name": "Silicon",
+    "surface_forms": [
+      "Si"
+    ]
+  },
+  "s": {
+    "name": "Sulfur",
+    "surface_forms": [
+      "S"
+    ]
+  },
+  "ar": {
+    "name": "Argon",
+    "surface_forms": [
+      "Ar"
+    ]
+  },
+  "k": {
+    "name": "Potassium",
+    "surface_forms": [
+      "K"
+    ]
+  },
+  "ca": {
+    "name": "Calcium",
+    "surface_forms": [
+      "Ca"
+    ]
+  },
+  "sc": {
+    "name": "Scandium",
+    "surface_forms": [
+      "Sc"
+    ]
+  },
+  "ti": {
+    "name": "Titanium",
+    "surface_forms": [
+      "Ti"
+    ]
+  },
+  "v": {
+    "name": "Vanadium",
+    "surface_forms": [
+      "V"
+    ]
+  },
+  "cr": {
+    "name": "Chromium",
+    "surface_forms": [
+      "Cr"
+    ]
+  },
+  "mn": {
+    "name": "Manganese",
+    "surface_forms": [
+      "Mn"
+    ]
+  },
+  "fe": {
+    "name": "Iron",
+    "surface_forms": [
+      "Fe"
+    ]
+  },
+  "ni": {
+    "name": "Nickel",
+    "surface_forms": [
+      "Ni"
+    ]
+  },
+  "cu": {
+    "name": "Copper",
+    "surface_forms": [
+      "Cu"
+    ]
+  },
+  "zn": {
+    "name": "Zinc",
+    "surface_forms": [
+      "Zn"
+    ]
+  },
+  "ga": {
+    "name": "Gallium",
+    "surface_forms": [
+      "Ga"
+    ]
+  },
+  "ge": {
+    "name": "Germanium",
+    "surface_forms": [
+      "Ge"
+    ]
+  },
+  "as": {
+    "name": "Arsenic",
+    "surface_forms": [
+      "As"
+    ]
+  },
+  "se": {
+    "name": "Selenium",
+    "surface_forms": [
+      "Se"
+    ]
+  },
+  "br2": {
+    "name": "Bromine",
+    "surface_forms": [
+      "Br₂"
+    ]
+  },
+  "kr": {
+    "name": "Krypton",
+    "surface_forms": [
+      "Kr"
+    ]
+  },
+  "rb": {
+    "name": "Rubidium",
+    "surface_forms": [
+      "Rb"
+    ]
+  },
+  "sr": {
+    "name": "Strontium",
+    "surface_forms": [
+      "Sr"
+    ]
+  },
+  "y": {
+    "name": "Yttrium",
+    "surface_forms": [
+      "Y"
+    ]
+  },
+  "zr": {
+    "name": "Zirconium",
+    "surface_forms": [
+      "Zr"
+    ]
+  },
+  "nb": {
+    "name": "Niobium",
+    "surface_forms": [
+      "Nb"
+    ]
+  },
+  "mo": {
+    "name": "Molybdenum",
+    "surface_forms": [
+      "Mo"
+    ]
+  },
+  "tc": {
+    "name": "Technetium",
+    "surface_forms": [
+      "Tc"
+    ]
+  },
+  "ru": {
+    "name": "Ruthenium",
+    "surface_forms": [
+      "Ru"
+    ]
+  },
+  "rh": {
+    "name": "Rhodium",
+    "surface_forms": [
+      "Rh"
+    ]
+  },
+  "pd": {
+    "name": "Palladium",
+    "surface_forms": [
+      "Pd"
+    ]
+  },
+  "ag": {
+    "name": "Silver",
+    "surface_forms": [
+      "Ag"
+    ]
+  },
+  "cd": {
+    "name": "Cadmium",
+    "surface_forms": [
+      "Cd"
+    ]
+  },
+  "in": {
+    "name": "Indium",
+    "surface_forms": [
+      "In"
+    ]
+  },
+  "sn": {
+    "name": "Tin",
+    "surface_forms": [
+      "Sn"
+    ]
+  },
+  "sb": {
+    "name": "Antimony",
+    "surface_forms": [
+      "Sb"
+    ]
+  },
+  "te": {
+    "name": "Tellurium",
+    "surface_forms": [
+      "Te"
+    ]
+  },
+  "i2": {
+    "name": "Iodine",
+    "surface_forms": [
+      "I₂"
+    ]
+  },
+  "xe": {
+    "name": "Xenon",
+    "surface_forms": [
+      "Xe"
+    ]
+  },
+  "cs": {
+    "name": "Caesium",
+    "surface_forms": [
+      "Cs"
+    ]
+  },
+  "ba": {
+    "name": "Barium",
+    "surface_forms": [
+      "Ba"
+    ]
+  },
+  "la": {
+    "name": "Lanthanum",
+    "surface_forms": [
+      "La"
+    ]
+  },
+  "ce": {
+    "name": "Cerium",
+    "surface_forms": [
+      "Ce"
+    ]
+  },
+  "pr": {
+    "name": "Praseodymium",
+    "surface_forms": [
+      "Pr"
+    ]
+  },
+  "nd": {
+    "name": "Neodymium",
+    "surface_forms": [
+      "Nd"
+    ]
+  },
+  "pm": {
+    "name": "Promethium",
+    "surface_forms": [
+      "Pm"
+    ]
+  },
+  "sm": {
+    "name": "Samarium",
+    "surface_forms": [
+      "Sm"
+    ]
+  },
+  "eu": {
+    "name": "Europium",
+    "surface_forms": [
+      "Eu"
+    ]
+  },
+  "gd": {
+    "name": "Gadolinium",
+    "surface_forms": [
+      "Gd"
+    ]
+  },
+  "tb": {
+    "name": "Terbium",
+    "surface_forms": [
+      "Tb"
+    ]
+  },
+  "dy": {
+    "name": "Dysprosium",
+    "surface_forms": [
+      "Dy"
+    ]
+  },
+  "ho": {
+    "name": "Holmium",
+    "surface_forms": [
+      "Ho"
+    ]
+  },
+  "er": {
+    "name": "Erbium",
+    "surface_forms": [
+      "Er"
+    ]
+  },
+  "tm": {
+    "name": "Thulium",
+    "surface_forms": [
+      "Tm"
+    ]
+  },
+  "yb": {
+    "name": "Ytterbium",
+    "surface_forms": [
+      "Yb"
+    ]
+  },
+  "lu": {
+    "name": "Lutetium",
+    "surface_forms": [
+      "Lu"
+    ]
+  },
+  "ta": {
+    "name": "Tantalum",
+    "surface_forms": [
+      "Ta"
+    ]
+  },
+  "w": {
+    "name": "Tungsten",
+    "surface_forms": [
+      "W"
+    ]
+  },
+  "re": {
+    "name": "Rhenium",
+    "surface_forms": [
+      "Re"
+    ]
+  },
+  "os": {
+    "name": "Osmium",
+    "surface_forms": [
+      "Os"
+    ]
+  },
+  "ir": {
+    "name": "Iridium",
+    "surface_forms": [
+      "Ir"
+    ]
+  },
+  "pt": {
+    "name": "Platinum",
+    "surface_forms": [
+      "Pt"
+    ]
+  },
+  "au": {
+    "name": "Gold",
+    "surface_forms": [
+      "Au"
+    ]
+  },
+  "hg": {
+    "name": "Mercury",
+    "surface_forms": [
+      "Hg"
+    ]
+  },
+  "tl": {
+    "name": "Thallium",
+    "surface_forms": [
+      "Tl"
+    ]
+  },
+  "pb": {
+    "name": "Lead",
+    "surface_forms": [
+      "Pb"
+    ]
+  },
+  "bi": {
+    "name": "Bismuth",
+    "surface_forms": [
+      "Bi"
+    ]
+  },
+  "po": {
+    "name": "Polonium",
+    "surface_forms": [
+      "Po"
+    ]
+  },
+  "at": {
+    "name": "Astatine",
+    "surface_forms": [
+      "At"
+    ]
+  },
+  "rn": {
+    "name": "Radon",
+    "surface_forms": [
+      "Rn"
+    ]
+  },
+  "fr": {
+    "name": "Francium",
+    "surface_forms": [
+      "Fr"
+    ]
+  },
+  "ra": {
+    "name": "Radium",
+    "surface_forms": [
+      "Ra"
+    ]
+  },
+  "ac": {
+    "name": "Actinium",
+    "surface_forms": [
+      "Ac"
+    ]
+  },
+  "th": {
+    "name": "Thorium",
+    "surface_forms": [
+      "Th"
+    ]
+  },
+  "pa": {
+    "name": "Protactinium",
+    "surface_forms": [
+      "Pa"
+    ]
+  },
+  "u": {
+    "name": "Uranium",
+    "surface_forms": [
+      "U"
+    ]
+  },
+  "np": {
+    "name": "Neptunium",
+    "surface_forms": [
+      "Np"
+    ]
+  },
+  "pu": {
+    "name": "Plutonium",
+    "surface_forms": [
+      "Pu"
+    ]
+  },
+  "am": {
+    "name": "Americium",
+    "surface_forms": [
+      "Am"
+    ]
+  },
+  "cm": {
+    "name": "Curium",
+    "surface_forms": [
+      "Cm"
+    ]
+  },
+  "bk": {
+    "name": "Berkelium",
+    "surface_forms": [
+      "Bk"
+    ]
+  },
+  "cf": {
+    "name": "Californium",
+    "surface_forms": [
+      "Cf"
+    ]
+  },
+  "es": {
+    "name": "Einsteinium",
+    "surface_forms": [
+      "Es"
+    ]
+  },
+  "fm": {
+    "name": "Fermium",
+    "surface_forms": [
+      "Fm"
+    ]
+  },
+  "md": {
+    "name": "Mendelevium",
+    "surface_forms": [
+      "Md"
+    ]
+  },
+  "lr": {
+    "name": "Lawrencium",
+    "surface_forms": [
+      "Lr"
+    ]
+  },
+  "rf": {
+    "name": "Rutherfordium",
+    "surface_forms": [
+      "Rf"
+    ]
+  },
+  "db": {
+    "name": "Dubnium",
+    "surface_forms": [
+      "Db"
+    ]
+  },
+  "sg": {
+    "name": "Seaborgium",
+    "surface_forms": [
+      "Sg"
+    ]
+  },
+  "bh": {
+    "name": "Bohrium",
+    "surface_forms": [
+      "Bh"
+    ]
+  },
+  "hs": {
+    "name": "Hassium",
+    "surface_forms": [
+      "Hs"
+    ]
+  },
+  "mt": {
+    "name": "Meitnerium",
+    "surface_forms": [
+      "Mt"
+    ]
+  },
+  "ds": {
+    "name": "Darmstadtium",
+    "surface_forms": [
+      "Ds"
+    ]
+  },
+  "rg": {
+    "name": "Roentgenium",
+    "surface_forms": [
+      "Rg"
+    ]
+  },
+  "cn": {
+    "name": "Copernicium",
+    "surface_forms": [
+      "Cn"
+    ]
+  },
+  "nh": {
+    "name": "Nihonium",
+    "surface_forms": [
+      "Nh"
+    ]
+  },
+  "fl": {
+    "name": "Flerovium",
+    "surface_forms": [
+      "Fl"
+    ]
+  },
+  "mc": {
+    "name": "Moscovium",
+    "surface_forms": [
+      "Mc"
+    ]
+  },
+  "lv": {
+    "name": "Livermorium",
+    "surface_forms": [
+      "Lv"
+    ]
+  },
+  "ts": {
+    "name": "Tennessine",
+    "surface_forms": [
+      "Ts"
+    ]
+  },
+  "og": {
+    "name": "Oganesson",
+    "surface_forms": [
+      "Og"
+    ]
   }
 }

@@ -1,0 +1,28 @@
+{
+  "id": "sub:na",
+  "formula": "Na",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 22.99,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 97.79,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 882.94,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.968,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

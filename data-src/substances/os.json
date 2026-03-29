@@ -1,0 +1,28 @@
+{
+  "id": "sub:os",
+  "formula": "Os",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 190.23,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 3033,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 5012,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 22.587,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

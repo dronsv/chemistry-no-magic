@@ -1,0 +1,28 @@
+{
+  "id": "sub:cm",
+  "formula": "Cm",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 247,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1345,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 3110,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 13.51,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

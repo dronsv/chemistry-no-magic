@@ -1,0 +1,28 @@
+{
+  "id": "sub:pa",
+  "formula": "Pa",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 231.04,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1572,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 4000,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 15.37,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

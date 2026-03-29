@@ -1,0 +1,28 @@
+{
+  "id": "sub:yb",
+  "formula": "Yb",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 173.05,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 824,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1196,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 6.965,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

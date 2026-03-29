@@ -1,0 +1,28 @@
+{
+  "id": "sub:hg",
+  "formula": "Hg",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "l",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 200.59,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -38.83,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 356.73,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 13.534,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sub:tm",
+  "formula": "Tm",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 168.93,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1545,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1950,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 9.321,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

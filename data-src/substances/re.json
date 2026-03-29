@@ -1,0 +1,28 @@
+{
+  "id": "sub:re",
+  "formula": "Re",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 186.21,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 3186,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 5596,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 21.02,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

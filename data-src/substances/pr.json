@@ -1,0 +1,28 @@
+{
+  "id": "sub:pr",
+  "formula": "Pr",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 140.91,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 931,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 3520,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 6.773,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

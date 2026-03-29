@@ -1,0 +1,28 @@
+{
+  "id": "sub:fe",
+  "formula": "Fe",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 55.85,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1538,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2862,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 7.874,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

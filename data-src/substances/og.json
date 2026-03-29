@@ -1,0 +1,16 @@
+{
+  "id": "sub:og",
+  "formula": "Og",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "noble_gas"
+  ],
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 294,
+      "unit": "unit:g_per_mol"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sub:li",
+  "formula": "Li",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 6.94,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 180.54,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1342,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.534,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

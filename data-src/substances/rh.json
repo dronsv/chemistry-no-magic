@@ -1,0 +1,28 @@
+{
+  "id": "sub:rh",
+  "formula": "Rh",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 102.91,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1964,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 3695,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 12.41,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "sub:es",
+  "formula": "Es",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 252,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 860,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 8.84,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sub:mn",
+  "formula": "Mn",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 54.94,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1246,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2061,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 7.21,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

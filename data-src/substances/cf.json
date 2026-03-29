@@ -1,0 +1,28 @@
+{
+  "id": "sub:cf",
+  "formula": "Cf",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 251,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 900,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1470,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 15.1,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

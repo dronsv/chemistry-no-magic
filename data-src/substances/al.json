@@ -1,0 +1,28 @@
+{
+  "id": "sub:al",
+  "formula": "Al",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 26.98,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 660.32,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2519,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.7,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

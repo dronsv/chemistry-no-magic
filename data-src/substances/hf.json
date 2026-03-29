@@ -14,15 +14,15 @@
   "phase_standard": "aq",
   "characteristics": {
     "concept:boiling_point": {
-      "value": 19.5,
+      "value": 4603,
       "unit": "unit:celsius"
     },
     "concept:density": {
-      "value": 1.15,
+      "value": 13.31,
       "unit": "unit:g_per_cm3"
     },
     "concept:melting_point": {
-      "value": -83.6,
+      "value": 2233,
       "unit": "unit:celsius"
     },
     "concept:pKa": {
@@ -33,6 +33,10 @@
         "temperature_C": 25
       },
       "explanation_concept_id": "concept:acid_dissociation_constant"
+    },
+    "concept:molar_mass": {
+      "value": 178.49,
+      "unit": "unit:g_per_mol"
     }
   }
 }

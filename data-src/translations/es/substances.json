@@ -1281,5 +1281,659 @@
       "P",
       "fósforo"
     ]
+  },
+  "he": {
+    "name": "Helio",
+    "surface_forms": [
+      "He"
+    ]
+  },
+  "li": {
+    "name": "Litio",
+    "surface_forms": [
+      "Li"
+    ]
+  },
+  "be": {
+    "name": "Berilio",
+    "surface_forms": [
+      "Be"
+    ]
+  },
+  "b": {
+    "name": "Boro",
+    "surface_forms": [
+      "B"
+    ]
+  },
+  "f2": {
+    "name": "Flúor",
+    "surface_forms": [
+      "F₂"
+    ]
+  },
+  "ne": {
+    "name": "Neón",
+    "surface_forms": [
+      "Ne"
+    ]
+  },
+  "na": {
+    "name": "Sodio",
+    "surface_forms": [
+      "Na"
+    ]
+  },
+  "mg": {
+    "name": "Magnesio",
+    "surface_forms": [
+      "Mg"
+    ]
+  },
+  "al": {
+    "name": "Aluminio",
+    "surface_forms": [
+      "Al"
+    ]
+  },
+  "si": {
+    "name": "Silicio",
+    "surface_forms": [
+      "Si"
+    ]
+  },
+  "s": {
+    "name": "Azufre",
+    "surface_forms": [
+      "S"
+    ]
+  },
+  "ar": {
+    "name": "Argón",
+    "surface_forms": [
+      "Ar"
+    ]
+  },
+  "k": {
+    "name": "Potasio",
+    "surface_forms": [
+      "K"
+    ]
+  },
+  "ca": {
+    "name": "Calcio",
+    "surface_forms": [
+      "Ca"
+    ]
+  },
+  "sc": {
+    "name": "Escandio",
+    "surface_forms": [
+      "Sc"
+    ]
+  },
+  "ti": {
+    "name": "Titanio",
+    "surface_forms": [
+      "Ti"
+    ]
+  },
+  "v": {
+    "name": "Vanadio",
+    "surface_forms": [
+      "V"
+    ]
+  },
+  "cr": {
+    "name": "Cromo",
+    "surface_forms": [
+      "Cr"
+    ]
+  },
+  "mn": {
+    "name": "Manganeso",
+    "surface_forms": [
+      "Mn"
+    ]
+  },
+  "fe": {
+    "name": "Hierro",
+    "surface_forms": [
+      "Fe"
+    ]
+  },
+  "ni": {
+    "name": "Níquel",
+    "surface_forms": [
+      "Ni"
+    ]
+  },
+  "cu": {
+    "name": "Cobre",
+    "surface_forms": [
+      "Cu"
+    ]
+  },
+  "zn": {
+    "name": "Cinc",
+    "surface_forms": [
+      "Zn"
+    ]
+  },
+  "ga": {
+    "name": "Galio",
+    "surface_forms": [
+      "Ga"
+    ]
+  },
+  "ge": {
+    "name": "Germanio",
+    "surface_forms": [
+      "Ge"
+    ]
+  },
+  "as": {
+    "name": "Arsénico",
+    "surface_forms": [
+      "As"
+    ]
+  },
+  "se": {
+    "name": "Selenio",
+    "surface_forms": [
+      "Se"
+    ]
+  },
+  "br2": {
+    "name": "Bromo",
+    "surface_forms": [
+      "Br₂"
+    ]
+  },
+  "kr": {
+    "name": "Kriptón",
+    "surface_forms": [
+      "Kr"
+    ]
+  },
+  "rb": {
+    "name": "Rubidio",
+    "surface_forms": [
+      "Rb"
+    ]
+  },
+  "sr": {
+    "name": "Estroncio",
+    "surface_forms": [
+      "Sr"
+    ]
+  },
+  "y": {
+    "name": "Itrio",
+    "surface_forms": [
+      "Y"
+    ]
+  },
+  "zr": {
+    "name": "Circonio",
+    "surface_forms": [
+      "Zr"
+    ]
+  },
+  "nb": {
+    "name": "Niobio",
+    "surface_forms": [
+      "Nb"
+    ]
+  },
+  "mo": {
+    "name": "Molibdeno",
+    "surface_forms": [
+      "Mo"
+    ]
+  },
+  "tc": {
+    "name": "Tecnecio",
+    "surface_forms": [
+      "Tc"
+    ]
+  },
+  "ru": {
+    "name": "Rutenio",
+    "surface_forms": [
+      "Ru"
+    ]
+  },
+  "rh": {
+    "name": "Rodio",
+    "surface_forms": [
+      "Rh"
+    ]
+  },
+  "pd": {
+    "name": "Paladio",
+    "surface_forms": [
+      "Pd"
+    ]
+  },
+  "ag": {
+    "name": "Plata",
+    "surface_forms": [
+      "Ag"
+    ]
+  },
+  "cd": {
+    "name": "Cadmio",
+    "surface_forms": [
+      "Cd"
+    ]
+  },
+  "in": {
+    "name": "Indio",
+    "surface_forms": [
+      "In"
+    ]
+  },
+  "sn": {
+    "name": "Estaño",
+    "surface_forms": [
+      "Sn"
+    ]
+  },
+  "sb": {
+    "name": "Antimonio",
+    "surface_forms": [
+      "Sb"
+    ]
+  },
+  "te": {
+    "name": "Telurio",
+    "surface_forms": [
+      "Te"
+    ]
+  },
+  "i2": {
+    "name": "Yodo",
+    "surface_forms": [
+      "I₂"
+    ]
+  },
+  "xe": {
+    "name": "Xenón",
+    "surface_forms": [
+      "Xe"
+    ]
+  },
+  "cs": {
+    "name": "Cesio",
+    "surface_forms": [
+      "Cs"
+    ]
+  },
+  "ba": {
+    "name": "Bario",
+    "surface_forms": [
+      "Ba"
+    ]
+  },
+  "la": {
+    "name": "Lantano",
+    "surface_forms": [
+      "La"
+    ]
+  },
+  "ce": {
+    "name": "Cerio",
+    "surface_forms": [
+      "Ce"
+    ]
+  },
+  "pr": {
+    "name": "Praseodimio",
+    "surface_forms": [
+      "Pr"
+    ]
+  },
+  "nd": {
+    "name": "Neodimio",
+    "surface_forms": [
+      "Nd"
+    ]
+  },
+  "pm": {
+    "name": "Prometio",
+    "surface_forms": [
+      "Pm"
+    ]
+  },
+  "sm": {
+    "name": "Samario",
+    "surface_forms": [
+      "Sm"
+    ]
+  },
+  "eu": {
+    "name": "Europio",
+    "surface_forms": [
+      "Eu"
+    ]
+  },
+  "gd": {
+    "name": "Gadolinio",
+    "surface_forms": [
+      "Gd"
+    ]
+  },
+  "tb": {
+    "name": "Terbio",
+    "surface_forms": [
+      "Tb"
+    ]
+  },
+  "dy": {
+    "name": "Disprosio",
+    "surface_forms": [
+      "Dy"
+    ]
+  },
+  "ho": {
+    "name": "Holmio",
+    "surface_forms": [
+      "Ho"
+    ]
+  },
+  "er": {
+    "name": "Erbio",
+    "surface_forms": [
+      "Er"
+    ]
+  },
+  "tm": {
+    "name": "Tulio",
+    "surface_forms": [
+      "Tm"
+    ]
+  },
+  "yb": {
+    "name": "Iterbio",
+    "surface_forms": [
+      "Yb"
+    ]
+  },
+  "lu": {
+    "name": "Lutecio",
+    "surface_forms": [
+      "Lu"
+    ]
+  },
+  "ta": {
+    "name": "Tantalio",
+    "surface_forms": [
+      "Ta"
+    ]
+  },
+  "w": {
+    "name": "Wolframio",
+    "surface_forms": [
+      "W"
+    ]
+  },
+  "re": {
+    "name": "Renio",
+    "surface_forms": [
+      "Re"
+    ]
+  },
+  "os": {
+    "name": "Osmio",
+    "surface_forms": [
+      "Os"
+    ]
+  },
+  "ir": {
+    "name": "Iridio",
+    "surface_forms": [
+      "Ir"
+    ]
+  },
+  "pt": {
+    "name": "Platino",
+    "surface_forms": [
+      "Pt"
+    ]
+  },
+  "au": {
+    "name": "Oro",
+    "surface_forms": [
+      "Au"
+    ]
+  },
+  "hg": {
+    "name": "Mercurio",
+    "surface_forms": [
+      "Hg"
+    ]
+  },
+  "tl": {
+    "name": "Talio",
+    "surface_forms": [
+      "Tl"
+    ]
+  },
+  "pb": {
+    "name": "Plomo",
+    "surface_forms": [
+      "Pb"
+    ]
+  },
+  "bi": {
+    "name": "Bismuto",
+    "surface_forms": [
+      "Bi"
+    ]
+  },
+  "po": {
+    "name": "Polonio",
+    "surface_forms": [
+      "Po"
+    ]
+  },
+  "at": {
+    "name": "Astato",
+    "surface_forms": [
+      "At"
+    ]
+  },
+  "rn": {
+    "name": "Radón",
+    "surface_forms": [
+      "Rn"
+    ]
+  },
+  "fr": {
+    "name": "Francio",
+    "surface_forms": [
+      "Fr"
+    ]
+  },
+  "ra": {
+    "name": "Radio",
+    "surface_forms": [
+      "Ra"
+    ]
+  },
+  "ac": {
+    "name": "Actinio",
+    "surface_forms": [
+      "Ac"
+    ]
+  },
+  "th": {
+    "name": "Torio",
+    "surface_forms": [
+      "Th"
+    ]
+  },
+  "pa": {
+    "name": "Protactinio",
+    "surface_forms": [
+      "Pa"
+    ]
+  },
+  "u": {
+    "name": "Uranio",
+    "surface_forms": [
+      "U"
+    ]
+  },
+  "np": {
+    "name": "Neptunio",
+    "surface_forms": [
+      "Np"
+    ]
+  },
+  "pu": {
+    "name": "Plutonio",
+    "surface_forms": [
+      "Pu"
+    ]
+  },
+  "am": {
+    "name": "Americio",
+    "surface_forms": [
+      "Am"
+    ]
+  },
+  "cm": {
+    "name": "Curio",
+    "surface_forms": [
+      "Cm"
+    ]
+  },
+  "bk": {
+    "name": "Berkelio",
+    "surface_forms": [
+      "Bk"
+    ]
+  },
+  "cf": {
+    "name": "Californio",
+    "surface_forms": [
+      "Cf"
+    ]
+  },
+  "es": {
+    "name": "Einstenio",
+    "surface_forms": [
+      "Es"
+    ]
+  },
+  "fm": {
+    "name": "Fermio",
+    "surface_forms": [
+      "Fm"
+    ]
+  },
+  "md": {
+    "name": "Mendelevio",
+    "surface_forms": [
+      "Md"
+    ]
+  },
+  "lr": {
+    "name": "Laurencio",
+    "surface_forms": [
+      "Lr"
+    ]
+  },
+  "rf": {
+    "name": "Rutherfordio",
+    "surface_forms": [
+      "Rf"
+    ]
+  },
+  "db": {
+    "name": "Dubnio",
+    "surface_forms": [
+      "Db"
+    ]
+  },
+  "sg": {
+    "name": "Seaborgio",
+    "surface_forms": [
+      "Sg"
+    ]
+  },
+  "bh": {
+    "name": "Bohrio",
+    "surface_forms": [
+      "Bh"
+    ]
+  },
+  "hs": {
+    "name": "Hasio",
+    "surface_forms": [
+      "Hs"
+    ]
+  },
+  "mt": {
+    "name": "Meitnerio",
+    "surface_forms": [
+      "Mt"
+    ]
+  },
+  "ds": {
+    "name": "Darmstatio",
+    "surface_forms": [
+      "Ds"
+    ]
+  },
+  "rg": {
+    "name": "Roentgenio",
+    "surface_forms": [
+      "Rg"
+    ]
+  },
+  "cn": {
+    "name": "Copernicio",
+    "surface_forms": [
+      "Cn"
+    ]
+  },
+  "nh": {
+    "name": "Nihonio",
+    "surface_forms": [
+      "Nh"
+    ]
+  },
+  "fl": {
+    "name": "Flerovio",
+    "surface_forms": [
+      "Fl"
+    ]
+  },
+  "mc": {
+    "name": "Moscovio",
+    "surface_forms": [
+      "Mc"
+    ]
+  },
+  "lv": {
+    "name": "Livermorio",
+    "surface_forms": [
+      "Lv"
+    ]
+  },
+  "ts": {
+    "name": "Teneso",
+    "surface_forms": [
+      "Ts"
+    ]
+  },
+  "og": {
+    "name": "Oganesón",
+    "surface_forms": [
+      "Og"
+    ]
   }
 }

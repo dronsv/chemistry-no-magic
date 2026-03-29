@@ -1,0 +1,28 @@
+{
+  "id": "sub:sr",
+  "formula": "Sr",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 87.62,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 777,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1382,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 2.64,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "sub:fr",
+  "formula": "Fr",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 223,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 27,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 677,
+      "unit": "unit:celsius"
+    }
+  }
+}

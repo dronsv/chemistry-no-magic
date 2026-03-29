@@ -18,8 +18,12 @@
       "unit": "unit:g_per_cm3"
     },
     "concept:melting_point": {
-      "value": -163.6,
+      "value": 827,
       "unit": "unit:celsius"
+    },
+    "concept:molar_mass": {
+      "value": 259,
+      "unit": "unit:g_per_mol"
     }
   }
 }

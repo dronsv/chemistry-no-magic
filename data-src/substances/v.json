@@ -1,0 +1,28 @@
+{
+  "id": "sub:v",
+  "formula": "V",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 50.94,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1910,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 3407,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 6.11,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

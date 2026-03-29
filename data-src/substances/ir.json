@@ -1,0 +1,28 @@
+{
+  "id": "sub:ir",
+  "formula": "Ir",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 192.22,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 2446,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 4428,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 22.562,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

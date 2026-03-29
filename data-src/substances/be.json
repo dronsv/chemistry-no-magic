@@ -1,0 +1,28 @@
+{
+  "id": "sub:be",
+  "formula": "Be",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 9.01,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 1287,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 2469,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.85,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

@@ -48,6 +48,18 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Ac",
+    "predicate": "forms_substance",
+    "object": "sub:ac",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ag",
+    "predicate": "forms_substance",
+    "object": "sub:ag",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:Ag",
     "predicate": "forms_substance",
     "object": "sub:ag2s",
@@ -111,6 +123,12 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:agno3",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Al",
+    "predicate": "forms_substance",
+    "object": "sub:al",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -234,6 +252,48 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Am",
+    "predicate": "forms_substance",
+    "object": "sub:am",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ar",
+    "predicate": "forms_substance",
+    "object": "sub:ar",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:As",
+    "predicate": "forms_substance",
+    "object": "sub:as",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:At",
+    "predicate": "forms_substance",
+    "object": "sub:at",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Au",
+    "predicate": "forms_substance",
+    "object": "sub:au",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:B",
+    "predicate": "forms_substance",
+    "object": "sub:b",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ba",
+    "predicate": "forms_substance",
+    "object": "sub:ba",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:Ba",
     "predicate": "forms_substance",
     "object": "sub:ba_oh_2",
@@ -314,6 +374,12 @@
   {
     "subject": "el:Be",
     "predicate": "forms_substance",
+    "object": "sub:be",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Be",
+    "predicate": "forms_substance",
     "object": "sub:be_oh_2",
     "knowledge_level": "strict_chemistry"
   },
@@ -339,6 +405,30 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:beo",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Bh",
+    "predicate": "forms_substance",
+    "object": "sub:bh",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Bi",
+    "predicate": "forms_substance",
+    "object": "sub:bi",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Bk",
+    "predicate": "forms_substance",
+    "object": "sub:bk",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Br",
+    "predicate": "forms_substance",
+    "object": "sub:br2",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -531,6 +621,12 @@
     "subject": "el:H",
     "predicate": "forms_substance",
     "object": "sub:c8h18",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ca",
+    "predicate": "forms_substance",
+    "object": "sub:ca",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -798,6 +894,24 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Cd",
+    "predicate": "forms_substance",
+    "object": "sub:cd",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ce",
+    "predicate": "forms_substance",
+    "object": "sub:ce",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Cf",
+    "predicate": "forms_substance",
+    "object": "sub:cf",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:C",
     "predicate": "forms_substance",
     "object": "sub:ch3cho",
@@ -930,6 +1044,18 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Cm",
+    "predicate": "forms_substance",
+    "object": "sub:cm",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Cn",
+    "predicate": "forms_substance",
+    "object": "sub:cn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:C",
     "predicate": "forms_substance",
     "object": "sub:co",
@@ -951,6 +1077,12 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:co2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Cr",
+    "predicate": "forms_substance",
+    "object": "sub:cr",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -993,6 +1125,18 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:cro3",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Cs",
+    "predicate": "forms_substance",
+    "object": "sub:cs",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Cu",
+    "predicate": "forms_substance",
+    "object": "sub:cu",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -1146,6 +1290,54 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Db",
+    "predicate": "forms_substance",
+    "object": "sub:db",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ds",
+    "predicate": "forms_substance",
+    "object": "sub:ds",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Dy",
+    "predicate": "forms_substance",
+    "object": "sub:dy",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Er",
+    "predicate": "forms_substance",
+    "object": "sub:er",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Es",
+    "predicate": "forms_substance",
+    "object": "sub:es",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Eu",
+    "predicate": "forms_substance",
+    "object": "sub:eu",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:F",
+    "predicate": "forms_substance",
+    "object": "sub:f2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Fe",
+    "predicate": "forms_substance",
+    "object": "sub:fe",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:Fe",
     "predicate": "forms_substance",
     "object": "sub:fe2_so4_3",
@@ -1323,6 +1515,42 @@
     "subject": "el:H",
     "predicate": "forms_substance",
     "object": "sub:feso4_7h2o",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Fl",
+    "predicate": "forms_substance",
+    "object": "sub:fl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Fm",
+    "predicate": "forms_substance",
+    "object": "sub:fm",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Fr",
+    "predicate": "forms_substance",
+    "object": "sub:fr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ga",
+    "predicate": "forms_substance",
+    "object": "sub:ga",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Gd",
+    "predicate": "forms_substance",
+    "object": "sub:gd",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ge",
+    "predicate": "forms_substance",
+    "object": "sub:ge",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -1572,6 +1800,12 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:He",
+    "predicate": "forms_substance",
+    "object": "sub:he",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:H",
     "predicate": "forms_substance",
     "object": "sub:hf",
@@ -1581,6 +1815,12 @@
     "subject": "el:F",
     "predicate": "forms_substance",
     "object": "sub:hf",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Hg",
+    "predicate": "forms_substance",
+    "object": "sub:hg",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -1647,6 +1887,42 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:hno3",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ho",
+    "predicate": "forms_substance",
+    "object": "sub:ho",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Hs",
+    "predicate": "forms_substance",
+    "object": "sub:hs",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:I",
+    "predicate": "forms_substance",
+    "object": "sub:i2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:In",
+    "predicate": "forms_substance",
+    "object": "sub:in",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ir",
+    "predicate": "forms_substance",
+    "object": "sub:ir",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:K",
+    "predicate": "forms_substance",
+    "object": "sub:k",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -1884,6 +2160,24 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Kr",
+    "predicate": "forms_substance",
+    "object": "sub:kr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:La",
+    "predicate": "forms_substance",
+    "object": "sub:la",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Li",
+    "predicate": "forms_substance",
+    "object": "sub:li",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:Li",
     "predicate": "forms_substance",
     "object": "sub:li2o",
@@ -1911,6 +2205,42 @@
     "subject": "el:H",
     "predicate": "forms_substance",
     "object": "sub:lioh",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Lr",
+    "predicate": "forms_substance",
+    "object": "sub:lr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Lu",
+    "predicate": "forms_substance",
+    "object": "sub:lu",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Lv",
+    "predicate": "forms_substance",
+    "object": "sub:lv",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Mc",
+    "predicate": "forms_substance",
+    "object": "sub:mc",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Md",
+    "predicate": "forms_substance",
+    "object": "sub:md",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Mg",
+    "predicate": "forms_substance",
+    "object": "sub:mg",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -1988,6 +2318,12 @@
   {
     "subject": "el:Mn",
     "predicate": "forms_substance",
+    "object": "sub:mn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Mn",
+    "predicate": "forms_substance",
     "object": "sub:mn2o7",
     "knowledge_level": "strict_chemistry"
   },
@@ -2022,6 +2358,18 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Mo",
+    "predicate": "forms_substance",
+    "object": "sub:mo",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Mt",
+    "predicate": "forms_substance",
+    "object": "sub:mt",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:N",
     "predicate": "forms_substance",
     "object": "sub:n2",
@@ -2049,6 +2397,12 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:n2o5",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Na",
+    "predicate": "forms_substance",
+    "object": "sub:na",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -2412,6 +2766,30 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Nb",
+    "predicate": "forms_substance",
+    "object": "sub:nb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Nd",
+    "predicate": "forms_substance",
+    "object": "sub:nd",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ne",
+    "predicate": "forms_substance",
+    "object": "sub:ne",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Nh",
+    "predicate": "forms_substance",
+    "object": "sub:nh",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:N",
     "predicate": "forms_substance",
     "object": "sub:nh3",
@@ -2460,6 +2838,12 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Ni",
+    "predicate": "forms_substance",
+    "object": "sub:ni",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:N",
     "predicate": "forms_substance",
     "object": "sub:no",
@@ -2472,9 +2856,21 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Np",
+    "predicate": "forms_substance",
+    "object": "sub:np",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:o2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Og",
+    "predicate": "forms_substance",
+    "object": "sub:og",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -2496,6 +2892,12 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Os",
+    "predicate": "forms_substance",
+    "object": "sub:os",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:P",
     "predicate": "forms_substance",
     "object": "sub:P",
@@ -2511,6 +2913,18 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:p2o5",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pa",
+    "predicate": "forms_substance",
+    "object": "sub:pa",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pb",
+    "predicate": "forms_substance",
+    "object": "sub:pb",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -2616,6 +3030,126 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Pd",
+    "predicate": "forms_substance",
+    "object": "sub:pd",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pm",
+    "predicate": "forms_substance",
+    "object": "sub:pm",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Po",
+    "predicate": "forms_substance",
+    "object": "sub:po",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pr",
+    "predicate": "forms_substance",
+    "object": "sub:pr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pt",
+    "predicate": "forms_substance",
+    "object": "sub:pt",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Pu",
+    "predicate": "forms_substance",
+    "object": "sub:pu",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ra",
+    "predicate": "forms_substance",
+    "object": "sub:ra",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Rb",
+    "predicate": "forms_substance",
+    "object": "sub:rb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Re",
+    "predicate": "forms_substance",
+    "object": "sub:re",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Rf",
+    "predicate": "forms_substance",
+    "object": "sub:rf",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Rg",
+    "predicate": "forms_substance",
+    "object": "sub:rg",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Rh",
+    "predicate": "forms_substance",
+    "object": "sub:rh",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Rn",
+    "predicate": "forms_substance",
+    "object": "sub:rn",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ru",
+    "predicate": "forms_substance",
+    "object": "sub:ru",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:S",
+    "predicate": "forms_substance",
+    "object": "sub:s",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Sb",
+    "predicate": "forms_substance",
+    "object": "sub:sb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Sc",
+    "predicate": "forms_substance",
+    "object": "sub:sc",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Se",
+    "predicate": "forms_substance",
+    "object": "sub:se",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Sg",
+    "predicate": "forms_substance",
+    "object": "sub:sg",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Si",
+    "predicate": "forms_substance",
+    "object": "sub:si",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:Si",
     "predicate": "forms_substance",
     "object": "sub:sio2",
@@ -2625,6 +3159,18 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:sio2",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Sm",
+    "predicate": "forms_substance",
+    "object": "sub:sm",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Sn",
+    "predicate": "forms_substance",
+    "object": "sub:sn",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -2664,6 +3210,78 @@
     "knowledge_level": "strict_chemistry"
   },
   {
+    "subject": "el:Sr",
+    "predicate": "forms_substance",
+    "object": "sub:sr",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ta",
+    "predicate": "forms_substance",
+    "object": "sub:ta",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Tb",
+    "predicate": "forms_substance",
+    "object": "sub:tb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Tc",
+    "predicate": "forms_substance",
+    "object": "sub:tc",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Te",
+    "predicate": "forms_substance",
+    "object": "sub:te",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Th",
+    "predicate": "forms_substance",
+    "object": "sub:th",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ti",
+    "predicate": "forms_substance",
+    "object": "sub:ti",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Tl",
+    "predicate": "forms_substance",
+    "object": "sub:tl",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Tm",
+    "predicate": "forms_substance",
+    "object": "sub:tm",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Ts",
+    "predicate": "forms_substance",
+    "object": "sub:ts",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:U",
+    "predicate": "forms_substance",
+    "object": "sub:u",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:V",
+    "predicate": "forms_substance",
+    "object": "sub:v",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
     "subject": "el:V",
     "predicate": "forms_substance",
     "object": "sub:v2o5",
@@ -2673,6 +3291,36 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:v2o5",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:W",
+    "predicate": "forms_substance",
+    "object": "sub:w",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Xe",
+    "predicate": "forms_substance",
+    "object": "sub:xe",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Y",
+    "predicate": "forms_substance",
+    "object": "sub:y",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Yb",
+    "predicate": "forms_substance",
+    "object": "sub:yb",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Zn",
+    "predicate": "forms_substance",
+    "object": "sub:zn",
     "knowledge_level": "strict_chemistry"
   },
   {
@@ -2745,6 +3393,12 @@
     "subject": "el:O",
     "predicate": "forms_substance",
     "object": "sub:znso4",
+    "knowledge_level": "strict_chemistry"
+  },
+  {
+    "subject": "el:Zr",
+    "predicate": "forms_substance",
+    "object": "sub:zr",
     "knowledge_level": "strict_chemistry"
   }
 ]

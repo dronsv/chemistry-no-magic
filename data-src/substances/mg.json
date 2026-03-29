@@ -1,0 +1,28 @@
+{
+  "id": "sub:mg",
+  "formula": "Mg",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "metal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 24.31,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": 650,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": 1091,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 1.738,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}

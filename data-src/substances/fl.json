@@ -1,0 +1,16 @@
+{
+  "id": "sub:fl",
+  "formula": "Fl",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "nonmetal"
+  ],
+  "phase_standard": "s",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 289,
+      "unit": "unit:g_per_mol"
+    }
+  }
+}

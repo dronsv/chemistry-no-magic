@@ -1,0 +1,28 @@
+{
+  "id": "sub:xe",
+  "formula": "Xe",
+  "class": "other",
+  "subclass": "simple_substance",
+  "tags": [
+    "noble_gas"
+  ],
+  "phase_standard": "g",
+  "characteristics": {
+    "concept:molar_mass": {
+      "value": 131.29,
+      "unit": "unit:g_per_mol"
+    },
+    "concept:melting_point": {
+      "value": -111.75,
+      "unit": "unit:celsius"
+    },
+    "concept:boiling_point": {
+      "value": -108.09,
+      "unit": "unit:celsius"
+    },
+    "concept:density": {
+      "value": 0.005894,
+      "unit": "unit:g_per_cm3"
+    }
+  }
+}
