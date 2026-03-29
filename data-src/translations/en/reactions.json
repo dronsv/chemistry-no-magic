@@ -30,5 +30,20 @@
   "rx_redox_03_mg_hcl": { "title": "Substitution: magnesium + hydrochloric acid" },
   "rx_redox_04_fe_cuso4": { "title": "Substitution: iron displaces copper" },
   "rx_redox_05_zn_cuso4": { "title": "Substitution: zinc displaces copper" },
-  "rx_redox_06_cu_agno3": { "title": "Substitution: copper displaces silver" }
+  "rx_redox_06_cu_agno3": { "title": "Substitution: copper displaces silver" },
+  "rx_synth_01_na_cl2": { "title": "Synthesis: sodium + chlorine → sodium chloride" },
+  "rx_synth_02_cao_h2o": { "title": "Synthesis: calcium oxide + water → calcium hydroxide" },
+  "rx_synth_03_so3_h2o": { "title": "Synthesis: sulfur trioxide + water → sulfuric acid" },
+  "rx_synth_04_fe_s": { "title": "Synthesis: iron + sulfur → iron(II) sulfide" },
+  "rx_synth_05_n2o5_h2o": { "title": "Synthesis: dinitrogen pentoxide + water → nitric acid" },
+  "rx_synth_06_na2o_h2o": { "title": "Synthesis: sodium oxide + water → sodium hydroxide" },
+  "rx_decomp_02_cu_oh_2_heat": { "title": "Decomposition: copper(II) hydroxide on heating" },
+  "rx_decomp_03_2kmno4": { "title": "Decomposition: potassium permanganate (O₂ generation)" },
+  "rx_decomp_04_2h2o2": { "title": "Decomposition: hydrogen peroxide (MnO₂ catalyst)" },
+  "rx_decomp_05_feoh3_heat": { "title": "Decomposition: iron(III) hydroxide on heating" },
+  "rx_decomp_06_nahco3_heat": { "title": "Decomposition: sodium bicarbonate (baking soda)" },
+  "rx_comb_01_mg_o2": { "title": "Combustion: magnesium in oxygen" },
+  "rx_comb_02_fe_o2": { "title": "Combustion: iron in oxygen" },
+  "rx_comb_03_c_o2": { "title": "Combustion: carbon in oxygen" },
+  "rx_comb_04_s_o2": { "title": "Combustion: sulfur in oxygen" }
 }

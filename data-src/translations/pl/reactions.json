@@ -30,5 +30,20 @@
   "rx_redox_03_mg_hcl": { "title": "Podstawienie: magnez + kwas solny" },
   "rx_redox_04_fe_cuso4": { "title": "Podstawienie: żelazo wypiera miedź" },
   "rx_redox_05_zn_cuso4": { "title": "Podstawienie: cynk wypiera miedź" },
-  "rx_redox_06_cu_agno3": { "title": "Podstawienie: miedź wypiera srebro" }
+  "rx_redox_06_cu_agno3": { "title": "Podstawienie: miedź wypiera srebro" },
+  "rx_synth_01_na_cl2": { "title": "Synteza: sód + chlor → chlorek sodu" },
+  "rx_synth_02_cao_h2o": { "title": "Synteza: tlenek wapnia + woda → wodorotlenek wapnia" },
+  "rx_synth_03_so3_h2o": { "title": "Synteza: trójtlenek siarki + woda → kwas siarkowy" },
+  "rx_synth_04_fe_s": { "title": "Synteza: żelazo + siarka → siarczek żelaza(II)" },
+  "rx_synth_05_n2o5_h2o": { "title": "Synteza: pięciotlenek diazotu + woda → kwas azotowy" },
+  "rx_synth_06_na2o_h2o": { "title": "Synteza: tlenek sodu + woda → wodorotlenek sodu" },
+  "rx_decomp_02_cu_oh_2_heat": { "title": "Rozkład: wodorotlenek miedzi(II) przy ogrzewaniu" },
+  "rx_decomp_03_2kmno4": { "title": "Rozkład: nadmanganian potasu (otrzymywanie O₂)" },
+  "rx_decomp_04_2h2o2": { "title": "Rozkład: nadtlenek wodoru (katalizator MnO₂)" },
+  "rx_decomp_05_feoh3_heat": { "title": "Rozkład: wodorotlenek żelaza(III) przy ogrzewaniu" },
+  "rx_decomp_06_nahco3_heat": { "title": "Rozkład: wodorowęglan sodu (soda oczyszczona)" },
+  "rx_comb_01_mg_o2": { "title": "Spalanie: magnez w tlenie" },
+  "rx_comb_02_fe_o2": { "title": "Spalanie: żelazo w tlenie" },
+  "rx_comb_03_c_o2": { "title": "Spalanie: węgiel w tlenie" },
+  "rx_comb_04_s_o2": { "title": "Spalanie: siarka w tlenie" }
 }

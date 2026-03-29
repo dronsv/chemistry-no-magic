@@ -30,5 +30,20 @@
   "rx_redox_03_mg_hcl": { "title": "Sustitución: magnesio + ácido clorhídrico" },
   "rx_redox_04_fe_cuso4": { "title": "Sustitución: el hierro desplaza al cobre" },
   "rx_redox_05_zn_cuso4": { "title": "Sustitución: el cinc desplaza al cobre" },
-  "rx_redox_06_cu_agno3": { "title": "Sustitución: el cobre desplaza a la plata" }
+  "rx_redox_06_cu_agno3": { "title": "Sustitución: el cobre desplaza a la plata" },
+  "rx_synth_01_na_cl2": { "title": "Síntesis: sodio + cloro → cloruro de sodio" },
+  "rx_synth_02_cao_h2o": { "title": "Síntesis: óxido de calcio + agua → hidróxido de calcio" },
+  "rx_synth_03_so3_h2o": { "title": "Síntesis: trióxido de azufre + agua → ácido sulfúrico" },
+  "rx_synth_04_fe_s": { "title": "Síntesis: hierro + azufre → sulfuro de hierro(II)" },
+  "rx_synth_05_n2o5_h2o": { "title": "Síntesis: pentóxido de dinitrógeno + agua → ácido nítrico" },
+  "rx_synth_06_na2o_h2o": { "title": "Síntesis: óxido de sodio + agua → hidróxido de sodio" },
+  "rx_decomp_02_cu_oh_2_heat": { "title": "Descomposición: hidróxido de cobre(II) al calentar" },
+  "rx_decomp_03_2kmno4": { "title": "Descomposición: permanganato de potasio (obtención de O₂)" },
+  "rx_decomp_04_2h2o2": { "title": "Descomposición: peróxido de hidrógeno (catalizador MnO₂)" },
+  "rx_decomp_05_feoh3_heat": { "title": "Descomposición: hidróxido de hierro(III) al calentar" },
+  "rx_decomp_06_nahco3_heat": { "title": "Descomposición: bicarbonato de sodio (soda de hornear)" },
+  "rx_comb_01_mg_o2": { "title": "Combustión: magnesio en oxígeno" },
+  "rx_comb_02_fe_o2": { "title": "Combustión: hierro en oxígeno" },
+  "rx_comb_03_c_o2": { "title": "Combustión: carbono en oxígeno" },
+  "rx_comb_04_s_o2": { "title": "Combustión: azufre en oxígeno" }
 }
