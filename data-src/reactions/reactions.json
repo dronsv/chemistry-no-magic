@@ -4227,5 +4227,1602 @@
       }
     },
     "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_metal_water_01_na",
+    "equation": "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)↑",
+    "phase": {
+      "medium": "mixed",
+      "note_key": "solid_plus_liquid"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Na",
+          "coeff": 2
+        },
+        {
+          "formula": "H2O",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "NaOH",
+          "coeff": 2
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "gas": [
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "vigorous_fizzing",
+          "source": "ontology_phase+explicit_text",
+          "rule_id": "gas.refine.vigorous_fizzing"
+        }
+      ],
+      "other": [
+        {
+          "facet": "metal_darts_on_surface",
+          "ref": "elem:Na",
+          "rule_id": "other:na_darts",
+          "source": "explicit_text"
+        },
+        {
+          "facet": "phenolphthalein_turns_pink",
+          "rule_id": "other:phenolphthalein_pink",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "already_fast",
+          "note": "very_active_metal",
+          "ref": "elem:Na",
+          "rule_id": "speed:na_active",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "reactive_metal",
+        "ref": "elem:Na",
+        "rule_id": "safety:na_reactive",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "note": "may_ignite",
+        "rule_id": "safety:h2_ignite",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "gas_precipitate_logic": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "H2O",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Na",
+        "element": "Na",
+        "from": 0,
+        "to": 1
+      }
+    },
+    "template_id": "metal_water",
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_metal_water_02_ca",
+    "equation": "Ca(s) + 2H₂O(l) → Ca(OH)₂(aq) + H₂(g)↑",
+    "phase": {
+      "medium": "mixed",
+      "note_key": "solid_plus_liquid"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Ca",
+          "coeff": 1
+        },
+        {
+          "formula": "H2O",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "Ca(OH)2",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "gas": [
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
+      ],
+      "other": [
+        {
+          "facet": "solution_turns_turbid",
+          "rule_id": "other:ca_turbid",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "grind",
+          "target_ref": "elem:Ca",
+          "rule_id": "speed:grind_ca",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "reactive_metal",
+        "ref": "elem:Ca",
+        "rule_id": "safety:ca_reactive",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "rule_id": "safety:caoh2_corrosive",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "gas_precipitate_logic": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "H2O",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Ca",
+        "element": "Ca",
+        "from": 0,
+        "to": 2
+      }
+    },
+    "template_id": "metal_water",
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_reduction_01_cuo_h2",
+    "equation": "CuO(s) + H₂(g) —t°→ Cu(s) + H₂O(g)",
+    "phase": {
+      "medium": "mixed",
+      "note_key": "solid_plus_gas"
+    },
+    "conditions": {
+      "temperature": "heating"
+    },
+    "type_tags": [
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "CuO",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
+      ],
+      "products": [
+        {
+          "formula": "Cu",
+          "coeff": 1
+        },
+        {
+          "formula": "H2O",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "color_change": [
+        {
+          "type": "solid_color_change",
+          "from_color": "black",
+          "to_color": "red_copper",
+          "rule_id": "color:cuo_to_cu",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "heat",
+          "intensity": "moderate",
+          "rule_id": "speed:heat_moderate",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "note": "check_purity",
+        "rule_id": "safety:h2_purity",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "CuO",
+        "element": "Cu",
+        "from": 2,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "H2",
+        "element": "H",
+        "from": 0,
+        "to": 1
+      }
+    },
+    "template_id": "oxide_reduction",
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_reduction_02_fe2o3_co",
+    "equation": "Fe₂O₃(s) + 3CO(g) —t°→ 2Fe(s) + 3CO₂(g)",
+    "phase": {
+      "medium": "mixed",
+      "note_key": "solid_plus_gas"
+    },
+    "conditions": {
+      "temperature": "strong_heating"
+    },
+    "type_tags": [
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Fe2O3",
+          "coeff": 1
+        },
+        {
+          "formula": "CO",
+          "coeff": 3
+        }
+      ],
+      "products": [
+        {
+          "formula": "Fe",
+          "coeff": 2
+        },
+        {
+          "formula": "CO2",
+          "coeff": 3
+        }
+      ]
+    },
+    "observations": {
+      "color_change": [
+        {
+          "type": "solid_color_change",
+          "from_color": "reddish_brown",
+          "to_color": "silvery_grey",
+          "rule_id": "color:fe2o3_to_fe",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "heat",
+          "intensity": "strong",
+          "rule_id": "speed:heat_strong",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:co",
+        "note": "fume_hood",
+        "rule_id": "safety:co_toxic",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "Fe2O3",
+        "element": "Fe",
+        "from": 3,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "CO",
+        "element": "C",
+        "from": 2,
+        "to": 4
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_redox_07_al_fe2o3",
+    "equation": "2Al(s) + Fe₂O₃(s) —t°→ Al₂O₃(s) + 2Fe(l)",
+    "phase": {
+      "medium": "s"
+    },
+    "conditions": {
+      "temperature": "ignition"
+    },
+    "type_tags": [
+      "redox",
+      "displacement"
+    ],
+    "driving_forces": [
+      "stability_of_ionic_lattice"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Al",
+          "coeff": 2
+        },
+        {
+          "formula": "Fe2O3",
+          "coeff": 1
+        }
+      ],
+      "products": [
+        {
+          "formula": "Al2O3",
+          "coeff": 1
+        },
+        {
+          "formula": "Fe",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {
+      "other": [
+        {
+          "facet": "brilliant_sparks",
+          "rule_id": "other:thermite_sparks",
+          "source": "explicit_text"
+        },
+        {
+          "facet": "molten_iron_droplets",
+          "rule_id": "other:thermite_iron",
+          "source": "explicit_text"
+        }
+      ],
+      "heat_intensity": {
+        "intensity": "extreme",
+        "rule_id": "heat:exo_extreme",
+        "source": "explicit_text"
+      }
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "extreme_heat",
+        "note": "thermite_reaction",
+        "rule_id": "safety:thermite",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "Fe2O3",
+        "element": "Fe",
+        "from": 3,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "Al",
+        "element": "Al",
+        "from": 0,
+        "to": 3
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_industrial_01_haber",
+    "equation": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g)",
+    "phase": {
+      "medium": "g"
+    },
+    "conditions": {
+      "temperature": "high_temperature",
+      "pressure": "high_pressure",
+      "catalyst": "Fe"
+    },
+    "type_tags": [
+      "synthesis",
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "N2",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 3
+        }
+      ],
+      "products": [
+        {
+          "formula": "NH3",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {
+      "smell": {
+        "kind": "ammonia",
+        "ref": "sub:nh3",
+        "rule_id": "smell:ammonia",
+        "source": "explicit_text"
+      }
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "high_pressure",
+        "rule_id": "safety:high_pressure",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:nh3",
+        "rule_id": "safety:nh3_toxic",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "catalyst_role_understanding": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "N2",
+        "element": "N",
+        "from": 0,
+        "to": -3
+      },
+      "reducer": {
+        "formula": "H2",
+        "element": "H",
+        "from": 0,
+        "to": 1
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_industrial_02_contact",
+    "equation": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
+    "phase": {
+      "medium": "g"
+    },
+    "conditions": {
+      "temperature": "450°C",
+      "catalyst": "V₂O₅"
+    },
+    "type_tags": [
+      "synthesis",
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "SO2",
+          "coeff": 2
+        },
+        {
+          "formula": "O2",
+          "coeff": 1
+        }
+      ],
+      "products": [
+        {
+          "formula": "SO3",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {},
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:so2",
+        "rule_id": "safety:so2_toxic",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "catalyst_role_understanding": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "O2",
+        "element": "O",
+        "from": 0,
+        "to": -2
+      },
+      "reducer": {
+        "formula": "SO2",
+        "element": "S",
+        "from": 4,
+        "to": 6
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_electrolysis_01_h2o",
+    "equation": "2H₂O(l) → 2H₂(g)↑ + O₂(g)↑",
+    "phase": {
+      "medium": "l"
+    },
+    "conditions": {
+      "catalyst": "electric_current"
+    },
+    "type_tags": [
+      "decomposition",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "H2O",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "H2",
+          "coeff": 2
+        },
+        {
+          "formula": "O2",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "gas": [
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "bubbles_at_cathode",
+          "source": "explicit_text",
+          "rule_id": "gas.electrolysis.h2_cathode"
+        },
+        {
+          "ref": "sub:o2",
+          "formula": "O2",
+          "produced": true,
+          "appearance": "bubbles_at_anode",
+          "source": "explicit_text",
+          "rule_id": "gas.electrolysis.o2_anode"
+        }
+      ]
+    },
+    "heat_effect": "endo",
+    "safety_notes": [
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "note": "no_flame",
+        "rule_id": "safety:h2_flame",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "electric_shock",
+        "rule_id": "safety:electrolysis_shock",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "classification": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "H2O",
+        "element": "H",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "H2O",
+        "element": "O",
+        "from": -2,
+        "to": 0,
+        "note": "disproportionation"
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_decomp_07_cuno3_heat",
+    "equation": "2Cu(NO₃)₂(s) —t°→ 2CuO(s) + 4NO₂(g)↑ + O₂(g)↑",
+    "phase": {
+      "medium": "s"
+    },
+    "conditions": {
+      "temperature": "strong_heating"
+    },
+    "type_tags": [
+      "decomposition",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Cu(NO3)2",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "CuO",
+          "coeff": 2
+        },
+        {
+          "formula": "NO2",
+          "coeff": 4
+        },
+        {
+          "formula": "O2",
+          "coeff": 1
+        }
+      ]
+    },
+    "ionic": {
+      "note_key": "not_ionic_heating"
+    },
+    "observations": {
+      "color_change": [
+        {
+          "type": "solid_color_change",
+          "from_color": "blue_green",
+          "to_color": "black",
+          "rule_id": "color:cuno3_to_cuo",
+          "source": "explicit_text"
+        }
+      ],
+      "gas": [
+        {
+          "ref": "sub:no2",
+          "formula": "NO2",
+          "produced": true,
+          "appearance": "brown_gas",
+          "source": "explicit_text",
+          "rule_id": "gas.refine.brown_no2"
+        },
+        {
+          "ref": "sub:o2",
+          "formula": "O2",
+          "produced": true,
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
+      ]
+    },
+    "heat_effect": "endo",
+    "safety_notes": [
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:no2",
+        "note": "fume_hood",
+        "rule_id": "safety:no2_toxic",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "classification": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "Cu(NO3)2",
+        "element": "N",
+        "from": 5,
+        "to": 4
+      },
+      "reducer": {
+        "formula": "Cu(NO3)2",
+        "element": "O",
+        "from": -2,
+        "to": 0,
+        "note": "partial — O in NO₃⁻ also forms O₂"
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_decomp_08_hgo",
+    "equation": "2HgO(s) —t°→ 2Hg(l) + O₂(g)↑",
+    "phase": {
+      "medium": "s"
+    },
+    "conditions": {
+      "temperature": "strong_heating"
+    },
+    "type_tags": [
+      "decomposition",
+      "redox",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "HgO",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "Hg",
+          "coeff": 2
+        },
+        {
+          "formula": "O2",
+          "coeff": 1
+        }
+      ]
+    },
+    "ionic": {
+      "note_key": "not_ionic_heating"
+    },
+    "observations": {
+      "color_change": [
+        {
+          "type": "solid_color_change",
+          "from_color": "red_orange",
+          "to_color": "silvery_liquid",
+          "rule_id": "color:hgo_to_hg",
+          "source": "explicit_text"
+        }
+      ],
+      "gas": [
+        {
+          "ref": "sub:o2",
+          "formula": "O2",
+          "produced": true,
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
+      ]
+    },
+    "heat_effect": "endo",
+    "safety_notes": [
+      {
+        "hazard": "toxic",
+        "ref": "elem:Hg",
+        "note": "mercury_vapour",
+        "rule_id": "safety:hg_toxic",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "classification": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "HgO",
+        "element": "Hg",
+        "from": 2,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "HgO",
+        "element": "O",
+        "from": -2,
+        "to": 0
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_decomp_09_agbr_light",
+    "equation": "2AgBr(s) —hν→ 2Ag(s) + Br₂(l)",
+    "phase": {
+      "medium": "s"
+    },
+    "conditions": {
+      "light": true
+    },
+    "type_tags": [
+      "decomposition",
+      "redox"
+    ],
+    "driving_forces": [
+      "photon_energy"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "AgBr",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "Ag",
+          "coeff": 2
+        },
+        {
+          "formula": "Br2",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "color_change": [
+        {
+          "type": "solid_color_change",
+          "from_color": "pale_yellow",
+          "to_color": "dark_grey",
+          "rule_id": "color:agbr_darkens",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "endo",
+    "safety_notes": [
+      {
+        "hazard": "toxic",
+        "ref": "sub:br2",
+        "note": "fume_hood",
+        "rule_id": "safety:br2_toxic",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "AgBr",
+        "element": "Ag",
+        "from": 1,
+        "to": 0
+      },
+      "reducer": {
+        "formula": "AgBr",
+        "element": "Br",
+        "from": -1,
+        "to": 0
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_synth_07_h2_cl2",
+    "equation": "H₂(g) + Cl₂(g) —hν→ 2HCl(g)",
+    "phase": {
+      "medium": "g"
+    },
+    "conditions": {
+      "light": true
+    },
+    "type_tags": [
+      "synthesis",
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "H2",
+          "coeff": 1
+        },
+        {
+          "formula": "Cl2",
+          "coeff": 1
+        }
+      ],
+      "products": [
+        {
+          "formula": "HCl",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {
+      "other": [
+        {
+          "facet": "explosion_in_bright_light",
+          "rule_id": "other:h2_cl2_explosion",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "explosive_mixture",
+        "note": "keep_from_direct_light",
+        "rule_id": "safety:h2_cl2_explosive",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:cl2",
+        "rule_id": "safety:cl2_toxic",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "Cl2",
+        "element": "Cl",
+        "from": 0,
+        "to": -1
+      },
+      "reducer": {
+        "formula": "H2",
+        "element": "H",
+        "from": 0,
+        "to": 1
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_synth_08_al_o2",
+    "equation": "4Al(s) + 3O₂(g) → 2Al₂O₃(s)",
+    "phase": {
+      "medium": "s",
+      "note_key": "solid_plus_gas"
+    },
+    "conditions": {
+      "temperature": "ignition"
+    },
+    "type_tags": [
+      "combustion",
+      "synthesis",
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_ionic_lattice"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Al",
+          "coeff": 4
+        },
+        {
+          "formula": "O2",
+          "coeff": 3
+        }
+      ],
+      "products": [
+        {
+          "formula": "Al2O3",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {
+      "other": [
+        {
+          "facet": "brilliant_white_flame",
+          "rule_id": "other:al_white_flame",
+          "source": "explicit_text"
+        },
+        {
+          "facet": "white_powder_formed",
+          "rule_id": "other:white_powder",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "bright_light",
+        "note": "do_not_look_directly",
+        "rule_id": "safety:al_bright",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "O2",
+        "element": "O",
+        "from": 0,
+        "to": -2
+      },
+      "reducer": {
+        "formula": "Al",
+        "element": "Al",
+        "from": 0,
+        "to": 3
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_precip_08_fecl3_naoh",
+    "equation": "FeCl₃(aq) + 3NaOH(aq) → Fe(OH)₃(s)↓ + 3NaCl(aq)",
+    "phase": {
+      "medium": "aq"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "exchange",
+      "precipitation"
+    ],
+    "driving_forces": [
+      "precipitation"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "FeCl3",
+          "coeff": 1
+        },
+        {
+          "formula": "NaOH",
+          "coeff": 3
+        }
+      ],
+      "products": [
+        {
+          "formula": "Fe(OH)3",
+          "coeff": 1
+        },
+        {
+          "formula": "NaCl",
+          "coeff": 3
+        }
+      ]
+    },
+    "ionic": {
+      "full": "Fe³⁺ + 3Cl⁻ + 3Na⁺ + 3OH⁻ → Fe(OH)₃↓ + 3Na⁺ + 3Cl⁻",
+      "net": "Fe³⁺ + 3OH⁻ → Fe(OH)₃↓",
+      "spectators": [
+        "ion:Na_plus",
+        "ion:Cl_minus"
+      ]
+    },
+    "observations": {
+      "precipitate": [
+        {
+          "ref": "sub:fe_oh_3",
+          "formula": "Fe(OH)3",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.fe_oh_3",
+          "color": "brown",
+          "texture": "gelatinous"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
+      ],
+      "what_slows_down": [
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "unknown",
+    "safety_notes": [
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "rule_id": "safety:naoh_corrosive",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_exchange": "P",
+      "gas_precipitate_logic": "S"
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_precip_09_cuso4_naoh",
+    "equation": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s)↓ + Na₂SO₄(aq)",
+    "phase": {
+      "medium": "aq"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "exchange",
+      "precipitation"
+    ],
+    "driving_forces": [
+      "precipitation"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "CuSO4",
+          "coeff": 1
+        },
+        {
+          "formula": "NaOH",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "Cu(OH)2",
+          "coeff": 1
+        },
+        {
+          "formula": "Na2SO4",
+          "coeff": 1
+        }
+      ]
+    },
+    "ionic": {
+      "full": "Cu²⁺ + SO₄²⁻ + 2Na⁺ + 2OH⁻ → Cu(OH)₂↓ + 2Na⁺ + SO₄²⁻",
+      "net": "Cu²⁺ + 2OH⁻ → Cu(OH)₂↓",
+      "spectators": [
+        "ion:Na_plus",
+        "ion:SO4_2minus"
+      ]
+    },
+    "observations": {
+      "precipitate": [
+        {
+          "ref": "sub:cu_oh_2",
+          "formula": "Cu(OH)2",
+          "formed": true,
+          "solubility": "insoluble",
+          "source": "ontology_solubility+explicit_text",
+          "rule_id": "precip.refine.cu_oh_2",
+          "color": "bright_blue",
+          "texture": "gelatinous"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "stir",
+          "rule_id": "speed:stir",
+          "source": "explicit_text"
+        }
+      ],
+      "what_slows_down": [
+        {
+          "factor": "dilution",
+          "rule_id": "slow:dilution",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "unknown",
+    "safety_notes": [
+      {
+        "hazard": "toxic",
+        "agents": [
+          "copper_salts"
+        ],
+        "note": "avoid_contact",
+        "rule_id": "safety:cu_salts_contact",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_exchange": "P",
+      "gas_precipitate_logic": "S"
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_amph_03_zn_naoh",
+    "equation": "Zn(s) + 2NaOH(aq) → Na₂ZnO₂(aq) + H₂(g)↑",
+    "phase": {
+      "medium": "mixed"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "redox",
+      "amphoteric",
+      "gas_evolution"
+    ],
+    "driving_forces": [
+      "gas_evolution"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Zn",
+          "coeff": 1
+        },
+        {
+          "formula": "NaOH",
+          "coeff": 2
+        }
+      ],
+      "products": [
+        {
+          "formula": "Na2ZnO2",
+          "coeff": 1
+        },
+        {
+          "formula": "H2",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "gas": [
+        {
+          "ref": "sub:h2",
+          "formula": "H2",
+          "produced": true,
+          "appearance": "bubbles",
+          "source": "ontology_phase",
+          "rule_id": "gas.ontology.product_gas"
+        }
+      ],
+      "other": [
+        {
+          "facet": "metal_dissolves",
+          "ref": "elem:Zn",
+          "rule_id": "other:zn_dissolves_in_base",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "rate_tips": {
+      "how_to_speed_up": [
+        {
+          "action": "heat",
+          "intensity": "moderate",
+          "rule_id": "speed:heat_moderate",
+          "source": "explicit_text"
+        },
+        {
+          "action": "grind",
+          "target_ref": "elem:Zn",
+          "rule_id": "speed:grind_zn",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "corrosive",
+        "agents": [
+          "base"
+        ],
+        "rule_id": "safety:naoh_corrosive",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "flammable",
+        "ref": "sub:h2",
+        "rule_id": "safety:h2_plain",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P",
+      "amphoterism_logic": "S"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "NaOH",
+        "element": "H",
+        "from": 1,
+        "to": 0,
+        "note": "H from water in NaOH solution"
+      },
+      "reducer": {
+        "formula": "Zn",
+        "element": "Zn",
+        "from": 0,
+        "to": 2
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_synth_09_fe_cl2",
+    "equation": "2Fe(s) + 3Cl₂(g) → 2FeCl₃(s)",
+    "phase": {
+      "medium": "mixed",
+      "note_key": "solid_plus_gas"
+    },
+    "conditions": {
+      "temperature": "heating"
+    },
+    "type_tags": [
+      "synthesis",
+      "redox"
+    ],
+    "driving_forces": [
+      "stability_of_product"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "Fe",
+          "coeff": 2
+        },
+        {
+          "formula": "Cl2",
+          "coeff": 3
+        }
+      ],
+      "products": [
+        {
+          "formula": "FeCl3",
+          "coeff": 2
+        }
+      ]
+    },
+    "observations": {
+      "other": [
+        {
+          "facet": "brown_smoke",
+          "rule_id": "other:fecl3_smoke",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:cl2",
+        "rule_id": "safety:cl2_toxic",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "heat_safety",
+        "rule_id": "safety:heat_safety",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "reactions_redox": "P"
+    },
+    "redox": {
+      "oxidizer": {
+        "formula": "Cl2",
+        "element": "Cl",
+        "from": 0,
+        "to": -1
+      },
+      "reducer": {
+        "formula": "Fe",
+        "element": "Fe",
+        "from": 0,
+        "to": 3
+      }
+    },
+    "schema_version": 2
+  },
+  {
+    "reaction_id": "rx_gas_06_nh3_hcl",
+    "equation": "NH₃(g) + HCl(g) → NH₄Cl(s)",
+    "phase": {
+      "medium": "g"
+    },
+    "conditions": {
+      "temperature": "room"
+    },
+    "type_tags": [
+      "synthesis"
+    ],
+    "driving_forces": [
+      "stability_of_ionic_lattice"
+    ],
+    "molecular": {
+      "reactants": [
+        {
+          "formula": "NH3",
+          "coeff": 1
+        },
+        {
+          "formula": "HCl",
+          "coeff": 1
+        }
+      ],
+      "products": [
+        {
+          "formula": "NH4Cl",
+          "coeff": 1
+        }
+      ]
+    },
+    "observations": {
+      "other": [
+        {
+          "facet": "white_smoke",
+          "rule_id": "other:nh4cl_smoke",
+          "source": "explicit_text"
+        }
+      ]
+    },
+    "heat_effect": "exo",
+    "safety_notes": [
+      {
+        "hazard": "irritant_gas",
+        "ref": "sub:nh3",
+        "rule_id": "safety:nh3_irritant",
+        "source": "explicit_text"
+      },
+      {
+        "hazard": "toxic_gas",
+        "ref": "sub:hcl",
+        "rule_id": "safety:hcl_toxic",
+        "source": "explicit_text"
+      }
+    ],
+    "competencies": {
+      "classification": "P",
+      "qualitative_analysis_logic": "S"
+    },
+    "schema_version": 2
   }
 ]
