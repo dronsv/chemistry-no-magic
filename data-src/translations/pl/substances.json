@@ -1265,5 +1265,21 @@
   },
   "pbcl2": {
     "name": "chlorek ołowiu(II)"
+  },
+  "C": {
+    "name": "węgiel",
+    "surface_forms": [
+      "C",
+      "węgiel",
+      "grafit",
+      "diament"
+    ]
+  },
+  "P": {
+    "name": "fosfor",
+    "surface_forms": [
+      "P",
+      "fosfor"
+    ]
   }
 }

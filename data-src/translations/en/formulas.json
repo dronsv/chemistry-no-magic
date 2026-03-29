@@ -1,0 +1,106 @@
+{
+  "formula:molar_mass_from_composition": {
+    "name": "Molar mass from composition",
+    "description": "M = Σ(Ar_i × count_i)"
+  },
+  "formula:amount_from_mass": {
+    "name": "Amount of substance from mass",
+    "description": "n = m / M"
+  },
+  "formula:particle_count": {
+    "name": "Particle count",
+    "description": "N = n × Nₐ"
+  },
+  "formula:gas_volume_stp": {
+    "name": "Gas volume at STP",
+    "description": "V = n × Vm"
+  },
+  "formula:mass_fraction_element": {
+    "name": "Mass fraction of element",
+    "description": "ω = (n × Ar) / M"
+  },
+  "formula:density": {
+    "name": "Density",
+    "description": "ρ = m / V"
+  },
+  "formula:yield": {
+    "name": "Reaction yield",
+    "description": "η = m_actual / m_theoretical × 100%"
+  },
+  "formula:stoichiometry_ratio": {
+    "name": "Stoichiometric ratio",
+    "description": "n₁/ν₁ = n₂/ν₂"
+  },
+  "formula:mass_fraction_solution": {
+    "name": "Mass fraction in solution",
+    "description": "ω = m_solute / m_solution × 100%"
+  },
+  "formula:molar_concentration": {
+    "name": "Molar concentration",
+    "description": "c = n / V"
+  },
+  "formula:hess_law": {
+    "name": "Hess's law",
+    "description": "ΔH_rxn = Σ ΔHf(products) − Σ ΔHf(reactants)"
+  },
+  "formula:effective_nuclear_charge": {
+    "name": "Effective nuclear charge",
+    "description": "Z* = Z − σ"
+  },
+  "formula:photon_energy": {
+    "name": "Photon energy",
+    "description": "E = hν"
+  },
+  "formula:calorimetry_delta_t": {
+    "name": "Calorimetry formula",
+    "description": "Q = mcΔT"
+  },
+  "formula:radius_proxy": {
+    "name": "Atomic radius proxy",
+    "description": "r ∝ n² / Z*"
+  },
+  "formula:ie_proxy": {
+    "name": "Ionization energy proxy",
+    "description": "IE ∝ (Z*)² / n²"
+  },
+  "formula:vant_hoff_rule": {
+    "name": "Van 't Hoff rule",
+    "description": "v₂/v₁ = γ^(ΔT/10)"
+  },
+  "formula:arrhenius": {
+    "name": "Arrhenius equation",
+    "description": "k = A·exp(−Ea/RT)"
+  },
+  "formula:component_molar_mass_contribution": {
+    "name": "Component molar mass contribution",
+    "description": "M_i = Ar_i × count_i"
+  },
+  "formula:component_mass_fraction": {
+    "name": "Component mass fraction",
+    "description": "ω_i = M_i / M_total"
+  },
+  "formula:dilution_conservation": {
+    "name": "Dilution conservation",
+    "description": "m₁ω₁ = m₂ω₂"
+  },
+  "formula:acid_dissociation_constant": {
+    "name": "Acid dissociation constant",
+    "description": "Ka = [H⁺][A⁻] / [HA]"
+  },
+  "formula:acid_dissociation_constant_step1": {
+    "name": "Acid dissociation constant (step 1)",
+    "description": "Ka₁ = [H⁺][HA⁻] / [H₂A]"
+  },
+  "formula:acid_dissociation_constant_step2": {
+    "name": "Acid dissociation constant (step 2)",
+    "description": "Ka₂ = [H⁺][A²⁻] / [HA⁻]"
+  },
+  "formula:pka_definition": {
+    "name": "pKa definition",
+    "description": "pKa = −log₁₀(Ka)"
+  },
+  "formula:solubility_product": {
+    "name": "Solubility product",
+    "description": "Ksp = [Cat]^a · [An]^b"
+  }
+}

@@ -1265,5 +1265,21 @@
   },
   "pbcl2": {
     "name": "cloruro de plomo(II)"
+  },
+  "C": {
+    "name": "carbono",
+    "surface_forms": [
+      "C",
+      "carbono",
+      "grafito",
+      "diamante"
+    ]
+  },
+  "P": {
+    "name": "fósforo",
+    "surface_forms": [
+      "P",
+      "fósforo"
+    ]
   }
 }

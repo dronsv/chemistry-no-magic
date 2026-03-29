@@ -1265,5 +1265,21 @@
   },
   "pbcl2": {
     "name": "lead(II) chloride"
+  },
+  "C": {
+    "name": "carbon",
+    "surface_forms": [
+      "C",
+      "carbon",
+      "graphite",
+      "diamond"
+    ]
+  },
+  "P": {
+    "name": "phosphorus",
+    "surface_forms": [
+      "P",
+      "phosphorus"
+    ]
   }
 }

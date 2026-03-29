@@ -1,0 +1,106 @@
+{
+  "formula:molar_mass_from_composition": {
+    "name": "Masa molar a partir de la composición",
+    "description": "M = Σ(Ar_i × count_i)"
+  },
+  "formula:amount_from_mass": {
+    "name": "Cantidad de sustancia a partir de la masa",
+    "description": "n = m / M"
+  },
+  "formula:particle_count": {
+    "name": "Número de partículas",
+    "description": "N = n × Nₐ"
+  },
+  "formula:gas_volume_stp": {
+    "name": "Volumen de gas en condiciones normales",
+    "description": "V = n × Vm"
+  },
+  "formula:mass_fraction_element": {
+    "name": "Fracción másica del elemento",
+    "description": "ω = (n × Ar) / M"
+  },
+  "formula:density": {
+    "name": "Densidad",
+    "description": "ρ = m / V"
+  },
+  "formula:yield": {
+    "name": "Rendimiento de la reacción",
+    "description": "η = m_real / m_teórica × 100%"
+  },
+  "formula:stoichiometry_ratio": {
+    "name": "Razón estequiométrica",
+    "description": "n₁/ν₁ = n₂/ν₂"
+  },
+  "formula:mass_fraction_solution": {
+    "name": "Fracción másica del soluto",
+    "description": "ω = m_soluto / m_solución × 100%"
+  },
+  "formula:molar_concentration": {
+    "name": "Concentración molar",
+    "description": "c = n / V"
+  },
+  "formula:hess_law": {
+    "name": "Ley de Hess",
+    "description": "ΔH_rxn = Σ ΔHf(productos) − Σ ΔHf(reactivos)"
+  },
+  "formula:effective_nuclear_charge": {
+    "name": "Carga nuclear efectiva",
+    "description": "Z* = Z − σ"
+  },
+  "formula:photon_energy": {
+    "name": "Energía del fotón",
+    "description": "E = hν"
+  },
+  "formula:calorimetry_delta_t": {
+    "name": "Fórmula calorimétrica",
+    "description": "Q = mcΔT"
+  },
+  "formula:radius_proxy": {
+    "name": "Aproximación del radio atómico",
+    "description": "r ∝ n² / Z*"
+  },
+  "formula:ie_proxy": {
+    "name": "Aproximación de la energía de ionización",
+    "description": "IE ∝ (Z*)² / n²"
+  },
+  "formula:vant_hoff_rule": {
+    "name": "Regla de Van't Hoff",
+    "description": "v₂/v₁ = γ^(ΔT/10)"
+  },
+  "formula:arrhenius": {
+    "name": "Ecuación de Arrhenius",
+    "description": "k = A·exp(−Ea/RT)"
+  },
+  "formula:component_molar_mass_contribution": {
+    "name": "Contribución del componente a la masa molar",
+    "description": "M_i = Ar_i × count_i"
+  },
+  "formula:component_mass_fraction": {
+    "name": "Fracción másica del componente",
+    "description": "ω_i = M_i / M_total"
+  },
+  "formula:dilution_conservation": {
+    "name": "Conservación en la dilución",
+    "description": "m₁ω₁ = m₂ω₂"
+  },
+  "formula:acid_dissociation_constant": {
+    "name": "Constante de disociación del ácido",
+    "description": "Ka = [H⁺][A⁻] / [HA]"
+  },
+  "formula:acid_dissociation_constant_step1": {
+    "name": "Constante de disociación del ácido (paso 1)",
+    "description": "Ka₁ = [H⁺][HA⁻] / [H₂A]"
+  },
+  "formula:acid_dissociation_constant_step2": {
+    "name": "Constante de disociación del ácido (paso 2)",
+    "description": "Ka₂ = [H⁺][A²⁻] / [HA⁻]"
+  },
+  "formula:pka_definition": {
+    "name": "Definición de pKa",
+    "description": "pKa = −log₁₀(Ka)"
+  },
+  "formula:solubility_product": {
+    "name": "Producto de solubilidad",
+    "description": "Ksp = [Cat]^a · [An]^b"
+  }
+}

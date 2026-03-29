@@ -1,0 +1,106 @@
+{
+  "formula:molar_mass_from_composition": {
+    "name": "Молярная масса из состава",
+    "description": "M = Σ(Ar_i × count_i)"
+  },
+  "formula:amount_from_mass": {
+    "name": "Количество вещества из массы",
+    "description": "n = m / M"
+  },
+  "formula:particle_count": {
+    "name": "Число частиц",
+    "description": "N = n × Nₐ"
+  },
+  "formula:gas_volume_stp": {
+    "name": "Объём газа при н.у.",
+    "description": "V = n × Vm"
+  },
+  "formula:mass_fraction_element": {
+    "name": "Массовая доля элемента",
+    "description": "ω = (n × Ar) / M"
+  },
+  "formula:density": {
+    "name": "Плотность",
+    "description": "ρ = m / V"
+  },
+  "formula:yield": {
+    "name": "Выход продукта",
+    "description": "η = m_практ / m_теор × 100%"
+  },
+  "formula:stoichiometry_ratio": {
+    "name": "Стехиометрическое соотношение",
+    "description": "n₁/ν₁ = n₂/ν₂"
+  },
+  "formula:mass_fraction_solution": {
+    "name": "Массовая доля растворённого вещества",
+    "description": "ω = m_в-ва / m_р-ра × 100%"
+  },
+  "formula:molar_concentration": {
+    "name": "Молярная концентрация",
+    "description": "c = n / V"
+  },
+  "formula:hess_law": {
+    "name": "Закон Гесса",
+    "description": "ΔH_реакции = Σ ΔHf(продукты) − Σ ΔHf(реагенты)"
+  },
+  "formula:effective_nuclear_charge": {
+    "name": "Эффективный заряд ядра",
+    "description": "Z* = Z − σ"
+  },
+  "formula:photon_energy": {
+    "name": "Энергия фотона",
+    "description": "E = hν"
+  },
+  "formula:calorimetry_delta_t": {
+    "name": "Калориметрическая формула",
+    "description": "Q = mcΔT"
+  },
+  "formula:radius_proxy": {
+    "name": "Атомный радиус (оценка)",
+    "description": "r ∝ n² / Z*"
+  },
+  "formula:ie_proxy": {
+    "name": "Энергия ионизации (оценка)",
+    "description": "IE ∝ (Z*)² / n²"
+  },
+  "formula:vant_hoff_rule": {
+    "name": "Правило Вант-Гоффа",
+    "description": "v₂/v₁ = γ^(ΔT/10)"
+  },
+  "formula:arrhenius": {
+    "name": "Уравнение Аррениуса",
+    "description": "k = A·exp(−Ea/RT)"
+  },
+  "formula:component_molar_mass_contribution": {
+    "name": "Вклад компонента в молярную массу",
+    "description": "M_i = Ar_i × count_i"
+  },
+  "formula:component_mass_fraction": {
+    "name": "Массовая доля компонента",
+    "description": "ω_i = M_i / M_total"
+  },
+  "formula:dilution_conservation": {
+    "name": "Закон сохранения при разбавлении",
+    "description": "m₁ω₁ = m₂ω₂"
+  },
+  "formula:acid_dissociation_constant": {
+    "name": "Константа диссоциации кислоты",
+    "description": "Ka = [H⁺][A⁻] / [HA]"
+  },
+  "formula:acid_dissociation_constant_step1": {
+    "name": "Константа диссоциации (1 ступень)",
+    "description": "Ka₁ = [H⁺][HA⁻] / [H₂A]"
+  },
+  "formula:acid_dissociation_constant_step2": {
+    "name": "Константа диссоциации (2 ступень)",
+    "description": "Ka₂ = [H⁺][A²⁻] / [HA⁻]"
+  },
+  "formula:pka_definition": {
+    "name": "Определение pKa",
+    "description": "pKa = −lg(Ka)"
+  },
+  "formula:solubility_product": {
+    "name": "Произведение растворимости",
+    "description": "Ksp = [Cat]^a · [An]^b"
+  }
+}

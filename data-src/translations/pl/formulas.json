@@ -1,0 +1,106 @@
+{
+  "formula:molar_mass_from_composition": {
+    "name": "Masa molowa ze składu",
+    "description": "M = Σ(Ar_i × count_i)"
+  },
+  "formula:amount_from_mass": {
+    "name": "Ilość substancji z masy",
+    "description": "n = m / M"
+  },
+  "formula:particle_count": {
+    "name": "Liczba cząstek",
+    "description": "N = n × Nₐ"
+  },
+  "formula:gas_volume_stp": {
+    "name": "Objętość gazu w warunkach normalnych",
+    "description": "V = n × Vm"
+  },
+  "formula:mass_fraction_element": {
+    "name": "Ułamek masowy pierwiastka",
+    "description": "ω = (n × Ar) / M"
+  },
+  "formula:density": {
+    "name": "Gęstość",
+    "description": "ρ = m / V"
+  },
+  "formula:yield": {
+    "name": "Wydajność reakcji",
+    "description": "η = m_rzecz / m_teor × 100%"
+  },
+  "formula:stoichiometry_ratio": {
+    "name": "Stosunek stechiometryczny",
+    "description": "n₁/ν₁ = n₂/ν₂"
+  },
+  "formula:mass_fraction_solution": {
+    "name": "Ułamek masowy substancji rozpuszczonej",
+    "description": "ω = m_substancji / m_roztworu × 100%"
+  },
+  "formula:molar_concentration": {
+    "name": "Stężenie molowe",
+    "description": "c = n / V"
+  },
+  "formula:hess_law": {
+    "name": "Prawo Hessa",
+    "description": "ΔH_reakcji = Σ ΔHf(produkty) − Σ ΔHf(substraty)"
+  },
+  "formula:effective_nuclear_charge": {
+    "name": "Efektywny ładunek jądra",
+    "description": "Z* = Z − σ"
+  },
+  "formula:photon_energy": {
+    "name": "Energia fotonu",
+    "description": "E = hν"
+  },
+  "formula:calorimetry_delta_t": {
+    "name": "Wzór kalorymetryczny",
+    "description": "Q = mcΔT"
+  },
+  "formula:radius_proxy": {
+    "name": "Przybliżenie promienia atomowego",
+    "description": "r ∝ n² / Z*"
+  },
+  "formula:ie_proxy": {
+    "name": "Przybliżenie energii jonizacji",
+    "description": "IE ∝ (Z*)² / n²"
+  },
+  "formula:vant_hoff_rule": {
+    "name": "Reguła Van't Hoffa",
+    "description": "v₂/v₁ = γ^(ΔT/10)"
+  },
+  "formula:arrhenius": {
+    "name": "Równanie Arrheniusa",
+    "description": "k = A·exp(−Ea/RT)"
+  },
+  "formula:component_molar_mass_contribution": {
+    "name": "Wkład składnika do masy molowej",
+    "description": "M_i = Ar_i × count_i"
+  },
+  "formula:component_mass_fraction": {
+    "name": "Ułamek masowy składnika",
+    "description": "ω_i = M_i / M_total"
+  },
+  "formula:dilution_conservation": {
+    "name": "Zasada zachowania przy rozcieńczaniu",
+    "description": "m₁ω₁ = m₂ω₂"
+  },
+  "formula:acid_dissociation_constant": {
+    "name": "Stała dysocjacji kwasu",
+    "description": "Ka = [H⁺][A⁻] / [HA]"
+  },
+  "formula:acid_dissociation_constant_step1": {
+    "name": "Stała dysocjacji kwasu (stopień 1)",
+    "description": "Ka₁ = [H⁺][HA⁻] / [H₂A]"
+  },
+  "formula:acid_dissociation_constant_step2": {
+    "name": "Stała dysocjacji kwasu (stopień 2)",
+    "description": "Ka₂ = [H⁺][A²⁻] / [HA⁻]"
+  },
+  "formula:pka_definition": {
+    "name": "Definicja pKa",
+    "description": "pKa = −lg(Ka)"
+  },
+  "formula:solubility_product": {
+    "name": "Iloczyn rozpuszczalności",
+    "description": "Ksp = [Kat]^a · [An]^b"
+  }
+}
