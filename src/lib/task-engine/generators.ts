@@ -444,7 +444,7 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
   return result;
 }
 
-const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox'] as const;
+const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox', 'synthesis', 'combustion'] as const;
 const PRIMARY_TAGS_SET = new Set<string>(REACTION_TYPE_TAGS);
 
 function genPickReaction(params: Record<string, unknown>, data: OntologyData): SlotValues {
@@ -517,6 +517,20 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
 
   // Whether this reaction is redox (for classification tasks)
   slots.is_redox = r.type_tags.includes('redox') ? 'yes' : 'no';
+
+  // Type presence flags for new reaction types
+  slots.is_synthesis = r.type_tags.includes('synthesis') ? 'yes' : 'no';
+  slots.is_combustion = r.type_tags.includes('combustion') ? 'yes' : 'no';
+  slots.is_decomposition = r.type_tags.includes('decomposition') ? 'yes' : 'no';
+
+  // Product data from molecular representation
+  const products = r.molecular?.products ?? [];
+  slots.product_count = products.length;
+  slots.first_product = products.length > 0 ? products[0].formula : '';
+
+  // Conditions
+  slots.conditions_catalyst = r.conditions?.catalyst ?? 'none';
+  slots.conditions_temperature = r.conditions?.temperature ?? 'none';
 
   return slots;
 }

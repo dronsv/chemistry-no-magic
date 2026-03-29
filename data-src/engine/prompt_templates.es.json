@@ -943,5 +943,69 @@
   "explain.rate_factor_name": {
     "question": "El factor que produce '{factor_effect}' sobre la velocidad de reacción es: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.classify_synthesis_type": {
+    "question": "¿A qué tipo pertenece esta reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_synthesis_type": {
+    "question": "La reacción {equation} es una reacción de síntesis (combinación): {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_decomposition_type": {
+    "question": "¿A qué tipo pertenece esta reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_decomposition_type": {
+    "question": "La reacción {equation} es una reacción de descomposición: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_combustion_type": {
+    "question": "¿A qué tipo pertenece esta reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_combustion_type": {
+    "question": "La reacción {equation} es una reacción de combustión: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.conditions_required": {
+    "question": "¿Qué condiciones de temperatura se requieren para la reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.conditions_required": {
+    "question": "La reacción {equation} requiere condiciones de temperatura: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.identify_catalyst_in_reaction": {
+    "question": "¿Qué catalizador se utiliza en la reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.identify_catalyst_in_reaction": {
+    "question": "El catalizador utilizado en la reacción {equation} es: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.predict_product_formula": {
+    "question": "¿Qué sustancia es el primer producto de la reacción: {reactants} →?",
+    "slots": {}
+  },
+  "explain.predict_product_formula": {
+    "question": "En la reacción {reactants} →, el primer producto es {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.count_products": {
+    "question": "¿Cuántos productos se forman en la reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.count_products": {
+    "question": "La reacción {equation} produce {correct_answer} producto(s).",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer_redox": {
+    "question": "¿Cómo cambia el estado de oxidación del agente oxidante en la reacción: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer_redox": {
+    "question": "En la reacción {equation}, el estado de oxidación del agente oxidante cambia: {correct_answer}.",
+    "slots": {}
   }
 }

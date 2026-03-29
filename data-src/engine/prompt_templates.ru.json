@@ -945,5 +945,69 @@
   "explain.rate_factor_name": {
     "question": "Следующее влияние на скорость реакции — «{factor_effect}» — оказывает: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.classify_synthesis_type": {
+    "question": "К какому типу относится реакция: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_synthesis_type": {
+    "question": "Реакция {equation} — это реакция соединения (синтеза): {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_decomposition_type": {
+    "question": "К какому типу относится реакция: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_decomposition_type": {
+    "question": "Реакция {equation} — это реакция разложения: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_combustion_type": {
+    "question": "К какому типу относится реакция: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_combustion_type": {
+    "question": "Реакция {equation} — это реакция горения: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.conditions_required": {
+    "question": "Какой температурный режим необходим для проведения реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.conditions_required": {
+    "question": "Для реакции {equation} необходим температурный режим: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.identify_catalyst_in_reaction": {
+    "question": "Какой катализатор используется в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.identify_catalyst_in_reaction": {
+    "question": "В реакции {equation} используется катализатор: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.predict_product_formula": {
+    "question": "Какое вещество образуется первым в реакции: {reactants} →?",
+    "slots": {}
+  },
+  "explain.predict_product_formula": {
+    "question": "В реакции {reactants} → первым продуктом является {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.count_products": {
+    "question": "Сколько продуктов образуется в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.count_products": {
+    "question": "В реакции {equation} образуется продуктов: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer_redox": {
+    "question": "Как изменяется степень окисления окислителя в реакции: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer_redox": {
+    "question": "В реакции {equation} степень окисления окислителя изменяется: {correct_answer}.",
+    "slots": {}
   }
 }

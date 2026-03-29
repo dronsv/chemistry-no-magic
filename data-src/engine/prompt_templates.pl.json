@@ -945,5 +945,69 @@
   "explain.rate_factor_name": {
     "question": "Następujący wpływ na szybkość reakcji — «{factor_effect}» — wywiera: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.classify_synthesis_type": {
+    "question": "Do jakiego typu należy ta reakcja: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_synthesis_type": {
+    "question": "Reakcja {equation} jest reakcją syntezy (łączenia): {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_decomposition_type": {
+    "question": "Do jakiego typu należy ta reakcja: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_decomposition_type": {
+    "question": "Reakcja {equation} jest reakcją rozkładu: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.classify_combustion_type": {
+    "question": "Do jakiego typu należy ta reakcja: {equation}?",
+    "slots": {}
+  },
+  "explain.classify_combustion_type": {
+    "question": "Reakcja {equation} jest reakcją spalania: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.conditions_required": {
+    "question": "Jaki reżim temperaturowy jest wymagany dla reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.conditions_required": {
+    "question": "Reakcja {equation} wymaga reżimu temperaturowego: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.identify_catalyst_in_reaction": {
+    "question": "Jaki katalizator jest stosowany w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.identify_catalyst_in_reaction": {
+    "question": "W reakcji {equation} stosuje się katalizator: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.predict_product_formula": {
+    "question": "Jaka substancja jest pierwszym produktem reakcji: {reactants} →?",
+    "slots": {}
+  },
+  "explain.predict_product_formula": {
+    "question": "W reakcji {reactants} → pierwszym produktem jest {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.count_products": {
+    "question": "Ile produktów powstaje w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.count_products": {
+    "question": "W reakcji {equation} powstają produkty w liczbie: {correct_answer}.",
+    "slots": {}
+  },
+  "prompt.os_change_oxidizer_redox": {
+    "question": "Jak zmienia się stopień utlenienia utleniacza w reakcji: {equation}?",
+    "slots": {}
+  },
+  "explain.os_change_oxidizer_redox": {
+    "question": "W reakcji {equation} stopień utlenienia utleniacza zmienia się: {correct_answer}.",
+    "slots": {}
   }
 }
