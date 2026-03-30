@@ -1340,3 +1340,85 @@ describe('bridge parity with legacy stoichiometry chain', () => {
     expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
   });
 });
+
+// ── Phase 5: Weighted search + cost model ────────────────────
+
+describe('operator-local cost model', () => {
+  it('lookup operator has lower cost than formula', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const lookupOp = registry.operators.find(op => op.kind === 'lookup');
+    const formulaOp = registry.operators.find(op => op.kind === 'formula');
+    expect(lookupOp!.baseCost).toBeLessThan(formulaOp?.baseCost ?? 100);
+  });
+
+  it('bridge operator has lower cost than aggregate', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const bridgeOp = registry.operators.find(op => op.kind === 'stoichiometric_bridge');
+    const aggOp = registry.operators.find(op => op.kind === 'indexed_aggregate');
+    expect(bridgeOp!.baseCost).toBeLessThan(aggOp!.baseCost!);
+  });
+
+  it('planner prefers cheaper operator when both produce same quantity', () => {
+    // q:amount has both formula operators (baseCost ~100) and bridge (baseCost 50)
+    // When bridge sub-goals are satisfied, bridge should be preferred over
+    // longer formula chains
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:amount', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:amount', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+    // Should pick bridge (1 step, baseCost 50) over formula chain
+    expect(plan.steps).toHaveLength(1);
+    expect(plan.score).toBeLessThan(200); // bridge cost < 2-step formula cost
+  });
+
+  it('AND-node cost sums children costs', () => {
+    // A 3-step chain should have higher score than 1-step
+    const registry = buildOperatorRegistry(formulas);
+
+    const plan1 = planDerivation(
+      { quantity: 'q:amount', role: 'product' },
+      [
+        { quantity: 'q:amount', role: 'reactant' },
+        { quantity: 'q:stoich_coeff', role: 'reactant' },
+        { quantity: 'q:stoich_coeff', role: 'product' },
+      ],
+      registry.operators, registry.quantityIndex,
+      { handlers: registry.handlers },
+    )!;
+
+    const plan3 = planDerivation(
+      { quantity: 'q:mass', role: 'product' },
+      [
+        { quantity: 'q:mass', role: 'reactant' },
+        { quantity: 'q:molar_mass', role: 'reactant' },
+        { quantity: 'q:stoich_coeff', role: 'reactant' },
+        { quantity: 'q:stoich_coeff', role: 'product' },
+        { quantity: 'q:molar_mass', role: 'product' },
+      ],
+      registry.operators, registry.quantityIndex,
+      { handlers: registry.handlers },
+    )!;
+
+    expect(plan3.score).toBeGreaterThan(plan1.score);
+  });
+
+  it('TableFactOperator type is in DerivationOperator union', () => {
+    // Type-level check: TableFactOperator can be assigned to DerivationOperator
+    const op: import('../../types/derivation').TableFactOperator = {
+      id: 'op:solubility_check',
+      kind: 'table_fact',
+      targetQuantity: 'q:solubility',
+      tableId: 'solubility_table',
+      factType: 'solubility',
+      baseCost: 5,
+    };
+    const _asOperator: import('../../types/derivation').DerivationOperator = op;
+    expect(_asOperator.kind).toBe('table_fact');
+  });
+});

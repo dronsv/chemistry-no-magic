@@ -82,8 +82,27 @@ export interface StoichiometricBridgeOperator extends OperatorBase {
   toRole: SemanticRole;
 }
 
+/**
+ * Table fact operator stub — resolves discrete facts from lookup tables
+ * (solubility, activity series, etc.). Returns non-numeric values.
+ *
+ * Implementation deferred: discrete facts use a different evaluation model
+ * than numeric derivation. The type is defined here for forward compatibility
+ * so future handlers can be registered without type changes.
+ */
+export interface TableFactOperator extends OperatorBase {
+  kind: 'table_fact';
+  tableId: string;                            // e.g., 'solubility_table', 'activity_series'
+  factType: string;                           // e.g., 'solubility', 'activity_rank'
+}
+
 /** Discriminated union of all operator kinds. */
-export type DerivationOperator = FormulaOperator | LookupOperator | IndexedAggregateOperator | StoichiometricBridgeOperator;
+export type DerivationOperator =
+  | FormulaOperator
+  | LookupOperator
+  | IndexedAggregateOperator
+  | StoichiometricBridgeOperator
+  | TableFactOperator;
 
 /**
  * Backward-compatible alias: DerivationRule = FormulaOperator.

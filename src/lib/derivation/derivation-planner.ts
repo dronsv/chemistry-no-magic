@@ -283,18 +283,24 @@ function countUnresolved(
 /**
  * Score a candidate plan. Lower = better.
  *
- * Dimensions:
- * - step count (fewer = better)
- * - approximate penalty (formula operators only)
- * - indexed binding penalty (formula operators only)
- * - inversion penalty (formula operators only)
- * - per-rule baseCost
- * - generic role match penalty (unscoped rule matching scoped target)
+ * Cost model:
+ * - AND-node cost: sum of all step costs (each operator contributes independently)
+ * - OR-node cost: planner picks the minimum-cost alternative
+ * - Operator-local cost: each operator declares baseCost; formula operators add
+ *   structural penalties (approximate, inversion, indexed, role mismatch)
+ * - Step count penalty: small bonus per step to prefer shorter plans at equal cost
  */
 function scorePlan(steps: PlanStep[], targetRole?: SemanticRole): number {
-  let score = steps.length * 100;
+  let score = 0;
+
+  // AND-node: sum costs of all steps
   for (const s of steps) {
     const op = s.rule;
+
+    // Operator-local base cost (declared by handler/registry)
+    score += op.baseCost ?? 100; // default 100 per step if no baseCost
+
+    // Formula-specific structural penalties
     if (op.kind === 'formula') {
       const fop = op as FormulaOperator;
       if (fop.isApproximate) score += 50;
@@ -303,7 +309,10 @@ function scorePlan(steps: PlanStep[], targetRole?: SemanticRole): number {
       // Generic role match penalty: unscoped rule matching scoped target
       if (targetRole && !fop.targetRole) score += 20;
     }
-    score += op.baseCost ?? 0;
   }
+
+  // Small step-count tiebreaker (prefer shorter at equal cost)
+  score += steps.length;
+
   return score;
 }
