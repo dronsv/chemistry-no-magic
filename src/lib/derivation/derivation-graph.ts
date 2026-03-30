@@ -1,5 +1,5 @@
 import type { ComputableFormula } from '../../types/formula';
-import type { DerivationRule, DerivationRuleInput } from '../../types/derivation';
+import type { DerivationRule, DerivationRuleInput, DerivationOperator } from '../../types/derivation';
 
 /**
  * Build DerivationRule[] from ComputableFormula[].
@@ -28,6 +28,7 @@ export function buildDerivationRules(formulas: ComputableFormula[]): DerivationR
       .map(v => ({ symbol: v.symbol, quantity: v.quantity, role: v.semantic_role }));
 
     rules.push({
+      kind: 'formula',
       id: `${formula.id}/forward`,
       formulaId: formula.id,
       targetSymbol: resultVar.symbol,
@@ -51,6 +52,7 @@ export function buildDerivationRules(formulas: ComputableFormula[]): DerivationR
         .map(v => ({ symbol: v.symbol, quantity: v.quantity, role: v.semantic_role }));
 
       rules.push({
+        kind: 'formula',
         id: `${formula.id}/inv:${invSymbol}`,
         formulaId: formula.id,
         targetSymbol: invVar.symbol,
@@ -69,11 +71,12 @@ export function buildDerivationRules(formulas: ComputableFormula[]): DerivationR
 }
 
 /**
- * Build coarse quantity index: quantity string → rules that produce it.
+ * Build coarse quantity index: quantity string → operators that produce it.
  * Role filtering happens at search time, not here.
+ * Accepts both DerivationRule[] and DerivationOperator[] (backward compatible).
  */
-export function buildQuantityIndex(rules: DerivationRule[]): Map<string, DerivationRule[]> {
-  const index = new Map<string, DerivationRule[]>();
+export function buildQuantityIndex<T extends DerivationOperator = DerivationRule>(rules: T[]): Map<string, T[]> {
+  const index = new Map<string, T[]>();
   for (const rule of rules) {
     let arr = index.get(rule.targetQuantity);
     if (!arr) {

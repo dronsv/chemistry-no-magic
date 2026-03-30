@@ -1,11 +1,12 @@
 import type { ComputableFormula } from '../../types/formula';
 import type { ConstantsDict } from '../../types/eval-trace';
-import type { QRef, ReasonStep } from '../../types/derivation';
+import type { QRef, ReasonStep, FormulaOperator } from '../../types/derivation';
 import type { OntologyAccess } from './resolvers';
 import { resolveLookup, resolveDecompose } from './resolvers';
 import { buildDerivationRules, buildQuantityIndex } from './derivation-graph';
 import { planDerivation } from './derivation-planner';
 import { executePlan } from './derivation-executor';
+import { buildOperatorRegistry } from './operator-registry';
 import { qrefKey } from './qref';
 import { evaluateFormula } from '../formula-evaluator';
 import { deriveMolarMass } from './molar-mass-resolver';
@@ -29,8 +30,10 @@ export interface DeriveQuantityResult {
  * High-level quantity derivation that resolves ontology context (decompose, lookup)
  * then delegates to the existing formula planner for algebraic chains.
  *
- * This is an MVP orchestration layer for the first vertical slice,
- * not the final generalized mixed-rule executor.
+ * Phase 2: branches 1 (Ar lookup) and 2 (molar mass) are now handled by the
+ * unified operator registry (LookupOperator + IndexedAggregateOperator).
+ * Branches 3-4 (component contribution/fraction) kept as-is until Phase 4.
+ * Branch 5 (stoichiometry) kept as-is until Phase 4.
  */
 export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
   const { target, knowns, formulas, constants, ontology } = args;
@@ -41,20 +44,14 @@ export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
     trace.push({ type: 'given', qref: k.qref, value: k.value });
   }
 
-  // Direct lookup (e.g., Ar of element)
+  // Branch 1 (Ar lookup) — now handled via unified operator registry
   if (target.quantity === 'q:relative_atomic_mass' && target.context?.system_type === 'element') {
-    const lr = resolveLookup(target, ontology);
-    if (!lr) throw new Error(`Lookup failed for ${qrefKey(target)}`);
-    trace.push(lr.step);
-    trace.push({ type: 'conclusion', target, value: lr.value });
-    return { value: lr.value, trace, isApproximate: false };
+    return deriveViaOperatorRegistry(target, knowns, formulas, constants, ontology, trace);
   }
 
-  // Molar mass of substance: decompose → lookup Ar's → evaluate indexed formula
+  // Branch 2 (molar mass of substance) — now handled via unified operator registry
   if (target.quantity === 'q:molar_mass' && target.context?.system_type === 'substance') {
-    const M = deriveMolarMass(target.context.entity_ref!, formulas, constants, ontology, trace);
-    trace.push({ type: 'conclusion', target, value: M });
-    return { value: M, trace, isApproximate: false };
+    return deriveViaOperatorRegistry(target, knowns, formulas, constants, ontology, trace);
   }
 
   // Component molar mass contribution: decompose → select component → lookup Ar → formula
@@ -85,59 +82,10 @@ export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
     return deriveStoichiometryChain(target, knowns, formulas, constants, ontology, trace);
   }
 
-  // Mass/amount of substance: derive M first, then formula chain
+  // Mass/amount of substance: derive M via operator registry, then formula chain
   if ((target.quantity === 'q:mass' || target.quantity === 'q:amount')
       && target.context?.system_type === 'substance') {
-    const entityRef = target.context.entity_ref!;
-
-    // Step 1: derive M via ontology
-    const M = deriveMolarMass(entityRef, formulas, constants, ontology, trace);
-
-    // Step 2: formula chain for m ↔ n ↔ M
-    // Context-aware: molar mass carries substance identity so the planner
-    // can distinguish M(reactant) from M(product) in multi-substance scenarios.
-    // Formula rules are context-free but the planner inherits target context
-    // to sub-goals automatically.
-    const molarMassQRef: QRef = {
-      quantity: 'q:molar_mass',
-      context: { system_type: 'substance', entity_ref: entityRef },
-    };
-    const allKnowns: QRef[] = [molarMassQRef, ...knowns.map(k => k.qref)];
-    const values: Record<string, number> = { [qrefKey(molarMassQRef)]: M };
-    for (const k of knowns) values[qrefKey(k.qref)] = k.value;
-
-    const rules = buildDerivationRules(formulas);
-    const index = buildQuantityIndex(rules);
-    // Target carries full context — planner matches by bare quantity but
-    // stores results under the contextualized key.
-    const plan = planDerivation(target, allKnowns, rules, index);
-    if (!plan) throw new Error(`No derivation path for ${target.quantity}`);
-
-    const result = executePlan(plan, { formulas, constants, values });
-
-    // Append formula trace steps
-    for (const step of plan.steps) {
-      const formula = formulas.find(f => f.id === step.rule.formulaId);
-      trace.push({ type: 'formula_select', formulaId: step.rule.formulaId, target: step.target });
-      const bindings: Record<string, number> = {};
-      for (const input of step.rule.inputs) {
-        const ref = step.inputRefs[input.symbol];
-        if (ref) {
-          const val = result.computedValues[qrefKey(ref)];
-          if (val !== undefined) bindings[input.symbol] = val;
-        }
-      }
-      trace.push({ type: 'substitution', formulaId: step.rule.formulaId, bindings });
-      trace.push({
-        type: 'compute',
-        formulaId: step.rule.formulaId,
-        result: result.computedValues[qrefKey(step.target)],
-        approximate: formula?.approximation?.kind === 'approximate' || undefined,
-      });
-    }
-
-    trace.push({ type: 'conclusion', target, value: result.result });
-    return { value: result.result, trace, isApproximate: false };
+    return deriveSubstanceQuantity(target, knowns, formulas, constants, ontology, trace);
   }
 
   // Fallback: pure formula chain (no context needed — backward-compatible path)
@@ -150,6 +98,148 @@ export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
   if (!plan) throw new Error(`No derivation path for ${qrefKey(target)}`);
 
   const result = executePlan(plan, { formulas, constants, values });
+  trace.push({ type: 'conclusion', target, value: result.result });
+  return { value: result.result, trace, isApproximate: false };
+}
+
+/**
+ * Derive a quantity via the unified operator registry.
+ * Used for Ar lookup and molar mass — operators handle decompose/lookup internally.
+ */
+function deriveViaOperatorRegistry(
+  target: QRef,
+  knowns: Array<{ qref: QRef; value: number }>,
+  formulas: ComputableFormula[],
+  constants: ConstantsDict,
+  ontology: OntologyAccess,
+  trace: ReasonStep[],
+): DeriveQuantityResult {
+  const registry = buildOperatorRegistry(formulas);
+
+  const allKnowns = knowns.map(k => k.qref);
+  const values: Record<string, number> = {};
+  for (const k of knowns) values[qrefKey(k.qref)] = k.value;
+
+  const plan = planDerivation(target, allKnowns, registry.operators, registry.quantityIndex, {
+    handlers: registry.handlers,
+    ontology,
+  });
+  if (!plan) throw new Error(`No derivation path for ${qrefKey(target)}`);
+
+  const result = executePlan(plan, { formulas, constants, values, ontology }, registry.handlers);
+
+  // Collect internal steps from handler results (decompose, lookup, compute)
+  if (result.internalSteps) {
+    trace.push(...result.internalSteps);
+  }
+
+  // Append formula trace steps (if any formula operators in plan)
+  for (let i = 0; i < plan.steps.length; i++) {
+    const step = plan.steps[i];
+    if (step.rule.kind === 'formula') {
+      const fop = step.rule as FormulaOperator;
+      const formula = formulas.find(f => f.id === fop.formulaId);
+      trace.push({ type: 'formula_select', formulaId: fop.formulaId, target: step.target });
+      const bindings: Record<string, number> = {};
+      for (const input of fop.inputs) {
+        const ref = step.inputRefs[input.symbol];
+        if (ref) {
+          const val = result.computedValues[qrefKey(ref)];
+          if (val !== undefined) bindings[input.symbol] = val;
+        }
+      }
+      trace.push({ type: 'substitution', formulaId: fop.formulaId, bindings });
+      trace.push({
+        type: 'compute',
+        formulaId: fop.formulaId,
+        result: result.computedValues[qrefKey(step.target)],
+        approximate: formula?.approximation?.kind === 'approximate' || undefined,
+      });
+    }
+  }
+
+  trace.push({ type: 'conclusion', target, value: result.result });
+  return { value: result.result, trace, isApproximate: false };
+}
+
+/**
+ * Derive mass/amount of a substance: derive M via operator registry, then formula chain.
+ */
+function deriveSubstanceQuantity(
+  target: QRef,
+  knowns: Array<{ qref: QRef; value: number }>,
+  formulas: ComputableFormula[],
+  constants: ConstantsDict,
+  ontology: OntologyAccess,
+  trace: ReasonStep[],
+): DeriveQuantityResult {
+  const entityRef = target.context!.entity_ref!;
+
+  // Step 1: derive M via operator registry
+  const molarMassTarget: QRef = {
+    quantity: 'q:molar_mass',
+    context: { system_type: 'substance', entity_ref: entityRef },
+  };
+
+  const registry = buildOperatorRegistry(formulas);
+  const molarMassPlan = planDerivation(molarMassTarget, [], registry.operators, registry.quantityIndex, {
+    handlers: registry.handlers,
+    ontology,
+  });
+  if (!molarMassPlan) throw new Error(`Cannot derive molar mass for ${entityRef}`);
+
+  const molarMassResult = executePlan(
+    molarMassPlan,
+    { formulas, constants, values: {}, ontology },
+    registry.handlers,
+  );
+  const M = molarMassResult.result;
+
+  // Append M derivation trace (internal steps from aggregate handler)
+  if (molarMassResult.internalSteps) {
+    trace.push(...molarMassResult.internalSteps);
+  }
+
+  // Step 2: formula chain for m <-> n <-> M
+  const molarMassQRef: QRef = {
+    quantity: 'q:molar_mass',
+    context: { system_type: 'substance', entity_ref: entityRef },
+  };
+  const allKnowns: QRef[] = [molarMassQRef, ...knowns.map(k => k.qref)];
+  const values: Record<string, number> = { [qrefKey(molarMassQRef)]: M };
+  for (const k of knowns) values[qrefKey(k.qref)] = k.value;
+
+  const rules = buildDerivationRules(formulas);
+  const index = buildQuantityIndex(rules);
+  const plan = planDerivation(target, allKnowns, rules, index);
+  if (!plan) throw new Error(`No derivation path for ${target.quantity}`);
+
+  const result = executePlan(plan, { formulas, constants, values });
+
+  // Append formula trace steps
+  for (const step of plan.steps) {
+    if (step.rule.kind === 'formula') {
+      const fop = step.rule as FormulaOperator;
+      const formula = formulas.find(f => f.id === fop.formulaId);
+      trace.push({ type: 'formula_select', formulaId: fop.formulaId, target: step.target });
+      const bindings: Record<string, number> = {};
+      for (const input of fop.inputs) {
+        const ref = step.inputRefs[input.symbol];
+        if (ref) {
+          const val = result.computedValues[qrefKey(ref)];
+          if (val !== undefined) bindings[input.symbol] = val;
+        }
+      }
+      trace.push({ type: 'substitution', formulaId: fop.formulaId, bindings });
+      trace.push({
+        type: 'compute',
+        formulaId: fop.formulaId,
+        result: result.computedValues[qrefKey(step.target)],
+        approximate: formula?.approximation?.kind === 'approximate' || undefined,
+      });
+    }
+  }
+
   trace.push({ type: 'conclusion', target, value: result.result });
   return { value: result.result, trace, isApproximate: false };
 }

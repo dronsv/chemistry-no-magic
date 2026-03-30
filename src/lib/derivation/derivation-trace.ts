@@ -1,5 +1,5 @@
 import type { ComputableFormula } from '../../types/formula';
-import type { DerivationPlan, ReasonTrace, ReasonStep, QRef } from '../../types/derivation';
+import type { DerivationPlan, ReasonTrace, ReasonStep, QRef, FormulaOperator } from '../../types/derivation';
 import type { ExecutionResult } from './derivation-executor';
 import { qrefKey } from './qref';
 
@@ -24,46 +24,58 @@ export function buildReasonTrace(
     steps.push({ type: 'given', qref, value });
   }
 
-  // 2. Formula steps from plan
+  // 2. Steps from plan (formula steps get full trace; non-formula get internal steps)
+
+  // Insert any internal steps collected from handlers (decompose, lookup, etc.)
+  if (execution.internalSteps) {
+    steps.push(...execution.internalSteps);
+  }
+
   for (let i = 0; i < plan.steps.length; i++) {
     const planStep = plan.steps[i];
     const trace = execution.traces[i];
-    const formula = formulas.find(f => f.id === planStep.rule.formulaId);
+    const op = planStep.rule;
 
-    // formula_select
-    steps.push({
-      type: 'formula_select',
-      formulaId: planStep.rule.formulaId,
-      target: planStep.target,
-    });
+    if (op.kind === 'formula') {
+      const fop = op as FormulaOperator;
+      const formula = formulas.find(f => f.id === fop.formulaId);
 
-    // substitution — collect concrete values for inputs
-    const bindings: Record<string, number> = {};
-    for (const input of planStep.rule.inputs) {
-      const ref = planStep.inputRefs[input.symbol];
-      if (ref) {
-        const key = qrefKey(ref);
-        const val = execution.computedValues[key];
-        if (val !== undefined) bindings[input.symbol] = val;
-      }
-    }
-    if (Object.keys(bindings).length > 0) {
+      // formula_select
       steps.push({
-        type: 'substitution',
-        formulaId: planStep.rule.formulaId,
-        bindings,
+        type: 'formula_select',
+        formulaId: fop.formulaId,
+        target: planStep.target,
+      });
+
+      // substitution — collect concrete values for inputs
+      const bindings: Record<string, number> = {};
+      for (const input of fop.inputs) {
+        const ref = planStep.inputRefs[input.symbol];
+        if (ref) {
+          const key = qrefKey(ref);
+          const val = execution.computedValues[key];
+          if (val !== undefined) bindings[input.symbol] = val;
+        }
+      }
+      if (Object.keys(bindings).length > 0) {
+        steps.push({
+          type: 'substitution',
+          formulaId: fop.formulaId,
+          bindings,
+        });
+      }
+
+      // compute
+      const approximate = formula?.approximation?.kind === 'approximate';
+      if (approximate) isApproximate = true;
+      steps.push({
+        type: 'compute',
+        formulaId: fop.formulaId,
+        result: trace.result,
+        approximate: approximate || undefined,
       });
     }
-
-    // compute
-    const approximate = formula?.approximation?.kind === 'approximate';
-    if (approximate) isApproximate = true;
-    steps.push({
-      type: 'compute',
-      formulaId: planStep.rule.formulaId,
-      result: trace.result,
-      approximate: approximate || undefined,
-    });
+    // Non-formula operators: internal steps already emitted above
   }
 
   // 3. Conclusion

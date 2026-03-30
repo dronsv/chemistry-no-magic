@@ -5,10 +5,13 @@ import { buildDerivationRules, buildQuantityIndex } from '../derivation/derivati
 import { planDerivation } from '../derivation/derivation-planner';
 import { executePlan } from '../derivation/derivation-executor';
 import { buildReasonTrace } from '../derivation/derivation-trace';
+import { buildOperatorRegistry } from '../derivation/operator-registry';
 import { qrefKey, problemQRefKey, qrefInSet } from '../derivation/qref';
 import { toConstantsDict } from '../formula-evaluator';
+import { parseFormula } from '../formula-parser';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
-import type { QRef, DerivationRule } from '../../types/derivation';
+import type { QRef, DerivationRule, FormulaOperator } from '../../types/derivation';
+import type { Element } from '../../types/element';
 
 const DATA_DIR = join(import.meta.dirname, '../../../data-src/foundations');
 const formulas: ComputableFormula[] = JSON.parse(readFileSync(join(DATA_DIR, 'formulas.json'), 'utf8'));
@@ -240,9 +243,9 @@ describe('multi-step chains', () => {
     expect(plan).not.toBeNull();
     expect(plan!.steps).toHaveLength(2);
     // Step 1: amount from mass
-    expect(plan!.steps[0].rule.formulaId).toBe('formula:amount_from_mass');
+    expect((plan!.steps[0].rule as FormulaOperator).formulaId).toBe('formula:amount_from_mass');
     // Step 2: particle count from amount
-    expect(plan!.steps[1].rule.formulaId).toBe('formula:particle_count');
+    expect((plan!.steps[1].rule as FormulaOperator).formulaId).toBe('formula:particle_count');
   });
 
   it('cycle detection: no infinite loop', () => {
@@ -483,13 +486,13 @@ describe('role disambiguation', () => {
   it('scoped rule preferred over unscoped (lower score)', () => {
     // Create two mock rules: one scoped, one unscoped, both produce q:mass
     const scopedRule: DerivationRule = {
-      id: 'test/scoped', formulaId: 'test', targetSymbol: 'm',
+      kind: 'formula', id: 'test/scoped', formulaId: 'test', targetSymbol: 'm',
       targetQuantity: 'q:mass', targetRole: 'actual',
       inputs: [], isInversion: false, isApproximate: false,
       needsIndexedBindings: false,
     };
     const unscopedRule: DerivationRule = {
-      id: 'test/unscoped', formulaId: 'test', targetSymbol: 'm',
+      kind: 'formula', id: 'test/unscoped', formulaId: 'test', targetSymbol: 'm',
       targetQuantity: 'q:mass', targetRole: undefined,
       inputs: [], isInversion: false, isApproximate: false,
       needsIndexedBindings: false,
@@ -569,7 +572,7 @@ describe('preference & stability', () => {
       allRules, quantityIndex,
     );
     expect(plan!.steps).toHaveLength(1);
-    expect(plan!.steps[0].rule.formulaId).toBe('formula:density');
+    expect((plan!.steps[0].rule as FormulaOperator).formulaId).toBe('formula:density');
   });
 
   it('generic fallback does not break exact role chain', () => {
@@ -687,7 +690,7 @@ describe('context propagation', () => {
     const plan = planDerivation(target, knowns, allRules, quantityIndex);
     expect(plan).not.toBeNull();
     expect(plan!.steps).toHaveLength(1);
-    expect(plan!.steps[0].rule.formulaId).toBe('formula:amount_from_mass');
+    expect((plan!.steps[0].rule as FormulaOperator).formulaId).toBe('formula:amount_from_mass');
   });
 
   it('context-free knowns satisfy context-bearing sub-goals', () => {
@@ -754,5 +757,226 @@ describe('context propagation', () => {
     };
     const result = executePlan(plan, { formulas, constants: CONSTS, values });
     expect(result.result).toBeCloseTo(1.0, 1);
+  });
+});
+
+// ── Operator type system ──────────────────────────────────────
+
+const elements: Element[] = JSON.parse(
+  readFileSync(join(import.meta.dirname, '../../../data-src/elements.json'), 'utf8'),
+);
+
+const entityFormulas = new Map<string, string>([
+  ['substance:H2O', 'H2O'],
+  ['substance:H2SO4', 'H2SO4'],
+  ['substance:NaCl', 'NaCl'],
+]);
+
+const testOntology = { elements, parseFormula, entityFormulas };
+
+describe('operator registry', () => {
+  it('buildOperatorRegistry produces formula + lookup + aggregate operators', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const kinds = new Set(registry.operators.map(op => op.kind));
+    expect(kinds.has('formula')).toBe(true);
+    expect(kinds.has('lookup')).toBe(true);
+    expect(kinds.has('indexed_aggregate')).toBe(true);
+  });
+
+  it('quantityIndex includes lookup and aggregate operators', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const arOps = registry.quantityIndex.get('q:relative_atomic_mass') ?? [];
+    expect(arOps.some(op => op.kind === 'lookup')).toBe(true);
+    const molarOps = registry.quantityIndex.get('q:molar_mass') ?? [];
+    expect(molarOps.some(op => op.kind === 'indexed_aggregate')).toBe(true);
+  });
+
+  it('handlers registered for all three kinds', () => {
+    const registry = buildOperatorRegistry(formulas);
+    expect(registry.handlers.has('formula')).toBe(true);
+    expect(registry.handlers.has('lookup')).toBe(true);
+    expect(registry.handlers.has('indexed_aggregate')).toBe(true);
+  });
+});
+
+describe('operator-aware planning', () => {
+  it('plans q:relative_atomic_mass@element:O as single lookup step', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:relative_atomic_mass',
+      context: { system_type: 'element', entity_ref: 'element:O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].rule.kind).toBe('lookup');
+    expect(plan!.steps[0].rule.id).toBe('op:lookup_ar');
+  });
+
+  it('plans q:molar_mass@substance:H2O as single aggregate step', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:molar_mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].rule.kind).toBe('indexed_aggregate');
+    expect(plan!.steps[0].rule.id).toBe('op:aggregate_molar_mass');
+  });
+
+  it('plans q:mass@substance:H2O from {q:amount} via aggregate + formula', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2O' },
+    };
+    const knowns: QRef[] = [{ quantity: 'q:amount' }];
+
+    // Use the operator-aware planner
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    // Should have: aggregate(M) + formula(m = n * M)
+    expect(plan!.steps.length).toBeGreaterThanOrEqual(2);
+
+    // First step should be aggregate molar mass
+    const aggStep = plan!.steps.find(s => s.rule.kind === 'indexed_aggregate');
+    expect(aggStep).toBeDefined();
+
+    // Last step should be a formula
+    const lastStep = plan!.steps[plan!.steps.length - 1];
+    expect(lastStep.rule.kind).toBe('formula');
+    expect(lastStep.target.quantity).toBe('q:mass');
+  });
+
+  it('legacy planning (no handlers) still works with formula operators', () => {
+    // buildDerivationRules now returns FormulaOperator[] (with kind: 'formula')
+    const rules = buildDerivationRules(formulas);
+    const index = buildQuantityIndex(rules);
+
+    const plan = planDerivation(
+      { quantity: 'q:amount' },
+      [{ quantity: 'q:mass' }, { quantity: 'q:molar_mass' }],
+      rules, index,
+      // No handlers — legacy mode
+    );
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].rule.kind).toBe('formula');
+  });
+});
+
+describe('operator-aware execution', () => {
+  it('executes lookup operator for Ar(O)', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:relative_atomic_mass',
+      context: { system_type: 'element', entity_ref: 'element:O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: {}, ontology: testOntology },
+      registry.handlers,
+    );
+    expect(result.result).toBeCloseTo(15.999, 2);
+  });
+
+  it('executes aggregate operator for M(H2O)', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:molar_mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: {}, ontology: testOntology },
+      registry.handlers,
+    );
+    expect(result.result).toBeCloseTo(18.015, 1);
+    // Should have internal steps from aggregate handler
+    expect(result.internalSteps).toBeDefined();
+    expect(result.internalSteps!.some(s => s.type === 'decompose')).toBe(true);
+    expect(result.internalSteps!.some(s => s.type === 'lookup')).toBe(true);
+  });
+
+  it('executes full chain: m(H2SO4) from n=2 via aggregate + formula', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2SO4' },
+    };
+    const knowns: QRef[] = [{ quantity: 'q:amount' }];
+
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: { 'q:amount': 2 }, ontology: testOntology },
+      registry.handlers,
+    );
+    // M(H2SO4) ≈ 98.08, m = n * M = 2 * 98.08 ≈ 196.16
+    expect(result.result).toBeCloseTo(196.16, 0);
+  });
+
+  it('backward compat: legacy executor (no handlers) works unchanged', () => {
+    const rules = buildDerivationRules(formulas);
+    const index = buildQuantityIndex(rules);
+
+    const plan = planDerivation(
+      { quantity: 'q:amount' },
+      [{ quantity: 'q:mass' }, { quantity: 'q:molar_mass' }],
+      rules, index,
+    )!;
+
+    // No handlers arg — legacy path
+    const result = executePlan(plan, {
+      formulas,
+      constants: CONSTS,
+      values: { 'q:mass': 58.44, 'q:molar_mass': 58.44 },
+    });
+    expect(result.result).toBeCloseTo(1.0, 5);
+  });
+});
+
+describe('DerivationRule backward compatibility', () => {
+  it('DerivationRule type is FormulaOperator alias', () => {
+    const rule: DerivationRule = {
+      kind: 'formula',
+      id: 'test/compat',
+      formulaId: 'test',
+      targetSymbol: 'x',
+      targetQuantity: 'q:test',
+      inputs: [],
+      isInversion: false,
+      isApproximate: false,
+      needsIndexedBindings: false,
+    };
+    // DerivationRule should be assignable as FormulaOperator
+    const op: FormulaOperator = rule;
+    expect(op.kind).toBe('formula');
+  });
+
+  it('buildDerivationRules returns rules with kind=formula', () => {
+    const rules = buildDerivationRules(formulas);
+    for (const rule of rules) {
+      expect(rule.kind).toBe('formula');
+    }
   });
 });

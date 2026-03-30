@@ -1,4 +1,6 @@
 import type { SemanticRole } from './formula';
+import type { ComputableFormula } from './formula';
+import type { ConstantsDict, IndexedBindings, EvalTrace } from './eval-trace';
 
 /** Context binding for ontology-aware quantity references. */
 export interface BoundContext {
@@ -31,30 +33,96 @@ export interface DerivationRuleInput {
   role?: SemanticRole;
 }
 
-/**
- * One way to compute a target variable. Built from ComputableFormula.
- *
- * baseCost governance: only for pedagogical preference that cannot be
- * expressed through standard scoring. Default 0. Not a substitute for
- * broken identity or modeling.
- */
-export interface DerivationRule {
-  id: string;                                // e.g., 'formula:amount_from_mass/forward'
-  formulaId: string;
-  targetSymbol: string;
+// ── Operator type system ────────────────────────────────────────
+
+/** Common fields for all operator kinds. */
+interface OperatorBase {
+  id: string;
+  kind: string;
   targetQuantity: string;
   targetRole?: SemanticRole;
+  baseCost?: number;
+}
+
+/**
+ * Formula operator: algebraic computation from a ComputableFormula.
+ * This is the original DerivationRule with a kind discriminant added.
+ */
+export interface FormulaOperator extends OperatorBase {
+  kind: 'formula';
+  formulaId: string;
+  targetSymbol: string;
   inputs: DerivationRuleInput[];
   isInversion: boolean;
   isApproximate: boolean;
   needsIndexedBindings: boolean;
   indexSets?: string[];
-  baseCost?: number;
 }
+
+/** Lookup operator: resolve a quantity by direct ontology lookup (leaf node). */
+export interface LookupOperator extends OperatorBase {
+  kind: 'lookup';
+  lookupQuantity: string;
+  systemType: string;                        // 'element'
+}
+
+/** Indexed aggregate operator: decompose + lookup + indexed formula evaluation. */
+export interface IndexedAggregateOperator extends OperatorBase {
+  kind: 'indexed_aggregate';
+  formulaId: string;
+  indexSet: string;                          // 'composition_elements'
+  sourceSystemType: string;                  // 'substance'
+}
+
+/** Discriminated union of all operator kinds. */
+export type DerivationOperator = FormulaOperator | LookupOperator | IndexedAggregateOperator;
+
+/**
+ * Backward-compatible alias: DerivationRule = FormulaOperator.
+ * Existing code that creates/consumes DerivationRule continues to work unchanged.
+ */
+export type DerivationRule = FormulaOperator;
+
+// ── Operator handler protocol ───────────────────────────────────
+
+/** Ontology access for operator handlers (re-exported from resolvers at runtime). */
+export interface OntologyAccessForHandler {
+  elements: unknown[];
+  parseFormula: (ascii: string) => Record<string, number>;
+  entityFormulas: Map<string, string>;
+}
+
+/** Execution environment passed to operator handlers. */
+export interface ExecutionEnv {
+  formulas: ComputableFormula[];
+  constants: ConstantsDict;
+  values: Record<string, number>;
+  indexed?: IndexedBindings;
+  ontology?: OntologyAccessForHandler;
+}
+
+/** Result returned by an operator handler's execute method. */
+export interface OperatorResult {
+  value: number;
+  trace: EvalTrace;
+  internalSteps?: ReasonStep[];              // for aggregate: decompose + lookup sub-steps
+}
+
+/** Handler protocol for a single operator kind (no switch blocks). */
+export interface OperatorHandler {
+  /** Does this operator match the given target? */
+  matches(op: DerivationOperator, target: QRef): boolean;
+  /** What sub-goals are needed? Empty = leaf node. */
+  expand(op: DerivationOperator, target: QRef): QRef[];
+  /** Execute this operator step. */
+  execute(op: DerivationOperator, step: PlanStep, env: ExecutionEnv): OperatorResult;
+}
+
+// ── Plan types ──────────────────────────────────────────────────
 
 /** A step in the derivation plan (before execution). */
 export interface PlanStep {
-  rule: DerivationRule;
+  rule: DerivationOperator;
   target: QRef;
   inputRefs: Record<string, QRef>;           // symbol → resolved QRef
   inputSources: Record<string, 'known' | string>;  // symbol → 'known' | ruleId

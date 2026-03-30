@@ -1,10 +1,15 @@
 import type { SemanticRole } from '../../types/formula';
-import type { QRef, DerivationRule, DerivationPlan, PlanStep } from '../../types/derivation';
+import type {
+  QRef, DerivationRule, DerivationOperator, FormulaOperator,
+  DerivationPlan, PlanStep, OperatorHandler,
+} from '../../types/derivation';
 import { qrefKey, qrefInSet } from './qref';
 
 export interface PlannerOptions {
   maxDepth?: number;               // default 6
   availableIndexSets?: string[];   // e.g., ['composition_elements']
+  handlers?: Map<string, OperatorHandler>;   // kind -> handler (operator-aware mode)
+  ontology?: unknown;              // passed through for handler matching context
 }
 
 /**
@@ -12,16 +17,23 @@ export interface PlannerOptions {
  *
  * Finds the best derivation path from knowns to target,
  * or returns null if no path exists.
+ *
+ * Supports two modes:
+ * - Legacy (formula-only): pass DerivationRule[] — uses hardcoded formula logic
+ * - Operator-aware: pass DerivationOperator[] + handlers — dispatches via OperatorHandler protocol
+ *
+ * Both signatures are backward-compatible: DerivationRule is an alias for FormulaOperator.
  */
 export function planDerivation(
   target: QRef,
   knowns: QRef[],
-  rules: DerivationRule[],
-  quantityIndex: Map<string, DerivationRule[]>,
+  rules: DerivationOperator[],
+  quantityIndex: Map<string, DerivationOperator[]>,
   options?: PlannerOptions,
 ): DerivationPlan | null {
   const maxDepth = options?.maxDepth ?? 6;
   const availableIndexSets = new Set(options?.availableIndexSets ?? []);
+  const handlers = options?.handlers;
   const knownKeys = new Set(knowns.map(qrefKey));
   const memo = new Map<string, DerivationPlan | null>();
 
@@ -56,67 +68,96 @@ export function planDerivation(
 
     visited.add(key);
 
-    // Get candidate rules for this quantity
+    // Get candidate operators for this quantity
     let candidates = quantityIndex.get(tgt.quantity) ?? [];
 
-    // 1. Pre-filter: role compatibility + indexed-binding availability
-    candidates = candidates.filter(rule =>
-      roleCompatible(rule.targetRole, tgt.role) &&
-      (!rule.needsIndexedBindings || indexSetsAvailable(rule, availableIndexSets)),
-    );
-
-    // 2. Exact dominance: if any exact candidate, prune all approximate
-    const hasExact = candidates.some(r => !r.isApproximate);
-    if (hasExact) {
-      candidates = candidates.filter(r => !r.isApproximate);
+    if (handlers) {
+      // Operator-aware mode: use handler.matches() for filtering
+      candidates = candidates.filter(op => {
+        const handler = handlers.get(op.kind);
+        if (!handler) return false;
+        if (!handler.matches(op, tgt)) return false;
+        // For formula operators, also check indexed-binding availability
+        if (op.kind === 'formula') {
+          const fop = op as FormulaOperator;
+          if (fop.needsIndexedBindings && !indexSetsAvailable(fop, availableIndexSets)) return false;
+        }
+        return true;
+      });
+    } else {
+      // Legacy mode: formula-only filtering
+      candidates = candidates.filter(op => {
+        if (op.kind !== 'formula') return false;
+        const fop = op as FormulaOperator;
+        return roleCompatible(fop.targetRole, tgt.role) &&
+          (!fop.needsIndexedBindings || indexSetsAvailable(fop, availableIndexSets));
+      });
     }
 
-    // 3. Pre-rank: fewer unresolved inputs first (vs direct knowns only)
+    // 2. Exact dominance: if any exact formula candidate, prune all approximate formulas
+    const hasExact = candidates.some(op =>
+      op.kind !== 'formula' || !(op as FormulaOperator).isApproximate,
+    );
+    if (hasExact) {
+      candidates = candidates.filter(op =>
+        op.kind !== 'formula' || !(op as FormulaOperator).isApproximate,
+      );
+    }
+
+    // 3. Pre-rank: fewer unresolved inputs first, then inversions, then baseCost
     candidates = [...candidates].sort((a, b) => {
-      const unresolvedA = countUnresolved(a, knownKeys, tgt.context);
-      const unresolvedB = countUnresolved(b, knownKeys, tgt.context);
+      const unresolvedA = countUnresolved(a, knownKeys, tgt.context, handlers);
+      const unresolvedB = countUnresolved(b, knownKeys, tgt.context, handlers);
       if (unresolvedA !== unresolvedB) return unresolvedA - unresolvedB;
-      if (a.isInversion !== b.isInversion) return a.isInversion ? 1 : -1;
+      const invA = a.kind === 'formula' && (a as FormulaOperator).isInversion;
+      const invB = b.kind === 'formula' && (b as FormulaOperator).isInversion;
+      if (invA !== invB) return invA ? 1 : -1;
       return (a.baseCost ?? 0) - (b.baseCost ?? 0);
     });
 
     let bestPlan: DerivationPlan | null = null;
 
-    for (const rule of candidates) {
+    for (const op of candidates) {
       const subSteps: PlanStep[] = [];
       const inputRefs: Record<string, QRef> = {};
       const inputSources: Record<string, 'known' | string> = {};
       let ok = true;
 
-      for (const input of rule.inputs) {
-        // Per-input context propagation: if target has context and rule input
-        // doesn't declare a different scope, inherit target's context.
-        // This makes "n = m/M" work for any substance: planning q:amount@substance:X
-        // produces sub-goals q:mass@substance:X and q:molar_mass@substance:X.
-        const inputRef: QRef = { quantity: input.quantity, role: input.role };
-        if (tgt.context && !inputRef.context) {
-          inputRef.context = tgt.context;
-        }
-        inputRefs[input.symbol] = inputRef;
+      // Get sub-goals via handler or hardcoded formula logic
+      const subGoals = getSubGoals(op, tgt, handlers);
+
+      for (const { symbol, ref: inputRef } of subGoals) {
+        inputRefs[symbol] = inputRef;
         const inputKey = qrefKey(inputRef);
 
         if (knownKeys.has(inputKey)) {
-          inputSources[input.symbol] = 'known';
+          inputSources[symbol] = 'known';
           continue;
+        }
+
+        // Also check bare key for context-free knowns
+        if (inputRef.context) {
+          const iBareKey = inputRef.role
+            ? `${inputRef.quantity}|${inputRef.role}`
+            : inputRef.quantity;
+          if (knownKeys.has(iBareKey)) {
+            inputSources[symbol] = 'known';
+            continue;
+          }
         }
 
         const subPlan = search(inputRef, depth + 1, visited);
         if (!subPlan) { ok = false; break; }
 
         subSteps.push(...subPlan.steps);
-        inputSources[input.symbol] = subPlan.steps.length > 0
+        inputSources[symbol] = subPlan.steps.length > 0
           ? subPlan.steps[subPlan.steps.length - 1].rule.id
           : 'known';
       }
 
       if (!ok) continue;
 
-      const thisStep: PlanStep = { rule, target: tgt, inputRefs, inputSources };
+      const thisStep: PlanStep = { rule: op, target: tgt, inputRefs, inputSources };
       const allSteps = [...subSteps, thisStep];
       const score = scorePlan(allSteps, tgt.role);
 
@@ -129,6 +170,44 @@ export function planDerivation(
     memo.set(key, bestPlan);
     return bestPlan;
   }
+}
+
+/**
+ * Get sub-goals for an operator. Returns symbol-keyed QRef array.
+ * For formula operators: expands inputs with context propagation.
+ * For lookup/aggregate operators: returns empty (leaf nodes).
+ */
+function getSubGoals(
+  op: DerivationOperator,
+  target: QRef,
+  handlers?: Map<string, OperatorHandler>,
+): Array<{ symbol: string; ref: QRef }> {
+  if (handlers) {
+    const handler = handlers.get(op.kind);
+    if (handler) {
+      const expanded = handler.expand(op, target);
+      if (op.kind === 'formula') {
+        const fop = op as FormulaOperator;
+        return fop.inputs.map((input, i) => ({
+          symbol: input.symbol,
+          ref: expanded[i],
+        }));
+      }
+      // Non-formula operators: leaf nodes, no sub-goals
+      return [];
+    }
+  }
+
+  // Legacy fallback: formula-only
+  if (op.kind !== 'formula') return [];
+  const fop = op as FormulaOperator;
+  return fop.inputs.map(input => {
+    const ref: QRef = { quantity: input.quantity, role: input.role };
+    if (target.context && !ref.context) {
+      ref.context = target.context;
+    }
+    return { symbol: input.symbol, ref };
+  });
 }
 
 /**
@@ -145,20 +224,26 @@ function roleCompatible(
 }
 
 /** Check if all required index sets are available. */
-function indexSetsAvailable(rule: DerivationRule, available: Set<string>): boolean {
+function indexSetsAvailable(rule: FormulaOperator, available: Set<string>): boolean {
   if (!rule.indexSets) return true;
   return rule.indexSets.every(s => available.has(s));
 }
 
 /**
  * Count inputs not directly in the known set (cheap heuristic).
- * Uses qrefKey() for context-aware matching.
- * Also checks bare quantity keys as fallback for context-free knowns
- * matching context-bearing targets.
+ * For non-formula operators (lookup, aggregate): returns 0 (leaf nodes).
  */
-function countUnresolved(rule: DerivationRule, knownKeys: Set<string>, targetContext?: QRef['context']): number {
+function countUnresolved(
+  op: DerivationOperator,
+  knownKeys: Set<string>,
+  targetContext?: QRef['context'],
+  handlers?: Map<string, OperatorHandler>,
+): number {
+  if (op.kind !== 'formula') return 0;
+  const fop = op as FormulaOperator;
+
   let count = 0;
-  for (const input of rule.inputs) {
+  for (const input of fop.inputs) {
     // Build the full input QRef with inherited context
     const inputRef: QRef = { quantity: input.quantity, role: input.role };
     if (targetContext) inputRef.context = targetContext;
@@ -175,21 +260,25 @@ function countUnresolved(rule: DerivationRule, knownKeys: Set<string>, targetCon
  *
  * Dimensions:
  * - step count (fewer = better)
- * - approximate penalty
- * - indexed binding penalty
- * - inversion penalty
+ * - approximate penalty (formula operators only)
+ * - indexed binding penalty (formula operators only)
+ * - inversion penalty (formula operators only)
  * - per-rule baseCost
  * - generic role match penalty (unscoped rule matching scoped target)
  */
 function scorePlan(steps: PlanStep[], targetRole?: SemanticRole): number {
   let score = steps.length * 100;
   for (const s of steps) {
-    if (s.rule.isApproximate) score += 50;
-    if (s.rule.needsIndexedBindings) score += 30;
-    if (s.rule.isInversion) score += 10;
-    score += s.rule.baseCost ?? 0;
-    // Generic role match penalty: unscoped rule matching scoped target
-    if (targetRole && !s.rule.targetRole) score += 20;
+    const op = s.rule;
+    if (op.kind === 'formula') {
+      const fop = op as FormulaOperator;
+      if (fop.isApproximate) score += 50;
+      if (fop.needsIndexedBindings) score += 30;
+      if (fop.isInversion) score += 10;
+      // Generic role match penalty: unscoped rule matching scoped target
+      if (targetRole && !fop.targetRole) score += 20;
+    }
+    score += op.baseCost ?? 0;
   }
   return score;
 }
