@@ -40,7 +40,13 @@ export function executePlan(plan: DerivationPlan, ctx: ExecutionContext): Execut
       const ref = step.inputRefs[input.symbol];
       if (!ref) throw new Error(`No inputRef for symbol: ${input.symbol}`);
       const key = qrefKey(ref);
-      const val = computedValues[key];
+      let val = computedValues[key];
+      // Fallback: try bare key (no context) for backward compat with
+      // context-free knowns satisfying context-bearing sub-goals.
+      if (val === undefined && ref.context) {
+        const bareKey = ref.role ? `${ref.quantity}|${ref.role}` : ref.quantity;
+        val = computedValues[bareKey];
+      }
       if (val === undefined) {
         throw new Error(`Value not found for ${key} (symbol ${input.symbol})`);
       }

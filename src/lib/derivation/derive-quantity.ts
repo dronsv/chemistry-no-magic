@@ -94,18 +94,23 @@ export function deriveQuantity(args: DeriveQuantityArgs): DeriveQuantityResult {
     const M = deriveMolarMass(entityRef, formulas, constants, ontology, trace);
 
     // Step 2: formula chain for m ↔ n ↔ M
-    // MVP transitional: context-aware q:molar_mass(substance:X) is collapsed into
-    // context-free q:molar_mass because only single-substance derivations are
-    // supported in this slice. Multi-substance systems will need context propagation.
-    const molarMassQRef: QRef = { quantity: 'q:molar_mass' };
+    // Context-aware: molar mass carries substance identity so the planner
+    // can distinguish M(reactant) from M(product) in multi-substance scenarios.
+    // Formula rules are context-free but the planner inherits target context
+    // to sub-goals automatically.
+    const molarMassQRef: QRef = {
+      quantity: 'q:molar_mass',
+      context: { system_type: 'substance', entity_ref: entityRef },
+    };
     const allKnowns: QRef[] = [molarMassQRef, ...knowns.map(k => k.qref)];
     const values: Record<string, number> = { [qrefKey(molarMassQRef)]: M };
     for (const k of knowns) values[qrefKey(k.qref)] = k.value;
 
     const rules = buildDerivationRules(formulas);
     const index = buildQuantityIndex(rules);
-    const formulaTarget: QRef = { quantity: target.quantity };
-    const plan = planDerivation(formulaTarget, allKnowns, rules, index);
+    // Target carries full context — planner matches by bare quantity but
+    // stores results under the contextualized key.
+    const plan = planDerivation(target, allKnowns, rules, index);
     if (!plan) throw new Error(`No derivation path for ${target.quantity}`);
 
     const result = executePlan(plan, { formulas, constants, values });

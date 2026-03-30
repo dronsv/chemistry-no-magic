@@ -672,3 +672,87 @@ describe('ReasonTrace', () => {
     expect(computeStep?.type === 'compute' && computeStep.approximate).toBe(true);
   });
 });
+
+// ── Context propagation ────────────────────────────────────────
+
+describe('context propagation', () => {
+  const ctx = { system_type: 'substance', entity_ref: 'substance:H2SO4' } as const;
+
+  it('plans q:amount@substance from contextual knowns', () => {
+    const target: QRef = { quantity: 'q:amount', context: ctx };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', context: ctx },
+      { quantity: 'q:molar_mass', context: ctx },
+    ];
+    const plan = planDerivation(target, knowns, allRules, quantityIndex);
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].rule.formulaId).toBe('formula:amount_from_mass');
+  });
+
+  it('context-free knowns satisfy context-bearing sub-goals', () => {
+    const target: QRef = { quantity: 'q:amount', context: ctx };
+    // Knowns have NO context — should still match
+    const knowns: QRef[] = [
+      { quantity: 'q:mass' },
+      { quantity: 'q:molar_mass' },
+    ];
+    const plan = planDerivation(target, knowns, allRules, quantityIndex);
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+  });
+
+  it('two different substance contexts do not collide', () => {
+    const ctxA = { system_type: 'substance', entity_ref: 'substance:H2O' } as const;
+    const ctxB = { system_type: 'substance', entity_ref: 'substance:NaCl' } as const;
+    const keyA = qrefKey({ quantity: 'q:mass', context: ctxA });
+    const keyB = qrefKey({ quantity: 'q:mass', context: ctxB });
+    expect(keyA).not.toBe(keyB);
+
+    // Plan for ctxA should not be influenced by ctxB knowns
+    const target: QRef = { quantity: 'q:amount', context: ctxA };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', context: ctxA },
+      { quantity: 'q:molar_mass', context: ctxA },
+      // ctxB knowns — should not interfere
+      { quantity: 'q:mass', context: ctxB },
+    ];
+    const plan = planDerivation(target, knowns, allRules, quantityIndex);
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+  });
+
+  it('sub-goals inherit context from target', () => {
+    // q:particle_count needs q:amount + N_A (constant).
+    // q:amount needs q:mass + q:molar_mass.
+    // Planning q:particle_count@substance:X from {q:mass@X, q:molar_mass@X}
+    // should produce a 2-step plan with context on intermediate q:amount.
+    const target: QRef = { quantity: 'q:particle_count', context: ctx };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', context: ctx },
+      { quantity: 'q:molar_mass', context: ctx },
+    ];
+    const plan = planDerivation(target, knowns, allRules, quantityIndex);
+    expect(plan).not.toBeNull();
+    expect(plan!.steps.length).toBeGreaterThanOrEqual(2);
+    // Intermediate step should have context
+    const amountStep = plan!.steps.find(s => s.target.quantity === 'q:amount');
+    expect(amountStep).toBeDefined();
+    expect(amountStep!.target.context).toEqual(ctx);
+  });
+
+  it('executor handles contextual value keys', () => {
+    const target: QRef = { quantity: 'q:amount', context: ctx };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', context: ctx },
+      { quantity: 'q:molar_mass', context: ctx },
+    ];
+    const plan = planDerivation(target, knowns, allRules, quantityIndex)!;
+    const values: Record<string, number> = {
+      [qrefKey({ quantity: 'q:mass', context: ctx })]: 98,
+      [qrefKey({ quantity: 'q:molar_mass', context: ctx })]: 98,
+    };
+    const result = executePlan(plan, { formulas, constants: CONSTS, values });
+    expect(result.result).toBeCloseTo(1.0, 1);
+  });
+});
