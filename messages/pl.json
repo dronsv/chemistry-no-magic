@@ -1104,5 +1104,17 @@
   "solver_color_crimson": "Karmazynowy",
   "solver_color_colorless": "Bezbarwny",
   "solver_color_orange": "Pomarańczowy",
-  "solver_color_yellow": "Żółty"
+  "solver_color_yellow": "Żółty",
+  "solver_add_given": "Dodaj wielkość",
+  "solver_find_indicator": "Kolor wskaźnika",
+  "solver_find_medium": "Odczyn roztworu",
+  "solver_medium_acidic": "Kwasowy",
+  "solver_medium_neutral": "Obojętny",
+  "solver_medium_alkaline": "Zasadowy",
+  "solver_model": "Model zadania",
+  "solver_tpl_mixing": "Mieszanie kwasu i zasady",
+  "solver_tpl_mixing_desc": "Określ odczyn i kolor wskaźnika",
+  "solver_tpl_medium": "Określenie odczynu",
+  "solver_tpl_medium_desc": "Kwasowy, obojętny czy zasadowy?",
+  "solver_visual": "Wizualny"
 }

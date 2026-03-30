@@ -1104,5 +1104,17 @@
   "solver_color_crimson": "Малиновый",
   "solver_color_colorless": "Бесцветный",
   "solver_color_orange": "Оранжевый",
-  "solver_color_yellow": "Жёлтый"
+  "solver_color_yellow": "Жёлтый",
+  "solver_add_given": "Добавить величину",
+  "solver_find_indicator": "Цвет индикатора",
+  "solver_find_medium": "Среда раствора",
+  "solver_medium_acidic": "Кислая",
+  "solver_medium_neutral": "Нейтральная",
+  "solver_medium_alkaline": "Щелочная",
+  "solver_model": "Модель задачи",
+  "solver_tpl_mixing": "Смешение кислоты и щёлочи",
+  "solver_tpl_mixing_desc": "Определить среду и цвет индикатора",
+  "solver_tpl_medium": "Определение среды",
+  "solver_tpl_medium_desc": "Кислая, нейтральная или щелочная?",
+  "solver_visual": "Визуальный"
 }

@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import type { SubstanceIndexEntry } from '../../types/classification';
 import type { Element } from '../../types/element';
 import type { FormulaLookup } from '../../types/formula-lookup';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
-import type { ReasoningQuery, ReasonStep, ReasoningResult } from '../../types/derivation';
+import type { ReasoningQuery, ReasoningResult, QueryParticipant, FactGoal } from '../../types/derivation';
 import type { SupportedLocale } from '../../types/i18n';
 import {
   loadSubstancesIndex,
@@ -28,11 +28,61 @@ interface IndicatorRule {
   mapping: Array<{ input: string; output_color: string }>;
 }
 
-const INDICATOR_OPTIONS = [
-  { id: 'ind:litmus', label: () => m.solver_ind_litmus() },
-  { id: 'ind:phenolphthalein', label: () => m.solver_ind_phenolphthalein() },
-  { id: 'ind:methyl_orange', label: () => m.solver_ind_methyl_orange() },
+// ── Query templates (models) ────────────────────────────────
+
+interface QueryTemplate {
+  id: string;
+  label: () => string;
+  description: () => string;
+  build: () => ReasoningQuery;
+}
+
+const TEMPLATES: QueryTemplate[] = [
+  {
+    id: 'mixing_indicator',
+    label: () => m.solver_tpl_mixing(),
+    description: () => m.solver_tpl_mixing_desc(),
+    build: () => ({
+      system: {
+        type: 'mixing',
+        participants: [
+          { role: 'acid', entity: 'sub:hcl', given: [
+            { quantity: 'q:mass_fraction', value: 0.1 },
+            { quantity: 'q:mass', role: 'solution', value: 100 },
+          ]},
+          { role: 'base', entity: 'sub:naoh', given: [
+            { quantity: 'q:mass_fraction', value: 0.05 },
+            { quantity: 'q:mass', role: 'solution', value: 200 },
+          ]},
+        ],
+      },
+      find: { fact: 'indicator_color', params: { indicator: 'ind:litmus' } },
+    }),
+  },
+  {
+    id: 'mixing_medium',
+    label: () => m.solver_tpl_medium(),
+    description: () => m.solver_tpl_medium_desc(),
+    build: () => ({
+      system: {
+        type: 'mixing',
+        participants: [
+          { role: 'acid', entity: 'sub:h2so4', given: [
+            { quantity: 'q:mass_fraction', value: 0.049 },
+            { quantity: 'q:mass', role: 'solution', value: 100 },
+          ]},
+          { role: 'base', entity: 'sub:koh', given: [
+            { quantity: 'q:mass_fraction', value: 0.056 },
+            { quantity: 'q:mass', role: 'solution', value: 100 },
+          ]},
+        ],
+      },
+      find: { fact: 'medium' },
+    }),
+  },
 ];
+
+// ── Color display ───────────────────────────────────────────
 
 const COLOR_LABELS: Record<string, () => string> = {
   'color:red': () => m.solver_color_red(),
@@ -42,12 +92,19 @@ const COLOR_LABELS: Record<string, () => string> = {
   'color:colorless': () => m.solver_color_colorless(),
   'color:orange': () => m.solver_color_orange(),
   'color:yellow': () => m.solver_color_yellow(),
+  'medium:acidic': () => m.solver_medium_acidic(),
+  'medium:neutral': () => m.solver_medium_neutral(),
+  'medium:alkaline': () => m.solver_medium_alkaline(),
 };
 
-function colorCssClass(color: string): string {
-  const name = color.replace('color:', '');
-  return `solver-color-chip--${name}`;
+function answerDisplay(answer: string | number): { label: string; cssClass: string } {
+  if (typeof answer === 'number') return { label: String(answer), cssClass: '' };
+  const label = COLOR_LABELS[answer]?.() ?? answer;
+  const name = answer.replace(/^(color|medium):/, '');
+  return { label, cssClass: `solver-color-chip--${name}` };
 }
+
+// ── Main component ──────────────────────────────────────────
 
 export default function SolverPage({ locale = 'ru' as SupportedLocale }: { locale?: SupportedLocale }) {
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
@@ -58,18 +115,17 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   const [indicatorRules, setIndicatorRules] = useState<IndicatorRule[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Form state
-  const [acidId, setAcidId] = useState('');
-  const [baseId, setBaseId] = useState('');
-  const [acidMassFraction, setAcidMassFraction] = useState('10');
-  const [acidSolutionMass, setAcidSolutionMass] = useState('100');
-  const [baseMassFraction, setBaseMassFraction] = useState('5');
-  const [baseSolutionMass, setBaseSolutionMass] = useState('200');
-  const [indicatorId, setIndicatorId] = useState('ind:litmus');
+  // Query state — editable JSON
+  const [queryJson, setQueryJson] = useState('');
+  const [jsonError, setJsonError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'visual' | 'json'>('visual');
+
+  // Parsed query for visual editor
+  const [query, setQuery] = useState<ReasoningQuery | null>(null);
 
   // Result
   const [result, setResult] = useState<ReasoningResult | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [solveError, setSolveError] = useState<string | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -88,255 +144,363 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
         setConstantsList(consts);
         setIndicatorRules(indRules);
         setLoading(false);
-
-        // Default selections
-        const acids = subs.filter(s => s.class === 'acid');
-        const bases = subs.filter(s => s.class === 'base');
-        if (acids.length > 0) setAcidId(acids[0].id);
-        if (bases.length > 0) setBaseId(bases[0].id);
       })
       .catch(() => setLoading(false));
   }, []);
 
-  const acids = useMemo(
-    () => substances.filter(s => s.class === 'acid').sort((a, b) => a.formula.localeCompare(b.formula)),
-    [substances],
-  );
-  const bases = useMemo(
-    () => substances.filter(s => s.class === 'base').sort((a, b) => a.formula.localeCompare(b.formula)),
-    [substances],
-  );
+  // Sync query ↔ JSON
+  const updateQuery = useCallback((q: ReasoningQuery) => {
+    setQuery(q);
+    setQueryJson(JSON.stringify(q, null, 2));
+    setJsonError(null);
+    setResult(null);
+    setSolveError(null);
+  }, []);
 
-  const acidSub = useMemo(() => substances.find(s => s.id === acidId), [substances, acidId]);
-  const baseSub = useMemo(() => substances.find(s => s.id === baseId), [substances, baseId]);
+  const handleJsonChange = useCallback((text: string) => {
+    setQueryJson(text);
+    try {
+      const parsed = JSON.parse(text) as ReasoningQuery;
+      if (parsed.system && parsed.find) {
+        setQuery(parsed);
+        setJsonError(null);
+      } else {
+        setJsonError('Missing "system" or "find" field');
+      }
+    } catch (e) {
+      setJsonError(e instanceof Error ? e.message : 'Invalid JSON');
+    }
+  }, []);
 
-  const canSolve =
-    acidId &&
-    baseId &&
-    Number(acidMassFraction) > 0 &&
-    Number(acidSolutionMass) > 0 &&
-    Number(baseMassFraction) > 0 &&
-    Number(baseSolutionMass) > 0;
+  // Load template
+  const handleTemplate = useCallback((tpl: QueryTemplate) => {
+    updateQuery(tpl.build());
+  }, [updateQuery]);
 
-  function handleSolve() {
-    setError(null);
+  // Visual editor: update participant
+  const updateParticipant = useCallback((index: number, updates: Partial<QueryParticipant>) => {
+    if (!query) return;
+    const participants = [...query.system.participants];
+    participants[index] = { ...participants[index], ...updates };
+    updateQuery({ ...query, system: { ...query.system, participants } });
+  }, [query, updateQuery]);
+
+  // Visual editor: update participant given value
+  const updateGiven = useCallback((pIdx: number, gIdx: number, value: number) => {
+    if (!query) return;
+    const participants = [...query.system.participants];
+    const given = [...participants[pIdx].given];
+    given[gIdx] = { ...given[gIdx], value };
+    participants[pIdx] = { ...participants[pIdx], given };
+    updateQuery({ ...query, system: { ...query.system, participants } });
+  }, [query, updateQuery]);
+
+  // Add participant
+  const addParticipant = useCallback(() => {
+    if (!query) return;
+    const p: QueryParticipant = {
+      role: 'participant',
+      entity: '',
+      given: [{ quantity: 'q:mass', value: 0 }],
+    };
+    updateQuery({
+      ...query,
+      system: { ...query.system, participants: [...query.system.participants, p] },
+    });
+  }, [query, updateQuery]);
+
+  // Remove participant
+  const removeParticipant = useCallback((index: number) => {
+    if (!query) return;
+    const participants = query.system.participants.filter((_, i) => i !== index);
+    updateQuery({ ...query, system: { ...query.system, participants } });
+  }, [query, updateQuery]);
+
+  // Add given to participant
+  const addGiven = useCallback((pIdx: number) => {
+    if (!query) return;
+    const participants = [...query.system.participants];
+    participants[pIdx] = {
+      ...participants[pIdx],
+      given: [...participants[pIdx].given, { quantity: 'q:mass', value: 0 }],
+    };
+    updateQuery({ ...query, system: { ...query.system, participants } });
+  }, [query, updateQuery]);
+
+  // Remove given from participant
+  const removeGiven = useCallback((pIdx: number, gIdx: number) => {
+    if (!query) return;
+    const participants = [...query.system.participants];
+    participants[pIdx] = {
+      ...participants[pIdx],
+      given: participants[pIdx].given.filter((_, i) => i !== gIdx),
+    };
+    updateQuery({ ...query, system: { ...query.system, participants } });
+  }, [query, updateQuery]);
+
+  // Solve
+  const handleSolve = useCallback(() => {
+    if (!query) return;
+    setSolveError(null);
     setResult(null);
 
     try {
-      // Build entity formula map from substances
       const entityFormulas = new Map<string, string>();
       for (const s of substances) {
-        // sub:hcl -> substance:hcl, formula in ASCII
         const ref = `substance:${s.id.replace(/^sub:/, '')}`;
-        // Convert Unicode formula to ASCII for parser
         const ascii = s.formula.replace(/[\u2080-\u2089]/g, ch =>
           String(ch.charCodeAt(0) - 0x2080),
         );
         entityFormulas.set(ref, ascii);
       }
 
-      const ontology = {
-        elements,
-        parseFormula,
-        entityFormulas,
-      };
-
-      const constants = toConstantsDict(constantsList);
-
-      const acidEntityId = acidId.replace(/^sub:/, '');
-      const baseEntityId = baseId.replace(/^sub:/, '');
-
-      const query: ReasoningQuery = {
-        system: {
-          type: 'mixing',
-          participants: [
-            {
-              role: 'acid',
-              entity: `sub:${acidEntityId}`,
-              given: [
-                { quantity: 'q:mass_fraction', value: Number(acidMassFraction) / 100 },
-                { quantity: 'q:mass', role: 'solution', value: Number(acidSolutionMass) },
-              ],
-            },
-            {
-              role: 'base',
-              entity: `sub:${baseEntityId}`,
-              given: [
-                { quantity: 'q:mass_fraction', value: Number(baseMassFraction) / 100 },
-                { quantity: 'q:mass', role: 'solution', value: Number(baseSolutionMass) },
-              ],
-            },
-          ],
-        },
-        find: { fact: 'indicator_color', params: { indicator: indicatorId } },
-      };
-
       const res = solveQuery(query, {
         formulas,
-        constants,
-        ontology,
+        constants: toConstantsDict(constantsList),
+        ontology: { elements, parseFormula, entityFormulas },
         indicatorRules,
       });
-
       setResult(res);
-    } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : String(e));
+    } catch (e) {
+      setSolveError(e instanceof Error ? e.message : String(e));
     }
-  }
+  }, [query, substances, elements, formulas, constantsList, indicatorRules]);
 
-  if (loading) {
-    return <div className="solver-loading">{m.loading()}</div>;
-  }
+  // Substance options
+  const substanceOptions = useMemo(() =>
+    substances
+      .filter(s => s.class && s.class !== 'other')
+      .sort((a, b) => a.formula.localeCompare(b.formula)),
+    [substances],
+  );
+
+  const QUANTITY_OPTIONS = [
+    'q:mass', 'q:amount', 'q:mass_fraction', 'q:molar_mass',
+    'q:volume', 'q:molar_concentration', 'q:density',
+  ];
+
+  const ROLE_OPTIONS = [
+    '', 'solution', 'solute', 'reactant', 'product', 'actual', 'theoretical',
+  ];
+
+  const FIND_FACT_OPTIONS = [
+    { value: 'indicator_color', label: () => m.solver_find_indicator() },
+    { value: 'medium', label: () => m.solver_find_medium() },
+  ];
+
+  if (loading) return <div className="solver-loading">{m.loading()}</div>;
 
   return (
     <FormulaLookupProvider value={formulaLookup}>
       <div className="solver-page">
         <h1 className="solver-page__title">{m.solver_title()}</h1>
-        <p className="solver-page__intro">{m.solver_description()}</p>
 
-        {/* Step 1: System type (currently only mixing) */}
-        <div className="solver-step">
-          <div className="solver-step__label">{m.solver_step_system()}</div>
-          <div className="solver-radios">
-            <label className="solver-radio solver-radio--active">
-              <input type="radio" name="system" checked readOnly />
-              {m.solver_mixing()}
-            </label>
+        {/* Template selector */}
+        <div className="solver-templates">
+          <div className="solver-templates__label">{m.solver_model()}</div>
+          <div className="solver-templates__list">
+            {TEMPLATES.map(tpl => (
+              <button
+                key={tpl.id}
+                type="button"
+                className="solver-template-btn"
+                onClick={() => handleTemplate(tpl)}
+              >
+                <span className="solver-template-btn__title">{tpl.label()}</span>
+                <span className="solver-template-btn__desc">{tpl.description()}</span>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Step 2: Participants */}
-        <div className="solver-step">
-          <div className="solver-step__label">{m.solver_step_participants()}</div>
-          <div className="solver-participants">
-            {/* Acid card */}
-            <div className="solver-card">
-              <div className="solver-card__title">
-                <span className="solver-card__role--acid">{m.solver_acid()}</span>
+        {/* View mode toggle */}
+        {query && (
+          <div className="solver-view-toggle">
+            <button
+              type="button"
+              className={viewMode === 'visual' ? 'active' : ''}
+              onClick={() => setViewMode('visual')}
+            >
+              {m.solver_visual()}
+            </button>
+            <button
+              type="button"
+              className={viewMode === 'json' ? 'active' : ''}
+              onClick={() => setViewMode('json')}
+            >
+              JSON
+            </button>
+          </div>
+        )}
+
+        {/* JSON editor */}
+        {query && viewMode === 'json' && (
+          <div className="solver-json">
+            <textarea
+              className="solver-json__editor"
+              value={queryJson}
+              onChange={e => handleJsonChange(e.target.value)}
+              rows={Math.max(10, queryJson.split('\n').length + 2)}
+              spellCheck={false}
+            />
+            {jsonError && <div className="solver-json__error">{jsonError}</div>}
+          </div>
+        )}
+
+        {/* Visual editor */}
+        {query && viewMode === 'visual' && (
+          <div className="solver-visual">
+            {/* System type */}
+            <div className="solver-section">
+              <div className="solver-section__label">{m.solver_step_system()}</div>
+              <input
+                type="text"
+                className="solver-input--inline"
+                value={query.system.type}
+                onChange={e => updateQuery({ ...query, system: { ...query.system, type: e.target.value } })}
+              />
+            </div>
+
+            {/* Participants */}
+            <div className="solver-section">
+              <div className="solver-section__label">
+                {m.solver_step_participants()}
+                <button type="button" className="solver-btn-add" onClick={addParticipant}>+</button>
               </div>
-              <div className="solver-card__field">
-                <label>{m.solver_select_acid()}</label>
-                <select value={acidId} onChange={e => setAcidId(e.target.value)}>
-                  {acids.map(a => (
-                    <option key={a.id} value={a.id}>
-                      {a.formula} {a.name ? `- ${a.name}` : ''}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              {acidSub && (
-                <div className="solver-card__formula-preview">
-                  <FormulaChip formula={acidSub.formula} substanceId={acidSub.id.replace(/^sub:/, '')} />
-                </div>
-              )}
-              <div className="solver-card__field">
-                <label>{m.solver_mass_fraction()}</label>
-                <input
-                  type="number"
-                  min="0.1"
-                  max="100"
-                  step="0.1"
-                  value={acidMassFraction}
-                  onChange={e => setAcidMassFraction(e.target.value)}
-                />
-              </div>
-              <div className="solver-card__field">
-                <label>{m.solver_solution_mass()}</label>
-                <input
-                  type="number"
-                  min="0.1"
-                  step="0.1"
-                  value={acidSolutionMass}
-                  onChange={e => setAcidSolutionMass(e.target.value)}
-                />
+              <div className="solver-participants">
+                {query.system.participants.map((p, pIdx) => (
+                  <div key={pIdx} className="solver-card">
+                    <div className="solver-card__header">
+                      <input
+                        type="text"
+                        className="solver-input--role"
+                        value={p.role}
+                        onChange={e => updateParticipant(pIdx, { role: e.target.value })}
+                        placeholder="role"
+                      />
+                      <select
+                        className="solver-input--entity"
+                        value={p.entity}
+                        onChange={e => updateParticipant(pIdx, { entity: e.target.value })}
+                      >
+                        <option value="">—</option>
+                        {substanceOptions.map(s => (
+                          <option key={s.id} value={s.id}>{s.formula} ({s.class})</option>
+                        ))}
+                      </select>
+                      {p.entity && (
+                        <FormulaChip
+                          formula={substances.find(s => s.id === p.entity)?.formula ?? p.entity}
+                          substanceId={p.entity.replace(/^sub:/, '')}
+                        />
+                      )}
+                      {query.system.participants.length > 1 && (
+                        <button type="button" className="solver-btn-remove" onClick={() => removeParticipant(pIdx)}>×</button>
+                      )}
+                    </div>
+
+                    {/* Given values */}
+                    <div className="solver-card__givens">
+                      {p.given.map((g, gIdx) => (
+                        <div key={gIdx} className="solver-given-row">
+                          <select
+                            value={g.quantity}
+                            onChange={e => {
+                              const given = [...p.given];
+                              given[gIdx] = { ...given[gIdx], quantity: e.target.value };
+                              updateParticipant(pIdx, { given });
+                            }}
+                          >
+                            {QUANTITY_OPTIONS.map(q => (
+                              <option key={q} value={q}>{q.replace('q:', '')}</option>
+                            ))}
+                          </select>
+                          <select
+                            value={g.role ?? ''}
+                            onChange={e => {
+                              const given = [...p.given];
+                              given[gIdx] = { ...given[gIdx], role: e.target.value || undefined } as typeof g;
+                              updateParticipant(pIdx, { given });
+                            }}
+                          >
+                            {ROLE_OPTIONS.map(r => (
+                              <option key={r} value={r}>{r || '(no role)'}</option>
+                            ))}
+                          </select>
+                          <input
+                            type="number"
+                            step="any"
+                            className="solver-input--value"
+                            value={g.value}
+                            onChange={e => updateGiven(pIdx, gIdx, Number(e.target.value))}
+                          />
+                          <button type="button" className="solver-btn-remove-sm" onClick={() => removeGiven(pIdx, gIdx)}>×</button>
+                        </div>
+                      ))}
+                      <button type="button" className="solver-btn-add-sm" onClick={() => addGiven(pIdx)}>+ {m.solver_add_given()}</button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Base card */}
-            <div className="solver-card">
-              <div className="solver-card__title">
-                <span className="solver-card__role--base">{m.solver_base()}</span>
-              </div>
-              <div className="solver-card__field">
-                <label>{m.solver_select_base()}</label>
-                <select value={baseId} onChange={e => setBaseId(e.target.value)}>
-                  {bases.map(b => (
-                    <option key={b.id} value={b.id}>
-                      {b.formula} {b.name ? `- ${b.name}` : ''}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              {baseSub && (
-                <div className="solver-card__formula-preview">
-                  <FormulaChip formula={baseSub.formula} substanceId={baseSub.id.replace(/^sub:/, '')} />
+            {/* Find */}
+            <div className="solver-section">
+              <div className="solver-section__label">{m.solver_find()}</div>
+              {'fact' in query.find ? (
+                <div className="solver-find-row">
+                  <select
+                    value={(query.find as FactGoal).fact}
+                    onChange={e => updateQuery({ ...query, find: { fact: e.target.value, params: (query.find as FactGoal).params } })}
+                  >
+                    {FIND_FACT_OPTIONS.map(o => (
+                      <option key={o.value} value={o.value}>{o.label()}</option>
+                    ))}
+                  </select>
+                  {(query.find as FactGoal).fact === 'indicator_color' && (
+                    <select
+                      value={(query.find as FactGoal).params?.indicator ?? 'ind:litmus'}
+                      onChange={e => updateQuery({ ...query, find: { fact: 'indicator_color', params: { indicator: e.target.value } } })}
+                    >
+                      <option value="ind:litmus">{m.solver_ind_litmus()}</option>
+                      <option value="ind:phenolphthalein">{m.solver_ind_phenolphthalein()}</option>
+                      <option value="ind:methyl_orange">{m.solver_ind_methyl_orange()}</option>
+                    </select>
+                  )}
+                </div>
+              ) : (
+                <div className="solver-find-row">
+                  <span>quantity: {(query.find as { quantity: string }).quantity}</span>
                 </div>
               )}
-              <div className="solver-card__field">
-                <label>{m.solver_mass_fraction()}</label>
-                <input
-                  type="number"
-                  min="0.1"
-                  max="100"
-                  step="0.1"
-                  value={baseMassFraction}
-                  onChange={e => setBaseMassFraction(e.target.value)}
-                />
-              </div>
-              <div className="solver-card__field">
-                <label>{m.solver_solution_mass()}</label>
-                <input
-                  type="number"
-                  min="0.1"
-                  step="0.1"
-                  value={baseSolutionMass}
-                  onChange={e => setBaseSolutionMass(e.target.value)}
-                />
-              </div>
             </div>
           </div>
-        </div>
+        )}
 
-        {/* Step 3: What to find */}
-        <div className="solver-step">
-          <div className="solver-step__label">{m.solver_find()}</div>
-          <div className="solver-indicator">
-            <label>{m.solver_indicator()}</label>
-            <select value={indicatorId} onChange={e => setIndicatorId(e.target.value)}>
-              {INDICATOR_OPTIONS.map(opt => (
-                <option key={opt.id} value={opt.id}>{opt.label()}</option>
-              ))}
-            </select>
+        {/* Solve */}
+        {query && (
+          <div className="solver-actions">
+            <button
+              type="button"
+              className="solver-solve-btn"
+              disabled={!query || !!jsonError}
+              onClick={handleSolve}
+            >
+              {m.solver_solve()}
+            </button>
           </div>
-        </div>
-
-        {/* Solve button */}
-        <div className="solver-actions">
-          <button
-            type="button"
-            className="solver-solve-btn"
-            disabled={!canSolve}
-            onClick={handleSolve}
-          >
-            {m.solver_solve()}
-          </button>
-        </div>
+        )}
 
         {/* Error */}
-        {error && (
-          <div className="solver-error">{error}</div>
-        )}
+        {solveError && <div className="solver-error">{solveError}</div>}
 
         {/* Result */}
         {result && (
           <div className="solver-result">
             <div className="solver-result__header">
               <span className="solver-result__label">{m.solver_answer()}</span>
-              <span className="solver-result__value">
-                <ColorChip color={String(result.answer)} />
-              </span>
+              <AnswerChip answer={result.answer} />
             </div>
-
             <StepsTrace steps={result.steps} intermediates={result.intermediates} />
           </div>
         )}
@@ -345,12 +509,11 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   );
 }
 
-function ColorChip({ color }: { color: string }) {
-  const label = COLOR_LABELS[color]?.() ?? color;
-  const cssClass = colorCssClass(color);
+function AnswerChip({ answer }: { answer: string | number }) {
+  const { label, cssClass } = answerDisplay(answer);
   return (
     <span className={`solver-color-chip ${cssClass}`}>
-      <span className="solver-color-chip__dot" />
+      {cssClass && <span className="solver-color-chip__dot" />}
       {label}
     </span>
   );

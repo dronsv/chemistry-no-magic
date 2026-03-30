@@ -1104,5 +1104,17 @@
   "solver_color_crimson": "Crimson",
   "solver_color_colorless": "Colorless",
   "solver_color_orange": "Orange",
-  "solver_color_yellow": "Yellow"
+  "solver_color_yellow": "Yellow",
+  "solver_add_given": "Add quantity",
+  "solver_find_indicator": "Indicator color",
+  "solver_find_medium": "Solution medium",
+  "solver_medium_acidic": "Acidic",
+  "solver_medium_neutral": "Neutral",
+  "solver_medium_alkaline": "Alkaline",
+  "solver_model": "Problem model",
+  "solver_tpl_mixing": "Acid-base mixing",
+  "solver_tpl_mixing_desc": "Determine medium and indicator color",
+  "solver_tpl_medium": "Medium determination",
+  "solver_tpl_medium_desc": "Acidic, neutral or alkaline?",
+  "solver_visual": "Visual"
 }

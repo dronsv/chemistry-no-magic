@@ -1104,5 +1104,17 @@
   "solver_color_crimson": "Carmesí",
   "solver_color_colorless": "Incoloro",
   "solver_color_orange": "Naranja",
-  "solver_color_yellow": "Amarillo"
+  "solver_color_yellow": "Amarillo",
+  "solver_add_given": "Añadir magnitud",
+  "solver_find_indicator": "Color del indicador",
+  "solver_find_medium": "Medio de la solución",
+  "solver_medium_acidic": "Ácido",
+  "solver_medium_neutral": "Neutro",
+  "solver_medium_alkaline": "Alcalino",
+  "solver_model": "Modelo del problema",
+  "solver_tpl_mixing": "Mezcla ácido-base",
+  "solver_tpl_mixing_desc": "Determinar el medio y color del indicador",
+  "solver_tpl_medium": "Determinación del medio",
+  "solver_tpl_medium_desc": "¿Ácido, neutro o alcalino?",
+  "solver_visual": "Visual"
 }
