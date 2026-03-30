@@ -151,3 +151,21 @@ export interface ReasonTrace {
   result: number;
   isApproximate: boolean;
 }
+
+// ── Proof tree ─────────────────────────────────────────────────
+
+/** A node in the proof tree — mirrors the AND/OR planner structure. */
+export interface ProofNode {
+  operator: DerivationOperator | null;   // null for given/leaf nodes
+  target: QRef;
+  value?: number;
+  children: ProofNode[];                 // AND-children (all needed for this step)
+  internalSteps?: ReasonStep[];          // sub-steps from aggregate/lookup execution
+}
+
+/** Complete proof tree with result. */
+export interface ProofTree {
+  root: ProofNode;
+  result: number;
+  isApproximate: boolean;
+}

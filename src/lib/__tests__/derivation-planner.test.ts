@@ -980,3 +980,112 @@ describe('DerivationRule backward compatibility', () => {
     }
   });
 });
+
+// ── Proof tree ────────────────────────────────────────────────
+
+import { buildProofTree, flattenProofTree } from '../derivation/derivation-trace';
+
+describe('proof tree', () => {
+  it('builds proof tree for M(H2O) with internal children', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:molar_mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: {}, ontology: testOntology },
+      registry.handlers,
+    );
+
+    const tree = buildProofTree(plan, result, {});
+    expect(tree.result).toBeCloseTo(18.015, 1);
+    expect(tree.root.operator).not.toBeNull();
+    expect(tree.root.operator!.kind).toBe('indexed_aggregate');
+    expect(tree.root.value).toBeCloseTo(18.015, 1);
+    // Internal steps: decompose + 2 lookups (H, O) + compute
+    expect(tree.root.internalSteps).toBeDefined();
+    expect(tree.root.internalSteps!.some(s => s.type === 'decompose')).toBe(true);
+    expect(tree.root.internalSteps!.some(s => s.type === 'lookup')).toBe(true);
+  });
+
+  it('builds proof tree for m(H2SO4) with depth ≥ 2', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2SO4' },
+    };
+    const plan = planDerivation(target, [{ quantity: 'q:amount' }], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: { 'q:amount': 2 }, ontology: testOntology },
+      registry.handlers,
+    );
+
+    const tree = buildProofTree(plan, result, { 'q:amount': 2 });
+    expect(tree.result).toBeCloseTo(196.16, 0);
+    // Root is formula step (m = n * M)
+    expect(tree.root.operator!.kind).toBe('formula');
+    // Should have children: q:amount (given) and q:molar_mass (aggregate)
+    expect(tree.root.children.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('flattenProofTree produces conclusion step', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = {
+      quantity: 'q:molar_mass',
+      context: { system_type: 'substance', entity_ref: 'substance:H2O' },
+    };
+    const plan = planDerivation(target, [], registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+    const result = executePlan(
+      plan,
+      { formulas, constants: CONSTS, values: {}, ontology: testOntology },
+      registry.handlers,
+    );
+
+    const tree = buildProofTree(plan, result, {});
+    const flat = flattenProofTree(tree, formulas);
+    // Should end with conclusion
+    expect(flat[flat.length - 1].type).toBe('conclusion');
+    // Should contain decompose + lookup steps from internal
+    expect(flat.some(s => s.type === 'decompose')).toBe(true);
+    expect(flat.some(s => s.type === 'lookup')).toBe(true);
+  });
+
+  it('proof tree for pure formula chain has correct depth', () => {
+    // 2-step chain: q:particle_count from {q:mass, q:molar_mass}
+    // Step 1: q:amount = q:mass / q:molar_mass
+    // Step 2: q:particle_count = q:amount * N_A
+    const plan = planDerivation(
+      { quantity: 'q:particle_count' },
+      [{ quantity: 'q:mass' }, { quantity: 'q:molar_mass' }],
+      allRules, quantityIndex,
+    )!;
+    const values = { 'q:mass': 18, 'q:molar_mass': 18 };
+    const result = executePlan(plan, { formulas, constants: CONSTS, values });
+
+    const tree = buildProofTree(plan, result, values);
+    // Root = particle_count formula
+    expect(tree.root.operator!.kind).toBe('formula');
+    // Root has children (at least q:amount which is intermediate)
+    expect(tree.root.children.length).toBeGreaterThanOrEqual(1);
+    // q:amount child should itself have children (q:mass, q:molar_mass as givens)
+    const amountChild = tree.root.children.find(c => c.target.quantity === 'q:amount');
+    if (amountChild) {
+      expect(amountChild.operator!.kind).toBe('formula');
+      expect(amountChild.children.length).toBeGreaterThanOrEqual(2);
+      // Leaf children should be givens
+      for (const leaf of amountChild.children) {
+        expect(leaf.operator).toBeNull();
+        expect(leaf.value).toBeDefined();
+      }
+    }
+  });
+});
