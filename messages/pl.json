@@ -1116,5 +1116,6 @@
   "solver_tpl_mixing_desc": "Określ odczyn i kolor wskaźnika",
   "solver_tpl_medium": "Określenie odczynu",
   "solver_tpl_medium_desc": "Kwasowy, obojętny czy zasadowy?",
-  "solver_visual": "Wizualny"
+  "solver_visual": "Wizualny",
+  "solver_typeahead_placeholder": "Zacznij pisać pytanie..."
 }

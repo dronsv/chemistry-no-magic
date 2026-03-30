@@ -1116,5 +1116,6 @@
   "solver_tpl_mixing_desc": "Определить среду и цвет индикатора",
   "solver_tpl_medium": "Определение среды",
   "solver_tpl_medium_desc": "Кислая, нейтральная или щелочная?",
-  "solver_visual": "Визуальный"
+  "solver_visual": "Визуальный",
+  "solver_typeahead_placeholder": "Начните вводить вопрос..."
 }

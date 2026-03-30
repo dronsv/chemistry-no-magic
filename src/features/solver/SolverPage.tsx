@@ -22,6 +22,7 @@ import type { AutocompleteOption } from './SlotAutocomplete';
 import type { SlotDataSources } from './sentence-templates';
 import { SENTENCE_TEMPLATES, getDefaults } from './sentence-templates';
 import SentenceEditor from './SentenceEditor';
+import QueryTypeahead from './QueryTypeahead';
 import StepsTrace from './StepsTrace';
 import './solver.css';
 
@@ -189,22 +190,12 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       <div className="solver-page">
         <h1 className="solver-page__title">{m.solver_title()}</h1>
 
-        {/* Template selector */}
-        <div className="solver-templates">
-          <div className="solver-templates__label">{m.solver_model()}</div>
-          <div className="solver-templates__list">
-            {SENTENCE_TEMPLATES.map(tpl => (
-              <button
-                key={tpl.id}
-                type="button"
-                className={`solver-template-btn ${templateId === tpl.id ? 'solver-template-btn--active' : ''}`}
-                onClick={() => handleSelectTemplate(tpl.id)}
-              >
-                <span className="solver-template-btn__title">{tpl.label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Typeahead query input */}
+        <QueryTypeahead
+          templates={SENTENCE_TEMPLATES}
+          onSelect={handleSelectTemplate}
+          placeholder={m.solver_typeahead_placeholder()}
+        />
 
         {/* Sentence editor */}
         {selectedTemplate && (

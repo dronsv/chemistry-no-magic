@@ -1116,5 +1116,6 @@
   "solver_tpl_mixing_desc": "Determinar el medio y color del indicador",
   "solver_tpl_medium": "Determinación del medio",
   "solver_tpl_medium_desc": "¿Ácido, neutro o alcalino?",
-  "solver_visual": "Visual"
+  "solver_visual": "Visual",
+  "solver_typeahead_placeholder": "Empieza a escribir una pregunta..."
 }
