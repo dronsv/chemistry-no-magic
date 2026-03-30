@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { OgeOption } from '../../../types/oge-task';
-import ChemText from '../../../components/ChemText';
+import { renderMaybeRichText } from '../../../lib/render-maybe-richtext';
 
 interface Props {
   items: OgeOption[];
@@ -65,7 +65,7 @@ export default function SequenceAnswer({
             disabled={disabled || placed.includes(item.id)}
           >
             <span className="oge-sequence__item-id">{item.id})</span>
-            <ChemText text={item.text} />
+            {renderMaybeRichText(item.text)}
           </button>
         ))}
       </div>

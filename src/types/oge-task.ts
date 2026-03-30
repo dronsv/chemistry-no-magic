@@ -1,3 +1,5 @@
+import type { RichText } from './ontology-ref';
+
 /** Answer format types matching the real OGE exam. */
 export type OgeAnswerType =
   | 'select'       // Pick N items from a list (ordered or unordered)
@@ -23,13 +25,13 @@ export interface OgeNumericConfig {
 /** An option in a select/matching task (right column for matching). */
 export interface OgeOption {
   id: string;
-  text: string;
+  text: string | RichText;
 }
 
 /** A left-column item in a matching task. */
 export interface OgeLeftItem {
   label: string;  // "А", "Б", "В"
-  text: string;
+  text: string | RichText;
 }
 
 /**
@@ -49,9 +51,9 @@ export interface OgeTask {
   source: 'demo' | 'real' | 'reserve';
   task_number: number;   // 1–23
   part: 1 | 2;
-  question: string;
-  /** Shared context shown before the question (e.g. tasks 18–19 share a paragraph). */
-  context?: string;
+  question: string | RichText;
+  /** Shared context shown before the question (e.g. tasks 18-19 share a paragraph). */
+  context?: string | RichText;
 
   answer_type: OgeAnswerType;
   select_config?: OgeSelectConfig;
@@ -63,7 +65,7 @@ export interface OgeTask {
   options?: OgeOption[];
   /** Items for sequence tasks (to be arranged in order). */
   items?: OgeOption[];
-  /** Left column items for matching tasks. */
+  /** Left-column items for matching tasks. */
   left_items?: OgeLeftItem[];
 
   correct_answer: string;
@@ -72,7 +74,7 @@ export interface OgeTask {
   time_minutes: number;
   /** Our competency IDs this task primarily tests. */
   competencies: string[];
-  explanation: string;
+  explanation: string | RichText;
   /** Tasks with the same group test the same concept in the same way (for deduplication). */
   similarity_group?: string;
 }

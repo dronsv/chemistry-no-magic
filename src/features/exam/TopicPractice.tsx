@@ -9,7 +9,7 @@ import { getTasksForTopic, getSystemsForTopic, deduplicateTasks, normalizeDiffic
 import { saveCrossExamAttempt } from '../../lib/storage';
 import { gradeOgeTask } from './oge-scoring';
 import OgeAnswerRouter from './answers/OgeAnswerRouter';
-import ChemText from '../../components/ChemText';
+import { renderMaybeRichText } from '../../lib/render-maybe-richtext';
 import * as m from '../../paraglide/messages.js';
 
 type NormalizedDifficulty = 'basic' | 'advanced' | 'expert';
@@ -277,7 +277,7 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
                 >
                   <span className="topic-detail__task-num">#{task.task_number}</span>
                   <span className="topic-detail__task-text">
-                    <ChemText text={task.question.slice(0, 80) + (task.question.length > 80 ? '...' : '')} />
+                    {renderMaybeRichText(typeof task.question === 'string' ? task.question.slice(0, 80) + (task.question.length > 80 ? '...' : '') : task.question)}
                   </span>
                   <span className={`oge-practice__diff oge-practice__diff--${task.difficulty}`}>
                     {task.difficulty}
@@ -309,13 +309,13 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
 
         <div className="oge-task">
           {currentTask.context && (
-            <div className="oge-task__context"><ChemText text={currentTask.context} /></div>
+            <div className="oge-task__context">{renderMaybeRichText(currentTask.context)}</div>
           )}
           <div className="oge-task__question">
             <span className="oge-task__number">
               {m.exam_task_number({ number: String(currentTask.task_number) })}
             </span>
-            <p className="oge-task__text"><ChemText text={currentTask.question} /></p>
+            <p className="oge-task__text">{renderMaybeRichText(currentTask.question)}</p>
           </div>
 
           <div className="oge-task__answer">
@@ -355,7 +355,7 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
               <h4 className="oge-task__algorithm-title">{m.oge_algorithm_title()}</h4>
               <ol className="oge-task__algorithm-steps">
                 {algo.algorithm.map((step, i) => (
-                  <li key={i}><ChemText text={step} /></li>
+                  <li key={i}>{renderMaybeRichText(step)}</li>
                 ))}
               </ol>
             </div>
@@ -367,7 +367,7 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
                 {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? m.oge_score_unit_1() : m.oge_score_unit_2()}
               </div>
               <div className="oge-task__explanation">
-                <ChemText text={currentTask.explanation} />
+                {renderMaybeRichText(currentTask.explanation)}
               </div>
 
               {algo && (
@@ -377,19 +377,19 @@ export default function TopicPractice({ topics, examSystems, loadSystemTasks, lo
                     <h4>{algo.title}</h4>
                     <ol className="oge-task__algorithm-steps">
                       {algo.algorithm.map((step, i) => (
-                        <li key={i}><ChemText text={step} /></li>
+                        <li key={i}>{renderMaybeRichText(step)}</li>
                       ))}
                     </ol>
                     <h4>{m.oge_key_facts()}</h4>
                     <ul>
                       {algo.key_facts.map((fact, i) => (
-                        <li key={i}><ChemText text={fact} /></li>
+                        <li key={i}>{renderMaybeRichText(fact)}</li>
                       ))}
                     </ul>
                     <h4>{m.oge_common_traps()}</h4>
                     <ul className="oge-task__traps">
                       {algo.common_traps.map((trap, i) => (
-                        <li key={i}><ChemText text={trap} /></li>
+                        <li key={i}>{renderMaybeRichText(trap)}</li>
                       ))}
                     </ul>
                   </div>

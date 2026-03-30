@@ -13,8 +13,9 @@ import type { ComputableFormula, PhysicalConstant } from '../types/formula';
 import { formulaToDisplayString } from '../lib/formula-evaluator';
 import CollapsibleSection, { useTheoryPanelState } from './CollapsibleSection';
 import FormulaChip from './FormulaChip';
-import ChemText, { useFormulaLookup } from './ChemText';
+import { useFormulaLookup } from './ChemText';
 import RichTextRenderer from './RichTextRenderer';
+import { renderMaybeRichText } from '../lib/render-maybe-richtext';
 import { QuantityLookupProvider, type QuantityLookup } from './OntologyRef';
 import OntEmbedBlock from './OntEmbedBlock';
 import * as m from '../paraglide/messages.js';
@@ -132,19 +133,7 @@ function ExampleFormulas({ formulas, locale }: { formulas: string[]; locale: Sup
 /** Helper type for blocks with _didactic* fields injected by semantic renderer */
 type DidacticBlock = TheoryBlock & Record<string, unknown>;
 
-/**
- * Render a value that can be either a plain string (legacy) or RichText (didactic).
- * Returns null if value is undefined.
- */
-function renderMaybeRichText(
-  value: string | RichText | undefined,
-  locale: SupportedLocale,
-): ReactNode {
-  if (value === undefined || value === null) return null;
-  if (typeof value === 'string') return <ChemText text={value} />;
-  if (Array.isArray(value)) return <RichTextRenderer segments={value} locale={locale} />;
-  return null;
-}
+// renderMaybeRichText imported from src/lib/render-maybe-richtext.tsx
 
 // ---------------------------------------------------------------------------
 // Block renderers
@@ -283,7 +272,7 @@ function renderBlock(
             {rule.title}
           </div>
           <p className="theory-module__rule-text">
-            <ChemText text={rule.description} />
+            {renderMaybeRichText(rule.description, locale)}
           </p>
           {rule.examples && rule.examples.length > 0 && (
             <div className="theory-module__rule-examples">

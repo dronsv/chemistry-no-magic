@@ -3,7 +3,7 @@ import type { OgeTask } from '../../types/oge-task';
 import type { OgeSolutionAlgorithm } from '../../types/oge-solution';
 import * as m from '../../paraglide/messages.js';
 import OgeAnswerRouter from './answers/OgeAnswerRouter';
-import ChemText from '../../components/ChemText';
+import { renderMaybeRichText } from '../../lib/render-maybe-richtext';
 import { gradeOgeTask } from './oge-scoring';
 
 interface Props {
@@ -136,11 +136,11 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
 
       <div className="oge-task">
         {currentTask.context && (
-          <div className="oge-task__context"><ChemText text={currentTask.context} /></div>
+          <div className="oge-task__context">{renderMaybeRichText(currentTask.context)}</div>
         )}
         <div className="oge-task__question">
           <span className="oge-task__number">{m.exam_task_number({ number: String(currentTask.task_number) })}</span>
-          <p className="oge-task__text"><ChemText text={currentTask.question} /></p>
+          <p className="oge-task__text">{renderMaybeRichText(currentTask.question)}</p>
         </div>
 
         <div className="oge-task__answer">
@@ -180,7 +180,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
             <h4 className="oge-task__algorithm-title">{m.oge_algorithm_title()}</h4>
             <ol className="oge-task__algorithm-steps">
               {algo.algorithm.map((step, i) => (
-                <li key={i}><ChemText text={step} /></li>
+                <li key={i}>{renderMaybeRichText(step)}</li>
               ))}
             </ol>
           </div>
@@ -192,7 +192,7 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
               {gradeResult.score} / {gradeResult.maxScore} {gradeResult.maxScore === 1 ? m.oge_score_unit_1() : m.oge_score_unit_2()}
             </div>
             <div className="oge-task__explanation">
-              <ChemText text={currentTask.explanation} />
+              {renderMaybeRichText(currentTask.explanation)}
             </div>
 
             {algo && (
@@ -202,21 +202,21 @@ export default function OgePractice({ tasks, algorithms, onBack }: Props) {
                   <h4>{algo.title}</h4>
                   <ol className="oge-task__algorithm-steps">
                     {algo.algorithm.map((step, i) => (
-                      <li key={i}><ChemText text={step} /></li>
+                      <li key={i}>{renderMaybeRichText(step)}</li>
                     ))}
                   </ol>
 
                   <h4>{m.oge_key_facts()}</h4>
                   <ul>
                     {algo.key_facts.map((fact, i) => (
-                      <li key={i}><ChemText text={fact} /></li>
+                      <li key={i}>{renderMaybeRichText(fact)}</li>
                     ))}
                   </ul>
 
                   <h4>{m.oge_common_traps()}</h4>
                   <ul className="oge-task__traps">
                     {algo.common_traps.map((trap, i) => (
-                      <li key={i}><ChemText text={trap} /></li>
+                      <li key={i}>{renderMaybeRichText(trap)}</li>
                     ))}
                   </ul>
                 </div>

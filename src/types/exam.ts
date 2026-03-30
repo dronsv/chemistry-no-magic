@@ -1,3 +1,5 @@
+import type { RichText } from './ontology-ref';
+
 /** A single exercise within an exam variant. */
 export interface ExamExercise {
   /** Index in the variant (0-based). */
@@ -7,13 +9,13 @@ export interface ExamExercise {
   /** Exercise type key from the source generator. */
   type: string;
   /** Question text. */
-  question: string;
+  question: string | RichText;
   /** Answer options. */
-  options: { id: string; text: string }[];
+  options: { id: string; text: string | RichText }[];
   /** Correct option ID. */
   correctId: string;
   /** Explanation shown after exam submission. */
-  explanation: string;
+  explanation: string | RichText;
   /** Competency weights for BKT update. */
   competencyMap: Record<string, 'P' | 'S'>;
 }
@@ -39,11 +41,11 @@ export interface ExamVariant {
 /** Result for a single exercise after grading. */
 export interface ExamExerciseResult {
   index: number;
-  question: string;
+  question: string | RichText;
   selectedId: string | null;
   correctId: string;
   correct: boolean;
-  explanation: string;
+  explanation: string | RichText;
   competencyMap: Record<string, 'P' | 'S'>;
 }
 

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { OgeOption } from '../../../types/oge-task';
-import ChemText from '../../../components/ChemText';
+import { renderMaybeRichText } from '../../../lib/render-maybe-richtext';
 import * as m from '../../../paraglide/messages.js';
 
 interface Props {
@@ -79,7 +79,7 @@ export default function SelectAnswer({
             disabled={disabled}
           >
             <span className="oge-select__id">{opt.id})</span>
-            <span className="oge-select__text"><ChemText text={opt.text} /></span>
+            <span className="oge-select__text">{renderMaybeRichText(opt.text)}</span>
           </button>
         ))}
       </div>

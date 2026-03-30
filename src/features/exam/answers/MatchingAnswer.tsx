@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { OgeLeftItem, OgeOption } from '../../../types/oge-task';
-import ChemText from '../../../components/ChemText';
+import { renderMaybeRichText } from '../../../lib/render-maybe-richtext';
 import * as m from '../../../paraglide/messages.js';
 
 interface Props {
@@ -61,7 +61,7 @@ export default function MatchingAnswer({
           {leftItems.map((item, rowIndex) => (
             <tr key={item.label} className="oge-matching__row">
               <td className="oge-matching__label">{item.label}</td>
-              <td className="oge-matching__text"><ChemText text={item.text} /></td>
+              <td className="oge-matching__text">{renderMaybeRichText(item.text)}</td>
               <td className="oge-matching__choices">
                 {options.map(opt => (
                   <button
@@ -70,7 +70,7 @@ export default function MatchingAnswer({
                     className={cellClass(rowIndex, opt.id)}
                     onClick={() => handleAssign(rowIndex, opt.id)}
                     disabled={disabled}
-                    title={opt.text}
+                    title={typeof opt.text === 'string' ? opt.text : undefined}
                   >
                     {opt.id}
                   </button>
