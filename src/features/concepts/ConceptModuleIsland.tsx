@@ -9,7 +9,8 @@ import { filtersToRichText, isDslFilter } from '../../lib/filter-to-richtext';
 import { ConceptProvider } from '../../components/ConceptProvider';
 import RichTextRenderer from '../../components/RichTextRenderer';
 import FormulaChip from '../../components/FormulaChip';
-import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
+import { FormulaLookupProvider } from '../../components/ChemText';
+import { renderMaybeRichText } from '../../lib/render-maybe-richtext';
 import { applyTheoryModuleOverlay } from '../../components/TheoryModulePanel';
 import OntEmbedBlock from '../../components/OntEmbedBlock';
 import OntInteractiveRef from '../../components/OntInteractiveRef';
@@ -96,14 +97,14 @@ function renderSimpleBlock(block: TheoryBlock, locale = 'ru'): React.ReactNode {
       if (block.level === 3) return <h3 className="theory-module__h3">{block.text}</h3>;
       return <h4 className="theory-module__h4">{block.text}</h4>;
     case 'paragraph':
-      return <p className="theory-module__p"><ChemText text={block.text} /></p>;
+      return <p className="theory-module__p">{renderMaybeRichText(block.text, locale)}</p>;
     case 'rule_card':
       return (
         <div className="theory-module__rule-card">
           <div className="theory-module__rule-title">{block.title}</div>
           <p className="theory-module__rule-text">{block.rule}</p>
           {block.description && (
-            <p className="theory-module__rule-desc"><ChemText text={block.description} /></p>
+            <p className="theory-module__rule-desc">{renderMaybeRichText(block.description, locale)}</p>
           )}
         </div>
       );

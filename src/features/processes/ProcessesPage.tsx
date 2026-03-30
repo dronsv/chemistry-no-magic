@@ -3,7 +3,8 @@ import type { ProcessVocabEntry, ProcessKind, EffectsVocabEntry, EffectRef, Type
 import type { SupportedLocale } from '../../types/i18n';
 import { loadProcessVocab, loadEffectsVocab, loadFormulaLookup, loadConcepts, loadConceptOverlay, loadConceptLookup, loadTranslationOverlay } from '../../lib/data-loader';
 import * as m from '../../paraglide/messages.js';
-import ChemText, { FormulaLookupProvider } from '../../components/ChemText';
+import { FormulaLookupProvider } from '../../components/ChemText';
+import { renderMaybeRichText } from '../../lib/render-maybe-richtext';
 import { ConceptProvider, type ConceptContextValue } from '../../components/ConceptProvider';
 import RichTextRenderer from '../../components/RichTextRenderer';
 import OntologyRef from '../../components/OntologyRef';
@@ -38,10 +39,7 @@ function searchableText(desc: string | RichText): string {
 }
 
 function renderDescription(desc: string | RichText, locale: SupportedLocale) {
-  if (Array.isArray(desc)) {
-    return <RichTextRenderer segments={desc} locale={locale} />;
-  }
-  return <ChemText text={desc} />;
+  return renderMaybeRichText(desc, locale);
 }
 
 const KIND_LABELS: Record<ProcessKind, () => string> = {
