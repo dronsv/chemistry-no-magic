@@ -9,9 +9,11 @@ import { buildOperatorRegistry } from '../derivation/operator-registry';
 import { qrefKey, problemQRefKey, qrefInSet } from '../derivation/qref';
 import { toConstantsDict } from '../formula-evaluator';
 import { parseFormula } from '../formula-parser';
+import { deriveStoichiometryChain, hasStoichiometricKnowns } from '../derivation/stoichiometry-helpers';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
-import type { QRef, DerivationRule, FormulaOperator } from '../../types/derivation';
+import type { QRef, DerivationRule, FormulaOperator, StoichiometricBridgeOperator } from '../../types/derivation';
 import type { Element } from '../../types/element';
+import type { OntologyAccess } from '../derivation/resolvers';
 
 const DATA_DIR = join(import.meta.dirname, '../../../data-src/foundations');
 const formulas: ComputableFormula[] = JSON.parse(readFileSync(join(DATA_DIR, 'formulas.json'), 'utf8'));
@@ -1087,5 +1089,254 @@ describe('proof tree', () => {
         expect(leaf.value).toBeDefined();
       }
     }
+  });
+});
+
+// ── Phase 4: Stoichiometric Bridge Operator ──────────────────
+
+describe('stoichiometric bridge operator', () => {
+  it('registry includes bridge operators', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const bridgeOps = registry.operators.filter(op => op.kind === 'stoichiometric_bridge');
+    expect(bridgeOps).toHaveLength(2);
+    const ids = bridgeOps.map(op => op.id).sort();
+    expect(ids).toEqual(['op:bridge_product_to_reactant', 'op:bridge_reactant_to_product']);
+  });
+
+  it('bridge handler registered', () => {
+    const registry = buildOperatorRegistry(formulas);
+    expect(registry.handlers.has('stoichiometric_bridge')).toBe(true);
+  });
+
+  it('quantityIndex includes bridge operators under q:amount', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const amountOps = registry.quantityIndex.get('q:amount') ?? [];
+    const bridgeAmountOps = amountOps.filter(op => op.kind === 'stoichiometric_bridge');
+    expect(bridgeAmountOps).toHaveLength(2);
+  });
+
+  it('plans q:amount|product from {q:amount|reactant, nu|reactant, nu|product} via bridge', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:amount', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:amount', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    // Should find a 1-step plan via bridge OR via formula:stoichiometry_ratio/forward
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].target.quantity).toBe('q:amount');
+    expect(plan!.steps[0].target.role).toBe('product');
+  });
+
+  it('plans q:amount|reactant from {q:amount|product, nu, nu} via reverse bridge', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:amount', role: 'reactant' };
+    const knowns: QRef[] = [
+      { quantity: 'q:amount', role: 'product' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    expect(plan!.steps).toHaveLength(1);
+    expect(plan!.steps[0].target.quantity).toBe('q:amount');
+    expect(plan!.steps[0].target.role).toBe('reactant');
+  });
+
+  it('plans q:mass|product from stoichiometric knowns via multi-step chain', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:mass', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', role: 'reactant' },
+      { quantity: 'q:molar_mass', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+      { quantity: 'q:molar_mass', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    });
+    expect(plan).not.toBeNull();
+    // Should be 3 steps: amount_from_mass -> bridge/stoich -> inv:m
+    expect(plan!.steps.length).toBeGreaterThanOrEqual(3);
+    // Final step targets q:mass|product
+    const lastStep = plan!.steps[plan!.steps.length - 1];
+    expect(lastStep.target.quantity).toBe('q:mass');
+    expect(lastStep.target.role).toBe('product');
+  });
+
+  it('executes bridge: n(product) from n(reactant)=2, nu_r=1, nu_p=3', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:amount', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:amount', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(plan, {
+      formulas,
+      constants: CONSTS,
+      values: {
+        'q:amount|reactant': 2,
+        'q:stoich_coeff|reactant': 1,
+        'q:stoich_coeff|product': 3,
+      },
+    }, registry.handlers);
+
+    // n_product = n_reactant * nu_product / nu_reactant = 2 * 3 / 1 = 6
+    expect(result.result).toBeCloseTo(6, 5);
+  });
+
+  it('executes reverse bridge: n(reactant) from n(product)=6, nu_p=3, nu_r=1', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:amount', role: 'reactant' };
+    const knowns: QRef[] = [
+      { quantity: 'q:amount', role: 'product' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(plan, {
+      formulas,
+      constants: CONSTS,
+      values: {
+        'q:amount|product': 6,
+        'q:stoich_coeff|reactant': 1,
+        'q:stoich_coeff|product': 3,
+      },
+    }, registry.handlers);
+
+    // n_reactant = n_product * nu_reactant / nu_product = 6 * 1 / 3 = 2
+    expect(result.result).toBeCloseTo(2, 5);
+  });
+
+  it('executes full chain: mass->amount->bridge->amount->mass', () => {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:mass', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', role: 'reactant' },
+      { quantity: 'q:molar_mass', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+      { quantity: 'q:molar_mass', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+
+    const result = executePlan(plan, {
+      formulas,
+      constants: CONSTS,
+      values: {
+        'q:mass|reactant': 100,
+        'q:molar_mass|reactant': 58.44,
+        'q:stoich_coeff|reactant': 1,
+        'q:stoich_coeff|product': 2,
+        'q:molar_mass|product': 40,
+      },
+    }, registry.handlers);
+
+    // 100/58.44 = 1.71116... * 2/1 = 3.42233... * 40 = 136.89
+    expect(Math.round(result.result * 100) / 100).toBe(136.89);
+  });
+});
+
+// ── Phase 4: Parity test — bridge path matches legacy stoichiometry chain ──
+
+describe('bridge parity with legacy stoichiometry chain', () => {
+  const stoichOntology: OntologyAccess = {
+    elements,
+    parseFormula,
+    entityFormulas: new Map(),
+  };
+
+  function legacyStoichiometry(opts: {
+    givenMass: number; givenM: number; givenCoeff: number;
+    findCoeff: number; findM: number;
+    yieldPercent?: number;
+  }): number {
+    const knowns = [
+      { qref: { quantity: 'q:mass', role: 'reactant' as const }, value: opts.givenMass },
+      { qref: { quantity: 'q:stoich_coeff', role: 'reactant' as const }, value: opts.givenCoeff },
+      { qref: { quantity: 'q:molar_mass', role: 'reactant' as const }, value: opts.givenM },
+      { qref: { quantity: 'q:stoich_coeff', role: 'product' as const }, value: opts.findCoeff },
+      { qref: { quantity: 'q:molar_mass', role: 'product' as const }, value: opts.findM },
+    ];
+    if (opts.yieldPercent != null) {
+      knowns.push({ qref: { quantity: 'q:yield' }, value: opts.yieldPercent });
+    }
+    const target: QRef = { quantity: 'q:mass', role: 'product' };
+    const trace: import('../../types/derivation').ReasonStep[] = [];
+    const result = deriveStoichiometryChain(target, knowns, formulas, CONSTS, stoichOntology, trace);
+    return Math.round(result.value * 100) / 100;
+  }
+
+  function bridgeStoichiometry(opts: {
+    givenMass: number; givenM: number; givenCoeff: number;
+    findCoeff: number; findM: number;
+  }): number {
+    const registry = buildOperatorRegistry(formulas);
+    const target: QRef = { quantity: 'q:mass', role: 'product' };
+    const knowns: QRef[] = [
+      { quantity: 'q:mass', role: 'reactant' },
+      { quantity: 'q:molar_mass', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'reactant' },
+      { quantity: 'q:stoich_coeff', role: 'product' },
+      { quantity: 'q:molar_mass', role: 'product' },
+    ];
+    const plan = planDerivation(target, knowns, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+    })!;
+    const result = executePlan(plan, {
+      formulas,
+      constants: CONSTS,
+      values: {
+        'q:mass|reactant': opts.givenMass,
+        'q:molar_mass|reactant': opts.givenM,
+        'q:stoich_coeff|reactant': opts.givenCoeff,
+        'q:stoich_coeff|product': opts.findCoeff,
+        'q:molar_mass|product': opts.findM,
+      },
+    }, registry.handlers);
+    return Math.round(result.result * 100) / 100;
+  }
+
+  it('parity: 2H2+O2->2H2O, 4g H2 -> 36g H2O', () => {
+    const opts = { givenMass: 4, givenM: 2, givenCoeff: 2, findCoeff: 2, findM: 18 };
+    expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
+  });
+
+  it('parity: Fe+O2->Fe2O3, 11.2g Fe -> 32g product', () => {
+    const opts = { givenMass: 11.2, givenM: 56, givenCoeff: 1, findCoeff: 1, findM: 160 };
+    expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
+  });
+
+  it('parity: CaCO3->CO2, 10g -> 4.4g', () => {
+    const opts = { givenMass: 10, givenM: 100, givenCoeff: 1, findCoeff: 1, findM: 44 };
+    expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
+  });
+
+  it('parity: stoichiometry chain with coefficients 1:2', () => {
+    const opts = { givenMass: 100, givenM: 58.44, givenCoeff: 1, findCoeff: 2, findM: 40 };
+    expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
+  });
+
+  it('parity: stoichiometry chain with coefficients 3:2', () => {
+    const opts = { givenMass: 100, givenM: 40, givenCoeff: 3, findCoeff: 2, findM: 98 };
+    expect(bridgeStoichiometry(opts)).toBe(legacyStoichiometry(opts));
   });
 });

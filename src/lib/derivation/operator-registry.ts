@@ -1,12 +1,13 @@
 import type { ComputableFormula } from '../../types/formula';
 import type {
   DerivationOperator, LookupOperator, IndexedAggregateOperator,
-  OperatorHandler,
+  StoichiometricBridgeOperator, OperatorHandler,
 } from '../../types/derivation';
 import { buildDerivationRules, buildQuantityIndex } from './derivation-graph';
 import { formulaHandler } from './handlers/formula-handler';
 import { lookupHandler } from './handlers/lookup-handler';
 import { aggregateHandler } from './handlers/aggregate-handler';
+import { bridgeHandler } from './handlers/bridge-handler';
 
 export interface OperatorRegistry {
   operators: DerivationOperator[];
@@ -47,7 +48,30 @@ export function buildOperatorRegistry(formulas: ComputableFormula[]): OperatorRe
     baseCost: 200,
   };
 
-  const operators: DerivationOperator[] = [...formulaOps, lookupOp, molarMassAgg];
+  // 4. Stoichiometric bridge operators (reactant<->product via stoichiometric ratio)
+  const bridgeR2P: StoichiometricBridgeOperator = {
+    id: 'op:bridge_reactant_to_product',
+    kind: 'stoichiometric_bridge',
+    targetQuantity: 'q:amount',
+    targetRole: 'product',
+    formulaId: 'formula:stoichiometry_ratio',
+    fromRole: 'reactant',
+    toRole: 'product',
+    baseCost: 50,
+  };
+
+  const bridgeP2R: StoichiometricBridgeOperator = {
+    id: 'op:bridge_product_to_reactant',
+    kind: 'stoichiometric_bridge',
+    targetQuantity: 'q:amount',
+    targetRole: 'reactant',
+    formulaId: 'formula:stoichiometry_ratio',
+    fromRole: 'product',
+    toRole: 'reactant',
+    baseCost: 50,
+  };
+
+  const operators: DerivationOperator[] = [...formulaOps, lookupOp, molarMassAgg, bridgeR2P, bridgeP2R];
 
   // Build quantity index over all operators
   const quantityIndex = buildQuantityIndex(operators);
@@ -57,6 +81,7 @@ export function buildOperatorRegistry(formulas: ComputableFormula[]): OperatorRe
   handlers.set('formula', formulaHandler);
   handlers.set('lookup', lookupHandler);
   handlers.set('indexed_aggregate', aggregateHandler);
+  handlers.set('stoichiometric_bridge', bridgeHandler);
 
   return { operators, quantityIndex, handlers };
 }

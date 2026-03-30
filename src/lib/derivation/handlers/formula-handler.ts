@@ -25,7 +25,8 @@ export const formulaHandler: OperatorHandler = {
   expand(op: DerivationOperator, target: QRef): QRef[] {
     const fop = op as FormulaOperator;
     return fop.inputs.map(input => {
-      const ref: QRef = { quantity: input.quantity, role: input.role };
+      // If the input already has a role, keep it. Otherwise inherit from target.
+      const ref: QRef = { quantity: input.quantity, role: input.role ?? target.role };
       if (target.context) ref.context = target.context;
       return ref;
     });

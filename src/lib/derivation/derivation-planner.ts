@@ -1,6 +1,7 @@
 import type { SemanticRole } from '../../types/formula';
 import type {
   QRef, DerivationRule, DerivationOperator, FormulaOperator,
+  StoichiometricBridgeOperator,
   DerivationPlan, PlanStep, OperatorHandler,
 } from '../../types/derivation';
 import { qrefKey, qrefInSet } from './qref';
@@ -175,6 +176,7 @@ export function planDerivation(
 /**
  * Get sub-goals for an operator. Returns symbol-keyed QRef array.
  * For formula operators: expands inputs with context propagation.
+ * For bridge operators: expands 3 sub-goals (n_from, nu_from, nu_to).
  * For lookup/aggregate operators: returns empty (leaf nodes).
  */
 function getSubGoals(
@@ -193,7 +195,12 @@ function getSubGoals(
           ref: expanded[i],
         }));
       }
-      // Non-formula operators: leaf nodes, no sub-goals
+      if (op.kind === 'stoichiometric_bridge') {
+        // Bridge has 3 sub-goals: n_from, nu_from, nu_to
+        const symbols = ['n_from', 'nu_from', 'nu_to'];
+        return expanded.map((ref, i) => ({ symbol: symbols[i], ref }));
+      }
+      // Leaf operators (lookup, aggregate): no sub-goals
       return [];
     }
   }
@@ -231,7 +238,8 @@ function indexSetsAvailable(rule: FormulaOperator, available: Set<string>): bool
 
 /**
  * Count inputs not directly in the known set (cheap heuristic).
- * For non-formula operators (lookup, aggregate): returns 0 (leaf nodes).
+ * For leaf operators (lookup, aggregate): returns 0.
+ * For formula and bridge operators: counts unresolved sub-goals.
  */
 function countUnresolved(
   op: DerivationOperator,
@@ -239,6 +247,23 @@ function countUnresolved(
   targetContext?: QRef['context'],
   handlers?: Map<string, OperatorHandler>,
 ): number {
+  if (op.kind === 'stoichiometric_bridge') {
+    const bop = op as StoichiometricBridgeOperator;
+    // Bridge has 3 sub-goals: n@fromRole, nu@fromRole, nu@toRole
+    const subGoals: QRef[] = [
+      { quantity: 'q:amount', role: bop.fromRole },
+      { quantity: 'q:stoich_coeff', role: bop.fromRole },
+      { quantity: 'q:stoich_coeff', role: bop.toRole },
+    ];
+    let count = 0;
+    for (const ref of subGoals) {
+      const fullKey = qrefKey(ref);
+      const bareKey = ref.role ? `${ref.quantity}|${ref.role}` : ref.quantity;
+      if (!knownKeys.has(fullKey) && !knownKeys.has(bareKey)) count++;
+    }
+    return count;
+  }
+
   if (op.kind !== 'formula') return 0;
   const fop = op as FormulaOperator;
 

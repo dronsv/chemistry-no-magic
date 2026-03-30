@@ -74,8 +74,16 @@ export interface IndexedAggregateOperator extends OperatorBase {
   sourceSystemType: string;                  // 'substance'
 }
 
+/** Stoichiometric bridge operator: cross-role amount conversion via stoichiometric ratio. */
+export interface StoichiometricBridgeOperator extends OperatorBase {
+  kind: 'stoichiometric_bridge';
+  formulaId: string;                            // 'formula:stoichiometry_ratio'
+  fromRole: SemanticRole;
+  toRole: SemanticRole;
+}
+
 /** Discriminated union of all operator kinds. */
-export type DerivationOperator = FormulaOperator | LookupOperator | IndexedAggregateOperator;
+export type DerivationOperator = FormulaOperator | LookupOperator | IndexedAggregateOperator | StoichiometricBridgeOperator;
 
 /**
  * Backward-compatible alias: DerivationRule = FormulaOperator.
