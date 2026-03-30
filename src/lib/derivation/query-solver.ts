@@ -46,6 +46,83 @@ export function solveQuery(query: ReasoningQuery, env: QuerySolverEnv): Reasonin
 
   const registry = buildOperatorRegistry(env.formulas);
 
+  // Fast path: numeric quantity goal on a single substance (molar mass, amount, mass fraction, etc.)
+  if ('quantity' in query.find && query.system.participants.length > 0) {
+    const find = query.find as { quantity: string; entity?: string; role?: string };
+    const participant = find.entity
+      ? query.system.participants.find(p => p.entity === find.entity) ?? query.system.participants[0]
+      : query.system.participants[0];
+
+    const entityRef = participant.entity.startsWith('sub:')
+      ? `substance:${participant.entity.slice(4)}`
+      : participant.entity;
+
+    // Record givens
+    const values: Record<string, number> = {};
+    const knownQRefs: QRef[] = [];
+    for (const g of participant.given) {
+      const qref: QRef = { quantity: g.quantity, role: g.role, context: { system_type: 'substance', entity_ref: entityRef } };
+      knownQRefs.push(qref);
+      values[qrefKey(qref)] = g.value;
+      // Also store bare key for backward compat
+      const bareKey = g.role ? `${g.quantity}|${g.role}` : g.quantity;
+      values[bareKey] = g.value;
+      steps.push({ type: 'given', qref, value: g.value });
+    }
+
+    // Derive the target quantity
+    const target: QRef = {
+      quantity: find.quantity,
+      context: { system_type: 'substance', entity_ref: entityRef },
+    };
+
+    const plan = planDerivation(target, knownQRefs, registry.operators, registry.quantityIndex, {
+      handlers: registry.handlers,
+      ontology: env.ontology,
+    });
+
+    if (plan) {
+      const result = executePlan(plan, {
+        formulas: env.formulas,
+        constants: env.constants,
+        values,
+        ontology: env.ontology,
+      }, registry.handlers);
+
+      if (result.internalSteps) steps.push(...result.internalSteps);
+
+      // Append formula trace steps
+      for (const step of plan.steps) {
+        if (step.rule.kind === 'formula') {
+          const fop = step.rule as import('../../types/derivation').FormulaOperator;
+          steps.push({ type: 'formula_select', formulaId: fop.formulaId, target: step.target });
+          const bindings: Record<string, number> = {};
+          for (const input of fop.inputs) {
+            const ref = step.inputRefs[input.symbol];
+            if (ref) {
+              const val = result.computedValues[qrefKey(ref)];
+              if (val !== undefined) bindings[input.symbol] = val;
+            }
+          }
+          steps.push({ type: 'substitution', formulaId: fop.formulaId, bindings });
+          steps.push({ type: 'compute', formulaId: fop.formulaId, result: result.computedValues[qrefKey(step.target)] });
+        }
+      }
+
+      steps.push({ type: 'conclusion', target, value: result.result });
+      const tree = buildProofTree(plan, result, values);
+      return {
+        answer: result.result,
+        intermediates: result.computedValues,
+        steps,
+        proofTree: tree.root,
+      };
+    }
+
+    throw new Error(`No derivation path for ${find.quantity} of ${entityRef}`);
+  }
+
+  // Mixing / fact path: derive n for each participant, then compare
   // Step 1: Derive quantities for each participant
   for (const participant of query.system.participants) {
     const entityRef = participant.entity.startsWith('sub:')
