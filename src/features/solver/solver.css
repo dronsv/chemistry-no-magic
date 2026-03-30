@@ -16,13 +16,13 @@
   line-height: 1.5;
 }
 
-/* ── Step sections ───────────────────────────────── */
+/* ── Templates ──────────────────────────────────── */
 
-.solver-step {
+.solver-templates {
   margin-bottom: var(--space-lg);
 }
 
-.solver-step__label {
+.solver-templates__label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-primary);
@@ -31,136 +31,209 @@
   margin-bottom: var(--space-sm);
 }
 
-/* ── Radio group (system type) ───────────────────── */
-
-.solver-radios {
+.solver-templates__list {
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
 }
 
-.solver-radio {
+.solver-template-btn {
   display: flex;
-  align-items: center;
-  gap: 0.375rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
+  background: var(--color-bg);
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
-  font-size: 0.9rem;
-}
-
-.solver-radio:hover {
-  border-color: var(--color-primary);
-  background: var(--color-bg-alt);
-}
-
-.solver-radio--active {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
-}
-
-.solver-radio input[type="radio"] {
-  accent-color: var(--color-primary);
-}
-
-/* ── Participant cards ───────────────────────────── */
-
-.solver-participants {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
-@media (max-width: 600px) {
-  .solver-participants {
-    grid-template-columns: 1fr;
-  }
-}
-
-.solver-card {
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  padding: var(--space-md);
-  background: var(--color-bg);
-}
-
-.solver-card__title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.solver-card__role--acid {
-  color: #b91c1c;
-}
-
-.solver-card__role--base {
-  color: #1d4ed8;
-}
-
-.solver-card__field {
-  margin-bottom: var(--space-sm);
-}
-
-.solver-card__field label {
-  display: block;
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.25rem;
-}
-
-.solver-card__field select,
-.solver-card__field input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.9rem;
-  background: var(--color-bg);
-  color: var(--color-text);
   font-family: inherit;
+  text-align: left;
 }
 
-.solver-card__field select:focus,
-.solver-card__field input:focus {
-  outline: none;
+.solver-template-btn:hover {
   border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.solver-template-btn--active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
-.solver-card__formula-preview {
-  margin-top: var(--space-xs);
-  min-height: 1.5rem;
+.solver-template-btn__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-/* ── Indicator selector ──────────────────────────── */
+.solver-template-btn__desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
 
-.solver-indicator {
+/* ── Sentence Editor ────────────────────────────── */
+
+.sentence-editor {
+  font-size: 1.1rem;
+  line-height: 2.2;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Slot chips (entity slots) ──────────────────── */
+
+.slot-autocomplete {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.slot-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.375rem;
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  cursor: pointer;
+  font-size: 0.95rem;
+  vertical-align: baseline;
+  transition: background 0.15s, box-shadow 0.15s;
+  line-height: 1.6;
+}
+
+.slot-chip:hover {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
+.slot-chip--active {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.slot-chip__arrow {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-left: 0.125rem;
+}
+
+/* ── Slot dropdown ──────────────────────────────── */
+
+.slot-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  min-width: 220px;
+  max-width: 320px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
 }
 
-.solver-indicator select {
-  max-width: 300px;
+.slot-dropdown__search {
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.9rem;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 0.88rem;
+  font-family: inherit;
   background: var(--color-bg);
   color: var(--color-text);
+  outline: none;
+}
+
+.slot-dropdown__search:focus {
+  box-shadow: inset 0 -2px 0 var(--color-primary);
+}
+
+.slot-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.slot-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: background 0.1s;
+}
+
+.slot-dropdown__item:hover,
+.slot-dropdown__item--focused {
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.slot-dropdown__secondary {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-left: auto;
+}
+
+.slot-dropdown__empty {
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── Slot number inputs ─────────────────────────── */
+
+.slot-number {
+  display: inline-block;
+  width: 60px;
+  padding: 0.125rem 0.375rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 1rem;
   font-family: inherit;
+  background: transparent;
+  vertical-align: baseline;
+  color: var(--color-text);
+  transition: border-color 0.15s;
+}
+
+.slot-number:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  border-style: solid;
+}
+
+/* Hide number input spinners */
+.slot-number::-webkit-outer-spin-button,
+.slot-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.slot-number {
+  -moz-appearance: textfield;
 }
 
 /* ── Solve button ────────────────────────────────── */
 
 .solver-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 .solver-solve-btn {
@@ -183,6 +256,49 @@
 .solver-solve-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.solver-json-toggle {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  font-size: 0.82rem;
+  font-family: monospace;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.solver-json-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.solver-json-toggle--active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+/* ── JSON preview ────────────────────────────────── */
+
+.solver-json {
+  margin-bottom: var(--space-md);
+}
+
+.solver-json__preview {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
 }
 
 /* ── Error ───────────────────────────────────────── */
@@ -412,283 +528,6 @@
   font-weight: 500;
 }
 
-/* ── Templates ──────────────────────────────────── */
-
-.solver-templates {
-  margin-bottom: var(--space-lg);
-}
-
-.solver-templates__label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-sm);
-}
-
-.solver-templates__list {
-  display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-.solver-template-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.125rem;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  background: var(--color-bg);
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-  font-family: inherit;
-  text-align: left;
-}
-
-.solver-template-btn:hover {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
-}
-
-.solver-template-btn__title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.solver-template-btn__desc {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-}
-
-/* ── View toggle ───────────────────────────────── */
-
-.solver-view-toggle {
-  display: flex;
-  gap: 0;
-  margin-bottom: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  width: fit-content;
-}
-
-.solver-view-toggle button {
-  padding: 0.375rem 1rem;
-  border: none;
-  background: var(--color-bg);
-  font-size: 0.85rem;
-  font-family: inherit;
-  cursor: pointer;
-  color: var(--color-text-muted);
-  transition: background 0.15s, color 0.15s;
-}
-
-.solver-view-toggle button:not(:last-child) {
-  border-right: 1px solid var(--color-border);
-}
-
-.solver-view-toggle button.active {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-/* ── JSON editor ───────────────────────────────── */
-
-.solver-json {
-  margin-bottom: var(--space-md);
-}
-
-.solver-json__editor {
-  width: 100%;
-  padding: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-  font-size: 0.82rem;
-  line-height: 1.5;
-  background: #1e1e2e;
-  color: #cdd6f4;
-  resize: vertical;
-  tab-size: 2;
-}
-
-.solver-json__editor:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.solver-json__error {
-  margin-top: var(--space-xs);
-  font-size: 0.82rem;
-  color: #dc2626;
-}
-
-/* ── Visual editor sections ────────────────────── */
-
-.solver-visual {
-  margin-bottom: var(--space-md);
-}
-
-.solver-section {
-  margin-bottom: var(--space-md);
-}
-
-.solver-section__label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-sm);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.solver-input--inline {
-  padding: 0.375rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.9rem;
-  font-family: monospace;
-  background: var(--color-bg);
-  color: var(--color-text);
-  width: 200px;
-}
-
-.solver-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-.solver-input--role {
-  padding: 0.375rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.85rem;
-  font-family: monospace;
-  width: 100px;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.solver-input--entity {
-  padding: 0.375rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.85rem;
-  flex: 1;
-  min-width: 120px;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: inherit;
-}
-
-.solver-card__givens {
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-sm);
-}
-
-.solver-given-row {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  margin-bottom: 0.375rem;
-  flex-wrap: wrap;
-}
-
-.solver-given-row select {
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.25rem;
-  font-size: 0.82rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: inherit;
-}
-
-.solver-input--value {
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.25rem;
-  font-size: 0.85rem;
-  font-family: monospace;
-  width: 80px;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.solver-find-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-.solver-find-row select {
-  padding: 0.375rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.9rem;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: inherit;
-}
-
-/* ── Buttons ───────────────────────────────────── */
-
-.solver-btn-add,
-.solver-btn-remove {
-  width: 24px;
-  height: 24px;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  background: var(--color-bg);
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  transition: border-color 0.15s, color 0.15s;
-  font-family: inherit;
-}
-
-.solver-btn-add:hover { border-color: #22c55e; color: #22c55e; }
-.solver-btn-remove:hover { border-color: #ef4444; color: #ef4444; }
-
-.solver-btn-add-sm {
-  border: none;
-  background: none;
-  color: var(--color-primary);
-  font-size: 0.78rem;
-  cursor: pointer;
-  padding: 0.25rem 0;
-  font-family: inherit;
-}
-
-.solver-btn-add-sm:hover { text-decoration: underline; }
-
-.solver-btn-remove-sm {
-  border: none;
-  background: none;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0 0.25rem;
-  font-family: inherit;
-}
-
-.solver-btn-remove-sm:hover { color: #ef4444; }
-
 /* ── Medium chips ──────────────────────────────── */
 
 .solver-color-chip--acidic {
@@ -724,4 +563,22 @@
   text-align: center;
   padding: var(--space-xl);
   color: var(--color-text-muted);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .sentence-editor {
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  .slot-dropdown {
+    min-width: 180px;
+    max-width: 280px;
+  }
+
+  .solver-templates__list {
+    flex-direction: column;
+  }
 }
