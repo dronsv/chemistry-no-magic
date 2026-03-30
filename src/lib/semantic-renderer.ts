@@ -241,8 +241,10 @@ export function applySemanticLayer(
   const sectionMap = new Map<string, Map<string, SemanticBlock>>();
   for (const section of semantic.sections) {
     const blockMap = new Map<string, SemanticBlock>();
-    for (const block of section.blocks) {
-      blockMap.set(block.id, block);
+    if (section.blocks) {
+      for (const block of section.blocks) {
+        blockMap.set(block.id, block);
+      }
     }
     sectionMap.set(section.id, blockMap);
   }
