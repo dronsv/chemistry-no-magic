@@ -126,6 +126,12 @@ const SLUG_MAP: Record<string, Record<SupportedLocale, string>> = {
     pl: '/pl/substancje-proste/',
     es: '/es/sustancias-simples/',
   },
+  '/solver/': {
+    ru: '/ru/solver/',
+    en: '/en/solver/',
+    pl: '/pl/kalkulator/',
+    es: '/es/calculadora/',
+  },
 };
 
 /** Reverse map: localized slug → canonical path */

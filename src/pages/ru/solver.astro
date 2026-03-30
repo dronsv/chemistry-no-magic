@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SolverPage from '../../features/solver/SolverPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'ru') as SupportedLocale;
+---
+
+<BaseLayout title="Решатель задач" description="Интерактивный решатель химических задач с пошаговым выводом. Смешение растворов кислот и оснований, определение среды и цвета индикатора.">
+  <SolverPage locale={locale} client:idle />
+</BaseLayout>

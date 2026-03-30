@@ -27,6 +27,7 @@ const SLUG_MAP = {
   '/about/': { ru: '/ru/about/', en: '/en/about/', pl: '/pl/o-projekcie/', es: '/es/acerca/' },
   '/exam/compare/': { ru: '/ru/exam/compare/', en: '/en/exam/compare/', pl: '/pl/egzamin/porownanie/', es: '/es/examen/comparar/' },
   '/properties/': { ru: '/ru/properties/', en: '/en/properties/', pl: '/pl/properties/', es: '/es/properties/' },
+  '/solver/': { ru: '/ru/solver/', en: '/en/solver/', pl: '/pl/kalkulator/', es: '/es/calculadora/' },
 };
 
 /**

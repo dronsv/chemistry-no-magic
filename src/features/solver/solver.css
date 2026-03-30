@@ -1,0 +1,421 @@
+.solver-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.solver-page__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.solver-page__intro {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+/* ── Step sections ───────────────────────────────── */
+
+.solver-step {
+  margin-bottom: var(--space-lg);
+}
+
+.solver-step__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Radio group (system type) ───────────────────── */
+
+.solver-radios {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.solver-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font-size: 0.9rem;
+}
+
+.solver-radio:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.solver-radio--active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.solver-radio input[type="radio"] {
+  accent-color: var(--color-primary);
+}
+
+/* ── Participant cards ───────────────────────────── */
+
+.solver-participants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 600px) {
+  .solver-participants {
+    grid-template-columns: 1fr;
+  }
+}
+
+.solver-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: var(--space-md);
+  background: var(--color-bg);
+}
+
+.solver-card__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.solver-card__role--acid {
+  color: #b91c1c;
+}
+
+.solver-card__role--base {
+  color: #1d4ed8;
+}
+
+.solver-card__field {
+  margin-bottom: var(--space-sm);
+}
+
+.solver-card__field label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.solver-card__field select,
+.solver-card__field input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+.solver-card__field select:focus,
+.solver-card__field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.solver-card__formula-preview {
+  margin-top: var(--space-xs);
+  min-height: 1.5rem;
+}
+
+/* ── Indicator selector ──────────────────────────── */
+
+.solver-indicator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.solver-indicator select {
+  max-width: 300px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+/* ── Solve button ────────────────────────────────── */
+
+.solver-actions {
+  margin-top: var(--space-md);
+}
+
+.solver-solve-btn {
+  padding: 0.625rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  font-family: inherit;
+}
+
+.solver-solve-btn:hover {
+  opacity: 0.9;
+}
+
+.solver-solve-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Error ───────────────────────────────────────── */
+
+.solver-error {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  color: #991b1b;
+  font-size: 0.9rem;
+}
+
+/* ── Result card ─────────────────────────────────── */
+
+.solver-result {
+  margin-top: var(--space-lg);
+  border: 2px solid var(--color-primary);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.solver-result__header {
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.solver-result__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.solver-result__value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* ── Color chips ─────────────────────────────────── */
+
+.solver-color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.solver-color-chip__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.solver-color-chip--red {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.solver-color-chip--red .solver-color-chip__dot {
+  background: #ef4444;
+}
+
+.solver-color-chip--blue {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.solver-color-chip--blue .solver-color-chip__dot {
+  background: #3b82f6;
+}
+
+.solver-color-chip--violet {
+  background: #f5f3ff;
+  color: #5b21b6;
+}
+
+.solver-color-chip--violet .solver-color-chip__dot {
+  background: #8b5cf6;
+}
+
+.solver-color-chip--crimson {
+  background: #fdf2f8;
+  color: #9d174d;
+}
+
+.solver-color-chip--crimson .solver-color-chip__dot {
+  background: #ec4899;
+}
+
+.solver-color-chip--colorless {
+  background: #f9fafb;
+  color: #6b7280;
+}
+
+.solver-color-chip--colorless .solver-color-chip__dot {
+  background: #fff;
+  border-color: #d1d5db;
+}
+
+.solver-color-chip--orange {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.solver-color-chip--orange .solver-color-chip__dot {
+  background: #f97316;
+}
+
+.solver-color-chip--yellow {
+  background: #fefce8;
+  color: #854d0e;
+}
+
+.solver-color-chip--yellow .solver-color-chip__dot {
+  background: #eab308;
+}
+
+/* ── Steps trace ─────────────────────────────────── */
+
+.solver-steps {
+  padding: var(--space-md);
+}
+
+.solver-steps__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  user-select: none;
+}
+
+.solver-steps__title svg {
+  transition: transform 0.2s;
+}
+
+.solver-steps__title--open svg {
+  transform: rotate(90deg);
+}
+
+.solver-steps__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.solver-step-item {
+  padding: 0.375rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-border);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.solver-step-item--given {
+  border-left-color: #22c55e;
+}
+
+.solver-step-item--lookup {
+  border-left-color: #8b5cf6;
+}
+
+.solver-step-item--decompose {
+  border-left-color: #f59e0b;
+}
+
+.solver-step-item--compute {
+  border-left-color: #3b82f6;
+}
+
+.solver-step-item--conclusion {
+  border-left-color: var(--color-primary);
+  font-weight: 600;
+}
+
+.solver-step-item__type {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 0.375rem;
+}
+
+.solver-step-item--given .solver-step-item__type { color: #16a34a; }
+.solver-step-item--lookup .solver-step-item__type { color: #7c3aed; }
+.solver-step-item--decompose .solver-step-item__type { color: #d97706; }
+.solver-step-item--compute .solver-step-item__type { color: #2563eb; }
+.solver-step-item--conclusion .solver-step-item__type { color: var(--color-primary); }
+
+/* ── Intermediates table ─────────────────────────── */
+
+.solver-intermediates {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.solver-intermediates__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.solver-intermediates__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem var(--space-md);
+  font-size: 0.85rem;
+}
+
+.solver-intermediates__key {
+  color: var(--color-text-muted);
+  font-family: 'Courier New', monospace;
+}
+
+.solver-intermediates__val {
+  font-weight: 500;
+}
+
+/* ── Loading ─────────────────────────────────────── */
+
+.solver-loading {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-muted);
+}

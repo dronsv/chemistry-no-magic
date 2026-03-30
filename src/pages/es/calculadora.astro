@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SolverPage from '../../features/solver/SolverPage';
+import type { SupportedLocale } from '../../types/i18n';
+
+const locale = (Astro.currentLocale ?? 'es') as SupportedLocale;
+---
+
+<BaseLayout title="Calculadora de problemas" description="Calculadora interactiva de problemas de química con derivación paso a paso. Mezcla de soluciones de ácidos y bases, determinación del medio y color del indicador.">
+  <SolverPage locale={locale} client:idle />
+</BaseLayout>
