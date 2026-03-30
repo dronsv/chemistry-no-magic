@@ -196,3 +196,39 @@ export interface ProofTree {
   result: number;
   isApproximate: boolean;
 }
+
+// ── Reasoning query ──────────────────────────────────────────
+
+/** A participant in a reasoning query (e.g., acid solution, base solution). */
+export interface QueryParticipant {
+  role: string;                              // 'acid', 'base', 'reactant', 'product'
+  entity: string;                            // ontology ref: 'sub:hcl', 'sub:naoh'
+  given: Array<{ quantity: string; role?: SemanticRole; value: number }>;
+}
+
+/** A discrete fact to derive (non-numeric goal). */
+export interface FactGoal {
+  fact: string;                              // 'indicator_color', 'excess', 'medium'
+  params?: Record<string, string>;           // e.g., { indicator: 'ind:litmus' }
+}
+
+/**
+ * Ontologized reasoning query — structured problem description
+ * that the derivation engine can solve via proof tree.
+ */
+export interface ReasoningQuery {
+  system: {
+    type: string;                            // 'mixing', 'reaction', 'single_substance'
+    reaction?: string;                       // reaction ref: 'rx_neutral_01_hcl_naoh'
+    participants: QueryParticipant[];
+  };
+  find: FactGoal | { quantity: string; role?: SemanticRole; entity?: string };
+}
+
+/** Result of solving a reasoning query. */
+export interface ReasoningResult {
+  answer: string | number;                   // 'color:red', 36, 'medium:acidic'
+  intermediates: Record<string, number>;     // all derived quantities keyed by label
+  steps: ReasonStep[];                       // flat trace
+  proofTree?: ProofNode;                     // structured tree
+}
