@@ -279,15 +279,48 @@
     "left_items": [
       {
         "label": "А",
-        "text": "NH₄Br"
+        "text": [
+          {
+            "t": "text",
+            "v": "NH₄"
+          },
+          {
+            "t": "formula",
+            "formula": "Br",
+            "kind": "element",
+            "id": "Br"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "KBrO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KBr",
+            "kind": "substance",
+            "id": "sub:kbr"
+          },
+          {
+            "t": "text",
+            "v": "O₄"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "HBrO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HBr",
+            "kind": "substance",
+            "id": "sub:hbr"
+          },
+          {
+            "t": "text",
+            "v": "O"
+          }
+        ]
       }
     ],
     "options": [
@@ -326,15 +359,36 @@
     "left_items": [
       {
         "label": "А",
-        "text": "N₂O₅"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂O₅",
+            "kind": "substance",
+            "id": "sub:n2o5"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "NH₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NH₃",
+            "kind": "substance",
+            "id": "sub:nh3"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "NO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NO",
+            "kind": "substance",
+            "id": "sub:no"
+          }
+        ]
       }
     ],
     "options": [
@@ -373,15 +427,36 @@
     "left_items": [
       {
         "label": "А",
-        "text": "H₂S"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂S",
+            "kind": "substance",
+            "id": "sub:h2s"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "SO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₃",
+            "kind": "substance",
+            "id": "sub:so3"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "Na₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          }
+        ]
       }
     ],
     "options": [
@@ -424,19 +499,47 @@
     "options": [
       {
         "id": "1",
-        "text": "NH₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NH₃",
+            "kind": "substance",
+            "id": "sub:nh3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Na"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na",
+            "kind": "substance",
+            "id": "sub:na"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "MgF₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "MgF₂",
+            "kind": "substance",
+            "id": "sub:mgf2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "F₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "F₂",
+            "kind": "substance",
+            "id": "sub:f2"
+          }
+        ]
       },
       {
         "id": "5",
@@ -465,23 +568,58 @@
     "options": [
       {
         "id": "1",
-        "text": "MgO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "MgO",
+            "kind": "substance",
+            "id": "sub:mgo"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "KBr"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KBr",
+            "kind": "substance",
+            "id": "sub:kbr"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "N₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          }
+        ]
       }
     ],
     "correct_answer": "14",
@@ -506,19 +644,47 @@
     "options": [
       {
         "id": "1",
-        "text": "CaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCl₂",
+            "kind": "substance",
+            "id": "sub:cacl2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Cl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "SO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₂",
+            "kind": "substance",
+            "id": "sub:so2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "F₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "F₂",
+            "kind": "substance",
+            "id": "sub:f2"
+          }
+        ]
       },
       {
         "id": "5",
@@ -605,7 +771,22 @@
       },
       {
         "id": "5",
-        "text": "Образование ими высших оксидов с общей формулой Э₂O."
+        "text": [
+          {
+            "t": "text",
+            "v": "Образование ими высших оксидов с общей формулой Э₂"
+          },
+          {
+            "t": "formula",
+            "formula": "O",
+            "kind": "element",
+            "id": "O"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
       }
     ],
     "correct_answer": "23",
@@ -673,11 +854,25 @@
     "options": [
       {
         "id": "1",
-        "text": "Al(OH)₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al(OH)₃",
+            "kind": "substance",
+            "id": "sub:al_oh_3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Mg(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg(OH)₂",
+            "kind": "substance",
+            "id": "sub:mg_oh_2"
+          }
+        ]
       },
       {
         "id": "3",
@@ -685,11 +880,25 @@
       },
       {
         "id": "4",
-        "text": "N₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂O",
+            "kind": "substance",
+            "id": "sub:n2o"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "FeO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeO",
+            "kind": "substance",
+            "id": "sub:feo"
+          }
+        ]
       }
     ],
     "correct_answer": "51",
@@ -715,19 +924,77 @@
     "options": [
       {
         "id": "1",
-        "text": "Cl₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          },
+          {
+            "t": "formula",
+            "formula": "O",
+            "kind": "element",
+            "id": "O"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Cl₂O₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          },
+          {
+            "t": "formula",
+            "formula": "O",
+            "kind": "element",
+            "id": "O"
+          },
+          {
+            "t": "text",
+            "v": "₃"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "ClO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cl",
+            "kind": "element",
+            "id": "Cl"
+          },
+          {
+            "t": "text",
+            "v": "O₂"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Cl₂O₇"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          },
+          {
+            "t": "formula",
+            "formula": "O",
+            "kind": "element",
+            "id": "O"
+          },
+          {
+            "t": "text",
+            "v": "₇"
+          }
+        ]
       }
     ],
     "correct_answer": "4",
@@ -752,23 +1019,62 @@
     "options": [
       {
         "id": "1",
-        "text": "CO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Mg(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg(OH)₂",
+            "kind": "substance",
+            "id": "sub:mg_oh_2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "SO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₂",
+            "kind": "substance",
+            "id": "sub:so2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "NaClO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": "O₄"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "Al(OH)₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al(OH)₃",
+            "kind": "substance",
+            "id": "sub:al_oh_3"
+          }
+        ]
       }
     ],
     "correct_answer": "32",
@@ -794,23 +1100,58 @@
     "options": [
       {
         "id": "1",
-        "text": "Na₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "HNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "O₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Mg"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "CO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          }
+        ]
       }
     ],
     "correct_answer": "15",
@@ -836,23 +1177,108 @@
     "options": [
       {
         "id": "1",
-        "text": "H₂O и CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "O₂ и C"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "C",
+            "kind": "substance",
+            "id": "sub:C"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂ и HNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "HCl и NaOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "CO и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       }
     ],
     "correct_answer": "35",
@@ -878,23 +1304,196 @@
     "options": [
       {
         "id": "1",
-        "text": "CaCO₃ → CaO + CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCO₃",
+            "kind": "substance",
+            "id": "sub:caco3"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Fe + CuSO₄ → FeSO₄ + Cu"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "CuSO₄",
+            "kind": "substance",
+            "id": "sub:cuso4"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "FeSO₄",
+            "kind": "substance",
+            "id": "sub:feso4"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "Cu",
+            "kind": "substance",
+            "id": "sub:cu"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O"
+        "text": [
+          {
+            "t": "text",
+            "v": "2"
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          },
+          {
+            "t": "text",
+            "v": " + 2"
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Zn + 2HCl → ZnCl₂ + H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Zn",
+            "kind": "substance",
+            "id": "sub:zn"
+          },
+          {
+            "t": "text",
+            "v": " + 2"
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "ZnCl₂",
+            "kind": "substance",
+            "id": "sub:zncl2"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "2H₂O → 2H₂ + O₂"
+        "text": [
+          {
+            "t": "text",
+            "v": "2"
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          },
+          {
+            "t": "text",
+            "v": " → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          }
+        ]
       }
     ],
     "correct_answer": "24",
@@ -916,37 +1515,181 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Fe₂(SO₄)₃ и BaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂(SO₄)₃",
+            "kind": "substance",
+            "id": "sub:fe2_so4_3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "BaCl₂",
+            "kind": "substance",
+            "id": "sub:bacl2"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Fe и H₂SO₄ (разб.)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": " (разб.)"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "Fe₂O₃ и H₂SO₄ (разб.)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂O₃",
+            "kind": "substance",
+            "id": "sub:fe2o3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": " (разб.)"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "FeSO₄ и H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeSO₄",
+            "kind": "substance",
+            "id": "sub:feso4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "FeCl₃ и BaSO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₃",
+            "kind": "substance",
+            "id": "sub:fecl3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "BaSO₄",
+            "kind": "substance",
+            "id": "sub:baso4"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "FeSO₄ и H₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeSO₄",
+            "kind": "substance",
+            "id": "sub:feso4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Fe₂(SO₄)₃ и H₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂(SO₄)₃",
+            "kind": "substance",
+            "id": "sub:fe2_so4_3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "FeCl₂ и BaSO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₂",
+            "kind": "substance",
+            "id": "sub:fecl2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "BaSO₄",
+            "kind": "substance",
+            "id": "sub:baso4"
+          }
+        ]
       }
     ],
     "correct_answer": "214",
@@ -968,37 +1711,183 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Na₂CO₃ и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Na₂CO₃ и CO₂ и H₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "Na₂CO₃ и CaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CaCl₂",
+            "kind": "substance",
+            "id": "sub:cacl2"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "NaCl и CO₂ и H₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "NaHCO₃ и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaHCO₃",
+            "kind": "substance",
+            "id": "sub:nahco3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "NaOH и NaHCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaHCO₃",
+            "kind": "substance",
+            "id": "sub:nahco3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "NaHCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaHCO₃",
+            "kind": "substance",
+            "id": "sub:nahco3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "NaCl и CaCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CaCO₃",
+            "kind": "substance",
+            "id": "sub:caco3"
+          }
+        ]
       }
     ],
     "correct_answer": "145",
@@ -1020,37 +1909,167 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Fe и Cl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Fe и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "Fe и H₂SO₄ (разб.)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": " (разб.)"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "FeCl₃ и H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₃",
+            "kind": "substance",
+            "id": "sub:fecl3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "FeCl₂ и H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₂",
+            "kind": "substance",
+            "id": "sub:fecl2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "Fe₂(SO₄)₃ и H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂(SO₄)₃",
+            "kind": "substance",
+            "id": "sub:fe2_so4_3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "FeCl₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₃",
+            "kind": "substance",
+            "id": "sub:fecl3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "FeSO₄ и H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeSO₄",
+            "kind": "substance",
+            "id": "sub:feso4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       }
     ],
     "correct_answer": "425",
@@ -1072,33 +2091,122 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Al"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al",
+            "kind": "substance",
+            "id": "sub:al"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Ca(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Ca(OH)₂",
+            "kind": "substance",
+            "id": "sub:ca_oh_2"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "SO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₃",
+            "kind": "substance",
+            "id": "sub:so3"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "CO₂, Al₂O₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "Al₂O₃",
+            "kind": "substance",
+            "id": "sub:al2o3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CaO, N₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂S, Na₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂S",
+            "kind": "substance",
+            "id": "sub:h2s"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂O",
+            "kind": "substance",
+            "id": "sub:na2o"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Fe₂O₃, O₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂O₃",
+            "kind": "substance",
+            "id": "sub:fe2o3"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          }
+        ]
       }
     ],
     "correct_answer": "413",
@@ -1120,33 +2228,122 @@
     "left_items": [
       {
         "label": "А",
-        "text": "CaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCl₂",
+            "kind": "substance",
+            "id": "sub:cacl2"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "SO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₂",
+            "kind": "substance",
+            "id": "sub:so2"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "H₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "N₂, Fe₂O₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "Fe₂O₃",
+            "kind": "substance",
+            "id": "sub:fe2o3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CaO, Ba(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "Ba(OH)₂",
+            "kind": "substance",
+            "id": "sub:ba_oh_2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂O, NaNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "NaNO₃",
+            "kind": "substance",
+            "id": "sub:nano3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Na₂CO₃, AgNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          }
+        ]
       }
     ],
     "correct_answer": "421",
@@ -1168,33 +2365,122 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Fe"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe",
+            "kind": "substance",
+            "id": "sub:fe"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "NaOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "HCl, CuSO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "CuSO₄",
+            "kind": "substance",
+            "id": "sub:cuso4"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Na₂O, KOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂O",
+            "kind": "substance",
+            "id": "sub:na2o"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂SO₄, Cl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "Cl₂",
+            "kind": "substance",
+            "id": "sub:cl2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "CuSO₄, CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuSO₄",
+            "kind": "substance",
+            "id": "sub:cuso4"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       }
     ],
     "correct_answer": "124",
@@ -1261,23 +2547,166 @@
     "options": [
       {
         "id": "1",
-        "text": "CaCO₃ → CaO + CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCO₃",
+            "kind": "substance",
+            "id": "sub:caco3"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "2Mg + O₂ → 2MgO"
+        "text": [
+          {
+            "t": "text",
+            "v": "2"
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          },
+          {
+            "t": "text",
+            "v": " → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "MgO",
+            "kind": "substance",
+            "id": "sub:mgo"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "2H₂O → 2H₂ + O₂"
+        "text": [
+          {
+            "t": "text",
+            "v": "2"
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          },
+          {
+            "t": "text",
+            "v": " → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "C + O₂ → CO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "C",
+            "kind": "substance",
+            "id": "sub:C"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          },
+          {
+            "t": "text",
+            "v": " → "
+          },
+          {
+            "t": "formula",
+            "formula": "CO₂",
+            "kind": "substance",
+            "id": "sub:co2"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "N₂ + O₂ → 2NO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          },
+          {
+            "t": "text",
+            "v": " → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "NO",
+            "kind": "substance",
+            "id": "sub:no"
+          }
+        ]
       }
     ],
     "correct_answer": "24",
@@ -1339,15 +2768,66 @@
     "left_items": [
       {
         "label": "А",
-        "text": "HCl и Na₂SiO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂SiO₃",
+            "kind": "substance",
+            "id": "sub:na2sio3"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "H₂S и CuCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂S",
+            "kind": "substance",
+            "id": "sub:h2s"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "CuCl₂",
+            "kind": "substance",
+            "id": "sub:cucl2"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "HCl и Na₂CO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          }
+        ]
       }
     ],
     "options": [
@@ -1387,15 +2867,66 @@
     "left_items": [
       {
         "label": "А",
-        "text": "CuSO₄ и NaOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuSO₄",
+            "kind": "substance",
+            "id": "sub:cuso4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Na₂S и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂S",
+            "kind": "substance",
+            "id": "sub:na2s"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "FeCl₃ и NaOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₃",
+            "kind": "substance",
+            "id": "sub:fecl3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ]
       }
     ],
     "options": [
@@ -1435,15 +2966,66 @@
     "left_items": [
       {
         "label": "А",
-        "text": "BaCl₂ и Na₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "BaCl₂",
+            "kind": "substance",
+            "id": "sub:bacl2"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "NH₄Cl и KOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NH₄Cl",
+            "kind": "substance",
+            "id": "sub:nh4cl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "NaCl и AgNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          }
+        ]
       }
     ],
     "options": [
@@ -1487,23 +3069,62 @@
     "options": [
       {
         "id": "1",
-        "text": "CH₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CH₄",
+            "kind": "substance",
+            "id": "sub:ch4"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "HNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "KClO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KCl",
+            "kind": "substance",
+            "id": "sub:kcl"
+          },
+          {
+            "t": "text",
+            "v": "O"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "CuSO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuSO₄",
+            "kind": "substance",
+            "id": "sub:cuso4"
+          }
+        ]
       }
     ],
     "correct_answer": "12",
@@ -1528,23 +3149,58 @@
     "options": [
       {
         "id": "1",
-        "text": "Na₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "NaCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "CaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCl₂",
+            "kind": "substance",
+            "id": "sub:cacl2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Al₂(SO₄)₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al₂(SO₄)₃",
+            "kind": "substance",
+            "id": "sub:al2_so4_3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "KNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KNO₃",
+            "kind": "substance",
+            "id": "sub:kno3"
+          }
+        ]
       }
     ],
     "correct_answer": "13",
@@ -1569,23 +3225,58 @@
     "options": [
       {
         "id": "1",
-        "text": "H₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CH₃COOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CH₃COOH",
+            "kind": "substance",
+            "id": "sub:ch3cooh"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "NaOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "H₂CO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂CO₃",
+            "kind": "substance",
+            "id": "sub:h2co3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "KCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KCl",
+            "kind": "substance",
+            "id": "sub:kcl"
+          }
+        ]
       }
     ],
     "correct_answer": "24",
@@ -1610,27 +3301,69 @@
     "options": [
       {
         "id": "1",
-        "text": "H₂S"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂S",
+            "kind": "substance",
+            "id": "sub:h2s"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "HI"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HI",
+            "kind": "substance",
+            "id": "sub:hi"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "H₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Al(OH)₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al(OH)₃",
+            "kind": "substance",
+            "id": "sub:al_oh_3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "Ba(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Ba(OH)₂",
+            "kind": "substance",
+            "id": "sub:ba_oh_2"
+          }
+        ]
       },
       {
         "id": "6",
-        "text": "Mg(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg(OH)₂",
+            "kind": "substance",
+            "id": "sub:mg_oh_2"
+          }
+        ]
       }
     ],
     "correct_answer": "25",
@@ -1655,27 +3388,69 @@
     "options": [
       {
         "id": "1",
-        "text": "Na₂CO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "NaHCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaHCO₃",
+            "kind": "substance",
+            "id": "sub:nahco3"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "CaCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCO₃",
+            "kind": "substance",
+            "id": "sub:caco3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "BaCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "BaCO₃",
+            "kind": "substance",
+            "id": "sub:baco3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "HBr"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HBr",
+            "kind": "substance",
+            "id": "sub:hbr"
+          }
+        ]
       },
       {
         "id": "6",
-        "text": "HNO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₂",
+            "kind": "substance",
+            "id": "sub:hno2"
+          }
+        ]
       }
     ],
     "correct_answer": "15",
@@ -1700,27 +3475,93 @@
     "options": [
       {
         "id": "1",
-        "text": "HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "CuS"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuS",
+            "kind": "substance",
+            "id": "sub:cus"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "S"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "S",
+            "kind": "substance",
+            "id": "sub:s"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "HF"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HF",
+            "kind": "substance",
+            "id": "sub:hf"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "K₂S"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K",
+            "kind": "substance",
+            "id": "sub:k"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "S",
+            "kind": "substance",
+            "id": "sub:s"
+          }
+        ]
       },
       {
         "id": "6",
-        "text": "Al₂S₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al",
+            "kind": "substance",
+            "id": "sub:al"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "S",
+            "kind": "substance",
+            "id": "sub:s"
+          },
+          {
+            "t": "text",
+            "v": "₃"
+          }
+        ]
       }
     ],
     "correct_answer": "15",
@@ -1741,15 +3582,78 @@
     "left_items": [
       {
         "label": "А",
-        "text": "I⁺⁵ → I⁺⁷"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "I",
+            "kind": "element",
+            "id": "I"
+          },
+          {
+            "t": "text",
+            "v": "⁺⁵ → "
+          },
+          {
+            "t": "formula",
+            "formula": "I",
+            "kind": "element",
+            "id": "I"
+          },
+          {
+            "t": "text",
+            "v": "⁺⁷"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Si⁺⁴ → Si⁰"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Si",
+            "kind": "substance",
+            "id": "sub:si"
+          },
+          {
+            "t": "text",
+            "v": "⁺⁴ → "
+          },
+          {
+            "t": "formula",
+            "formula": "Si",
+            "kind": "substance",
+            "id": "sub:si"
+          },
+          {
+            "t": "text",
+            "v": "⁰"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "N₂⁰ → 2N⁻³"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          },
+          {
+            "t": "text",
+            "v": "⁰ → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "N",
+            "kind": "element",
+            "id": "N"
+          },
+          {
+            "t": "text",
+            "v": "⁻³"
+          }
+        ]
       }
     ],
     "options": [
@@ -1780,11 +3684,25 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Fe₂O₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Fe₂O₃",
+            "kind": "substance",
+            "id": "sub:fe2o3"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "CO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          }
+        ]
       }
     ],
     "options": [
@@ -1819,11 +3737,25 @@
     "left_items": [
       {
         "label": "А",
-        "text": "Cu"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cu",
+            "kind": "substance",
+            "id": "sub:cu"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "HNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ]
       }
     ],
     "options": [
@@ -1969,33 +3901,106 @@
     "left_items": [
       {
         "label": "А",
-        "text": "KF и KCl"
+        "text": [
+          {
+            "t": "text",
+            "v": "KF и "
+          },
+          {
+            "t": "formula",
+            "formula": "KCl",
+            "kind": "substance",
+            "id": "sub:kcl"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "NaCl и HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "KCl и MgCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KCl",
+            "kind": "substance",
+            "id": "sub:kcl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "MgCl₂",
+            "kind": "substance",
+            "id": "sub:mgcl2"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "AgNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "H₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "BaCO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "BaCO₃",
+            "kind": "substance",
+            "id": "sub:baco3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "KOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          }
+        ]
       }
     ],
     "correct_answer": "134",
@@ -2016,33 +4021,122 @@
     "left_items": [
       {
         "label": "А",
-        "text": "NaCl и KNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "KNO₃",
+            "kind": "substance",
+            "id": "sub:kno3"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "Ba(NO₃)₂ и NaNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Ba",
+            "kind": "substance",
+            "id": "sub:ba"
+          },
+          {
+            "t": "text",
+            "v": "("
+          },
+          {
+            "t": "formula",
+            "formula": "NO",
+            "kind": "substance",
+            "id": "sub:no"
+          },
+          {
+            "t": "text",
+            "v": "₃)₂ и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaNO₃",
+            "kind": "substance",
+            "id": "sub:nano3"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "NH₄Cl и ZnCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NH₄Cl",
+            "kind": "substance",
+            "id": "sub:nh4cl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "ZnCl₂",
+            "kind": "substance",
+            "id": "sub:zncl2"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "KOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Na₂SO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "FeO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeO",
+            "kind": "substance",
+            "id": "sub:feo"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "AgNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          }
+        ]
       }
     ],
     "correct_answer": "421",
@@ -2063,33 +4157,110 @@
     "left_items": [
       {
         "label": "А",
-        "text": "NaCl и NH₄Cl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NaCl",
+            "kind": "substance",
+            "id": "sub:nacl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NH₄Cl",
+            "kind": "substance",
+            "id": "sub:nh4cl"
+          }
+        ]
       },
       {
         "label": "Б",
-        "text": "KF и BaBr₂"
+        "text": [
+          {
+            "t": "text",
+            "v": "KF и "
+          },
+          {
+            "t": "formula",
+            "formula": "Ba",
+            "kind": "substance",
+            "id": "sub:ba"
+          },
+          {
+            "t": "text",
+            "v": "Br₂"
+          }
+        ]
       },
       {
         "label": "В",
-        "text": "K₂SO₄ и Na₂CO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K₂SO₄",
+            "kind": "substance",
+            "id": "sub:k2so4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Na₂CO₃",
+            "kind": "substance",
+            "id": "sub:na2co3"
+          }
+        ]
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "KOH"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Cu(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cu(OH)₂",
+            "kind": "substance",
+            "id": "sub:cu_oh_2"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "AgNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       }
     ],
     "correct_answer": "134",
@@ -2306,15 +4477,36 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "HNO₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "N₂O",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂O",
+            "kind": "substance",
+            "id": "sub:n2o"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "NH₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "NH₃",
+            "kind": "substance",
+            "id": "sub:nh3"
+          }
+        ],
         "label": "В"
       }
     ],
@@ -2358,7 +4550,14 @@
     "options": [
       {
         "id": "1",
-        "text": "CaO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          }
+        ]
       },
       {
         "id": "2",
@@ -2366,15 +4565,46 @@
       },
       {
         "id": "3",
-        "text": "Br₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Br₂",
+            "kind": "substance",
+            "id": "sub:br2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Li₃N"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Li",
+            "kind": "substance",
+            "id": "sub:li"
+          },
+          {
+            "t": "text",
+            "v": "₃"
+          },
+          {
+            "t": "formula",
+            "formula": "N",
+            "kind": "element",
+            "id": "N"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "H₂S"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂S",
+            "kind": "substance",
+            "id": "sub:h2s"
+          }
+        ]
       }
     ],
     "correct_answer": "14",
@@ -2441,23 +4671,58 @@
     "options": [
       {
         "id": "1",
-        "text": "Cu(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cu(OH)₂",
+            "kind": "substance",
+            "id": "sub:cu_oh_2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "HNO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HNO₃",
+            "kind": "substance",
+            "id": "sub:hno3"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "O₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "Be(OH)₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Be(OH)₂",
+            "kind": "substance",
+            "id": "sub:be_oh_2"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "Na₂O"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂O",
+            "kind": "substance",
+            "id": "sub:na2o"
+          }
+        ]
       }
     ],
     "correct_answer": "25",
@@ -2478,38 +4743,200 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "MgO + SO₃ →",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "MgO",
+            "kind": "substance",
+            "id": "sub:mgo"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "SO₃",
+            "kind": "substance",
+            "id": "sub:so3"
+          },
+          {
+            "t": "text",
+            "v": " →"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "Mg(OH)₂ + H₂SO₄ →",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg(OH)₂",
+            "kind": "substance",
+            "id": "sub:mg_oh_2"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": " →"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "Mg + H₂SO₄(разб.) →",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": " + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": "(разб.) →"
+          }
+        ],
         "label": "В"
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "→ MgSO₃ + H₂"
+        "text": [
+          {
+            "t": "text",
+            "v": "→ "
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": "SO₃ + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "→ MgSO₄ + H₂O"
+        "text": [
+          {
+            "t": "text",
+            "v": "→ "
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": "SO₄ + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "→ MgSO₃ + H₂O"
+        "text": [
+          {
+            "t": "text",
+            "v": "→ "
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": "SO₃ + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂O",
+            "kind": "substance",
+            "id": "sub:h2o"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "→ MgSO₄ + H₂"
+        "text": [
+          {
+            "t": "text",
+            "v": "→ "
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": "SO₄ + "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "→ MgSO₄"
+        "text": [
+          {
+            "t": "text",
+            "v": "→ "
+          },
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": "SO₄"
+          }
+        ]
       }
     ],
     "correct_answer": "524",
@@ -2530,34 +4957,139 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "C",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "C",
+            "kind": "substance",
+            "id": "sub:C"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "Al₂O₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Al₂O₃",
+            "kind": "substance",
+            "id": "sub:al2o3"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "CuCl₂",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuCl₂",
+            "kind": "substance",
+            "id": "sub:cucl2"
+          }
+        ],
         "label": "В"
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "O₂, H₂SO₄(конц.)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "O₂",
+            "kind": "substance",
+            "id": "sub:o2"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": "(конц.)"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Mg, AgNO₃(р-р)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Mg",
+            "kind": "substance",
+            "id": "sub:mg"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "AgNO₃",
+            "kind": "substance",
+            "id": "sub:agno3"
+          },
+          {
+            "t": "text",
+            "v": "(р-р)"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "KOH, HCl(р-р)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KOH",
+            "kind": "substance",
+            "id": "sub:koh"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          },
+          {
+            "t": "text",
+            "v": "(р-р)"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "N₂, K₂SO₄(р-р)"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "N₂",
+            "kind": "substance",
+            "id": "sub:n2"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "formula",
+            "formula": "K₂SO₄",
+            "kind": "substance",
+            "id": "sub:k2so4"
+          },
+          {
+            "t": "text",
+            "v": "(р-р)"
+          }
+        ]
       }
     ],
     "correct_answer": "132",
@@ -2619,15 +5151,88 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "FeCl₃(р-р) и NaOH(р-р)",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeCl₃",
+            "kind": "substance",
+            "id": "sub:fecl3"
+          },
+          {
+            "t": "text",
+            "v": "(р-р) и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          },
+          {
+            "t": "text",
+            "v": "(р-р)"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "FeSO₄(р-р) и Ba(NO₃)₂(р-р)",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeSO₄",
+            "kind": "substance",
+            "id": "sub:feso4"
+          },
+          {
+            "t": "text",
+            "v": "(р-р) и "
+          },
+          {
+            "t": "formula",
+            "formula": "Ba",
+            "kind": "substance",
+            "id": "sub:ba"
+          },
+          {
+            "t": "text",
+            "v": "("
+          },
+          {
+            "t": "formula",
+            "formula": "NO",
+            "kind": "substance",
+            "id": "sub:no"
+          },
+          {
+            "t": "text",
+            "v": "₃)₂(р-р)"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "FeS и H₂SO₄(р-р)",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "FeS",
+            "kind": "substance",
+            "id": "sub:fes"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "H₂SO₄",
+            "kind": "substance",
+            "id": "sub:h2so4"
+          },
+          {
+            "t": "text",
+            "v": "(р-р)"
+          }
+        ],
         "label": "В"
       }
     ],
@@ -2713,27 +5318,69 @@
     "options": [
       {
         "id": "1",
-        "text": "CaO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaO",
+            "kind": "substance",
+            "id": "sub:cao"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "Ca"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Ca",
+            "kind": "substance",
+            "id": "sub:ca"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "CaCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CaCl₂",
+            "kind": "substance",
+            "id": "sub:cacl2"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "K₂SO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K₂SO₃",
+            "kind": "substance",
+            "id": "sub:k2so3"
+          }
+        ]
       },
       {
         "id": "5",
-        "text": "H₂SO₃"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂SO₃",
+            "kind": "substance",
+            "id": "sub:h2so3"
+          }
+        ]
       },
       {
         "id": "6",
-        "text": "SO₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "SO₂",
+            "kind": "substance",
+            "id": "sub:so2"
+          }
+        ]
       }
     ],
     "correct_answer": "34",
@@ -2753,15 +5400,74 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "S⁻² → S⁰",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "S",
+            "kind": "substance",
+            "id": "sub:s"
+          },
+          {
+            "t": "text",
+            "v": "⁻² → "
+          },
+          {
+            "t": "formula",
+            "formula": "S",
+            "kind": "substance",
+            "id": "sub:s"
+          },
+          {
+            "t": "text",
+            "v": "⁰"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "H₂⁰ → 2H⁺",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "H₂",
+            "kind": "substance",
+            "id": "sub:h2"
+          },
+          {
+            "t": "text",
+            "v": "⁰ → 2"
+          },
+          {
+            "t": "formula",
+            "formula": "H⁺",
+            "kind": "ion",
+            "id": "ion:H_plus"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "Cr⁺⁶ → Cr⁺³",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Cr",
+            "kind": "substance",
+            "id": "sub:cr"
+          },
+          {
+            "t": "text",
+            "v": "⁺⁶ → "
+          },
+          {
+            "t": "formula",
+            "formula": "Cr",
+            "kind": "substance",
+            "id": "sub:cr"
+          },
+          {
+            "t": "text",
+            "v": "⁺³"
+          }
+        ],
         "label": "В"
       }
     ],
@@ -2830,34 +5536,145 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "KCl и K₂SiO₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "KCl",
+            "kind": "substance",
+            "id": "sub:kcl"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "K",
+            "kind": "substance",
+            "id": "sub:k"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "Si",
+            "kind": "substance",
+            "id": "sub:si"
+          },
+          {
+            "t": "text",
+            "v": "O₃"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "K₂CO₃ и Li₂CO₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K₂CO₃",
+            "kind": "substance",
+            "id": "sub:k2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Li",
+            "kind": "substance",
+            "id": "sub:li"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          },
+          {
+            "t": "text",
+            "v": "₃"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "Na₂SO₄ и NaOH",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ],
         "label": "В"
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "CuCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuCl₂",
+            "kind": "substance",
+            "id": "sub:cucl2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "MgO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "MgO",
+            "kind": "substance",
+            "id": "sub:mgo"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "K₃PO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K",
+            "kind": "substance",
+            "id": "sub:k"
+          },
+          {
+            "t": "text",
+            "v": "₃PO₄"
+          }
+        ]
       }
     ],
     "correct_answer": "241",
@@ -2932,34 +5749,145 @@
     "answer_type": "matching",
     "left_items": [
       {
-        "text": "K₂CO₃ и K₂SiO₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K₂CO₃",
+            "kind": "substance",
+            "id": "sub:k2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "K",
+            "kind": "substance",
+            "id": "sub:k"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "Si",
+            "kind": "substance",
+            "id": "sub:si"
+          },
+          {
+            "t": "text",
+            "v": "O₃"
+          }
+        ],
         "label": "А"
       },
       {
-        "text": "K₂CO₃ и Li₂CO₃",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K₂CO₃",
+            "kind": "substance",
+            "id": "sub:k2co3"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "Li",
+            "kind": "substance",
+            "id": "sub:li"
+          },
+          {
+            "t": "text",
+            "v": "₂"
+          },
+          {
+            "t": "formula",
+            "formula": "CO",
+            "kind": "substance",
+            "id": "sub:co"
+          },
+          {
+            "t": "text",
+            "v": "₃"
+          }
+        ],
         "label": "Б"
       },
       {
-        "text": "Na₂SO₄ и NaOH",
+        "text": [
+          {
+            "t": "formula",
+            "formula": "Na₂SO₄",
+            "kind": "substance",
+            "id": "sub:na2so4"
+          },
+          {
+            "t": "text",
+            "v": " и "
+          },
+          {
+            "t": "formula",
+            "formula": "NaOH",
+            "kind": "substance",
+            "id": "sub:naoh"
+          }
+        ],
         "label": "В"
       }
     ],
     "options": [
       {
         "id": "1",
-        "text": "CuCl₂"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "CuCl₂",
+            "kind": "substance",
+            "id": "sub:cucl2"
+          }
+        ]
       },
       {
         "id": "2",
-        "text": "HCl"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "HCl",
+            "kind": "substance",
+            "id": "sub:hcl"
+          }
+        ]
       },
       {
         "id": "3",
-        "text": "MgO"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "MgO",
+            "kind": "substance",
+            "id": "sub:mgo"
+          }
+        ]
       },
       {
         "id": "4",
-        "text": "K₃PO₄"
+        "text": [
+          {
+            "t": "formula",
+            "formula": "K",
+            "kind": "substance",
+            "id": "sub:k"
+          },
+          {
+            "t": "text",
+            "v": "₃PO₄"
+          }
+        ]
       }
     ],
     "correct_answer": "241",

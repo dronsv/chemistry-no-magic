@@ -13,171 +13,4463 @@
   },
   "demo_2025_02": {
     "question": "На рисунке изображена модель атома химического элемента с распределением электронов по слоям: 2, 8, 5.\n\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.",
-    "explanation": "Распределение электронов 2, 8, 5 — это 3 электронных слоя (период 3) и 5 электронов на внешнем слое (группа V). Это фосфор (P), расположенный в 3-м периоде, V группе."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Распределение электронов 2, 8, 5 — это 3 электронных слоя (период 3) и 5 электронов на внешнем слое (группа V). Это фосфор (P), расположенный в 3-м периоде, "
+      },
+      {
+        "t": "formula",
+        "formula": "V",
+        "kind": "substance",
+        "id": "sub:v"
+      },
+      {
+        "t": "text",
+        "v": " группе."
+      }
+    ]
   },
   "sdamgia_10710_02": {
-    "question": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: кальций (Ca), Z=20, электронная конфигурация 2, 8, 8, 2.",
-    "explanation": "Кальций (Ca, Z=20) расположен в 4-м периоде, IIA группе. 4 электронных слоя (период 4), 2 валентных электрона (группа II). Ответ: X=4, Y=2."
+    "question": [
+      {
+        "t": "text",
+        "v": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: кальций ("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": "), Z=20, электронная конфигурация 2, 8, 8, 2."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Кальций ("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": ", Z=20) расположен в 4-м периоде, IIA группе. 4 электронных слоя (период 4), 2 валентных электрона (группа II). Ответ: X=4, "
+      },
+      {
+        "t": "formula",
+        "formula": "Y",
+        "kind": "substance",
+        "id": "sub:y"
+      },
+      {
+        "t": "text",
+        "v": "=2."
+      }
+    ]
   },
   "sdamgia_type_02_cl": {
-    "question": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: хлор (Cl), Z=17, электронная конфигурация 2, 8, 7.",
-    "explanation": "Хлор (Cl, Z=17) расположен в 3-м периоде, VIIA группе. 3 электронных слоя, 7 валентных электронов. Ответ: X=3, Y=7."
+    "question": [
+      {
+        "t": "text",
+        "v": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых данный химический элемент расположен в Периодической системе.\nЭлемент: хлор ("
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": "), Z=17, электронная конфигурация 2, 8, 7."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Хлор ("
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": ", Z=17) расположен в 3-м периоде, VIIA группе. 3 электронных слоя, 7 валентных электронов. Ответ: X=3, "
+      },
+      {
+        "t": "formula",
+        "formula": "Y",
+        "kind": "substance",
+        "id": "sub:y"
+      },
+      {
+        "t": "text",
+        "v": "=7."
+      }
+    ]
   },
   "demo_2025_03": {
     "question": "Расположите химические элементы\n  1) сера  2) кремний  3) хлор\nв порядке увеличения неметаллических свойств образуемых ими простых веществ.\nЗапишите указанные номера элементов в соответствующем порядке.",
-    "explanation": "Неметаллические свойства увеличиваются в периоде слева направо и в группе снизу вверх. Si (период 3, группа IV) < S (период 3, группа VI) < Cl (период 3, группа VII). Порядок: кремний → сера → хлор, то есть 2 → 1 → 3."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Неметаллические свойства увеличиваются в периоде слева направо и в группе снизу вверх. "
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": " (период 3, группа IV) < "
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": " (период 3, группа VI) < "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": " (период 3, группа VII). Порядок: кремний → сера → хлор, то есть 2 → 1 → 3."
+      }
+    ]
   },
   "sdamgia_10733_03": {
     "question": "Расположите химические элементы\n  1) кальций  2) алюминий  3) сера\nв порядке изменения от кислотных к основным свойств их высших оксидов.\nЗапишите номера элементов в соответствующем порядке.",
-    "explanation": "SO₃ — кислотный оксид, Al₂O₃ — амфотерный, CaO — основный. От кислотных к основным: сера → алюминий → кальций."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "SO₃",
+        "kind": "substance",
+        "id": "sub:so3"
+      },
+      {
+        "t": "text",
+        "v": " — кислотный оксид, "
+      },
+      {
+        "t": "formula",
+        "formula": "Al₂O₃",
+        "kind": "substance",
+        "id": "sub:al2o3"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный, "
+      },
+      {
+        "t": "formula",
+        "formula": "CaO",
+        "kind": "substance",
+        "id": "sub:cao"
+      },
+      {
+        "t": "text",
+        "v": " — основный. От кислотных к основным: сера → алюминий → кальций."
+      }
+    ]
   },
   "sdamgia_10736_03": {
     "question": "Расположите химические элементы\n  1) галлий  2) кислород  3) фосфор\nв порядке уменьшения радиуса атома.\nЗапишите номера элементов в соответствующем порядке.",
-    "explanation": "Радиус атома уменьшается слева направо по периоду и снизу вверх по группе. Ga (4-й период) > P (3-й период) > O (2-й период). Порядок уменьшения: галлий → фосфор → кислород."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Радиус атома уменьшается слева направо по периоду и снизу вверх по группе. "
+      },
+      {
+        "t": "formula",
+        "formula": "Ga",
+        "kind": "substance",
+        "id": "sub:ga"
+      },
+      {
+        "t": "text",
+        "v": " (4-й период) > "
+      },
+      {
+        "t": "formula",
+        "formula": "P",
+        "kind": "substance",
+        "id": "sub:P"
+      },
+      {
+        "t": "text",
+        "v": " (3-й период) > "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " (2-й период). Порядок уменьшения: галлий → фосфор → кислород."
+      }
+    ]
   },
   "demo_2025_04": {
     "question": "Установите соответствие между веществом и степенью окисления брома в данном веществе: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) NH₄Br: N имеет СО −3, H +1, значит Br = −1.\nБ) KBrO₄: K +1, O −2, 4 атома O = −8, значит Br = +7.\nВ) HBrO: H +1, O −2, значит Br = +1."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": " имеет СО −3, "
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": " +1, значит "
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": " = −1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "KBr",
+        "kind": "substance",
+        "id": "sub:kbr"
+      },
+      {
+        "t": "text",
+        "v": "O₄: "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": " +1, "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " −2, 4 атома "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " = −8, значит "
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": " = +7.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "HBr",
+        "kind": "substance",
+        "id": "sub:hbr"
+      },
+      {
+        "t": "text",
+        "v": "O: "
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": " +1, "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " −2, значит "
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": " = +1."
+      }
+    ]
   },
   "bank_fipi_04_n": {
     "question": "Установите соответствие между формулой соединения и степенью окисления азота в этом соединении.",
-    "explanation": "А) N₂O₅: O=−2, 2x + 5(−2) = 0, x = +5 → 4.\nБ) NH₃: H=+1, x + 3(+1) = 0, x = −3 → 1.\nВ) NO: O=−2, x + (−2) = 0, x = +2 → 2."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂O₅",
+        "kind": "substance",
+        "id": "sub:n2o5"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "=−2, 2x + 5(−2) = 0, x = +5 → 4.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": "=+1, x + 3(+1) = 0, x = −3 → 1.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "=−2, x + (−2) = 0, x = +2 → 2."
+      }
+    ]
   },
   "bank_fipi_04_s": {
     "question": "Установите соответствие между формулой соединения и степенью окисления серы в этом соединении.",
-    "explanation": "А) H₂S: H=+1, 2(+1) + x = 0, x = −2 → 1.\nБ) SO₃: O=−2, x + 3(−2) = 0, x = +6 → 3.\nВ) Na₂SO₄: Na=+1, O=−2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": "=+1, 2(+1) + x = 0, x = −2 → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃",
+        "kind": "substance",
+        "id": "sub:so3"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "=−2, x + 3(−2) = 0, x = +6 → 3.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "Na",
+        "kind": "substance",
+        "id": "sub:na"
+      },
+      {
+        "t": "text",
+        "v": "=+1, "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "=−2, 2(+1) + x + 4(−2) = 0, x = +6 → 3."
+      }
+    ]
   },
   "demo_2025_05": {
     "question": "Из предложенного перечня выберите два вещества с ковалентной полярной связью.",
-    "explanation": "NH₃ — ковалентная полярная связь (между неметаллами с разной ЭО). Na — металлическая связь. MgF₂ — ионная связь (металл + неметалл). F₂ — ковалентная неполярная (одинаковые атомы). PBr₃ — ковалентная полярная (неметаллы с разной ЭО)."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная полярная связь (между неметаллами с разной ЭО). "
+      },
+      {
+        "t": "formula",
+        "formula": "Na",
+        "kind": "substance",
+        "id": "sub:na"
+      },
+      {
+        "t": "text",
+        "v": " — металлическая связь. "
+      },
+      {
+        "t": "formula",
+        "formula": "MgF₂",
+        "kind": "substance",
+        "id": "sub:mgf2"
+      },
+      {
+        "t": "text",
+        "v": " — ионная связь (металл + неметалл). "
+      },
+      {
+        "t": "formula",
+        "formula": "F₂",
+        "kind": "substance",
+        "id": "sub:f2"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная неполярная (одинаковые атомы). PBr₃ — ковалентная полярная (неметаллы с разной ЭО)."
+      }
+    ]
   },
   "bank_fipi_05_ion": {
     "question": "Из предложенного перечня выберите два вещества с ионной связью.",
-    "explanation": "Ионная связь образуется между металлом и неметаллом. MgO (Mg — металл, O — неметалл) и KBr (K — металл, Br — неметалл) — ионная связь. CO₂, H₂O — ковалентная полярная. N₂ — ковалентная неполярная."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Ионная связь образуется между металлом и неметаллом. "
+      },
+      {
+        "t": "formula",
+        "formula": "MgO",
+        "kind": "substance",
+        "id": "sub:mgo"
+      },
+      {
+        "t": "text",
+        "v": " ("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " — металл, "
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " — неметалл) и "
+      },
+      {
+        "t": "formula",
+        "formula": "KBr",
+        "kind": "substance",
+        "id": "sub:kbr"
+      },
+      {
+        "t": "text",
+        "v": " (K — металл, "
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": " — неметалл) — ионная связь. "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": ", "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная полярная. "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂",
+        "kind": "substance",
+        "id": "sub:n2"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная неполярная."
+      }
+    ]
   },
   "bank_fipi_05_nonpol": {
     "question": "Из предложенного перечня выберите два вещества с ковалентной неполярной связью.",
-    "explanation": "Ковалентная неполярная связь — между одинаковыми атомами неметаллов. Cl₂ (Cl−Cl) и F₂ (F−F) — ковалентная неполярная. CaCl₂, KF — ионная. SO₂ — ковалентная полярная."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Ковалентная неполярная связь — между одинаковыми атомами неметаллов. "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "text",
+        "v": " ("
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": "−"
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": ") и "
+      },
+      {
+        "t": "formula",
+        "formula": "F₂",
+        "kind": "substance",
+        "id": "sub:f2"
+      },
+      {
+        "t": "text",
+        "v": " (F−F) — ковалентная неполярная. "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCl₂",
+        "kind": "substance",
+        "id": "sub:cacl2"
+      },
+      {
+        "t": "text",
+        "v": ", KF — ионная. "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₂",
+        "kind": "substance",
+        "id": "sub:so2"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная полярная."
+      }
+    ]
   },
   "demo_2025_06": {
     "question": "Выберите два верных продолжения для следующего утверждения.\nСходство бора, углерода и азота проявляется в том, что…",
-    "explanation": "B, C, N находятся во 2-м периоде → одинаковое число электронных слоёв (2). Все три — неметаллы (бор — полуметалл, но в контексте ОГЭ считается неметаллом). Число протонов у них разное (5, 6, 7). Азот проявляет отрицательные СО. Высшие оксиды B₂O₃ и CO₂ — кислотные."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "B",
+        "kind": "substance",
+        "id": "sub:b"
+      },
+      {
+        "t": "text",
+        "v": ", "
+      },
+      {
+        "t": "formula",
+        "formula": "C",
+        "kind": "substance",
+        "id": "sub:C"
+      },
+      {
+        "t": "text",
+        "v": ", "
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": " находятся во 2-м периоде → одинаковое число электронных слоёв (2). Все три — неметаллы (бор — полуметалл, но в контексте ОГЭ считается неметаллом). Число протонов у них разное (5, 6, 7). Азот проявляет отрицательные СО. Высшие оксиды "
+      },
+      {
+        "t": "formula",
+        "formula": "B",
+        "kind": "substance",
+        "id": "sub:b"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₃ и "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " — кислотные."
+      }
+    ]
   },
   "sdamgia_258_06": {
     "question": "Какие два утверждения верны для характеристики как натрия, так и алюминия?",
-    "explanation": "Na и Al — элементы 3-го периода, валентные электроны в 3-м слое (2 — верно). Оба — металлы (3 — верно). 12 протонов — только у Mg (1 — нет). Двухатомных молекул не образуют (4 — нет). Na₂O — да, но Al₂O₃, не Al₂O (5 — нет)."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Na",
+        "kind": "substance",
+        "id": "sub:na"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": " — элементы 3-го периода, валентные электроны в 3-м слое (2 — верно). Оба — металлы (3 — верно). 12 протонов — только у "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " (1 — нет). Двухатомных молекул не образуют (4 — нет). "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂O",
+        "kind": "substance",
+        "id": "sub:na2o"
+      },
+      {
+        "t": "text",
+        "v": " — да, но "
+      },
+      {
+        "t": "formula",
+        "formula": "Al₂O₃",
+        "kind": "substance",
+        "id": "sub:al2o3"
+      },
+      {
+        "t": "text",
+        "v": ", не "
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": " (5 — нет)."
+      }
+    ]
   },
   "sdamgia_5851_06": {
     "question": "Какие два утверждения верны для характеристики как хлора, так и брома?",
-    "explanation": "17 протонов только у Cl (1 — нет). Cl — 3 слоя, Br — 4 слоя (2 — нет). Оба неметаллы (3 — да). Cl₂ и Br₂ — двухатомные молекулы (4 — да). Cl₂ — газ при н. у. (5 — нет)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "17 протонов только у "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": " (1 — нет). "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": " — 3 слоя, "
+      },
+      {
+        "t": "formula",
+        "formula": "Br",
+        "kind": "element",
+        "id": "Br"
+      },
+      {
+        "t": "text",
+        "v": " — 4 слоя (2 — нет). Оба неметаллы (3 — да). "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Br₂",
+        "kind": "substance",
+        "id": "sub:br2"
+      },
+      {
+        "t": "text",
+        "v": " — двухатомные молекулы (4 — да). "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "text",
+        "v": " — газ при н. у. (5 — нет)."
+      }
+    ]
   },
   "demo_2025_07": {
-    "question": "Из предложенного перечня веществ выберите основный оксид и амфотерный гидроксид.\n\n1) Al(OH)₃  2) Mg(OH)₂  3) OF₂  4) N₂O  5) FeO\n\nЗапишите в поле ответа сначала номер основного оксида, а затем номер амфотерного гидроксида.",
-    "explanation": "FeO — основный оксид (оксид металла с невысокой СО). Al(OH)₃ — амфотерный гидроксид (алюминий — амфотерный элемент). Mg(OH)₂ — основание (не амфотерный). OF₂ — не оксид (кислород в СО +2). N₂O — несолеобразующий оксид."
+    "question": [
+      {
+        "t": "text",
+        "v": "Из предложенного перечня веществ выберите основный оксид и амфотерный гидроксид.\n\n1) "
+      },
+      {
+        "t": "formula",
+        "formula": "Al(OH)₃",
+        "kind": "substance",
+        "id": "sub:al_oh_3"
+      },
+      {
+        "t": "text",
+        "v": "  2) "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "  3) OF₂  4) "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂O",
+        "kind": "substance",
+        "id": "sub:n2o"
+      },
+      {
+        "t": "text",
+        "v": "  5) "
+      },
+      {
+        "t": "formula",
+        "formula": "FeO",
+        "kind": "substance",
+        "id": "sub:feo"
+      },
+      {
+        "t": "text",
+        "v": "\n\nЗапишите в поле ответа сначала номер основного оксида, а затем номер амфотерного гидроксида."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "FeO",
+        "kind": "substance",
+        "id": "sub:feo"
+      },
+      {
+        "t": "text",
+        "v": " — основный оксид (оксид металла с невысокой СО). "
+      },
+      {
+        "t": "formula",
+        "formula": "Al(OH)₃",
+        "kind": "substance",
+        "id": "sub:al_oh_3"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный гидроксид (алюминий — амфотерный элемент). "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " — основание (не амфотерный). OF₂ — не оксид (кислород в СО +2). "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂O",
+        "kind": "substance",
+        "id": "sub:n2o"
+      },
+      {
+        "t": "text",
+        "v": " — несолеобразующий оксид."
+      }
+    ]
   },
   "sdamgia_1008_07": {
-    "question": "Ангидридом хлорной кислоты HClO₄ является",
-    "explanation": "Cl в HClO₄ имеет степень окисления +7. Оксид, соответствующий этой степени окисления: Cl₂O₇. Проверка: Cl₂O₇ + H₂O = 2HClO₄."
+    "question": [
+      {
+        "t": "text",
+        "v": "Ангидридом хлорной кислоты "
+      },
+      {
+        "t": "formula",
+        "formula": "HClO₄",
+        "kind": "substance",
+        "id": "sub:hclo4"
+      },
+      {
+        "t": "text",
+        "v": " является"
+      }
+    ],
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": " в "
+      },
+      {
+        "t": "formula",
+        "formula": "HClO₄",
+        "kind": "substance",
+        "id": "sub:hclo4"
+      },
+      {
+        "t": "text",
+        "v": " имеет степень окисления +7. Оксид, соответствующий этой степени окисления: "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₇. Проверка: "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₇ + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " = 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HClO₄",
+        "kind": "substance",
+        "id": "sub:hclo4"
+      },
+      {
+        "t": "text",
+        "v": "."
+      }
+    ]
   },
   "bank_fipi_07": {
-    "question": "Из предложенного перечня веществ выберите кислотный оксид и основание.\n\n1) CO  2) Mg(OH)₂  3) SO₂  4) NaClO₄  5) Al(OH)₃\n\nЗапишите в поле ответа сначала номер кислотного оксида, а затем номер основания.",
-    "explanation": "SO₂ — кислотный оксид (3). Mg(OH)₂ — основание (2). CO — несолеобразующий оксид. NaClO₄ — соль. Al(OH)₃ — амфотерный гидроксид (не основание). Ответ: сначала кислотный оксид (3), затем основание (2)."
+    "question": [
+      {
+        "t": "text",
+        "v": "Из предложенного перечня веществ выберите кислотный оксид и основание.\n\n1) "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": "  2) "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "  3) "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₂",
+        "kind": "substance",
+        "id": "sub:so2"
+      },
+      {
+        "t": "text",
+        "v": "  4) "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": "O₄  5) "
+      },
+      {
+        "t": "formula",
+        "formula": "Al(OH)₃",
+        "kind": "substance",
+        "id": "sub:al_oh_3"
+      },
+      {
+        "t": "text",
+        "v": "\n\nЗапишите в поле ответа сначала номер кислотного оксида, а затем номер основания."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "SO₂",
+        "kind": "substance",
+        "id": "sub:so2"
+      },
+      {
+        "t": "text",
+        "v": " — кислотный оксид (3). "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " — основание (2). "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": " — несолеобразующий оксид. "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": "O₄ — соль. "
+      },
+      {
+        "t": "formula",
+        "formula": "Al(OH)₃",
+        "kind": "substance",
+        "id": "sub:al_oh_3"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный гидроксид (не основание). Ответ: сначала кислотный оксид (3), затем основание (2)."
+      }
+    ]
   },
   "demo_2025_08": {
     "question": "Какие два из перечисленных веществ не вступают в реакцию с фосфором?",
-    "explanation": "Фосфор реагирует с O₂ (горение: 4P + 5O₂ → 2P₂O₅), с HNO₃ (сильный окислитель), с Mg (образуя фосфид: 3Mg + 2P → Mg₃P₂). Не реагирует с Na₂SO₄ (соль, нет движущей силы) и CO (инертный оксид, слабый восстановитель)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Фосфор реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " (горение: 4"
+      },
+      {
+        "t": "formula",
+        "formula": "P",
+        "kind": "substance",
+        "id": "sub:P"
+      },
+      {
+        "t": "text",
+        "v": " + 5"
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "P₂O₅",
+        "kind": "substance",
+        "id": "sub:p2o5"
+      },
+      {
+        "t": "text",
+        "v": "), с "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": " (сильный окислитель), с "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " (образуя фосфид: 3"
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "P",
+        "kind": "substance",
+        "id": "sub:P"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "₃"
+      },
+      {
+        "t": "formula",
+        "formula": "P",
+        "kind": "substance",
+        "id": "sub:P"
+      },
+      {
+        "t": "text",
+        "v": "₂). Не реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " (соль, нет движущей силы) и "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": " (инертный оксид, слабый восстановитель)."
+      }
+    ]
   },
   "sdamgia_10869_08": {
     "question": "Из предложенного перечня выберите две пары веществ, с каждым из которых реагирует оксид меди(II).",
-    "explanation": "CuO — основный оксид. Реагирует с кислотами (HNO₃, HCl) и восстановителями (H₂, CO). Пара 3: H₂ + HNO₃ — оба реагируют с CuO. Пара 5: CO + HCl — оба реагируют с CuO. Пара 4: HCl — да, но NaOH с основным оксидом не реагирует (CuO не амфотерный)."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "CuO",
+        "kind": "substance",
+        "id": "sub:cuo"
+      },
+      {
+        "t": "text",
+        "v": " — основный оксид. Реагирует с кислотами ("
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": ", "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": ") и восстановителями ("
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": ", "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": "). Пара 3: "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": " — оба реагируют с "
+      },
+      {
+        "t": "formula",
+        "formula": "CuO",
+        "kind": "substance",
+        "id": "sub:cuo"
+      },
+      {
+        "t": "text",
+        "v": ". Пара 5: "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " — оба реагируют с "
+      },
+      {
+        "t": "formula",
+        "formula": "CuO",
+        "kind": "substance",
+        "id": "sub:cuo"
+      },
+      {
+        "t": "text",
+        "v": ". Пара 4: "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " — да, но "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " с основным оксидом не реагирует ("
+      },
+      {
+        "t": "formula",
+        "formula": "CuO",
+        "kind": "substance",
+        "id": "sub:cuo"
+      },
+      {
+        "t": "text",
+        "v": " не амфотерный)."
+      }
+    ]
   },
   "bank_fipi_08_subst": {
     "question": "Из предложенного перечня выберите две реакции замещения.",
-    "explanation": "Замещение — простое + сложное → простое + сложное. Fe + CuSO₄ (2) — замещение. Zn + HCl (4) — замещение. CaCO₃ → CaO + CO₂ (1) — разложение. NaOH + H₂SO₄ (3) — обмен. 2H₂O → 2H₂ + O₂ (5) — разложение (электролиз)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Замещение — простое + сложное → простое + сложное. "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " (2) — замещение. "
+      },
+      {
+        "t": "formula",
+        "formula": "Zn",
+        "kind": "substance",
+        "id": "sub:zn"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " (4) — замещение. "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCO₃",
+        "kind": "substance",
+        "id": "sub:caco3"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "CaO",
+        "kind": "substance",
+        "id": "sub:cao"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " (1) — разложение. "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " (3) — обмен. 2"
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " (5) — разложение (электролиз)."
+      }
+    ]
   },
   "demo_2025_09": {
     "question": "Установите соответствие между реагирующими веществами и продуктами их взаимодействия: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) Fe₂(SO₄)₃ + 3BaCl₂ → 2FeCl₃ + 3BaSO₄↓ → ответ 2.\nБ) Fe + H₂SO₄(разб.) → FeSO₄ + H₂↑ (Fe двухвалентно с разб. кислотой) → ответ 1.\nВ) Fe₂O₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 3H₂O → ответ 4."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂(SO₄)₃",
+        "kind": "substance",
+        "id": "sub:fe2_so4_3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "BaCl₂",
+        "kind": "substance",
+        "id": "sub:bacl2"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₃",
+        "kind": "substance",
+        "id": "sub:fecl3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ → ответ 2.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": "(разб.) → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeSO₄",
+        "kind": "substance",
+        "id": "sub:feso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": "↑ ("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " двухвалентно с разб. кислотой) → ответ 1.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂(SO₄)₃",
+        "kind": "substance",
+        "id": "sub:fe2_so4_3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → ответ 4."
+      }
+    ]
   },
   "sdamgia_327_09": {
     "question": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия.",
-    "explanation": "А) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ → 1.\nБ) Na₂CO₃ + CO₂ + H₂O → 2NaHCO₃ (средняя соль + кислотный оксид + вода → кислая соль) → 4.\nВ) Na₂CO₃ + CaCl₂ → 2NaCl + CaCO₃↓ (обмен) → 5."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "↑ → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaHCO₃",
+        "kind": "substance",
+        "id": "sub:nahco3"
+      },
+      {
+        "t": "text",
+        "v": " (средняя соль + кислотный оксид + вода → кислая соль) → 4.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCl₂",
+        "kind": "substance",
+        "id": "sub:cacl2"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCO₃",
+        "kind": "substance",
+        "id": "sub:caco3"
+      },
+      {
+        "t": "text",
+        "v": "↓ (обмен) → 5."
+      }
+    ]
   },
   "sdamgia_6445_09": {
     "question": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия.",
-    "explanation": "А) Fe + Cl₂ → FeCl₃ (Cl₂ — сильный окислитель, даёт Fe³⁺) → 4.\nБ) Fe + 2HCl → FeCl₂ + H₂ (разбавленная кислота → Fe²⁺) → 2.\nВ) Fe + H₂SO₄(разб.) → FeSO₄ + H₂ (разбавленная серная → Fe²⁺) → 5."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₃",
+        "kind": "substance",
+        "id": "sub:fecl3"
+      },
+      {
+        "t": "text",
+        "v": " ("
+      },
+      {
+        "t": "formula",
+        "formula": "Cl₂",
+        "kind": "substance",
+        "id": "sub:cl2"
+      },
+      {
+        "t": "text",
+        "v": " — сильный окислитель, даёт "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe³⁺",
+        "kind": "ion",
+        "id": "ion:Fe_3plus"
+      },
+      {
+        "t": "text",
+        "v": ") → 4.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₂",
+        "kind": "substance",
+        "id": "sub:fecl2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " (разбавленная кислота → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe²⁺",
+        "kind": "ion",
+        "id": "ion:Fe_2plus"
+      },
+      {
+        "t": "text",
+        "v": ") → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": "(разб.) → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeSO₄",
+        "kind": "substance",
+        "id": "sub:feso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " (разбавленная серная → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe²⁺",
+        "kind": "ion",
+        "id": "ion:Fe_2plus"
+      },
+      {
+        "t": "text",
+        "v": ") → 5."
+      }
+    ]
   },
   "demo_2025_10": {
     "question": "Установите соответствие между веществом и реагентами, с каждым из которых оно может вступать в реакцию: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) Al реагирует с Fe₂O₃ (алюмотермия) и O₂ (горение) → 4.\nБ) Ca(OH)₂ реагирует с CO₂ (помутнение известковой воды) и Al₂O₃ (амфотерный оксид) → 1.\nВ) SO₃ (кислотный оксид) реагирует с H₂S (ОВР) и Na₂O (основный оксид) → 3."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": " (алюмотермия) и "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " (горение) → 4.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(OH)₂",
+        "kind": "substance",
+        "id": "sub:ca_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " (помутнение известковой воды) и "
+      },
+      {
+        "t": "formula",
+        "formula": "Al₂O₃",
+        "kind": "substance",
+        "id": "sub:al2o3"
+      },
+      {
+        "t": "text",
+        "v": " (амфотерный оксид) → 1.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃",
+        "kind": "substance",
+        "id": "sub:so3"
+      },
+      {
+        "t": "text",
+        "v": " (кислотный оксид) реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": " (ОВР) и "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂O",
+        "kind": "substance",
+        "id": "sub:na2o"
+      },
+      {
+        "t": "text",
+        "v": " (основный оксид) → 3."
+      }
+    ]
   },
   "sdamgia_2145_10": {
     "question": "Установите соответствие между формулой вещества и реагентами, с каждым из которых это вещество может взаимодействовать.",
-    "explanation": "А) CaCl₂ реагирует с Na₂CO₃ (→ CaCO₃↓) и AgNO₃ (→ AgCl↓) → 4.\nБ) SO₂ (кислотный оксид) реагирует с CaO (основный оксид) и Ba(OH)₂ (щёлочь) → 2.\nВ) H₂ реагирует с N₂ (→ NH₃) и Fe₂O₃ (восстановление → Fe + H₂O) → 1."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCl₂",
+        "kind": "substance",
+        "id": "sub:cacl2"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " (→ "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCO₃",
+        "kind": "substance",
+        "id": "sub:caco3"
+      },
+      {
+        "t": "text",
+        "v": "↓) и "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " (→ "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": "↓) → 4.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₂",
+        "kind": "substance",
+        "id": "sub:so2"
+      },
+      {
+        "t": "text",
+        "v": " (кислотный оксид) реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "CaO",
+        "kind": "substance",
+        "id": "sub:cao"
+      },
+      {
+        "t": "text",
+        "v": " (основный оксид) и "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba(OH)₂",
+        "kind": "substance",
+        "id": "sub:ba_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " (щёлочь) → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂",
+        "kind": "substance",
+        "id": "sub:n2"
+      },
+      {
+        "t": "text",
+        "v": " (→ "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": ") и "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": " (восстановление → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": ") → 1."
+      }
+    ]
   },
   "bank_fipi_10": {
     "question": "Установите соответствие между формулой вещества и реагентами, с каждым из которых это вещество может взаимодействовать.",
-    "explanation": "А) Fe: с HCl → FeCl₂ + H₂, с CuSO₄ → FeSO₄ + Cu (Fe левее Cu в ряду активности) → 1.\nБ) CO₂ (кислотный оксид): с Na₂O → Na₂CO₃, с KOH → K₂CO₃ + H₂O → 2.\nВ) NaOH: с CuSO₄ → Cu(OH)₂↓ + Na₂SO₄, с CO₂ → Na₂CO₃ + H₂O → 4."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": ": с "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₂",
+        "kind": "substance",
+        "id": "sub:fecl2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": ", с "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "FeSO₄",
+        "kind": "substance",
+        "id": "sub:feso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu",
+        "kind": "substance",
+        "id": "sub:cu"
+      },
+      {
+        "t": "text",
+        "v": " ("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " левее "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu",
+        "kind": "substance",
+        "id": "sub:cu"
+      },
+      {
+        "t": "text",
+        "v": " в ряду активности) → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " (кислотный оксид): с "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂O",
+        "kind": "substance",
+        "id": "sub:na2o"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": ", с "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": ": с "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "↓ + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": ", с "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → 4."
+      }
+    ]
   },
   "demo_2025_11": {
     "question": "Из предложенного перечня выберите две пары веществ, между которыми протекает реакция обмена.",
-    "explanation": "Реакция обмена — два сложных вещества обмениваются составными частями. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl (обмен). NaOH + HCl → NaCl + H₂O (нейтрализация = разновидность обмена). Br₂ + 2KI → 2KBr + I₂ — замещение. H₂SO₄ + Zn → ZnSO₄ + H₂ — замещение. NaOH + Al — нестандартная реакция."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Реакция обмена — два сложных вещества обмениваются составными частями. "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "BaCl₂",
+        "kind": "substance",
+        "id": "sub:bacl2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " (обмен). "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " (нейтрализация = разновидность обмена). "
+      },
+      {
+        "t": "formula",
+        "formula": "Br₂",
+        "kind": "substance",
+        "id": "sub:br2"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KI",
+        "kind": "substance",
+        "id": "sub:ki"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KBr",
+        "kind": "substance",
+        "id": "sub:kbr"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "I₂",
+        "kind": "substance",
+        "id": "sub:i2"
+      },
+      {
+        "t": "text",
+        "v": " — замещение. "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Zn",
+        "kind": "substance",
+        "id": "sub:zn"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "ZnSO₄",
+        "kind": "substance",
+        "id": "sub:znso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " — замещение. "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": " — нестандартная реакция."
+      }
+    ]
   },
   "bank_fipi_11_decomp": {
     "question": "Из предложенного перечня выберите два уравнения экзотермических реакций.",
-    "explanation": "Горение магния (2) и горение углерода (4) — экзотермические реакции. Разложение CaCO₃ (1) и электролиз воды (3) — эндотермические. Реакция N₂ + O₂ → 2NO (5) — тоже эндотермическая (идёт только при очень высоких температурах)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Горение магния (2) и горение углерода (4) — экзотермические реакции. Разложение "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCO₃",
+        "kind": "substance",
+        "id": "sub:caco3"
+      },
+      {
+        "t": "text",
+        "v": " (1) и электролиз воды (3) — эндотермические. Реакция "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂",
+        "kind": "substance",
+        "id": "sub:n2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": " (5) — тоже эндотермическая (идёт только при очень высоких температурах)."
+      }
+    ]
   },
   "bank_fipi_11_signs": {
     "question": "Из предложенного перечня выберите два верных утверждения о признаках химических реакций.",
-    "explanation": "1) AgNO₃ + NaCl → AgCl↓ + NaNO₃ — AgCl белый творожистый (верно). 2) Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑ — CO₂ бесцветный, не бурый (неверно). 3) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ голубой осадок (верно). 4) BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl — осадок, не газ (неверно). 5) Pb(NO₃)₂ + 2KI → PbI₂↓ + 2KNO₃ — жёлтый осадок (верно, но нужно только 2 ответа)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "1) "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": "↓ + "
+      },
+      {
+        "t": "formula",
+        "formula": "NaNO₃",
+        "kind": "substance",
+        "id": "sub:nano3"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": " белый творожистый (верно). 2) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "↑ — "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": " бесцветный, не бурый (неверно). 3) "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "↓ + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " голубой осадок (верно). 4) "
+      },
+      {
+        "t": "formula",
+        "formula": "BaCl₂",
+        "kind": "substance",
+        "id": "sub:bacl2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " — осадок, не газ (неверно). 5) "
+      },
+      {
+        "t": "formula",
+        "formula": "Pb(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:pb_no3_2"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KI",
+        "kind": "substance",
+        "id": "sub:ki"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "PbI₂",
+        "kind": "substance",
+        "id": "sub:pbi2"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KNO₃",
+        "kind": "substance",
+        "id": "sub:kno3"
+      },
+      {
+        "t": "text",
+        "v": " — жёлтый осадок (верно, но нужно только 2 ответа)."
+      }
+    ]
   },
   "demo_2025_12": {
     "question": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) 2HCl + Na₂SiO₃ → H₂SiO₃↓ + 2NaCl — кремниевая кислота образует бесцветный желеобразный осадок → 3.\nБ) H₂S + CuCl₂ → CuS↓ + 2HCl — сульфид меди(II) — чёрный осадок → 1.\nВ) 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂↑ — выделение газа → 2."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SiO₃",
+        "kind": "substance",
+        "id": "sub:na2sio3"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SiO₃",
+        "kind": "substance",
+        "id": "sub:h2sio3"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " — кремниевая кислота образует бесцветный желеобразный осадок → 3.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "CuS",
+        "kind": "substance",
+        "id": "sub:cus"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " — сульфид меди(II) — чёрный осадок → 1.\nВ) 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "↑ — выделение газа → 2."
+      }
+    ]
   },
   "bank_fipi_12a": {
     "question": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции.",
-    "explanation": "А) CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — Cu(OH)₂ голубой осадок → 2.\nБ) Na₂S + 2HCl → 2NaCl + H₂S↑ — H₂S газ с запахом тухлых яиц → 1.\nВ) FeCl₃ + 3NaOH → Fe(OH)₃↓ + 3NaCl — Fe(OH)₃ бурый осадок → 3."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "↓ + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " голубой осадок → 2.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂S",
+        "kind": "substance",
+        "id": "sub:na2s"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": "↑ — "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": " газ с запахом тухлых яиц → 1.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₃",
+        "kind": "substance",
+        "id": "sub:fecl3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe(OH)₃",
+        "kind": "substance",
+        "id": "sub:fe_oh_3"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe(OH)₃",
+        "kind": "substance",
+        "id": "sub:fe_oh_3"
+      },
+      {
+        "t": "text",
+        "v": " бурый осадок → 3."
+      }
+    ]
   },
   "bank_fipi_12b": {
     "question": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции.",
-    "explanation": "А) BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl — BaSO₄ белый осадок → 1.\nБ) NH₄Cl + KOH → KCl + NH₃↑ + H₂O — NH₃ газ с резким запахом → 2.\nВ) NaCl + AgNO₃ → AgCl↓ + NaNO₃ — AgCl белый творожистый осадок → 1."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "BaCl₂",
+        "kind": "substance",
+        "id": "sub:bacl2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": " белый осадок → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₄Cl",
+        "kind": "substance",
+        "id": "sub:nh4cl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": "↑ + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": " газ с резким запахом → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": "↓ + "
+      },
+      {
+        "t": "formula",
+        "formula": "NaNO₃",
+        "kind": "substance",
+        "id": "sub:nano3"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": " белый творожистый осадок → 1."
+      }
+    ]
   },
   "demo_2025_13": {
     "question": "Из предложенного перечня выберите два неэлектролита.",
-    "explanation": "Электролиты — вещества, растворы или расплавы которых проводят электрический ток: кислоты, основания, соли. CH₄ (метан) — ковалентное неполярное соединение, неэлектролит. CO (оксид углерода(II)) — ковалентное соединение, не диссоциирует, неэлектролит. HNO₃ — сильная кислота (электролит). KClO — соль (электролит). CuSO₄ — соль (электролит)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Электролиты — вещества, растворы или расплавы которых проводят электрический ток: кислоты, основания, соли. "
+      },
+      {
+        "t": "formula",
+        "formula": "CH₄",
+        "kind": "substance",
+        "id": "sub:ch4"
+      },
+      {
+        "t": "text",
+        "v": " (метан) — ковалентное неполярное соединение, неэлектролит. "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": " (оксид углерода(II)) — ковалентное соединение, не диссоциирует, неэлектролит. "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": " — сильная кислота (электролит). "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": "O — соль (электролит). "
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " — соль (электролит)."
+      }
+    ]
   },
   "bank_fipi_13_ions": {
     "question": "Из предложенного перечня выберите два вещества, при полной диссоциации 1 моль которых образуется 3 моль ионов.",
-    "explanation": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ — 3 иона (верно). NaCl → Na⁺ + Cl⁻ — 2 иона. CaCl₂ → Ca²⁺ + 2Cl⁻ — 3 иона (верно). Al₂(SO₄)₃ → 2Al³⁺ + 3SO₄²⁻ — 5 ионов. KNO₃ → K⁺ + NO₃⁻ — 2 иона."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "Na⁺",
+        "kind": "ion",
+        "id": "ion:Na_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₄²⁻",
+        "kind": "ion",
+        "id": "ion:SO4_2minus"
+      },
+      {
+        "t": "text",
+        "v": " — 3 иона (верно). "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Na⁺",
+        "kind": "ion",
+        "id": "ion:Na_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl⁻",
+        "kind": "ion",
+        "id": "ion:Cl_minus"
+      },
+      {
+        "t": "text",
+        "v": " — 2 иона. "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCl₂",
+        "kind": "substance",
+        "id": "sub:cacl2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca²⁺",
+        "kind": "ion",
+        "id": "ion:Ca_2plus"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "Cl⁻",
+        "kind": "ion",
+        "id": "ion:Cl_minus"
+      },
+      {
+        "t": "text",
+        "v": " — 3 иона (верно). "
+      },
+      {
+        "t": "formula",
+        "formula": "Al₂(SO₄)₃",
+        "kind": "substance",
+        "id": "sub:al2_so4_3"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "Al³⁺",
+        "kind": "ion",
+        "id": "ion:Al_3plus"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "SO₄²⁻",
+        "kind": "ion",
+        "id": "ion:SO4_2minus"
+      },
+      {
+        "t": "text",
+        "v": " — 5 ионов. "
+      },
+      {
+        "t": "formula",
+        "formula": "KNO₃",
+        "kind": "substance",
+        "id": "sub:kno3"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "K⁺",
+        "kind": "ion",
+        "id": "ion:K_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "NO₃⁻",
+        "kind": "ion",
+        "id": "ion:NO3_minus"
+      },
+      {
+        "t": "text",
+        "v": " — 2 иона."
+      }
+    ]
   },
   "bank_fipi_13_weak": {
     "question": "Из предложенного перечня выберите два слабых электролита.",
-    "explanation": "H₂SO₄ — сильная кислота (сильный электролит). CH₃COOH — уксусная кислота (слабый электролит). NaOH — щёлочь (сильный электролит). H₂CO₃ — угольная кислота (слабый электролит, нестойкая). KCl — растворимая соль (сильный электролит)."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " — сильная кислота (сильный электролит). "
+      },
+      {
+        "t": "formula",
+        "formula": "CH₃COOH",
+        "kind": "substance",
+        "id": "sub:ch3cooh"
+      },
+      {
+        "t": "text",
+        "v": " — уксусная кислота (слабый электролит). "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " — щёлочь (сильный электролит). "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂CO₃",
+        "kind": "substance",
+        "id": "sub:h2co3"
+      },
+      {
+        "t": "text",
+        "v": " — угольная кислота (слабый электролит, нестойкая). "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " — растворимая соль (сильный электролит)."
+      }
+    ]
   },
   "demo_2025_14": {
-    "question": "Выберите два исходных вещества, взаимодействию водных растворов которых соответствует сокращённое ионное уравнение реакции\n  H⁺ + OH⁻ = H₂O",
-    "explanation": "Сокращённое ионное уравнение H⁺ + OH⁻ = H₂O соответствует реакции сильной кислоты с растворимым основанием, при которой образуется растворимая соль. HI — сильная кислота (диссоциирует полностью). Ba(OH)₂ — растворимое основание. HI + Ba(OH)₂ → BaI₂ (растворим) + H₂O. H₂S — слабая кислота. H₂SO₄ + Ba(OH)₂ → BaSO₄↓ — ионное уравнение будет другим."
+    "question": [
+      {
+        "t": "text",
+        "v": "Выберите два исходных вещества, взаимодействию водных растворов которых соответствует сокращённое ионное уравнение реакции\n  "
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "OH⁻",
+        "kind": "ion",
+        "id": "ion:OH_minus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Сокращённое ионное уравнение "
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "OH⁻",
+        "kind": "ion",
+        "id": "ion:OH_minus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " соответствует реакции сильной кислоты с растворимым основанием, при которой образуется растворимая соль. "
+      },
+      {
+        "t": "formula",
+        "formula": "HI",
+        "kind": "substance",
+        "id": "sub:hi"
+      },
+      {
+        "t": "text",
+        "v": " — сильная кислота (диссоциирует полностью). "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba(OH)₂",
+        "kind": "substance",
+        "id": "sub:ba_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " — растворимое основание. "
+      },
+      {
+        "t": "formula",
+        "formula": "HI",
+        "kind": "substance",
+        "id": "sub:hi"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba(OH)₂",
+        "kind": "substance",
+        "id": "sub:ba_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba",
+        "kind": "substance",
+        "id": "sub:ba"
+      },
+      {
+        "t": "text",
+        "v": "I₂ (растворим) + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": ". "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": " — слабая кислота. "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba(OH)₂",
+        "kind": "substance",
+        "id": "sub:ba_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ — ионное уравнение будет другим."
+      }
+    ]
   },
   "bank_4ege_14_co3": {
-    "question": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  CO₃²⁻ + 2H⁺ = H₂O + CO₂",
-    "explanation": "Нужны: 1) растворимый карбонат (CO₃²⁻ в виде иона) — Na₂CO₃ (1); CaCO₃ и BaCO₃ нерастворимы; NaHCO₃ — гидрокарбонат (HCO₃⁻). 2) Сильная кислота (H⁺) — HBr (5); HNO₂ — слабая кислота. Ответ: 15."
+    "question": [
+      {
+        "t": "text",
+        "v": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₃²⁻",
+        "kind": "ion",
+        "id": "ion:CO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Нужны: 1) растворимый карбонат ("
+      },
+      {
+        "t": "formula",
+        "formula": "CO₃²⁻",
+        "kind": "ion",
+        "id": "ion:CO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": " в виде иона) — "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " (1); "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCO₃",
+        "kind": "substance",
+        "id": "sub:caco3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "BaCO₃",
+        "kind": "substance",
+        "id": "sub:baco3"
+      },
+      {
+        "t": "text",
+        "v": " нерастворимы; "
+      },
+      {
+        "t": "formula",
+        "formula": "NaHCO₃",
+        "kind": "substance",
+        "id": "sub:nahco3"
+      },
+      {
+        "t": "text",
+        "v": " — гидрокарбонат ("
+      },
+      {
+        "t": "formula",
+        "formula": "HCO₃⁻",
+        "kind": "ion",
+        "id": "ion:HCO3_minus"
+      },
+      {
+        "t": "text",
+        "v": "). 2) Сильная кислота ("
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": ") — "
+      },
+      {
+        "t": "formula",
+        "formula": "HBr",
+        "kind": "substance",
+        "id": "sub:hbr"
+      },
+      {
+        "t": "text",
+        "v": " (5); "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₂",
+        "kind": "substance",
+        "id": "sub:hno2"
+      },
+      {
+        "t": "text",
+        "v": " — слабая кислота. Ответ: 15."
+      }
+    ]
   },
   "bank_4ege_14_s2": {
-    "question": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  2H⁺ + S²⁻ = H₂S",
-    "explanation": "Нужны: 1) сильная кислота (H⁺) — HCl (1); HF — слабая (4). 2) Растворимый сульфид (S²⁻ в виде иона) — K₂S (5); CuS нерастворим (2); S — простое вещество (3); Al₂S₃ гидролизуется (6). Ответ: 15."
+    "question": [
+      {
+        "t": "text",
+        "v": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n  2"
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "S²⁻",
+        "kind": "ion",
+        "id": "ion:S_2minus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Нужны: 1) сильная кислота ("
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": ") — "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " (1); "
+      },
+      {
+        "t": "formula",
+        "formula": "HF",
+        "kind": "substance",
+        "id": "sub:hf"
+      },
+      {
+        "t": "text",
+        "v": " — слабая (4). 2) Растворимый сульфид ("
+      },
+      {
+        "t": "formula",
+        "formula": "S²⁻",
+        "kind": "ion",
+        "id": "ion:S_2minus"
+      },
+      {
+        "t": "text",
+        "v": " в виде иона) — "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": " (5); "
+      },
+      {
+        "t": "formula",
+        "formula": "CuS",
+        "kind": "substance",
+        "id": "sub:cus"
+      },
+      {
+        "t": "text",
+        "v": " нерастворим (2); "
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": " — простое вещество (3); "
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": "₃ гидролизуется (6). Ответ: 15."
+      }
+    ]
   },
   "demo_2025_15": {
     "question": "Установите соответствие между схемой процесса, происходящего в окислительно-восстановительной реакции, и названием этого процесса: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) I⁺⁵ → I⁺⁷: СО увеличивается (+5 → +7), элемент отдаёт электроны → окисление → 1.\nБ) Si⁺⁴ → Si⁰: СО уменьшается (+4 → 0), элемент принимает электроны → восстановление → 2.\nВ) N⁰ → N⁻³: СО уменьшается (0 → −3), элемент принимает электроны → восстановление → 2."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "I",
+        "kind": "element",
+        "id": "I"
+      },
+      {
+        "t": "text",
+        "v": "⁺⁵ → "
+      },
+      {
+        "t": "formula",
+        "formula": "I",
+        "kind": "element",
+        "id": "I"
+      },
+      {
+        "t": "text",
+        "v": "⁺⁷: СО увеличивается (+5 → +7), элемент отдаёт электроны → окисление → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "⁺⁴ → "
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "⁰: СО уменьшается (+4 → 0), элемент принимает электроны → восстановление → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": "⁰ → "
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": "⁻³: СО уменьшается (0 → −3), элемент принимает электроны → восстановление → 2."
+      }
+    ]
   },
   "bank_fipi_15_fe2o3": {
-    "question": "Дана схема окислительно-восстановительной реакции:\n  Fe₂O₃ + CO → Fe + CO₂\nУстановите соответствие между формулой вещества и его ролью в данной реакции.",
-    "explanation": "Fe в Fe₂O₃: +3 → 0 (понижение, принимает e⁻) — окислитель → 1.\nC в CO: +2 → +4 (повышение, отдаёт e⁻) — восстановитель → 2."
+    "question": [
+      {
+        "t": "text",
+        "v": "Дана схема окислительно-восстановительной реакции:\n  "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "\nУстановите соответствие между формулой вещества и его ролью в данной реакции."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " в "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ": +3 → 0 (понижение, принимает e⁻) — окислитель → 1.\n"
+      },
+      {
+        "t": "formula",
+        "formula": "C",
+        "kind": "substance",
+        "id": "sub:C"
+      },
+      {
+        "t": "text",
+        "v": " в "
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": ": +2 → +4 (повышение, отдаёт e⁻) — восстановитель → 2."
+      }
+    ]
   },
   "bank_fipi_15_cu": {
-    "question": "Дана схема окислительно-восстановительной реакции:\n  Cu + HNO₃(разб.) → Cu(NO₃)₂ + NO + H₂O\nУстановите соответствие между формулой вещества и его ролью в данной реакции.",
-    "explanation": "Cu: 0 → +2 (повышение, отдаёт e⁻) — восстановитель → 2.\nN в HNO₃: +5 → +2 в NO (понижение, принимает e⁻) — окислитель → 1."
+    "question": [
+      {
+        "t": "text",
+        "v": "Дана схема окислительно-восстановительной реакции:\n  "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu",
+        "kind": "substance",
+        "id": "sub:cu"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": "(разб.) → "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:cu_no3_2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": "\nУстановите соответствие между формулой вещества и его ролью в данной реакции."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Cu",
+        "kind": "substance",
+        "id": "sub:cu"
+      },
+      {
+        "t": "text",
+        "v": ": 0 → +2 (повышение, отдаёт e⁻) — восстановитель → 2.\n"
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": " в "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": ": +5 → +2 в "
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": " (понижение, принимает e⁻) — окислитель → 1."
+      }
+    ]
   },
   "demo_2025_16": {
     "question": "Из перечисленных суждений о чистых веществах и смесях выберите верное(-ые) суждение(-я).\n\n1) Чугун является чистым веществом.\n2) Для разделения смеси машинного масла и воды можно использовать делительную воронку.\n3) Очистить озёрную воду от примеси песка можно с помощью отстаивания и фильтрования.\n4) Магнит применяют для разделения двухкомпонентных неоднородных смесей, содержащих железные опилки.\n\nЗапишите в поле ответа номер(а) верного(-ых) суждения(-ий).",
@@ -193,45 +4485,845 @@
   },
   "demo_2025_17": {
     "question": "Установите соответствие между двумя веществами, взятыми в виде водных растворов, и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) KF и KCl: AgNO₃ даёт осадок AgCl с KCl, но AgF растворим → различает → 1.\nБ) NaCl и HCl: BaCO₃ реагирует с HCl (выделение CO₂), но не с NaCl → различает → 3.\nВ) KCl и MgCl₂: KOH даёт осадок Mg(OH)₂ с MgCl₂, но не с KCl → различает → 4."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) KF и "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " даёт осадок "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": " с "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": ", но "
+      },
+      {
+        "t": "formula",
+        "formula": "Ag",
+        "kind": "substance",
+        "id": "sub:ag"
+      },
+      {
+        "t": "text",
+        "v": "F растворим → различает → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "BaCO₃",
+        "kind": "substance",
+        "id": "sub:baco3"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " (выделение "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "), но не с "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " → различает → 3.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "MgCl₂",
+        "kind": "substance",
+        "id": "sub:mgcl2"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": " даёт осадок "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " с "
+      },
+      {
+        "t": "formula",
+        "formula": "MgCl₂",
+        "kind": "substance",
+        "id": "sub:mgcl2"
+      },
+      {
+        "t": "text",
+        "v": ", но не с "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " → различает → 4."
+      }
+    ]
   },
   "sdamgia_1123_17": {
     "question": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества.",
-    "explanation": "А) AgNO₃: NaCl → AgCl↓ (белый), KNO₃ не реагирует → различает → 4.\nБ) Na₂SO₄: Ba(NO₃)₂ → BaSO₄↓ (белый), NaNO₃ не реагирует → различает → 2.\nВ) KOH: NH₄Cl → NH₃↑ (запах), ZnCl₂ → Zn(OH)₂↓ (белый) → различает → 1."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": "↓ (белый), "
+      },
+      {
+        "t": "formula",
+        "formula": "KNO₃",
+        "kind": "substance",
+        "id": "sub:kno3"
+      },
+      {
+        "t": "text",
+        "v": " не реагирует → различает → 4.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba",
+        "kind": "substance",
+        "id": "sub:ba"
+      },
+      {
+        "t": "text",
+        "v": "("
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃)₂ → "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": "↓ (белый), "
+      },
+      {
+        "t": "formula",
+        "formula": "NaNO₃",
+        "kind": "substance",
+        "id": "sub:nano3"
+      },
+      {
+        "t": "text",
+        "v": " не реагирует → различает → 2.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₄Cl",
+        "kind": "substance",
+        "id": "sub:nh4cl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": "↑ (запах), "
+      },
+      {
+        "t": "formula",
+        "formula": "ZnCl₂",
+        "kind": "substance",
+        "id": "sub:zncl2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Zn(OH)₂",
+        "kind": "substance",
+        "id": "sub:zn_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "↓ (белый) → различает → 1."
+      }
+    ]
   },
   "sdamgia_855_17": {
     "question": "Установите соответствие между двумя солями и реактивом, с помощью которого можно различить эти соли.",
-    "explanation": "А) KOH: NH₄Cl + KOH → NH₃↑ (запах), NaCl не реагирует → различает → 1.\nБ) AgNO₃: AgF растворим, AgBr↓ (желтоватый) → различает → 3.\nВ) HCl: Na₂CO₃ + HCl → CO₂↑ (газ), K₂SO₄ не реагирует → различает → 4."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₄Cl",
+        "kind": "substance",
+        "id": "sub:nh4cl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": "↑ (запах), "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " не реагирует → различает → 1.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "Ag",
+        "kind": "substance",
+        "id": "sub:ag"
+      },
+      {
+        "t": "text",
+        "v": "F растворим, "
+      },
+      {
+        "t": "formula",
+        "formula": "AgBr",
+        "kind": "substance",
+        "id": "sub:agbr"
+      },
+      {
+        "t": "text",
+        "v": "↓ (желтоватый) → различает → 3.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": ": "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂CO₃",
+        "kind": "substance",
+        "id": "sub:na2co3"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "↑ (газ), "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂SO₄",
+        "kind": "substance",
+        "id": "sub:k2so4"
+      },
+      {
+        "t": "text",
+        "v": " не реагирует → различает → 4."
+      }
+    ]
   },
   "demo_2025_18": {
-    "context": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой Mg₃(C₆H₅O₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека.",
+    "context": [
+      {
+        "t": "text",
+        "v": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "₃(C₆"
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": "₅"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека."
+      }
+    ],
     "question": "Вычислите в процентах массовую долю магния в цитрате магния. Запишите число с точностью до целых.",
-    "explanation": "M(Mg₃(C₆H₅O₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 г/моль.\nω(Mg) = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "M("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "₃(C₆"
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": "₅"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₇)₂) = 3×24 + 2×(6×12 + 5×1 + 7×16) = 72 + 2×(72 + 5 + 112) = 72 + 2×189 = 72 + 378 = 450 г/моль.\nω("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": ") = 3×24 / 450 × 100% = 72/450 × 100% = 16%."
+      }
+    ]
   },
   "sdamgia_10943_18": {
-    "context": "Оксид железа(III) — химическое соединение Fe₂O₃, применяется при выплавке чугуна.",
+    "context": [
+      {
+        "t": "text",
+        "v": "Оксид железа(III) — химическое соединение "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ", применяется при выплавке чугуна."
+      }
+    ],
     "question": "Вычислите в процентах массовую долю железа в оксиде железа(III). Запишите число с точностью до целых.",
-    "explanation": "M(Fe₂O₃) = 56×2 + 16×3 = 112 + 48 = 160 г/моль.\nω(Fe) = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "M("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ") = 56×2 + 16×3 = 112 + 48 = 160 г/моль.\nω("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": ") = (56×2) / 160 × 100% = 112/160 × 100% = 70%."
+      }
+    ]
   },
   "sdamgia_10938_18": {
-    "context": "Нитрат кальция — химическое соединение Ca(NO₃)₂, в пиротехнике используется как недорогой источник кирпично-красного пламени.",
+    "context": [
+      {
+        "t": "text",
+        "v": "Нитрат кальция — химическое соединение "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:ca_no3_2"
+      },
+      {
+        "t": "text",
+        "v": ", в пиротехнике используется как недорогой источник кирпично-красного пламени."
+      }
+    ],
     "question": "Вычислите в процентах массовую долю кальция в нитрате кальция. Запишите число с точностью до целых.",
-    "explanation": "M(Ca(NO₃)₂) = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 г/моль.\nω(Ca) = 40/164 × 100% = 24,4% ≈ 24%."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "M("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:ca_no3_2"
+      },
+      {
+        "t": "text",
+        "v": ") = 40 + 2×(14 + 16×3) = 40 + 2×62 = 40 + 124 = 164 г/моль.\nω("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": ") = 40/164 × 100% = 24,4% ≈ 24%."
+      }
+    ]
   },
   "demo_2025_19": {
-    "context": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой Mg₃(C₆H₅O₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека.",
+    "context": [
+      {
+        "t": "text",
+        "v": "Цитрат магния — химическое соединение, соль магния и лимонной кислоты, с формулой "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "₃(C₆"
+      },
+      {
+        "t": "formula",
+        "formula": "H",
+        "kind": "element",
+        "id": "H"
+      },
+      {
+        "t": "text",
+        "v": "₅"
+      },
+      {
+        "t": "formula",
+        "formula": "O",
+        "kind": "element",
+        "id": "O"
+      },
+      {
+        "t": "text",
+        "v": "₇)₂, используемое в медицине при недостатке магния, который влияет на работу сердечно-сосудистой системы в организме человека."
+      }
+    ],
     "question": "Чтобы покрывать суточную потребность животного в магнии, собаке массой около 20 кг ежедневно в пищу добавляют одну мерную ложечку (10 г) цитрата магния. Вычислите, сколько граммов (г) магния ежедневно получает собака с этим препаратом. Запишите число с точностью до десятых.",
-    "explanation": "Из задания 18: ω(Mg) = 16% = 0,16.\nm(Mg) = m(цитрата) × ω(Mg) = 10 г × 0,16 = 1,6 г."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Из задания 18: ω("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": ") = 16% = 0,16.\nm("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": ") = m(цитрата) × ω("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": ") = 10 г × 0,16 = 1,6 г."
+      }
+    ]
   },
   "sdamgia_10980_19": {
-    "context": "Оксид железа(III) — химическое соединение Fe₂O₃, применяется при выплавке чугуна.",
-    "question": "Для приготовления сплава для выплавки одного орудия необходимо 600 кг чистого железа. Какое количество (в кг) железной руды (основная часть — гематит Fe₂O₃) нужно переработать для выплавки трёх орудий? Считать, что из руды извлекают 100% железа. Запишите ответ с точностью до целых.",
-    "explanation": "Нужно железа: 600 × 3 = 1800 кг.\nω(Fe) в Fe₂O₃ = 70% = 0,70.\nm(Fe₂O₃) = 1800 / 0,70 = 2571,4 ≈ 2571 кг."
+    "context": [
+      {
+        "t": "text",
+        "v": "Оксид железа(III) — химическое соединение "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ", применяется при выплавке чугуна."
+      }
+    ],
+    "question": [
+      {
+        "t": "text",
+        "v": "Для приготовления сплава для выплавки одного орудия необходимо 600 кг чистого железа. Какое количество (в кг) железной руды (основная часть — гематит "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ") нужно переработать для выплавки трёх орудий? Считать, что из руды извлекают 100% железа. Запишите ответ с точностью до целых."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Нужно железа: 600 × 3 = 1800 кг.\nω("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": ") в "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": " = 70% = 0,70.\nm("
+      },
+      {
+        "t": "formula",
+        "formula": "Fe₂O₃",
+        "kind": "substance",
+        "id": "sub:fe2o3"
+      },
+      {
+        "t": "text",
+        "v": ") = 1800 / 0,70 = 2571,4 ≈ 2571 кг."
+      }
+    ]
   },
   "sdamgia_10979_19": {
-    "context": "Нитрат кальция — химическое соединение Ca(NO₃)₂, в пиротехнике используется как недорогой источник кирпично-красного пламени.",
+    "context": [
+      {
+        "t": "text",
+        "v": "Нитрат кальция — химическое соединение "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:ca_no3_2"
+      },
+      {
+        "t": "text",
+        "v": ", в пиротехнике используется как недорогой источник кирпично-красного пламени."
+      }
+    ],
     "question": "Для приготовления одного заряда фейерверка требуется 50 г кальция. Сколько граммов нитрата кальция нужно взвесить? Запишите ответ с точностью до целых.",
-    "explanation": "ω(Ca) в Ca(NO₃)₂ = 24% = 0,24.\nm(Ca(NO₃)₂) = 50 / 0,24 = 208,3 ≈ 208 г."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "ω("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": ") в "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:ca_no3_2"
+      },
+      {
+        "t": "text",
+        "v": " = 24% = 0,24.\nm("
+      },
+      {
+        "t": "formula",
+        "formula": "Ca(NO₃)₂",
+        "kind": "substance",
+        "id": "sub:ca_no3_2"
+      },
+      {
+        "t": "text",
+        "v": ") = 50 / 0,24 = 208,3 ≈ 208 г."
+      }
+    ]
   },
   "demo_2021_01": {
     "question": "Выберите два высказывания, в которых говорится о железе как о химическом элементе.",
@@ -239,55 +5331,1183 @@
   },
   "demo_2021_02": {
     "question": "На приведённом рисунке изображена модель атома химического элемента. Запишите в таблицу величину заряда ядра (X) атома химического элемента, модель которого изображена на рисунке, и номер группы (Y), в которой этот элемент расположен в Периодической системе химических элементов Д.И. Менделеева. (Для записи ответа используйте арабские цифры.)",
-    "explanation": "На рисунке изображена модель атома с зарядом ядра +15 и 5 электронами на внешнем слое. Это фосфор (P), расположенный в 3 периоде, V группе (группа 5). X = 15, Y = 5."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "На рисунке изображена модель атома с зарядом ядра +15 и 5 электронами на внешнем слое. Это фосфор (P), расположенный в 3 периоде, "
+      },
+      {
+        "t": "formula",
+        "formula": "V",
+        "kind": "substance",
+        "id": "sub:v"
+      },
+      {
+        "t": "text",
+        "v": " группе (группа 5). X = 15, "
+      },
+      {
+        "t": "formula",
+        "formula": "Y",
+        "kind": "substance",
+        "id": "sub:y"
+      },
+      {
+        "t": "text",
+        "v": " = 5."
+      }
+    ]
   },
   "demo_2021_03": {
     "question": "Расположите химические элементы\n1) сера\n2) хлор\n3) фосфор\nв порядке увеличения их электроотрицательности. Запишите номера выбранных элементов в соответствующем порядке.",
-    "explanation": "Электроотрицательность увеличивается в периоде слева направо и в группе снизу вверх. Фосфор (P) < сера (S) < хлор (Cl). Порядок номеров: 3, 1, 2."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Электроотрицательность увеличивается в периоде слева направо и в группе снизу вверх. Фосфор (P) < сера (S) < хлор ("
+      },
+      {
+        "t": "formula",
+        "formula": "Cl",
+        "kind": "element",
+        "id": "Cl"
+      },
+      {
+        "t": "text",
+        "v": "). Порядок номеров: 3, 1, 2."
+      }
+    ]
   },
   "demo_2021_04": {
     "question": "Установите соответствие между формулой соединения и степенью окисления азота в этом соединении: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "HNO₃: азот в степени окисления +5 (4). N₂O: азот в степени окисления +1 (1). NH₃: азот в степени окисления –3 (2). Ответ: 412."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": ": азот в степени окисления +5 (4). "
+      },
+      {
+        "t": "formula",
+        "formula": "N₂O",
+        "kind": "substance",
+        "id": "sub:n2o"
+      },
+      {
+        "t": "text",
+        "v": ": азот в степени окисления +1 (1). "
+      },
+      {
+        "t": "formula",
+        "formula": "NH₃",
+        "kind": "substance",
+        "id": "sub:nh3"
+      },
+      {
+        "t": "text",
+        "v": ": азот в степени окисления –3 (2). Ответ: 412."
+      }
+    ]
   },
   "demo_2021_05": {
     "question": "Из предложенного перечня выберите два вещества, для которых характерна ионная связь.",
-    "explanation": "Ионная связь образуется между металлом и неметаллом с большой разницей электроотрицательностей. CaO (кальций + кислород) и Li₃N (литий + азот) — ионные соединения. PCl₃ — ковалентная полярная, Br₂ — ковалентная неполярная, H₂S — ковалентная полярная."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Ионная связь образуется между металлом и неметаллом с большой разницей электроотрицательностей. "
+      },
+      {
+        "t": "formula",
+        "formula": "CaO",
+        "kind": "substance",
+        "id": "sub:cao"
+      },
+      {
+        "t": "text",
+        "v": " (кальций + кислород) и "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₃"
+      },
+      {
+        "t": "formula",
+        "formula": "N",
+        "kind": "element",
+        "id": "N"
+      },
+      {
+        "t": "text",
+        "v": " (литий + азот) — ионные соединения. PCl₃ — ковалентная полярная, "
+      },
+      {
+        "t": "formula",
+        "formula": "Br₂",
+        "kind": "substance",
+        "id": "sub:br2"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная неполярная, "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": " — ковалентная полярная."
+      }
+    ]
   },
   "demo_2021_06": {
     "question": "Какие два утверждения верны для характеристики как магния, так и кремния?",
-    "explanation": "Магний (Mg, Z=12) и кремний (Si, Z=14) оба в 3-м периоде — 3 электронных слоя (1). Оба имеют электроотрицательность меньше, чем у фосфора (4). Mg — металл, Si — неметалл, поэтому (3) неверно. Высший оксид Mg — MgO (не ЭО₂), поэтому (5) неверно."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Магний ("
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": ", Z=12) и кремний ("
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": ", Z=14) оба в 3-м периоде — 3 электронных слоя (1). Оба имеют электроотрицательность меньше, чем у фосфора (4). "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " — металл, "
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": " — неметалл, поэтому (3) неверно. Высший оксид "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " — "
+      },
+      {
+        "t": "formula",
+        "formula": "MgO",
+        "kind": "substance",
+        "id": "sub:mgo"
+      },
+      {
+        "t": "text",
+        "v": " (не ЭО₂), поэтому (5) неверно."
+      }
+    ]
   },
   "demo_2021_08": {
     "question": "Из предложенного перечня выберите два вещества, которые реагируют с оксидом алюминия.",
-    "explanation": "Al₂O₃ — амфотерный оксид, реагирует с кислотами и основными оксидами/щелочами. Реагирует с HNO₃ (кислота, 2) и Na₂O (основный оксид, 5). Cu(OH)₂ — слабое нерастворимое основание, не реагирует. O₂ — не реагирует (Al уже в высшей степени окисления). Be(OH)₂ — амфотерный гидроксид, не реагирует с амфотерным оксидом."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Al₂O₃",
+        "kind": "substance",
+        "id": "sub:al2o3"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный оксид, реагирует с кислотами и основными оксидами/щелочами. Реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "HNO₃",
+        "kind": "substance",
+        "id": "sub:hno3"
+      },
+      {
+        "t": "text",
+        "v": " (кислота, 2) и "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂O",
+        "kind": "substance",
+        "id": "sub:na2o"
+      },
+      {
+        "t": "text",
+        "v": " (основный оксид, 5). "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " — слабое нерастворимое основание, не реагирует. "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " — не реагирует ("
+      },
+      {
+        "t": "formula",
+        "formula": "Al",
+        "kind": "substance",
+        "id": "sub:al"
+      },
+      {
+        "t": "text",
+        "v": " уже в высшей степени окисления). "
+      },
+      {
+        "t": "formula",
+        "formula": "Be(OH)₂",
+        "kind": "substance",
+        "id": "sub:be_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный гидроксид, не реагирует с амфотерным оксидом."
+      }
+    ]
   },
   "demo_2021_09": {
     "question": "Установите соответствие между реагирующими веществами и продуктами(-ом) их взаимодействия: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "A) MgO + SO₃ = MgSO₄ (основный оксид + кислотный оксид = соль, без воды) — ответ 5. Б) Mg(OH)₂ + H₂SO₄ = MgSO₄ + 2H₂O (основание + кислота = соль + вода) — ответ 2. В) Mg + H₂SO₄(разб.) = MgSO₄ + H₂ (металл + кислота = соль + водород) — ответ 4."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "A) "
+      },
+      {
+        "t": "formula",
+        "formula": "MgO",
+        "kind": "substance",
+        "id": "sub:mgo"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃",
+        "kind": "substance",
+        "id": "sub:so3"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "SO₄ (основный оксид + кислотный оксид = соль, без воды) — ответ 5. Б) "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg(OH)₂",
+        "kind": "substance",
+        "id": "sub:mg_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "SO₄ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " (основание + кислота = соль + вода) — ответ 2. В) "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": "(разб.) = "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "SO₄ + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " (металл + кислота = соль + водород) — ответ 4."
+      }
+    ]
   },
   "demo_2021_10": {
     "question": "Установите соответствие между формулой вещества и реагентами, с которыми это вещество может вступать в реакцию: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) Углерод C реагирует с O₂ (горение) и H₂SO₄(конц.) (окислительно-восстановительная) — ответ 1. Б) Al₂O₃ — амфотерный оксид, реагирует с KOH и HCl — ответ 3. В) CuCl₂ реагирует с Mg (замещение) и AgNO₃ (обмен, образуется AgCl) — ответ 2."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) Углерод "
+      },
+      {
+        "t": "formula",
+        "formula": "C",
+        "kind": "substance",
+        "id": "sub:C"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "O₂",
+        "kind": "substance",
+        "id": "sub:o2"
+      },
+      {
+        "t": "text",
+        "v": " (горение) и "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": "(конц.) (окислительно-восстановительная) — ответ 1. Б) "
+      },
+      {
+        "t": "formula",
+        "formula": "Al₂O₃",
+        "kind": "substance",
+        "id": "sub:al2o3"
+      },
+      {
+        "t": "text",
+        "v": " — амфотерный оксид, реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "KOH",
+        "kind": "substance",
+        "id": "sub:koh"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " — ответ 3. В) "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " реагирует с "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": " (замещение) и "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " (обмен, образуется "
+      },
+      {
+        "t": "formula",
+        "formula": "AgCl",
+        "kind": "substance",
+        "id": "sub:agcl"
+      },
+      {
+        "t": "text",
+        "v": ") — ответ 2."
+      }
+    ]
   },
   "demo_2021_11": {
     "question": "Из предложенного перечня выберите две пары веществ, между которыми протекает реакция замещения.",
-    "explanation": "Реакция замещения — один элемент замещает другой. Fe + AgNO₃ → Fe(NO₃)₂ + Ag (замещение, 1). Na + H₂O → NaOH + H₂ (замещение, 5). Остальные: (2) — соединение, (3) — обмен, (4) — соединение."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Реакция замещения — один элемент замещает другой. "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "AgNO₃",
+        "kind": "substance",
+        "id": "sub:agno3"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": "("
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃)₂ + "
+      },
+      {
+        "t": "formula",
+        "formula": "Ag",
+        "kind": "substance",
+        "id": "sub:ag"
+      },
+      {
+        "t": "text",
+        "v": " (замещение, 1). "
+      },
+      {
+        "t": "formula",
+        "formula": "Na",
+        "kind": "substance",
+        "id": "sub:na"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": " (замещение, 5). Остальные: (2) — соединение, (3) — обмен, (4) — соединение."
+      }
+    ]
   },
   "demo_2021_12": {
     "question": "Установите соответствие между реагирующими веществами и признаком протекающей между ними реакции: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) FeCl₃ + 3NaOH = Fe(OH)₃ + 3NaCl. Fe(OH)₃ — бурый осадок (2). Б) FeSO₄ + Ba(NO₃)₂ = BaSO₄ + Fe(NO₃)₂. BaSO₄ — белый осадок (1). В) FeS + H₂SO₄ = FeSO₄ + H₂S↑. Выделение газа (4)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "FeCl₃",
+        "kind": "substance",
+        "id": "sub:fecl3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe(OH)₃",
+        "kind": "substance",
+        "id": "sub:fe_oh_3"
+      },
+      {
+        "t": "text",
+        "v": " + 3"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": ". "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe(OH)₃",
+        "kind": "substance",
+        "id": "sub:fe_oh_3"
+      },
+      {
+        "t": "text",
+        "v": " — бурый осадок (2). Б) "
+      },
+      {
+        "t": "formula",
+        "formula": "FeSO₄",
+        "kind": "substance",
+        "id": "sub:feso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba",
+        "kind": "substance",
+        "id": "sub:ba"
+      },
+      {
+        "t": "text",
+        "v": "("
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃)₂ = "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Fe",
+        "kind": "substance",
+        "id": "sub:fe"
+      },
+      {
+        "t": "text",
+        "v": "("
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃)₂. "
+      },
+      {
+        "t": "formula",
+        "formula": "BaSO₄",
+        "kind": "substance",
+        "id": "sub:baso4"
+      },
+      {
+        "t": "text",
+        "v": " — белый осадок (1). В) "
+      },
+      {
+        "t": "formula",
+        "formula": "FeS",
+        "kind": "substance",
+        "id": "sub:fes"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₄",
+        "kind": "substance",
+        "id": "sub:h2so4"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "FeSO₄",
+        "kind": "substance",
+        "id": "sub:feso4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂S",
+        "kind": "substance",
+        "id": "sub:h2s"
+      },
+      {
+        "t": "text",
+        "v": "↑. Выделение газа (4)."
+      }
+    ]
   },
   "demo_2021_13": {
     "question": "При полной диссоциации 1 моль каких двух из представленных веществ образуется 2 моль анионов?",
-    "explanation": "Mg(NO₃)₂ → Mg²⁺ + 2NO₃⁻ (2 моль анионов, 1). Ba(OH)₂ → Ba²⁺ + 2OH⁻ (2 моль анионов, 2). NaCl → Na⁺ + Cl⁻ (1 моль). K₃PO₄ → 3K⁺ + PO₄³⁻ (1 моль анионов). Na₂SO₄ → 2Na⁺ + SO₄²⁻ (1 моль анионов)."
+    "explanation": [
+      {
+        "t": "formula",
+        "formula": "Mg",
+        "kind": "substance",
+        "id": "sub:mg"
+      },
+      {
+        "t": "text",
+        "v": "("
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃)₂ → "
+      },
+      {
+        "t": "formula",
+        "formula": "Mg²⁺",
+        "kind": "ion",
+        "id": "ion:Mg_2plus"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NO₃⁻",
+        "kind": "ion",
+        "id": "ion:NO3_minus"
+      },
+      {
+        "t": "text",
+        "v": " (2 моль анионов, 1). "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba(OH)₂",
+        "kind": "substance",
+        "id": "sub:ba_oh_2"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Ba²⁺",
+        "kind": "ion",
+        "id": "ion:Ba_2plus"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "OH⁻",
+        "kind": "ion",
+        "id": "ion:OH_minus"
+      },
+      {
+        "t": "text",
+        "v": " (2 моль анионов, 2). "
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": " → "
+      },
+      {
+        "t": "formula",
+        "formula": "Na⁺",
+        "kind": "ion",
+        "id": "ion:Na_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "Cl⁻",
+        "kind": "ion",
+        "id": "ion:Cl_minus"
+      },
+      {
+        "t": "text",
+        "v": " (1 моль). "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ → 3"
+      },
+      {
+        "t": "formula",
+        "formula": "K⁺",
+        "kind": "ion",
+        "id": "ion:K_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "PO₄³⁻",
+        "kind": "ion",
+        "id": "ion:PO4_3minus"
+      },
+      {
+        "t": "text",
+        "v": " (1 моль анионов). "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "Na⁺",
+        "kind": "ion",
+        "id": "ion:Na_plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₄²⁻",
+        "kind": "ion",
+        "id": "ion:SO4_2minus"
+      },
+      {
+        "t": "text",
+        "v": " (1 моль анионов)."
+      }
+    ]
   },
   "demo_2021_14": {
-    "question": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\nCa²⁺ + SO₃²⁻ = CaSO₃↓",
-    "explanation": "Сокращённое ионное уравнение Ca²⁺ + SO₃²⁻ = CaSO₃↓ означает, что Ca²⁺ и SO₃²⁻ существуют в растворе в виде ионов. CaCl₂ (3) — растворимая соль, даёт Ca²⁺. K₂SO₃ (4) — растворимая соль, даёт SO₃²⁻. CaO и Ca не диссоциируют, H₂SO₃ — слабая кислота."
+    "question": [
+      {
+        "t": "text",
+        "v": "Выберите два исходных вещества, взаимодействию которых соответствует сокращённое ионное уравнение реакции\n"
+      },
+      {
+        "t": "formula",
+        "formula": "Ca²⁺",
+        "kind": "ion",
+        "id": "ion:Ca_2plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃²⁻",
+        "kind": "ion",
+        "id": "ion:SO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": "SO₃↓"
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Сокращённое ионное уравнение "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca²⁺",
+        "kind": "ion",
+        "id": "ion:Ca_2plus"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃²⁻",
+        "kind": "ion",
+        "id": "ion:SO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": "SO₃↓ означает, что "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca²⁺",
+        "kind": "ion",
+        "id": "ion:Ca_2plus"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃²⁻",
+        "kind": "ion",
+        "id": "ion:SO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": " существуют в растворе в виде ионов. "
+      },
+      {
+        "t": "formula",
+        "formula": "CaCl₂",
+        "kind": "substance",
+        "id": "sub:cacl2"
+      },
+      {
+        "t": "text",
+        "v": " (3) — растворимая соль, даёт "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca²⁺",
+        "kind": "ion",
+        "id": "ion:Ca_2plus"
+      },
+      {
+        "t": "text",
+        "v": ". "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂SO₃",
+        "kind": "substance",
+        "id": "sub:k2so3"
+      },
+      {
+        "t": "text",
+        "v": " (4) — растворимая соль, даёт "
+      },
+      {
+        "t": "formula",
+        "formula": "SO₃²⁻",
+        "kind": "ion",
+        "id": "ion:SO3_2minus"
+      },
+      {
+        "t": "text",
+        "v": ". "
+      },
+      {
+        "t": "formula",
+        "formula": "CaO",
+        "kind": "substance",
+        "id": "sub:cao"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Ca",
+        "kind": "substance",
+        "id": "sub:ca"
+      },
+      {
+        "t": "text",
+        "v": " не диссоциируют, "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SO₃",
+        "kind": "substance",
+        "id": "sub:h2so3"
+      },
+      {
+        "t": "text",
+        "v": " — слабая кислота."
+      }
+    ]
   },
   "demo_2021_15": {
     "question": "Установите соответствие между схемой процесса, происходящего в окислительно-восстановительной реакции, и названием этого процесса: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) S⁻² → S⁰: степень окисления повышается (–2 → 0), это окисление (1). Б) H₂⁰ → 2H⁺: степень окисления повышается (0 → +1), это окисление (1). В) Cr⁺⁶ → Cr⁺³: степень окисления понижается (+6 → +3), это восстановление (2)."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": "⁻² → "
+      },
+      {
+        "t": "formula",
+        "formula": "S",
+        "kind": "substance",
+        "id": "sub:s"
+      },
+      {
+        "t": "text",
+        "v": "⁰: степень окисления повышается (–2 → 0), это окисление (1). Б) "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂",
+        "kind": "substance",
+        "id": "sub:h2"
+      },
+      {
+        "t": "text",
+        "v": "⁰ → 2"
+      },
+      {
+        "t": "formula",
+        "formula": "H⁺",
+        "kind": "ion",
+        "id": "ion:H_plus"
+      },
+      {
+        "t": "text",
+        "v": ": степень окисления повышается (0 → +1), это окисление (1). В) "
+      },
+      {
+        "t": "formula",
+        "formula": "Cr",
+        "kind": "substance",
+        "id": "sub:cr"
+      },
+      {
+        "t": "text",
+        "v": "⁺⁶ → "
+      },
+      {
+        "t": "formula",
+        "formula": "Cr",
+        "kind": "substance",
+        "id": "sub:cr"
+      },
+      {
+        "t": "text",
+        "v": "⁺³: степень окисления понижается (+6 → +3), это восстановление (2)."
+      }
+    ]
   },
   "demo_2021_16": {
     "question": "Из перечисленных суждений о правилах работы с веществами в лаборатории и быту выберите верное(-ые) суждение(-я).\n1. Хлор можно получать только в вытяжном шкафу.\n2. При приготовлении раствора кислоты концентрированную серную кислоту приливают к воде.\n3. При нагревании раствора пробирку с жидкостью держат строго вертикально.\n4. Работу с едкими веществами следует проводить в резиновых перчатках.\nЗапишите в поле ответа номер(а) верного(-ых) суждения(-й).",
@@ -295,26 +6515,766 @@
   },
   "demo_2021_17": {
     "question": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.",
-    "explanation": "А) KCl и K₂SiO₃: добавляем HCl (2) — с K₂SiO₃ образуется нерастворимая кремниевая кислота (осадок), с KCl реакции нет. Б) K₂CO₃ и Li₂CO₃: добавляем K₃PO₄ (4) — Li₃PO₄ нерастворим (осадок), K₃PO₄ растворим. В) Na₂SO₄ и NaOH: добавляем CuCl₂ (1) — с NaOH образуется голубой осадок Cu(OH)₂, с Na₂SO₄ реакции нет."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "O₃: добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " (2) — с "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "O₃ образуется нерастворимая кремниевая кислота (осадок), с "
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " реакции нет. Б) "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": "₃: добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ (4) — "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ нерастворим (осадок), "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ растворим. В) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": ": добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " (1) — с "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " образуется голубой осадок "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": ", с "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " реакции нет."
+      }
+    ]
   },
   "demo_2021_18": {
-    "question": "Нитрат аммония (аммиачная селитра) — химическое соединение NH₄NO₃, соль азотной кислоты, используется в качестве азотного удобрения.\nВычислите в процентах массовую долю азота в нитрате аммония. Запишите число с точностью до целых.",
-    "explanation": "M(NH₄NO₃) = 14 + 4 + 14 + 48 = 80 г/моль. В формуле 2 атома азота: 2 × 14 = 28. ω(N) = 28/80 × 100% = 35%."
+    "question": [
+      {
+        "t": "text",
+        "v": "Нитрат аммония (аммиачная селитра) — химическое соединение NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃, соль азотной кислоты, используется в качестве азотного удобрения.\nВычислите в процентах массовую долю азота в нитрате аммония. Запишите число с точностью до целых."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "M(NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃) = 14 + 4 + 14 + 48 = 80 г/моль. В формуле 2 атома азота: 2 × 14 = 28. ω(N) = 28/80 × 100% = 35%."
+      }
+    ]
   },
   "demo_2021_19": {
     "question": "При подкормках овощных и цветочных культур в почву вносится 200 г азота на 100 м². Вычислите, сколько граммов аммиачной селитры надо внести на земельный участок площадью 70 м². Запишите число с точностью до целых.",
-    "explanation": "Необходимо азота на 70 м²: 200 × 70/100 = 140 г азота. Массовая доля азота в NH₄NO₃ = 35% (из задания 18). Масса NH₄NO₃ = 140/0,35 = 400 г."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Необходимо азота на 70 м²: 200 × 70/100 = 140 г азота. Массовая доля азота в NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃ = 35% (из задания 18). Масса NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃ = 140/0,35 = 400 г."
+      }
+    ]
   },
   "demo_2022_02": {
     "question": "На приведённом рисунке изображена модель атома химического элемента.\nЗапишите в поле ответа номер периода (X) и номер группы (Y), в которых расположен химический элемент, модель которого изображена на рисунке. (Для записи ответа используйте арабские цифры.)\n\nНа рисунке: модель атома с 2 электронными слоями (2 и 5 электронов). Это азот (N, Z=7).",
-    "explanation": "На рисунке изображена модель атома с 2 электронными слоями: на первом 2 электрона, на втором 5 электронов. Всего 7 электронов = заряд ядра 7 = азот (N). Азот расположен во 2-м периоде (2 электронных слоя), V группе (5 электронов на внешнем слое). X = 2, Y = 5."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "На рисунке изображена модель атома с 2 электронными слоями: на первом 2 электрона, на втором 5 электронов. Всего 7 электронов = заряд ядра 7 = азот (N). Азот расположен во 2-м периоде (2 электронных слоя), "
+      },
+      {
+        "t": "formula",
+        "formula": "V",
+        "kind": "substance",
+        "id": "sub:v"
+      },
+      {
+        "t": "text",
+        "v": " группе (5 электронов на внешнем слое). X = 2, "
+      },
+      {
+        "t": "formula",
+        "formula": "Y",
+        "kind": "substance",
+        "id": "sub:y"
+      },
+      {
+        "t": "text",
+        "v": " = 5."
+      }
+    ]
   },
   "demo_2022_17": {
-    "question": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.\n\nВЕЩЕСТВА                     РЕАКТИВ\nА) K₂CO₃ и K₂SiO₃            1) CuCl₂\nБ) K₂CO₃ и Li₂CO₃            2) HCl\nВ) Na₂SO₄ и NaOH             3) MgO\n                              4) K₃PO₄\n\nЗапишите в таблицу выбранные цифры под соответствующими буквами.",
-    "explanation": "А) K₂CO₃ и K₂SiO₃: добавляем HCl (2). K₂CO₃ + 2HCl = 2KCl + H₂O + CO₂↑ (газ). K₂SiO₃ + 2HCl = 2KCl + H₂SiO₃↓ (осадок). Различные признаки — различаются.\nБ) K₂CO₃ и Li₂CO₃: добавляем K₃PO₄ (4). Li₃PO₄ нерастворим (выпадает осадок), K₃PO₄ + K₂CO₃ — реакции нет.\nВ) Na₂SO₄ и NaOH: добавляем CuCl₂ (1). 2NaOH + CuCl₂ = Cu(OH)₂↓ (голубой осадок) + 2NaCl. Na₂SO₄ + CuCl₂ — нет осадка (CuSO₄ растворим)."
+    "question": [
+      {
+        "t": "text",
+        "v": "Установите соответствие между двумя веществами и реактивом, с помощью которого можно различить эти вещества: к каждой позиции, обозначенной буквой, подберите соответствующую позицию, обозначенную цифрой.\n\nВЕЩЕСТВА                     РЕАКТИВ\nА) "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "O₃            1) "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": "\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": "₃            2) "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": "\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": "             3) "
+      },
+      {
+        "t": "formula",
+        "formula": "MgO",
+        "kind": "substance",
+        "id": "sub:mgo"
+      },
+      {
+        "t": "text",
+        "v": "\n                              4) "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄\n\nЗапишите в таблицу выбранные цифры под соответствующими буквами."
+      }
+    ],
+    "explanation": [
+      {
+        "t": "text",
+        "v": "А) "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "O₃: добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " (2). "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " = 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂O",
+        "kind": "substance",
+        "id": "sub:h2o"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CO₂",
+        "kind": "substance",
+        "id": "sub:co2"
+      },
+      {
+        "t": "text",
+        "v": "↑ (газ). "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "Si",
+        "kind": "substance",
+        "id": "sub:si"
+      },
+      {
+        "t": "text",
+        "v": "O₃ + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "HCl",
+        "kind": "substance",
+        "id": "sub:hcl"
+      },
+      {
+        "t": "text",
+        "v": " = 2"
+      },
+      {
+        "t": "formula",
+        "formula": "KCl",
+        "kind": "substance",
+        "id": "sub:kcl"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "H₂SiO₃",
+        "kind": "substance",
+        "id": "sub:h2sio3"
+      },
+      {
+        "t": "text",
+        "v": "↓ (осадок). Различные признаки — различаются.\nБ) "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₂"
+      },
+      {
+        "t": "formula",
+        "formula": "CO",
+        "kind": "substance",
+        "id": "sub:co"
+      },
+      {
+        "t": "text",
+        "v": "₃: добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ (4). "
+      },
+      {
+        "t": "formula",
+        "formula": "Li",
+        "kind": "substance",
+        "id": "sub:li"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ нерастворим (выпадает осадок), "
+      },
+      {
+        "t": "formula",
+        "formula": "K",
+        "kind": "substance",
+        "id": "sub:k"
+      },
+      {
+        "t": "text",
+        "v": "₃PO₄ + "
+      },
+      {
+        "t": "formula",
+        "formula": "K₂CO₃",
+        "kind": "substance",
+        "id": "sub:k2co3"
+      },
+      {
+        "t": "text",
+        "v": " — реакции нет.\nВ) "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " и "
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": ": добавляем "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " (1). 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaOH",
+        "kind": "substance",
+        "id": "sub:naoh"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " = "
+      },
+      {
+        "t": "formula",
+        "formula": "Cu(OH)₂",
+        "kind": "substance",
+        "id": "sub:cu_oh_2"
+      },
+      {
+        "t": "text",
+        "v": "↓ (голубой осадок) + 2"
+      },
+      {
+        "t": "formula",
+        "formula": "NaCl",
+        "kind": "substance",
+        "id": "sub:nacl"
+      },
+      {
+        "t": "text",
+        "v": ". "
+      },
+      {
+        "t": "formula",
+        "formula": "Na₂SO₄",
+        "kind": "substance",
+        "id": "sub:na2so4"
+      },
+      {
+        "t": "text",
+        "v": " + "
+      },
+      {
+        "t": "formula",
+        "formula": "CuCl₂",
+        "kind": "substance",
+        "id": "sub:cucl2"
+      },
+      {
+        "t": "text",
+        "v": " — нет осадка ("
+      },
+      {
+        "t": "formula",
+        "formula": "CuSO₄",
+        "kind": "substance",
+        "id": "sub:cuso4"
+      },
+      {
+        "t": "text",
+        "v": " растворим)."
+      }
+    ]
   },
   "demo_2022_19": {
     "question": "При подкормках овощных и цветочных культур в почву вносится 200 г азота на 100 м². Вычислите, сколько граммов аммиачной селитры надо внести на земельный участок площадью 100 м². Запишите число с точностью до целых.\n\nИспользуйте величину, которая определена в задании 18, с указанной в нём степенью точности.",
-    "explanation": "Из задания 18: ω(N) в NH₄NO₃ = 35% = 0,35.\nНа 100 м² нужно 200 г азота.\nМасса NH₄NO₃ = m(N) / ω(N) = 200 / 0,35 = 571,4 ≈ 571 г."
+    "explanation": [
+      {
+        "t": "text",
+        "v": "Из задания 18: ω(N) в NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃ = 35% = 0,35.\nНа 100 м² нужно 200 г азота.\nМасса NH₄"
+      },
+      {
+        "t": "formula",
+        "formula": "NO",
+        "kind": "substance",
+        "id": "sub:no"
+      },
+      {
+        "t": "text",
+        "v": "₃ = m(N) / ω(N) = 200 / 0,35 = 571,4 ≈ 571 г."
+      }
+    ]
   }
 }
