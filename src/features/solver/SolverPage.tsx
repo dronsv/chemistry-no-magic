@@ -5,6 +5,7 @@ import type { FormulaLookup } from '../../types/formula-lookup';
 import type { ComputableFormula, PhysicalConstant } from '../../types/formula';
 import type { ReasoningQuery, ReasoningResult } from '../../types/derivation';
 import type { SupportedLocale } from '../../types/i18n';
+import type { Ion } from '../../types/ion';
 import {
   loadSubstancesIndex,
   loadElements,
@@ -12,6 +13,9 @@ import {
   loadFormulas,
   loadConstants,
   loadDataFile,
+  loadIons,
+  loadPredicateRegistry,
+  loadResolutionIndex,
 } from '../../lib/data-loader';
 import { FormulaLookupProvider } from '../../components/ChemText';
 import { solveQuery } from '../../lib/derivation/query-solver';
@@ -24,6 +28,12 @@ import { SENTENCE_TEMPLATES, getDefaults } from './sentence-templates';
 import SentenceEditor from './SentenceEditor';
 import QueryTypeahead from './QueryTypeahead';
 import StepsTrace from './StepsTrace';
+import { isEnabled } from '../../config/feature-flags.js';
+import QueryBuilder from './QueryBuilder.js';
+import { resolveQuery, type ResolverEnv } from '../../lib/resolver/resolve-query.js';
+import type { PredicateDef } from '../../types/predicate.js';
+import type { ResolutionDef } from '../../types/resolution.js';
+import type { QueryExpr, ResolverResult as DslResolverResult } from '../../types/query-ast.js';
 import './solver.css';
 
 interface IndicatorRule {
@@ -68,6 +78,7 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   const [formulaLookup, setFormulaLookup] = useState<FormulaLookup | null>(null);
   const [substances, setSubstances] = useState<SubstanceIndexEntry[]>([]);
   const [elements, setElements] = useState<Element[]>([]);
+  const [ions, setIons] = useState<Ion[]>([]);
   const [formulas, setFormulas] = useState<ComputableFormula[]>([]);
   const [constantsList, setConstantsList] = useState<PhysicalConstant[]>([]);
   const [indicatorRules, setIndicatorRules] = useState<IndicatorRule[]>([]);
@@ -84,6 +95,11 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   const [result, setResult] = useState<ReasoningResult | null>(null);
   const [solveError, setSolveError] = useState<string | null>(null);
 
+  // DSL QueryBuilder state
+  const [predicates, setPredicates] = useState<PredicateDef[]>([]);
+  const [resolutionIndex, setResolutionIndex] = useState<Record<string, ResolutionDef[]>>({});
+  const [dslResult, setDslResult] = useState<DslResolverResult | null>(null);
+
   useEffect(() => {
     Promise.all([
       loadSubstancesIndex(locale),
@@ -92,14 +108,20 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       loadFormulas(),
       loadConstants(),
       loadDataFile<IndicatorRule[]>('rules/indicator_response_rules.json'),
+      loadIons(locale),
+      loadPredicateRegistry(),
+      loadResolutionIndex(),
     ])
-      .then(([subs, elems, lookup, fmls, consts, indRules]) => {
+      .then(([subs, elems, lookup, fmls, consts, indRules, ionList, preds, resIdx]) => {
         setSubstances(subs);
         setElements(elems);
         setFormulaLookup(lookup);
         setFormulas(fmls);
         setConstantsList(consts);
         setIndicatorRules(indRules);
+        setIons(ionList);
+        setPredicates(preds);
+        setResolutionIndex(resIdx);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -183,6 +205,54 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
     }
   }, [currentQuery, substances, elements, formulas, constantsList, indicatorRules]);
 
+  // DSL solve handler for new QueryBuilder
+  const handleDslSolve = useCallback((query: QueryExpr) => {
+    setDslResult(null);
+
+    const entityFormulas = new Map<string, string>();
+    for (const s of substances) {
+      const ref = `substance:${s.id.replace(/^sub:/, '')}`;
+      const ascii = s.formula.replace(/[\u2080-\u2089]/g, ch =>
+        String(ch.charCodeAt(0) - 0x2080),
+      );
+      entityFormulas.set(ref, ascii);
+    }
+
+    const env: ResolverEnv = {
+      predicateRegistry: predicates,
+      resolutionIndex,
+      formulaRegistry: formulas,
+      constants: toConstantsDict(constantsList),
+      indicatorRules,
+      ontology: {
+        formulas,
+        constants: toConstantsDict(constantsList),
+        ontologyData: null as never,
+        elements: elements.map(el => ({
+          Z: el.Z,
+          symbol: el.symbol,
+          characteristics: el.characteristics as Record<string, { value: number }> | undefined,
+        })),
+        substances: substances.map(s => ({
+          id: s.id,
+          formula: s.formula,
+          class: s.class,
+        })),
+        ions: ions.map(ion => ({
+          id: ion.id,
+          formula: ion.formula,
+          type: ion.type,
+        })),
+      },
+      policy: { max_depth: 6 },
+      queryCache: new Map(),
+      activeQueryStack: new Set(),
+    };
+
+    const res = resolveQuery(query, env);
+    setDslResult(res);
+  }, [predicates, resolutionIndex, formulas, constantsList, indicatorRules, substances, elements, ions]);
+
   if (loading) return <div className="solver-loading">{m.loading()}</div>;
 
   return (
@@ -190,65 +260,84 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       <div className="solver-page">
         <h1 className="solver-page__title">{m.solver_title()}</h1>
 
-        {/* Typeahead query input */}
-        <QueryTypeahead
-          templates={SENTENCE_TEMPLATES}
-          onSelect={handleSelectTemplate}
-          placeholder={m.solver_typeahead_placeholder()}
-        />
+        {isEnabled('newQueryBuilder') ? (
+          <>
+            <QueryBuilder
+              predicates={predicates}
+              resolutionIndex={resolutionIndex}
+              locale={locale}
+              onSolve={handleDslSolve}
+            />
+            {dslResult && dslResult.trace.status === 'success' && (
+              <div className="dsl-result">
+                <h3>Результат</h3>
+                <div>{renderDslAnswer(dslResult)}</div>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {/* Typeahead query input */}
+            <QueryTypeahead
+              templates={SENTENCE_TEMPLATES}
+              onSelect={handleSelectTemplate}
+              placeholder={m.solver_typeahead_placeholder()}
+            />
 
-        {/* Sentence editor */}
-        {selectedTemplate && (
-          <SentenceEditor
-            template={selectedTemplate}
-            values={slotValues}
-            onChange={setSlotValues}
-            dataSources={dataSources}
-          />
-        )}
+            {/* Sentence editor */}
+            {selectedTemplate && (
+              <SentenceEditor
+                template={selectedTemplate}
+                values={slotValues}
+                onChange={setSlotValues}
+                dataSources={dataSources}
+              />
+            )}
 
-        {/* Actions: Solve + JSON toggle */}
-        {selectedTemplate && (
-          <div className="solver-actions">
-            <button
-              type="button"
-              className="solver-solve-btn"
-              disabled={!currentQuery}
-              onClick={handleSolve}
-            >
-              {m.solver_solve()}
-            </button>
-            <button
-              type="button"
-              className={`solver-json-toggle ${showJson ? 'solver-json-toggle--active' : ''}`}
-              onClick={() => setShowJson(o => !o)}
-            >
-              JSON
-            </button>
-          </div>
-        )}
+            {/* Actions: Solve + JSON toggle */}
+            {selectedTemplate && (
+              <div className="solver-actions">
+                <button
+                  type="button"
+                  className="solver-solve-btn"
+                  disabled={!currentQuery}
+                  onClick={handleSolve}
+                >
+                  {m.solver_solve()}
+                </button>
+                <button
+                  type="button"
+                  className={`solver-json-toggle ${showJson ? 'solver-json-toggle--active' : ''}`}
+                  onClick={() => setShowJson(o => !o)}
+                >
+                  JSON
+                </button>
+              </div>
+            )}
 
-        {/* JSON view (power users) */}
-        {showJson && currentQuery && (
-          <div className="solver-json">
-            <pre className="solver-json__preview">
-              {JSON.stringify(currentQuery, null, 2)}
-            </pre>
-          </div>
-        )}
+            {/* JSON view (power users) */}
+            {showJson && currentQuery && (
+              <div className="solver-json">
+                <pre className="solver-json__preview">
+                  {JSON.stringify(currentQuery, null, 2)}
+                </pre>
+              </div>
+            )}
 
-        {/* Error */}
-        {solveError && <div className="solver-error">{solveError}</div>}
+            {/* Error */}
+            {solveError && <div className="solver-error">{solveError}</div>}
 
-        {/* Result */}
-        {result && (
-          <div className="solver-result">
-            <div className="solver-result__header">
-              <span className="solver-result__label">{m.solver_answer()}</span>
-              <AnswerChip answer={result.answer} />
-            </div>
-            <StepsTrace steps={result.steps} intermediates={result.intermediates} />
-          </div>
+            {/* Result */}
+            {result && (
+              <div className="solver-result">
+                <div className="solver-result__header">
+                  <span className="solver-result__label">{m.solver_answer()}</span>
+                  <AnswerChip answer={result.answer} />
+                </div>
+                <StepsTrace steps={result.steps} intermediates={result.intermediates} />
+              </div>
+            )}
+          </>
         )}
       </div>
     </FormulaLookupProvider>
@@ -263,4 +352,12 @@ function AnswerChip({ answer }: { answer: string | number }) {
       {label}
     </span>
   );
+}
+
+function renderDslAnswer(result: DslResolverResult): string {
+  if (result.answer.kind === 'value') {
+    const v = result.answer;
+    return v.unit ? `${v.value} ${v.unit}` : String(v.value);
+  }
+  return JSON.stringify(result.answer);
 }
