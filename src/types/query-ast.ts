@@ -1,4 +1,4 @@
-import type { ResolutionAttemptStatus, CertaintyLevel } from './resolution.js';
+import type { ResolutionAttemptStatus, CertaintyLevel, ProblemKind } from './resolution.js';
 
 export type Intent = 'find' | 'check' | 'derive' | 'explain' | 'plan';
 
@@ -10,7 +10,7 @@ export type QualityRequirement =
   | 'show_uncertainty';
 
 export interface SolverPolicy {
-  preferred_kinds?: string[];
+  preferred_kinds?: ProblemKind[];
   allow_numerical?: boolean;
   allow_optimization?: boolean;
   require_traceable_steps?: boolean;
@@ -61,7 +61,7 @@ export interface CallExpr {
 }
 
 export interface EqualityExpr {
-  kind: 'eq';
+  kind: 'equality';
   left: Expr;
   right: Expr;
 }
@@ -105,8 +105,8 @@ export interface ResolvedInputs {
 
 export interface TraceNode {
   query_id: string;
-  step_role: string;
-  resolution_kind?: string;
+  step_role: 'planner' | 'resolution' | 'given';
+  resolution_kind?: ProblemKind;
   resolution_id?: string;
   inputs: ResolvedInputs;
   output: Expr;
@@ -121,7 +121,7 @@ export interface ResolverResult {
   trace: TraceNode;
   certainty?: CertaintyLevel;
   assumptions?: string[];
-  error_sources?: string[];
+  error_sources?: Array<{ kind: string; note?: string }>;
 }
 
 export interface SuggestedGiven {
