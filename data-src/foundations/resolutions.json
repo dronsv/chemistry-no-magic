@@ -1,0 +1,199 @@
+[
+  {
+    "id": "res:substance.class",
+    "origin": "manual",
+    "family": "classification",
+    "target": "substance.class",
+    "target_pattern": "substance.class($substance)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.classify_substance",
+    "cost": 50,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:element.oxidation_state",
+    "origin": "manual",
+    "family": "electronic_structure",
+    "target": "element.oxidation_state",
+    "target_pattern": "element.oxidation_state($element, context: $substance)",
+    "kind": "rule",
+    "prerequisites": [
+      "substance.class($substance)"
+    ],
+    "solver_id": "solver.oxidation_states",
+    "cost": 60,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "scalar"
+  },
+  {
+    "id": "res:ion.solubility",
+    "origin": "manual",
+    "family": "ionic_equilibria",
+    "target": "ion.solubility",
+    "target_pattern": "ion.solubility($cation, $anion)",
+    "kind": "lookup",
+    "prerequisites": [],
+    "solver_id": "solver.solubility_check",
+    "cost": 30,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:reaction.driving_force",
+    "origin": "manual",
+    "family": "reaction_analysis",
+    "target": "reaction.driving_force",
+    "target_pattern": "reaction.driving_force(reaction: $reaction)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.driving_force",
+    "cost": 70,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:element.more_active",
+    "origin": "manual",
+    "family": "activity_series",
+    "target": "element.more_active",
+    "target_pattern": "element.more_active($elementA, $elementB)",
+    "kind": "lookup",
+    "prerequisites": [],
+    "solver_id": "solver.activity_compare",
+    "cost": 30,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:element.electron_config",
+    "origin": "manual",
+    "family": "electronic_structure",
+    "target": "element.electron_config",
+    "target_pattern": "element.electron_config($element)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.electron_config",
+    "cost": 60,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "scalar"
+  },
+  {
+    "id": "res:ion.salt_formula",
+    "origin": "manual",
+    "family": "nomenclature",
+    "target": "ion.salt_formula",
+    "target_pattern": "ion.salt_formula($cation, $anion)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.compose_salt_formula",
+    "cost": 50,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "scalar"
+  },
+  {
+    "id": "res:element.bond_type",
+    "origin": "manual",
+    "family": "bonding",
+    "target": "element.bond_type",
+    "target_pattern": "element.bond_type($elementA, $elementB)",
+    "kind": "equation",
+    "prerequisites": [
+      "element.electronegativity($elementA)",
+      "element.electronegativity($elementB)"
+    ],
+    "solver_id": "solver.delta_chi",
+    "cost": 80,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:indicator.color",
+    "origin": "manual",
+    "family": "qualitative_analysis",
+    "target": "indicator.color",
+    "target_pattern": "indicator.color($indicator, system: $system)",
+    "kind": "rule",
+    "prerequisites": [
+      "system.medium($system)"
+    ],
+    "solver_id": "resolver.indicator_lookup",
+    "cost": 40,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:system.medium",
+    "origin": "manual",
+    "family": "acid_base",
+    "target": "system.medium",
+    "target_pattern": "system.medium(system: $system)",
+    "kind": "rule",
+    "prerequisites": [
+      "quantity.equivalent($acid)",
+      "quantity.equivalent($base)"
+    ],
+    "solver_id": "resolver.medium_from_equivalents",
+    "cost": 100,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:reaction.possible",
+    "origin": "manual",
+    "family": "reaction_analysis",
+    "target": "reaction.possible",
+    "target_pattern": "reaction.possible(reactants: $reactants)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.reaction_possible",
+    "cost": 80,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "categorical"
+  },
+  {
+    "id": "res:substance.dissociation",
+    "origin": "manual",
+    "family": "ionic_equilibria",
+    "target": "substance.dissociation",
+    "target_pattern": "substance.dissociation($substance)",
+    "kind": "rule",
+    "prerequisites": [],
+    "solver_id": "solver.dissociation",
+    "cost": 50,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "set"
+  },
+  {
+    "id": "res:reaction.products",
+    "origin": "manual",
+    "family": "reaction_analysis",
+    "target": "reaction.products",
+    "target_pattern": "reaction.products(reactants: $reactants)",
+    "kind": "rule",
+    "prerequisites": [
+      "substance.class($reactant)"
+    ],
+    "solver_id": "solver.predict_products",
+    "cost": 120,
+    "uncertainty_mode": "probabilistic",
+    "result_shape": "set"
+  },
+  {
+    "id": "res:reaction.balanced_coefficients",
+    "origin": "manual",
+    "family": "stoichiometry",
+    "target": "reaction.balanced_coefficients",
+    "target_pattern": "reaction.balanced_coefficients($reaction)",
+    "kind": "optimization",
+    "prerequisites": [
+      "reaction.composition_matrix($reaction)"
+    ],
+    "solver_id": "resolver.stoich_lp",
+    "cost": 200,
+    "uncertainty_mode": "deterministic",
+    "result_shape": "object",
+    "applicability": ["allow_optimization"]
+  }
+]

@@ -1,0 +1,168 @@
+[
+  {
+    "id": "pred:indicator.color",
+    "namespace": "indicator",
+    "role": "goal",
+    "returns": { "kind": "categorical", "type": "indicator_color" },
+    "positional_args": [
+      {
+        "name": "indicator",
+        "type": "IndicatorRef",
+        "required": true
+      }
+    ],
+    "named_args": [
+      {
+        "name": "system",
+        "type": "ChemicalSystem",
+        "required": true
+      },
+      {
+        "name": "at",
+        "type": "TimeExpr",
+        "required": false
+      }
+    ],
+    "temporal_kind": "observable",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:reaction.products",
+    "namespace": "reaction",
+    "role": "goal",
+    "returns": { "kind": "set", "type": "SubstanceRef" },
+    "positional_args": [],
+    "named_args": [
+      {
+        "name": "reactants",
+        "type": "SubstanceRef[]",
+        "required": true
+      }
+    ],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:system.medium",
+    "namespace": "system",
+    "role": "goal",
+    "returns": { "kind": "categorical", "type": "medium_type" },
+    "positional_args": [],
+    "named_args": [
+      {
+        "name": "system",
+        "type": "ChemicalSystem",
+        "required": true
+      }
+    ],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:reaction.possible",
+    "namespace": "reaction",
+    "role": "goal",
+    "returns": { "kind": "categorical", "type": "boolean" },
+    "positional_args": [],
+    "named_args": [
+      {
+        "name": "reactants",
+        "type": "SubstanceRef[]",
+        "required": true
+      }
+    ],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:substance.dissociation",
+    "namespace": "substance",
+    "role": "goal",
+    "returns": { "kind": "set", "type": "ion_list" },
+    "positional_args": [
+      {
+        "name": "substance",
+        "type": "SubstanceRef",
+        "required": true
+      }
+    ],
+    "named_args": [],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:element.oxidation_state",
+    "namespace": "element",
+    "role": "goal",
+    "returns": { "kind": "scalar", "type": "number" },
+    "positional_args": [
+      {
+        "name": "element",
+        "type": "ElementRef",
+        "required": true
+      }
+    ],
+    "named_args": [
+      {
+        "name": "context",
+        "type": "SubstanceRef",
+        "required": true
+      }
+    ],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:element.electron_config",
+    "namespace": "element",
+    "role": "goal",
+    "returns": { "kind": "scalar", "type": "string" },
+    "positional_args": [
+      {
+        "name": "element",
+        "type": "ElementRef",
+        "required": true
+      }
+    ],
+    "named_args": [],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:element.bond_type",
+    "namespace": "element",
+    "role": "goal",
+    "returns": { "kind": "categorical", "type": "bond_type" },
+    "positional_args": [
+      {
+        "name": "elementA",
+        "type": "ElementRef",
+        "required": true
+      },
+      {
+        "name": "elementB",
+        "type": "ElementRef",
+        "required": true
+      }
+    ],
+    "named_args": [],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  },
+  {
+    "id": "pred:reaction.driving_force",
+    "namespace": "reaction",
+    "role": "goal",
+    "returns": { "kind": "categorical", "type": "driving_force" },
+    "positional_args": [],
+    "named_args": [
+      {
+        "name": "reaction",
+        "type": "ReactionRef",
+        "required": true
+      }
+    ],
+    "temporal_kind": "static",
+    "source": { "kind": "manual" }
+  }
+]
