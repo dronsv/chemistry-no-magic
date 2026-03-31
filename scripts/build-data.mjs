@@ -67,6 +67,8 @@ import { generateReactsWithClass } from './lib/generate-reacts-with-class.mjs';
 import { generateDetectedBy } from './lib/generate-detected-by.mjs';
 import { generateCausesEffect } from './lib/generate-causes-effect.mjs';
 import { validateEntityCharacteristics } from './lib/validate-characteristics.mjs';
+import { generateResolutionRegistry } from './lib/generate-resolutions.mjs';
+import { generatePredicateRegistry } from './lib/generate-predicates.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DATA_SRC = join(ROOT, 'data-src');
@@ -218,6 +220,8 @@ async function main() {
   const foundationFormulas = await loadJsonOptional(join(FOUNDATIONS_DIR, 'formulas.json'));
   const qualitativeRelations = await loadJsonOptional(join(FOUNDATIONS_DIR, 'qualitative_relations.json'));
   const trendRules = await loadJsonOptional(join(FOUNDATIONS_DIR, 'trend_rules.json'));
+  const manualResolutions = await loadJsonOptional(join(FOUNDATIONS_DIR, 'resolutions.json')) ?? [];
+  const predicateOverrides = await loadJsonOptional(join(FOUNDATIONS_DIR, 'predicate_overrides.json')) ?? [];
 
   const engineTaskTemplates = await loadJson(join(DATA_SRC, 'engine', 'task_templates.json'));
   const pinnedInstances = await loadJson(join(DATA_SRC, 'engine', 'pinned_instances.json'));
@@ -607,6 +611,21 @@ async function main() {
     }
   }
 
+  // G.2 Generate resolution registry and predicate registry
+  {
+    const foundationsOutDir = join(bundleDir, 'foundations');
+    await mkdir(foundationsOutDir, { recursive: true });
+
+    // Resolution registry: generated from formulas + manual entries
+    const formulasForResolutions = foundationFormulas ?? [];
+    const resolutions = generateResolutionRegistry(formulasForResolutions, manualResolutions, foundationsOutDir);
+    console.log(`  Resolution registry: ${resolutions.length} entries`);
+
+    // Predicate registry: generated from properties + formulas + concepts + overrides
+    const predStats = generatePredicateRegistry(properties, formulasForResolutions, concepts, predicateOverrides, foundationsOutDir);
+    console.log(`  Predicate registry: ${predStats.total} entries`);
+  }
+
   await mkdir(join(bundleDir, 'engine'), { recursive: true });
   await writeFile(join(bundleDir, 'engine', 'task_templates.json'), JSON.stringify(engineTaskTemplates));
   await writeFile(join(bundleDir, 'engine', 'pinned_instances.json'), JSON.stringify(pinnedInstances));
@@ -989,6 +1008,8 @@ async function main() {
       formulas: !!foundationFormulas,
       qualitative_relations: !!qualitativeRelations,
       trend_rules: !!trendRules,
+      predicate_registry: true,
+      resolution_index: true,
     },
   });
 

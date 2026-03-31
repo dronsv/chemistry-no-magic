@@ -1421,3 +1421,16 @@ export async function loadTrendRules(
   return applyOverlay(data, overlay, t => t.id);
 }
 
+export async function loadPredicateRegistry(): Promise<import('../types/predicate').PredicateDef[]> {
+  const manifest = await getManifest();
+  const p = manifest.entrypoints.foundations?.predicate_registry;
+  if (!p) return [];
+  return loadDataFile<import('../types/predicate').PredicateDef[]>(p);
+}
+
+export async function loadResolutionIndex(): Promise<Record<string, import('../types/resolution').ResolutionDef[]>> {
+  const manifest = await getManifest();
+  const p = manifest.entrypoints.foundations?.resolution_index;
+  if (!p) return {};
+  return loadDataFile<Record<string, import('../types/resolution').ResolutionDef[]>>(p);
+}

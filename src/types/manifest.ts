@@ -63,6 +63,8 @@ export interface ManifestEntrypoints {
     formulas?: string;
     qualitative_relations?: string;
     trend_rules?: string;
+    predicate_registry?: string;
+    resolution_index?: string;
   };
 }
 

@@ -13,7 +13,7 @@ import { join } from 'node:path';
  * @param {string[]} [opts.examSystemIds] - IDs of available exam systems
  * @param {Record<string, string>} [opts.theoryModules] - { key: "theory_modules/key.json" }
  * @param {Record<string, string>} [opts.courses] - { key: "courses/key.json" }
- * @param {object} [opts.foundations] - { physical_concepts, math_concepts, mechanisms, bridge_explanations } presence flags
+ * @param {object} [opts.foundations] - { physical_concepts, math_concepts, mechanisms, bridge_explanations, predicate_registry, resolution_index } presence flags
  */
 export async function generateManifest({ bundleHash, bundleDir, latestDir, stats, indexKeys, translations, examSystemIds, theoryModules, courses, relations, semanticDidactic, didacticTemplates, didacticOverrides, foundations }) {
   const manifest = {
@@ -127,6 +127,8 @@ export async function generateManifest({ bundleHash, bundleDir, latestDir, stats
         ...(foundations.formulas ? { formulas: 'foundations/formulas.json' } : {}),
         ...(foundations.qualitative_relations ? { qualitative_relations: 'foundations/qualitative_relations.json' } : {}),
         ...(foundations.trend_rules ? { trend_rules: 'foundations/trend_rules.json' } : {}),
+        ...(foundations.predicate_registry ? { predicate_registry: 'foundations/predicate_registry.json' } : {}),
+        ...(foundations.resolution_index ? { resolution_index: 'foundations/resolution_index.json' } : {}),
       } : undefined,
       indices: {
         substances_index: 'indices/substances_index.json',
