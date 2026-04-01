@@ -14,6 +14,9 @@ import {
   loadConstants,
   loadDataFile,
   loadIons,
+  loadProperties,
+  loadSolubilityRules,
+  loadActivitySeries,
   loadPredicateRegistry,
   loadResolutionIndex,
 } from '../../lib/data-loader';
@@ -30,10 +33,12 @@ import QueryTypeahead from './QueryTypeahead';
 import StepsTrace from './StepsTrace';
 import { isEnabled } from '../../config/feature-flags.js';
 import QueryBuilder from './QueryBuilder.js';
+import DslEditor from './DslEditor.js';
 import { resolveQuery, type ResolverEnv } from '../../lib/resolver/resolve-query.js';
 import type { PredicateDef } from '../../types/predicate.js';
 import type { ResolutionDef } from '../../types/resolution.js';
 import type { QueryExpr, ResolverResult as DslResolverResult } from '../../types/query-ast.js';
+import type { OntologyData } from '../../lib/task-engine/types.js';
 import './solver.css';
 
 interface IndicatorRule {
@@ -99,6 +104,8 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   const [predicates, setPredicates] = useState<PredicateDef[]>([]);
   const [resolutionIndex, setResolutionIndex] = useState<Record<string, ResolutionDef[]>>({});
   const [dslResult, setDslResult] = useState<DslResolverResult | null>(null);
+  const [dslText, setDslText] = useState('');
+  const [ontologyData, setOntologyData] = useState<OntologyData | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -111,8 +118,11 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       loadIons(locale),
       loadPredicateRegistry(),
       loadResolutionIndex(),
+      loadProperties(),
+      loadSolubilityRules(),
+      loadActivitySeries(locale),
     ])
-      .then(([subs, elems, lookup, fmls, consts, indRules, ionList, preds, resIdx]) => {
+      .then(([subs, elems, lookup, fmls, consts, indRules, ionList, preds, resIdx, props, solPairs, actSeries]) => {
         setSubstances(subs);
         setElements(elems);
         setFormulaLookup(lookup);
@@ -122,6 +132,16 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
         setIons(ionList);
         setPredicates(preds);
         setResolutionIndex(resIdx);
+        // Assemble minimal OntologyData for rule handler
+        setOntologyData({
+          core: { elements: elems, ions: ionList, properties: props },
+          rules: { solubilityPairs: solPairs, activitySeries: actSeries },
+          data: {
+            substances: subs,
+            foundations: { formulas: fmls, constantsDict: toConstantsDict(consts) },
+          },
+          i18n: { morphology: null, promptTemplates: {}, labels: {} },
+        } as OntologyData);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -227,7 +247,7 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       ontology: {
         formulas,
         constants: toConstantsDict(constantsList),
-        ontologyData: null as never,
+        ontologyData: ontologyData!,
         elements: elements.map(el => ({
           Z: el.Z,
           symbol: el.symbol,
@@ -251,7 +271,7 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
 
     const res = resolveQuery(query, env);
     setDslResult(res);
-  }, [predicates, resolutionIndex, formulas, constantsList, indicatorRules, substances, elements, ions]);
+  }, [predicates, resolutionIndex, formulas, constantsList, indicatorRules, substances, elements, ions, ontologyData]);
 
   if (loading) return <div className="solver-loading">{m.loading()}</div>;
 
@@ -262,21 +282,59 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
 
         {isEnabled('newQueryBuilder') ? (
           <>
-            <QueryBuilder
-              predicates={predicates}
-              resolutionIndex={resolutionIndex}
-              locale={locale}
-              dataSources={{
-                substances: dataSources.substances,
-                elements: dataSources.elements,
-                ions: ions.map(ion => ({ id: ion.id, label: ion.name ?? ion.formula, formula: ion.formula })),
-              }}
-              onSolve={handleDslSolve}
-            />
-            {dslResult && dslResult.trace.status === 'success' && (
-              <div className="dsl-result">
-                <h3>Результат</h3>
-                <div>{renderDslAnswer(dslResult)}</div>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <DslEditor
+                predicates={predicates}
+                dataSources={{
+                  substances: dataSources.substances,
+                  elements: dataSources.elements,
+                  ions: ions.map(ion => ({ id: ion.id, label: ion.name ?? ion.formula, formula: ion.formula })),
+                }}
+                locale={locale}
+                value={dslText}
+                onChange={setDslText}
+                onSubmit={() => {/* TODO: parse DSL text → QueryExpr → handleDslSolve */}}
+              />
+              <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginTop: '0.375rem' }}>
+                Tab/Enter — выбрать подсказку, Enter без подсказок — решить
+              </div>
+            </div>
+
+            <details style={{ marginBottom: '1rem' }}>
+              <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                Пошаговый ввод
+              </summary>
+              <div style={{ marginTop: '0.75rem' }}>
+                <QueryBuilder
+                  predicates={predicates}
+                  resolutionIndex={resolutionIndex}
+                  locale={locale}
+                  dataSources={{
+                    substances: dataSources.substances,
+                    elements: dataSources.elements,
+                    ions: ions.map(ion => ({ id: ion.id, label: ion.name ?? ion.formula, formula: ion.formula })),
+                  }}
+                  onSolve={handleDslSolve}
+                />
+              </div>
+            </details>
+            {dslResult && (
+              <div className="dsl-result" style={{ marginTop: '1rem' }}>
+                {dslResult.trace.status === 'success' ? (
+                  <>
+                    <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Результат</h3>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 600 }}>{renderDslAnswer(dslResult)}</div>
+                    {dslResult.certainty && (
+                      <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.25rem' }}>
+                        {dslResult.certainty}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div style={{ color: '#dc2626', fontSize: '0.88rem' }}>
+                    {dslResult.trace.output?.kind === 'value' ? String(dslResult.trace.output.value) : 'Не удалось решить'}
+                  </div>
+                )}
               </div>
             )}
           </>
