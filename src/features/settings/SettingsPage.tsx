@@ -4,6 +4,7 @@ import { loadSettings, saveSetting, getDefaultExamSystem } from '../../lib/setti
 import { localizeUrl, SUPPORTED_LOCALES } from '../../lib/i18n';
 import { saveLocale } from '../../lib/locale-detect';
 import { isPrecacheComplete, triggerPrecache } from '../../lib/offline-precache';
+import { isEnabled } from '../../config/feature-flags';
 import * as m from '../../paraglide/messages.js';
 import './settings-page.css';
 
@@ -31,6 +32,7 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
   const [initialized, setInitialized] = useState(false);
   const [offlineReady, setOfflineReady] = useState<boolean | null>(null);
   const [downloading, setDownloading] = useState(false);
+  const [experimentalSolver, setExperimentalSolver] = useState(() => isEnabled('newQueryBuilder'));
 
   useEffect(() => {
     const current = loadSettings();
@@ -75,6 +77,11 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
   function handleOfflineDownload() {
     setDownloading(true);
     triggerPrecache(locale);
+  }
+
+  function handleExperimentalSolver(enabled: boolean) {
+    localStorage.setItem('ff_newQueryBuilder', String(enabled));
+    setExperimentalSolver(enabled);
   }
 
   function handleReset() {
@@ -172,6 +179,21 @@ export default function SettingsPage({ locale = 'ru' }: SettingsPageProps) {
               {downloading ? m.settings_offline_downloading() : m.settings_offline_download()}
             </button>
           )}
+        </div>
+      </section>
+
+      <section className="settings-section">
+        <h2 className="settings-section__title">Experimental</h2>
+        <p className="settings-section__desc">Early access to features in development. May be unstable.</p>
+        <div className="settings-options">
+          <button
+            type="button"
+            className={`settings-option ${experimentalSolver ? 'settings-option--active' : ''}`}
+            onClick={() => handleExperimentalSolver(!experimentalSolver)}
+          >
+            <span className="settings-option__flag">&#x1F9EA;</span>
+            <span className="settings-option__label">Query DSL Solver</span>
+          </button>
         </div>
       </section>
 

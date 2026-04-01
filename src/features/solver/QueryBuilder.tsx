@@ -1,10 +1,12 @@
 import { useState, useCallback } from 'react';
-import type { Intent, QueryExpr, EqualityExpr, CallExpr, SymbolExpr } from '../../types/query-ast.js';
+import type { Intent, QueryExpr, EqualityExpr, CallExpr, SymbolExpr, EntityRef } from '../../types/query-ast.js';
 import type { PredicateDef } from '../../types/predicate.js';
 import type { ResolutionDef } from '../../types/resolution.js';
 import { renderCanonical, suggestGivens } from '../../lib/resolver/query-utils.js';
 import IntentSelector from './IntentSelector.js';
 import PredicateTypeahead from './PredicateTypeahead.js';
+import type { AutocompleteOption } from './SlotAutocomplete.js';
+import InlineEntityInput from './InlineEntityInput.js';
 
 interface GivenEntry {
   predicate: string;
@@ -12,16 +14,46 @@ interface GivenEntry {
   unit: string;
 }
 
+export interface EntityDataSources {
+  substances: AutocompleteOption[];
+  elements: AutocompleteOption[];
+  ions: AutocompleteOption[];
+}
+
 interface Props {
   predicates: PredicateDef[];
   resolutionIndex: Record<string, ResolutionDef[]>;
   locale: string;
+  dataSources: EntityDataSources;
   onSolve: (query: QueryExpr) => void;
 }
 
 let _queryCounter = 0;
 function nextQueryId(): string {
   return `q_${++_queryCounter}`;
+}
+
+/** Parse autocomplete id (e.g. "el:Na", "sub:nacl") into EntityRef */
+function parseEntityId(raw: string, argType: string): EntityRef {
+  if (raw.startsWith('el:')) return { kind: 'element', id: raw.slice(3) };
+  if (raw.startsWith('sub:')) return { kind: 'substance', id: raw };
+  if (raw.startsWith('ion:')) return { kind: 'ion', id: raw };
+  if (raw.startsWith('ind:')) return { kind: 'indicator', id: raw };
+  // Infer from argType
+  if (argType.includes('Element')) return { kind: 'element', id: raw };
+  if (argType.includes('Substance')) return { kind: 'substance', id: raw };
+  if (argType.includes('Ion')) return { kind: 'ion', id: raw };
+  if (argType.includes('Indicator')) return { kind: 'indicator', id: raw };
+  return { kind: 'substance', id: raw };
+}
+
+/** Pick autocomplete options based on arg type */
+function optionsForArg(argType: string, ds: EntityDataSources): AutocompleteOption[] {
+  if (argType.includes('Element')) return ds.elements;
+  if (argType.includes('Ion')) return ds.ions;
+  if (argType.includes('Substance')) return ds.substances;
+  // Mixed: show all
+  return [...ds.substances, ...ds.elements];
 }
 
 /** Build a QueryExpr from current state, or return null if incomplete. */
@@ -38,13 +70,14 @@ function buildQuery(
     if (!arg.optional && !argValues[arg.name]?.trim()) return null;
   }
 
-  // Build positional args as SymbolExprs
+  // Build positional args as SymbolExprs with correct entity kind
   const args: SymbolExpr[] = predicate.positional_args
     .filter(arg => argValues[arg.name]?.trim())
-    .map(arg => ({
-      kind: 'symbol' as const,
-      ref: { kind: 'substance' as const, id: argValues[arg.name].trim() },
-    }));
+    .map(arg => {
+      const raw = argValues[arg.name].trim();
+      const ref = parseEntityId(raw, arg.type);
+      return { kind: 'symbol' as const, ref };
+    });
 
   const target: CallExpr = {
     kind: 'call',
@@ -97,7 +130,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function QueryBuilder({ predicates, resolutionIndex, locale, onSolve }: Props) {
+export default function QueryBuilder({ predicates, resolutionIndex, locale, dataSources, onSolve }: Props) {
   const [intent, setIntent] = useState<Intent | null>(null);
   const [predicate, setPredicate] = useState<PredicateDef | null>(null);
   const [argValues, setArgValues] = useState<Record<string, string>>({});
@@ -183,43 +216,32 @@ export default function QueryBuilder({ predicates, resolutionIndex, locale, onSo
         <div>
           <SectionLabel>Аргументы</SectionLabel>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            {predicate.positional_args.map(arg => (
-              <div key={arg.name} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <label
-                  style={{
-                    fontSize: '0.88rem',
-                    color: 'var(--color-text-muted)',
-                    minWidth: '7rem',
-                    flexShrink: 0,
-                  }}
-                >
-                  {arg.name}
-                  {!arg.optional && (
-                    <span style={{ color: '#ef4444', marginLeft: '0.2rem' }}>*</span>
-                  )}
-                </label>
-                <input
-                  type="text"
-                  value={argValues[arg.name] ?? ''}
-                  onChange={e => handleArgChange(arg.name, e.target.value)}
-                  placeholder={arg.description ?? arg.type}
-                  style={{
-                    flex: 1,
-                    padding: '0.375rem 0.625rem',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: '0.375rem',
-                    fontSize: '0.9rem',
-                    fontFamily: 'inherit',
-                    background: 'var(--color-bg)',
-                    color: 'var(--color-text)',
-                    outline: 'none',
-                    transition: 'border-color 0.15s',
-                  }}
-                  onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')}
-                />
-              </div>
-            ))}
+            {predicate.positional_args.map(arg => {
+              const opts = optionsForArg(arg.type, dataSources);
+              return (
+                <div key={arg.name} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <label
+                    style={{
+                      fontSize: '0.88rem',
+                      color: 'var(--color-text-muted)',
+                      minWidth: '7rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {arg.name}
+                    {!arg.optional && (
+                      <span style={{ color: '#ef4444', marginLeft: '0.2rem' }}>*</span>
+                    )}
+                  </label>
+                  <InlineEntityInput
+                    options={opts}
+                    value={argValues[arg.name] ?? ''}
+                    onChange={id => handleArgChange(arg.name, id)}
+                    placeholder={arg.description ?? arg.type}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

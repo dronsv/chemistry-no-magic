@@ -266,6 +266,11 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
               predicates={predicates}
               resolutionIndex={resolutionIndex}
               locale={locale}
+              dataSources={{
+                substances: dataSources.substances,
+                elements: dataSources.elements,
+                ions: ions.map(ion => ({ id: ion.id, label: ion.name ?? ion.formula, formula: ion.formula })),
+              }}
               onSolve={handleDslSolve}
             />
             {dslResult && dslResult.trace.status === 'success' && (

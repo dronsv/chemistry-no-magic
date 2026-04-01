@@ -1,0 +1,302 @@
+{
+  "element.electronegativity": {
+    "name": "электроотрицательность",
+    "aliases": ["электроотрицательность", "ЭО"],
+    "search_tokens": ["электроотр", "ЭО"]
+  },
+  "element.atomic_mass": {
+    "name": "атомная масса",
+    "aliases": ["атомная масса"],
+    "search_tokens": ["атомн", "масс", "Ar"]
+  },
+  "element.melting_point": {
+    "name": "температура плавления",
+    "aliases": ["температура плавления"],
+    "search_tokens": ["плавл", "температ"]
+  },
+  "element.boiling_point": {
+    "name": "температура кипения",
+    "aliases": ["температура кипения"],
+    "search_tokens": ["кипен", "температ"]
+  },
+  "element.density": {
+    "name": "плотность",
+    "aliases": ["плотность"],
+    "search_tokens": ["плотн"]
+  },
+  "element.oxidation_state": {
+    "name": "степень окисления",
+    "aliases": ["степень окисления"],
+    "search_tokens": ["степен", "окисл"]
+  },
+  "element.electron_config": {
+    "name": "электронная конфигурация",
+    "aliases": ["электронная конфигурация"],
+    "search_tokens": ["электрон", "конфигур"]
+  },
+  "element.bond_type": {
+    "name": "тип связи",
+    "aliases": ["тип связи", "тип химической связи"],
+    "search_tokens": ["связ", "ковалент", "ионн"]
+  },
+  "ion.ion_charge": {
+    "name": "заряд иона",
+    "aliases": ["заряд иона"],
+    "search_tokens": ["заряд"]
+  },
+  "substance.pKa": {
+    "name": "pKa",
+    "aliases": ["pKa", "константа кислотности"],
+    "search_tokens": ["pKa"]
+  },
+  "substance.Ka": {
+    "name": "Ka",
+    "aliases": ["Ka"],
+    "search_tokens": ["Ka"]
+  },
+  "substance.molar_mass": {
+    "name": "молярная масса вещества",
+    "aliases": ["молярная масса"],
+    "search_tokens": ["молярн", "масс", "M"]
+  },
+  "substance.enthalpy_of_formation": {
+    "name": "энтальпия образования",
+    "aliases": ["энтальпия образования"],
+    "search_tokens": ["энтальп", "образов"]
+  },
+  "substance.standard_entropy": {
+    "name": "стандартная энтропия",
+    "aliases": ["стандартная энтропия"],
+    "search_tokens": ["энтроп"]
+  },
+  "substance.class": {
+    "name": "класс вещества",
+    "aliases": ["класс вещества", "классификация"],
+    "search_tokens": ["класс", "вещ"]
+  },
+  "substance.dissociation": {
+    "name": "диссоциация",
+    "aliases": ["диссоциация", "ионы при диссоциации"],
+    "search_tokens": ["диссоци", "ион"]
+  },
+  "reaction.type": {
+    "name": "тип реакции",
+    "aliases": ["тип реакции"],
+    "search_tokens": ["тип", "реакц"]
+  },
+  "reaction.observation": {
+    "name": "наблюдение",
+    "aliases": ["наблюдение", "признак реакции"],
+    "search_tokens": ["наблюд", "признак"]
+  },
+  "reaction.products": {
+    "name": "продукты реакции",
+    "aliases": ["продукты реакции"],
+    "search_tokens": ["продукт", "реакция"]
+  },
+  "reaction.driving_force": {
+    "name": "движущая сила реакции",
+    "aliases": ["движущая сила реакции"],
+    "search_tokens": ["движущ", "сила", "осадок", "газ"]
+  },
+  "reaction.possible": {
+    "name": "возможность реакции",
+    "aliases": ["возможность реакции", "пойдёт ли реакция"],
+    "search_tokens": ["возмож", "реакция", "пойдёт"]
+  },
+  "indicator.color": {
+    "name": "цвет индикатора",
+    "aliases": ["цвет индикатора"],
+    "search_tokens": ["индикатор", "цвет", "лакмус", "фенолфталеин"]
+  },
+  "system.medium": {
+    "name": "среда раствора",
+    "aliases": ["среда раствора", "кислая или щелочная"],
+    "search_tokens": ["среда", "кислот", "щелоч"]
+  },
+  "quantity.mass": {
+    "name": "масса",
+    "aliases": ["масса"],
+    "search_tokens": ["масс", "m"]
+  },
+  "quantity.amount": {
+    "name": "количество вещества",
+    "aliases": ["количество вещества", "число моль"],
+    "search_tokens": ["количеств", "моль", "n"]
+  },
+  "quantity.molar_mass": {
+    "name": "молярная масса",
+    "aliases": ["молярная масса"],
+    "search_tokens": ["молярн", "масс", "M"]
+  },
+  "quantity.volume": {
+    "name": "объём",
+    "aliases": ["объём", "объем"],
+    "search_tokens": ["объём", "объем", "V"]
+  },
+  "quantity.mass_fraction": {
+    "name": "массовая доля",
+    "aliases": ["массовая доля"],
+    "search_tokens": ["массов", "дол", "омега", "ω"]
+  },
+  "quantity.molar_concentration": {
+    "name": "молярная концентрация",
+    "aliases": ["молярная концентрация"],
+    "search_tokens": ["концентр", "молярн", "C"]
+  },
+  "quantity.density": {
+    "name": "плотность",
+    "aliases": ["плотность"],
+    "search_tokens": ["плотн", "ρ"]
+  },
+  "quantity.temperature": {
+    "name": "температура",
+    "aliases": ["температура"],
+    "search_tokens": ["температ", "T"]
+  },
+  "quantity.temperature_change": {
+    "name": "изменение температуры",
+    "aliases": ["изменение температуры"],
+    "search_tokens": ["изменен", "температ", "ΔT"]
+  },
+  "quantity.particle_count": {
+    "name": "число частиц",
+    "aliases": ["число частиц", "количество частиц"],
+    "search_tokens": ["частиц", "N"]
+  },
+  "quantity.relative_atomic_mass": {
+    "name": "относительная атомная масса",
+    "aliases": ["относительная атомная масса"],
+    "search_tokens": ["относит", "Ar"]
+  },
+  "quantity.yield": {
+    "name": "выход реакции",
+    "aliases": ["выход реакции", "выход продукта"],
+    "search_tokens": ["выход", "η"]
+  },
+  "quantity.enthalpy_change": {
+    "name": "изменение энтальпии",
+    "aliases": ["изменение энтальпии", "тепловой эффект"],
+    "search_tokens": ["энтальп", "ΔH", "теплов"]
+  },
+  "quantity.energy": {
+    "name": "энергия",
+    "aliases": ["энергия"],
+    "search_tokens": ["энерг", "E"]
+  },
+  "quantity.heat": {
+    "name": "теплота",
+    "aliases": ["теплота", "количество теплоты"],
+    "search_tokens": ["теплот", "Q"]
+  },
+  "quantity.reaction_rate": {
+    "name": "скорость реакции",
+    "aliases": ["скорость реакции"],
+    "search_tokens": ["скорост", "реакц"]
+  },
+  "quantity.equilibrium_constant": {
+    "name": "константа равновесия",
+    "aliases": ["константа равновесия"],
+    "search_tokens": ["равновес", "K"]
+  },
+  "quantity.effective_nuclear_charge": {
+    "name": "эффективный заряд ядра",
+    "aliases": ["эффективный заряд ядра"],
+    "search_tokens": ["эффектив", "заряд", "ядр", "Zeff"]
+  },
+  "quantity.frequency": {
+    "name": "частота",
+    "aliases": ["частота"],
+    "search_tokens": ["частот", "ν"]
+  },
+  "quantity.stoich_coeff": {
+    "name": "стехиометрический коэффициент",
+    "aliases": ["стехиометрический коэффициент", "коэффициент в уравнении"],
+    "search_tokens": ["стехиом", "коэфф"]
+  },
+  "quantity.standard_enthalpy_formation": {
+    "name": "стандартная энтальпия образования",
+    "aliases": ["стандартная энтальпия образования"],
+    "search_tokens": ["стандартн", "энтальп", "образ"]
+  },
+  "quantity.activation_energy": {
+    "name": "энергия активации",
+    "aliases": ["энергия активации"],
+    "search_tokens": ["актив", "Ea"]
+  },
+  "quantity.atom_count": {
+    "name": "число атомов",
+    "aliases": ["число атомов"],
+    "search_tokens": ["атом", "числ"]
+  },
+  "quantity.atom_count_in_composition": {
+    "name": "число атомов в составе",
+    "aliases": ["число атомов в составе", "индекс в формуле"],
+    "search_tokens": ["атом", "состав", "индекс"]
+  },
+  "quantity.atomic_number": {
+    "name": "атомный номер",
+    "aliases": ["атомный номер", "порядковый номер"],
+    "search_tokens": ["номер", "Z", "порядк"]
+  },
+  "quantity.atomic_radius_proxy": {
+    "name": "атомный радиус",
+    "aliases": ["атомный радиус", "радиус атома"],
+    "search_tokens": ["радиус", "r"]
+  },
+  "quantity.component_mass_fraction": {
+    "name": "массовая доля компонента",
+    "aliases": ["массовая доля компонента"],
+    "search_tokens": ["компонент", "дол"]
+  },
+  "quantity.component_molar_mass_contribution": {
+    "name": "вклад в молярную массу",
+    "aliases": ["вклад в молярную массу"],
+    "search_tokens": ["вклад", "молярн"]
+  },
+  "quantity.ionization_energy_proxy": {
+    "name": "энергия ионизации",
+    "aliases": ["энергия ионизации"],
+    "search_tokens": ["ионизац", "IE"]
+  },
+  "quantity.pre_exponential_factor": {
+    "name": "предэкспоненциальный множитель",
+    "aliases": ["предэкспоненциальный множитель"],
+    "search_tokens": ["предэксп", "A"]
+  },
+  "quantity.principal_quantum_number": {
+    "name": "главное квантовое число",
+    "aliases": ["главное квантовое число"],
+    "search_tokens": ["квантов", "главн", "n"]
+  },
+  "quantity.rate_constant": {
+    "name": "константа скорости",
+    "aliases": ["константа скорости"],
+    "search_tokens": ["констант", "скорост", "k"]
+  },
+  "quantity.shielding_constant": {
+    "name": "постоянная экранирования",
+    "aliases": ["постоянная экранирования"],
+    "search_tokens": ["экран", "σ"]
+  },
+  "quantity.temperature_coefficient": {
+    "name": "температурный коэффициент",
+    "aliases": ["температурный коэффициент", "коэффициент Вант-Гоффа"],
+    "search_tokens": ["температ", "коэфф", "γ"]
+  },
+  "ctor.solution": {
+    "name": "раствор",
+    "aliases": ["раствор", "растворить"],
+    "search_tokens": ["раствор", "растворение", "концентрация"]
+  },
+  "ctor.mixture": {
+    "name": "смесь",
+    "aliases": ["смесь", "смешать"],
+    "search_tokens": ["смесь", "компоненты"]
+  },
+  "ctor.env": {
+    "name": "условия",
+    "aliases": ["условия", "температура", "давление"],
+    "search_tokens": ["условия", "температура", "давление", "среда"]
+  }
+}

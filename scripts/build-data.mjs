@@ -622,7 +622,8 @@ async function main() {
     console.log(`  Resolution registry: ${resolutions.length} entries`);
 
     // Predicate registry: generated from properties + formulas + concepts + overrides
-    const predStats = generatePredicateRegistry(properties, formulasForResolutions, concepts, predicateOverrides, foundationsOutDir);
+    const translationsDir = join(ROOT, 'data-src', 'translations');
+    const predStats = generatePredicateRegistry(properties, formulasForResolutions, concepts, predicateOverrides, foundationsOutDir, translationsDir);
     console.log(`  Predicate registry: ${predStats.total} entries`);
   }
 

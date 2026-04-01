@@ -17,7 +17,7 @@
  *   generatePredicateRegistry(props, formulas, concepts, overrides, outDir)
  */
 
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
 // ── Object → ArgDef type mapping ──────────────────────────────────────────────
@@ -423,6 +423,59 @@ export function buildPredicateIndex(predicates) {
   return index;
 }
 
+// ── Translation overlay application ──────────────────────────────────────────
+
+const LOCALES = ['ru', 'en', 'pl', 'es'];
+
+/**
+ * Read translation overlays from data-src/translations/{locale}/predicates.json
+ * and merge aliases/search_tokens into predicate defs.
+ *
+ * Overlay format per entry: { "name": "...", "aliases": [...], "search_tokens": [...] }
+ *
+ * @param {Array<object>} predicates
+ * @param {string} translationsDir  - path to data-src/translations/
+ * @returns {Array<object>} predicates with merged aliases/search_tokens
+ */
+export function applyTranslationOverlays(predicates, translationsDir) {
+  // Load all locale overlays
+  /** @type {Record<string, Record<string, {name?: string, aliases?: string[], search_tokens?: string[]}>>} */
+  const overlays = {};
+
+  for (const locale of LOCALES) {
+    const filePath = join(translationsDir, locale, 'predicates.json');
+    if (existsSync(filePath)) {
+      try {
+        overlays[locale] = JSON.parse(readFileSync(filePath, 'utf8'));
+      } catch {
+        console.warn(`[generate-predicates] failed to parse ${filePath}`);
+      }
+    }
+  }
+
+  // Apply overlays to each predicate
+  for (const pred of predicates) {
+    for (const locale of LOCALES) {
+      const overlay = overlays[locale]?.[pred.id];
+      if (!overlay) continue;
+
+      // Merge aliases
+      if (overlay.aliases) {
+        if (!pred.aliases) pred.aliases = {};
+        pred.aliases[locale] = overlay.aliases;
+      }
+
+      // Merge search_tokens
+      if (overlay.search_tokens) {
+        if (!pred.search_tokens) pred.search_tokens = {};
+        pred.search_tokens[locale] = overlay.search_tokens;
+      }
+    }
+  }
+
+  return predicates;
+}
+
 // ── File output ───────────────────────────────────────────────────────────────
 
 /**
@@ -433,9 +486,10 @@ export function buildPredicateIndex(predicates) {
  * @param {Record<string, object>} concepts  - from concepts.json
  * @param {Array<object>} overrides    - from predicate_overrides.json
  * @param {string}        outDir       - output directory path
+ * @param {string}        [translationsDir] - path to data-src/translations/
  * @returns {{ total: number, byNamespace: Record<string, number> }}
  */
-export function generatePredicateRegistry(properties, formulas, concepts, overrides, outDir) {
+export function generatePredicateRegistry(properties, formulas, concepts, overrides, outDir, translationsDir) {
   const fromProperties = predicatesFromProperties(properties);
   const fromFormulas = predicatesFromFormulas(formulas);
   const fromConcepts = predicatesFromConcepts(concepts);
@@ -443,6 +497,12 @@ export function generatePredicateRegistry(properties, formulas, concepts, overri
 
   const generated = [...fromProperties, ...fromFormulas, ...fromConcepts, ...ctors];
   const merged = mergePredicates(generated, overrides);
+
+  // Apply locale overlays from data-src/translations/{locale}/predicates.json
+  if (translationsDir) {
+    applyTranslationOverlays(merged, translationsDir);
+  }
+
   const index = buildPredicateIndex(merged);
 
   mkdirSync(outDir, { recursive: true });
