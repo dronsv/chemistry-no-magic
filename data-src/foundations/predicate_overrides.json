@@ -1,9 +1,11 @@
 [
   {
-    "id": "pred:indicator.color",
+    "id": "indicator.color",
     "namespace": "indicator",
     "role": "goal",
-    "returns": { "kind": "categorical", "type": "indicator_color" },
+    "returns": "categorical:indicator_color",
+    "aliases": { "ru": ["цвет индикатора"] },
+    "search_tokens": { "ru": ["индикатор", "цвет", "лакмус"] },
     "positional_args": [
       {
         "name": "indicator",
@@ -27,10 +29,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:reaction.products",
+    "id": "reaction.products",
     "namespace": "reaction",
     "role": "goal",
-    "returns": { "kind": "set", "type": "SubstanceRef" },
+    "returns": "set:substance_list",
+    "aliases": { "ru": ["продукты реакции"] },
+    "search_tokens": { "ru": ["продукт", "реакция"] },
     "positional_args": [],
     "named_args": [
       {
@@ -43,10 +47,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:system.medium",
+    "id": "system.medium",
     "namespace": "system",
     "role": "goal",
-    "returns": { "kind": "categorical", "type": "medium_type" },
+    "returns": "categorical:medium",
+    "aliases": { "ru": ["среда раствора"] },
+    "search_tokens": { "ru": ["среда", "кислот", "щелоч"] },
     "positional_args": [],
     "named_args": [
       {
@@ -59,10 +65,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:reaction.possible",
+    "id": "reaction.possible",
     "namespace": "reaction",
     "role": "goal",
-    "returns": { "kind": "categorical", "type": "boolean" },
+    "returns": "categorical:boolean",
+    "aliases": { "ru": ["возможность реакции"] },
+    "search_tokens": { "ru": ["возмож", "реакция", "пойдёт"] },
     "positional_args": [],
     "named_args": [
       {
@@ -75,10 +83,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:substance.dissociation",
+    "id": "substance.dissociation",
     "namespace": "substance",
     "role": "goal",
-    "returns": { "kind": "set", "type": "ion_list" },
+    "returns": "set:ion_list",
+    "aliases": { "ru": ["диссоциация"] },
+    "search_tokens": { "ru": ["диссоци", "ион"] },
     "positional_args": [
       {
         "name": "substance",
@@ -91,10 +101,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:element.oxidation_state",
+    "id": "element.oxidation_state",
     "namespace": "element",
     "role": "goal",
-    "returns": { "kind": "scalar", "type": "number" },
+    "returns": "scalar:number",
+    "aliases": { "ru": ["степень окисления"] },
+    "search_tokens": { "ru": ["степен", "окисл"] },
     "positional_args": [
       {
         "name": "element",
@@ -113,10 +125,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:element.electron_config",
+    "id": "element.electron_config",
     "namespace": "element",
     "role": "goal",
-    "returns": { "kind": "scalar", "type": "string" },
+    "returns": "scalar:string",
+    "aliases": { "ru": ["электронная конфигурация"] },
+    "search_tokens": { "ru": ["электрон", "конфигур"] },
     "positional_args": [
       {
         "name": "element",
@@ -129,10 +143,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:element.bond_type",
+    "id": "element.bond_type",
     "namespace": "element",
     "role": "goal",
-    "returns": { "kind": "categorical", "type": "bond_type" },
+    "returns": "categorical:bond_type",
+    "aliases": { "ru": ["тип связи"] },
+    "search_tokens": { "ru": ["связ", "ковалент", "ионн"] },
     "positional_args": [
       {
         "name": "elementA",
@@ -150,10 +166,12 @@
     "source": { "kind": "manual" }
   },
   {
-    "id": "pred:reaction.driving_force",
+    "id": "reaction.driving_force",
     "namespace": "reaction",
     "role": "goal",
-    "returns": { "kind": "categorical", "type": "driving_force" },
+    "returns": "categorical:driving_force",
+    "aliases": { "ru": ["движущая сила реакции"] },
+    "search_tokens": { "ru": ["движущ", "сила", "осадок", "газ"] },
     "positional_args": [],
     "named_args": [
       {

@@ -9,7 +9,7 @@
     "prerequisites": [],
     "solver_id": "solver.classify_substance",
     "cost": 50,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -17,14 +17,14 @@
     "origin": "manual",
     "family": "electronic_structure",
     "target": "element.oxidation_state",
-    "target_pattern": "element.oxidation_state($element, context: $substance)",
+    "target_pattern": "element.oxidation_state($element, $substance)",
     "kind": "rule",
     "prerequisites": [
       "substance.class($substance)"
     ],
     "solver_id": "solver.oxidation_states",
     "cost": 60,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "scalar"
   },
   {
@@ -37,7 +37,7 @@
     "prerequisites": [],
     "solver_id": "solver.solubility_check",
     "cost": 30,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -45,12 +45,12 @@
     "origin": "manual",
     "family": "reaction_analysis",
     "target": "reaction.driving_force",
-    "target_pattern": "reaction.driving_force(reaction: $reaction)",
+    "target_pattern": "reaction.driving_force($reaction)",
     "kind": "rule",
     "prerequisites": [],
     "solver_id": "solver.driving_force",
     "cost": 70,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -63,7 +63,7 @@
     "prerequisites": [],
     "solver_id": "solver.activity_compare",
     "cost": 30,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -76,7 +76,7 @@
     "prerequisites": [],
     "solver_id": "solver.electron_config",
     "cost": 60,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "scalar"
   },
   {
@@ -89,7 +89,7 @@
     "prerequisites": [],
     "solver_id": "solver.compose_salt_formula",
     "cost": 50,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "scalar"
   },
   {
@@ -105,7 +105,7 @@
     ],
     "solver_id": "solver.delta_chi",
     "cost": 80,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -113,14 +113,14 @@
     "origin": "manual",
     "family": "qualitative_analysis",
     "target": "indicator.color",
-    "target_pattern": "indicator.color($indicator, system: $system)",
+    "target_pattern": "indicator.color($indicator, $system)",
     "kind": "rule",
     "prerequisites": [
       "system.medium($system)"
     ],
     "solver_id": "resolver.indicator_lookup",
     "cost": 40,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -128,7 +128,7 @@
     "origin": "manual",
     "family": "acid_base",
     "target": "system.medium",
-    "target_pattern": "system.medium(system: $system)",
+    "target_pattern": "system.medium($system)",
     "kind": "rule",
     "prerequisites": [
       "quantity.equivalent($acid)",
@@ -136,7 +136,7 @@
     ],
     "solver_id": "resolver.medium_from_equivalents",
     "cost": 100,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -144,12 +144,12 @@
     "origin": "manual",
     "family": "reaction_analysis",
     "target": "reaction.possible",
-    "target_pattern": "reaction.possible(reactants: $reactants)",
+    "target_pattern": "reaction.possible($reactants)",
     "kind": "rule",
     "prerequisites": [],
     "solver_id": "solver.reaction_possible",
     "cost": 80,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },
   {
@@ -162,7 +162,7 @@
     "prerequisites": [],
     "solver_id": "solver.dissociation",
     "cost": 50,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "set"
   },
   {
@@ -170,14 +170,14 @@
     "origin": "manual",
     "family": "reaction_analysis",
     "target": "reaction.products",
-    "target_pattern": "reaction.products(reactants: $reactants)",
+    "target_pattern": "reaction.products($reactants)",
     "kind": "rule",
     "prerequisites": [
       "substance.class($reactant)"
     ],
     "solver_id": "solver.predict_products",
     "cost": 120,
-    "uncertainty_mode": "probabilistic",
+    "uncertainty_mode": "model_limited",
     "result_shape": "set"
   },
   {
@@ -192,7 +192,7 @@
     ],
     "solver_id": "resolver.stoich_lp",
     "cost": 200,
-    "uncertainty_mode": "deterministic",
+    "uncertainty_mode": "exact",
     "result_shape": "object",
     "applicability": ["allow_optimization"]
   }

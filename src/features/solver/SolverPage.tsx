@@ -146,7 +146,7 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
     ];
 
     const elementOpts: AutocompleteOption[] = elements
-      .sort((a, b) => a.number - b.number)
+      .sort((a, b) => a.Z - b.Z)
       .map(el => ({
         id: `el:${el.symbol}`,
         label: `${el.symbol} — ${el.name}`,
