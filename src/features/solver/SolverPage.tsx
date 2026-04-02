@@ -35,6 +35,7 @@ import { isEnabled } from '../../config/feature-flags.js';
 import QueryBuilder from './QueryBuilder.js';
 import DslEditor from './DslEditor.js';
 import { resolveQuery, type ResolverEnv } from '../../lib/resolver/resolve-query.js';
+import { parseDsl } from '../../lib/resolver/parse-dsl.js';
 import type { PredicateDef } from '../../types/predicate.js';
 import type { ResolutionDef } from '../../types/resolution.js';
 import type { QueryExpr, ResolverResult as DslResolverResult } from '../../types/query-ast.js';
@@ -293,7 +294,17 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
                 locale={locale}
                 value={dslText}
                 onChange={setDslText}
-                onSubmit={() => {/* TODO: parse DSL text → QueryExpr → handleDslSolve */}}
+                onSubmit={(text) => {
+                  const { query, error } = parseDsl(text);
+                  if (query) {
+                    handleDslSolve(query);
+                  } else {
+                    setDslResult({
+                      answer: { kind: 'value', value: error ?? 'Parse error' },
+                      trace: { query_id: '', step_role: 'resolution', inputs: { target: { kind: 'value', value: '' }, bindings: {}, prerequisite_results: {} }, output: { kind: 'value', value: error ?? 'Parse error' }, children: [], status: 'not_applicable' },
+                    });
+                  }
+                }}
               />
               <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginTop: '0.375rem' }}>
                 Tab/Enter — выбрать подсказку, Enter без подсказок — решить
