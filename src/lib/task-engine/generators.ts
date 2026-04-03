@@ -447,6 +447,22 @@ function genPickSubstanceByClass(params: Record<string, unknown>, data: Ontology
 const REACTION_TYPE_TAGS = ['exchange', 'substitution', 'decomposition', 'redox', 'synthesis', 'combustion'] as const;
 const PRIMARY_TAGS_SET = new Set<string>(REACTION_TYPE_TAGS);
 
+function getAvailableReactionTypeTags(reactions: NonNullable<OntologyData['data']['reactions']>): string[] {
+  const primaryTags = new Set<string>();
+  const fallbackTags = new Set<string>();
+
+  for (const reaction of reactions) {
+    for (const tag of reaction.type_tags) {
+      fallbackTags.add(tag);
+      if (PRIMARY_TAGS_SET.has(tag)) {
+        primaryTags.add(tag);
+      }
+    }
+  }
+
+  return primaryTags.size > 0 ? [...primaryTags] : [...fallbackTags];
+}
+
 function genPickReaction(params: Record<string, unknown>, data: OntologyData): SlotValues {
   if (!data.data.reactions) throw new Error('reactions not available in data');
 
@@ -456,7 +472,7 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
   if (raw) {
     const m = raw.match(/^\{(.+)\}$/);
     if (m) {
-      const tag = pickRandom([...REACTION_TYPE_TAGS]);
+      const tag = pickRandom(getAvailableReactionTypeTags(candidates));
       candidates = candidates.filter(r => r.type_tags.includes(tag));
     } else {
       candidates = candidates.filter(r => r.type_tags.includes(raw));

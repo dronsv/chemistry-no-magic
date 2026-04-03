@@ -402,19 +402,58 @@ export function buildResolutionIndex(resolutions) {
   return index;
 }
 
-// ── File output ───────────────────────────────────────────────────────────────
+// ── Lookup resolutions from properties ───────────────────────────────────────
+
+const OBJECT_TO_ENTITY_VAR = {
+  element: '$element',
+  substance: '$substance',
+  ion: '$ion',
+};
 
 /**
- * Generate resolution_registry.json and resolution_index.json in outDir.
+ * Generate lookup ResolutionDef for each property.
+ * e.g. property {id: "electronegativity", object: "element"} →
+ *   ResolutionDef {target: "element.electronegativity", kind: "lookup", ...}
  *
+ * @param {Array<{id: string, object: string, concept_ref?: string}>} properties
+ * @returns {Array<object>}
+ */
+export function generateLookupResolutionsFromProperties(properties) {
+  const results = [];
+  for (const prop of properties) {
+    if (!prop.id || !prop.object) continue;
+    const ns = prop.object;
+    const predicateId = `${ns}.${prop.id}`;
+    const entityVar = OBJECT_TO_ENTITY_VAR[ns] || '$entity';
+
+    results.push({
+      id: `res:${predicateId}.lookup`,
+      family: `dep.property_lookup`,
+      origin: 'generated_from_property',
+      origin_ref: prop.id,
+      target: predicateId,
+      target_pattern: `${predicateId}(${entityVar})`,
+      kind: 'lookup',
+      prerequisites: [],
+      cost: 20, // lookups are cheapest
+      uncertainty_mode: 'exact',
+      result_shape: 'scalar',
+    });
+  }
+  return results;
+}
+
+/**
  * @param {Array<object>} formulas            - ComputableFormula[]
  * @param {Array<object>} manualResolutions   - ResolutionDef[] (manual origin)
  * @param {string}        outDir              - output directory path
+ * @param {Array<object>} [properties]        - PropertyDef[] for lookup resolutions
  * @returns {Array<object>}                   - merged ResolutionDef[]
  */
-export function generateResolutionRegistry(formulas, manualResolutions, outDir) {
+export function generateResolutionRegistry(formulas, manualResolutions, outDir, properties) {
   const generated = generateResolutionsFromFormulas(formulas);
-  const merged = mergeResolutions(generated, manualResolutions);
+  const lookups = properties ? generateLookupResolutionsFromProperties(properties) : [];
+  const merged = mergeResolutions([...generated, ...lookups], manualResolutions);
   const index = buildResolutionIndex(merged);
 
   mkdirSync(outDir, { recursive: true });

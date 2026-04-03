@@ -73,29 +73,47 @@ export function executeLookup(
   const patternMatch = resolution.target_pattern.match(/^([^(]+)\(/);
   const targetPredicate = patternMatch ? patternMatch[1].trim() : resolution.target;
 
-  // ── Element property lookup ────────────────────────────────────────────────
-  const elementExpr = bindings['$element'] ?? bindings['$entity'];
-  if (elementExpr) {
-    const symbolOrId = extractId(elementExpr);
+  // ── Entity property lookup (element or substance) ──────────────────────────
+  // For "quantity.*" and "element.*" predicates, the entity can be element or substance
+  const entityExpr = bindings['$element'] ?? bindings['$entity'];
+  if (entityExpr) {
+    const symbolOrId = extractId(entityExpr);
     if (!symbolOrId) {
-      return { error: `Cannot extract element id from binding` };
+      return { error: `Cannot extract entity id from binding` };
     }
 
-    const element = elements.find(
-      e => e.symbol === symbolOrId || e.symbol === symbolOrId.split(':').pop(),
-    );
-    if (!element) {
-      return { error: `Element not found: ${symbolOrId}` };
+    // Determine entity kind from SymbolExpr ref
+    const entityKind = entityExpr.kind === 'symbol' ? (entityExpr as SymbolExpr).ref.kind : null;
+
+    // Try element lookup
+    if (entityKind === 'element' || !entityKind) {
+      const element = elements.find(
+        e => e.symbol === symbolOrId || e.symbol === symbolOrId.split(':').pop(),
+      );
+      if (element) {
+        const conceptRef = predicateToConceptRef(targetPredicate);
+        const char = element.characteristics?.[conceptRef];
+        if (char !== undefined) {
+          return { answer: { kind: 'value', value: char.value } as ValueExpr };
+        }
+      }
     }
 
-    const conceptRef = predicateToConceptRef(targetPredicate);
-    const char = element.characteristics?.[conceptRef];
-    if (char === undefined) {
-      return { error: `Characteristic ${conceptRef} not found on element ${symbolOrId}` };
+    // Try substance lookup (for quantity.molar_mass etc. on substances)
+    if (entityKind === 'substance' || !entityKind) {
+      const substance = substances.find(
+        s => s.id === symbolOrId || s.id === symbolOrId.split(':').pop(),
+      ) as (LookupSubstanceEntry & { characteristics?: Record<string, { value: number }> }) | undefined;
+      if (substance?.characteristics) {
+        const conceptRef = predicateToConceptRef(targetPredicate);
+        const char = substance.characteristics[conceptRef];
+        if (char !== undefined) {
+          return { answer: { kind: 'value', value: char.value } as ValueExpr };
+        }
+      }
     }
 
-    const answer: ValueExpr = { kind: 'value', value: char.value };
-    return { answer };
+    return { error: `Lookup failed for ${targetPredicate} on ${entityKind ?? 'unknown'}:${symbolOrId}` };
   }
 
   // ── Substance class lookup ─────────────────────────────────────────────────

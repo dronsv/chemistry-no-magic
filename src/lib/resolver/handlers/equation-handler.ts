@@ -79,14 +79,31 @@ function evalNode(
  * Try to collect numeric values for all input variables of a formula from
  * prerequisite_results. Returns null if any value is missing or non-numeric.
  */
+/**
+ * Convert quantity ref to predicate-style key: "q:mass" → "quantity.mass"
+ */
+function qRefToPredicate(qRef: string): string {
+  if (qRef.startsWith('q:')) return `quantity.${qRef.slice(2)}`;
+  return qRef;
+}
+
 function collectInputValues(
   formula: ComputableFormula,
   prerequisiteResults: Record<string, Expr>,
+  solveFor?: string,
 ): Record<string, number> | null {
   const vars: Record<string, number> = {};
   for (const variable of formula.variables) {
-    if (variable.role !== 'input') continue;
+    // Skip the variable we're solving for
+    if (solveFor && variable.symbol === solveFor) continue;
+    if (variable.role !== 'input' && variable.symbol !== formula.result_variable) continue;
+    // If this is the result variable and we're not solving for something else, skip
+    if (variable.symbol === formula.result_variable && !solveFor) continue;
+
+    // Try multiple key formats: quantity ref, predicate-style, symbol
+    const predKey = qRefToPredicate(variable.quantity);
     const result = prerequisiteResults[variable.quantity]
+      ?? prerequisiteResults[predKey]
       ?? prerequisiteResults[variable.symbol];
     if (!result) return null;
     if (result.kind !== 'value') return null;
@@ -123,7 +140,7 @@ export function executeEquation(
   // ── Direct evaluation ─────────────────────────────────────────────────────
   // Prefer simple AST evaluation over the full planner for basic formulas.
   try {
-    const inputVars = collectInputValues(formula, inputs.prerequisite_results);
+    const inputVars = collectInputValues(formula, inputs.prerequisite_results, solveFor ?? undefined);
     if (inputVars !== null) {
       // Choose expression: forward (result_variable) or inversion (solve_for)
       const expr = solveFor && solveFor !== formula.result_variable

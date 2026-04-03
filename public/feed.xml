@@ -5,9 +5,25 @@
     <link>https://ru.chemistry.online/</link>
     <description>Адаптивная платформа подготовки к экзаменам по химии: периодическая таблица, химические связи, расчёты, степени окисления.</description>
     <language>ru</language>
-    <lastBuildDate>Thu, 26 Mar 2026 19:10:37 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 13:09:53 GMT</lastBuildDate>
     <atom:link href="https://ru.chemistry.online/feed.xml" rel="self" type="application/rss+xml" />
 
+  <item>
+    <title>Химические реакции</title>
+    <link>https://ru.chemistry.online/reactions/</link>
+    <description>Классификация химических реакций. Теория и практика для ОГЭ.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/reactions/</guid>
+    <pubDate>Sun, 29 Mar 2026 13:09:53 GMT</pubDate>
+    <language>ru</language>
+  </item>
+  <item>
+    <title>Ионы</title>
+    <link>https://ru.chemistry.online/ions/</link>
+    <description>Справочник ионов: таблица растворимости, катионы и анионы.</description>
+    <guid isPermaLink="true">https://ru.chemistry.online/ions/</guid>
+    <pubDate>Sun, 29 Mar 2026 09:15:43 GMT</pubDate>
+    <language>ru</language>
+  </item>
   <item>
     <title>Расчёты по химии</title>
     <link>https://ru.chemistry.online/calculations/</link>
@@ -109,14 +125,6 @@
     <link>https://ru.chemistry.online/periodic-table/</link>
     <description>Интерактивная периодическая таблица с электронными конфигурациями.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/</guid>
-    <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Ионы</title>
-    <link>https://ru.chemistry.online/ions/</link>
-    <description>Справочник ионов: таблица растворимости, катионы и анионы.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/ions/</guid>
     <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
     <language>ru</language>
   </item>
@@ -254,14 +262,6 @@
     <description>Химический элемент S: электронная конфигурация, свойства, степени окисления.</description>
     <guid isPermaLink="true">https://ru.chemistry.online/periodic-table/S/</guid>
     <pubDate>Tue, 17 Mar 2026 21:24:20 GMT</pubDate>
-    <language>ru</language>
-  </item>
-  <item>
-    <title>Химические реакции</title>
-    <link>https://ru.chemistry.online/reactions/</link>
-    <description>Классификация химических реакций. Теория и практика для ОГЭ.</description>
-    <guid isPermaLink="true">https://ru.chemistry.online/reactions/</guid>
-    <pubDate>Tue, 17 Mar 2026 17:20:44 GMT</pubDate>
     <language>ru</language>
   </item>
   <item>

@@ -13,8 +13,9 @@
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
-    "lint:ontology": "node scripts/ontology-lint.mjs"
+    "test:e2e": "npm run build && playwright test",
+    "lint:ontology": "node scripts/ontology-lint.mjs",
+    "test:release-gate": "bash scripts/run-release-gate.sh"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

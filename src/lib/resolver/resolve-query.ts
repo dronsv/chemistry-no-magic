@@ -31,7 +31,7 @@ export interface ResolverEnv {
 
 // ── Internal helpers ──────────────────────────────────────────────────────────
 
-const MAX_BACKTRACK_ATTEMPTS = 3;
+const MAX_BACKTRACK_ATTEMPTS = 5;
 
 /** Synthesize a failure ResolverResult with a given status note. */
 function failureResult(
@@ -241,7 +241,6 @@ export function resolveQuery(query: QueryExpr, env: ResolverEnv): ResolverResult
 
   for (const candidate of candidates) {
     if (attempts >= MAX_BACKTRACK_ATTEMPTS) break;
-    attempts++;
 
     // Step 8a: Unify
     const bindings = unifyTarget(normalizedTarget, candidate.target_pattern);
@@ -249,6 +248,9 @@ export function resolveQuery(query: QueryExpr, env: ResolverEnv): ResolverResult
 
     // Step 8b: Skip unimplemented kinds (unless policy explicitly allows)
     if (!IMPLEMENTED_KINDS.has(candidate.kind)) continue;
+
+    // Count this as an actual attempt (not skips)
+    attempts++;
 
     // Step 8c: Resolve prerequisites
     const prereqResults: Record<string, Expr> = {};
@@ -321,7 +323,6 @@ export function resolveQuery(query: QueryExpr, env: ResolverEnv): ResolverResult
     const handlerResult = executeHandler(candidate, resolvedInputs, env.ontology);
 
     if ('error' in handlerResult) {
-      // Step 8e: Handler error → try next candidate
       continue;
     }
 

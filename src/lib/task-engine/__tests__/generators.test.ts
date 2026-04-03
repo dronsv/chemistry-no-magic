@@ -265,6 +265,30 @@ const MOCK_REACTIONS = [
 const dataWithBonds: OntologyData = { ...MOCK_DATA, rules: { ...MOCK_DATA.rules, bondExamples: MOCK_BOND_EXAMPLES } };
 const dataWithSubstances: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, substances: MOCK_SUBSTANCE_INDEX } };
 const dataWithReactions: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, reactions: MOCK_REACTIONS } };
+const dataWithSynthesisOnly: OntologyData = {
+  ...MOCK_DATA,
+  data: {
+    ...MOCK_DATA.data,
+    reactions: [
+      {
+        reaction_id: 'rx4',
+        equation: '2H2 + O2 → 2H2O',
+        type_tags: ['synthesis', 'combustion'],
+        phase: { medium: 'g' as const },
+        conditions: {},
+        driving_forces: ['water_formation'],
+        molecular: { reactants: [], products: [] },
+        ionic: {},
+        observations: {},
+        rate_tips: { how_to_speed_up: [] },
+        heat_effect: 'exo' as const,
+        safety_notes: [],
+        competencies: {},
+        schema_version: 2,
+      },
+    ],
+  },
+};
 
 // ── Bond generator tests ─────────────────────────────────────────
 
@@ -363,6 +387,12 @@ describe('gen.pick_reaction', () => {
     const validTags = ['exchange', 'substitution', 'decomposition', 'redox'];
     const result = runGenerator('gen.pick_reaction', { type_tag: '{type_tag}' }, dataWithReactions);
     expect(validTags).toContain(result.reaction_type);
+  });
+
+  it('resolves placeholder type_tag from the available dataset tags', () => {
+    const result = runGenerator('gen.pick_reaction', { type_tag: '{type_tag}' }, dataWithSynthesisOnly);
+    expect(result.reaction_id).toBe('rx4');
+    expect(['synthesis', 'combustion']).toContain(result.reaction_type);
   });
 
   it('uses first primary tag as reaction_type', () => {

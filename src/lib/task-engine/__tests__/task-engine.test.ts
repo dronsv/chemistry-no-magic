@@ -1491,7 +1491,7 @@ describe('TaskEngine — Phase 2 integration', () => {
       const task = engine.generate('tmpl.rxn.identify_type.v1');
 
       expect(task.template_id).toBe('tmpl.rxn.identify_type.v1');
-      expect(['exchange', 'substitution', 'decomposition', 'redox']).toContain(task.correct_answer);
+      expect(['exchange', 'substitution', 'decomposition', 'redox', 'synthesis', 'combustion']).toContain(task.correct_answer);
       expect(task.competency_map).toEqual({ reactions_exchange: 'P' });
     });
   });

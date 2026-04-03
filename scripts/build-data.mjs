@@ -618,7 +618,7 @@ async function main() {
 
     // Resolution registry: generated from formulas + manual entries
     const formulasForResolutions = foundationFormulas ?? [];
-    const resolutions = generateResolutionRegistry(formulasForResolutions, manualResolutions, foundationsOutDir);
+    const resolutions = generateResolutionRegistry(formulasForResolutions, manualResolutions, foundationsOutDir, properties);
     console.log(`  Resolution registry: ${resolutions.length} entries`);
 
     // Predicate registry: generated from properties + formulas + concepts + overrides

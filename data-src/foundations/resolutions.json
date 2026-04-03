@@ -1,5 +1,17 @@
 [
   {
+    "id": "res:quantity.molar_mass.lookup",
+    "origin": "manual",
+    "family": "dep.property_lookup",
+    "target": "quantity.molar_mass",
+    "target_pattern": "quantity.molar_mass($entity)",
+    "kind": "lookup",
+    "prerequisites": [],
+    "cost": 15,
+    "uncertainty_mode": "exact",
+    "result_shape": "scalar"
+  },
+  {
     "id": "res:substance.class",
     "origin": "manual",
     "family": "classification",
