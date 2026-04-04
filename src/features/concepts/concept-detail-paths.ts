@@ -138,10 +138,11 @@ export function getConceptDetailPaths(locale: string): ConceptPagePath[] {
 
   for (const [conceptId, entry] of Object.entries(registry)) {
     const ov = overlay[conceptId];
-    if (!ov) continue;
+    if (!ov || !ov.slug) continue; // skip concepts without slug to avoid route conflicts
 
     const slugPath = buildSlugPath(conceptId, registry, overlay);
     const conceptSlug = slugPath.join('/');
+    if (!conceptSlug) continue; // skip empty slug paths
 
     // Build breadcrumbs by walking parent chain
     const crumbs: Array<{ name: string; slug: string }> = [];

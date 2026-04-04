@@ -804,14 +804,17 @@
   },
   "grp:transition_metal": {
     "name": "Transition metals",
+    "slug": "transition-metals",
     "description": "d-block elements with partially filled d-subshells."
   },
   "grp:post_transition_metal": {
     "name": "Post-transition metals",
+    "slug": "post-transition-metals",
     "description": "p-block metals located after the transition metals in the periodic table."
   },
   "grp:metalloid": {
     "name": "Metalloids (group)",
+    "slug": "metalloids",
     "description": "Group of elements with intermediate properties between metals and nonmetals."
   },
   "grp:nonmetal": {

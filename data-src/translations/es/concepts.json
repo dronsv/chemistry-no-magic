@@ -784,10 +784,12 @@
   },
   "grp:transition_metal": {
     "name": "Metales de transición",
+    "slug": "metales-de-transicion",
     "description": "Elementos del bloque d con subcapas d parcialmente llenas."
   },
   "grp:post_transition_metal": {
     "name": "Metales del bloque p",
+    "slug": "metales-post-transicion",
     "description": "Metales del bloque p, ubicados después de los metales de transición en la tabla periódica."
   },
   "grp:nonmetal": {

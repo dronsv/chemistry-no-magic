@@ -912,14 +912,17 @@
   },
   "grp:transition_metal": {
     "name": "Metale przejściowe",
+    "slug": "metale-przejsciowe",
     "description": "Pierwiastki bloku d z częściowo wypełnionymi podpowłokami d."
   },
   "grp:post_transition_metal": {
     "name": "Metale bloku p",
+    "slug": "metale-po-przejsciowe",
     "description": "Metale bloku p, położone za metalami przejściowymi w układzie okresowym."
   },
   "grp:metalloid": {
     "name": "Metaloidy",
+    "slug": "polmetale",
     "description": "Grupa pierwiastków o właściwościach pośrednich między metalami a niemetalami."
   },
   "grp:nonmetal": {
