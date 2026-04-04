@@ -1117,5 +1117,6 @@
   "solver_tpl_medium": "Определение среды",
   "solver_tpl_medium_desc": "Кислая, нейтральная или щелочная?",
   "solver_visual": "Визуальный",
-  "solver_typeahead_placeholder": "Начните вводить вопрос..."
+  "solver_typeahead_placeholder": "Начните вводить вопрос...",
+  "pt_popular_elements": "Популярные элементы"
 }

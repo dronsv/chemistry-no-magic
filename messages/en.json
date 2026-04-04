@@ -1117,5 +1117,6 @@
   "solver_tpl_medium": "Medium determination",
   "solver_tpl_medium_desc": "Acidic, neutral or alkaline?",
   "solver_visual": "Visual",
-  "solver_typeahead_placeholder": "Start typing a question..."
+  "solver_typeahead_placeholder": "Start typing a question...",
+  "pt_popular_elements": "Popular elements"
 }
