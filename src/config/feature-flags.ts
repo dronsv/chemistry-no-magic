@@ -1,6 +1,6 @@
 export const featureFlags = {
   /** Use new QueryBuilder UI instead of sentence-template based solver */
-  newQueryBuilder: false,
+  newQueryBuilder: true,
   /** Fall back to old solver if new resolver fails */
   oldSolverFallback: true,
   /** Show temporal fields (at, during) in query builder — hidden in Phase 1 */

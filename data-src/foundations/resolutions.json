@@ -17,10 +17,9 @@
     "family": "classification",
     "target": "substance.class",
     "target_pattern": "substance.class($substance)",
-    "kind": "rule",
+    "kind": "lookup",
     "prerequisites": [],
-    "solver_id": "solver.classify_substance",
-    "cost": 50,
+    "cost": 15,
     "uncertainty_mode": "exact",
     "result_shape": "categorical"
   },

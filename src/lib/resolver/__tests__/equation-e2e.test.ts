@@ -116,14 +116,8 @@ describe('equation E2E: derive quantity.mass from amount', () => {
 
   it('finds substance class via lookup', () => {
     const { query } = parseDsl('find(substance.class(sub:nacl))');
-
-    // substance.class resolution needs a lookup resolution in index
-    // Check if it exists
-    const classRes = resolutionIndex['substance.class'];
-    console.log('substance.class resolutions:', classRes?.map(r => r.id));
-
     const result = resolveQuery(query!, makeEnv());
-    console.log('substance.class result:', result.trace.status, JSON.stringify(result.answer));
-    // May fail if no lookup resolution for substance.class - that's OK, document it
+    expect(result.trace.status).toBe('success');
+    expect(result.answer).toEqual({ kind: 'value', value: 'salt' });
   });
 });

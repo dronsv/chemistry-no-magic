@@ -108,6 +108,9 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
   const [dslText, setDslText] = useState('');
   const [ontologyData, setOntologyData] = useState<OntologyData | null>(null);
 
+  // Fallback: user can switch to classic solver when DSL fails
+  const [useClassicMode, setUseClassicMode] = useState(false);
+
   useEffect(() => {
     Promise.all([
       loadSubstancesIndex(locale),
@@ -281,7 +284,7 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
       <div className="solver-page">
         <h1 className="solver-page__title">{m.solver_title()}</h1>
 
-        {isEnabled('newQueryBuilder') ? (
+        {isEnabled('newQueryBuilder') && !useClassicMode ? (
           <>
             <div style={{ marginBottom: '1.5rem' }}>
               <DslEditor
@@ -344,6 +347,15 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
                 ) : (
                   <div style={{ color: '#dc2626', fontSize: '0.88rem' }}>
                     {dslResult.trace.output?.kind === 'value' ? String(dslResult.trace.output.value) : 'Не удалось решить'}
+                    {isEnabled('oldSolverFallback') && (
+                      <button
+                        type="button"
+                        onClick={() => setUseClassicMode(true)}
+                        style={{ display: 'block', marginTop: '0.5rem', background: 'none', border: 'none', color: 'var(--color-link)', cursor: 'pointer', fontSize: '0.85rem', padding: 0, textDecoration: 'underline' }}
+                      >
+                        {m.solver_try_classic?.() ?? 'Попробовать классический решатель →'}
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
@@ -351,6 +363,15 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
           </>
         ) : (
           <>
+            {useClassicMode && (
+              <button
+                type="button"
+                onClick={() => { setUseClassicMode(false); setResult(null); setSolveError(null); }}
+                style={{ background: 'none', border: 'none', color: 'var(--color-link)', cursor: 'pointer', fontSize: '0.85rem', padding: 0, marginBottom: '1rem', textDecoration: 'underline' }}
+              >
+                ← DSL-решатель
+              </button>
+            )}
             {/* Typeahead query input */}
             <QueryTypeahead
               templates={SENTENCE_TEMPLATES}
