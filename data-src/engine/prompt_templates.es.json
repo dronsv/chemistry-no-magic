@@ -1007,5 +1007,29 @@
   "explain.os_change_oxidizer_redox": {
     "question": "En la reacción {equation}, el estado de oxidación del agente oxidante cambia: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.passivation_reason": {
+    "question": "¿Por qué {element} no reacciona con {reagent} a temperatura ambiente?",
+    "slots": {}
+  },
+  "explain.passivation_reason": {
+    "question": "{element} se cubre con una película densa de óxido ({layer}) que impide la reacción con {reagent}. Este proceso se llama pasivación.",
+    "slots": {}
+  },
+  "prompt.passivation_metals": {
+    "question": "¿Qué metales se pasivan con {reagent}?",
+    "slots": {}
+  },
+  "explain.passivation_metals": {
+    "question": "El {reagent} frío y concentrado pasiva {passivated_metals_str}: se forma una película densa de óxido en la superficie que bloquea la reacción.",
+    "slots": {}
+  },
+  "prompt.passivation_destruction": {
+    "question": "¿Cómo se puede hacer que {element} reaccione a pesar de la película de óxido?",
+    "slots": {}
+  },
+  "explain.passivation_destruction": {
+    "question": "Para destruir la película de pasivación de {element}, se puede usar: {method}. Como resultado: {result}.",
+    "slots": {}
   }
 }

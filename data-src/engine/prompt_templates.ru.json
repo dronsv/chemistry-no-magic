@@ -1009,5 +1009,29 @@
   "explain.os_change_oxidizer_redox": {
     "question": "В реакции {equation} степень окисления окислителя изменяется: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.passivation_reason": {
+    "question": "Почему {element} не реагирует с {reagent} при комнатной температуре?",
+    "slots": {}
+  },
+  "explain.passivation_reason": {
+    "question": "{element} покрывается плотной оксидной плёнкой ({layer}), которая препятствует взаимодействию с {reagent}. Этот процесс называется пассивацией.",
+    "slots": {}
+  },
+  "prompt.passivation_metals": {
+    "question": "Какие металлы пассивируются {reagent}?",
+    "slots": {}
+  },
+  "explain.passivation_metals": {
+    "question": "Холодные концентрированные {reagent} пассивируют {passivated_metals_str}: на поверхности образуется плотная оксидная плёнка, блокирующая реакцию.",
+    "slots": {}
+  },
+  "prompt.passivation_destruction": {
+    "question": "Как можно заставить {element} реагировать, несмотря на оксидную плёнку?",
+    "slots": {}
+  },
+  "explain.passivation_destruction": {
+    "question": "Для разрушения пассивирующей плёнки на {element} можно применить: {method}. В результате: {result}.",
+    "slots": {}
   }
 }

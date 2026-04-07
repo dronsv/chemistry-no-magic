@@ -8,6 +8,7 @@ import type { ChainStep, GeneticChain } from '../../types/genetic-chain';
 import type { Ion } from '../../types/ion';
 import type { AcidAnionPair, SuffixRule } from '../../types/ion-nomenclature';
 import type { NamingRule } from '../../types/classification';
+import type { PassivationDestruction, PassivationRule } from '../../types/process-rule';
 import type { QualitativeTest } from '../../types/qualitative';
 import type { ActivitySeriesEntry } from '../../types/rules';
 import type { OntologyData, PropertyDef, SlotValues } from './types';
@@ -1080,6 +1081,68 @@ function genPickKineticsDirectional(_params: Record<string, unknown>, data: Onto
   };
 }
 
+// ── Passivation generator ─────────────────────────────────────────
+
+function genPickPassivationScenario(params: Record<string, unknown>, data: OntologyData): SlotValues {
+  if (!data.rules.processRules || data.rules.processRules.length === 0) {
+    throw new Error('processRules not available in data');
+  }
+
+  const mode = typeof params.mode === 'string' ? params.mode : 'reason';
+
+  const passivationRules = data.rules.processRules.filter(
+    (r): r is PassivationRule => r.type === 'passivation_rule',
+  );
+  const destructions = data.rules.processRules.filter(
+    (r): r is PassivationDestruction => r.type === 'passivation_destruction',
+  );
+
+  if (mode === 'reason') {
+    if (passivationRules.length === 0) throw new Error('No passivation rules available');
+    const rule = pickRandom(passivationRules);
+    const element = pickRandom(rule.applies_to.element_ids);
+    const layer = rule.surface_layer.examples.find(e => e.element === element)?.layer ?? '';
+    const reagent = rule.conditions.reagents
+      ? (rule.conditions.reagents as string[]).join(', ')
+      : (rule.conditions.environment as string ?? '');
+
+    return {
+      element,
+      reagent,
+      layer,
+      rule_id: rule.id,
+      passivated_metals: rule.applies_to.element_ids,
+      passivated_metals_str: rule.applies_to.element_ids.join(', '),
+      reason: 'passivation',
+    };
+  } else if (mode === 'metals') {
+    if (passivationRules.length === 0) throw new Error('No passivation rules available');
+    const rule = pickRandom(passivationRules);
+    const reagent = rule.conditions.reagents
+      ? (rule.conditions.reagents as string[]).join(', ')
+      : (rule.conditions.environment as string ?? '');
+
+    return {
+      reagent,
+      rule_id: rule.id,
+      passivated_metals: rule.applies_to.element_ids,
+      passivated_metals_str: rule.applies_to.element_ids.join(', '),
+    };
+  } else {
+    // destruction
+    if (destructions.length === 0) throw new Error('No passivation destructions available');
+    const dest = pickRandom(destructions);
+    const element = pickRandom(dest.applies_to.element_ids);
+
+    return {
+      element,
+      method: dest.method ?? '',
+      result: dest.result ?? '',
+      destruction_id: dest.id,
+    };
+  }
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 const GENERATORS: Record<string, (params: Record<string, unknown>, data: OntologyData) => SlotValues> = {
@@ -1108,6 +1171,7 @@ const GENERATORS: Record<string, (params: Record<string, unknown>, data: Ontolog
   'gen.pick_acid_anion_from_graph': genPickAcidAnionFromGraph,
   'gen.pick_kinetics_directional': genPickKineticsDirectional,
   'gen.pick_ksp_substance': genPickKspSubstance,
+  'gen.pick_passivation_scenario': genPickPassivationScenario,
 };
 
 export function runGenerator(

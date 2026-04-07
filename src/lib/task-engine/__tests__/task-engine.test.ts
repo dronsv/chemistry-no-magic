@@ -1371,8 +1371,8 @@ describe('TaskEngine — Phase 2 integration', () => {
   const allTemplates = loadAllTemplates();
   const ontology = buildPhase2Ontology();
 
-  it('loads all 115 task templates from JSON', () => {
-    expect(allTemplates.length).toBe(115);
+  it('loads all 118 task templates from JSON', () => {
+    expect(allTemplates.length).toBe(118);
   });
 
   it('all templates have a valid answer_kind', () => {

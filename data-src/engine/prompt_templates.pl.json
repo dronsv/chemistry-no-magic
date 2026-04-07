@@ -1009,5 +1009,29 @@
   "explain.os_change_oxidizer_redox": {
     "question": "W reakcji {equation} stopień utlenienia utleniacza zmienia się: {correct_answer}.",
     "slots": {}
+  },
+  "prompt.passivation_reason": {
+    "question": "Dlaczego {element} nie reaguje z {reagent} w temperaturze pokojowej?",
+    "slots": {}
+  },
+  "explain.passivation_reason": {
+    "question": "{element} pokrywa się gęstą warstwą tlenku ({layer}), która uniemożliwia reakcję z {reagent}. Proces ten nazywa się pasywacją.",
+    "slots": {}
+  },
+  "prompt.passivation_metals": {
+    "question": "Które metale ulegają pasywacji w {reagent}?",
+    "slots": {}
+  },
+  "explain.passivation_metals": {
+    "question": "Zimny stężony {reagent} pasywuje {passivated_metals_str}: na powierzchni tworzy się gęsta warstwa tlenku blokująca reakcję.",
+    "slots": {}
+  },
+  "prompt.passivation_destruction": {
+    "question": "Jak można sprawić, żeby {element} reagował pomimo warstwy tlenku?",
+    "slots": {}
+  },
+  "explain.passivation_destruction": {
+    "question": "Aby zniszczyć warstwę pasywacyjną na {element}, można zastosować: {method}. W rezultacie: {result}.",
+    "slots": {}
   }
 }

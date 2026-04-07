@@ -118,7 +118,15 @@ export function generateDistractors(
   ) {
     candidates = generateChainSubstanceDistractors(correctAnswer, data);
   }
-  // 13. Kinetics direction context (direction_wrong_1 slot present)
+  // 13. Passivation context (reason/method/metals)
+  else if (
+    (slots.rule_id !== undefined || slots.destruction_id !== undefined) &&
+    slots.passivated_metals !== undefined &&
+    typeof correctAnswer === 'string'
+  ) {
+    candidates = generatePassivationDistractors(correctAnswer, slots);
+  }
+  // 14. Kinetics direction context (direction_wrong_1 slot present)
   else if (
     slots.direction_wrong_1 !== undefined &&
     typeof correctAnswer === 'string'
@@ -503,6 +511,36 @@ function generateObservationDistractors(
     for (const obs of genericObservations) {
       if (obs !== correctAnswer) {
         candidates.push(obs);
+      }
+    }
+  }
+
+  return candidates;
+}
+
+// ── Strategy: passivation ─────────────────────────────────────────
+
+function generatePassivationDistractors(
+  correctAnswer: string,
+  slots: SlotValues,
+): string[] {
+  const candidates: string[] = [];
+
+  if (correctAnswer === 'passivation') {
+    candidates.push('low activity of the metal');
+    candidates.push('acid is too weak');
+    candidates.push('reaction requires a catalyst');
+    candidates.push('metal dissolves in acid');
+  } else if (slots.destruction_id !== undefined) {
+    candidates.push('adding water');
+    candidates.push('cooling down');
+    candidates.push('increasing pressure');
+    candidates.push('adding an indicator');
+  } else {
+    const allMetals = ['Fe', 'Al', 'Cr', 'Cu', 'Zn', 'Na', 'Mg', 'Ti', 'Ni', 'Ag'];
+    for (const m of allMetals) {
+      if (m !== correctAnswer) {
+        candidates.push(m);
       }
     }
   }

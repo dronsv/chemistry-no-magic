@@ -1,0 +1,24 @@
+{
+  "proc:passivation": {
+    "name": "pasywacja",
+    "description": "Tworzenie się gęstej ochronnej warstwy tlenku na powierzchni metalu, uniemożliwiającej dalszą reakcję."
+  },
+  "rule:passivation.cold_conc_acid": {
+    "notes": ["Przy ogrzewaniu pasywacja ulega zniszczeniu i reakcja zachodzi"]
+  },
+  "rule:passivation.air_ambient": {
+    "notes": ["Reakcja zachodzi powoli z powodu warstwy; ogrzewanie lub amalgamacja ją przyspiesza"]
+  },
+  "rule:passivation.destruction.base": {
+    "method": "Rozpuszczenie warstwy tlenku w zasadzie (Al₂O₃ jest amfoteryczny)",
+    "result": "Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O, po czym Al reaguje z wodą"
+  },
+  "rule:passivation.destruction.amalgam": {
+    "method": "Amalgamacja (kontakt z rtęcią niszczy warstwę)",
+    "result": "2Al + 6H₂O → 2Al(OH)₃ + 3H₂↑ (gwałtowna reakcja)"
+  },
+  "rule:passivation.destruction.heating": {
+    "method": "Ogrzewanie (niszczy pasywację w stęż. H₂SO₄ i HNO₃)",
+    "result": "Przy ogrzewaniu Fe, Al, Cr reagują ze stężonymi kwasami"
+  }
+}

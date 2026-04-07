@@ -1,0 +1,62 @@
+[
+  {
+    "id": "proc:passivation",
+    "type": "surface_process",
+    "effects": [{ "effect": "reduces_reactivity", "strength": "high" }]
+  },
+  {
+    "id": "rule:passivation.cold_conc_acid",
+    "type": "passivation_rule",
+    "process_id": "proc:passivation",
+    "applies_to": { "element_ids": ["Fe", "Al", "Cr"] },
+    "conditions": { "reagents": ["H2SO4_conc", "HNO3"], "temperature": "cold" },
+    "surface_layer": {
+      "compound_hint": "oxide",
+      "examples": [
+        { "element": "Fe", "layer": "Fe₂O₃" },
+        { "element": "Al", "layer": "Al₂O₃" },
+        { "element": "Cr", "layer": "Cr₂O₃" }
+      ]
+    },
+    "consequences": [
+      { "type": "blocks_reaction", "reaction_family": "metal+conc_acid" }
+    ],
+    "related_applicability_rule_id": "passivation_cold_conc"
+  },
+  {
+    "id": "rule:passivation.air_ambient",
+    "type": "passivation_rule",
+    "process_id": "proc:passivation",
+    "applies_to": { "element_ids": ["Al", "Cr", "Ti", "Ni"] },
+    "conditions": { "environment": "air", "temperature": "ambient" },
+    "surface_layer": {
+      "compound_hint": "oxide",
+      "examples": [
+        { "element": "Al", "layer": "Al₂O₃" },
+        { "element": "Cr", "layer": "Cr₂O₃" }
+      ]
+    },
+    "consequences": [
+      { "type": "blocks_reaction", "reaction_family": "metal+water" },
+      { "type": "slows_reaction", "reaction_family": "metal+dilute_acid" }
+    ]
+  },
+  {
+    "id": "rule:passivation.destruction.base",
+    "type": "passivation_destruction",
+    "target_process_id": "proc:passivation",
+    "applies_to": { "element_ids": ["Al"] }
+  },
+  {
+    "id": "rule:passivation.destruction.amalgam",
+    "type": "passivation_destruction",
+    "target_process_id": "proc:passivation",
+    "applies_to": { "element_ids": ["Al"] }
+  },
+  {
+    "id": "rule:passivation.destruction.heating",
+    "type": "passivation_destruction",
+    "target_process_id": "proc:passivation",
+    "applies_to": { "element_ids": ["Fe", "Al", "Cr"] }
+  }
+]

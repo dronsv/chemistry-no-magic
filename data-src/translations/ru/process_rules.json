@@ -1,0 +1,24 @@
+{
+  "proc:passivation": {
+    "name": "пассивация",
+    "description": "Образование плотной защитной оксидной плёнки на поверхности металла, препятствующей дальнейшему взаимодействию."
+  },
+  "rule:passivation.cold_conc_acid": {
+    "notes": ["При нагревании пассивация разрушается и реакция идёт"]
+  },
+  "rule:passivation.air_ambient": {
+    "notes": ["Реакция идёт медленно из-за плёнки; при нагревании или амальгамировании ускоряется"]
+  },
+  "rule:passivation.destruction.base": {
+    "method": "Растворение оксидной плёнки в щёлочи (Al₂O₃ амфотерен)",
+    "result": "Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O, после чего Al реагирует с водой"
+  },
+  "rule:passivation.destruction.amalgam": {
+    "method": "Амальгамирование (контакт с ртутью разрушает плёнку)",
+    "result": "2Al + 6H₂O → 2Al(OH)₃ + 3H₂↑ (бурная реакция)"
+  },
+  "rule:passivation.destruction.heating": {
+    "method": "Нагревание (разрушает пассивацию в конц. H₂SO₄ и HNO₃)",
+    "result": "При нагревании Fe, Al, Cr реагируют с конц. кислотами"
+  }
+}

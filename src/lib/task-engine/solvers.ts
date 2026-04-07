@@ -720,6 +720,23 @@ function solveKspToSolubility(
   };
 }
 
+// ── Passivation solver ────────────────────────────────────────────
+
+function solvePassivationReason(
+  params: Record<string, unknown>,
+  slots: SlotValues,
+): SolverResult {
+  void params;
+  return {
+    answer: String(slots.reason ?? 'passivation'),
+    explanation_slots: {
+      element: String(slots.element),
+      layer: String(slots.layer ?? ''),
+      reagent: String(slots.reagent ?? ''),
+    },
+  };
+}
+
 // ── Registry ─────────────────────────────────────────────────────
 
 type SolverFn = (
@@ -754,6 +771,7 @@ const SOLVERS: Record<string, SolverFn> = {
   'solver.heat_of_reaction': (params, slots) => solveHeatOfReaction(params, slots),
   'solver.derivation_planner': solveDerivationPlanner,
   'solver.ksp_to_solubility': (params, slots) => solveKspToSolubility(params, slots),
+  'solver.passivation_reason': (params, slots) => solvePassivationReason(params, slots),
 };
 
 export function runSolver(

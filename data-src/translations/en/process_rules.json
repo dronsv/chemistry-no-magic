@@ -1,0 +1,24 @@
+{
+  "proc:passivation": {
+    "name": "passivation",
+    "description": "Formation of a dense protective oxide film on the metal surface that prevents further reaction."
+  },
+  "rule:passivation.cold_conc_acid": {
+    "notes": ["When heated, passivation breaks down and the reaction proceeds"]
+  },
+  "rule:passivation.air_ambient": {
+    "notes": ["The reaction proceeds slowly due to the film; heating or amalgamation speeds it up"]
+  },
+  "rule:passivation.destruction.base": {
+    "method": "Dissolving the oxide film in an alkali (Al₂O₃ is amphoteric)",
+    "result": "Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O, after which Al reacts with water"
+  },
+  "rule:passivation.destruction.amalgam": {
+    "method": "Amalgamation (contact with mercury destroys the film)",
+    "result": "2Al + 6H₂O → 2Al(OH)₃ + 3H₂↑ (vigorous reaction)"
+  },
+  "rule:passivation.destruction.heating": {
+    "method": "Heating (destroys passivation in conc. H₂SO₄ and HNO₃)",
+    "result": "When heated, Fe, Al, Cr react with concentrated acids"
+  }
+}

@@ -674,6 +674,14 @@ export async function loadOxidationRules(locale?: SupportedLocale): Promise<OxRu
   };
 }
 
+/** Load process rules (passivation, surface processes). */
+export async function loadProcessRules(locale?: SupportedLocale): Promise<import('../types/process-rule').ProcessRule[]> {
+  const data = await loadRule('process_rules') as import('../types/process-rule').ProcessRule[];
+  if (!locale) return data;
+  const overlay = await loadTranslationOverlay(locale, 'process_rules');
+  return applyOverlay(data, overlay, r => r.id);
+}
+
 /** Load all reactions (concrete reaction cards with ionic equations, observations, kinetics). */
 export async function loadReactions(locale?: SupportedLocale): Promise<Reaction[]> {
   const manifest = await getManifest();

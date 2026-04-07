@@ -5506,5 +5506,68 @@
     "difficulty_model": { "features": { "multi_element": "auto" }, "target_band": [0.35, 0.7] },
     "exam_tags": ["oge"],
     "competency_hint": { "reactions_redox": "P", "oxidation_states": "S" }
+  },
+  {
+    "template_id": "tmpl.rxn.passivation_reason.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "answer_kind": "scalar_text",
+      "objects": ["element"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_passivation_scenario", "params": { "mode": "reason" } },
+      "solvers": [{ "id": "solver.passivation_reason", "params": {} }],
+      "renderers": [{ "id": "view.choice_single", "params": { "option_count": 4 } }]
+    },
+    "prompt_template_id": "prompt.passivation_reason",
+    "explanation_template_id": "explain.passivation_reason",
+    "evidence_rules": ["passivation_rules"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_applicability": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.passivation_metals.v1",
+    "meta": {
+      "interaction": "choice_multi",
+      "answer_kind": "enum_multi",
+      "objects": ["element"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "set_equivalence" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_passivation_scenario", "params": { "mode": "metals" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "passivated_metals" } }],
+      "renderers": [{ "id": "view.choice_multi", "params": {} }]
+    },
+    "prompt_template_id": "prompt.passivation_metals",
+    "explanation_template_id": "explain.passivation_metals",
+    "evidence_rules": ["passivation_rules"],
+    "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_applicability": "P" }
+  },
+  {
+    "template_id": "tmpl.rxn.passivation_destruction.v1",
+    "meta": {
+      "interaction": "choice_single",
+      "answer_kind": "scalar_text",
+      "objects": ["element"],
+      "reasoning": ["classification"],
+      "evaluation": { "mode": "exact" }
+    },
+    "pipeline": {
+      "generator": { "id": "gen.pick_passivation_scenario", "params": { "mode": "destruction" } },
+      "solvers": [{ "id": "solver.slot_lookup", "params": { "answer_field": "method" } }],
+      "renderers": [{ "id": "view.choice_single", "params": { "option_count": 4 } }]
+    },
+    "prompt_template_id": "prompt.passivation_destruction",
+    "explanation_template_id": "explain.passivation_destruction",
+    "evidence_rules": ["passivation_rules"],
+    "difficulty_model": { "features": {}, "target_band": [0.35, 0.65] },
+    "exam_tags": ["oge"],
+    "competency_hint": { "reaction_applicability": "P" }
   }
 ]

@@ -198,6 +198,7 @@ async function main() {
   const ionNomenclature = await loadJson(join(DATA_SRC, 'rules', 'ion_nomenclature.json'));
   const oxidationRules = await loadJson(join(DATA_SRC, 'rules', 'oxidation_rules.json'));
   const oxidationExamples = await loadJson(join(DATA_SRC, 'rules', 'oxidation_examples.json'));
+  const processRules = await loadJson(join(DATA_SRC, 'rules', 'process_rules.json'));
   const solubilityFull = await loadJson(join(DATA_SRC, 'rules', 'solubility_rules_full.json'));
   const processVocab = await loadJson(join(DATA_SRC, 'process_vocab.json'));
   const effectsVocab = await loadJson(join(DATA_SRC, 'effects_vocab.json'));
@@ -579,6 +580,7 @@ async function main() {
   await writeFile(join(bundleDir, 'rules', 'ion_nomenclature.json'), JSON.stringify(ionNomenclature));
   await writeFile(join(bundleDir, 'rules', 'oxidation_rules.json'), JSON.stringify(oxidationRules));
   await writeFile(join(bundleDir, 'rules', 'oxidation_examples.json'), JSON.stringify(oxidationExamples));
+  await writeFile(join(bundleDir, 'rules', 'process_rules.json'), JSON.stringify(processRules));
   await writeFile(join(bundleDir, 'rules', 'properties.json'), JSON.stringify(properties));
   await writeFile(join(bundleDir, 'rules', 'storage_requirements.json'), JSON.stringify(storageRequirements));
   await writeFile(join(bundleDir, 'rules', 'storage_profiles.json'), JSON.stringify(storageProfiles));

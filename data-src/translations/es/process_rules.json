@@ -1,0 +1,24 @@
+{
+  "proc:passivation": {
+    "name": "pasivación",
+    "description": "Formación de una película densa de óxido protector en la superficie del metal que impide la reacción posterior."
+  },
+  "rule:passivation.cold_conc_acid": {
+    "notes": ["Al calentar, la pasivación se destruye y la reacción procede"]
+  },
+  "rule:passivation.air_ambient": {
+    "notes": ["La reacción es lenta debido a la película; el calentamiento o la amalgamación la aceleran"]
+  },
+  "rule:passivation.destruction.base": {
+    "method": "Disolución de la película de óxido en un álcali (Al₂O₃ es anfótero)",
+    "result": "Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O, después de lo cual el Al reacciona con el agua"
+  },
+  "rule:passivation.destruction.amalgam": {
+    "method": "Amalgamación (el contacto con mercurio destruye la película)",
+    "result": "2Al + 6H₂O → 2Al(OH)₃ + 3H₂↑ (reacción vigorosa)"
+  },
+  "rule:passivation.destruction.heating": {
+    "method": "Calentamiento (destruye la pasivación en H₂SO₄ y HNO₃ concentrados)",
+    "result": "Al calentar, Fe, Al, Cr reaccionan con los ácidos concentrados"
+  }
+}
