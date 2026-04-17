@@ -224,6 +224,11 @@ export interface DistractorLabels {
   onlyWithHeating: string;   // "only with heating"
   dependsOnConcentration: string; // "depends on concentration"
   genericObservations: string[];  // fallback observations for qualitative tests
+  passivationReasons?: string[]; // wrong reasons for non-reactivity
+  passivationMethods?: string[]; // wrong methods for destroying oxide film
+  passivationAnswer?: string;    // localized "passivation" correct answer
+  reagentConcentratedSuffix?: string; // "(конц.)" / "(conc.)"
+  reagentAirAmbient?: string;    // "воздух" / "air"
 }
 
 export interface OntologyI18n {

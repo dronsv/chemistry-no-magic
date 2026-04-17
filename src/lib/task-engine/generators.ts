@@ -1083,6 +1083,40 @@ function genPickKineticsDirectional(_params: Record<string, unknown>, data: Onto
 
 // ── Passivation generator ─────────────────────────────────────────
 
+/**
+ * Map a raw reagent id from process_rules (e.g. "H2SO4_conc", "HNO3")
+ * to a user-facing formula, appending a "(conc.)" suffix when the id
+ * carries a `_conc` modifier. Falls back to the raw id when the
+ * substance index has no match.
+ */
+function resolveReagentLabel(reagentId: string, data: OntologyData): string {
+  const concMatch = reagentId.match(/^(.*)_conc$/);
+  const coreId = concMatch ? concMatch[1] : reagentId;
+  const substances = data.data.substances ?? [];
+  const match = substances.find(
+    s => s.id.toLowerCase() === `sub:${coreId.toLowerCase()}` ||
+         s.id.toLowerCase() === coreId.toLowerCase(),
+  );
+  const formula = match?.formula ?? coreId;
+  if (!concMatch) return formula;
+  const suffix = data.i18n.labels?.reagentConcentratedSuffix ?? '(conc.)';
+  return `${formula} ${suffix}`;
+}
+
+function resolveReagentSlot(
+  rule: PassivationRule,
+  data: OntologyData,
+): string {
+  if (rule.conditions.reagents) {
+    return (rule.conditions.reagents as string[])
+      .map(r => resolveReagentLabel(r, data))
+      .join(', ');
+  }
+  const env = rule.conditions.environment as string | undefined;
+  if (env === 'air') return data.i18n.labels?.reagentAirAmbient ?? 'air';
+  return env ?? '';
+}
+
 function genPickPassivationScenario(params: Record<string, unknown>, data: OntologyData): SlotValues {
   if (!data.rules.processRules || data.rules.processRules.length === 0) {
     throw new Error('processRules not available in data');
@@ -1102,9 +1136,8 @@ function genPickPassivationScenario(params: Record<string, unknown>, data: Ontol
     const rule = pickRandom(passivationRules);
     const element = pickRandom(rule.applies_to.element_ids);
     const layer = rule.surface_layer.examples.find(e => e.element === element)?.layer ?? '';
-    const reagent = rule.conditions.reagents
-      ? (rule.conditions.reagents as string[]).join(', ')
-      : (rule.conditions.environment as string ?? '');
+    const reagent = resolveReagentSlot(rule, data);
+    const answer = data.i18n.labels?.passivationAnswer ?? 'passivation';
 
     return {
       element,
@@ -1113,14 +1146,12 @@ function genPickPassivationScenario(params: Record<string, unknown>, data: Ontol
       rule_id: rule.id,
       passivated_metals: rule.applies_to.element_ids,
       passivated_metals_str: rule.applies_to.element_ids.join(', '),
-      reason: 'passivation',
+      reason: answer,
     };
   } else if (mode === 'metals') {
     if (passivationRules.length === 0) throw new Error('No passivation rules available');
     const rule = pickRandom(passivationRules);
-    const reagent = rule.conditions.reagents
-      ? (rule.conditions.reagents as string[]).join(', ')
-      : (rule.conditions.environment as string ?? '');
+    const reagent = resolveReagentSlot(rule, data);
 
     return {
       reagent,

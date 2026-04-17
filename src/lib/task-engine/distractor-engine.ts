@@ -120,11 +120,10 @@ export function generateDistractors(
   }
   // 13. Passivation context (reason/method/metals)
   else if (
-    (slots.rule_id !== undefined || slots.destruction_id !== undefined) &&
-    slots.passivated_metals !== undefined &&
+    (slots.passivated_metals !== undefined || slots.destruction_id !== undefined) &&
     typeof correctAnswer === 'string'
   ) {
-    candidates = generatePassivationDistractors(correctAnswer, slots);
+    candidates = generatePassivationDistractors(correctAnswer, slots, data);
   }
   // 14. Kinetics direction context (direction_wrong_1 slot present)
   else if (
@@ -523,29 +522,30 @@ function generateObservationDistractors(
 function generatePassivationDistractors(
   correctAnswer: string,
   slots: SlotValues,
+  data: OntologyData,
 ): string[] {
-  const candidates: string[] = [];
+  const labels = data.i18n.labels;
+  const passivationAnswer = labels?.passivationAnswer ?? 'passivation';
 
-  if (correctAnswer === 'passivation') {
-    candidates.push('low activity of the metal');
-    candidates.push('acid is too weak');
-    candidates.push('reaction requires a catalyst');
-    candidates.push('metal dissolves in acid');
-  } else if (slots.destruction_id !== undefined) {
-    candidates.push('adding water');
-    candidates.push('cooling down');
-    candidates.push('increasing pressure');
-    candidates.push('adding an indicator');
-  } else {
-    const allMetals = ['Fe', 'Al', 'Cr', 'Cu', 'Zn', 'Na', 'Mg', 'Ti', 'Ni', 'Ag'];
-    for (const m of allMetals) {
-      if (m !== correctAnswer) {
-        candidates.push(m);
-      }
-    }
+  if (correctAnswer === passivationAnswer) {
+    return labels?.passivationReasons ?? [
+      'low activity of the metal',
+      'acid is too weak',
+      'reaction requires a catalyst',
+      'metal dissolves in acid',
+    ];
   }
-
-  return candidates;
+  if (slots.destruction_id !== undefined) {
+    return labels?.passivationMethods ?? [
+      'adding water',
+      'cooling down',
+      'increasing pressure',
+      'adding an indicator',
+    ];
+  }
+  // metals mode: wrong element symbols
+  const allMetals = ['Fe', 'Al', 'Cr', 'Cu', 'Zn', 'Na', 'Mg', 'Ti', 'Ni', 'Ag'];
+  return allMetals.filter(m => m !== correctAnswer);
 }
 
 // ── Strategy: chain substance ────────────────────────────────────

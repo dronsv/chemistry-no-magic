@@ -132,6 +132,21 @@ function buildDistractorLabels(): DistractorLabels {
       m.dist_obs_gas_evolution(),
       m.dist_obs_color_change(),
     ],
+    passivationReasons: [
+      m.dist_passivation_reason_low_activity(),
+      m.dist_passivation_reason_weak_acid(),
+      m.dist_passivation_reason_needs_catalyst(),
+      m.dist_passivation_reason_dissolves(),
+    ],
+    passivationMethods: [
+      m.dist_passivation_method_add_water(),
+      m.dist_passivation_method_cool_down(),
+      m.dist_passivation_method_increase_pressure(),
+      m.dist_passivation_method_add_indicator(),
+    ],
+    passivationAnswer: m.dist_passivation_answer_correct(),
+    reagentConcentratedSuffix: m.reagent_concentrated_suffix(),
+    reagentAirAmbient: m.reagent_air_ambient(),
   };
 }
 

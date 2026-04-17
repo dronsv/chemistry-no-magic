@@ -662,3 +662,50 @@
     flex-direction: column;
   }
 }
+
+/* Fallback: switch to classic solver / back to DSL */
+.solver-fallback-link,
+.solver-back-to-dsl {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-link);
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.solver-fallback-link {
+  margin-top: 0.5rem;
+}
+
+.solver-back-to-dsl {
+  margin-bottom: 1rem;
+}
+
+/* DSL result container */
+.solver-dsl-result {
+  margin-top: 1rem;
+}
+
+.solver-dsl-result__heading {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.solver-dsl-result__answer {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.solver-dsl-result__certainty {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.solver-dsl-result__error {
+  color: #dc2626;
+  font-size: 0.88rem;
+}

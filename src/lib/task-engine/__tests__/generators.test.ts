@@ -969,6 +969,174 @@ describe('gen.pick_acid_anion_from_graph', () => {
   });
 });
 
+// ── gen.pick_passivation_scenario ────────────────────────────────
+
+import type { ProcessRule } from '../../../types/process-rule';
+import { generateDistractors } from '../distractor-engine';
+import { runSolver } from '../solvers';
+
+const MOCK_PROCESS_RULES: ProcessRule[] = [
+  { id: 'proc:passivation', type: 'surface_process', effects: [{ effect: 'reduces_reactivity', strength: 'high' }] },
+  {
+    id: 'rule:passivation.cold_conc_acid',
+    type: 'passivation_rule',
+    process_id: 'proc:passivation',
+    applies_to: { element_ids: ['Fe', 'Al', 'Cr'] },
+    conditions: { reagents: ['H2SO4_conc', 'HNO3'], temperature: 'cold' },
+    surface_layer: {
+      compound_hint: 'oxide',
+      examples: [
+        { element: 'Fe', layer: 'Fe₂O₃' },
+        { element: 'Al', layer: 'Al₂O₃' },
+        { element: 'Cr', layer: 'Cr₂O₃' },
+      ],
+    },
+    consequences: [{ type: 'blocks_reaction', reaction_family: 'metal+conc_acid' }],
+  },
+  {
+    id: 'rule:passivation.air_ambient',
+    type: 'passivation_rule',
+    process_id: 'proc:passivation',
+    applies_to: { element_ids: ['Al', 'Cr'] },
+    conditions: { environment: 'air', temperature: 'ambient' },
+    surface_layer: {
+      compound_hint: 'oxide',
+      examples: [{ element: 'Al', layer: 'Al₂O₃' }],
+    },
+    consequences: [{ type: 'blocks_reaction', reaction_family: 'metal+water' }],
+  },
+  {
+    id: 'rule:passivation.destruction.heating',
+    type: 'passivation_destruction',
+    target_process_id: 'proc:passivation',
+    applies_to: { element_ids: ['Fe', 'Al', 'Cr'] },
+    method: 'Нагревание',
+    result: 'При нагревании реакция идёт',
+  },
+];
+
+const passivationData: OntologyData = {
+  ...MOCK_DATA,
+  rules: { ...MOCK_DATA.rules, processRules: MOCK_PROCESS_RULES },
+  data: {
+    ...MOCK_DATA.data,
+    substances: [
+      { id: 'sub:h2so4', formula: 'H₂SO₄', name: 'Серная кислота', class: 'acid' },
+      { id: 'sub:hno3', formula: 'HNO₃', name: 'Азотная кислота', class: 'acid' },
+    ],
+  },
+  i18n: {
+    ...MOCK_DATA.i18n,
+    labels: {
+      equal: 'одинаково', cannotDetermine: 'нельзя определить',
+      onlyWithHeating: 'только при нагревании', dependsOnConcentration: 'зависит от концентрации',
+      genericObservations: [],
+      passivationAnswer: 'пассивация',
+      passivationReasons: ['низкая активность', 'кислота слабая', 'нужен катализатор', 'растворяется'],
+      passivationMethods: ['добавить воду', 'охладить', 'повысить давление', 'добавить индикатор'],
+      reagentConcentratedSuffix: '(конц.)',
+      reagentAirAmbient: 'воздух',
+    },
+  },
+};
+
+describe('gen.pick_passivation_scenario', () => {
+  it('mode=reason: returns element, layer, localized passivation answer', () => {
+    const result = runGenerator('gen.pick_passivation_scenario', { mode: 'reason' }, passivationData);
+    expect(['Fe', 'Al', 'Cr']).toContain(result.element as string);
+    expect(result.layer).toMatch(/[A-Z]/); // some oxide formula
+    expect(result.reason).toBe('пассивация');
+    expect(Array.isArray(result.passivated_metals)).toBe(true);
+    // reagent should resolve substance IDs to formulas with (конц.) suffix
+    const reagent = String(result.reagent);
+    expect(reagent).toMatch(/H₂SO₄|воздух/);
+    expect(reagent).not.toContain('H2SO4_conc');
+  });
+
+  it('mode=metals: returns reagent + passivated_metals', () => {
+    const result = runGenerator('gen.pick_passivation_scenario', { mode: 'metals' }, passivationData);
+    expect(result.reagent).toBeTruthy();
+    expect(Array.isArray(result.passivated_metals)).toBe(true);
+    expect((result.passivated_metals as string[]).length).toBeGreaterThan(0);
+  });
+
+  it('mode=destruction: returns element + method + destruction_id', () => {
+    const result = runGenerator('gen.pick_passivation_scenario', { mode: 'destruction' }, passivationData);
+    expect(['Fe', 'Al', 'Cr']).toContain(result.element as string);
+    expect(result.method).toBe('Нагревание');
+    expect(result.destruction_id).toBe('rule:passivation.destruction.heating');
+  });
+
+  it('resolves air environment to localized label', () => {
+    // run until we hit air_ambient rule (has no reagents field)
+    for (let i = 0; i < 20; i++) {
+      const result = runGenerator('gen.pick_passivation_scenario', { mode: 'metals' }, passivationData);
+      if (result.rule_id === 'rule:passivation.air_ambient') {
+        expect(result.reagent).toBe('воздух');
+        return;
+      }
+    }
+  });
+
+  it('throws when processRules missing', () => {
+    expect(() => runGenerator('gen.pick_passivation_scenario', { mode: 'reason' }, MOCK_DATA)).toThrow(
+      'processRules not available',
+    );
+  });
+});
+
+describe('passivation pipeline integration', () => {
+  it('generator → solver → distractors produces localized output', () => {
+    const slots = runGenerator('gen.pick_passivation_scenario', { mode: 'reason' }, passivationData);
+    const solverResult = runSolver('solver.passivation_reason', {}, slots, passivationData);
+    expect(solverResult.answer).toBe('пассивация');
+
+    const distractors = generateDistractors(
+      solverResult.answer as string,
+      slots,
+      'choice_single',
+      passivationData,
+      3,
+      'scalar_text',
+    );
+    expect(distractors.length).toBeGreaterThanOrEqual(3);
+    for (const d of distractors) {
+      expect(d).not.toMatch(/low activity|acid is too weak|catalyst|dissolves/);
+    }
+    expect(distractors).toContain('низкая активность');
+  });
+
+  it('destruction mode distractors are localized methods', () => {
+    const slots = runGenerator('gen.pick_passivation_scenario', { mode: 'destruction' }, passivationData);
+    const distractors = generateDistractors(
+      String(slots.method),
+      slots,
+      'choice_single',
+      passivationData,
+      3,
+      'scalar_text',
+    );
+    for (const d of distractors) {
+      expect(d).not.toMatch(/adding water|cooling down|increasing pressure/);
+    }
+    expect(distractors).toContain('добавить воду');
+  });
+
+  it('metals mode distractors are wrong element symbols', () => {
+    const slots = runGenerator('gen.pick_passivation_scenario', { mode: 'metals' }, passivationData);
+    const distractors = generateDistractors(
+      'Fe',
+      slots,
+      'choice_multi',
+      passivationData,
+      5,
+      'enum_multi',
+    );
+    expect(distractors).not.toContain('Fe');
+    expect(distractors.some(d => ['Cu', 'Zn', 'Na', 'Mg'].includes(d))).toBe(true);
+  });
+});
+
 // ── Registry tests ───────────────────────────────────────────────
 
 describe('runGenerator', () => {

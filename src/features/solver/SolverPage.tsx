@@ -333,27 +333,27 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
               </div>
             </details>
             {dslResult && (
-              <div className="dsl-result" style={{ marginTop: '1rem' }}>
+              <div className="solver-dsl-result">
                 {dslResult.trace.status === 'success' ? (
                   <>
-                    <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Результат</h3>
-                    <div style={{ fontSize: '1.25rem', fontWeight: 600 }}>{renderDslAnswer(dslResult)}</div>
+                    <h3 className="solver-dsl-result__heading">{m.solver_answer()}</h3>
+                    <div className="solver-dsl-result__answer">{renderDslAnswer(dslResult)}</div>
                     {dslResult.certainty && (
-                      <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.25rem' }}>
+                      <div className="solver-dsl-result__certainty">
                         {dslResult.certainty}
                       </div>
                     )}
                   </>
                 ) : (
-                  <div style={{ color: '#dc2626', fontSize: '0.88rem' }}>
-                    {dslResult.trace.output?.kind === 'value' ? String(dslResult.trace.output.value) : 'Не удалось решить'}
+                  <div className="solver-dsl-result__error">
+                    {dslResult.trace.output?.kind === 'value' ? String(dslResult.trace.output.value) : m.solver_error_generic()}
                     {isEnabled('oldSolverFallback') && (
                       <button
                         type="button"
                         onClick={() => setUseClassicMode(true)}
-                        style={{ display: 'block', marginTop: '0.5rem', background: 'none', border: 'none', color: 'var(--color-link)', cursor: 'pointer', fontSize: '0.85rem', padding: 0, textDecoration: 'underline' }}
+                        className="solver-fallback-link"
                       >
-                        {m.solver_try_classic?.() ?? 'Попробовать классический решатель →'}
+                        {m.solver_try_classic()}
                       </button>
                     )}
                   </div>
@@ -367,9 +367,9 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
               <button
                 type="button"
                 onClick={() => { setUseClassicMode(false); setResult(null); setSolveError(null); }}
-                style={{ background: 'none', border: 'none', color: 'var(--color-link)', cursor: 'pointer', fontSize: '0.85rem', padding: 0, marginBottom: '1rem', textDecoration: 'underline' }}
+                className="solver-back-to-dsl"
               >
-                ← DSL-решатель
+                {m.solver_back_to_dsl()}
               </button>
             )}
             {/* Typeahead query input */}
