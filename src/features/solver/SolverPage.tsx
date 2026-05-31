@@ -261,11 +261,13 @@ export default function SolverPage({ locale = 'ru' as SupportedLocale }: { local
           id: s.id,
           formula: s.formula,
           class: s.class,
+          characteristics: s.characteristics,
         })),
         ions: ions.map(ion => ({
           id: ion.id,
           formula: ion.formula,
           type: ion.type,
+          characteristics: ion.characteristics,
         })),
       },
       policy: { max_depth: 6 },

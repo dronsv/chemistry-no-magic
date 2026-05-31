@@ -1134,8 +1134,13 @@ function genPickPassivationScenario(params: Record<string, unknown>, data: Ontol
   if (mode === 'reason') {
     if (passivationRules.length === 0) throw new Error('No passivation rules available');
     const rule = pickRandom(passivationRules);
-    const element = pickRandom(rule.applies_to.element_ids);
-    const layer = rule.surface_layer.examples.find(e => e.element === element)?.layer ?? '';
+    const layerExamples = rule.surface_layer.examples.filter(
+      e => rule.applies_to.element_ids.includes(e.element) && e.layer,
+    );
+    if (layerExamples.length === 0) {
+      throw new Error(`No surface layer examples available for passivation rule ${rule.id}`);
+    }
+    const { element, layer } = pickRandom(layerExamples);
     const reagent = resolveReagentSlot(rule, data);
     const answer = data.i18n.labels?.passivationAnswer ?? 'passivation';
 

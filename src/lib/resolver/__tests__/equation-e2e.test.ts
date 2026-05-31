@@ -67,7 +67,12 @@ function makeEnv(overrides?: Partial<ResolverEnv>): ResolverEnv {
         id: 'sub:nacl', formula: 'NaCl', class: 'salt',
         characteristics: { 'concept:molar_mass': { value: 58.44 } },
       }],
-      ions: [],
+      ions: [{
+        id: 'Na_plus',
+        formula: 'Na+',
+        type: 'cation',
+        characteristics: { 'concept:ion_charge': { value: 1 } },
+      }],
     },
     formulaRegistry: formulas,
     constants,
@@ -119,5 +124,12 @@ describe('equation E2E: derive quantity.mass from amount', () => {
     const result = resolveQuery(query!, makeEnv());
     expect(result.trace.status).toBe('success');
     expect(result.answer).toEqual({ kind: 'value', value: 'salt' });
+  });
+
+  it('finds ion charge via generated property lookup', () => {
+    const { query } = parseDsl('find(ion.ion_charge(ion:Na_plus))');
+    const result = resolveQuery(query!, makeEnv());
+    expect(result.trace.status).toBe('success');
+    expect(result.answer).toEqual({ kind: 'value', value: 1 });
   });
 });

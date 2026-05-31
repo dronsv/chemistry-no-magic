@@ -5526,7 +5526,7 @@
     "evidence_rules": ["passivation_rules"],
     "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
     "exam_tags": ["oge"],
-    "competency_hint": { "reaction_applicability": "P" }
+    "competency_hint": { "reactions_exchange": "P" }
   },
   {
     "template_id": "tmpl.rxn.passivation_metals.v1",
@@ -5547,7 +5547,7 @@
     "evidence_rules": ["passivation_rules"],
     "difficulty_model": { "features": {}, "target_band": [0.3, 0.6] },
     "exam_tags": ["oge"],
-    "competency_hint": { "reaction_applicability": "P" }
+    "competency_hint": { "reactions_exchange": "P" }
   },
   {
     "template_id": "tmpl.rxn.passivation_destruction.v1",
@@ -5568,6 +5568,6 @@
     "evidence_rules": ["passivation_rules"],
     "difficulty_model": { "features": {}, "target_band": [0.35, 0.65] },
     "exam_tags": ["oge"],
-    "competency_hint": { "reaction_applicability": "P" }
+    "competency_hint": { "reactions_exchange": "P" }
   }
 ]

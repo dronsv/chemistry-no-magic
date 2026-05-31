@@ -91,7 +91,8 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
     'tmpl.rxn.identify_type.v1', 'tmpl.rxn.predict_exchange.v1',
     'tmpl.rxn.driving_force.v1', 'tmpl.rxn.will_occur.v1',
     'tmpl.rxn.predict_substitution.v1', 'tmpl.rxn.activity_compare.v1',
-    'tmpl.rxn.will_metal_react.v1',
+    'tmpl.rxn.will_metal_react.v1', 'tmpl.rxn.passivation_reason.v1',
+    'tmpl.rxn.passivation_metals.v1', 'tmpl.rxn.passivation_destruction.v1',
   ],
   gas_precipitate_logic: [
     'tmpl.sol.check_pair.v1', 'tmpl.rxn.driving_force.v1',
@@ -164,6 +165,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     activitySeries, classificationRules, namingRules, qualitativeTests,
     energyCatalystTheory, geneticChains, calculationsData, ionNomenclature,
     acidBaseRelations, kineticsData, foundationFormulas, foundationConstants,
+    processRules,
   ] = await Promise.all([
     dl.loadElements(locale),
     dl.loadIons(locale),
@@ -188,6 +190,7 @@ export async function buildEngine(locale?: SupportedLocale) {
     dl.loadKineticsData(locale).catch(() => null),
     dl.loadFormulas().catch(() => []),
     dl.loadConstants().catch(() => []),
+    dl.loadProcessRules(locale).catch(() => []),
   ]);
 
   const ontology = {
@@ -200,6 +203,7 @@ export async function buildEngine(locale?: SupportedLocale) {
       acidBaseRelations: acidBaseRelations.length > 0 ? acidBaseRelations as import('../../types/relation').Relation[] : undefined,
       kineticsRules: kineticsData?.rules,
       kineticsDirectionLabels: kineticsData?.directionLabels,
+      processRules,
     },
     data: {
       substances: substanceIndex, reactions, geneticChains,

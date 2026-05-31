@@ -121,7 +121,7 @@ export function generateDistractors(
   // 13. Passivation context (reason/method/metals)
   else if (
     (slots.passivated_metals !== undefined || slots.destruction_id !== undefined) &&
-    typeof correctAnswer === 'string'
+    (typeof correctAnswer === 'string' || Array.isArray(correctAnswer))
   ) {
     candidates = generatePassivationDistractors(correctAnswer, slots, data);
   }
@@ -520,14 +520,14 @@ function generateObservationDistractors(
 // ── Strategy: passivation ─────────────────────────────────────────
 
 function generatePassivationDistractors(
-  correctAnswer: string,
+  correctAnswer: string | string[],
   slots: SlotValues,
   data: OntologyData,
 ): string[] {
   const labels = data.i18n.labels;
   const passivationAnswer = labels?.passivationAnswer ?? 'passivation';
 
-  if (correctAnswer === passivationAnswer) {
+  if (typeof correctAnswer === 'string' && correctAnswer === passivationAnswer) {
     return labels?.passivationReasons ?? [
       'low activity of the metal',
       'acid is too weak',
@@ -545,7 +545,8 @@ function generatePassivationDistractors(
   }
   // metals mode: wrong element symbols
   const allMetals = ['Fe', 'Al', 'Cr', 'Cu', 'Zn', 'Na', 'Mg', 'Ti', 'Ni', 'Ag'];
-  return allMetals.filter(m => m !== correctAnswer);
+  const correctMetals = new Set(Array.isArray(correctAnswer) ? correctAnswer : [correctAnswer]);
+  return allMetals.filter(m => !correctMetals.has(m));
 }
 
 // ── Strategy: chain substance ────────────────────────────────────

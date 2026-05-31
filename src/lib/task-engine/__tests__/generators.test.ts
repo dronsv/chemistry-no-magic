@@ -1135,6 +1135,23 @@ describe('passivation pipeline integration', () => {
     expect(distractors).not.toContain('Fe');
     expect(distractors.some(d => ['Cu', 'Zn', 'Na', 'Mg'].includes(d))).toBe(true);
   });
+
+  it('metals mode distractors exclude all correct metals for multi-select answers', () => {
+    const slots = runGenerator('gen.pick_passivation_scenario', { mode: 'metals' }, passivationData);
+    const correct = slots.passivated_metals as string[];
+    const distractors = generateDistractors(
+      correct,
+      slots,
+      'choice_multi',
+      passivationData,
+      5,
+      'enum_multi',
+    );
+    for (const metal of correct) {
+      expect(distractors).not.toContain(metal);
+    }
+    expect(distractors.some(d => ['Cu', 'Zn', 'Na', 'Mg', 'Ti', 'Ni', 'Ag'].includes(d))).toBe(true);
+  });
 });
 
 // ── Registry tests ───────────────────────────────────────────────

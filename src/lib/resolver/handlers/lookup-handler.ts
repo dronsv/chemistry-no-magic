@@ -1,5 +1,6 @@
 import type { ResolutionDef } from '../../../types/resolution.js';
 import type { Expr, ResolvedInputs, ValueExpr, SymbolExpr } from '../../../types/query-ast.js';
+import type { EntityCharacteristics, CharacteristicEntry } from '../../../types/characteristic.js';
 
 export type HandlerResult =
   | { answer: Expr; formula_rendered?: string }
@@ -8,19 +9,21 @@ export type HandlerResult =
 export interface LookupElementEntry {
   Z: number;
   symbol: string;
-  characteristics?: Record<string, { value: number }>;
+  characteristics?: EntityCharacteristics;
 }
 
 export interface LookupSubstanceEntry {
   id: string;
   formula: string;
   class?: string;
+  characteristics?: EntityCharacteristics;
 }
 
 export interface LookupIonEntry {
   id: string;
   formula: string;
   type: string;
+  characteristics?: EntityCharacteristics;
 }
 
 export interface LookupHandlerEnv {
@@ -56,6 +59,16 @@ function predicateToConceptRef(predicate: string): string {
   return `concept:${last}`;
 }
 
+function singleCharacteristicValue(
+  characteristics: EntityCharacteristics | undefined,
+  conceptRef: string,
+): ValueExpr['value'] | undefined {
+  const entry = characteristics?.[conceptRef];
+  if (entry === undefined) return undefined;
+  const single: CharacteristicEntry | undefined = Array.isArray(entry) ? entry[0] : entry;
+  return single?.value;
+}
+
 /**
  * Reads properties directly from ontology data without calling a solver.
  * Supports element characteristic lookups and substance class lookups.
@@ -72,6 +85,7 @@ export function executeLookup(
   // e.g. "quantity.electronegativity($element)" → predicate = "quantity.electronegativity"
   const patternMatch = resolution.target_pattern.match(/^([^(]+)\(/);
   const targetPredicate = patternMatch ? patternMatch[1].trim() : resolution.target;
+  const conceptRef = predicateToConceptRef(targetPredicate);
 
   // ── Entity property lookup (element or substance) ──────────────────────────
   // For "quantity.*" and "element.*" predicates, the entity can be element or substance
@@ -91,10 +105,9 @@ export function executeLookup(
         e => e.symbol === symbolOrId || e.symbol === symbolOrId.split(':').pop(),
       );
       if (element) {
-        const conceptRef = predicateToConceptRef(targetPredicate);
-        const char = element.characteristics?.[conceptRef];
-        if (char !== undefined) {
-          return { answer: { kind: 'value', value: char.value } as ValueExpr };
+        const value = singleCharacteristicValue(element.characteristics, conceptRef);
+        if (value !== undefined) {
+          return { answer: { kind: 'value', value } as ValueExpr };
         }
       }
     }
@@ -103,13 +116,10 @@ export function executeLookup(
     if (entityKind === 'substance' || !entityKind) {
       const substance = substances.find(
         s => s.id === symbolOrId || s.id === symbolOrId.split(':').pop(),
-      ) as (LookupSubstanceEntry & { characteristics?: Record<string, { value: number }> }) | undefined;
-      if (substance?.characteristics) {
-        const conceptRef = predicateToConceptRef(targetPredicate);
-        const char = substance.characteristics[conceptRef];
-        if (char !== undefined) {
-          return { answer: { kind: 'value', value: char.value } as ValueExpr };
-        }
+      );
+      const value = singleCharacteristicValue(substance?.characteristics, conceptRef);
+      if (value !== undefined) {
+        return { answer: { kind: 'value', value } as ValueExpr };
       }
     }
 
@@ -154,8 +164,17 @@ export function executeLookup(
       return { error: `Ion not found: ${ionId}` };
     }
 
-    const answer: ValueExpr = { kind: 'value', value: ion.type };
-    return { answer };
+    const value = singleCharacteristicValue(ion.characteristics, conceptRef);
+    if (value !== undefined) {
+      return { answer: { kind: 'value', value } as ValueExpr };
+    }
+
+    if (targetPredicate === 'ion.type') {
+      const answer: ValueExpr = { kind: 'value', value: ion.type };
+      return { answer };
+    }
+
+    return { error: `Lookup failed for ${targetPredicate} on ion:${ionId}` };
   }
 
   return {

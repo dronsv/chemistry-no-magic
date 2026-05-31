@@ -11,7 +11,7 @@ export type ProblemKind =
 export interface ResolutionDef {
   id: string;
   family?: string;
-  origin: 'generated_from_formula' | 'manual';
+  origin: 'generated_from_formula' | 'generated_from_property' | 'manual';
   origin_ref?: string;
 
   target: string;

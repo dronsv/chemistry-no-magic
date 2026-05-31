@@ -16,6 +16,7 @@ import type { GeneticChain } from '../../../types/genetic-chain';
 import type { EnergyCatalystTheory } from '../../../types/energy-catalyst';
 import type { ComputableFormula, PhysicalConstant } from '../../../types/formula';
 import type { CalculationsData } from '../../../types/calculations';
+import type { ProcessRule } from '../../../types/process-rule';
 
 // ── Mock data (3 elements, 2 templates) ──────────────────────────
 
@@ -661,6 +662,30 @@ const PHASE2_PROMPTS: PromptTemplateMap = {
   },
   'explain.kinetics_direction': {
     template: 'When {source_name} increases, {target_name} {direction_label}.',
+    slots: {},
+  },
+  'prompt.passivation_reason': {
+    question: 'Why does {element} not react with {reagent}?',
+    slots: {},
+  },
+  'explain.passivation_reason': {
+    question: '{element} is protected by an oxide layer {layer}.',
+    slots: {},
+  },
+  'prompt.passivation_metals': {
+    question: 'Which metals are passivated by {reagent}?',
+    slots: {},
+  },
+  'explain.passivation_metals': {
+    question: 'The passivated metals are: {passivated_metals_str}.',
+    slots: {},
+  },
+  'prompt.passivation_destruction': {
+    question: 'How can the passivation layer on {element} be destroyed?',
+    slots: {},
+  },
+  'explain.passivation_destruction': {
+    question: 'Method: {method}. Result: {result}.',
     slots: {},
   },
   'prompt.calc_ksp_solubility': {
@@ -1336,6 +1361,34 @@ const MOCK_ACID_BASE_RELATIONS_PHASE2 = [
   { subject: 'ion:NO3_minus', predicate: 'has_conjugate_acid', object: 'sub:hno3', step: 1 },
 ];
 
+const MOCK_PROCESS_RULES: ProcessRule[] = [
+  { id: 'proc:passivation', type: 'surface_process', effects: [{ effect: 'reduces_reactivity', strength: 'high' }] },
+  {
+    id: 'rule:passivation.cold_conc_acid',
+    type: 'passivation_rule',
+    process_id: 'proc:passivation',
+    applies_to: { element_ids: ['Fe', 'Al', 'Cr'] },
+    conditions: { reagents: ['H2SO4_conc', 'HNO3'], temperature: 'cold' },
+    surface_layer: {
+      compound_hint: 'oxide',
+      examples: [
+        { element: 'Fe', layer: 'Fe₂O₃' },
+        { element: 'Al', layer: 'Al₂O₃' },
+        { element: 'Cr', layer: 'Cr₂O₃' },
+      ],
+    },
+    consequences: [{ type: 'blocks_reaction', reaction_family: 'metal+conc_acid' }],
+  },
+  {
+    id: 'rule:passivation.destruction.heating',
+    type: 'passivation_destruction',
+    target_process_id: 'proc:passivation',
+    applies_to: { element_ids: ['Fe', 'Al', 'Cr'] },
+    method: 'Heating',
+    result: 'When heated, the passivated metals react',
+  },
+];
+
 function buildPhase2Ontology(): OntologyData {
   return {
     ...MOCK_DATA,
@@ -1355,6 +1408,7 @@ function buildPhase2Ontology(): OntologyData {
       acidBaseRelations: MOCK_ACID_BASE_RELATIONS_PHASE2,
       kineticsRules: MOCK_KINETICS_RULES as import('../../../types/kinetics').KineticsRule[],
       kineticsDirectionLabels: MOCK_KINETICS_DIRECTION_LABELS,
+      processRules: MOCK_PROCESS_RULES,
     },
     data: {
       substances: PHASE2_SUBSTANCE_INDEX,
