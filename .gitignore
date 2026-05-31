@@ -56,3 +56,9 @@ packages/ontology-mcp/node_modules
 
 # ontology-mcp audit log (runtime state, not source)
 data-src/.audit-log.jsonl
+
+# large local downloads / artifacts (never source — gguf models, installers, PDFs)
+*.gguf
+*.deb
+docs/*.pdf
+docs/chemistry_dsl_document_set*.zip
