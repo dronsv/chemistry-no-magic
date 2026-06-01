@@ -183,9 +183,11 @@ export default function FormulaChip({
     </span>
   );
 
-  // Wrap in OntInteractiveRef for hover preview when a navigable entity ref is available.
-  // ionId is intentionally excluded — it opens its own popup via IonDetailsProvider.
-  const entityRef = substanceId ?? (elementId ? `el:${elementId}` : undefined);
+  // Wrap in OntInteractiveRef for hover preview. Ions get a hover preview too;
+  // because ion refs have no canonical page, OntInteractiveRef stays non-navigable
+  // and the chip's own onClick (IonDetailsProvider popup) keeps working on click.
+  const entityRef =
+    substanceId ?? (elementId ? `el:${elementId}` : ionId ? `ion:${ionId.replace(/^ion:/, '')}` : undefined);
   if (entityRef && locale) {
     // Remove native title — OntPreviewCard replaces it
     const chipSpanNoTitle = (
