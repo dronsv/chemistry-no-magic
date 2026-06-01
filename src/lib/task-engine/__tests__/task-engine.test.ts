@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { createTaskEngine } from '../task-engine';
 import { toConstantsDict } from '../../formula-evaluator';
 import type { OntologyData, PropertyDef, TaskTemplate, PromptTemplateMap, GeneratedTask } from '../types';
@@ -2321,6 +2321,10 @@ describe('TaskEngine — Reactions batch integration', () => {
   });
 
   describe('thermodynamics templates', () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
     it('generates tmpl.calc.heat_of_reaction.v1 task with numeric delta_H answer', () => {
       const engine = createTaskEngine(allTemplates, ontology);
       const task = engine.generate('tmpl.calc.heat_of_reaction.v1');
@@ -2337,16 +2341,21 @@ describe('TaskEngine — Reactions batch integration', () => {
 
     it('generateForCompetency returns heat_of_reaction template for calculations_basic', () => {
       const engine = createTaskEngine(allTemplates, ontology);
-      let foundHeatOfReaction = false;
-      for (let i = 0; i < 30; i++) {
+      // generateForCompetency picks matching[floor(random * len)]. With real
+      // Math.random the original loop hit heat_of_reaction only ~99% of the time
+      // (P(miss) = (6/7)^30 ≈ 1%) → flaky. Drive the picker deterministically:
+      // stepping the stub across (idx+0.5)/30 maps floor(r*7) over every index
+      // 0..6, so all 7 calculations_basic templates are selected across the run.
+      // (Constant-per-iteration random is safe — pickK splices, so picks stay
+      // distinct regardless of the value.)
+      const seen = new Set<string>();
+      for (let idx = 0; idx < 30; idx++) {
+        vi.spyOn(Math, 'random').mockReturnValue((idx + 0.5) / 30);
         const task = engine.generateForCompetency('calculations_basic');
         expect(task).not.toBeNull();
-        if (task!.template_id === 'tmpl.calc.heat_of_reaction.v1') {
-          foundHeatOfReaction = true;
-          break;
-        }
+        seen.add(task!.template_id);
       }
-      expect(foundHeatOfReaction).toBe(true);
+      expect(seen.has('tmpl.calc.heat_of_reaction.v1')).toBe(true);
     });
   });
 });
