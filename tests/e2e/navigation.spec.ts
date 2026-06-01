@@ -6,17 +6,19 @@ import { test, expect } from '@playwright/test';
  * render h1 client-side after hydration.
  */
 
+// Default (ru) locale is prefix-routed (astro.config.mjs: prefixDefaultLocale:
+// true). Content pages live under /ru/; bare "/" serves a locale-detect shell.
 const CORE_PAGES = [
-  { path: '/', title: 'Химия без магии' },
-  { path: '/periodic-table/', title: 'Периодическая таблица' },
-  { path: '/substances/', title: 'Каталог веществ' },
-  { path: '/bonds/', title: 'Химическая связь' },
-  { path: '/oxidation-states/', title: 'Степени окисления' },
-  { path: '/reactions/', title: 'Реакции' },
-  { path: '/calculations/', title: 'Расчёты' },
-  { path: '/exam/', title: 'Экзамен' },
-  { path: '/profile/', title: 'Профиль' },
-  { path: '/search/', title: 'Поиск' },
+  { path: '/ru/', title: 'Химия без магии' },
+  { path: '/ru/periodic-table/', title: 'Периодическая таблица' },
+  { path: '/ru/substances/', title: 'Каталог веществ' },
+  { path: '/ru/bonds/', title: 'Химическая связь' },
+  { path: '/ru/oxidation-states/', title: 'Степени окисления' },
+  { path: '/ru/reactions/', title: 'Реакции' },
+  { path: '/ru/calculations/', title: 'Расчёты' },
+  { path: '/ru/exam/', title: 'Экзамен' },
+  { path: '/ru/profile/', title: 'Профиль' },
+  { path: '/ru/search/', title: 'Поиск' },
 ];
 
 test.describe('Core page navigation', () => {
@@ -30,11 +32,12 @@ test.describe('Core page navigation', () => {
 });
 
 test('nav is visible on home page', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/ru/');
   const nav = page.locator('nav');
   await expect(nav).toBeVisible();
-  // Home link (flask icon) — use first() to avoid strict mode with multiple a[href="/"]
-  await expect(nav.locator('a[href="/"]').first()).toBeVisible();
+  // Home link (flask icon) — points to the locale root /ru/; use first() to
+  // avoid strict mode with multiple a[href="/ru/"] (nav home + lang switcher)
+  await expect(nav.locator('a[href="/ru/"]').first()).toBeVisible();
 });
 
 test('no console errors on home page', async ({ page }) => {
@@ -42,7 +45,7 @@ test('no console errors on home page', async ({ page }) => {
   page.on('console', msg => {
     if (msg.type() === 'error') errors.push(msg.text());
   });
-  await page.goto('/');
+  await page.goto('/ru/');
   await page.waitForTimeout(1000);
   expect(errors).toEqual([]);
 });
