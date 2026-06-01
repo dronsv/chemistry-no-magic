@@ -10,7 +10,7 @@ import { loadTheoryModule, loadTheoryModuleOverlay, loadSemanticModule, loadDida
 import { ConceptProvider, type ConceptContextValue } from './ConceptProvider';
 import { applySemanticLayer } from '../lib/semantic-renderer';
 import type { ComputableFormula, PhysicalConstant } from '../types/formula';
-import { formulaToDisplayString } from '../lib/formula-evaluator';
+import { formulaToDisplayNodes } from '../lib/formula-display-nodes';
 import CollapsibleSection, { useTheoryPanelState } from './CollapsibleSection';
 import FormulaChip from './FormulaChip';
 import { useFormulaLookup } from './ChemText';
@@ -172,13 +172,15 @@ function renderBlock(
 
     case 'equation': {
       const f = block.formula_id ? formulaData.formulas[block.formula_id] : undefined;
-      const eqText = f
-        ? formulaToDisplayString(f, block.inversion_for, formulaData.constants)
-        : block.text;
       const note = block.note;
+      // When the formula resolves, render interactive variable tokens; otherwise
+      // fall back to the static text (block.text) for unresolved/manual equations.
+      const body = f
+        ? formulaToDisplayNodes(f, locale, block.inversion_for, formulaData.constants)
+        : block.text;
       return (
         <div className="theory-module__equation">
-          {eqText}{note ? ` (${note})` : ''}
+          {body}{note ? ` (${note})` : ''}
         </div>
       );
     }
