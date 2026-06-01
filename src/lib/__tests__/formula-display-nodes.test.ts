@@ -60,4 +60,24 @@ describe('extractDisplayTokens', () => {
       .join('');
     expect(joined).toBe(formulaToDisplayString(f));
   });
+
+  it('renders summation loop index as plain text, not an interactive variable', () => {
+    const f = findFormula('formula:molar_mass_from_composition');
+    const tokens = extractDisplayTokens(f);
+    // count_i (role 'index', display 'n') must NOT be a variable token
+    const indexAsVar = tokens.find(t => t.kind === 'variable' && t.symbol === 'count_i');
+    expect(indexAsVar).toBeUndefined();
+    // Its display 'n' still appears, as text
+    const textBlob = tokens.filter(t => t.kind === 'text').map(t => t.text).join('');
+    expect(textBlob).toContain('n');
+    // Ar_i (role 'input') stays interactive
+    expect(tokens.some(t => t.kind === 'variable' && t.symbol === 'Ar_i')).toBe(true);
+  });
+
+  it('inversion path: result token is the inversion target', () => {
+    const f = findFormula('formula:density');
+    const tokens = extractDisplayTokens(f, 'm');
+    expect(tokens[0]).toEqual({ kind: 'variable', symbol: 'm', display: 'm' });
+    expect(tokens[1]).toEqual({ kind: 'text', text: ' = ' });
+  });
 });

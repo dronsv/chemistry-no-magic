@@ -246,7 +246,10 @@ export type DisplayToken =
 
 /** Set of variable symbols for a formula (so const/literal tokens are not misclassified). */
 function variableSymbolSet(formula: ComputableFormula): Set<string> {
-  return new Set(formula.variables.map(v => v.symbol));
+  // Loop indices (role 'index') are counters, not ontology entities — render as plain text.
+  return new Set(
+    formula.variables.filter(v => v.role !== 'index').map(v => v.symbol),
+  );
 }
 
 function exprToTokens(
