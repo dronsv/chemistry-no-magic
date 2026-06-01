@@ -238,6 +238,137 @@ export function formulaToDisplayString(
   return `${resultDisplay} = ${exprToDisplayString(formula.expression, displayMap)}`;
 }
 
+/** A single renderable token of a formula expression. */
+export type DisplayToken =
+  | { kind: 'variable'; symbol: string; display: string }
+  | { kind: 'const'; ref: string; display: string }
+  | { kind: 'text'; text: string };
+
+/** Set of variable symbols for a formula (so const/literal tokens are not misclassified). */
+function variableSymbolSet(formula: ComputableFormula): Set<string> {
+  return new Set(formula.variables.map(v => v.symbol));
+}
+
+function exprToTokens(
+  expr: ExprNode | string | number,
+  displayMap: DisplaySymbolMap,
+  varSymbols: Set<string>,
+  out: DisplayToken[],
+): void {
+  if (typeof expr === 'string') {
+    if (varSymbols.has(expr)) {
+      out.push({ kind: 'variable', symbol: expr, display: displayMap[expr] ?? expr });
+    } else {
+      out.push({ kind: 'text', text: displayMap[expr] ?? expr });
+    }
+    return;
+  }
+  if (typeof expr === 'number') {
+    out.push({ kind: 'text', text: String(expr) });
+    return;
+  }
+
+  switch (expr.op) {
+    case 'literal':
+      out.push({ kind: 'text', text: String(expr.value) });
+      return;
+    case 'const': {
+      const display = displayMap[expr.ref] ?? expr.ref.replace('const:', '');
+      out.push({ kind: 'const', ref: expr.ref, display });
+      return;
+    }
+    case 'add':
+      joinTokens(expr.operands, ' + ', displayMap, varSymbols, out);
+      return;
+    case 'subtract':
+      joinTokens(expr.operands, ' − ', displayMap, varSymbols, out);
+      return;
+    case 'multiply': {
+      if (expr.operands.length === 2) {
+        const first = expr.operands[0];
+        if (typeof first === 'object' && 'op' in first && first.op === 'literal' && first.value === -1) {
+          out.push({ kind: 'text', text: '−' });
+          exprToTokens(expr.operands[1], displayMap, varSymbols, out);
+          return;
+        }
+      }
+      joinTokens(expr.operands, ' × ', displayMap, varSymbols, out);
+      return;
+    }
+    case 'divide':
+      exprToTokens(expr.operands[0], displayMap, varSymbols, out);
+      out.push({ kind: 'text', text: ' / ' });
+      exprToTokens(expr.operands[1], displayMap, varSymbols, out);
+      return;
+    case 'power':
+      exprToTokens(expr.operands[0], displayMap, varSymbols, out);
+      out.push({ kind: 'text', text: '^' });
+      exprToTokens(expr.operands[1], displayMap, varSymbols, out);
+      return;
+    case 'exp':
+      out.push({ kind: 'text', text: 'exp(' });
+      exprToTokens(expr.operand, displayMap, varSymbols, out);
+      out.push({ kind: 'text', text: ')' });
+      return;
+    case 'log10':
+      out.push({ kind: 'text', text: 'lg(' });
+      exprToTokens(expr.operand, displayMap, varSymbols, out);
+      out.push({ kind: 'text', text: ')' });
+      return;
+    case 'sum':
+      out.push({ kind: 'text', text: 'Σ(' });
+      exprToTokens(expr.term, displayMap, varSymbols, out);
+      out.push({ kind: 'text', text: ')' });
+      return;
+    default:
+      out.push({ kind: 'text', text: '?' });
+  }
+}
+
+function joinTokens(
+  operands: (ExprNode | string | number)[],
+  sep: string,
+  displayMap: DisplaySymbolMap,
+  varSymbols: Set<string>,
+  out: DisplayToken[],
+): void {
+  operands.forEach((o, i) => {
+    if (i > 0) out.push({ kind: 'text', text: sep });
+    exprToTokens(o, displayMap, varSymbols, out);
+  });
+}
+
+/**
+ * Tokenize a formula into ordered display tokens: result variable, ' = ',
+ * then the expression. Variable tokens carry their symbol so the UI can wrap
+ * them interactively; everything else is plain text or a constant.
+ */
+export function extractDisplayTokens(
+  formula: ComputableFormula,
+  inversionFor?: string,
+  constants?: PhysicalConstant[],
+): DisplayToken[] {
+  const displayMap = buildDisplayMap(formula, constants);
+  const varSymbols = variableSymbolSet(formula);
+  const out: DisplayToken[] = [];
+
+  if (inversionFor) {
+    const invExpr = formula.inversions[inversionFor];
+    if (!invExpr) return [];
+    const targetDisplay = displayMap[inversionFor] ?? inversionFor;
+    out.push({ kind: 'variable', symbol: inversionFor, display: targetDisplay });
+    out.push({ kind: 'text', text: ' = ' });
+    exprToTokens(invExpr, displayMap, varSymbols, out);
+    return out;
+  }
+
+  const resultDisplay = displayMap[formula.result_variable] ?? formula.result_variable;
+  out.push({ kind: 'variable', symbol: formula.result_variable, display: resultDisplay });
+  out.push({ kind: 'text', text: ' = ' });
+  exprToTokens(formula.expression, displayMap, varSymbols, out);
+  return out;
+}
+
 /**
  * Evaluate a ComputableFormula's forward expression.
  * Returns the result value + an EvalTrace.
