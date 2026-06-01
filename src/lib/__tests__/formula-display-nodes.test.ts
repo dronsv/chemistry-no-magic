@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { extractDisplayTokens, formulaToDisplayString } from '../formula-evaluator';
+import { collectVariableTokens } from '../formula-display-nodes';
 import type { ComputableFormula } from '../../types/formula';
 
 const DATA_DIR = join(import.meta.dirname, '../../../data-src/foundations');
@@ -79,5 +80,24 @@ describe('extractDisplayTokens', () => {
     const tokens = extractDisplayTokens(f, 'm');
     expect(tokens[0]).toEqual({ kind: 'variable', symbol: 'm', display: 'm' });
     expect(tokens[1]).toEqual({ kind: 'text', text: ' = ' });
+  });
+});
+
+describe('collectVariableTokens', () => {
+  it('returns one entry per variable token paired with its Variable object', () => {
+    const f = findFormula('formula:acid_dissociation_constant');
+    const pairs = collectVariableTokens(f);
+    const symbols = pairs.map(p => p.token.symbol);
+    expect(symbols).toContain('Ka');
+    expect(symbols).toContain('cH');
+    // Each pair resolves to the matching Variable (so OntInteractiveRef gets formulaVariable)
+    const cH = pairs.find(p => p.token.symbol === 'cH');
+    expect(cH?.variable.binding?.ref).toBe('ion:H_plus');
+  });
+
+  it('text tokens are not included as variable pairs', () => {
+    const f = findFormula('formula:acid_dissociation_constant');
+    const pairs = collectVariableTokens(f);
+    expect(pairs.every(p => p.token.kind === 'variable')).toBe(true);
   });
 });
