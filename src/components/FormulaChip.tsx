@@ -204,6 +204,7 @@ export default function FormulaChip({
         }}
         onClick={handleClick}
         role={isClickable ? 'link' : undefined}
+        aria-label={isIon ? `${formula} ${titleText ?? ''}`.trim() : undefined}
       >
         {renderFormulaHtml(formula)}
       </span>
