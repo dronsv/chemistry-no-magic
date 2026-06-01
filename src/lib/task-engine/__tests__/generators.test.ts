@@ -110,6 +110,33 @@ describe('gen.pick_element_pair', () => {
     // All our mock elements are Z<=86 and none are noble_gas, so both should be valid
     expect(result.elementA).not.toBe(result.elementB);
   });
+
+  it('never picks a non-element property from a mixed pool (random {property})', () => {
+    // Pool mixes element + ion/substance properties (mirrors real properties.json
+    // where ion_charge/pKa/Ka/molar_mass are NOT element-scoped). The random
+    // fallback must stay within object:'element' or it throws "No period/elements
+    // with property ion_charge".
+    const mixedProps: PropertyDef[] = [
+      ...MOCK_PROPERTIES,
+      { id: 'ion_charge', value_field: 'ion_charge', object: 'ion', unit: null, trend_hint: null, filter: null, concept_ref: 'concept:ion_charge', i18n: { ru: { nom: 'заряд иона', gen: 'заряда иона' } } },
+      { id: 'pKa', value_field: 'pKa', object: 'substance', unit: null, trend_hint: null, filter: null, concept_ref: 'concept:pKa', i18n: { ru: { nom: 'pKa', gen: 'pKa' } } },
+    ];
+    const mixedData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, properties: mixedProps } };
+    const elementPropIds = new Set(mixedProps.filter(p => p.object === 'element').map(p => p.id));
+    // Run many times — random pick must never land on a non-element property nor throw.
+    for (let i = 0; i < 50; i++) {
+      const result = runGenerator('gen.pick_element_pair', { require_field: '{property}' }, mixedData);
+      expect(elementPropIds.has(result.property as string)).toBe(true);
+    }
+  });
+
+  it('throws a clear error if no element-scoped property exists at all', () => {
+    const ionOnly: PropertyDef[] = [
+      { id: 'ion_charge', value_field: 'ion_charge', object: 'ion', unit: null, trend_hint: null, filter: null, concept_ref: 'concept:ion_charge', i18n: { ru: { nom: 'заряд иона', gen: 'заряда иона' } } },
+    ];
+    const ionData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, properties: ionOnly } };
+    expect(() => runGenerator('gen.pick_element_pair', { require_field: '{property}' }, ionData)).toThrow(/element/i);
+  });
 });
 
 describe('gen.pick_elements_same_period', () => {
@@ -123,6 +150,19 @@ describe('gen.pick_elements_same_period', () => {
     expect((result.element_symbols as string[]).length).toBe(3);
     expect(typeof result.elements).toBe('string');
     expect(['ascending', 'descending']).toContain(result.order);
+  });
+
+  it('never picks a non-element property from a mixed pool (random {property})', () => {
+    const mixedProps: PropertyDef[] = [
+      ...MOCK_PROPERTIES,
+      { id: 'ion_charge', value_field: 'ion_charge', object: 'ion', unit: null, trend_hint: null, filter: null, concept_ref: 'concept:ion_charge', i18n: { ru: { nom: 'заряд иона', gen: 'заряда иона' } } },
+    ];
+    const mixedData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, properties: mixedProps } };
+    const elementPropIds = new Set(mixedProps.filter(p => p.object === 'element').map(p => p.id));
+    for (let i = 0; i < 50; i++) {
+      const result = runGenerator('gen.pick_elements_same_period', { k: 3, require_field: '{property}' }, mixedData);
+      expect(elementPropIds.has(result.property as string)).toBe(true);
+    }
   });
 
   it('returns unique symbols in element_symbols', () => {

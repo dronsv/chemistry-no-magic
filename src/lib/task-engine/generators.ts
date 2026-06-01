@@ -53,8 +53,22 @@ function resolveParam(
   const inner = m[1];
   const match = data.core.properties.find(p => p.id === inner);
   if (match) return match.id; // exact match — but caller wanted random? No, just return the id.
-  // Generic placeholder like {property} — pick random property
-  return pickRandom(data.core.properties).id;
+  // Generic placeholder like {property} — pick a random element-scoped property
+  return pickRandomElementProperty(data).id;
+}
+
+/**
+ * Pick a random property usable on elements. `data.core.properties` mixes
+ * object types (element / ion / substance); element generators must only draw
+ * from object:'element', else they throw "No period/elements with property X"
+ * for ion-only props like ion_charge.
+ */
+function pickRandomElementProperty(data: OntologyData): PropertyDef {
+  const elementProps = data.core.properties.filter(p => p.object === 'element');
+  if (elementProps.length === 0) {
+    throw new Error('No element-scoped property available (object: "element")');
+  }
+  return pickRandom(elementProps);
 }
 
 /**
@@ -122,7 +136,7 @@ function applyPropertyFilter(elements: Element[], prop: PropertyDef): Element[] 
 function genPickElementPair(params: Record<string, unknown>, data: OntologyData): SlotValues {
   const filter = typeof params.filter === 'string' ? params.filter : undefined;
   const requireFieldRaw = params.require_field;
-  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.core.properties).id;
+  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandomElementProperty(data).id;
   const prop = data.core.properties.find(p => p.id === propertyId);
   if (!prop) throw new Error(`Unknown property: ${propertyId}`);
 
@@ -152,7 +166,7 @@ function genPickElementPair(params: Record<string, unknown>, data: OntologyData)
 function genPickElementsSamePeriod(params: Record<string, unknown>, data: OntologyData): SlotValues {
   const k = typeof params.k === 'number' ? params.k : 4;
   const requireFieldRaw = params.require_field;
-  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandom(data.core.properties).id;
+  const propertyId = resolveParam(requireFieldRaw as string | undefined, data) ?? pickRandomElementProperty(data).id;
   const prop = data.core.properties.find(p => p.id === propertyId);
   if (!prop) throw new Error(`Unknown property: ${propertyId}`);
 
