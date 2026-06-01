@@ -52,6 +52,14 @@ describe('search()', () => {
       expect(substanceGroup).toBeDefined();
       expect(substanceGroup!.results[0].title).toBe('NaCl');
     });
+
+    it('scores entries with no subtitle without throwing (real-data: 285/554 lack subtitle)', () => {
+      const noSubtitle: SearchIndexEntry[] = [
+        { id: 'na2co3', title: 'Na₂CO₃', url: '/substances/na2co3/', category: 'substance', search: 'na2co3 na₂co₃ сода carbonate' },
+      ];
+      const results = search(noSubtitle, 'na2co3');
+      expect(results[0]?.results[0]?.title).toBe('Na₂CO₃');
+    });
   });
 
   describe('AND logic — all query words must match', () => {

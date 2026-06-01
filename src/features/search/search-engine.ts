@@ -29,7 +29,7 @@ function normalizeFormula(s: string): string {
 function scoreEntry(entry: SearchIndexEntry, words: string[]): number {
   const titleLower = entry.title.toLowerCase();
   const titleNorm = normalizeFormula(titleLower);
-  const subtitleLower = entry.subtitle.toLowerCase();
+  const subtitleLower = (entry.subtitle ?? '').toLowerCase();
   const query = words.join(' ');
 
   // Exact title match
