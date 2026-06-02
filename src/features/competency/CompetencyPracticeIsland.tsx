@@ -34,7 +34,11 @@ interface Props {
   locale?: SupportedLocale;
 }
 
-export default function CompetencyPracticeIsland({ competencyId, competencyName, locale }: Props) {
+// Default locale to 'ru' (matches ExamPage). buildEngine/loaders skip overlay
+// application when locale is undefined, which would leave locale-sourced slots
+// (observation, names, …) absent → some solvers throw. A concrete default keeps
+// the engine safe regardless of how the island is mounted.
+export default function CompetencyPracticeIsland({ competencyId, competencyName, locale = 'ru' as SupportedLocale }: Props) {
   const [adapter, setAdapter] = useState<Adapter | null>(null);
   const [bktParamsMap, setBktParamsMap] = useState<Map<string, BktParams>>(new Map());
   const [pL, setPL] = useState(0);
