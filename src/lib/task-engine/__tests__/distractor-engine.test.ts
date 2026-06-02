@@ -602,7 +602,7 @@ describe('generateDistractors', () => {
     it('returns other observations from qualitative tests', () => {
       const distractors = generateDistractors(
         'белый творожистый осадок',
-        { observation: 'белый творожистый осадок', target_ion: 'Cl_minus', reagent: 'AgNO\u2083' },
+        { observation: 'белый творожистый осадок', target_id: 'Cl_minus', reagent: 'AgNO\u2083' },
         'choice_single',
         MOCK_DATA,
         3,
@@ -622,13 +622,54 @@ describe('generateDistractors', () => {
       };
       const distractors = generateDistractors(
         'белый осадок',
-        { observation: 'белый осадок', target_ion: 'Cl_minus' },
+        { observation: 'белый осадок', target_id: 'Cl_minus' },
         'choice_single',
         dataNoTests,
         3,
       );
       expect(distractors.length).toBe(3);
       expect(distractors).not.toContain('белый осадок');
+    });
+
+    // Discriminator: a sibling qual template whose answer is NOT the observation
+    // (identify_ion answers the target name) must keep its own strategy, even
+    // though it carries the same observation + target_id slots.
+    it('does NOT fire when the answer is not the observation', () => {
+      const distractors = generateDistractors(
+        'Хлорид-ион', // target name, not the observation
+        { observation: 'белый творожистый осадок', target_id: 'Cl_minus', reagent: 'AgNO₃' },
+        'choice_single',
+        MOCK_DATA,
+        3,
+        'scalar_text',
+        { id: 'other_names', params: { source: 'qualitative_targets' } },
+      );
+      expect(distractors).not.toContain('белый кристаллический осадок');
+      for (const d of distractors) {
+        expect(MOCK_QUALITATIVE_TESTS.some(t => t.target_name === d)).toBe(true);
+      }
+    });
+
+    it('never leaks an undefined option when an observation field is missing', () => {
+      const testsWithGap = [
+        { target_id: 'Cl_minus', target_name: 'Хлорид-ион', reagent_formula: 'AgNO₃', reagent_name: 'Нитрат серебра', observation: 'белый творожистый осадок' },
+        { target_id: 'X', target_name: 'X-ион', reagent_formula: 'YZ', reagent_name: 'YZ-реактив', observation: undefined as unknown as string },
+      ];
+      const data: OntologyData = {
+        ...MOCK_DATA,
+        rules: { ...MOCK_DATA.rules, qualitativeTests: testsWithGap as typeof MOCK_QUALITATIVE_TESTS },
+      };
+      const distractors = generateDistractors(
+        'белый творожистый осадок',
+        { observation: 'белый творожистый осадок', target_id: 'Cl_minus' },
+        'choice_single',
+        data,
+        3,
+      );
+      for (const d of distractors) {
+        expect(d).toBeTruthy();
+        expect(d).not.toBe('undefined');
+      }
     });
   });
 
@@ -1380,8 +1421,8 @@ describe('generateDistractors', () => {
 
     it('ion_suffixes pool yields real suffixes when present (ru/en shape)', () => {
       const ruIons: Ion[] = [
-        { id: 'Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид', tags: [], naming: { suffix: '-ид', oxidation_state: -1 } },
-        { id: 'SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат', tags: [], naming: { suffix: '-ат', oxidation_state: 6 } },
+        { id: 'Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
+        { id: 'SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат', tags: [], naming: { root: 'сульф', suffix: '-ат', oxidation_state: 6 } },
       ];
       const ruData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, ions: ruIons } };
       const distractors = generateDistractors(

@@ -100,7 +100,7 @@ const ENGINE_COMPETENCY_MAP: Record<string, string[]> = {
   ],
   reactions_redox: ['tmpl.rxn.identify_oxidizer.v1'],
   genetic_chain_logic: ['tmpl.chain.complete_step.v1', 'tmpl.chain.choose_reagent.v1'],
-  qualitative_analysis_logic: ['tmpl.qual.identify_reagent.v1', 'tmpl.qual.identify_ion.v1'],
+  qualitative_analysis_logic: ['tmpl.qual.identify_reagent.v1', 'tmpl.qual.identify_ion.v1', 'tmpl.qual.predict_observation.v1'],
   electrolyte_logic: ['tmpl.rxn.match_ionic.v1', 'tmpl.rxn.spectator_ions.v1'],
   reaction_energy_profile: [
     'tmpl.rxn.factors_rate.v1', 'tmpl.rxn.exo_endo.v1',

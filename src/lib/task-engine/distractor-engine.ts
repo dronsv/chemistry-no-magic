@@ -102,11 +102,15 @@ export function generateDistractors(
   ) {
     candidates = generateElectronConfigDistractors(correctAnswer, slots);
   }
-  // 11. Observation context (qualitative test)
+  // 11. Observation context (qualitative test). Fires only when the answer IS
+  // the observation (predict_observation), so sibling qual templates whose answer
+  // is a reagent/ion name fall through to their own strategy. (The generator emits
+  // `target_id`, not `target_ion` — the old guard never matched, leaving this dead.)
   else if (
+    typeof correctAnswer === 'string' &&
     slots.observation !== undefined &&
-    slots.target_ion !== undefined &&
-    typeof correctAnswer === 'string'
+    slots.target_id !== undefined &&
+    correctAnswer === slots.observation
   ) {
     candidates = generateObservationDistractors(correctAnswer, data);
   }
@@ -498,7 +502,9 @@ function generateObservationDistractors(
 
   if (data.rules.qualitativeTests) {
     for (const test of data.rules.qualitativeTests) {
-      if (test.observation !== correctAnswer) {
+      // observation is overlay-sourced — guard against an absent value rather
+      // than leak a blank option for a locale that lacks it.
+      if (test.observation && test.observation !== correctAnswer) {
         candidates.push(test.observation);
       }
     }
