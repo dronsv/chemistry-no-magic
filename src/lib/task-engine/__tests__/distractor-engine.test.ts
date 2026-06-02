@@ -1348,4 +1348,53 @@ describe('generateDistractors', () => {
       expect(unique.size).toBe(distractors.length);
     });
   });
+
+  // Defense-in-depth: the dedup gate filters '' but historically NOT undefined,
+  // so a strategy mapping an absent optional field (e.g. naming.suffix on pl/es
+  // ions — present `naming`, no `suffix`) would leak a blank "undefined" option.
+  // Both the gate and the ion_suffixes pool must drop such values.
+  describe('undefined/null safety (pl/es naming.suffix shape)', () => {
+    const PL_ES_IONS: Ion[] = [
+      // named but naming has NO suffix (mirrors pl/es overlays)
+      { id: 'Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Chlorek', tags: [], naming: { oxidation_state: -1 } as Ion['naming'] },
+      { id: 'SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Siarczan', tags: [], naming: { oxidation_state: 6 } as Ion['naming'] },
+    ];
+    const plEsData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, ions: PL_ES_IONS } };
+
+    it('ion_suffixes pool never yields an undefined distractor', () => {
+      const distractors = generateDistractors(
+        '-ид',
+        {},
+        'choice_single',
+        plEsData,
+        3,
+        undefined,
+        { id: 'same_pool', params: { pool_id: 'ion_suffixes' } },
+      );
+      for (const d of distractors) {
+        expect(d).not.toBe(undefined);
+        expect(d).not.toBe('undefined');
+        expect(d).toBeTruthy();
+      }
+    });
+
+    it('ion_suffixes pool yields real suffixes when present (ru/en shape)', () => {
+      const ruIons: Ion[] = [
+        { id: 'Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид', tags: [], naming: { suffix: '-ид', oxidation_state: -1 } },
+        { id: 'SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат', tags: [], naming: { suffix: '-ат', oxidation_state: 6 } },
+      ];
+      const ruData: OntologyData = { ...MOCK_DATA, core: { ...MOCK_DATA.core, ions: ruIons } };
+      const distractors = generateDistractors(
+        '-ит',
+        {},
+        'choice_single',
+        ruData,
+        3,
+        undefined,
+        { id: 'same_pool', params: { pool_id: 'ion_suffixes' } },
+      );
+      expect(distractors).toContain('-ид');
+      expect(distractors).toContain('-ат');
+    });
+  });
 });

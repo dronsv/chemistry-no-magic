@@ -168,11 +168,14 @@ export function generateDistractors(
     candidates = generateFallbackDistractors(correctAnswer, answerKind, data);
   }
 
-  // Deduplicate and remove correct answer
+  // Deduplicate and remove correct answer. Reject empty/undefined/null so a
+  // strategy that maps an absent optional field (e.g. naming.suffix on locales
+  // that lack it) can never leak a blank "undefined" option into the UI.
   const seen = new Set<string>([correctStr]);
   const result: string[] = [];
   for (const c of candidates) {
-    if (!seen.has(c) && c !== '') {
+    if (c == null || c === '') continue;
+    if (!seen.has(c)) {
       seen.add(c);
       result.push(c);
     }
@@ -803,8 +806,10 @@ const POOL_RESOLVERS: Record<string, PoolResolver> = {
     return rules.map(r => r.suffix);
   },
   ion_suffixes: (d) => {
-    const withNaming = d.core.ions.filter(i => i.naming);
-    return [...new Set(withNaming.map(i => i.naming!.suffix))];
+    // Require an actual suffix, not just `naming`: pl/es ion overlays carry
+    // naming.oxidation_state without a suffix, so `naming.suffix` is undefined.
+    const suffixes = d.core.ions.map(i => i.naming?.suffix).filter((s): s is string => !!s);
+    return [...new Set(suffixes)];
   },
   element_symbols: (d) => d.core.elements.map(e => e.symbol),
 };
