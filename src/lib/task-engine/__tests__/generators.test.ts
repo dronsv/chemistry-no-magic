@@ -443,6 +443,44 @@ describe('gen.pick_reaction', () => {
   it('throws when reactions is missing', () => {
     expect(() => runGenerator('gen.pick_reaction', {}, MOCK_DATA)).toThrow('reactions not available');
   });
+
+  // require_ionic: only ~33/65 real reactions carry ionic.net and only ~3/65
+  // carry ionic.spectators. Templates whose solver reads net_ionic/spectator_ions
+  // (match_ionic, spectator_ions) must restrict the random pick to reactions that
+  // actually have that data, else the slot is absent and the solver throws.
+  const ionicReactions = [
+    // rxN: has net ionic + spectators
+    { reaction_id: 'rxN', equation: 'AgNO3 + NaCl → AgCl + NaNO3', type_tags: ['exchange'], phase: { medium: 'aq' as const }, conditions: {}, driving_forces: ['precipitation'], molecular: { reactants: [], products: [] }, ionic: { net: 'Ag⁺ + Cl⁻ → AgCl↓', spectators: ['Na⁺', 'NO₃⁻'] }, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'exo' as const, safety_notes: [], competencies: {}, schema_version: 2 },
+    // rxP: no ionic data at all
+    { reaction_id: 'rxP', equation: 'CaCO3 → CaO + CO2', type_tags: ['decomposition'], phase: { medium: 's' as const }, conditions: {}, driving_forces: [], molecular: { reactants: [], products: [] }, ionic: {}, observations: {}, rate_tips: { how_to_speed_up: [] }, heat_effect: 'endo' as const, safety_notes: [], competencies: {}, schema_version: 2 },
+  ];
+  const dataWithIonic: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, reactions: ionicReactions } };
+
+  it('require_ionic="net" only picks reactions with ionic.net', () => {
+    for (let i = 0; i < 30; i++) {
+      const result = runGenerator('gen.pick_reaction', { require_ionic: 'net' }, dataWithIonic);
+      expect(result.reaction_id).toBe('rxN');
+      expect(result.net_ionic).toBeDefined();
+    }
+  });
+
+  it('require_ionic="spectators" only picks reactions with ionic.spectators', () => {
+    for (let i = 0; i < 30; i++) {
+      const result = runGenerator('gen.pick_reaction', { require_ionic: 'spectators' }, dataWithIonic);
+      expect(result.reaction_id).toBe('rxN');
+      expect(result.spectator_ions).toBeDefined();
+    }
+  });
+
+  it('throws a clear error if no reaction satisfies require_ionic', () => {
+    const noIonic: OntologyData = { ...MOCK_DATA, data: { ...MOCK_DATA.data, reactions: [ionicReactions[1]] } };
+    expect(() => runGenerator('gen.pick_reaction', { require_ionic: 'net' }, noIonic)).toThrow(/ionic/i);
+  });
+
+  it('without require_ionic, behaviour is unchanged (may pick any reaction)', () => {
+    const result = runGenerator('gen.pick_reaction', {}, dataWithIonic);
+    expect(['rxN', 'rxP']).toContain(result.reaction_id);
+  });
 });
 
 // ── Element position generator tests ─────────────────────────────

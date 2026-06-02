@@ -2059,7 +2059,7 @@
     "pipeline": {
       "generator": {
         "id": "gen.pick_reaction",
-        "params": {}
+        "params": { "require_ionic": "net" }
       },
       "solvers": [
         {
@@ -2116,7 +2116,7 @@
     "pipeline": {
       "generator": {
         "id": "gen.pick_reaction",
-        "params": {}
+        "params": { "require_ionic": "spectators" }
       },
       "solvers": [
         {

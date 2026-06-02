@@ -494,6 +494,20 @@ function genPickReaction(params: Record<string, unknown>, data: OntologyData): S
     }
   }
 
+  // Restrict to reactions carrying the ionic data a template's solver will read
+  // (net_ionic / spectator_ions). Only ~half of reactions have ionic.net and
+  // very few have ionic.spectators, so an unfiltered pick makes those slots
+  // absent → solver.slot_lookup throws. require_ionic guards against that.
+  const requireIonic = typeof params.require_ionic === 'string' ? params.require_ionic : undefined;
+  if (requireIonic === 'net') {
+    candidates = candidates.filter(r => r.ionic?.net);
+  } else if (requireIonic === 'spectators') {
+    candidates = candidates.filter(r => r.ionic?.spectators && r.ionic.spectators.length > 0);
+  }
+  if (candidates.length === 0) {
+    throw new Error(`No reaction satisfies require_ionic="${requireIonic ?? ''}"`);
+  }
+
   const r = pickRandom(candidates);
   const reactionType = r.type_tags.find(t => PRIMARY_TAGS_SET.has(t)) ?? r.type_tags[0];
 
