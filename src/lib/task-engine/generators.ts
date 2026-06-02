@@ -932,25 +932,37 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       anion_name: anion?.name ?? '',
     };
   } else if (mode === 'paired') {
-    // Pick two ions that actually carry a naming suffix. `naming` alone is not
-    // enough: pl/es ion overlays provide naming.oxidation_state but no suffix,
-    // so filtering on `i.naming` would emit undefined ionA_suffix → the solver
-    // throws "Slot ionA_suffix not found". Require the suffix explicitly.
-    const withSuffix = data.core.ions.filter(i => i.naming?.suffix);
-    if (withSuffix.length < 2) {
-      throw new Error('Not enough ions with a naming suffix for paired mode');
+    // Paired mode serves two template families:
+    //  - name/formula tasks (formula_to_name, name_to_formula) need only
+    //    name+formula — generatable in every locale, including pl/es where ions
+    //    are named but carry no naming.suffix.
+    //  - suffix tasks (suffix_rule, ate_ite_pair) read naming.suffix and pass
+    //    require_suffix:true; filtering on `i.naming` alone would emit undefined
+    //    ionA_suffix on pl/es → solver throws. So narrow the pool only then.
+    const requireSuffix = params.require_suffix === true;
+    const candidates = requireSuffix
+      ? data.core.ions.filter(i => i.naming?.suffix)
+      : data.core.ions.filter(i => i.naming);
+    if (candidates.length < 2) {
+      throw new Error(
+        requireSuffix
+          ? 'Not enough ions with a naming suffix for paired mode'
+          : 'Not enough ions with naming data for paired mode',
+      );
     }
-    const [ionA, ionB] = pickK(withSuffix, 2);
+    const [ionA, ionB] = pickK(candidates, 2);
     return {
       mode: 'paired',
       ionA_id: ionA.id,
       ionA_formula: ionA.formula,
       ionA_name: ionA.name,
-      ionA_suffix: ionA.naming!.suffix,
+      // `?? ''` so name/formula tasks (no require_suffix) never emit an undefined
+      // slot; suffix tasks set require_suffix and are guaranteed a real value.
+      ionA_suffix: ionA.naming?.suffix ?? '',
       ionB_id: ionB.id,
       ionB_formula: ionB.formula,
       ionB_name: ionB.name,
-      ionB_suffix: ionB.naming!.suffix,
+      ionB_suffix: ionB.naming?.suffix ?? '',
     };
   } else {
     // default: pick a random suffix rule

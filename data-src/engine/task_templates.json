@@ -3491,7 +3491,8 @@
       "generator": {
         "id": "gen.pick_ion_nomenclature",
         "params": {
-          "mode": "paired"
+          "mode": "paired",
+          "require_suffix": true
         }
       },
       "solvers": [
@@ -3691,7 +3692,8 @@
       "generator": {
         "id": "gen.pick_ion_nomenclature",
         "params": {
-          "mode": "paired"
+          "mode": "paired",
+          "require_suffix": true
         }
       },
       "solvers": [

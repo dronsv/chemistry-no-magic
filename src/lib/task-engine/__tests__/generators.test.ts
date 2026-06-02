@@ -1011,31 +1011,33 @@ describe('gen.pick_ion_nomenclature', () => {
     }
   });
 
-  // BUG #1 hardening: paired mode reads naming.suffix, but pl/es ions lack it
-  // (naming present via oxidation_state, suffix absent) → undefined slot → solver
-  // throws. The generator must only pick ions that actually have a suffix.
-  it('paired mode skips ions whose naming lacks a suffix', () => {
-    const mixed: Ion[] = [
-      { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
-      { id: 'ion:SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат-ион', tags: [], naming: { root: 'сульф', suffix: '-ат', oxidation_state: 6 } },
-      // naming present but NO suffix (mirrors pl/es overlay shape)
-      { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Нитрат-ион', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
-    ];
-    const data: OntologyData = {
-      ...dataWithIonNomenclature,
-      core: { ...dataWithIonNomenclature.core, ions: mixed },
-    };
+  // BUG #1 hardening (suffix templates only): suffix_rule / ate_ite_pair read
+  // naming.suffix, but pl/es ions have names without a suffix. Those templates
+  // pass require_suffix:true so the generator only picks suffixed ions. Plain
+  // paired mode (formula_to_name / name_to_formula) needs only name+formula and
+  // must KEEP working on suffix-less locales.
+  const MIXED_IONS: Ion[] = [
+    { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
+    { id: 'ion:SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат-ион', tags: [], naming: { root: 'сульф', suffix: '-ат', oxidation_state: 6 } },
+    // named but NO suffix (mirrors pl/es overlay shape)
+    { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Нитрат-ион', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
+  ];
+  const dataMixed: OntologyData = {
+    ...dataWithIonNomenclature,
+    core: { ...dataWithIonNomenclature.core, ions: MIXED_IONS },
+  };
+
+  it('require_suffix only picks ions that have a naming suffix', () => {
     for (let i = 0; i < 20; i++) {
-      const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, data);
+      const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired', require_suffix: true }, dataMixed);
       expect(result.ionA_suffix).toBeTruthy();
       expect(result.ionB_suffix).toBeTruthy();
-      // NO3 (no suffix) must never be chosen
       expect(result.ionA_id).not.toBe('ion:NO3_minus');
       expect(result.ionB_id).not.toBe('ion:NO3_minus');
     }
   });
 
-  it('paired mode throws clearly when fewer than 2 ions have a suffix', () => {
+  it('require_suffix throws clearly when fewer than 2 ions have a suffix', () => {
     const onlyOne: Ion[] = [
       { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
       { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Нитрат-ион', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
@@ -1044,7 +1046,31 @@ describe('gen.pick_ion_nomenclature', () => {
       ...dataWithIonNomenclature,
       core: { ...dataWithIonNomenclature.core, ions: onlyOne },
     };
-    expect(() => runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, data)).toThrow(/suffix/i);
+    expect(() => runGenerator('gen.pick_ion_nomenclature', { mode: 'paired', require_suffix: true }, data)).toThrow(/suffix/i);
+  });
+
+  it('plain paired mode (no require_suffix) still works when ions lack suffixes (pl/es shape)', () => {
+    // All three ions are named; none would be excluded for lacking a suffix.
+    const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, dataMixed);
+    expect(result.mode).toBe('paired');
+    expect(result.ionA_name).toBeTruthy();
+    expect(result.ionA_formula).toBeTruthy();
+    // NO3 (suffix-less) is a legitimate pick here
+    expect(result.ionA_id).not.toBe(result.ionB_id);
+  });
+
+  it('plain paired mode generates even when NO ion has a suffix (the pl/es regression)', () => {
+    const noSuffix: Ion[] = [
+      { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Chlorek', tags: [], naming: { oxidation_state: -1 } as Ion['naming'] },
+      { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Azotan', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
+    ];
+    const data: OntologyData = {
+      ...dataWithIonNomenclature,
+      core: { ...dataWithIonNomenclature.core, ions: noSuffix },
+    };
+    const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, data);
+    expect(result.ionA_name).toBeTruthy();
+    expect(result.ionB_name).toBeTruthy();
   });
 });
 
