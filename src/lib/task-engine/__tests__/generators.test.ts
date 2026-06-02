@@ -990,6 +990,62 @@ describe('gen.pick_ion_nomenclature', () => {
   it('throws when ionNomenclature suffix_rules is missing (default mode)', () => {
     expect(() => runGenerator('gen.pick_ion_nomenclature', {}, MOCK_DATA)).toThrow('ionNomenclature suffix_rules not available');
   });
+
+  // BUG #2: acid_to_anion pairs carry bare anion ids ("Cl_minus") but real ion
+  // ids are prefixed ("ion:Cl_minus"), so the find() never matched and anion_name
+  // resolved to ''. Resolver must tolerate the prefix difference.
+  it('acid_pair resolves anion_name even when ion ids are "ion:"-prefixed', () => {
+    const prefixedIons: Ion[] = [
+      { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [] },
+      { id: 'ion:SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат-ион', tags: [] },
+    ];
+    const data: OntologyData = {
+      ...dataWithIonNomenclature,
+      core: { ...dataWithIonNomenclature.core, ions: prefixedIons },
+    };
+    for (let i = 0; i < 20; i++) {
+      const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'acid_pair' }, data);
+      expect(result.anion_name).toBeTruthy();
+      expect(['Хлорид-ион', 'Сульфат-ион']).toContain(result.anion_name);
+      expect(result.anion_formula).not.toBe(result.anion_id); // resolved to a real formula
+    }
+  });
+
+  // BUG #1 hardening: paired mode reads naming.suffix, but pl/es ions lack it
+  // (naming present via oxidation_state, suffix absent) → undefined slot → solver
+  // throws. The generator must only pick ions that actually have a suffix.
+  it('paired mode skips ions whose naming lacks a suffix', () => {
+    const mixed: Ion[] = [
+      { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
+      { id: 'ion:SO4_2minus', formula: 'SO₄²⁻', type: 'anion', name: 'Сульфат-ион', tags: [], naming: { root: 'сульф', suffix: '-ат', oxidation_state: 6 } },
+      // naming present but NO suffix (mirrors pl/es overlay shape)
+      { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Нитрат-ион', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
+    ];
+    const data: OntologyData = {
+      ...dataWithIonNomenclature,
+      core: { ...dataWithIonNomenclature.core, ions: mixed },
+    };
+    for (let i = 0; i < 20; i++) {
+      const result = runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, data);
+      expect(result.ionA_suffix).toBeTruthy();
+      expect(result.ionB_suffix).toBeTruthy();
+      // NO3 (no suffix) must never be chosen
+      expect(result.ionA_id).not.toBe('ion:NO3_minus');
+      expect(result.ionB_id).not.toBe('ion:NO3_minus');
+    }
+  });
+
+  it('paired mode throws clearly when fewer than 2 ions have a suffix', () => {
+    const onlyOne: Ion[] = [
+      { id: 'ion:Cl_minus', formula: 'Cl⁻', type: 'anion', name: 'Хлорид-ион', tags: [], naming: { root: 'хлор', suffix: '-ид', oxidation_state: -1 } },
+      { id: 'ion:NO3_minus', formula: 'NO₃⁻', type: 'anion', name: 'Нитрат-ион', tags: [], naming: { oxidation_state: 5 } as Ion['naming'] },
+    ];
+    const data: OntologyData = {
+      ...dataWithIonNomenclature,
+      core: { ...dataWithIonNomenclature.core, ions: onlyOne },
+    };
+    expect(() => runGenerator('gen.pick_ion_nomenclature', { mode: 'paired' }, data)).toThrow(/suffix/i);
+  });
 });
 
 // ── gen.pick_acid_anion_from_graph ────────────────────────────────

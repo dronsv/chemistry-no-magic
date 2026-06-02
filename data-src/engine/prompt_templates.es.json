@@ -145,7 +145,7 @@
     "slots": {}
   },
   "prompt.naming_rule_template": {
-    "question": "¿Qué regla de nomenclatura se aplica a la sustancia {formula}?",
+    "question": "¿Qué regla de nomenclatura se aplica a la sustancia {example_formula}?",
     "slots": {}
   },
   "prompt.predict_exchange_products": {

@@ -147,7 +147,7 @@
     "slots": {}
   },
   "prompt.naming_rule_template": {
-    "question": "Какое правило названия применяется к веществу {formula}?",
+    "question": "Какое правило названия применяется к веществу {example_formula}?",
     "slots": {}
   },
   "prompt.predict_exchange_products": {

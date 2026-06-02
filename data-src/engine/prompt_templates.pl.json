@@ -147,7 +147,7 @@
     "slots": {}
   },
   "prompt.naming_rule_template": {
-    "question": "Jaka reguła nazewnictwa dotyczy substancji {formula}?",
+    "question": "Jaka reguła nazewnictwa dotyczy substancji {example_formula}?",
     "slots": {}
   },
   "prompt.predict_exchange_products": {

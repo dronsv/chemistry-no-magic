@@ -145,7 +145,7 @@
     "slots": {}
   },
   "prompt.naming_rule_template": {
-    "question": "Which naming rule applies to the substance {formula}?",
+    "question": "Which naming rule applies to the substance {example_formula}?",
     "slots": {}
   },
   "prompt.predict_exchange_products": {

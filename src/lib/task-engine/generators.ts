@@ -917,8 +917,12 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       throw new Error('ionNomenclature acid_to_anion_pairs not available');
     }
     const pair: AcidAnionPair = pickRandom(data.rules.ionNomenclature.acid_to_anion_pairs);
-    // Look up the anion from ions data
-    const anion: Ion | undefined = data.core.ions.find(i => i.id === pair.anion_id);
+    // Look up the anion from ions data. Pair ids are bare ("Cl_minus") while ion
+    // ids are namespaced ("ion:Cl_minus"), so match on either form.
+    const bareAnionId = pair.anion_id.replace(/^ion:/, '');
+    const anion: Ion | undefined = data.core.ions.find(
+      i => i.id === pair.anion_id || i.id === `ion:${bareAnionId}` || i.id === bareAnionId,
+    );
     return {
       mode: 'acid_pair',
       acid_formula: pair.acid,
@@ -928,10 +932,15 @@ function genPickIonNomenclature(params: Record<string, unknown>, data: OntologyD
       anion_name: anion?.name ?? '',
     };
   } else if (mode === 'paired') {
-    // Pick two ions with naming info for comparison
-    const withNaming = data.core.ions.filter(i => i.naming);
-    if (withNaming.length < 2) throw new Error('Not enough ions with naming data');
-    const [ionA, ionB] = pickK(withNaming, 2);
+    // Pick two ions that actually carry a naming suffix. `naming` alone is not
+    // enough: pl/es ion overlays provide naming.oxidation_state but no suffix,
+    // so filtering on `i.naming` would emit undefined ionA_suffix → the solver
+    // throws "Slot ionA_suffix not found". Require the suffix explicitly.
+    const withSuffix = data.core.ions.filter(i => i.naming?.suffix);
+    if (withSuffix.length < 2) {
+      throw new Error('Not enough ions with a naming suffix for paired mode');
+    }
+    const [ionA, ionB] = pickK(withSuffix, 2);
     return {
       mode: 'paired',
       ionA_id: ionA.id,
