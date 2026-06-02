@@ -777,6 +777,11 @@ function resolveOtherNames(
     case 'qualitative_targets':
       pool = (data.rules.qualitativeTests ?? []).map(t => t.target_name);
       break;
+    case 'qualitative_reagents':
+      // reagent NAMES (e.g. "нитрат серебра") for reagent_name_lookup — distinct
+      // from qualitative_reagents in other_formulas, which gives reagent formulas.
+      pool = (data.rules.qualitativeTests ?? []).map(t => t.reagent_name).filter((n): n is string => !!n);
+      break;
     case 'acids':
       pool = (data.data.substances ?? []).filter(s => s.class === 'acid').map(s => s.name).filter((n): n is string => !!n);
       break;

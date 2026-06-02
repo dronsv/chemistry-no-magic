@@ -331,7 +331,7 @@ describe('task_templates.json distractor_strategy', () => {
   ]);
 
   const VALID_NAME_SOURCES = new Set([
-    'substances', 'ions', 'anions', 'qualitative_targets', 'acids',
+    'substances', 'ions', 'anions', 'qualitative_targets', 'qualitative_reagents', 'acids',
   ]);
 
   const VALID_POOL_IDS = new Set([

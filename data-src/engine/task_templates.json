@@ -5149,7 +5149,7 @@
       "answer_kind": "scalar_text",
       "distractor_strategy": {
         "id": "other_names",
-        "params": { "source": "qualitative_targets" }
+        "params": { "source": "qualitative_reagents" }
       }
     },
     "pipeline": {

@@ -1261,6 +1261,27 @@ describe('generateDistractors', () => {
       }
     });
 
+    // reagent_name_lookup answers a reagent NAME; its distractors must be other
+    // reagent names, not ion/target names (which qualitative_targets would give).
+    it('returns reagent names from qualitative_reagents source', () => {
+      const distractors = generateDistractors(
+        'Нитрат серебра',
+        {},
+        'choice_single',
+        MOCK_DATA,
+        3,
+        undefined,
+        { id: 'other_names', params: { source: 'qualitative_reagents' } },
+      );
+      expect(distractors.length).toBe(3);
+      expect(distractors).not.toContain('Нитрат серебра');
+      for (const d of distractors) {
+        expect(MOCK_QUALITATIVE_TESTS.some(t => t.reagent_name === d)).toBe(true);
+        // must NOT be ion/target names
+        expect(MOCK_QUALITATIVE_TESTS.some(t => t.target_name === d)).toBe(false);
+      }
+    });
+
     it('returns acid names from acids source', () => {
       const distractors = generateDistractors(
         'Соляная кислота',
